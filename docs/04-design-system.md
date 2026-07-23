@@ -12,6 +12,7 @@ The two A4 pages use a nearly monochrome warm paper, high-contrast black ink, a 
 - Fine rules, small-caps headings, restrained shadows, clipped-corner panels, and CSS ornamental flourishes.
 - Circular ratings remain visually small while their button targets remain approximately 44px.
 - Accent color is reserved for affinity and focus states.
+- Affinity uses a single unboxed outline/filled star control. The optional desktop wheel uses CSS rings and spokes rather than reference artwork.
 
 No PDF page, extracted logo, border art, or source artwork is used as an application asset.
 

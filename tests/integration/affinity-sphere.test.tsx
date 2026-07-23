@@ -19,12 +19,18 @@ describe('Affinity Sphere editing', () => {
     const user = userEvent.setup();
     render(<SpheresSection />);
 
-    await user.click(
-      screen.getByRole('button', {
-        name: 'Mark Forces as Affinity Sphere',
-      }),
-    );
+    const forcesStar = screen.getByRole('button', {
+      name: 'Mark Forces as Affinity Sphere',
+    });
+    expect(forcesStar).toHaveTextContent('☆');
+
+    await user.click(forcesStar);
     expect(useEditorStore.getState().character?.affinitySphere).toBe('forces');
+    expect(
+      screen.getByRole('button', {
+        name: 'Clear Forces as Affinity Sphere',
+      }),
+    ).toHaveTextContent('★');
 
     await user.click(
       screen.getByRole('button', {

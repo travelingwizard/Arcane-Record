@@ -5,6 +5,7 @@
 - Zod accepts a valid blank character and rejects malformed IDs, timestamps, ratings, and affinity values.
 - Sphere sorting covers all modes, affinity tie-breaking, and preservation of the underlying ratings.
 - DotRating covers pointer toggling, lower selection, keyboard commands, limits, labels, disabled, and read-only behavior.
+- The desktop wheel toggle covers shared ratings, shared affinity, and local view preference.
 
 ## Integration
 

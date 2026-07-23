@@ -25,10 +25,6 @@ const deferred = [
     title: 'Import & Export',
     detail: 'Local JSON and YAML file exchange',
   },
-  {
-    title: 'Desktop Sphere Wheel',
-    detail: 'A future circular view sharing this Sphere data model',
-  },
 ];
 
 export function DeferredSections() {

@@ -8,8 +8,8 @@ One-column app shell, compact sticky save bar, stacked identity fields, one Attr
 
 Two-column identity and Attribute layouts where space permits. Spheres remain list-based to preserve editing clarity.
 
-## 1100px and wider
+## 1025px and wider
 
-Library and editor use a centered wide sheet. Attribute groups form three columns. Spheres use a two-column grid, not the deferred circular wheel.
+Library and editor use a centered wide sheet. Attribute groups form three columns. Users may toggle Spheres between the two-column list and an interactive circular wheel. The choice is a local interface preference and both views edit the same character data.
 
 The page never relies on scaling a fixed desktop canvas. Containers use minmax grids, wrapping actions, and `min-width: 0` to avoid page-level overflow.

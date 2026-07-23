@@ -23,7 +23,7 @@
 - Do not use the PDF as a background or reuse its logos/art.
 - Maintain keyboard support, visible focus, real labels, sufficient contrast, reduced-motion support, and practical 44px touch targets.
 - Verify there is no page-level horizontal scrolling at 320 CSS pixels.
-- Mobile Spheres are a vertical list. The desktop circular wheel remains deferred.
+- Mobile Spheres are always a vertical list. Desktop users may toggle between the list and the circular wheel; both views must share the same character data.
 
 ## Change safety and verification
 

@@ -11,8 +11,9 @@ The editor provides:
 - all nine identity fields;
 - nine Attributes grouped into Physical, Social, and Mental;
 - all nine Spheres as integer ratings from 0 to 5;
-- one nullable affinity Sphere;
+- one nullable affinity Sphere selected with an unboxed star;
 - four local display sort modes;
+- an optional circular wheel at desktop widths that edits the same Sphere data;
 - debounced autosave status;
 - placeholders for deferred sheet sections.
 

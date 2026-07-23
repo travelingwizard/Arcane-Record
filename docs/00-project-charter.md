@@ -8,13 +8,14 @@ Deliver a trustworthy browser-local vertical slice of an editable Mage M20 chara
 
 - A character library with create, open, rename, duplicate, and confirmed delete actions.
 - A focused editor for identity, Attributes, Spheres, and affinity.
+- Interchangeable list and desktop-wheel Sphere views backed by the same character data.
 - Debounced persistence through a repository abstraction backed by Dexie/IndexedDB.
 - Honest save status and clear local-storage language.
 - Typed, runtime-validated character data and automated coverage of completed behavior.
 
 ## Non-goals
 
-No backend, accounts, synchronization, online backup, rules engine, deployment, analytics, third-party runtime resources, full page-two editing, import/export, or desktop Sphere wheel.
+No backend, accounts, synchronization, online backup, rules engine, deployment, analytics, third-party runtime resources, full page-two editing, or import/export.
 
 ## Assumptions
 

@@ -28,6 +28,6 @@ The Playwright smoke test starts its own local Vite server. If the bundled brows
 
 ## Milestone scope
 
-This milestone includes a local character library, create/open/rename/duplicate/delete flows, autosave, identity fields, Attributes, Spheres, affinity selection, and Sphere sorting. Abilities, secondary traits, page-two sections, import/export, and the desktop Sphere wheel are intentionally visible but deferred.
+This milestone includes a local character library, create/open/rename/duplicate/delete flows, autosave, identity fields, Attributes, Spheres, star-based affinity selection, Sphere sorting, and an optional desktop Sphere wheel. Abilities, secondary traits, page-two sections, and import/export are intentionally visible but deferred.
 
 See [docs/00-project-charter.md](docs/00-project-charter.md) for goals and assumptions.

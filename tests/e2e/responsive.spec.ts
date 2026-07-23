@@ -67,5 +67,40 @@ test('has no page overflow or browser errors at target widths', async ({
     });
   }
 
+  await page.setViewportSize(viewports[2]);
+  const wheelToggle = page.getByRole('checkbox', {
+    name: 'Desktop Sphere wheel',
+  });
+  await wheelToggle.check();
+
+  const wheel = page.getByLabel('Desktop Sphere wheel editor');
+  await expect(wheel).toBeVisible();
+  await wheel.scrollIntoViewIfNeeded();
+  await page.screenshot({
+    path: 'tmp/qa/editor-1440-wheel.png',
+    fullPage: false,
+  });
+
+  await wheel
+    .getByRole('button', { name: 'Mark Forces as Affinity Sphere' })
+    .click();
+  await expect(
+    wheel.getByRole('button', { name: 'Clear Forces as Affinity Sphere' }),
+  ).toHaveAttribute('aria-pressed', 'true');
+
+  await page.setViewportSize(viewports[0]);
+  await expect(wheel).not.toBeVisible();
+  await expect(
+    page.getByRole('group', { name: 'Forces: 0 out of 5' }),
+  ).toBeVisible();
+
+  const narrowWheelPreferenceDimensions = await page.evaluate(() => ({
+    viewport: document.documentElement.clientWidth,
+    content: document.documentElement.scrollWidth,
+  }));
+  expect(narrowWheelPreferenceDimensions.content).toBeLessThanOrEqual(
+    narrowWheelPreferenceDimensions.viewport,
+  );
+
   expect(browserErrors).toEqual([]);
 });
