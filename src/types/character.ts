@@ -69,7 +69,9 @@ export interface HealthState {
   damage: Array<'bashing' | 'lethal' | 'aggravated'>;
 }
 
-export type EnlightenmentRatings = Record<EnlightenmentId, number>;
+export type EnlightenmentRatings = Record<EnlightenmentId, number> & {
+  willpowerTemporary: number;
+};
 
 export interface MageCharacter {
   id: string;

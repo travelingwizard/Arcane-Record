@@ -182,9 +182,13 @@
     grid-template-columns: 1fr;
   }
 
-  .enlightenment-track .dot-rating {
+  .enlightenment-track .dot-rating,
+  .enlightenment-ratings {
     width: 100%;
     min-width: 0;
+  }
+
+  .enlightenment-track .dot-rating {
     flex-wrap: wrap;
     justify-content: space-between;
   }

@@ -15,7 +15,7 @@ The editor provides:
 - one nullable affinity Sphere selected with an unboxed star;
 - four local display sort modes;
 - an optional circular wheel at desktop widths that edits the same Sphere data;
-- Arete, Willpower, Quintessence, and Paradox tracks from 0 or 1 through 10;
+- Arete, Willpower, Quintessence, and Paradox tracks from 0 or 1 through 10, plus a temporary Willpower box track;
 - seven sequential Health boxes with bashing, lethal, and aggravated damage;
 - validated local JSON and YAML import/export;
 - debounced autosave status;

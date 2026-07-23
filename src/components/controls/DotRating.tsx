@@ -6,6 +6,7 @@ export interface DotRatingProps {
   min?: number;
   max: number;
   showBreakAfterFive?: boolean;
+  variant?: 'dots' | 'boxes';
   disabled?: boolean;
   readOnly?: boolean;
   onChange: (value: number) => void;
@@ -17,6 +18,7 @@ export function DotRating({
   min = 0,
   max,
   showBreakAfterFive = false,
+  variant = 'dots',
   disabled = false,
   readOnly = false,
   onChange,
@@ -52,7 +54,7 @@ export function DotRating({
 
   return (
     <div
-      className="dot-rating"
+      className={`dot-rating dot-rating--${variant}`}
       role="group"
       aria-label={`${label}: ${value} out of ${max}`}
       aria-disabled={disabled || undefined}

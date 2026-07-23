@@ -53,6 +53,7 @@ export function createDefaultEnlightenment(): EnlightenmentRatings {
   return {
     arete: 1,
     willpower: 5,
+    willpowerTemporary: 5,
     quintessence: 0,
     paradox: 0,
   };

@@ -124,6 +124,34 @@ describe('DotRating', () => {
     ).toBeVisible();
   });
 
+  it('renders a box variant with the same rating behavior', async () => {
+    const user = userEvent.setup();
+    const onChange = vi.fn();
+    render(
+      <DotRating
+        label="Temporary Willpower"
+        value={3}
+        min={0}
+        max={10}
+        variant="boxes"
+        onChange={onChange}
+      />,
+    );
+
+    const control = screen.getByRole('group', {
+      name: 'Temporary Willpower: 3 out of 10',
+    });
+    expect(control).toHaveClass('dot-rating--boxes');
+    expect(
+      screen.getByRole('button', { name: 'Set Temporary Willpower to 3' }),
+    ).toHaveAttribute('aria-pressed', 'true');
+
+    await user.click(
+      screen.getByRole('button', { name: 'Set Temporary Willpower to 6' }),
+    );
+    expect(onChange).toHaveBeenCalledWith(6);
+  });
+
   it('does not change in disabled or read-only states', async () => {
     const user = userEvent.setup();
     const onChange = vi.fn();

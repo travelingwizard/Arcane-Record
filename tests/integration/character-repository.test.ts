@@ -86,14 +86,48 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(2);
+    expect(migrated?.schemaVersion).toBe(3);
     expect(migrated?.abilities.talents.alertness).toBe(0);
     expect(migrated?.enlightenment).toEqual({
       arete: 1,
       willpower: 5,
+      willpowerTemporary: 5,
       quintessence: 0,
       paradox: 0,
     });
     expect(migrated?.identity).toEqual(current.identity);
+  });
+
+  it('migrates schema-version-two Willpower into a temporary track', async () => {
+    await database.delete();
+    const databaseName = `arcane-ledger-migration-${crypto.randomUUID()}`;
+    const legacyDatabase = new Dexie(databaseName);
+    legacyDatabase.version(2).stores({
+      characters: 'id, systemId, updatedAt, createdAt',
+    });
+
+    const current = createBlankMageCharacter();
+    current.enlightenment.willpower = 7;
+    const legacy = structuredClone(current) as unknown as Record<
+      string,
+      unknown
+    >;
+    legacy.schemaVersion = 2;
+    delete (
+      legacy.enlightenment as {
+        willpowerTemporary?: number;
+      }
+    ).willpowerTemporary;
+
+    await legacyDatabase.table('characters').add(legacy);
+    legacyDatabase.close();
+
+    database = new MageDatabase(databaseName);
+    repository = new DexieCharacterRepository(database);
+    const migrated = await repository.get(current.id);
+
+    expect(migrated?.schemaVersion).toBe(3);
+    expect(migrated?.enlightenment.willpower).toBe(7);
+    expect(migrated?.enlightenment.willpowerTemporary).toBe(7);
   });
 });

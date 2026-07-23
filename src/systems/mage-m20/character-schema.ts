@@ -143,9 +143,9 @@ export const legacyMageCharacterSchemaV1 = z.object({
   affinitySphere: sphereIdSchema.nullable(),
 });
 
-export const mageCharacterSchema = z.object({
+export const legacyMageCharacterSchemaV2 = z.object({
   ...commonFields,
-  schemaVersion: z.literal(MAGE_SCHEMA_VERSION),
+  schemaVersion: z.literal(2),
   abilities: abilitiesSchema,
   enlightenment: z.object({
     arete: tenPointRating.min(1),
@@ -156,10 +156,36 @@ export const mageCharacterSchema = z.object({
   affinitySphere: sphereIdSchema.nullable(),
 });
 
+export const mageCharacterSchema = z.object({
+  ...commonFields,
+  schemaVersion: z.literal(MAGE_SCHEMA_VERSION),
+  abilities: abilitiesSchema,
+  enlightenment: z.object({
+    arete: tenPointRating.min(1),
+    willpower: tenPointRating.min(1),
+    willpowerTemporary: tenPointRating,
+    quintessence: tenPointRating,
+    paradox: tenPointRating,
+  }),
+  affinitySphere: sphereIdSchema.nullable(),
+});
+
 export function migrateMageCharacter(input: unknown) {
   const current = mageCharacterSchema.safeParse(input);
   if (current.success) {
     return current.data;
+  }
+
+  const versionTwo = legacyMageCharacterSchemaV2.safeParse(input);
+  if (versionTwo.success) {
+    return mageCharacterSchema.parse({
+      ...versionTwo.data,
+      schemaVersion: MAGE_SCHEMA_VERSION,
+      enlightenment: {
+        ...versionTwo.data.enlightenment,
+        willpowerTemporary: versionTwo.data.enlightenment.willpower,
+      },
+    });
   }
 
   const legacy = legacyMageCharacterSchemaV1.safeParse(input);

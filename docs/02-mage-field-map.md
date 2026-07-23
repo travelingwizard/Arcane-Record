@@ -26,7 +26,7 @@ Visible labels are presentation only. Persistent keys are stable IDs.
 
 ## Enlightenment
 
-`enlightenment.arete`, `.willpower`, `.quintessence`, `.paradox`
+`enlightenment.arete`, `.willpower`, `.willpowerTemporary`, `.quintessence`, `.paradox`
 
 ## Health
 

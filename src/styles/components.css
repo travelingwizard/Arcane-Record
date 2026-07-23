@@ -617,6 +617,14 @@
   scale: 1.2;
 }
 
+.dot-rating--boxes .dot-mark {
+  border-radius: 0;
+}
+
+.dot-rating--boxes .dot-target[aria-pressed='true'] .dot-mark {
+  box-shadow: inset 0 0 0 1.5px var(--paper);
+}
+
 .sort-control {
   display: grid;
   gap: 0.3rem;
@@ -962,6 +970,25 @@
   font-family: var(--font-sans);
   font-size: 0.72rem;
   font-weight: 800;
+}
+
+.enlightenment-ratings,
+.temporary-willpower {
+  display: grid;
+}
+
+.temporary-willpower {
+  padding-top: 0.2rem;
+  border-top: 1px dotted var(--rule-light);
+}
+
+.temporary-willpower > span {
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .health-layout {

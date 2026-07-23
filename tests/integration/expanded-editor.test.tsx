@@ -30,12 +30,18 @@ describe('expanded character editor', () => {
     );
     await user.click(screen.getByRole('button', { name: 'Set Arete to 4' }));
     await user.click(
+      screen.getByRole('button', {
+        name: 'Set Temporary Willpower to 3',
+      }),
+    );
+    await user.click(
       screen.getByRole('button', { name: 'Set Quintessence to 3' }),
     );
 
     const character = useEditorStore.getState().character;
     expect(character?.abilities.talents.alertness).toBe(3);
     expect(character?.enlightenment.arete).toBe(4);
+    expect(character?.enlightenment.willpowerTemporary).toBe(3);
     expect(character?.enlightenment.quintessence).toBe(3);
   });
 

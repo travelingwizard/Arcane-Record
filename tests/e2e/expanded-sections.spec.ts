@@ -11,6 +11,9 @@ test('persists expanded sections and exchanges local character files', async ({
 
   await page.getByRole('button', { name: 'Set Alertness to 3' }).click();
   await page.getByRole('button', { name: 'Set Arete to 4' }).click();
+  await page
+    .getByRole('button', { name: 'Set Temporary Willpower to 3' })
+    .click();
   await page.getByRole('button', { name: 'Bruised: Unmarked damage' }).click();
 
   await expect(
@@ -26,6 +29,11 @@ test('persists expanded sections and exchanges local character files', async ({
   ).toBeVisible();
   await expect(
     page.getByRole('group', { name: 'Arete: 4 out of 10' }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole('group', {
+      name: 'Temporary Willpower: 3 out of 10',
+    }),
   ).toBeVisible();
   await expect(
     page.getByRole('button', { name: 'Bruised: Bashing damage' }),

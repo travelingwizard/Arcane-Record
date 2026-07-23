@@ -30,6 +30,7 @@ interface EditorState {
     value: number,
   ) => void;
   updateEnlightenment: (trait: EnlightenmentId, value: number) => void;
+  updateTemporaryWillpower: (value: number) => void;
   cycleHealthDamage: (index: number) => void;
   updateSphere: (sphere: SphereId, value: number) => void;
   toggleAffinity: (sphere: SphereId) => void;
@@ -104,6 +105,17 @@ export const useEditorStore = create<EditorState>((set) => ({
         enlightenment: {
           ...character.enlightenment,
           [trait]: value,
+        },
+      })),
+    ),
+
+  updateTemporaryWillpower: (value) =>
+    set((state) =>
+      withChange(state, (character) => ({
+        ...character,
+        enlightenment: {
+          ...character.enlightenment,
+          willpowerTemporary: value,
         },
       })),
     ),
