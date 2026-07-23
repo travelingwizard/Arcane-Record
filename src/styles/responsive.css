@@ -37,6 +37,11 @@
     display: grid;
   }
 
+  .ability-groups,
+  .enlightenment-grid {
+    grid-template-columns: 1fr;
+  }
+
   .deferred-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -72,6 +77,14 @@
 
   .sphere-controls {
     display: block;
+  }
+
+  .health-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .file-exchange {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -146,6 +159,48 @@
     flex-direction: column;
     gap: 0;
     padding: 0.25rem 0;
+  }
+
+  .ability-group {
+    padding-inline: 0.25rem;
+  }
+
+  .ability-row {
+    align-items: start;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.25rem 0;
+  }
+
+  .ability-row .dot-rating {
+    align-self: stretch;
+    justify-content: space-between;
+  }
+
+  .enlightenment-track {
+    align-items: start;
+    grid-template-columns: 1fr;
+  }
+
+  .enlightenment-track .dot-rating {
+    width: 100%;
+    min-width: 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .enlightenment-track .dot-rating__break {
+    flex-basis: 100%;
+    height: 0;
+  }
+
+  .health-legend {
+    grid-template-columns: 1fr;
+  }
+
+  .health-legend h3,
+  .health-legend p {
+    grid-column: 1;
   }
 
   .dot-rating {

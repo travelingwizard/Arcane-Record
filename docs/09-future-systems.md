@@ -9,6 +9,6 @@ A future system adapter should provide:
 - a default-character factory;
 - field/group definitions and rating limits;
 - system-specific editor sections;
-- import/export serializers.
+- import/export serializers and migration rules.
 
 The repository stores the system identifier with each character. Cross-system UI must branch through registered adapters, not scattered label checks. Mage-only features such as affinity Spheres remain inside the Mage system layer.

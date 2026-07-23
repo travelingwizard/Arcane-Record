@@ -1,5 +1,8 @@
 import { createBlankMageCharacter } from '../systems/mage-m20/create-character';
-import { mageCharacterSchema } from '../systems/mage-m20/character-schema';
+import {
+  mageCharacterSchema,
+  migrateMageCharacter,
+} from '../systems/mage-m20/character-schema';
 import type { MageCharacter } from '../types/character';
 import type { CharacterRepository } from './character-repository';
 import { MageDatabase } from './mage-database';
@@ -12,12 +15,12 @@ export class DexieCharacterRepository implements CharacterRepository {
       .orderBy('updatedAt')
       .reverse()
       .toArray();
-    return records.map((record) => mageCharacterSchema.parse(record));
+    return records.map((record) => migrateMageCharacter(record));
   }
 
   async get(id: string): Promise<MageCharacter | null> {
     const record = await this.database.characters.get(id);
-    return record ? mageCharacterSchema.parse(record) : null;
+    return record ? migrateMageCharacter(record) : null;
   }
 
   async create(character = createBlankMageCharacter()): Promise<MageCharacter> {

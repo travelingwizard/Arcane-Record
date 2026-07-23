@@ -18,6 +18,20 @@ Visible labels are presentation only. Persistent keys are stable IDs.
 
 `affinitySphere` stores one Sphere ID or `null`.
 
+## Abilities
+
+- Talents: `abilities.talents.alertness`, `.art`, `.athletics`, `.awareness`, `.brawl`, `.empathy`, `.expression`, `.intimidation`, `.leadership`, `.streetwise`, `.subterfuge`
+- Skills: `abilities.skills.crafts`, `.drive`, `.etiquette`, `.firearms`, `.martialArts`, `.meditation`, `.melee`, `.research`, `.stealth`, `.survival`, `.technology`
+- Knowledges: `abilities.knowledges.academics`, `.computer`, `.cosmology`, `.enigmas`, `.esoterica`, `.investigation`, `.law`, `.medicine`, `.occult`, `.politics`, `.science`
+
+## Enlightenment
+
+`enlightenment.arete`, `.willpower`, `.quintessence`, `.paradox`
+
+## Health
+
+`health.damage` stores an ordered array of `bashing`, `lethal`, or `aggravated` marks. Its indices correspond to Bruised, Hurt, Injured, Wounded, Mauled, Crippled, and Incapacitated.
+
 ## Deferred fields
 
-The complete future model reserves sections for Abilities, Arete, Willpower, Quintessence, Paradox, Backgrounds, Health, Merits, Flaws, Focus, Wonders, and Rotes. They are not persisted as fake completed data in this milestone.
+The future model reserves Backgrounds, Merits, Flaws, Focus, Wonders, and Rotes. They are not persisted as fake completed data in this milestone.

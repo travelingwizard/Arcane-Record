@@ -1,14 +1,16 @@
 # 06. Import and export
 
-JSON and YAML import/export are deferred.
+The File Exchange section exports the active character as JSON or YAML and imports `.json`, `.yaml`, and `.yml` files. All processing stays in the browser.
 
-The future boundary will:
+The boundary:
 
 1. serialize only character data, excluding view preferences and save status;
 2. include `systemId` and `schemaVersion`;
 3. validate imported data with Zod before any write;
-4. assign a new UUID when importing as a copy;
-5. surface validation errors without replacing an active character;
-6. perform all parsing locally with no uploads.
+4. migrate valid version 1 Mage records to the current schema;
+5. assign a new UUID and timestamps when importing as a copy;
+6. add `(Imported)` to a named character or use `Imported mage` when unnamed;
+7. surface parsing and validation errors without replacing an active character;
+8. perform all parsing locally with no uploads.
 
-`js-yaml` is reserved for YAML support. No current UI suggests import/export is complete.
+`js-yaml` handles YAML serialization and parsing. Successful imports are opened as new records and then follow the same autosave flow as any other character.

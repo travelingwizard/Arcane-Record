@@ -2,16 +2,8 @@ import { SheetSection } from '../layout/SheetSection';
 
 const deferred = [
   {
-    title: 'Abilities',
-    detail: 'Talents, Skills, and Knowledges',
-  },
-  {
-    title: 'Enlightenment',
-    detail: 'Arete, Willpower, Quintessence, and Paradox',
-  },
-  {
-    title: 'Backgrounds & Health',
-    detail: 'Repeatable Backgrounds and the Health track',
+    title: 'Backgrounds',
+    detail: 'Named repeatable entries with five-point ratings',
   },
   {
     title: 'Merits & Flaws',
@@ -20,10 +12,6 @@ const deferred = [
   {
     title: 'Magic',
     detail: 'Focus, Wonders, and Rotes',
-  },
-  {
-    title: 'Import & Export',
-    detail: 'Local JSON and YAML file exchange',
   },
 ];
 

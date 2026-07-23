@@ -82,7 +82,11 @@ export function App({
   }
 
   return character ? (
-    <CharacterEditor onReturnToLibrary={returnToLibrary} />
+    <CharacterEditor
+      onReturnToLibrary={returnToLibrary}
+      repository={repository}
+      onImported={openCharacter}
+    />
   ) : (
     <CharacterLibrary repository={repository} onOpen={openCharacter} />
   );

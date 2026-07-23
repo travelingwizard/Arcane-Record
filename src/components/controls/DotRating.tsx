@@ -1,4 +1,4 @@
-import type { KeyboardEvent } from 'react';
+import { Fragment, type KeyboardEvent } from 'react';
 
 export interface DotRatingProps {
   label: string;
@@ -67,18 +67,22 @@ export function DotRating({
         const hasBreak = showBreakAfterFive && dot === 6;
 
         return (
-          <button
-            className={`dot-target${hasBreak ? ' dot-target--break' : ''}`}
-            type="button"
-            key={dot}
-            aria-label={`Set ${label} to ${dot}`}
-            aria-pressed={filled}
-            disabled={disabled}
-            tabIndex={-1}
-            onClick={() => selectDot(dot)}
-          >
-            <span className="dot-mark" aria-hidden="true" />
-          </button>
+          <Fragment key={dot}>
+            {hasBreak ? (
+              <span className="dot-rating__break" aria-hidden="true" />
+            ) : null}
+            <button
+              className="dot-target"
+              type="button"
+              aria-label={`Set ${label} to ${dot}`}
+              aria-pressed={filled}
+              disabled={disabled}
+              tabIndex={-1}
+              onClick={() => selectDot(dot)}
+            >
+              <span className="dot-mark" aria-hidden="true" />
+            </button>
+          </Fragment>
         );
       })}
     </div>

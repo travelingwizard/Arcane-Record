@@ -1,7 +1,10 @@
 import { create } from 'zustand';
 import type {
+  AbilityGroupId,
+  AbilityId,
   AttributeGroupId,
   AttributeId,
+  EnlightenmentId,
   IdentityFieldId,
   SphereId,
 } from '../systems/mage-m20/definitions';
@@ -21,6 +24,13 @@ interface EditorState {
     trait: AttributeId,
     value: number,
   ) => void;
+  updateAbility: (
+    group: AbilityGroupId,
+    ability: AbilityId,
+    value: number,
+  ) => void;
+  updateEnlightenment: (trait: EnlightenmentId, value: number) => void;
+  cycleHealthDamage: (index: number) => void;
   updateSphere: (sphere: SphereId, value: number) => void;
   toggleAffinity: (sphere: SphereId) => void;
   markSaving: (revision: number) => void;
@@ -71,6 +81,57 @@ export const useEditorStore = create<EditorState>((set) => ({
           },
         },
       })),
+    ),
+
+  updateAbility: (group, ability, value) =>
+    set((state) =>
+      withChange(state, (character) => ({
+        ...character,
+        abilities: {
+          ...character.abilities,
+          [group]: {
+            ...character.abilities[group],
+            [ability]: value,
+          },
+        },
+      })),
+    ),
+
+  updateEnlightenment: (trait, value) =>
+    set((state) =>
+      withChange(state, (character) => ({
+        ...character,
+        enlightenment: {
+          ...character.enlightenment,
+          [trait]: value,
+        },
+      })),
+    ),
+
+  cycleHealthDamage: (index) =>
+    set((state) =>
+      withChange(state, (character) => {
+        const damage = [...character.health.damage];
+        const current = damage[index];
+
+        if (index > damage.length || index < 0 || index >= 7) {
+          return character;
+        }
+        if (!current) {
+          damage.push('bashing');
+        } else if (current === 'bashing') {
+          damage[index] = 'lethal';
+        } else if (current === 'lethal') {
+          damage[index] = 'aggravated';
+        } else {
+          damage.splice(index);
+        }
+
+        return {
+          ...character,
+          health: { damage },
+        };
+      }),
     ),
 
   updateSphere: (sphere, value) =>

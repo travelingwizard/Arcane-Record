@@ -1,6 +1,8 @@
+import { abilityGroups } from '../systems/mage-m20/definitions';
 import type {
   AttributeGroupId,
   AttributeId,
+  EnlightenmentId,
   IdentityFieldId,
   MAGE_SCHEMA_VERSION,
   MAGE_SYSTEM_ID,
@@ -8,6 +10,12 @@ import type {
 } from '../systems/mage-m20/definitions';
 
 export type IdentityData = Record<IdentityFieldId, string>;
+
+export type AbilityRatings = {
+  [Group in (typeof abilityGroups)[number] as Group['id']]: {
+    [Trait in Group['traits'][number] as Trait['id']]: number;
+  };
+};
 
 export type AttributeRatings = Record<
   AttributeGroupId,
@@ -61,6 +69,8 @@ export interface HealthState {
   damage: Array<'bashing' | 'lethal' | 'aggravated'>;
 }
 
+export type EnlightenmentRatings = Record<EnlightenmentId, number>;
+
 export interface MageCharacter {
   id: string;
   systemId: typeof MAGE_SYSTEM_ID;
@@ -69,6 +79,8 @@ export interface MageCharacter {
   updatedAt: string;
   identity: IdentityData;
   attributes: AttributeRatings;
+  abilities: AbilityRatings;
+  enlightenment: EnlightenmentRatings;
   spheres: Record<SphereId, number>;
   affinitySphere: SphereId | null;
   repeatableEntries: RepeatableEntries;

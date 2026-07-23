@@ -65,6 +65,38 @@ test('has no page overflow or browser errors at target widths', async ({
       path: `tmp/qa/editor-${viewport.name}-spheres.png`,
       fullPage: false,
     });
+
+    await page
+      .getByRole('heading', { name: 'Enlightenment' })
+      .scrollIntoViewIfNeeded();
+    await page.screenshot({
+      path: `tmp/qa/editor-${viewport.name}-expanded.png`,
+      fullPage: false,
+    });
+
+    const expandedDimensions = await page.evaluate(() => ({
+      viewport: document.documentElement.clientWidth,
+      content: document.documentElement.scrollWidth,
+    }));
+    expect(expandedDimensions.content).toBeLessThanOrEqual(
+      expandedDimensions.viewport,
+    );
+
+    await page
+      .getByRole('heading', { name: 'Health' })
+      .scrollIntoViewIfNeeded();
+    await page.screenshot({
+      path: `tmp/qa/editor-${viewport.name}-health.png`,
+      fullPage: false,
+    });
+
+    await page
+      .getByRole('heading', { name: 'Import & export' })
+      .scrollIntoViewIfNeeded();
+    await page.screenshot({
+      path: `tmp/qa/editor-${viewport.name}-file-exchange.png`,
+      fullPage: false,
+    });
   }
 
   await page.setViewportSize(viewports[2]);

@@ -11,7 +11,43 @@ test('keeps edited character data after refresh', async ({ page }) => {
     .getByRole('button', { name: 'Mark Forces as Affinity Sphere' })
     .click();
 
-  await expect(page.getByText('Saved in this browser')).toBeVisible();
+  await expect(
+    page.getByText('Unsaved changes', { exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.getByText('Saved in this browser', { exact: true }),
+  ).toBeVisible();
+  const storedName = await page.evaluate(
+    () =>
+      new Promise<string>((resolve, reject) => {
+        const openRequest = indexedDB.open('arcane-ledger');
+        openRequest.onerror = () => reject(openRequest.error);
+        openRequest.onsuccess = () => {
+          const database = openRequest.result;
+          const transaction = database.transaction('characters', 'readonly');
+          const activeId = localStorage.getItem(
+            'arcane-ledger:last-active-character',
+          );
+          if (!activeId) {
+            reject(new Error('No active character ID.'));
+            return;
+          }
+          const getRequest = transaction
+            .objectStore('characters')
+            .get(activeId);
+          getRequest.onerror = () => reject(getRequest.error);
+          getRequest.onsuccess = () =>
+            resolve(
+              (
+                getRequest.result as {
+                  identity?: { name?: string };
+                }
+              ).identity?.name ?? '',
+            );
+        };
+      }),
+  );
+  expect(storedName).toBe('Mara Voss');
   await page.reload();
 
   await expect(page.getByLabel('Name', { exact: true })).toHaveValue(

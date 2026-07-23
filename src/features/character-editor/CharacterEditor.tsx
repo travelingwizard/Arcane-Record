@@ -1,14 +1,24 @@
+import { AbilitiesSection } from '../../components/character/AbilitiesSection';
 import { AttributesSection } from '../../components/character/AttributesSection';
 import { DeferredSections } from '../../components/character/DeferredSections';
+import { EnlightenmentSection } from '../../components/character/EnlightenmentSection';
+import { HealthSection } from '../../components/character/HealthSection';
 import { IdentitySection } from '../../components/character/IdentitySection';
 import { SaveStatusBadge } from '../../components/character/SaveStatusBadge';
 import { SpheresSection } from '../../components/character/SpheresSection';
 import { useEditorStore } from '../../state/editor-store';
+import type { CharacterRepository } from '../../storage/character-repository';
+import type { MageCharacter } from '../../types/character';
+import { ImportExportSection } from '../import-export/ImportExportSection';
 
 export function CharacterEditor({
   onReturnToLibrary,
+  repository,
+  onImported,
 }: {
   onReturnToLibrary: () => Promise<void>;
+  repository: CharacterRepository;
+  onImported: (character: MageCharacter) => void;
 }) {
   const character = useEditorStore((state) => state.character);
   const saveStatus = useEditorStore((state) => state.saveStatus);
@@ -45,7 +55,15 @@ export function CharacterEditor({
 
       <IdentitySection />
       <AttributesSection />
+      <AbilitiesSection />
       <SpheresSection />
+      <EnlightenmentSection />
+      <HealthSection />
+      <ImportExportSection
+        character={character}
+        repository={repository}
+        onImported={onImported}
+      />
       <DeferredSections />
 
       <footer className="privacy-note">

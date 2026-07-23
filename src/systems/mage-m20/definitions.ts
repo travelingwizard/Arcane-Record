@@ -1,5 +1,5 @@
 export const MAGE_SYSTEM_ID = 'mage-m20' as const;
-export const MAGE_SCHEMA_VERSION = 1 as const;
+export const MAGE_SCHEMA_VERSION = 2 as const;
 
 export const identityFields = [
   { id: 'name', label: 'Name' },
@@ -48,6 +48,82 @@ export const attributeGroups = [
 export type AttributeGroupId = (typeof attributeGroups)[number]['id'];
 export type AttributeId =
   (typeof attributeGroups)[number]['traits'][number]['id'];
+
+export const abilityGroups = [
+  {
+    id: 'talents',
+    label: 'Talents',
+    traits: [
+      { id: 'alertness', label: 'Alertness' },
+      { id: 'art', label: 'Art' },
+      { id: 'athletics', label: 'Athletics' },
+      { id: 'awareness', label: 'Awareness' },
+      { id: 'brawl', label: 'Brawl' },
+      { id: 'empathy', label: 'Empathy' },
+      { id: 'expression', label: 'Expression' },
+      { id: 'intimidation', label: 'Intimidation' },
+      { id: 'leadership', label: 'Leadership' },
+      { id: 'streetwise', label: 'Streetwise' },
+      { id: 'subterfuge', label: 'Subterfuge' },
+    ],
+  },
+  {
+    id: 'skills',
+    label: 'Skills',
+    traits: [
+      { id: 'crafts', label: 'Crafts' },
+      { id: 'drive', label: 'Drive' },
+      { id: 'etiquette', label: 'Etiquette' },
+      { id: 'firearms', label: 'Firearms' },
+      { id: 'martialArts', label: 'Martial Arts' },
+      { id: 'meditation', label: 'Meditation' },
+      { id: 'melee', label: 'Melee' },
+      { id: 'research', label: 'Research' },
+      { id: 'stealth', label: 'Stealth' },
+      { id: 'survival', label: 'Survival' },
+      { id: 'technology', label: 'Technology' },
+    ],
+  },
+  {
+    id: 'knowledges',
+    label: 'Knowledges',
+    traits: [
+      { id: 'academics', label: 'Academics' },
+      { id: 'computer', label: 'Computer' },
+      { id: 'cosmology', label: 'Cosmology' },
+      { id: 'enigmas', label: 'Enigmas' },
+      { id: 'esoterica', label: 'Esoterica' },
+      { id: 'investigation', label: 'Investigation' },
+      { id: 'law', label: 'Law' },
+      { id: 'medicine', label: 'Medicine' },
+      { id: 'occult', label: 'Occult' },
+      { id: 'politics', label: 'Politics' },
+      { id: 'science', label: 'Science' },
+    ],
+  },
+] as const;
+
+export type AbilityGroupId = (typeof abilityGroups)[number]['id'];
+export type AbilityId = (typeof abilityGroups)[number]['traits'][number]['id'];
+
+export const enlightenmentTraits = [
+  { id: 'arete', label: 'Arete', min: 1 },
+  { id: 'willpower', label: 'Willpower', min: 1 },
+  { id: 'quintessence', label: 'Quintessence', min: 0 },
+  { id: 'paradox', label: 'Paradox', min: 0 },
+] as const;
+
+export type EnlightenmentId = (typeof enlightenmentTraits)[number]['id'];
+
+export const healthLevels = [
+  { id: 'bruised', label: 'Bruised', penalty: '0' },
+  { id: 'hurt', label: 'Hurt', penalty: '−1' },
+  { id: 'injured', label: 'Injured', penalty: '−1' },
+  { id: 'wounded', label: 'Wounded', penalty: '−2' },
+  { id: 'mauled', label: 'Mauled', penalty: '−2' },
+  { id: 'crippled', label: 'Crippled', penalty: '−5' },
+  { id: 'incapacitated', label: 'Incapacitated', penalty: '—' },
+] as const;
 
 export const spheres = [
   { id: 'correspondence', label: 'Correspondence' },

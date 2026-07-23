@@ -10,10 +10,14 @@ The editor provides:
 
 - all nine identity fields;
 - nine Attributes grouped into Physical, Social, and Mental;
+- 33 Abilities grouped into Talents, Skills, and Knowledges;
 - all nine Spheres as integer ratings from 0 to 5;
 - one nullable affinity Sphere selected with an unboxed star;
 - four local display sort modes;
 - an optional circular wheel at desktop widths that edits the same Sphere data;
+- Arete, Willpower, Quintessence, and Paradox tracks from 0 or 1 through 10;
+- seven sequential Health boxes with bashing, lethal, and aggravated damage;
+- validated local JSON and YAML import/export;
 - debounced autosave status;
 - placeholders for deferred sheet sections.
 
@@ -27,4 +31,4 @@ All inputs have programmatic labels. Dot tracks expose the trait and current val
 
 ## Acceptance scenarios
 
-The core acceptance scenario creates a character, names it, sets Strength and Forces to 3, marks Forces as affinity, refreshes, and observes the same values.
+The core acceptance scenario creates a character, names it, sets Strength, Alertness, Forces, Arete, and Health damage, marks Forces as affinity, refreshes, and observes the same values. File exchange scenarios export the active character and import a validated copy under a fresh ID.

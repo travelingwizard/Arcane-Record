@@ -7,15 +7,16 @@ Deliver a trustworthy browser-local vertical slice of an editable Mage M20 chara
 ## Milestone outcomes
 
 - A character library with create, open, rename, duplicate, and confirmed delete actions.
-- A focused editor for identity, Attributes, Spheres, and affinity.
+- A focused editor for identity, Attributes, Abilities, Spheres, affinity, Enlightenment traits, and Health.
 - Interchangeable list and desktop-wheel Sphere views backed by the same character data.
+- Validated, browser-local JSON and YAML import/export.
 - Debounced persistence through a repository abstraction backed by Dexie/IndexedDB.
 - Honest save status and clear local-storage language.
 - Typed, runtime-validated character data and automated coverage of completed behavior.
 
 ## Non-goals
 
-No backend, accounts, synchronization, online backup, rules engine, deployment, analytics, third-party runtime resources, full page-two editing, or import/export.
+No backend, accounts, synchronization, online backup, rules engine, deployment, analytics, third-party runtime resources, or full page-two editing.
 
 ## Assumptions
 
@@ -24,7 +25,7 @@ No backend, accounts, synchronization, online backup, rules engine, deployment, 
 3. Identity fields may be blank. The display name falls back to "Untitled mage".
 4. New Attributes begin at 1, matching the familiar printed-sheet baseline; Spheres begin at 0. Point-allocation rules are not enforced.
 5. This milestone has one active editor route represented by client state rather than URL routing. Refresh reopens the last edited character when it still exists.
-6. The YAML dependency is included for the later import/export milestone but no import/export UI is active now.
+6. Imported records are always created as new characters with fresh IDs so an import cannot silently overwrite an existing record.
 
 ## Success measures
 

@@ -1,3 +1,4 @@
+import Dexie from 'dexie';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { createBlankMageCharacter } from '../../src/systems/mage-m20/create-character';
 import { DexieCharacterRepository } from '../../src/storage/dexie-character-repository';
@@ -59,5 +60,40 @@ describe('DexieCharacterRepository', () => {
 
     expect(await repository.get(created.id)).toBeNull();
     expect(await repository.list()).toEqual([]);
+  });
+
+  it('migrates a stored schema-version-one character', async () => {
+    await database.delete();
+    const databaseName = `arcane-ledger-migration-${crypto.randomUUID()}`;
+    const legacyDatabase = new Dexie(databaseName);
+    legacyDatabase.version(1).stores({
+      characters: 'id, systemId, updatedAt, createdAt',
+    });
+
+    const current = createBlankMageCharacter();
+    const legacy = structuredClone(current) as unknown as Record<
+      string,
+      unknown
+    >;
+    legacy.schemaVersion = 1;
+    delete legacy.abilities;
+    delete legacy.enlightenment;
+
+    await legacyDatabase.table('characters').add(legacy);
+    legacyDatabase.close();
+
+    database = new MageDatabase(databaseName);
+    repository = new DexieCharacterRepository(database);
+    const migrated = await repository.get(current.id);
+
+    expect(migrated?.schemaVersion).toBe(2);
+    expect(migrated?.abilities.talents.alertness).toBe(0);
+    expect(migrated?.enlightenment).toEqual({
+      arete: 1,
+      willpower: 5,
+      quintessence: 0,
+      paradox: 0,
+    });
+    expect(migrated?.identity).toEqual(current.identity);
   });
 });
