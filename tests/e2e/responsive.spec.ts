@@ -68,6 +68,23 @@ test('has no page overflow or browser errors at target widths', async ({
   }
 
   await page.setViewportSize(viewports[2]);
+  const correspondence = await page
+    .getByRole('heading', { name: 'Correspondence' })
+    .boundingBox();
+  const entropy = await page
+    .getByRole('heading', { name: 'Entropy' })
+    .boundingBox();
+  const mind = await page.getByRole('heading', { name: 'Mind' }).boundingBox();
+
+  expect(correspondence).not.toBeNull();
+  expect(entropy).not.toBeNull();
+  expect(mind).not.toBeNull();
+  expect(Math.abs(correspondence!.x - entropy!.x)).toBeLessThan(2);
+  expect(entropy!.y).toBeGreaterThan(correspondence!.y);
+  expect(mind!.x).toBeGreaterThan(correspondence!.x);
+  expect(Math.abs(mind!.y - correspondence!.y)).toBeLessThan(2);
+
+  await page.setViewportSize(viewports[2]);
   const wheelToggle = page.getByRole('checkbox', {
     name: 'Desktop Sphere wheel',
   });
