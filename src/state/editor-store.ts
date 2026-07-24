@@ -10,10 +10,20 @@ import type {
 } from '../systems/mage-m20/definitions';
 import { backgroundRatingRules } from '../systems/mage-m20/background-rules';
 import { backgroundById } from '../systems/mage-m20/reference/backgrounds';
+import {
+  focusDefinitionsByKind,
+  type FocusKind,
+} from '../systems/mage-m20/reference/focus';
 import type { MeritFlawKind } from '../systems/mage-m20/reference/merits-flaws';
 import { meritFlawById } from '../systems/mage-m20/reference/merits-flaws';
+import { roteById } from '../systems/mage-m20/reference/rotes';
+import { wonderById } from '../systems/mage-m20/reference/wonders';
 import type {
+  FocusSelection,
+  InstrumentSelection,
+  KnownRote,
   MageCharacter,
+  OwnedWonder,
   SelectedBackground,
   SelectedMeritFlaw,
 } from '../types/character';
@@ -44,12 +54,29 @@ export type BackgroundUndo =
       selection: SelectedBackground;
     };
 
+export type MagickRemoval =
+  | {
+      type: 'focus';
+      kind: FocusKind;
+      selection: FocusSelection | InstrumentSelection;
+      index: number;
+    }
+  | { type: 'wonder'; selection: OwnedWonder; index: number }
+  | { type: 'rote'; selection: KnownRote; index: number };
+
+const focusKeyByKind = {
+  paradigm: 'paradigms',
+  practice: 'practices',
+  instrument: 'instruments',
+} as const;
+
 interface EditorState {
   character: MageCharacter | null;
   revision: number;
   saveStatus: SaveStatus;
   lastMeritFlawChange: MeritFlawUndo | null;
   lastBackgroundChange: BackgroundUndo | null;
+  lastMagickRemoval: MagickRemoval | null;
   load: (character: MageCharacter) => void;
   clear: () => void;
   updateIdentity: (field: IdentityFieldId, value: string) => void;
@@ -87,6 +114,47 @@ interface EditorState {
   ) => void;
   removeMeritFlaw: (kind: MeritFlawKind, selectionId: string) => void;
   undoMeritFlawChange: () => void;
+  updateFocusText: (field: 'need' | 'culture' | 'notes', value: string) => void;
+  addFocusSelection: (
+    kind: FocusKind,
+    definitionId?: string,
+    customName?: string,
+  ) => string | null;
+  updateFocusSelection: (
+    kind: FocusKind,
+    selectionId: string,
+    update: Partial<
+      Pick<FocusSelection, 'customName' | 'notes'> & {
+        significant: boolean;
+      }
+    >,
+  ) => void;
+  removeFocusSelection: (kind: FocusKind, selectionId: string) => void;
+  addWonder: (definitionId?: string, customName?: string) => string | null;
+  updateWonder: (
+    selectionId: string,
+    update: Partial<
+      Pick<OwnedWonder, 'name' | 'typeLabel' | 'rating' | 'powers' | 'notes'>
+    >,
+  ) => void;
+  removeWonder: (selectionId: string) => void;
+  addRote: (definitionId?: string, customName?: string) => string | null;
+  updateRote: (
+    selectionId: string,
+    update: Partial<
+      Pick<
+        KnownRote,
+        | 'name'
+        | 'sphereRequirements'
+        | 'requirementNotes'
+        | 'effect'
+        | 'focusNotes'
+        | 'notes'
+      >
+    >,
+  ) => void;
+  removeRote: (selectionId: string) => void;
+  undoMagickRemoval: () => void;
   cycleHealthDamage: (index: number) => void;
   updateSphere: (sphere: SphereId, value: number) => void;
   toggleAffinity: (sphere: SphereId) => void;
@@ -115,6 +183,7 @@ export const useEditorStore = create<EditorState>((set) => ({
   saveStatus: 'saved',
   lastMeritFlawChange: null,
   lastBackgroundChange: null,
+  lastMagickRemoval: null,
 
   load: (character) =>
     set({
@@ -123,6 +192,7 @@ export const useEditorStore = create<EditorState>((set) => ({
       saveStatus: 'saved',
       lastMeritFlawChange: null,
       lastBackgroundChange: null,
+      lastMagickRemoval: null,
     }),
 
   clear: () =>
@@ -132,6 +202,7 @@ export const useEditorStore = create<EditorState>((set) => ({
       saveStatus: 'saved',
       lastMeritFlawChange: null,
       lastBackgroundChange: null,
+      lastMagickRemoval: null,
     }),
 
   updateIdentity: (field, value) =>
@@ -521,6 +592,388 @@ export const useEditorStore = create<EditorState>((set) => ({
           };
         }),
         lastMeritFlawChange: null,
+      };
+    }),
+
+  updateFocusText: (field, value) =>
+    set((state) =>
+      withChange(state, (character) => ({
+        ...character,
+        repeatableEntries: {
+          ...character.repeatableEntries,
+          focus: {
+            ...character.repeatableEntries.focus,
+            [field]: value,
+          },
+        },
+      })),
+    ),
+
+  addFocusSelection: (kind, definitionId, customName) => {
+    let addedId: string | null = null;
+    set((state) => {
+      if (!state.character) {
+        return {};
+      }
+      const definition = definitionId
+        ? focusDefinitionsByKind[kind].get(definitionId)
+        : undefined;
+      const trimmedCustomName = customName?.trim();
+      if (
+        (definitionId && !definition) ||
+        (!definition && !trimmedCustomName)
+      ) {
+        return {};
+      }
+      const focus = state.character.repeatableEntries.focus;
+      const allSelections = [
+        ...focus.paradigms,
+        ...focus.practices,
+        ...focus.instruments,
+      ];
+      if (
+        definitionId &&
+        allSelections.some(
+          (selection) => selection.definitionId === definitionId,
+        )
+      ) {
+        return {};
+      }
+      addedId = crypto.randomUUID();
+      const base = {
+        id: addedId,
+        ...(definitionId
+          ? { definitionId }
+          : { customName: trimmedCustomName }),
+        notes: '',
+        addedAt: new Date().toISOString(),
+      };
+      const selection =
+        kind === 'instrument' ? { ...base, significant: false } : base;
+      const key = focusKeyByKind[kind];
+      return {
+        ...withChange(state, (character) => ({
+          ...character,
+          repeatableEntries: {
+            ...character.repeatableEntries,
+            focus: {
+              ...character.repeatableEntries.focus,
+              [key]: [...character.repeatableEntries.focus[key], selection],
+            },
+          },
+        })),
+        lastMagickRemoval: null,
+      };
+    });
+    return addedId;
+  },
+
+  updateFocusSelection: (kind, selectionId, update) =>
+    set((state) => {
+      if (!state.character) {
+        return {};
+      }
+      const key = focusKeyByKind[kind];
+      const selections = state.character.repeatableEntries.focus[key];
+      if (!selections.some((selection) => selection.id === selectionId)) {
+        return {};
+      }
+      const safeUpdate =
+        kind === 'instrument'
+          ? update
+          : { customName: update.customName, notes: update.notes };
+      return withChange(state, (character) => ({
+        ...character,
+        repeatableEntries: {
+          ...character.repeatableEntries,
+          focus: {
+            ...character.repeatableEntries.focus,
+            [key]: character.repeatableEntries.focus[key].map((selection) =>
+              selection.id === selectionId
+                ? { ...selection, ...safeUpdate }
+                : selection,
+            ),
+          },
+        },
+      }));
+    }),
+
+  removeFocusSelection: (kind, selectionId) =>
+    set((state) => {
+      if (!state.character) {
+        return {};
+      }
+      const key = focusKeyByKind[kind];
+      const selections = state.character.repeatableEntries.focus[key];
+      const index = selections.findIndex(
+        (selection) => selection.id === selectionId,
+      );
+      if (index < 0) {
+        return {};
+      }
+      return {
+        ...withChange(state, (character) => ({
+          ...character,
+          repeatableEntries: {
+            ...character.repeatableEntries,
+            focus: {
+              ...character.repeatableEntries.focus,
+              [key]: character.repeatableEntries.focus[key].filter(
+                (selection) => selection.id !== selectionId,
+              ),
+            },
+          },
+        })),
+        lastMagickRemoval: {
+          type: 'focus',
+          kind,
+          selection: selections[index],
+          index,
+        },
+      };
+    }),
+
+  addWonder: (definitionId, customName) => {
+    let addedId: string | null = null;
+    set((state) => {
+      if (!state.character) {
+        return {};
+      }
+      const definition = definitionId
+        ? wonderById.get(definitionId)
+        : undefined;
+      const trimmedCustomName = customName?.trim();
+      if (
+        (definitionId && !definition) ||
+        (!definition && !trimmedCustomName)
+      ) {
+        return {};
+      }
+      if (
+        definitionId &&
+        state.character.repeatableEntries.wonders.some(
+          (selection) => selection.definitionId === definitionId,
+        )
+      ) {
+        return {};
+      }
+      addedId = crypto.randomUUID();
+      const selection: OwnedWonder = {
+        id: addedId,
+        ...(definitionId ? { definitionId } : {}),
+        name: definition?.name ?? trimmedCustomName!,
+        typeLabel: definition?.typeLabel ?? '',
+        rating: null,
+        powers: '',
+        notes: '',
+        addedAt: new Date().toISOString(),
+      };
+      return {
+        ...withChange(state, (character) => ({
+          ...character,
+          repeatableEntries: {
+            ...character.repeatableEntries,
+            wonders: [...character.repeatableEntries.wonders, selection],
+          },
+        })),
+        lastMagickRemoval: null,
+      };
+    });
+    return addedId;
+  },
+
+  updateWonder: (selectionId, update) =>
+    set((state) => {
+      if (
+        !state.character ||
+        !state.character.repeatableEntries.wonders.some(
+          (selection) => selection.id === selectionId,
+        )
+      ) {
+        return {};
+      }
+      if (
+        update.rating !== undefined &&
+        update.rating !== null &&
+        (!Number.isInteger(update.rating) ||
+          update.rating < 0 ||
+          update.rating > 10)
+      ) {
+        return {};
+      }
+      return withChange(state, (character) => ({
+        ...character,
+        repeatableEntries: {
+          ...character.repeatableEntries,
+          wonders: character.repeatableEntries.wonders.map((selection) =>
+            selection.id === selectionId
+              ? { ...selection, ...update }
+              : selection,
+          ),
+        },
+      }));
+    }),
+
+  removeWonder: (selectionId) =>
+    set((state) => {
+      if (!state.character) {
+        return {};
+      }
+      const index = state.character.repeatableEntries.wonders.findIndex(
+        (selection) => selection.id === selectionId,
+      );
+      if (index < 0) {
+        return {};
+      }
+      const selection = state.character.repeatableEntries.wonders[index];
+      return {
+        ...withChange(state, (character) => ({
+          ...character,
+          repeatableEntries: {
+            ...character.repeatableEntries,
+            wonders: character.repeatableEntries.wonders.filter(
+              (entry) => entry.id !== selectionId,
+            ),
+          },
+        })),
+        lastMagickRemoval: { type: 'wonder', selection, index },
+      };
+    }),
+
+  addRote: (definitionId, customName) => {
+    let addedId: string | null = null;
+    set((state) => {
+      if (!state.character) {
+        return {};
+      }
+      const definition = definitionId ? roteById.get(definitionId) : undefined;
+      const trimmedCustomName = customName?.trim();
+      if (
+        (definitionId && !definition) ||
+        (!definition && !trimmedCustomName)
+      ) {
+        return {};
+      }
+      if (
+        definitionId &&
+        state.character.repeatableEntries.rotes.some(
+          (selection) => selection.definitionId === definitionId,
+        )
+      ) {
+        return {};
+      }
+      addedId = crypto.randomUUID();
+      const selection: KnownRote = {
+        id: addedId,
+        ...(definitionId ? { definitionId } : {}),
+        name: definition?.name ?? trimmedCustomName!,
+        sphereRequirements: [],
+        requirementNotes: definition?.requirements ?? '',
+        effect: '',
+        focusNotes: '',
+        notes: '',
+        addedAt: new Date().toISOString(),
+      };
+      return {
+        ...withChange(state, (character) => ({
+          ...character,
+          repeatableEntries: {
+            ...character.repeatableEntries,
+            rotes: [...character.repeatableEntries.rotes, selection],
+          },
+        })),
+        lastMagickRemoval: null,
+      };
+    });
+    return addedId;
+  },
+
+  updateRote: (selectionId, update) =>
+    set((state) => {
+      if (
+        !state.character ||
+        !state.character.repeatableEntries.rotes.some(
+          (selection) => selection.id === selectionId,
+        )
+      ) {
+        return {};
+      }
+      return withChange(state, (character) => ({
+        ...character,
+        repeatableEntries: {
+          ...character.repeatableEntries,
+          rotes: character.repeatableEntries.rotes.map((selection) =>
+            selection.id === selectionId
+              ? { ...selection, ...update }
+              : selection,
+          ),
+        },
+      }));
+    }),
+
+  removeRote: (selectionId) =>
+    set((state) => {
+      if (!state.character) {
+        return {};
+      }
+      const index = state.character.repeatableEntries.rotes.findIndex(
+        (selection) => selection.id === selectionId,
+      );
+      if (index < 0) {
+        return {};
+      }
+      const selection = state.character.repeatableEntries.rotes[index];
+      return {
+        ...withChange(state, (character) => ({
+          ...character,
+          repeatableEntries: {
+            ...character.repeatableEntries,
+            rotes: character.repeatableEntries.rotes.filter(
+              (entry) => entry.id !== selectionId,
+            ),
+          },
+        })),
+        lastMagickRemoval: { type: 'rote', selection, index },
+      };
+    }),
+
+  undoMagickRemoval: () =>
+    set((state) => {
+      if (!state.character || !state.lastMagickRemoval) {
+        return {};
+      }
+      const removal = state.lastMagickRemoval;
+      return {
+        ...withChange(state, (character) => {
+          if (removal.type === 'focus') {
+            const key = focusKeyByKind[removal.kind];
+            const selections = [...character.repeatableEntries.focus[key]];
+            selections.splice(removal.index, 0, removal.selection);
+            return {
+              ...character,
+              repeatableEntries: {
+                ...character.repeatableEntries,
+                focus: {
+                  ...character.repeatableEntries.focus,
+                  [key]: selections,
+                },
+              },
+            };
+          }
+          const key = removal.type === 'wonder' ? 'wonders' : 'rotes';
+          const selections = [...character.repeatableEntries[key]] as Array<
+            OwnedWonder | KnownRote
+          >;
+          selections.splice(removal.index, 0, removal.selection);
+          return {
+            ...character,
+            repeatableEntries: {
+              ...character.repeatableEntries,
+              [key]: selections,
+            },
+          } as MageCharacter;
+        }),
+        lastMagickRemoval: null,
       };
     }),
 

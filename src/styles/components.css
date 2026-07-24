@@ -99,8 +99,7 @@
   font-weight: 500;
 }
 
-.record-count,
-.deferred-card__status {
+.record-count {
   color: var(--ink-soft);
   font-family: var(--font-sans);
   font-size: 0.72rem;
@@ -2129,29 +2128,289 @@
   width: 100%;
 }
 
-.deferred-grid {
+.focus-equation {
+  margin-bottom: 1rem;
+  padding: 0.8rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem 0.75rem;
+  border: 3px double var(--rule);
+  color: var(--umber-deep);
+  background: var(--paper-light);
+  font-family: var(--font-serif);
+}
+
+.focus-equation span,
+.focus-equation strong {
+  font-size: 1.05rem;
+}
+
+.focus-equation b {
+  color: var(--gold);
+  font-family: var(--font-sans);
+}
+
+.magick-custom-adder {
+  margin-bottom: 1rem;
+  padding: 0.85rem;
+  display: grid;
+  grid-template-columns: minmax(10rem, auto) minmax(14rem, 1fr) auto auto;
+  align-items: end;
+  gap: 0.65rem;
+  border: 1px solid var(--rule-light);
+  background: rgb(255 255 255 / 14%);
+}
+
+.magick-custom-adder label,
+.focus-context-grid label,
+.magick-selected-card label,
+.magick-field-grid label,
+.reference-catalog .catalog-toolbar > label,
+.rote-requirement-row label {
+  min-width: 0;
+  display: grid;
+  gap: 0.25rem;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.magick-custom-adder input,
+.magick-custom-adder select,
+.focus-context-grid textarea,
+.magick-selected-card input,
+.magick-selected-card select,
+.magick-selected-card textarea,
+.reference-catalog .catalog-toolbar select,
+.rote-requirement-row input,
+.rote-requirement-row select {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  color: var(--ink);
+  background: var(--paper-light);
+  font-family: var(--font-serif);
+  text-transform: none;
+}
+
+.magick-selected-card textarea,
+.focus-context-grid textarea {
+  resize: vertical;
+}
+
+.focus-selected-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
   gap: 0.75rem;
 }
 
-.deferred-card {
-  min-height: 8rem;
-  padding: 1rem;
-  border: 1px dashed var(--rule-light);
+.focus-selection-list {
+  min-width: 0;
+  padding: 0.8rem;
+  border-top: 3px double var(--rule);
   background: rgb(255 255 255 / 12%);
 }
 
-.deferred-card h3 {
-  margin: 0.55rem 0 0.35rem;
-  font-size: 1rem;
+.focus-selection-list > h3 {
+  margin: 0 0 0.65rem;
+  color: var(--umber-deep);
+  font-size: 1.2rem;
+  text-align: center;
 }
 
-.deferred-card p {
+.selected-list-empty {
   margin: 0;
+  padding: 1rem;
+  border: 1px dashed var(--rule-light);
   color: var(--ink-soft);
-  font-size: 0.88rem;
+  text-align: center;
+}
+
+.magick-selected-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 0.75rem;
+}
+
+.magick-selected-card {
+  min-width: 0;
+  margin-top: 0.65rem;
+  padding: 0.85rem;
+  display: grid;
+  gap: 0.65rem;
+  border: 1px solid var(--rule-light);
+  background: var(--paper-light);
+  scroll-margin: 5rem;
+}
+
+.magick-selected-list > .magick-selected-card {
+  margin-top: 0;
+}
+
+.magick-selected-card__heading {
+  min-width: 0;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.magick-selected-card__heading h3,
+.magick-selected-card__heading h4 {
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: var(--umber-deep);
+  font-size: 1.05rem;
+}
+
+.magick-selected-card__heading p {
+  margin: 0.2rem 0 0;
+  overflow-wrap: anywhere;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
   line-height: 1.4;
+  text-transform: capitalize;
+}
+
+.magick-selected-card__details {
+  padding-top: 0.65rem;
+  display: grid;
+  gap: 0.75rem;
+  border-top: 1px dotted var(--rule-light);
+}
+
+.magick-reference-note {
+  border-left: 3px solid var(--gold);
+  background: #fff6df;
+}
+
+.magick-reference-note > summary {
+  min-height: 2.75rem;
+  padding: 0.55rem 0.7rem;
+  display: flex;
+  align-items: center;
+  color: var(--umber-deep);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.magick-reference-note p,
+.magick-reference-note small {
+  margin: 0;
+  padding: 0 0.7rem 0.7rem;
+  display: block;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+.selected-reference-warning,
+.reference-preview-note {
+  margin: 0.65rem 0;
+  padding: 0.65rem 0.75rem;
+  border-left: 3px solid var(--gold);
+  color: var(--umber-deep);
+  background: #fff6df;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.magick-check-row,
+.catalog-mature-toggle {
+  min-height: 2.75rem;
+  display: flex !important;
+  align-items: center;
+  gap: 0.55rem !important;
+}
+
+.magick-check-row input,
+.catalog-mature-toggle input {
+  width: 1.35rem;
+  height: 1.35rem;
+  flex: none;
+}
+
+.magick-advisory {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--success);
+  color: var(--ink-soft);
+  background: rgb(255 255 255 / 18%);
+  line-height: 1.45;
+}
+
+.magick-advisory--notice {
+  border-left-color: var(--gold);
+}
+
+.focus-context-grid,
+.magick-field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.focus-context-grid__notes {
+  grid-column: 1 / -1;
+}
+
+.magick-catalog-tabs {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.reference-catalog {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 3px double var(--rule);
+}
+
+.reference-catalog .catalog-toolbar {
+  grid-template-columns: minmax(14rem, 1fr) minmax(10rem, auto) auto;
+}
+
+.reference-catalog .catalog-card > .primary-button,
+.reference-catalog .catalog-card > .secondary-button {
+  width: 100%;
+}
+
+.rote-requirements {
+  margin: 0;
+  padding: 0.75rem;
+  display: grid;
+  gap: 0.65rem;
+  border: 1px solid var(--rule-light);
+}
+
+.rote-requirements legend {
+  padding-inline: 0.35rem;
+  color: var(--umber-deep);
+  font-family: var(--font-serif);
+  font-weight: 600;
+}
+
+.rote-requirement-row {
+  min-width: 0;
+  padding-bottom: 0.65rem;
+  display: grid;
+  grid-template-columns: minmax(8rem, 1fr) 6rem 6rem auto;
+  align-items: end;
+  gap: 0.5rem;
+  border-bottom: 1px dotted var(--rule-light);
 }
 
 .privacy-note {

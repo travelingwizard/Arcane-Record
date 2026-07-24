@@ -19,6 +19,16 @@ Selected Merits and Flaws export only their selection UUID, definition ID, chose
 
 Selected Backgrounds export their selection UUID, definition ID, character display name, integer rating, notes, addition timestamp, pooling state, and optional unresolved source name. Known definitions validate minimum and maximum ratings, the extended interface maximum of ten, duplicate rules, and pooling support. Unknown definition IDs remain visible, removable, and repairable. They are not assigned an invented cost multiplier.
 
+Focus exports character selections, custom names, notes, significant Instrument
+markers, Need, and cultural context. Wonders export owned names, types, ratings,
+powers, and notes. Rotes export structured Sphere requirements, free-form
+alternatives, Effects, Focus notes, and character notes. Reference summaries,
+citations, review status, and mature-content labels are never included.
+
+Schema-version-5 Magick placeholders migrate without loss: Focus strings become
+general notes, Wonder strings become custom owned Wonders, and legacy Rote IDs,
+Sphere text, and Effects are preserved.
+
 Section expansion preferences and the transient active section are excluded
 from both formats. Importing a character creates a fresh ID and therefore a
 fresh, independent section-preference key.

@@ -19,7 +19,9 @@ describe('character section registry', () => {
       'merits-flaws',
       'spheres',
       'enlightenment',
-      'later-sections',
+      'focus',
+      'wonders',
+      'rotes',
       'health',
       'import-export',
     ]);
@@ -28,7 +30,7 @@ describe('character section registry', () => {
       characterSections.length,
     );
     expect(characterSections.map(({ order }) => order)).toEqual([
-      1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
     ]);
   });
 
@@ -100,6 +102,38 @@ describe('collapsed character section summaries', () => {
         addedAt: new Date().toISOString(),
       },
     ];
+    character.repeatableEntries.focus.paradigms.push({
+      id: crypto.randomUUID(),
+      customName: 'The world is music',
+      notes: '',
+      addedAt: new Date().toISOString(),
+    });
+    character.repeatableEntries.focus.instruments.push({
+      id: crypto.randomUUID(),
+      customName: 'Silver flute',
+      notes: '',
+      addedAt: new Date().toISOString(),
+      significant: true,
+    });
+    character.repeatableEntries.wonders.push({
+      id: crypto.randomUUID(),
+      name: 'Moonlit Mirror',
+      typeLabel: 'Talisman',
+      rating: null,
+      powers: '',
+      notes: '',
+      addedAt: new Date().toISOString(),
+    });
+    character.repeatableEntries.rotes.push({
+      id: crypto.randomUUID(),
+      name: 'Silver Echo',
+      sphereRequirements: [],
+      requirementNotes: 'Forces 2',
+      effect: '',
+      focusNotes: '',
+      notes: '',
+      addedAt: new Date().toISOString(),
+    });
 
     const summaries = getCharacterSectionSummaries(character);
 
@@ -114,5 +148,11 @@ describe('collapsed character section summaries', () => {
     expect(summaries['merits-flaws'].warning).toBe(
       '1 Flaw point exceeds the standard benefit',
     );
+    expect(summaries.focus).toEqual({
+      primary: '1 paradigm · 0 practices · 1 instrument',
+      warning: 'Starting characters commonly record at least 7 instruments',
+    });
+    expect(summaries.wonders.primary).toBe('1 selected · Moonlit Mirror');
+    expect(summaries.rotes.primary).toBe('1 saved · Silver Echo');
   });
 });

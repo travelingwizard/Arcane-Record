@@ -22,6 +22,10 @@ function sumRatings(ratings: Record<string, number>) {
   return Object.values(ratings).reduce((total, rating) => total + rating, 0);
 }
 
+function countLabel(count: number, singular: string) {
+  return `${count} ${singular}${count === 1 ? '' : 's'}`;
+}
+
 function summarizeSpheres(character: MageCharacter) {
   const rated = spheres
     .map(({ id, label }) => ({
@@ -115,8 +119,42 @@ export function getCharacterSectionSummaries(
     enlightenment: {
       primary: `Arete ${character.enlightenment.arete} · Willpower ${character.enlightenment.willpower} · Quintessence ${character.enlightenment.quintessence} · Paradox ${character.enlightenment.paradox}`,
     },
-    'later-sections': {
-      primary: 'Focus, Wonders, and Rotes · planned',
+    focus: {
+      primary: `${countLabel(
+        character.repeatableEntries.focus.paradigms.length,
+        'paradigm',
+      )} · ${countLabel(
+        character.repeatableEntries.focus.practices.length,
+        'practice',
+      )} · ${countLabel(
+        character.repeatableEntries.focus.instruments.length,
+        'instrument',
+      )}`,
+      warning:
+        character.repeatableEntries.focus.instruments.length > 0 &&
+        character.repeatableEntries.focus.instruments.length < 7
+          ? 'Starting characters commonly record at least 7 instruments'
+          : undefined,
+    },
+    wonders: {
+      primary: `${character.repeatableEntries.wonders.length} selected${
+        character.repeatableEntries.wonders.length > 0
+          ? ` · ${character.repeatableEntries.wonders
+              .slice(0, 2)
+              .map((wonder) => wonder.name || 'Untitled Wonder')
+              .join(' · ')}`
+          : ''
+      }`,
+    },
+    rotes: {
+      primary: `${character.repeatableEntries.rotes.length} saved${
+        character.repeatableEntries.rotes.length > 0
+          ? ` · ${character.repeatableEntries.rotes
+              .slice(0, 2)
+              .map((rote) => rote.name || 'Untitled Rote')
+              .join(' · ')}`
+          : ''
+      }`,
     },
     health: {
       primary: deepestHealthLevel

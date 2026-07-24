@@ -35,6 +35,43 @@ describe('character files', () => {
         addedAt: '2026-07-01T12:00:00.000Z',
         pooled: true,
       });
+      source.repeatableEntries.focus.paradigms.push({
+        id: 'b3996714-fb74-42f1-874b-f9fb4f15c4f4',
+        definitionId: 'everything-is-data',
+        notes: 'Reality is code.',
+        addedAt: '2026-07-01T12:00:00.000Z',
+      });
+      source.repeatableEntries.focus.instruments.push({
+        id: '8efc5703-1204-4c74-80d5-33929ca32384',
+        customName: 'Silver keyboard',
+        notes: '',
+        addedAt: '2026-07-01T12:00:00.000Z',
+        significant: true,
+      });
+      source.repeatableEntries.wonders.push({
+        id: 'c09c6278-f050-4b85-bc36-d92fdac85959',
+        definitionId: 'trushades',
+        name: 'Mara’s Trushades',
+        typeLabel: 'Trinket',
+        rating: 2,
+        powers: 'Reveals hidden patterns.',
+        notes: '',
+        addedAt: '2026-07-01T12:00:00.000Z',
+      });
+      source.repeatableEntries.rotes.push({
+        id: '25a49e41-1296-476a-bf86-105a4584489c',
+        definitionId: 'right-click',
+        name: 'Right-Click',
+        sphereRequirements: [
+          { sphereId: 'mind', minimum: 3 },
+          { sphereId: 'data', minimum: 3 },
+        ],
+        requirementNotes: '',
+        effect: 'Shows useful information.',
+        focusNotes: 'Trushades',
+        notes: '',
+        addedAt: '2026-07-01T12:00:00.000Z',
+      });
       localStorage.setItem(
         `arcane-ledger:section-preferences:${source.id}`,
         JSON.stringify({
@@ -69,9 +106,27 @@ describe('character files', () => {
         notes: 'Pooled with the cabal',
         pooled: true,
       });
+      expect(imported.repeatableEntries.focus.paradigms[0]).toMatchObject({
+        definitionId: 'everything-is-data',
+        notes: 'Reality is code.',
+      });
+      expect(imported.repeatableEntries.wonders[0]).toMatchObject({
+        definitionId: 'trushades',
+        name: 'Mara’s Trushades',
+        powers: 'Reveals hidden patterns.',
+      });
+      expect(imported.repeatableEntries.rotes[0]).toMatchObject({
+        definitionId: 'right-click',
+        sphereRequirements: [
+          { sphereId: 'mind', minimum: 3 },
+          { sphereId: 'data', minimum: 3 },
+        ],
+      });
       expect(imported.createdAt).toBe('2026-07-23T16:00:00.000Z');
       expect(serialized).not.toContain('expandedSections');
       expect(serialized).not.toContain('section-preferences');
+      expect(serialized).not.toContain('Reference preview');
+      expect(serialized).not.toContain('citation');
     },
   );
 

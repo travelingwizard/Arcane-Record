@@ -43,9 +43,8 @@ interface KnownRote {
 }
 ```
 
-The current `RoteEntry` stores `spheres` as one string. A future implementation
-should migrate to structured requirements while preserving imported free text
-when it cannot be parsed safely.
+Schema version 6 stores structured requirements while preserving imported
+legacy Sphere text in `requirementNotes` when it cannot be parsed safely.
 
 ## Tradition and mystic Rotes
 
@@ -143,7 +142,7 @@ already represented in the described list and should not be duplicated.
 
 ## Catalog and editor behavior
 
-A future implementation should:
+The implemented section:
 
 - provide search and filters for Sphere, minimum rank, family, source, and
   verification status;

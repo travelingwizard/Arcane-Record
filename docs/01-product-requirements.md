@@ -19,9 +19,16 @@ The editor provides:
 - optional Backgrounds selected from a searchable, cited catalog, with dot ratings and creation-point totals;
 - seven sequential Health boxes with bashing, lethal, and aggravated damage;
 - optional Merits and Flaws selected from a searchable, cited catalog, with projected and current point totals;
+- editable Focus with catalog or custom Paradigms, Practices, Instruments,
+  personal Need, cultural context, notes, and significant-instrument markers;
+- editable Wonders with catalog or custom names, types, optional ratings,
+  powers, and notes;
+- editable Rotes with catalog or custom names, structured Sphere requirements,
+  free-form alternatives, Effects, Focus notes, and character notes;
 - validated local JSON and YAML import/export;
 - debounced autosave status;
-- placeholders for deferred sheet sections.
+- explicit reference-preview labeling for supplied Magick citations that still
+  require source verification.
 
 The editor exposes every visible major section through stable URL fragments.
 At 70rem and wider, a grouped sticky rail identifies the active section. Below
@@ -40,6 +47,22 @@ All inputs have programmatic labels. Dot tracks expose the trait and current val
 ## Acceptance scenarios
 
 The core acceptance scenario creates a character, names it, sets Strength, Alertness, Forces, Arete, Backgrounds, and Health damage, marks Forces as affinity, selects a Merit and a Flaw, refreshes, and observes the same values and point totals. File exchange scenarios export the active character and import a validated copy under a fresh ID.
+
+A Magick acceptance scenario records a catalog Paradigm, a custom significant
+Instrument, a custom Wonder, and a Rote with structured Sphere requirements;
+refreshes; and observes the same values in both the editor and a local export.
+
+## Focus, Wonders, and Rotes
+
+Reference catalogs are inspiration and selection aids, not a rules engine.
+Unverified entries are labeled as previews, mature material is excluded by
+default, and custom entries are always available. Seven starting Instruments
+is advisory. The editor does not calculate Effect legality, difficulty,
+vulgarity, Paradox, Wonder cost, or automatic Focus transcendence.
+
+Character records store stable catalog IDs and character-specific values.
+Reference descriptions and citations remain outside exports. Unknown imported
+definition IDs stay visible and preserved.
 
 ## Backgrounds
 

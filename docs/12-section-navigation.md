@@ -7,25 +7,26 @@ IDs, labels, groups, and order. Rendering, desktop navigation, mobile
 navigation, summaries, hashes, and preference validation consume that
 registry.
 
-| Group      | Section         | Anchor            |
-| ---------- | --------------- | ----------------- |
-| Character  | Identity        | `#identity`       |
-| Traits     | Attributes      | `#attributes`     |
-| Traits     | Abilities       | `#abilities`      |
-| Advantages | Backgrounds     | `#backgrounds`    |
-| Advantages | Merits & Flaws  | `#merits-flaws`   |
-| Magick     | Spheres         | `#spheres`        |
-| Magick     | Enlightenment   | `#enlightenment`  |
-| Magick     | Future magick   | `#later-sections` |
-| Condition  | Health          | `#health`         |
-| Records    | Import & export | `#import-export`  |
+| Group      | Section         | Anchor           |
+| ---------- | --------------- | ---------------- |
+| Character  | Identity        | `#identity`      |
+| Traits     | Attributes      | `#attributes`    |
+| Traits     | Abilities       | `#abilities`     |
+| Advantages | Backgrounds     | `#backgrounds`   |
+| Advantages | Merits & Flaws  | `#merits-flaws`  |
+| Magick     | Spheres         | `#spheres`       |
+| Magick     | Enlightenment   | `#enlightenment` |
+| Magick     | Focus           | `#focus`         |
+| Magick     | Wonders         | `#wonders`       |
+| Magick     | Rotes           | `#rotes`         |
+| Condition  | Health          | `#health`        |
+| Records    | Import & export | `#import-export` |
 
 The current editor implements one combined Enlightenment section instead of
 separate Arete/Willpower and Quintessence/Paradox sections. Focus, Wonders, and
-Rotes are currently visible only in one combined deferred card, so the
-registry honestly exposes that existing placeholder rather than inventing
-three editable sections. Import/export is visible and receives a Records group
-instead of being omitted from navigation.
+Rotes are real editable sections with independent summaries and anchors.
+Import/export is visible and receives a Records group instead of being omitted
+from navigation.
 
 Future major sections must first receive a stable literal ID in the registry.
 Then add the matching `SheetSection`, summary selector, and registry-order

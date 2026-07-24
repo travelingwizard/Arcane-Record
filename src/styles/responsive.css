@@ -158,10 +158,6 @@
   .enlightenment-grid {
     grid-template-columns: 1fr;
   }
-
-  .deferred-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 48rem) {
@@ -208,7 +204,9 @@
   .selected-merit-flaw-columns,
   .catalog-results,
   .background-summary__details,
-  .background-catalog__results {
+  .background-catalog__results,
+  .focus-selected-grid,
+  .magick-selected-list {
     grid-template-columns: 1fr;
   }
 
@@ -219,8 +217,20 @@
   }
 
   .catalog-toolbar,
-  .background-catalog__toolbar {
+  .background-catalog__toolbar,
+  .reference-catalog .catalog-toolbar,
+  .magick-custom-adder,
+  .focus-context-grid,
+  .magick-field-grid {
     grid-template-columns: 1fr;
+  }
+
+  .focus-context-grid__notes {
+    grid-column: auto;
+  }
+
+  .rote-requirement-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .catalog-filters__grid,
@@ -262,6 +272,10 @@
   }
 
   .identity-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rote-requirement-row {
     grid-template-columns: 1fr;
   }
 
@@ -376,10 +390,6 @@
     font-size: 0.95rem;
     text-overflow: clip;
     white-space: normal;
-  }
-
-  .deferred-grid {
-    grid-template-columns: 1fr;
   }
 
   .merit-flaw-summary__details,

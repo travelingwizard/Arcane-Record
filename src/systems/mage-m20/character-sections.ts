@@ -55,24 +55,35 @@ export const characterSections = [
     order: 7,
   },
   {
-    id: 'later-sections',
-    label: 'Future magick',
-    shortLabel: 'Future magick',
+    id: 'focus',
+    label: 'Focus',
     group: 'magick',
     order: 8,
+  },
+  {
+    id: 'wonders',
+    label: 'Wonders',
+    group: 'magick',
+    order: 9,
+  },
+  {
+    id: 'rotes',
+    label: 'Rotes',
+    group: 'magick',
+    order: 10,
   },
   {
     id: 'health',
     label: 'Health',
     group: 'condition',
-    order: 9,
+    order: 11,
   },
   {
     id: 'import-export',
     label: 'Import & export',
     shortLabel: 'File exchange',
     group: 'records',
-    order: 10,
+    order: 12,
   },
 ] as const satisfies ReadonlyArray<{
   id: string;

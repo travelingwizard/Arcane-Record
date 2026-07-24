@@ -23,6 +23,12 @@ disclosures and the Sections trigger preserve practical 44px targets and
 visible focus rings. The modal sheet uses an opaque paper surface over a
 high-contrast backdrop without swipe-only interaction.
 
+Magick reference catalogs reuse the established catalog cards, fine rules, and
+paper surfaces. “Reference preview” text distinguishes unverified research from
+character-owned notes. Mature entries require an explicit opt-in control.
+Selected Focus, Wonder, and Rote cards remain visually quieter than the
+catalog so character data stays primary.
+
 ## Tokens
 
 Color, spacing, type sizes, radii, shadows, and focus rings are CSS custom properties in `src/styles/tokens.css`. Motion is brief and removed under `prefers-reduced-motion`.

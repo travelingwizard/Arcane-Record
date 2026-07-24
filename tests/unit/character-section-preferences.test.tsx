@@ -60,7 +60,7 @@ describe('character section preferences', () => {
     );
 
     act(() => preferences.result.current.expandAllSections());
-    expect(preferences.result.current.expandedSections.size).toBe(10);
+    expect(preferences.result.current.expandedSections.size).toBe(12);
 
     act(() => preferences.result.current.collapseAllSections('merits-flaws'));
     expect([...preferences.result.current.expandedSections]).toEqual([

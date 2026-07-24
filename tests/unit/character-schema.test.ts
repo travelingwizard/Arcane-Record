@@ -10,6 +10,15 @@ describe('mageCharacterSchema', () => {
     );
 
     expect(mageCharacterSchema.parse(character)).toEqual(character);
+    expect(character.schemaVersion).toBe(6);
+    expect(character.repeatableEntries.focus).toEqual({
+      paradigms: [],
+      practices: [],
+      instruments: [],
+      need: '',
+      culture: '',
+      notes: '',
+    });
   });
 
   it.each<[string, () => unknown]>([
@@ -213,5 +222,105 @@ describe('mageCharacterSchema', () => {
       });
     }
     expect(mageCharacterSchema.safeParse(single).success).toBe(false);
+  });
+
+  it('validates catalog, custom, unresolved, and structured Magick records', () => {
+    const character = createBlankMageCharacter();
+    character.repeatableEntries.focus.paradigms.push({
+      id: crypto.randomUUID(),
+      definitionId: 'everything-is-data',
+      notes: 'Reality is code.',
+      addedAt: new Date().toISOString(),
+    });
+    character.repeatableEntries.focus.instruments.push({
+      id: crypto.randomUUID(),
+      customName: 'Inherited brass key',
+      notes: 'Opens symbolic doors.',
+      addedAt: new Date().toISOString(),
+      significant: true,
+    });
+    character.repeatableEntries.wonders.push({
+      id: crypto.randomUUID(),
+      definitionId: 'retired-wonder',
+      name: 'Old Compass',
+      typeLabel: 'Talisman',
+      rating: null,
+      powers: 'Points toward lost things.',
+      notes: '',
+      addedAt: new Date().toISOString(),
+      unresolvedDefinitionName: 'Old Compass',
+    });
+    character.repeatableEntries.rotes.push({
+      id: crypto.randomUUID(),
+      name: 'Find the Thread',
+      sphereRequirements: [
+        { sphereId: 'correspondence', minimum: 2, maximum: 3 },
+        { sphereId: 'other', label: 'Data', minimum: 2 },
+      ],
+      requirementNotes: 'Correspondence or Data',
+      effect: 'Locates a known signal.',
+      focusNotes: 'Brass key and map.',
+      notes: '',
+      addedAt: new Date().toISOString(),
+    });
+
+    expect(mageCharacterSchema.safeParse(character).success).toBe(true);
+  });
+
+  it('rejects wrong-kind Focus definitions and malformed Rote ranges', () => {
+    const wrongKind = createBlankMageCharacter();
+    wrongKind.repeatableEntries.focus.practices.push({
+      id: crypto.randomUUID(),
+      definitionId: 'everything-is-data',
+      notes: '',
+      addedAt: new Date().toISOString(),
+    });
+    expect(mageCharacterSchema.safeParse(wrongKind).success).toBe(false);
+
+    const malformedRote = createBlankMageCharacter();
+    malformedRote.repeatableEntries.rotes.push({
+      id: crypto.randomUUID(),
+      name: 'Broken Range',
+      sphereRequirements: [{ sphereId: 'forces', minimum: 4, maximum: 2 }],
+      requirementNotes: '',
+      effect: '',
+      focusNotes: '',
+      notes: '',
+      addedAt: new Date().toISOString(),
+    });
+    expect(mageCharacterSchema.safeParse(malformedRote).success).toBe(false);
+  });
+
+  it('rejects duplicate Magick selection UUIDs and catalog definitions', () => {
+    const character = createBlankMageCharacter();
+    const duplicateId = crypto.randomUUID();
+    character.repeatableEntries.focus.paradigms.push({
+      id: duplicateId,
+      definitionId: 'everything-is-data',
+      notes: '',
+      addedAt: new Date().toISOString(),
+    });
+    character.repeatableEntries.focus.practices.push({
+      id: duplicateId,
+      definitionId: 'reality-hacking',
+      notes: '',
+      addedAt: new Date().toISOString(),
+    });
+    expect(mageCharacterSchema.safeParse(character).success).toBe(false);
+
+    const repeatedWonder = createBlankMageCharacter();
+    for (const name of ['First', 'Second']) {
+      repeatedWonder.repeatableEntries.wonders.push({
+        id: crypto.randomUUID(),
+        definitionId: 'bafflejack',
+        name,
+        typeLabel: 'Talisman',
+        rating: null,
+        powers: '',
+        notes: '',
+        addedAt: new Date().toISOString(),
+      });
+    }
+    expect(mageCharacterSchema.safeParse(repeatedWonder).success).toBe(false);
   });
 });

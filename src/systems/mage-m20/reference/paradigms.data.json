@@ -1,0 +1,362 @@
+[
+  {
+    "id": "mechanistic-cosmos",
+    "name": "A Mechanistic Cosmos",
+    "family": "common",
+    "summary": "Creation is an ordered machine whose apparent chaos can be understood and mastered.",
+    "citation": "Mage 20, p. 568",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "world-of-gods-and-monsters",
+    "name": "A World of Gods and Monsters",
+    "family": "common",
+    "summary": "Reality contains powerful entities that must be worshipped, placated, or bargained with.",
+    "citation": "Mage 20, p. 568",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "bring-back-the-golden-age",
+    "name": "Bring Back the Golden Age!",
+    "family": "common",
+    "summary": "Ancient perfection has been lost, and magick can restore it.",
+    "citation": "Mage 20, p. 569",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "creation-divine-and-alive",
+    "name": "Creation's Divine and Alive",
+    "family": "common",
+    "summary": "Reality is living, conscious, divine, or an expression of divinity.",
+    "citation": "Mage 20, p. 569",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "divine-order-earthly-chaos",
+    "name": "Divine Order and Earthly Chaos",
+    "family": "common",
+    "summary": "Material disorder imperfectly reflects a sublime order that can still be approached.",
+    "citation": "Mage 20, p. 569",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "everything-is-chaos",
+    "name": "Everything is Chaos",
+    "family": "common",
+    "summary": "Reality is fundamentally random and yields to individual Will.",
+    "citation": "Mage 20, p. 570",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "everything-is-data",
+    "name": "Everything is Data",
+    "family": "common",
+    "summary": "Reality is information that can be processed, hacked, and rewritten.",
+    "citation": "Mage 20, p. 570",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "everything-is-an-illusion",
+    "name": "Everything's an Illusion, Prison, or Mistake",
+    "family": "common",
+    "summary": "Material existence is a distraction or trap from which consciousness should escape.",
+    "citation": "Mage 20, p. 570",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "its-all-good-have-faith",
+    "name": "It's All Good - Have Faith!",
+    "family": "common",
+    "summary": "A higher power or plan exists, and the mage acts as its servant or vessel.",
+    "citation": "Mage 20, p. 570",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "might-is-right",
+    "name": "Might is Right",
+    "family": "common",
+    "summary": "Power and excellence determine who can impose their Will on an indifferent universe.",
+    "citation": "Mage 20, p. 571",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "one-way-trip-to-oblivion",
+    "name": "One-Way Trip to Oblivion",
+    "family": "common",
+    "summary": "Reality is decaying toward collapse, extinction, or final judgment.",
+    "citation": "Mage 20, p. 571",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "tech-holds-all-answers",
+    "name": "Tech Holds All Answers",
+    "family": "common",
+    "summary": "Enlightened Science and technological progress are humanity's valid path forward.",
+    "citation": "Mage 20, p. 571",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "aliens-make-us-what-we-are",
+    "name": "Aliens Make Us What We Are",
+    "family": "expanded",
+    "summary": "Magick is advanced science granted or left behind by extraterrestrial beings.",
+    "citation": "Book of Secrets, p. 188",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "all-power-comes-from-gods",
+    "name": "All Power Comes from God(s)",
+    "family": "expanded",
+    "summary": "Power is a gift, command, or intervention from literal divine beings.",
+    "citation": "Book of Secrets, p. 189",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "all-the-worlds-a-stage",
+    "name": "All the World's a Stage",
+    "family": "expanded",
+    "summary": "Reality is a performance or story whose script can be redirected.",
+    "citation": "Book of Secrets, p. 189",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "ancestor-veneration",
+    "name": "Ancestor Veneration",
+    "family": "expanded",
+    "summary": "Power and guidance come through ancestors, inheritance, and lineage.",
+    "citation": "Book of Secrets, p. 190",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "ancient-wisdom-is-the-key",
+    "name": "Ancient Wisdom is the Key",
+    "family": "expanded",
+    "summary": "Modernity has fallen away from truths preserved by ancient cultures.",
+    "citation": "Book of Secrets, p. 190",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "consciousness-only-true-reality",
+    "name": "Consciousness is the Only True Reality",
+    "family": "expanded",
+    "summary": "Matter is secondary to mind, and perception reshapes the world.",
+    "citation": "Book of Secrets, p. 190",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "embrace-the-threshold",
+    "name": "Embrace the Threshold",
+    "family": "expanded",
+    "summary": "Reality is approaching transformation, and power comes from riding that change.",
+    "citation": "Book of Secrets, p. 191",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "holographic-reality",
+    "name": "Holographic Reality",
+    "family": "expanded",
+    "summary": "Apparent reality is a projection of deeper, interconnected energies.",
+    "citation": "Book of Secrets, p. 192",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "transcend-your-limits",
+    "name": "Transcend Your Limits",
+    "family": "expanded",
+    "summary": "Human potential is boundless and limitations are imposed rather than essential.",
+    "citation": "Book of Secrets, p. 192",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "turning-the-keys-to-reality",
+    "name": "Turning the Keys to Reality",
+    "family": "expanded",
+    "summary": "Creation has specific keys that trained people can use to unlock and alter it.",
+    "citation": "Book of Secrets, p. 194",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "meant-to-be-wild",
+    "name": "We are Meant to be Wild",
+    "family": "expanded",
+    "summary": "Enlightenment requires escaping civilization and reclaiming a feral state.",
+    "citation": "Book of Secrets, p. 195",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "we-are-not-men",
+    "name": "We Are NOT Men!",
+    "family": "expanded",
+    "summary": "The Awakened are a superhuman order separate from ordinary humanity.",
+    "citation": "Book of Secrets, p. 195",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "all-gods-in-disguise",
+    "name": "We're All God(s) in Disguise",
+    "family": "expanded",
+    "summary": "Every person contains and participates in the same divine essence.",
+    "citation": "Book of Secrets, p. 196",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "euthanatoi-wheel",
+    "name": "Euthanatoi paradigms",
+    "family": "tradition-specific",
+    "summary": "Beliefs centered on death, rebirth, and the natural cycle of the Wheel.",
+    "citation": "Lore of the Traditions, p. 95",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "platonism-mathematicism",
+    "name": "Platonism / Mathematicism",
+    "family": "tradition-specific",
+    "summary": "Concepts and numbers have an independent existence that can be manipulated.",
+    "citation": "Lore of the Traditions, p. 160",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "power-comes-from-sin",
+    "name": "All Power Comes from Sin",
+    "family": "fallen",
+    "summary": "Transgression and moral violation are treated as the roots of power.",
+    "citation": "Book of the Fallen, Chapter Three",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "barbarism-truest-state",
+    "name": "Barbarism is the Truest State of Man",
+    "family": "fallen",
+    "summary": "Violence and brutality are treated as humanity's authentic condition.",
+    "citation": "Book of the Fallen, Chapter Three",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "cosmic-horror-only-truth",
+    "name": "Cosmic Horror is the Only Truth",
+    "family": "fallen",
+    "summary": "Reality is ruled by incomprehensible, hostile, or indifferent powers.",
+    "citation": "Book of the Fallen, Chapter Three",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "everyone-against-me",
+    "name": "Everyone's Against Me, so Whatever I Do is Justified",
+    "family": "fallen",
+    "summary": "Perceived universal persecution is used to justify vengeance and abuse.",
+    "citation": "Book of the Fallen, Chapter Three",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "evil-is-necessary",
+    "name": "Evil is Necessary, and so I am Evil",
+    "family": "fallen",
+    "summary": "The mage adopts evil as a supposedly necessary contrast to virtue.",
+    "citation": "Book of the Fallen, Chapter Three",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "forbidden-wisdom-truest-source",
+    "name": "Forbidden Wisdom is the Truest Source of Power",
+    "family": "fallen",
+    "summary": "Prohibited knowledge is treated as more truthful and powerful because it is forbidden.",
+    "citation": "Book of the Fallen, Chapter Three",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "i-am-all",
+    "name": "I am All",
+    "family": "fallen",
+    "summary": "Everything else is understood as an extension of the mage's central self.",
+    "citation": "Book of the Fallen, Chapter Three",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "predator-and-prey",
+    "name": "I'm a Predator, and the World is My Prey",
+    "family": "fallen",
+    "summary": "Existence is reduced to the predator/prey relationship.",
+    "citation": "Book of the Fallen, Chapter Three",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "indulgence-only-law",
+    "name": "Indulgence is Nature's Only Law",
+    "family": "fallen",
+    "summary": "Desire is treated as natural law and moral restraint as meaningless.",
+    "citation": "Book of the Fallen, Chapter Three",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "strongest-deserve-survival",
+    "name": "Only the Strongest Deserve to Survive",
+    "family": "fallen",
+    "summary": "A corrupt survival doctrine treats the weak as expendable.",
+    "citation": "Book of the Fallen, Chapter Three",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "people-are-shit",
+    "name": "People = Shit",
+    "family": "fallen",
+    "summary": "Humanity is judged irredeemable and deserving of extinction.",
+    "citation": "Book of the Fallen, Chapter Three",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "rebellion-to-transcendence",
+    "name": "Rebellion is the Road to Transcendence",
+    "family": "fallen",
+    "summary": "Freedom is sought through the destruction of every law and authority.",
+    "citation": "Book of the Fallen, Chapter Three",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "stormtroopers-of-the-abyss",
+    "name": "We are Stormtroopers of the Abyss",
+    "family": "fallen",
+    "summary": "The mage identifies as a soldier serving ultimate Oblivion.",
+    "citation": "Book of the Fallen, Chapter Three",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  }
+]

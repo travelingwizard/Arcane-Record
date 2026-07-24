@@ -2,13 +2,15 @@ import { useCallback, useMemo } from 'react';
 import { AbilitiesSection } from '../../components/character/AbilitiesSection';
 import { AttributesSection } from '../../components/character/AttributesSection';
 import { BackgroundsSection } from '../../components/character/BackgroundsSection';
-import { DeferredSections } from '../../components/character/DeferredSections';
 import { EnlightenmentSection } from '../../components/character/EnlightenmentSection';
+import { FocusSection } from '../../components/character/FocusSection';
 import { HealthSection } from '../../components/character/HealthSection';
 import { IdentitySection } from '../../components/character/IdentitySection';
 import { MeritsFlawsSection } from '../../components/character/MeritsFlawsSection';
+import { RotesSection } from '../../components/character/RotesSection';
 import { SaveStatusBadge } from '../../components/character/SaveStatusBadge';
 import { SpheresSection } from '../../components/character/SpheresSection';
+import { WondersSection } from '../../components/character/WondersSection';
 import { CharacterSectionProvider } from '../../components/navigation/CharacterSectionProvider';
 import { CharacterSectionNav } from '../../components/navigation/CharacterSectionNav';
 import { MobileSectionNavigator } from '../../components/navigation/MobileSectionNavigator';
@@ -143,7 +145,9 @@ function CharacterEditorContent({
             <MeritsFlawsSection />
             <SpheresSection />
             <EnlightenmentSection />
-            <DeferredSections />
+            <FocusSection />
+            <WondersSection />
+            <RotesSection />
             <HealthSection />
             <ImportExportSection
               character={character}

@@ -63,19 +63,67 @@ export interface SelectedMeritFlaw {
   addedAt: string;
 }
 
-export interface RoteEntry {
+export interface FocusSelection {
   id: string;
-  spheres: string;
+  definitionId?: string;
+  customName?: string;
+  notes: string;
+  addedAt: string;
+  unresolvedDefinitionName?: string;
+}
+
+export interface InstrumentSelection extends FocusSelection {
+  significant: boolean;
+}
+
+export interface FocusData {
+  paradigms: FocusSelection[];
+  practices: FocusSelection[];
+  instruments: InstrumentSelection[];
+  need: string;
+  culture: string;
+  notes: string;
+}
+
+export interface OwnedWonder {
+  id: string;
+  definitionId?: string;
+  name: string;
+  typeLabel: string;
+  rating: number | null;
+  powers: string;
+  notes: string;
+  addedAt: string;
+  unresolvedDefinitionName?: string;
+}
+
+export interface SphereRequirement {
+  sphereId: SphereId | 'data' | 'other';
+  minimum: number;
+  maximum?: number;
+  label?: string;
+}
+
+export interface KnownRote {
+  id: string;
+  definitionId?: string;
+  name: string;
+  sphereRequirements: SphereRequirement[];
+  requirementNotes: string;
   effect: string;
+  focusNotes: string;
+  notes: string;
+  addedAt: string;
+  unresolvedDefinitionName?: string;
 }
 
 export interface RepeatableEntries {
   backgrounds: SelectedBackground[];
   merits: SelectedMeritFlaw[];
   flaws: SelectedMeritFlaw[];
-  focus: string[];
-  wonders: string[];
-  rotes: RoteEntry[];
+  focus: FocusData;
+  wonders: OwnedWonder[];
+  rotes: KnownRote[];
 }
 
 export interface HealthState {

@@ -107,7 +107,7 @@ placing them in the default browsing experience without context.
 
 ## Catalog and editor behavior
 
-A future implementation should:
+The implemented section:
 
 - provide search and filters for family, type, source, and verification state;
 - allow a user to add a catalog Wonder or create a custom Wonder;

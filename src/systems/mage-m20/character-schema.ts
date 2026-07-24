@@ -6,7 +6,10 @@ import {
 } from './create-character';
 import { MAGE_SCHEMA_VERSION, MAGE_SYSTEM_ID, spheres } from './definitions';
 import { backgroundById, backgroundCatalog } from './reference/backgrounds';
+import { focusDefinitionsByKind, type FocusKind } from './reference/focus';
 import { meritFlawById, type MeritFlawKind } from './reference/merits-flaws';
+import { roteById } from './reference/rotes';
+import { wonderById } from './reference/wonders';
 
 const attributeRating = z.number().int().min(1).max(5);
 const fivePointRating = z.number().int().min(0).max(5);
@@ -96,6 +99,8 @@ const spheresSchema = z.object({
   spirit: fivePointRating,
   time: fivePointRating,
 });
+
+export const sphereIdSchema = z.enum(spheres.map(({ id }) => id));
 
 const legacyRatedBackgroundSchema = z.object({
   id: uuid,
@@ -225,7 +230,7 @@ const legacyRepeatableEntriesSchemaV4 = z.object({
   ),
 });
 
-const repeatableEntriesSchema = z
+const legacyRepeatableEntriesSchemaV5 = z
   .object({
     backgrounds: z.array(selectedBackgroundSchema),
     merits: z.array(selectedMeritFlawSchema('merit')),
@@ -292,6 +297,267 @@ const repeatableEntriesSchema = z
     }
   });
 
+const focusSelectionFields = {
+  id: uuid,
+  definitionId: z.string().min(1).optional(),
+  customName: z.string().optional(),
+  notes: z.string(),
+  addedAt: z.string().datetime(),
+  unresolvedDefinitionName: z.string().optional(),
+};
+
+function validateFocusSelection(
+  expectedKind: FocusKind,
+  selection: { definitionId?: string; customName?: string },
+  context: z.RefinementCtx,
+) {
+  if (!selection.definitionId && selection.customName === undefined) {
+    context.addIssue({
+      code: 'custom',
+      path: ['customName'],
+      message: 'A catalog definition or custom name is required.',
+    });
+  }
+  if (selection.definitionId && selection.customName) {
+    context.addIssue({
+      code: 'custom',
+      path: ['customName'],
+      message: 'Catalog selections must not also store a custom name.',
+    });
+  }
+  if (!selection.definitionId) {
+    return;
+  }
+  const expectedDefinition = focusDefinitionsByKind[expectedKind].get(
+    selection.definitionId,
+  );
+  if (expectedDefinition) {
+    return;
+  }
+  const belongsToAnotherKind = (
+    Object.entries(focusDefinitionsByKind) as Array<
+      [FocusKind, Map<string, { id: string }>]
+    >
+  ).some(
+    ([kind, definitions]) =>
+      kind !== expectedKind && definitions.has(selection.definitionId!),
+  );
+  if (belongsToAnotherKind) {
+    context.addIssue({
+      code: 'custom',
+      path: ['definitionId'],
+      message: `Definition is not a ${expectedKind}.`,
+    });
+  }
+}
+
+const paradigmSelectionSchema = z
+  .object(focusSelectionFields)
+  .superRefine((selection, context) =>
+    validateFocusSelection('paradigm', selection, context),
+  );
+const practiceSelectionSchema = z
+  .object(focusSelectionFields)
+  .superRefine((selection, context) =>
+    validateFocusSelection('practice', selection, context),
+  );
+const instrumentSelectionSchema = z
+  .object({ ...focusSelectionFields, significant: z.boolean() })
+  .superRefine((selection, context) =>
+    validateFocusSelection('instrument', selection, context),
+  );
+
+const focusDataSchema = z.object({
+  paradigms: z.array(paradigmSelectionSchema),
+  practices: z.array(practiceSelectionSchema),
+  instruments: z.array(instrumentSelectionSchema),
+  need: z.string(),
+  culture: z.string(),
+  notes: z.string(),
+});
+
+const ownedWonderSchema = z.object({
+  id: uuid,
+  definitionId: z.string().min(1).optional(),
+  name: z.string(),
+  typeLabel: z.string(),
+  rating: z.number().int().min(0).max(10).nullable(),
+  powers: z.string(),
+  notes: z.string(),
+  addedAt: z.string().datetime(),
+  unresolvedDefinitionName: z.string().optional(),
+});
+
+const sphereRequirementSchema = z
+  .object({
+    sphereId: z.union([sphereIdSchema, z.literal('data'), z.literal('other')]),
+    minimum: z.number().int().min(1).max(10),
+    maximum: z.number().int().min(1).max(10).optional(),
+    label: z.string().optional(),
+  })
+  .superRefine((requirement, context) => {
+    if (
+      requirement.maximum !== undefined &&
+      requirement.maximum < requirement.minimum
+    ) {
+      context.addIssue({
+        code: 'custom',
+        path: ['maximum'],
+        message: 'Maximum rank must not be below the minimum.',
+      });
+    }
+    if (requirement.sphereId === 'other' && !requirement.label?.trim()) {
+      context.addIssue({
+        code: 'custom',
+        path: ['label'],
+        message: 'Other requirements need a label.',
+      });
+    }
+  });
+
+const knownRoteSchema = z.object({
+  id: uuid,
+  definitionId: z.string().min(1).optional(),
+  name: z.string(),
+  sphereRequirements: z.array(sphereRequirementSchema),
+  requirementNotes: z.string(),
+  effect: z.string(),
+  focusNotes: z.string(),
+  notes: z.string(),
+  addedAt: z.string().datetime(),
+  unresolvedDefinitionName: z.string().optional(),
+});
+
+const repeatableEntriesSchema = z
+  .object({
+    backgrounds: z.array(selectedBackgroundSchema),
+    merits: z.array(selectedMeritFlawSchema('merit')),
+    flaws: z.array(selectedMeritFlawSchema('flaw')),
+    focus: focusDataSchema,
+    wonders: z.array(ownedWonderSchema),
+    rotes: z.array(knownRoteSchema),
+  })
+  .superRefine((entries, context) => {
+    const backgroundSelectionIds = new Set<string>();
+    const backgroundDefinitionIds = new Set<string>();
+    entries.backgrounds.forEach((selection, index) => {
+      if (backgroundSelectionIds.has(selection.id)) {
+        context.addIssue({
+          code: 'custom',
+          path: ['backgrounds', index, 'id'],
+          message: 'Background selection IDs must be unique.',
+        });
+      }
+      const definition = backgroundById.get(selection.definitionId);
+      if (
+        definition &&
+        !definition.canBeSelectedMultipleTimes &&
+        backgroundDefinitionIds.has(definition.id)
+      ) {
+        context.addIssue({
+          code: 'custom',
+          path: ['backgrounds', index, 'definitionId'],
+          message: 'This Background may only be selected once.',
+        });
+      }
+      backgroundSelectionIds.add(selection.id);
+      if (definition) {
+        backgroundDefinitionIds.add(definition.id);
+      }
+    });
+
+    const meritFlawSelectionIds = new Set<string>();
+    const meritFlawDefinitionIds = new Set<string>();
+    for (const [kind, selections] of [
+      ['merits', entries.merits],
+      ['flaws', entries.flaws],
+    ] as const) {
+      selections.forEach((selection, index) => {
+        if (meritFlawSelectionIds.has(selection.id)) {
+          context.addIssue({
+            code: 'custom',
+            path: [kind, index, 'id'],
+            message: 'Selection IDs must be unique.',
+          });
+        }
+        if (meritFlawDefinitionIds.has(selection.definitionId)) {
+          context.addIssue({
+            code: 'custom',
+            path: [kind, index, 'definitionId'],
+            message: 'A definition may only be selected once.',
+          });
+        }
+        meritFlawSelectionIds.add(selection.id);
+        meritFlawDefinitionIds.add(selection.definitionId);
+      });
+    }
+
+    const seenIds = new Set<string>();
+    const groups = [
+      ['focus.paradigms', entries.focus.paradigms],
+      ['focus.practices', entries.focus.practices],
+      ['focus.instruments', entries.focus.instruments],
+      ['wonders', entries.wonders],
+      ['rotes', entries.rotes],
+    ] as const;
+    for (const [path, selections] of groups) {
+      selections.forEach((selection, index) => {
+        if (seenIds.has(selection.id)) {
+          context.addIssue({
+            code: 'custom',
+            path: [...path.split('.'), index, 'id'],
+            message: 'Magick selection IDs must be unique.',
+          });
+        }
+        seenIds.add(selection.id);
+      });
+    }
+
+    const selectedFocusDefinitions = new Set<string>();
+    for (const [path, selections] of [
+      ['paradigms', entries.focus.paradigms],
+      ['practices', entries.focus.practices],
+      ['instruments', entries.focus.instruments],
+    ] as const) {
+      selections.forEach((selection, index) => {
+        if (!selection.definitionId) {
+          return;
+        }
+        if (selectedFocusDefinitions.has(selection.definitionId)) {
+          context.addIssue({
+            code: 'custom',
+            path: ['focus', path, index, 'definitionId'],
+            message: 'A Focus definition may only be selected once.',
+          });
+        }
+        selectedFocusDefinitions.add(selection.definitionId);
+      });
+    }
+
+    for (const [path, selections, definitions] of [
+      ['wonders', entries.wonders, wonderById],
+      ['rotes', entries.rotes, roteById],
+    ] as const) {
+      const selectedDefinitions = new Set<string>();
+      selections.forEach((selection, index) => {
+        if (
+          !selection.definitionId ||
+          !definitions.has(selection.definitionId)
+        ) {
+          return;
+        }
+        if (selectedDefinitions.has(selection.definitionId)) {
+          context.addIssue({
+            code: 'custom',
+            path: [path, index, 'definitionId'],
+            message: 'A catalog definition may only be selected once.',
+          });
+        }
+        selectedDefinitions.add(selection.definitionId);
+      });
+    }
+  });
+
 const healthSchema = z.object({
   damage: z.array(z.enum(['bashing', 'lethal', 'aggravated'])).max(7),
 });
@@ -313,12 +579,15 @@ const commonFields = {
   repeatableEntries: repeatableEntriesSchema,
 };
 
+const versionFiveCommonFields = {
+  ...legacyCommonFields,
+  repeatableEntries: legacyRepeatableEntriesSchemaV5,
+};
+
 const versionFourCommonFields = {
   ...legacyCommonFields,
   repeatableEntries: legacyRepeatableEntriesSchemaV4,
 };
-
-export const sphereIdSchema = z.enum(spheres.map(({ id }) => id));
 
 export const legacyMageCharacterSchemaV1 = z.object({
   ...legacyCommonFields,
@@ -356,6 +625,20 @@ export const legacyMageCharacterSchemaV3 = z.object({
 export const legacyMageCharacterSchemaV4 = z.object({
   ...versionFourCommonFields,
   schemaVersion: z.literal(4),
+  abilities: abilitiesSchema,
+  enlightenment: z.object({
+    arete: tenPointRating.min(1),
+    willpower: tenPointRating.min(1),
+    willpowerTemporary: tenPointRating,
+    quintessence: tenPointRating,
+    paradox: tenPointRating,
+  }),
+  affinitySphere: sphereIdSchema.nullable(),
+});
+
+export const legacyMageCharacterSchemaV5 = z.object({
+  ...versionFiveCommonFields,
+  schemaVersion: z.literal(5),
   abilities: abilitiesSchema,
   enlightenment: z.object({
     arete: tenPointRating.min(1),
@@ -442,10 +725,64 @@ function migrateLegacyBackgrounds(
   });
 }
 
+function migrateLegacyMagick(
+  entries: {
+    focus: string[];
+    wonders: string[];
+    rotes: Array<{ id: string; spheres: string; effect: string }>;
+  },
+  addedAt: string,
+) {
+  return {
+    focus: {
+      paradigms: [],
+      practices: [],
+      instruments: [],
+      need: '',
+      culture: '',
+      notes: entries.focus.filter(Boolean).join('\n'),
+    },
+    wonders: entries.wonders.map((name) => ({
+      id: crypto.randomUUID(),
+      name,
+      typeLabel: '',
+      rating: null,
+      powers: '',
+      notes: '',
+      addedAt,
+    })),
+    rotes: entries.rotes.map((rote) => ({
+      id: rote.id,
+      name: '',
+      sphereRequirements: [],
+      requirementNotes: rote.spheres,
+      effect: rote.effect,
+      focusNotes: '',
+      notes: '',
+      addedAt,
+    })),
+  };
+}
+
 export function migrateMageCharacter(input: unknown) {
   const current = mageCharacterSchema.safeParse(input);
   if (current.success) {
     return current.data;
+  }
+
+  const versionFive = legacyMageCharacterSchemaV5.safeParse(input);
+  if (versionFive.success) {
+    return mageCharacterSchema.parse({
+      ...versionFive.data,
+      schemaVersion: MAGE_SCHEMA_VERSION,
+      repeatableEntries: {
+        ...versionFive.data.repeatableEntries,
+        ...migrateLegacyMagick(
+          versionFive.data.repeatableEntries,
+          versionFive.data.createdAt,
+        ),
+      },
+    });
   }
 
   const versionFour = legacyMageCharacterSchemaV4.safeParse(input);
@@ -457,6 +794,10 @@ export function migrateMageCharacter(input: unknown) {
         ...versionFour.data.repeatableEntries,
         backgrounds: migrateLegacyBackgrounds(
           versionFour.data.repeatableEntries.backgrounds,
+          versionFour.data.createdAt,
+        ),
+        ...migrateLegacyMagick(
+          versionFour.data.repeatableEntries,
           versionFour.data.createdAt,
         ),
       },
@@ -476,6 +817,10 @@ export function migrateMageCharacter(input: unknown) {
         ),
         merits: [],
         flaws: [],
+        ...migrateLegacyMagick(
+          versionThree.data.repeatableEntries,
+          versionThree.data.createdAt,
+        ),
       },
     });
   }
@@ -497,6 +842,10 @@ export function migrateMageCharacter(input: unknown) {
         ),
         merits: [],
         flaws: [],
+        ...migrateLegacyMagick(
+          versionTwo.data.repeatableEntries,
+          versionTwo.data.createdAt,
+        ),
       },
     });
   }
@@ -519,6 +868,10 @@ export function migrateMageCharacter(input: unknown) {
       ),
       merits: [],
       flaws: [],
+      ...migrateLegacyMagick(
+        legacy.data.repeatableEntries,
+        legacy.data.createdAt,
+      ),
     },
   });
 }

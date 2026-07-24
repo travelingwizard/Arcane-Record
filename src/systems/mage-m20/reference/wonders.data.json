@@ -1,0 +1,372 @@
+[
+  {
+    "id": "antaratma",
+    "name": "Antaratma",
+    "family": "mystic",
+    "typeLabel": "Talisman",
+    "summary": "A mentor's message in the form of a tattoo, object, or app that reminds a student of a sacred commitment.",
+    "citation": "Lore of the Traditions, pp. 98, 50",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "bafflejack",
+    "name": "Bafflejack",
+    "family": "mystic",
+    "typeLabel": "Talisman",
+    "summary": "A wearable garment that makes the wearer difficult to notice or remember.",
+    "citation": "Mage 20, p. 653",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "beads-on-a-string",
+    "name": "Beads on a String",
+    "family": "mystic",
+    "typeLabel": "Talisman Effect",
+    "summary": "An enchantment intended to return a Wonder to its owner in a later incarnation.",
+    "citation": "Enlightened Grimoire, pp. 88, 6",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "bulletproof-hoodie",
+    "name": "Bulletproof Hoodie",
+    "family": "mystic",
+    "typeLabel": "Trinket",
+    "summary": "Mundane-looking clothing with ongoing protection against projectiles.",
+    "citation": "Mage 20, p. 654",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "candle-of-communion",
+    "name": "Candle of Communion",
+    "family": "mystic",
+    "typeLabel": "",
+    "summary": "A Verbena Wonder used for spiritual communication.",
+    "citation": "Lore of the Traditions, p. 146",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "dragon-pearls",
+    "name": "Dragon Pearls",
+    "family": "mystic",
+    "typeLabel": "",
+    "summary": "Potent mystic objects associated with the Akashic Brotherhood.",
+    "citation": "Lore of the Traditions, p. 35",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "game-of-senet",
+    "name": "Game of Senet",
+    "family": "mystic",
+    "typeLabel": "",
+    "summary": "A Hermetic Wonder based on the ancient Egyptian board game.",
+    "citation": "Lore of the Traditions, p. 115",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "ginger-dragons",
+    "name": "Ginger Dragons",
+    "family": "mystic",
+    "typeLabel": "Charms",
+    "summary": "One-use mystic items, often prepared in batches, that provide a short-lived power.",
+    "citation": "Book of Secrets, pp. 162, 64",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "grand-book-of-shadows",
+    "name": "Grand Book of Shadows",
+    "family": "mystic",
+    "typeLabel": "Grimoire",
+    "summary": "A coven's tome used for research and the protection of sacred spaces.",
+    "citation": "Lore of the Traditions, pp. 146, 54-55",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "imphepho-wierook",
+    "name": "Imphepho Wierook",
+    "family": "mystic",
+    "typeLabel": "",
+    "summary": "Ritually prepared incense used for divination and summoning.",
+    "citation": "Lore of the Traditions, p. 115",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "kismet-bindi",
+    "name": "Kismet Bindi",
+    "family": "mystic",
+    "typeLabel": "Periapt",
+    "summary": "A mystic source that stores and channels Quintessence.",
+    "citation": "Book of Secrets, pp. 159, 64, 218",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "kitab-al-alacir",
+    "name": "Kitab al-Alacir",
+    "family": "mystic",
+    "typeLabel": "",
+    "summary": "A legendary work associated with the Sons of Ether.",
+    "citation": "Lore of the Traditions, p. 131",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "mama-cybeles-tea-collection",
+    "name": "Mama Cybele's Tea Collection",
+    "family": "mystic",
+    "typeLabel": "",
+    "summary": "A collection of prepared teas with effects ranging from comfort and healing to vengeance.",
+    "citation": "Lore of the Traditions, pp. 146, 53",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "oracle-the-essence",
+    "name": "Oracle: The Essence",
+    "family": "mystic",
+    "typeLabel": "Trinket / Primer",
+    "summary": "An object intended to encourage Awakening or spiritual insight.",
+    "citation": "Book of Secrets, pp. 163, 64, 218",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "trushades",
+    "name": "Trushades",
+    "family": "mystic",
+    "typeLabel": "Trinket",
+    "summary": "Eyewear with enhanced perception, including the ability to reveal normally hidden things.",
+    "citation": "Mage 20, p. 653; Book of Secrets, pp. 149, 84",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "waidan-ding",
+    "name": "Waidan Ding",
+    "family": "mystic",
+    "typeLabel": "",
+    "summary": "A powerful Hermetic Wonder.",
+    "citation": "Lore of the Traditions, p. 115",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "wolf-paw-amulet",
+    "name": "Wolf-Paw Amulet",
+    "family": "mystic",
+    "typeLabel": "Talisman",
+    "summary": "A sophisticated item with animalistic or protective properties.",
+    "citation": "Book of Secrets, pp. 163, 64, 218",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "alanson-hardsuit",
+    "name": "Alanson Hardsuit",
+    "family": "technocratic",
+    "typeLabel": "Device",
+    "summary": "Powered armor used by Technocratic operatives.",
+    "citation": "Mage 20, p. 656",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "bond-fine-tobacco-products",
+    "name": "Bond Fine Tobacco Products",
+    "family": "technocratic",
+    "typeLabel": "Gadgets",
+    "summary": "Cigarettes intended to relax people and encourage disclosure.",
+    "citation": "Book of Secrets, pp. 159, 63, 124",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "dumerang-blade",
+    "name": "Dümerang Blade",
+    "family": "technocratic",
+    "typeLabel": "Device",
+    "summary": "An unbreakable alloy blade that returns when thrown or dropped.",
+    "citation": "Lore of the Traditions, pp. 130, 47, 52",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "ectoplasmic-disruption-rounds",
+    "name": "Ectoplasmic Disruption Rounds",
+    "family": "technocratic",
+    "typeLabel": "Gadgets",
+    "summary": "One-use ammunition intended for ghosts and ephemeral entities.",
+    "citation": "Book of Secrets, pp. 162, 64, 218",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "energy-drinks",
+    "name": "Energy Drinks",
+    "family": "technocratic",
+    "typeLabel": "Gadgets",
+    "summary": "Technological elixirs that provide temporary physical or mental boosts.",
+    "citation": "Book of Secrets, pp. 162, 64, 218",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "falconi-attire",
+    "name": "Falconi Attire",
+    "family": "technocratic",
+    "typeLabel": "Device",
+    "summary": "Enhanced clothing for field operations.",
+    "citation": "Mage 20, p. 655",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "kimodas-thundergloves",
+    "name": "Kimoda's Thundergloves",
+    "family": "technocratic",
+    "typeLabel": "Device",
+    "summary": "Gloves that produce powerful electrical or kinetic strikes.",
+    "citation": "Mage 20, pp. 661-662",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "madness-grenade",
+    "name": "Madness Grenade",
+    "family": "technocratic",
+    "typeLabel": "Gadget",
+    "summary": "A one-use device that induces psychological instability or Quiet.",
+    "citation": "Mage 20, p. 662",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "rebooter",
+    "name": "Rebooter",
+    "family": "technocratic",
+    "typeLabel": "Device",
+    "summary": "A weird-science tool described as resetting localized areas or biological states.",
+    "citation": "Mage 20, pp. 662-663",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "rod-logic-computer",
+    "name": "Rod Logic Computer",
+    "family": "technocratic",
+    "typeLabel": "Device",
+    "summary": "A mechanical hypertech computer resistant to ordinary electronic warfare.",
+    "citation": "Lore of the Traditions, p. 161",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "specm",
+    "name": "SPECM",
+    "family": "technocratic",
+    "typeLabel": "Matrix",
+    "summary": "A Standardized Primal Energy Containment Matrix used to store Quintessence.",
+    "citation": "Book of Secrets, pp. 165, 64, 218",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "last-caern",
+    "name": "The Last Caern",
+    "family": "technocratic",
+    "typeLabel": "Device",
+    "summary": "A sophisticated Sons of Ether device.",
+    "citation": "Lore of the Traditions, p. 131",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "vdas",
+    "name": "VDAS",
+    "family": "technocratic",
+    "typeLabel": "Device",
+    "summary": "A Virtual Data Access System for Digital Web interaction and large-scale data processing.",
+    "citation": "Mage 20, pp. 655-656",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "fido",
+    "name": "FIDO",
+    "family": "malign",
+    "typeLabel": "Device",
+    "summary": "A collar intended to compel obedience.",
+    "citation": "Book of the Fallen, pp. 173, 181",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "gallus-lash",
+    "name": "Gallu's Lash",
+    "family": "malign",
+    "typeLabel": "Talisman",
+    "summary": "A weapon described as harming life force and transferring Quintessence.",
+    "citation": "Book of the Fallen, p. 173",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "malign-cutlery",
+    "name": "Malign Cutlery",
+    "family": "malign",
+    "typeLabel": "",
+    "summary": "Oversized axes and swords that defy ordinary physics.",
+    "citation": "Book of the Fallen, p. 171",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "portable-hellgate",
+    "name": "Portable Hellgate",
+    "family": "malign",
+    "typeLabel": "Device",
+    "summary": "A device for creating temporary openings to Infernal realms.",
+    "citation": "Book of the Fallen, p. 174",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "catcher-snatcher",
+    "name": "The Catcher-Snatcher",
+    "family": "malign",
+    "typeLabel": "Vehicle",
+    "summary": "A specialized vehicle used to capture and transport victims.",
+    "citation": "Book of the Fallen, p. 170",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "riotizer",
+    "name": "The Riotizer",
+    "family": "malign",
+    "typeLabel": "Device",
+    "summary": "A single-Effect weapon intended to provoke violence and hatred in a crowd.",
+    "citation": "Book of the Fallen, pp. 172, 151, 181",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "six-seals-of-ganzir",
+    "name": "The Six Seals of Ganzir",
+    "family": "malign",
+    "typeLabel": "Grimoire",
+    "summary": "A text describing rituals for summoning and binding six demons.",
+    "citation": "Book of the Fallen, pp. 167, 150, 180",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  }
+]

@@ -40,14 +40,27 @@ Visible labels are presentation only. Persistent keys are stable IDs.
 
 `repeatableEntries.backgrounds[]` stores `id`, `definitionId`, `displayName`, `rating`, `notes`, `addedAt`, `pooled`, and an optional `unresolvedDefinitionName`. Definition IDs refer to `src/systems/mage-m20/reference/backgrounds.data.json`; descriptions, restrictions, multipliers, and citations remain in reference data.
 
-## Deferred fields
+## Focus
 
-The current model reserves `repeatableEntries.focus`,
-`repeatableEntries.wonders`, and `repeatableEntries.rotes` for legacy
-compatibility, but these placeholder shapes are not the final domain model.
-They are not exposed as fake completed features in this milestone.
+`repeatableEntries.focus` stores `paradigms[]`, `practices[]`,
+`instruments[]`, `need`, `culture`, and `notes`. Selections use independent
+UUIDs, optional stable definition IDs or custom names, notes, timestamps, and
+optional unresolved names. Instruments additionally store `significant`.
 
-The proposed character-owned records, reference-catalog boundary, migration
-strategy, and delivery order are documented in
+## Wonders
+
+`repeatableEntries.wonders[]` stores an owned selection UUID, optional
+definition ID, character name, type label, nullable integer rating, powers,
+notes, timestamp, and optional unresolved definition name.
+
+## Rotes
+
+`repeatableEntries.rotes[]` stores an owned selection UUID, optional definition
+ID, character name, structured Sphere requirements, free-form requirement
+notes, Effect, Focus notes, character notes, timestamp, and optional unresolved
+definition name. Structured requirements preserve minimums, optional maximums,
+Data, and explicitly labeled other requirements.
+
+Reference-catalog architecture, migration decisions, and the content-review
+boundary are documented in
 [13. Focus, Wonders, and Rotes implementation plan](13-magick-sections-plan.md).
-Source research is organized under `docs/references/mage-m20/`.

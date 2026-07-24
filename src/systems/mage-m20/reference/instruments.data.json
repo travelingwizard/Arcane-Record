@@ -1,0 +1,659 @@
+[
+  {
+    "id": "armor",
+    "name": "Armor",
+    "family": "common",
+    "summary": "Protective clothing, enchanted plate, hypertech fabric, or powered suits.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "artwork",
+    "name": "Artwork",
+    "family": "common",
+    "summary": "Painting, sculpture, illustration, or design used to embody an intention.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "blessings-and-curses",
+    "name": "Blessings and curses",
+    "family": "common",
+    "summary": "Formal declarations of favor or misfortune.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "blood-and-fluids",
+    "name": "Blood and fluids",
+    "family": "common",
+    "summary": "Biological or sacrificial fluids used as catalysts.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "bodywork",
+    "name": "Bodywork",
+    "family": "common",
+    "summary": "Massage, acupuncture, katas, and other physical manipulation.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "bones-and-remains",
+    "name": "Bones and remains",
+    "family": "common",
+    "summary": "Material from once-living beings.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "books-and-periodicals",
+    "name": "Books and periodicals",
+    "family": "common",
+    "summary": "Scriptures, manuals, grimoires, or scientific texts.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "brain-computer-interface",
+    "name": "Brain/computer interface",
+    "family": "common",
+    "summary": "Direct connections between consciousness and machines.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "brews-and-concoctions",
+    "name": "Brews and concoctions",
+    "family": "common",
+    "summary": "Potions, elixirs, chemical compounds, and prepared mixtures.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "cards-and-chance",
+    "name": "Cards and instruments of chance",
+    "family": "common",
+    "summary": "Tarot, dice, lots, or other randomizing and divinatory tools.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "celestial-alignments",
+    "name": "Celestial alignments",
+    "family": "common",
+    "summary": "Timing work to astronomical events and positions.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "circles-and-designs",
+    "name": "Circles and designs",
+    "family": "common",
+    "summary": "Mandalas, pentacles, wards, and marked ritual boundaries.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "computer-gear",
+    "name": "Computer gear",
+    "family": "common",
+    "summary": "Hardware and software used for information work or reality hacking.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "crossroads-and-crossing-days",
+    "name": "Crossroads and crossing-days",
+    "family": "common",
+    "summary": "Symbolic locations and dates of transition.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "cups-and-vessels",
+    "name": "Cups and vessels",
+    "family": "common",
+    "summary": "Receptacles used for containment, brewing, or ritual sharing.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "dances-and-movement",
+    "name": "Dances and movement",
+    "family": "common",
+    "summary": "Rhythmic movement, gesture, and disciplined forms.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "devices-and-machines",
+    "name": "Devices and machines",
+    "family": "common",
+    "summary": "Complex apparatuses used to channel Enlightenment.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "drugs-and-poisons",
+    "name": "Drugs and poisons",
+    "family": "common",
+    "summary": "Substances used to alter perception, physiology, or circumstance.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "elements",
+    "name": "Elements",
+    "family": "common",
+    "summary": "Earth, air, fire, water, and other foundational materials.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "energy",
+    "name": "Energy",
+    "family": "common",
+    "summary": "Electricity, light, chi, and related forces.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "eye-contact",
+    "name": "Eye Contact",
+    "family": "common",
+    "summary": "Intentional glances used for connection, influence, or domination.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "fashion",
+    "name": "Fashion",
+    "family": "common",
+    "summary": "Clothing and cosmetics used as symbolic or social instruments.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "food-and-drink",
+    "name": "Food and drink",
+    "family": "common",
+    "summary": "Sacred meals, fasting, preparation, and nourishment.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "formulae-and-math",
+    "name": "Formulae and math",
+    "family": "common",
+    "summary": "Equations, calculations, and formal models.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "gadgets-and-inventions",
+    "name": "Gadgets and inventions",
+    "family": "common",
+    "summary": "Experimental or one-use prototype tools.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "gems-and-stones",
+    "name": "Gems and stones",
+    "family": "common",
+    "summary": "Minerals used for resonance, symbolism, or containment.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "group-rites",
+    "name": "Group rites",
+    "family": "common",
+    "summary": "Coordinated ceremonies that combine participants' focus.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "herbs-and-plants",
+    "name": "Herbs and plants",
+    "family": "common",
+    "summary": "Botanical materials used for medicine, divination, or offerings.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "household-tools",
+    "name": "Household tools",
+    "family": "common",
+    "summary": "Ordinary implements used in symbolic or ritual work.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "knots-and-ropes",
+    "name": "Knots and ropes",
+    "family": "common",
+    "summary": "Cords used to bind, store, or represent intentions.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "labs-and-gear",
+    "name": "Labs and gear",
+    "family": "common",
+    "summary": "Scientific, medical, or alchemical workspaces and equipment.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "languages",
+    "name": "Languages",
+    "family": "common",
+    "summary": "Specialized spoken or written languages used as vectors for Will.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "management-and-hr",
+    "name": "Management and HR",
+    "family": "common",
+    "summary": "Organizational systems, bureaucracy, and institutional authority.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "mass-media",
+    "name": "Mass media",
+    "family": "common",
+    "summary": "Broadcast and network media used to influence the Consensus.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "meditation",
+    "name": "Meditation",
+    "family": "common",
+    "summary": "Focused contemplation and internal discipline.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "money-and-wealth",
+    "name": "Money and wealth",
+    "family": "common",
+    "summary": "Currency, assets, and the symbolic force of capital.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "music",
+    "name": "Music",
+    "family": "common",
+    "summary": "Sound, rhythm, composition, and performance.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "nanotech",
+    "name": "Nanotech",
+    "family": "common",
+    "summary": "Minute machines used for fine material intervention.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "numbers-and-numerology",
+    "name": "Numbers and numerology",
+    "family": "common",
+    "summary": "Numerical patterns used to reveal or impose order.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "offerings-and-sacrifices",
+    "name": "Offerings and sacrifices",
+    "family": "common",
+    "summary": "Items, effort, or life surrendered to empower an Effect.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "ordeals-and-exertions",
+    "name": "Ordeals and exertions",
+    "family": "common",
+    "summary": "Exhaustion, suffering, and difficult discipline.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "prayers-and-invocations",
+    "name": "Prayers and invocations",
+    "family": "common",
+    "summary": "Appeals or commands directed toward higher powers.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "sacred-iconography",
+    "name": "Sacred iconography",
+    "family": "common",
+    "summary": "Statues, icons, runes, and culturally meaningful images.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "sex-and-sensuality",
+    "name": "Sex and sensuality",
+    "family": "common",
+    "summary": "Sensation, arousal, and union used as ritual energy.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "social-domination",
+    "name": "Social domination",
+    "family": "common",
+    "summary": "Authority, charisma, and control exerted over others.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "symbols",
+    "name": "Symbols",
+    "family": "common",
+    "summary": "Sigils and other signs invested with meaning.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "thought-forms",
+    "name": "Thought-forms",
+    "family": "common",
+    "summary": "Mental constructs or egregores sustained by belief.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "toys",
+    "name": "Toys",
+    "family": "common",
+    "summary": "Play objects used symbolically or to misdirect expectations.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "tricks-and-illusions",
+    "name": "Tricks and illusions",
+    "family": "common",
+    "summary": "Performance magic and deception used to frame Effects.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "true-names",
+    "name": "True Names",
+    "family": "common",
+    "summary": "Essential or hidden names used to establish power over a subject.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "vehicles",
+    "name": "Vehicles",
+    "family": "common",
+    "summary": "Modified or symbolically important means of transportation.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "voice-and-vocalizations",
+    "name": "Voice and vocalizations",
+    "family": "common",
+    "summary": "Speech, song, chants, mantras, and intentional sound.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "wands-and-staves",
+    "name": "Wands and staves",
+    "family": "common",
+    "summary": "Implements used to direct energy or attention.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "weapons",
+    "name": "Weapons",
+    "family": "common",
+    "summary": "Implements of violence used to focus destructive intention.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "writings-inscriptions-runes",
+    "name": "Writings, inscriptions and runes",
+    "family": "common",
+    "summary": "Text and marks used to preserve or project intention.",
+    "citation": "Mage 20, pp. 588-600",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "body-modification",
+    "name": "Body Modification",
+    "family": "expanded",
+    "summary": "Tattoos, piercings, branding, or other intentional alteration.",
+    "citation": "Book of Secrets, pp. 205-209",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "cannibalism",
+    "name": "Cannibalism",
+    "family": "expanded",
+    "summary": "Consumption of sentient flesh as a claimed means of taking essence.",
+    "citation": "Book of Secrets, pp. 205-209",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "cybernetic-implants",
+    "name": "Cybernetic Implants",
+    "family": "expanded",
+    "summary": "Mechanical devices integrated into the body.",
+    "citation": "Book of Secrets, pp. 205-209",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "genetic-manipulation",
+    "name": "Genetic Manipulation",
+    "family": "expanded",
+    "summary": "DNA modification and biotech procedures.",
+    "citation": "Book of Secrets, pp. 205-209",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "internet-activity",
+    "name": "Internet Activity",
+    "family": "expanded",
+    "summary": "Coding, social media, and other online interaction.",
+    "citation": "Book of Secrets, pp. 205-209",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "medical-procedures",
+    "name": "Medical Procedures",
+    "family": "expanded",
+    "summary": "Surgery, hypnotherapy, chemistry, and related treatment.",
+    "citation": "Book of Secrets, pp. 205-209",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "transgression",
+    "name": "Transgression",
+    "family": "expanded",
+    "summary": "Violation of a social, moral, or legal boundary to generate power.",
+    "citation": "Book of Secrets, pp. 205-209",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "qi-tools",
+    "name": "Qì tools",
+    "family": "tradition-specific",
+    "summary": "Needles, brushes, and other tools for manipulating energy.",
+    "citation": "Lore of the Traditions; page not supplied",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "mantras",
+    "name": "Mantras",
+    "family": "tradition-specific",
+    "summary": "Chanted sounds treated as points or patterns of energy.",
+    "citation": "Lore of the Traditions; page not supplied",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "memories",
+    "name": "Memories",
+    "family": "tradition-specific",
+    "summary": "Experiences from prior incarnations used as instruments.",
+    "citation": "Lore of the Traditions; page not supplied",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "entheogens",
+    "name": "Entheogens",
+    "family": "tradition-specific",
+    "summary": "Ritualized substances used for ecstatic or spiritual insight.",
+    "citation": "Lore of the Traditions; page not supplied",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "sigils",
+    "name": "Sigils",
+    "family": "tradition-specific",
+    "summary": "Individual graphic symbols used as focal points.",
+    "citation": "Lore of the Traditions; page not supplied",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "atrocity",
+    "name": "Atrocity",
+    "family": "fallen",
+    "summary": "Deliberate acts of horror or sacrilege.",
+    "citation": "Book of the Fallen, pp. 146-150",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "perversion",
+    "name": "Perversion",
+    "family": "fallen",
+    "summary": "Distortion of healthy or natural functions for harmful ends.",
+    "citation": "Book of the Fallen, pp. 146-150",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "mutilation",
+    "name": "Mutilation",
+    "family": "fallen",
+    "summary": "Biological desecration used to channel power.",
+    "citation": "Book of the Fallen, pp. 146-150",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "torment",
+    "name": "Torment",
+    "family": "fallen",
+    "summary": "Systematic infliction of physical or mental agony.",
+    "citation": "Book of the Fallen, pp. 146-150",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "trolling-and-cyberbullying",
+    "name": "Trolling and Cyberbullying",
+    "family": "fallen",
+    "summary": "Online cruelty used as an entropic instrument.",
+    "citation": "Book of the Fallen, pp. 146-150",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "violation",
+    "name": "Violation",
+    "family": "fallen",
+    "summary": "Non-consensual force used to shatter another person's Will.",
+    "citation": "Book of the Fallen, pp. 146-150",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  }
+]

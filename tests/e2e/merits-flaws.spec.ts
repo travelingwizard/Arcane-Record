@@ -35,7 +35,7 @@ test('selects, persists, edits, removes, and restores Merits and Flaws', async (
   await expect(
     page.getByText('Merits 3 · Flaws 0/7 · Net 3', { exact: true }),
   ).toBeVisible();
-  await page.getByRole('button', { name: 'Add' }).click();
+  await page.getByRole('button', { name: 'Add', exact: true }).click();
 
   await search.fill('Addiction');
   const addictionResult = page.locator('.catalog-card', {

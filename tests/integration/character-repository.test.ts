@@ -4,6 +4,16 @@ import { createBlankMageCharacter } from '../../src/systems/mage-m20/create-char
 import { DexieCharacterRepository } from '../../src/storage/dexie-character-repository';
 import { MageDatabase } from '../../src/storage/mage-database';
 
+function useLegacyMagickShape(character: Record<string, unknown>) {
+  const repeatableEntries = character.repeatableEntries as Record<
+    string,
+    unknown
+  >;
+  repeatableEntries.focus = [];
+  repeatableEntries.wonders = [];
+  repeatableEntries.rotes = [];
+}
+
 describe('DexieCharacterRepository', () => {
   let database: MageDatabase;
   let repository: DexieCharacterRepository;
@@ -78,6 +88,7 @@ describe('DexieCharacterRepository', () => {
     legacy.schemaVersion = 1;
     delete legacy.abilities;
     delete legacy.enlightenment;
+    useLegacyMagickShape(legacy);
 
     await legacyDatabase.table('characters').add(legacy);
     legacyDatabase.close();
@@ -86,7 +97,7 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(5);
+    expect(migrated?.schemaVersion).toBe(6);
     expect(migrated?.abilities.talents.alertness).toBe(0);
     expect(migrated?.enlightenment).toEqual({
       arete: 1,
@@ -118,6 +129,7 @@ describe('DexieCharacterRepository', () => {
         willpowerTemporary?: number;
       }
     ).willpowerTemporary;
+    useLegacyMagickShape(legacy);
 
     await legacyDatabase.table('characters').add(legacy);
     legacyDatabase.close();
@@ -126,7 +138,7 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(5);
+    expect(migrated?.schemaVersion).toBe(6);
     expect(migrated?.enlightenment.willpower).toBe(7);
     expect(migrated?.enlightenment.willpowerTemporary).toBe(7);
   });
@@ -145,6 +157,7 @@ describe('DexieCharacterRepository', () => {
       unknown
     >;
     legacy.schemaVersion = 3;
+    useLegacyMagickShape(legacy);
     legacy.repeatableEntries = {
       ...(legacy.repeatableEntries as Record<string, unknown>),
       merits: [],
@@ -157,7 +170,7 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(5);
+    expect(migrated?.schemaVersion).toBe(6);
     expect(migrated?.repeatableEntries.merits).toEqual([]);
     expect(migrated?.repeatableEntries.flaws).toEqual([]);
   });
@@ -210,6 +223,7 @@ describe('DexieCharacterRepository', () => {
       unknown
     >;
     legacy.schemaVersion = 4;
+    useLegacyMagickShape(legacy);
     (
       legacy.repeatableEntries as {
         backgrounds: unknown[];
@@ -226,7 +240,7 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(5);
+    expect(migrated?.schemaVersion).toBe(6);
     expect(migrated?.repeatableEntries.backgrounds).toEqual([
       {
         id: resourceId,
@@ -248,6 +262,51 @@ describe('DexieCharacterRepository', () => {
         unresolvedDefinitionName: 'Old Contact Network',
       },
     ]);
+  });
+
+  it('migrates schema-version-five Magick placeholders without losing text', async () => {
+    await database.delete();
+    const databaseName = `arcane-ledger-migration-${crypto.randomUUID()}`;
+    const legacyDatabase = new Dexie(databaseName);
+    legacyDatabase.version(5).stores({
+      characters: 'id, systemId, updatedAt, createdAt',
+    });
+
+    const current = createBlankMageCharacter();
+    const roteId = crypto.randomUUID();
+    const legacy = structuredClone(current) as unknown as Record<
+      string,
+      unknown
+    >;
+    legacy.schemaVersion = 5;
+    const repeatableEntries = legacy.repeatableEntries as Record<
+      string,
+      unknown
+    >;
+    repeatableEntries.focus = ['Reality is a story'];
+    repeatableEntries.wonders = ['Copper Compass'];
+    repeatableEntries.rotes = [
+      { id: roteId, spheres: 'Correspondence 2', effect: 'Finds the path' },
+    ];
+
+    await legacyDatabase.table('characters').add(legacy);
+    legacyDatabase.close();
+
+    database = new MageDatabase(databaseName);
+    repository = new DexieCharacterRepository(database);
+    const migrated = await repository.get(current.id);
+
+    expect(migrated?.schemaVersion).toBe(6);
+    expect(migrated?.repeatableEntries.focus.notes).toBe('Reality is a story');
+    expect(migrated?.repeatableEntries.wonders[0]).toMatchObject({
+      name: 'Copper Compass',
+      rating: null,
+    });
+    expect(migrated?.repeatableEntries.rotes[0]).toMatchObject({
+      id: roteId,
+      requirementNotes: 'Correspondence 2',
+      effect: 'Finds the path',
+    });
   });
 
   it('saves and reopens selected Background details', async () => {

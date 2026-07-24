@@ -1,0 +1,602 @@
+[
+  {
+    "id": "108-plum-blossoms",
+    "name": "108 Plum Blossoms",
+    "family": "mystic",
+    "requirements": "",
+    "summary": "A martial-arts Rote used for focus and balance.",
+    "citation": "Lore of the Traditions, p. 60; Enlightened Grimoire, p. 203",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "adders-tongue",
+    "name": "Adder's Tongue",
+    "family": "mystic",
+    "requirements": "Mind 2",
+    "summary": "Understands the speech of animals within earshot.",
+    "citation": "Enlightened Grimoire, pp. 105, 87",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "animal-form",
+    "name": "Animal Form",
+    "family": "mystic",
+    "requirements": "Life 5",
+    "summary": "Transforms a human into an animal or an animal into a human.",
+    "citation": "Enlightened Grimoire, pp. 171, 146",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "animal-riding",
+    "name": "Animal Riding",
+    "family": "mystic",
+    "requirements": "Mind 3",
+    "summary": "Shares an animal's perceptions from within its mind.",
+    "citation": "Enlightened Grimoire, pp. 188, 158",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "animal-shift",
+    "name": "Animal Shift",
+    "family": "mystic",
+    "requirements": "Life 4",
+    "summary": "Shifts the mage's own form into an animal.",
+    "citation": "Enlightened Grimoire, pp. 171, 146",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "antiquing",
+    "name": "Antiquing",
+    "family": "mystic",
+    "requirements": "Entropy 2, Matter 4, Prime 2",
+    "summary": "Restores broken or discarded objects to working order.",
+    "citation": "Enlightened Grimoire, pp. 90, 73",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "aphrodites-blessing",
+    "name": "Aphrodite's Blessing",
+    "family": "mystic",
+    "requirements": "Life 2",
+    "summary": "Repairs minor environmental harm without removing sensation.",
+    "citation": "Enlightened Grimoire, pp. 73, 59",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "arrest-flight-of-arrows",
+    "name": "Arrest the Flight of Arrows",
+    "family": "mystic",
+    "requirements": "Forces 2",
+    "summary": "Removes kinetic energy from missile attacks.",
+    "citation": "Enlightened Grimoire, pp. 57, 51; Lore of the Traditions, p. 64",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "auric-trail",
+    "name": "Auric Trail",
+    "family": "mystic",
+    "requirements": "Correspondence 1-2, Prime 1, Spirit 1-2",
+    "summary": "Tracks a mage or spirit by Resonance across Earth or the Umbra.",
+    "citation": "Enlightened Grimoire, pp. 33, 28",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "blood-for-the-ghosts",
+    "name": "Blood for the Ghosts",
+    "family": "mystic",
+    "requirements": "Entropy 2, Prime 2, Spirit 2",
+    "summary": "Uses sacrifice to summon and compel ghosts or orisha for information.",
+    "citation": "Lore of the Traditions, pp. 97, 215; Enlightened Grimoire, pp. 131, 48",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "book-of-whispers",
+    "name": "Book of Whispers",
+    "family": "mystic",
+    "requirements": "Mind 2, Matter 3, Time 3",
+    "summary": "Binds a blank book to a target so it records surface thoughts.",
+    "citation": "Enlightened Grimoire, pp. 25, 19",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "bullet-catch",
+    "name": "The Bullet-Catch",
+    "family": "mystic",
+    "requirements": "Forces 2, Life 2, Time 2",
+    "summary": "Heightens reflexes and temporal perception to catch a projectile.",
+    "citation": "Mage 20, pp. 601, 325",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "circes-enchantment",
+    "name": "Circe's Enchantment",
+    "family": "mystic",
+    "requirements": "Life 5",
+    "summary": "Ritually transforms humans into animals.",
+    "citation": "Enlightened Grimoire, pp. 171, 147",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "creo-fulmen",
+    "name": "Creo Fulmen",
+    "family": "mystic",
+    "requirements": "Forces 3, Prime 2",
+    "summary": "Creates lightning through a Hermetic method using a specific wand.",
+    "citation": "Enlightened Grimoire, pp. 201, 173-176",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "crowd-surfing",
+    "name": "Crowd Surfing",
+    "family": "mystic",
+    "requirements": "Mind 4",
+    "summary": "Reads a crowd's social dynamics and concealed feelings.",
+    "citation": "Enlightened Grimoire, pp. 25, 19",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "dingos-touch",
+    "name": "Dingo's Touch",
+    "family": "mystic",
+    "requirements": "Entropy 1, Forces 2",
+    "summary": "Opens doors and windows by exploiting a path into restricted spaces.",
+    "citation": "Enlightened Grimoire, pp. 102, 83",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "distill-azoth-elixir",
+    "name": "Distill the Azoth Elixir",
+    "family": "mystic",
+    "requirements": "Life 5, Prime 3, Matter 2",
+    "summary": "Produces a powerful restorative elixir.",
+    "citation": "Enlightened Grimoire, pp. 74, 60",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "divided-sight",
+    "name": "Divided Sight",
+    "family": "mystic",
+    "requirements": "Correspondence 3",
+    "summary": "Perceives multiple locations at once.",
+    "citation": "Enlightened Grimoire, pp. 33, 29",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "fiat-lux",
+    "name": "Fiat Lux",
+    "family": "mystic",
+    "requirements": "Forces 2-3, Prime 2",
+    "summary": "Enhances an existing light source or creates a new one.",
+    "citation": "Enlightened Grimoire, pp. 43, 40",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "find-the-lost",
+    "name": "Find the Lost",
+    "family": "mystic",
+    "requirements": "Correspondence 1-2, Entropy 2 or Mind 2",
+    "summary": "Locates people in need of assistance.",
+    "citation": "Enlightened Grimoire, pp. 28, 21",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "hajjaj",
+    "name": "Hajjaj",
+    "family": "mystic",
+    "requirements": "Correspondence 3, Life 3, Mind 2",
+    "summary": "Steals health from other people.",
+    "citation": "Enlightened Grimoire, pp. 74, 61",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "lighting-the-path",
+    "name": "Lighting the Path",
+    "family": "mystic",
+    "requirements": "Correspondence 2 or Entropy 2",
+    "summary": "Finds a specific person, place, or thing.",
+    "citation": "Enlightened Grimoire, p. 22",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "lucky-blow",
+    "name": "Lucky Blow",
+    "family": "mystic",
+    "requirements": "Entropy 2",
+    "summary": "Detects and exploits a target's combat weaknesses.",
+    "citation": "Enlightened Grimoire, pp. 58, 52",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "map-the-true-way",
+    "name": "Map the True Way",
+    "family": "mystic",
+    "requirements": "Correspondence 2, Matter 2 or Prime 2",
+    "summary": "Finds people or objects by drawing a map in a trance.",
+    "citation": "Enlightened Grimoire, pp. 34, 30",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "palimpsest",
+    "name": "Palimpsest",
+    "family": "mystic",
+    "requirements": "Matter 3, Time 2, Prime 2",
+    "summary": "Restores faded or altered documents and art to an earlier state.",
+    "citation": "Lore of the Traditions, pp. 45, 212",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "bright-new-penny",
+    "name": "Penny Dreadful's Bright New Penny",
+    "family": "mystic",
+    "requirements": "Matter 3-4, Prime 2, Time 2",
+    "summary": "Restores an old object to pristine condition.",
+    "citation": "Enlightened Grimoire, pp. 91, 75",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "psychometry",
+    "name": "Psychometry",
+    "family": "mystic",
+    "requirements": "Time 2, Matter 1",
+    "summary": "Reads an object's history through touch.",
+    "citation": "Enlightened Grimoire, pp. 31, 25",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "seven-league-stride",
+    "name": "The Seven-League Stride",
+    "family": "mystic",
+    "requirements": "Correspondence 3",
+    "summary": "Travels almost instantly between two locations.",
+    "citation": "Enlightened Grimoire, pp. 100, 81",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "behavior-modification-device",
+    "name": "Behavior Modification Device",
+    "family": "technocratic",
+    "requirements": "Entropy 3, Mind 4",
+    "summary": "Alters or deletes selected memories.",
+    "citation": "Enlightened Grimoire, pp. 192, 164",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "crowdsourced-combat",
+    "name": "Crowdsourced Combat",
+    "family": "technocratic",
+    "requirements": "Correspondence 2, Forces 1, Mind 1",
+    "summary": "Uses recorded techniques and simulations to improve combat performance.",
+    "citation": "Enlightened Grimoire, pp. 58, 51",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "current-metering",
+    "name": "Current Metering",
+    "family": "technocratic",
+    "requirements": "Forces 1",
+    "summary": "Measures energy use in a specific area.",
+    "citation": "Enlightened Grimoire, pp. 123, 100",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "drm",
+    "name": "DRM",
+    "family": "technocratic",
+    "requirements": "Data 3, Prime 2, Mind 1",
+    "summary": "Traps data so an intruder's identifying information is reported.",
+    "citation": "Enlightened Grimoire, pp. 22, 16",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "drug-enhancement",
+    "name": "Drug Enhancement",
+    "family": "technocratic",
+    "requirements": "Life 2, Matter 2, Prime 1",
+    "summary": "Increases a drug's benefits without increasing its side effects.",
+    "citation": "Enlightened Grimoire, pp. 69, 55",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "fifteen-minutes",
+    "name": "Fifteen Minutes",
+    "family": "technocratic",
+    "requirements": "Data 3, Mind 2",
+    "summary": "Uses manipulated media to give a target temporary fame.",
+    "citation": "Enlightened Grimoire, pp. 189, 160",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "gene-scan",
+    "name": "Gene Scan",
+    "family": "technocratic",
+    "requirements": "Life 1",
+    "summary": "Scans and records a life form's genetic code.",
+    "citation": "Enlightened Grimoire, pp. 123, 103",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "heat-seeking",
+    "name": "Heat Seeking",
+    "family": "technocratic",
+    "requirements": "Correspondence 2, Life 1, Forces 1",
+    "summary": "Tracks people within a building through thermal surveillance.",
+    "citation": "Enlightened Grimoire, pp. 34, 30",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "intel",
+    "name": "Intel",
+    "family": "technocratic",
+    "requirements": "Correspondence 3, Mind 1",
+    "summary": "Locates and retrieves hidden digital information.",
+    "citation": "Enlightened Grimoire, pp. 22, 17",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "re-education-mode",
+    "name": "Re-education Mode",
+    "family": "technocratic",
+    "requirements": "Mind 4, Time 3, Prime 2",
+    "summary": "Immobilizes a target and distorts their experience of time.",
+    "citation": "Enlightened Grimoire, pp. 196, 166",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "right-click",
+    "name": "Right-Click",
+    "family": "technocratic",
+    "requirements": "Mind 3, Data 3",
+    "summary": "Creates an informational display about a person or computer.",
+    "citation": "Enlightened Grimoire, pp. 126, 110",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "social-conditioning",
+    "name": "Social Conditioning",
+    "family": "technocratic",
+    "requirements": "Various Mind / Life",
+    "summary": "Attempts to construct a new worldview within a target.",
+    "citation": "Mage 20, pp. 605, 344; Enlightened Grimoire, p. 197",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "synchronize-watches",
+    "name": "Synchronize Watches",
+    "family": "technocratic",
+    "requirements": "Time 1",
+    "summary": "Perfectly coordinates the timing of a group operation.",
+    "citation": "Enlightened Grimoire, pp. 144, 126",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "abyssal-escape",
+    "name": "Abyssal Escape",
+    "family": "malign",
+    "requirements": "Spirit 3-4",
+    "summary": "Enters Abyssal realms to escape pursuit.",
+    "citation": "Book of the Fallen, pp. 163, 242",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "constant-cravings",
+    "name": "Constant Cravings",
+    "family": "malign",
+    "requirements": "Mind 2, Life 2",
+    "summary": "Intensifies a target's physical and mental addictions.",
+    "citation": "Book of the Fallen, pp. 158, 242",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "every-man-against-his-brother",
+    "name": "Every Man Against His Brother",
+    "family": "malign",
+    "requirements": "Mind 3-4, Correspondence 2",
+    "summary": "Provokes paranoia and violence within a group.",
+    "citation": "Book of the Fallen, pp. 153, 242",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "grasping-terrors",
+    "name": "Grasping Terrors",
+    "family": "malign",
+    "requirements": "Matter 3, Spirit 2",
+    "summary": "Animates nearby objects with hostile spirits.",
+    "citation": "Book of the Fallen, pp. 158, 242",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "loving-scar",
+    "name": "Loving Scar",
+    "family": "malign",
+    "requirements": "Life 3, Spirit 2",
+    "summary": "Marks a victim to attract spirits that spy on and torment them.",
+    "citation": "Enlightened Grimoire, pp. 159, 135",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "shadow-of-the-black-wind",
+    "name": "Shadow of the Black Wind",
+    "family": "malign",
+    "requirements": "Forces 3-5, Spirit 3, Mind 2, Prime 2",
+    "summary": "Removes light and creates a fear-laden windstorm.",
+    "citation": "Enlightened Grimoire, pp. 44, 43; Book of the Fallen, p. 160",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "shroud-the-soul",
+    "name": "Shroud the Soul",
+    "family": "malign",
+    "requirements": "Mind 2",
+    "summary": "Conceals malevolent intent from supernatural detection.",
+    "citation": "Book of the Fallen, pp. 151, 242",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "timeless-agony",
+    "name": "Timeless Agony",
+    "family": "malign",
+    "requirements": "Life 3, Mind 3, Time 3-4",
+    "summary": "Traps a victim in a pocket of distorted time and suffering.",
+    "citation": "Enlightened Grimoire, pp. 78, 4; Book of the Fallen, p. 161",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "accidental-overdose",
+    "name": "Accidental Overdose",
+    "family": "indexed",
+    "requirements": "",
+    "summary": "Indexed entry; full requirements and description are not yet supplied.",
+    "citation": "Enlightened Grimoire, p. 68",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "balefire",
+    "name": "Balefire",
+    "family": "indexed",
+    "requirements": "",
+    "summary": "Indexed entry; full requirements and description are not yet supplied.",
+    "citation": "Enlightened Grimoire, p. 40",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "berserker",
+    "name": "Berserker",
+    "family": "indexed",
+    "requirements": "",
+    "summary": "Indexed entry; full requirements and description are not yet supplied.",
+    "citation": "Enlightened Grimoire, p. 175",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "chronopathy",
+    "name": "Chronopathy",
+    "family": "indexed",
+    "requirements": "",
+    "summary": "Indexed entry; full requirements and description are not yet supplied.",
+    "citation": "Enlightened Grimoire, p. 30",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "gilgul",
+    "name": "Gilgul",
+    "family": "indexed",
+    "requirements": "",
+    "summary": "Indexed entry; full requirements and description are not yet supplied.",
+    "citation": "Enlightened Grimoire, p. 72",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "high-rhetoric",
+    "name": "High Rhetoric",
+    "family": "indexed",
+    "requirements": "",
+    "summary": "Indexed entry; full requirements and description are not yet supplied.",
+    "citation": "Enlightened Grimoire, p. 185",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "iron-avatar",
+    "name": "Iron Avatar",
+    "family": "indexed",
+    "requirements": "",
+    "summary": "Indexed entry; full requirements and description are not yet supplied.",
+    "citation": "Enlightened Grimoire, p. 171",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "lichedom",
+    "name": "Lichedom",
+    "family": "indexed",
+    "requirements": "",
+    "summary": "Indexed entry; full requirements and description are not yet supplied.",
+    "citation": "Enlightened Grimoire, p. 135",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "notorious-vampiric-lawn-chair",
+    "name": "The Notorious Vampiric Lawn Chair",
+    "family": "indexed",
+    "requirements": "",
+    "summary": "Indexed entry; full requirements and description are not yet supplied.",
+    "citation": "Enlightened Grimoire, p. 173",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "safecracker",
+    "name": "Safecracker",
+    "family": "indexed",
+    "requirements": "",
+    "summary": "Indexed entry; full requirements and description are not yet supplied.",
+    "citation": "Enlightened Grimoire, p. 102",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "warp-spasm",
+    "name": "Warp-Spasm",
+    "family": "indexed",
+    "requirements": "",
+    "summary": "Indexed entry; full requirements and description are not yet supplied.",
+    "citation": "Enlightened Grimoire, p. 174",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  }
+]

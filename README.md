@@ -33,10 +33,11 @@ The Playwright smoke test starts its own local Vite server. If the bundled brows
 
 ## Milestone scope
 
-This milestone includes a local character library, create/open/rename/duplicate/delete flows, autosave, identity fields, Attributes, Abilities, Spheres, star-based affinity selection, Sphere sorting, an optional desktop Sphere wheel, Enlightenment traits, a searchable Background catalog with dot ratings and point accounting, Health, a searchable Merits & Flaws catalog with point accounting, and local JSON/YAML import and export. Focus, Wonders, and Rotes remain visible as deferred sections.
+This milestone includes a local character library, create/open/rename/duplicate/delete flows, autosave, identity fields, Attributes, Abilities, Spheres, star-based affinity selection, Sphere sorting, an optional desktop Sphere wheel, Enlightenment traits, searchable Background and Merits & Flaws catalogs, editable Focus, Wonders, and Rotes with searchable reference-preview catalogs, Health, and local JSON/YAML import and export.
 
 See [docs/00-project-charter.md](docs/00-project-charter.md) for goals and assumptions.
 See [docs/12-section-navigation.md](docs/12-section-navigation.md) for the
 section registry, anchors, responsive behavior, and preference boundary.
 See [docs/13-magick-sections-plan.md](docs/13-magick-sections-plan.md) for the
-organized Focus, Wonders, and Rotes research and staged implementation handoff.
+Focus, Wonders, and Rotes architecture, migration record, and content-review
+boundary.

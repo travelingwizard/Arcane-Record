@@ -1,10 +1,10 @@
-# 13. Focus, Wonders, and Rotes implementation plan
+# 13. Focus, Wonders, and Rotes implementation record
 
 ## Purpose
 
-This document turns the supplied Mage M20 research into a staged, testable
-handoff for future Codex work. It does not make deferred features appear
-complete and does not change character data in the current milestone.
+This document records how the supplied Mage M20 research became editable
+Focus, Wonders, and Rotes sections in schema version 6. It also preserves the
+remaining content-verification boundary for future review.
 
 Reference research is split by concern:
 
@@ -12,24 +12,20 @@ Reference research is split by concern:
 - [Wonders](references/mage-m20/wonders.md)
 - [Rotes](references/mage-m20/rotes.md)
 
-All three references contain unverified source material. Verification is a
-content prerequisite for shipping a built-in catalog, not a prerequisite for
-letting players enter their own free-form character information.
+All three references contain unverified source material. The editor therefore
+labels them as reference previews, excludes mature material by default, and
+always supports free-form character information.
 
 ## Current repository state
 
-- The visible Magick group contains Spheres, Enlightenment, and one combined
-  deferred `#later-sections` placeholder.
-- `repeatableEntries.focus` and `.wonders` are reserved string arrays.
-- `repeatableEntries.rotes` uses a minimal `{ id, spheres, effect }` shape.
-- These reserved fields are parsed and exported, but the editor does not expose
-  them.
-- The current schema version is 5.
+- The visible Magick group contains Spheres, Enlightenment, Focus, Wonders, and
+  Rotes.
+- `repeatableEntries.focus` is structured Focus data.
+- `repeatableEntries.wonders` contains owned Wonder records.
+- `repeatableEntries.rotes` contains structured known Rotes.
+- Schema version 6 migrates every schema-version-5 placeholder without loss.
 - The section registry, mobile disclosures, summaries, hashes, and desktop
   navigation all consume stable section IDs.
-
-Do not build new UI directly on the reserved array shapes. Design the real
-domain records, migrate old values, and increment the schema version.
 
 ## Product decisions
 
@@ -55,12 +51,12 @@ domain records, migrate old values, and increment the schema version.
 - Treating every named Wonder or indexed Rote as verified catalog content.
 - A backend, authentication, cloud sync, telemetry, or remote content.
 
-## Recommended delivery order
+## Delivered design
 
 ### Milestone 1: Focus
 
-Focus has the strongest relationship to core character identity and the
-cleanest research structure. Implement it before Wonders and Rotes.
+Focus has the strongest relationship to core character identity and uses the
+first of the three new Magick anchors.
 
 Recommended character model:
 
@@ -249,17 +245,9 @@ Suggested legacy handling:
   Rote” only at presentation time. Do not persist a fabricated title during
   migration unless the new schema requires it.
 
-## Section registry changes
+## Section registry
 
-When the first real section ships:
-
-- add its stable section ID to `character-sections.ts`;
-- replace the relevant part of the combined deferred card;
-- add its collapsed summary;
-- add unit tests for registry order, groups, and unique IDs;
-- add navigation tests for its anchor and hash loading.
-
-Recommended final Magick order:
+The final Magick order is:
 
 1. `#spheres`
 2. `#enlightenment`
@@ -267,9 +255,8 @@ Recommended final Magick order:
 4. `#wonders`
 5. `#rotes`
 
-Keep `#later-sections` while any still-visible combined placeholder remains.
-Remove it only when its last deferred item has become a real section, and
-ignore stale stored disclosure preferences safely.
+The combined `#later-sections` placeholder was removed. Stale stored disclosure
+preferences are ignored by registry validation.
 
 ## Component structure
 
@@ -281,17 +268,13 @@ components/character/
   WondersSection.tsx
   RotesSection.tsx
   focus/
-    FocusCatalog.tsx
     FocusSelectionList.tsx
-    FocusSummary.tsx
   wonders/
-    WonderCatalog.tsx
     SelectedWonderList.tsx
-    WonderSummary.tsx
   rotes/
-    RoteCatalog.tsx
     SelectedRoteList.tsx
-    RoteSummary.tsx
+components/controls/
+  ReferenceCatalog.tsx
 ```
 
 Reusable catalog search, preview, disclosure, and dialog primitives should stay
@@ -374,20 +357,12 @@ Until that gate is complete, the application may support custom player entries
 and may label catalog data as a preview, but it must not imply that the
 reference list is authoritative or exhaustive.
 
-## Future Codex handoff prompt
+## Future content-review handoff prompt
 
-Use this after the reference material for the selected milestone has been
-verified:
-
-> Read `AGENTS.md`, all relevant project documentation, and
-> `docs/13-magick-sections-plan.md`. Implement only the next unfinished Magick
-> milestone, beginning with Focus. Preserve the local-first boundary and
-> existing visual system. Inspect the current schema, migrations, catalogs,
-> section registry, responsive disclosures, import/export, and tests before
-> editing. Present a concise plan, then implement the schema migration,
-> reference catalog, editor section, collapsed summary, navigation anchor,
-> documentation, and full automated coverage described in the plan. Do not add
-> a rules engine or treat unverified reference entries as authoritative. Run
-> formatting, typecheck, lint, unit/integration tests, E2E tests, and the
-> production build; review the Git diff and create a local commit only after
-> everything passes.
+> Read `AGENTS.md`, the three Mage M20 Magick references, and
+> `docs/13-magick-sections-plan.md`. Verify the supplied catalog citations
+> against legal source copies without changing the character schema or game
+> rules. Resolve print/PDF page ambiguity, duplicates, aliases, and incomplete
+> entries. Mark only checked entries as verified, retain mature-content labels,
+> regenerate the JSON catalogs, update catalog tests, run the full project
+> verification suite, and create a local commit only after everything passes.

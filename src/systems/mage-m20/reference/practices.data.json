@@ -1,0 +1,344 @@
+[
+  {
+    "id": "alchemy",
+    "name": "Alchemy",
+    "family": "common",
+    "summary": "Alchemy is a common practice.",
+    "citation": "Mage 20, p. 573; Lore of the Traditions, p. 240",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "art-of-desire",
+    "name": "Art of Desire / Hypereconomics",
+    "family": "common",
+    "summary": "Art of Desire / Hypereconomics is a common practice.",
+    "citation": "Mage 20, p. 573; Lore of the Traditions, p. 240",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "chaos-magick",
+    "name": "Chaos Magick",
+    "family": "common",
+    "summary": "Chaos Magick is a common practice.",
+    "citation": "Mage 20, p. 574",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "craftwork",
+    "name": "Craftwork",
+    "family": "common",
+    "summary": "Craftwork is a common practice.",
+    "citation": "Mage 20, p. 574",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "crazy-wisdom",
+    "name": "Crazy Wisdom",
+    "family": "common",
+    "summary": "Crazy Wisdom is a common practice.",
+    "citation": "Mage 20, p. 576",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "cybernetics",
+    "name": "Cybernetics",
+    "family": "common",
+    "summary": "Cybernetics is a common practice.",
+    "citation": "Mage 20, p. 576; Lore of the Traditions, p. 240",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "dominion",
+    "name": "Dominion",
+    "family": "common",
+    "summary": "Dominion is a common practice.",
+    "citation": "Mage 20, p. 577",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "faith",
+    "name": "Faith",
+    "family": "common",
+    "summary": "Faith is a common practice.",
+    "citation": "Mage 20, p. 577",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "gutter-magick",
+    "name": "Gutter Magick",
+    "family": "common",
+    "summary": "Gutter Magick is a common practice.",
+    "citation": "Mage 20, p. 578",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "high-ritual-magick",
+    "name": "High Ritual Magick",
+    "family": "common",
+    "summary": "High Ritual Magick is a common practice.",
+    "citation": "Mage 20, p. 578",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "hypertech",
+    "name": "Hypertech",
+    "family": "common",
+    "summary": "Hypertech is a common practice.",
+    "citation": "Mage 20, p. 579; Lore of the Traditions, p. 240",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "maleficia",
+    "name": "Maleficia",
+    "family": "common",
+    "summary": "Maleficia is a common practice.",
+    "citation": "Mage 20, p. 579",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "martial-arts",
+    "name": "Martial Arts",
+    "family": "common",
+    "summary": "Martial Arts is a common practice.",
+    "citation": "Mage 20, p. 580",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "medicine-work",
+    "name": "Medicine-Work",
+    "family": "common",
+    "summary": "Medicine-Work is a common practice.",
+    "citation": "Mage 20, p. 581",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "reality-hacking",
+    "name": "Reality Hacking",
+    "family": "common",
+    "summary": "Reality Hacking is a common practice.",
+    "citation": "Mage 20, p. 581; Lore of the Traditions, p. 240",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "shamanism",
+    "name": "Shamanism",
+    "family": "common",
+    "summary": "Shamanism is a common practice.",
+    "citation": "Mage 20, p. 582",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "voudoun",
+    "name": "Voudoun",
+    "family": "common",
+    "summary": "Voudoun is a common practice.",
+    "citation": "Mage 20, p. 583",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "weird-science",
+    "name": "Weird Science",
+    "family": "common",
+    "summary": "Weird Science is a common practice.",
+    "citation": "Mage 20, p. 584; Lore of the Traditions, p. 240",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "witchcraft",
+    "name": "Witchcraft",
+    "family": "common",
+    "summary": "Witchcraft is a common practice.",
+    "citation": "Mage 20, p. 584",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "yoga",
+    "name": "Yoga",
+    "family": "common",
+    "summary": "Yoga is a common practice.",
+    "citation": "Mage 20, p. 585",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "animalism",
+    "name": "Animalism",
+    "family": "expanded",
+    "summary": "Animalism is a expanded practice.",
+    "citation": "Book of Secrets, p. 197",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "bardism",
+    "name": "Bardism",
+    "family": "expanded",
+    "summary": "Bardism is a expanded practice.",
+    "citation": "Book of Secrets, p. 199",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "elementalism",
+    "name": "Elementalism",
+    "family": "expanded",
+    "summary": "Elementalism is a expanded practice.",
+    "citation": "Book of Secrets, p. 200",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "god-bonding",
+    "name": "God-Bonding",
+    "family": "expanded",
+    "summary": "God-Bonding is a expanded practice.",
+    "citation": "Book of Secrets, p. 201",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "invigoration",
+    "name": "Invigoration",
+    "family": "expanded",
+    "summary": "Invigoration is a expanded practice.",
+    "citation": "Book of Secrets, p. 201",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "mediumship",
+    "name": "Mediumship",
+    "family": "expanded",
+    "summary": "Mediumship is a expanded practice.",
+    "citation": "Book of Secrets, p. 202",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "psionics",
+    "name": "Psionics",
+    "family": "expanded",
+    "summary": "Psionics is a expanded practice.",
+    "citation": "Book of Secrets, p. 203",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "qi-manipulation",
+    "name": "Qì Manipulation",
+    "family": "tradition-specific",
+    "summary": "Akashayana practice.",
+    "citation": "Lore of the Traditions, p. 33",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "shadow-work",
+    "name": "Shadow Work",
+    "family": "tradition-specific",
+    "summary": "Cult of Ecstasy practice.",
+    "citation": "Lore of the Traditions, p. 66",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "tantra",
+    "name": "Tantra",
+    "family": "tradition-specific",
+    "summary": "Cult of Ecstasy practice.",
+    "citation": "Lore of the Traditions, p. 66",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "postmodern-hacker-analysis",
+    "name": "Postmodernism / Hacker Analysis",
+    "family": "tradition-specific",
+    "summary": "Virtual Adepts practice.",
+    "citation": "Lore of the Traditions, p. 161",
+    "reviewStatus": "unverified",
+    "contentLabel": "standard"
+  },
+  {
+    "id": "abyssalism",
+    "name": "Abyssalism",
+    "family": "fallen",
+    "summary": "Abyssalism is a fallen practice.",
+    "citation": "Book of the Fallen, p. 139",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "black-mass",
+    "name": "The Black Mass",
+    "family": "fallen",
+    "summary": "The Black Mass is a fallen practice.",
+    "citation": "Book of the Fallen, p. 140",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "demonism",
+    "name": "Demonism",
+    "family": "fallen",
+    "summary": "Demonism is a fallen practice.",
+    "citation": "Book of the Fallen, p. 141",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "feralism",
+    "name": "Feralism",
+    "family": "fallen",
+    "summary": "Feralism is a fallen practice.",
+    "citation": "Book of the Fallen, p. 142",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "goetia",
+    "name": "Goetia",
+    "family": "fallen",
+    "summary": "Goetia is a fallen practice.",
+    "citation": "Book of the Fallen, p. 143",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "infernal-sciences",
+    "name": "Infernal Sciences",
+    "family": "fallen",
+    "summary": "Infernal Sciences is a fallen practice.",
+    "citation": "Book of the Fallen, p. 144",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  },
+  {
+    "id": "vamamarga",
+    "name": "Vamamarga",
+    "family": "fallen",
+    "summary": "Vamamarga is a fallen practice.",
+    "citation": "Book of the Fallen, p. 145",
+    "reviewStatus": "unverified",
+    "contentLabel": "mature"
+  }
+]
