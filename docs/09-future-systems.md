@@ -10,5 +10,6 @@ A future system adapter should provide:
 - field/group definitions and rating limits;
 - system-specific editor sections;
 - import/export serializers and migration rules.
+- isolated reference catalogs and selection rules where the system needs them.
 
 The repository stores the system identifier with each character. Cross-system UI must branch through registered adapters, not scattered label checks. Mage-only features such as affinity Spheres remain inside the Mage system layer.

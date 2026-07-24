@@ -4,6 +4,7 @@ import { DeferredSections } from '../../components/character/DeferredSections';
 import { EnlightenmentSection } from '../../components/character/EnlightenmentSection';
 import { HealthSection } from '../../components/character/HealthSection';
 import { IdentitySection } from '../../components/character/IdentitySection';
+import { MeritsFlawsSection } from '../../components/character/MeritsFlawsSection';
 import { SaveStatusBadge } from '../../components/character/SaveStatusBadge';
 import { SpheresSection } from '../../components/character/SpheresSection';
 import { useEditorStore } from '../../state/editor-store';
@@ -59,6 +60,7 @@ export function CharacterEditor({
       <SpheresSection />
       <EnlightenmentSection />
       <HealthSection />
+      <MeritsFlawsSection />
       <ImportExportSection
         character={character}
         repository={repository}

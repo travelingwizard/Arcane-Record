@@ -1159,6 +1159,439 @@
   font-weight: 700;
 }
 
+.merits-flaws-section {
+  background:
+    linear-gradient(135deg, rgb(123 63 47 / 8%), transparent 16rem),
+    rgb(255 255 255 / 18%);
+}
+
+.merit-flaw-summary {
+  margin-bottom: 1rem;
+  border: 3px double var(--rule);
+  background: var(--paper-light);
+}
+
+.merit-flaw-summary > summary {
+  min-height: 3rem;
+  padding: 0.7rem 1rem;
+  display: flex;
+  align-items: center;
+  color: var(--umber-deep);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.merit-flaw-summary__details {
+  padding: 0 1rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.merit-flaw-summary__details > div {
+  min-width: 0;
+  padding: 0.75rem;
+  display: grid;
+  gap: 0.2rem;
+  border: 1px solid var(--rule-light);
+}
+
+.merit-flaw-summary__details span,
+.merit-flaw-summary__details small,
+.merit-flaw-summary__excess,
+.catalog-result-count,
+.catalog-card__labels,
+.catalog-card__source,
+.catalog-card__cost,
+.catalog-card__projection,
+.catalog-card__review,
+.selected-merit-flaw__source,
+.selected-merit-flaw__unresolved,
+.selected-merit-flaw__heading p,
+.merit-flaw-section-toolbar {
+  font-family: var(--font-sans);
+}
+
+.merit-flaw-summary__details span {
+  color: var(--ink-soft);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.merit-flaw-summary__details strong {
+  overflow-wrap: anywhere;
+  font-size: 1.05rem;
+}
+
+.merit-flaw-summary__details small {
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+}
+
+.merit-flaw-summary__excess,
+.merit-flaw-warning {
+  margin: 0 1rem 1rem;
+  padding: 0.75rem;
+  display: grid;
+  gap: 0.25rem;
+  border-left: 3px solid var(--danger);
+  color: var(--danger);
+  background: #fff1ed;
+  font-size: 0.8rem;
+}
+
+.merit-flaw-warning {
+  margin-inline: 0;
+  font-family: var(--font-sans);
+  line-height: 1.45;
+}
+
+.merit-flaw-section-toolbar {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.merit-flaw-section-toolbar p {
+  max-width: 42rem;
+  margin: 0;
+  color: var(--ink-soft);
+  font-family: var(--font-serif);
+  line-height: 1.45;
+}
+
+.merit-flaw-section-toolbar label,
+.catalog-search,
+.catalog-filters label,
+.catalog-card__cost-select,
+.selected-merit-flaw__details label {
+  display: grid;
+  gap: 0.25rem;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.merit-flaw-section-toolbar select,
+.catalog-toolbar input,
+.catalog-filters select,
+.catalog-card__cost-select select,
+.selected-merit-flaw__details select,
+.selected-merit-flaw__details textarea {
+  width: 100%;
+  min-height: 2.75rem;
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  padding: 0.5rem 0.65rem;
+  color: var(--ink);
+  background: var(--paper-light);
+  font-family: var(--font-serif);
+  text-transform: none;
+}
+
+.selected-merit-flaw__details textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+
+.selected-merit-flaw-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 1rem;
+}
+
+.selected-merit-flaw-list {
+  min-width: 0;
+  padding: 1rem;
+  border-top: 3px double var(--rule);
+  background: rgb(255 255 255 / 12%);
+}
+
+.selected-merit-flaw-list > h3 {
+  color: var(--umber-deep);
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.selected-merit-flaw-list__empty {
+  margin: 0;
+  padding: 1rem;
+  border: 1px dashed var(--rule-light);
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.selected-merit-flaw {
+  margin-top: 0.75rem;
+  padding: 0.85rem;
+  border: 1px solid var(--rule-light);
+  background: var(--paper-light);
+  scroll-margin: 5rem;
+}
+
+.selected-merit-flaw__heading,
+.catalog-card__heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.selected-merit-flaw__heading h4,
+.catalog-card h4 {
+  margin: 0;
+  color: var(--umber-deep);
+  font-size: 1.08rem;
+}
+
+.selected-merit-flaw__heading p {
+  margin: 0.2rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  text-transform: capitalize;
+}
+
+.selected-merit-flaw__source,
+.catalog-card__source {
+  margin: 0.55rem 0;
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.selected-merit-flaw__unresolved,
+.catalog-card__review {
+  padding: 0.6rem;
+  border-left: 3px solid var(--gold);
+  color: var(--umber-deep);
+  background: #fff6df;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.selected-merit-flaw__details,
+.catalog-card__details {
+  margin: 0.75rem 0;
+  padding-top: 0.75rem;
+  border-top: 1px dotted var(--rule-light);
+}
+
+.selected-merit-flaw__details > p,
+.catalog-card__details > p {
+  line-height: 1.5;
+}
+
+.selected-merit-flaw__details {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.icon-button {
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: none;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--rule);
+  color: var(--umber-deep);
+  background: transparent;
+  font-family: var(--font-sans);
+  font-weight: 800;
+}
+
+.description-preview {
+  position: relative;
+}
+
+.description-preview__tooltip {
+  width: min(20rem, calc(100vw - 4rem));
+  max-height: 8rem;
+  padding: 0.75rem;
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  right: 0;
+  z-index: 5;
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  color: var(--paper-light);
+  background: var(--ink);
+  box-shadow: var(--shadow-card);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+.merit-flaw-catalog {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 3px double var(--rule);
+}
+
+.catalog-toolbar {
+  display: grid;
+  grid-template-columns: minmax(14rem, 1fr) auto;
+  align-items: end;
+  gap: 1rem;
+}
+
+.catalog-filters {
+  position: relative;
+}
+
+.catalog-filters > summary {
+  min-height: 2.75rem;
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--rule);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.catalog-filters__grid {
+  min-width: min(42rem, calc(100vw - 4rem));
+  padding: 1rem;
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  right: 0;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(9rem, 1fr));
+  gap: 0.75rem;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  box-shadow: var(--shadow-card);
+}
+
+.catalog-result-count {
+  margin: 0.75rem 0;
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.catalog-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 0.75rem;
+}
+
+.catalog-card {
+  min-width: 0;
+  padding: 0.9rem;
+  border: 1px solid var(--rule-light);
+  background: var(--paper-light);
+}
+
+.catalog-card__labels {
+  margin-bottom: 0.3rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--ink-soft);
+  font-size: 0.66rem;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+
+.kind-badge {
+  padding: 0.15rem 0.35rem;
+  border: 1px solid currentColor;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.kind-badge--merit {
+  color: var(--success);
+}
+
+.kind-badge--flaw {
+  color: var(--danger);
+}
+
+.catalog-card__header-actions {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.catalog-card__cost {
+  margin: 0.35rem 0;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.catalog-card__cost-select {
+  margin: 0.65rem 0;
+}
+
+.catalog-card__details dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.catalog-card__details dl > div {
+  min-width: 0;
+  padding: 0.5rem;
+  border: 1px solid var(--rule-light);
+}
+
+.catalog-card__details dt {
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.catalog-card__details dd {
+  margin: 0.2rem 0 0;
+  overflow-wrap: anywhere;
+  text-transform: capitalize;
+}
+
+.catalog-card__projection {
+  margin: 0.75rem 0;
+  padding: 0.65rem;
+  display: grid;
+  gap: 0.2rem;
+  border: 1px dashed var(--rule-light);
+  color: var(--ink-soft);
+  font-size: 0.7rem;
+  line-height: 1.35;
+}
+
+.catalog-card__projection strong {
+  color: var(--ink);
+}
+
+.catalog-card__projection em {
+  color: var(--danger);
+  font-style: normal;
+  font-weight: 800;
+}
+
+.catalog-card > .primary-button,
+.catalog-card > .secondary-button {
+  width: 100%;
+}
+
 .deferred-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

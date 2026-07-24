@@ -7,7 +7,8 @@ Deliver a trustworthy browser-local vertical slice of an editable Mage M20 chara
 ## Milestone outcomes
 
 - A character library with create, open, rename, duplicate, and confirmed delete actions.
-- A focused editor for identity, Attributes, Abilities, Spheres, affinity, Enlightenment traits, and Health.
+- A focused editor for identity, Attributes, Abilities, Spheres, affinity, Enlightenment traits, Health, and Merits & Flaws.
+- A cited, searchable Merits and Flaws catalog with warning-only creation-point accounting.
 - Interchangeable list and desktop-wheel Sphere views backed by the same character data.
 - Validated, browser-local JSON and YAML import/export.
 - Debounced persistence through a repository abstraction backed by Dexie/IndexedDB.

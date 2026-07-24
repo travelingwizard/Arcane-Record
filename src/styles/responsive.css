@@ -86,6 +86,29 @@
   .file-exchange {
     grid-template-columns: 1fr;
   }
+
+  .merit-flaw-summary__details,
+  .selected-merit-flaw-columns,
+  .catalog-results {
+    grid-template-columns: 1fr;
+  }
+
+  .merit-flaw-section-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .catalog-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .catalog-filters__grid {
+    width: 100%;
+    min-width: 0;
+    position: static;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    box-shadow: none;
+  }
 }
 
 @media (max-width: 34rem) {
@@ -235,6 +258,20 @@
 
   .deferred-grid {
     grid-template-columns: 1fr;
+  }
+
+  .merit-flaw-summary__details,
+  .catalog-filters__grid,
+  .catalog-card__details dl {
+    grid-template-columns: 1fr;
+  }
+
+  .catalog-card__heading {
+    align-items: start;
+  }
+
+  .catalog-card__header-actions {
+    flex-direction: column;
   }
 }
 

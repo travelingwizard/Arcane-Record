@@ -91,6 +91,14 @@ test('has no page overflow or browser errors at target widths', async ({
     });
 
     await page
+      .getByRole('heading', { name: 'Merits & Flaws' })
+      .scrollIntoViewIfNeeded();
+    await page.screenshot({
+      path: `tmp/qa/editor-${viewport.name}-merits-flaws.png`,
+      fullPage: false,
+    });
+
+    await page
       .getByRole('heading', { name: 'Import & export' })
       .scrollIntoViewIfNeeded();
     await page.screenshot({

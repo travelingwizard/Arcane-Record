@@ -1,0 +1,4416 @@
+[
+  {
+    "id": "acute-senses",
+    "name": "Acute Senses",
+    "aliases": [],
+    "kind": "merit",
+    "category": "physical",
+    "allowedCosts": [1, 3],
+    "description": "Reduces the difficulty of all Perception-based rolls involving a single sense (1 pt.) or all five senses (3 pt.) by -2.",
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 642
+      },
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 35
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 5
+  },
+  {
+    "id": "alcohol-drug-tolerance",
+    "name": "Alcohol / Drug Tolerance",
+    "aliases": ["Alcohol Tolerance", "Drug Tolerance"],
+    "kind": "merit",
+    "category": "physical",
+    "allowedCosts": [1, 2],
+    "description": "Allows a Stamina roll (difficulty 7) to shake off intoxication. The 1 pt. version applies to natural substances; the 2 pt. version covers lab-synthesized ones.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 35
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 6
+  },
+  {
+    "id": "ambidextrous",
+    "name": "Ambidextrous",
+    "aliases": [],
+    "kind": "merit",
+    "category": "physical",
+    "allowedCosts": [1],
+    "description": "No penalty for using two weapons or performing tasks with the off-hand.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 36
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 7
+  },
+  {
+    "id": "cast-iron-stomach",
+    "name": "Cast-Iron Stomach",
+    "aliases": [],
+    "kind": "merit",
+    "category": "physical",
+    "allowedCosts": [1],
+    "description": "Character can eat nearly anything organic without ill effects.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 36
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 8
+  },
+  {
+    "id": "catlike-balance",
+    "name": "Catlike Balance",
+    "aliases": [],
+    "kind": "merit",
+    "category": "physical",
+    "allowedCosts": [1],
+    "description": "Reduces the difficulty of physical feats involving balance (like tightrope walking) by -2.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 36
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 9
+  },
+  {
+    "id": "hyperflexible",
+    "name": "Hyperflexible",
+    "aliases": [],
+    "kind": "merit",
+    "category": "physical",
+    "allowedCosts": [1],
+    "description": "Reduces the difficulty of rolls involving flexibility (like escaping bonds) by -2.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 36
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 10
+  },
+  {
+    "id": "light-sleeper",
+    "name": "Light Sleeper",
+    "aliases": [],
+    "kind": "merit",
+    "category": "physical",
+    "allowedCosts": [1],
+    "description": "Character only needs four hours of sleep and wakes up instantly alert.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 36
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 11
+  },
+  {
+    "id": "noble-blood",
+    "name": "Noble Blood",
+    "aliases": [],
+    "kind": "merit",
+    "category": "physical",
+    "allowedCosts": [1],
+    "description": "Distinctive features mark the character as part of a powerful lineage, commanding respect or attracting enemies.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 36
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 12
+  },
+  {
+    "id": "enchanting-feature",
+    "name": "Enchanting Feature",
+    "aliases": [],
+    "kind": "merit",
+    "category": "physical",
+    "allowedCosts": [2],
+    "description": "A magnificent physical feature (eyes, voice, etc.) that provides a social edge in appropriate situations.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 36
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 13
+  },
+  {
+    "id": "physically-impressive",
+    "name": "Physically Impressive",
+    "aliases": [],
+    "kind": "merit",
+    "category": "physical",
+    "allowedCosts": [2],
+    "description": "Adds two dice to social rolls involving intimidation due to a massive or menacing build.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 37
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 14
+  },
+  {
+    "id": "poison-resistance",
+    "name": "Poison Resistance",
+    "aliases": [],
+    "kind": "merit",
+    "category": "physical",
+    "allowedCosts": [2],
+    "description": "Adds two dice to Stamina rolls to resist natural or synthesized toxins.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 37
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 15
+  },
+  {
+    "id": "poker-face",
+    "name": "Poker Face",
+    "aliases": [],
+    "kind": "merit",
+    "category": "physical",
+    "allowedCosts": [2],
+    "description": "A deadpan expression that reveals nothing; reduces difficulty of intimidation and subterfuge rolls by -2.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 38
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 16
+  },
+  {
+    "id": "daredevil",
+    "name": "Daredevil",
+    "aliases": [],
+    "kind": "merit",
+    "category": "physical",
+    "allowedCosts": [3],
+    "description": "Adds three dice to non-combat/non-magickal rolls involving high-risk physical stunts.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 38
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 17
+  },
+  {
+    "id": "hypersensitivity",
+    "name": "Hypersensitivity",
+    "aliases": [],
+    "kind": "merit",
+    "category": "physical",
+    "allowedCosts": [3],
+    "description": "Character is extraordinarily open to physical sensations (cannot be taken with Insensate to Pain).",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 38
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 18
+  },
+  {
+    "id": "nightsight",
+    "name": "Nightsight",
+    "aliases": [],
+    "kind": "merit",
+    "category": "physical",
+    "allowedCosts": [3],
+    "description": "Character ignores penalties for low-light conditions on visual perception rolls.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 38
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 19
+  },
+  {
+    "id": "huge-size",
+    "name": "Huge Size",
+    "aliases": [],
+    "kind": "merit",
+    "category": "physical",
+    "allowedCosts": [4],
+    "description": "Character is over seven feet tall and 300 pounds; adds one Health Level and -1 difficulty to Strength rolls.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 38
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 20
+  },
+  {
+    "id": "insensate-to-pain",
+    "name": "Insensate to Pain",
+    "aliases": [],
+    "kind": "merit",
+    "category": "physical",
+    "allowedCosts": [5],
+    "description": "Character ignores dice-pool penalties from wounds until death, though physical impairment remains.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 38
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 21
+  },
+  {
+    "id": "too-tough-to-die",
+    "name": "Too Tough to Die",
+    "aliases": [],
+    "kind": "merit",
+    "category": "physical",
+    "allowedCosts": [5],
+    "description": "Character can soak lethal damage (but not aggravated damage).",
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 644
+      },
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 39
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 22
+  },
+  {
+    "id": "addiction",
+    "name": "Addiction",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "physical",
+    "allowedCosts": [1, 3],
+    "description": "Compulsive need for a substance or activity.",
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 646
+      },
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 39
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 26
+  },
+  {
+    "id": "child",
+    "name": "Child",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "physical",
+    "allowedCosts": [1, 2, 3],
+    "description": "Character is legally and physically a minor, facing social, legal, and size-based obstacles.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 39
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 27
+  },
+  {
+    "id": "impediment",
+    "name": "Impediment",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "physical",
+    "allowedCosts": [1, 2, 3, 4, 5, 6],
+    "description": "A physical condition (blindness, deafness, etc.) that interferes with normal functioning.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 39
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 28
+  },
+  {
+    "id": "aging",
+    "name": "Aging",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "physical",
+    "allowedCosts": [2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "description": "Character loses Attribute dots due to being past their prime or not yet mature.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 40
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 29
+  },
+  {
+    "id": "easily-intoxicated",
+    "name": "Easily Intoxicated",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "physical",
+    "allowedCosts": [2],
+    "description": "Character is a lightweight; difficulty to resist drugs or booze increases by +2.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 40
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 30
+  },
+  {
+    "id": "repulsive-feature",
+    "name": "Repulsive Feature",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "physical",
+    "allowedCosts": [2],
+    "description": "A disconcerting physical feature adds +2 difficulty to Social rolls.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 40
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 31
+  },
+  {
+    "id": "profiled-appearance",
+    "name": "Profiled Appearance",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "physical",
+    "allowedCosts": [2],
+    "description": "Character has a distinctive look that makes them easy to recognize and profile.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 41
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 32
+  },
+  {
+    "id": "degeneration",
+    "name": "Degeneration",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "physical",
+    "allowedCosts": [3, 6, 9],
+    "description": "Character cannot heal naturally; high levels cause constant Health loss.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 41
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 33
+  },
+  {
+    "id": "monstrous",
+    "name": "Monstrous",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "physical",
+    "allowedCosts": [3],
+    "description": "Profound deformities result in an Appearance of 0.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 41
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 34
+  },
+  {
+    "id": "permanent-wound",
+    "name": "Permanent Wound",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "physical",
+    "allowedCosts": [3],
+    "description": "Character has a lasting injury that cannot be healed, even with magick.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 41
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 35
+  },
+  {
+    "id": "short",
+    "name": "Short",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "physical",
+    "allowedCosts": [3],
+    "description": "Character is shorter than five feet and runs at half speed.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 41
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 36
+  },
+  {
+    "id": "horrific",
+    "name": "Horrific",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "physical",
+    "allowedCosts": [5],
+    "description": "Character is hideous to the point of causing nightmares.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 41
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 37
+  },
+  {
+    "id": "mayfly-curse",
+    "name": "Mayfly Curse",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "physical",
+    "allowedCosts": [5, 10],
+    "description": "Character ages incredibly fast—one year for every two months (5 pt.) or every week (10 pt.).",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 42
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 38
+  },
+  {
+    "id": "artistically-gifted",
+    "name": "Artistically Gifted",
+    "aliases": [],
+    "kind": "merit",
+    "category": "mental",
+    "allowedCosts": [1],
+    "description": "Reduces the difficulty of artistic talent rolls by -2.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 43
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 42
+  },
+  {
+    "id": "common-sense",
+    "name": "Common Sense",
+    "aliases": [],
+    "kind": "merit",
+    "category": "mental",
+    "allowedCosts": [1],
+    "description": "Provides a Storyteller warning when the character is about to do something foolish.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 43
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 43
+  },
+  {
+    "id": "computer-aptitude",
+    "name": "Computer Aptitude",
+    "aliases": [],
+    "kind": "merit",
+    "category": "mental",
+    "allowedCosts": [1],
+    "description": "Reduces difficulties involving computer-based rolls by -2.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 43
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 44
+  },
+  {
+    "id": "concentration",
+    "name": "Concentration",
+    "aliases": [],
+    "kind": "merit",
+    "category": "mental",
+    "allowedCosts": [1],
+    "description": "Character ignores penalties from distractions when performing tasks.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 43
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 45
+  },
+  {
+    "id": "expert-driver",
+    "name": "Expert Driver",
+    "aliases": [],
+    "kind": "merit",
+    "category": "mental",
+    "allowedCosts": [1],
+    "description": "Driving-roll difficulties are reduced by -2.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 44
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 46
+  },
+  {
+    "id": "lightning-calculator",
+    "name": "Lightning Calculator",
+    "aliases": [],
+    "kind": "merit",
+    "category": "mental",
+    "allowedCosts": [1],
+    "description": "Reduces the difficulty of math-based rolls by -2.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 44
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 47
+  },
+  {
+    "id": "mechanical-aptitude",
+    "name": "Mechanical Aptitude",
+    "aliases": [],
+    "kind": "merit",
+    "category": "mental",
+    "allowedCosts": [1],
+    "description": "Reduces difficulties by -2 when working with mechanical gear.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 44
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 48
+  },
+  {
+    "id": "time-sense",
+    "name": "Time Sense",
+    "aliases": [],
+    "kind": "merit",
+    "category": "mental",
+    "allowedCosts": [1],
+    "description": "Character possesses an intuitive internal clock.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 44
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 49
+  },
+  {
+    "id": "code-of-honor",
+    "name": "Code of Honor",
+    "aliases": [],
+    "kind": "merit",
+    "category": "mental",
+    "allowedCosts": [2],
+    "description": "Character gains two dice to Willpower rolls when acting according to a personal ethical code.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 44
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 50
+  },
+  {
+    "id": "eidetic-memory",
+    "name": "Eidetic Memory",
+    "aliases": [],
+    "kind": "merit",
+    "category": "mental",
+    "allowedCosts": [2],
+    "description": "Character possesses a \"photographic memory\" for recalling details.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 44
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 51
+  },
+  {
+    "id": "inner-strength",
+    "name": "Inner Strength",
+    "aliases": [],
+    "kind": "merit",
+    "category": "mental",
+    "allowedCosts": [2],
+    "description": "Reduces the difficulty of Willpower rolls by -2 when struggling against overwhelming odds.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 45
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 52
+  },
+  {
+    "id": "natural-linguist",
+    "name": "Natural Linguist",
+    "aliases": [],
+    "kind": "merit",
+    "category": "mental",
+    "allowedCosts": [2],
+    "description": "Character gains two languages for every dot of the Language Merit and bonus dice for communication.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 45
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 53
+  },
+  {
+    "id": "hyperfocus",
+    "name": "Hyperfocus",
+    "aliases": [],
+    "kind": "merit",
+    "category": "mental",
+    "allowedCosts": [3],
+    "description": "Adds up to three extra dice to mundane extended actions when focusing without distraction.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 45
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 54
+  },
+  {
+    "id": "iron-will",
+    "name": "Iron Will",
+    "aliases": [],
+    "kind": "merit",
+    "category": "mental",
+    "allowedCosts": [3],
+    "description": "Adds three dice to rolls used to resist mental influence or domination.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 45
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 55
+  },
+  {
+    "id": "jack-of-all-trades",
+    "name": "Jack-of-All-Trades",
+    "aliases": [],
+    "kind": "merit",
+    "category": "mental",
+    "allowedCosts": [3],
+    "description": "Character ignores penalties for using Skills they don't possess.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 45
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 56
+  },
+  {
+    "id": "scientific-mystic-techgnosi",
+    "name": "Scientific Mystic / Techgnosi",
+    "aliases": ["Scientific Mystic", "Techgnosi"],
+    "kind": "merit",
+    "category": "mental",
+    "allowedCosts": [3],
+    "description": "Allows technomancers to study \"mystic\" magick or vice versa without extra cost.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 45
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 57
+  },
+  {
+    "id": "berserker",
+    "name": "Berserker",
+    "aliases": [],
+    "kind": "merit",
+    "category": "mental",
+    "allowedCosts": [4],
+    "description": "Character enters a battle-frenzy when injured, gaining physical boosts but losing control.",
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 644
+      },
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 46
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 58
+  },
+  {
+    "id": "judges-wisdom",
+    "name": "Judge’s Wisdom",
+    "aliases": [],
+    "kind": "merit",
+    "category": "mental",
+    "allowedCosts": [4],
+    "description": "Character can intuitively spot lies and hypocrisy.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 46
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 59
+  },
+  {
+    "id": "self-confident",
+    "name": "Self-Confident",
+    "aliases": [],
+    "kind": "merit",
+    "category": "mental",
+    "allowedCosts": [5],
+    "description": "Character can spend Willpower for automatic success without losing the point under challenging conditions.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 46
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 60
+  },
+  {
+    "id": "compulsion",
+    "name": "Compulsion",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [1],
+    "description": "A reflexive mental tic or ritualized activity (e.g., hand-washing).",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 46
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 64
+  },
+  {
+    "id": "impatient",
+    "name": "Impatient",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [1],
+    "description": "Must make a Willpower roll to wait for others.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 46
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 65
+  },
+  {
+    "id": "inappropriate",
+    "name": "Inappropriate",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [1, 2, 3, 4],
+    "description": "Character frequently says or does embarrassing things, increasing social difficulties.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 46
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 66
+  },
+  {
+    "id": "overconfident",
+    "name": "Overconfident",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [1],
+    "description": "Character assumes they are the best and rarely backs down.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 47
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 67
+  },
+  {
+    "id": "shy",
+    "name": "Shy",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [1],
+    "description": "Social anxiety adds +2 difficulty to social rolls (+3 if center of attention).",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 47
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 68
+  },
+  {
+    "id": "soft-hearted",
+    "name": "Soft-Hearted",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [1],
+    "description": "Character must roll Willpower to avoid intervening in suffering.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 47
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 69
+  },
+  {
+    "id": "amnesia",
+    "name": "Amnesia",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [2],
+    "description": "Character lacks memories; the Storyteller assigns \"mystery flaws.\"",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 47
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 70
+  },
+  {
+    "id": "icy",
+    "name": "Icy",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [2],
+    "description": "Character is callous and sociopathic, causing others to avoid them.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 49
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 71
+  },
+  {
+    "id": "intemperate",
+    "name": "Intemperate",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [2],
+    "description": "Character does everything to excess.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 49
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 72
+  },
+  {
+    "id": "rose-colored-glasses",
+    "name": "Rose-Colored Glasses",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [2],
+    "description": "Character overlooks the atrocities or flaws of their faction.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 49
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 73
+  },
+  {
+    "id": "vengeful",
+    "name": "Vengeful",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [2],
+    "description": "Driven by a blood-grudge that overrides other priorities.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 49
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 74
+  },
+  {
+    "id": "short-fuse",
+    "name": "Short Fuse",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [2],
+    "description": "Character must roll Willpower to avoid a violent reaction when angered.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 50
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 75
+  },
+  {
+    "id": "bigot",
+    "name": "Bigot",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [3],
+    "description": "Character despises a specific group, viewing the world through that prejudice.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 50
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 76
+  },
+  {
+    "id": "chronic-depression",
+    "name": "Chronic Depression",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [3],
+    "description": "Pervasive despair affects all aspects of life, including magick.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 51
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 77
+  },
+  {
+    "id": "deranged",
+    "name": "Deranged",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [3, 5],
+    "description": "Character suffers from manageable (3 pt.) or crippling (5 pt.) insanity.",
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 648
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 78
+  },
+  {
+    "id": "driving-goal",
+    "name": "Driving Goal",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [3],
+    "description": "An intense cause drives every aspect of life.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 52
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 79
+  },
+  {
+    "id": "feral-mind",
+    "name": "Feral Mind",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [3],
+    "description": "Character lacks human social development, behaving animalistically.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 52
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 80
+  },
+  {
+    "id": "flashbacks",
+    "name": "Flashbacks",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [3],
+    "description": "Traumatic memories manifest as current reality.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 52
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 81
+  },
+  {
+    "id": "hatred",
+    "name": "Hatred",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [3],
+    "description": "Character despises a specific group and will harm them if possible.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 52
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 82
+  },
+  {
+    "id": "lifesaver",
+    "name": "Lifesaver",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [3],
+    "description": "Character has a moral imperative to save all lives.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 52
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 83
+  },
+  {
+    "id": "ability-deficit",
+    "name": "Ability Deficit",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "mental",
+    "allowedCosts": [5],
+    "description": "Subtracts five points from an Ability category and limits starting dots to three.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 53
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 84
+  },
+  {
+    "id": "loyalty",
+    "name": "Loyalty",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [1],
+    "description": "Two-die bonus to resist being turned against a specific cause or person.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 53
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 88
+  },
+  {
+    "id": "pitiable",
+    "name": "Pitiable",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [1],
+    "description": "Character inspires care; reduces difficulty to get help but harder to intimidate.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 54
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 89
+  },
+  {
+    "id": "prestigious-mentor",
+    "name": "Prestigious Mentor",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [1],
+    "description": "Character's teacher has an influential reputation.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 54
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 90
+  },
+  {
+    "id": "regal-bearing",
+    "name": "Regal Bearing",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [1],
+    "description": "Radiant dignity reduces difficulty of social rolls to make an impression by -2.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 54
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 91
+  },
+  {
+    "id": "unobtrusive",
+    "name": "Unobtrusive",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [1],
+    "description": "People tend to forget the character's presence; +2 difficulty to describe them.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 54
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 92
+  },
+  {
+    "id": "animal-magnetism",
+    "name": "Animal Magnetism",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [2],
+    "description": "Primal sex appeal reduces difficulty on seduction rolls by -2.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 54
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 93
+  },
+  {
+    "id": "confidence",
+    "name": "Confidence",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [2],
+    "description": "Unshakable self-assurance adds two dice to social rolls used to impress.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 54
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 94
+  },
+  {
+    "id": "family-support",
+    "name": "Family Support",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [1, 2, 3],
+    "description": "Family provides emotional (1 pt.), status (2 pt.), or string-pulling (3 pt.) aid.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 53
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 95
+  },
+  {
+    "id": "favor",
+    "name": "Favor",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [1, 2, 3],
+    "description": "A more powerful party owes the character a minor to life-debt boon.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 54
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 96
+  },
+  {
+    "id": "hideaway-safehouse",
+    "name": "Hideaway / Safehouse",
+    "aliases": ["Hideaway", "Safehouse"],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [2],
+    "description": "Character owns a secure location unknown to enemies.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 55
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 97
+  },
+  {
+    "id": "natural-leader",
+    "name": "Natural Leader",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [2],
+    "description": "Adds two dice to Leadership rolls.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 56
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 98
+  },
+  {
+    "id": "officially-dead",
+    "name": "Officially Dead",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [2],
+    "description": "Authorities believe character is deceased.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 56
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 99
+  },
+  {
+    "id": "perfect-liar",
+    "name": "Perfect Liar",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [2],
+    "description": "Lacks \"tells\"; reduces difficulty of deception rolls by -2.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 56
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 100
+  },
+  {
+    "id": "prestige",
+    "name": "Prestige",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [2],
+    "description": "Honored status in a sect adds three dice to social influence rolls.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 56
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 101
+  },
+  {
+    "id": "property",
+    "name": "Property",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [2, 3, 4, 5],
+    "description": "Ownership of a useful location like a house or business.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 56
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 102
+  },
+  {
+    "id": "research-grant",
+    "name": "Research Grant",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [2],
+    "description": "Institutional stipend provides character with living expenses.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 57
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 103
+  },
+  {
+    "id": "sanctity",
+    "name": "Sanctity",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [2],
+    "description": "Character projects innocence even if guilty.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 57
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 104
+  },
+  {
+    "id": "secret-code-language",
+    "name": "Secret Code Language",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [2],
+    "description": "Knowledge of exclusive initiatory languages.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 57
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 105
+  },
+  {
+    "id": "socially-networked",
+    "name": "Socially Networked",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [2],
+    "description": "Deep connections on social media provide quick info.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 57
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 106
+  },
+  {
+    "id": "subculture-insider",
+    "name": "Subculture Insider",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [2],
+    "description": "Deep knowledge of a specific scene (Goth, military, etc.).",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 58
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 107
+  },
+  {
+    "id": "dark-triad",
+    "name": "Dark Triad",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [3],
+    "description": "Character possesses narcissistic, Machiavellian, or psychopathic traits that aid manipulation.",
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 643
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 108
+  },
+  {
+    "id": "local-hero",
+    "name": "Local Hero",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [3],
+    "description": "Character is beloved by local Sleepers, providing constant aid.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 58
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 109
+  },
+  {
+    "id": "noted-messenger",
+    "name": "Noted Messenger",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [3],
+    "description": "Emissary status grants deference even from enemies.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 58
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 110
+  },
+  {
+    "id": "rising-star",
+    "name": "Rising Star",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [3],
+    "description": "Character is an up-and-coming luminary.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 58
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 111
+  },
+  {
+    "id": "ties",
+    "name": "Ties",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [3],
+    "description": "Deep connections to mundane groups like Police or Mafia.",
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 643
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 112
+  },
+  {
+    "id": "master-of-red-tape",
+    "name": "Master of Red Tape",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [4],
+    "description": "Bureaucracy savant reduces difficulty of system-based rolls by -2.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 58
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 113
+  },
+  {
+    "id": "true-love",
+    "name": "True Love",
+    "aliases": [],
+    "kind": "merit",
+    "category": "social",
+    "allowedCosts": [4],
+    "description": "Unshakable bond provides a temporary point of Willpower in crises.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 59
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 114
+  },
+  {
+    "id": "blacklisted",
+    "name": "Blacklisted",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [1, 2, 3, 4, 5],
+    "description": "Character is a pariah among a segment of the Masses.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 59
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 118
+  },
+  {
+    "id": "conflicting-loyalties",
+    "name": "Conflicting Loyalties",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [1, 2, 3],
+    "description": "Loyalties to two at-odds parties cause constant crises.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 60
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 119
+  },
+  {
+    "id": "conniver",
+    "name": "Conniver",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [1],
+    "description": "Reputation for treachery makes trust difficult.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 61
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 120
+  },
+  {
+    "id": "discredited",
+    "name": "Discredited",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [1],
+    "description": "Professional name is \"mud,\" adding +2 to social difficulties.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 61
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 121
+  },
+  {
+    "id": "esoteric-discourse-technobabbler",
+    "name": "Esoteric Discourse / Technobabbler",
+    "aliases": ["Esoteric Discourse", "Technobabbler"],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [1],
+    "description": "Obsessive jargon adds +1/+2 difficulty to social rolls.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 61
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 122
+  },
+  {
+    "id": "insane-infamous-mentor",
+    "name": "Insane / Infamous Mentor",
+    "aliases": ["Insane Mentor", "Infamous Mentor"],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [1],
+    "description": "Association with a problematic mentor fouls up relations.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 61
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 123
+  },
+  {
+    "id": "mistaken-identity",
+    "name": "Mistaken Identity",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [1],
+    "description": "People mistake character for someone else, usually someone troublesome.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 61
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 124
+  },
+  {
+    "id": "new-kid",
+    "name": "New Kid",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [1],
+    "description": "Recently Awakened status adds +2 difficulty to rolls with experienced mages.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 62
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 125
+  },
+  {
+    "id": "sect-enmity",
+    "name": "Sect Enmity",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [1],
+    "description": "Character has angered an entire sect within their larger group.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 64
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 126
+  },
+  {
+    "id": "sympathizer",
+    "name": "Sympathizer",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [1],
+    "description": "Expressing sympathy for an enemy faction makes character unpopular.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 64
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 127
+  },
+  {
+    "id": "debts",
+    "name": "Debts",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [1, 2, 3, 4, 5],
+    "description": "Character owes creditors from $10k (1 pt.) to over $500k (5 pt.).",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 61
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 128
+  },
+  {
+    "id": "enemy",
+    "name": "Enemy",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [1, 2, 3, 4, 5],
+    "description": "Targeted by a minor (1 pt.) to powerful (5 pt.) opponent.",
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 647
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 129
+  },
+  {
+    "id": "infamy",
+    "name": "Infamy",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [1, 2, 3, 4, 5],
+    "description": "Recognized and disliked by the Masses.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 62
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 130
+  },
+  {
+    "id": "diabolical-mentor",
+    "name": "Diabolical Mentor",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [2],
+    "description": "Trained by a malevolent being like a Nephandus.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 62
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 131
+  },
+  {
+    "id": "dogmatic",
+    "name": "Dogmatic",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [2],
+    "description": "Strong beliefs make character abrasive toward others.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 62
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 132
+  },
+  {
+    "id": "failure",
+    "name": "Failure",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [2],
+    "description": "Character is a laughingstock for blowing a high-profile job.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 63
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 133
+  },
+  {
+    "id": "gullible",
+    "name": "Gullible",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [2],
+    "description": "Character believes everything and reposts unchecked memes; -3 dice to penetrate lies.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 63
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 134
+  },
+  {
+    "id": "old-flame",
+    "name": "Old Flame",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [2],
+    "description": "A former lover now works for the enemy and knows the character's weak spots.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 64
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 135
+  },
+  {
+    "id": "troublemaker",
+    "name": "Troublemaker",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [2],
+    "description": "Character projects guilt and is blamed for problems even when innocent.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 65
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 136
+  },
+  {
+    "id": "construct",
+    "name": "Construct",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [2],
+    "description": "Lab-born character suffers social alienation from humans.",
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 647
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 137
+  },
+  {
+    "id": "narc",
+    "name": "Narc",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [3],
+    "description": "Shunned as an informer, adding +1 difficulty to social rolls.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 65
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 138
+  },
+  {
+    "id": "notoriety",
+    "name": "Notoriety",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [3],
+    "description": "Bad reputation among mages adds +2 difficulty to social rolls.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 65
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 139
+  },
+  {
+    "id": "rotten-liar",
+    "name": "Rotten Liar",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [3],
+    "description": "Unable to tell credible untruths; adds +2 difficulty to deception.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 66
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 140
+  },
+  {
+    "id": "ward",
+    "name": "Ward",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [3],
+    "description": "Character is responsible for an unAwakened person who requires protection.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 66
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 141
+  },
+  {
+    "id": "mr-red-tape",
+    "name": "Mr. Red Tape",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [4],
+    "description": "Hated by bureaucracy; adding +2 difficulty to system rolls.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 68
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 142
+  },
+  {
+    "id": "overextended",
+    "name": "Overextended",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [4],
+    "description": "Character has tried to do too much, resulting in constant strain.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 68
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 143
+  },
+  {
+    "id": "probationary-member",
+    "name": "Probationary Member",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [4],
+    "description": "Defector from a rival group is expected to turn at any time.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 68
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 144
+  },
+  {
+    "id": "rogue",
+    "name": "Rogue",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [4],
+    "description": "A \"loose cannon\" acting outside faction rules.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 68
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 145
+  },
+  {
+    "id": "witch-hunted",
+    "name": "Witch-Hunted",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [4],
+    "description": "Identity is exposed, and mundane groups want them dead.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 68
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 146
+  },
+  {
+    "id": "fifth-degree",
+    "name": "Fifth Degree",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "social",
+    "allowedCosts": [5],
+    "description": "Character has outlived their usefulness to the Technocracy and is set to fall.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 68
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 147
+  },
+  {
+    "id": "burning-aura",
+    "name": "Burning Aura",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [1],
+    "description": "Aura pulsates with bright power, adding -1 difficulty to certain magickal acts but making them easy to spot.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 68
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 151
+  },
+  {
+    "id": "green-thumb",
+    "name": "Green Thumb",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [1],
+    "description": "Plants flourish; reduces difficulty of Arete rolls involving vegetation by -1.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 69
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 152
+  },
+  {
+    "id": "bardic-gift",
+    "name": "Bardic Gift",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [2],
+    "description": "Character's Art or Expression possesses a touch of minor enchantment.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 69
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 153
+  },
+  {
+    "id": "circumspect-avatar",
+    "name": "Circumspect Avatar",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [2],
+    "description": "Insights from the Avatar come through everyday events rather than visions.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 69
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 154
+  },
+  {
+    "id": "faerie-affinity",
+    "name": "Faerie Affinity",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [2],
+    "description": "Fae beings favor the character, providing a social bonus with changelings.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 69
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 155
+  },
+  {
+    "id": "medium",
+    "name": "Medium",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [2],
+    "description": "Character communicates with ghosts without Spirit magick.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 69
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 156
+  },
+  {
+    "id": "unaging",
+    "name": "Unaging",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [2],
+    "description": "Character does not age physically.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 69
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 157
+  },
+  {
+    "id": "celestial-affinity",
+    "name": "Celestial Affinity",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [3],
+    "description": "Character is in tune with astrological alignments.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 70
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 158
+  },
+  {
+    "id": "cloak-of-the-seasons",
+    "name": "Cloak of the Seasons",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [3],
+    "description": "Character is untouched by extremes of temperature and climate.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 70
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 159
+  },
+  {
+    "id": "cyclic-magick",
+    "name": "Cyclic Magick",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [3],
+    "description": "Magickal power waxes and wanes with a specific natural cycle (e.g., lunar).",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 70
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 160
+  },
+  {
+    "id": "danger-sense",
+    "name": "Danger Sense",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [3],
+    "description": "Reduces difficulty of Alertness rolls to avoid ambushes by -2.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 70
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 161
+  },
+  {
+    "id": "hands-of-daedalus",
+    "name": "Hands of Daedalus",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [3],
+    "description": "Innate crafting proficiency adds two dice to Crafts rolls.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 70
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 162
+  },
+  {
+    "id": "lucky",
+    "name": "Lucky",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [3],
+    "description": "Character can re-roll a failed die roll three times per story.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 71
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 163
+  },
+  {
+    "id": "manifest-avatar",
+    "name": "Manifest Avatar",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [3],
+    "description": "Avatar is a real, character-like presence in daily life.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 71
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 164
+  },
+  {
+    "id": "mark-of-favor",
+    "name": "Mark of Favor",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [3],
+    "description": "Character is blessed by a potent spirit or god.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 71
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 165
+  },
+  {
+    "id": "natural-channel",
+    "name": "Natural Channel",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [3],
+    "description": "Gauntlet difficulty is reduced by -1 for the character.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 72
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 166
+  },
+  {
+    "id": "natural-shapeshifter",
+    "name": "Natural Shapeshifter",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [3],
+    "description": "Character can shift physical forms with ease (requires Life 4).",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 72
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 167
+  },
+  {
+    "id": "oracular-ability",
+    "name": "Oracular Ability",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [3],
+    "description": "Provides intuitive glimpses of the past or future.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 72
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 168
+  },
+  {
+    "id": "parlor-trick",
+    "name": "Parlor Trick",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [3],
+    "description": "Character can perform minor, coincidental metaphysical effects without Arete rolls.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 73
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 169
+  },
+  {
+    "id": "spirit-magnet",
+    "name": "Spirit Magnet",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [3, 4, 5, 6, 7],
+    "description": "Spirits are drawn to the character in varying numbers/potency.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 73
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 170
+  },
+  {
+    "id": "spirit-mentor",
+    "name": "Spirit Mentor",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [3],
+    "description": "A spirit teacher provides guidance and knowledge.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 73
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 171
+  },
+  {
+    "id": "supernatural-companion",
+    "name": "Supernatural Companion",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [3],
+    "description": "Character is accompanied by a spirit, ghost, or mythic creature.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 74
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 172
+  },
+  {
+    "id": "stormwarden-quantum-voyager",
+    "name": "Stormwarden / Quantum Voyager",
+    "aliases": ["Stormwarden", "Quantum Voyager"],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [3, 5],
+    "description": "Character is immune to the Avatar Storm.",
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 643
+      },
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 74
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 173
+  },
+  {
+    "id": "deathwalker",
+    "name": "Deathwalker",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [4],
+    "description": "Character can step into the Low Umbra with Spirit 3; aura is pale like death.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 74
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 174
+  },
+  {
+    "id": "fae-blood",
+    "name": "Fae Blood",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [4],
+    "description": "Character is Kinain; low banality and permanently enchanted.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 74
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 175
+  },
+  {
+    "id": "shapechanger-kin",
+    "name": "Shapechanger Kin",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [4],
+    "description": "Related to were-breeds; immune to Delirium.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 74
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 176
+  },
+  {
+    "id": "twin-souls",
+    "name": "Twin Souls",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [4],
+    "description": "Character shares a soul with another person; they sense each other’s presence.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 74
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 177
+  },
+  {
+    "id": "umbral-affinity",
+    "name": "Umbral Affinity",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [4],
+    "description": "Character feels at home in the Umbra; Gauntlet difficulties reduced by -1.",
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 644
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 178
+  },
+  {
+    "id": "unbondable",
+    "name": "Unbondable",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [4],
+    "description": "Immune to blood bonds and resistant to mental domination.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 75
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 179
+  },
+  {
+    "id": "ghoul",
+    "name": "Ghoul",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [5],
+    "description": "Consumed vampire blood provides vitality but incurs addiction.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 75
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 180
+  },
+  {
+    "id": "clear-sighted",
+    "name": "Clear Sighted",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [5],
+    "description": "Character sees through illusions and shapeshifting automatically.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 75
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 181
+  },
+  {
+    "id": "immortal",
+    "name": "“Immortal”",
+    "aliases": ["Immortal"],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [5, 7],
+    "description": "Character cannot die except via a specific \"special doom.\"",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 76
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 182
+  },
+  {
+    "id": "inner-knight",
+    "name": "Inner Knight",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [5],
+    "description": "Heroic higher purpose grants boosts in hopeless crises.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 77
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 183
+  },
+  {
+    "id": "legendary-attributes",
+    "name": "Legendary Attributes",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [5],
+    "description": "Allows an Attribute to be raised to 6 dots.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 77
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 184
+  },
+  {
+    "id": "powerful-ally",
+    "name": "Powerful Ally",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [5, 6, 7, 8],
+    "description": "Character has badass friends like vampire lords or faerie nobles.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 77
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 185
+  },
+  {
+    "id": "shattered-avatar",
+    "name": "Shattered Avatar",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [5],
+    "description": "Allows Avatar Background to be raised after character creation.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 77
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 186
+  },
+  {
+    "id": "spark-of-life",
+    "name": "Spark of Life",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [5],
+    "description": "Lethal injuries heal as bashing; aggravated heal faster.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 78
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 187
+  },
+  {
+    "id": "guardian-angel",
+    "name": "Guardian Angel",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [6],
+    "description": "A powerful spirit protects the character from mortal harm.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 78
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 188
+  },
+  {
+    "id": "nine-lives",
+    "name": "Nine Lives",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [6],
+    "description": "Character can cheat death nine times, forcing re-rolls.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 79
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 189
+  },
+  {
+    "id": "sphere-natural",
+    "name": "Sphere Natural",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [6],
+    "description": "Innate proficiency in one Sphere; costs 70% exp.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 79
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 190
+  },
+  {
+    "id": "avatar-companion",
+    "name": "Avatar Companion",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [7],
+    "description": "A companion sharing part of the character's soul follows them through incarnations.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 79
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 191
+  },
+  {
+    "id": "dual-affiliation",
+    "name": "Dual Affiliation",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [7],
+    "description": "Familiar with focuses and connections of two different Awakened groups.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 79
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 192
+  },
+  {
+    "id": "nephilim-laham",
+    "name": "Nephilim / Laham",
+    "aliases": ["Nephilim", "Laham"],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [7],
+    "description": "Character is half-divine/demonic; powerful but cursed.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 80
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 193
+  },
+  {
+    "id": "true-faith",
+    "name": "True Faith",
+    "aliases": [],
+    "kind": "merit",
+    "category": "supernatural",
+    "allowedCosts": [7],
+    "description": "Character channels divine power for miraculous feats.",
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 644
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 194
+  },
+  {
+    "id": "anachronism",
+    "name": "Anachronism",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [1, 2, 3],
+    "description": "Character is from a different time; high levels add +3 difficulty to modern knowledge.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 81
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 198
+  },
+  {
+    "id": "apprentice",
+    "name": "Apprentice",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [1, 2, 3, 4, 5],
+    "description": "Character is training an often troublesome student.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 81
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 199
+  },
+  {
+    "id": "the-bards-tongue",
+    "name": "The Bard’s Tongue",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [1],
+    "description": "Character speaks the truth about people, whether they want to or not.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 82
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 200
+  },
+  {
+    "id": "cast-no-shadow-or-reflection",
+    "name": "Cast No Shadow or Reflection",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [1, 2],
+    "description": "Character lacks a shadow or reflection, unnerving others.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 82
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 201
+  },
+  {
+    "id": "cursed",
+    "name": "Cursed",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [1, 2, 3, 4, 5],
+    "description": "Supernatural misfortune ranging from quirks to pervasive failure.",
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 646
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 202
+  },
+  {
+    "id": "devils-mark",
+    "name": "Devil’s Mark",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [1],
+    "description": "A deformation allows others to draw Quintessence from the character.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 83
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 203
+  },
+  {
+    "id": "echoes",
+    "name": "Echoes",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [1, 2, 3, 4, 5],
+    "description": "Reality ripples (e.g., touch of frost) from the character's nature.",
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 646
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 204
+  },
+  {
+    "id": "paranormal-prohibition-or-imperative",
+    "name": "Paranormal Prohibition or Imperative",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [2, 3, 4, 5, 6, 7, 8],
+    "description": "Character must or must not do something (geas).",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 83
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 205
+  },
+  {
+    "id": "gremlin",
+    "name": "Gremlin",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [1, 2, 3, 4, 5],
+    "description": "A troublesome spirit sabotages the character's surroundings.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 84
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 206
+  },
+  {
+    "id": "locked-vidare",
+    "name": "Locked Vidare",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [1],
+    "description": "Character views the Penumbra through a single, unchangeable metaphorical lens.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 85
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 207
+  },
+  {
+    "id": "strangeness",
+    "name": "Strangeness",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [1],
+    "description": "Character's presence causes subtle, inexplicable oddities.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 85
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 208
+  },
+  {
+    "id": "throwback",
+    "name": "Throwback",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [1, 2, 3, 4, 5],
+    "description": "Character possesses traits of a past incarnation.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 85
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 209
+  },
+  {
+    "id": "uncanny",
+    "name": "Uncanny",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [1, 2, 3, 4, 5],
+    "description": "Character is remarkably memorable and stands out.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 85
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 210
+  },
+  {
+    "id": "vulnerability",
+    "name": "Vulnerability",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [2, 3, 4, 5, 6, 7, 8],
+    "description": "Weakened or killed by contact with a rare or common substance (e.g., silver).",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 86
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 211
+  },
+  {
+    "id": "bizarre-hunger",
+    "name": "Bizarre Hunger",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [2, 3, 4, 5],
+    "description": "Character must eat weird/illegal substances.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 87
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 212
+  },
+  {
+    "id": "blood-hungry-soul",
+    "name": "Blood-Hungry Soul",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [2, 3, 5],
+    "description": "Past-life addiction to vampire blood.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 87
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 213
+  },
+  {
+    "id": "crucial-component",
+    "name": "Crucial Component",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [2, 3, 4, 5],
+    "description": "Magick requires a specific, hard-to-procure instrument.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 87
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 214
+  },
+  {
+    "id": "faulty-enhancements",
+    "name": "Faulty Enhancements",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [2, 3, 4, 5],
+    "description": "Cybernetic hardware malfunctions, failing at critical times.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 88
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 215
+  },
+  {
+    "id": "jinx-infernal-contraption",
+    "name": "Jinx / Infernal Contraption",
+    "aliases": ["Jinx", "Infernal Contraption"],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "description": "Cursed Wonder backfires or attracts spirits.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 88
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 216
+  },
+  {
+    "id": "permanent-paradox-flaw",
+    "name": "Permanent Paradox Flaw",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [2, 4, 6],
+    "description": "A lasting Paradox Flaw that is part of daily life.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 89
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 217
+  },
+  {
+    "id": "branded",
+    "name": "Branded",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [2, 3, 4, 5],
+    "description": "Visible mark of shame from a faction punishment.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 89
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 218
+  },
+  {
+    "id": "demented-eidolon",
+    "name": "Demented Eidolon",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [3],
+    "description": "A mad heretical voice in the character's head.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 89
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 219
+  },
+  {
+    "id": "haunted",
+    "name": "Haunted",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [3],
+    "description": "Plagued by a ghost that harasses the living.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 90
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 220
+  },
+  {
+    "id": "primal-marks",
+    "name": "Primal Marks",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [3],
+    "description": "Unpleasant marks from a god (e.g., stigmata).",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 90
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 221
+  },
+  {
+    "id": "oathbreaker",
+    "name": "Oathbreaker",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [4],
+    "description": "Known as faithless after breaking a significant oath.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 90
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 222
+  },
+  {
+    "id": "prone-to-quiet",
+    "name": "Prone to Quiet",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [4, 5],
+    "description": "Stress automatically sends character into metaphysical Quiet.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 91
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 223
+  },
+  {
+    "id": "beast-within",
+    "name": "Beast Within",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [5],
+    "description": "Violent temper subject to rage-frenzy.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 91
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 224
+  },
+  {
+    "id": "blood-magick",
+    "name": "Blood Magick",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [5],
+    "description": "Spellcasting requires an injurious amount of character's own blood.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 92
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 225
+  },
+  {
+    "id": "bound",
+    "name": "Bound",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [5],
+    "description": "Character is blood-bound or spiritually enslaved to another.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 92
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 226
+  },
+  {
+    "id": "dark-fate",
+    "name": "Dark Fate",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [5],
+    "description": "Character is doomed to a specific, awful death.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 92
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 227
+  },
+  {
+    "id": "faithless",
+    "name": "Faithless",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [5],
+    "description": "Belief that god cut off character from magick; Spheres stuck at Rank 1.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 93
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 228
+  },
+  {
+    "id": "immortal-enemy",
+    "name": "Immortal Enemy",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [5, 6, 7, 8],
+    "description": "Eternal grudge with a vampire elder or demon.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 93
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 229
+  },
+  {
+    "id": "psychic-vampire",
+    "name": "Psychic Vampire",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [5],
+    "description": "Character drains life force/Quintessence from others.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 93
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 230
+  },
+  {
+    "id": "bedeviled",
+    "name": "Bedeviled",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [6],
+    "description": "A mysterious power fucks with the character's life.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 94
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 231
+  },
+  {
+    "id": "sphere-inept",
+    "name": "Sphere Inept",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [6],
+    "description": "Exceptionally difficult to learn or use one specific Sphere.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 94
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 232
+  },
+  {
+    "id": "phylactery",
+    "name": "Phylactery",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [7],
+    "description": "Magick/soul resides in an external portable object.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 94
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 233
+  },
+  {
+    "id": "taint-of-corruption",
+    "name": "Taint of Corruption",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "supernatural",
+    "allowedCosts": [7],
+    "description": "Nephandic soul from a previous incarnation urges character to Fall.",
+    "sources": [
+      {
+        "bookId": "bos",
+        "bookLabel": "BoS",
+        "page": 96
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 234
+  },
+  {
+    "id": "shadow-appeal",
+    "name": "Shadow Appeal",
+    "aliases": [],
+    "kind": "merit",
+    "category": "nephandic",
+    "allowedCosts": [],
+    "description": "Uncanny social prowess makes character frightfully tempting.",
+    "sources": [
+      {
+        "bookId": "bof",
+        "bookLabel": "BoF",
+        "page": 117
+      }
+    ],
+    "requiresReview": true,
+    "reviewNote": "The supplied reference identifies this entry as a Merit or Flaw but does not provide a point cost.",
+    "sourceLine": 238
+  },
+  {
+    "id": "innocuous-aura",
+    "name": "Innocuous Aura",
+    "aliases": [],
+    "kind": "merit",
+    "category": "nephandic",
+    "allowedCosts": [],
+    "description": "Aura appears mundane despite Nephandic nature.",
+    "sources": [
+      {
+        "bookId": "bof",
+        "bookLabel": "BoF",
+        "page": 117
+      }
+    ],
+    "requiresReview": true,
+    "reviewNote": "The supplied reference identifies this entry as a Merit or Flaw but does not provide a point cost.",
+    "sourceLine": 239
+  },
+  {
+    "id": "abyssal-mastery",
+    "name": "Abyssal Mastery",
+    "aliases": [],
+    "kind": "merit",
+    "category": "nephandic",
+    "allowedCosts": [],
+    "description": "Innate mastery over entropic/abyssal forces.",
+    "sources": [
+      {
+        "bookId": "bof",
+        "bookLabel": "BoF",
+        "page": 117
+      }
+    ],
+    "requiresReview": true,
+    "reviewNote": "The supplied reference identifies this entry as a Merit or Flaw but does not provide a point cost.",
+    "sourceLine": 240
+  },
+  {
+    "id": "saint-of-the-pit",
+    "name": "Saint of the Pit",
+    "aliases": [],
+    "kind": "merit",
+    "category": "nephandic",
+    "allowedCosts": [],
+    "description": "High prestige among the Fallen.",
+    "sources": [
+      {
+        "bookId": "bof",
+        "bookLabel": "BoF",
+        "page": 118
+      }
+    ],
+    "requiresReview": true,
+    "reviewNote": "The supplied reference identifies this entry as a Merit or Flaw but does not provide a point cost.",
+    "sourceLine": 241
+  },
+  {
+    "id": "qlippothic-radiance",
+    "name": "Qlippothic Radiance",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "nephandic",
+    "allowedCosts": [1, 2, 3, 4, 5],
+    "description": "Threads of anti-light in aura make others uncomfortable.",
+    "sources": [
+      {
+        "bookId": "bof",
+        "bookLabel": "BoF",
+        "page": 119
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 242
+  },
+  {
+    "id": "spectral-presence",
+    "name": "Spectral Presence",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "nephandic",
+    "allowedCosts": [],
+    "description": "Character’s presence is visibly ghostly or unsettling.",
+    "sources": [
+      {
+        "bookId": "bof",
+        "bookLabel": "BoF",
+        "page": 119
+      }
+    ],
+    "requiresReview": true,
+    "reviewNote": "The supplied reference identifies this entry as a Merit or Flaw but does not provide a point cost.",
+    "sourceLine": 243
+  },
+  {
+    "id": "abyssal-lunatic",
+    "name": "Abyssal Lunatic",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "nephandic",
+    "allowedCosts": [],
+    "description": "Unfathomable madness makes character unsalvageable.",
+    "sources": [
+      {
+        "bookId": "bof",
+        "bookLabel": "BoF",
+        "page": 119
+      }
+    ],
+    "requiresReview": true,
+    "reviewNote": "The supplied reference identifies this entry as a Merit or Flaw but does not provide a point cost.",
+    "sourceLine": 244
+  },
+  {
+    "id": "widderslainte-or-taint-of-corruption",
+    "name": "Widderslainte, or Taint of Corruption",
+    "aliases": ["Widderslainte", "Taint of Corruption"],
+    "kind": "flaw",
+    "category": "nephandic",
+    "allowedCosts": [7],
+    "description": "Born with a Nephandic soul, struggling with the urge to Fall.",
+    "sources": [
+      {
+        "bookId": "bof",
+        "bookLabel": "BoF",
+        "page": 120
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 245
+  },
+  {
+    "id": "alpha",
+    "name": "Alpha",
+    "aliases": [],
+    "kind": "merit",
+    "category": "companion",
+    "allowedCosts": [2],
+    "description": "Reduces social difficulties for natural leaders.",
+    "sources": [
+      {
+        "bookId": "g-and-m",
+        "bookLabel": "G&M",
+        "page": 195
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 249
+  },
+  {
+    "id": "my-master-is-my-slave",
+    "name": "My Master is My Slave",
+    "aliases": [],
+    "kind": "merit",
+    "category": "companion",
+    "allowedCosts": [5],
+    "description": "Dependent possesses leverage to ruin their \"master.\"",
+    "sources": [
+      {
+        "bookId": "g-and-m",
+        "bookLabel": "G&M",
+        "page": 195
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 250
+  },
+  {
+    "id": "dominance",
+    "name": "Dominance",
+    "aliases": [],
+    "kind": "merit",
+    "category": "companion",
+    "allowedCosts": [1],
+    "description": "Commanded demeanor adds three dice to social interaction.",
+    "sources": [
+      {
+        "bookId": "g-and-m",
+        "bookLabel": "G&M",
+        "page": 205
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 251
+  },
+  {
+    "id": "alien-impression",
+    "name": "Alien Impression",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "companion",
+    "allowedCosts": [1, 2, 3, 4, 5],
+    "description": "Visible inhuman features freak people out.",
+    "sources": [
+      {
+        "bookId": "g-and-m",
+        "bookLabel": "G&M",
+        "page": 195
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 252
+  },
+  {
+    "id": "animal",
+    "name": "Animal",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "companion",
+    "allowedCosts": [2],
+    "description": "Literal animal cannot use human tools.",
+    "sources": [
+      {
+        "bookId": "g-and-m",
+        "bookLabel": "G&M",
+        "page": 197
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 253
+  },
+  {
+    "id": "beta",
+    "name": "Beta",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "companion",
+    "allowedCosts": [1],
+    "description": "Born to follow and support leaders.",
+    "sources": [
+      {
+        "bookId": "g-and-m",
+        "bookLabel": "G&M",
+        "page": 197
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 254
+  },
+  {
+    "id": "broken",
+    "name": "Broken",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "companion",
+    "allowedCosts": [5],
+    "description": "Will is trashed; character must obey a master.",
+    "sources": [
+      {
+        "bookId": "g-and-m",
+        "bookLabel": "G&M",
+        "page": 197
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 255
+  },
+  {
+    "id": "omega",
+    "name": "Omega",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "companion",
+    "allowedCosts": [4],
+    "description": "Bottom of the social hierarchy; suffers abuse.",
+    "sources": [
+      {
+        "bookId": "g-and-m",
+        "bookLabel": "G&M",
+        "page": 197
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 256
+  },
+  {
+    "id": "power-source",
+    "name": "Power Source",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "companion",
+    "allowedCosts": [1, 2, 3, 4, 5],
+    "description": "Takes unsoakable damage outside home Reality Zone.",
+    "sources": [
+      {
+        "bookId": "g-and-m",
+        "bookLabel": "G&M",
+        "page": 198
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 257
+  },
+  {
+    "id": "thaumivore",
+    "name": "Thaumivore",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "companion",
+    "allowedCosts": [5],
+    "description": "Must consume Quintessence to survive.",
+    "sources": [
+      {
+        "bookId": "g-and-m",
+        "bookLabel": "G&M",
+        "page": 199
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 258
+  },
+  {
+    "id": "unbelief",
+    "name": "Unbelief",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "companion",
+    "allowedCosts": [3, 5, 8],
+    "description": "Bygone nature causes Paradox-like injury on Earth.",
+    "sources": [
+      {
+        "bookId": "g-and-m",
+        "bookLabel": "G&M",
+        "page": 199
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 259
+  },
+  {
+    "id": "ungainly-fingers",
+    "name": "Ungainly Fingers",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "companion",
+    "allowedCosts": [2],
+    "description": "Lacks fine manual dexterity.",
+    "sources": [
+      {
+        "bookId": "g-and-m",
+        "bookLabel": "G&M",
+        "page": 200
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 260
+  },
+  {
+    "id": "weak-spot",
+    "name": "Weak Spot",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "companion",
+    "allowedCosts": [3],
+    "description": "A specific spot bypasses all armor/soak.",
+    "sources": [
+      {
+        "bookId": "g-and-m",
+        "bookLabel": "G&M",
+        "page": 200
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 261
+  },
+  {
+    "id": "aura",
+    "name": "Aura",
+    "aliases": [],
+    "kind": "flaw",
+    "category": "companion",
+    "allowedCosts": [3],
+    "description": "Character possesses a distinct, noticeable aura that cannot be hidden.",
+    "sources": [
+      {
+        "bookId": "g-and-m",
+        "bookLabel": "G&M",
+        "page": 203
+      }
+    ],
+    "requiresReview": false,
+    "reviewNote": "",
+    "sourceLine": 262
+  }
+]

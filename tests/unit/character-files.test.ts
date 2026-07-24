@@ -19,6 +19,13 @@ describe('character files', () => {
       source.abilities.talents.alertness = 3;
       source.enlightenment.arete = 4;
       source.health.damage = ['lethal'];
+      source.repeatableEntries.merits.push({
+        id: '23c6246a-d61e-42af-8733-94fc1aa98647',
+        definitionId: 'acute-senses',
+        chosenCost: 3,
+        notes: 'All five senses',
+        addedAt: '2026-07-01T12:00:00.000Z',
+      });
 
       const imported = prepareImportedCharacter(
         serializeCharacter(source, format),
@@ -33,6 +40,11 @@ describe('character files', () => {
       expect(imported.abilities.talents.alertness).toBe(3);
       expect(imported.enlightenment.arete).toBe(4);
       expect(imported.health.damage).toEqual(['lethal']);
+      expect(imported.repeatableEntries.merits[0]).toMatchObject({
+        definitionId: 'acute-senses',
+        chosenCost: 3,
+        notes: 'All five senses',
+      });
       expect(imported.createdAt).toBe('2026-07-23T16:00:00.000Z');
     },
   );

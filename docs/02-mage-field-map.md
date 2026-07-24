@@ -32,6 +32,10 @@ Visible labels are presentation only. Persistent keys are stable IDs.
 
 `health.damage` stores an ordered array of `bashing`, `lethal`, or `aggravated` marks. Its indices correspond to Bruised, Hurt, Injured, Wounded, Mauled, Crippled, and Incapacitated.
 
+## Merits and Flaws
+
+`repeatableEntries.merits[]` and `repeatableEntries.flaws[]` store `id`, `definitionId`, `chosenCost`, `notes`, and `addedAt`. Definition IDs refer to the separate catalog in `src/systems/mage-m20/reference/merits-flaws.data.json`; descriptions and citations are not copied into character records.
+
 ## Deferred fields
 
-The future model reserves Backgrounds, Merits, Flaws, Focus, Wonders, and Rotes. They are not persisted as fake completed data in this milestone.
+The future model reserves Backgrounds, Focus, Wonders, and Rotes. They are not persisted as fake completed data in this milestone.

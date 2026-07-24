@@ -6,10 +6,6 @@ const deferred = [
     detail: 'Named repeatable entries with five-point ratings',
   },
   {
-    title: 'Merits & Flaws',
-    detail: 'Named entries, types, and costs',
-  },
-  {
     title: 'Magic',
     detail: 'Focus, Wonders, and Rotes',
   },

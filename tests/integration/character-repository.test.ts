@@ -86,7 +86,7 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(3);
+    expect(migrated?.schemaVersion).toBe(4);
     expect(migrated?.abilities.talents.alertness).toBe(0);
     expect(migrated?.enlightenment).toEqual({
       arete: 1,
@@ -126,8 +126,71 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(3);
+    expect(migrated?.schemaVersion).toBe(4);
     expect(migrated?.enlightenment.willpower).toBe(7);
     expect(migrated?.enlightenment.willpowerTemporary).toBe(7);
+  });
+
+  it('migrates schema-version-three characters with empty selections', async () => {
+    await database.delete();
+    const databaseName = `arcane-ledger-migration-${crypto.randomUUID()}`;
+    const legacyDatabase = new Dexie(databaseName);
+    legacyDatabase.version(3).stores({
+      characters: 'id, systemId, updatedAt, createdAt',
+    });
+
+    const current = createBlankMageCharacter();
+    const legacy = structuredClone(current) as unknown as Record<
+      string,
+      unknown
+    >;
+    legacy.schemaVersion = 3;
+    legacy.repeatableEntries = {
+      ...(legacy.repeatableEntries as Record<string, unknown>),
+      merits: [],
+      flaws: [],
+    };
+    await legacyDatabase.table('characters').add(legacy);
+    legacyDatabase.close();
+
+    database = new MageDatabase(databaseName);
+    repository = new DexieCharacterRepository(database);
+    const migrated = await repository.get(current.id);
+
+    expect(migrated?.schemaVersion).toBe(4);
+    expect(migrated?.repeatableEntries.merits).toEqual([]);
+    expect(migrated?.repeatableEntries.flaws).toEqual([]);
+  });
+
+  it('saves and reopens selected Merits and Flaws', async () => {
+    const character = createBlankMageCharacter();
+    character.repeatableEntries.merits.push({
+      id: crypto.randomUUID(),
+      definitionId: 'acute-senses',
+      chosenCost: 3,
+      notes: 'All five senses',
+      addedAt: new Date().toISOString(),
+    });
+    character.repeatableEntries.flaws.push({
+      id: crypto.randomUUID(),
+      definitionId: 'addiction',
+      chosenCost: 1,
+      notes: 'Coffee',
+      addedAt: new Date().toISOString(),
+    });
+
+    await repository.create(character);
+    expect(
+      (await repository.get(character.id))?.repeatableEntries,
+    ).toMatchObject({
+      merits: [
+        {
+          definitionId: 'acute-senses',
+          chosenCost: 3,
+          notes: 'All five senses',
+        },
+      ],
+      flaws: [{ definitionId: 'addiction', chosenCost: 1, notes: 'Coffee' }],
+    });
   });
 });

@@ -44,10 +44,12 @@ export interface RatedEntry {
   rating: number;
 }
 
-export interface CostedEntry {
+export interface SelectedMeritFlaw {
   id: string;
-  label: string;
-  cost: number | null;
+  definitionId: string;
+  chosenCost: number;
+  notes: string;
+  addedAt: string;
 }
 
 export interface RoteEntry {
@@ -58,8 +60,8 @@ export interface RoteEntry {
 
 export interface RepeatableEntries {
   backgrounds: RatedEntry[];
-  merits: CostedEntry[];
-  flaws: CostedEntry[];
+  merits: SelectedMeritFlaw[];
+  flaws: SelectedMeritFlaw[];
   focus: string[];
   wonders: string[];
   rotes: RoteEntry[];
