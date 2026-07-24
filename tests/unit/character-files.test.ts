@@ -35,9 +35,17 @@ describe('character files', () => {
         addedAt: '2026-07-01T12:00:00.000Z',
         pooled: true,
       });
+      localStorage.setItem(
+        `arcane-ledger:section-preferences:${source.id}`,
+        JSON.stringify({
+          characterId: source.id,
+          expandedSections: ['identity', 'backgrounds'],
+        }),
+      );
 
+      const serialized = serializeCharacter(source, format);
       const imported = prepareImportedCharacter(
-        serializeCharacter(source, format),
+        serialized,
         `mara-voss.${format}`,
         new Date('2026-07-23T16:00:00.000Z'),
         'ddad7e22-a4af-4c77-b926-1243042aec2c',
@@ -62,6 +70,8 @@ describe('character files', () => {
         pooled: true,
       });
       expect(imported.createdAt).toBe('2026-07-23T16:00:00.000Z');
+      expect(serialized).not.toContain('expandedSections');
+      expect(serialized).not.toContain('section-preferences');
     },
   );
 

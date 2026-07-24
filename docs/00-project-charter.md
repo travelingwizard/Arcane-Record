@@ -15,6 +15,9 @@ Deliver a trustworthy browser-local vertical slice of an editable Mage M20 chara
 - Debounced persistence through a repository abstraction backed by Dexie/IndexedDB.
 - Honest save status and clear local-storage language.
 - Typed, runtime-validated character data and automated coverage of completed behavior.
+- Responsive section navigation with stable URL fragments, a desktop sticky
+  rail, mobile disclosures, and browser-local per-character expansion
+  preferences.
 
 ## Non-goals
 

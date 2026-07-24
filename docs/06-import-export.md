@@ -18,3 +18,7 @@ The boundary:
 Selected Merits and Flaws export only their selection UUID, definition ID, chosen cost, notes, and addition timestamp. Known definitions must use a legal catalog cost and the correct Merit or Flaw list. Unknown definition IDs are preserved as unresolved references; they remain visible and removable rather than being silently discarded.
 
 Selected Backgrounds export their selection UUID, definition ID, character display name, integer rating, notes, addition timestamp, pooling state, and optional unresolved source name. Known definitions validate minimum and maximum ratings, the extended interface maximum of ten, duplicate rules, and pooling support. Unknown definition IDs remain visible, removable, and repairable. They are not assigned an invented cost multiplier.
+
+Section expansion preferences and the transient active section are excluded
+from both formats. Importing a character creates a fresh ID and therefore a
+fresh, independent section-preference key.

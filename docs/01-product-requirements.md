@@ -23,13 +23,19 @@ The editor provides:
 - debounced autosave status;
 - placeholders for deferred sheet sections.
 
+The editor exposes every visible major section through stable URL fragments.
+At 70rem and wider, a grouped sticky rail identifies the active section. Below
+70rem, a sticky Sections button opens a modal navigation sheet and major
+sections become independent disclosures. Identity opens by default; hash
+targets open automatically; multiple sections may remain expanded.
+
 ## Persistence language
 
 Success reads "Saved in this browser". Pending and failure states read "Unsaved changes", "Saving locally...", and "Local save failed". The interface never suggests online backup.
 
 ## Accessibility
 
-All inputs have programmatic labels. Dot tracks expose the trait and current value, work with pointer and keyboard, show focus, and support disabled/read-only modes. Controls remain usable under browser zoom and at narrow widths.
+All inputs have programmatic labels. Dot tracks expose the trait and current value, work with pointer and keyboard, show focus, and support disabled/read-only modes. Section navigation uses semantic links and `aria-current`; disclosures expose `aria-expanded` and `aria-controls`; the mobile sheet traps focus, closes with Escape, restores focus on dismissal, and prevents background scrolling. Collapsing a section containing focus moves focus to its disclosure. Controls remain usable under browser zoom and at narrow widths.
 
 ## Acceptance scenarios
 

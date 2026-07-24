@@ -22,3 +22,12 @@ Merit and Flaw selections contain a selection UUID, stable definition ID, chosen
 Background selections contain a selection UUID, stable definition ID, character-specific display name, integer rating, notes, addition timestamp, and local pooling flag. Known definitions validate rating, repeatability, and pooling rules. Unknown definitions remain visible and preserved but are excluded from point accounting until repaired.
 
 Stored and imported records are parsed with Zod at their boundaries. Invalid records fail instead of silently entering editor state. Schema version 2 adds Abilities and Enlightenment; version 3 adds temporary Willpower initialized from the existing permanent rating; version 4 adds empty Merit and Flaw selections; version 5 replaces legacy Background rows with catalog-backed selections. Version-4 labels matching a known definition migrate to that definition when their rating is legal. Other legacy rows become unresolved selections without losing their IDs, labels, ratings, or order.
+
+## Interface preferences
+
+Section expansion state is not part of `MageCharacter` and does not change the
+schema version. It is stored in `localStorage` under
+`arcane-ledger:section-preferences:<character-id>` as a character ID and an
+array of registered section IDs. Unknown future or removed IDs are ignored.
+Active-section tracking is transient. Neither expansion nor active-section
+state enters IndexedDB character records, JSON exports, or YAML exports.

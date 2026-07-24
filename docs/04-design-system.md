@@ -16,6 +16,13 @@ The two A4 pages use a nearly monochrome warm paper, high-contrast black ink, a 
 
 No PDF page, extracted logo, border art, or source artwork is used as an application asset.
 
+Section navigation uses the same parchment surfaces, fine rules, serif labels,
+small-caps group headings, and restrained umber accents. The active desktop
+link has both a left rule and diamond marker in addition to color. Mobile
+disclosures and the Sections trigger preserve practical 44px targets and
+visible focus rings. The modal sheet uses an opaque paper surface over a
+high-contrast backdrop without swipe-only interaction.
+
 ## Tokens
 
 Color, spacing, type sizes, radii, shadows, and focus rings are CSS custom properties in `src/styles/tokens.css`. Motion is brief and removed under `prefers-reduced-motion`.

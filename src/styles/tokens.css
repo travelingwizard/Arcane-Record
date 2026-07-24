@@ -1,4 +1,5 @@
 :root {
+  --character-sticky-header-height: 4rem;
   --paper: #f5eedc;
   --paper-light: #fbf7ec;
   --paper-deep: #d8ccb1;

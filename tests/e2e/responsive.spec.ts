@@ -39,13 +39,21 @@ test('has no page overflow or browser errors at target widths', async ({
   await page.setViewportSize(viewports[0]);
   await page.getByRole('button', { name: 'Create character' }).click();
   await page.getByLabel('Name', { exact: true }).fill('Responsive Adept');
+  await page.getByRole('button', { name: /Sections Identity/ }).click();
+  const sectionSheet = page.getByRole('dialog', {
+    name: 'Character Sections',
+  });
+  await sectionSheet
+    .getByRole('button', { name: 'Expand all sections' })
+    .click();
+  await sectionSheet
+    .getByRole('button', { name: 'Close Character Sections' })
+    .click();
 
   for (const viewport of viewports) {
     await page.setViewportSize(viewport);
     await page.evaluate(() => window.scrollTo(0, 0));
-    await expect(
-      page.getByRole('heading', { name: 'Attributes' }),
-    ).toBeVisible();
+    await expect(page.locator('#attributes-heading')).toBeVisible();
 
     const dimensions = await page.evaluate(() => ({
       viewport: document.documentElement.clientWidth,
@@ -58,17 +66,13 @@ test('has no page overflow or browser errors at target widths', async ({
       fullPage: false,
     });
 
-    await page
-      .getByRole('heading', { name: 'Spheres' })
-      .scrollIntoViewIfNeeded();
+    await page.locator('#spheres-heading').scrollIntoViewIfNeeded();
     await page.screenshot({
       path: `tmp/qa/editor-${viewport.name}-spheres.png`,
       fullPage: false,
     });
 
-    await page
-      .getByRole('heading', { name: 'Enlightenment' })
-      .scrollIntoViewIfNeeded();
+    await page.locator('#enlightenment-heading').scrollIntoViewIfNeeded();
     await page.screenshot({
       path: `tmp/qa/editor-${viewport.name}-expanded.png`,
       fullPage: false,
@@ -82,16 +86,12 @@ test('has no page overflow or browser errors at target widths', async ({
       expandedDimensions.viewport,
     );
 
-    await page
-      .getByRole('heading', { name: 'Backgrounds', exact: true })
-      .scrollIntoViewIfNeeded();
+    await page.locator('#backgrounds-heading').scrollIntoViewIfNeeded();
     await page.screenshot({
       path: `tmp/qa/editor-${viewport.name}-backgrounds.png`,
       fullPage: false,
     });
-    const backgroundSection = page.locator('section', {
-      has: page.getByRole('heading', { name: 'Backgrounds', exact: true }),
-    });
+    const backgroundSection = page.locator('#backgrounds');
     if (viewport.name === '320') {
       await backgroundSection
         .getByRole('button', { name: 'Open catalog' })
@@ -115,25 +115,19 @@ test('has no page overflow or browser errors at target widths', async ({
       backgroundDimensions.viewport,
     );
 
-    await page
-      .getByRole('heading', { name: 'Health' })
-      .scrollIntoViewIfNeeded();
+    await page.locator('#health-heading').scrollIntoViewIfNeeded();
     await page.screenshot({
       path: `tmp/qa/editor-${viewport.name}-health.png`,
       fullPage: false,
     });
 
-    await page
-      .getByRole('heading', { name: 'Merits & Flaws' })
-      .scrollIntoViewIfNeeded();
+    await page.locator('#merits-flaws-heading').scrollIntoViewIfNeeded();
     await page.screenshot({
       path: `tmp/qa/editor-${viewport.name}-merits-flaws.png`,
       fullPage: false,
     });
 
-    await page
-      .getByRole('heading', { name: 'Import & export' })
-      .scrollIntoViewIfNeeded();
+    await page.locator('#import-export-heading').scrollIntoViewIfNeeded();
     await page.screenshot({
       path: `tmp/qa/editor-${viewport.name}-file-exchange.png`,
       fullPage: false,

@@ -27,3 +27,8 @@ npm run preview
 `npm run test` runs Vitest unit and integration tests once. `npm run test:e2e` starts a local server for the Playwright smoke test. `npm run preview` locally serves the production build for inspection.
 
 No Docker, Nginx, firewall change, public binding, backend, or cloud service is required or configured.
+
+Responsive section preferences are ordinary browser-local interface data.
+Clear keys beginning with `arcane-ledger:section-preferences:` to reset section
+expansion without deleting character records. The desktop active section is
+not persisted.
