@@ -2,10 +2,6 @@ import { SheetSection } from '../layout/SheetSection';
 
 const deferred = [
   {
-    title: 'Backgrounds',
-    detail: 'Named repeatable entries with five-point ratings',
-  },
-  {
     title: 'Magic',
     detail: 'Focus, Wonders, and Rotes',
   },

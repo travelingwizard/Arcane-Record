@@ -86,7 +86,7 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(4);
+    expect(migrated?.schemaVersion).toBe(5);
     expect(migrated?.abilities.talents.alertness).toBe(0);
     expect(migrated?.enlightenment).toEqual({
       arete: 1,
@@ -126,7 +126,7 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(4);
+    expect(migrated?.schemaVersion).toBe(5);
     expect(migrated?.enlightenment.willpower).toBe(7);
     expect(migrated?.enlightenment.willpowerTemporary).toBe(7);
   });
@@ -157,7 +157,7 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(4);
+    expect(migrated?.schemaVersion).toBe(5);
     expect(migrated?.repeatableEntries.merits).toEqual([]);
     expect(migrated?.repeatableEntries.flaws).toEqual([]);
   });
@@ -191,6 +191,87 @@ describe('DexieCharacterRepository', () => {
         },
       ],
       flaws: [{ definitionId: 'addiction', chosenCost: 1, notes: 'Coffee' }],
+    });
+  });
+
+  it('migrates schema-version-four Background rows without deleting data', async () => {
+    await database.delete();
+    const databaseName = `arcane-ledger-migration-${crypto.randomUUID()}`;
+    const legacyDatabase = new Dexie(databaseName);
+    legacyDatabase.version(4).stores({
+      characters: 'id, systemId, updatedAt, createdAt',
+    });
+
+    const current = createBlankMageCharacter();
+    const resourceId = crypto.randomUUID();
+    const unknownId = crypto.randomUUID();
+    const legacy = structuredClone(current) as unknown as Record<
+      string,
+      unknown
+    >;
+    legacy.schemaVersion = 4;
+    (
+      legacy.repeatableEntries as {
+        backgrounds: unknown[];
+      }
+    ).backgrounds = [
+      { id: resourceId, label: 'Resources', rating: 3 },
+      { id: unknownId, label: 'Old Contact Network', rating: 2 },
+    ];
+
+    await legacyDatabase.table('characters').add(legacy);
+    legacyDatabase.close();
+
+    database = new MageDatabase(databaseName);
+    repository = new DexieCharacterRepository(database);
+    const migrated = await repository.get(current.id);
+
+    expect(migrated?.schemaVersion).toBe(5);
+    expect(migrated?.repeatableEntries.backgrounds).toEqual([
+      {
+        id: resourceId,
+        definitionId: 'resources',
+        displayName: 'Resources',
+        rating: 3,
+        notes: '',
+        addedAt: current.createdAt,
+        pooled: false,
+      },
+      {
+        id: unknownId,
+        definitionId: 'legacy-old-contact-network',
+        displayName: 'Old Contact Network',
+        rating: 2,
+        notes: '',
+        addedAt: current.createdAt,
+        pooled: false,
+        unresolvedDefinitionName: 'Old Contact Network',
+      },
+    ]);
+  });
+
+  it('saves and reopens selected Background details', async () => {
+    const character = createBlankMageCharacter();
+    character.repeatableEntries.backgrounds.push({
+      id: crypto.randomUUID(),
+      definitionId: 'chantry-construct',
+      displayName: 'Horizon Archive',
+      rating: 4,
+      notes: 'Pooled with the cabal.',
+      addedAt: new Date().toISOString(),
+      pooled: true,
+    });
+
+    await repository.create(character);
+
+    expect(
+      (await repository.get(character.id))?.repeatableEntries.backgrounds[0],
+    ).toMatchObject({
+      definitionId: 'chantry-construct',
+      displayName: 'Horizon Archive',
+      rating: 4,
+      notes: 'Pooled with the cabal.',
+      pooled: true,
     });
   });
 });

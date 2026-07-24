@@ -80,6 +80,38 @@ describe('mageCharacterSchema', () => {
         return valid;
       },
     ],
+    [
+      'standard Background above five',
+      () => {
+        const valid = createBlankMageCharacter();
+        valid.repeatableEntries.backgrounds.push({
+          id: crypto.randomUUID(),
+          definitionId: 'enhancement',
+          displayName: 'Biotech',
+          rating: 6,
+          notes: '',
+          addedAt: new Date().toISOString(),
+          pooled: false,
+        });
+        return valid;
+      },
+    ],
+    [
+      'pooled Background without pooling support',
+      () => {
+        const valid = createBlankMageCharacter();
+        valid.repeatableEntries.backgrounds.push({
+          id: crypto.randomUUID(),
+          definitionId: 'resources',
+          displayName: 'Trust fund',
+          rating: 3,
+          notes: '',
+          addedAt: new Date().toISOString(),
+          pooled: true,
+        });
+        return valid;
+      },
+    ],
   ])('rejects %s data', (_name, createMalformed) => {
     expect(mageCharacterSchema.safeParse(createMalformed()).success).toBe(
       false,
@@ -122,5 +154,64 @@ describe('mageCharacterSchema', () => {
     });
 
     expect(mageCharacterSchema.safeParse(character).success).toBe(false);
+  });
+
+  it('allows extended and unresolved Background ratings up to the safety limit', () => {
+    const character = createBlankMageCharacter();
+    character.repeatableEntries.backgrounds.push(
+      {
+        id: crypto.randomUUID(),
+        definitionId: 'resources',
+        displayName: 'Global portfolio',
+        rating: 7,
+        notes: '',
+        addedAt: new Date().toISOString(),
+        pooled: false,
+      },
+      {
+        id: crypto.randomUUID(),
+        definitionId: 'legacy-network',
+        displayName: 'Old network',
+        rating: 3,
+        notes: 'Repair later',
+        addedAt: new Date().toISOString(),
+        pooled: false,
+        unresolvedDefinitionName: 'Old Network',
+      },
+    );
+
+    expect(
+      mageCharacterSchema.parse(character).repeatableEntries.backgrounds,
+    ).toHaveLength(2);
+  });
+
+  it('allows repeated instances only for reviewed repeatable definitions', () => {
+    const repeatable = createBlankMageCharacter();
+    for (const displayName of ['Police contact', 'Spirit ally']) {
+      repeatable.repeatableEntries.backgrounds.push({
+        id: crypto.randomUUID(),
+        definitionId: 'allies',
+        displayName,
+        rating: 1,
+        notes: '',
+        addedAt: new Date().toISOString(),
+        pooled: false,
+      });
+    }
+    expect(mageCharacterSchema.safeParse(repeatable).success).toBe(true);
+
+    const single = createBlankMageCharacter();
+    for (const displayName of ['Primary income', 'Investments']) {
+      single.repeatableEntries.backgrounds.push({
+        id: crypto.randomUUID(),
+        definitionId: 'resources',
+        displayName,
+        rating: 1,
+        notes: '',
+        addedAt: new Date().toISOString(),
+        pooled: false,
+      });
+    }
+    expect(mageCharacterSchema.safeParse(single).success).toBe(false);
   });
 });

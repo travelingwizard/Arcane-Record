@@ -44,6 +44,17 @@ export interface RatedEntry {
   rating: number;
 }
 
+export interface SelectedBackground {
+  id: string;
+  definitionId: string;
+  displayName: string;
+  rating: number;
+  notes: string;
+  addedAt: string;
+  pooled: boolean;
+  unresolvedDefinitionName?: string;
+}
+
 export interface SelectedMeritFlaw {
   id: string;
   definitionId: string;
@@ -59,7 +70,7 @@ export interface RoteEntry {
 }
 
 export interface RepeatableEntries {
-  backgrounds: RatedEntry[];
+  backgrounds: SelectedBackground[];
   merits: SelectedMeritFlaw[];
   flaws: SelectedMeritFlaw[];
   focus: string[];

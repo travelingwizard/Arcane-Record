@@ -2,6 +2,7 @@ import { Fragment, type KeyboardEvent } from 'react';
 
 export interface DotRatingProps {
   label: string;
+  ariaLabel?: string;
   value: number;
   min?: number;
   max: number;
@@ -14,6 +15,7 @@ export interface DotRatingProps {
 
 export function DotRating({
   label,
+  ariaLabel,
   value,
   min = 0,
   max,
@@ -56,7 +58,7 @@ export function DotRating({
     <div
       className={`dot-rating dot-rating--${variant}`}
       role="group"
-      aria-label={`${label}: ${value} out of ${max}`}
+      aria-label={ariaLabel ?? `${label}: ${value} out of ${max}`}
       aria-disabled={disabled || undefined}
       aria-readonly={readOnly || undefined}
       tabIndex={disabled ? -1 : 0}

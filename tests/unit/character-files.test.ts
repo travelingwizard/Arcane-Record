@@ -26,6 +26,15 @@ describe('character files', () => {
         notes: 'All five senses',
         addedAt: '2026-07-01T12:00:00.000Z',
       });
+      source.repeatableEntries.backgrounds.push({
+        id: 'ad79d594-79bd-4898-94d8-3f204331933b',
+        definitionId: 'chantry-construct',
+        displayName: 'Hermetic Workshop',
+        rating: 3,
+        notes: 'Pooled with the cabal',
+        addedAt: '2026-07-01T12:00:00.000Z',
+        pooled: true,
+      });
 
       const imported = prepareImportedCharacter(
         serializeCharacter(source, format),
@@ -44,6 +53,13 @@ describe('character files', () => {
         definitionId: 'acute-senses',
         chosenCost: 3,
         notes: 'All five senses',
+      });
+      expect(imported.repeatableEntries.backgrounds[0]).toMatchObject({
+        definitionId: 'chantry-construct',
+        displayName: 'Hermetic Workshop',
+        rating: 3,
+        notes: 'Pooled with the cabal',
+        pooled: true,
       });
       expect(imported.createdAt).toBe('2026-07-23T16:00:00.000Z');
     },

@@ -6,7 +6,10 @@ test('selects, persists, edits, removes, and restores Merits and Flaws', async (
   await page.goto('/');
   await page.getByRole('button', { name: 'Create character' }).click();
   await page.getByLabel('Name', { exact: true }).fill('Catalog Adept');
-  await page.getByRole('button', { name: 'Open catalog' }).click();
+  const section = page.locator('section', {
+    has: page.getByRole('heading', { name: 'Merits & Flaws' }),
+  });
+  await section.getByRole('button', { name: 'Open catalog' }).click();
 
   const search = page.getByRole('searchbox', { name: 'Search catalog' });
   await search.fill('Acute Senses');

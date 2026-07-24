@@ -1,9 +1,11 @@
 import { z } from 'zod';
+import { backgroundRatingRules } from './background-rules';
 import {
   createDefaultAbilityRatings,
   createDefaultEnlightenment,
 } from './create-character';
 import { MAGE_SCHEMA_VERSION, MAGE_SYSTEM_ID, spheres } from './definitions';
+import { backgroundById, backgroundCatalog } from './reference/backgrounds';
 import { meritFlawById, type MeritFlawKind } from './reference/merits-flaws';
 
 const attributeRating = z.number().int().min(1).max(5);
@@ -95,10 +97,14 @@ const spheresSchema = z.object({
   time: fivePointRating,
 });
 
+const legacyRatedBackgroundSchema = z.object({
+  id: uuid,
+  label: z.string(),
+  rating: fivePointRating,
+});
+
 const legacyRepeatableEntriesSchema = z.object({
-  backgrounds: z.array(
-    z.object({ id: uuid, label: z.string(), rating: fivePointRating }),
-  ),
+  backgrounds: z.array(legacyRatedBackgroundSchema),
   merits: z.array(
     z.object({
       id: uuid,
@@ -166,11 +172,62 @@ function selectedMeritFlawSchema(expectedKind: MeritFlawKind) {
     }));
 }
 
+const selectedBackgroundSchema = z
+  .object({
+    id: uuid,
+    definitionId: z.string().min(1),
+    displayName: z.string(),
+    rating: z
+      .number()
+      .int()
+      .min(0)
+      .max(backgroundRatingRules.extendedInterfaceMaximum),
+    notes: z.string(),
+    addedAt: z.string().datetime(),
+    pooled: z.boolean().optional().default(false),
+    unresolvedDefinitionName: z.string().optional(),
+  })
+  .superRefine((selection, context) => {
+    const definition = backgroundById.get(selection.definitionId);
+    if (!definition) {
+      return;
+    }
+    const maximum = definition.supportsRatingsAboveFive
+      ? backgroundRatingRules.extendedInterfaceMaximum
+      : definition.standardMaximumRating;
+    if (
+      selection.rating < definition.minimumRating ||
+      selection.rating > maximum
+    ) {
+      context.addIssue({
+        code: 'custom',
+        path: ['rating'],
+        message: 'Rating is not allowed for this Background definition.',
+      });
+    }
+    if (selection.pooled && !definition.canBePooled) {
+      context.addIssue({
+        code: 'custom',
+        path: ['pooled'],
+        message: 'This Background cannot be pooled.',
+      });
+    }
+  });
+
+const legacyRepeatableEntriesSchemaV4 = z.object({
+  backgrounds: z.array(legacyRatedBackgroundSchema),
+  merits: z.array(selectedMeritFlawSchema('merit')),
+  flaws: z.array(selectedMeritFlawSchema('flaw')),
+  focus: z.array(z.string()),
+  wonders: z.array(z.string()),
+  rotes: z.array(
+    z.object({ id: uuid, spheres: z.string(), effect: z.string() }),
+  ),
+});
+
 const repeatableEntriesSchema = z
   .object({
-    backgrounds: z.array(
-      z.object({ id: uuid, label: z.string(), rating: fivePointRating }),
-    ),
+    backgrounds: z.array(selectedBackgroundSchema),
     merits: z.array(selectedMeritFlawSchema('merit')),
     flaws: z.array(selectedMeritFlawSchema('flaw')),
     focus: z.array(z.string()),
@@ -180,6 +237,34 @@ const repeatableEntriesSchema = z
     ),
   })
   .superRefine((entries, context) => {
+    const backgroundSelectionIds = new Set<string>();
+    const backgroundDefinitionIds = new Set<string>();
+    entries.backgrounds.forEach((selection, index) => {
+      if (backgroundSelectionIds.has(selection.id)) {
+        context.addIssue({
+          code: 'custom',
+          path: ['backgrounds', index, 'id'],
+          message: 'Background selection IDs must be unique.',
+        });
+      }
+      const definition = backgroundById.get(selection.definitionId);
+      if (
+        definition &&
+        !definition.canBeSelectedMultipleTimes &&
+        backgroundDefinitionIds.has(definition.id)
+      ) {
+        context.addIssue({
+          code: 'custom',
+          path: ['backgrounds', index, 'definitionId'],
+          message: 'This Background may only be selected once.',
+        });
+      }
+      backgroundSelectionIds.add(selection.id);
+      if (definition) {
+        backgroundDefinitionIds.add(definition.id);
+      }
+    });
+
     const selectionIds = new Set<string>();
     const definitionIds = new Set<string>();
     for (const [kind, selections] of [
@@ -228,6 +313,11 @@ const commonFields = {
   repeatableEntries: repeatableEntriesSchema,
 };
 
+const versionFourCommonFields = {
+  ...legacyCommonFields,
+  repeatableEntries: legacyRepeatableEntriesSchemaV4,
+};
+
 export const sphereIdSchema = z.enum(spheres.map(({ id }) => id));
 
 export const legacyMageCharacterSchemaV1 = z.object({
@@ -263,6 +353,20 @@ export const legacyMageCharacterSchemaV3 = z.object({
   affinitySphere: sphereIdSchema.nullable(),
 });
 
+export const legacyMageCharacterSchemaV4 = z.object({
+  ...versionFourCommonFields,
+  schemaVersion: z.literal(4),
+  abilities: abilitiesSchema,
+  enlightenment: z.object({
+    arete: tenPointRating.min(1),
+    willpower: tenPointRating.min(1),
+    willpowerTemporary: tenPointRating,
+    quintessence: tenPointRating,
+    paradox: tenPointRating,
+  }),
+  affinitySphere: sphereIdSchema.nullable(),
+});
+
 export const mageCharacterSchema = z.object({
   ...commonFields,
   schemaVersion: z.literal(MAGE_SCHEMA_VERSION),
@@ -277,10 +381,86 @@ export const mageCharacterSchema = z.object({
   affinitySphere: sphereIdSchema.nullable(),
 });
 
+function slugifyLegacyBackground(value: string) {
+  const slug = value
+    .normalize('NFKD')
+    .replace(/[“”"'’]/g, '')
+    .replace(/&/g, ' and ')
+    .replace(/[^a-zA-Z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+    .toLowerCase();
+  return slug || 'background';
+}
+
+function migrateLegacyBackgrounds(
+  backgrounds: z.infer<typeof legacyRatedBackgroundSchema>[],
+  addedAt: string,
+) {
+  const names = new Map(
+    backgroundCatalog.flatMap((definition) =>
+      [definition.name, ...definition.aliases].map((name) => [
+        name.toLocaleLowerCase(),
+        definition,
+      ]),
+    ),
+  );
+  const usedSingleDefinitions = new Set<string>();
+
+  return backgrounds.map((background) => {
+    const definition = names.get(background.label.trim().toLocaleLowerCase());
+    const maximum = definition?.supportsRatingsAboveFive
+      ? backgroundRatingRules.extendedInterfaceMaximum
+      : definition?.standardMaximumRating;
+    const isDuplicate =
+      definition &&
+      !definition.canBeSelectedMultipleTimes &&
+      usedSingleDefinitions.has(definition.id);
+    const isKnownAndValid =
+      definition &&
+      !isDuplicate &&
+      background.rating >= definition.minimumRating &&
+      background.rating <= (maximum ?? 0);
+
+    if (isKnownAndValid) {
+      usedSingleDefinitions.add(definition.id);
+    }
+
+    return {
+      id: background.id,
+      definitionId: isKnownAndValid
+        ? definition.id
+        : `legacy-${slugifyLegacyBackground(background.label)}`,
+      displayName: background.label,
+      rating: background.rating,
+      notes: '',
+      addedAt,
+      pooled: false,
+      ...(isKnownAndValid
+        ? {}
+        : { unresolvedDefinitionName: background.label }),
+    };
+  });
+}
+
 export function migrateMageCharacter(input: unknown) {
   const current = mageCharacterSchema.safeParse(input);
   if (current.success) {
     return current.data;
+  }
+
+  const versionFour = legacyMageCharacterSchemaV4.safeParse(input);
+  if (versionFour.success) {
+    return mageCharacterSchema.parse({
+      ...versionFour.data,
+      schemaVersion: MAGE_SCHEMA_VERSION,
+      repeatableEntries: {
+        ...versionFour.data.repeatableEntries,
+        backgrounds: migrateLegacyBackgrounds(
+          versionFour.data.repeatableEntries.backgrounds,
+          versionFour.data.createdAt,
+        ),
+      },
+    });
   }
 
   const versionThree = legacyMageCharacterSchemaV3.safeParse(input);
@@ -290,6 +470,10 @@ export function migrateMageCharacter(input: unknown) {
       schemaVersion: MAGE_SCHEMA_VERSION,
       repeatableEntries: {
         ...versionThree.data.repeatableEntries,
+        backgrounds: migrateLegacyBackgrounds(
+          versionThree.data.repeatableEntries.backgrounds,
+          versionThree.data.createdAt,
+        ),
         merits: [],
         flaws: [],
       },
@@ -307,6 +491,10 @@ export function migrateMageCharacter(input: unknown) {
       },
       repeatableEntries: {
         ...versionTwo.data.repeatableEntries,
+        backgrounds: migrateLegacyBackgrounds(
+          versionTwo.data.repeatableEntries.backgrounds,
+          versionTwo.data.createdAt,
+        ),
         merits: [],
         flaws: [],
       },
@@ -325,6 +513,10 @@ export function migrateMageCharacter(input: unknown) {
     enlightenment: createDefaultEnlightenment(),
     repeatableEntries: {
       ...legacy.data.repeatableEntries,
+      backgrounds: migrateLegacyBackgrounds(
+        legacy.data.repeatableEntries.backgrounds,
+        legacy.data.createdAt,
+      ),
       merits: [],
       flaws: [],
     },

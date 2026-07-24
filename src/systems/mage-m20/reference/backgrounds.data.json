@@ -1,0 +1,766 @@
+[
+  {
+    "id": "allies",
+    "name": "Allies",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "Represents friends, helpful animals, or minor spirits who can aid you in times of need. Each dot typically provides one moderate ally or two minor sidekicks.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": true,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": true,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 303
+      }
+    ],
+    "sourceLine": 7
+  },
+  {
+    "id": "alternate-identity",
+    "name": "Alternate Identity",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "An established alias or false identity that allows you to operate under a different name.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": true,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 304
+      }
+    ],
+    "sourceLine": 8
+  },
+  {
+    "id": "arcane-cloaking",
+    "name": "Arcane / Cloaking",
+    "aliases": ["Arcane", "Cloaking"],
+    "mysticName": "Arcane",
+    "technocraticName": "Cloaking",
+    "description": "A mysterious ability to remain unrecognized or forgotten; it imposes penalties on the dice pools of those trying to find or investigate you.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 305
+      }
+    ],
+    "sourceLine": 9
+  },
+  {
+    "id": "avatar-genius",
+    "name": "Avatar / Genius",
+    "aliases": ["Avatar", "Genius"],
+    "mysticName": "Avatar",
+    "technocraticName": "Genius",
+    "description": "A measure of the strength and presence of your Awakened or Enlightened internal guide. It determines how much Quintessence your character can store and channel.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 305
+      }
+    ],
+    "sourceLine": 10
+  },
+  {
+    "id": "backup",
+    "name": "Backup",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "Access to unAwakened personnel from a larger organization (like a gang or the Technocracy) whom you can call upon for assistance.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": true,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 306
+      }
+    ],
+    "sourceLine": 11
+  },
+  {
+    "id": "blessing",
+    "name": "Blessing",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "An unusual non-combat talent or twist of fate linked to a figure or force that favors you.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 307
+      }
+    ],
+    "sourceLine": 12
+  },
+  {
+    "id": "certification",
+    "name": "Certification",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "Official licenses, permits, or professional degrees that grant legal authority or access to specialized equipment.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 308
+      }
+    ],
+    "sourceLine": 13
+  },
+  {
+    "id": "chantry-construct",
+    "name": "Chantry / Construct",
+    "aliases": ["Chantry", "Construct"],
+    "mysticName": "Chantry",
+    "technocraticName": "Construct",
+    "description": "Membership in or ownership of a mystic or Technocratic stronghold. Characters can pool points to build more elaborate facilities with integrated effects.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": true,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 308
+      },
+      {
+        "bookId": "operative-dossier",
+        "bookLabel": "OpD",
+        "page": 91
+      }
+    ],
+    "sourceLine": 14
+  },
+  {
+    "id": "contacts",
+    "name": "Contacts",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "Social networks and individual information sources who provide news or minor favors.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": true,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": true,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 309
+      }
+    ],
+    "sourceLine": 15
+  },
+  {
+    "id": "cult",
+    "name": "Cult",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "A group of dedicated believers who trust in you and can gather to lend their faith to your large-scale rituals.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 310
+      }
+    ],
+    "sourceLine": 16
+  },
+  {
+    "id": "demesne",
+    "name": "Demesne",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "A personal inner dream-space where your character is at home.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 310
+      }
+    ],
+    "sourceLine": 17
+  },
+  {
+    "id": "destiny",
+    "name": "Destiny",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "A sense of great purpose that allows you to regain Willpower points once per session during a crisis.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 311
+      }
+    ],
+    "sourceLine": 18
+  },
+  {
+    "id": "dream-hypercram",
+    "name": "Dream / Hypercram",
+    "aliases": ["Dream", "Hypercram"],
+    "mysticName": "Dream",
+    "technocraticName": "Hypercram",
+    "description": "The ability to tap into collective memories or archives to access Abilities your character does not normally possess.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 312
+      }
+    ],
+    "sourceLine": 19
+  },
+  {
+    "id": "enhancement",
+    "name": "Enhancement",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "Cybernetic or biotech modifications that boost Physical Attributes, Perception, or Intelligence. This Background costs two points per dot and often incurs permanent Paradox or genetic flaws.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 2,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 312
+      }
+    ],
+    "sourceLine": 20
+  },
+  {
+    "id": "fame",
+    "name": "Fame",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "Notoriety in the Sleeper world that provides social clout but makes it difficult to remain inconspicuous.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 313
+      }
+    ],
+    "sourceLine": 21
+  },
+  {
+    "id": "familiar-companion",
+    "name": "Familiar / Companion",
+    "aliases": ["Familiar", "Companion"],
+    "mysticName": "Familiar",
+    "technocraticName": "Companion",
+    "description": "A non-human entity (spirit, animal, or construct) that shares a mystical bond with the mage and offers special assistance.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 314
+      }
+    ],
+    "sourceLine": 22
+  },
+  {
+    "id": "influence",
+    "name": "Influence",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "Social clout and the ability to pull strings within mortal institutions.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": true,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 316
+      }
+    ],
+    "sourceLine": 23
+  },
+  {
+    "id": "legend",
+    "name": "Legend",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "A connection to a mythic archetype or pop-culture icon that allows you to refresh Quintessence once per story.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 317
+      }
+    ],
+    "sourceLine": 24
+  },
+  {
+    "id": "library",
+    "name": "Library",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "Access to specialized information, archives, or esoteric texts.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": true,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 318
+      }
+    ],
+    "sourceLine": 25
+  },
+  {
+    "id": "mentor",
+    "name": "Mentor",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "An Awakened or Enlightened elder who provides guidance, training, and occasional aid.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": true,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 318
+      }
+    ],
+    "sourceLine": 26
+  },
+  {
+    "id": "node",
+    "name": "Node",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "Possession of a place of power that generates ambient Quintessence and Tass.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": true,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 319
+      }
+    ],
+    "sourceLine": 27
+  },
+  {
+    "id": "past-lives",
+    "name": "Past Lives",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "Memories from previous incarnations that can provide extra dice for various tasks.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 320
+      }
+    ],
+    "sourceLine": 28
+  },
+  {
+    "id": "patron",
+    "name": "Patron",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "A powerful and influential benefactor who provides resources and political protection.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": true,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 320
+      }
+    ],
+    "sourceLine": 29
+  },
+  {
+    "id": "rank",
+    "name": "Rank",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "A title of importance within a mortal institution, such as the military, clergy, or a corporation.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 321
+      }
+    ],
+    "sourceLine": 30
+  },
+  {
+    "id": "requisitions",
+    "name": "Requisitions",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "(Technocracy only) The ability to temporarily \"buy\" advanced gear and hardware from the Union's divisions.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": true,
+    "creationPointCostPerDot": 1,
+    "restrictions": ["technocracy-only"],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 321
+      }
+    ],
+    "sourceLine": 31
+  },
+  {
+    "id": "resources",
+    "name": "Resources",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "Financial assets, including cash flow, credit, and significant property.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": true,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 322
+      }
+    ],
+    "sourceLine": 32
+  },
+  {
+    "id": "retainers",
+    "name": "Retainers",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "Skilled followers, servants, or employees who answer directly to you.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": true,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 323
+      }
+    ],
+    "sourceLine": 33
+  },
+  {
+    "id": "sanctum-laboratory",
+    "name": "Sanctum / Laboratory",
+    "aliases": ["Sanctum", "Laboratory"],
+    "mysticName": "Sanctum",
+    "technocraticName": "Laboratory",
+    "description": "A private, dedicated space optimized for your magickal or scientific work. This Background costs two points per dot.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 2,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": true,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 323
+      }
+    ],
+    "sourceLine": 34
+  },
+  {
+    "id": "secret-weapons",
+    "name": "Secret Weapons",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "(Technocracy only) Access to experimental hypertech inventions provided to operatives willing to be \"guinea pigs\".",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": ["technocracy-only"],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 325
+      }
+    ],
+    "sourceLine": 35
+  },
+  {
+    "id": "spies",
+    "name": "Spies",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "Information networks that deal in sensitive or secret data.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": true,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 325
+      }
+    ],
+    "sourceLine": 36
+  },
+  {
+    "id": "status",
+    "name": "Status",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "Your reputation and standing among your Awakened or Enlightened peers.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 325
+      }
+    ],
+    "sourceLine": 37
+  },
+  {
+    "id": "totem",
+    "name": "Totem",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "A powerful spirit ally for shamanic characters that provides wisdom and Ability boosts. This Background costs two points per dot.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 2,
+    "restrictions": ["shamanic-character"],
+    "canBeSelectedMultipleTimes": false,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 326
+      }
+    ],
+    "sourceLine": 38
+  },
+  {
+    "id": "wonder",
+    "name": "Wonder",
+    "aliases": [],
+    "mysticName": "",
+    "technocraticName": "",
+    "description": "Possession of a Talisman, Fetish, or Device that contains its own inherent magickal power.",
+    "minimumRating": 1,
+    "standardMaximumRating": 5,
+    "supportsRatingsAboveFive": false,
+    "creationPointCostPerDot": 1,
+    "restrictions": [],
+    "canBeSelectedMultipleTimes": true,
+    "canBePooled": false,
+    "sources": [
+      {
+        "bookId": "mage-20",
+        "bookLabel": "Mage 20",
+        "page": 328
+      }
+    ],
+    "sourceLine": 39
+  }
+]

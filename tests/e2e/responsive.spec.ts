@@ -83,6 +83,39 @@ test('has no page overflow or browser errors at target widths', async ({
     );
 
     await page
+      .getByRole('heading', { name: 'Backgrounds', exact: true })
+      .scrollIntoViewIfNeeded();
+    await page.screenshot({
+      path: `tmp/qa/editor-${viewport.name}-backgrounds.png`,
+      fullPage: false,
+    });
+    const backgroundSection = page.locator('section', {
+      has: page.getByRole('heading', { name: 'Backgrounds', exact: true }),
+    });
+    if (viewport.name === '320') {
+      await backgroundSection
+        .getByRole('button', { name: 'Open catalog' })
+        .click();
+      await backgroundSection
+        .getByRole('searchbox', { name: 'Search Backgrounds' })
+        .fill('Resources');
+    }
+    await backgroundSection
+      .getByRole('searchbox', { name: 'Search Backgrounds' })
+      .scrollIntoViewIfNeeded();
+    await page.screenshot({
+      path: `tmp/qa/editor-${viewport.name}-background-catalog.png`,
+      fullPage: false,
+    });
+    const backgroundDimensions = await page.evaluate(() => ({
+      viewport: document.documentElement.clientWidth,
+      content: document.documentElement.scrollWidth,
+    }));
+    expect(backgroundDimensions.content).toBeLessThanOrEqual(
+      backgroundDimensions.viewport,
+    );
+
+    await page
       .getByRole('heading', { name: 'Health' })
       .scrollIntoViewIfNeeded();
     await page.screenshot({

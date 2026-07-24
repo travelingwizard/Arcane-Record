@@ -16,3 +16,5 @@ The boundary:
 `js-yaml` handles YAML serialization and parsing. Successful imports are opened as new records and then follow the same autosave flow as any other character.
 
 Selected Merits and Flaws export only their selection UUID, definition ID, chosen cost, notes, and addition timestamp. Known definitions must use a legal catalog cost and the correct Merit or Flaw list. Unknown definition IDs are preserved as unresolved references; they remain visible and removable rather than being silently discarded.
+
+Selected Backgrounds export their selection UUID, definition ID, character display name, integer rating, notes, addition timestamp, pooling state, and optional unresolved source name. Known definitions validate minimum and maximum ratings, the extended interface maximum of ten, duplicate rules, and pooling support. Unknown definition IDs remain visible, removable, and repairable. They are not assigned an invented cost multiplier.

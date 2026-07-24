@@ -1,5 +1,6 @@
 import { AbilitiesSection } from '../../components/character/AbilitiesSection';
 import { AttributesSection } from '../../components/character/AttributesSection';
+import { BackgroundsSection } from '../../components/character/BackgroundsSection';
 import { DeferredSections } from '../../components/character/DeferredSections';
 import { EnlightenmentSection } from '../../components/character/EnlightenmentSection';
 import { HealthSection } from '../../components/character/HealthSection';
@@ -59,6 +60,7 @@ export function CharacterEditor({
       <AbilitiesSection />
       <SpheresSection />
       <EnlightenmentSection />
+      <BackgroundsSection />
       <HealthSection />
       <MeritsFlawsSection />
       <ImportExportSection

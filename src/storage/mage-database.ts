@@ -55,5 +55,20 @@ export class MageDatabase extends Dexie {
             );
           }),
       );
+    this.version(5)
+      .stores({
+        characters: 'id, systemId, updatedAt, createdAt',
+      })
+      .upgrade((transaction) =>
+        transaction
+          .table('characters')
+          .toCollection()
+          .modify((record: unknown) => {
+            Object.assign(
+              record as Record<string, unknown>,
+              migrateMageCharacter(record),
+            );
+          }),
+      );
   }
 }

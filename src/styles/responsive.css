@@ -89,20 +89,25 @@
 
   .merit-flaw-summary__details,
   .selected-merit-flaw-columns,
-  .catalog-results {
+  .catalog-results,
+  .background-summary__details,
+  .background-catalog__results {
     grid-template-columns: 1fr;
   }
 
-  .merit-flaw-section-toolbar {
+  .merit-flaw-section-toolbar,
+  .background-section-toolbar {
     align-items: stretch;
     flex-direction: column;
   }
 
-  .catalog-toolbar {
+  .catalog-toolbar,
+  .background-catalog__toolbar {
     grid-template-columns: 1fr;
   }
 
-  .catalog-filters__grid {
+  .catalog-filters__grid,
+  .background-filters__grid {
     width: 100%;
     min-width: 0;
     position: static;
@@ -262,11 +267,15 @@
 
   .merit-flaw-summary__details,
   .catalog-filters__grid,
-  .catalog-card__details dl {
+  .catalog-card__details dl,
+  .background-summary__details,
+  .background-filters__grid,
+  .background-catalog-card__details dl {
     grid-template-columns: 1fr;
   }
 
-  .catalog-card__heading {
+  .catalog-card__heading,
+  .background-catalog-card__heading {
     align-items: start;
   }
 

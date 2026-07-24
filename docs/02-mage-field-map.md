@@ -36,6 +36,10 @@ Visible labels are presentation only. Persistent keys are stable IDs.
 
 `repeatableEntries.merits[]` and `repeatableEntries.flaws[]` store `id`, `definitionId`, `chosenCost`, `notes`, and `addedAt`. Definition IDs refer to the separate catalog in `src/systems/mage-m20/reference/merits-flaws.data.json`; descriptions and citations are not copied into character records.
 
+## Backgrounds
+
+`repeatableEntries.backgrounds[]` stores `id`, `definitionId`, `displayName`, `rating`, `notes`, `addedAt`, `pooled`, and an optional `unresolvedDefinitionName`. Definition IDs refer to `src/systems/mage-m20/reference/backgrounds.data.json`; descriptions, restrictions, multipliers, and citations remain in reference data.
+
 ## Deferred fields
 
-The future model reserves Backgrounds, Focus, Wonders, and Rotes. They are not persisted as fake completed data in this milestone.
+The future model reserves Focus, Wonders, and Rotes. They are not persisted as fake completed data in this milestone.
