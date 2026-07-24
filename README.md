@@ -38,3 +38,5 @@ This milestone includes a local character library, create/open/rename/duplicate/
 See [docs/00-project-charter.md](docs/00-project-charter.md) for goals and assumptions.
 See [docs/12-section-navigation.md](docs/12-section-navigation.md) for the
 section registry, anchors, responsive behavior, and preference boundary.
+See [docs/13-magick-sections-plan.md](docs/13-magick-sections-plan.md) for the
+organized Focus, Wonders, and Rotes research and staged implementation handoff.

@@ -42,4 +42,12 @@ Visible labels are presentation only. Persistent keys are stable IDs.
 
 ## Deferred fields
 
-The future model reserves Focus, Wonders, and Rotes. They are not persisted as fake completed data in this milestone.
+The current model reserves `repeatableEntries.focus`,
+`repeatableEntries.wonders`, and `repeatableEntries.rotes` for legacy
+compatibility, but these placeholder shapes are not the final domain model.
+They are not exposed as fake completed features in this milestone.
+
+The proposed character-owned records, reference-catalog boundary, migration
+strategy, and delivery order are documented in
+[13. Focus, Wonders, and Rotes implementation plan](13-magick-sections-plan.md).
+Source research is organized under `docs/references/mage-m20/`.
