@@ -18,8 +18,8 @@ always supports free-form character information.
 
 ## Current repository state
 
-- The visible Magick group contains Spheres, Enlightenment, Focus, Wonders, and
-  Rotes.
+- The visible Magick group contains Spheres and Enlightenment; the Paradigm
+  group contains Focus, Wonders, and Rotes.
 - `repeatableEntries.focus` is structured Focus data.
 - `repeatableEntries.wonders` contains owned Wonder records.
 - `repeatableEntries.rotes` contains structured known Rotes.

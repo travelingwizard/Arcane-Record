@@ -17,9 +17,9 @@ registry.
 | Advantages | Merits & Flaws  | `#merits-flaws`  |
 | Magick     | Spheres         | `#spheres`       |
 | Magick     | Enlightenment   | `#enlightenment` |
-| Magick     | Focus           | `#focus`         |
-| Magick     | Wonders         | `#wonders`       |
-| Magick     | Rotes           | `#rotes`         |
+| Paradigm   | Focus           | `#focus`         |
+| Paradigm   | Wonders         | `#wonders`       |
+| Paradigm   | Rotes           | `#rotes`         |
 | Gear       | Equipment       | `#equipment`     |
 | Condition  | Health          | `#health`        |
 | Records    | Import & export | `#import-export` |
@@ -45,6 +45,10 @@ nearest the readable top edge using one shared `IntersectionObserver`.
 Navigation sets the active item immediately; observation then follows normal
 scrolling. The root margin accounts for sticky controls, and the final
 intersecting section can become active near the page bottom.
+
+Each desktop rail group heading is a disclosure button. It can collapse or
+reveal that group’s section links without changing section content or character
+data. Focus, Wonders, and Rotes are grouped under Paradigm.
 
 Below 70rem, the rail is hidden and the sticky Sections button opens a modal
 bottom sheet. The sheet traps focus, closes with Escape or its close button,

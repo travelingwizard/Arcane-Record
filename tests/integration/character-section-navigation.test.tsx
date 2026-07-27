@@ -87,6 +87,21 @@ describe('character section navigation', () => {
     expect(
       within(navigation).getByRole('link', { name: 'Identity' }),
     ).toHaveAttribute('aria-current', 'location');
+    expect(
+      within(navigation).getByRole('button', { name: 'Paradigm' }),
+    ).toHaveAttribute('aria-expanded', 'true');
+    await userEvent
+      .setup()
+      .click(within(navigation).getByRole('button', { name: 'Paradigm' }));
+    expect(
+      within(navigation).getByRole('button', { name: 'Paradigm' }),
+    ).toHaveAttribute('aria-expanded', 'false');
+    expect(
+      within(navigation).queryByRole('link', { name: 'Focus' }),
+    ).not.toBeInTheDocument();
+    await userEvent
+      .setup()
+      .click(within(navigation).getByRole('button', { name: 'Paradigm' }));
 
     await userEvent
       .setup()

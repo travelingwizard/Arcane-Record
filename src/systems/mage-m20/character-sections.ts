@@ -3,9 +3,10 @@ export const characterSectionGroups = [
   { id: 'traits', label: 'Traits', order: 2 },
   { id: 'advantages', label: 'Advantages', order: 3 },
   { id: 'magick', label: 'Magick', order: 4 },
-  { id: 'gear', label: 'Gear', order: 5 },
-  { id: 'condition', label: 'Condition', order: 6 },
-  { id: 'records', label: 'Records', order: 7 },
+  { id: 'paradigm', label: 'Paradigm', order: 5 },
+  { id: 'gear', label: 'Gear', order: 6 },
+  { id: 'condition', label: 'Condition', order: 7 },
+  { id: 'records', label: 'Records', order: 8 },
 ] as const;
 
 export type CharacterSectionGroupId =
@@ -64,19 +65,19 @@ export const characterSections = [
   {
     id: 'focus',
     label: 'Focus',
-    group: 'magick',
+    group: 'paradigm',
     order: 9,
   },
   {
     id: 'wonders',
     label: 'Wonders',
-    group: 'magick',
+    group: 'paradigm',
     order: 10,
   },
   {
     id: 'rotes',
     label: 'Rotes',
-    group: 'magick',
+    group: 'paradigm',
     order: 11,
   },
   {

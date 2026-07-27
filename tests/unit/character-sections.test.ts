@@ -46,6 +46,7 @@ describe('character section registry', () => {
       'Traits',
       'Advantages',
       'Magick',
+      'Paradigm',
       'Gear',
       'Condition',
       'Records',

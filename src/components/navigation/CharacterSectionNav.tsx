@@ -6,6 +6,9 @@ import { useCharacterSectionContext } from './character-section-context';
 
 export function CharacterSectionNav() {
   const navigation = useCharacterSectionContext();
+  const [collapsedGroups, setCollapsedGroups] = useState<Set<string>>(
+    () => new Set(),
+  );
   if (!navigation) {
     return null;
   }
@@ -23,10 +26,32 @@ export function CharacterSectionNav() {
         if (sections.length === 0) {
           return null;
         }
+        const collapsed = collapsedGroups.has(group.id);
+        const listId = `character-section-nav-${group.id}`;
         return (
           <div className="character-section-nav__group" key={group.id}>
-            <h2>{group.label}</h2>
-            <ul>
+            <h2>
+              <button
+                type="button"
+                aria-expanded={!collapsed}
+                aria-controls={listId}
+                onClick={() => {
+                  setCollapsedGroups((current) => {
+                    const next = new Set(current);
+                    if (next.has(group.id)) {
+                      next.delete(group.id);
+                    } else {
+                      next.add(group.id);
+                    }
+                    return next;
+                  });
+                }}
+              >
+                <span>{group.label}</span>
+                <span aria-hidden="true">{collapsed ? '+' : '−'}</span>
+              </button>
+            </h2>
+            <ul id={listId} hidden={collapsed}>
               {sections.map((section) => {
                 const active = navigation.activeSection === section.id;
                 return (
@@ -56,3 +81,4 @@ export function CharacterSectionNav() {
     </nav>
   );
 }
+import { useState } from 'react';

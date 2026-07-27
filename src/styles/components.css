@@ -554,12 +554,30 @@
 
 .character-section-nav__group h2 {
   margin: 0 0 0.2rem;
+}
+
+.character-section-nav__group h2 button {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.35rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border: 0;
   color: var(--ink-soft);
+  background: transparent;
   font-family: var(--font-sans);
   font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 0.12em;
+  text-align: left;
   text-transform: uppercase;
+}
+
+.character-section-nav__group h2 button:hover {
+  color: var(--umber-deep);
+  background: rgb(123 63 47 / 7%);
 }
 
 .character-section-nav__group ul,
