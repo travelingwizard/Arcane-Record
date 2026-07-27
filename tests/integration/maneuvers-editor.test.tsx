@@ -2,6 +2,7 @@ import { act, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { ManeuversSection } from '../../src/components/character/ManeuversSection';
+import { CharacterSectionProvider } from '../../src/components/navigation/CharacterSectionProvider';
 import { useEditorStore } from '../../src/state/editor-store';
 import { createBlankMageCharacter } from '../../src/systems/mage-m20/create-character';
 
@@ -55,6 +56,54 @@ describe('Maneuvers editor', () => {
         },
       ],
     });
+  });
+
+  it('collapses on desktop to its heading alone', async () => {
+    const user = userEvent.setup();
+    render(
+      <CharacterSectionProvider
+        value={{
+          activeSection: 'maneuvers',
+          expandedSections: new Set(['maneuvers']),
+          isNarrowLayout: false,
+          summaries: {
+            identity: { primary: '' },
+            attributes: { primary: '' },
+            abilities: { primary: '' },
+            maneuvers: { primary: '1 favorite' },
+            backgrounds: { primary: '' },
+            'merits-flaws': { primary: '' },
+            spheres: { primary: '' },
+            enlightenment: { primary: '' },
+            focus: { primary: '' },
+            wonders: { primary: '' },
+            rotes: { primary: '' },
+            equipment: { primary: '' },
+            health: { primary: '' },
+            'import-export': { primary: '' },
+          },
+          setSectionExpanded: () => undefined,
+          navigateToSection: () => undefined,
+          expandAllSections: () => undefined,
+          collapseAllSections: () => undefined,
+        }}
+      >
+        <ManeuversSection />
+      </CharacterSectionProvider>,
+    );
+
+    await user.click(
+      screen.getByRole('button', { name: 'Collapse Maneuvers' }),
+    );
+
+    expect(
+      screen.getByRole('button', { name: 'Expand Maneuvers' }),
+    ).toBeVisible();
+    expect(screen.queryByText('1 favorite')).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('tab', { name: 'Combat Reference' }),
+    ).not.toBeInTheDocument();
+    expect(screen.getByText('Maneuvers')).toBeVisible();
   });
 
   it('shows Revised Do by default and exposes clearly labeled Legacy entries', async () => {

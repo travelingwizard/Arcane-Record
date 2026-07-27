@@ -1,4 +1,4 @@
-import { useRef, type ReactNode } from 'react';
+import { useRef, useState, type ReactNode } from 'react';
 import {
   characterSectionById,
   type CharacterSectionId,
@@ -14,6 +14,8 @@ interface SheetSectionProps {
   actions?: ReactNode;
   children: ReactNode;
   className?: string;
+  collapsibleOnDesktop?: boolean;
+  hideSummaryWhenCollapsed?: boolean;
 }
 
 export function SheetSection({
@@ -24,19 +26,26 @@ export function SheetSection({
   actions,
   children,
   className = '',
+  collapsibleOnDesktop = false,
+  hideSummaryWhenCollapsed = false,
 }: SheetSectionProps) {
   const navigation = useCharacterSectionContext();
   const sectionRef = useRef<HTMLElement>(null);
   const disclosureRef = useRef<HTMLButtonElement>(null);
+  const [desktopExpanded, setDesktopExpanded] = useState(true);
   const definition = characterSectionById.get(id);
-  const expanded =
-    !navigation ||
-    !navigation.isNarrowLayout ||
-    navigation.expandedSections.has(id);
+  const canUseDisclosure =
+    Boolean(navigation) && (navigation?.isNarrowLayout || collapsibleOnDesktop);
+  const summary = navigation?.summaries[id] ?? { primary: '' };
+  const expanded = !canUseDisclosure
+    ? true
+    : navigation?.isNarrowLayout
+      ? navigation.expandedSections.has(id)
+      : desktopExpanded;
   const contentId = `${id}-content`;
   const headingId = `${id}-heading`;
   const collapse = () => {
-    if (!navigation) {
+    if (!canUseDisclosure) {
       return;
     }
     if (
@@ -46,7 +55,11 @@ export function SheetSection({
     ) {
       disclosureRef.current?.focus();
     }
-    navigation.setSectionExpanded(id, !expanded);
+    if (navigation?.isNarrowLayout) {
+      navigation.setSectionExpanded(id, !expanded);
+    } else {
+      setDesktopExpanded(!expanded);
+    }
   };
 
   return (
@@ -57,36 +70,33 @@ export function SheetSection({
         expanded
           ? 'character-section--expanded'
           : 'character-section--collapsed'
+      } ${
+        collapsibleOnDesktop ? 'character-section--desktop-collapsible' : ''
       } ${className}`.trim()}
       aria-labelledby={headingId}
     >
       <div className="sheet-section__heading">
         <div>
           {eyebrow ? (
-            <p
-              className="eyebrow"
-              hidden={navigation?.isNarrowLayout && !expanded}
-            >
+            <p className="eyebrow" hidden={canUseDisclosure && !expanded}>
               {eyebrow}
             </p>
           ) : null}
           <h2
             id={headingId}
             tabIndex={-1}
-            aria-label={navigation ? title : undefined}
+            aria-label={canUseDisclosure ? title : undefined}
           >
-            {navigation && definition ? (
+            {canUseDisclosure && definition ? (
               <>
-                <span className="character-section__desktop-title">
-                  {title}
-                </span>
                 <CharacterSectionDisclosure
                   ref={disclosureRef}
                   label={title}
-                  summary={navigation.summaries[id]}
+                  summary={summary}
                   expanded={expanded}
                   contentId={contentId}
                   onToggle={collapse}
+                  showSummary={!hideSummaryWhenCollapsed || expanded}
                 />
               </>
             ) : (
@@ -96,7 +106,7 @@ export function SheetSection({
           {description ? (
             <p
               className="sheet-section__description"
-              hidden={navigation?.isNarrowLayout && !expanded}
+              hidden={canUseDisclosure && !expanded}
             >
               {description}
             </p>
@@ -105,7 +115,7 @@ export function SheetSection({
         {actions ? (
           <div
             className="sheet-section__actions"
-            hidden={navigation?.isNarrowLayout && !expanded}
+            hidden={canUseDisclosure && !expanded}
           >
             {actions}
           </div>

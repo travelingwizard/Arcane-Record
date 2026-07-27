@@ -474,6 +474,55 @@
   display: none;
 }
 
+.character-section--desktop-collapsible .character-section-disclosure {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.2rem 0.75rem;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  text-align: left;
+}
+
+.character-section--desktop-collapsible .character-section-disclosure__label {
+  font: inherit;
+}
+
+.character-section--desktop-collapsible .character-section-disclosure__summary {
+  grid-column: 1;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.character-section--desktop-collapsible .character-section-disclosure__icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--rule);
+  color: var(--umber-deep);
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+}
+
+.character-section--desktop-collapsible.character-section--collapsed {
+  padding-block: 0.75rem;
+}
+
+.character-section--desktop-collapsible.character-section--collapsed
+  .sheet-section__heading {
+  margin-bottom: 0;
+}
+
 .character-section-nav {
   display: none;
   min-width: 0;

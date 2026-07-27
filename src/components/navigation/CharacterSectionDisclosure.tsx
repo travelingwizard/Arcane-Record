@@ -9,9 +9,10 @@ export const CharacterSectionDisclosure = forwardRef<
     expanded: boolean;
     contentId: string;
     onToggle: () => void;
+    showSummary?: boolean;
   }
 >(function CharacterSectionDisclosure(
-  { label, summary, expanded, contentId, onToggle },
+  { label, summary, expanded, contentId, onToggle, showSummary = true },
   ref,
 ) {
   return (
@@ -25,15 +26,17 @@ export const CharacterSectionDisclosure = forwardRef<
       onClick={onToggle}
     >
       <span className="character-section-disclosure__label">{label}</span>
-      <span className="character-section-disclosure__summary">
-        {summary.primary}
-        {summary.warning ? (
-          <strong>
-            <span aria-hidden="true">⚠ </span>
-            {summary.warning}
-          </strong>
-        ) : null}
-      </span>
+      {showSummary ? (
+        <span className="character-section-disclosure__summary">
+          {summary.primary}
+          {summary.warning ? (
+            <strong>
+              <span aria-hidden="true">⚠ </span>
+              {summary.warning}
+            </strong>
+          ) : null}
+        </span>
+      ) : null}
       <span className="character-section-disclosure__icon" aria-hidden="true">
         {expanded ? '−' : '+'}
       </span>

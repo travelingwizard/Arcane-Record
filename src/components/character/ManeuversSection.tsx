@@ -39,6 +39,8 @@ export function ManeuversSection() {
       eyebrow="Combat reference and learned forms"
       title="Maneuvers"
       description="Keep universal combat references and this character's known Do maneuvers together."
+      collapsibleOnDesktop
+      hideSummaryWhenCollapsed
       actions={
         lastRemoval ? (
           <button
