@@ -6,6 +6,7 @@ import {
 } from './create-character';
 import { MAGE_SCHEMA_VERSION, MAGE_SYSTEM_ID, spheres } from './definitions';
 import { backgroundById, backgroundCatalog } from './reference/backgrounds';
+import { equipmentById, equipmentCategorySchema } from './reference/equipment';
 import { focusDefinitionsByKind, type FocusKind } from './reference/focus';
 import { meritFlawById, type MeritFlawKind } from './reference/merits-flaws';
 import { roteById } from './reference/rotes';
@@ -46,7 +47,7 @@ const attributesSchema = z.object({
   }),
 });
 
-const abilitiesSchema = z.object({
+const legacyAbilitiesSchemaV6 = z.object({
   talents: z.object({
     alertness: fivePointRating,
     art: fivePointRating,
@@ -85,6 +86,12 @@ const abilitiesSchema = z.object({
     occult: fivePointRating,
     politics: fivePointRating,
     science: fivePointRating,
+  }),
+});
+
+const abilitiesSchema = legacyAbilitiesSchemaV6.extend({
+  skills: legacyAbilitiesSchemaV6.shape.skills.extend({
+    do: fivePointRating,
   }),
 });
 
@@ -428,7 +435,7 @@ const knownRoteSchema = z.object({
   unresolvedDefinitionName: z.string().optional(),
 });
 
-const repeatableEntriesSchema = z
+const legacyRepeatableEntriesSchemaV6 = z
   .object({
     backgrounds: z.array(selectedBackgroundSchema),
     merits: z.array(selectedMeritFlawSchema('merit')),
@@ -558,6 +565,63 @@ const repeatableEntriesSchema = z
     }
   });
 
+const ownedEquipmentSchema = z.object({
+  id: uuid,
+  definitionId: z.string().min(1).optional(),
+  name: z.string(),
+  category: equipmentCategorySchema,
+  description: z.string(),
+  quantity: z.number().int().min(1).max(999),
+  equipped: z.boolean(),
+  notes: z.string(),
+  addedAt: z.string().datetime(),
+  unresolvedDefinitionName: z.string().optional(),
+});
+
+const equipmentEntriesSchema = z
+  .array(ownedEquipmentSchema)
+  .superRefine((entries, context) => {
+    const selectionIds = new Set<string>();
+    const definitionIds = new Set<string>();
+    entries.forEach((entry, index) => {
+      if (selectionIds.has(entry.id)) {
+        context.addIssue({
+          code: 'custom',
+          path: [index, 'id'],
+          message: 'Equipment selection IDs must be unique.',
+        });
+      }
+      selectionIds.add(entry.id);
+
+      if (!entry.definitionId) {
+        return;
+      }
+      const definition = equipmentById.get(entry.definitionId);
+      if (definition && definition.category !== entry.category) {
+        context.addIssue({
+          code: 'custom',
+          path: [index, 'category'],
+          message: 'Equipment category must match its catalog definition.',
+        });
+      }
+      if (definition && definitionIds.has(entry.definitionId)) {
+        context.addIssue({
+          code: 'custom',
+          path: [index, 'definitionId'],
+          message: 'A catalog equipment definition may only be selected once.',
+        });
+      }
+      if (definition) {
+        definitionIds.add(entry.definitionId);
+      }
+    });
+  });
+
+const repeatableEntriesSchema = z.intersection(
+  legacyRepeatableEntriesSchemaV6,
+  z.object({ equipment: equipmentEntriesSchema }),
+);
+
 const healthSchema = z.object({
   damage: z.array(z.enum(['bashing', 'lethal', 'aggravated'])).max(7),
 });
@@ -579,6 +643,11 @@ const commonFields = {
   repeatableEntries: repeatableEntriesSchema,
 };
 
+const versionSixCommonFields = {
+  ...legacyCommonFields,
+  repeatableEntries: legacyRepeatableEntriesSchemaV6,
+};
+
 const versionFiveCommonFields = {
   ...legacyCommonFields,
   repeatableEntries: legacyRepeatableEntriesSchemaV5,
@@ -598,7 +667,7 @@ export const legacyMageCharacterSchemaV1 = z.object({
 export const legacyMageCharacterSchemaV2 = z.object({
   ...legacyCommonFields,
   schemaVersion: z.literal(2),
-  abilities: abilitiesSchema,
+  abilities: legacyAbilitiesSchemaV6,
   enlightenment: z.object({
     arete: tenPointRating.min(1),
     willpower: tenPointRating.min(1),
@@ -611,7 +680,7 @@ export const legacyMageCharacterSchemaV2 = z.object({
 export const legacyMageCharacterSchemaV3 = z.object({
   ...legacyCommonFields,
   schemaVersion: z.literal(3),
-  abilities: abilitiesSchema,
+  abilities: legacyAbilitiesSchemaV6,
   enlightenment: z.object({
     arete: tenPointRating.min(1),
     willpower: tenPointRating.min(1),
@@ -625,7 +694,7 @@ export const legacyMageCharacterSchemaV3 = z.object({
 export const legacyMageCharacterSchemaV4 = z.object({
   ...versionFourCommonFields,
   schemaVersion: z.literal(4),
-  abilities: abilitiesSchema,
+  abilities: legacyAbilitiesSchemaV6,
   enlightenment: z.object({
     arete: tenPointRating.min(1),
     willpower: tenPointRating.min(1),
@@ -639,7 +708,21 @@ export const legacyMageCharacterSchemaV4 = z.object({
 export const legacyMageCharacterSchemaV5 = z.object({
   ...versionFiveCommonFields,
   schemaVersion: z.literal(5),
-  abilities: abilitiesSchema,
+  abilities: legacyAbilitiesSchemaV6,
+  enlightenment: z.object({
+    arete: tenPointRating.min(1),
+    willpower: tenPointRating.min(1),
+    willpowerTemporary: tenPointRating,
+    quintessence: tenPointRating,
+    paradox: tenPointRating,
+  }),
+  affinitySphere: sphereIdSchema.nullable(),
+});
+
+export const legacyMageCharacterSchemaV6 = z.object({
+  ...versionSixCommonFields,
+  schemaVersion: z.literal(6),
+  abilities: legacyAbilitiesSchemaV6,
   enlightenment: z.object({
     arete: tenPointRating.min(1),
     willpower: tenPointRating.min(1),
@@ -761,6 +844,19 @@ function migrateLegacyMagick(
       notes: '',
       addedAt,
     })),
+    equipment: [],
+  };
+}
+
+function migrateLegacyAbilities(
+  abilities: z.infer<typeof legacyAbilitiesSchemaV6>,
+) {
+  return {
+    ...abilities,
+    skills: {
+      ...abilities.skills,
+      do: 0,
+    },
   };
 }
 
@@ -770,11 +866,25 @@ export function migrateMageCharacter(input: unknown) {
     return current.data;
   }
 
+  const versionSix = legacyMageCharacterSchemaV6.safeParse(input);
+  if (versionSix.success) {
+    return mageCharacterSchema.parse({
+      ...versionSix.data,
+      schemaVersion: MAGE_SCHEMA_VERSION,
+      abilities: migrateLegacyAbilities(versionSix.data.abilities),
+      repeatableEntries: {
+        ...versionSix.data.repeatableEntries,
+        equipment: [],
+      },
+    });
+  }
+
   const versionFive = legacyMageCharacterSchemaV5.safeParse(input);
   if (versionFive.success) {
     return mageCharacterSchema.parse({
       ...versionFive.data,
       schemaVersion: MAGE_SCHEMA_VERSION,
+      abilities: migrateLegacyAbilities(versionFive.data.abilities),
       repeatableEntries: {
         ...versionFive.data.repeatableEntries,
         ...migrateLegacyMagick(
@@ -790,6 +900,7 @@ export function migrateMageCharacter(input: unknown) {
     return mageCharacterSchema.parse({
       ...versionFour.data,
       schemaVersion: MAGE_SCHEMA_VERSION,
+      abilities: migrateLegacyAbilities(versionFour.data.abilities),
       repeatableEntries: {
         ...versionFour.data.repeatableEntries,
         backgrounds: migrateLegacyBackgrounds(
@@ -809,6 +920,7 @@ export function migrateMageCharacter(input: unknown) {
     return mageCharacterSchema.parse({
       ...versionThree.data,
       schemaVersion: MAGE_SCHEMA_VERSION,
+      abilities: migrateLegacyAbilities(versionThree.data.abilities),
       repeatableEntries: {
         ...versionThree.data.repeatableEntries,
         backgrounds: migrateLegacyBackgrounds(
@@ -830,6 +942,7 @@ export function migrateMageCharacter(input: unknown) {
     return mageCharacterSchema.parse({
       ...versionTwo.data,
       schemaVersion: MAGE_SCHEMA_VERSION,
+      abilities: migrateLegacyAbilities(versionTwo.data.abilities),
       enlightenment: {
         ...versionTwo.data.enlightenment,
         willpowerTemporary: versionTwo.data.enlightenment.willpower,

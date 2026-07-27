@@ -22,6 +22,7 @@ describe('character section registry', () => {
       'focus',
       'wonders',
       'rotes',
+      'equipment',
       'health',
       'import-export',
     ]);
@@ -30,7 +31,7 @@ describe('character section registry', () => {
       characterSections.length,
     );
     expect(characterSections.map(({ order }) => order)).toEqual([
-      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
     ]);
   });
 
@@ -44,6 +45,7 @@ describe('character section registry', () => {
       'Traits',
       'Advantages',
       'Magick',
+      'Gear',
       'Condition',
       'Records',
     ]);
@@ -134,6 +136,16 @@ describe('collapsed character section summaries', () => {
       notes: '',
       addedAt: new Date().toISOString(),
     });
+    character.repeatableEntries.equipment.push({
+      id: crypto.randomUUID(),
+      name: 'Field satchel',
+      category: 'gear',
+      description: 'Carries ritual supplies.',
+      quantity: 1,
+      equipped: true,
+      notes: '',
+      addedAt: new Date().toISOString(),
+    });
 
     const summaries = getCharacterSectionSummaries(character);
 
@@ -154,5 +166,6 @@ describe('collapsed character section summaries', () => {
     });
     expect(summaries.wonders.primary).toBe('1 selected · Moonlit Mirror');
     expect(summaries.rotes.primary).toBe('1 saved · Silver Echo');
+    expect(summaries.equipment.primary).toBe('1 item · Field satchel');
   });
 });

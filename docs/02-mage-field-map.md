@@ -21,7 +21,7 @@ Visible labels are presentation only. Persistent keys are stable IDs.
 ## Abilities
 
 - Talents: `abilities.talents.alertness`, `.art`, `.athletics`, `.awareness`, `.brawl`, `.empathy`, `.expression`, `.intimidation`, `.leadership`, `.streetwise`, `.subterfuge`
-- Skills: `abilities.skills.crafts`, `.drive`, `.etiquette`, `.firearms`, `.martialArts`, `.meditation`, `.melee`, `.research`, `.stealth`, `.survival`, `.technology`
+- Skills: `abilities.skills.crafts`, `.drive`, `.etiquette`, `.firearms`, `.martialArts`, `.meditation`, `.melee`, `.research`, `.stealth`, `.survival`, `.technology`, `.do`
 - Knowledges: `abilities.knowledges.academics`, `.computer`, `.cosmology`, `.enigmas`, `.esoterica`, `.investigation`, `.law`, `.medicine`, `.occult`, `.politics`, `.science`
 
 ## Enlightenment
@@ -64,3 +64,12 @@ Data, and explicitly labeled other requirements.
 Reference-catalog architecture, migration decisions, and the content-review
 boundary are documented in
 [13. Focus, Wonders, and Rotes implementation plan](13-magick-sections-plan.md).
+
+## Equipment
+
+`repeatableEntries.equipment[]` stores an owned UUID, optional stable
+definition ID, editable name, category (`melee`, `ranged`, `armor`, or `gear`),
+character description, integer quantity, equipped/readied state, notes,
+timestamp, and optional unresolved definition name. Catalog statistics,
+descriptions, citations, review state, and mature-content labels remain in
+`src/systems/mage-m20/reference/equipment.data.json`.

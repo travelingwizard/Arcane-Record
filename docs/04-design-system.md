@@ -29,6 +29,10 @@ character-owned notes. Mature entries require an explicit opt-in control.
 Selected Focus, Wonder, and Rote cards remain visually quieter than the
 catalog so character data stays primary.
 
+Equipment reuses the same reference-preview and selected-card language.
+Important statistics appear as compact text rather than simulated controls;
+equipped state, quantity, and category use ordinary labeled form controls.
+
 ## Tokens
 
 Color, spacing, type sizes, radii, shadows, and focus rings are CSS custom properties in `src/styles/tokens.css`. Motion is brief and removed under `prefers-reduced-motion`.

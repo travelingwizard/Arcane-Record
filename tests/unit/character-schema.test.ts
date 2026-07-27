@@ -10,7 +10,9 @@ describe('mageCharacterSchema', () => {
     );
 
     expect(mageCharacterSchema.parse(character)).toEqual(character);
-    expect(character.schemaVersion).toBe(6);
+    expect(character.schemaVersion).toBe(7);
+    expect(character.repeatableEntries.equipment).toEqual([]);
+    expect(character.abilities.skills.do).toBe(0);
     expect(character.repeatableEntries.focus).toEqual({
       paradigms: [],
       practices: [],
@@ -265,6 +267,93 @@ describe('mageCharacterSchema', () => {
     });
 
     expect(mageCharacterSchema.safeParse(character).success).toBe(true);
+  });
+
+  it('validates catalog, custom, and unresolved Equipment records', () => {
+    const character = createBlankMageCharacter();
+    character.repeatableEntries.equipment.push(
+      {
+        id: crypto.randomUUID(),
+        definitionId: 'kevlar-vest',
+        name: 'Field vest',
+        category: 'armor',
+        description: '',
+        quantity: 1,
+        equipped: true,
+        notes: 'Kept under the coat.',
+        addedAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        name: 'Silver compass',
+        category: 'gear',
+        description: 'Points toward the nearest safe door.',
+        quantity: 2,
+        equipped: false,
+        notes: '',
+        addedAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        definitionId: 'retired-field-kit',
+        name: 'Old field kit',
+        category: 'gear',
+        description: '',
+        quantity: 1,
+        equipped: false,
+        notes: '',
+        addedAt: new Date().toISOString(),
+        unresolvedDefinitionName: 'Old field kit',
+      },
+    );
+
+    expect(mageCharacterSchema.safeParse(character).success).toBe(true);
+  });
+
+  it('rejects malformed Equipment quantities, categories, and duplicates', () => {
+    const wrongCategory = createBlankMageCharacter();
+    wrongCategory.repeatableEntries.equipment.push({
+      id: crypto.randomUUID(),
+      definitionId: 'kevlar-vest',
+      name: 'Field vest',
+      category: 'gear',
+      description: '',
+      quantity: 1,
+      equipped: true,
+      notes: '',
+      addedAt: new Date().toISOString(),
+    });
+    expect(mageCharacterSchema.safeParse(wrongCategory).success).toBe(false);
+
+    const invalidQuantity = createBlankMageCharacter();
+    invalidQuantity.repeatableEntries.equipment.push({
+      id: crypto.randomUUID(),
+      name: 'Loose chalk',
+      category: 'gear',
+      description: 'A small box of ritual chalk.',
+      quantity: 0,
+      equipped: false,
+      notes: '',
+      addedAt: new Date().toISOString(),
+    });
+    expect(mageCharacterSchema.safeParse(invalidQuantity).success).toBe(false);
+
+    const duplicate = createBlankMageCharacter();
+    const id = crypto.randomUUID();
+    for (const name of ['Primary vest', 'Spare vest']) {
+      duplicate.repeatableEntries.equipment.push({
+        id,
+        definitionId: 'kevlar-vest',
+        name,
+        category: 'armor',
+        description: '',
+        quantity: 1,
+        equipped: false,
+        notes: '',
+        addedAt: new Date().toISOString(),
+      });
+    }
+    expect(mageCharacterSchema.safeParse(duplicate).success).toBe(false);
   });
 
   it('rejects wrong-kind Focus definitions and malformed Rote ranges', () => {

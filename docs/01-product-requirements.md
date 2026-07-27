@@ -10,7 +10,8 @@ The editor provides:
 
 - all nine identity fields;
 - nine Attributes grouped into Physical, Social, and Mental;
-- 33 Abilities grouped into Talents, Skills, and Knowledges;
+- 34 Abilities grouped into Talents, Skills, and Knowledges, with `Do*` as the
+  final Skill;
 - all nine Spheres as integer ratings from 0 to 5;
 - one nullable affinity Sphere selected with an unboxed star;
 - four local display sort modes;
@@ -25,6 +26,9 @@ The editor provides:
   powers, and notes;
 - editable Rotes with catalog or custom names, structured Sphere requirements,
   free-form alternatives, Effects, Focus notes, and character notes;
+- editable Equipment with a searchable catalog of melee weapons, ranged
+  weapons, armor, and field gear; custom name-and-description entries;
+  quantity; equipped state; and character notes;
 - validated local JSON and YAML import/export;
 - debounced autosave status;
 - explicit reference-preview labeling for supplied Magick citations that still
@@ -51,6 +55,24 @@ The core acceptance scenario creates a character, names it, sets Strength, Alert
 A Magick acceptance scenario records a catalog Paradigm, a custom significant
 Instrument, a custom Wonder, and a Rote with structured Sphere requirements;
 refreshes; and observes the same values in both the editor and a local export.
+
+An Equipment acceptance scenario adds a catalog armor entry and custom field
+gear, records ownership details, refreshes, and observes both entries in the
+editor and local export. Catalog statistics remain reference-only and never
+modify character ratings automatically.
+
+## Equipment
+
+Nothing is selected by default. The catalog searches names, descriptions, and
+citations; filters by family; hides mature material by default; and displays
+the supplied combat or protection information as an unverified reference
+preview. Custom equipment requires a name and description.
+
+Owned entries support an editable name, category, description, quantity from 1
+to 999, equipped/readied state, notes, removal, and one-step Undo. A catalog
+definition may be selected once; quantity represents duplicates. Equipment
+never changes Attributes, Abilities, damage, soak, dice pools, or other sheet
+values automatically.
 
 ## Focus, Wonders, and Rotes
 

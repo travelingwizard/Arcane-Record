@@ -25,9 +25,16 @@ powers, and notes. Rotes export structured Sphere requirements, free-form
 alternatives, Effects, Focus notes, and character notes. Reference summaries,
 citations, review status, and mature-content labels are never included.
 
+Equipment exports owned IDs, optional definition IDs, names, categories,
+character descriptions, quantities, equipped state, notes, timestamps, and
+optional unresolved names. Catalog statistics, summaries, citations, review
+state, and content labels are excluded.
+
 Schema-version-5 Magick placeholders migrate without loss: Focus strings become
 general notes, Wonder strings become custom owned Wonders, and legacy Rote IDs,
 Sphere text, and Effects are preserved.
+
+Schema-version-6 records migrate with an empty Equipment collection.
 
 Section expansion preferences and the transient active section are excluded
 from both formats. Importing a character creates a fresh ID and therefore a

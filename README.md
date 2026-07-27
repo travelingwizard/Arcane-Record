@@ -2,10 +2,10 @@
 
 A local-first, responsive character-sheet editor for Mage: The Ascension 20th Anniversary Edition. Characters are saved only in IndexedDB in the current browser profile. There is no account, backend, telemetry, or online backup.
 
-The long-form editor includes URL-addressable sections, a sticky desktop
-section rail, and a mobile Sections sheet with independently collapsible
-sections. Expansion preferences stay in browser-local interface storage and
-are not included in character exports.
+The long-form editor includes URL-addressable sections, a searchable Equipment
+catalog, a sticky desktop section rail, and a mobile Sections sheet with
+independently collapsible sections. Expansion preferences stay in browser-local
+interface storage and are not included in character exports.
 
 ## Local development
 
@@ -33,7 +33,7 @@ The Playwright smoke test starts its own local Vite server. If the bundled brows
 
 ## Milestone scope
 
-This milestone includes a local character library, create/open/rename/duplicate/delete flows, autosave, identity fields, Attributes, Abilities, Spheres, star-based affinity selection, Sphere sorting, an optional desktop Sphere wheel, Enlightenment traits, searchable Background and Merits & Flaws catalogs, editable Focus, Wonders, and Rotes with searchable reference-preview catalogs, Health, and local JSON/YAML import and export.
+This milestone includes a local character library, create/open/rename/duplicate/delete flows, autosave, identity fields, Attributes, Abilities, Spheres, star-based affinity selection, Sphere sorting, an optional desktop Sphere wheel, Enlightenment traits, searchable Background and Merits & Flaws catalogs, editable Focus, Wonders, and Rotes with searchable reference-preview catalogs, catalog and custom Equipment, Health, and local JSON/YAML import and export.
 
 See [docs/00-project-charter.md](docs/00-project-charter.md) for goals and assumptions.
 See [docs/12-section-navigation.md](docs/12-section-navigation.md) for the
@@ -41,3 +41,5 @@ section registry, anchors, responsive behavior, and preference boundary.
 See [docs/13-magick-sections-plan.md](docs/13-magick-sections-plan.md) for the
 Focus, Wonders, and Rotes architecture, migration record, and content-review
 boundary.
+See [docs/14-equipment-implementation.md](docs/14-equipment-implementation.md)
+for the Equipment catalog, ownership model, and schema migration.

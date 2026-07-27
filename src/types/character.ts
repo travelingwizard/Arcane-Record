@@ -117,6 +117,21 @@ export interface KnownRote {
   unresolvedDefinitionName?: string;
 }
 
+export type EquipmentCategory = 'melee' | 'ranged' | 'armor' | 'gear';
+
+export interface OwnedEquipment {
+  id: string;
+  definitionId?: string;
+  name: string;
+  category: EquipmentCategory;
+  description: string;
+  quantity: number;
+  equipped: boolean;
+  notes: string;
+  addedAt: string;
+  unresolvedDefinitionName?: string;
+}
+
 export interface RepeatableEntries {
   backgrounds: SelectedBackground[];
   merits: SelectedMeritFlaw[];
@@ -124,6 +139,7 @@ export interface RepeatableEntries {
   focus: FocusData;
   wonders: OwnedWonder[];
   rotes: KnownRote[];
+  equipment: OwnedEquipment[];
 }
 
 export interface HealthState {

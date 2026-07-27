@@ -32,6 +32,7 @@ export function createDefaultAbilityRatings(): AbilityRatings {
       stealth: 0,
       survival: 0,
       technology: 0,
+      do: 0,
     },
     knowledges: {
       academics: 0,
@@ -115,6 +116,7 @@ export function createBlankMageCharacter(
       },
       wonders: [],
       rotes: [],
+      equipment: [],
     },
     health: { damage: [] },
   };

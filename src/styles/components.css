@@ -2163,6 +2163,20 @@
   background: rgb(255 255 255 / 14%);
 }
 
+.equipment-custom-adder {
+  margin-bottom: 1rem;
+  padding: 0.85rem;
+  display: grid;
+  grid-template-columns:
+    minmax(11rem, 1fr) minmax(14rem, 2fr) minmax(9rem, auto)
+    auto auto;
+  align-items: end;
+  gap: 0.65rem;
+  border: 1px solid var(--rule-light);
+  background: rgb(255 255 255 / 14%);
+}
+
+.equipment-custom-adder label,
 .magick-custom-adder label,
 .focus-context-grid label,
 .magick-selected-card label,
@@ -2180,6 +2194,8 @@
   text-transform: uppercase;
 }
 
+.equipment-custom-adder input,
+.equipment-custom-adder select,
 .magick-custom-adder input,
 .magick-custom-adder select,
 .focus-context-grid textarea,
@@ -2198,6 +2214,46 @@
   background: var(--paper-light);
   font-family: var(--font-serif);
   text-transform: none;
+}
+
+.equipment-field-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(10rem, 2fr) minmax(9rem, 1fr) minmax(6rem, 0.6fr)
+    minmax(10rem, 1fr);
+  align-items: end;
+  gap: 0.65rem;
+}
+
+.equipment-equipped-toggle {
+  min-height: 2.75rem;
+  padding: 0.4rem 0;
+  display: flex !important;
+  align-items: center;
+  gap: 0.55rem !important;
+}
+
+.equipment-equipped-toggle input {
+  width: 1.35rem;
+  min-height: 1.35rem;
+  height: 1.35rem;
+  flex: none;
+}
+
+.equipment-reference-note {
+  padding: 0.7rem 0.8rem;
+  border-left: 3px solid var(--gold);
+  background: #fff6df;
+}
+
+.equipment-reference-note p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+.equipment-reference-note p + p {
+  margin-top: 0.45rem;
 }
 
 .magick-selected-card textarea,

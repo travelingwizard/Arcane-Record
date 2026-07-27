@@ -72,6 +72,17 @@ describe('character files', () => {
         notes: '',
         addedAt: '2026-07-01T12:00:00.000Z',
       });
+      source.repeatableEntries.equipment.push({
+        id: 'c5663948-683c-4d95-aa35-e57e93c40966',
+        definitionId: 'kevlar-vest',
+        name: 'Mara’s field vest',
+        category: 'armor',
+        description: 'Marked with the cabal seal.',
+        quantity: 1,
+        equipped: true,
+        notes: 'Worn beneath the coat.',
+        addedAt: '2026-07-01T12:00:00.000Z',
+      });
       localStorage.setItem(
         `arcane-ledger:section-preferences:${source.id}`,
         JSON.stringify({
@@ -122,11 +133,19 @@ describe('character files', () => {
           { sphereId: 'data', minimum: 3 },
         ],
       });
+      expect(imported.repeatableEntries.equipment[0]).toMatchObject({
+        definitionId: 'kevlar-vest',
+        name: 'Mara’s field vest',
+        category: 'armor',
+        description: 'Marked with the cabal seal.',
+        equipped: true,
+      });
       expect(imported.createdAt).toBe('2026-07-23T16:00:00.000Z');
       expect(serialized).not.toContain('expandedSections');
       expect(serialized).not.toContain('section-preferences');
       expect(serialized).not.toContain('Reference preview');
       expect(serialized).not.toContain('citation');
+      expect(serialized).not.toContain('Damage 4');
     },
   );
 

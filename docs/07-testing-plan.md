@@ -3,7 +3,7 @@
 ## Unit
 
 - Zod accepts a valid blank character and rejects malformed IDs, timestamps, ratings, and affinity values.
-- Older records migrate through schema version 6 with default Abilities,
+- Older records migrate through schema version 7 with default Abilities,
   Enlightenment, catalog-backed or unresolved Backgrounds, empty Merit/Flaw
   selections where required, and lossless Magick placeholder conversion.
 - Sphere sorting covers all modes, affinity tie-breaking, and preservation of the underlying ratings.
@@ -18,6 +18,12 @@
 - Magick schema tests cover custom, catalog, and unresolved selections,
   structured Sphere ranges, wrong-kind references, duplicate IDs, and
   duplicate definitions.
+- Equipment catalog tests cover all 133 supplied definitions, categories,
+  families, unique stable IDs, important information, citations, preview
+  state, mature labels, and search.
+- Equipment schema tests cover catalog, custom, and unresolved records,
+  quantity bounds, category matching, duplicate IDs, and duplicate known
+  definitions.
 - The section registry covers stable unique IDs, order, groups, valid and
   invalid hashes, summary calculations, and warning text.
 - Section preferences cover per-character keys, initial hash expansion,
@@ -25,7 +31,7 @@
 
 ## Integration
 
-An in-memory repository test double exercises create, reopen, rename, duplicate with a fresh UUID, and delete. UI integration tests cover affinity selection, replacement, and clearing; Ability and Enlightenment editing; Background previews, ratings, names, costs, restrictions, repeatability, pooling, removal, and Undo; sequential Health damage; Merits and Flaws previews, selection, legal cost changes, totals, warnings, removal, and Undo; Focus catalog and custom selections; significant Instruments; Need; Wonder catalog and custom records; structured Rote requirements; Magick removal Undo; and IndexedDB schema migration.
+An in-memory repository test double exercises create, reopen, rename, duplicate with a fresh UUID, and delete. UI integration tests cover affinity selection, replacement, and clearing; Ability and Enlightenment editing; Background previews, ratings, names, costs, restrictions, repeatability, pooling, removal, and Undo; sequential Health damage; Merits and Flaws previews, selection, legal cost changes, totals, warnings, removal, and Undo; Focus catalog and custom selections; significant Instruments; Need; Wonder catalog and custom records; structured Rote requirements; Magick removal Undo; Equipment catalog/custom creation, important-information display, quantity, equipped state, removal, and Undo; and IndexedDB schema migration.
 
 Navigation integration covers desktop links and `aria-current`, keyboard focus
 after navigation, valid and invalid initial hashes, history events, independent
@@ -40,6 +46,10 @@ Playwright creates a character, sets Name, Strength, Alertness, Forces, affinity
 A Magick scenario selects a catalog Paradigm, records a significant custom
 Instrument, creates a Wonder and a Rote, persists them across refresh, verifies
 their local JSON export, and checks 320px overflow.
+
+An Equipment scenario records catalog armor and custom field gear, persists
+both across refresh, verifies local export boundaries, and checks 320px
+overflow.
 
 Section-navigation scenarios cover the desktop rail at 1440px, the 1120px
 breakpoint, IntersectionObserver active links, fragments, Back navigation,

@@ -3,8 +3,9 @@ export const characterSectionGroups = [
   { id: 'traits', label: 'Traits', order: 2 },
   { id: 'advantages', label: 'Advantages', order: 3 },
   { id: 'magick', label: 'Magick', order: 4 },
-  { id: 'condition', label: 'Condition', order: 5 },
-  { id: 'records', label: 'Records', order: 6 },
+  { id: 'gear', label: 'Gear', order: 5 },
+  { id: 'condition', label: 'Condition', order: 6 },
+  { id: 'records', label: 'Records', order: 7 },
 ] as const;
 
 export type CharacterSectionGroupId =
@@ -73,17 +74,23 @@ export const characterSections = [
     order: 10,
   },
   {
+    id: 'equipment',
+    label: 'Equipment',
+    group: 'gear',
+    order: 11,
+  },
+  {
     id: 'health',
     label: 'Health',
     group: 'condition',
-    order: 11,
+    order: 12,
   },
   {
     id: 'import-export',
     label: 'Import & export',
     shortLabel: 'File exchange',
     group: 'records',
-    order: 12,
+    order: 13,
   },
 ] as const satisfies ReadonlyArray<{
   id: string;

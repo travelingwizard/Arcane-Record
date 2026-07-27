@@ -10,6 +10,7 @@ import type {
 } from '../systems/mage-m20/definitions';
 import { backgroundRatingRules } from '../systems/mage-m20/background-rules';
 import { backgroundById } from '../systems/mage-m20/reference/backgrounds';
+import { equipmentById } from '../systems/mage-m20/reference/equipment';
 import {
   focusDefinitionsByKind,
   type FocusKind,
@@ -23,6 +24,7 @@ import type {
   InstrumentSelection,
   KnownRote,
   MageCharacter,
+  OwnedEquipment,
   OwnedWonder,
   SelectedBackground,
   SelectedMeritFlaw,
@@ -64,6 +66,11 @@ export type MagickRemoval =
   | { type: 'wonder'; selection: OwnedWonder; index: number }
   | { type: 'rote'; selection: KnownRote; index: number };
 
+export interface EquipmentRemoval {
+  selection: OwnedEquipment;
+  index: number;
+}
+
 const focusKeyByKind = {
   paradigm: 'paradigms',
   practice: 'practices',
@@ -77,6 +84,7 @@ interface EditorState {
   lastMeritFlawChange: MeritFlawUndo | null;
   lastBackgroundChange: BackgroundUndo | null;
   lastMagickRemoval: MagickRemoval | null;
+  lastEquipmentRemoval: EquipmentRemoval | null;
   load: (character: MageCharacter) => void;
   clear: () => void;
   updateIdentity: (field: IdentityFieldId, value: string) => void;
@@ -155,6 +163,21 @@ interface EditorState {
   ) => void;
   removeRote: (selectionId: string) => void;
   undoMagickRemoval: () => void;
+  addEquipment: (
+    definitionId?: string,
+    custom?: Pick<OwnedEquipment, 'name' | 'description' | 'category'>,
+  ) => string | null;
+  updateEquipment: (
+    selectionId: string,
+    update: Partial<
+      Pick<
+        OwnedEquipment,
+        'name' | 'category' | 'description' | 'quantity' | 'equipped' | 'notes'
+      >
+    >,
+  ) => void;
+  removeEquipment: (selectionId: string) => void;
+  undoEquipmentRemoval: () => void;
   cycleHealthDamage: (index: number) => void;
   updateSphere: (sphere: SphereId, value: number) => void;
   toggleAffinity: (sphere: SphereId) => void;
@@ -184,6 +207,7 @@ export const useEditorStore = create<EditorState>((set) => ({
   lastMeritFlawChange: null,
   lastBackgroundChange: null,
   lastMagickRemoval: null,
+  lastEquipmentRemoval: null,
 
   load: (character) =>
     set({
@@ -193,6 +217,7 @@ export const useEditorStore = create<EditorState>((set) => ({
       lastMeritFlawChange: null,
       lastBackgroundChange: null,
       lastMagickRemoval: null,
+      lastEquipmentRemoval: null,
     }),
 
   clear: () =>
@@ -203,6 +228,7 @@ export const useEditorStore = create<EditorState>((set) => ({
       lastMeritFlawChange: null,
       lastBackgroundChange: null,
       lastMagickRemoval: null,
+      lastEquipmentRemoval: null,
     }),
 
   updateIdentity: (field, value) =>
@@ -974,6 +1000,144 @@ export const useEditorStore = create<EditorState>((set) => ({
           } as MageCharacter;
         }),
         lastMagickRemoval: null,
+      };
+    }),
+
+  addEquipment: (definitionId, custom) => {
+    let addedId: string | null = null;
+    set((state) => {
+      if (!state.character) {
+        return {};
+      }
+      const definition = definitionId
+        ? equipmentById.get(definitionId)
+        : undefined;
+      const name = custom?.name.trim();
+      const description = custom?.description.trim();
+      if (
+        (definitionId && !definition) ||
+        (!definition && (!name || !description))
+      ) {
+        return {};
+      }
+      if (
+        definitionId &&
+        state.character.repeatableEntries.equipment.some(
+          (selection) => selection.definitionId === definitionId,
+        )
+      ) {
+        return {};
+      }
+      addedId = crypto.randomUUID();
+      const selection: OwnedEquipment = {
+        id: addedId,
+        ...(definitionId ? { definitionId } : {}),
+        name: definition?.name ?? name!,
+        category: definition?.category ?? custom!.category,
+        description: definition ? '' : description!,
+        quantity: 1,
+        equipped: false,
+        notes: '',
+        addedAt: new Date().toISOString(),
+      };
+      return {
+        ...withChange(state, (character) => ({
+          ...character,
+          repeatableEntries: {
+            ...character.repeatableEntries,
+            equipment: [...character.repeatableEntries.equipment, selection],
+          },
+        })),
+        lastEquipmentRemoval: null,
+      };
+    });
+    return addedId;
+  },
+
+  updateEquipment: (selectionId, update) =>
+    set((state) => {
+      if (
+        !state.character ||
+        !state.character.repeatableEntries.equipment.some(
+          (selection) => selection.id === selectionId,
+        )
+      ) {
+        return {};
+      }
+      if (
+        update.quantity !== undefined &&
+        (!Number.isInteger(update.quantity) ||
+          update.quantity < 1 ||
+          update.quantity > 999)
+      ) {
+        return {};
+      }
+      const selection = state.character.repeatableEntries.equipment.find(
+        (entry) => entry.id === selectionId,
+      );
+      const definition = selection?.definitionId
+        ? equipmentById.get(selection.definitionId)
+        : undefined;
+      const safeUpdate = definition
+        ? { ...update, category: definition.category }
+        : update;
+      return withChange(state, (character) => ({
+        ...character,
+        repeatableEntries: {
+          ...character.repeatableEntries,
+          equipment: character.repeatableEntries.equipment.map((entry) =>
+            entry.id === selectionId ? { ...entry, ...safeUpdate } : entry,
+          ),
+        },
+      }));
+    }),
+
+  removeEquipment: (selectionId) =>
+    set((state) => {
+      if (!state.character) {
+        return {};
+      }
+      const index = state.character.repeatableEntries.equipment.findIndex(
+        (selection) => selection.id === selectionId,
+      );
+      if (index < 0) {
+        return {};
+      }
+      const selection = state.character.repeatableEntries.equipment[index];
+      return {
+        ...withChange(state, (character) => ({
+          ...character,
+          repeatableEntries: {
+            ...character.repeatableEntries,
+            equipment: character.repeatableEntries.equipment.filter(
+              (entry) => entry.id !== selectionId,
+            ),
+          },
+        })),
+        lastEquipmentRemoval: { selection, index },
+      };
+    }),
+
+  undoEquipmentRemoval: () =>
+    set((state) => {
+      if (!state.character || !state.lastEquipmentRemoval) {
+        return {};
+      }
+      const equipment = [...state.character.repeatableEntries.equipment];
+      equipment.splice(
+        state.lastEquipmentRemoval.index,
+        0,
+        state.lastEquipmentRemoval.selection,
+      );
+      return {
+        ...withChange(state, (character) => ({
+          ...character,
+          repeatableEntries: {
+            ...character.repeatableEntries,
+            equipment,
+          },
+        })),
+        lastEquipmentRemoval: null,
       };
     }),
 

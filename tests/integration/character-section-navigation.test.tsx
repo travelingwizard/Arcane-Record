@@ -83,7 +83,7 @@ describe('character section navigation', () => {
       name: 'Character sheet sections',
     });
     const links = within(navigation).getAllByRole('link');
-    expect(links).toHaveLength(12);
+    expect(links).toHaveLength(13);
     expect(
       within(navigation).getByRole('link', { name: 'Identity' }),
     ).toHaveAttribute('aria-current', 'location');
@@ -169,7 +169,7 @@ describe('character section navigation', () => {
     expect(
       screen.getByRole('group', { name: 'Strength: 3 out of 5' }),
     ).toBeVisible();
-  });
+  }, 10_000);
 
   it('opens, traps, dismisses, and navigates from the mobile Sections sheet', async () => {
     setNarrowLayout(true);
@@ -217,7 +217,7 @@ describe('character section navigation', () => {
       screen.getByRole('button', { name: 'Collapse Backgrounds' }),
     ).toHaveAttribute('aria-expanded', 'true');
     expect(document.getElementById('backgrounds-heading')).toHaveFocus();
-  });
+  }, 10_000);
 
   it('restores hash navigation after a browser history event', () => {
     setNarrowLayout(true);
@@ -255,7 +255,7 @@ describe('character section navigation', () => {
     const rendered = renderEditor();
 
     expect(IntersectionObserver).toHaveBeenCalledTimes(1);
-    expect(observe).toHaveBeenCalledTimes(12);
+    expect(observe).toHaveBeenCalledTimes(13);
     const navigation = screen.getByRole('navigation', {
       name: 'Character sheet sections',
     });

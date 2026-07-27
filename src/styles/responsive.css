@@ -220,8 +220,10 @@
   .background-catalog__toolbar,
   .reference-catalog .catalog-toolbar,
   .magick-custom-adder,
+  .equipment-custom-adder,
   .focus-context-grid,
-  .magick-field-grid {
+  .magick-field-grid,
+  .equipment-field-grid {
     grid-template-columns: 1fr;
   }
 

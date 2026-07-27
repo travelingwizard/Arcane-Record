@@ -97,7 +97,7 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(6);
+    expect(migrated?.schemaVersion).toBe(7);
     expect(migrated?.abilities.talents.alertness).toBe(0);
     expect(migrated?.enlightenment).toEqual({
       arete: 1,
@@ -138,7 +138,7 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(6);
+    expect(migrated?.schemaVersion).toBe(7);
     expect(migrated?.enlightenment.willpower).toBe(7);
     expect(migrated?.enlightenment.willpowerTemporary).toBe(7);
   });
@@ -170,7 +170,7 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(6);
+    expect(migrated?.schemaVersion).toBe(7);
     expect(migrated?.repeatableEntries.merits).toEqual([]);
     expect(migrated?.repeatableEntries.flaws).toEqual([]);
   });
@@ -240,7 +240,7 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(6);
+    expect(migrated?.schemaVersion).toBe(7);
     expect(migrated?.repeatableEntries.backgrounds).toEqual([
       {
         id: resourceId,
@@ -296,7 +296,7 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(6);
+    expect(migrated?.schemaVersion).toBe(7);
     expect(migrated?.repeatableEntries.focus.notes).toBe('Reality is a story');
     expect(migrated?.repeatableEntries.wonders[0]).toMatchObject({
       name: 'Copper Compass',
@@ -307,6 +307,38 @@ describe('DexieCharacterRepository', () => {
       requirementNotes: 'Correspondence 2',
       effect: 'Finds the path',
     });
+  });
+
+  it('migrates schema-version-six characters with empty Equipment', async () => {
+    await database.delete();
+    const databaseName = `arcane-ledger-migration-${crypto.randomUUID()}`;
+    const legacyDatabase = new Dexie(databaseName);
+    legacyDatabase.version(6).stores({
+      characters: 'id, systemId, updatedAt, createdAt',
+    });
+
+    const current = createBlankMageCharacter();
+    const legacy = structuredClone(current) as unknown as Record<
+      string,
+      unknown
+    >;
+    legacy.schemaVersion = 6;
+    delete (
+      legacy.repeatableEntries as {
+        equipment?: unknown;
+      }
+    ).equipment;
+
+    await legacyDatabase.table('characters').add(legacy);
+    legacyDatabase.close();
+
+    database = new MageDatabase(databaseName);
+    repository = new DexieCharacterRepository(database);
+    const migrated = await repository.get(current.id);
+
+    expect(migrated?.schemaVersion).toBe(7);
+    expect(migrated?.repeatableEntries.equipment).toEqual([]);
+    expect(migrated?.abilities.skills.do).toBe(0);
   });
 
   it('saves and reopens selected Background details', async () => {

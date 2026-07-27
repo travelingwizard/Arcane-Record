@@ -1,5 +1,5 @@
 export const MAGE_SYSTEM_ID = 'mage-m20' as const;
-export const MAGE_SCHEMA_VERSION = 6 as const;
+export const MAGE_SCHEMA_VERSION = 7 as const;
 
 export const identityFields = [
   { id: 'name', label: 'Name' },
@@ -82,6 +82,7 @@ export const abilityGroups = [
       { id: 'stealth', label: 'Stealth' },
       { id: 'survival', label: 'Survival' },
       { id: 'technology', label: 'Technology' },
+      { id: 'do', label: 'Do*' },
     ],
   },
   {

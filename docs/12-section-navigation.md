@@ -19,12 +19,14 @@ registry.
 | Magick     | Focus           | `#focus`         |
 | Magick     | Wonders         | `#wonders`       |
 | Magick     | Rotes           | `#rotes`         |
+| Gear       | Equipment       | `#equipment`     |
 | Condition  | Health          | `#health`        |
 | Records    | Import & export | `#import-export` |
 
 The current editor implements one combined Enlightenment section instead of
 separate Arete/Willpower and Quintessence/Paradox sections. Focus, Wonders, and
 Rotes are real editable sections with independent summaries and anchors.
+Equipment is a real editable section in its own Gear group.
 Import/export is visible and receives a Records group instead of being omitted
 from navigation.
 

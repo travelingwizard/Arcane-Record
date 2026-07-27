@@ -3,6 +3,7 @@ import { AbilitiesSection } from '../../components/character/AbilitiesSection';
 import { AttributesSection } from '../../components/character/AttributesSection';
 import { BackgroundsSection } from '../../components/character/BackgroundsSection';
 import { EnlightenmentSection } from '../../components/character/EnlightenmentSection';
+import { EquipmentSection } from '../../components/character/EquipmentSection';
 import { FocusSection } from '../../components/character/FocusSection';
 import { HealthSection } from '../../components/character/HealthSection';
 import { IdentitySection } from '../../components/character/IdentitySection';
@@ -148,6 +149,7 @@ function CharacterEditorContent({
             <FocusSection />
             <WondersSection />
             <RotesSection />
+            <EquipmentSection />
             <HealthSection />
             <ImportExportSection
               character={character}

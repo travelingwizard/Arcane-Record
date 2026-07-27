@@ -156,6 +156,19 @@ export function getCharacterSectionSummaries(
           : ''
       }`,
     },
+    equipment: {
+      primary: `${countLabel(
+        character.repeatableEntries.equipment.length,
+        'item',
+      )}${
+        character.repeatableEntries.equipment.length > 0
+          ? ` · ${character.repeatableEntries.equipment
+              .slice(0, 2)
+              .map((item) => item.name || 'Untitled equipment')
+              .join(' · ')}`
+          : ''
+      }`,
+    },
     health: {
       primary: deepestHealthLevel
         ? `${deepestHealthLevel.label} · ${deepestHealthLevel.penalty}`

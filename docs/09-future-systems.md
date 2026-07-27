@@ -26,3 +26,17 @@ Reference descriptions and citations belong in Mage catalog data; character
 records store stable references and character-specific values. Rules guidance
 remains non-blocking unless a later milestone explicitly adds optional rules
 assistance.
+
+## Mage Equipment
+
+Equipment is implemented as Mage reference data plus character-owned
+selections. The catalog is not a combat calculator and does not mutate traits.
+See [14. Equipment implementation record](14-equipment-implementation.md).
+
+## Maneuvers handoff
+
+`Do*` is the final implemented Skill. A conditional Maneuvers section is
+deferred until its Do and Martial Arts maneuver definitions are supplied. The
+future section should follow the Merits and Flaws catalog/selection pattern and
+remain hidden when its qualifying Ability condition is not met; the exact
+trigger and maneuver records will be finalized with that content.
