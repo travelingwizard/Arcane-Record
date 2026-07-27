@@ -1,0 +1,152 @@
+[
+  {
+    "id": "do-butterfly-palms",
+    "name": "Butterfly Palms",
+    "version": "revised",
+    "summary": "Trains both sides of the body to attack, defend, and move together. When splitting actions, restore one die to one reduced dice pool.",
+    "source": "Tradition Book: Akashic Brotherhood, Revised",
+    "page": "64",
+    "citation": "Tradition Book: Akashic Brotherhood, Revised, p. 64",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "do-weapon-art",
+    "name": "Weapon Art",
+    "version": "revised",
+    "summary": "Applies Do training to a familiar melee weapon. Compatible Do benefits may apply, but the attack pool remains limited by Do.",
+    "source": "Tradition Book: Akashic Brotherhood, Revised",
+    "page": "64",
+    "citation": "Tradition Book: Akashic Brotherhood, Revised, p. 64",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "do-peaceful-way",
+    "name": "Peaceful Way",
+    "version": "revised",
+    "summary": "Applies Do's discipline to one Ability associated with the Eight Limbs, granting Do's reduced-difficulty benefit.",
+    "source": "Tradition Book: Akashic Brotherhood, Revised",
+    "page": "64",
+    "citation": "Tradition Book: Akashic Brotherhood, Revised, p. 64",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "do-arrow-cutting",
+    "name": "Arrow Cutting",
+    "version": "revised",
+    "summary": "Deflects arrows and similar missiles. A harder use catches the missile for later use. It does not normally work against bullets.",
+    "source": "Tradition Book: Akashic Brotherhood, Revised",
+    "page": "64",
+    "citation": "Tradition Book: Akashic Brotherhood, Revised, p. 64",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "do-broken-rhythm",
+    "name": "Broken Rhythm",
+    "version": "revised",
+    "summary": "Uses irregular timing to disrupt an opponent's defense. The attack is harder, but the defender may suffer a penalty.",
+    "source": "Tradition Book: Akashic Brotherhood, Revised",
+    "page": "64–65",
+    "citation": "Tradition Book: Akashic Brotherhood, Revised, p. 64–65",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "do-iron-shirt",
+    "name": "Iron Shirt",
+    "version": "revised",
+    "summary": "Adds the character's Do rating to soak rolls against bashing damage, subject to the maneuver's limits.",
+    "source": "Tradition Book: Akashic Brotherhood, Revised",
+    "page": "65",
+    "citation": "Tradition Book: Akashic Brotherhood, Revised, p. 65",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "do-iron-hand",
+    "name": "Iron Hand",
+    "version": "revised",
+    "summary": "Conditions the hands to break objects and penetrate defenses. The target loses one soak die, but fine touch is impaired.",
+    "source": "Tradition Book: Akashic Brotherhood, Revised",
+    "page": "65",
+    "citation": "Tradition Book: Akashic Brotherhood, Revised, p. 65",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "do-kiaijutsu",
+    "name": "Kiaijutsu",
+    "version": "revised",
+    "summary": "Uses a shout or controlled voice to frighten, disrupt, command, or intimidate.",
+    "source": "Tradition Book: Akashic Brotherhood, Revised",
+    "page": "65",
+    "citation": "Tradition Book: Akashic Brotherhood, Revised, p. 65",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "do-jou-chuan-soft-fist",
+    "name": "Jou Chuan — Soft Fist",
+    "version": "revised",
+    "summary": "Redirects an incoming unarmed or melee attack into the attacker or another nearby opponent.",
+    "source": "Tradition Book: Akashic Brotherhood, Revised",
+    "page": "65–66",
+    "citation": "Tradition Book: Akashic Brotherhood, Revised, p. 65–66",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "do-escape-arts",
+    "name": "Escape Arts",
+    "version": "revised",
+    "summary": "Uses flexibility and controlled dislocation to escape restraints. More secure restraints require a roll.",
+    "source": "Tradition Book: Akashic Brotherhood, Revised",
+    "page": "66",
+    "citation": "Tradition Book: Akashic Brotherhood, Revised, p. 66",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "do-plum-flower-blossom",
+    "name": "Plum Flower Blossom",
+    "version": "revised",
+    "summary": "Improves balance, jumping, rebounding, acrobatics, and leaping attacks.",
+    "source": "Tradition Book: Akashic Brotherhood, Revised",
+    "page": "66",
+    "citation": "Tradition Book: Akashic Brotherhood, Revised, p. 66",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "do-ten-thousand-weapons",
+    "name": "Ten Thousand Weapons",
+    "version": "revised",
+    "summary": "Allows almost any handheld, thrown, or spat object to function as a weapon.",
+    "source": "Tradition Book: Akashic Brotherhood, Revised",
+    "page": "66",
+    "citation": "Tradition Book: Akashic Brotherhood, Revised, p. 66",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "do-dim-mak",
+    "name": "Dim Mak",
+    "version": "legacy",
+    "summary": "A pressure-point attack that can delay damage and may temporarily reduce a Physical Attribute.",
+    "source": "World of Darkness: Combat",
+    "page": "38",
+    "citation": "World of Darkness: Combat, p. 38",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "do-kongjin-empty-force",
+    "name": "Kongjin — Empty Force",
+    "version": "legacy",
+    "summary": "Projects force through chi so a strike can land without direct contact.",
+    "source": "World of Darkness: Combat",
+    "page": "38–39",
+    "citation": "World of Darkness: Combat, p. 38–39",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "do-san-he",
+    "name": "San He",
+    "version": "legacy",
+    "summary": "Coordinates body, mind, and spirit to channel internal force into exceptional physical performance.",
+    "source": "World of Darkness: Combat",
+    "page": "39–40",
+    "citation": "World of Darkness: Combat, p. 39–40",
+    "reviewStatus": "unverified"
+  }
+]

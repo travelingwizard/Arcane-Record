@@ -24,6 +24,11 @@
 - Equipment schema tests cover catalog, custom, and unresolved records,
   quantity bounds, category matching, duplicate IDs, and duplicate known
   definitions.
+- Maneuver catalog tests cover 31 Combat entries across four categories, 12
+  Revised Do entries, 3 Legacy Do entries, source/page data, search, unique
+  stable IDs, and exclusion of The Final Blow.
+- Maneuver schema tests cover favorites, custom Combat references, known,
+  custom, and unresolved Do selections, duplicate IDs, and migration defaults.
 - The section registry covers stable unique IDs, order, groups, valid and
   invalid hashes, summary calculations, and warning text.
 - Section preferences cover per-character keys, initial hash expansion,
@@ -31,7 +36,7 @@
 
 ## Integration
 
-An in-memory repository test double exercises create, reopen, rename, duplicate with a fresh UUID, and delete. UI integration tests cover affinity selection, replacement, and clearing; Ability and Enlightenment editing; Background previews, ratings, names, costs, restrictions, repeatability, pooling, removal, and Undo; sequential Health damage; Merits and Flaws previews, selection, legal cost changes, totals, warnings, removal, and Undo; Focus catalog and custom selections; significant Instruments; Need; Wonder catalog and custom records; structured Rote requirements; Magick removal Undo; Equipment catalog/custom creation, important-information display, quantity, equipped state, removal, and Undo; and IndexedDB schema migration.
+An in-memory repository test double exercises create, reopen, rename, duplicate with a fresh UUID, and delete. UI integration tests cover affinity selection, replacement, and clearing; Ability and Enlightenment editing; Background previews, ratings, names, costs, restrictions, repeatability, pooling, removal, and Undo; sequential Health damage; Merits and Flaws previews, selection, legal cost changes, totals, warnings, removal, and Undo; Focus catalog and custom selections; significant Instruments; Need; Wonder catalog and custom records; structured Rote requirements; Magick removal Undo; Equipment catalog/custom creation, important-information display, quantity, equipped state, removal, and Undo; Combat search, filters, favorites, custom references; Revised/Legacy Do visibility, selection, notes, custom entries, removal, and Undo; and IndexedDB schema migration.
 
 Navigation integration covers desktop links and `aria-current`, keyboard focus
 after navigation, valid and invalid initial hashes, history events, independent
@@ -50,6 +55,10 @@ their local JSON export, and checks 320px overflow.
 An Equipment scenario records catalog armor and custom field gear, persists
 both across refresh, verifies local export boundaries, and checks 320px
 overflow.
+
+A Maneuvers scenario favorites a Combat reference, adds custom Combat and Do
+entries, selects a Revised Do maneuver, persists across refresh, verifies local
+export boundaries, and checks 320px overflow.
 
 Section-navigation scenarios cover the desktop rail at 1440px, the 1120px
 breakpoint, IntersectionObserver active links, fragments, Back navigation,

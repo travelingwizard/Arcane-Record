@@ -15,6 +15,7 @@ describe('character section registry', () => {
       'identity',
       'attributes',
       'abilities',
+      'maneuvers',
       'backgrounds',
       'merits-flaws',
       'spheres',
@@ -31,7 +32,7 @@ describe('character section registry', () => {
       characterSections.length,
     );
     expect(characterSections.map(({ order }) => order)).toEqual([
-      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
     ]);
   });
 
@@ -146,6 +147,15 @@ describe('collapsed character section summaries', () => {
       notes: '',
       addedAt: new Date().toISOString(),
     });
+    character.repeatableEntries.maneuvers.favoriteCombatManeuverIds.push(
+      'combat-dodge',
+    );
+    character.repeatableEntries.maneuvers.selectedDoManeuvers.push({
+      id: crypto.randomUUID(),
+      definitionId: 'do-iron-shirt',
+      notes: '',
+      addedAt: new Date().toISOString(),
+    });
 
     const summaries = getCharacterSectionSummaries(character);
 
@@ -167,5 +177,8 @@ describe('collapsed character section summaries', () => {
     expect(summaries.wonders.primary).toBe('1 selected · Moonlit Mirror');
     expect(summaries.rotes.primary).toBe('1 saved · Silver Echo');
     expect(summaries.equipment.primary).toBe('1 item · Field satchel');
+    expect(summaries.maneuvers.primary).toBe(
+      '1 favorite · 0 custom references · 1 known Do maneuver',
+    );
   });
 });

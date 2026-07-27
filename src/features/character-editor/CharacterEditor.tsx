@@ -8,6 +8,7 @@ import { FocusSection } from '../../components/character/FocusSection';
 import { HealthSection } from '../../components/character/HealthSection';
 import { IdentitySection } from '../../components/character/IdentitySection';
 import { MeritsFlawsSection } from '../../components/character/MeritsFlawsSection';
+import { ManeuversSection } from '../../components/character/ManeuversSection';
 import { RotesSection } from '../../components/character/RotesSection';
 import { SaveStatusBadge } from '../../components/character/SaveStatusBadge';
 import { SpheresSection } from '../../components/character/SpheresSection';
@@ -142,6 +143,7 @@ function CharacterEditorContent({
             <IdentitySection />
             <AttributesSection />
             <AbilitiesSection />
+            <ManeuversSection />
             <BackgroundsSection />
             <MeritsFlawsSection />
             <SpheresSection />

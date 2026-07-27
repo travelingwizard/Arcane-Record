@@ -13,7 +13,7 @@
 - `affinitySphere`: one Sphere ID or `null`;
 - `enlightenment`: Arete, Willpower, temporary Willpower, Quintessence, and Paradox ratings;
 - `repeatableEntries`: selected Backgrounds, Merits, Flaws, Focus data, owned
-  Wonders, known Rotes, and owned Equipment;
+  Wonders, known Rotes, owned Equipment, and Maneuver preferences/selections;
 - `health`: an ordered array of typed damage marks.
 
 Ratings are integers. Dot and box controls derive their filled presentation from the rating rather than persisting Boolean arrays.
@@ -32,6 +32,12 @@ The character owns the name, category, description, quantity, equipped state,
 and notes. Unknown definition IDs remain visible. Catalog statistics and
 citations stay outside character data.
 
+Maneuver data separates universal reference shortcuts from learned options.
+Combat favorites store stable reference IDs, custom Combat entries store
+character-written content, and selected Do maneuvers store independent UUIDs
+plus stable catalog IDs or custom names. Reference summaries and citations are
+not copied into character data.
+
 Stored and imported records are parsed with Zod at their boundaries. Invalid
 records fail instead of silently entering editor state. Schema version 2 adds
 Abilities and Enlightenment; version 3 adds temporary Willpower initialized
@@ -42,6 +48,8 @@ Focus, Wonder, and Rote records. Version-5 Focus strings migrate into notes,
 Wonder strings become custom owned Wonders, and legacy Rotes preserve their
 IDs, Sphere text, and Effects. Version 7 adds an empty Equipment collection and
 initializes the new `Do*` Skill to zero for schema-version-6 and older records.
+Version 8 adds empty Combat favorites, custom Combat references, and known Do
+maneuver selections to schema-version-7 and older records.
 
 ## Interface preferences
 

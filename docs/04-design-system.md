@@ -33,6 +33,11 @@ Equipment reuses the same reference-preview and selected-card language.
 Important statistics appear as compact text rather than simulated controls;
 equipped state, quantity, and category use ordinary labeled form controls.
 
+Maneuvers use two accessible tab panels with compact parchment cards. Favorite,
+version, and category labels use text in addition to symbols or color.
+Reference cards display citations directly; selected Do cards remain visually
+distinct from the catalog.
+
 ## Tokens
 
 Color, spacing, type sizes, radii, shadows, and focus rings are CSS custom properties in `src/styles/tokens.css`. Motion is brief and removed under `prefers-reduced-motion`.

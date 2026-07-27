@@ -10,9 +10,14 @@ describe('mageCharacterSchema', () => {
     );
 
     expect(mageCharacterSchema.parse(character)).toEqual(character);
-    expect(character.schemaVersion).toBe(7);
+    expect(character.schemaVersion).toBe(8);
     expect(character.repeatableEntries.equipment).toEqual([]);
     expect(character.abilities.skills.do).toBe(0);
+    expect(character.repeatableEntries.maneuvers).toEqual({
+      favoriteCombatManeuverIds: [],
+      customCombatManeuvers: [],
+      selectedDoManeuvers: [],
+    });
     expect(character.repeatableEntries.focus).toEqual({
       paradigms: [],
       practices: [],
@@ -354,6 +359,79 @@ describe('mageCharacterSchema', () => {
       });
     }
     expect(mageCharacterSchema.safeParse(duplicate).success).toBe(false);
+  });
+
+  it('validates favorite, custom combat, catalog, custom, and unresolved Do maneuvers', () => {
+    const character = createBlankMageCharacter();
+    const customCombatId = crypto.randomUUID();
+    character.repeatableEntries.maneuvers = {
+      favoriteCombatManeuverIds: [
+        'combat-dodge',
+        customCombatId,
+        'combat-retired-reference',
+      ],
+      customCombatManeuvers: [
+        {
+          id: customCombatId,
+          name: 'Cabal Cover Drill',
+          description: 'Move together between cover.',
+          notes: 'Practiced at the chantry.',
+          addedAt: new Date().toISOString(),
+        },
+      ],
+      selectedDoManeuvers: [
+        {
+          id: crypto.randomUUID(),
+          definitionId: 'do-arrow-cutting',
+          notes: 'Uses a steel fan.',
+          addedAt: new Date().toISOString(),
+        },
+        {
+          id: crypto.randomUUID(),
+          customName: 'Falling Leaf',
+          notes: '',
+          addedAt: new Date().toISOString(),
+        },
+        {
+          id: crypto.randomUUID(),
+          definitionId: 'do-retired-form',
+          notes: '',
+          addedAt: new Date().toISOString(),
+          unresolvedDefinitionName: 'Retired Form',
+        },
+      ],
+    };
+
+    expect(mageCharacterSchema.safeParse(character).success).toBe(true);
+  });
+
+  it('rejects duplicate maneuver favorites, IDs, and known Do definitions', () => {
+    const duplicateFavorite = createBlankMageCharacter();
+    duplicateFavorite.repeatableEntries.maneuvers.favoriteCombatManeuverIds = [
+      'combat-dodge',
+      'combat-dodge',
+    ];
+    expect(mageCharacterSchema.safeParse(duplicateFavorite).success).toBe(
+      false,
+    );
+
+    const duplicateDo = createBlankMageCharacter();
+    const id = crypto.randomUUID();
+    duplicateDo.repeatableEntries.maneuvers.selectedDoManeuvers = [
+      {
+        id,
+        definitionId: 'do-iron-shirt',
+        notes: '',
+        addedAt: new Date().toISOString(),
+      },
+      {
+        id,
+        definitionId: 'do-iron-shirt',
+        notes: '',
+        addedAt: new Date().toISOString(),
+      },
+    ];
+    expect(mageCharacterSchema.safeParse(duplicateDo).success).toBe(false);
   });
 
   it('rejects wrong-kind Focus definitions and malformed Rote ranges', () => {

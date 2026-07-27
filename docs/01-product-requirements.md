@@ -12,6 +12,10 @@ The editor provides:
 - nine Attributes grouped into Physical, Social, and Mental;
 - 34 Abilities grouped into Talents, Skills, and Knowledges, with `Do*` as the
   final Skill;
+- a universal Combat Reference with 31 searchable, categorized maneuvers,
+  character-specific favorites, and custom reference entries;
+- Known Do Maneuvers with 12 Revised entries shown by default, 3 opt-in Legacy
+  entries, custom maneuvers, notes, removal, and Undo;
 - all nine Spheres as integer ratings from 0 to 5;
 - one nullable affinity Sphere selected with an unboxed star;
 - four local display sort modes;
@@ -60,6 +64,25 @@ An Equipment acceptance scenario adds a catalog armor entry and custom field
 gear, records ownership details, refreshes, and observes both entries in the
 editor and local export. Catalog statistics remain reference-only and never
 modify character ratings automatically.
+
+A Maneuvers acceptance scenario favorites Dodge, records a custom Combat
+Reference entry, adds a Revised Do maneuver and a custom Do maneuver,
+refreshes, and observes the same values in the editor and local export.
+
+## Combat and Do Maneuvers
+
+Combat Reference is visible to every character and is not a learned-ability
+list. It searches names, descriptions, source, and page; filters General,
+Defensive, Close Combat, and Ranged categories; expands accessible cards; and
+can place favorites first. Custom combat references require a name and
+description and may also be favorited.
+
+Known Do Maneuvers are character selections with independent UUIDs and stable
+definition IDs. Revised entries appear by default. Legacy entries require an
+explicit opt-in and remain clearly labeled. Custom entries and notes are
+editable. No Do rating, maneuver-count limit, combat roll, damage roll, or
+legality is enforced. The Final Blow remains classified as a Rote and is not
+included in either maneuver catalog.
 
 ## Equipment
 

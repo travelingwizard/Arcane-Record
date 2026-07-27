@@ -16,9 +16,13 @@ for the sticky control.
 
 One-column app shell, stacked identity fields, one Attribute or Ability group per row, and a vertical Sphere list. Each Sphere keeps its label, affinity action, and dot track together. Ten-dot Enlightenment tracks wrap across lines, Backgrounds use a compact expandable point summary, stacked selected and catalog cards, touch-friendly dots, and a numeric extended-rating control. Health rows stay tappable, file controls stack, and all catalog filter panels collapse to one column at the narrowest width. Equipment custom-entry fields, ownership controls, and selected cards also collapse to one column. Navigation summaries wrap without introducing horizontal page scrolling.
 
+Maneuver filters, custom-entry forms, and cards also stack into one column.
+
 ## 768-1099px
 
 Two-column identity and Attribute layouts where space permits. Ability and Enlightenment cards collapse according to available width. Spheres remain list-based to preserve editing clarity. Background, Merit, Flaw, and Equipment selected lists and catalog results stack for readable citations and controls.
+
+Maneuver tabs wrap and both catalogs use stacked cards.
 
 ## 70rem (1120 CSS pixels) and wider
 

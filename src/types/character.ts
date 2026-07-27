@@ -132,6 +132,29 @@ export interface OwnedEquipment {
   unresolvedDefinitionName?: string;
 }
 
+export interface CustomCombatManeuver {
+  id: string;
+  name: string;
+  description: string;
+  notes: string;
+  addedAt: string;
+}
+
+export interface SelectedDoManeuver {
+  id: string;
+  definitionId?: string;
+  customName?: string;
+  notes: string;
+  addedAt: string;
+  unresolvedDefinitionName?: string;
+}
+
+export interface CharacterManeuvers {
+  favoriteCombatManeuverIds: string[];
+  customCombatManeuvers: CustomCombatManeuver[];
+  selectedDoManeuvers: SelectedDoManeuver[];
+}
+
 export interface RepeatableEntries {
   backgrounds: SelectedBackground[];
   merits: SelectedMeritFlaw[];
@@ -140,6 +163,7 @@ export interface RepeatableEntries {
   wonders: OwnedWonder[];
   rotes: KnownRote[];
   equipment: OwnedEquipment[];
+  maneuvers: CharacterManeuvers;
 }
 
 export interface HealthState {

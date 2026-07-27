@@ -8,14 +8,16 @@ Deliver a trustworthy browser-local vertical slice of an editable Mage M20 chara
 
 - A character library with create, open, rename, duplicate, and confirmed delete actions.
 - A focused editor for identity, Attributes, Abilities, Spheres, affinity,
-  Enlightenment traits, Backgrounds, Merits & Flaws, Focus, Wonders, Rotes,
-  Equipment, and Health.
+  Enlightenment traits, Combat and Do Maneuvers, Backgrounds, Merits & Flaws,
+  Focus, Wonders, Rotes, Equipment, and Health.
 - A cited, searchable Background catalog with dot ratings, character labels, and warning-only creation-point accounting.
 - A cited, searchable Merits and Flaws catalog with warning-only creation-point accounting.
 - Searchable reference-preview catalogs for Paradigms, Practices, Instruments,
   Wonders, and Rotes, plus custom character entries.
 - A searchable reference-preview catalog for weapons, armor, and field gear,
   plus custom Equipment requiring a name and description.
+- A universal, searchable Combat Reference with character favorites and custom
+  entries, plus selected and custom Do maneuvers.
 - Interchangeable list and desktop-wheel Sphere views backed by the same character data.
 - Validated, browser-local JSON and YAML import/export.
 - Debounced persistence through a repository abstraction backed by Dexie/IndexedDB.

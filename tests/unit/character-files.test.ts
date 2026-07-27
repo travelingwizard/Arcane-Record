@@ -83,6 +83,22 @@ describe('character files', () => {
         notes: 'Worn beneath the coat.',
         addedAt: '2026-07-01T12:00:00.000Z',
       });
+      source.repeatableEntries.maneuvers.favoriteCombatManeuverIds.push(
+        'combat-dodge',
+      );
+      source.repeatableEntries.maneuvers.customCombatManeuvers.push({
+        id: 'd8ca28f7-94f0-44eb-99f3-d6c652e4f66c',
+        name: 'Cabal Cover Drill',
+        description: 'Move together between cover.',
+        notes: 'Practice monthly.',
+        addedAt: '2026-07-01T12:00:00.000Z',
+      });
+      source.repeatableEntries.maneuvers.selectedDoManeuvers.push({
+        id: 'bdd82e19-b72e-4f54-8403-bdb7e1982a95',
+        definitionId: 'do-arrow-cutting',
+        notes: 'Uses a steel fan.',
+        addedAt: '2026-07-01T12:00:00.000Z',
+      });
       localStorage.setItem(
         `arcane-ledger:section-preferences:${source.id}`,
         JSON.stringify({
@@ -140,12 +156,30 @@ describe('character files', () => {
         description: 'Marked with the cabal seal.',
         equipped: true,
       });
+      expect(imported.repeatableEntries.maneuvers).toMatchObject({
+        favoriteCombatManeuverIds: ['combat-dodge'],
+        customCombatManeuvers: [
+          {
+            name: 'Cabal Cover Drill',
+            description: 'Move together between cover.',
+          },
+        ],
+        selectedDoManeuvers: [
+          {
+            definitionId: 'do-arrow-cutting',
+            notes: 'Uses a steel fan.',
+          },
+        ],
+      });
       expect(imported.createdAt).toBe('2026-07-23T16:00:00.000Z');
       expect(serialized).not.toContain('expandedSections');
       expect(serialized).not.toContain('section-preferences');
       expect(serialized).not.toContain('Reference preview');
       expect(serialized).not.toContain('citation');
       expect(serialized).not.toContain('Damage 4');
+      expect(serialized).not.toContain(
+        'Use Dexterity + Athletics to evade an attack',
+      );
     },
   );
 

@@ -13,6 +13,7 @@
     "format:check": "prettier --check .",
     "generate:magick-reference": "node scripts/generate-magick-reference.mjs",
     "generate:equipment": "node scripts/generate-equipment.mjs",
+    "generate:maneuvers": "node scripts/generate-maneuvers.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test"

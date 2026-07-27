@@ -8,6 +8,7 @@ import { MAGE_SCHEMA_VERSION, MAGE_SYSTEM_ID, spheres } from './definitions';
 import { backgroundById, backgroundCatalog } from './reference/backgrounds';
 import { equipmentById, equipmentCategorySchema } from './reference/equipment';
 import { focusDefinitionsByKind, type FocusKind } from './reference/focus';
+import { combatManeuverById, doManeuverById } from './reference/maneuvers';
 import { meritFlawById, type MeritFlawKind } from './reference/merits-flaws';
 import { roteById } from './reference/rotes';
 import { wonderById } from './reference/wonders';
@@ -617,9 +618,120 @@ const equipmentEntriesSchema = z
     });
   });
 
-const repeatableEntriesSchema = z.intersection(
+const legacyRepeatableEntriesSchemaV7 = z.intersection(
   legacyRepeatableEntriesSchemaV6,
   z.object({ equipment: equipmentEntriesSchema }),
+);
+
+const customCombatManeuverSchema = z.object({
+  id: uuid,
+  name: z.string(),
+  description: z.string(),
+  notes: z.string(),
+  addedAt: z.string().datetime(),
+});
+
+const selectedDoManeuverSchema = z
+  .object({
+    id: uuid,
+    definitionId: z.string().min(1).optional(),
+    customName: z.string().optional(),
+    notes: z.string(),
+    addedAt: z.string().datetime(),
+    unresolvedDefinitionName: z.string().optional(),
+  })
+  .superRefine((selection, context) => {
+    if (!selection.definitionId && selection.customName === undefined) {
+      context.addIssue({
+        code: 'custom',
+        path: ['customName'],
+        message: 'A catalog definition or custom name is required.',
+      });
+    }
+    if (selection.definitionId && selection.customName) {
+      context.addIssue({
+        code: 'custom',
+        path: ['customName'],
+        message: 'Catalog selections must not store a custom name.',
+      });
+    }
+  });
+
+const characterManeuversSchema = z
+  .object({
+    favoriteCombatManeuverIds: z.array(z.string().min(1)),
+    customCombatManeuvers: z.array(customCombatManeuverSchema),
+    selectedDoManeuvers: z.array(selectedDoManeuverSchema),
+  })
+  .superRefine((maneuvers, context) => {
+    const favorites = new Set<string>();
+    maneuvers.favoriteCombatManeuverIds.forEach((id, index) => {
+      if (favorites.has(id)) {
+        context.addIssue({
+          code: 'custom',
+          path: ['favoriteCombatManeuverIds', index],
+          message: 'Favorite maneuver IDs must be unique.',
+        });
+      }
+      favorites.add(id);
+    });
+
+    const customIds = new Set<string>();
+    maneuvers.customCombatManeuvers.forEach((entry, index) => {
+      if (customIds.has(entry.id)) {
+        context.addIssue({
+          code: 'custom',
+          path: ['customCombatManeuvers', index, 'id'],
+          message: 'Custom combat maneuver IDs must be unique.',
+        });
+      }
+      customIds.add(entry.id);
+    });
+
+    const selectionIds = new Set<string>();
+    const definitionIds = new Set<string>();
+    maneuvers.selectedDoManeuvers.forEach((selection, index) => {
+      if (selectionIds.has(selection.id)) {
+        context.addIssue({
+          code: 'custom',
+          path: ['selectedDoManeuvers', index, 'id'],
+          message: 'Selected Do maneuver IDs must be unique.',
+        });
+      }
+      selectionIds.add(selection.id);
+      if (
+        selection.definitionId &&
+        doManeuverById.has(selection.definitionId)
+      ) {
+        if (definitionIds.has(selection.definitionId)) {
+          context.addIssue({
+            code: 'custom',
+            path: ['selectedDoManeuvers', index, 'definitionId'],
+            message: 'A Do maneuver definition may only be selected once.',
+          });
+        }
+        definitionIds.add(selection.definitionId);
+      }
+    });
+
+    maneuvers.favoriteCombatManeuverIds.forEach((id, index) => {
+      if (
+        !combatManeuverById.has(id) &&
+        !customIds.has(id) &&
+        !id.startsWith('combat-')
+      ) {
+        context.addIssue({
+          code: 'custom',
+          path: ['favoriteCombatManeuverIds', index],
+          message: 'Favorite ID must reference combat maneuver data.',
+        });
+      }
+    });
+  });
+
+const repeatableEntriesSchema = z.intersection(
+  legacyRepeatableEntriesSchemaV7,
+  z.object({ maneuvers: characterManeuversSchema }),
 );
 
 const healthSchema = z.object({
@@ -646,6 +758,11 @@ const commonFields = {
 const versionSixCommonFields = {
   ...legacyCommonFields,
   repeatableEntries: legacyRepeatableEntriesSchemaV6,
+};
+
+const versionSevenCommonFields = {
+  ...legacyCommonFields,
+  repeatableEntries: legacyRepeatableEntriesSchemaV7,
 };
 
 const versionFiveCommonFields = {
@@ -723,6 +840,20 @@ export const legacyMageCharacterSchemaV6 = z.object({
   ...versionSixCommonFields,
   schemaVersion: z.literal(6),
   abilities: legacyAbilitiesSchemaV6,
+  enlightenment: z.object({
+    arete: tenPointRating.min(1),
+    willpower: tenPointRating.min(1),
+    willpowerTemporary: tenPointRating,
+    quintessence: tenPointRating,
+    paradox: tenPointRating,
+  }),
+  affinitySphere: sphereIdSchema.nullable(),
+});
+
+export const legacyMageCharacterSchemaV7 = z.object({
+  ...versionSevenCommonFields,
+  schemaVersion: z.literal(7),
+  abilities: abilitiesSchema,
   enlightenment: z.object({
     arete: tenPointRating.min(1),
     willpower: tenPointRating.min(1),
@@ -845,6 +976,11 @@ function migrateLegacyMagick(
       addedAt,
     })),
     equipment: [],
+    maneuvers: {
+      favoriteCombatManeuverIds: [],
+      customCombatManeuvers: [],
+      selectedDoManeuvers: [],
+    },
   };
 }
 
@@ -866,6 +1002,22 @@ export function migrateMageCharacter(input: unknown) {
     return current.data;
   }
 
+  const versionSeven = legacyMageCharacterSchemaV7.safeParse(input);
+  if (versionSeven.success) {
+    return mageCharacterSchema.parse({
+      ...versionSeven.data,
+      schemaVersion: MAGE_SCHEMA_VERSION,
+      repeatableEntries: {
+        ...versionSeven.data.repeatableEntries,
+        maneuvers: {
+          favoriteCombatManeuverIds: [],
+          customCombatManeuvers: [],
+          selectedDoManeuvers: [],
+        },
+      },
+    });
+  }
+
   const versionSix = legacyMageCharacterSchemaV6.safeParse(input);
   if (versionSix.success) {
     return mageCharacterSchema.parse({
@@ -875,6 +1027,11 @@ export function migrateMageCharacter(input: unknown) {
       repeatableEntries: {
         ...versionSix.data.repeatableEntries,
         equipment: [],
+        maneuvers: {
+          favoriteCombatManeuverIds: [],
+          customCombatManeuvers: [],
+          selectedDoManeuvers: [],
+        },
       },
     });
   }

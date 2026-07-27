@@ -17,15 +17,21 @@ import {
 } from '../systems/mage-m20/reference/focus';
 import type { MeritFlawKind } from '../systems/mage-m20/reference/merits-flaws';
 import { meritFlawById } from '../systems/mage-m20/reference/merits-flaws';
+import {
+  combatManeuverById,
+  doManeuverById,
+} from '../systems/mage-m20/reference/maneuvers';
 import { roteById } from '../systems/mage-m20/reference/rotes';
 import { wonderById } from '../systems/mage-m20/reference/wonders';
 import type {
+  CustomCombatManeuver,
   FocusSelection,
   InstrumentSelection,
   KnownRote,
   MageCharacter,
   OwnedEquipment,
   OwnedWonder,
+  SelectedDoManeuver,
   SelectedBackground,
   SelectedMeritFlaw,
 } from '../types/character';
@@ -71,6 +77,15 @@ export interface EquipmentRemoval {
   index: number;
 }
 
+export type ManeuverRemoval =
+  | {
+      type: 'custom-combat';
+      selection: CustomCombatManeuver;
+      index: number;
+      wasFavorite: boolean;
+    }
+  | { type: 'do'; selection: SelectedDoManeuver; index: number };
+
 const focusKeyByKind = {
   paradigm: 'paradigms',
   practice: 'practices',
@@ -85,6 +100,7 @@ interface EditorState {
   lastBackgroundChange: BackgroundUndo | null;
   lastMagickRemoval: MagickRemoval | null;
   lastEquipmentRemoval: EquipmentRemoval | null;
+  lastManeuverRemoval: ManeuverRemoval | null;
   load: (character: MageCharacter) => void;
   clear: () => void;
   updateIdentity: (field: IdentityFieldId, value: string) => void;
@@ -178,6 +194,22 @@ interface EditorState {
   ) => void;
   removeEquipment: (selectionId: string) => void;
   undoEquipmentRemoval: () => void;
+  toggleCombatManeuverFavorite: (maneuverId: string) => void;
+  addCustomCombatManeuver: (name: string, description: string) => string | null;
+  updateCustomCombatManeuver: (
+    maneuverId: string,
+    update: Partial<
+      Pick<CustomCombatManeuver, 'name' | 'description' | 'notes'>
+    >,
+  ) => void;
+  removeCustomCombatManeuver: (maneuverId: string) => void;
+  addDoManeuver: (definitionId?: string, customName?: string) => string | null;
+  updateDoManeuver: (
+    selectionId: string,
+    update: Partial<Pick<SelectedDoManeuver, 'customName' | 'notes'>>,
+  ) => void;
+  removeDoManeuver: (selectionId: string) => void;
+  undoManeuverRemoval: () => void;
   cycleHealthDamage: (index: number) => void;
   updateSphere: (sphere: SphereId, value: number) => void;
   toggleAffinity: (sphere: SphereId) => void;
@@ -208,6 +240,7 @@ export const useEditorStore = create<EditorState>((set) => ({
   lastBackgroundChange: null,
   lastMagickRemoval: null,
   lastEquipmentRemoval: null,
+  lastManeuverRemoval: null,
 
   load: (character) =>
     set({
@@ -218,6 +251,7 @@ export const useEditorStore = create<EditorState>((set) => ({
       lastBackgroundChange: null,
       lastMagickRemoval: null,
       lastEquipmentRemoval: null,
+      lastManeuverRemoval: null,
     }),
 
   clear: () =>
@@ -229,6 +263,7 @@ export const useEditorStore = create<EditorState>((set) => ({
       lastBackgroundChange: null,
       lastMagickRemoval: null,
       lastEquipmentRemoval: null,
+      lastManeuverRemoval: null,
     }),
 
   updateIdentity: (field, value) =>
@@ -1138,6 +1173,303 @@ export const useEditorStore = create<EditorState>((set) => ({
           },
         })),
         lastEquipmentRemoval: null,
+      };
+    }),
+
+  toggleCombatManeuverFavorite: (maneuverId) =>
+    set((state) => {
+      if (!state.character) {
+        return {};
+      }
+      const maneuvers = state.character.repeatableEntries.maneuvers;
+      if (
+        !combatManeuverById.has(maneuverId) &&
+        !maneuvers.customCombatManeuvers.some(
+          (entry) => entry.id === maneuverId,
+        )
+      ) {
+        return {};
+      }
+      const isFavorite =
+        maneuvers.favoriteCombatManeuverIds.includes(maneuverId);
+      return withChange(state, (character) => ({
+        ...character,
+        repeatableEntries: {
+          ...character.repeatableEntries,
+          maneuvers: {
+            ...character.repeatableEntries.maneuvers,
+            favoriteCombatManeuverIds: isFavorite
+              ? character.repeatableEntries.maneuvers.favoriteCombatManeuverIds.filter(
+                  (id) => id !== maneuverId,
+                )
+              : [
+                  ...character.repeatableEntries.maneuvers
+                    .favoriteCombatManeuverIds,
+                  maneuverId,
+                ],
+          },
+        },
+      }));
+    }),
+
+  addCustomCombatManeuver: (name, description) => {
+    let addedId: string | null = null;
+    set((state) => {
+      if (!state.character || !name.trim() || !description.trim()) {
+        return {};
+      }
+      addedId = crypto.randomUUID();
+      const selection: CustomCombatManeuver = {
+        id: addedId,
+        name: name.trim(),
+        description: description.trim(),
+        notes: '',
+        addedAt: new Date().toISOString(),
+      };
+      return {
+        ...withChange(state, (character) => ({
+          ...character,
+          repeatableEntries: {
+            ...character.repeatableEntries,
+            maneuvers: {
+              ...character.repeatableEntries.maneuvers,
+              customCombatManeuvers: [
+                ...character.repeatableEntries.maneuvers.customCombatManeuvers,
+                selection,
+              ],
+            },
+          },
+        })),
+        lastManeuverRemoval: null,
+      };
+    });
+    return addedId;
+  },
+
+  updateCustomCombatManeuver: (maneuverId, update) =>
+    set((state) => {
+      if (
+        !state.character?.repeatableEntries.maneuvers.customCombatManeuvers.some(
+          (entry) => entry.id === maneuverId,
+        )
+      ) {
+        return {};
+      }
+      return withChange(state, (character) => ({
+        ...character,
+        repeatableEntries: {
+          ...character.repeatableEntries,
+          maneuvers: {
+            ...character.repeatableEntries.maneuvers,
+            customCombatManeuvers:
+              character.repeatableEntries.maneuvers.customCombatManeuvers.map(
+                (entry) =>
+                  entry.id === maneuverId ? { ...entry, ...update } : entry,
+              ),
+          },
+        },
+      }));
+    }),
+
+  removeCustomCombatManeuver: (maneuverId) =>
+    set((state) => {
+      if (!state.character) {
+        return {};
+      }
+      const maneuvers = state.character.repeatableEntries.maneuvers;
+      const index = maneuvers.customCombatManeuvers.findIndex(
+        (entry) => entry.id === maneuverId,
+      );
+      if (index < 0) {
+        return {};
+      }
+      const wasFavorite =
+        maneuvers.favoriteCombatManeuverIds.includes(maneuverId);
+      return {
+        ...withChange(state, (character) => ({
+          ...character,
+          repeatableEntries: {
+            ...character.repeatableEntries,
+            maneuvers: {
+              ...character.repeatableEntries.maneuvers,
+              customCombatManeuvers:
+                character.repeatableEntries.maneuvers.customCombatManeuvers.filter(
+                  (entry) => entry.id !== maneuverId,
+                ),
+              favoriteCombatManeuverIds:
+                character.repeatableEntries.maneuvers.favoriteCombatManeuverIds.filter(
+                  (id) => id !== maneuverId,
+                ),
+            },
+          },
+        })),
+        lastManeuverRemoval: {
+          type: 'custom-combat',
+          selection: maneuvers.customCombatManeuvers[index],
+          index,
+          wasFavorite,
+        },
+      };
+    }),
+
+  addDoManeuver: (definitionId, customName) => {
+    let addedId: string | null = null;
+    set((state) => {
+      if (!state.character) {
+        return {};
+      }
+      const definition = definitionId
+        ? doManeuverById.get(definitionId)
+        : undefined;
+      const name = customName?.trim();
+      if ((definitionId && !definition) || (!definition && !name)) {
+        return {};
+      }
+      if (
+        definitionId &&
+        state.character.repeatableEntries.maneuvers.selectedDoManeuvers.some(
+          (selection) => selection.definitionId === definitionId,
+        )
+      ) {
+        return {};
+      }
+      addedId = crypto.randomUUID();
+      const selection: SelectedDoManeuver = {
+        id: addedId,
+        ...(definitionId ? { definitionId } : { customName: name }),
+        notes: '',
+        addedAt: new Date().toISOString(),
+      };
+      return {
+        ...withChange(state, (character) => ({
+          ...character,
+          repeatableEntries: {
+            ...character.repeatableEntries,
+            maneuvers: {
+              ...character.repeatableEntries.maneuvers,
+              selectedDoManeuvers: [
+                ...character.repeatableEntries.maneuvers.selectedDoManeuvers,
+                selection,
+              ],
+            },
+          },
+        })),
+        lastManeuverRemoval: null,
+      };
+    });
+    return addedId;
+  },
+
+  updateDoManeuver: (selectionId, update) =>
+    set((state) => {
+      if (
+        !state.character?.repeatableEntries.maneuvers.selectedDoManeuvers.some(
+          (selection) => selection.id === selectionId,
+        )
+      ) {
+        return {};
+      }
+      return withChange(state, (character) => ({
+        ...character,
+        repeatableEntries: {
+          ...character.repeatableEntries,
+          maneuvers: {
+            ...character.repeatableEntries.maneuvers,
+            selectedDoManeuvers:
+              character.repeatableEntries.maneuvers.selectedDoManeuvers.map(
+                (selection) =>
+                  selection.id === selectionId
+                    ? { ...selection, ...update }
+                    : selection,
+              ),
+          },
+        },
+      }));
+    }),
+
+  removeDoManeuver: (selectionId) =>
+    set((state) => {
+      if (!state.character) {
+        return {};
+      }
+      const selections =
+        state.character.repeatableEntries.maneuvers.selectedDoManeuvers;
+      const index = selections.findIndex(
+        (selection) => selection.id === selectionId,
+      );
+      if (index < 0) {
+        return {};
+      }
+      return {
+        ...withChange(state, (character) => ({
+          ...character,
+          repeatableEntries: {
+            ...character.repeatableEntries,
+            maneuvers: {
+              ...character.repeatableEntries.maneuvers,
+              selectedDoManeuvers:
+                character.repeatableEntries.maneuvers.selectedDoManeuvers.filter(
+                  (selection) => selection.id !== selectionId,
+                ),
+            },
+          },
+        })),
+        lastManeuverRemoval: {
+          type: 'do',
+          selection: selections[index],
+          index,
+        },
+      };
+    }),
+
+  undoManeuverRemoval: () =>
+    set((state) => {
+      if (!state.character || !state.lastManeuverRemoval) {
+        return {};
+      }
+      const removal = state.lastManeuverRemoval;
+      return {
+        ...withChange(state, (character) => {
+          if (removal.type === 'custom-combat') {
+            const customCombatManeuvers = [
+              ...character.repeatableEntries.maneuvers.customCombatManeuvers,
+            ];
+            customCombatManeuvers.splice(removal.index, 0, removal.selection);
+            return {
+              ...character,
+              repeatableEntries: {
+                ...character.repeatableEntries,
+                maneuvers: {
+                  ...character.repeatableEntries.maneuvers,
+                  customCombatManeuvers,
+                  favoriteCombatManeuverIds: removal.wasFavorite
+                    ? [
+                        ...character.repeatableEntries.maneuvers
+                          .favoriteCombatManeuverIds,
+                        removal.selection.id,
+                      ]
+                    : character.repeatableEntries.maneuvers
+                        .favoriteCombatManeuverIds,
+                },
+              },
+            };
+          }
+          const selectedDoManeuvers = [
+            ...character.repeatableEntries.maneuvers.selectedDoManeuvers,
+          ];
+          selectedDoManeuvers.splice(removal.index, 0, removal.selection);
+          return {
+            ...character,
+            repeatableEntries: {
+              ...character.repeatableEntries,
+              maneuvers: {
+                ...character.repeatableEntries.maneuvers,
+                selectedDoManeuvers,
+              },
+            },
+          };
+        }),
+        lastManeuverRemoval: null,
       };
     }),
 

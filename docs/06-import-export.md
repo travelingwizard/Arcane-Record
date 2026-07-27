@@ -30,11 +30,17 @@ character descriptions, quantities, equipped state, notes, timestamps, and
 optional unresolved names. Catalog statistics, summaries, citations, review
 state, and content labels are excluded.
 
+Maneuvers export Combat favorite IDs, custom Combat names/descriptions/notes,
+and selected Do UUIDs, definition IDs or custom names, notes, timestamps, and
+optional unresolved names. Combat and Do catalog summaries, sources, pages,
+and citations are excluded.
+
 Schema-version-5 Magick placeholders migrate without loss: Focus strings become
 general notes, Wonder strings become custom owned Wonders, and legacy Rote IDs,
 Sphere text, and Effects are preserved.
 
 Schema-version-6 records migrate with an empty Equipment collection.
+Schema-version-7 records migrate with empty Maneuver collections.
 
 Section expansion preferences and the transient active section are excluded
 from both formats. Importing a character creates a fresh ID and therefore a

@@ -1,0 +1,312 @@
+[
+  {
+    "id": "combat-aborting-an-action",
+    "name": "Aborting an Action",
+    "category": "general",
+    "summary": "Change a declared action to a defensive action, usually by spending Willpower or succeeding on a Willpower roll.",
+    "source": "Mage 20",
+    "page": "416",
+    "citation": "Mage 20, p. 416",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-ambush",
+    "name": "Ambush",
+    "category": "general",
+    "summary": "Attack from concealment or surprise. The target must notice the attacker in time to defend normally.",
+    "source": "Mage 20",
+    "page": "416",
+    "citation": "Mage 20, p. 416",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-blind-fighting-blind-fire",
+    "name": "Blind Fighting / Blind Fire",
+    "category": "general",
+    "summary": "Attempt close or ranged attacks without normal vision, with increased difficulty.",
+    "source": "Mage 20",
+    "page": "416–417",
+    "citation": "Mage 20, p. 416–417",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-flank-or-rear-attack",
+    "name": "Flank or Rear Attack",
+    "category": "general",
+    "summary": "Attack from a position the defender cannot easily cover, reducing or preventing normal defense.",
+    "source": "Mage 20",
+    "page": "417",
+    "citation": "Mage 20, p. 417",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-movement",
+    "name": "Movement",
+    "category": "general",
+    "summary": "Walk, run, or sprint during combat. Faster movement may modify attacks and defenses.",
+    "source": "Mage 20",
+    "page": "417",
+    "citation": "Mage 20, p. 417",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-multiple-actions",
+    "name": "Multiple Actions",
+    "category": "general",
+    "summary": "Divide a dice pool or use another permitted method to perform more than one action in a turn.",
+    "source": "Mage 20",
+    "page": "417",
+    "citation": "Mage 20, p. 417",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-targeting",
+    "name": "Targeting",
+    "category": "general",
+    "summary": "Aim for a specific body part or object. Smaller targets increase difficulty but may provide extra effect or damage.",
+    "source": "Mage 20",
+    "page": "417–418",
+    "citation": "Mage 20, p. 417–418",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-block",
+    "name": "Block",
+    "category": "defensive",
+    "summary": "Use Dexterity + Brawl or Martial Arts to stop a close-combat attack with the body.",
+    "source": "Mage 20",
+    "page": "418",
+    "citation": "Mage 20, p. 418",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-dodge",
+    "name": "Dodge",
+    "category": "defensive",
+    "summary": "Use Dexterity + Athletics to evade an attack by moving away, dropping, or reaching cover.",
+    "source": "Mage 20",
+    "page": "418",
+    "citation": "Mage 20, p. 418",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-parry",
+    "name": "Parry",
+    "category": "defensive",
+    "summary": "Use Dexterity + Melee or Martial Arts and a weapon or shield to deflect a close-combat attack.",
+    "source": "Mage 20",
+    "page": "418",
+    "citation": "Mage 20, p. 418",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-desperate-defense",
+    "name": "Desperate Defense",
+    "category": "defensive",
+    "summary": "Devote the turn to repeated defensive actions with reduced multiple-action penalties.",
+    "source": "Mage 20",
+    "page": "418–419",
+    "citation": "Mage 20, p. 418–419",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-clinch",
+    "name": "Clinch",
+    "category": "close-combat",
+    "summary": "Grapple and damage an opponent with Strength + Brawl. Either character may later damage or attempt escape.",
+    "source": "Mage 20",
+    "page": "419",
+    "citation": "Mage 20, p. 419",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-close-distance",
+    "name": "Close Distance",
+    "category": "close-combat",
+    "summary": "Move inside the reach of a longer weapon. Weapon-length differences can penalize the shorter-armed fighter until distance is closed.",
+    "source": "Mage 20",
+    "page": "419",
+    "citation": "Mage 20, p. 419",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-disarm",
+    "name": "Disarm",
+    "category": "close-combat",
+    "summary": "Strike or seize an opponent's weapon to knock it from their hand without directly damaging them.",
+    "source": "Mage 20",
+    "page": "419",
+    "citation": "Mage 20, p. 419",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-hold",
+    "name": "Hold",
+    "category": "close-combat",
+    "summary": "Restrain an opponent without inflicting damage. The victim may attempt to escape on a later action.",
+    "source": "Mage 20",
+    "page": "419",
+    "citation": "Mage 20, p. 419",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-jab-pistol",
+    "name": "Jab Pistol",
+    "category": "close-combat",
+    "summary": "Press or jab a pistol into a nearby target before firing, increasing damage but risking disarm.",
+    "source": "Mage 20",
+    "page": "419–420",
+    "citation": "Mage 20, p. 419–420",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-kick",
+    "name": "Kick",
+    "category": "close-combat",
+    "summary": "A harder unarmed attack that generally inflicts Strength +1 bashing damage.",
+    "source": "Mage 20",
+    "page": "420",
+    "citation": "Mage 20, p. 420",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-multiple-opponents",
+    "name": "Multiple Opponents",
+    "category": "close-combat",
+    "summary": "Fighting several attackers increases the difficulty of attacks and defenses.",
+    "source": "Mage 20",
+    "page": "420",
+    "citation": "Mage 20, p. 420",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-strike-punch",
+    "name": "Strike / Punch",
+    "category": "close-combat",
+    "summary": "A normal unarmed attack using Dexterity + Brawl and Strength-based bashing damage.",
+    "source": "Mage 20",
+    "page": "420",
+    "citation": "Mage 20, p. 420",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-sweep",
+    "name": "Sweep",
+    "category": "close-combat",
+    "summary": "Use a leg or weapon to damage and knock an opponent down.",
+    "source": "Mage 20",
+    "page": "420",
+    "citation": "Mage 20, p. 420",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-tackle",
+    "name": "Tackle",
+    "category": "close-combat",
+    "summary": "Rush and slam into a target, causing damage and risking knockdown for both combatants.",
+    "source": "Mage 20",
+    "page": "420–421",
+    "citation": "Mage 20, p. 420–421",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-weapon-strike",
+    "name": "Weapon Strike",
+    "category": "close-combat",
+    "summary": "A normal close-combat weapon attack using Dexterity + Melee and the weapon's damage.",
+    "source": "Mage 20",
+    "page": "421",
+    "citation": "Mage 20, p. 421",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-aiming",
+    "name": "Aiming",
+    "category": "ranged",
+    "summary": "Spend one or more turns lining up a shot to gain additional attack dice, subject to weapon and target limits.",
+    "source": "Mage 20",
+    "page": "421",
+    "citation": "Mage 20, p. 421",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-automatic-fire",
+    "name": "Automatic Fire",
+    "category": "ranged",
+    "summary": "Empty a large portion of a weapon's ammunition to gain many attack dice at increased difficulty.",
+    "source": "Mage 20",
+    "page": "421",
+    "citation": "Mage 20, p. 421",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-cover",
+    "name": "Cover",
+    "category": "ranged",
+    "summary": "Use terrain or objects to become harder to hit, sometimes at the cost of making your own attacks harder.",
+    "source": "Mage 20",
+    "page": "421–422",
+    "citation": "Mage 20, p. 421–422",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-multiple-shots",
+    "name": "Multiple Shots",
+    "category": "ranged",
+    "summary": "Fire more than once by using the multiple-action rules, limited by the weapon's rate.",
+    "source": "Mage 20",
+    "page": "422",
+    "citation": "Mage 20, p. 422",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-range",
+    "name": "Range",
+    "category": "ranged",
+    "summary": "Point-blank shots are easier; attacks beyond normal range are harder; attacks beyond maximum range fail.",
+    "source": "Mage 20",
+    "page": "422",
+    "citation": "Mage 20, p. 422",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-reloading",
+    "name": "Reloading",
+    "category": "ranged",
+    "summary": "Replace or refill ammunition. Reloading normally requires an action.",
+    "source": "Mage 20",
+    "page": "422",
+    "citation": "Mage 20, p. 422",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-strafing",
+    "name": "Strafing",
+    "category": "ranged",
+    "summary": "Spray automatic fire across an area or several nearby targets, dividing successes among them.",
+    "source": "Mage 20",
+    "page": "422",
+    "citation": "Mage 20, p. 422",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-short-burst",
+    "name": "Short Burst",
+    "category": "ranged",
+    "summary": "Fire a short burst to gain attack dice at increased difficulty without emptying the entire weapon.",
+    "source": "Mage 20",
+    "page": "422–423",
+    "citation": "Mage 20, p. 422–423",
+    "reviewStatus": "unverified"
+  },
+  {
+    "id": "combat-two-weapons",
+    "name": "Two Weapons",
+    "category": "ranged",
+    "summary": "Attack with a weapon in each hand. Off-hand and multiple-action penalties normally apply.",
+    "source": "Mage 20",
+    "page": "423",
+    "citation": "Mage 20, p. 423",
+    "reviewStatus": "unverified"
+  }
+]

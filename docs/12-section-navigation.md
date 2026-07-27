@@ -12,6 +12,7 @@ registry.
 | Character  | Identity        | `#identity`      |
 | Traits     | Attributes      | `#attributes`    |
 | Traits     | Abilities       | `#abilities`     |
+| Traits     | Maneuvers       | `#maneuvers`     |
 | Advantages | Backgrounds     | `#backgrounds`   |
 | Advantages | Merits & Flaws  | `#merits-flaws`  |
 | Magick     | Spheres         | `#spheres`       |
@@ -27,6 +28,8 @@ The current editor implements one combined Enlightenment section instead of
 separate Arete/Willpower and Quintessence/Paradox sections. Focus, Wonders, and
 Rotes are real editable sections with independent summaries and anchors.
 Equipment is a real editable section in its own Gear group.
+Maneuvers is always registered because Combat Reference is available to every
+character; known Do selections remain optional.
 Import/export is visible and receives a Records group instead of being omitted
 from navigation.
 

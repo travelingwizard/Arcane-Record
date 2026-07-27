@@ -33,10 +33,13 @@ Equipment is implemented as Mage reference data plus character-owned
 selections. The catalog is not a combat calculator and does not mutate traits.
 See [14. Equipment implementation record](14-equipment-implementation.md).
 
-## Maneuvers handoff
+## Combat and Do Maneuvers
 
-`Do*` is the final implemented Skill. A conditional Maneuvers section is
-deferred until its Do and Martial Arts maneuver definitions are supplied. The
-future section should follow the Merits and Flaws catalog/selection pattern and
-remain hidden when its qualifying Ability condition is not met; the exact
-trigger and maneuver records will be finalized with that content.
+`Do*` is the final Skill. Maneuvers are implemented as a universal Combat
+Reference plus character-specific known Do selections. Combat favorites do not
+mean a maneuver was purchased or learned. Do selection is non-blocking and
+does not depend on or enforce an Ability rating.
+
+The Final Blow remains a Rote and is intentionally excluded from Maneuvers.
+See
+[Combat and Do Maneuvers](features/combat-and-do-maneuvers.md).

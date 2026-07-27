@@ -89,6 +89,18 @@ export function getCharacterSectionSummaries(
     abilities: {
       primary: `${abilityTotal} total ${abilityTotal === 1 ? 'dot' : 'dots'}`,
     },
+    maneuvers: {
+      primary: `${countLabel(
+        character.repeatableEntries.maneuvers.favoriteCombatManeuverIds.length,
+        'favorite',
+      )} · ${countLabel(
+        character.repeatableEntries.maneuvers.customCombatManeuvers.length,
+        'custom reference',
+      )} · ${countLabel(
+        character.repeatableEntries.maneuvers.selectedDoManeuvers.length,
+        'known Do maneuver',
+      )}`,
+    },
     backgrounds: {
       primary: `${backgroundTotals.selectedCount} selected · ${backgroundTotals.pointsSpent} of ${backgroundTotals.standardAllowance} points`,
       warning:

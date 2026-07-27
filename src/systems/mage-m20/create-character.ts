@@ -117,6 +117,11 @@ export function createBlankMageCharacter(
       wonders: [],
       rotes: [],
       equipment: [],
+      maneuvers: {
+        favoriteCombatManeuverIds: [],
+        customCombatManeuvers: [],
+        selectedDoManeuvers: [],
+      },
     },
     health: { damage: [] },
   };

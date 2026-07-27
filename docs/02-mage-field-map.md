@@ -73,3 +73,12 @@ character description, integer quantity, equipped/readied state, notes,
 timestamp, and optional unresolved definition name. Catalog statistics,
 descriptions, citations, review state, and mature-content labels remain in
 `src/systems/mage-m20/reference/equipment.data.json`.
+
+## Maneuvers
+
+`repeatableEntries.maneuvers.favoriteCombatManeuverIds[]` stores stable Combat
+Reference IDs or UUIDs for custom references.
+`customCombatManeuvers[]` stores UUID, name, description, notes, and timestamp.
+`selectedDoManeuvers[]` stores a UUID, optional stable definition ID or custom
+name, notes, timestamp, and optional unresolved definition name. Catalog
+descriptions, sources, and pages remain outside character records.
