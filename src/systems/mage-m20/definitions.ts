@@ -1,5 +1,5 @@
 export const MAGE_SYSTEM_ID = 'mage-m20' as const;
-export const MAGE_SCHEMA_VERSION = 8 as const;
+export const MAGE_SCHEMA_VERSION = 9 as const;
 
 export const identityFields = [
   { id: 'name', label: 'Name' },

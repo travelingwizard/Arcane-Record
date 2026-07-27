@@ -40,7 +40,7 @@ test('persists expanded sections and exchanges local character files', async ({
   ).toBeVisible();
 
   const downloadPromise = page.waitForEvent('download');
-  await page.getByRole('button', { name: 'Download JSON' }).click();
+  await page.getByRole('button', { name: 'Save JSON' }).click();
   const download = await downloadPromise;
   expect(download.suggestedFilename()).toBe('expanded-section-adept.json');
 

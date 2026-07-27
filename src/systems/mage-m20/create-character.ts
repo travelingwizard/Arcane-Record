@@ -3,6 +3,7 @@ import type {
   EnlightenmentRatings,
   MageCharacter,
 } from '../../types/character';
+import { defaultGroupOrderByMode } from './character-sections';
 import { MAGE_SCHEMA_VERSION, MAGE_SYSTEM_ID } from './definitions';
 
 export function createDefaultAbilityRatings(): AbilityRatings {
@@ -124,5 +125,12 @@ export function createBlankMageCharacter(
       },
     },
     health: { damage: [] },
+    sheetLayout: {
+      mode: 'build',
+      groupOrders: {
+        build: [...defaultGroupOrderByMode.build],
+        play: [...defaultGroupOrderByMode.play],
+      },
+    },
   };
 }

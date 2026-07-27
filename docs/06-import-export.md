@@ -1,6 +1,8 @@
 # 06. Import and export
 
-The File Exchange section exports the active character as JSON or YAML and imports `.json`, `.yaml`, and `.yml` files. All processing stays in the browser.
+The Save section saves the active character as JSON by default, offers YAML,
+and imports `.json`, `.yaml`, and `.yml` files. All processing stays in the
+browser.
 
 The boundary:
 
@@ -35,6 +37,9 @@ and selected Do UUIDs, definition IDs or custom names, notes, timestamps, and
 optional unresolved names. Combat and Do catalog summaries, sources, pages,
 and citations are excluded.
 
+The Save section defaults to JSON and provides YAML as an alternate local file
+format. Imports accept both formats.
+
 Schema-version-5 Magick placeholders migrate without loss: Focus strings become
 general notes, Wonder strings become custom owned Wonders, and legacy Rote IDs,
 Sphere text, and Effects are preserved.
@@ -45,3 +50,6 @@ Schema-version-7 records migrate with empty Maneuver collections.
 Section expansion preferences and the transient active section are excluded
 from both formats. Importing a character creates a fresh ID and therefore a
 fresh, independent section-preference key.
+
+The character’s Build/Play layout mode and both group orders are included so a
+saved character keeps its chosen page and navigation arrangement.

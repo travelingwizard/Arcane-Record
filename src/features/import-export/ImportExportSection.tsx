@@ -23,6 +23,7 @@ export function ImportExportSection({
   const inputRef = useRef<HTMLInputElement>(null);
   const [message, setMessage] = useState('');
   const [importing, setImporting] = useState(false);
+  const [format, setFormat] = useState<CharacterFileFormat>('json');
 
   const download = (format: CharacterFileFormat) => {
     const contents = serializeCharacter(character, format);
@@ -65,30 +66,36 @@ export function ImportExportSection({
     <SheetSection
       id="import-export"
       eyebrow="Portable, still private"
-      title="Import & export"
+      title="Save"
       description="Download a local copy or import one as a new character. Files never leave this device."
     >
       <div className="file-exchange">
         <div className="file-exchange__group">
-          <h3>Export this character</h3>
+          <h3>Save this character</h3>
           <p>
             Save the complete validated character record in a readable local
             format.
           </p>
           <div className="file-exchange__actions">
+            <label>
+              <span>Format</span>
+              <select
+                aria-label="Save format"
+                value={format}
+                onChange={(event) =>
+                  setFormat(event.target.value as CharacterFileFormat)
+                }
+              >
+                <option value="json">JSON</option>
+                <option value="yaml">YAML</option>
+              </select>
+            </label>
             <button
               type="button"
               className="secondary-button"
-              onClick={() => download('json')}
+              onClick={() => download(format)}
             >
-              Download JSON
-            </button>
-            <button
-              type="button"
-              className="secondary-button"
-              onClick={() => download('yaml')}
-            >
-              Download YAML
+              Save {format.toUpperCase()}
             </button>
           </div>
         </div>

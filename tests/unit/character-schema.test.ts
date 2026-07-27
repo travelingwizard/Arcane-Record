@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { mageCharacterSchema } from '../../src/systems/mage-m20/character-schema';
+import {
+  mageCharacterSchema,
+  migrateMageCharacter,
+} from '../../src/systems/mage-m20/character-schema';
 import { createBlankMageCharacter } from '../../src/systems/mage-m20/create-character';
 
 describe('mageCharacterSchema', () => {
@@ -10,7 +13,22 @@ describe('mageCharacterSchema', () => {
     );
 
     expect(mageCharacterSchema.parse(character)).toEqual(character);
-    expect(character.schemaVersion).toBe(8);
+    expect(character.schemaVersion).toBe(9);
+    expect(character.sheetLayout).toMatchObject({
+      mode: 'build',
+      groupOrders: {
+        build: [
+          'character',
+          'traits',
+          'magick',
+          'advantages',
+          'condition',
+          'gear',
+          'paradigm',
+          'records',
+        ],
+      },
+    });
     expect(character.repeatableEntries.equipment).toEqual([]);
     expect(character.abilities.skills.do).toBe(0);
     expect(character.repeatableEntries.maneuvers).toEqual({
@@ -25,6 +43,40 @@ describe('mageCharacterSchema', () => {
       need: '',
       culture: '',
       notes: '',
+    });
+  });
+
+  it('migrates schema-version-eight characters to the default Build/Play layout', () => {
+    const legacy = structuredClone(
+      createBlankMageCharacter(),
+    ) as unknown as Record<string, unknown>;
+    legacy.schemaVersion = 8;
+    delete legacy.sheetLayout;
+
+    expect(migrateMageCharacter(legacy).sheetLayout).toEqual({
+      mode: 'build',
+      groupOrders: {
+        build: [
+          'character',
+          'traits',
+          'magick',
+          'advantages',
+          'condition',
+          'gear',
+          'paradigm',
+          'records',
+        ],
+        play: [
+          'condition',
+          'magick',
+          'traits',
+          'gear',
+          'advantages',
+          'paradigm',
+          'character',
+          'records',
+        ],
+      },
     });
   });
 

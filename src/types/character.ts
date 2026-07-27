@@ -8,6 +8,10 @@ import type {
   MAGE_SYSTEM_ID,
   SphereId,
 } from '../systems/mage-m20/definitions';
+import type {
+  CharacterSectionGroupId,
+  SheetLayoutMode,
+} from '../systems/mage-m20/character-sections';
 
 export type IdentityData = Record<IdentityFieldId, string>;
 
@@ -170,6 +174,11 @@ export interface HealthState {
   damage: Array<'bashing' | 'lethal' | 'aggravated'>;
 }
 
+export interface SheetLayout {
+  mode: SheetLayoutMode;
+  groupOrders: Record<SheetLayoutMode, CharacterSectionGroupId[]>;
+}
+
 export type EnlightenmentRatings = Record<EnlightenmentId, number> & {
   willpowerTemporary: number;
 };
@@ -188,4 +197,5 @@ export interface MageCharacter {
   affinitySphere: SphereId | null;
   repeatableEntries: RepeatableEntries;
   health: HealthState;
+  sheetLayout: SheetLayout;
 }

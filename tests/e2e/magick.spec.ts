@@ -68,7 +68,7 @@ test('records, persists, and exports Focus, Wonders, and Rotes', async ({
   ).toBeVisible();
 
   const downloadPromise = page.waitForEvent('download');
-  await page.getByRole('button', { name: 'Download JSON' }).click();
+  await page.getByRole('button', { name: 'Save JSON' }).click();
   const download = await downloadPromise;
   const path = await download.path();
   expect(path).not.toBeNull();

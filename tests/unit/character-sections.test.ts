@@ -44,11 +44,11 @@ describe('character section registry', () => {
     expect(characterSectionGroups.map(({ label }) => label)).toEqual([
       'Character',
       'Traits',
+      'Magic',
       'Advantages',
-      'Magick',
-      'Paradigm',
+      'Conditions',
       'Gear',
-      'Condition',
+      'Paradigm',
       'Records',
     ]);
   });

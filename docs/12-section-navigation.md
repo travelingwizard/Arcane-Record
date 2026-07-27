@@ -7,22 +7,22 @@ IDs, labels, groups, and order. Rendering, desktop navigation, mobile
 navigation, summaries, hashes, and preference validation consume that
 registry.
 
-| Group      | Section         | Anchor           |
-| ---------- | --------------- | ---------------- |
-| Character  | Identity        | `#identity`      |
-| Traits     | Attributes      | `#attributes`    |
-| Traits     | Abilities       | `#abilities`     |
-| Traits     | Maneuvers       | `#maneuvers`     |
-| Advantages | Backgrounds     | `#backgrounds`   |
-| Advantages | Merits & Flaws  | `#merits-flaws`  |
-| Magick     | Spheres         | `#spheres`       |
-| Magick     | Enlightenment   | `#enlightenment` |
-| Paradigm   | Focus           | `#focus`         |
-| Paradigm   | Wonders         | `#wonders`       |
-| Paradigm   | Rotes           | `#rotes`         |
-| Gear       | Equipment       | `#equipment`     |
-| Condition  | Health          | `#health`        |
-| Records    | Import & export | `#import-export` |
+| Group      | Section        | Anchor           |
+| ---------- | -------------- | ---------------- |
+| Character  | Identity       | `#identity`      |
+| Traits     | Attributes     | `#attributes`    |
+| Traits     | Abilities      | `#abilities`     |
+| Traits     | Maneuvers      | `#maneuvers`     |
+| Advantages | Backgrounds    | `#backgrounds`   |
+| Advantages | Merits & Flaws | `#merits-flaws`  |
+| Magick     | Spheres        | `#spheres`       |
+| Magick     | Enlightenment  | `#enlightenment` |
+| Paradigm   | Focus          | `#focus`         |
+| Paradigm   | Wonders        | `#wonders`       |
+| Paradigm   | Rotes          | `#rotes`         |
+| Gear       | Equipment      | `#equipment`     |
+| Condition  | Health         | `#health`        |
+| Records    | Save           | `#import-export` |
 
 The current editor implements one combined Enlightenment section instead of
 separate Arete/Willpower and Quintessence/Paradox sections. Focus, Wonders, and
@@ -48,7 +48,10 @@ intersecting section can become active near the page bottom.
 
 Each desktop rail group heading is a disclosure button. It can collapse or
 reveal that group’s section links without changing section content or character
-data. Focus, Wonders, and Rotes are grouped under Paradigm.
+data. Focus, Wonders, and Rotes are grouped under Paradigm. The top Build/Play
+switch selects a per-character group order. Up/down controls in the desktop
+rail and mobile Sections sheet reorder groups for the active mode; the page and
+both navigators follow the same order.
 
 Below 70rem, the rail is hidden and the sticky Sections button opens a modal
 bottom sheet. The sheet traps focus, closes with Escape or its close button,
@@ -95,3 +98,7 @@ viewport narrows again.
 This data is a local view preference. It is separate from Zustand character
 state, the repository, IndexedDB records, schema migrations, autosave, and
 JSON/YAML serialization. The active desktop section is transient.
+
+By contrast, `sheetLayout` is character data: it stores Build/Play mode and a
+complete group order for each mode. It is validated, saved in IndexedDB, and
+included in JSON/YAML character files.

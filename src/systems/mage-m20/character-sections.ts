@@ -1,16 +1,57 @@
 export const characterSectionGroups = [
   { id: 'character', label: 'Character', order: 1 },
   { id: 'traits', label: 'Traits', order: 2 },
-  { id: 'advantages', label: 'Advantages', order: 3 },
-  { id: 'magick', label: 'Magick', order: 4 },
-  { id: 'paradigm', label: 'Paradigm', order: 5 },
+  { id: 'magick', label: 'Magic', order: 3 },
+  { id: 'advantages', label: 'Advantages', order: 4 },
+  { id: 'condition', label: 'Conditions', order: 5 },
   { id: 'gear', label: 'Gear', order: 6 },
-  { id: 'condition', label: 'Condition', order: 7 },
+  { id: 'paradigm', label: 'Paradigm', order: 7 },
   { id: 'records', label: 'Records', order: 8 },
 ] as const;
 
 export type CharacterSectionGroupId =
   (typeof characterSectionGroups)[number]['id'];
+
+export const characterSectionGroupIds = characterSectionGroups.map(
+  ({ id }) => id,
+) as CharacterSectionGroupId[];
+
+export type SheetLayoutMode = 'build' | 'play';
+
+export const defaultGroupOrderByMode: Record<
+  SheetLayoutMode,
+  CharacterSectionGroupId[]
+> = {
+  build: [
+    'character',
+    'traits',
+    'magick',
+    'advantages',
+    'condition',
+    'gear',
+    'paradigm',
+    'records',
+  ],
+  play: [
+    'condition',
+    'magick',
+    'traits',
+    'gear',
+    'advantages',
+    'paradigm',
+    'character',
+    'records',
+  ],
+};
+
+export function getOrderedSectionGroups(
+  order: readonly CharacterSectionGroupId[],
+) {
+  const positions = new Map(order.map((id, index) => [id, index]));
+  return [...characterSectionGroups].sort(
+    (left, right) => positions.get(left.id)! - positions.get(right.id)!,
+  );
+}
 
 export const characterSections = [
   {
@@ -94,8 +135,8 @@ export const characterSections = [
   },
   {
     id: 'import-export',
-    label: 'Import & export',
-    shortLabel: 'File exchange',
+    label: 'Save',
+    shortLabel: 'Save',
     group: 'records',
     order: 14,
   },

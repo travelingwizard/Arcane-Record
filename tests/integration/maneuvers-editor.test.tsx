@@ -5,6 +5,7 @@ import { ManeuversSection } from '../../src/components/character/ManeuversSectio
 import { CharacterSectionProvider } from '../../src/components/navigation/CharacterSectionProvider';
 import { useEditorStore } from '../../src/state/editor-store';
 import { createBlankMageCharacter } from '../../src/systems/mage-m20/create-character';
+import { defaultGroupOrderByMode } from '../../src/systems/mage-m20/character-sections';
 
 describe('Maneuvers editor', () => {
   beforeEach(() => {
@@ -86,6 +87,15 @@ describe('Maneuvers editor', () => {
           navigateToSection: () => undefined,
           expandAllSections: () => undefined,
           collapseAllSections: () => undefined,
+          sheetLayout: {
+            mode: 'build',
+            groupOrders: {
+              build: [...defaultGroupOrderByMode.build],
+              play: [...defaultGroupOrderByMode.play],
+            },
+          },
+          setSheetLayoutMode: () => undefined,
+          moveSheetGroup: () => undefined,
         }}
       >
         <ManeuversSection />

@@ -16,6 +16,31 @@ describe('character files', () => {
         '0ca052be-bd0b-44db-8f85-a2019f6ae39a',
       );
       source.identity.name = 'Mara Voss';
+      source.sheetLayout = {
+        mode: 'play',
+        groupOrders: {
+          build: [
+            'traits',
+            'character',
+            'magick',
+            'advantages',
+            'condition',
+            'gear',
+            'paradigm',
+            'records',
+          ],
+          play: [
+            'gear',
+            'condition',
+            'magick',
+            'traits',
+            'advantages',
+            'paradigm',
+            'character',
+            'records',
+          ],
+        },
+      };
       source.abilities.talents.alertness = 3;
       source.enlightenment.arete = 4;
       source.health.damage = ['lethal'];
@@ -120,6 +145,7 @@ describe('character files', () => {
       expect(imported.identity.name).toBe('Mara Voss (Imported)');
       expect(imported.abilities.talents.alertness).toBe(3);
       expect(imported.enlightenment.arete).toBe(4);
+      expect(imported.sheetLayout).toEqual(source.sheetLayout);
       expect(imported.health.damage).toEqual(['lethal']);
       expect(imported.repeatableEntries.merits[0]).toMatchObject({
         definitionId: 'acute-senses',

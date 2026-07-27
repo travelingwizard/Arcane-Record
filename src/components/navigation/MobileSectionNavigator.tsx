@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import {
   characterSectionById,
-  characterSectionGroups,
   characterSections,
+  getOrderedSectionGroups,
   getCharacterSectionFromHash,
   type CharacterSectionId,
 } from '../../systems/mage-m20/character-sections';
@@ -154,7 +154,9 @@ export function MobileSectionNavigator() {
             </div>
 
             <nav aria-label="Mobile character sheet sections">
-              {characterSectionGroups.map((group) => {
+              {getOrderedSectionGroups(
+                navigation.sheetLayout.groupOrders[navigation.sheetLayout.mode],
+              ).map((group) => {
                 const sections = characterSections.filter(
                   (section) => section.group === group.id,
                 );
@@ -163,7 +165,53 @@ export function MobileSectionNavigator() {
                 }
                 return (
                   <div className="mobile-section-sheet__group" key={group.id}>
-                    <h3>{group.label}</h3>
+                    <div className="mobile-section-sheet__group-heading">
+                      <h3>{group.label}</h3>
+                      <div>
+                        <button
+                          type="button"
+                          className="icon-button"
+                          aria-label={`Move ${group.label} earlier`}
+                          disabled={
+                            navigation.sheetLayout.groupOrders[
+                              navigation.sheetLayout.mode
+                            ].indexOf(group.id) === 0
+                          }
+                          onClick={() =>
+                            navigation.moveSheetGroup(
+                              navigation.sheetLayout.mode,
+                              group.id,
+                              'earlier',
+                            )
+                          }
+                        >
+                          ↑
+                        </button>
+                        <button
+                          type="button"
+                          className="icon-button"
+                          aria-label={`Move ${group.label} later`}
+                          disabled={
+                            navigation.sheetLayout.groupOrders[
+                              navigation.sheetLayout.mode
+                            ].indexOf(group.id) ===
+                            navigation.sheetLayout.groupOrders[
+                              navigation.sheetLayout.mode
+                            ].length -
+                              1
+                          }
+                          onClick={() =>
+                            navigation.moveSheetGroup(
+                              navigation.sheetLayout.mode,
+                              group.id,
+                              'later',
+                            )
+                          }
+                        >
+                          ↓
+                        </button>
+                      </div>
+                    </div>
                     <ul>
                       {sections.map((section) => {
                         const active = section.id === navigation.activeSection;

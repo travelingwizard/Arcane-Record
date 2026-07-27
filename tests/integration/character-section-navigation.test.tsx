@@ -122,6 +122,59 @@ describe('character section navigation', () => {
     );
   });
 
+  it('switches modes and reorders group headings across the sheet and navigation', async () => {
+    setNarrowLayout(false);
+    renderEditor();
+    const user = userEvent.setup();
+    const modeSwitch = screen.getByRole('switch', {
+      name: /Build mode.*Play mode/i,
+    });
+
+    await user.click(modeSwitch);
+    expect(modeSwitch).toBeChecked();
+
+    const sectionIds = [
+      ...document.querySelectorAll('.character-sheet section'),
+    ].map((section) => section.id);
+    expect(sectionIds.slice(0, 4)).toEqual([
+      'health',
+      'spheres',
+      'enlightenment',
+      'attributes',
+    ]);
+
+    const navigation = screen.getByRole('navigation', {
+      name: 'Character sheet sections',
+    });
+    await user.click(
+      within(navigation).getByRole('button', {
+        name: 'Move Character earlier',
+      }),
+    );
+
+    const reorderedSectionIds = [
+      ...document.querySelectorAll('.character-sheet section'),
+    ].map((section) => section.id);
+    expect(reorderedSectionIds.indexOf('identity')).toBeLessThan(
+      reorderedSectionIds.indexOf('focus'),
+    );
+    expect(useEditorStore.getState().character?.sheetLayout).toMatchObject({
+      mode: 'play',
+      groupOrders: {
+        play: [
+          'condition',
+          'magick',
+          'traits',
+          'gear',
+          'advantages',
+          'character',
+          'paradigm',
+          'records',
+        ],
+      },
+    });
+  });
+
   it('expands a valid initial hash and safely ignores an invalid one', () => {
     setNarrowLayout(true);
     window.history.replaceState(null, '', '/#spheres');

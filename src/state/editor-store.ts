@@ -34,7 +34,12 @@ import type {
   SelectedDoManeuver,
   SelectedBackground,
   SelectedMeritFlaw,
+  SheetLayout,
 } from '../types/character';
+import type {
+  CharacterSectionGroupId,
+  SheetLayoutMode,
+} from '../systems/mage-m20/character-sections';
 
 export type SaveStatus = 'saved' | 'unsaved' | 'saving' | 'error';
 
@@ -213,6 +218,12 @@ interface EditorState {
   cycleHealthDamage: (index: number) => void;
   updateSphere: (sphere: SphereId, value: number) => void;
   toggleAffinity: (sphere: SphereId) => void;
+  setSheetLayoutMode: (mode: SheetLayoutMode) => void;
+  moveSheetGroup: (
+    mode: SheetLayoutMode,
+    groupId: CharacterSectionGroupId,
+    direction: 'earlier' | 'later',
+  ) => void;
   markSaving: (revision: number) => void;
   markSaved: (character: MageCharacter, revision: number) => void;
   markSaveFailed: (revision: number) => void;
@@ -1513,6 +1524,35 @@ export const useEditorStore = create<EditorState>((set) => ({
         ...character,
         affinitySphere: character.affinitySphere === sphere ? null : sphere,
       })),
+    ),
+
+  setSheetLayoutMode: (mode) =>
+    set((state) =>
+      withChange(state, (character) => ({
+        ...character,
+        sheetLayout: { ...character.sheetLayout, mode },
+      })),
+    ),
+
+  moveSheetGroup: (mode, groupId, direction) =>
+    set((state) =>
+      withChange(state, (character) => {
+        const order = [...character.sheetLayout.groupOrders[mode]];
+        const index = order.indexOf(groupId);
+        const target = direction === 'earlier' ? index - 1 : index + 1;
+        if (index < 0 || target < 0 || target >= order.length) {
+          return character;
+        }
+        [order[index], order[target]] = [order[target], order[index]];
+        const groupOrders: SheetLayout['groupOrders'] = {
+          ...character.sheetLayout.groupOrders,
+          [mode]: order,
+        };
+        return {
+          ...character,
+          sheetLayout: { ...character.sheetLayout, groupOrders },
+        };
+      }),
     ),
 
   markSaving: (revision) =>

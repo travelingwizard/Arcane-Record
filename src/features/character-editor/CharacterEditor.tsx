@@ -16,9 +16,14 @@ import { WondersSection } from '../../components/character/WondersSection';
 import { CharacterSectionProvider } from '../../components/navigation/CharacterSectionProvider';
 import { CharacterSectionNav } from '../../components/navigation/CharacterSectionNav';
 import { MobileSectionNavigator } from '../../components/navigation/MobileSectionNavigator';
+import { SheetLayoutModeToggle } from '../../components/navigation/SheetLayoutModeToggle';
 import { useEditorStore } from '../../state/editor-store';
 import type { CharacterRepository } from '../../storage/character-repository';
 import type { CharacterSectionId } from '../../systems/mage-m20/character-sections';
+import {
+  characterSections,
+  getOrderedSectionGroups,
+} from '../../systems/mage-m20/character-sections';
 import type { MageCharacter } from '../../types/character';
 import { ImportExportSection } from '../import-export/ImportExportSection';
 import { getCharacterSectionSummaries } from './character-section-summaries';
@@ -65,6 +70,10 @@ function CharacterEditorContent({
   onImported: (character: MageCharacter) => void;
 }) {
   const saveStatus = useEditorStore((state) => state.saveStatus);
+  const setSheetLayoutMode = useEditorStore(
+    (state) => state.setSheetLayoutMode,
+  );
+  const moveSheetGroup = useEditorStore((state) => state.moveSheetGroup);
   const displayName = character.identity.name.trim() || 'Untitled mage';
   const isNarrowLayout = useMediaQuery('(max-width: 69.999rem)');
   const summaries = useMemo(
@@ -97,6 +106,9 @@ function CharacterEditorContent({
       navigateToSection,
       expandAllSections,
       collapseAllSections,
+      sheetLayout: character.sheetLayout,
+      setSheetLayoutMode,
+      moveSheetGroup,
     }),
     [
       activeSection,
@@ -107,6 +119,9 @@ function CharacterEditorContent({
       navigateToSection,
       setSectionExpanded,
       summaries,
+      character.sheetLayout,
+      moveSheetGroup,
+      setSheetLayoutMode,
     ],
   );
 
@@ -135,29 +150,44 @@ function CharacterEditorContent({
           <span>✦</span>
         </div>
 
+        <SheetLayoutModeToggle />
+
         <MobileSectionNavigator />
 
         <div className="character-editor-layout">
           <CharacterSectionNav />
           <div className="character-sheet">
-            <IdentitySection />
-            <AttributesSection />
-            <AbilitiesSection />
-            <ManeuversSection />
-            <BackgroundsSection />
-            <MeritsFlawsSection />
-            <SpheresSection />
-            <EnlightenmentSection />
-            <FocusSection />
-            <WondersSection />
-            <RotesSection />
-            <EquipmentSection />
-            <HealthSection />
-            <ImportExportSection
-              character={character}
-              repository={repository}
-              onImported={onImported}
-            />
+            {getOrderedSectionGroups(
+              character.sheetLayout.groupOrders[character.sheetLayout.mode],
+            ).flatMap((group) =>
+              characterSections
+                .filter((section) => section.group === group.id)
+                .map((section) => {
+                  const sections = {
+                    identity: <IdentitySection />,
+                    attributes: <AttributesSection />,
+                    abilities: <AbilitiesSection />,
+                    maneuvers: <ManeuversSection />,
+                    backgrounds: <BackgroundsSection />,
+                    'merits-flaws': <MeritsFlawsSection />,
+                    spheres: <SpheresSection />,
+                    enlightenment: <EnlightenmentSection />,
+                    focus: <FocusSection />,
+                    wonders: <WondersSection />,
+                    rotes: <RotesSection />,
+                    equipment: <EquipmentSection />,
+                    health: <HealthSection />,
+                    'import-export': (
+                      <ImportExportSection
+                        character={character}
+                        repository={repository}
+                        onImported={onImported}
+                      />
+                    ),
+                  };
+                  return <div key={section.id}>{sections[section.id]}</div>;
+                }),
+            )}
           </div>
         </div>
 

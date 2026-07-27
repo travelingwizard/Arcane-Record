@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import {
-  characterSectionGroups,
   characterSections,
+  getOrderedSectionGroups,
 } from '../../systems/mage-m20/character-sections';
 import { useCharacterSectionContext } from './character-section-context';
 
@@ -19,7 +20,9 @@ export function CharacterSectionNav() {
       aria-label="Character sheet sections"
     >
       <p className="character-section-nav__title">Sheet sections</p>
-      {characterSectionGroups.map((group) => {
+      {getOrderedSectionGroups(
+        navigation.sheetLayout.groupOrders[navigation.sheetLayout.mode],
+      ).map((group) => {
         const sections = characterSections.filter(
           (section) => section.group === group.id,
         );
@@ -51,6 +54,50 @@ export function CharacterSectionNav() {
                 <span aria-hidden="true">{collapsed ? '+' : '−'}</span>
               </button>
             </h2>
+            <div className="character-section-nav__group-order">
+              <button
+                type="button"
+                className="icon-button"
+                aria-label={`Move ${group.label} earlier`}
+                disabled={
+                  navigation.sheetLayout.groupOrders[
+                    navigation.sheetLayout.mode
+                  ].indexOf(group.id) === 0
+                }
+                onClick={() =>
+                  navigation.moveSheetGroup(
+                    navigation.sheetLayout.mode,
+                    group.id,
+                    'earlier',
+                  )
+                }
+              >
+                ↑
+              </button>
+              <button
+                type="button"
+                className="icon-button"
+                aria-label={`Move ${group.label} later`}
+                disabled={
+                  navigation.sheetLayout.groupOrders[
+                    navigation.sheetLayout.mode
+                  ].indexOf(group.id) ===
+                  navigation.sheetLayout.groupOrders[
+                    navigation.sheetLayout.mode
+                  ].length -
+                    1
+                }
+                onClick={() =>
+                  navigation.moveSheetGroup(
+                    navigation.sheetLayout.mode,
+                    group.id,
+                    'later',
+                  )
+                }
+              >
+                ↓
+              </button>
+            </div>
             <ul id={listId} hidden={collapsed}>
               {sections.map((section) => {
                 const active = navigation.activeSection === section.id;
@@ -81,4 +128,3 @@ export function CharacterSectionNav() {
     </nav>
   );
 }
-import { useState } from 'react';

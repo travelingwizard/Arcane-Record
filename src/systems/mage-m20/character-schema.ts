@@ -5,6 +5,10 @@ import {
   createDefaultEnlightenment,
 } from './create-character';
 import { MAGE_SCHEMA_VERSION, MAGE_SYSTEM_ID, spheres } from './definitions';
+import {
+  characterSectionGroupIds,
+  defaultGroupOrderByMode,
+} from './character-sections';
 import { backgroundById, backgroundCatalog } from './reference/backgrounds';
 import { equipmentById, equipmentCategorySchema } from './reference/equipment';
 import { focusDefinitionsByKind, type FocusKind } from './reference/focus';
@@ -738,6 +742,33 @@ const healthSchema = z.object({
   damage: z.array(z.enum(['bashing', 'lethal', 'aggravated'])).max(7),
 });
 
+const sheetLayoutModeSchema = z.enum(['build', 'play']);
+const sectionGroupIdSchema = z.enum([
+  'character',
+  'traits',
+  'magick',
+  'advantages',
+  'condition',
+  'gear',
+  'paradigm',
+  'records',
+]);
+const groupOrderSchema = z
+  .array(sectionGroupIdSchema)
+  .length(characterSectionGroupIds.length)
+  .superRefine((order, context) => {
+    if (new Set(order).size !== characterSectionGroupIds.length) {
+      context.addIssue({
+        code: 'custom',
+        message: 'Each sheet group must appear exactly once.',
+      });
+    }
+  });
+const sheetLayoutSchema = z.object({
+  mode: sheetLayoutModeSchema,
+  groupOrders: z.object({ build: groupOrderSchema, play: groupOrderSchema }),
+});
+
 const legacyCommonFields = {
   id: uuid,
   systemId: z.literal(MAGE_SYSTEM_ID),
@@ -864,6 +895,20 @@ export const legacyMageCharacterSchemaV7 = z.object({
   affinitySphere: sphereIdSchema.nullable(),
 });
 
+export const legacyMageCharacterSchemaV8 = z.object({
+  ...commonFields,
+  schemaVersion: z.literal(8),
+  abilities: abilitiesSchema,
+  enlightenment: z.object({
+    arete: tenPointRating.min(1),
+    willpower: tenPointRating.min(1),
+    willpowerTemporary: tenPointRating,
+    quintessence: tenPointRating,
+    paradox: tenPointRating,
+  }),
+  affinitySphere: sphereIdSchema.nullable(),
+});
+
 export const mageCharacterSchema = z.object({
   ...commonFields,
   schemaVersion: z.literal(MAGE_SCHEMA_VERSION),
@@ -876,7 +921,18 @@ export const mageCharacterSchema = z.object({
     paradox: tenPointRating,
   }),
   affinitySphere: sphereIdSchema.nullable(),
+  sheetLayout: sheetLayoutSchema,
 });
+
+function createDefaultSheetLayout() {
+  return {
+    mode: 'build' as const,
+    groupOrders: {
+      build: [...defaultGroupOrderByMode.build],
+      play: [...defaultGroupOrderByMode.play],
+    },
+  };
+}
 
 function slugifyLegacyBackground(value: string) {
   const slug = value
@@ -1002,11 +1058,21 @@ export function migrateMageCharacter(input: unknown) {
     return current.data;
   }
 
+  const versionEight = legacyMageCharacterSchemaV8.safeParse(input);
+  if (versionEight.success) {
+    return mageCharacterSchema.parse({
+      ...versionEight.data,
+      schemaVersion: MAGE_SCHEMA_VERSION,
+      sheetLayout: createDefaultSheetLayout(),
+    });
+  }
+
   const versionSeven = legacyMageCharacterSchemaV7.safeParse(input);
   if (versionSeven.success) {
     return mageCharacterSchema.parse({
       ...versionSeven.data,
       schemaVersion: MAGE_SCHEMA_VERSION,
+      sheetLayout: createDefaultSheetLayout(),
       repeatableEntries: {
         ...versionSeven.data.repeatableEntries,
         maneuvers: {
@@ -1023,6 +1089,7 @@ export function migrateMageCharacter(input: unknown) {
     return mageCharacterSchema.parse({
       ...versionSix.data,
       schemaVersion: MAGE_SCHEMA_VERSION,
+      sheetLayout: createDefaultSheetLayout(),
       abilities: migrateLegacyAbilities(versionSix.data.abilities),
       repeatableEntries: {
         ...versionSix.data.repeatableEntries,
@@ -1041,6 +1108,7 @@ export function migrateMageCharacter(input: unknown) {
     return mageCharacterSchema.parse({
       ...versionFive.data,
       schemaVersion: MAGE_SCHEMA_VERSION,
+      sheetLayout: createDefaultSheetLayout(),
       abilities: migrateLegacyAbilities(versionFive.data.abilities),
       repeatableEntries: {
         ...versionFive.data.repeatableEntries,
@@ -1057,6 +1125,7 @@ export function migrateMageCharacter(input: unknown) {
     return mageCharacterSchema.parse({
       ...versionFour.data,
       schemaVersion: MAGE_SCHEMA_VERSION,
+      sheetLayout: createDefaultSheetLayout(),
       abilities: migrateLegacyAbilities(versionFour.data.abilities),
       repeatableEntries: {
         ...versionFour.data.repeatableEntries,
@@ -1077,6 +1146,7 @@ export function migrateMageCharacter(input: unknown) {
     return mageCharacterSchema.parse({
       ...versionThree.data,
       schemaVersion: MAGE_SCHEMA_VERSION,
+      sheetLayout: createDefaultSheetLayout(),
       abilities: migrateLegacyAbilities(versionThree.data.abilities),
       repeatableEntries: {
         ...versionThree.data.repeatableEntries,
@@ -1099,6 +1169,7 @@ export function migrateMageCharacter(input: unknown) {
     return mageCharacterSchema.parse({
       ...versionTwo.data,
       schemaVersion: MAGE_SCHEMA_VERSION,
+      sheetLayout: createDefaultSheetLayout(),
       abilities: migrateLegacyAbilities(versionTwo.data.abilities),
       enlightenment: {
         ...versionTwo.data.enlightenment,
@@ -1128,6 +1199,7 @@ export function migrateMageCharacter(input: unknown) {
   return mageCharacterSchema.parse({
     ...legacy.data,
     schemaVersion: MAGE_SCHEMA_VERSION,
+    sheetLayout: createDefaultSheetLayout(),
     abilities: createDefaultAbilityRatings(),
     enlightenment: createDefaultEnlightenment(),
     repeatableEntries: {

@@ -23,6 +23,22 @@ test('navigates the full desktop sheet with anchors and active-section tracking'
     page.getByRole('button', { name: /Sections / }),
   ).not.toBeVisible();
 
+  const modeSwitch = page.getByRole('switch', {
+    name: /Build mode.*Play mode/,
+  });
+  await modeSwitch.check();
+  await expect(modeSwitch).toBeChecked();
+  await expect(
+    page.locator('.character-sheet section').first(),
+  ).toHaveAttribute('id', 'health');
+  await desktopNavigation
+    .getByRole('button', { name: 'Move Character earlier' })
+    .click();
+  await expect(page.locator('.character-sheet section').nth(9)).toHaveAttribute(
+    'id',
+    'identity',
+  );
+
   const backgroundsLink = desktopNavigation.getByRole('link', {
     name: 'Backgrounds',
   });
