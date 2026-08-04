@@ -27,7 +27,7 @@
 
 ## Change safety and verification
 
-- Work only inside this repository. Do not deploy, publish, use sudo, change global settings, or install operating-system packages.
+- Work only inside this repository. Do not publish, use sudo, change global settings, or install operating-system packages. Deployment is permitted only with the user's explicit authorization.
 - Use npm and preserve the lockfile.
 - Keep changes reviewable and make local commits only after the scaffold works and all checks pass.
 - Before completion, run formatting, typecheck, lint, unit/integration tests, the supported E2E smoke test, and a production build.
