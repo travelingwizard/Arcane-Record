@@ -137,7 +137,7 @@ function CharacterEditorContent({
             <span aria-hidden="true">←</span> Character library
           </button>
           <div className="editor-header__title">
-            <p className="eyebrow">Arcane Ledger · Mage M20</p>
+            <p className="eyebrow">Arcane Record · Mage M20</p>
             <h1>{displayName}</h1>
             <p className="editor-header__subtitle">
               An editable record kept only on this device.

@@ -3,7 +3,7 @@
 ## Status and use
 
 This document organizes the supplied equipment research into stable catalog
-records for Arcane Ledger. It is a reference preview, not a rules engine.
+records for Arcane Record. It is a reference preview, not a rules engine.
 Statistics and citations remain unverified until checked against the named
 books. Character exports store ownership details and stable IDs, not the
 catalog text below.

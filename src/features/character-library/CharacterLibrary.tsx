@@ -94,7 +94,7 @@ export function CharacterLibrary({
           ✦
         </div>
         <p className="eyebrow">A private chronicle</p>
-        <h1>Arcane Ledger</h1>
+        <h1>Arcane Record</h1>
         <p className="library-hero__lede">
           Shape and keep your Mage M20 characters in an interactive sheet
           inspired by old-world ink and paper.

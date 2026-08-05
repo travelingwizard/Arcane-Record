@@ -1,4 +1,4 @@
-# Arcane Ledger
+# Arcane Record
 
 A local-first, responsive character-sheet editor for Mage: The Ascension 20th Anniversary Edition. Characters are saved only in IndexedDB in the current browser profile. There is no account, backend, telemetry, or online backup.
 

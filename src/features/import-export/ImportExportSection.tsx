@@ -52,7 +52,7 @@ export function ImportExportSection({
       onImported(imported);
     } catch {
       setMessage(
-        'Import failed. Choose a valid Arcane Ledger JSON or YAML character file.',
+        'Import failed. Choose a valid Arcane Record JSON or YAML character file.',
       );
     } finally {
       setImporting(false);

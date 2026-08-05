@@ -75,7 +75,7 @@ export function App({
     return (
       <main className="boot-screen">
         <span aria-hidden="true">✦</span>
-        <h1>Arcane Ledger</h1>
+        <h1>Arcane Record</h1>
         <p role="status">Opening your browser-local records…</p>
       </main>
     );
