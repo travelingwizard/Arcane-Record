@@ -9,3 +9,8 @@ Deploy a fresh `dist/` directory to a timestamped release directory, update
 the `current` symlink atomically, and reload Nginx only after `nginx -t`.
 The tracked Nginx configurations document the initial HTTP host and final
 HTTPS host.
+
+`hema.travelingwizard.net` has its own explicit reverse-proxy host to keep it
+isolated from the character site. It proxies HTTP and WebSocket traffic to the
+existing HEMA service on `127.0.0.1:4173`; the IP-address host remains in the
+HEMA repository's original Nginx configuration.
