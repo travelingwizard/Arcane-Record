@@ -8,6 +8,7 @@ interface SphereWheelProps {
   affinitySphere: SphereId | null;
   onRatingChange: (sphere: SphereId, value: number) => void;
   onAffinityToggle: (sphere: SphereId) => void;
+  ratingsReadOnly?: boolean;
 }
 
 export function SphereWheel({
@@ -15,6 +16,7 @@ export function SphereWheel({
   affinitySphere,
   onRatingChange,
   onAffinityToggle,
+  ratingsReadOnly = false,
 }: SphereWheelProps) {
   const affinityLabel =
     spheres.find(({ id }) => id === affinitySphere)?.label ?? 'None selected';
@@ -58,6 +60,7 @@ export function SphereWheel({
               value={ratings[sphere.id]}
               min={0}
               max={5}
+              readOnly={ratingsReadOnly}
               onChange={(value) => onRatingChange(sphere.id, value)}
             />
           </article>

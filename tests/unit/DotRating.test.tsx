@@ -153,7 +153,6 @@ describe('DotRating', () => {
   });
 
   it('does not change in disabled or read-only states', async () => {
-    const user = userEvent.setup();
     const onChange = vi.fn();
     const { rerender } = render(
       <DotRating
@@ -181,7 +180,10 @@ describe('DotRating', () => {
         onChange={onChange}
       />,
     );
-    await user.click(screen.getByRole('button', { name: 'Set Arete to 3' }));
+    expect(screen.getByRole('group')).toHaveAttribute('aria-readonly', 'true');
+    expect(
+      screen.getByRole('button', { name: 'Set Arete to 3' }),
+    ).toBeDisabled();
     expect(onChange).not.toHaveBeenCalled();
   });
 });

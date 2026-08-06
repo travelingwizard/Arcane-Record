@@ -37,6 +37,9 @@ export function DotRating({
   };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (disabled || readOnly) {
+      return;
+    }
     let nextValue: number | null = null;
     if (event.key === 'ArrowLeft') {
       nextValue = value - 1;
@@ -80,7 +83,7 @@ export function DotRating({
               type="button"
               aria-label={`Set ${label} to ${dot}`}
               aria-pressed={filled}
-              disabled={disabled}
+              disabled={disabled || readOnly}
               tabIndex={-1}
               onClick={() => selectDot(dot)}
             >

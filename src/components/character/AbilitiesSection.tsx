@@ -8,6 +8,9 @@ import { SheetSection } from '../layout/SheetSection';
 
 export function AbilitiesSection() {
   const abilities = useEditorStore((state) => state.character?.abilities);
+  const ratingsReadOnly = useEditorStore(
+    (state) => state.character?.sheetLayout.mode === 'play',
+  );
   const updateAbility = useEditorStore((state) => state.updateAbility);
 
   if (!abilities) {
@@ -36,6 +39,7 @@ export function AbilitiesSection() {
                       value={ratings[ability.id]}
                       min={0}
                       max={5}
+                      readOnly={ratingsReadOnly}
                       onChange={(value) =>
                         updateAbility(group.id, ability.id as AbilityId, value)
                       }

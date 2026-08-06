@@ -29,6 +29,9 @@ test('navigates the full desktop sheet with anchors and active-section tracking'
   await modeSwitch.check();
   await expect(modeSwitch).toBeChecked();
   await expect(
+    page.getByRole('button', { name: 'Set Strength to 3' }),
+  ).toBeDisabled();
+  await expect(
     page.locator('.character-sheet section').first(),
   ).toHaveAttribute('id', 'health');
   await desktopNavigation

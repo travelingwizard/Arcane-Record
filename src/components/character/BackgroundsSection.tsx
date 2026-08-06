@@ -21,6 +21,9 @@ export function BackgroundsSection() {
     useEditorStore((state) => state.character?.repeatableEntries.backgrounds) ??
     emptyBackgrounds;
   const lastChange = useEditorStore((state) => state.lastBackgroundChange);
+  const ratingsReadOnly = useEditorStore(
+    (state) => state.character?.sheetLayout.mode === 'play',
+  );
   const addBackground = useEditorStore((state) => state.addBackground);
   const updateBackground = useEditorStore((state) => state.updateBackground);
   const repairBackground = useEditorStore((state) => state.repairBackground);
@@ -132,6 +135,7 @@ export function BackgroundsSection() {
         selections={backgrounds}
         sort={selectedSort}
         focusSelectionId={focusSelectionId}
+        ratingsReadOnly={ratingsReadOnly}
         onUpdate={updateBackground}
         onRepair={(selectionId, definitionId) => {
           repairBackground(selectionId, definitionId);

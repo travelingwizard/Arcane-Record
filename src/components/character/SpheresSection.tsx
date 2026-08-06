@@ -34,6 +34,9 @@ export function SpheresSection() {
   const affinitySphere = useEditorStore(
     (state) => state.character?.affinitySphere ?? null,
   );
+  const ratingsReadOnly = useEditorStore(
+    (state) => state.character?.sheetLayout.mode === 'play',
+  );
   const updateSphere = useEditorStore((state) => state.updateSphere);
   const toggleAffinity = useEditorStore((state) => state.toggleAffinity);
   const [sortMode, setSortMode] = useState<SphereSortMode>(getInitialSortMode);
@@ -117,6 +120,7 @@ export function SpheresSection() {
           affinitySphere={affinitySphere}
           onRatingChange={updateSphere}
           onAffinityToggle={toggleAffinity}
+          ratingsReadOnly={ratingsReadOnly}
         />
       ) : null}
 
@@ -146,6 +150,7 @@ export function SpheresSection() {
               value={spheres[sphere.id]}
               min={0}
               max={5}
+              readOnly={ratingsReadOnly}
               onChange={(value) => updateSphere(sphere.id, value)}
             />
           </article>

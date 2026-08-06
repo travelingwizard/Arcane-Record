@@ -132,6 +132,14 @@ describe('character section navigation', () => {
 
     await user.click(modeSwitch);
     expect(modeSwitch).toBeChecked();
+    const strengthThree = screen.getByRole('button', {
+      name: 'Set Strength to 3',
+    });
+    expect(strengthThree).toBeDisabled();
+    await user.click(strengthThree);
+    expect(
+      useEditorStore.getState().character?.attributes.physical.strength,
+    ).toBe(1);
 
     const sectionIds = [
       ...document.querySelectorAll('.character-sheet section'),
@@ -173,6 +181,24 @@ describe('character section navigation', () => {
         ],
       },
     });
+
+    await user.click(modeSwitch);
+    expect(strengthThree).toBeEnabled();
+  });
+
+  it('locks dot ratings in Play mode on a narrow touch layout', async () => {
+    setNarrowLayout(true);
+    renderEditor();
+    const user = userEvent.setup();
+
+    await user.click(
+      screen.getByRole('switch', { name: /Build mode.*Play mode/i }),
+    );
+    await user.click(screen.getByRole('button', { name: 'Expand Attributes' }));
+
+    expect(
+      screen.getByRole('button', { name: 'Set Strength to 3' }),
+    ).toBeDisabled();
   });
 
   it('expands a valid initial hash and safely ignores an invalid one', () => {

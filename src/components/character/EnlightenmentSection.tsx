@@ -7,6 +7,9 @@ export function EnlightenmentSection() {
   const enlightenment = useEditorStore(
     (state) => state.character?.enlightenment,
   );
+  const ratingsReadOnly = useEditorStore(
+    (state) => state.character?.sheetLayout.mode === 'play',
+  );
   const updateEnlightenment = useEditorStore(
     (state) => state.updateEnlightenment,
   );
@@ -39,6 +42,7 @@ export function EnlightenmentSection() {
                 min={trait.min}
                 max={10}
                 showBreakAfterFive
+                readOnly={ratingsReadOnly}
                 onChange={(value) => updateEnlightenment(trait.id, value)}
               />
               {trait.id === 'willpower' ? (
@@ -51,6 +55,7 @@ export function EnlightenmentSection() {
                     max={10}
                     showBreakAfterFive
                     variant="boxes"
+                    readOnly={ratingsReadOnly}
                     onChange={updateTemporaryWillpower}
                   />
                 </div>

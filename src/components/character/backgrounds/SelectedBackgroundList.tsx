@@ -19,6 +19,7 @@ export function SelectedBackgroundList({
   selections,
   sort,
   focusSelectionId,
+  ratingsReadOnly,
   onUpdate,
   onRepair,
   onRemove,
@@ -26,6 +27,7 @@ export function SelectedBackgroundList({
   selections: SelectedBackground[];
   sort: SelectedBackgroundSort;
   focusSelectionId: string | null;
+  ratingsReadOnly: boolean;
   onUpdate: (
     selectionId: string,
     update: Partial<
@@ -187,6 +189,7 @@ export function SelectedBackgroundList({
                     )}
                     min={definition.minimumRating}
                     max={definition.standardMaximumRating}
+                    readOnly={ratingsReadOnly}
                     onChange={(rating) => onUpdate(selection.id, { rating })}
                   />
                   <div className="selected-background__facts">
@@ -242,6 +245,7 @@ export function SelectedBackgroundList({
                             max={backgroundRatingRules.extendedInterfaceMaximum}
                             step={1}
                             value={selection.rating}
+                            disabled={ratingsReadOnly}
                             onChange={(event) =>
                               onUpdate(selection.id, {
                                 rating: Number(event.target.value),
