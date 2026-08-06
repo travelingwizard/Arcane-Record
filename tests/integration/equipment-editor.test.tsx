@@ -77,4 +77,23 @@ describe('Equipment editor', () => {
       category: 'armor',
     });
   });
+
+  it('keeps equipment editable in Play mode', async () => {
+    const user = userEvent.setup();
+    act(() => useEditorStore.getState().setSheetLayoutMode('play'));
+    render(<EquipmentSection />);
+
+    await user.type(screen.getByLabelText('Custom equipment name'), 'Torch');
+    await user.type(
+      screen.getByLabelText('Custom description'),
+      'A dependable light source.',
+    );
+    await user.click(
+      screen.getByRole('button', { name: 'Add custom equipment' }),
+    );
+
+    expect(
+      useEditorStore.getState().character?.repeatableEntries.equipment[0],
+    ).toMatchObject({ name: 'Torch', quantity: 1 });
+  });
 });

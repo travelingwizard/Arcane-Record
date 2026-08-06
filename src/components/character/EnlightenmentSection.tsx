@@ -42,7 +42,10 @@ export function EnlightenmentSection() {
                 min={trait.min}
                 max={10}
                 showBreakAfterFive
-                readOnly={ratingsReadOnly}
+                readOnly={
+                  ratingsReadOnly &&
+                  (trait.id === 'arete' || trait.id === 'willpower')
+                }
                 onChange={(value) => updateEnlightenment(trait.id, value)}
               />
               {trait.id === 'willpower' ? (
@@ -55,7 +58,6 @@ export function EnlightenmentSection() {
                     max={10}
                     showBreakAfterFive
                     variant="boxes"
-                    readOnly={ratingsReadOnly}
                     onChange={updateTemporaryWillpower}
                   />
                 </div>

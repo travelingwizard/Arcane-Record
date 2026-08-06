@@ -20,11 +20,15 @@ export function SheetLayoutModeToggle() {
             navigation.setSheetLayoutMode(playMode ? 'build' : 'play')
           }
         />
+        <span className="sheet-layout-mode-toggle__track" aria-hidden="true">
+          <span />
+        </span>
         <span>Play mode</span>
       </label>
       {playMode ? (
         <p className="sheet-layout-mode-note" role="status">
-          Dot ratings are view-only in Play mode.
+          Build ratings are view-only. Health, Temporary Willpower,
+          Quintessence, Paradox, and Equipment remain editable.
         </p>
       ) : null}
     </div>

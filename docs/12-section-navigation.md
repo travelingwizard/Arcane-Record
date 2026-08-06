@@ -53,11 +53,12 @@ switch selects a per-character group order. Up/down controls in the desktop
 rail and mobile Sections sheet reorder groups for the active mode; the page and
 both navigators follow the same order.
 
-Build mode keeps dot ratings editable. Play mode renders the same ratings as
-view-only controls across desktop and mobile, including Attributes, Abilities,
-Spheres, Enlightenment and temporary Willpower, and Background ratings. This
-prevents accidental touch changes without hiding current values or locking
-non-rating play controls such as Health.
+Build mode keeps every rating editable. Play mode renders character-building
+ratings as view-only controls across desktop and mobile: Attributes, Abilities,
+Spheres, Arete, permanent Willpower, and Backgrounds. Health, Temporary
+Willpower, Quintessence, Paradox, and Equipment remain editable for use during
+play. This prevents accidental touch changes without locking resource and
+condition tracking.
 
 Below 70rem, the rail is hidden and the sticky Sections button opens a modal
 bottom sheet. The sheet traps focus, closes with Escape or its close button,

@@ -47,6 +47,56 @@ describe('expanded character editor', () => {
     expect(character?.enlightenment.quintessence).toBe(3);
   });
 
+  it('keeps play resources editable while locking permanent ratings', async () => {
+    const user = userEvent.setup();
+    act(() => useEditorStore.getState().setSheetLayoutMode('play'));
+    render(
+      <>
+        <EnlightenmentSection />
+        <HealthSection />
+      </>,
+    );
+
+    expect(
+      screen.getByRole('button', { name: 'Set Arete to 3' }),
+    ).toBeDisabled();
+    expect(
+      screen.getByRole('button', { name: 'Set Willpower to 6' }),
+    ).toBeDisabled();
+
+    const temporaryWillpower = screen.getByRole('button', {
+      name: 'Set Temporary Willpower to 3',
+    });
+    const quintessence = screen.getByRole('button', {
+      name: 'Set Quintessence to 3',
+    });
+    const paradox = screen.getByRole('button', {
+      name: 'Set Paradox to 3',
+    });
+    const health = screen.getByRole('button', {
+      name: 'Bruised: Unmarked damage',
+    });
+
+    expect(temporaryWillpower).toBeEnabled();
+    expect(quintessence).toBeEnabled();
+    expect(paradox).toBeEnabled();
+    expect(health).toBeEnabled();
+
+    await user.click(temporaryWillpower);
+    await user.click(quintessence);
+    await user.click(paradox);
+    await user.click(health);
+
+    expect(useEditorStore.getState().character?.enlightenment).toMatchObject({
+      willpowerTemporary: 3,
+      quintessence: 3,
+      paradox: 3,
+    });
+    expect(useEditorStore.getState().character?.health.damage).toEqual([
+      'bashing',
+    ]);
+  });
+
   it('cycles sequential Health damage and truncates cleared boxes', async () => {
     const user = userEvent.setup();
     render(<HealthSection />);
