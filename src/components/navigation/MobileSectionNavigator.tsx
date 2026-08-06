@@ -1,11 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import {
-  characterSectionById,
-  characterSections,
-  getOrderedSectionGroups,
-  getCharacterSectionFromHash,
-  type CharacterSectionId,
-} from '../../systems/mage-m20/character-sections';
+  getOrderedNavigationGroups,
+  getSheetSectionFromHash,
+} from './sheet-navigation';
 import { useCharacterSectionContext } from './character-section-context';
 import { SectionOrderEditToggle } from './SectionOrderEditToggle';
 
@@ -74,20 +71,23 @@ export function MobileSectionNavigator() {
     return null;
   }
 
-  const activeDefinition = characterSectionById.get(navigation.activeSection);
+  const activeDefinition = navigation.sections.find(
+    (section) => section.id === navigation.activeSection,
+  );
   const closeAndRestore = () => {
     setOpen(false);
     setEditingOrder(false);
     window.requestAnimationFrame(() => triggerRef.current?.focus());
   };
-  const selectSection = (sectionId: CharacterSectionId) => {
+  const selectSection = (sectionId: string) => {
     setOpen(false);
     setEditingOrder(false);
     window.requestAnimationFrame(() =>
       navigation.navigateToSection(sectionId, { focusHeading: true }),
     );
   };
-  const keepSection = getCharacterSectionFromHash() ?? navigation.activeSection;
+  const keepSection =
+    getSheetSectionFromHash(navigation.sections) ?? navigation.activeSection;
 
   return (
     <>
@@ -102,9 +102,7 @@ export function MobileSectionNavigator() {
       >
         <span>Sections</span>
         <strong>
-          {activeDefinition && 'shortLabel' in activeDefinition
-            ? activeDefinition.shortLabel
-            : (activeDefinition?.label ?? 'Identity')}
+          {activeDefinition?.shortLabel ?? activeDefinition?.label ?? 'Sheet'}
         </strong>
         <span aria-hidden="true">⌄</span>
       </button>
@@ -147,28 +145,31 @@ export function MobileSectionNavigator() {
               </div>
             </header>
 
-            <div className="mobile-section-sheet__bulk-actions">
-              <button
-                type="button"
-                className="small-button small-button--quiet"
-                onClick={navigation.expandAllSections}
-              >
-                Expand all sections
-              </button>
-              <button
-                type="button"
-                className="small-button small-button--quiet"
-                onClick={() => navigation.collapseAllSections(keepSection)}
-              >
-                Collapse all sections
-              </button>
-            </div>
+            {navigation.canCollapseSections ? (
+              <div className="mobile-section-sheet__bulk-actions">
+                <button
+                  type="button"
+                  className="small-button small-button--quiet"
+                  onClick={navigation.expandAllSections}
+                >
+                  Expand all sections
+                </button>
+                <button
+                  type="button"
+                  className="small-button small-button--quiet"
+                  onClick={() => navigation.collapseAllSections(keepSection)}
+                >
+                  Collapse all sections
+                </button>
+              </div>
+            ) : null}
 
             <nav aria-label="Mobile character sheet sections">
-              {getOrderedSectionGroups(
-                navigation.sheetLayout.groupOrders[navigation.sheetLayout.mode],
+              {getOrderedNavigationGroups(
+                navigation.groups,
+                navigation.groupOrder,
               ).map((group) => {
-                const sections = characterSections.filter(
+                const sections = navigation.sections.filter(
                   (section) => section.group === group.id,
                 );
                 if (sections.length === 0) {
@@ -185,16 +186,10 @@ export function MobileSectionNavigator() {
                             className="icon-button"
                             aria-label={`Move ${group.label} earlier`}
                             disabled={
-                              navigation.sheetLayout.groupOrders[
-                                navigation.sheetLayout.mode
-                              ].indexOf(group.id) === 0
+                              navigation.groupOrder.indexOf(group.id) === 0
                             }
                             onClick={() =>
-                              navigation.moveSheetGroup(
-                                navigation.sheetLayout.mode,
-                                group.id,
-                                'earlier',
-                              )
+                              navigation.moveGroup(group.id, 'earlier')
                             }
                           >
                             ↑
@@ -204,20 +199,11 @@ export function MobileSectionNavigator() {
                             className="icon-button"
                             aria-label={`Move ${group.label} later`}
                             disabled={
-                              navigation.sheetLayout.groupOrders[
-                                navigation.sheetLayout.mode
-                              ].indexOf(group.id) ===
-                              navigation.sheetLayout.groupOrders[
-                                navigation.sheetLayout.mode
-                              ].length -
-                                1
+                              navigation.groupOrder.indexOf(group.id) ===
+                              navigation.groupOrder.length - 1
                             }
                             onClick={() =>
-                              navigation.moveSheetGroup(
-                                navigation.sheetLayout.mode,
-                                group.id,
-                                'later',
-                              )
+                              navigation.moveGroup(group.id, 'later')
                             }
                           >
                             ↓
@@ -240,7 +226,8 @@ export function MobileSectionNavigator() {
                             >
                               <span>{section.label}</span>
                               <small>
-                                {navigation.summaries[section.id].primary}
+                                {navigation.summaries[section.id]?.primary ??
+                                  ''}
                               </small>
                               {active ? <strong>Current section</strong> : null}
                             </a>

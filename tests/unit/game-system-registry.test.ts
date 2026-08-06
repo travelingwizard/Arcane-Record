@@ -18,6 +18,12 @@ describe('game system registry', () => {
       'solar',
       'dragon-blooded',
     ]);
+    expect(system?.sectionGroups.map(({ id }) => id)).toEqual([
+      'character',
+      'traits',
+      'advantages',
+      'records',
+    ]);
   });
 
   it('resolves valid characters and preserves unknown systems as unavailable', () => {

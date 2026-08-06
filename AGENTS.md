@@ -21,6 +21,9 @@
 
 ## Interface
 
+- Treat the shared section-navigation system as core application chrome. Every
+  character editor uses the desktop left rail, the mobile Sections sheet, and
+  pencil-gated section-group reordering that also reorders the sheet.
 - Preserve the reference's parchment, charcoal, serif, fine-rule, compact-row character using original CSS decoration only.
 - Do not use the PDF as a background or reuse its logos/art.
 - Maintain keyboard support, visible focus, real labels, sufficient contrast, reduced-motion support, and practical 44px touch targets.

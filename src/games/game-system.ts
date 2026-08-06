@@ -14,6 +14,13 @@ export interface GameCharacterEditorProps<TCharacter> {
 export interface GameSectionDefinition {
   id: string;
   label: string;
+  shortLabel?: string;
+  group: string;
+}
+
+export interface GameSectionGroupDefinition {
+  id: string;
+  label: string;
 }
 
 export interface GameAppearanceDefinition {
@@ -49,6 +56,7 @@ export interface GameSystemDefinition<TCharacter = unknown> {
   duplicateCharacter: (character: TCharacter) => TCharacter;
   CharacterEditor: ComponentType<GameCharacterEditorProps<TCharacter>>;
   sections: readonly GameSectionDefinition[];
+  sectionGroups: readonly GameSectionGroupDefinition[];
   variants?: readonly GameSystemVariantDefinition<TCharacter>[];
   appearance?: GameAppearanceDefinition;
 }

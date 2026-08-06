@@ -1,8 +1,64 @@
 export const EXALTED1E_SYSTEM_ID = 'exalted1e' as const;
-export const EXALTED1E_SCHEMA_VERSION = 1 as const;
+export const EXALTED1E_SCHEMA_VERSION = 2 as const;
 
 export const exaltedSheetTypes = ['solar', 'dragon-blooded'] as const;
 export type ExaltedSheetType = (typeof exaltedSheetTypes)[number];
+
+export const exaltedSectionGroups = [
+  { id: 'character', label: 'Character' },
+  { id: 'traits', label: 'Traits' },
+  { id: 'advantages', label: 'Advantages' },
+  { id: 'records', label: 'Records' },
+] as const;
+
+export type ExaltedSectionGroupId = (typeof exaltedSectionGroups)[number]['id'];
+
+export const exaltedSectionGroupIds = exaltedSectionGroups.map(
+  ({ id }) => id,
+) as ExaltedSectionGroupId[];
+
+export const exaltedSections = [
+  {
+    id: 'exalted-identity',
+    label: 'Character',
+    group: 'character',
+  },
+  {
+    id: 'exalted-attributes',
+    label: 'Attributes',
+    group: 'traits',
+  },
+  {
+    id: 'exalted-abilities',
+    label: 'Abilities',
+    group: 'traits',
+  },
+  {
+    id: 'exalted-backgrounds',
+    label: 'Backgrounds',
+    group: 'advantages',
+  },
+  {
+    id: 'exalted-advantages',
+    label: 'Advantages',
+    group: 'advantages',
+  },
+  { id: 'exalted-notes', label: 'Notes', group: 'records' },
+  {
+    id: 'exalted-later-pages',
+    label: 'Later pages',
+    group: 'records',
+  },
+] as const;
+
+export type ExaltedSectionId = (typeof exaltedSections)[number]['id'];
+
+export const defaultExaltedSectionGroupOrder: ExaltedSectionGroupId[] = [
+  'character',
+  'traits',
+  'advantages',
+  'records',
+];
 
 export const exaltedAttributeGroups = [
   {

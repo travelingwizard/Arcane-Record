@@ -1,4 +1,7 @@
-import { characterSections } from '../../systems/mage-m20/character-sections';
+import {
+  characterSectionGroups,
+  characterSections,
+} from '../../systems/mage-m20/character-sections';
 import {
   mageCharacterDataSchema,
   migrateMageCharacter,
@@ -63,7 +66,13 @@ export const mage20Definition: GameSystemDefinition<MageCharacterData> = {
     },
   }),
   CharacterEditor: Mage20Editor,
-  sections: characterSections.map(({ id, label }) => ({ id, label })),
+  sections: characterSections.map(({ id, label, group, ...section }) => ({
+    id,
+    label,
+    group,
+    ...('shortLabel' in section ? { shortLabel: section.shortLabel } : {}),
+  })),
+  sectionGroups: characterSectionGroups,
   appearance: {
     label: 'Mage 20 sheet appearance',
     description: 'Themes and identity overlays used only by Mage 20 sheets.',

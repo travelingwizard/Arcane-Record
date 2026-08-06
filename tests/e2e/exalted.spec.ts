@@ -24,7 +24,14 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   ).toBeVisible();
 
   await page.getByRole('button', { name: 'Choose Solar' }).click();
-  await page.getByRole('button', { name: 'Create Character' }).click();
+  await expect(page).toHaveURL(/\/characters\//);
+  const navigation = page.getByRole('navigation', {
+    name: 'Character sheet sections',
+  });
+  await expect(navigation).toBeVisible();
+  await expect(
+    navigation.getByRole('button', { name: 'Move Character later' }),
+  ).toHaveCount(0);
   await page.getByLabel('Name', { exact: true }).fill('Tepet Sun-at-Dawn');
   await page.getByLabel('Caste', { exact: true }).fill('Dawn');
   await page.getByRole('button', { name: 'Set Strength to 3' }).click();
@@ -35,9 +42,25 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
     .selectOption('artifact');
   await page.getByRole('button', { name: 'Add Background' }).click();
   await page.getByRole('button', { name: 'Set Artifact to 3' }).click();
+  await navigation.getByRole('button', { name: 'Edit section order' }).click();
+  await navigation
+    .getByRole('button', { name: 'Move Character later' })
+    .click();
+  await expect(
+    page.getByText('Unsaved changes', { exact: true }),
+  ).toBeVisible();
   await expect(
     page.getByText('Saved in this browser', { exact: true }),
   ).toBeVisible();
+
+  const reorderedSections = await page
+    .locator('.exalted-character-sheet > section')
+    .evaluateAll((sections) => sections.map((section) => section.id));
+  expect(reorderedSections.slice(0, 3)).toEqual([
+    'exalted-attributes',
+    'exalted-abilities',
+    'exalted-identity',
+  ]);
 
   await page.reload();
   await expect(page.getByLabel('Name', { exact: true })).toHaveValue(
@@ -52,11 +75,13 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   await expect(
     page.getByRole('group', { name: 'Artifact: 3 out of 5' }),
   ).toBeVisible();
+  await expect(
+    page.locator('.exalted-character-sheet > section').first(),
+  ).toHaveAttribute('id', 'exalted-attributes');
 
   await page.getByRole('button', { name: /Character library/ }).click();
   await chooseExalted(page);
   await page.getByRole('button', { name: 'Choose Dragon-Blooded' }).click();
-  await page.getByRole('button', { name: 'Create Character' }).click();
   await expect(page.getByLabel('Aspect', { exact: true })).toBeVisible();
   await expect(page.getByLabel('House', { exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Air' })).toBeVisible();
@@ -65,6 +90,19 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   await expect(page.getByText('Limit Break', { exact: true })).toHaveCount(0);
 
   await page.setViewportSize({ width: 320, height: 900 });
+  await page.getByRole('button', { name: /Sections Character/ }).click();
+  const mobileSections = page.getByRole('dialog', {
+    name: 'Character Sections',
+  });
+  await mobileSections
+    .getByRole('button', { name: 'Edit section order' })
+    .click();
+  await expect(
+    mobileSections.getByRole('button', { name: 'Move Character later' }),
+  ).toBeVisible();
+  await mobileSections
+    .getByRole('button', { name: 'Close Character Sections' })
+    .click();
   const dimensions = await page.evaluate(() => ({
     viewport: document.documentElement.clientWidth,
     content: document.documentElement.scrollWidth,

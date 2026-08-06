@@ -1,34 +1,27 @@
 import { createContext, useContext } from 'react';
-import type { CharacterSectionSummaries } from '../../features/character-editor/character-section-summaries';
-import type { CharacterSectionId } from '../../systems/mage-m20/character-sections';
 import type {
-  CharacterSectionGroupId,
-  SheetLayoutMode,
-} from '../../systems/mage-m20/character-sections';
-import type { SheetLayout } from '../../types/character';
+  SheetNavigationGroupDefinition,
+  SheetNavigationSectionDefinition,
+  SheetNavigationSummary,
+} from './sheet-navigation';
 
 export interface CharacterSectionContextValue {
-  activeSection: CharacterSectionId;
-  expandedSections: Set<CharacterSectionId>;
+  activeSection: string;
+  expandedSections: Set<string>;
   isNarrowLayout: boolean;
-  summaries: CharacterSectionSummaries;
-  setSectionExpanded: (
-    sectionId: CharacterSectionId,
-    expanded: boolean,
-  ) => void;
+  summaries: Record<string, SheetNavigationSummary>;
+  sections: readonly SheetNavigationSectionDefinition[];
+  groups: readonly SheetNavigationGroupDefinition[];
+  groupOrder: readonly string[];
+  canCollapseSections: boolean;
+  setSectionExpanded: (sectionId: string, expanded: boolean) => void;
   navigateToSection: (
-    sectionId: CharacterSectionId,
+    sectionId: string,
     options?: { focusHeading?: boolean; history?: 'push' | 'none' },
   ) => void;
   expandAllSections: () => void;
-  collapseAllSections: (keepSection: CharacterSectionId) => void;
-  sheetLayout: SheetLayout;
-  setSheetLayoutMode: (mode: SheetLayoutMode) => void;
-  moveSheetGroup: (
-    mode: SheetLayoutMode,
-    groupId: CharacterSectionGroupId,
-    direction: 'earlier' | 'later',
-  ) => void;
+  collapseAllSections: (keepSection: string) => void;
+  moveGroup: (groupId: string, direction: 'earlier' | 'later') => void;
 }
 
 export const CharacterSectionContext =

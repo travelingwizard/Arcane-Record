@@ -1,8 +1,17 @@
 import type { GameSystemDefinition } from '../game-system';
 import { createBlankExaltedCharacter } from './create-character';
-import { EXALTED1E_SCHEMA_VERSION, EXALTED1E_SYSTEM_ID } from './definitions';
+import {
+  EXALTED1E_SCHEMA_VERSION,
+  EXALTED1E_SYSTEM_ID,
+  exaltedSectionGroups,
+  exaltedSections,
+} from './definitions';
 import { Exalted1eEditor } from './Exalted1eEditor';
-import { exalted1eCharacterSchema, type Exalted1eCharacter } from './schema';
+import {
+  exalted1eCharacterSchema,
+  migrateExalted1eCharacter,
+  type Exalted1eCharacter,
+} from './schema';
 
 function sheetLabel(character: Exalted1eCharacter) {
   return character.sheetType === 'solar' ? 'Solar' : 'Dragon-Blooded';
@@ -17,7 +26,8 @@ export const exalted1eDefinition: GameSystemDefinition<Exalted1eCharacter> = {
   currentSchemaVersion: EXALTED1E_SCHEMA_VERSION,
   characterSchema: exalted1eCharacterSchema,
   createInitialCharacter: () => createBlankExaltedCharacter('solar'),
-  migrateCharacter: (data) => exalted1eCharacterSchema.parse(data),
+  migrateCharacter: (data, fromVersion) =>
+    migrateExalted1eCharacter(data, fromVersion),
   getDisplayName: (character) =>
     character.identity.name.trim() || `Untitled ${sheetLabel(character)}`,
   getSummary: (character) => {
@@ -49,15 +59,8 @@ export const exalted1eDefinition: GameSystemDefinition<Exalted1eCharacter> = {
     },
   }),
   CharacterEditor: Exalted1eEditor,
-  sections: [
-    { id: 'exalted-identity', label: 'Character' },
-    { id: 'exalted-attributes', label: 'Attributes' },
-    { id: 'exalted-abilities', label: 'Abilities' },
-    { id: 'exalted-backgrounds', label: 'Backgrounds' },
-    { id: 'exalted-advantages', label: 'Advantages' },
-    { id: 'exalted-notes', label: 'Notes' },
-    { id: 'exalted-later-pages', label: 'Later pages' },
-  ],
+  sections: exaltedSections,
+  sectionGroups: exaltedSectionGroups,
   variants: [
     {
       id: 'solar',

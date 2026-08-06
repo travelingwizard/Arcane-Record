@@ -7,8 +7,9 @@ envelope, settings, and error recovery. It does not know a game's fields.
 `GameSystemRegistry` is the shared lookup boundary. A registered
 `GameSystemDefinition<TCharacter>` supplies identity, schema version, Zod
 schema, initial data, migration, summary/search adapters, rename/duplicate
-adapters, its editor component, section metadata, and optional appearance
-metadata.
+adapters, its editor component, section and section-group metadata, and
+optional appearance metadata. Editors consume the shared left-rail/mobile
+navigation and pencil-order controls with those game-owned definitions.
 
 Mage 20 registers as `mage20`. The older `mage-m20` identifier remains only in
 the legacy Mage editor model and legacy-file detector.
@@ -17,9 +18,8 @@ the legacy Mage editor model and legacy-file detector.
 
 - `/` — neutral character library with search, game filter, import, and cards;
 - `/create` — game selection;
-- `/create/:systemId` — confirmation and local creation;
-- `/create/:systemId/:variantId` — variant confirmation for games with more
-  than one sheet type;
+- `/create/:systemId` — local creation for single-sheet games, or direct sheet
+  choice and creation for games with variants;
 - `/characters/:id` — shared resolver and module-owned editor;
 - `/settings` — global preferences and game appearance preferences.
 

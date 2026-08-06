@@ -10,9 +10,7 @@ describe('application routes', () => {
       systemId: 'mage20',
     });
     expect(parseRoute('/create/exalted1e/dragon-blooded')).toEqual({
-      name: 'create',
-      systemId: 'exalted1e',
-      variantId: 'dragon-blooded',
+      name: 'not-found',
     });
     expect(parseRoute('/characters/abc')).toEqual({
       name: 'character',

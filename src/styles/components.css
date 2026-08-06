@@ -3543,32 +3543,6 @@
   justify-self: end;
 }
 
-.exalted-section-nav {
-  padding: 0.8rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.35rem;
-  border-bottom: 1px solid var(--rule-light);
-  background: color-mix(in srgb, var(--paper) 92%, transparent);
-  backdrop-filter: blur(0.4rem);
-}
-
-.exalted-section-nav a {
-  min-height: 2.75rem;
-  padding: 0.6rem 0.75rem;
-  display: inline-flex;
-  align-items: center;
-  color: var(--umber-deep);
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 800;
-  text-decoration: none;
-}
-
 .exalted-sheet-section {
   padding: clamp(1.5rem, 4vw, 3rem) 0;
   scroll-margin-top: 4.5rem;

@@ -21,8 +21,10 @@ import { useEditorStore } from '../../state/editor-store';
 import type { CharacterRepository } from '../../storage/character-repository';
 import type { CharacterSectionId } from '../../systems/mage-m20/character-sections';
 import {
+  characterSectionGroups,
   characterSections,
   getOrderedSectionGroups,
+  type CharacterSectionGroupId,
 } from '../../systems/mage-m20/character-sections';
 import type { MageCharacter } from '../../types/character';
 import { ImportExportSection } from '../import-export/ImportExportSection';
@@ -99,16 +101,28 @@ function CharacterEditorContent({
   const sectionContext = useMemo(
     () => ({
       activeSection,
-      expandedSections,
+      expandedSections: new Set<string>(expandedSections),
       isNarrowLayout,
       summaries,
-      setSectionExpanded,
-      navigateToSection,
+      sections: characterSections,
+      groups: characterSectionGroups,
+      groupOrder: character.sheetLayout.groupOrders[character.sheetLayout.mode],
+      canCollapseSections: true,
+      setSectionExpanded: (sectionId: string, expanded: boolean) =>
+        setSectionExpanded(sectionId as CharacterSectionId, expanded),
+      navigateToSection: (
+        sectionId: string,
+        options?: { focusHeading?: boolean; history?: 'push' | 'none' },
+      ) => navigateToSection(sectionId as CharacterSectionId, options),
       expandAllSections,
-      collapseAllSections,
-      sheetLayout: character.sheetLayout,
-      setSheetLayoutMode,
-      moveSheetGroup,
+      collapseAllSections: (keepSection: string) =>
+        collapseAllSections(keepSection as CharacterSectionId),
+      moveGroup: (groupId: string, direction: 'earlier' | 'later') =>
+        moveSheetGroup(
+          character.sheetLayout.mode,
+          groupId as CharacterSectionGroupId,
+          direction,
+        ),
     }),
     [
       activeSection,
@@ -121,7 +135,6 @@ function CharacterEditorContent({
       summaries,
       character.sheetLayout,
       moveSheetGroup,
-      setSheetLayoutMode,
     ],
   );
 
@@ -150,7 +163,10 @@ function CharacterEditorContent({
           <span>✦</span>
         </div>
 
-        <SheetLayoutModeToggle />
+        <SheetLayoutModeToggle
+          mode={character.sheetLayout.mode}
+          onModeChange={setSheetLayoutMode}
+        />
 
         <MobileSectionNavigator />
 

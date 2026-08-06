@@ -1,12 +1,13 @@
-import { useCharacterSectionContext } from './character-section-context';
+import type { SheetLayoutMode } from '../../systems/mage-m20/character-sections';
 
-export function SheetLayoutModeToggle() {
-  const navigation = useCharacterSectionContext();
-  if (!navigation) {
-    return null;
-  }
-
-  const playMode = navigation.sheetLayout.mode === 'play';
+export function SheetLayoutModeToggle({
+  mode,
+  onModeChange,
+}: {
+  mode: SheetLayoutMode;
+  onModeChange: (mode: SheetLayoutMode) => void;
+}) {
+  const playMode = mode === 'play';
 
   return (
     <div className="sheet-layout-mode-control">
@@ -16,9 +17,7 @@ export function SheetLayoutModeToggle() {
           type="checkbox"
           role="switch"
           checked={playMode}
-          onChange={() =>
-            navigation.setSheetLayoutMode(playMode ? 'build' : 'play')
-          }
+          onChange={() => onModeChange(playMode ? 'build' : 'play')}
         />
         <span className="sheet-layout-mode-toggle__track" aria-hidden="true">
           <span />

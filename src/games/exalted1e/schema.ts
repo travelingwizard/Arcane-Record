@@ -1,7 +1,9 @@
 import { z } from 'zod';
 import {
+  defaultExaltedSectionGroupOrder,
   dragonBloodedBackgrounds,
   exaltedAbilities,
+  exaltedSectionGroupIds,
   exaltedSheetTypes,
   exaltedVirtues,
   solarBackgrounds,
@@ -9,6 +11,13 @@ import {
 
 const fivePointRating = z.number().int().min(0).max(5);
 const attributeRating = z.number().int().min(1).max(5);
+const exaltedSectionGroupIdSchema = z.enum(exaltedSectionGroupIds);
+const exaltedSectionGroupOrderSchema = z
+  .array(exaltedSectionGroupIdSchema)
+  .length(exaltedSectionGroupIds.length)
+  .refine((order) => new Set(order).size === exaltedSectionGroupIds.length, {
+    message: 'Section order must contain every group exactly once.',
+  });
 
 const abilitiesShape = Object.fromEntries(
   exaltedAbilities.map((ability) => [ability.id, fivePointRating]),
@@ -99,6 +108,9 @@ export const exalted1eCharacterSchema = z
       weapons: z.string(),
       experience: z.string(),
     }),
+    sheetLayout: z.object({
+      groupOrder: exaltedSectionGroupOrderSchema,
+    }),
   })
   .superRefine((character, context) => {
     const allowedBackgroundIds =
@@ -117,3 +129,16 @@ export const exalted1eCharacterSchema = z
   });
 
 export type Exalted1eCharacter = z.infer<typeof exalted1eCharacterSchema>;
+
+export function migrateExalted1eCharacter(data: unknown, fromVersion: number) {
+  const candidate =
+    fromVersion < 2 && data && typeof data === 'object' && !Array.isArray(data)
+      ? {
+          ...data,
+          sheetLayout: {
+            groupOrder: [...defaultExaltedSectionGroupOrder],
+          },
+        }
+      : data;
+  return exalted1eCharacterSchema.parse(candidate);
+}

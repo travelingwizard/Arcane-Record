@@ -22,19 +22,23 @@ are not persisted as character data.
 ## Registered structure
 
 - game system ID: `exalted1e`;
-- schema version: `1`;
+- schema version: `2`;
 - sheet variants: `solar`, `dragon-blooded`;
-- create route: `/create/exalted1e/:variantId`;
+- create route: `/create/exalted1e`; choosing a variant creates and opens it;
 - character data uses integer ratings rendered through the shared dot control.
 
 The schema stores sheet type, identity, Attributes, Abilities, favored Ability
-IDs, selected Background definition IDs and records, Virtues, permanent and temporary Willpower,
-Essence and pools, Limit/Virtue Flaw, and initial free-form notes. Zod validates
-all new, stored, and imported records through the shared registry boundary.
+IDs, selected Background definition IDs and records, Virtues, permanent and
+temporary Willpower, Essence and pools, Limit/Virtue Flaw, initial free-form
+notes, and a complete section-group order. Zod validates all new, stored, and
+imported records through the shared registry boundary. Version-one records
+migrate by receiving the default section order.
 
 ## Implemented foundation
 
-- generic three-step creation flow when a game has variants;
+- two-step creation where choosing Solar or Dragon-Blooded opens that sheet;
+- shared desktop left navigation and mobile Sections sheet;
+- pencil-gated group ordering that reorders and persists the sheet;
 - Solar and Dragon-Blooded identity fields;
 - all Attributes and Abilities with accessible dot editing;
 - favored Ability markers;

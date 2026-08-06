@@ -44,11 +44,15 @@ The editor provides:
 ## Exalted First Edition editor
 
 Creation offers Solar and Dragon-Blooded sheet variants after the user selects
-Exalted First Edition. Both foundations provide their source-sheet identity
+Exalted First Edition. Choosing either variant creates the browser-local record
+and opens its sheet immediately; there is no separate confirmation step. Both
+foundations provide their source-sheet identity
 fields, nine Attributes, 25 sheet-grouped Abilities, favored markers,
 sheet-specific Backgrounds, Virtues, Willpower, Essence and pools, and initial
-notes. Solar characters also expose Limit Break. Source pages two through four
-remain visibly labeled as deferred and are not presented as editable features.
+notes. Solar characters also expose Limit Break. Both use the core desktop left
+rail and mobile Sections sheet; pencil mode reorders section groups and the
+sheet together. Source pages two through four remain visibly labeled as
+deferred and are not presented as editable features.
 
 The editor exposes every visible major section through stable URL fragments.
 At 70rem and wider, a grouped sticky rail identifies the active section. Below

@@ -5,6 +5,8 @@ import {
   serializeCharacter,
   prepareImportedRecord,
 } from '../../src/features/import-export/character-files';
+import { createBlankExaltedCharacter } from '../../src/games/exalted1e/create-character';
+import { EXALTED1E_SCHEMA_VERSION } from '../../src/games/exalted1e/definitions';
 import { gameSystemRegistry } from '../../src/games/registry';
 import { mageCharacterSchema } from '../../src/systems/mage-m20/character-schema';
 import { createBlankMageCharacter } from '../../src/systems/mage-m20/create-character';
@@ -244,5 +246,44 @@ describe('character files', () => {
         gameSystemRegistry,
       ),
     ).toThrow(/not a recognized/i);
+  });
+
+  it('preserves Exalted section order through shared file exchange', () => {
+    const character = createBlankExaltedCharacter('solar');
+    character.identity.name = 'Ari of the Dawn';
+    character.sheetLayout.groupOrder = [
+      'traits',
+      'character',
+      'advantages',
+      'records',
+    ];
+    const serialized = serializeCharacter(
+      {
+        id: 'solar-source',
+        systemId: 'exalted1e',
+        systemVersion: EXALTED1E_SCHEMA_VERSION,
+        name: character.identity.name,
+        createdAt: '2026-08-06T12:00:00.000Z',
+        updatedAt: '2026-08-06T12:00:00.000Z',
+        data: character,
+      },
+      'json',
+    );
+    const imported = prepareImportedRecord(
+      serialized,
+      'ari.json',
+      gameSystemRegistry,
+      new Date('2026-08-07T12:00:00.000Z'),
+      '11111111-1111-4111-8111-111111111111',
+    );
+
+    expect(imported.systemId).toBe('exalted1e');
+    expect(imported.data).toMatchObject({
+      sheetType: 'solar',
+      identity: { name: 'Ari of the Dawn (Imported)' },
+      sheetLayout: {
+        groupOrder: ['traits', 'character', 'advantages', 'records'],
+      },
+    });
   });
 });

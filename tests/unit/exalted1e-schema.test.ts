@@ -1,10 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import { createBlankExaltedCharacter } from '../../src/games/exalted1e/create-character';
 import {
+  defaultExaltedSectionGroupOrder,
   dragonBloodedAbilityGroups,
   solarAbilityGroups,
 } from '../../src/games/exalted1e/definitions';
-import { exalted1eCharacterSchema } from '../../src/games/exalted1e/schema';
+import {
+  exalted1eCharacterSchema,
+  migrateExalted1eCharacter,
+} from '../../src/games/exalted1e/schema';
 
 describe('Exalted First Edition foundation', () => {
   it.each(['solar', 'dragon-blooded'] as const)(
@@ -17,6 +21,9 @@ describe('Exalted First Edition foundation', () => {
       expect(character.abilities.archery).toBe(0);
       expect(character.virtues.compassion).toBe(1);
       expect(character.essence.rating).toBe(1);
+      expect(character.sheetLayout.groupOrder).toEqual(
+        defaultExaltedSectionGroupOrder,
+      );
     },
   );
 
@@ -86,5 +93,23 @@ describe('Exalted First Edition foundation', () => {
         ],
       }),
     ).toThrow();
+  });
+
+  it('validates complete section orders and migrates version-one sheets', () => {
+    const character = createBlankExaltedCharacter('solar');
+    expect(() =>
+      exalted1eCharacterSchema.parse({
+        ...character,
+        sheetLayout: {
+          groupOrder: ['character', 'traits', 'advantages', 'advantages'],
+        },
+      }),
+    ).toThrow();
+
+    const versionOne = { ...character } as Partial<typeof character>;
+    delete versionOne.sheetLayout;
+    expect(
+      migrateExalted1eCharacter(versionOne, 1).sheetLayout.groupOrder,
+    ).toEqual(defaultExaltedSectionGroupOrder);
   });
 });

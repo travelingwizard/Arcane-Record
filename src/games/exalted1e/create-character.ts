@@ -1,5 +1,6 @@
 import type { Exalted1eCharacter } from './schema';
 import {
+  defaultExaltedSectionGroupOrder,
   exaltedAbilities,
   exaltedAttributeGroups,
   exaltedVirtues,
@@ -39,5 +40,8 @@ export function createBlankExaltedCharacter(
     essence: { rating: 1, personal: 0, peripheral: 0, committed: 0 },
     limit: { rating: 0, virtueFlaw: '' },
     notes: { anima: '', weapons: '', experience: '' },
+    sheetLayout: {
+      groupOrder: [...defaultExaltedSectionGroupOrder],
+    },
   };
 }

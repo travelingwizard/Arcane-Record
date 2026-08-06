@@ -1,6 +1,6 @@
 export type AppRoute =
   | { name: 'home' }
-  | { name: 'create'; systemId?: string; variantId?: string }
+  | { name: 'create'; systemId?: string }
   | { name: 'character'; id: string }
   | { name: 'settings' }
   | { name: 'not-found' };
@@ -8,8 +8,8 @@ export type AppRoute =
 export function parseRoute(pathname: string): AppRoute {
   const parts = pathname.split('/').filter(Boolean).map(decodeURIComponent);
   if (parts.length === 0) return { name: 'home' };
-  if (parts[0] === 'create' && parts.length <= 3) {
-    return { name: 'create', systemId: parts[1], variantId: parts[2] };
+  if (parts[0] === 'create' && parts.length <= 2) {
+    return { name: 'create', systemId: parts[1] };
   }
   if (parts[0] === 'characters' && parts.length === 2) {
     return { name: 'character', id: parts[1] };

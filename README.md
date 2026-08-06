@@ -6,11 +6,15 @@ backend, telemetry, or online backup. Mage: The Ascension 20th Anniversary
 Edition is the first complete game module. Exalted First Edition is registered
 with Solar and Dragon-Blooded foundation sheets.
 
-The long-form editor includes URL-addressable sections, a searchable Equipment
+The Mage long-form editor includes URL-addressable sections, a searchable Equipment
 catalog, Combat and Do Maneuvers, a sticky desktop section rail, and a mobile
 Sections sheet with independently collapsible sections. Expansion preferences
 stay in browser-local interface storage and are not included in character
 exports.
+
+The desktop left rail, mobile Sections sheet, and pencil-gated group ordering
+are shared character-sheet controls. Game modules provide stable section
+definitions and persist any character-owned order required by that sheet.
 
 ## Local development
 

@@ -2,10 +2,14 @@
 
 ## Registry and anchors
 
-`src/systems/mage-m20/character-sections.ts` is the single source for section
-IDs, labels, groups, and order. Rendering, desktop navigation, mobile
-navigation, summaries, hashes, and preference validation consume that
-registry.
+The components under `src/components/navigation` provide core application
+chrome for every game: a desktop left rail, a mobile Sections sheet, hash
+navigation, and pencil-gated section-group ordering. Each game supplies stable
+section and group definitions. Mage definitions live in
+`src/systems/mage-m20/character-sections.ts`; Exalted definitions live in
+`src/games/exalted1e/definitions.ts`.
+
+Mage currently registers these groups and anchors:
 
 | Group      | Section        | Anchor           |
 | ---------- | -------------- | ---------------- |
@@ -111,3 +115,9 @@ JSON/YAML serialization. The active desktop section is transient.
 By contrast, `sheetLayout` is character data: it stores Build/Play mode and a
 complete group order for each mode. It is validated, saved in IndexedDB, and
 included in JSON/YAML character files.
+
+Exalted First Edition currently has one complete group order rather than
+Build/Play-specific orders. It uses Character, Traits, Advantages, and Records
+groups. The same pencil interaction reorders its navigation and DOM section
+order; schema migration supplies the default order to version-one Exalted
+records.

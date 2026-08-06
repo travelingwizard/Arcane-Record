@@ -1,13 +1,9 @@
 import { useRef, useState, type ReactNode } from 'react';
-import {
-  characterSectionById,
-  type CharacterSectionId,
-} from '../../systems/mage-m20/character-sections';
 import { CharacterSectionDisclosure } from '../navigation/CharacterSectionDisclosure';
 import { useCharacterSectionContext } from '../navigation/character-section-context';
 
 interface SheetSectionProps {
-  id: CharacterSectionId;
+  id: string;
   eyebrow?: string;
   title: string;
   description?: string;
@@ -33,7 +29,7 @@ export function SheetSection({
   const sectionRef = useRef<HTMLElement>(null);
   const disclosureRef = useRef<HTMLButtonElement>(null);
   const [desktopExpanded, setDesktopExpanded] = useState(true);
-  const definition = characterSectionById.get(id);
+  const definition = navigation?.sections.find((section) => section.id === id);
   const canUseDisclosure =
     Boolean(navigation) && (navigation?.isNarrowLayout || collapsibleOnDesktop);
   const summary = navigation?.summaries[id] ?? { primary: '' };
