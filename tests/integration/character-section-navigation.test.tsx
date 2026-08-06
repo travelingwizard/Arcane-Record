@@ -154,6 +154,16 @@ describe('character section navigation', () => {
     const navigation = screen.getByRole('navigation', {
       name: 'Character sheet sections',
     });
+    expect(
+      within(navigation).queryByRole('button', {
+        name: 'Move Character earlier',
+      }),
+    ).not.toBeInTheDocument();
+    const editOrder = within(navigation).getByRole('button', {
+      name: 'Edit section order',
+    });
+    await user.click(editOrder);
+    expect(editOrder).toHaveAttribute('aria-pressed', 'true');
     await user.click(
       within(navigation).getByRole('button', {
         name: 'Move Character earlier',
@@ -181,6 +191,16 @@ describe('character section navigation', () => {
         ],
       },
     });
+    await user.click(
+      within(navigation).getByRole('button', {
+        name: 'Finish editing section order',
+      }),
+    );
+    expect(
+      within(navigation).queryByRole('button', {
+        name: 'Move Character earlier',
+      }),
+    ).not.toBeInTheDocument();
 
     await user.click(modeSwitch);
     expect(strengthThree).toBeEnabled();
@@ -279,6 +299,17 @@ describe('character section navigation', () => {
     });
     expect(dialog).toBeVisible();
     expect(document.body.style.overflow).toBe('hidden');
+    expect(
+      within(dialog).queryByRole('button', {
+        name: 'Move Character later',
+      }),
+    ).not.toBeInTheDocument();
+    await user.click(
+      within(dialog).getByRole('button', { name: 'Edit section order' }),
+    );
+    expect(
+      within(dialog).getByRole('button', { name: 'Move Character later' }),
+    ).toBeVisible();
 
     await user.keyboard('{Escape}');
     expect(
@@ -291,6 +322,11 @@ describe('character section navigation', () => {
     const reopened = screen.getByRole('dialog', {
       name: 'Character Sections',
     });
+    expect(
+      within(reopened).queryByRole('button', {
+        name: 'Move Character later',
+      }),
+    ).not.toBeInTheDocument();
     await user.click(within(reopened).getByText('Expand all sections'));
     expect(
       screen.getByRole('button', { name: 'Collapse Health' }),

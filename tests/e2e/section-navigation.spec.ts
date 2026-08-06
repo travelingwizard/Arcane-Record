@@ -46,6 +46,14 @@ test('navigates the full desktop sheet with anchors and active-section tracking'
   await expect(
     page.locator('.character-sheet section').first(),
   ).toHaveAttribute('id', 'health');
+  await expect(
+    desktopNavigation.getByRole('button', {
+      name: 'Move Character earlier',
+    }),
+  ).toHaveCount(0);
+  await desktopNavigation
+    .getByRole('button', { name: 'Edit section order' })
+    .click();
   await desktopNavigation
     .getByRole('button', { name: 'Move Character earlier' })
     .click();
@@ -108,6 +116,19 @@ test('uses persistent independent disclosures and the mobile Sections sheet', as
   await sectionsTrigger.click();
   const sheet = page.getByRole('dialog', { name: 'Character Sections' });
   await expect(sheet).toBeVisible();
+  await expect(
+    sheet.getByRole('button', { name: 'Move Character later' }),
+  ).toHaveCount(0);
+  await sheet.getByRole('button', { name: 'Edit section order' }).click();
+  await expect(
+    sheet.getByRole('button', { name: 'Move Character later' }),
+  ).toBeVisible();
+  await sheet
+    .getByRole('button', { name: 'Finish editing section order' })
+    .click();
+  await expect(
+    sheet.getByRole('button', { name: 'Move Character later' }),
+  ).toHaveCount(0);
   await sheet.getByRole('link', { name: /Backgrounds/ }).click();
   await expect(sheet).not.toBeVisible();
   await expect(page).toHaveURL(/#backgrounds$/);

@@ -4,12 +4,14 @@ import {
   getOrderedSectionGroups,
 } from '../../systems/mage-m20/character-sections';
 import { useCharacterSectionContext } from './character-section-context';
+import { SectionOrderEditToggle } from './SectionOrderEditToggle';
 
 export function CharacterSectionNav() {
   const navigation = useCharacterSectionContext();
   const [collapsedGroups, setCollapsedGroups] = useState<Set<string>>(
     () => new Set(),
   );
+  const [editingOrder, setEditingOrder] = useState(false);
   if (!navigation) {
     return null;
   }
@@ -19,7 +21,13 @@ export function CharacterSectionNav() {
       className="character-section-nav"
       aria-label="Character sheet sections"
     >
-      <p className="character-section-nav__title">Sheet sections</p>
+      <div className="character-section-nav__heading">
+        <p className="character-section-nav__title">Sheet sections</p>
+        <SectionOrderEditToggle
+          editing={editingOrder}
+          onToggle={() => setEditingOrder((editing) => !editing)}
+        />
+      </div>
       {getOrderedSectionGroups(
         navigation.sheetLayout.groupOrders[navigation.sheetLayout.mode],
       ).map((group) => {
@@ -54,50 +62,52 @@ export function CharacterSectionNav() {
                 <span aria-hidden="true">{collapsed ? '+' : '−'}</span>
               </button>
             </h2>
-            <div className="character-section-nav__group-order">
-              <button
-                type="button"
-                className="icon-button"
-                aria-label={`Move ${group.label} earlier`}
-                disabled={
-                  navigation.sheetLayout.groupOrders[
-                    navigation.sheetLayout.mode
-                  ].indexOf(group.id) === 0
-                }
-                onClick={() =>
-                  navigation.moveSheetGroup(
-                    navigation.sheetLayout.mode,
-                    group.id,
-                    'earlier',
-                  )
-                }
-              >
-                ↑
-              </button>
-              <button
-                type="button"
-                className="icon-button"
-                aria-label={`Move ${group.label} later`}
-                disabled={
-                  navigation.sheetLayout.groupOrders[
-                    navigation.sheetLayout.mode
-                  ].indexOf(group.id) ===
-                  navigation.sheetLayout.groupOrders[
-                    navigation.sheetLayout.mode
-                  ].length -
-                    1
-                }
-                onClick={() =>
-                  navigation.moveSheetGroup(
-                    navigation.sheetLayout.mode,
-                    group.id,
-                    'later',
-                  )
-                }
-              >
-                ↓
-              </button>
-            </div>
+            {editingOrder ? (
+              <div className="character-section-nav__group-order">
+                <button
+                  type="button"
+                  className="icon-button"
+                  aria-label={`Move ${group.label} earlier`}
+                  disabled={
+                    navigation.sheetLayout.groupOrders[
+                      navigation.sheetLayout.mode
+                    ].indexOf(group.id) === 0
+                  }
+                  onClick={() =>
+                    navigation.moveSheetGroup(
+                      navigation.sheetLayout.mode,
+                      group.id,
+                      'earlier',
+                    )
+                  }
+                >
+                  ↑
+                </button>
+                <button
+                  type="button"
+                  className="icon-button"
+                  aria-label={`Move ${group.label} later`}
+                  disabled={
+                    navigation.sheetLayout.groupOrders[
+                      navigation.sheetLayout.mode
+                    ].indexOf(group.id) ===
+                    navigation.sheetLayout.groupOrders[
+                      navigation.sheetLayout.mode
+                    ].length -
+                      1
+                  }
+                  onClick={() =>
+                    navigation.moveSheetGroup(
+                      navigation.sheetLayout.mode,
+                      group.id,
+                      'later',
+                    )
+                  }
+                >
+                  ↓
+                </button>
+              </div>
+            ) : null}
             <ul id={listId} hidden={collapsed}>
               {sections.map((section) => {
                 const active = navigation.activeSection === section.id;

@@ -49,9 +49,11 @@ intersecting section can become active near the page bottom.
 Each desktop rail group heading is a disclosure button. It can collapse or
 reveal that group’s section links without changing section content or character
 data. Focus, Wonders, and Rotes are grouped under Paradigm. The top Build/Play
-switch selects a per-character group order. Up/down controls in the desktop
-rail and mobile Sections sheet reorder groups for the active mode; the page and
-both navigators follow the same order.
+switch selects a per-character group order. A pencil button in the desktop rail
+and mobile Sections sheet enters a transient order-editing mode. Up/down
+controls appear only in that mode and reorder groups for the active mode; the
+page and both navigators follow the same order. The mobile edit state resets
+when the Sections sheet closes so normal navigation remains uncluttered.
 
 Build mode keeps every rating editable. Play mode renders character-building
 ratings as view-only controls across desktop and mobile: Attributes, Abilities,
