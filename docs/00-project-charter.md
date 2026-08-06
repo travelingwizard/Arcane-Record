@@ -2,11 +2,14 @@
 
 ## Goal
 
-Deliver a trustworthy browser-local vertical slice of an editable Mage M20 character sheet. The experience should feel like an interactive vintage printed sheet while remaining responsive and accessible.
+Deliver a trustworthy browser-local, multi-game character record. Shared pages
+remain game-neutral; Mage 20 is the first complete game module and retains its
+responsive vintage-sheet treatment.
 
 ## Milestone outcomes
 
-- A character library with create, open, rename, duplicate, and confirmed delete actions.
+- A game-neutral character library with search, game filters, explicit game
+  selection, import, open, duplicate, export, and confirmed delete actions.
 - A focused editor for identity, Attributes, Abilities, Spheres, affinity,
   Enlightenment traits, Combat and Do Maneuvers, Backgrounds, Merits & Flaws,
   Focus, Wonders, Rotes, Equipment, and Health.
@@ -29,7 +32,9 @@ Deliver a trustworthy browser-local vertical slice of an editable Mage M20 chara
 
 ## Non-goals
 
-No backend, accounts, synchronization, online backup, rules engine, deployment, analytics, third-party runtime resources, or full page-two editing.
+No backend, accounts, synchronization, online backup, rules engine, analytics,
+third-party runtime resources, fake game modules, or empty future-game
+placeholders.
 
 ## Assumptions
 
@@ -37,7 +42,9 @@ No backend, accounts, synchronization, online backup, rules engine, deployment, 
 2. `docs/references/mage-m20/Mage-Arcane-Vintage-Sheet.pdf` was absent. A matching two-page file named `Mage_The_Ascension_–_Arcane_Character_Sheet_(Vintage_Edition).pdf` was found in the user's Downloads folder, visually inspected, and copied to the requested repository location as the reference.
 3. Identity fields may be blank. The display name falls back to "Untitled mage".
 4. New Attributes begin at 1, matching the familiar printed-sheet baseline; Spheres begin at 0. Point-allocation rules are not enforced.
-5. This milestone has one active editor route represented by client state rather than URL routing. Refresh reopens the last edited character when it still exists.
+5. Shared routes use the History API. `/characters/:id` resolves the owning
+   module from the stored system ID and survives refresh through the production
+   SPA fallback.
 6. Imported records are always created as new characters with fresh IDs so an import cannot silently overwrite an existing record.
 
 ## Success measures

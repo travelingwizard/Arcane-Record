@@ -13,7 +13,9 @@ test('navigates the full desktop sheet with anchors and active-section tracking'
 
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto('/');
-  await page.getByRole('button', { name: 'Create character' }).click();
+  await page.getByRole('button', { name: 'Create Character' }).click();
+  await page.getByRole('button', { name: 'Choose Mage 20' }).click();
+  await page.getByRole('button', { name: 'Create Character' }).click();
 
   const desktopNavigation = page.getByRole('navigation', {
     name: 'Character sheet sections',
@@ -99,7 +101,9 @@ test('uses persistent independent disclosures and the mobile Sections sheet', as
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
-  await page.getByRole('button', { name: 'Create character' }).click();
+  await page.getByRole('button', { name: 'Create Character' }).click();
+  await page.getByRole('button', { name: 'Choose Mage 20' }).click();
+  await page.getByRole('button', { name: 'Create Character' }).click();
 
   await expect(
     page.getByRole('navigation', { name: 'Character sheet sections' }),

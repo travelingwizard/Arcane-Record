@@ -1,11 +1,12 @@
 import { createBlankMageCharacter } from '../systems/mage-m20/create-character';
-import {
-  mageCharacterSchema,
-  migrateMageCharacter,
-} from '../systems/mage-m20/character-schema';
+import { mageCharacterSchema } from '../systems/mage-m20/character-schema';
 import type { MageCharacter } from '../types/character';
 import type { CharacterRepository } from './character-repository';
 import { MageDatabase } from './mage-database';
+import {
+  mageToStoredCharacter,
+  storedCharacterToMage,
+} from '../games/mage20/character-adapter';
 
 export class DexieCharacterRepository implements CharacterRepository {
   constructor(private readonly database: MageDatabase) {}
@@ -15,17 +16,17 @@ export class DexieCharacterRepository implements CharacterRepository {
       .orderBy('updatedAt')
       .reverse()
       .toArray();
-    return records.map((record) => migrateMageCharacter(record));
+    return records.map((record) => storedCharacterToMage(record));
   }
 
   async get(id: string): Promise<MageCharacter | null> {
     const record = await this.database.characters.get(id);
-    return record ? migrateMageCharacter(record) : null;
+    return record ? storedCharacterToMage(record) : null;
   }
 
   async create(character = createBlankMageCharacter()): Promise<MageCharacter> {
     const validated = mageCharacterSchema.parse(character);
-    await this.database.characters.add(validated);
+    await this.database.characters.add(mageToStoredCharacter(validated));
     return validated;
   }
 
@@ -35,7 +36,7 @@ export class DexieCharacterRepository implements CharacterRepository {
       updatedAt: new Date().toISOString(),
     };
     const validated = mageCharacterSchema.parse(candidate);
-    await this.database.characters.put(validated);
+    await this.database.characters.put(mageToStoredCharacter(validated));
     return validated;
   }
 
@@ -58,7 +59,7 @@ export class DexieCharacterRepository implements CharacterRepository {
           : 'Untitled mage (Copy)',
       },
     });
-    await this.database.characters.add(copy);
+    await this.database.characters.add(mageToStoredCharacter(copy));
     return copy;
   }
 

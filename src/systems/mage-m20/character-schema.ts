@@ -924,6 +924,14 @@ export const mageCharacterSchema = z.object({
   sheetLayout: sheetLayoutSchema,
 });
 
+export const mageCharacterDataSchema = mageCharacterSchema.omit({
+  id: true,
+  systemId: true,
+  schemaVersion: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
 function createDefaultSheetLayout() {
   return {
     mode: 'build' as const,

@@ -2,7 +2,10 @@
 
 ## Library
 
-The opening view lists locally stored characters with last-updated information. Users can create, open, rename, duplicate, and delete characters. Delete requires explicit confirmation. Empty state copy explains that records stay in this browser.
+The opening view is game-neutral and lists locally stored characters with game,
+summary, and last-updated information. Users can search, filter by game, choose
+a game before creation, open, duplicate, export, and delete characters. Delete
+requires explicit confirmation. Unknown or invalid systems remain exportable.
 
 ## Editor
 

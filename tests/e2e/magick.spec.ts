@@ -6,7 +6,9 @@ test('records, persists, and exports Focus, Wonders, and Rotes', async ({
 }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto('/');
-  await page.getByRole('button', { name: 'Create character' }).click();
+  await page.getByRole('button', { name: 'Create Character' }).click();
+  await page.getByRole('button', { name: 'Choose Mage 20' }).click();
+  await page.getByRole('button', { name: 'Create Character' }).click();
   await page.getByLabel('Name', { exact: true }).fill('Magick Adept');
 
   const navigation = page.getByRole('navigation', {
@@ -73,19 +75,23 @@ test('records, persists, and exports Focus, Wonders, and Rotes', async ({
   const path = await download.path();
   expect(path).not.toBeNull();
   const exported = JSON.parse(await readFile(path!, 'utf8')) as {
-    repeatableEntries: {
-      focus: { paradigms: unknown[]; instruments: unknown[] };
-      wonders: Array<{ name: string; powers: string }>;
-      rotes: Array<{ name: string; effect: string }>;
+    character: {
+      repeatableEntries: {
+        focus: { paradigms: unknown[]; instruments: unknown[] };
+        wonders: Array<{ name: string; powers: string }>;
+        rotes: Array<{ name: string; effect: string }>;
+      };
     };
   };
-  expect(exported.repeatableEntries.focus.paradigms).toHaveLength(1);
-  expect(exported.repeatableEntries.focus.instruments).toHaveLength(1);
-  expect(exported.repeatableEntries.wonders[0]).toMatchObject({
+  expect(exported.character.repeatableEntries.focus.paradigms).toHaveLength(1);
+  expect(exported.character.repeatableEntries.focus.instruments).toHaveLength(
+    1,
+  );
+  expect(exported.character.repeatableEntries.wonders[0]).toMatchObject({
     name: 'Copper Compass',
     powers: 'Points toward people the mage has promised to find.',
   });
-  expect(exported.repeatableEntries.rotes[0]).toMatchObject({
+  expect(exported.character.repeatableEntries.rotes[0]).toMatchObject({
     name: 'Find the Thread',
     effect: 'Locates a person through a sympathetic connection.',
   });

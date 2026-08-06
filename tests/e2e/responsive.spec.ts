@@ -37,7 +37,9 @@ test('has no page overflow or browser errors at target widths', async ({
     fullPage: false,
   });
   await page.setViewportSize(viewports[0]);
-  await page.getByRole('button', { name: 'Create character' }).click();
+  await page.getByRole('button', { name: 'Create Character' }).click();
+  await page.getByRole('button', { name: 'Choose Mage 20' }).click();
+  await page.getByRole('button', { name: 'Create Character' }).click();
   await page.getByLabel('Name', { exact: true }).fill('Responsive Adept');
   await page.getByRole('button', { name: /Sections Identity/ }).click();
   const sectionSheet = page.getByRole('dialog', {

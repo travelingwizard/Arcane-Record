@@ -199,3 +199,8 @@ export interface MageCharacter {
   health: HealthState;
   sheetLayout: SheetLayout;
 }
+
+export type MageCharacterData = Omit<
+  MageCharacter,
+  'id' | 'systemId' | 'schemaVersion' | 'createdAt' | 'updatedAt'
+>;

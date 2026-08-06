@@ -4,14 +4,19 @@ The Save section saves the active character as JSON by default, offers YAML,
 and imports `.json`, `.yaml`, and `.yml` files. All processing stays in the
 browser.
 
+Every new file uses a versioned `arcane-record-character` envelope containing
+`formatVersion`, `systemId`, `systemVersion`, shared ID/name/timestamps, and an
+opaque `character` value owned by the game module.
+
 The boundary:
 
 1. serialize only character data, excluding view preferences and save status;
-2. include `systemId` and `schemaVersion`;
-3. validate imported data with Zod before any write;
-4. migrate valid older Mage records to the current schema;
+2. include envelope `systemId` and `systemVersion`;
+3. dispatch known systems through the registry and validate before any write;
+4. recognize legacy Mage files only when their Mage marker and core shape are
+   positively identified, then migrate them to `mage20`;
 5. assign a new UUID and timestamps when importing as a copy;
-6. add `(Imported)` to a named character or use `Imported mage` when unnamed;
+6. add `(Imported)` through the game adapter;
 7. surface parsing and validation errors without replacing an active character;
 8. perform all parsing locally with no uploads.
 

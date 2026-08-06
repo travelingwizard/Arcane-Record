@@ -1,9 +1,14 @@
 # 03. Data model
 
-`MageCharacter` contains:
+IndexedDB stores a game-neutral `StoredCharacter` envelope with shared ID,
+name, timestamps, registered `systemId`, integer `systemVersion`, and opaque
+game-owned `data`. The shared repository never reads Mage fields.
+
+The Mage adapter hydrates its editor model from that envelope. The existing
+Mage editor model contains:
 
 - `id`: UUID independent of name;
-- `systemId`: literal `mage-m20`;
+- an internal legacy-compatible `systemId`: literal `mage-m20`;
 - `schemaVersion`: current integer schema version;
 - ISO creation and update timestamps;
 - `identity`: named string fields;
@@ -60,8 +65,7 @@ array of registered section IDs. Unknown future or removed IDs are ignored.
 Active-section tracking is transient. Neither expansion nor active-section
 state enters IndexedDB character records, JSON exports, or YAML exports.
 
-Appearance is a global view preference stored separately under
-`arcane-record:appearance-preferences`. It contains validated base-theme and
-identity-overlay machine IDs plus the Reduce decorative motion choice. It does
-not enter the editor store, IndexedDB, autosave, or character exchange files.
-See `15-appearance-settings.md`.
+Global shell appearance uses `arcane-record:global-preferences`. Mage 20 sheet
+themes and identity overlays use `arcane-record:appearance-preferences`.
+Neither preference enters character data or exchange files. See
+`15-appearance-settings.md`.

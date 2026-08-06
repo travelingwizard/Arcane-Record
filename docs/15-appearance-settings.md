@@ -2,12 +2,12 @@
 
 ## Scope
 
-Settings > Appearance is an application-level view preference. It changes the
-visual treatment of the library, editor, navigation, controls, and dialogs
-without changing character data, section order, component placement,
-responsive breakpoints, validation, or Mage rules.
+Settings separates global shell appearance from game appearance. The global
+preference controls neutral shared pages with System, Light, and Dark choices.
+The six detailed themes and identity overlays are labeled **Mage 20 sheet
+appearance** and apply only while a Mage sheet is open.
 
-The Settings button is available from both the library and an open character.
+Settings is available from the library at `/settings`.
 Changes are applied immediately to semantic attributes on the root element:
 
 ```html
@@ -52,9 +52,10 @@ interface AppearancePreferences {
 }
 ```
 
-It is validated with Zod at the `localStorage` boundary and stored under
+The Mage sheet preference is validated with Zod at the `localStorage` boundary and stored under
 `arcane-record:appearance-preferences`. Invalid or missing data falls back to
-Arcane Ledger, Neutral, and standard motion. Appearance is intentionally
+Arcane Ledger, Neutral, and standard motion. Global preferences use
+`arcane-record:global-preferences`. Appearance is intentionally
 separate from the editor store, IndexedDB characters, autosave, and JSON/YAML
 character files.
 

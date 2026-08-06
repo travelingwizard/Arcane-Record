@@ -3,7 +3,9 @@ import {
   createCharacterFileName,
   prepareImportedCharacter,
   serializeCharacter,
+  prepareImportedRecord,
 } from '../../src/features/import-export/character-files';
+import { gameSystemRegistry } from '../../src/games/registry';
 import { mageCharacterSchema } from '../../src/systems/mage-m20/character-schema';
 import { createBlankMageCharacter } from '../../src/systems/mage-m20/create-character';
 
@@ -224,5 +226,23 @@ describe('character files', () => {
     expect(() =>
       prepareImportedCharacter('not: [valid', 'broken.yaml'),
     ).toThrow();
+  });
+
+  it('exports the shared envelope and rejects unidentified files', () => {
+    const character = createBlankMageCharacter();
+    const serialized = serializeCharacter(character, 'json');
+    expect(JSON.parse(serialized)).toMatchObject({
+      format: 'arcane-record-character',
+      formatVersion: 1,
+      systemId: 'mage20',
+      systemVersion: 9,
+    });
+    expect(() =>
+      prepareImportedRecord(
+        JSON.stringify({ systemId: 'mage-m20', identity: { name: 'Maybe' } }),
+        'maybe.json',
+        gameSystemRegistry,
+      ),
+    ).toThrow(/not a recognized/i);
   });
 });

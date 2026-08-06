@@ -6,7 +6,9 @@ test('persists and exports combat favorites, custom references, and Do maneuvers
 }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto('/');
-  await page.getByRole('button', { name: 'Create character' }).click();
+  await page.getByRole('button', { name: 'Create Character' }).click();
+  await page.getByRole('button', { name: 'Choose Mage 20' }).click();
+  await page.getByRole('button', { name: 'Create Character' }).click();
   await page.getByLabel('Name', { exact: true }).fill('Disciplined Adept');
 
   const navigation = page.getByRole('navigation', {
@@ -65,19 +67,21 @@ test('persists and exports combat favorites, custom references, and Do maneuvers
   const path = await download.path();
   expect(path).not.toBeNull();
   const exported = JSON.parse(await readFile(path!, 'utf8')) as {
-    repeatableEntries: {
-      maneuvers: {
-        favoriteCombatManeuverIds: string[];
-        customCombatManeuvers: Array<{ name: string; description: string }>;
-        selectedDoManeuvers: Array<{
-          definitionId?: string;
-          customName?: string;
-          notes: string;
-        }>;
+    character: {
+      repeatableEntries: {
+        maneuvers: {
+          favoriteCombatManeuverIds: string[];
+          customCombatManeuvers: Array<{ name: string; description: string }>;
+          selectedDoManeuvers: Array<{
+            definitionId?: string;
+            customName?: string;
+            notes: string;
+          }>;
+        };
       };
     };
   };
-  expect(exported.repeatableEntries.maneuvers).toMatchObject({
+  expect(exported.character.repeatableEntries.maneuvers).toMatchObject({
     favoriteCombatManeuverIds: ['combat-dodge'],
     customCombatManeuvers: [
       {
@@ -86,7 +90,9 @@ test('persists and exports combat favorites, custom references, and Do maneuvers
       },
     ],
   });
-  expect(exported.repeatableEntries.maneuvers.selectedDoManeuvers).toEqual(
+  expect(
+    exported.character.repeatableEntries.maneuvers.selectedDoManeuvers,
+  ).toEqual(
     expect.arrayContaining([
       expect.objectContaining({
         definitionId: 'do-arrow-cutting',

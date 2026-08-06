@@ -119,7 +119,7 @@ export function AppearanceSettings() {
   );
 }
 
-function AppearancePanel() {
+export function AppearancePanel() {
   const {
     preferences,
     setBaseTheme,
@@ -144,13 +144,13 @@ function AppearancePanel() {
         <p className="settings-path">Settings / Appearance</p>
         <h3 id="appearance-title">Appearance</h3>
         <p>
-          Change the visual treatment of the entire app. Character data, layout,
-          and rules remain unchanged.
+          Change the visual treatment of Mage 20 character sheets. Character
+          data, layout, and rules remain unchanged.
         </p>
       </div>
 
       <fieldset className="appearance-group">
-        <legend>Base Theme</legend>
+        <legend>Mage 20 Sheet Theme</legend>
         <label className="appearance-switch">
           <input
             type="checkbox"
@@ -204,7 +204,7 @@ function AppearancePanel() {
       </fieldset>
 
       <fieldset className="appearance-group">
-        <legend>Identity Overlay</legend>
+        <legend>Mage 20 Identity Overlay</legend>
         <p className="appearance-group__description">
           Optional affiliation ornament changes accents, glyphs, borders, and
           selection styling only.

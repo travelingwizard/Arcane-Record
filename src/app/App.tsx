@@ -1,102 +1,67 @@
 import { useEffect, useState } from 'react';
-import { CharacterEditor } from '../features/character-editor/CharacterEditor';
-import { useAutosave } from '../features/character-editor/use-autosave';
-import { CharacterLibrary } from '../features/character-library/CharacterLibrary';
-import { AppearanceSettings } from '../features/settings/AppearanceSettings';
-import { useEditorStore } from '../state/editor-store';
-import type { CharacterRepository } from '../storage/character-repository';
-import { characterRepository } from '../storage/repository-instance';
-import type { MageCharacter } from '../types/character';
-
-const LAST_ACTIVE_CHARACTER_KEY = 'arcane-ledger:last-active-character';
+import { ArcaneRecordLibrary } from '../features/character-library/ArcaneRecordLibrary';
+import { gameSystemRegistry } from '../games/registry';
+import type { StoredCharacterRepository } from '../storage/stored-character-repository';
+import { storedCharacterRepository } from '../storage/repository-instance';
+import { CharacterPage } from './CharacterPage';
+import { CreateCharacterPage } from './CreateCharacterPage';
+import { navigate, parseRoute } from './routing';
+import { SettingsPage } from './SettingsPage';
 
 export function App({
-  repository = characterRepository,
+  repository = storedCharacterRepository,
 }: {
-  repository?: CharacterRepository;
+  repository?: StoredCharacterRepository;
 }) {
-  const [booting, setBooting] = useState(true);
-  const character = useEditorStore((state) => state.character);
-  const load = useEditorStore((state) => state.load);
-  const clear = useEditorStore((state) => state.clear);
-  const saveStatus = useEditorStore((state) => state.saveStatus);
-
-  useAutosave(repository);
+  const [route, setRoute] = useState(() =>
+    parseRoute(window.location.pathname),
+  );
 
   useEffect(() => {
-    let ignore = false;
-    const previousId = window.localStorage.getItem(LAST_ACTIVE_CHARACTER_KEY);
+    const update = () => setRoute(parseRoute(window.location.pathname));
+    window.addEventListener('popstate', update);
+    return () => window.removeEventListener('popstate', update);
+  }, []);
 
-    if (!previousId) {
-      setBooting(false);
-      return;
-    }
+  useEffect(() => {
+    const gameScope = route.name === 'character';
+    document.documentElement.dataset.appScope = gameScope ? 'game' : 'global';
+  }, [route.name]);
 
-    void repository
-      .get(previousId)
-      .then((storedCharacter) => {
-        if (!ignore && storedCharacter) {
-          load(storedCharacter);
-        } else if (!storedCharacter) {
-          window.localStorage.removeItem(LAST_ACTIVE_CHARACTER_KEY);
-        }
-      })
-      .catch(() => {
-        window.localStorage.removeItem(LAST_ACTIVE_CHARACTER_KEY);
-      })
-      .finally(() => {
-        if (!ignore) {
-          setBooting(false);
-        }
-      });
+  const go = (path: string) => navigate(path);
 
-    return () => {
-      ignore = true;
-    };
-  }, [load, repository]);
-
-  const openCharacter = (nextCharacter: MageCharacter) => {
-    window.localStorage.setItem(LAST_ACTIVE_CHARACTER_KEY, nextCharacter.id);
-    load(nextCharacter);
-  };
-
-  const returnToLibrary = async () => {
-    if (character && saveStatus !== 'saved') {
-      try {
-        await repository.save(character);
-      } catch {
-        return;
-      }
-    }
-    window.localStorage.removeItem(LAST_ACTIVE_CHARACTER_KEY);
-    clear();
-  };
-
-  if (booting) {
+  if (route.name === 'home') {
+    return <ArcaneRecordLibrary repository={repository} onNavigate={go} />;
+  }
+  if (route.name === 'create') {
     return (
-      <>
-        <AppearanceSettings />
-        <main className="boot-screen">
-          <span aria-hidden="true">✦</span>
-          <h1>Arcane Record</h1>
-          <p role="status">Opening your browser-local records…</p>
-        </main>
-      </>
+      <CreateCharacterPage
+        systemId={route.systemId}
+        registry={gameSystemRegistry}
+        repository={repository}
+        onNavigate={go}
+      />
     );
   }
-
+  if (route.name === 'character') {
+    return (
+      <CharacterPage
+        id={route.id}
+        registry={gameSystemRegistry}
+        repository={repository}
+        onNavigate={go}
+      />
+    );
+  }
+  if (route.name === 'settings') {
+    return <SettingsPage onBack={() => go('/')} />;
+  }
   return (
-    <>
-      <AppearanceSettings />
-      {character ? (
-        <CharacterEditor
-          onReturnToLibrary={returnToLibrary}
-          repository={repository}
-          onImported={openCharacter}
-        />
-      ) : (
-        <CharacterLibrary repository={repository} onOpen={openCharacter} />
-      )}
-    </>
+    <main className="app-shell neutral-shell error-shell">
+      <h1>Page not found</h1>
+      <button className="secondary-button" onClick={() => go('/')}>
+        Return to library
+      </button>
+    </main>
   );
 }

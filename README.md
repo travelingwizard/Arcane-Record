@@ -1,6 +1,9 @@
 # Arcane Record
 
-A local-first, responsive character-sheet editor for Mage: The Ascension 20th Anniversary Edition. Characters are saved only in IndexedDB in the current browser profile. There is no account, backend, telemetry, or online backup.
+A local-first, multi-game tabletop character-record application. Characters are
+saved only in IndexedDB in the current browser profile. There is no account,
+backend, telemetry, or online backup. Mage: The Ascension 20th Anniversary
+Edition is the first registered game module.
 
 The long-form editor includes URL-addressable sections, a searchable Equipment
 catalog, Combat and Do Maneuvers, a sticky desktop section rail, and a mobile
@@ -34,9 +37,14 @@ The Playwright smoke test starts its own local Vite server. If the bundled brows
 
 ## Milestone scope
 
-This milestone includes a local character library, create/open/rename/duplicate/delete flows, autosave, identity fields, Attributes, Abilities, Combat and Do Maneuvers, Spheres, star-based affinity selection, Sphere sorting, an optional desktop Sphere wheel, Enlightenment traits, searchable Background and Merits & Flaws catalogs, editable Focus, Wonders, and Rotes with searchable reference-preview catalogs, catalog and custom Equipment, Health, and local JSON/YAML import and export.
+This milestone includes a game-neutral library, explicit game selection,
+registry-routed character pages, recoverable unavailable-system records, and a
+versioned JSON/YAML exchange envelope. The Mage 20 module includes the complete
+existing editor and its browser-local autosave behavior.
 
 See [docs/00-project-charter.md](docs/00-project-charter.md) for goals and assumptions.
+See [docs/16-multi-game-architecture.md](docs/16-multi-game-architecture.md) for
+the game registry, persistence envelope, routes, and migration.
 See [docs/12-section-navigation.md](docs/12-section-navigation.md) for the
 section registry, anchors, responsive behavior, and preference boundary.
 See [docs/13-magick-sections-plan.md](docs/13-magick-sections-plan.md) for the

@@ -7,8 +7,13 @@ import {
   readAppearancePreferences,
 } from './features/settings/appearance-preferences';
 import './styles/index.css';
+import {
+  readGlobalPreferences,
+  writeGlobalPreferences,
+} from './features/settings/global-preferences';
 
 applyAppearancePreferences(readAppearancePreferences());
+writeGlobalPreferences(readGlobalPreferences());
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

@@ -2,7 +2,9 @@ import { expect, test } from '@playwright/test';
 
 test('keeps edited character data after refresh', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: 'Create character' }).click();
+  await page.getByRole('button', { name: 'Create Character' }).click();
+  await page.getByRole('button', { name: 'Choose Mage 20' }).click();
+  await page.getByRole('button', { name: 'Create Character' }).click();
 
   await page.getByLabel('Name', { exact: true }).fill('Mara Voss');
   await page.getByRole('button', { name: 'Set Strength to 3' }).click();
@@ -25,9 +27,7 @@ test('keeps edited character data after refresh', async ({ page }) => {
         openRequest.onsuccess = () => {
           const database = openRequest.result;
           const transaction = database.transaction('characters', 'readonly');
-          const activeId = localStorage.getItem(
-            'arcane-ledger:last-active-character',
-          );
+          const activeId = location.pathname.split('/').at(-1);
           if (!activeId) {
             reject(new Error('No active character ID.'));
             return;
@@ -40,9 +40,9 @@ test('keeps edited character data after refresh', async ({ page }) => {
             resolve(
               (
                 getRequest.result as {
-                  identity?: { name?: string };
+                  data?: { identity?: { name?: string } };
                 }
-              ).identity?.name ?? '',
+              ).data?.identity?.name ?? '',
             );
         };
       }),

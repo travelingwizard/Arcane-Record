@@ -1,18 +1,22 @@
-# 09. Future systems
+# 09. Game systems
 
-The architecture keeps Mage definitions under `src/systems/mage-m20` so reusable controls, editor state, persistence, and shell layout can later support other game systems.
+Game modules register through `GameSystemRegistry`. Mage 20 is registered under
+the stable outer ID `mage20`; its definitions remain under
+`src/systems/mage-m20` and its adapter under `src/games/mage20`.
 
-A future system adapter should provide:
+A system adapter provides:
 
 - a unique system ID and display name;
 - its current schema and migration chain;
 - a default-character factory;
 - field/group definitions and rating limits;
 - system-specific editor sections;
-- import/export serializers and migration rules.
+- summary, search, rename, duplicate, editor, and migration adapters;
 - isolated reference catalogs and selection rules where the system needs them.
 
-The repository stores the system identifier with each character. Cross-system UI must branch through registered adapters, not scattered label checks. Mage-only features such as affinity Spheres remain inside the Mage system layer.
+The shared repository treats game data as opaque. Cross-system UI resolves a
+registered adapter instead of branching on labels or IDs. Mage-only features
+such as affinity Spheres remain inside the Mage module.
 
 ## Mage Magick sections
 

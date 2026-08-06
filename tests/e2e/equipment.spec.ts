@@ -6,7 +6,9 @@ test('records, persists, and exports catalog and custom equipment', async ({
 }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto('/');
-  await page.getByRole('button', { name: 'Create character' }).click();
+  await page.getByRole('button', { name: 'Create Character' }).click();
+  await page.getByRole('button', { name: 'Choose Mage 20' }).click();
+  await page.getByRole('button', { name: 'Create Character' }).click();
   await page.getByLabel('Name', { exact: true }).fill('Prepared Adept');
 
   const navigation = page.getByRole('navigation', {
@@ -53,16 +55,18 @@ test('records, persists, and exports catalog and custom equipment', async ({
   const path = await download.path();
   expect(path).not.toBeNull();
   const exported = JSON.parse(await readFile(path!, 'utf8')) as {
-    repeatableEntries: {
-      equipment: Array<{
-        definitionId?: string;
-        name: string;
-        description: string;
-        equipped: boolean;
-      }>;
+    character: {
+      repeatableEntries: {
+        equipment: Array<{
+          definitionId?: string;
+          name: string;
+          description: string;
+          equipped: boolean;
+        }>;
+      };
     };
   };
-  expect(exported.repeatableEntries.equipment).toEqual(
+  expect(exported.character.repeatableEntries.equipment).toEqual(
     expect.arrayContaining([
       expect.objectContaining({
         name: 'Chalk-lined satchel',
