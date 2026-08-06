@@ -1,23 +1,458 @@
 :root {
   --character-sticky-header-height: 4rem;
-  --paper: #f5eedc;
-  --paper-light: #fbf7ec;
-  --paper-deep: #d8ccb1;
-  --ink: #28231e;
-  --ink-soft: #61574b;
-  --rule: #746959;
-  --rule-light: #b6aa91;
-  --umber: #7b3f2f;
-  --umber-deep: #562b22;
-  --gold: #b48a43;
-  --focus: #216a70;
-  --danger: #8a2c2c;
-  --success: #3f6848;
   --font-serif:
     Iowan Old Style, Palatino Linotype, Book Antiqua, Palatino, Georgia,
     'Times New Roman', serif;
   --font-sans: Avenir Next, Avenir, Montserrat, Trebuchet MS, sans-serif;
+  --font-metadata: var(--font-sans);
+  --radius: 0.35rem;
+  --section-glyph: '◆';
+  --portrait-radius: 50%;
+  --portrait-border-style: solid;
+  --ornament-opacity: 0.55;
+  --overlay-illustration: linear-gradient(transparent, transparent);
+}
+
+:root,
+:root[data-theme='arcane-ledger'] {
+  --surface-canvas: #d8ccb1;
+  --surface-sheet: #f5eedc;
+  --surface-raised: #fbf7ec;
+  --surface-glaze: rgb(255 255 255 / 18%);
+  --surface-accent: #f2e4d2;
+  --surface-warning: #fff6df;
+  --surface-danger: #fff1ed;
+  --text-primary: #28231e;
+  --text-secondary: #61574b;
+  --text-on-accent: #fbf7ec;
+  --border-strong: #746959;
+  --border-soft: #b6aa91;
+  --theme-accent: #7b3f2f;
+  --theme-accent-strong: #562b22;
+  --theme-ornament: #b48a43;
+  --focus-ring: #216a70;
+  --status-danger: #8a2c2c;
+  --status-warning: #7a5315;
+  --status-success: #3f6848;
+  --body-background:
+    radial-gradient(
+      circle at 18% 8%,
+      rgb(255 255 255 / 36%),
+      transparent 28rem
+    ),
+    repeating-linear-gradient(
+      92deg,
+      transparent 0,
+      transparent 17px,
+      rgb(65 48 28 / 1.3%) 18px
+    ),
+    var(--surface-canvas);
+  --sheet-background: var(--surface-sheet);
+  --panel-background:
+    linear-gradient(135deg, var(--accent-wash), transparent 12rem),
+    var(--surface-glaze);
+  --hover-background: rgb(123 63 47 / 7%);
+  --active-background: rgb(123 63 47 / 10%);
+  --backdrop: rgb(28 22 17 / 58%);
+  --dial-lines: rgb(116 105 89 / 42%);
+  --dial-shadow: rgb(86 43 34 / 8%);
+  --wheel-center-mid: #eee1c8;
+  --wheel-center-edge: #dbc9a9;
   --shadow-sheet: 0 1.25rem 3rem rgb(45 35 22 / 18%);
   --shadow-card: 0 0.4rem 1.2rem rgb(45 35 22 / 9%);
-  --radius: 0.35rem;
+}
+
+:root[data-theme='midnight-quintessence'] {
+  --surface-canvas: #090d1d;
+  --surface-sheet: #11182b;
+  --surface-raised: #1a2440;
+  --surface-glaze: rgb(138 166 230 / 8%);
+  --surface-accent: #252752;
+  --surface-warning: #332b18;
+  --surface-danger: #341c2d;
+  --text-primary: #f1f4ff;
+  --text-secondary: #bdc9e8;
+  --text-on-accent: #080b18;
+  --border-strong: #7786b2;
+  --border-soft: #3f4d74;
+  --theme-accent: #a78bfa;
+  --theme-accent-strong: #d8ccff;
+  --theme-ornament: #80d8ff;
+  --focus-ring: #80d8ff;
+  --status-danger: #ff91b8;
+  --status-warning: #ffd166;
+  --status-success: #86efac;
+  --body-background:
+    radial-gradient(
+      circle at 16% 12%,
+      rgb(114 95 213 / 28%),
+      transparent 26rem
+    ),
+    radial-gradient(
+        circle at 78% 18%,
+        rgb(128 216 255 / 12%) 0 1px,
+        transparent 2px
+      )
+      0 0 / 4.5rem 4.5rem,
+    linear-gradient(145deg, #090d1d, #11142c 55%, #070a16);
+  --sheet-background:
+    linear-gradient(160deg, rgb(167 139 250 / 6%), transparent 24rem),
+    var(--surface-sheet);
+  --panel-background:
+    radial-gradient(circle at 92% 8%, rgb(128 216 255 / 9%), transparent 13rem),
+    var(--surface-glaze);
+  --hover-background: rgb(167 139 250 / 12%);
+  --active-background: rgb(128 216 255 / 14%);
+  --backdrop: rgb(2 4 12 / 76%);
+  --dial-lines: rgb(128 216 255 / 34%);
+  --dial-shadow: rgb(167 139 250 / 18%);
+  --wheel-center-mid: #19233d;
+  --wheel-center-edge: #0d1326;
+  --shadow-sheet: 0 1.5rem 3.5rem rgb(0 0 0 / 45%);
+  --shadow-card: 0 0.5rem 1.4rem rgb(0 0 0 / 30%);
+}
+
+:root[data-theme='hermetic-observatory'] {
+  --surface-canvas: #0b1a15;
+  --surface-sheet: #eee7d2;
+  --surface-raised: #faf4e2;
+  --surface-glaze: rgb(255 252 237 / 32%);
+  --surface-accent: #e8dcc0;
+  --surface-warning: #fff2c9;
+  --surface-danger: #fbe3d8;
+  --text-primary: #17251e;
+  --text-secondary: #4e5e52;
+  --text-on-accent: #fff9e8;
+  --border-strong: #6f674b;
+  --border-soft: #b8aa7c;
+  --theme-accent: #8a5a18;
+  --theme-accent-strong: #4d3917;
+  --theme-ornament: #b28a3f;
+  --focus-ring: #176c66;
+  --status-danger: #8f3028;
+  --status-warning: #735315;
+  --status-success: #2f6544;
+  --body-background:
+    repeating-radial-gradient(
+      circle at 50% 38%,
+      transparent 0 4.8rem,
+      rgb(178 138 63 / 8%) 4.85rem 4.9rem
+    ),
+    linear-gradient(145deg, #0b1a15, #132a20);
+  --sheet-background:
+    linear-gradient(
+      90deg,
+      transparent 49.8%,
+      rgb(178 138 63 / 8%) 50%,
+      transparent 50.2%
+    ),
+    var(--surface-sheet);
+  --panel-background:
+    linear-gradient(
+      45deg,
+      transparent 49.7%,
+      rgb(138 90 24 / 5%) 50%,
+      transparent 50.3%
+    ),
+    var(--surface-glaze);
+  --hover-background: rgb(138 90 24 / 8%);
+  --active-background: rgb(138 90 24 / 13%);
+  --backdrop: rgb(4 15 11 / 70%);
+  --dial-lines: rgb(111 103 75 / 40%);
+  --dial-shadow: rgb(77 57 23 / 10%);
+  --wheel-center-mid: #e5d9b9;
+  --wheel-center-edge: #cdbd91;
+  --shadow-sheet: 0 1.25rem 3rem rgb(0 12 8 / 35%);
+  --shadow-card: 0 0.4rem 1.2rem rgb(37 34 20 / 12%);
+  --radius: 0.12rem;
+}
+
+:root[data-theme='technocratic-dossier'] {
+  --surface-canvas: #111820;
+  --surface-sheet: #19232d;
+  --surface-raised: #222f3b;
+  --surface-glaze: rgb(152 225 239 / 6%);
+  --surface-accent: #203844;
+  --surface-warning: #392f17;
+  --surface-danger: #3a2023;
+  --text-primary: #f0f6f8;
+  --text-secondary: #b4c6cc;
+  --text-on-accent: #071216;
+  --border-strong: #718a94;
+  --border-soft: #40535d;
+  --theme-accent: #55d9ef;
+  --theme-accent-strong: #b8f4ff;
+  --theme-ornament: #ffbd4a;
+  --focus-ring: #71e7f8;
+  --status-danger: #ff8d86;
+  --status-warning: #ffbd4a;
+  --status-success: #71e4ad;
+  --body-background:
+    linear-gradient(rgb(85 217 239 / 5%) 1px, transparent 1px) 0 0 / 2rem 2rem,
+    linear-gradient(90deg, rgb(85 217 239 / 5%) 1px, transparent 1px) 0 0 / 2rem
+      2rem,
+    var(--surface-canvas);
+  --sheet-background:
+    linear-gradient(90deg, var(--theme-accent) 0 0.2rem, transparent 0.2rem),
+    var(--surface-sheet);
+  --panel-background:
+    linear-gradient(90deg, rgb(85 217 239 / 9%) 1px, transparent 1px) 0 0 /
+      1.25rem 100%,
+    var(--surface-glaze);
+  --hover-background: rgb(85 217 239 / 10%);
+  --active-background: rgb(85 217 239 / 16%);
+  --backdrop: rgb(4 9 13 / 78%);
+  --dial-lines: rgb(85 217 239 / 36%);
+  --dial-shadow: rgb(85 217 239 / 12%);
+  --wheel-center-mid: #1b3039;
+  --wheel-center-edge: #101b22;
+  --shadow-sheet: 0 1.2rem 3rem rgb(0 0 0 / 38%);
+  --shadow-card: 0 0.45rem 1.2rem rgb(0 0 0 / 28%);
+  --font-metadata: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --radius: 0.12rem;
+  --section-glyph: '⌗';
+}
+
+:root[data-theme='umbral-dreamscape'] {
+  --surface-canvas: #403a58;
+  --surface-sheet: #e9e1df;
+  --surface-raised: #f5efea;
+  --surface-glaze: rgb(255 250 243 / 42%);
+  --surface-accent: #e1d7e8;
+  --surface-warning: #fff0d2;
+  --surface-danger: #f9dfe3;
+  --text-primary: #2e2938;
+  --text-secondary: #62596f;
+  --text-on-accent: #fff8ff;
+  --border-strong: #756a86;
+  --border-soft: #b9aec2;
+  --theme-accent: #72518f;
+  --theme-accent-strong: #513665;
+  --theme-ornament: #b978a7;
+  --focus-ring: #315f85;
+  --status-danger: #983a52;
+  --status-warning: #74541e;
+  --status-success: #3d6b58;
+  --body-background:
+    radial-gradient(
+      ellipse at 12% 24%,
+      rgb(180 128 190 / 30%),
+      transparent 28rem
+    ),
+    radial-gradient(
+      ellipse at 88% 72%,
+      rgb(113 170 196 / 24%),
+      transparent 30rem
+    ),
+    linear-gradient(145deg, #353047, #514764);
+  --sheet-background:
+    radial-gradient(
+      ellipse at 100% 10%,
+      rgb(114 81 143 / 10%),
+      transparent 20rem
+    ),
+    radial-gradient(ellipse at 0 90%, rgb(185 120 167 / 9%), transparent 23rem),
+    var(--surface-sheet);
+  --panel-background:
+    radial-gradient(ellipse at 0 0, rgb(114 81 143 / 10%), transparent 12rem),
+    var(--surface-glaze);
+  --hover-background: rgb(114 81 143 / 9%);
+  --active-background: rgb(114 81 143 / 14%);
+  --backdrop: rgb(35 29 51 / 70%);
+  --dial-lines: rgb(114 81 143 / 34%);
+  --dial-shadow: rgb(81 54 101 / 12%);
+  --wheel-center-mid: #ddd2e0;
+  --wheel-center-edge: #c7b8cd;
+  --shadow-sheet: 0 1.4rem 3.5rem rgb(21 15 33 / 30%);
+  --shadow-card: 0 0.5rem 1.4rem rgb(51 38 63 / 14%);
+  --radius: 0.8rem 0.3rem 0.9rem 0.25rem;
+}
+
+:root[data-theme='tradition-codex'] {
+  --surface-canvas: #171619;
+  --surface-sheet: #242226;
+  --surface-raised: #302d32;
+  --surface-glaze: rgb(255 249 237 / 6%);
+  --surface-accent: #3b3138;
+  --surface-warning: #3d321d;
+  --surface-danger: #3c2327;
+  --text-primary: #f0ebe2;
+  --text-secondary: #c1b8ad;
+  --text-on-accent: #171619;
+  --border-strong: #83786d;
+  --border-soft: #514a45;
+  --theme-accent: #c49167;
+  --theme-accent-strong: #efd1ad;
+  --theme-ornament: #c3a46d;
+  --focus-ring: #81c8d0;
+  --status-danger: #f18d91;
+  --status-warning: #e6bd65;
+  --status-success: #88c89b;
+  --body-background:
+    radial-gradient(
+      circle at 50% 10%,
+      rgb(196 145 103 / 10%),
+      transparent 30rem
+    ),
+    linear-gradient(150deg, #171619, #211d22);
+  --sheet-background:
+    linear-gradient(145deg, rgb(196 145 103 / 5%), transparent 24rem),
+    var(--surface-sheet);
+  --panel-background:
+    linear-gradient(135deg, var(--accent-wash), transparent 14rem),
+    var(--surface-glaze);
+  --hover-background: rgb(196 145 103 / 10%);
+  --active-background: rgb(196 145 103 / 15%);
+  --backdrop: rgb(7 6 8 / 78%);
+  --dial-lines: rgb(196 145 103 / 32%);
+  --dial-shadow: rgb(0 0 0 / 22%);
+  --wheel-center-mid: #302a31;
+  --wheel-center-edge: #1a181c;
+  --shadow-sheet: 0 1.4rem 3.4rem rgb(0 0 0 / 44%);
+  --shadow-card: 0 0.45rem 1.3rem rgb(0 0 0 / 30%);
+}
+
+:root[data-theme] {
+  --accent: var(--identity-accent, var(--theme-accent));
+  --accent-strong: var(--identity-accent-strong, var(--theme-accent-strong));
+  --ornament: var(--identity-ornament, var(--theme-ornament));
+  --accent-wash: color-mix(in srgb, var(--accent) 9%, transparent);
+
+  /* Compatibility aliases used by existing components. */
+  --paper: var(--surface-sheet);
+  --paper-light: var(--surface-raised);
+  --paper-deep: var(--surface-canvas);
+  --ink: var(--text-primary);
+  --ink-soft: var(--text-secondary);
+  --rule: var(--border-strong);
+  --rule-light: var(--border-soft);
+  --umber: var(--accent);
+  --umber-deep: var(--accent-strong);
+  --gold: var(--ornament);
+  --focus: var(--focus-ring);
+  --danger: var(--status-danger);
+  --success: var(--status-success);
+}
+
+:root[data-overlay='akashayana'] {
+  --identity-accent: #d68a1f;
+  --identity-accent-strong: #a94335;
+  --identity-ornament: #dfb34b;
+  --section-glyph: '◉';
+  --portrait-radius: 46% 54% 48% 52%;
+  --overlay-illustration: radial-gradient(
+    circle at 8% 12%,
+    transparent 0 4rem,
+    rgb(214 138 31 / 11%) 4.1rem 4.2rem,
+    transparent 4.3rem
+  );
+}
+
+:root[data-overlay='order-of-hermes'] {
+  --identity-accent: #9e4354;
+  --identity-accent-strong: #7d283d;
+  --identity-ornament: #d6a85e;
+  --section-glyph: '△';
+  --portrait-radius: 0.2rem;
+  --overlay-illustration: repeating-conic-gradient(
+    from 45deg at 92% 8%,
+    rgb(214 168 94 / 7%) 0 10deg,
+    transparent 10deg 30deg
+  );
+}
+
+:root[data-overlay='virtual-adepts'] {
+  --identity-accent: #35d7ef;
+  --identity-accent-strong: #005f73;
+  --identity-ornament: #8a8cff;
+  --section-glyph: '⌘';
+  --portrait-radius: 0;
+  --portrait-border-style: dashed;
+  --overlay-illustration: linear-gradient(
+      90deg,
+      rgb(53 215 239 / 6%) 1px,
+      transparent 1px
+    )
+    0 0 / 3rem 3rem;
+}
+
+:root[data-overlay='verbena'] {
+  --identity-accent: #648c4f;
+  --identity-accent-strong: #a64f50;
+  --identity-ornament: #bea675;
+  --section-glyph: '❧';
+  --portrait-radius: 42% 58% 48% 52%;
+  --overlay-illustration: radial-gradient(
+    ellipse at 2% 98%,
+    rgb(100 140 79 / 13%),
+    transparent 24rem
+  );
+}
+
+:root[data-overlay='cult-of-ecstasy'] {
+  --identity-accent: #ba6cb1;
+  --identity-accent-strong: #62418e;
+  --identity-ornament: #e897b8;
+  --section-glyph: '✦';
+  --portrait-radius: 50%;
+  --overlay-illustration: radial-gradient(
+      circle at 90% 15%,
+      rgb(232 151 184 / 14%) 0 1px,
+      transparent 2px
+    )
+    0 0 / 4rem 4rem;
+}
+
+:root[data-overlay='sons-of-ether'] {
+  --identity-accent: #4d79a6;
+  --identity-accent-strong: #375f86;
+  --identity-ornament: #d2ac66;
+  --section-glyph: '⚙';
+  --portrait-radius: 50%;
+  --portrait-border-style: double;
+  --overlay-illustration: repeating-radial-gradient(
+    circle at 96% 4%,
+    transparent 0 2.5rem,
+    rgb(193 141 69 / 8%) 2.6rem 2.7rem
+  );
+}
+
+:root[data-overlay='technocracy'] {
+  --identity-accent: #41cae2;
+  --identity-accent-strong: #0a6371;
+  --identity-ornament: #f2b84b;
+  --section-glyph: '⌗';
+  --portrait-radius: 0;
+  --overlay-illustration: linear-gradient(
+      rgb(65 202 226 / 6%) 1px,
+      transparent 1px
+    )
+    0 0 / 2.5rem 2.5rem;
+}
+
+:root[data-overlay='nephandic'] {
+  --identity-accent: #a83d45;
+  --identity-accent-strong: #7a2d35;
+  --identity-ornament: #957348;
+  --section-glyph: '⟡';
+  --portrait-radius: 0.6rem 0 0.6rem 0;
+  --portrait-border-style: dashed;
+  --overlay-illustration: linear-gradient(
+    117deg,
+    transparent 48%,
+    rgb(168 61 69 / 7%) 49%,
+    transparent 51%
+  );
+}
+
+:root:is(
+    [data-theme='midnight-quintessence'],
+    [data-theme='technocratic-dossier'],
+    [data-theme='tradition-codex']
+  )[data-overlay]:not([data-overlay='neutral']) {
+  --accent-strong: color-mix(
+    in srgb,
+    var(--identity-accent) 58%,
+    var(--text-primary)
+  );
 }

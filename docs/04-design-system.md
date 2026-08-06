@@ -38,6 +38,17 @@ version, and category labels use text in addition to symbols or color.
 Reference cards display citations directly; selected Do cards remain visually
 distinct from the catalog.
 
-## Tokens
+## Tokens and appearance themes
 
-Color, spacing, type sizes, radii, shadows, and focus rings are CSS custom properties in `src/styles/tokens.css`. Motion is brief and removed under `prefers-reduced-motion`.
+Surface, text, border, accent, status, ornament, pattern, shadow, spacing, type,
+radii, and focus-ring values are semantic CSS custom properties in
+`src/styles/tokens.css`. Application-level `data-theme` and `data-overlay`
+attributes change those tokens without component-specific theme logic or
+layout changes. Existing parchment variables are compatibility aliases to the
+semantic layer.
+
+The default remains Arcane Ledger. Midnight Quintessence, Hermetic Observatory,
+Technocratic Dossier, Umbral Dreamscape, and Tradition Codex provide alternate
+complete palettes. Identity overlays affect only accents and CSS ornament.
+Motion is brief and removed under `prefers-reduced-motion` or the persisted
+Reduce decorative motion preference. See `15-appearance-settings.md`.

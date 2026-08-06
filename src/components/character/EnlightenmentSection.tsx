@@ -30,7 +30,10 @@ export function EnlightenmentSection() {
     >
       <div className="enlightenment-grid">
         {enlightenmentTraits.map((trait) => (
-          <div className="enlightenment-track" key={trait.id}>
+          <div
+            className={`enlightenment-track enlightenment-track--${trait.id}`}
+            key={trait.id}
+          >
             <div>
               <h3>{trait.label}</h3>
               <span>{enlightenment[trait.id]} / 10</span>

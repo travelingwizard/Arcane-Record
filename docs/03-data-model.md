@@ -59,3 +59,9 @@ schema version. It is stored in `localStorage` under
 array of registered section IDs. Unknown future or removed IDs are ignored.
 Active-section tracking is transient. Neither expansion nor active-section
 state enters IndexedDB character records, JSON exports, or YAML exports.
+
+Appearance is a global view preference stored separately under
+`arcane-record:appearance-preferences`. It contains validated base-theme and
+identity-overlay machine IDs plus the Reduce decorative motion choice. It does
+not enter the editor store, IndexedDB, autosave, or character exchange files.
+See `15-appearance-settings.md`.

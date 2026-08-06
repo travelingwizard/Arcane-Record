@@ -33,6 +33,8 @@
   invalid hashes, summary calculations, and warning text.
 - Section preferences cover per-character keys, initial hash expansion,
   unknown-ID filtering, Expand All, Collapse All, and export exclusion.
+- Appearance preferences cover validated defaults, invalid-storage fallback,
+  system light/dark resolution, and semantic root attributes.
 
 ## Integration
 
@@ -43,6 +45,10 @@ after navigation, valid and invalid initial hashes, history events, independent
 mobile disclosures, focus recovery on collapse, modal Escape and focus
 restoration, background-scroll prevention, bulk expansion controls, mounted
 form-state preservation, and direct warning summaries.
+
+Appearance integration covers all theme and overlay choices, explicit selected
+states, the complete live sample, immediate root updates, browser-local
+persistence, restoration, motion reduction, and full reset.
 
 ## End to end
 
@@ -64,6 +70,10 @@ Section-navigation scenarios cover the desktop rail at 1440px, the 1120px
 breakpoint, IntersectionObserver active links, fragments, Back navigation,
 mobile selection and independent expansion at 390px, preference restoration,
 preserved edits, and 320px overflow.
+
+The appearance scenario selects a base theme, overlay, and reduced motion at a
+mobile width; verifies immediate root attributes and live preview content;
+reloads to confirm restoration; and checks page-level overflow.
 
 ## Manual/browser checks
 

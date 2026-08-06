@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { CharacterEditor } from '../features/character-editor/CharacterEditor';
 import { useAutosave } from '../features/character-editor/use-autosave';
 import { CharacterLibrary } from '../features/character-library/CharacterLibrary';
+import { AppearanceSettings } from '../features/settings/AppearanceSettings';
 import { useEditorStore } from '../state/editor-store';
 import type { CharacterRepository } from '../storage/character-repository';
 import { characterRepository } from '../storage/repository-instance';
@@ -73,21 +74,29 @@ export function App({
 
   if (booting) {
     return (
-      <main className="boot-screen">
-        <span aria-hidden="true">✦</span>
-        <h1>Arcane Record</h1>
-        <p role="status">Opening your browser-local records…</p>
-      </main>
+      <>
+        <AppearanceSettings />
+        <main className="boot-screen">
+          <span aria-hidden="true">✦</span>
+          <h1>Arcane Record</h1>
+          <p role="status">Opening your browser-local records…</p>
+        </main>
+      </>
     );
   }
 
-  return character ? (
-    <CharacterEditor
-      onReturnToLibrary={returnToLibrary}
-      repository={repository}
-      onImported={openCharacter}
-    />
-  ) : (
-    <CharacterLibrary repository={repository} onOpen={openCharacter} />
+  return (
+    <>
+      <AppearanceSettings />
+      {character ? (
+        <CharacterEditor
+          onReturnToLibrary={returnToLibrary}
+          repository={repository}
+          onImported={openCharacter}
+        />
+      ) : (
+        <CharacterLibrary repository={repository} onOpen={openCharacter} />
+      )}
+    </>
   );
 }
