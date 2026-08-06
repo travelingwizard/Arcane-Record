@@ -3,7 +3,8 @@
 A local-first, multi-game tabletop character-record application. Characters are
 saved only in IndexedDB in the current browser profile. There is no account,
 backend, telemetry, or online backup. Mage: The Ascension 20th Anniversary
-Edition is the first registered game module.
+Edition is the first complete game module. Exalted First Edition is registered
+with Solar and Dragon-Blooded foundation sheets.
 
 The long-form editor includes URL-addressable sections, a searchable Equipment
 catalog, Combat and Do Maneuvers, a sticky desktop section rail, and a mobile
@@ -45,6 +46,8 @@ existing editor and its browser-local autosave behavior.
 See [docs/00-project-charter.md](docs/00-project-charter.md) for goals and assumptions.
 See [docs/16-multi-game-architecture.md](docs/16-multi-game-architecture.md) for
 the game registry, persistence envelope, routes, and migration.
+See [docs/17-exalted-1e-foundation.md](docs/17-exalted-1e-foundation.md) for the
+two Exalted sheet variants and the implemented first-page scope.
 See [docs/12-section-navigation.md](docs/12-section-navigation.md) for the
 section registry, anchors, responsive behavior, and preference boundary.
 See [docs/13-magick-sections-plan.md](docs/13-magick-sections-plan.md) for the

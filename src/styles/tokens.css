@@ -538,3 +538,47 @@
     color-scheme: dark;
   }
 }
+
+/* Exalted keeps its own gold, vermilion, and ivory game treatment. */
+:root[data-game-system='exalted1e'] {
+  --surface-canvas: #2a1714;
+  --surface-sheet: #f4ecd9;
+  --surface-raised: #fffaf0;
+  --surface-glaze: rgb(255 255 255 / 34%);
+  --surface-accent: #efe0c3;
+  --surface-warning: #fff1ce;
+  --surface-danger: #f9dfd6;
+  --text-primary: #2b211c;
+  --text-secondary: #68584c;
+  --text-on-accent: #fff9ed;
+  --border-strong: #6f4d35;
+  --border-soft: #bea887;
+  --theme-accent: #9b2f25;
+  --theme-accent-strong: #671d1a;
+  --theme-ornament: #b17a26;
+  --identity-accent: var(--theme-accent);
+  --identity-accent-strong: var(--theme-accent-strong);
+  --identity-ornament: var(--theme-ornament);
+  --focus-ring: #146b76;
+  --status-danger: #922d2b;
+  --status-warning: #7e5816;
+  --status-success: #3c6845;
+  --body-background:
+    radial-gradient(circle at 50% 0, rgb(177 122 38 / 18%), transparent 30rem),
+    linear-gradient(145deg, #221210, #3b2018);
+  --sheet-background:
+    linear-gradient(90deg, rgb(177 122 38 / 7%) 1px, transparent 1px) 0 0 / 4rem
+      100%,
+    var(--surface-sheet);
+  --panel-background: var(--surface-glaze);
+  --hover-background: rgb(155 47 37 / 8%);
+  --active-background: rgb(155 47 37 / 13%);
+  --overlay-illustration: linear-gradient(transparent, transparent);
+  --shadow-sheet: 0 1.5rem 3.5rem rgb(18 7 4 / 45%);
+  --shadow-card: 0 0.4rem 1rem rgb(49 26 14 / 14%);
+  --portrait-radius: 0.15rem;
+  --portrait-border-style: double;
+  --ornament-opacity: 0.45;
+  --font-metadata: var(--font-sans);
+  color-scheme: light;
+}

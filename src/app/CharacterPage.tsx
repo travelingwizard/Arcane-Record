@@ -44,6 +44,14 @@ export function CharacterPage({
     };
   }, [id, repository]);
 
+  useEffect(() => {
+    if (!record) return;
+    document.documentElement.dataset.gameSystem = record.systemId;
+    return () => {
+      delete document.documentElement.dataset.gameSystem;
+    };
+  }, [record]);
+
   if (record === undefined) {
     return (
       <main className="boot-screen">

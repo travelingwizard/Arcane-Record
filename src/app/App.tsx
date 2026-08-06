@@ -37,6 +37,7 @@ export function App({
     return (
       <CreateCharacterPage
         systemId={route.systemId}
+        variantId={route.variantId}
         registry={gameSystemRegistry}
         repository={repository}
         onNavigate={go}

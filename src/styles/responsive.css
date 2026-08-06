@@ -457,6 +457,62 @@
   .library-hero__actions > * {
     width: 100%;
   }
+
+  .exalted-field-grid,
+  .exalted-rating-columns,
+  .exalted-advantage-grid,
+  .exalted-limit-grid,
+  .exalted-notes-grid,
+  .exalted-background-list article {
+    grid-template-columns: 1fr;
+  }
+
+  .exalted-background-add {
+    grid-template-columns: 1fr;
+  }
+
+  .exalted-ability-row {
+    grid-template-columns: 2.75rem minmax(0, 1fr);
+  }
+
+  .exalted-ability-row .dot-rating {
+    grid-column: 1 / -1;
+    justify-content: space-between;
+  }
+
+  .exalted-advantage-grid .dot-rating,
+  .exalted-limit-grid .dot-rating {
+    width: 100%;
+    min-width: 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .exalted-advantage-grid .dot-rating__break,
+  .exalted-limit-grid .dot-rating__break {
+    height: 0;
+    flex-basis: 100%;
+  }
+
+  .exalted-later-pages ul {
+    columns: 1;
+  }
+}
+
+@media (max-width: 52rem) {
+  .exalted-editor-header {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .exalted-editor-header .save-status {
+    justify-self: center;
+  }
+
+  .exalted-rating-columns,
+  .exalted-advantage-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 :root[data-reduce-motion='true'] *,

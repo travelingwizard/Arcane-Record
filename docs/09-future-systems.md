@@ -3,6 +3,8 @@
 Game modules register through `GameSystemRegistry`. Mage 20 is registered under
 the stable outer ID `mage20`; its definitions remain under
 `src/systems/mage-m20` and its adapter under `src/games/mage20`.
+Exalted First Edition is registered as `exalted1e` with stable `solar` and
+`dragon-blooded` sheet variants.
 
 A system adapter provides:
 

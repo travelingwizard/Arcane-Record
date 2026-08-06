@@ -2,7 +2,9 @@
 
 ## Product boundary
 
-- Build a local-first Mage: The Ascension 20th Anniversary Edition character sheet.
+- Build Arcane Record as a local-first, multi-game character-sheet application.
+  Mage 20 is the complete first module; Exalted First Edition includes Solar
+  and Dragon-Blooded sheet variants.
 - Keep character data in browser-local IndexedDB. Never add a backend, accounts, analytics, telemetry, cloud sync, or external runtime assets.
 - Use the exact phrase "Saved in this browser" for successful persistence.
 - This milestone is an editable sheet, not a character-creation rules engine.

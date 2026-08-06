@@ -10,6 +10,9 @@ responsive vintage-sheet treatment.
 
 - A game-neutral character library with search, game filters, explicit game
   selection, import, open, duplicate, export, and confirmed delete actions.
+- Solar and Dragon-Blooded Exalted First Edition foundations with separate
+  creation choices, sheet-specific first-page structures, and shared local
+  persistence.
 - A focused editor for identity, Attributes, Abilities, Spheres, affinity,
   Enlightenment traits, Combat and Do Maneuvers, Backgrounds, Merits & Flaws,
   Focus, Wonders, Rotes, Equipment, and Health.

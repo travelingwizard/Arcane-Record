@@ -21,6 +21,14 @@ export interface GameAppearanceDefinition {
   description: string;
 }
 
+export interface GameSystemVariantDefinition<TCharacter> {
+  id: string;
+  name: string;
+  shortName: string;
+  description: string;
+  createInitialCharacter: () => TCharacter;
+}
+
 export interface GameSystemDefinition<TCharacter = unknown> {
   id: string;
   name: string;
@@ -41,6 +49,7 @@ export interface GameSystemDefinition<TCharacter = unknown> {
   duplicateCharacter: (character: TCharacter) => TCharacter;
   CharacterEditor: ComponentType<GameCharacterEditorProps<TCharacter>>;
   sections: readonly GameSectionDefinition[];
+  variants?: readonly GameSystemVariantDefinition<TCharacter>[];
   appearance?: GameAppearanceDefinition;
 }
 

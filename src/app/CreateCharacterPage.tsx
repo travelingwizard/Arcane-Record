@@ -4,11 +4,13 @@ import type { StoredCharacterRepository } from '../storage/stored-character-repo
 
 export function CreateCharacterPage({
   systemId,
+  variantId,
   registry,
   repository,
   onNavigate,
 }: {
   systemId?: string;
+  variantId?: string;
   registry: GameSystemRegistry;
   repository: StoredCharacterRepository;
   onNavigate: (path: string) => void;
@@ -16,6 +18,9 @@ export function CreateCharacterPage({
   const [creating, setCreating] = useState(false);
   const [error, setError] = useState('');
   const system = systemId ? registry.get(systemId) : undefined;
+  const selectedVariant = variantId
+    ? system?.variants?.find((variant) => variant.id === variantId)
+    : undefined;
 
   if (!systemId) {
     return (
@@ -60,13 +65,58 @@ export function CreateCharacterPage({
     );
   }
 
+  if (system.variants?.length && !variantId) {
+    return (
+      <main className="app-shell neutral-shell creation-shell">
+        <button className="text-button" onClick={() => onNavigate('/create')}>
+          ← Choose another game
+        </button>
+        <p className="eyebrow">Create character · Step 2 of 3</p>
+        <h1>Choose an {system.shortName} character type</h1>
+        <p>Each option uses its own sheet structure and labels.</p>
+        <div className="game-system-grid">
+          {system.variants.map((variant) => (
+            <article className="game-system-card" key={variant.id}>
+              <p className="eyebrow">Character sheet</p>
+              <h2>{variant.name}</h2>
+              <p>{variant.description}</p>
+              <button
+                className="primary-button"
+                onClick={() => onNavigate(`/create/${system.id}/${variant.id}`)}
+              >
+                Choose {variant.shortName}
+              </button>
+            </article>
+          ))}
+        </div>
+      </main>
+    );
+  }
+
+  if (variantId && !selectedVariant) {
+    return (
+      <main className="app-shell neutral-shell error-shell">
+        <h1>Character type unavailable</h1>
+        <p>That character sheet is not registered for {system.shortName}.</p>
+        <button
+          className="secondary-button"
+          onClick={() => onNavigate(`/create/${system.id}`)}
+        >
+          Choose another type
+        </button>
+      </main>
+    );
+  }
+
   const create = async () => {
     setCreating(true);
     setError('');
     try {
       const timestamp = new Date().toISOString();
       const data = system.characterSchema.parse(
-        system.createInitialCharacter(),
+        selectedVariant
+          ? selectedVariant.createInitialCharacter()
+          : system.createInitialCharacter(),
       );
       const record = await repository.create({
         id: crypto.randomUUID(),
@@ -86,12 +136,26 @@ export function CreateCharacterPage({
 
   return (
     <main className="app-shell neutral-shell creation-shell">
-      <button className="text-button" onClick={() => onNavigate('/create')}>
-        ← Choose another game
+      <button
+        className="text-button"
+        onClick={() =>
+          onNavigate(
+            system.variants?.length ? `/create/${system.id}` : '/create',
+          )
+        }
+      >
+        ←{' '}
+        {system.variants?.length
+          ? 'Choose another type'
+          : 'Choose another game'}
       </button>
-      <p className="eyebrow">Create character · Step 2 of 2</p>
-      <h1>Create a {system.shortName} character</h1>
-      <p>{system.description}</p>
+      <p className="eyebrow">
+        Create character · Step {system.variants?.length ? '3 of 3' : '2 of 2'}
+      </p>
+      <h1>
+        Create a {selectedVariant?.shortName ?? system.shortName} character
+      </h1>
+      <p>{selectedVariant?.description ?? system.description}</p>
       {error ? (
         <p className="notice notice--error" role="alert">
           {error}

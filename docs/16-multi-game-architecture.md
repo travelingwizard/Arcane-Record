@@ -18,6 +18,8 @@ the legacy Mage editor model and legacy-file detector.
 - `/` — neutral character library with search, game filter, import, and cards;
 - `/create` — game selection;
 - `/create/:systemId` — confirmation and local creation;
+- `/create/:systemId/:variantId` — variant confirmation for games with more
+  than one sheet type;
 - `/characters/:id` — shared resolver and module-owned editor;
 - `/settings` — global preferences and game appearance preferences.
 
@@ -43,3 +45,9 @@ instead of trying to open them.
 
 Only character-owned game data is included in character files. UI preferences
 remain browser-local.
+
+## Registered systems
+
+- `mage20` — Mage 20 editor;
+- `exalted1e` — Exalted First Edition with `solar` and `dragon-blooded`
+  variants.

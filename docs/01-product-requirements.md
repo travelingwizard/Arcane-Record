@@ -7,7 +7,7 @@ summary, and last-updated information. Users can search, filter by game, choose
 a game before creation, open, duplicate, export, and delete characters. Delete
 requires explicit confirmation. Unknown or invalid systems remain exportable.
 
-## Editor
+## Mage editor
 
 The editor provides:
 
@@ -40,6 +40,15 @@ The editor provides:
 - debounced autosave status;
 - explicit reference-preview labeling for supplied Magick citations that still
   require source verification.
+
+## Exalted First Edition editor
+
+Creation offers Solar and Dragon-Blooded sheet variants after the user selects
+Exalted First Edition. Both foundations provide their source-sheet identity
+fields, nine Attributes, 25 sheet-grouped Abilities, favored markers,
+sheet-specific Backgrounds, Virtues, Willpower, Essence and pools, and initial
+notes. Solar characters also expose Limit Break. Source pages two through four
+remain visibly labeled as deferred and are not presented as editable features.
 
 The editor exposes every visible major section through stable URL fragments.
 At 70rem and wider, a grouped sticky rail identifies the active section. Below

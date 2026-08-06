@@ -11,6 +11,15 @@ describe('game system registry', () => {
     expect(gameSystemRegistry.get('mage-m20')).toBeUndefined();
   });
 
+  it('registers Exalted 1e with Solar and Dragon-Blooded variants', () => {
+    const system = gameSystemRegistry.get('exalted1e');
+    expect(system?.name).toBe('Exalted First Edition');
+    expect(system?.variants?.map((variant) => variant.id)).toEqual([
+      'solar',
+      'dragon-blooded',
+    ]);
+  });
+
   it('resolves valid characters and preserves unknown systems as unavailable', () => {
     const mage = resolveCharacter(
       createMageStoredCharacter(),

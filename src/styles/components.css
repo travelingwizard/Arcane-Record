@@ -3510,3 +3510,239 @@
     rotate: 360deg;
   }
 }
+
+.exalted-editor-shell {
+  width: min(calc(100% - 2rem), 86rem);
+}
+
+.exalted-editor-header {
+  padding-bottom: 1.25rem;
+  display: grid;
+  grid-template-columns: minmax(9rem, 1fr) minmax(0, 2fr) minmax(11rem, 1fr);
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 3px double var(--rule);
+}
+
+.exalted-editor-header > div {
+  text-align: center;
+}
+
+.exalted-editor-header h1 {
+  margin-bottom: 0.25rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 500;
+}
+
+.exalted-editor-header p:last-child {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.exalted-editor-header .save-status {
+  justify-self: end;
+}
+
+.exalted-section-nav {
+  padding: 0.8rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem;
+  border-bottom: 1px solid var(--rule-light);
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(0.4rem);
+}
+
+.exalted-section-nav a {
+  min-height: 2.75rem;
+  padding: 0.6rem 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  color: var(--umber-deep);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.exalted-sheet-section {
+  padding: clamp(1.5rem, 4vw, 3rem) 0;
+  scroll-margin-top: 4.5rem;
+  border-bottom: 3px double var(--rule);
+}
+
+.exalted-sheet-section > h2 {
+  margin-bottom: 1.25rem;
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  font-weight: 500;
+  text-align: center;
+}
+
+.exalted-field-grid,
+.exalted-pool-grid,
+.exalted-notes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.exalted-field-grid label,
+.exalted-pool-grid label,
+.exalted-notes-grid label,
+.exalted-background-add label,
+.exalted-background-list label,
+.exalted-limit-grid label {
+  min-width: 0;
+  display: grid;
+  gap: 0.3rem;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.exalted-field-grid input,
+.exalted-pool-grid input,
+.exalted-notes-grid textarea,
+.exalted-background-add select,
+.exalted-background-list input,
+.exalted-limit-grid textarea {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: var(--paper-light);
+}
+
+.exalted-rating-columns,
+.exalted-advantage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.exalted-ability-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr));
+  gap: 1rem;
+}
+
+.exalted-rating-group,
+.exalted-background-list article {
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--rule-light);
+  background: var(--surface-glaze);
+}
+
+.exalted-rating-group h3,
+.exalted-limit-grid h3 {
+  margin-bottom: 0.8rem;
+  color: var(--umber-deep);
+  font-weight: 500;
+  text-align: center;
+}
+
+.exalted-rating-row,
+.exalted-ability-row {
+  min-width: 0;
+  padding: 0.35rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+  border-bottom: 1px dotted var(--rule-light);
+}
+
+.exalted-rating-row > strong,
+.exalted-ability-row > strong {
+  flex: 1 1 7rem;
+  font-weight: 500;
+}
+
+.exalted-rating-row .dot-rating,
+.exalted-ability-row .dot-rating {
+  flex: 0 1 auto;
+}
+
+.exalted-ability-row {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(6rem, 1fr) auto;
+}
+
+.exalted-favored-toggle {
+  width: 2.75rem;
+  min-height: 2.75rem;
+  border: 0;
+  color: var(--gold);
+  background: transparent;
+  font-size: 1.55rem;
+}
+
+.exalted-favored-toggle[aria-pressed='true'] span {
+  display: block;
+  color: var(--umber);
+  transform: rotate(-12deg);
+}
+
+.section-note,
+.empty-inline,
+.exalted-later-pages > p,
+.exalted-later-pages li {
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+.exalted-background-add {
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: minmax(12rem, 1fr) auto;
+  align-items: end;
+  gap: 0.75rem;
+}
+
+.exalted-background-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.exalted-background-list article {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(12rem, 1fr) auto;
+  align-items: end;
+  gap: 0.75rem;
+}
+
+.exalted-pool-grid {
+  margin-top: 0.8rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.exalted-limit-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.exalted-notes-grid textarea,
+.exalted-limit-grid textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.exalted-later-pages {
+  border-bottom: 0;
+}
+
+.exalted-later-pages ul {
+  columns: 2;
+  column-gap: 2rem;
+}
