@@ -130,8 +130,10 @@ export function EquipmentSection() {
         <div id="equipment-reference-catalog">
           <p className="reference-preview-note">
             Reference preview: statistics and citations from the supplied
-            research still need source verification. Catalog items do not change
-            character ratings automatically.
+            research still need source verification. Supplemental World of
+            Darkness: Armory traits require Storyteller conversion before use
+            with Mage 20. Catalog items do not change character ratings
+            automatically.
           </p>
           <ReferenceCatalog
             label="Equipment"

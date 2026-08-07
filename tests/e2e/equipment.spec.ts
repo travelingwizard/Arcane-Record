@@ -34,8 +34,20 @@ test('records, persists, and exports catalog and custom equipment', async ({
     .fill('Kevlar Vest');
   await catalog.getByRole('button', { name: 'Add', exact: true }).click();
 
+  await catalog
+    .getByRole('searchbox', { name: 'Search equipment' })
+    .fill('Bayonet');
+  await catalog.getByRole('button', { name: 'Add', exact: true }).click();
+
   await expect(
     page.getByText('Armor 3; Dexterity -1', { exact: true }).first(),
+  ).toBeVisible();
+  await expect(
+    page
+      .getByText('Damage 2 (L); Size 1/S; Durability 3; Cost •', {
+        exact: true,
+      })
+      .first(),
   ).toBeVisible();
   await expect(
     page.getByText('Saved in this browser', { exact: true }),
@@ -77,10 +89,15 @@ test('records, persists, and exports catalog and custom equipment', async ({
         definitionId: 'kevlar-vest',
         name: 'Kevlar Vest',
       }),
+      expect.objectContaining({
+        definitionId: 'wod-armory-bayonet',
+        name: 'Bayonet',
+      }),
     ]),
   );
   expect(JSON.stringify(exported)).not.toContain('Armor 3; Dexterity -1');
   expect(JSON.stringify(exported)).not.toContain('citation');
+  expect(JSON.stringify(exported)).not.toContain('Durability 3');
 
   await page.setViewportSize({ width: 320, height: 900 });
   const dimensions = await page.evaluate(() => ({

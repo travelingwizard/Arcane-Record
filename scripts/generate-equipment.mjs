@@ -6,6 +6,12 @@ const source = readFileSync(
   resolve(root, 'docs/references/mage-m20/equipment.md'),
   'utf8',
 ).split('\n');
+const fireflyWeapons = JSON.parse(
+  readFileSync(
+    resolve(root, 'docs/references/mage-m20/firefly-wod-weapons.data.json'),
+    'utf8',
+  ),
+);
 
 function cellText(value) {
   return value.trim().replace(/^`|`$/g, '').replace(/\*\*/g, '');
@@ -18,7 +24,7 @@ function cells(line) {
     .map((cell) => cellText(cell));
 }
 
-const entries = source
+const suppliedEntries = source
   .filter((line) => line.startsWith('| `'))
   .map((line) => {
     const [
@@ -43,6 +49,8 @@ const entries = source
       contentLabel,
     };
   });
+
+const entries = [...suppliedEntries, ...fireflyWeapons];
 
 writeFileSync(
   resolve(root, 'src/systems/mage-m20/reference/equipment.data.json'),

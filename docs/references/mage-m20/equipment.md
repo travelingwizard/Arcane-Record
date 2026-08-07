@@ -8,6 +8,11 @@ Statistics and citations remain unverified until checked against the named
 books. Character exports store ownership details and stable IDs, not the
 catalog text below.
 
+The 138 comparison additions from the Firefly Dies weapons reference are kept
+in `firefly-wod-weapons.data.json`; their audit and compatibility boundary are
+documented in `firefly-wod-weapons-comparison.md`. Their newer World of Darkness
+traits require Storyteller conversion before use with Mage 20.
+
 Families:
 
 - `mundane`: ordinary personal, civilian, and historical equipment;

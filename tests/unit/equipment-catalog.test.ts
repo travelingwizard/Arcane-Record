@@ -11,7 +11,7 @@ describe('Equipment catalog', () => {
     expect(equipmentCatalogSchema.parse(equipmentCatalog)).toEqual(
       equipmentCatalog,
     );
-    expect(equipmentCatalog).toHaveLength(133);
+    expect(equipmentCatalog).toHaveLength(271);
     expect(equipmentById.size).toBe(equipmentCatalog.length);
   });
 
@@ -50,5 +50,23 @@ describe('Equipment catalog', () => {
       matchesReferenceSearch(entry, 'quantum'),
     );
     expect(results.map(({ id }) => id)).toContain('question-mark');
+  });
+
+  it('includes missing Firefly Dies Armory references with compatibility warnings', () => {
+    expect(equipmentById.get('wod-armory-bayonet')).toMatchObject({
+      name: 'Bayonet',
+      category: 'melee',
+      statistics: 'Damage 2 (L); Size 1/S; Durability 3; Cost •',
+      reviewStatus: 'unverified',
+    });
+    expect(equipmentById.get('wod-armory-anthrax')).toMatchObject({
+      category: 'gear',
+      family: 'military',
+    });
+    expect(
+      equipmentCatalog
+        .filter(({ id }) => id.startsWith('wod-armory-'))
+        .every(({ summary }) => summary.includes('convert statistics')),
+    ).toBe(true);
   });
 });

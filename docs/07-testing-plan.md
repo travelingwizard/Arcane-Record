@@ -18,7 +18,8 @@
 - Magick schema tests cover custom, catalog, and unresolved selections,
   structured Sphere ranges, wrong-kind references, duplicate IDs, and
   duplicate definitions.
-- Equipment catalog tests cover all 133 supplied definitions, categories,
+- Equipment catalog tests cover all 271 definitions (133 supplied and 138
+  comparison additions), categories,
   families, unique stable IDs, important information, citations, preview
   state, mature labels, and search.
 - Equipment schema tests cover catalog, custom, and unresolved records,

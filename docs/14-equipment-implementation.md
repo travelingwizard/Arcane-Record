@@ -9,7 +9,9 @@ material is organized in
 
 ## Product boundary
 
-- The catalog includes 133 melee, ranged, armor, and field-gear definitions.
+- The catalog includes 271 melee, ranged, armor, and field-gear definitions:
+  133 from the original supplied research and 138 missing entries compared
+  against the Firefly Dies World of Darkness weapons reference.
 - Every definition has a stable ID, family, category, important-information
   string, summary, citation, review status, and content label.
 - All supplied catalog entries remain unverified. Malign material is labeled
@@ -45,6 +47,9 @@ multiple copies.
 ## Reference-data architecture
 
 `docs/references/mage-m20/equipment.md` is the reviewable source.
+`docs/references/mage-m20/firefly-wod-weapons.data.json` contains the normalized
+comparison additions, while `firefly-wod-weapons-comparison.md` records the
+source, compatibility boundary, and exclusions.
 `scripts/generate-equipment.mjs` deterministically produces
 `src/systems/mage-m20/reference/equipment.data.json`.
 `src/systems/mage-m20/reference/equipment.ts` validates the generated catalog
