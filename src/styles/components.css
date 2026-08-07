@@ -3720,3 +3720,119 @@
   columns: 2;
   column-gap: 2rem;
 }
+
+.exalted-power-tabs {
+  margin: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.exalted-power-warning {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--gold);
+  border-left-width: 0.35rem;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--gold) 14%, var(--paper-light));
+  line-height: 1.5;
+}
+
+.exalted-selected-powers,
+.exalted-power-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.exalted-selected-powers article {
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--rule-light);
+  background: var(--surface-glaze);
+}
+
+.exalted-selected-power__heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.exalted-selected-power__heading h3 {
+  margin: 0.15rem 0 0;
+  font-weight: 500;
+}
+
+.exalted-selected-powers article > p {
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.exalted-selected-powers label,
+.exalted-power-filters label {
+  min-width: 0;
+  display: grid;
+  gap: 0.3rem;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.exalted-selected-powers textarea,
+.exalted-power-filters input,
+.exalted-power-filters select {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: var(--paper-light);
+}
+
+.exalted-selected-powers textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+
+.exalted-catalog-toggle {
+  margin-top: 1rem;
+}
+
+.exalted-power-catalog {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule-light);
+}
+
+.exalted-power-filters {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+}
+
+.exalted-power-card {
+  min-width: 0;
+}
+
+.exalted-review-badge {
+  padding: 0.25rem 0.45rem;
+  border: 1px solid var(--rule-light);
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.exalted-review-badge--warning {
+  border-color: var(--gold);
+  color: var(--ink);
+  background: color-mix(in srgb, var(--gold) 14%, var(--paper-light));
+}
+
+.exalted-show-more {
+  margin: 1rem auto 0;
+  display: block;
+}

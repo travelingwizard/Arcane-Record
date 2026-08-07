@@ -21,6 +21,7 @@ describe('Exalted First Edition foundation', () => {
       expect(character.abilities.archery).toBe(0);
       expect(character.virtues.compassion).toBe(1);
       expect(character.essence.rating).toBe(1);
+      expect(character.powers).toEqual({ charms: [], spells: [] });
       expect(character.sheetLayout.groupOrder).toEqual(
         defaultExaltedSectionGroupOrder,
       );
@@ -111,5 +112,59 @@ describe('Exalted First Edition foundation', () => {
     expect(
       migrateExalted1eCharacter(versionOne, 1).sheetLayout.groupOrder,
     ).toEqual(defaultExaltedSectionGroupOrder);
+  });
+
+  it('stores Dragon-Blooded powers by stable definition ID', () => {
+    const character = createBlankExaltedCharacter('dragon-blooded');
+    const parsed = exalted1eCharacterSchema.parse({
+      ...character,
+      powers: {
+        charms: [
+          {
+            id: crypto.randomUUID(),
+            definitionId: 'terrestrial-circle-sorcery',
+            notes: 'Learned at the Heptagram',
+          },
+        ],
+        spells: [
+          {
+            id: crypto.randomUUID(),
+            definitionId: 'assassin-s-fatal-touch',
+            notes: '',
+          },
+        ],
+      },
+    });
+    expect(parsed.powers.charms[0]?.definitionId).toBe(
+      'terrestrial-circle-sorcery',
+    );
+    expect(() =>
+      exalted1eCharacterSchema.parse({
+        ...character,
+        powers: {
+          charms: [
+            { id: crypto.randomUUID(), definitionId: 'Not a Charm', notes: '' },
+          ],
+          spells: [],
+        },
+      }),
+    ).toThrow();
+    expect(() =>
+      exalted1eCharacterSchema.parse({
+        ...createBlankExaltedCharacter('solar'),
+        powers: parsed.powers,
+      }),
+    ).toThrow();
+  });
+
+  it('migrates version-two sheets with empty power selections', () => {
+    const versionTwo = createBlankExaltedCharacter('dragon-blooded') as Partial<
+      ReturnType<typeof createBlankExaltedCharacter>
+    >;
+    delete versionTwo.powers;
+    expect(migrateExalted1eCharacter(versionTwo, 2).powers).toEqual({
+      charms: [],
+      spells: [],
+    });
   });
 });

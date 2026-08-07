@@ -8,6 +8,10 @@ import {
   exaltedVirtues,
   solarBackgrounds,
 } from './definitions';
+import {
+  dragonBloodedCharmIds,
+  dragonBloodedSpellIds,
+} from './reference/dragonblooded-powers';
 
 const fivePointRating = z.number().int().min(0).max(5);
 const attributeRating = z.number().int().min(1).max(5);
@@ -103,6 +107,22 @@ export const exalted1eCharacterSchema = z
       rating: z.number().int().min(0).max(10),
       virtueFlaw: z.string(),
     }),
+    powers: z.object({
+      charms: z.array(
+        z.object({
+          id: z.string().uuid(),
+          definitionId: z.string(),
+          notes: z.string(),
+        }),
+      ),
+      spells: z.array(
+        z.object({
+          id: z.string().uuid(),
+          definitionId: z.string(),
+          notes: z.string(),
+        }),
+      ),
+    }),
     notes: z.object({
       anima: z.string(),
       weapons: z.string(),
@@ -126,19 +146,57 @@ export const exalted1eCharacterSchema = z
         });
       }
     });
+    character.powers.charms.forEach((selection, index) => {
+      if (!dragonBloodedCharmIds.has(selection.definitionId)) {
+        context.addIssue({
+          code: 'custom',
+          message: 'Unknown Dragon-Blooded Charm definition.',
+          path: ['powers', 'charms', index, 'definitionId'],
+        });
+      }
+    });
+    character.powers.spells.forEach((selection, index) => {
+      if (!dragonBloodedSpellIds.has(selection.definitionId)) {
+        context.addIssue({
+          code: 'custom',
+          message: 'Unknown Dragon-Blooded spell definition.',
+          path: ['powers', 'spells', index, 'definitionId'],
+        });
+      }
+    });
+    if (
+      character.sheetType === 'solar' &&
+      (character.powers.charms.length > 0 || character.powers.spells.length > 0)
+    ) {
+      context.addIssue({
+        code: 'custom',
+        message: 'Dragon-Blooded powers are not available on Solar sheets.',
+        path: ['powers'],
+      });
+    }
   });
 
 export type Exalted1eCharacter = z.infer<typeof exalted1eCharacterSchema>;
 
 export function migrateExalted1eCharacter(data: unknown, fromVersion: number) {
-  const candidate =
-    fromVersion < 2 && data && typeof data === 'object' && !Array.isArray(data)
-      ? {
-          ...data,
-          sheetLayout: {
-            groupOrder: [...defaultExaltedSectionGroupOrder],
-          },
-        }
-      : data;
+  let candidate = data;
+  if (candidate && typeof candidate === 'object' && !Array.isArray(candidate)) {
+    let recordCandidate = candidate as Record<string, unknown>;
+    if (fromVersion < 2) {
+      recordCandidate = {
+        ...recordCandidate,
+        sheetLayout: {
+          groupOrder: [...defaultExaltedSectionGroupOrder],
+        },
+      };
+    }
+    if (fromVersion < 3) {
+      recordCandidate = {
+        ...recordCandidate,
+        powers: { charms: [], spells: [] },
+      };
+    }
+    candidate = recordCandidate;
+  }
   return exalted1eCharacterSchema.parse(candidate);
 }

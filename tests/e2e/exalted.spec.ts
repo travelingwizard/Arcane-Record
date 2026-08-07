@@ -8,6 +8,7 @@ async function chooseExalted(page: Page) {
 test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   page,
 }) => {
+  test.setTimeout(60_000);
   const browserErrors: string[] = [];
   page.on('console', (message) => {
     if (message.type() === 'error') browserErrors.push(message.text());
@@ -88,9 +89,37 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   await expect(page.getByRole('heading', { name: 'Wood' })).toBeVisible();
   await expect(page.getByLabel('Caste', { exact: true })).toHaveCount(0);
   await expect(page.getByText('Limit Break', { exact: true })).toHaveCount(0);
+  await expect(
+    page.getByRole('heading', { name: 'Charms & Sorcery' }),
+  ).toBeVisible();
+  await page.getByRole('button', { name: 'Browse charms catalog' }).click();
+  await page
+    .getByRole('searchbox', { name: 'Search' })
+    .fill('Terrestrial Circle Sorcery');
+  const sorceryCharm = page
+    .locator('.exalted-power-card')
+    .filter({ hasText: 'Terrestrial Circle Sorcery' });
+  await sorceryCharm.getByRole('button', { name: 'Add charm' }).click();
+  await page.getByRole('tab', { name: 'Sorcery (0)' }).click();
+  await page
+    .getByRole('searchbox', { name: 'Search' })
+    .fill("Assassin's Fatal Touch");
+  const spell = page
+    .locator('.exalted-power-card')
+    .filter({ hasText: "Assassin's Fatal Touch" });
+  await spell.getByRole('button', { name: 'Add spell' }).click();
+  await expect(page.getByRole('tab', { name: 'Sorcery (1)' })).toBeVisible();
+  await expect(
+    page.getByText('Saved in this browser', { exact: true }),
+  ).toBeVisible();
+  await page.reload();
+  await page.getByRole('tab', { name: 'Sorcery (1)' }).click();
+  await expect(
+    page.getByRole('heading', { name: "Assassin's Fatal Touch" }),
+  ).toBeVisible();
 
   await page.setViewportSize({ width: 320, height: 900 });
-  await page.getByRole('button', { name: /Sections Character/ }).click();
+  await page.getByRole('button', { name: /^Sections / }).click();
   const mobileSections = page.getByRole('dialog', {
     name: 'Character Sections',
   });

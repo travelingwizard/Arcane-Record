@@ -43,6 +43,13 @@ character-written content, and selected Do maneuvers store independent UUIDs
 plus stable catalog IDs or custom names. Reference summaries and citations are
 not copied into character data.
 
+Exalted First Edition records use a separate game-owned schema. Schema version
+3 adds Dragon-Blooded power selections as separate Charm and spell arrays.
+Each selection stores a UUID, stable catalog definition ID, and character
+notes. Full descriptions, requirements, citations, and source-review flags stay
+in the bundled reference catalog. Solar records must keep these Dragon-Blooded
+arrays empty; version-one and version-two records migrate with empty arrays.
+
 Stored and imported records are parsed with Zod at their boundaries. Invalid
 records fail instead of silently entering editor state. Schema version 2 adds
 Abilities and Enlightenment; version 3 adds temporary Willpower initialized

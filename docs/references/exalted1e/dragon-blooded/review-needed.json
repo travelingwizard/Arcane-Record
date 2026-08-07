@@ -1,0 +1,2008 @@
+[
+  {
+    "kind": "charm",
+    "id": "elemental-concentration-trance",
+    "name": "Elemental Concentration Trance",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 180",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "elemental-empowerment-meditation",
+    "name": "Elemental Empowerment Meditation",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 180",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "elemental-succor-method",
+    "name": "Elemental Succor Method",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 181",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "elemental-bolt-attack",
+    "name": "Elemental Bolt Attack",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 181",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "elemental-burst-technique",
+    "name": "Elemental Burst Technique",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 181",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "harmonious-wind-luring-song",
+    "name": "Harmonious Wind-Luring Song",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 183",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "spirit-grounding-shout",
+    "name": "Spirit-Grounding Shout",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 183",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "spirit-chaining-strike",
+    "name": "Spirit-Chaining Strike",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 183",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "spirit-shredding-attack",
+    "name": "Spirit-Shredding Attack",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 183",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "soundless-action-prana",
+    "name": "Soundless Action Prana",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 184",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "distracting-breeze-meditation",
+    "name": "Distracting Breeze Meditation",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 184",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "persistent-hornet-attack",
+    "name": "Persistent Hornet Attack",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 187",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "invisibly-hidden-chakram-method",
+    "name": "Invisibly Hidden Chakram Method",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 187",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "vengeful-gust-counterattack",
+    "name": "Vengeful Gust Counterattack",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 188",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "precision-observation-method",
+    "name": "Precision Observation Method",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 189",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "feeling-the-dragon-s-bones",
+    "name": "Feeling the Dragon's Bones",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 190",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "entombed-mind-technique",
+    "name": "Entombed Mind Technique",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 191",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "sense-riding-technique",
+    "name": "(Sense)-Riding Technique",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 191",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "sense-destroying-method",
+    "name": "(Sense)-Destroying Method",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 191",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "shaping-hand-style",
+    "name": "Shaping Hand Style",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 192",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "charm-of-greater-unmaking",
+    "name": "Charm of Greater Unmaking",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 195",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-type",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "ox-body-technique",
+    "name": "Ox-Body Technique",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 195",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-type",
+      "missing-minimum-requirements"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "unbreathing-earth-meditation",
+    "name": "Unbreathing Earth Meditation",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 196",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "unfeeling-earth-meditation",
+    "name": "Unfeeling Earth Meditation",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 196",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-type"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "unflagging-vengeance-meditation",
+    "name": "Unflagging Vengeance Meditation",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 196",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "five-dragon-fortitude",
+    "name": "Five-Dragon Fortitude",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 197",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-duration",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "five-dragon-blocking-technique",
+    "name": "Five-Dragon Blocking Technique",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 197",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "five-dragon-claw",
+    "name": "Five-Dragon Claw",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 198",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "five-dragon-force-blow",
+    "name": "Five-Dragon-Force Blow",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 198",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "five-dragon-invulnerability",
+    "name": "Five-Dragon Invulnerability",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 199",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "five-dragon-wrath",
+    "name": "Five-Dragon Wrath",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 199",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "defense-from-anathema-method",
+    "name": "Defense-from-Anathema Method",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 201",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "effortlessly-rising-flame",
+    "name": "Effortlessly Rising Flame",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 202",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "falling-star-maneuver",
+    "name": "Falling Star Maneuver",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 202",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "bellows-pumping-stride",
+    "name": "Bellows-Pumping Stride",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 203",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "dancing-ember-stride",
+    "name": "Dancing Ember Stride",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 203",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "incense-smoke-ladder",
+    "name": "Incense Smoke Ladder",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 203",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "phoenix-mate-s-lament",
+    "name": "Phoenix Mate's Lament",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 204",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "swift-legion-technique",
+    "name": "Swift Legion Technique",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 204",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "hopping-firecracker-evasion",
+    "name": "Hopping Firecracker Evasion",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 204",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-type",
+      "missing-minimum-essence",
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "virtuous-negation-defense",
+    "name": "Virtuous Negation Defense",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 205",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "smoke-obscuring-effect",
+    "name": "Smoke Obscuring Effect",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 205",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "arrow-consuming-flame-defense",
+    "name": "Arrow-Consuming Flame Defense",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 206",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "smoldering-karma-strike",
+    "name": "Smoldering Karma Strike",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 207",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "dragon-graced-weapon",
+    "name": "Dragon-Graced Weapon",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 207",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "ghost-fire-blade",
+    "name": "Ghost-Fire Blade",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 208",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "deadly-wildfire-legion",
+    "name": "Deadly Wildfire Legion",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 208",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "ringing-anvil-onslaught",
+    "name": "Ringing Anvil Onslaught",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 209",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "refining-the-inner-blade",
+    "name": "Refining the Inner Blade",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 208",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "phantom-fire-warrior-horde",
+    "name": "Phantom Fire-Warrior Horde",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 209",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "glowing-coal-radiance",
+    "name": "Glowing Coal Radiance",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 209",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "aura-of-invulnerability",
+    "name": "Aura of Invulnerability",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 210",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "warlord-s-convocation",
+    "name": "Warlord's Convocation",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 210",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "unbearable-taunt-technique",
+    "name": "Unbearable Taunt Technique",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 211",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "moth-to-the-candle",
+    "name": "Moth to the Candle",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 211",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "loquacious-courtier-technique",
+    "name": "Loquacious Courtier Technique",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 211",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "sweeten-the-tap-method",
+    "name": "Sweeten-the-Tap Method",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 211",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "warm-faced-seduction-style",
+    "name": "Warm-Faced Seduction Style",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 212",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "drowning-embrace",
+    "name": "Drowning Embrace",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 213",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "riptide-method",
+    "name": "Riptide Method",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 213",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "fist-spinning-maelstrom",
+    "name": "Fist-Spinning Maelstrom",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 214",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "blade-deflecting-palm",
+    "name": "Blade-Deflecting Palm",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 214",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "become-the-hammer",
+    "name": "Become the Hammer",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 215",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "flow-past-defenses",
+    "name": "Flow Past Defenses",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 215",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "benevolent-master-s-blessing",
+    "name": "Benevolent Master's Blessing",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 215",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "bestow-the-saffron-mantle",
+    "name": "Bestow the Saffron Mantle",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 216",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "thrashing-carp-serenade",
+    "name": "Thrashing Carp Serenade",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 217",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "thoughtful-gift-technique",
+    "name": "Thoughtful Gift Technique",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 217",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "indisputable-physical-analysis-technique",
+    "name": "Indisputable Physical Analysis Technique",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 217",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "scent-of-crime-method",
+    "name": "Scent-of-Crime Method",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 217",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "revelation-of-associates-hunch",
+    "name": "Revelation of Associates Hunch",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 218",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "window-in-the-door-technique",
+    "name": "Window-in-the-Door Technique",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 221",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "resetting-tumblers-technique",
+    "name": "Resetting Tumblers Technique",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 221",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "artful-sprinting-theft",
+    "name": "Artful Sprinting Theft",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 221",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "space-crossing-theft-technique",
+    "name": "Space-Crossing Theft Technique",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 221",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "hurricane-predicting-glance",
+    "name": "Hurricane-Predicting Glance",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 221",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "sturdy-bulkhead-concentration",
+    "name": "Sturdy Bulkhead Concentration",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 223",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "dragonfly-finds-mate",
+    "name": "Dragonfly Finds Mate",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 225",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "seven-year-swarm-volley",
+    "name": "Seven-Year Swarm Volley",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 225",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "sparrow-dives-at-hawk",
+    "name": "Sparrow Dives at Hawk",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 225",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-duration",
+      "missing-minimum-requirements",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "purity-of-mind-method",
+    "name": "Purity of Mind Method",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 227",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "protective-performance",
+    "name": "Protective Performance",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 229",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "heaven-gracing-leap",
+    "name": "Heaven-Gracing Leap",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 229",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "ebony-spur-technique",
+    "name": "Ebony Spur Technique",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 230",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "charge-of-one-hundred-generals",
+    "name": "Charge of One Hundred Generals",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 230",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-duration"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "wild-wandering-forester-charm",
+    "name": "Wild-Wandering Forester Charm",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 232",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "forgiveness-of-nature-invoking-prana",
+    "name": "Forgiveness-of-Nature Invoking Prana",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 232",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "trail-concealing-measurement",
+    "name": "Trail Concealing Measurement",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 233",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "ration-enhancing-method",
+    "name": "Ration-Enhancing Method",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 233",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-duration"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "hostile-environment-preparation-method",
+    "name": "Hostile Environment Preparation Method",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 233",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "shelter-creation-technique",
+    "name": "Shelter Creation Technique",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 233",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "spirit-sight",
+    "name": "Spirit Sight",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 241",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "air-dragon-s-might",
+    "name": "Air Dragon's Might",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 243",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "breath-seizing-technique",
+    "name": "Breath-Seizing Technique",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 243",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "wind-dragon-speed",
+    "name": "Wind Dragon Speed",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 243",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "shrouding-the-body-and-mind",
+    "name": "Shrouding the Body and Mind",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 244",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "wrathful-winds-maneuver",
+    "name": "Wrathful Winds Maneuver",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 245",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "cloud-treading-method",
+    "name": "Cloud Treading Method",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 246",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "thunderclap-kata",
+    "name": "Thunderclap Kata",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 247",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "lightning-strike-style",
+    "name": "Lightning Strike Style",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 247",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "hurricane-combat-method",
+    "name": "Hurricane Combat Method",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 247",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "unmoving-mountain-stance",
+    "name": "Unmoving Mountain Stance",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 248",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "stone-dragon-s-skin",
+    "name": "Stone Dragon's Skin",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 249",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "earth-dragon-form",
+    "name": "Earth Dragon Form",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 249",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "shattering-fist-strike",
+    "name": "Shattering Fist Strike",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 249",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "weapon-breaking-defense-technique",
+    "name": "Weapon-Breaking Defense Technique",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 249",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "avalanche-method",
+    "name": "Avalanche Method",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 250",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-duration"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "hungry-earth-strike",
+    "name": "Hungry Earth Strike",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 250",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "ghost-grounding-blow",
+    "name": "Ghost-Grounding Blow",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 251",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-type",
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "perfection-of-earth-body",
+    "name": "Perfection of Earth Body",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 252",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "flash-fire-technique",
+    "name": "Flash-Fire Technique",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 252",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-minimum-essence",
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "fire-dragon-form",
+    "name": "Fire Dragon Form",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 252",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "flowing-water-defense",
+    "name": "Flowing Water Defense",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 255",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "shrugging-water-dragon-escape",
+    "name": "Shrugging Water Dragon Escape",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 257",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "crashing-wave-style",
+    "name": "Crashing Wave Style",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 258",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "bottomless-depths-defense",
+    "name": "Bottomless Depths Defense",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 259",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "essence-dousing-wave-attack",
+    "name": "Essence-Dousing Wave Attack",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 259",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "eyes-of-the-wood-dragon",
+    "name": "Eyes of the Wood Dragon",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 259",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-cost",
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "wood-dragon-vitality",
+    "name": "Wood Dragon Vitality",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 261",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "soul-marking-strike",
+    "name": "Soul-Marking Strike",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 261",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-type"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "wood-dragon-form",
+    "name": "Wood Dragon Form",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 261",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "missing-duration",
+      "missing-type",
+      "missing-minimum-requirements",
+      "missing-minimum-essence",
+      "description-needs-source-review",
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "unbreakable-fascination-kata",
+    "name": "Unbreakable Fascination Kata",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 261",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "enthralling-blow-attack",
+    "name": "Enthralling Blow Attack",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 261",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "death-pattern-sensing-attitude",
+    "name": "Death-Pattern Sensing Attitude",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 263",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "wood-dragon-succor",
+    "name": "Wood Dragon Succor",
+    "sourceDisplay": "Exalted: The Dragon-Blooded, p. 263",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "low-ocr-match"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "cipher-missive",
+    "name": "Cipher Missive",
+    "sourceDisplay": "Aspect Book: Air, p. 67",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "craft-icon",
+    "name": "Craft Icon",
+    "sourceDisplay": "Aspect Book: Air, p. 68",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "speech-without-words",
+    "name": "Speech Without Words",
+    "sourceDisplay": "Aspect Book: Air, p. 68",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "favored-quill-mastery",
+    "name": "Favored Quill Mastery",
+    "sourceDisplay": "Aspect Book: Air, p. 69",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "careful-insight-gathering-study",
+    "name": "Careful Insight-Gathering Study",
+    "sourceDisplay": "Aspect Book: Air, p. 69",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "brute-force-contemplation",
+    "name": "Brute Force Contemplation",
+    "sourceDisplay": "Aspect Book: Air, p. 69",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "eternal-mind-meditation",
+    "name": "Eternal Mind Meditation",
+    "sourceDisplay": "Aspect Book: Air, p. 70",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "flawless-study-focus",
+    "name": "Flawless Study Focus",
+    "sourceDisplay": "Aspect Book: Air, p. 70",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "stern-tutor-discipline",
+    "name": "Stern Tutor Discipline",
+    "sourceDisplay": "Aspect Book: Air, p. 70",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "minding-the-dragon-s-eggs",
+    "name": "Minding the Dragon's Eggs",
+    "sourceDisplay": "Aspect Book: Air, p. 70",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "fivefold-resonance-sense",
+    "name": "Fivefold Resonance Sense",
+    "sourceDisplay": "Aspect Book: Air, p. 71",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "seeing-the-maker-s-hand",
+    "name": "Seeing the Maker's Hand",
+    "sourceDisplay": "Aspect Book: Air, p. 71",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "embracing-the-arcane",
+    "name": "Embracing the Arcane",
+    "sourceDisplay": "Aspect Book: Air, p. 71",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "deliberate-insignificance-method",
+    "name": "Deliberate Insignificance Method",
+    "sourceDisplay": "Aspect Book: Air, p. 72",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "empty-hand-posture",
+    "name": "Empty Hand Posture",
+    "sourceDisplay": "Aspect Book: Air, p. 72",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "favored-haunt-stance",
+    "name": "Favored Haunt Stance",
+    "sourceDisplay": "Aspect Book: Air, p. 72",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "subtle-breeze-kata",
+    "name": "Subtle Breeze Kata",
+    "sourceDisplay": "Aspect Book: Air, p. 72",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "crosswind-offense",
+    "name": "Crosswind Offense",
+    "sourceDisplay": "Aspect Book: Air, p. 73",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "crosswind-feint",
+    "name": "Crosswind Feint",
+    "sourceDisplay": "Aspect Book: Air, p. 73",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "crosswind-gale",
+    "name": "Crosswind Gale",
+    "sourceDisplay": "Aspect Book: Air, p. 74",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "crosswind-empowerment-technique",
+    "name": "Crosswind Empowerment Technique",
+    "sourceDisplay": "Aspect Book: Air, p. 74",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "diligent-engineer-discipline",
+    "name": "Diligent Engineer Discipline",
+    "sourceDisplay": "Aspect Book: Air, p. 74",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "unfailing-dragon-glance",
+    "name": "Unfailing Dragon Glance",
+    "sourceDisplay": "Aspect Book: Earth, p. 71",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "armor-hardening-concentration",
+    "name": "Armor-Hardening Concentration",
+    "sourceDisplay": "Aspect Book: Earth, p. 76",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "mantle-of-element-invulnerability",
+    "name": "Mantle of (Element) Invulnerability",
+    "sourceDisplay": "Aspect Book: Earth, p. 77",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "perfected-scales-of-the-dragon",
+    "name": "Perfected Scales of the Dragon",
+    "sourceDisplay": "Aspect Book: Earth, p. 77",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "unassailable-body-of-flame-defense",
+    "name": "Unassailable Body of Flame Defense",
+    "sourceDisplay": "Aspect Book: Fire, p. 74",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "fire-incites-water-to-a-riot-of-clouds",
+    "name": "Fire Incites Water to a Riot of Clouds",
+    "sourceDisplay": "Aspect Book: Fire, p. 74",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "spirit-branding-blade-technique",
+    "name": "Spirit-Branding Blade Technique",
+    "sourceDisplay": "Aspect Book: Fire, p. 75",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "bonds-of-unbreakable-ice-technique",
+    "name": "Bonds of Unbreakable Ice Technique",
+    "sourceDisplay": "Aspect Book: Water, p. 73",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "perfect-gambling-prana",
+    "name": "Perfect Gambling Prana",
+    "sourceDisplay": "Aspect Book: Water, p. 78",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "charm",
+    "id": "unobstructed-hunter-s-aim",
+    "name": "Unobstructed Hunter's Aim",
+    "sourceDisplay": "Aspect Book: Wood, p. 75",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "spell",
+    "id": "assassin-s-fatal-touch",
+    "name": "Assassin's Fatal Touch",
+    "sourceDisplay": "Book of Three Circles, p. 31",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "spell",
+    "id": "coin-of-distant-vision",
+    "name": "Coin of Distant Vision",
+    "sourceDisplay": "Book of Three Circles, p. 33",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "spell",
+    "id": "infallible-messenger",
+    "name": "Infallible Messenger",
+    "sourceDisplay": "Exalted, p. 218",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "spell",
+    "id": "invulnerable-skin-of-bronze",
+    "name": "Invulnerable Skin of Bronze",
+    "sourceDisplay": "Exalted, p. 218",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "spell",
+    "id": "magician-s-pleasant-path",
+    "name": "Magician's Pleasant Path",
+    "sourceDisplay": "Book of Three Circles, p. 40",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "spell",
+    "id": "open-the-spirit-door",
+    "name": "Open the Spirit Door",
+    "sourceDisplay": "Exalted: The Sidereals, p. 122-123",
+    "reviewStatus": "external-source",
+    "reviewFlags": [
+      "external-original-source-not-uploaded"
+    ]
+  },
+  {
+    "kind": "spell",
+    "id": "purifying-flames",
+    "name": "Purifying Flames",
+    "sourceDisplay": "Book of Three Circles, p. 43",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "spell",
+    "id": "shadowy-simulacrums-of-smoke",
+    "name": "Shadowy Simulacrums of Smoke",
+    "sourceDisplay": "Book of Three Circles, p. 45",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "spell",
+    "id": "shedding-the-serpent-s-skin",
+    "name": "Shedding the Serpent's Skin",
+    "sourceDisplay": "Book of Three Circles, p. 46",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "spell",
+    "id": "song-of-the-waves",
+    "name": "Song of the Waves",
+    "sourceDisplay": "Book of Three Circles, p. 47",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "spell",
+    "id": "song-of-vertigo",
+    "name": "Song of Vertigo",
+    "sourceDisplay": "Book of Three Circles, p. 47",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "spell",
+    "id": "spoke-the-wooden-face",
+    "name": "Spoke the Wooden Face",
+    "sourceDisplay": "Book of Three Circles, p. 48",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "spell",
+    "id": "stalwart-earth-guardian",
+    "name": "Stalwart Earth Guardian",
+    "sourceDisplay": "Book of Three Circles, p. 49",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "spell",
+    "id": "summoning-the-lesser-minions-of-the-eyeless-face",
+    "name": "Summoning the Lesser Minions of the Eyeless Face",
+    "sourceDisplay": "Savant and Sorcerer, p. 121",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "spell",
+    "id": "thunder-wolf-s-howl",
+    "name": "Thunder Wolf's Howl",
+    "sourceDisplay": "Savant and Sorcerer, p. 122; Book of Three Circles, p. 50",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "spell",
+    "id": "the-titan-s-icy-breath",
+    "name": "The Titan's Icy Breath",
+    "sourceDisplay": "Book of Three Circles, p. 50",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "spell",
+    "id": "venom-of-the-heart",
+    "name": "Venom of the Heart",
+    "sourceDisplay": "Book of Three Circles, p. 52",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  },
+  {
+    "kind": "spell",
+    "id": "the-violent-opening-of-closed-portals",
+    "name": "The Violent Opening of Closed Portals",
+    "sourceDisplay": "Book of Three Circles, p. 52",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "description-needs-source-review"
+    ]
+  }
+]

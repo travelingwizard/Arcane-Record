@@ -467,6 +467,16 @@
     grid-template-columns: 1fr;
   }
 
+  .exalted-selected-powers,
+  .exalted-power-results,
+  .exalted-power-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .exalted-selected-power__heading {
+    flex-direction: column;
+  }
+
   .exalted-background-add {
     grid-template-columns: 1fr;
   }

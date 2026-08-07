@@ -1,0 +1,79 @@
+{
+  "systemId": "exalted1e",
+  "moduleId": "dragon-blooded",
+  "catalogVersion": "1.0.0",
+  "generatedFor": "Arcane Record",
+  "scope": {
+    "charms": 320,
+    "spells": 99,
+    "totalPowers": 419,
+    "notes": "Covers the Dragon-Blooded core Charm trees, Five Glorious Dragon Paths/Immaculate Martial Arts, the new Charms in all five Aspect Books, and the Terrestrial/Emerald Circle sorcery represented in the supplied core/sorcery books. Necromancy, Celestial/Solar Circle sorcery, Infernal-only access, and unprovided splatbook-only material are outside the standard catalog."
+  },
+  "sources": [
+    {
+      "bookId": "exalted-the-dragon-blooded",
+      "bookLabel": "Exalted: The Dragon-Blooded",
+      "role": "Primary Dragon-Blooded rules and Charms; Sworn Brothers' Oath"
+    },
+    {
+      "bookId": "aspect-book-air",
+      "bookLabel": "Aspect Book: Air",
+      "role": "Additional Air-themed Dragon-Blooded Charms"
+    },
+    {
+      "bookId": "aspect-book-earth",
+      "bookLabel": "Aspect Book: Earth",
+      "role": "Additional Earth-themed Dragon-Blooded Charms"
+    },
+    {
+      "bookId": "aspect-book-fire",
+      "bookLabel": "Aspect Book: Fire",
+      "role": "Additional Fire-themed Dragon-Blooded Charms"
+    },
+    {
+      "bookId": "aspect-book-water",
+      "bookLabel": "Aspect Book: Water",
+      "role": "Additional Water-themed Dragon-Blooded Charms"
+    },
+    {
+      "bookId": "aspect-book-wood",
+      "bookLabel": "Aspect Book: Wood",
+      "role": "Additional Wood-themed Dragon-Blooded Charms"
+    },
+    {
+      "bookId": "exalted-core",
+      "bookLabel": "Exalted",
+      "role": "Core Terrestrial Circle spells"
+    },
+    {
+      "bookId": "book-of-three-circles",
+      "bookLabel": "Book of Three Circles",
+      "role": "Expanded Terrestrial Circle spells"
+    },
+    {
+      "bookId": "savant-and-sorcerer",
+      "bookLabel": "Savant and Sorcerer",
+      "role": "Updated/expanded sorcery descriptions and spells"
+    },
+    {
+      "bookId": "blood-and-salt",
+      "bookLabel": "Blood and Salt",
+      "role": "Additional Terrestrial spells including Song of the Lintha and Water's Ally"
+    },
+    {
+      "bookId": "savage-seas",
+      "bookLabel": "Savage Seas",
+      "role": "Additional maritime Terrestrial spells including Water's Chilling Grasp"
+    },
+    {
+      "bookId": "exalted-the-sidereals",
+      "bookLabel": "Exalted: The Sidereals",
+      "role": "Original source for Open the Spirit Door; original PDF not supplied, entry flagged external-source"
+    }
+  ],
+  "rulesNotes": [
+    "Dragon-Blooded standard sorcery access is Terrestrial/Emerald Circle only and requires the Terrestrial Circle Sorcery Charm (Occult 3, Essence 3).",
+    "Spells inherit Occult 3, Essence 3, and Terrestrial Circle Sorcery as application-level prerequisites because First Edition spells generally do not present Charm-style minimum fields individually.",
+    "Entries with OCR damage or missing fields are retained and explicitly flagged rather than silently guessed."
+  ]
+}

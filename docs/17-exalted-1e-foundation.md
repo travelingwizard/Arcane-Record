@@ -22,7 +22,7 @@ are not persisted as character data.
 ## Registered structure
 
 - game system ID: `exalted1e`;
-- schema version: `2`;
+- schema version: `3`;
 - sheet variants: `solar`, `dragon-blooded`;
 - create route: `/create/exalted1e`; choosing a variant creates and opens it;
 - character data uses integer ratings rendered through the shared dot control.
@@ -30,9 +30,12 @@ are not persisted as character data.
 The schema stores sheet type, identity, Attributes, Abilities, favored Ability
 IDs, selected Background definition IDs and records, Virtues, permanent and
 temporary Willpower, Essence and pools, Limit/Virtue Flaw, initial free-form
-notes, and a complete section-group order. Zod validates all new, stored, and
-imported records through the shared registry boundary. Version-one records
-migrate by receiving the default section order.
+notes, Dragon-Blooded Charm and spell selections, and a complete section-group
+order. Power selections contain only a selection UUID, stable definition ID,
+and character notes; catalog rules and sources remain reference data. Zod
+validates all new, stored, and imported records through the shared registry
+boundary. Version-one records migrate by receiving the default section order,
+and version-one/two records receive empty power selections.
 
 ## Implemented foundation
 
@@ -45,6 +48,10 @@ migrate by receiving the default section order.
 - sheet-specific Background selection, ratings, and notes;
 - Virtues, Willpower, Essence, pools, Solar Limit Break, and Virtue Flaw;
 - Anima, weapons, and experience notes;
+- a Dragon-Blooded-only Charms & Sorcery section with 320 Charms and 99
+  Terrestrial/Emerald Circle spells, search and filters, source-review labels,
+  expanded reference details, and character notes;
+- advisory display of minimums and sorcery access without blocking edits;
 - generic IndexedDB autosave, library summary/search, duplication, rename, and
   JSON/YAML exchange;
 - an original Exalted-specific responsive visual token set;
@@ -53,7 +60,13 @@ migrate by receiving the default section order.
 ## Deferred, visibly labeled areas
 
 The editor identifies but does not yet claim to implement Merits and Flaws,
-Charms and Sorcery, Combos, full combat/armor, expanded Background narratives,
-possessions, languages, derangements, detailed experience history, character
-history/description, or a sketch surface. These correspond to source pages two
-through four and should be implemented in focused later milestones.
+Solar Charms and Sorcery, Combos, full combat/armor, expanded Background
+narratives, possessions, languages, derangements, detailed experience history,
+character history/description, or a sketch surface. These correspond to source
+pages two through four and should be implemented in focused later milestones.
+
+The Dragon-Blooded catalog provenance, readable catalog, special-case policy,
+and review queue are preserved under
+`docs/references/exalted1e/dragon-blooded/`. Entries marked for source review
+remain selectable and visibly labeled; uncertain rules are not silently
+reconstructed.

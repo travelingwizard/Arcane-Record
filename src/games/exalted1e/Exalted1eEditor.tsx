@@ -29,6 +29,7 @@ import {
   type ExaltedVirtueId,
 } from './definitions';
 import { exalted1eCharacterSchema, type Exalted1eCharacter } from './schema';
+import { DragonBloodedPowersSection } from './DragonBloodedPowersSection';
 
 const AUTOSAVE_DELAY_MS = 550;
 
@@ -59,6 +60,13 @@ export function Exalted1eEditor({
   const [backgroundChoice, setBackgroundChoice] = useState('');
   const isNarrowLayout = useMediaQuery('(max-width: 69.999rem)');
   const isSolar = draft.sheetType === 'solar';
+  const activeSections = useMemo(
+    () =>
+      isSolar
+        ? exaltedSections.filter(({ id }) => id !== 'exalted-charms-sorcery')
+        : [...exaltedSections],
+    [isSolar],
+  );
   const sheetName = isSolar ? 'Solar' : 'Dragon-Blooded';
   const abilityGroups = isSolar
     ? solarAbilityGroups
@@ -158,11 +166,11 @@ export function Exalted1eEditor({
 
   const displayName = draft.identity.name.trim() || `Untitled ${sheetName}`;
   const { activeSection, setActiveSection } = useActiveSheetSection(
-    exaltedSections,
+    activeSections,
     'exalted-identity',
   );
   const { navigateToSection } = useSheetSectionNavigation({
-    sections: exaltedSections,
+    sections: activeSections,
     setActiveSection,
   });
   const moveGroup = useCallback(
@@ -196,6 +204,9 @@ export function Exalted1eEditor({
       'exalted-advantages': {
         primary: `Willpower ${draft.willpower.permanent} · Essence ${draft.essence.rating}`,
       },
+      'exalted-charms-sorcery': {
+        primary: `${draft.powers.charms.length} Charms · ${draft.powers.spells.length} spells`,
+      },
       'exalted-notes': { primary: 'Anima · Weapons · Experience' },
       'exalted-later-pages': { primary: 'Deferred foundation areas' },
     }),
@@ -204,10 +215,10 @@ export function Exalted1eEditor({
   const sectionContext = useMemo(
     () => ({
       activeSection,
-      expandedSections: new Set(exaltedSections.map(({ id }) => id)),
+      expandedSections: new Set(activeSections.map(({ id }) => id)),
       isNarrowLayout,
       summaries: sectionSummaries,
-      sections: exaltedSections,
+      sections: activeSections,
       groups: exaltedSectionGroups,
       groupOrder: draft.sheetLayout.groupOrder,
       canCollapseSections: false,
@@ -219,6 +230,7 @@ export function Exalted1eEditor({
     }),
     [
       activeSection,
+      activeSections,
       draft.sheetLayout.groupOrder,
       isNarrowLayout,
       moveGroup,
@@ -696,6 +708,25 @@ export function Exalted1eEditor({
               </div>
             </section>
 
+            {!isSolar ? (
+              <section
+                id="exalted-charms-sorcery"
+                data-section-group="advantages"
+                className="exalted-sheet-section"
+              >
+                <p className="eyebrow">Dragon-Blooded powers</p>
+                <h2 id="exalted-charms-sorcery-heading" tabIndex={-1}>
+                  Charms &amp; Sorcery
+                </h2>
+                <DragonBloodedPowersSection
+                  powers={draft.powers}
+                  onChange={(powers) =>
+                    update((current) => ({ ...current, powers }))
+                  }
+                />
+              </section>
+            ) : null}
+
             <section
               id="exalted-notes"
               data-section-group="records"
@@ -742,7 +773,7 @@ export function Exalted1eEditor({
               </p>
               <ul>
                 <li>Merits and Flaws</li>
-                <li>Charms and Sorcery</li>
+                {isSolar ? <li>Charms and Sorcery</li> : null}
                 <li>Combos, combat, and armor</li>
                 <li>Expanded Background details and possessions</li>
                 <li>Languages, derangements, and experience history</li>

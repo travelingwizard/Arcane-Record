@@ -1,0 +1,30 @@
+{
+  "excludedFromStandardCatalog": [
+    {
+      "name": "Celestial / Sapphire Circle Sorcery",
+      "reason": "The Dragon-Blooded core explicitly limits standard Terrestrial Exalted to the Terrestrial Circle."
+    },
+    {
+      "name": "Solar / Adamant Circle Sorcery",
+      "reason": "Beyond standard Dragon-Blooded access."
+    },
+    {
+      "name": "Infernal Sorcery through the Talisman of the Cult of Dukantha",
+      "reason": "Artifact-specific exceptional access in Blood and Salt; not a standard Dragon-Blooded character option."
+    },
+    {
+      "name": "Necromancy",
+      "reason": "Separate magical system; user requested Charms and sorcery for the Dragon-Blooded sheet."
+    },
+    {
+      "name": "Unprovided splatbook-only spells/Charms",
+      "reason": "Not included unless represented in the supplied source corpus. This keeps the import grounded in the books supplied for this project."
+    }
+  ],
+  "externalSourceEntries": [
+    {
+      "name": "Open the Spirit Door",
+      "reason": "Referenced in supplied material, but its original source (Exalted: The Sidereals) was not uploaded. Entry is included and flagged external-source."
+    }
+  ]
+}
