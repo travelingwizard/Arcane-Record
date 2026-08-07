@@ -1,0 +1,1703 @@
+{
+  "format": "arcane-record-reference-catalog",
+  "formatVersion": 1,
+  "gameSystemId": "exalted1e",
+  "characterType": "dragon-blooded",
+  "catalogType": "merits-and-flaws",
+  "sourcePolicy": "Paraphrased from the uploaded Exalted Player's Guide, Chapter One: Merits and Flaws. Species-restricted entries incompatible with Dragon-Blooded are excluded from selectable entries and documented separately.",
+  "counts": {
+    "total": 80,
+    "merits": 40,
+    "flaws": 40
+  },
+  "entries": [
+    {
+      "id": "selective-conception",
+      "name": "Selective Conception",
+      "kind": "merit",
+      "category": "physical",
+      "cost": "1",
+      "summary": "Full conscious control over fertility.",
+      "mechanics": "The character may choose when they are fertile. A female character may spend 1 Willpower to ensure conception from a union and automatically knows if she becomes pregnant; a male character may suppress fertility but cannot guarantee or automatically detect conception.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 18
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "ambidextrous",
+      "name": "Ambidextrous",
+      "kind": "merit",
+      "category": "physical",
+      "cost": "1 or 2",
+      "summary": "Use either hand equally well; the higher version extends unusual dexterity to the feet.",
+      "mechanics": "At 1 point, ignore off-hand penalties. At 2 points, the character can manipulate weapons and tools with the feet about as readily as with the hands, subject to balance and common-sense limits.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 18
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "acute-sense",
+      "name": "Acute Sense",
+      "kind": "merit",
+      "category": "physical",
+      "cost": "1 or 3 per sense",
+      "summary": "One sense is exceptionally sharp or preternaturally acute.",
+      "mechanics": "At 1 point per sense, add 2 dice to relevant Perception/Awareness pools; intense stimuli can cause sensory overload. At 3 points per sense, add 4 dice and gain extreme sensory capability, but overload is also more severe. Does not stack with magical sensory bonuses; use the strongest effect.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 18
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "double-jointed",
+      "name": "Double-Jointed",
+      "kind": "merit",
+      "category": "physical",
+      "cost": "1 or 3",
+      "summary": "Exceptional flexibility and contortion ability.",
+      "mechanics": "At 1 point, add 1 die to grappling and suitable Athletics/Larceny rolls. At 3 points, add 2 dice and permit extreme contortion, painless joint dislocation and escape from many restraints with an appropriate Dexterity + Athletics roll.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 19
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "pain-tolerance",
+      "name": "Pain Tolerance",
+      "kind": "merit",
+      "category": "physical",
+      "cost": "3, 5, or 7",
+      "summary": "Ignore some or all wound penalties at the cost of reduced tactile sensitivity.",
+      "mechanics": "3 points ignores 1 die of wound penalties and raises touch-based Awareness difficulty by 1. 5 points ignores 2 dice and raises that difficulty by 2. 7 points ignores wound penalties that do not represent actual maiming, but effectively loses normal touch and must visually inspect injuries. Does not stack with magic that negates wound penalties.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 19
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "large-size",
+      "name": "Large Size",
+      "kind": "merit",
+      "category": "physical",
+      "cost": "4 or 6",
+      "summary": "The character is exceptionally large and gains extra health.",
+      "mechanics": "At 4 points, gain one additional -0 health level. At 6 points, gain one -0 and one -1 health level, but lose 1 die on Dexterity rolls with tools or weapons too small for the character's hands.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 19
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "legendary-attribute",
+      "name": "Legendary Attribute",
+      "kind": "merit",
+      "category": "physical",
+      "cost": "3 for Exalted",
+      "summary": "Raise one selected Attribute beyond the normal Essence-based limit.",
+      "mechanics": "Choose a Physical Attribute, or use the equivalent Social/Mental version. The chosen Attribute may be raised one dot above the normal cap imposed by Essence. For Essence 1–5 this normally permits rating 6; higher Essence increases the ceiling accordingly.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 19
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "special-resistance",
+      "name": "Special Resistance",
+      "kind": "merit",
+      "category": "physical",
+      "cost": "Variable; usually 1–5",
+      "summary": "Exceptional resistance or immunity to a chosen poison or disease.",
+      "mechanics": "Each point adds 1 die to applicable Resistance/Endurance rolls against one class of poison or disease, to a maximum +5 dice. Alternatively, 1 point can grant total immunity to one specific poison or disease. It cannot grant immunity to infected wounds.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 19
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "special-sense",
+      "name": "Special Sense",
+      "kind": "merit",
+      "category": "physical",
+      "cost": "2 per significant sensory expansion",
+      "summary": "A sense works outside normal biological ranges.",
+      "mechanics": "Examples include heat vision, ultrasonic hearing or pheromone detection. There is no fixed roll bonus; the Storyteller incorporates the expanded sensory information into play. It can combine with Acute Sense, which then applies to the expanded range.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 20
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "mutation-merit",
+      "name": "Mutation",
+      "kind": "merit",
+      "category": "physical",
+      "cost": "Mutation rating + 2 bonus points",
+      "summary": "A useful supernatural mutation or unusual physical feature.",
+      "mechanics": "Model the feature using an appropriate beneficial Wyld mutation. Useful mutations cost bonus points equal to the mutation's rating + 2. Essence users may spend 2 motes in place of 1 Willpower for mutation activation costs. Storyteller approval is required.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 20
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "common-sense",
+      "name": "Common Sense",
+      "kind": "merit",
+      "category": "mental",
+      "cost": "1",
+      "summary": "The Storyteller warns the player when an intended action is obviously disastrous.",
+      "mechanics": "Primarily a player-aid Merit. It does not prevent foolish choices; it gives fair warning when the character would reasonably recognize an especially bad idea.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 20
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "internal-compass",
+      "name": "Internal Compass",
+      "kind": "merit",
+      "category": "mental",
+      "cost": "1",
+      "summary": "An uncanny directional sense.",
+      "mechanics": "Add 1 die to navigation rolls, including ship navigation and maze finding. A standard-difficulty Wits + Awareness roll can orient the character to Creation's or the Underworld's cardinal directions.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 20
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "eidetic-recall",
+      "name": "Eidetic Recall",
+      "kind": "merit",
+      "category": "mental",
+      "cost": "1–5",
+      "summary": "Perfect recall for one or more senses.",
+      "mechanics": "Each point covers one sense that can be recalled with extraordinary precision. The Storyteller may still require Wits + Awareness to encode or retrieve details from extreme stress, such as combat.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 20
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "prodigy",
+      "name": "Prodigy",
+      "kind": "merit",
+      "category": "mental",
+      "cost": "2–5 depending on use",
+      "summary": "Exceptional aptitude in an Ability, either by making it Favored or improving an already favored/aspect Ability.",
+      "mechanics": "For Dragon-Blooded, making an additional Ability Favored normally costs 3 points. Spending 2 points on an Ability already Favored or treated as an Aspect Ability improves aptitude: add 1 die to rolls with that Ability and reduce its experience cost to (current rating × 2) - 2. The benefits can be combined for 5 points where legal.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": ["Normal Favored Ability allocation limits still apply."],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 20
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "virtue-specialty",
+      "name": "Virtue Specialty",
+      "kind": "merit",
+      "category": "mental",
+      "cost": "2–6",
+      "summary": "A Virtue becomes especially strong under a defined circumstance.",
+      "mechanics": "Gain specialty dice equal to half the points invested when the chosen circumstance applies. Those dice also count when the character is trying to act against that Virtue. No Virtue may gain more than 3 specialty dice from this Merit.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 21
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "driving-passion",
+      "name": "Driving Passion",
+      "kind": "merit",
+      "category": "mental",
+      "cost": "3",
+      "summary": "A defining cause or goal gives the character extra drive.",
+      "mechanics": "Add 1 die to actions that directly advance the chosen cause. If the character permanently fulfills or resolves the passion, the Merit is lost and the character gains 6 experience points.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 21
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "tactical-instincts",
+      "name": "Tactical Instincts",
+      "kind": "merit",
+      "category": "mental",
+      "cost": "3",
+      "summary": "Instinctive command of tactics and battlefield positioning.",
+      "mechanics": "Use a normal Wits + Lore roll to analyze a contested position or game board. Successes become a pool of bonus dice for relevant strategy or command rolls, normally Lore or Presence. No more than 3 bonus dice may be spent on one roll.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 21
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "true-love",
+      "name": "True Love",
+      "kind": "merit",
+      "category": "mental",
+      "cost": "3",
+      "summary": "A deeply reciprocal romantic bond strengthens the character.",
+      "mechanics": "Add 1 die to rolls directly defending or aiding the loved one or the relationship. The character may use Compassion + 1 instead of Conviction for the morning Willpower recovery roll. Loss of the lover removes the Merit, though the Storyteller may allow it to become an appropriate Driving Passion.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 21
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "true-paragon",
+      "name": "True Paragon",
+      "kind": "merit",
+      "category": "mental",
+      "cost": "3",
+      "summary": "Exceptional moral conviction permits a Virtue to exceed normal limits.",
+      "mechanics": "The character may raise Virtues to 6; if another rule already permits ratings above 5, increase that maximum by 1 instead. The character may use the highest Virtue instead of Conviction for morning Willpower recovery. Permanent Willpower still cannot exceed 10.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": ["Paragon Nature required."],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 21
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "jack-of-all-trades",
+      "name": "Jack of All Trades",
+      "kind": "merit",
+      "category": "mental",
+      "cost": "4",
+      "summary": "Broad practical competence allows effective action without formal training.",
+      "mechanics": "The character suffers no usual penalty to Attribute rolls for lacking the Ability that would normally complete the dice pool.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 21
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "born-to-rule",
+      "name": "Born to Rule",
+      "kind": "merit",
+      "category": "social",
+      "cost": "2",
+      "summary": "The character naturally projects authority.",
+      "mechanics": "Add 1 die to Social rolls against an acknowledged social inferior, as determined by the Storyteller.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 22
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "enchanting-feature",
+      "name": "Enchanting Feature",
+      "kind": "merit",
+      "category": "social",
+      "cost": "2",
+      "summary": "A distinctive attractive or impressive feature creates social leverage.",
+      "mechanics": "When the feature can reasonably influence the interaction, add 1 die to pertinent Social rolls.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 22
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "innocuous",
+      "name": "Innocuous",
+      "kind": "merit",
+      "category": "social",
+      "cost": "2 or 4",
+      "summary": "The character is unusually difficult to notice, remember or investigate.",
+      "mechanics": "At 2 points, add 1 die to relevant Larceny/Stealth rolls and increase the difficulty of casual pursuit or investigation by 1; Appearance 2 is required. At 4 points, the effect becomes supernatural: double those bonuses and require observers to overcome an Essence-based memory check to retain more than superficial details. The stronger version restricts fame-dependent Backgrounds and does not stack with stronger concealment magic.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": ["2-point version requires Appearance 2."],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 22
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "favor-merit",
+      "name": "Favor",
+      "kind": "merit",
+      "category": "social",
+      "cost": "Variable; commonly 1–4, or 2/4/6 for Celestial favors",
+      "summary": "A powerful person or entity owes the character a service.",
+      "mechanics": "The value reflects the inconvenience, danger and scope of the owed service. A minor favor is inconvenient but safe; a serious favor may involve danger; a 4-point favor represents a life debt. In spirit-court politics, minor/moderate/major Celestial favors are typically valued at 2/4/6. The Merit disappears when the favor is called and paid.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 23
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "heirloom",
+      "name": "Heirloom",
+      "kind": "merit",
+      "category": "property",
+      "cost": "1",
+      "summary": "Own one item whose value exceeds the character's normal means.",
+      "mechanics": "The item may be an actual family heirloom, stolen prize or unusual gift. It costs 1 bonus point regardless of its ordinary Resources value, but the Storyteller should prevent it from becoming a disguised substitute for broad wealth.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 23
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "hidden-manse",
+      "name": "Hidden Manse",
+      "kind": "merit",
+      "category": "property",
+      "cost": "1 or 2",
+      "summary": "A Demesne or Manse is concealed from normal historical and geomantic knowledge.",
+      "mechanics": "1 point represents a hidden Demesne; 2 points represents a hidden Manse. The secrecy remains useful only while the character and trusted associates avoid compromising it.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [
+        "Requires the corresponding Manse Background for a hidden Manse."
+      ],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 23
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "heir-apparent",
+      "name": "Heir Apparent",
+      "kind": "merit",
+      "category": "property",
+      "cost": "1–5",
+      "summary": "The character is due to inherit significant Backgrounds.",
+      "mechanics": "Each point ultimately grants 2 dots of Backgrounds when the inheritance comes due. Major stipulations can add extra future Background dots, to a maximum of three added dots. The inheritance can include Resources, Artifacts, retainers, contacts, allies or similarly appropriate assets.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 24
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "legendary-artifact",
+      "name": "Legendary Artifact",
+      "kind": "merit",
+      "category": "property",
+      "cost": "10",
+      "summary": "Possession of a world-shaping artifact far beyond ordinary Background scale.",
+      "mechanics": "This is a plot-dominating relic comparable to the greatest surviving wonders of the First Age. Storyteller approval should be explicit; the artifact is expected to attract correspondingly powerful enemies and complications.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 24
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "cache",
+      "name": "Cache",
+      "kind": "merit",
+      "category": "property",
+      "cost": "1+; 1 point per additional location",
+      "summary": "The character has secure access to wealth away from home.",
+      "mechanics": "Each point normally establishes access to full Resources/Salary in another city. At 5 points, the character is assumed to have broad access throughout one selected direction of Creation or the Blessed Isle in settlements of town size or larger; further points may extend coverage.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": ["Requires Resources 4+ or Salary 2+."],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 24
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "alternative-divination",
+      "name": "Alternative Divination",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "1 per method",
+      "summary": "Use a non-astrological ritual to read fate.",
+      "mechanics": "Each purchase grants one effective divinatory method such as omens, entrails, tea leaves or trance. Use the normal divination framework; quicker/simple methods may be harder while elaborate rituals can earn stunt bonuses. The character may not purchase more methods than their Occult rating.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": ["Number of purchases cannot exceed Occult rating."],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 24
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "priest",
+      "name": "Priest",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "1 or 7",
+      "summary": "Recognized religious authority with a supernatural relationship to a patron.",
+      "mechanics": "At 1 point, the character is an acknowledged priest and receives the normal prayer benefits tied to that status. At 7 points, the character is a high priest who may petition their patron for miracles through prayer, including restoring motes or Willpower, exorcism or emergency healing when the patron can and will provide it.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 25
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "destiny",
+      "name": "Destiny",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "1–5",
+      "summary": "The character is protected and guided toward an important fate.",
+      "mechanics": "Higher ratings represent greater and more consequential destinies. Coincidence tends to preserve the character long enough to reach the destined event, though it does not guarantee comfort or victory. Astrologers can detect the weight of destiny more easily than its exact details.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 25
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "lucky",
+      "name": "Lucky",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "1–5",
+      "summary": "A renewable luck pool lets the player reroll or influence random events.",
+      "mechanics": "Gain a luck pool equal to points invested. Spend 1 luck to reroll a roll at the same difficulty/target number; additional points may force further rerolls. Luck can also shift purely random outcomes. Recover 1 luck after a full week without using it and fully refresh at the end of each story.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 27
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "past-lives",
+      "name": "Past Lives",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "1 or 2 for Dragon-Blooded, rare",
+      "summary": "Rare memories from a previous incarnation of the character's higher soul.",
+      "mechanics": "Dragon-Blooded may take up to 2 points only under extraordinary circumstances. These memories normally concern the immediately previous mortal incarnation rather than First Age Exalted lives and therefore do not grant the normal First Age technology bonuses of the Celestial version.",
+      "eligibility": "Dragon-Blooded only by exceptional Storyteller approval; maximum 2 points.",
+      "requirements": ["Extraordinary circumstances and Storyteller approval."],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 27
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "signature-style",
+      "name": "Signature Style",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "2",
+      "summary": "A distinctive stunt aesthetic is mechanically reinforced.",
+      "mechanics": "Choose a stunt style. When a stunt clearly embodies it, add 1 extra die on top of the stunt's normal dice. The extra die does not increase the motes/Willpower returned by the stunt. May be purchased up to three times, but only one Signature Style can benefit a given stunt.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 28
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "sworn-brotherhood",
+      "name": "Sworn Brotherhood",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "2",
+      "summary": "The character belongs to an Essence-bound sworn brotherhood.",
+      "mechanics": "The brotherhood has a bond rating equal to its number of members, maximum 8. All members intended to receive the benefit purchase the Merit. It represents participation in Sworn Brothers' Oath and is especially common among Dragon-Blooded.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [
+        "Character must have taken part in Sworn Brothers' Oath; all participating PCs should purchase the Merit."
+      ],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 28
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "legendary-breeding",
+      "name": "Legendary Breeding",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "3",
+      "summary": "Dragon-Blooded breeding reaches an extraordinary sixth-dot level.",
+      "mechanics": "Breeding becomes 6. The character gains +6 Personal Essence and +11 Peripheral Essence from breeding, reduces the cost to activate the anima banner by 3 motes, and adds 3 to rolls determining whether children Exalt. The obvious signs of breeding add 1 die to most Social rolls with Dragon-Blooded and mortals who respect or fear Dragon-Blooded majesty, but add +2 difficulty to disguise attempts.",
+      "eligibility": "Dragon-Blooded only.",
+      "requirements": ["Breeding 5 required before purchasing this Merit."],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 28
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "prescient-dreamer",
+      "name": "Prescient Dreamer",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "3",
+      "summary": "Prophetic dreams occasionally reveal possible future events.",
+      "mechanics": "Interpreting a dream uses Intelligence + Occult at a Storyteller-set difficulty. More successes reveal greater clarity. Dreams are uncontrolled plot devices and may occur rarely or in clusters; acting on a vision can itself change the probability of the foreseen event.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 29
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "daredevil",
+      "name": "Daredevil",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "4 for Exalted",
+      "summary": "Exceptional fortune rewards physically dangerous stunts.",
+      "mechanics": "Reflexively spend 1 Willpower to double the stunt dice awarded to a Physical action with difficulty 3 or higher. The Willpower may be spent after the Storyteller rates the stunt. This does not double stunt-granted motes/Willpower, and Signature Style's extra die is not doubled.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 30
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "brigids-heir",
+      "name": "Brigid's Heir",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "5",
+      "summary": "An extreme affinity for sorcery trades Charm development for cheaper, faster spell mastery.",
+      "mechanics": "Double the bonus-point/experience costs and training times of Charms, while halving the corresponding costs and training times for spells. Ox-Body Technique and Charms that directly lead to or include Terrestrial Circle Sorcery as an ultimate prerequisite are exempt from the Charm penalty.",
+      "eligibility": "Dragon-Blooded capable of learning sorcery.",
+      "requirements": ["Must be capable of learning sorcery."],
+      "aliases": ["Legacy of Hesiesh"],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 30
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [
+        "Among Dragon-Blooded sorcerers, this Merit is called Legacy of Hesiesh."
+      ],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "mutation-flaw",
+      "name": "Mutation",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "Mutation rating + 1 bonus points",
+      "summary": "A harmful supernatural mutation or aberration.",
+      "mechanics": "Model the drawback using an appropriate harmful Wyld mutation. The Flaw grants bonus points equal to the mutation rating + 1. Essence users may substitute 2 motes for 1 Willpower on mutation activation costs where relevant. Storyteller approval is required.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 20
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "unusual-appearance",
+      "name": "Unusual Appearance",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "1 or 2",
+      "summary": "Striking coloration or other conspicuous appearance makes the character easy to identify.",
+      "mechanics": "The appearance must be unusual for the campaign's culture. The character typically loses 1 die from relevant Stealth, Larceny and Social rolls when the conspicuous appearance is a liability.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 30
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "mute",
+      "name": "Mute",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "Dragon-Blooded: usually 1, 2, or 3",
+      "summary": "The character cannot speak normally.",
+      "mechanics": "A faint-whisper limitation is worth 1 point. Because Exalted receive one less compensation for actual muteness, non-physiological total silence is normally 2 points for a Dragon-Blooded and physical damage to the voice is normally 3. Communication requires writing, sign, magic or other nonverbal means.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 30
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "sterile",
+      "name": "Sterile",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "3 for Dragon-Blooded",
+      "summary": "The character cannot sire or bear children.",
+      "mechanics": "Dragon-Blooded receive 3 points from any form of sterility because dynastic and cultural expectations make infertility especially consequential.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 30
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "one-eye",
+      "name": "One Eye",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "2",
+      "summary": "Loss of one eye impairs peripheral/distance vision and ranged combat.",
+      "mechanics": "Lose 1 die from Awareness rolls involving distance vision or the blind-side periphery, and increase the difficulty of ranged attacks by 1.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 30
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "sun-seared",
+      "name": "Sun-Seared",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "2, 3, or 6",
+      "summary": "Direct sunlight causes penalties and unsoakable bashing damage.",
+      "mechanics": "At 2 points, suffer -1 die in direct sunlight and 1 die unsoakable bashing per hour. At 3 points, the penalty becomes -2 and damage occurs every 30 minutes. At 6 points, the penalty is -3 and damage occurs every minute; indirect exposure slows the damage interval.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 31
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "climate-sensitive",
+      "name": "Climate Sensitive",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "2–4",
+      "summary": "The character functions poorly outside a specific climate.",
+      "mechanics": "When outside the required environment, add +1 difficulty to Survival rolls and to Endurance/Resistance rolls made against the unwanted conditions. Higher values represent narrower or harder-to-reproduce environmental needs.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 31
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "amputee",
+      "name": "Amputee",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "Dragon-Blooded: 1–6 depending on loss",
+      "summary": "Missing or paralyzed limbs impose major physical limitations.",
+      "mechanics": "Dragon-Blooded use the Exalted-adjusted awards: one hand 1; one arm or leg 2; both hands 3; any two limbs 4; only one limb remaining 5; quadriplegia 6. Effects include loss of manual tasks, balance penalties, reduced movement and automatic failure of actions the character physically cannot perform.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 31
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "dying",
+      "name": "Dying",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "2–10",
+      "summary": "A fatal curse, disease or condition steadily reduces Stamina.",
+      "mechanics": "The character loses 1 Stamina at an interval determined by severity: the source gives annual decline around 2 points, months around 4, weeks around 6 and days around 10. At Stamina 0 the character dies unless the underlying condition is cured through appropriately heroic means.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 31
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "small",
+      "name": "Small",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "3",
+      "summary": "Very small or frail stature reduces reach and durability.",
+      "mechanics": "Reduce effective Strength by 1 only for meeting minimum Strength requirements of weapons and large tools, and remove one -1 health level from the normal health track.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 32
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "disfigured",
+      "name": "Disfigured",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "3 or 4",
+      "summary": "Severe deformity imposes Appearance and Social penalties.",
+      "mechanics": "At 3 points, Appearance cannot exceed 1 and lose 1 die from Social pools where the deformity matters; concealment can remove the penalty. At 4 points, Appearance is 0, Appearance-based rolls fail automatically, and most Social rolls suffer a 2-die penalty.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 32
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "slow-healing",
+      "name": "Slow Healing",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "4",
+      "summary": "Dragon-Blooded lose their normal Exalted healing rate.",
+      "mechanics": "An Exalted character with this Flaw heals wounds at the rate of a normal mortal, although given enough time they can still fully recover from injuries short of permanent maiming.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 33
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "weak-immune-system",
+      "name": "Weak Immune System",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "3 for Exalted",
+      "summary": "Poor resistance to disease and infection.",
+      "mechanics": "A Dragon-Blooded halves dice pools used to resist or throw off disease and infection, rounded down, while retaining normal Exalted resilience against the actual lethality of many illnesses.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 33
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "diminished-attributes",
+      "name": "Diminished Attributes",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "3 bonus points per Attribute dot forfeited",
+      "summary": "Begin with fewer Attribute dots than normal.",
+      "mechanics": "Gain 3 bonus points for each Attribute dot given up during character creation. The free first dot in an Attribute cannot be removed, and the affected Attribute category cannot then be repurchased with bonus points during creation. Equivalent Mental and Social versions are permitted.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 33
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "diminished-sense",
+      "name": "Diminished Sense",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "Variable; Exalted receive 1 less point per affected sense",
+      "summary": "Partial or total loss of a physical sense.",
+      "mechanics": "For Dragon-Blooded, partial hearing/vision loss is normally worth 2 points and partial loss of another sense 1; total blindness is normally 5, total deafness or numbness 3, and total loss of smell/taste 2. Compensating magic or devices may reduce the award further. No Exalt may have more than one sense totally lost.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 33
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "derangement",
+      "name": "Derangement",
+      "kind": "flaw",
+      "category": "mental",
+      "cost": "3 for first; 1 for each additional",
+      "summary": "Recurring madness periodically disrupts behavior and judgment.",
+      "mechanics": "Choose an appropriate derangement. A character can often suppress its worst effects for a scene by spending 1 Willpower. The first derangement normally grants 3 points; later separate derangements grant 1 each.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 33
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "amnesia",
+      "name": "Amnesia",
+      "kind": "flaw",
+      "category": "mental",
+      "cost": "1, 2, or 5",
+      "summary": "Large gaps or recurring failures of memory.",
+      "mechanics": "1 point removes an important period/event; 2 points erases a broad span of life; 5 points causes recurring amnesia that prevents access to memories from before the latest sleep and can obstruct learning without external records.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 34
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "superstition",
+      "name": "Superstition",
+      "kind": "flaw",
+      "category": "mental",
+      "cost": "1–3",
+      "summary": "A false or fanatical belief causes inconvenience or danger.",
+      "mechanics": "1 point is mainly inconvenient, 2 points can endanger the character, and 3 points can motivate serious harm to others. The award may be reduced if the campaign takes place where the belief is culturally normal.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 34
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "vice",
+      "name": "Vice",
+      "kind": "flaw",
+      "category": "mental",
+      "cost": "1–3",
+      "summary": "A specific moral weakness undermines one Virtue in relevant situations.",
+      "mechanics": "For each point, lose 2 dice from the affected Virtue when the Vice is relevant. This can reduce the Virtue pool to 0 and force indulgence. A character may have only one Vice, and it cannot be used to bypass or soften the Great Curse.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 34
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "addiction",
+      "name": "Addiction",
+      "kind": "flaw",
+      "category": "mental",
+      "cost": "Base 1–5; Exalted subtract 1 from the awarded rating",
+      "summary": "Dependence on a substance or supernatural experience causes withdrawal and life complications.",
+      "mechanics": "Rate the addiction for availability, cost, danger and domination of the character's life, then reduce the bonus-point award by 1 because the character is Exalted. Withdrawal effects depend on the substance. Mild addictions may therefore be worth no bonus points to a Dragon-Blooded.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 35
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "callous",
+      "name": "Callous",
+      "kind": "flaw",
+      "category": "mental",
+      "cost": "2–10",
+      "summary": "The character sacrifices Virtue for selfish pragmatism.",
+      "mechanics": "Gain 2 bonus points for each Virtue dot forfeited at character creation, without reducing a Virtue below 1. Until the character reaches 9 total Virtue dots, permanent Willpower cannot exceed one more than the sum of the two highest Virtues. The character cannot have the Paragon Nature.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 35
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "nightmares",
+      "name": "Nightmares",
+      "kind": "flaw",
+      "category": "mental",
+      "cost": "3",
+      "summary": "Horrific dreams impair Willpower recovery and can haunt the following day.",
+      "mechanics": "Increase the difficulty of the morning Conviction roll to regain Willpower by 1. A botch also costs 1 temporary Willpower and imposes a 1-die penalty on non-reflexive actions for the day.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 35
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "pacifist",
+      "name": "Pacifist",
+      "kind": "flaw",
+      "category": "mental",
+      "cost": "3 or 5",
+      "summary": "A deep aversion to violence hampers attacks.",
+      "mechanics": "At 3 points, add +1 difficulty to all attacks, including self-defense. At 5 points, the character must spend 1 Willpower to attack at all for a scene and still suffers the +1 attack difficulty.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 36
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "unskilled",
+      "name": "Unskilled",
+      "kind": "flaw",
+      "category": "mental",
+      "cost": "1 bonus point per Ability dot forfeited",
+      "summary": "The character begins with fewer trained Abilities.",
+      "mechanics": "Gain 1 bonus point for every Ability dot removed during character creation. Dragon-Blooded must still meet the minimum one-dot requirement for Favored Abilities and may not restore forfeited Ability dots with bonus points during creation.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 36
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "weak-willed",
+      "name": "Weak-Willed",
+      "kind": "flaw",
+      "category": "mental",
+      "cost": "1 bonus point per permanent Willpower dot forfeited",
+      "summary": "Permanent Willpower is lower than normal after a serious loss of resolve.",
+      "mechanics": "This Flaw is rare among Exalted and requires a strong story explanation that the Willpower loss happened after Exaltation. Dragon-Blooded with it normally cannot begin below Willpower 4 unless also Callous.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 36
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "barbarian",
+      "name": "Barbarian",
+      "kind": "flaw",
+      "category": "social",
+      "cost": "1",
+      "summary": "An upbringing outside settled civilization creates etiquette and literacy problems.",
+      "mechanics": "Lose 1 die from Social pools involving civilized etiquette or expression. The character is not assumed literate unless Lore is 2 or higher.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 36
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "secrets",
+      "name": "Secrets",
+      "kind": "flaw",
+      "category": "social",
+      "cost": "1–3",
+      "summary": "A hidden truth threatens embarrassment, reprisal or death if revealed.",
+      "mechanics": "1 point is humiliating or highly inconvenient; 2 points brings serious retaliation; 3 points exposes the character to death or similarly extreme consequences.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 36
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "disciple",
+      "name": "Disciple",
+      "kind": "flaw",
+      "category": "social",
+      "cost": "1–5",
+      "summary": "The character is responsible for teaching and supervising a troublesome student.",
+      "mechanics": "Higher ratings represent greater time demands, dependence, rebellion or destructive behavior. Failure to fulfill the teaching obligation can cost status, Backing, Command, income or the respect of the character's own superiors.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 36
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "enemy-rival",
+      "name": "Enemy/Rival",
+      "kind": "flaw",
+      "category": "social",
+      "cost": "1–5",
+      "summary": "A person or group of comparable value to an Allies Background actively opposes the character.",
+      "mechanics": "The point value tracks the enemy's power. A Rival belongs to the same organization and therefore works through intrigue and indirect conflict rather than open attack when organizational rules forbid it.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 37
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "wanted",
+      "name": "Wanted",
+      "kind": "flaw",
+      "category": "social",
+      "cost": "1–5",
+      "summary": "Authorities actively seek the character for a crime or accusation.",
+      "mechanics": "Low values represent minor crimes and limited pursuit; around 3 points indicates serious violent crime and determined pursuit; 5 points represents extreme treason or a comparably grave offense that draws relentless attention.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 37
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "disturbing",
+      "name": "Disturbing",
+      "kind": "flaw",
+      "category": "social",
+      "cost": "2 or 3",
+      "summary": "An indefinable aura makes others uncomfortable.",
+      "mechanics": "At 2 points, add +1 difficulty to Social rolls not based on intimidation. At 3 points, the penalty becomes +2.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 38
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "child",
+      "name": "Child",
+      "kind": "flaw",
+      "category": "social",
+      "cost": "3",
+      "summary": "The character has not reached full maturity and adults routinely dismiss them.",
+      "mechanics": "Lose 1–3 dice from Social rolls with adults depending on the adult's tolerance and context. Child characters commonly also have Small and some degree of Unskilled.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 38
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "favor-flaw",
+      "name": "Favor",
+      "kind": "flaw",
+      "category": "social",
+      "cost": "Variable; commonly 1–4, or 2/4/6 for Celestial favors",
+      "summary": "The character owes a meaningful service to a powerful person or entity.",
+      "mechanics": "Use the same scale as Favor as a Merit: higher value means greater inconvenience, danger or obligation. The Flaw disappears when the debt is genuinely discharged, but refusing or betraying the obligation can cause serious social or supernatural consequences.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 23
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "damaged-artifact",
+      "name": "Damaged Artifact",
+      "kind": "flaw",
+      "category": "property",
+      "cost": "1–3",
+      "summary": "An Artifact owned by the character begins play damaged.",
+      "mechanics": "1 point causes modest reduction or inconsistent function; 2 points represents major damage, often halving effectiveness or stripping significant weapon/armor traits; 3 points makes the artifact effectively unusable until repaired. The award cannot exceed the Artifact rating or the Background/bonus-point investment, and the character must have at least one more Artifact dot than the points received from this Flaw.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": ["Must own the affected Artifact."],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 38
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "debt",
+      "name": "Debt",
+      "kind": "flaw",
+      "category": "property",
+      "cost": "1–5",
+      "summary": "The character owes money or goods to a powerful creditor.",
+      "mechanics": "Treat the rating as an inverse Resources scale: a 4-point Debt is roughly equivalent to Resources 4 in obligation. Missed payments bring escalating consequences. Debt can coexist with Resources if the debt meaningfully exceeds the character's liquid means.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 38
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "unbidden-oracle",
+      "name": "Unbidden Oracle",
+      "kind": "flaw",
+      "category": "supernatural",
+      "cost": "1",
+      "summary": "The character involuntarily blurts prophetic warnings at inconvenient moments.",
+      "mechanics": "At least once per story, but no more than once per scene, the Storyteller may trigger an ominous prophecy. The character may spend 1 Willpower to suppress an outburst, though important prophecies tend to reappear later.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 39
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "dark-fate",
+      "name": "Dark Fate",
+      "kind": "flaw",
+      "category": "supernatural",
+      "cost": "1–5",
+      "summary": "The character is destined for a tragic end or catastrophic consequence.",
+      "mechanics": "Higher ratings represent broader and more terrible doom, from a painful death or lifetime of misery to dynastic ruin, damnation or empire-shaking catastrophe. Fate tends to keep the character alive long enough to meet the appointed doom. The exact fate should be agreed with or controlled by the Storyteller.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 39
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "unlucky",
+      "name": "Unlucky",
+      "kind": "flaw",
+      "category": "supernatural",
+      "cost": "1–5",
+      "summary": "A renewable pool of bad luck lets the Storyteller force worse outcomes.",
+      "mechanics": "The Storyteller receives a bad-luck pool equal to the Flaw rating and may spend points to force rerolls at the same difficulty/target number, keeping the least successful result, or to worsen purely random events. The pool refreshes at the end of each story.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 40
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "beacon-of-power",
+      "name": "Beacon of Power",
+      "kind": "flaw",
+      "category": "supernatural",
+      "cost": "4",
+      "summary": "The Dragon-Blooded cannot conceal Essence expenditure in a Personal pool.",
+      "mechanics": "Combine Personal and Peripheral Essence into one pool equal to their sum; all motes are considered Peripheral for anima-display purposes. For Dragon-Blooded this makes anima display and anima flux much harder to avoid.",
+      "eligibility": "Exalted only; valid for Dragon-Blooded.",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 41
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "weak-essence",
+      "name": "Weak Essence",
+      "kind": "flaw",
+      "category": "supernatural",
+      "cost": "6",
+      "summary": "The character begins play at Essence 1.",
+      "mechanics": "Starting Essence is reduced to 1, sharply limiting Charm selection. A new Exalt may withhold up to five Charms that would otherwise be starting Charms; when the character later qualifies, those withheld Charms waive their experience cost but still require normal training time.",
+      "eligibility": "Dragon-Blooded",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 41
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["dragon-blooded"],
+      "notes": [],
+      "reviewStatus": "source-checked"
+    }
+  ],
+  "excludedForDragonBlooded": [
+    {
+      "name": "Terrestrial Bloodline",
+      "reason": "The source explicitly states that Dragon-Blooded may not purchase this Merit; it is for mortal carriers of Dragon-Blooded ancestry (with limited Celestial retention).",
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": "24–25"
+      }
+    },
+    {
+      "name": "Taint's Warning",
+      "reason": "Restricted to Solar and Abyssal Exalted.",
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 28
+      }
+    },
+    {
+      "name": "Eternal Vow",
+      "reason": "Restricted to Solars, Lunars and Abyssals.",
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 29
+      }
+    },
+    {
+      "name": "Limited Forms",
+      "reason": "Lunars only.",
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 30
+      }
+    },
+    {
+      "name": "Known Anathema",
+      "reason": "Celestial Exalted only.",
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": "37–38"
+      }
+    },
+    {
+      "name": "Chimera",
+      "reason": "Lunars only.",
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 38
+      }
+    },
+    {
+      "name": "Greater Curse",
+      "reason": "Celestial Exalted only.",
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 40
+      }
+    },
+    {
+      "name": "Permanent Caste Mark",
+      "reason": "Celestial Exalted only.",
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 40
+      }
+    },
+    {
+      "name": "Death-Taint",
+      "reason": "Abyssals and ghosts only.",
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 41
+      }
+    },
+    {
+      "name": "Throwback",
+      "reason": "Celestial Exalted only.",
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 41
+      }
+    }
+  ]
+}

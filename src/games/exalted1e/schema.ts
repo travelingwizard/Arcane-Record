@@ -9,6 +9,12 @@ import {
   solarBackgrounds,
 } from './definitions';
 import {
+  dragonBloodedTraitById,
+  getDragonBloodedTraitRepeatLimit,
+  isLegalDragonBloodedTraitCost,
+  type ExaltedTraitKind,
+} from './reference/dragonblooded-merits-flaws';
+import {
   dragonBloodedCharmIds,
   dragonBloodedSpellIds,
 } from './reference/dragonblooded-powers';
@@ -51,6 +57,14 @@ const solarBackgroundIds = new Set<string>(
 const dragonBloodedBackgroundIds = new Set<string>(
   dragonBloodedBackgrounds.map((background) => background.id),
 );
+
+const selectedTraitSchema = z.object({
+  id: z.string().uuid(),
+  definitionId: z.string(),
+  chosenCost: z.number().int().nonnegative(),
+  choiceLabel: z.string(),
+  notes: z.string(),
+});
 
 export const exalted1eCharacterSchema = z
   .object({
@@ -106,6 +120,10 @@ export const exalted1eCharacterSchema = z
     limit: z.object({
       rating: z.number().int().min(0).max(10),
       virtueFlaw: z.string(),
+    }),
+    meritsFlaws: z.object({
+      merits: z.array(selectedTraitSchema),
+      flaws: z.array(selectedTraitSchema),
     }),
     powers: z.object({
       charms: z.array(
@@ -164,14 +182,74 @@ export const exalted1eCharacterSchema = z
         });
       }
     });
+    const validateTraitSelections = (
+      kind: ExaltedTraitKind,
+      selections: typeof character.meritsFlaws.merits,
+    ) => {
+      const pathKey = kind === 'merit' ? 'merits' : 'flaws';
+      const definitionCounts = new Map<string, number>();
+      selections.forEach((selection, index) => {
+        const definition = dragonBloodedTraitById.get(selection.definitionId);
+        if (!definition || definition.kind !== kind) {
+          context.addIssue({
+            code: 'custom',
+            message: `Unknown Dragon-Blooded ${kind} definition.`,
+            path: ['meritsFlaws', pathKey, index, 'definitionId'],
+          });
+          return;
+        }
+        if (!isLegalDragonBloodedTraitCost(definition, selection.chosenCost)) {
+          context.addIssue({
+            code: 'custom',
+            message: `Chosen cost is not legal for ${definition.name}.`,
+            path: ['meritsFlaws', pathKey, index, 'chosenCost'],
+          });
+        }
+        definitionCounts.set(
+          definition.id,
+          (definitionCounts.get(definition.id) ?? 0) + 1,
+        );
+      });
+      definitionCounts.forEach((count, definitionId) => {
+        const limit = getDragonBloodedTraitRepeatLimit(definitionId);
+        if (limit !== undefined && count > limit) {
+          context.addIssue({
+            code: 'custom',
+            message: `Trait may be selected no more than ${limit} time${limit === 1 ? '' : 's'}.`,
+            path: ['meritsFlaws', pathKey],
+          });
+        }
+      });
+    };
+    validateTraitSelections('merit', character.meritsFlaws.merits);
+    validateTraitSelections('flaw', character.meritsFlaws.flaws);
+    const derangements = character.meritsFlaws.flaws.filter(
+      ({ definitionId }) => definitionId === 'derangement',
+    );
     if (
-      character.sheetType === 'solar' &&
-      (character.powers.charms.length > 0 || character.powers.spells.length > 0)
+      derangements.length > 0 &&
+      (derangements.filter(({ chosenCost }) => chosenCost === 3).length !== 1 ||
+        derangements.some(({ chosenCost }) => ![1, 3].includes(chosenCost)))
     ) {
       context.addIssue({
         code: 'custom',
-        message: 'Dragon-Blooded powers are not available on Solar sheets.',
-        path: ['powers'],
+        message:
+          'The first Derangement is worth 3 points; additional Derangements are worth 1 point each.',
+        path: ['meritsFlaws', 'flaws'],
+      });
+    }
+    if (
+      character.sheetType === 'solar' &&
+      (character.powers.charms.length > 0 ||
+        character.powers.spells.length > 0 ||
+        character.meritsFlaws.merits.length > 0 ||
+        character.meritsFlaws.flaws.length > 0)
+    ) {
+      context.addIssue({
+        code: 'custom',
+        message:
+          'Dragon-Blooded-only records are not available on Solar sheets.',
+        path: ['sheetType'],
       });
     }
   });
@@ -194,6 +272,12 @@ export function migrateExalted1eCharacter(data: unknown, fromVersion: number) {
       recordCandidate = {
         ...recordCandidate,
         powers: { charms: [], spells: [] },
+      };
+    }
+    if (fromVersion < 4) {
+      recordCandidate = {
+        ...recordCandidate,
+        meritsFlaws: { merits: [], flaws: [] },
       };
     }
     candidate = recordCandidate;

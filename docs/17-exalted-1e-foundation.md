@@ -22,7 +22,7 @@ are not persisted as character data.
 ## Registered structure
 
 - game system ID: `exalted1e`;
-- schema version: `3`;
+- schema version: `4`;
 - sheet variants: `solar`, `dragon-blooded`;
 - create route: `/create/exalted1e`; choosing a variant creates and opens it;
 - character data uses integer ratings rendered through the shared dot control.
@@ -30,12 +30,14 @@ are not persisted as character data.
 The schema stores sheet type, identity, Attributes, Abilities, favored Ability
 IDs, selected Background definition IDs and records, Virtues, permanent and
 temporary Willpower, Essence and pools, Limit/Virtue Flaw, initial free-form
-notes, Dragon-Blooded Charm and spell selections, and a complete section-group
-order. Power selections contain only a selection UUID, stable definition ID,
-and character notes; catalog rules and sources remain reference data. Zod
+notes, Dragon-Blooded Merit/Flaw and Charm/spell selections, and a complete
+section-group order. Trait selections contain a UUID, stable definition ID,
+chosen cost, choice label, and character notes. Power selections contain a
+UUID, stable definition ID, and character notes; catalog rules and sources remain reference data. Zod
 validates all new, stored, and imported records through the shared registry
 boundary. Version-one records migrate by receiving the default section order,
-and version-one/two records receive empty power selections.
+version-one/two records receive empty power selections, and version-one through
+three records receive empty Merit/Flaw selections.
 
 ## Implemented foundation
 
@@ -52,6 +54,10 @@ and version-one/two records receive empty power selections.
   Terrestrial/Emerald Circle spells, search and filters, source-review labels,
   expanded reference details, and character notes;
 - advisory display of minimums and sorcery access without blocking edits;
+- a Dragon-Blooded-only Merits & Flaws section with 80 selectable definitions,
+  separate Merit and Flaw totals, category/search filters, citations, expanded
+  rules, legal fixed and variable costs, repeat-purchase labels, character
+  notes, removal Undo, and Storyteller-approval advisories;
 - generic IndexedDB autosave, library summary/search, duplication, rename, and
   JSON/YAML exchange;
 - an original Exalted-specific responsive visual token set;
@@ -59,14 +65,15 @@ and version-one/two records receive empty power selections.
 
 ## Deferred, visibly labeled areas
 
-The editor identifies but does not yet claim to implement Merits and Flaws,
-Solar Charms and Sorcery, Combos, full combat/armor, expanded Background
+The editor identifies but does not yet claim to implement Solar Merits and
+Flaws, Solar Charms and Sorcery, Combos, full combat/armor, expanded Background
 narratives, possessions, languages, derangements, detailed experience history,
 character history/description, or a sketch surface. These correspond to source
 pages two through four and should be implemented in focused later milestones.
 
 The Dragon-Blooded catalog provenance, readable catalog, special-case policy,
 and review queue are preserved under
-`docs/references/exalted1e/dragon-blooded/`. Entries marked for source review
-remain selectable and visibly labeled; uncertain rules are not silently
-reconstructed.
+`docs/references/exalted1e/dragon-blooded/`. The Merit/Flaw JSON is the runtime
+source of truth; its Markdown and CSV forms support human review. Entries marked
+for power source review remain selectable and visibly labeled; uncertain rules
+are not silently reconstructed.

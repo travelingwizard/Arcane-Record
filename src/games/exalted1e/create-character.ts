@@ -39,6 +39,7 @@ export function createBlankExaltedCharacter(
     willpower: { permanent: 0, temporary: 0 },
     essence: { rating: 1, personal: 0, peripheral: 0, committed: 0 },
     limit: { rating: 0, virtueFlaw: '' },
+    meritsFlaws: { merits: [], flaws: [] },
     powers: { charms: [], spells: [] },
     notes: { anima: '', weapons: '', experience: '' },
     sheetLayout: {

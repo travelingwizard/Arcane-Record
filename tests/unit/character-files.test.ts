@@ -286,4 +286,63 @@ describe('character files', () => {
       },
     });
   });
+
+  it.each(['json', 'yaml'] as const)(
+    'preserves Dragon-Blooded Merits and Flaws through %s file exchange',
+    (format) => {
+      const character = createBlankExaltedCharacter('dragon-blooded');
+      character.identity.name = 'Mnemon Ragara';
+      character.meritsFlaws.merits.push({
+        id: '4b64669d-1a0f-442d-8aca-aa3b197f4b2c',
+        definitionId: 'prodigy',
+        chosenCost: 5,
+        choiceLabel: 'Occult',
+        notes: 'Trained at the Heptagram.',
+      });
+      character.meritsFlaws.flaws.push({
+        id: '462bd0ac-5401-4f51-9e96-684d31da364d',
+        definitionId: 'dark-fate',
+        chosenCost: 5,
+        choiceLabel: '',
+        notes: 'The vision remains unclear.',
+      });
+      const serialized = serializeCharacter(
+        {
+          id: 'dragon-blooded-source',
+          systemId: 'exalted1e',
+          systemVersion: EXALTED1E_SCHEMA_VERSION,
+          name: character.identity.name,
+          createdAt: '2026-08-06T12:00:00.000Z',
+          updatedAt: '2026-08-06T12:00:00.000Z',
+          data: character,
+        },
+        format,
+      );
+      const imported = prepareImportedRecord(
+        serialized,
+        `mnemon.${format === 'json' ? 'json' : 'yaml'}`,
+        gameSystemRegistry,
+      );
+
+      expect(imported.data).toMatchObject({
+        meritsFlaws: {
+          merits: [
+            {
+              definitionId: 'prodigy',
+              chosenCost: 5,
+              choiceLabel: 'Occult',
+              notes: 'Trained at the Heptagram.',
+            },
+          ],
+          flaws: [
+            {
+              definitionId: 'dark-fate',
+              chosenCost: 5,
+              notes: 'The vision remains unclear.',
+            },
+          ],
+        },
+      });
+    },
+  );
 });

@@ -45,10 +45,12 @@ not copied into character data.
 
 Exalted First Edition records use a separate game-owned schema. Schema version
 3 adds Dragon-Blooded power selections as separate Charm and spell arrays.
-Each selection stores a UUID, stable catalog definition ID, and character
+Version 4 adds Dragon-Blooded Merit and Flaw arrays; each Trait selection stores
+a UUID, stable catalog definition ID, chosen cost, choice label, and character
 notes. Full descriptions, requirements, citations, and source-review flags stay
-in the bundled reference catalog. Solar records must keep these Dragon-Blooded
-arrays empty; version-one and version-two records migrate with empty arrays.
+in bundled reference catalogs. Solar records must keep these Dragon-Blooded
+arrays empty. Versions one and two migrate with empty power arrays, and versions
+one through three migrate with empty Merit and Flaw arrays.
 
 Stored and imported records are parsed with Zod at their boundaries. Invalid
 records fail instead of silently entering editor state. Schema version 2 adds

@@ -10,6 +10,10 @@ This package contains import-ready reference data for the Dragon-Blooded charact
   - 87 additional Charms from the five Aspect Books
 - 99 Terrestrial / Emerald Circle spells represented in the supplied sorcery corpus
 - 419 total powers
+- 80 selectable Dragon-Blooded Traits
+  - 40 Merits
+  - 40 Flaws
+  - 10 explicitly excluded Traits retained outside the selectable catalog
 
 ## Files
 
@@ -20,6 +24,9 @@ This package contains import-ready reference data for the Dragon-Blooded charact
 - `review-needed.json` — entries requiring manual source-page review
 - `source-manifest.json` — source/scope metadata
 - `types.ts` — TypeScript interfaces for Arcane Record
+- `merits-and-flaws.json` — runtime source of truth for selectable Traits and
+  Dragon-Blooded exclusions
+- `merits-and-flaws.md` / `.csv` — readable and tabular Trait references
 
 ## Sorcery rule used by the import
 

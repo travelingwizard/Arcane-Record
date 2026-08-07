@@ -92,9 +92,20 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   await expect(
     page.getByRole('heading', { name: 'Charms & Sorcery' }),
   ).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: 'Merits & Flaws' }),
+  ).toBeVisible();
+  await page
+    .getByRole('searchbox', { name: 'Search Merits and Flaws' })
+    .fill('Prodigy');
+  await page.getByLabel('Prodigy chosen cost').selectOption('5');
+  await page.getByLabel('Prodigy choice or label').fill('Occult');
+  await page.getByRole('button', { name: 'Add Merit' }).click();
+  await expect(page.getByText('Merit points: 5')).toBeVisible();
+  await expect(page.getByText('Prodigy — Occult')).toBeVisible();
   await page.getByRole('button', { name: 'Browse charms catalog' }).click();
   await page
-    .getByRole('searchbox', { name: 'Search' })
+    .getByRole('searchbox', { name: 'Search', exact: true })
     .fill('Terrestrial Circle Sorcery');
   const sorceryCharm = page
     .locator('.exalted-power-card')
@@ -102,7 +113,7 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   await sorceryCharm.getByRole('button', { name: 'Add charm' }).click();
   await page.getByRole('tab', { name: 'Sorcery (0)' }).click();
   await page
-    .getByRole('searchbox', { name: 'Search' })
+    .getByRole('searchbox', { name: 'Search', exact: true })
     .fill("Assassin's Fatal Touch");
   const spell = page
     .locator('.exalted-power-card')
@@ -113,6 +124,7 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
     page.getByText('Saved in this browser', { exact: true }),
   ).toBeVisible();
   await page.reload();
+  await expect(page.getByText('Prodigy — Occult')).toBeVisible();
   await page.getByRole('tab', { name: 'Sorcery (1)' }).click();
   await expect(
     page.getByRole('heading', { name: "Assassin's Fatal Touch" }),

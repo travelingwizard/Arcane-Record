@@ -1,5 +1,5 @@
 export const EXALTED1E_SYSTEM_ID = 'exalted1e' as const;
-export const EXALTED1E_SCHEMA_VERSION = 3 as const;
+export const EXALTED1E_SCHEMA_VERSION = 4 as const;
 
 export const exaltedSheetTypes = ['solar', 'dragon-blooded'] as const;
 export type ExaltedSheetType = (typeof exaltedSheetTypes)[number];
@@ -41,6 +41,11 @@ export const exaltedSections = [
   {
     id: 'exalted-advantages',
     label: 'Advantages',
+    group: 'advantages',
+  },
+  {
+    id: 'exalted-merits-flaws',
+    label: 'Merits & Flaws',
     group: 'advantages',
   },
   {

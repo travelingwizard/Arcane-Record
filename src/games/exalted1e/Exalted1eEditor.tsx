@@ -30,6 +30,7 @@ import {
 } from './definitions';
 import { exalted1eCharacterSchema, type Exalted1eCharacter } from './schema';
 import { DragonBloodedPowersSection } from './DragonBloodedPowersSection';
+import { DragonBloodedMeritsFlawsSection } from './DragonBloodedMeritsFlawsSection';
 
 const AUTOSAVE_DELAY_MS = 550;
 
@@ -63,7 +64,10 @@ export function Exalted1eEditor({
   const activeSections = useMemo(
     () =>
       isSolar
-        ? exaltedSections.filter(({ id }) => id !== 'exalted-charms-sorcery')
+        ? exaltedSections.filter(
+            ({ id }) =>
+              id !== 'exalted-merits-flaws' && id !== 'exalted-charms-sorcery',
+          )
         : [...exaltedSections],
     [isSolar],
   );
@@ -203,6 +207,9 @@ export function Exalted1eEditor({
       },
       'exalted-advantages': {
         primary: `Willpower ${draft.willpower.permanent} · Essence ${draft.essence.rating}`,
+      },
+      'exalted-merits-flaws': {
+        primary: `${draft.meritsFlaws.merits.length} Merits · ${draft.meritsFlaws.flaws.length} Flaws`,
       },
       'exalted-charms-sorcery': {
         primary: `${draft.powers.charms.length} Charms · ${draft.powers.spells.length} spells`,
@@ -710,6 +717,25 @@ export function Exalted1eEditor({
 
             {!isSolar ? (
               <section
+                id="exalted-merits-flaws"
+                data-section-group="advantages"
+                className="exalted-sheet-section"
+              >
+                <p className="eyebrow">Dragon-Blooded Traits</p>
+                <h2 id="exalted-merits-flaws-heading" tabIndex={-1}>
+                  Merits &amp; Flaws
+                </h2>
+                <DragonBloodedMeritsFlawsSection
+                  traits={draft.meritsFlaws}
+                  onChange={(meritsFlaws) =>
+                    update((current) => ({ ...current, meritsFlaws }))
+                  }
+                />
+              </section>
+            ) : null}
+
+            {!isSolar ? (
+              <section
                 id="exalted-charms-sorcery"
                 data-section-group="advantages"
                 className="exalted-sheet-section"
@@ -772,7 +798,7 @@ export function Exalted1eEditor({
                 yet.
               </p>
               <ul>
-                <li>Merits and Flaws</li>
+                {isSolar ? <li>Merits and Flaws</li> : null}
                 {isSolar ? <li>Charms and Sorcery</li> : null}
                 <li>Combos, combat, and armor</li>
                 <li>Expanded Background details and possessions</li>

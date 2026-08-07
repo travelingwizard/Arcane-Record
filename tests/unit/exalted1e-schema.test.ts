@@ -22,6 +22,7 @@ describe('Exalted First Edition foundation', () => {
       expect(character.virtues.compassion).toBe(1);
       expect(character.essence.rating).toBe(1);
       expect(character.powers).toEqual({ charms: [], spells: [] });
+      expect(character.meritsFlaws).toEqual({ merits: [], flaws: [] });
       expect(character.sheetLayout.groupOrder).toEqual(
         defaultExaltedSectionGroupOrder,
       );
@@ -165,6 +166,85 @@ describe('Exalted First Edition foundation', () => {
     expect(migrateExalted1eCharacter(versionTwo, 2).powers).toEqual({
       charms: [],
       spells: [],
+    });
+  });
+
+  it('stores valid fixed and variable Traits and controls duplicates', () => {
+    const character = createBlankExaltedCharacter('dragon-blooded');
+    const acuteSense = {
+      id: crypto.randomUUID(),
+      definitionId: 'acute-sense',
+      chosenCost: 1,
+      choiceLabel: 'Hearing',
+      notes: 'Sharp enough to hear a whispered plot.',
+    };
+    const parsed = exalted1eCharacterSchema.parse({
+      ...character,
+      meritsFlaws: {
+        merits: [
+          {
+            id: crypto.randomUUID(),
+            definitionId: 'ambidextrous',
+            chosenCost: 2,
+            choiceLabel: '',
+            notes: '',
+          },
+          acuteSense,
+          { ...acuteSense, id: crypto.randomUUID(), choiceLabel: 'Sight' },
+        ],
+        flaws: [],
+      },
+    });
+    expect(parsed.meritsFlaws.merits).toHaveLength(3);
+
+    expect(() =>
+      exalted1eCharacterSchema.parse({
+        ...character,
+        meritsFlaws: {
+          merits: [
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'ambidextrous',
+              chosenCost: 3,
+              choiceLabel: '',
+              notes: '',
+            },
+          ],
+          flaws: [],
+        },
+      }),
+    ).toThrow(/cost/i);
+
+    expect(() =>
+      exalted1eCharacterSchema.parse({
+        ...character,
+        meritsFlaws: {
+          merits: [
+            ...parsed.meritsFlaws.merits.filter(
+              ({ definitionId }) => definitionId === 'ambidextrous',
+            ),
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'ambidextrous',
+              chosenCost: 2,
+              choiceLabel: '',
+              notes: '',
+            },
+          ],
+          flaws: [],
+        },
+      }),
+    ).toThrow(/no more than 1 time/i);
+  });
+
+  it('migrates version-three Dragon-Blooded sheets with empty Trait selections', () => {
+    const versionThree = createBlankExaltedCharacter(
+      'dragon-blooded',
+    ) as Partial<ReturnType<typeof createBlankExaltedCharacter>>;
+    delete versionThree.meritsFlaws;
+    expect(migrateExalted1eCharacter(versionThree, 3).meritsFlaws).toEqual({
+      merits: [],
+      flaws: [],
     });
   });
 });
