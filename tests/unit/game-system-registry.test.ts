@@ -22,6 +22,7 @@ describe('game system registry', () => {
       'character',
       'traits',
       'advantages',
+      'combat',
       'records',
     ]);
   });

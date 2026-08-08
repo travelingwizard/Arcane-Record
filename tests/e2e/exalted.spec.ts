@@ -105,14 +105,43 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   await expect(page.getByText('Prodigy — Occult')).toBeVisible();
   await page.getByRole('button', { name: 'Browse charms catalog' }).click();
   await page
+    .locator('#dragon-blooded-power-catalog')
     .getByRole('searchbox', { name: 'Search', exact: true })
     .fill('Terrestrial Circle Sorcery');
   const sorceryCharm = page
     .locator('.exalted-power-card')
     .filter({ hasText: 'Terrestrial Circle Sorcery' });
   await sorceryCharm.getByRole('button', { name: 'Add charm' }).click();
+  await page
+    .getByRole('combobox', { name: 'Catalog definition' })
+    .selectOption('reaver-daiklave');
+  await page
+    .getByRole('textbox', { name: 'Custom name' })
+    .fill('Kiss of Thunder');
+  await page.getByRole('button', { name: 'Add Weapon' }).click();
+  await page.getByRole('radio', { name: 'Power Combat' }).check();
+  const reaverAttack = page
+    .locator('.exalted-attack-list article')
+    .filter({ hasText: 'Kiss of Thunder' });
+  await expect(reaverAttack).toContainText('Speed');
+  await expect(reaverAttack).toContainText('+7');
+  await page
+    .locator('#exalted-combos')
+    .getByRole('button', { name: 'Add', exact: true })
+    .click();
+  await expect(
+    page.locator('#exalted-combos .exalted-combo-analysis'),
+  ).toContainText('Terrestrial Circle Sorcery cannot be included in a Combo.');
+  await page
+    .getByRole('textbox', { name: 'Combo name' })
+    .fill('Forbidden Working');
+  await page.getByRole('button', { name: 'Save Combo' }).click();
+  await expect(
+    page.getByRole('heading', { name: 'Forbidden Working' }),
+  ).toBeVisible();
   await page.getByRole('tab', { name: 'Sorcery (0)' }).click();
   await page
+    .locator('#dragon-blooded-power-catalog')
     .getByRole('searchbox', { name: 'Search', exact: true })
     .fill("Assassin's Fatal Touch");
   const spell = page
@@ -125,6 +154,15 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   ).toBeVisible();
   await page.reload();
   await expect(page.getByText('Prodigy — Occult')).toBeVisible();
+  await expect(page.getByRole('radio', { name: 'Power Combat' })).toBeChecked();
+  await expect(
+    page
+      .locator('#exalted-equipment')
+      .getByRole('heading', { name: 'Kiss of Thunder' }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: 'Forbidden Working' }),
+  ).toBeVisible();
   await page.getByRole('tab', { name: 'Sorcery (1)' }).click();
   await expect(
     page.getByRole('heading', { name: "Assassin's Fatal Touch" }),

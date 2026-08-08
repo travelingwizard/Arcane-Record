@@ -52,6 +52,14 @@ in bundled reference catalogs. Solar records must keep these Dragon-Blooded
 arrays empty. Versions one and two migrate with empty power arrays, and versions
 one through three migrate with empty Merit and Flaw arrays.
 
+Exalted schema version 5 adds shared character-owned weapons, armor, shields,
+and ammunition; a Classic or Power Combat profile with specialties and static
+modifiers; saved character-specific Combos; and the shared Combat section-group
+ID. Equipment definitions, profile statistics, Magical Material rules, Charm
+Combo metadata, and source citations remain bundled reference data rather than
+being copied into character records. Version-four and older Exalted records
+migrate with empty collections and the Classic profile.
+
 Stored and imported records are parsed with Zod at their boundaries. Invalid
 records fail instead of silently entering editor state. Schema version 2 adds
 Abilities and Enlightenment; version 3 adds temporary Willpower initialized

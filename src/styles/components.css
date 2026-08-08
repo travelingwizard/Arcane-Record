@@ -4025,3 +4025,190 @@
     flex-direction: column;
   }
 }
+
+.exalted-equipment-add,
+.exalted-equipment-fields,
+.exalted-specialty-add {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  gap: 0.75rem;
+  align-items: end;
+}
+
+.exalted-equipment-add label,
+.exalted-equipment-fields label,
+.exalted-wide-field,
+.exalted-specialty-add label,
+.exalted-combo-builder label,
+.exalted-combat-summary label {
+  display: grid;
+  gap: 0.3rem;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.exalted-equipment-add input,
+.exalted-equipment-add select,
+.exalted-equipment-fields input,
+.exalted-equipment-fields select,
+.exalted-wide-field textarea,
+.exalted-specialty-add input,
+.exalted-specialty-add select,
+.exalted-combo-builder input,
+.exalted-combo-builder select,
+.exalted-combo-builder textarea,
+.exalted-combat-summary select {
+  min-height: 2.75rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius-sm);
+  background: var(--paper-light);
+  color: var(--ink);
+  padding: 0.6rem;
+  font: inherit;
+  text-transform: none;
+}
+
+.exalted-equipment-list,
+.exalted-attack-list,
+.exalted-saved-combos {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.exalted-equipment-list article,
+.exalted-attack-list article,
+.exalted-protection-card,
+.exalted-saved-combos article,
+.exalted-combo-builder > section,
+.exalted-combo-builder > aside {
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--paper-light) 92%, transparent);
+  padding: 0.9rem;
+}
+
+.exalted-equipment-card__heading,
+.exalted-attack-heading,
+.exalted-combo-charms article,
+.exalted-combo-selected article,
+.exalted-specialty-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.exalted-equipment-card__heading h3,
+.exalted-attack-heading h4,
+.exalted-saved-combos h4 {
+  margin: 0;
+}
+
+.exalted-equipment-checks,
+.exalted-profile-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  margin: 0.8rem 0;
+}
+
+.exalted-equipment-checks label,
+.exalted-profile-switch label {
+  min-height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.exalted-combat-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.exalted-combat-summary article {
+  display: grid;
+  gap: 0.25rem;
+  border-block: 1px solid var(--rule-light);
+  padding: 0.7rem 0;
+}
+
+.exalted-combat-summary strong {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+}
+
+.exalted-stat-line,
+.exalted-breakdown,
+.exalted-combo-analysis dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+  gap: 0.45rem;
+}
+
+.exalted-stat-line div,
+.exalted-breakdown div,
+.exalted-combo-analysis dl div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.exalted-stat-line dt,
+.exalted-breakdown dt,
+.exalted-combo-analysis dt {
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.exalted-stat-line dd,
+.exalted-breakdown dd,
+.exalted-combo-analysis dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+.exalted-combo-builder {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr) minmax(0, 0.9fr);
+  gap: 0.8rem;
+}
+
+.exalted-combo-builder > section,
+.exalted-combo-builder > aside,
+.exalted-combo-charms,
+.exalted-combo-selected {
+  display: grid;
+  align-content: start;
+  gap: 0.65rem;
+}
+
+.exalted-combo-charms article,
+.exalted-combo-selected article {
+  border-top: 1px solid var(--rule-light);
+  padding-top: 0.55rem;
+}
+
+.exalted-combo-charms article > div,
+.exalted-combo-selected article > div:first-child {
+  display: grid;
+}
+
+.exalted-combo-analysis.is-valid {
+  border-top: 0.25rem solid #3f6b42;
+}
+
+.exalted-combo-analysis.is-invalid,
+.exalted-combo-error {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.exalted-combo-warning {
+  color: #76520d;
+}

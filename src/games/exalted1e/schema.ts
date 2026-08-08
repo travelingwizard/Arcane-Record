@@ -7,6 +7,7 @@ import {
   exaltedSheetTypes,
   exaltedVirtues,
   solarBackgrounds,
+  type ExaltedSectionGroupId,
 } from './definitions';
 import {
   dragonBloodedTraitById,
@@ -18,6 +19,16 @@ import {
   dragonBloodedCharmIds,
   dragonBloodedSpellIds,
 } from './reference/dragonblooded-powers';
+import { exaltedComboSchema } from './shared/combos/schema';
+import {
+  combatProfileSchema,
+  ownedEquipmentSchema,
+} from './shared/equipment/schema';
+import {
+  ammunitionById,
+  armorById,
+  weaponById,
+} from './shared/equipment/catalog';
 
 const fivePointRating = z.number().int().min(0).max(5);
 const attributeRating = z.number().int().min(1).max(5);
@@ -141,6 +152,27 @@ export const exalted1eCharacterSchema = z
         }),
       ),
     }),
+    equipment: z.object({
+      weapons: z.array(ownedEquipmentSchema),
+      armor: z.array(ownedEquipmentSchema),
+      shields: z.array(ownedEquipmentSchema),
+      ammunition: z.array(ownedEquipmentSchema),
+    }),
+    combat: z.object({
+      profile: combatProfileSchema,
+      specialties: z.array(
+        z.object({
+          id: z.string().uuid(),
+          abilityId: exaltedAbilityIdSchema,
+          label: z.string(),
+          rating: z.number().int().min(1).max(3),
+        }),
+      ),
+      woundPenalty: z.number().int().max(0).min(-4),
+      staticInitiativeModifier: z.number().int().min(-99).max(99),
+      staticDodgeModifier: z.number().int().min(-99).max(99),
+    }),
+    combos: z.array(exaltedComboSchema),
     notes: z.object({
       anima: z.string(),
       weapons: z.string(),
@@ -151,6 +183,57 @@ export const exalted1eCharacterSchema = z
     }),
   })
   .superRefine((character, context) => {
+    const equipmentGroups = [
+      ['weapons', 'weapon', weaponById] as const,
+      ['armor', 'armor', armorById] as const,
+      ['shields', 'shield', new Map<string, unknown>()] as const,
+      ['ammunition', 'ammunition', ammunitionById] as const,
+    ];
+    for (const [group, expectedKind, definitions] of equipmentGroups) {
+      character.equipment[group].forEach((item, index) => {
+        if (item.kind !== expectedKind) {
+          context.addIssue({
+            code: 'custom',
+            message: `Expected ${expectedKind} equipment.`,
+            path: ['equipment', group, index, 'kind'],
+          });
+        }
+        if (item.definitionId && !definitions.has(item.definitionId)) {
+          context.addIssue({
+            code: 'custom',
+            message: `Unknown ${expectedKind} definition.`,
+            path: ['equipment', group, index, 'definitionId'],
+          });
+        }
+        if (!item.definitionId && !item.customName.trim()) {
+          context.addIssue({
+            code: 'custom',
+            message: 'Custom equipment requires a name.',
+            path: ['equipment', group, index, 'customName'],
+          });
+        }
+      });
+    }
+    character.combos.forEach((combo, index) => {
+      if (new Set(combo.charmIds).size !== combo.charmIds.length) {
+        context.addIssue({
+          code: 'custom',
+          message: 'A Combo cannot include the same Charm twice.',
+          path: ['combos', index, 'charmIds'],
+        });
+      }
+      if (character.sheetType === 'dragon-blooded') {
+        combo.charmIds.forEach((charmId) => {
+          if (!dragonBloodedCharmIds.has(charmId)) {
+            context.addIssue({
+              code: 'custom',
+              message: 'Unknown Dragon-Blooded Charm in Combo.',
+              path: ['combos', index, 'charmIds'],
+            });
+          }
+        });
+      }
+    });
     const allowedBackgroundIds =
       character.sheetType === 'solar'
         ? solarBackgroundIds
@@ -278,6 +361,44 @@ export function migrateExalted1eCharacter(data: unknown, fromVersion: number) {
       recordCandidate = {
         ...recordCandidate,
         meritsFlaws: { merits: [], flaws: [] },
+      };
+    }
+    if (fromVersion < 5) {
+      const storedOrder = (
+        recordCandidate.sheetLayout as { groupOrder?: unknown } | undefined
+      )?.groupOrder;
+      const previousOrder = Array.isArray(storedOrder)
+        ? storedOrder.filter(
+            (id): id is Exclude<ExaltedSectionGroupId, 'combat'> =>
+              typeof id === 'string' &&
+              id !== 'combat' &&
+              exaltedSectionGroupIds.includes(id as ExaltedSectionGroupId),
+          )
+        : [];
+      const recordsIndex = previousOrder.indexOf('records');
+      const migratedOrder: ExaltedSectionGroupId[] = [...previousOrder];
+      migratedOrder.splice(
+        recordsIndex < 0 ? migratedOrder.length : recordsIndex,
+        0,
+        'combat',
+      );
+      recordCandidate = {
+        ...recordCandidate,
+        equipment: { weapons: [], armor: [], shields: [], ammunition: [] },
+        combat: {
+          profile: 'classic',
+          specialties: [],
+          woundPenalty: 0,
+          staticInitiativeModifier: 0,
+          staticDodgeModifier: 0,
+        },
+        combos: [],
+        sheetLayout: {
+          groupOrder:
+            migratedOrder.length === exaltedSectionGroupIds.length
+              ? migratedOrder
+              : [...defaultExaltedSectionGroupOrder],
+        },
       };
     }
     candidate = recordCandidate;

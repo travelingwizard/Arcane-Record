@@ -31,6 +31,9 @@ import {
 import { exalted1eCharacterSchema, type Exalted1eCharacter } from './schema';
 import { DragonBloodedPowersSection } from './DragonBloodedPowersSection';
 import { DragonBloodedMeritsFlawsSection } from './DragonBloodedMeritsFlawsSection';
+import { EquipmentSection } from './shared/components/EquipmentSection';
+import { CombatSection } from './shared/components/CombatSection';
+import { ComboBuilder } from './shared/components/ComboBuilder';
 
 const AUTOSAVE_DELAY_MS = 550;
 
@@ -213,6 +216,18 @@ export function Exalted1eEditor({
       },
       'exalted-charms-sorcery': {
         primary: `${draft.powers.charms.length} Charms · ${draft.powers.spells.length} spells`,
+      },
+      'exalted-equipment': {
+        primary: `${draft.equipment.weapons.length} weapons · ${draft.equipment.armor.length} armor`,
+      },
+      'exalted-combat': {
+        primary:
+          draft.combat.profile === 'classic'
+            ? 'Classic profile'
+            : 'Power Combat profile',
+      },
+      'exalted-combos': {
+        primary: `${draft.combos.length} saved`,
       },
       'exalted-notes': { primary: 'Anima · Weapons · Experience' },
       'exalted-later-pages': { primary: 'Deferred foundation areas' },
@@ -734,6 +749,57 @@ export function Exalted1eEditor({
               </section>
             ) : null}
 
+            <section
+              id="exalted-equipment"
+              data-section-group="combat"
+              className="exalted-sheet-section"
+            >
+              <p className="eyebrow">Shared Exalted catalog</p>
+              <h2 id="exalted-equipment-heading" tabIndex={-1}>
+                Equipment
+              </h2>
+              <EquipmentSection
+                equipment={draft.equipment}
+                onChange={(equipment) =>
+                  update((current) => ({ ...current, equipment }))
+                }
+              />
+            </section>
+
+            <section
+              id="exalted-combat"
+              data-section-group="combat"
+              className="exalted-sheet-section"
+            >
+              <p className="eyebrow">Derived values</p>
+              <h2 id="exalted-combat-heading" tabIndex={-1}>
+                Combat
+              </h2>
+              <CombatSection
+                character={draft}
+                onCombatChange={(combat) =>
+                  update((current) => ({ ...current, combat }))
+                }
+              />
+            </section>
+
+            <section
+              id="exalted-combos"
+              data-section-group="combat"
+              className="exalted-sheet-section"
+            >
+              <p className="eyebrow">Character-specific powers</p>
+              <h2 id="exalted-combos-heading" tabIndex={-1}>
+                Combos
+              </h2>
+              <ComboBuilder
+                character={draft}
+                onChange={(combos) =>
+                  update((current) => ({ ...current, combos }))
+                }
+              />
+            </section>
+
             {!isSolar ? (
               <section
                 id="exalted-charms-sorcery"
@@ -800,7 +866,6 @@ export function Exalted1eEditor({
               <ul>
                 {isSolar ? <li>Merits and Flaws</li> : null}
                 {isSolar ? <li>Charms and Sorcery</li> : null}
-                <li>Combos, combat, and armor</li>
                 <li>Expanded Background details and possessions</li>
                 <li>Languages, derangements, and experience history</li>
                 <li>History, description, and character sketch</li>

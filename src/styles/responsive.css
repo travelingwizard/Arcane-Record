@@ -542,3 +542,18 @@
   animation-iteration-count: 1 !important;
   transition-duration: 0.01ms !important;
 }
+
+@media (max-width: 52rem) {
+  .exalted-combo-builder {
+    grid-template-columns: 1fr;
+  }
+
+  .exalted-equipment-card__heading,
+  .exalted-attack-heading,
+  .exalted-combo-charms article,
+  .exalted-combo-selected article,
+  .exalted-specialty-row {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+}

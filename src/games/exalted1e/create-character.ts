@@ -41,6 +41,15 @@ export function createBlankExaltedCharacter(
     limit: { rating: 0, virtueFlaw: '' },
     meritsFlaws: { merits: [], flaws: [] },
     powers: { charms: [], spells: [] },
+    equipment: { weapons: [], armor: [], shields: [], ammunition: [] },
+    combat: {
+      profile: 'classic',
+      specialties: [],
+      woundPenalty: 0,
+      staticInitiativeModifier: 0,
+      staticDodgeModifier: 0,
+    },
+    combos: [],
     notes: { anima: '', weapons: '', experience: '' },
     sheetLayout: {
       groupOrder: [...defaultExaltedSectionGroupOrder],

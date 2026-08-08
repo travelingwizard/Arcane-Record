@@ -1,5 +1,5 @@
 export const EXALTED1E_SYSTEM_ID = 'exalted1e' as const;
-export const EXALTED1E_SCHEMA_VERSION = 4 as const;
+export const EXALTED1E_SCHEMA_VERSION = 5 as const;
 
 export const exaltedSheetTypes = ['solar', 'dragon-blooded'] as const;
 export type ExaltedSheetType = (typeof exaltedSheetTypes)[number];
@@ -8,6 +8,7 @@ export const exaltedSectionGroups = [
   { id: 'character', label: 'Character' },
   { id: 'traits', label: 'Traits' },
   { id: 'advantages', label: 'Advantages' },
+  { id: 'combat', label: 'Combat' },
   { id: 'records', label: 'Records' },
 ] as const;
 
@@ -53,6 +54,21 @@ export const exaltedSections = [
     label: 'Charms & Sorcery',
     group: 'advantages',
   },
+  {
+    id: 'exalted-equipment',
+    label: 'Equipment',
+    group: 'combat',
+  },
+  {
+    id: 'exalted-combat',
+    label: 'Combat',
+    group: 'combat',
+  },
+  {
+    id: 'exalted-combos',
+    label: 'Combos',
+    group: 'combat',
+  },
   { id: 'exalted-notes', label: 'Notes', group: 'records' },
   {
     id: 'exalted-later-pages',
@@ -67,6 +83,7 @@ export const defaultExaltedSectionGroupOrder: ExaltedSectionGroupId[] = [
   'character',
   'traits',
   'advantages',
+  'combat',
   'records',
 ];
 

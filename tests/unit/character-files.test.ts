@@ -251,10 +251,35 @@ describe('character files', () => {
   it('preserves Exalted section order through shared file exchange', () => {
     const character = createBlankExaltedCharacter('solar');
     character.identity.name = 'Ari of the Dawn';
+    character.combat.profile = 'power-combat';
+    character.equipment.weapons.push({
+      id: '22222222-2222-4222-8222-222222222222',
+      kind: 'weapon',
+      definitionId: 'daiklave',
+      customName: 'Sunrise',
+      modeId: 'melee',
+      quality: 'normal',
+      qualityAdjustments: {
+        speed: 0,
+        accuracy: 0,
+        damage: 0,
+        defense: 0,
+        rate: 0,
+        range: 0,
+      },
+      material: 'orichalcum',
+      equipped: true,
+      attuned: true,
+      committedEssence: 5,
+      ammunition: { current: null, typeId: null },
+      enhancements: [],
+      notes: '',
+    });
     character.sheetLayout.groupOrder = [
       'traits',
       'character',
       'advantages',
+      'combat',
       'records',
     ];
     const serialized = serializeCharacter(
@@ -282,7 +307,17 @@ describe('character files', () => {
       sheetType: 'solar',
       identity: { name: 'Ari of the Dawn (Imported)' },
       sheetLayout: {
-        groupOrder: ['traits', 'character', 'advantages', 'records'],
+        groupOrder: ['traits', 'character', 'advantages', 'combat', 'records'],
+      },
+      combat: { profile: 'power-combat' },
+      equipment: {
+        weapons: [
+          {
+            definitionId: 'daiklave',
+            customName: 'Sunrise',
+            material: 'orichalcum',
+          },
+        ],
       },
     });
   });

@@ -23,6 +23,14 @@ describe('Exalted First Edition foundation', () => {
       expect(character.essence.rating).toBe(1);
       expect(character.powers).toEqual({ charms: [], spells: [] });
       expect(character.meritsFlaws).toEqual({ merits: [], flaws: [] });
+      expect(character.equipment).toEqual({
+        weapons: [],
+        armor: [],
+        shields: [],
+        ammunition: [],
+      });
+      expect(character.combat.profile).toBe('classic');
+      expect(character.combos).toEqual([]);
       expect(character.sheetLayout.groupOrder).toEqual(
         defaultExaltedSectionGroupOrder,
       );
@@ -167,6 +175,29 @@ describe('Exalted First Edition foundation', () => {
       charms: [],
       spells: [],
     });
+  });
+
+  it('migrates version-four sheets with shared combat, equipment, and Combo data', () => {
+    const versionFour = createBlankExaltedCharacter(
+      'dragon-blooded',
+    ) as Partial<ReturnType<typeof createBlankExaltedCharacter>>;
+    delete versionFour.equipment;
+    delete versionFour.combat;
+    delete versionFour.combos;
+    versionFour.sheetLayout = {
+      groupOrder: ['traits', 'character', 'advantages', 'records'] as never,
+    };
+    const migrated = migrateExalted1eCharacter(versionFour, 4);
+    expect(migrated.equipment.weapons).toEqual([]);
+    expect(migrated.combat.profile).toBe('classic');
+    expect(migrated.combos).toEqual([]);
+    expect(migrated.sheetLayout.groupOrder).toEqual([
+      'traits',
+      'character',
+      'advantages',
+      'combat',
+      'records',
+    ]);
   });
 
   it('stores valid fixed and variable Traits and controls duplicates', () => {
