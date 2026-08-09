@@ -95,6 +95,17 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   await expect(
     page.getByRole('heading', { name: 'Merits & Flaws' }),
   ).toBeVisible();
+  await page.getByRole('button', { name: 'Collapse Merits & Flaws' }).click();
+  await expect(
+    page.getByRole('button', { name: 'Expand Merits & Flaws' }),
+  ).toHaveAttribute('aria-expanded', 'false');
+  await expect(
+    page.getByRole('searchbox', { name: 'Search Merits and Flaws' }),
+  ).toBeHidden();
+  await page.getByRole('button', { name: 'Expand Merits & Flaws' }).click();
+  await expect(
+    page.getByRole('searchbox', { name: 'Search Merits and Flaws' }),
+  ).toBeVisible();
   await page
     .getByRole('searchbox', { name: 'Search Merits and Flaws' })
     .fill('Prodigy');

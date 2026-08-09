@@ -3556,6 +3556,37 @@
   text-align: center;
 }
 
+.exalted-section-disclosure {
+  width: 100%;
+  min-height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.exalted-section-disclosure:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 0.25rem;
+}
+
+.exalted-section-disclosure > span:last-child {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.exalted-sheet-section--collapsed {
+  padding-bottom: 1rem;
+}
+
 .exalted-field-grid,
 .exalted-pool-grid,
 .exalted-notes-grid {

@@ -62,6 +62,7 @@ export function Exalted1eEditor({
   const [draft, setDraft] = useState(character);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>('saved');
   const [backgroundChoice, setBackgroundChoice] = useState('');
+  const [meritsFlawsExpanded, setMeritsFlawsExpanded] = useState(true);
   const isNarrowLayout = useMediaQuery('(max-width: 69.999rem)');
   const isSolar = draft.sheetType === 'solar';
   const activeSections = useMemo(
@@ -734,18 +735,43 @@ export function Exalted1eEditor({
               <section
                 id="exalted-merits-flaws"
                 data-section-group="advantages"
-                className="exalted-sheet-section"
+                className={`exalted-sheet-section exalted-sheet-section--collapsible ${
+                  meritsFlawsExpanded
+                    ? 'exalted-sheet-section--expanded'
+                    : 'exalted-sheet-section--collapsed'
+                }`}
               >
-                <p className="eyebrow">Dragon-Blooded Traits</p>
+                <p className="eyebrow" hidden={!meritsFlawsExpanded}>
+                  Dragon-Blooded Traits
+                </p>
                 <h2 id="exalted-merits-flaws-heading" tabIndex={-1}>
-                  Merits &amp; Flaws
+                  <button
+                    type="button"
+                    className="exalted-section-disclosure"
+                    aria-expanded={meritsFlawsExpanded}
+                    aria-controls="exalted-merits-flaws-content"
+                    aria-label={`${meritsFlawsExpanded ? 'Collapse' : 'Expand'} Merits & Flaws`}
+                    onClick={() =>
+                      setMeritsFlawsExpanded((expanded) => !expanded)
+                    }
+                  >
+                    <span>Merits &amp; Flaws</span>
+                    <span aria-hidden="true">
+                      {meritsFlawsExpanded ? '−' : '+'}
+                    </span>
+                  </button>
                 </h2>
-                <DragonBloodedMeritsFlawsSection
-                  traits={draft.meritsFlaws}
-                  onChange={(meritsFlaws) =>
-                    update((current) => ({ ...current, meritsFlaws }))
-                  }
-                />
+                <div
+                  id="exalted-merits-flaws-content"
+                  hidden={!meritsFlawsExpanded}
+                >
+                  <DragonBloodedMeritsFlawsSection
+                    traits={draft.meritsFlaws}
+                    onChange={(meritsFlaws) =>
+                      update((current) => ({ ...current, meritsFlaws }))
+                    }
+                  />
+                </div>
               </section>
             ) : null}
 
