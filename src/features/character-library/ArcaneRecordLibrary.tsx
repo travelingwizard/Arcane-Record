@@ -8,6 +8,7 @@ import {
   prepareImportedRecord,
   serializeCharacter,
 } from '../import-export/character-files';
+import { useAppearance } from '../settings/appearance-context';
 
 function formatUpdatedAt(timestamp: string) {
   return new Intl.DateTimeFormat(undefined, {
@@ -35,6 +36,7 @@ export function ArcaneRecordLibrary({
   repository: StoredCharacterRepository;
   onNavigate: (path: string) => void;
 }) {
+  const { removeCharacterOverride } = useAppearance();
   const [records, setRecords] = useState<StoredCharacter[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -317,6 +319,7 @@ export function ArcaneRecordLibrary({
                           <button
                             onClick={async () => {
                               await repository.delete(record.id);
+                              removeCharacterOverride(record.id);
                               setDeletingId(null);
                               await refresh();
                             }}

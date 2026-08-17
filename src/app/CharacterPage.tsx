@@ -7,6 +7,7 @@ import {
   createCharacterFileName,
   serializeCharacter,
 } from '../features/import-export/character-files';
+import { useAppearance } from '../features/settings/appearance-context';
 
 function downloadRawRecord(record: StoredCharacter) {
   const blob = new Blob([serializeCharacter(record, 'json')], {
@@ -31,6 +32,7 @@ export function CharacterPage({
   repository: StoredCharacterRepository;
   onNavigate: (path: string) => void;
 }) {
+  const { removeCharacterOverride } = useAppearance();
   const [record, setRecord] = useState<StoredCharacter | null>();
   const [confirmDelete, setConfirmDelete] = useState(false);
 
@@ -96,6 +98,7 @@ export function CharacterPage({
                 className="small-button small-button--danger"
                 onClick={async () => {
                   await repository.delete(record.id);
+                  removeCharacterOverride(record.id);
                   onNavigate('/');
                 }}
               >

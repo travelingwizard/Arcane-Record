@@ -1,7 +1,15 @@
-import { useEffect, useMemo, useState, type ReactNode } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  type ReactNode,
+} from 'react';
 import {
   applyAppearancePreferences,
+  type AppearancePreferences,
   defaultAppearancePreferences,
+  getEffectiveAppearance,
   readAppearancePreferences,
   writeAppearancePreferences,
 } from './appearance-preferences';
@@ -11,12 +19,16 @@ import {
 } from './appearance-context';
 
 export function AppearanceProvider({ children }: { children: ReactNode }) {
-  const [preferences, setPreferences] = useState(readAppearancePreferences);
+  const [store, setStore] = useState(readAppearancePreferences);
+  const [activeCharacterId, setActiveCharacterId] = useState<string | null>(
+    null,
+  );
+  const preferences = getEffectiveAppearance(store, activeCharacterId);
 
   useEffect(() => {
     applyAppearancePreferences(preferences);
     try {
-      writeAppearancePreferences(preferences);
+      writeAppearancePreferences(store);
     } catch {
       // Appearance remains active for this session if storage is unavailable.
     }
@@ -37,20 +49,75 @@ export function AppearanceProvider({ children }: { children: ReactNode }) {
       );
     query.addEventListener('change', updateSystemTheme);
     return () => query.removeEventListener('change', updateSystemTheme);
-  }, [preferences]);
+  }, [preferences, store]);
+
+  const updateCurrent = useCallback(
+    (updater: (current: AppearancePreferences) => AppearancePreferences) => {
+      setStore((current) => {
+        const effective = getEffectiveAppearance(current, activeCharacterId);
+        if (!activeCharacterId) {
+          return { ...current, defaultAppearance: updater(effective) };
+        }
+        return {
+          ...current,
+          characterAppearances: {
+            ...current.characterAppearances,
+            [activeCharacterId]: updater(effective),
+          },
+        };
+      });
+    },
+    [activeCharacterId],
+  );
 
   const value = useMemo<AppearanceContextValue>(
     () => ({
+      store,
+      activeCharacterId,
       preferences,
+      setActiveCharacterId,
       setBaseTheme: (baseTheme) =>
-        setPreferences((current) => ({ ...current, baseTheme })),
+        updateCurrent((current) => ({ ...current, baseTheme })),
       setIdentityOverlay: (identityOverlay) =>
-        setPreferences((current) => ({ ...current, identityOverlay })),
+        updateCurrent((current) => ({ ...current, identityOverlay })),
       setReduceMotion: (reduceMotion) =>
-        setPreferences((current) => ({ ...current, reduceMotion })),
-      resetAppearance: () => setPreferences(defaultAppearancePreferences),
+        updateCurrent((current) => ({ ...current, reduceMotion })),
+      setCustomBackground: (customBackground) =>
+        updateCurrent((current) => ({
+          ...current,
+          baseTheme: 'custom-background',
+          customBackground,
+        })),
+      setCurrentAsDefault: () =>
+        setStore((current) => ({
+          ...current,
+          defaultAppearance: getEffectiveAppearance(current, activeCharacterId),
+        })),
+      applyCurrentUniversally: () =>
+        setStore((current) => ({
+          ...current,
+          defaultAppearance: getEffectiveAppearance(current, activeCharacterId),
+          characterAppearances: {},
+        })),
+      removeCharacterOverride: (characterId) =>
+        setStore((current) => {
+          const characterAppearances = { ...current.characterAppearances };
+          delete characterAppearances[characterId];
+          return { ...current, characterAppearances };
+        }),
+      resetAppearance: () => {
+        if (!activeCharacterId) {
+          updateCurrent(() => ({ ...defaultAppearancePreferences }));
+          return;
+        }
+        setStore((current) => {
+          const characterAppearances = { ...current.characterAppearances };
+          delete characterAppearances[activeCharacterId];
+          return { ...current, characterAppearances };
+        });
+      },
     }),
-    [preferences],
+    [activeCharacterId, preferences, store, updateCurrent],
   );
 
   return (

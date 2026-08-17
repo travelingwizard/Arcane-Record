@@ -82,7 +82,7 @@ array of registered section IDs. Unknown future or removed IDs are ignored.
 Active-section tracking is transient. Neither expansion nor active-section
 state enters IndexedDB character records, JSON exports, or YAML exports.
 
-Global shell appearance uses `arcane-record:global-preferences`. Mage 20 sheet
-themes and identity overlays use `arcane-record:appearance-preferences`.
-Neither preference enters character data or exchange files. See
-`15-appearance-settings.md`.
+Global shell appearance uses `arcane-record:global-preferences`. Cross-game
+sheet defaults and character-ID appearance overrides use the versioned
+`arcane-record:appearance-preferences` store. Neither preference enters
+character data or exchange files. See `15-appearance-settings.md`.

@@ -1,14 +1,23 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState, type ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 import {
   baseThemeOptions,
   identityOverlayOptions,
+  themeCategoryLabels,
+  type ThemeCategory,
 } from './appearance-preferences';
 import { useAppearance } from './appearance-context';
 
 const focusableSelector =
   'button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [href], [tabindex]:not([tabindex="-1"])';
 
-export function AppearanceSettings() {
+export function AppearanceSettings({
+  gameLabel = 'Character sheet',
+  children,
+}: {
+  gameLabel?: string;
+  children?: ReactNode;
+}) {
   const [open, setOpen] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -80,53 +89,78 @@ export function AppearanceSettings() {
         <span aria-hidden="true">⚙</span>
         Settings
       </button>
-      {open ? (
-        <div
-          className="settings-backdrop"
-          onMouseDown={(event) => {
-            if (event.target === event.currentTarget) {
-              setOpen(false);
-            }
-          }}
-        >
-          <div
-            ref={dialogRef}
-            className="settings-dialog"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="settings-title"
-          >
-            <header className="settings-dialog__header">
-              <div>
-                <p className="eyebrow">Application preferences</p>
-                <h2 id="settings-title">Settings</h2>
-              </div>
-              <button
-                ref={closeButtonRef}
-                type="button"
-                className="icon-button"
-                aria-label="Close Settings"
-                onClick={() => setOpen(false)}
+      {open
+        ? createPortal(
+            <div
+              className="settings-backdrop"
+              onMouseDown={(event) => {
+                if (event.target === event.currentTarget) {
+                  setOpen(false);
+                }
+              }}
+            >
+              <div
+                ref={dialogRef}
+                className="settings-dialog"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="settings-title"
               >
-                ×
-              </button>
-            </header>
-            <AppearancePanel />
-          </div>
-        </div>
-      ) : null}
+                <header className="settings-dialog__header">
+                  <div>
+                    <p className="eyebrow">Application preferences</p>
+                    <h2 id="settings-title">Settings</h2>
+                  </div>
+                  <button
+                    ref={closeButtonRef}
+                    type="button"
+                    className="icon-button"
+                    aria-label="Close Settings"
+                    onClick={() => setOpen(false)}
+                  >
+                    ×
+                  </button>
+                </header>
+                <AppearancePanel gameLabel={gameLabel} />
+                {children ? (
+                  <section
+                    className="sheet-specific-settings"
+                    aria-labelledby="sheet-specific-settings-title"
+                  >
+                    <p className="settings-path">Settings / Sheet</p>
+                    <h3 id="sheet-specific-settings-title">
+                      {gameLabel} settings
+                    </h3>
+                    {children}
+                  </section>
+                ) : null}
+              </div>
+            </div>,
+            document.body,
+          )
+        : null}
     </>
   );
 }
 
-export function AppearancePanel() {
+export function AppearancePanel({
+  gameLabel = 'character sheets',
+}: {
+  gameLabel?: string;
+}) {
   const {
+    activeCharacterId,
     preferences,
     setBaseTheme,
     setIdentityOverlay,
     setReduceMotion,
+    setCustomBackground,
+    setCurrentAsDefault,
+    applyCurrentUniversally,
     resetAppearance,
   } = useAppearance();
+  const [confirmUniversal, setConfirmUniversal] = useState(false);
+  const radioGroupId = useId();
   const selectedTheme = baseThemeOptions.find(
     (theme) => theme.id === preferences.baseTheme,
   );
@@ -144,13 +178,13 @@ export function AppearancePanel() {
         <p className="settings-path">Settings / Appearance</p>
         <h3 id="appearance-title">Appearance</h3>
         <p>
-          Change the visual treatment of Mage 20 character sheets. Character
-          data, layout, and rules remain unchanged.
+          Change the visual treatment of {gameLabel}. Character data, layout,
+          and rules remain unchanged.
         </p>
       </div>
 
       <fieldset className="appearance-group">
-        <legend>Mage 20 Sheet Theme</legend>
+        <legend>Base Theme</legend>
         <label className="appearance-switch">
           <input
             type="checkbox"
@@ -164,36 +198,63 @@ export function AppearancePanel() {
           </span>
         </label>
 
-        <div className="theme-card-grid">
-          {baseThemeOptions.map((theme) => (
-            <label
-              className="theme-preview-card"
-              data-preview-theme={theme.id}
-              data-selected={preferences.baseTheme === theme.id}
-              key={theme.id}
-            >
+        {(['general', 'mage', 'exalted', 'simple'] as ThemeCategory[]).map(
+          (category) => (
+            <section className="theme-category" key={category}>
+              <h4>{themeCategoryLabels[category]}</h4>
+              <div className="theme-card-grid">
+                {baseThemeOptions
+                  .filter((theme) => theme.category === category)
+                  .map((theme) => (
+                    <label
+                      className="theme-preview-card"
+                      data-preview-theme={theme.id}
+                      data-selected={preferences.baseTheme === theme.id}
+                      key={theme.id}
+                    >
+                      <input
+                        type="radio"
+                        name={`${radioGroupId}-base-theme`}
+                        value={theme.id}
+                        checked={preferences.baseTheme === theme.id}
+                        onChange={() => setBaseTheme(theme.id)}
+                      />
+                      <span
+                        className="theme-preview-card__sample"
+                        aria-hidden="true"
+                      >
+                        <span />
+                        <i />
+                        <b />
+                      </span>
+                      <span className="theme-preview-card__copy">
+                        <strong>{theme.name}</strong>
+                        <small>{theme.description}</small>
+                      </span>
+                      <span className="theme-preview-card__state">
+                        {preferences.baseTheme === theme.id
+                          ? 'Selected'
+                          : 'Select'}
+                      </span>
+                    </label>
+                  ))}
+              </div>
+            </section>
+          ),
+        )}
+        {preferences.baseTheme === 'custom-background' ? (
+          <label className="custom-background-control">
+            <span>Custom background color</span>
+            <span>
               <input
-                type="radio"
-                name="base-theme"
-                value={theme.id}
-                checked={preferences.baseTheme === theme.id}
-                onChange={() => setBaseTheme(theme.id)}
+                type="color"
+                value={preferences.customBackground ?? '#38506b'}
+                onChange={(event) => setCustomBackground(event.target.value)}
               />
-              <span className="theme-preview-card__sample" aria-hidden="true">
-                <span />
-                <i />
-                <b />
-              </span>
-              <span className="theme-preview-card__copy">
-                <strong>{theme.name}</strong>
-                <small>{theme.description}</small>
-              </span>
-              <span className="theme-preview-card__state">
-                {preferences.baseTheme === theme.id ? 'Selected' : 'Select'}
-              </span>
-            </label>
-          ))}
-        </div>
+              <output>{preferences.customBackground ?? '#38506b'}</output>
+            </span>
+          </label>
+        ) : null}
         <button
           type="button"
           className="small-button small-button--quiet"
@@ -204,7 +265,7 @@ export function AppearancePanel() {
       </fieldset>
 
       <fieldset className="appearance-group">
-        <legend>Mage 20 Identity Overlay</legend>
+        <legend>Identity Overlay</legend>
         <p className="appearance-group__description">
           Optional affiliation ornament changes accents, glyphs, borders, and
           selection styling only.
@@ -219,7 +280,7 @@ export function AppearancePanel() {
             >
               <input
                 type="radio"
-                name="identity-overlay"
+                name={`${radioGroupId}-identity-overlay`}
                 value={overlay.id}
                 checked={preferences.identityOverlay === overlay.id}
                 onChange={() => setIdentityOverlay(overlay.id)}
@@ -308,17 +369,72 @@ export function AppearancePanel() {
         </div>
       </section>
 
+      <section className="appearance-scope" aria-labelledby="scope-title">
+        <div>
+          <h4 id="scope-title">Apply appearance</h4>
+          <p>
+            {activeCharacterId
+              ? 'This selection currently belongs only to the open character.'
+              : 'Selections here become the default for new characters.'}
+          </p>
+        </div>
+        <div className="compact-actions">
+          {activeCharacterId ? (
+            <button
+              type="button"
+              className="secondary-button"
+              onClick={setCurrentAsDefault}
+            >
+              Set as Default
+            </button>
+          ) : null}
+          {confirmUniversal ? (
+            <>
+              <button
+                type="button"
+                className="small-button small-button--danger"
+                onClick={() => {
+                  applyCurrentUniversally();
+                  setConfirmUniversal(false);
+                }}
+              >
+                Confirm Apply Universally
+              </button>
+              <button
+                type="button"
+                className="small-button small-button--quiet"
+                onClick={() => setConfirmUniversal(false)}
+              >
+                Cancel
+              </button>
+            </>
+          ) : (
+            <button
+              type="button"
+              className="secondary-button"
+              onClick={() => setConfirmUniversal(true)}
+            >
+              Apply Universally
+            </button>
+          )}
+        </div>
+      </section>
+
       <section className="appearance-reset" aria-labelledby="reset-title">
         <div>
           <h4 id="reset-title">Reset Appearance</h4>
-          <p>Return to Arcane Ledger, Neutral overlay, and standard motion.</p>
+          <p>
+            {activeCharacterId
+              ? 'Remove this character’s override and use the current default.'
+              : 'Return the default to Arcane Ledger, Neutral overlay, and standard motion.'}
+          </p>
         </div>
         <button
           type="button"
           className="secondary-button"
           onClick={resetAppearance}
         >
-          Reset appearance settings
+          {activeCharacterId ? 'Use Default Appearance' : 'Reset Default'}
         </button>
       </section>
     </section>

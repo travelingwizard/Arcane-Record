@@ -64,7 +64,7 @@ export function SettingsPage({ onBack }: { onBack: () => void }) {
           Reset global preferences
         </button>
       </section>
-      <AppearancePanel />
+      <AppearancePanel gameLabel="all character sheets" />
     </main>
   );
 }

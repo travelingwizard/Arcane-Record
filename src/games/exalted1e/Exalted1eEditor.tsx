@@ -34,6 +34,7 @@ import { DragonBloodedMeritsFlawsSection } from './DragonBloodedMeritsFlawsSecti
 import { EquipmentSection } from './shared/components/EquipmentSection';
 import { CombatSection } from './shared/components/CombatSection';
 import { ComboBuilder } from './shared/components/ComboBuilder';
+import { AppearanceSettings } from '../../features/settings/AppearanceSettings';
 
 const AUTOSAVE_DELAY_MS = 550;
 
@@ -277,7 +278,10 @@ export function Exalted1eEditor({
             <h1>{displayName}</h1>
             <p>{sheetName} character sheet foundation</p>
           </div>
-          <SaveStatusBadge status={saveStatus} />
+          <div className="editor-header__actions">
+            <SaveStatusBadge status={saveStatus} />
+            <AppearanceSettings gameLabel={`${sheetName} Exalted`} />
+          </div>
         </header>
 
         <MobileSectionNavigator />

@@ -3,31 +3,17 @@ import {
   sortSpheres,
   type SphereSortMode,
 } from '../../systems/mage-m20/definitions';
+import {
+  setDesktopSphereWheel,
+  setSphereSortMode,
+  sphereSortModes,
+  useMageSheetPreferences,
+} from '../../games/mage20/mage-sheet-preferences';
 import { useEditorStore } from '../../state/editor-store';
 import { AffinityStar } from './AffinityStar';
 import { SphereWheel } from './SphereWheel';
 import { DotRating } from '../controls/DotRating';
 import { SheetSection } from '../layout/SheetSection';
-
-const SORT_PREFERENCE_KEY = 'arcane-ledger:sphere-sort';
-const WHEEL_PREFERENCE_KEY = 'arcane-ledger:desktop-sphere-wheel';
-const sortModes: Array<{ value: SphereSortMode; label: string }> = [
-  { value: 'name-asc', label: 'Name: A–Z' },
-  { value: 'name-desc', label: 'Name: Z–A' },
-  { value: 'rating-desc', label: 'Rating: Highest to Lowest' },
-  { value: 'rating-asc', label: 'Rating: Lowest to Highest' },
-];
-
-function getInitialSortMode(): SphereSortMode {
-  const stored = window.localStorage.getItem(SORT_PREFERENCE_KEY);
-  return sortModes.some(({ value }) => value === stored)
-    ? (stored as SphereSortMode)
-    : 'name-asc';
-}
-
-function getInitialWheelPreference() {
-  return window.localStorage.getItem(WHEEL_PREFERENCE_KEY) === 'true';
-}
 
 export function SpheresSection() {
   const spheres = useEditorStore((state) => state.character?.spheres);
@@ -39,8 +25,8 @@ export function SpheresSection() {
   );
   const updateSphere = useEditorStore((state) => state.updateSphere);
   const toggleAffinity = useEditorStore((state) => state.toggleAffinity);
-  const [sortMode, setSortMode] = useState<SphereSortMode>(getInitialSortMode);
-  const [wheelEnabled, setWheelEnabled] = useState(getInitialWheelPreference);
+  const { sphereSortMode: sortMode, desktopSphereWheel: wheelEnabled } =
+    useMageSheetPreferences();
   const [displayRatings, setDisplayRatings] = useState(spheres);
 
   useEffect(() => {
@@ -64,13 +50,11 @@ export function SpheresSection() {
   }
 
   const changeSort = (nextMode: SphereSortMode) => {
-    setSortMode(nextMode);
-    window.localStorage.setItem(SORT_PREFERENCE_KEY, nextMode);
+    setSphereSortMode(nextMode);
   };
 
   const changeWheelPreference = (enabled: boolean) => {
-    setWheelEnabled(enabled);
-    window.localStorage.setItem(WHEEL_PREFERENCE_KEY, String(enabled));
+    setDesktopSphereWheel(enabled);
   };
 
   return (
@@ -93,7 +77,7 @@ export function SpheresSection() {
                 changeSort(event.target.value as SphereSortMode)
               }
             >
-              {sortModes.map(({ value, label }) => (
+              {sphereSortModes.map(({ value, label }) => (
                 <option value={value} key={value}>
                   {label}
                 </option>

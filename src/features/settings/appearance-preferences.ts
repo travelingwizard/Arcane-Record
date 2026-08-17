@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 export const appearanceStorageKey = 'arcane-record:appearance-preferences';
+export const appearanceStorageVersion = 2 as const;
 
 export const baseThemeIds = [
   'system',
@@ -10,6 +11,13 @@ export const baseThemeIds = [
   'technocratic-dossier',
   'umbral-dreamscape',
   'tradition-codex',
+  'exalted-vermilion',
+  'simple-crimson',
+  'simple-navy',
+  'simple-forest',
+  'simple-plum',
+  'simple-charcoal',
+  'custom-background',
 ] as const;
 
 export type BaseThemeId = (typeof baseThemeIds)[number];
@@ -29,63 +37,152 @@ export const identityOverlayIds = [
 
 export type IdentityOverlayId = (typeof identityOverlayIds)[number];
 
-const appearancePreferencesSchema = z.object({
+const hexColorSchema = z.string().regex(/^#[0-9a-fA-F]{6}$/);
+
+export const appearancePreferencesSchema = z.object({
   baseTheme: z.enum(baseThemeIds),
+  identityOverlay: z.enum(identityOverlayIds),
+  reduceMotion: z.boolean(),
+  customBackground: hexColorSchema.nullable(),
+});
+
+const legacyBaseThemeIds = baseThemeIds.slice(0, 7) as unknown as readonly [
+  BaseThemeId,
+  ...BaseThemeId[],
+];
+const legacyAppearancePreferencesSchema = z.object({
+  baseTheme: z.enum(legacyBaseThemeIds),
   identityOverlay: z.enum(identityOverlayIds),
   reduceMotion: z.boolean(),
 });
 
 export type AppearancePreferences = z.infer<typeof appearancePreferencesSchema>;
 
+export const appearancePreferenceStoreSchema = z.object({
+  version: z.literal(appearanceStorageVersion),
+  defaultAppearance: appearancePreferencesSchema,
+  characterAppearances: z.record(z.string(), appearancePreferencesSchema),
+});
+
+export type AppearancePreferenceStore = z.infer<
+  typeof appearancePreferenceStoreSchema
+>;
+
 export const defaultAppearancePreferences: AppearancePreferences = {
   baseTheme: 'arcane-ledger',
   identityOverlay: 'neutral',
   reduceMotion: false,
+  customBackground: null,
 };
+
+export const defaultAppearancePreferenceStore: AppearancePreferenceStore = {
+  version: appearanceStorageVersion,
+  defaultAppearance: defaultAppearancePreferences,
+  characterAppearances: {},
+};
+
+export type ThemeCategory = 'general' | 'mage' | 'exalted' | 'simple';
 
 export interface BaseThemeOption {
   id: BaseThemeId;
   name: string;
   description: string;
+  category: ThemeCategory;
 }
+
+export const themeCategoryLabels: Record<ThemeCategory, string> = {
+  general: 'General',
+  mage: 'Suggested for Mage',
+  exalted: 'Suggested for Exalted',
+  simple: 'Simple backgrounds',
+};
 
 export const baseThemeOptions: readonly BaseThemeOption[] = [
   {
     id: 'system',
     name: 'System Default',
     description: 'Uses your device appearance where applicable.',
+    category: 'general',
   },
   {
     id: 'arcane-ledger',
     name: 'Arcane Ledger',
     description: 'Warm parchment, charcoal ink, burgundy, and antique gold.',
+    category: 'mage',
   },
   {
     id: 'midnight-quintessence',
     name: 'Midnight Quintessence',
     description: 'Midnight surfaces with luminous violet and pale-blue detail.',
+    category: 'mage',
   },
   {
     id: 'hermetic-observatory',
     name: 'Hermetic Observatory',
     description:
       'Green-black grounds, cream pages, brass, and sacred geometry.',
+    category: 'mage',
   },
   {
     id: 'technocratic-dossier',
     name: 'Technocratic Dossier',
     description:
       'Dark slate, precise cyan grids, white data, and warning amber.',
+    category: 'mage',
   },
   {
     id: 'umbral-dreamscape',
     name: 'Umbral Dreamscape',
     description: 'Indigo atmosphere, translucent cream, and spectral ornament.',
+    category: 'mage',
   },
   {
     id: 'tradition-codex',
     name: 'Tradition Codex',
     description: 'A neutral dark foundation shaped by the identity overlay.',
+    category: 'mage',
+  },
+  {
+    id: 'exalted-vermilion',
+    name: 'Exalted Vermilion',
+    description: 'Ivory pages, vermilion selections, and ceremonial gold.',
+    category: 'exalted',
+  },
+  {
+    id: 'simple-crimson',
+    name: 'Crimson',
+    description: 'A crisp white sheet on a deep crimson background.',
+    category: 'simple',
+  },
+  {
+    id: 'simple-navy',
+    name: 'Navy',
+    description: 'A crisp white sheet on a deep navy background.',
+    category: 'simple',
+  },
+  {
+    id: 'simple-forest',
+    name: 'Forest',
+    description: 'A crisp white sheet on a forest-green background.',
+    category: 'simple',
+  },
+  {
+    id: 'simple-plum',
+    name: 'Plum',
+    description: 'A crisp white sheet on a dark plum background.',
+    category: 'simple',
+  },
+  {
+    id: 'simple-charcoal',
+    name: 'Charcoal',
+    description: 'A crisp white sheet on a charcoal background.',
+    category: 'simple',
+  },
+  {
+    id: 'custom-background',
+    name: 'Custom Background',
+    description: 'Choose the color behind a crisp white character sheet.',
+    category: 'simple',
   },
 ];
 
@@ -153,26 +250,52 @@ export const identityOverlayOptions: readonly IdentityOverlayOption[] = [
   },
 ];
 
+function cloneDefaults(): AppearancePreferenceStore {
+  return {
+    version: appearanceStorageVersion,
+    defaultAppearance: { ...defaultAppearancePreferences },
+    characterAppearances: {},
+  };
+}
+
 export function readAppearancePreferences(
   storage: Pick<Storage, 'getItem'> = window.localStorage,
-): AppearancePreferences {
+): AppearancePreferenceStore {
   try {
     const stored = storage.getItem(appearanceStorageKey);
-    if (!stored) {
-      return defaultAppearancePreferences;
+    if (!stored) return cloneDefaults();
+    const value: unknown = JSON.parse(stored);
+    const current = appearancePreferenceStoreSchema.safeParse(value);
+    if (current.success) return current.data;
+
+    const legacy = legacyAppearancePreferencesSchema.safeParse(value);
+    if (legacy.success) {
+      return {
+        version: appearanceStorageVersion,
+        defaultAppearance: { ...legacy.data, customBackground: null },
+        characterAppearances: {},
+      };
     }
-    const parsed = appearancePreferencesSchema.safeParse(JSON.parse(stored));
-    return parsed.success ? parsed.data : defaultAppearancePreferences;
+    return cloneDefaults();
   } catch {
-    return defaultAppearancePreferences;
+    return cloneDefaults();
   }
 }
 
 export function writeAppearancePreferences(
-  preferences: AppearancePreferences,
+  preferences: AppearancePreferenceStore,
   storage: Pick<Storage, 'setItem'> = window.localStorage,
 ) {
   storage.setItem(appearanceStorageKey, JSON.stringify(preferences));
+}
+
+export function getEffectiveAppearance(
+  store: AppearancePreferenceStore,
+  characterId: string | null,
+) {
+  return characterId
+    ? (store.characterAppearances[characterId] ?? store.defaultAppearance)
+    : store.defaultAppearance;
 }
 
 export function resolveBaseTheme(
@@ -181,9 +304,7 @@ export function resolveBaseTheme(
     typeof window.matchMedia === 'function' &&
     window.matchMedia('(prefers-color-scheme: dark)').matches,
 ): ResolvedThemeId {
-  if (baseTheme !== 'system') {
-    return baseTheme;
-  }
+  if (baseTheme !== 'system') return baseTheme;
   return prefersDark ? 'midnight-quintessence' : 'arcane-ledger';
 }
 
@@ -197,10 +318,19 @@ export function applyAppearancePreferences(
   root.dataset.themeChoice = preferences.baseTheme;
   root.dataset.overlay = preferences.identityOverlay;
   root.dataset.reduceMotion = String(preferences.reduceMotion);
-  root.style.colorScheme =
-    resolvedTheme === 'arcane-ledger' ||
-    resolvedTheme === 'hermetic-observatory' ||
-    resolvedTheme === 'umbral-dreamscape'
-      ? 'light'
-      : 'dark';
+  if (resolvedTheme === 'custom-background') {
+    root.style.setProperty(
+      '--custom-app-background',
+      preferences.customBackground ?? '#38506b',
+    );
+  } else {
+    root.style.removeProperty('--custom-app-background');
+  }
+  root.style.colorScheme = [
+    'midnight-quintessence',
+    'technocratic-dossier',
+    'tradition-codex',
+  ].includes(resolvedTheme)
+    ? 'dark'
+    : 'light';
 }

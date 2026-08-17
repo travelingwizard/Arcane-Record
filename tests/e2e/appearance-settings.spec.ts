@@ -3,7 +3,7 @@ import { expect, test } from '@playwright/test';
 test('applies and restores appearance preferences without changing character data', async ({
   page,
 }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
+  await page.setViewportSize({ width: 320, height: 844 });
   await page.goto('/');
   await page.getByRole('button', { name: 'Settings' }).click();
   const settings = page.getByRole('main');
@@ -12,7 +12,7 @@ test('applies and restores appearance preferences without changing character dat
   await expect(
     settings.getByRole('heading', { name: 'Settings' }),
   ).toBeVisible();
-  await expect(settings.getByRole('radio')).toHaveCount(16);
+  await expect(settings.getByRole('radio')).toHaveCount(23);
   await settings.getByRole('radio', { name: /Technocratic Dossier/ }).check();
   await settings.getByRole('radio', { name: /Virtual Adepts/ }).check();
   await settings
@@ -51,4 +51,53 @@ test('applies and restores appearance preferences without changing character dat
     scroll: document.documentElement.scrollWidth,
   }));
   expect(documentWidth.scroll).toBeLessThanOrEqual(documentWidth.client + 1);
+});
+
+test('offers character settings and cross-game themes on every sheet', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Create Character' }).click();
+  await page.getByRole('button', { name: 'Choose Mage 20' }).click();
+  await page.getByRole('button', { name: 'Create Character' }).click();
+
+  await page.getByRole('button', { name: 'Settings' }).click();
+  const mageSettings = page.getByRole('dialog', { name: 'Settings' });
+  await expect(
+    mageSettings.getByRole('heading', { name: 'Mage 20 settings' }),
+  ).toBeVisible();
+  await mageSettings.getByRole('radio', { name: /^Navy/ }).check();
+  await expect(page.locator('html')).toHaveAttribute(
+    'data-theme',
+    'simple-navy',
+  );
+  await mageSettings
+    .getByRole('switch', { name: 'Desktop Sphere wheel' })
+    .check();
+  await mageSettings.getByRole('button', { name: 'Close Settings' }).click();
+  await expect(
+    page.getByRole('checkbox', { name: 'Desktop Sphere wheel' }),
+  ).toBeChecked();
+
+  await page.getByRole('button', { name: /Character library/ }).click();
+  await page.getByRole('button', { name: 'Create Character' }).click();
+  await page.getByRole('button', { name: 'Choose Exalted 1e' }).click();
+  await page.getByRole('button', { name: 'Choose Solar' }).click();
+  await page.getByRole('button', { name: 'Settings' }).click();
+  const exaltedSettings = page.getByRole('dialog', { name: 'Settings' });
+  await expect(
+    exaltedSettings.getByRole('radio', { name: /Exalted Vermilion/ }),
+  ).toBeVisible();
+  await exaltedSettings
+    .getByRole('radio', { name: /Custom Background/ })
+    .check();
+  await exaltedSettings.getByLabel('Custom background color').fill('#245678');
+  await expect(page.locator('html')).toHaveAttribute(
+    'data-theme',
+    'custom-background',
+  );
+  await expect(page.locator('html')).toHaveCSS(
+    '--custom-app-background',
+    '#245678',
+  );
 });

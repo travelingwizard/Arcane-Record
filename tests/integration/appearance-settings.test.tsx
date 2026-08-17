@@ -1,8 +1,10 @@
 import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { useState } from 'react';
 import { AppearanceProvider } from '../../src/features/settings/AppearanceProvider';
 import { AppearanceSettings } from '../../src/features/settings/AppearanceSettings';
+import { useAppearance } from '../../src/features/settings/appearance-context';
 import {
   appearanceStorageKey,
   baseThemeOptions,
@@ -14,6 +16,24 @@ function renderSettings() {
     <AppearanceProvider>
       <AppearanceSettings />
     </AppearanceProvider>,
+  );
+}
+
+function ScopeHarness() {
+  const [selectedId, setSelectedId] = useState('character-one');
+  const { setActiveCharacterId } = useAppearance();
+  const select = (characterId: string) => {
+    setSelectedId(characterId);
+    setActiveCharacterId(characterId);
+  };
+  return (
+    <>
+      <button onClick={() => select('character-one')}>Character one</button>
+      <button onClick={() => select('character-two')}>Character two</button>
+      <button onClick={() => select('character-three')}>Character three</button>
+      <output>{selectedId}</output>
+      <AppearanceSettings gameLabel="Test sheet" />
+    </>
   );
 }
 
@@ -95,9 +115,14 @@ describe('Appearance Settings', () => {
       expect(
         JSON.parse(localStorage.getItem(appearanceStorageKey) ?? '{}'),
       ).toEqual({
-        baseTheme: 'midnight-quintessence',
-        identityOverlay: 'order-of-hermes',
-        reduceMotion: true,
+        version: 2,
+        defaultAppearance: {
+          baseTheme: 'midnight-quintessence',
+          identityOverlay: 'order-of-hermes',
+          reduceMotion: true,
+          customBackground: null,
+        },
+        characterAppearances: {},
       }),
     );
 
@@ -112,9 +137,7 @@ describe('Appearance Settings', () => {
       screen.getByRole('radio', { name: /Order of Hermes/ }),
     ).toBeChecked();
 
-    await user.click(
-      screen.getByRole('button', { name: 'Reset appearance settings' }),
-    );
+    await user.click(screen.getByRole('button', { name: 'Reset Default' }));
     expect(document.documentElement).toHaveAttribute(
       'data-theme',
       'arcane-ledger',
@@ -125,5 +148,38 @@ describe('Appearance Settings', () => {
       'false',
     );
     expect(screen.getByRole('radio', { name: /Arcane Ledger/ })).toBeChecked();
+  });
+
+  it('isolates character themes and supports default and universal actions', async () => {
+    const user = userEvent.setup();
+    render(
+      <AppearanceProvider>
+        <ScopeHarness />
+      </AppearanceProvider>,
+    );
+    await user.click(screen.getByRole('button', { name: 'Character one' }));
+    await user.click(screen.getByRole('button', { name: 'Settings' }));
+    await user.click(screen.getByRole('radio', { name: /^Navy/ }));
+    await user.click(screen.getByRole('button', { name: 'Close Settings' }));
+
+    await user.click(screen.getByRole('button', { name: 'Character two' }));
+    await user.click(screen.getByRole('button', { name: 'Settings' }));
+    expect(screen.getByRole('radio', { name: /Arcane Ledger/ })).toBeChecked();
+    await user.click(screen.getByRole('radio', { name: /^Crimson/ }));
+    await user.click(screen.getByRole('button', { name: 'Set as Default' }));
+    await user.click(screen.getByRole('button', { name: 'Close Settings' }));
+
+    await user.click(screen.getByRole('button', { name: 'Character three' }));
+    await user.click(screen.getByRole('button', { name: 'Settings' }));
+    expect(screen.getByRole('radio', { name: /^Crimson/ })).toBeChecked();
+    await user.click(screen.getByRole('button', { name: 'Apply Universally' }));
+    await user.click(
+      screen.getByRole('button', { name: 'Confirm Apply Universally' }),
+    );
+    await user.click(screen.getByRole('button', { name: 'Close Settings' }));
+
+    await user.click(screen.getByRole('button', { name: 'Character one' }));
+    await user.click(screen.getByRole('button', { name: 'Settings' }));
+    expect(screen.getByRole('radio', { name: /^Crimson/ })).toBeChecked();
   });
 });

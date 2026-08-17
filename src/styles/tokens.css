@@ -312,6 +312,87 @@
   --shadow-card: 0 0.45rem 1.3rem rgb(0 0 0 / 30%);
 }
 
+:root:is(
+  [data-theme='simple-crimson'],
+  [data-theme='simple-navy'],
+  [data-theme='simple-forest'],
+  [data-theme='simple-plum'],
+  [data-theme='simple-charcoal'],
+  [data-theme='custom-background']
+) {
+  --surface-canvas: var(--simple-background);
+  --surface-sheet: #fffdf8;
+  --surface-raised: #ffffff;
+  --surface-glaze: rgb(255 255 255 / 56%);
+  --surface-accent: #f1eee7;
+  --surface-warning: #fff4d6;
+  --surface-danger: #fff0ec;
+  --text-primary: #242424;
+  --text-secondary: #5c5c5c;
+  --text-on-accent: #ffffff;
+  --border-strong: #555555;
+  --border-soft: #b8b8b8;
+  --theme-ornament: #9a7a42;
+  --focus-ring: #146b76;
+  --status-danger: #922d2b;
+  --status-warning: #785414;
+  --status-success: #356641;
+  --body-background:
+    radial-gradient(circle at 50% 0, rgb(255 255 255 / 12%), transparent 32rem),
+    var(--simple-background);
+  --sheet-background: #fffdf8;
+  --panel-background: rgb(255 255 255 / 68%);
+  --hover-background: color-mix(in srgb, var(--theme-accent) 8%, transparent);
+  --active-background: color-mix(in srgb, var(--theme-accent) 13%, transparent);
+  --backdrop: rgb(10 10 10 / 68%);
+  --dial-lines: rgb(65 65 65 / 34%);
+  --dial-shadow: rgb(0 0 0 / 10%);
+  --wheel-center-mid: #f5f1e8;
+  --wheel-center-edge: #ddd7ca;
+  --shadow-sheet: 0 1.4rem 3.4rem rgb(0 0 0 / 34%);
+  --shadow-card: 0 0.4rem 1.1rem rgb(0 0 0 / 12%);
+}
+
+:root[data-theme='simple-crimson'] {
+  --simple-background: #641f2a;
+  --theme-accent: #9b3040;
+  --theme-accent-strong: #6e1f2c;
+}
+
+:root[data-theme='simple-navy'] {
+  --simple-background: #17304f;
+  --theme-accent: #315f8d;
+  --theme-accent-strong: #214568;
+}
+
+:root[data-theme='simple-forest'] {
+  --simple-background: #254936;
+  --theme-accent: #3f7457;
+  --theme-accent-strong: #28523b;
+}
+
+:root[data-theme='simple-plum'] {
+  --simple-background: #513451;
+  --theme-accent: #805780;
+  --theme-accent-strong: #593759;
+}
+
+:root[data-theme='simple-charcoal'] {
+  --simple-background: #303438;
+  --theme-accent: #59646b;
+  --theme-accent-strong: #374148;
+}
+
+:root[data-theme='custom-background'] {
+  --simple-background: var(--custom-app-background, #38506b);
+  --theme-accent: color-mix(in srgb, var(--simple-background) 74%, #ffffff);
+  --theme-accent-strong: color-mix(
+    in srgb,
+    var(--simple-background) 82%,
+    #000000
+  );
+}
+
 :root[data-theme] {
   --accent: var(--identity-accent, var(--theme-accent));
   --accent-strong: var(--identity-accent-strong, var(--theme-accent-strong));
@@ -539,8 +620,8 @@
   }
 }
 
-/* Exalted keeps its own gold, vermilion, and ivory game treatment. */
-:root[data-game-system='exalted1e'] {
+/* Exalted Vermilion is available to every registered character sheet. */
+:root[data-app-scope='game'][data-theme='exalted-vermilion'] {
   --surface-canvas: #2a1714;
   --surface-sheet: #f4ecd9;
   --surface-raised: #fffaf0;

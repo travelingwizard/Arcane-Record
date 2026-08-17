@@ -33,6 +33,8 @@ import { useActiveCharacterSection } from './use-active-character-section';
 import { useCharacterSectionNavigation } from './use-character-section-navigation';
 import { useCharacterSectionPreferences } from './use-character-section-preferences';
 import { useMediaQuery } from './use-media-query';
+import { AppearanceSettings } from '../settings/AppearanceSettings';
+import { MageSheetSettingsPanel } from '../../games/mage20/MageSheetSettingsPanel';
 
 export function CharacterEditor({
   onReturnToLibrary,
@@ -156,7 +158,12 @@ function CharacterEditorContent({
               An editable record kept only on this device.
             </p>
           </div>
-          <SaveStatusBadge status={saveStatus} />
+          <div className="editor-header__actions">
+            <SaveStatusBadge status={saveStatus} />
+            <AppearanceSettings gameLabel="Mage 20">
+              <MageSheetSettingsPanel />
+            </AppearanceSettings>
+          </div>
         </header>
 
         <div className="ornament-rule" aria-hidden="true">

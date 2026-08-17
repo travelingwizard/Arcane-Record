@@ -2,7 +2,8 @@ import { describe, expect, it } from 'vitest';
 import {
   appearanceStorageKey,
   applyAppearancePreferences,
-  defaultAppearancePreferences,
+  defaultAppearancePreferenceStore,
+  getEffectiveAppearance,
   readAppearancePreferences,
   resolveBaseTheme,
 } from '../../src/features/settings/appearance-preferences';
@@ -11,23 +12,18 @@ describe('appearance preferences', () => {
   it('uses Arcane Ledger defaults when no valid preference exists', () => {
     const emptyStorage = { getItem: () => null };
     const invalidStorage = {
-      getItem: () =>
-        JSON.stringify({
-          baseTheme: 'unknown-theme',
-          identityOverlay: 'neutral',
-          reduceMotion: false,
-        }),
+      getItem: () => JSON.stringify({ baseTheme: 'unknown-theme' }),
     };
 
     expect(readAppearancePreferences(emptyStorage)).toEqual(
-      defaultAppearancePreferences,
+      defaultAppearancePreferenceStore,
     );
     expect(readAppearancePreferences(invalidStorage)).toEqual(
-      defaultAppearancePreferences,
+      defaultAppearancePreferenceStore,
     );
   });
 
-  it('validates and reads a complete stored preference', () => {
+  it('migrates the legacy single preference into the default', () => {
     const storage = {
       getItem: (key: string) =>
         key === appearanceStorageKey
@@ -40,10 +36,33 @@ describe('appearance preferences', () => {
     };
 
     expect(readAppearancePreferences(storage)).toEqual({
-      baseTheme: 'umbral-dreamscape',
-      identityOverlay: 'verbena',
-      reduceMotion: true,
+      version: 2,
+      defaultAppearance: {
+        baseTheme: 'umbral-dreamscape',
+        identityOverlay: 'verbena',
+        reduceMotion: true,
+        customBackground: null,
+      },
+      characterAppearances: {},
     });
+  });
+
+  it('resolves a character override before the default', () => {
+    const override = {
+      baseTheme: 'simple-navy' as const,
+      identityOverlay: 'neutral' as const,
+      reduceMotion: false,
+      customBackground: null,
+    };
+    const store = {
+      ...defaultAppearancePreferenceStore,
+      characterAppearances: { characterId: override },
+    };
+
+    expect(getEffectiveAppearance(store, 'characterId')).toEqual(override);
+    expect(getEffectiveAppearance(store, 'anotherId')).toEqual(
+      store.defaultAppearance,
+    );
   });
 
   it('resolves system appearance and applies semantic root attributes', () => {
@@ -52,6 +71,7 @@ describe('appearance preferences', () => {
       baseTheme: 'system' as const,
       identityOverlay: 'order-of-hermes' as const,
       reduceMotion: true,
+      customBackground: null,
     };
 
     expect(resolveBaseTheme('system', false)).toBe('arcane-ledger');
@@ -63,5 +83,28 @@ describe('appearance preferences', () => {
     expect(root).toHaveAttribute('data-overlay', 'order-of-hermes');
     expect(root).toHaveAttribute('data-reduce-motion', 'true');
     expect(root.style.colorScheme).toBe('dark');
+  });
+
+  it('applies and removes a validated custom background variable', () => {
+    const root = document.createElement('html');
+    applyAppearancePreferences(
+      {
+        baseTheme: 'custom-background',
+        identityOverlay: 'neutral',
+        reduceMotion: false,
+        customBackground: '#123456',
+      },
+      root,
+    );
+    expect(root).toHaveAttribute('data-theme', 'custom-background');
+    expect(root.style.getPropertyValue('--custom-app-background')).toBe(
+      '#123456',
+    );
+
+    applyAppearancePreferences(
+      defaultAppearancePreferenceStore.defaultAppearance,
+      root,
+    );
+    expect(root.style.getPropertyValue('--custom-app-background')).toBe('');
   });
 });

@@ -74,7 +74,7 @@ export const mage20Definition: GameSystemDefinition<MageCharacterData> = {
   })),
   sectionGroups: characterSectionGroups,
   appearance: {
-    label: 'Mage 20 sheet appearance',
-    description: 'Themes and identity overlays used only by Mage 20 sheets.',
+    label: 'Mage 20 sheet settings',
+    description: 'Cross-game appearance plus Mage-specific Sphere controls.',
   },
 };

@@ -1,15 +1,23 @@
 import { createContext, useContext } from 'react';
 import type {
+  AppearancePreferenceStore,
   AppearancePreferences,
   BaseThemeId,
   IdentityOverlayId,
 } from './appearance-preferences';
 
 export interface AppearanceContextValue {
+  store: AppearancePreferenceStore;
+  activeCharacterId: string | null;
   preferences: AppearancePreferences;
+  setActiveCharacterId: (characterId: string | null) => void;
   setBaseTheme: (theme: BaseThemeId) => void;
   setIdentityOverlay: (overlay: IdentityOverlayId) => void;
   setReduceMotion: (reduceMotion: boolean) => void;
+  setCustomBackground: (color: string) => void;
+  setCurrentAsDefault: () => void;
+  applyCurrentUniversally: () => void;
+  removeCharacterOverride: (characterId: string) => void;
   resetAppearance: () => void;
 }
 

@@ -26,6 +26,7 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
 
   await page.getByRole('button', { name: 'Choose Solar' }).click();
   await expect(page).toHaveURL(/\/characters\//);
+  await expect(page.getByRole('button', { name: 'Settings' })).toBeVisible();
   const navigation = page.getByRole('navigation', {
     name: 'Character sheet sections',
   });
@@ -83,6 +84,7 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   await page.getByRole('button', { name: /Character library/ }).click();
   await chooseExalted(page);
   await page.getByRole('button', { name: 'Choose Dragon-Blooded' }).click();
+  await expect(page.getByRole('button', { name: 'Settings' })).toBeVisible();
   await expect(page.getByLabel('Aspect', { exact: true })).toBeVisible();
   await expect(page.getByLabel('House', { exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Air' })).toBeVisible();

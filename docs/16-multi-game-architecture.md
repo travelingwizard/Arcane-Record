@@ -21,7 +21,7 @@ the legacy Mage editor model and legacy-file detector.
 - `/create/:systemId` — local creation for single-sheet games, or direct sheet
   choice and creation for games with variants;
 - `/characters/:id` — shared resolver and module-owned editor;
-- `/settings` — global preferences and game appearance preferences.
+- `/settings` — global preferences and character-sheet appearance defaults.
 
 The app uses the browser History API. Production hosting must retain its SPA
 fallback to `index.html`.
@@ -39,8 +39,9 @@ instead of trying to open them.
 ## Preference scopes
 
 - global: neutral shell appearance and motion;
-- game: Mage 20 theme and identity overlay;
-- character: Build/Play layout and section expansion/order;
+- default sheet: cross-game theme, overlay, motion, and custom background;
+- character view: optional appearance override keyed by character UUID;
+- character data: Build/Play layout and section expansion/order;
 - transient: active navigation and save state.
 
 Only character-owned game data is included in character files. UI preferences

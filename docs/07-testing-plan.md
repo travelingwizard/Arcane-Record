@@ -72,9 +72,10 @@ breakpoint, IntersectionObserver active links, fragments, Back navigation,
 mobile selection and independent expansion at 390px, preference restoration,
 preserved edits, and 320px overflow.
 
-The appearance scenario selects a base theme, overlay, and reduced motion at a
-mobile width; verifies immediate root attributes and live preview content;
-reloads to confirm restoration; and checks page-level overflow.
+Appearance scenarios cover legacy migration, per-character isolation,
+default/universal actions, cross-game theme availability, custom background
+colors, synchronized Mage Sphere settings, immediate root attributes, reload
+restoration, live preview content, and mobile overflow.
 
 ## Manual/browser checks
 

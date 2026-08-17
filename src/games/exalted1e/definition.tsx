@@ -59,6 +59,10 @@ export const exalted1eDefinition: GameSystemDefinition<Exalted1eCharacter> = {
     },
   }),
   CharacterEditor: Exalted1eEditor,
+  appearance: {
+    label: 'Exalted First Edition sheet settings',
+    description: 'Cross-game appearance for Solar and Dragon-Blooded sheets.',
+  },
   sections: exaltedSections,
   sectionGroups: exaltedSectionGroups,
   variants: [

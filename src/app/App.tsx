@@ -7,6 +7,7 @@ import { CharacterPage } from './CharacterPage';
 import { CreateCharacterPage } from './CreateCharacterPage';
 import { navigate, parseRoute } from './routing';
 import { SettingsPage } from './SettingsPage';
+import { useAppearance } from '../features/settings/appearance-context';
 
 export function App({
   repository = storedCharacterRepository,
@@ -16,6 +17,7 @@ export function App({
   const [route, setRoute] = useState(() =>
     parseRoute(window.location.pathname),
   );
+  const { setActiveCharacterId } = useAppearance();
 
   useEffect(() => {
     const update = () => setRoute(parseRoute(window.location.pathname));
@@ -26,7 +28,8 @@ export function App({
   useEffect(() => {
     const gameScope = route.name === 'character';
     document.documentElement.dataset.appScope = gameScope ? 'game' : 'global';
-  }, [route.name]);
+    setActiveCharacterId(route.name === 'character' ? route.id : null);
+  }, [route, setActiveCharacterId]);
 
   const go = (path: string) => navigate(path);
 

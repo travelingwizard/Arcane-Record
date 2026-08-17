@@ -47,8 +47,10 @@ attributes change those tokens without component-specific theme logic or
 layout changes. Existing parchment variables are compatibility aliases to the
 semantic layer.
 
-The default remains Arcane Ledger. Midnight Quintessence, Hermetic Observatory,
-Technocratic Dossier, Umbral Dreamscape, and Tradition Codex provide alternate
-complete palettes. Identity overlays affect only accents and CSS ornament.
-Motion is brief and removed under `prefers-reduced-motion` or the persisted
-Reduce decorative motion preference. See `15-appearance-settings.md`.
+The default remains Arcane Ledger. The complete Mage palettes, Exalted
+Vermilion, simple color backgrounds, and a custom background picker are
+available to every character sheet. Simple and custom choices keep a white
+sheet canvas so characters remain quickly identifiable without reducing field
+contrast. Identity overlays affect only accents and CSS ornament. Motion is
+brief and removed under `prefers-reduced-motion` or the persisted Reduce
+decorative motion preference. See `15-appearance-settings.md`.
