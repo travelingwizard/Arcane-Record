@@ -883,7 +883,7 @@ export function Exalted1eEditor({
                     </div>
                   ))}
                 </div>
-                <div className="exalted-rating-group">
+                <div className="exalted-rating-group exalted-willpower-card">
                   <h3>Willpower</h3>
                   <div className="exalted-rating-row">
                     <strong>Permanent</strong>

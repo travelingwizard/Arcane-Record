@@ -3843,6 +3843,18 @@
   flex: 0 1 auto;
 }
 
+.exalted-willpower-card .dot-rating {
+  width: 100%;
+  min-width: 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.exalted-willpower-card .dot-rating__break {
+  height: 0;
+  flex-basis: 100%;
+}
+
 .exalted-ability-row {
   display: grid;
   grid-template-columns: 2.75rem minmax(6rem, 1fr) auto;

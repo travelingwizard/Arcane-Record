@@ -93,6 +93,18 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   await expect(
     page.getByRole('heading', { name: 'Merits & Flaws' }),
   ).toBeVisible();
+  const originalViewport = page.viewportSize();
+  await page.setViewportSize({ width: 1100, height: 800 });
+  const willpowerDimensions = await page
+    .locator('.exalted-willpower-card')
+    .evaluate((card) => ({
+      clientWidth: card.clientWidth,
+      scrollWidth: card.scrollWidth,
+    }));
+  expect(willpowerDimensions.scrollWidth).toBeLessThanOrEqual(
+    willpowerDimensions.clientWidth,
+  );
+  if (originalViewport) await page.setViewportSize(originalViewport);
   await expect(
     page.getByRole('button', { name: 'Expand Merits & Flaws' }),
   ).toHaveAttribute('aria-expanded', 'false');
