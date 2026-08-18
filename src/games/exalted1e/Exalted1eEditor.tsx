@@ -861,28 +861,6 @@ export function Exalted1eEditor({
                 Advantages
               </h2>
               <div className="exalted-advantage-grid">
-                <div className="exalted-rating-group">
-                  <h3>Virtues</h3>
-                  {exaltedVirtues.map((virtue) => (
-                    <div className="exalted-rating-row" key={virtue.id}>
-                      <strong>{virtue.label}</strong>
-                      <DotRating
-                        label={virtue.label}
-                        value={draft.virtues[virtue.id]}
-                        max={5}
-                        onChange={(rating) =>
-                          update((current) => ({
-                            ...current,
-                            virtues: {
-                              ...current.virtues,
-                              [virtue.id as ExaltedVirtueId]: rating,
-                            },
-                          }))
-                        }
-                      />
-                    </div>
-                  ))}
-                </div>
                 <div className="exalted-rating-group exalted-willpower-card">
                   <h3>Willpower</h3>
                   <div className="exalted-rating-row">
@@ -916,6 +894,28 @@ export function Exalted1eEditor({
                       }
                     />
                   </div>
+                </div>
+                <div className="exalted-rating-group">
+                  <h3>Virtues</h3>
+                  {exaltedVirtues.map((virtue) => (
+                    <div className="exalted-rating-row" key={virtue.id}>
+                      <strong>{virtue.label}</strong>
+                      <DotRating
+                        label={virtue.label}
+                        value={draft.virtues[virtue.id]}
+                        max={5}
+                        onChange={(rating) =>
+                          update((current) => ({
+                            ...current,
+                            virtues: {
+                              ...current.virtues,
+                              [virtue.id as ExaltedVirtueId]: rating,
+                            },
+                          }))
+                        }
+                      />
+                    </div>
+                  ))}
                 </div>
                 <div className="exalted-rating-group">
                   <h3>Essence</h3>

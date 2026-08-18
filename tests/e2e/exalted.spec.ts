@@ -104,6 +104,25 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   expect(willpowerDimensions.scrollWidth).toBeLessThanOrEqual(
     willpowerDimensions.clientWidth,
   );
+  const advantageCards = await page
+    .locator('.exalted-advantage-grid > .exalted-rating-group')
+    .evaluateAll((cards) =>
+      cards.map((card) => ({
+        name: card.querySelector('h3')?.textContent,
+        top: card.getBoundingClientRect().top,
+        width: card.getBoundingClientRect().width,
+      })),
+    );
+  expect(advantageCards.map(({ name }) => name)).toEqual([
+    'Willpower',
+    'Virtues',
+    'Essence',
+  ]);
+  expect(advantageCards[0]!.width).toBeGreaterThan(
+    advantageCards[1]!.width * 1.9,
+  );
+  expect(advantageCards[1]!.top).toBe(advantageCards[2]!.top);
+  expect(advantageCards[0]!.top).toBeLessThan(advantageCards[1]!.top);
   if (originalViewport) await page.setViewportSize(originalViewport);
   await expect(
     page.getByRole('button', { name: 'Expand Merits & Flaws' }),

@@ -3791,10 +3791,15 @@
   background: var(--paper-light);
 }
 
-.exalted-rating-columns,
-.exalted-advantage-grid {
+.exalted-rating-columns {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.exalted-advantage-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -3843,16 +3848,8 @@
   flex: 0 1 auto;
 }
 
-.exalted-willpower-card .dot-rating {
-  width: 100%;
-  min-width: 0;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.exalted-willpower-card .dot-rating__break {
-  height: 0;
-  flex-basis: 100%;
+.exalted-willpower-card {
+  grid-column: 1 / -1;
 }
 
 .exalted-ability-row {
