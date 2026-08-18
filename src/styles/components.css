@@ -4204,6 +4204,95 @@
   width: 100%;
 }
 
+.exalted-catalog-toggle,
+.exalted-action-row {
+  margin-top: 1rem;
+}
+
+.exalted-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.exalted-record-group,
+.exalted-record-list,
+.exalted-workflow-card {
+  margin-top: 1rem;
+}
+
+.exalted-workflow-card {
+  padding: 1rem;
+  border: 1px solid var(--rule-light);
+  background: var(--surface-glaze);
+}
+
+.exalted-compact-record {
+  min-width: 0;
+  margin-bottom: 0.65rem;
+  border: 1px solid var(--rule-light);
+  background: var(--surface-glaze);
+}
+
+.exalted-compact-record > summary {
+  min-height: 2.75rem;
+  padding: 0.65rem 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-family: var(--font-sans);
+}
+
+.exalted-compact-record > summary strong {
+  color: var(--umber-deep);
+  font-family: var(--font-serif);
+}
+
+.exalted-compact-record > summary span {
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  text-transform: capitalize;
+}
+
+.exalted-record-fields {
+  padding: 0.2rem 0.8rem 0.9rem;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.exalted-record-fields label {
+  min-width: 0;
+  display: grid;
+  gap: 0.3rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.exalted-record-fields input:not([type='checkbox']),
+.exalted-record-fields select,
+.exalted-record-fields textarea {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: var(--paper-light);
+}
+
+.exalted-record-fields textarea {
+  min-height: 4.5rem;
+  resize: vertical;
+}
+
+.exalted-selected-traits .exalted-selected-trait {
+  padding: 0;
+}
+
 @media (max-width: 52rem) {
   .exalted-selected-trait-groups,
   .exalted-trait-card-grid {

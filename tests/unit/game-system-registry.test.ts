@@ -20,10 +20,10 @@ describe('game system registry', () => {
     ]);
     expect(system?.sectionGroups.map(({ id }) => id)).toEqual([
       'character',
-      'traits',
-      'advantages',
+      'exalted',
       'combat',
-      'records',
+      'resources',
+      'advancement',
     ]);
   });
 

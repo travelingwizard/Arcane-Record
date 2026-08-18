@@ -64,10 +64,21 @@ interface RemovedTrait {
 interface Props {
   traits: TraitCollections;
   onChange: (traits: TraitCollections) => void;
+  derangements: Exalted1eCharacter['derangements'];
+  onDerangementsChange: (
+    derangements: Exalted1eCharacter['derangements'],
+  ) => void;
 }
 
-export function DragonBloodedMeritsFlawsSection({ traits, onChange }: Props) {
+export function DragonBloodedMeritsFlawsSection({
+  traits,
+  onChange,
+  derangements,
+  onDerangementsChange,
+}: Props) {
   const [activeKind, setActiveKind] = useState<ExaltedTraitKind>('merit');
+  const [catalogOpen, setCatalogOpen] = useState(false);
+  const [derangementLink, setDerangementLink] = useState('create');
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState<'all' | ExaltedTraitCategory>('all');
   const [pendingValues, setPendingValues] = useState<Record<string, string>>(
@@ -150,12 +161,48 @@ export function DragonBloodedMeritsFlawsSection({ traits, onChange }: Props) {
     const chosenCost = selectedCost(definition);
     if (chosenCost === null || !canAdd(definition)) return;
     const key = collectionKey(definition.kind);
+    const selectionId = crypto.randomUUID();
+    let linkedDerangementId: string | null = null;
+    if (definition.id === 'derangement') {
+      if (derangementLink === 'create') {
+        linkedDerangementId = crypto.randomUUID();
+        onDerangementsChange([
+          ...derangements,
+          {
+            id: linkedDerangementId,
+            definitionId: null,
+            customName: '',
+            description: '',
+            mechanics: '',
+            duration: 'indefinite',
+            customDuration: '',
+            status: 'active',
+            sourceType: 'flaw',
+            trigger: '',
+            suppressionRules: '',
+            recoveryRules: '',
+            notes: '',
+            linkedMeritFlawId: selectionId,
+          },
+        ]);
+      } else if (derangementLink) {
+        linkedDerangementId = derangementLink;
+        onDerangementsChange(
+          derangements.map((entry) =>
+            entry.id === derangementLink
+              ? { ...entry, linkedMeritFlawId: selectionId }
+              : entry,
+          ),
+        );
+      }
+    }
     const nextSelection: SelectedTrait = {
-      id: crypto.randomUUID(),
+      id: selectionId,
       definitionId: definition.id,
       chosenCost,
       choiceLabel: pendingLabels[definition.id]?.trim() ?? '',
       notes: '',
+      linkedDerangementId,
     };
     onChange({ ...traits, [key]: [...traits[key], nextSelection] });
     setPendingLabels((current) => ({ ...current, [definition.id]: '' }));
@@ -181,6 +228,15 @@ export function DragonBloodedMeritsFlawsSection({ traits, onChange }: Props) {
     const index = traits[key].findIndex(({ id }) => id === selectionId);
     if (index < 0) return;
     const selection = traits[key][index]!;
+    if (selection.linkedDerangementId) {
+      onDerangementsChange(
+        derangements.map((entry) =>
+          entry.id === selection.linkedDerangementId
+            ? { ...entry, linkedMeritFlawId: null }
+            : entry,
+        ),
+      );
+    }
     const remaining = traits[key].filter(({ id }) => id !== selectionId);
     onChange({
       ...traits,
@@ -256,8 +312,11 @@ export function DragonBloodedMeritsFlawsSection({ traits, onChange }: Props) {
                   );
                   if (!definition) return null;
                   return (
-                    <article key={selection.id}>
-                      <div className="exalted-selected-trait__heading">
+                    <details
+                      className="exalted-compact-record exalted-selected-trait"
+                      key={selection.id}
+                    >
+                      <summary className="exalted-selected-trait__heading">
                         <div>
                           <h4>
                             {definition.name}
@@ -267,11 +326,14 @@ export function DragonBloodedMeritsFlawsSection({ traits, onChange }: Props) {
                           </h4>
                           <p>
                             {selection.chosenCost}{' '}
-                            {kind === 'merit' ? 'Merit' : 'Flaw'}{' '}
-                            {selection.chosenCost === 1 ? 'point' : 'points'} ·{' '}
-                            {sourceLabel(definition)}
+                            {selection.chosenCost === 1 ? 'point' : 'points'}
                           </p>
                         </div>
+                      </summary>
+                      <div className="exalted-record-fields">
+                        <p className="catalog-card__source">
+                          {sourceLabel(definition)}
+                        </p>
                         <button
                           type="button"
                           className="small-button small-button--quiet"
@@ -279,38 +341,39 @@ export function DragonBloodedMeritsFlawsSection({ traits, onChange }: Props) {
                         >
                           Remove
                         </button>
-                      </div>
-                      {storytellerApprovalTraitIds.has(definition.id) ? (
-                        <p className="exalted-trait-warning">
-                          Storyteller approval recommended: this Trait may be
-                          rare or plot-dominating.
-                        </p>
-                      ) : null}
-                      {getDragonBloodedTraitRepeatLimit(definition.id) !== 1 ? (
+                        {storytellerApprovalTraitIds.has(definition.id) ? (
+                          <p className="exalted-trait-warning">
+                            Storyteller approval recommended: this Trait may be
+                            rare or plot-dominating.
+                          </p>
+                        ) : null}
+                        {getDragonBloodedTraitRepeatLimit(definition.id) !==
+                        1 ? (
+                          <label>
+                            <span>Choice / label</span>
+                            <input
+                              value={selection.choiceLabel}
+                              onChange={(event) =>
+                                updateSelection(kind, selection.id, {
+                                  choiceLabel: event.target.value,
+                                })
+                              }
+                            />
+                          </label>
+                        ) : null}
                         <label>
-                          <span>Choice / label</span>
-                          <input
-                            value={selection.choiceLabel}
+                          <span>Character notes</span>
+                          <textarea
+                            value={selection.notes}
                             onChange={(event) =>
                               updateSelection(kind, selection.id, {
-                                choiceLabel: event.target.value,
+                                notes: event.target.value,
                               })
                             }
                           />
                         </label>
-                      ) : null}
-                      <label>
-                        <span>Character notes</span>
-                        <textarea
-                          value={selection.notes}
-                          onChange={(event) =>
-                            updateSelection(kind, selection.id, {
-                              notes: event.target.value,
-                            })
-                          }
-                        />
-                      </label>
-                    </article>
+                      </div>
+                    </details>
                   );
                 })
               ) : (
@@ -323,219 +386,265 @@ export function DragonBloodedMeritsFlawsSection({ traits, onChange }: Props) {
         })}
       </div>
 
-      <div className="exalted-trait-catalog">
+      <button
+        type="button"
+        className="secondary-button exalted-catalog-toggle"
+        aria-expanded={catalogOpen}
+        aria-controls="dragon-blooded-trait-catalog"
+        onClick={() => setCatalogOpen((open) => !open)}
+      >
+        {catalogOpen ? 'Close catalog' : 'Browse Merits & Flaws'}
+      </button>
+
+      {catalogOpen ? (
         <div
-          className="exalted-power-tabs"
-          role="tablist"
-          aria-label="Trait type"
+          id="dragon-blooded-trait-catalog"
+          className="exalted-trait-catalog"
         >
-          {(['merit', 'flaw'] as const).map((kind) => (
-            <button
-              key={kind}
-              type="button"
-              role="tab"
-              aria-selected={activeKind === kind}
-              className={
-                activeKind === kind ? 'primary-button' : 'secondary-button'
-              }
-              onClick={() => setActiveKind(kind)}
-            >
-              Browse {kind === 'merit' ? 'Merits' : 'Flaws'} (
-              {kind === 'merit' ? 40 : 40})
-            </button>
+          <div
+            className="exalted-power-tabs"
+            role="tablist"
+            aria-label="Trait type"
+          >
+            {(['merit', 'flaw'] as const).map((kind) => (
+              <button
+                key={kind}
+                type="button"
+                role="tab"
+                aria-selected={activeKind === kind}
+                className={
+                  activeKind === kind ? 'primary-button' : 'secondary-button'
+                }
+                onClick={() => setActiveKind(kind)}
+              >
+                Browse {kind === 'merit' ? 'Merits' : 'Flaws'} (
+                {kind === 'merit' ? 40 : 40})
+              </button>
+            ))}
+          </div>
+          <div className="exalted-trait-filters">
+            <label>
+              <span>Search</span>
+              <input
+                type="search"
+                aria-label="Search Merits and Flaws"
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder={`Search ${activeKind === 'merit' ? 'Merits' : 'Flaws'}`}
+              />
+            </label>
+            <label>
+              <span>Category</span>
+              <select
+                value={category}
+                onChange={(event) =>
+                  setCategory(
+                    event.target.value as 'all' | ExaltedTraitCategory,
+                  )
+                }
+              >
+                <option value="all">All categories</option>
+                {exaltedTraitCategories.map((value) => (
+                  <option key={value} value={value}>
+                    {categoryLabels[value]}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+
+          <p className="exalted-trait-results" aria-live="polite">
+            {filteredDefinitions.length}{' '}
+            {activeKind === 'merit' ? 'Merits' : 'Flaws'} shown
+          </p>
+          {groupedDefinitions.map((group) => (
+            <section className="exalted-trait-category" key={group.category}>
+              <h3>{categoryLabels[group.category]}</h3>
+              <div className="exalted-trait-card-grid">
+                {group.definitions.map((definition) => {
+                  const policy = getDragonBloodedTraitCostPolicy(definition);
+                  const limit = getDragonBloodedTraitRepeatLimit(definition.id);
+                  const count = selectedCount(definition.id, definition.kind);
+                  const repeatable = limit === undefined || limit > 1;
+                  const limitReached = limit !== undefined && count >= limit;
+                  const calculatedCost = selectedCost(definition);
+                  return (
+                    <article className="exalted-trait-card" key={definition.id}>
+                      <div className="exalted-trait-card__heading">
+                        <div>
+                          <h4>{definition.name}</h4>
+                          <p>{displayCost(definition)}</p>
+                        </div>
+                        <span className="exalted-review-badge">
+                          {categoryLabels[definition.category]}
+                        </span>
+                      </div>
+                      <p>{definition.summary}</p>
+                      <p className="catalog-card__source">
+                        {sourceLabel(definition)}
+                      </p>
+                      {storytellerApprovalTraitIds.has(definition.id) ? (
+                        <p className="exalted-trait-warning">
+                          Storyteller approval recommended
+                        </p>
+                      ) : null}
+                      <details>
+                        <summary>Full rules</summary>
+                        <div className="exalted-trait-card__rules">
+                          <p>{definition.mechanics}</p>
+                          <p>
+                            <strong>Eligibility:</strong>{' '}
+                            {definition.eligibility}
+                          </p>
+                          {definition.requirements.length ? (
+                            <p>
+                              <strong>Requirements:</strong>{' '}
+                              {definition.requirements.join(' · ')}
+                            </p>
+                          ) : null}
+                          {definition.aliases.length ? (
+                            <p>
+                              <strong>Aliases:</strong>{' '}
+                              {definition.aliases.join(', ')}
+                            </p>
+                          ) : null}
+                          {definition.notes.length ? (
+                            <p>
+                              <strong>Notes:</strong>{' '}
+                              {definition.notes.join(' ')}
+                            </p>
+                          ) : null}
+                        </div>
+                      </details>
+                      <div className="exalted-trait-add-controls">
+                        {definition.id === 'derangement' ? (
+                          <>
+                            <p>
+                              Value for this purchase:{' '}
+                              <strong>{calculatedCost}</strong>
+                            </p>
+                            <label>
+                              <span>Create or link Derangement</span>
+                              <select
+                                value={derangementLink}
+                                onChange={(event) =>
+                                  setDerangementLink(event.target.value)
+                                }
+                              >
+                                <option value="create">
+                                  Create new Derangement
+                                </option>
+                                {derangements
+                                  .filter(
+                                    ({ linkedMeritFlawId }) =>
+                                      !linkedMeritFlawId,
+                                  )
+                                  .map((entry) => (
+                                    <option key={entry.id} value={entry.id}>
+                                      Link{' '}
+                                      {entry.customName ||
+                                        'unnamed Derangement'}
+                                    </option>
+                                  ))}
+                              </select>
+                            </label>
+                          </>
+                        ) : policy.kind === 'options' &&
+                          policy.options.length > 1 ? (
+                          <label>
+                            <span>Chosen cost</span>
+                            <select
+                              aria-label={`${definition.name} chosen cost`}
+                              value={pendingValues[definition.id] ?? ''}
+                              onChange={(event) =>
+                                setPendingValues((current) => ({
+                                  ...current,
+                                  [definition.id]: event.target.value,
+                                }))
+                              }
+                            >
+                              <option value="">Choose cost</option>
+                              {policy.options.map((value) => (
+                                <option key={value} value={value}>
+                                  {value}
+                                </option>
+                              ))}
+                            </select>
+                          </label>
+                        ) : policy.kind === 'formula' ? (
+                          <label>
+                            <span>{policy.basisLabel}</span>
+                            <input
+                              aria-label={policy.basisLabel}
+                              type="number"
+                              min={policy.minBasis}
+                              max={policy.maxBasis}
+                              value={pendingValues[definition.id] ?? ''}
+                              onChange={(event) =>
+                                setPendingValues((current) => ({
+                                  ...current,
+                                  [definition.id]: event.target.value,
+                                }))
+                              }
+                            />
+                            <small>
+                              {calculatedCost === null
+                                ? 'Enter a legal rating'
+                                : `Final cost: ${calculatedCost}`}
+                            </small>
+                          </label>
+                        ) : policy.kind === 'open' ? (
+                          <label>
+                            <span>{policy.label}</span>
+                            <input
+                              aria-label={policy.label}
+                              type="number"
+                              min={policy.minimum}
+                              value={pendingValues[definition.id] ?? ''}
+                              onChange={(event) =>
+                                setPendingValues((current) => ({
+                                  ...current,
+                                  [definition.id]: event.target.value,
+                                }))
+                              }
+                            />
+                          </label>
+                        ) : null}
+                        {repeatable ? (
+                          <label>
+                            <span>Choice / label</span>
+                            <input
+                              aria-label={`${definition.name} choice or label`}
+                              value={pendingLabels[definition.id] ?? ''}
+                              onChange={(event) =>
+                                setPendingLabels((current) => ({
+                                  ...current,
+                                  [definition.id]: event.target.value,
+                                }))
+                              }
+                              placeholder="Required for each purchase"
+                            />
+                          </label>
+                        ) : null}
+                        <button
+                          type="button"
+                          className="primary-button"
+                          disabled={!canAdd(definition)}
+                          onClick={() => addTrait(definition)}
+                        >
+                          {limitReached
+                            ? 'Selected'
+                            : `Add ${definition.kind === 'merit' ? 'Merit' : 'Flaw'}`}
+                        </button>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </section>
           ))}
         </div>
-        <div className="exalted-trait-filters">
-          <label>
-            <span>Search</span>
-            <input
-              type="search"
-              aria-label="Search Merits and Flaws"
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder={`Search ${activeKind === 'merit' ? 'Merits' : 'Flaws'}`}
-            />
-          </label>
-          <label>
-            <span>Category</span>
-            <select
-              value={category}
-              onChange={(event) =>
-                setCategory(event.target.value as 'all' | ExaltedTraitCategory)
-              }
-            >
-              <option value="all">All categories</option>
-              {exaltedTraitCategories.map((value) => (
-                <option key={value} value={value}>
-                  {categoryLabels[value]}
-                </option>
-              ))}
-            </select>
-          </label>
-        </div>
-
-        <p className="exalted-trait-results" aria-live="polite">
-          {filteredDefinitions.length}{' '}
-          {activeKind === 'merit' ? 'Merits' : 'Flaws'} shown
-        </p>
-        {groupedDefinitions.map((group) => (
-          <section className="exalted-trait-category" key={group.category}>
-            <h3>{categoryLabels[group.category]}</h3>
-            <div className="exalted-trait-card-grid">
-              {group.definitions.map((definition) => {
-                const policy = getDragonBloodedTraitCostPolicy(definition);
-                const limit = getDragonBloodedTraitRepeatLimit(definition.id);
-                const count = selectedCount(definition.id, definition.kind);
-                const repeatable = limit === undefined || limit > 1;
-                const limitReached = limit !== undefined && count >= limit;
-                const calculatedCost = selectedCost(definition);
-                return (
-                  <article className="exalted-trait-card" key={definition.id}>
-                    <div className="exalted-trait-card__heading">
-                      <div>
-                        <h4>{definition.name}</h4>
-                        <p>{displayCost(definition)}</p>
-                      </div>
-                      <span className="exalted-review-badge">
-                        {categoryLabels[definition.category]}
-                      </span>
-                    </div>
-                    <p>{definition.summary}</p>
-                    <p className="catalog-card__source">
-                      {sourceLabel(definition)}
-                    </p>
-                    {storytellerApprovalTraitIds.has(definition.id) ? (
-                      <p className="exalted-trait-warning">
-                        Storyteller approval recommended
-                      </p>
-                    ) : null}
-                    <details>
-                      <summary>Full rules</summary>
-                      <div className="exalted-trait-card__rules">
-                        <p>{definition.mechanics}</p>
-                        <p>
-                          <strong>Eligibility:</strong> {definition.eligibility}
-                        </p>
-                        {definition.requirements.length ? (
-                          <p>
-                            <strong>Requirements:</strong>{' '}
-                            {definition.requirements.join(' · ')}
-                          </p>
-                        ) : null}
-                        {definition.aliases.length ? (
-                          <p>
-                            <strong>Aliases:</strong>{' '}
-                            {definition.aliases.join(', ')}
-                          </p>
-                        ) : null}
-                        {definition.notes.length ? (
-                          <p>
-                            <strong>Notes:</strong> {definition.notes.join(' ')}
-                          </p>
-                        ) : null}
-                      </div>
-                    </details>
-                    <div className="exalted-trait-add-controls">
-                      {definition.id === 'derangement' ? (
-                        <p>
-                          Value for this purchase:{' '}
-                          <strong>{calculatedCost}</strong>
-                        </p>
-                      ) : policy.kind === 'options' &&
-                        policy.options.length > 1 ? (
-                        <label>
-                          <span>Chosen cost</span>
-                          <select
-                            aria-label={`${definition.name} chosen cost`}
-                            value={pendingValues[definition.id] ?? ''}
-                            onChange={(event) =>
-                              setPendingValues((current) => ({
-                                ...current,
-                                [definition.id]: event.target.value,
-                              }))
-                            }
-                          >
-                            <option value="">Choose cost</option>
-                            {policy.options.map((value) => (
-                              <option key={value} value={value}>
-                                {value}
-                              </option>
-                            ))}
-                          </select>
-                        </label>
-                      ) : policy.kind === 'formula' ? (
-                        <label>
-                          <span>{policy.basisLabel}</span>
-                          <input
-                            aria-label={policy.basisLabel}
-                            type="number"
-                            min={policy.minBasis}
-                            max={policy.maxBasis}
-                            value={pendingValues[definition.id] ?? ''}
-                            onChange={(event) =>
-                              setPendingValues((current) => ({
-                                ...current,
-                                [definition.id]: event.target.value,
-                              }))
-                            }
-                          />
-                          <small>
-                            {calculatedCost === null
-                              ? 'Enter a legal rating'
-                              : `Final cost: ${calculatedCost}`}
-                          </small>
-                        </label>
-                      ) : policy.kind === 'open' ? (
-                        <label>
-                          <span>{policy.label}</span>
-                          <input
-                            aria-label={policy.label}
-                            type="number"
-                            min={policy.minimum}
-                            value={pendingValues[definition.id] ?? ''}
-                            onChange={(event) =>
-                              setPendingValues((current) => ({
-                                ...current,
-                                [definition.id]: event.target.value,
-                              }))
-                            }
-                          />
-                        </label>
-                      ) : null}
-                      {repeatable ? (
-                        <label>
-                          <span>Choice / label</span>
-                          <input
-                            aria-label={`${definition.name} choice or label`}
-                            value={pendingLabels[definition.id] ?? ''}
-                            onChange={(event) =>
-                              setPendingLabels((current) => ({
-                                ...current,
-                                [definition.id]: event.target.value,
-                              }))
-                            }
-                            placeholder="Required for each purchase"
-                          />
-                        </label>
-                      ) : null}
-                      <button
-                        type="button"
-                        className="primary-button"
-                        disabled={!canAdd(definition)}
-                        onClick={() => addTrait(definition)}
-                      >
-                        {limitReached
-                          ? 'Selected'
-                          : `Add ${definition.kind === 'merit' ? 'Merit' : 'Flaw'}`}
-                      </button>
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
-          </section>
-        ))}
-      </div>
+      ) : null}
     </>
   );
 }

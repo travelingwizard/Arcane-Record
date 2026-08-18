@@ -8,6 +8,11 @@ import {
   type DragonBloodedCharmDefinition,
   type DragonBloodedPowerDefinition,
 } from './reference/dragonblooded-powers';
+import {
+  getDragonBloodedPowerExperienceCost,
+  getExperienceTotals,
+} from './shared/advancement/rules';
+import { exaltedAbilities } from './definitions';
 
 type PowerKind = 'charms' | 'spells';
 type PowerSelection = Exalted1eCharacter['powers'][PowerKind][number];
@@ -37,12 +42,54 @@ function reviewLabel(definition: DragonBloodedPowerDefinition) {
   return 'Source checked';
 }
 
+function prerequisitesMet(
+  character: Exalted1eCharacter,
+  definition: DragonBloodedPowerDefinition,
+) {
+  if (
+    definition.minimumEssence !== null &&
+    character.essence.rating < definition.minimumEssence
+  ) {
+    return false;
+  }
+  const ratingsByLabel = new Map(
+    exaltedAbilities.map((ability) => [
+      ability.label.toLocaleLowerCase(),
+      character.abilities[ability.id],
+    ]),
+  );
+  if (
+    definition.minimumRequirements.some(({ trait, rating }) => {
+      const current = ratingsByLabel.get(trait.toLocaleLowerCase());
+      return current !== undefined && current < rating;
+    })
+  ) {
+    return false;
+  }
+  return definition.prerequisiteCharms.every((requiredId) =>
+    character.powers.charms.some(
+      ({ definitionId }) => definitionId === requiredId,
+    ),
+  );
+}
+
 interface Props {
   powers: Exalted1eCharacter['powers'];
   onChange: (powers: Exalted1eCharacter['powers']) => void;
+  character?: Exalted1eCharacter;
+  onLearnWithExperience?: (
+    definition: DragonBloodedPowerDefinition,
+    cost: number,
+    explanation: string,
+  ) => void;
 }
 
-export function DragonBloodedPowersSection({ powers, onChange }: Props) {
+export function DragonBloodedPowersSection({
+  powers,
+  onChange,
+  character,
+  onLearnWithExperience,
+}: Props) {
   const [activeKind, setActiveKind] = useState<PowerKind>('charms');
   const [catalogOpen, setCatalogOpen] = useState(false);
   const [query, setQuery] = useState('');
@@ -293,6 +340,15 @@ export function DragonBloodedPowersSection({ powers, onChange }: Props) {
             {filteredDefinitions.slice(0, visibleCount).map((definition) => {
               const selected = selectedIds.has(definition.id);
               const charm = definition.kind === 'charm' ? definition : null;
+              const xp = character
+                ? getDragonBloodedPowerExperienceCost(character, definition)
+                : null;
+              const availableXp = character
+                ? getExperienceTotals(character.experienceLedger).available
+                : 0;
+              const eligible = character
+                ? prerequisitesMet(character, definition)
+                : true;
               return (
                 <article
                   className="catalog-card exalted-power-card"
@@ -330,6 +386,18 @@ export function DragonBloodedPowersSection({ powers, onChange }: Props) {
                   <p className="catalog-card__source">
                     {definition.sourceDisplay}
                   </p>
+                  {xp ? (
+                    <p className="catalog-card__cost">
+                      XP cost: {xp.cost} · {xp.explanation}
+                    </p>
+                  ) : null}
+                  {!eligible ? (
+                    <p className="exalted-power-warning">
+                      One or more recorded prerequisites are not met. Add
+                      Without Spending XP remains available for Storyteller
+                      awards and imports.
+                    </p>
+                  ) : null}
                   <details className="catalog-card__details">
                     <summary>Full reference details</summary>
                     <p>{definition.description}</p>
@@ -366,14 +434,36 @@ export function DragonBloodedPowersSection({ powers, onChange }: Props) {
                       </p>
                     ) : null}
                   </details>
-                  <button
-                    type="button"
-                    className={selected ? 'secondary-button' : 'primary-button'}
-                    disabled={selected}
-                    onClick={() => addPower(definition.id)}
-                  >
-                    {selected ? 'Selected' : `Add ${definition.kind}`}
-                  </button>
+                  <div className="exalted-action-row">
+                    {xp && onLearnWithExperience ? (
+                      <button
+                        type="button"
+                        className="primary-button"
+                        disabled={
+                          selected || availableXp < xp.cost || !eligible
+                        }
+                        onClick={() =>
+                          onLearnWithExperience(
+                            definition,
+                            xp.cost,
+                            xp.explanation,
+                          )
+                        }
+                      >
+                        {selected
+                          ? 'Selected'
+                          : `Learn ${definition.kind === 'charm' ? 'Charm' : 'Spell'} (${xp.cost} XP)`}
+                      </button>
+                    ) : null}
+                    <button
+                      type="button"
+                      className="secondary-button"
+                      disabled={selected}
+                      onClick={() => addPower(definition.id)}
+                    >
+                      {selected ? 'Selected' : 'Add Without Spending XP'}
+                    </button>
+                  </div>
                 </article>
               );
             })}

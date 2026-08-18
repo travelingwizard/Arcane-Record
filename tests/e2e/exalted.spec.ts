@@ -58,11 +58,7 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   const reorderedSections = await page
     .locator('.exalted-character-sheet > section')
     .evaluateAll((sections) => sections.map((section) => section.id));
-  expect(reorderedSections.slice(0, 3)).toEqual([
-    'exalted-attributes',
-    'exalted-abilities',
-    'exalted-identity',
-  ]);
+  expect(reorderedSections[0]).toBe('exalted-advantages');
 
   await page.reload();
   await expect(page.getByLabel('Name', { exact: true })).toHaveValue(
@@ -79,7 +75,7 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   ).toBeVisible();
   await expect(
     page.locator('.exalted-character-sheet > section').first(),
-  ).toHaveAttribute('id', 'exalted-attributes');
+  ).toHaveAttribute('id', 'exalted-advantages');
 
   await page.getByRole('button', { name: /Character library/ }).click();
   await chooseExalted(page);
@@ -97,7 +93,6 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   await expect(
     page.getByRole('heading', { name: 'Merits & Flaws' }),
   ).toBeVisible();
-  await page.getByRole('button', { name: 'Collapse Merits & Flaws' }).click();
   await expect(
     page.getByRole('button', { name: 'Expand Merits & Flaws' }),
   ).toHaveAttribute('aria-expanded', 'false');
@@ -105,6 +100,7 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
     page.getByRole('searchbox', { name: 'Search Merits and Flaws' }),
   ).toBeHidden();
   await page.getByRole('button', { name: 'Expand Merits & Flaws' }).click();
+  await page.getByRole('button', { name: 'Browse Merits & Flaws' }).click();
   await expect(
     page.getByRole('searchbox', { name: 'Search Merits and Flaws' }),
   ).toBeVisible();
@@ -124,7 +120,9 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   const sorceryCharm = page
     .locator('.exalted-power-card')
     .filter({ hasText: 'Terrestrial Circle Sorcery' });
-  await sorceryCharm.getByRole('button', { name: 'Add charm' }).click();
+  await sorceryCharm
+    .getByRole('button', { name: 'Add Without Spending XP' })
+    .click();
   await page
     .getByRole('combobox', { name: 'Catalog definition' })
     .selectOption('reaver-daiklave');
@@ -160,7 +158,7 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   const spell = page
     .locator('.exalted-power-card')
     .filter({ hasText: "Assassin's Fatal Touch" });
-  await spell.getByRole('button', { name: 'Add spell' }).click();
+  await spell.getByRole('button', { name: 'Add Without Spending XP' }).click();
   await expect(page.getByRole('tab', { name: 'Sorcery (1)' })).toBeVisible();
   await expect(
     page.getByText('Saved in this browser', { exact: true }),

@@ -10,8 +10,25 @@ function Harness() {
     merits: [],
     flaws: [],
   });
+  const [derangements, setDerangements] = useState<
+    Exalted1eCharacter['derangements']
+  >([]);
   return (
-    <DragonBloodedMeritsFlawsSection traits={traits} onChange={setTraits} />
+    <>
+      <output>
+        Derangements: {derangements.length} · Linked:{' '}
+        {
+          derangements.filter(({ linkedMeritFlawId }) => linkedMeritFlawId)
+            .length
+        }
+      </output>
+      <DragonBloodedMeritsFlawsSection
+        traits={traits}
+        onChange={setTraits}
+        derangements={derangements}
+        onDerangementsChange={setDerangements}
+      />
+    </>
   );
 }
 
@@ -19,6 +36,9 @@ describe('Dragon-Blooded Merits and Flaws editor', () => {
   it('adds fixed and variable-cost Traits, shows citations, and supports remove/undo', async () => {
     const user = userEvent.setup();
     render(<Harness />);
+    await user.click(
+      screen.getByRole('button', { name: 'Browse Merits & Flaws' }),
+    );
 
     const search = screen.getByRole('searchbox', {
       name: 'Search Merits and Flaws',
@@ -59,6 +79,9 @@ describe('Dragon-Blooded Merits and Flaws editor', () => {
   it('prevents ordinary duplicates but permits labeled repeat purchases', async () => {
     const user = userEvent.setup();
     render(<Harness />);
+    await user.click(
+      screen.getByRole('button', { name: 'Browse Merits & Flaws' }),
+    );
     const search = screen.getByRole('searchbox', {
       name: 'Search Merits and Flaws',
     });
@@ -93,5 +116,28 @@ describe('Dragon-Blooded Merits and Flaws editor', () => {
       within(selectedMerits).getByText('Acute Sense — Sight'),
     ).toBeVisible();
     expect(screen.getByText('Merit points: 2')).toBeVisible();
+  });
+
+  it('creates and unlinks a Derangement record without deleting it', async () => {
+    const user = userEvent.setup();
+    render(<Harness />);
+    await user.click(
+      screen.getByRole('button', { name: 'Browse Merits & Flaws' }),
+    );
+    await user.click(screen.getByRole('tab', { name: 'Browse Flaws (40)' }));
+    await user.type(
+      screen.getByRole('searchbox', { name: 'Search Merits and Flaws' }),
+      'Derangement',
+    );
+    await user.type(
+      screen.getByLabelText('Derangement choice or label'),
+      'Night Terrors',
+    );
+    await user.click(screen.getByRole('button', { name: 'Add Flaw' }));
+    expect(screen.getByText(/Derangements: 1 · Linked: 1/)).toBeVisible();
+    const selected = screen.getByRole('region', { name: 'Selected Flaws' });
+    await user.click(within(selected).getByText(/Derangement — Night Terrors/));
+    await user.click(within(selected).getByRole('button', { name: 'Remove' }));
+    expect(screen.getByText(/Derangements: 1 · Linked: 0/)).toBeVisible();
   });
 });

@@ -33,6 +33,13 @@ export function createBlankExaltedCharacter(
     ) as Exalted1eCharacter['abilities'],
     favoredAbilities: [],
     backgrounds: [],
+    languages: [],
+    derangements: [],
+    experienceLedger: [],
+    downtimeAdvancement: [],
+    possessions: [],
+    manses: [],
+    hearthstones: [],
     virtues: Object.fromEntries(
       exaltedVirtues.map((virtue) => [virtue.id, 1]),
     ) as Exalted1eCharacter['virtues'],

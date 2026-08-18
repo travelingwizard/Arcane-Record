@@ -35,6 +35,11 @@ import { EquipmentSection } from './shared/components/EquipmentSection';
 import { CombatSection } from './shared/components/CombatSection';
 import { ComboBuilder } from './shared/components/ComboBuilder';
 import { AppearanceSettings } from '../../features/settings/AppearanceSettings';
+import { LanguagesSection } from './shared/languages/LanguagesSection';
+import { DerangementsSection } from './shared/derangements/DerangementsSection';
+import { ExperienceSection } from './shared/advancement/ExperienceSection';
+import { PossessionsSection } from './shared/possessions/PossessionsSection';
+import type { DragonBloodedPowerDefinition } from './reference/dragonblooded-powers';
 
 const AUTOSAVE_DELAY_MS = 550;
 
@@ -63,7 +68,11 @@ export function Exalted1eEditor({
   const [draft, setDraft] = useState(character);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>('saved');
   const [backgroundChoice, setBackgroundChoice] = useState('');
-  const [meritsFlawsExpanded, setMeritsFlawsExpanded] = useState(true);
+  const [meritsFlawsExpanded, setMeritsFlawsExpanded] = useState(
+    () =>
+      character.meritsFlaws.merits.length > 0 ||
+      character.meritsFlaws.flaws.length > 0,
+  );
   const isNarrowLayout = useMediaQuery('(max-width: 69.999rem)');
   const isSolar = draft.sheetType === 'solar';
   const activeSections = useMemo(
@@ -86,9 +95,20 @@ export function Exalted1eEditor({
   const backgroundById = new Map(
     backgroundDefinitions.map((background) => [background.id, background]),
   );
-  const availableBackgrounds = backgroundDefinitions.filter(
-    ({ id }) =>
-      !draft.backgrounds.some((background) => background.definitionId === id),
+  const availableBackgrounds = backgroundDefinitions;
+  const backgroundEntityOptions = [
+    ...draft.possessions.map(({ id, name }) => ({
+      id,
+      label: name || 'Possession',
+    })),
+    ...draft.manses.map(({ id, name }) => ({ id, label: name || 'Manse' })),
+    ...draft.hearthstones.map(({ id, name }) => ({
+      id,
+      label: name || 'Hearthstone',
+    })),
+  ];
+  const backgroundEntityById = new Map(
+    backgroundEntityOptions.map((entity) => [entity.id, entity.label]),
   );
 
   const save = useCallback(
@@ -207,6 +227,7 @@ export function Exalted1eEditor({
       'exalted-abilities': {
         primary: `${draft.favoredAbilities.length} favored · 25 Abilities`,
       },
+      'exalted-languages': { primary: `${draft.languages.length} recorded` },
       'exalted-backgrounds': {
         primary: `${draft.backgrounds.length} selected`,
       },
@@ -215,6 +236,9 @@ export function Exalted1eEditor({
       },
       'exalted-merits-flaws': {
         primary: `${draft.meritsFlaws.merits.length} Merits · ${draft.meritsFlaws.flaws.length} Flaws`,
+      },
+      'exalted-derangements': {
+        primary: `${draft.derangements.filter(({ status }) => status === 'active').length} active`,
       },
       'exalted-charms-sorcery': {
         primary: `${draft.powers.charms.length} Charms · ${draft.powers.spells.length} spells`,
@@ -230,6 +254,12 @@ export function Exalted1eEditor({
       },
       'exalted-combos': {
         primary: `${draft.combos.length} saved`,
+      },
+      'exalted-possessions': {
+        primary: `${draft.possessions.length} recorded`,
+      },
+      'exalted-experience': {
+        primary: `${draft.experienceLedger.reduce((sum, entry) => sum + entry.amount, 0)} XP available`,
       },
       'exalted-notes': { primary: 'Anima · Weapons · Experience' },
       'exalted-later-pages': { primary: 'Deferred foundation areas' },
@@ -384,7 +414,7 @@ export function Exalted1eEditor({
 
             <section
               id="exalted-attributes"
-              data-section-group="traits"
+              data-section-group="character"
               className="exalted-sheet-section"
             >
               <p className="eyebrow">Core traits</p>
@@ -416,7 +446,7 @@ export function Exalted1eEditor({
 
             <section
               id="exalted-abilities"
-              data-section-group="traits"
+              data-section-group="character"
               className="exalted-sheet-section"
             >
               <p className="eyebrow">
@@ -472,8 +502,26 @@ export function Exalted1eEditor({
             </section>
 
             <section
+              id="exalted-languages"
+              data-section-group="character"
+              className="exalted-sheet-section"
+            >
+              <p className="eyebrow">Shared Exalted records</p>
+              <h2 id="exalted-languages-heading" tabIndex={-1}>
+                Languages
+              </h2>
+              <LanguagesSection
+                languages={draft.languages}
+                linguistics={draft.abilities.linguistics}
+                onChange={(languages) =>
+                  update((current) => ({ ...current, languages }))
+                }
+              />
+            </section>
+
+            <section
               id="exalted-backgrounds"
-              data-section-group="advantages"
+              data-section-group="character"
               className="exalted-sheet-section"
             >
               <p className="eyebrow">Sheet-specific list</p>
@@ -514,6 +562,10 @@ export function Exalted1eEditor({
                           definitionId: chosenBackground.id,
                           rating: 0,
                           notes: '',
+                          label: '',
+                          description: '',
+                          linkedEntityIds: [],
+                          createdAt: new Date().toISOString(),
                         },
                       ],
                     }));
@@ -552,6 +604,42 @@ export function Exalted1eEditor({
                         />
                       </div>
                       <label>
+                        <span>Instance label</span>
+                        <input
+                          value={background.label}
+                          placeholder="Optional name or distinction"
+                          onChange={(event) =>
+                            update((current) => ({
+                              ...current,
+                              backgrounds: current.backgrounds.map((entry) =>
+                                entry.id === background.id
+                                  ? { ...entry, label: event.target.value }
+                                  : entry,
+                              ),
+                            }))
+                          }
+                        />
+                      </label>
+                      <label>
+                        <span>Description</span>
+                        <textarea
+                          value={background.description}
+                          onChange={(event) =>
+                            update((current) => ({
+                              ...current,
+                              backgrounds: current.backgrounds.map((entry) =>
+                                entry.id === background.id
+                                  ? {
+                                      ...entry,
+                                      description: event.target.value,
+                                    }
+                                  : entry,
+                              ),
+                            }))
+                          }
+                        />
+                      </label>
+                      <label>
                         <span>Notes</span>
                         <input
                           value={background.notes}
@@ -567,6 +655,167 @@ export function Exalted1eEditor({
                           }
                         />
                       </label>
+                      {backgroundEntityOptions.length ? (
+                        <label>
+                          <span>Link associated record</span>
+                          <select
+                            value=""
+                            onChange={(event) => {
+                              const entityId = event.target.value;
+                              if (!entityId) return;
+                              update((current) => ({
+                                ...current,
+                                backgrounds: current.backgrounds.map((entry) =>
+                                  entry.id === background.id &&
+                                  !entry.linkedEntityIds.includes(entityId)
+                                    ? {
+                                        ...entry,
+                                        linkedEntityIds: [
+                                          ...entry.linkedEntityIds,
+                                          entityId,
+                                        ],
+                                      }
+                                    : entry,
+                                ),
+                              }));
+                            }}
+                          >
+                            <option value="">Choose a record</option>
+                            {backgroundEntityOptions
+                              .filter(
+                                ({ id }) =>
+                                  !background.linkedEntityIds.includes(id),
+                              )
+                              .map((entity) => (
+                                <option key={entity.id} value={entity.id}>
+                                  {entity.label}
+                                </option>
+                              ))}
+                          </select>
+                        </label>
+                      ) : null}
+                      {background.linkedEntityIds.map((entityId) => (
+                        <div className="exalted-trait-undo" key={entityId}>
+                          <span>
+                            {backgroundEntityById.get(entityId) ??
+                              'Unavailable linked record'}
+                          </span>
+                          <button
+                            type="button"
+                            className="small-button small-button--quiet"
+                            onClick={() =>
+                              update((current) => ({
+                                ...current,
+                                backgrounds: current.backgrounds.map((entry) =>
+                                  entry.id === background.id
+                                    ? {
+                                        ...entry,
+                                        linkedEntityIds:
+                                          entry.linkedEntityIds.filter(
+                                            (id) => id !== entityId,
+                                          ),
+                                      }
+                                    : entry,
+                                ),
+                              }))
+                            }
+                          >
+                            Unlink
+                          </button>
+                        </div>
+                      ))}
+                      {background.definitionId === 'artifact' ? (
+                        <button
+                          type="button"
+                          className="small-button"
+                          onClick={() => {
+                            const possessionId = crypto.randomUUID();
+                            update((current) => ({
+                              ...current,
+                              possessions: [
+                                ...current.possessions,
+                                {
+                                  id: possessionId,
+                                  name: background.label || 'Artifact',
+                                  kind: 'artifact',
+                                  quantity: 1,
+                                  carried: true,
+                                  equipped: false,
+                                  stored: false,
+                                  lost: false,
+                                  loaned: false,
+                                  notes: '',
+                                  linkedEquipmentId: null,
+                                  linkedBackgroundIds: [background.id],
+                                  artifact: {
+                                    rating: background.rating,
+                                    material: '',
+                                    attuned: false,
+                                    attunementCost: 0,
+                                    committedEssence: 0,
+                                    powers: '',
+                                    source: '',
+                                  },
+                                  createdAt: new Date().toISOString(),
+                                },
+                              ],
+                              backgrounds: current.backgrounds.map((entry) =>
+                                entry.id === background.id
+                                  ? {
+                                      ...entry,
+                                      linkedEntityIds: [
+                                        ...entry.linkedEntityIds,
+                                        possessionId,
+                                      ],
+                                    }
+                                  : entry,
+                              ),
+                            }));
+                          }}
+                        >
+                          Create linked Artifact
+                        </button>
+                      ) : null}
+                      {background.definitionId === 'manse' ? (
+                        <button
+                          type="button"
+                          className="small-button"
+                          onClick={() => {
+                            const manseId = crypto.randomUUID();
+                            update((current) => ({
+                              ...current,
+                              manses: [
+                                ...current.manses,
+                                {
+                                  id: manseId,
+                                  name: background.label || 'Manse',
+                                  rating: background.rating,
+                                  aspect: '',
+                                  location: '',
+                                  description: '',
+                                  powers: '',
+                                  source: '',
+                                  linkedBackgroundIds: [background.id],
+                                  createdAt: new Date().toISOString(),
+                                },
+                              ],
+                              backgrounds: current.backgrounds.map((entry) =>
+                                entry.id === background.id
+                                  ? {
+                                      ...entry,
+                                      linkedEntityIds: [
+                                        ...entry.linkedEntityIds,
+                                        manseId,
+                                      ],
+                                    }
+                                  : entry,
+                              ),
+                            }));
+                          }}
+                        >
+                          Create linked Manse
+                        </button>
+                      ) : null}
                       <button
                         className="small-button small-button--quiet"
                         onClick={() =>
@@ -575,6 +824,20 @@ export function Exalted1eEditor({
                             backgrounds: current.backgrounds.filter(
                               (entry) => entry.id !== background.id,
                             ),
+                            possessions: current.possessions.map((entry) => ({
+                              ...entry,
+                              linkedBackgroundIds:
+                                entry.linkedBackgroundIds.filter(
+                                  (id) => id !== background.id,
+                                ),
+                            })),
+                            manses: current.manses.map((entry) => ({
+                              ...entry,
+                              linkedBackgroundIds:
+                                entry.linkedBackgroundIds.filter(
+                                  (id) => id !== background.id,
+                                ),
+                            })),
                           }))
                         }
                       >
@@ -590,7 +853,7 @@ export function Exalted1eEditor({
 
             <section
               id="exalted-advantages"
-              data-section-group="advantages"
+              data-section-group="exalted"
               className="exalted-sheet-section"
             >
               <p className="eyebrow">Page-one tracks</p>
@@ -738,7 +1001,7 @@ export function Exalted1eEditor({
             {!isSolar ? (
               <section
                 id="exalted-merits-flaws"
-                data-section-group="advantages"
+                data-section-group="character"
                 className={`exalted-sheet-section exalted-sheet-section--collapsible ${
                   meritsFlawsExpanded
                     ? 'exalted-sheet-section--expanded'
@@ -771,8 +1034,12 @@ export function Exalted1eEditor({
                 >
                   <DragonBloodedMeritsFlawsSection
                     traits={draft.meritsFlaws}
+                    derangements={draft.derangements}
                     onChange={(meritsFlaws) =>
                       update((current) => ({ ...current, meritsFlaws }))
+                    }
+                    onDerangementsChange={(derangements) =>
+                      update((current) => ({ ...current, derangements }))
                     }
                   />
                 </div>
@@ -780,8 +1047,25 @@ export function Exalted1eEditor({
             ) : null}
 
             <section
+              id="exalted-derangements"
+              data-section-group="character"
+              className="exalted-sheet-section"
+            >
+              <p className="eyebrow">Shared Exalted records</p>
+              <h2 id="exalted-derangements-heading" tabIndex={-1}>
+                Derangements
+              </h2>
+              <DerangementsSection
+                derangements={draft.derangements}
+                onChange={(derangements) =>
+                  update((current) => ({ ...current, derangements }))
+                }
+              />
+            </section>
+
+            <section
               id="exalted-equipment"
-              data-section-group="combat"
+              data-section-group="resources"
               className="exalted-sheet-section"
             >
               <p className="eyebrow">Shared Exalted catalog</p>
@@ -833,7 +1117,7 @@ export function Exalted1eEditor({
             {!isSolar ? (
               <section
                 id="exalted-charms-sorcery"
-                data-section-group="advantages"
+                data-section-group="exalted"
                 className="exalted-sheet-section"
               >
                 <p className="eyebrow">Dragon-Blooded powers</p>
@@ -842,16 +1126,103 @@ export function Exalted1eEditor({
                 </h2>
                 <DragonBloodedPowersSection
                   powers={draft.powers}
+                  character={draft}
                   onChange={(powers) =>
                     update((current) => ({ ...current, powers }))
+                  }
+                  onLearnWithExperience={(
+                    definition: DragonBloodedPowerDefinition,
+                    cost,
+                    explanation,
+                  ) =>
+                    update((current) => {
+                      const key =
+                        definition.kind === 'charm'
+                          ? ('charms' as const)
+                          : ('spells' as const);
+                      if (
+                        current.powers[key].some(
+                          ({ definitionId }) => definitionId === definition.id,
+                        ) ||
+                        current.experienceLedger.reduce(
+                          (sum, entry) => sum + entry.amount,
+                          0,
+                        ) < cost
+                      ) {
+                        return current;
+                      }
+                      return {
+                        ...current,
+                        powers: {
+                          ...current.powers,
+                          [key]: [
+                            ...current.powers[key],
+                            {
+                              id: crypto.randomUUID(),
+                              definitionId: definition.id,
+                              notes: '',
+                            },
+                          ],
+                        },
+                        experienceLedger: [
+                          ...current.experienceLedger,
+                          {
+                            id: crypto.randomUUID(),
+                            date: new Date().toISOString().slice(0, 10),
+                            session: '',
+                            type: 'purchase',
+                            amount: -cost,
+                            category:
+                              definition.kind === 'charm' ? 'Charm' : 'Spell',
+                            targetId: definition.id,
+                            targetName: definition.name,
+                            previousRating: null,
+                            newRating: null,
+                            description: `Learned ${definition.name}`,
+                            notes: explanation,
+                            createdAt: new Date().toISOString(),
+                          },
+                        ],
+                      };
+                    })
                   }
                 />
               </section>
             ) : null}
 
             <section
+              id="exalted-possessions"
+              data-section-group="resources"
+              className="exalted-sheet-section"
+            >
+              <p className="eyebrow">Shared Exalted records</p>
+              <h2 id="exalted-possessions-heading" tabIndex={-1}>
+                Possessions, Manses &amp; Hearthstones
+              </h2>
+              <PossessionsSection
+                character={draft}
+                onChange={(character) => update(() => character)}
+              />
+            </section>
+
+            <section
+              id="exalted-experience"
+              data-section-group="advancement"
+              className="exalted-sheet-section"
+            >
+              <p className="eyebrow">Advancement ledger</p>
+              <h2 id="exalted-experience-heading" tabIndex={-1}>
+                Experience
+              </h2>
+              <ExperienceSection
+                character={draft}
+                onChange={(character) => update(() => character)}
+              />
+            </section>
+
+            <section
               id="exalted-notes"
-              data-section-group="records"
+              data-section-group="advancement"
               className="exalted-sheet-section"
             >
               <p className="eyebrow">Initial free-form records</p>
@@ -881,7 +1252,7 @@ export function Exalted1eEditor({
 
             <section
               id="exalted-later-pages"
-              data-section-group="records"
+              data-section-group="advancement"
               className="exalted-sheet-section exalted-later-pages"
             >
               <p className="eyebrow">Foundation milestone</p>
@@ -896,8 +1267,6 @@ export function Exalted1eEditor({
               <ul>
                 {isSolar ? <li>Merits and Flaws</li> : null}
                 {isSolar ? <li>Charms and Sorcery</li> : null}
-                <li>Expanded Background details and possessions</li>
-                <li>Languages, derangements, and experience history</li>
                 <li>History, description, and character sketch</li>
               </ul>
             </section>

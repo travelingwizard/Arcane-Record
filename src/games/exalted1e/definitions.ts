@@ -1,15 +1,15 @@
 export const EXALTED1E_SYSTEM_ID = 'exalted1e' as const;
-export const EXALTED1E_SCHEMA_VERSION = 5 as const;
+export const EXALTED1E_SCHEMA_VERSION = 6 as const;
 
 export const exaltedSheetTypes = ['solar', 'dragon-blooded'] as const;
 export type ExaltedSheetType = (typeof exaltedSheetTypes)[number];
 
 export const exaltedSectionGroups = [
   { id: 'character', label: 'Character' },
-  { id: 'traits', label: 'Traits' },
-  { id: 'advantages', label: 'Advantages' },
+  { id: 'exalted', label: 'Exalted' },
   { id: 'combat', label: 'Combat' },
-  { id: 'records', label: 'Records' },
+  { id: 'resources', label: 'Resources' },
+  { id: 'advancement', label: 'Advancement' },
 ] as const;
 
 export type ExaltedSectionGroupId = (typeof exaltedSectionGroups)[number]['id'];
@@ -27,37 +27,47 @@ export const exaltedSections = [
   {
     id: 'exalted-attributes',
     label: 'Attributes',
-    group: 'traits',
+    group: 'character',
   },
   {
     id: 'exalted-abilities',
     label: 'Abilities',
-    group: 'traits',
+    group: 'character',
+  },
+  {
+    id: 'exalted-languages',
+    label: 'Languages',
+    group: 'character',
   },
   {
     id: 'exalted-backgrounds',
     label: 'Backgrounds',
-    group: 'advantages',
+    group: 'character',
   },
   {
     id: 'exalted-advantages',
     label: 'Advantages',
-    group: 'advantages',
+    group: 'exalted',
   },
   {
     id: 'exalted-merits-flaws',
     label: 'Merits & Flaws',
-    group: 'advantages',
+    group: 'character',
+  },
+  {
+    id: 'exalted-derangements',
+    label: 'Derangements',
+    group: 'character',
   },
   {
     id: 'exalted-charms-sorcery',
     label: 'Charms & Sorcery',
-    group: 'advantages',
+    group: 'exalted',
   },
   {
     id: 'exalted-equipment',
     label: 'Equipment',
-    group: 'combat',
+    group: 'resources',
   },
   {
     id: 'exalted-combat',
@@ -69,11 +79,21 @@ export const exaltedSections = [
     label: 'Combos',
     group: 'combat',
   },
-  { id: 'exalted-notes', label: 'Notes', group: 'records' },
+  {
+    id: 'exalted-possessions',
+    label: 'Possessions',
+    group: 'resources',
+  },
+  {
+    id: 'exalted-experience',
+    label: 'Experience',
+    group: 'advancement',
+  },
+  { id: 'exalted-notes', label: 'Notes', group: 'advancement' },
   {
     id: 'exalted-later-pages',
     label: 'Later pages',
-    group: 'records',
+    group: 'advancement',
   },
 ] as const;
 
@@ -81,10 +101,10 @@ export type ExaltedSectionId = (typeof exaltedSections)[number]['id'];
 
 export const defaultExaltedSectionGroupOrder: ExaltedSectionGroupId[] = [
   'character',
-  'traits',
-  'advantages',
+  'exalted',
   'combat',
-  'records',
+  'resources',
+  'advancement',
 ];
 
 export const exaltedAttributeGroups = [

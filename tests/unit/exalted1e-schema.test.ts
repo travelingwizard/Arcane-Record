@@ -192,11 +192,11 @@ describe('Exalted First Edition foundation', () => {
     expect(migrated.combat.profile).toBe('classic');
     expect(migrated.combos).toEqual([]);
     expect(migrated.sheetLayout.groupOrder).toEqual([
-      'traits',
       'character',
-      'advantages',
+      'exalted',
       'combat',
-      'records',
+      'resources',
+      'advancement',
     ]);
   });
 

@@ -276,11 +276,11 @@ describe('character files', () => {
       notes: '',
     });
     character.sheetLayout.groupOrder = [
-      'traits',
+      'exalted',
       'character',
-      'advantages',
       'combat',
-      'records',
+      'resources',
+      'advancement',
     ];
     const serialized = serializeCharacter(
       {
@@ -307,7 +307,13 @@ describe('character files', () => {
       sheetType: 'solar',
       identity: { name: 'Ari of the Dawn (Imported)' },
       sheetLayout: {
-        groupOrder: ['traits', 'character', 'advantages', 'combat', 'records'],
+        groupOrder: [
+          'exalted',
+          'character',
+          'combat',
+          'resources',
+          'advancement',
+        ],
       },
       combat: { profile: 'power-combat' },
       equipment: {
@@ -341,6 +347,32 @@ describe('character files', () => {
         choiceLabel: '',
         notes: 'The vision remains unclear.',
       });
+      character.languages.push({
+        id: '43f65979-853e-4736-85fb-1c31bfcb588e',
+        definitionId: 'high-realm',
+        customName: '',
+        proficiency: 'native',
+        spoken: true,
+        written: true,
+        notes: '',
+        sourceType: 'linguistics',
+        sourceId: null,
+      });
+      character.experienceLedger.push({
+        id: '7eae0557-4812-4169-90c2-a25c233bf83e',
+        date: '2026-08-18',
+        session: 'Opening',
+        type: 'award',
+        amount: 5,
+        category: 'Session',
+        targetId: null,
+        targetName: '',
+        previousRating: null,
+        newRating: null,
+        description: 'Opening award',
+        notes: '',
+        createdAt: '2026-08-18T12:00:00.000Z',
+      });
       const serialized = serializeCharacter(
         {
           id: 'dragon-blooded-source',
@@ -360,6 +392,10 @@ describe('character files', () => {
       );
 
       expect(imported.data).toMatchObject({
+        languages: [{ definitionId: 'high-realm', proficiency: 'native' }],
+        experienceLedger: [
+          { type: 'award', amount: 5, description: 'Opening award' },
+        ],
         meritsFlaws: {
           merits: [
             {

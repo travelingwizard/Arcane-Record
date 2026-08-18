@@ -20,6 +20,17 @@ import {
   dragonBloodedSpellIds,
 } from './reference/dragonblooded-powers';
 import { exaltedComboSchema } from './shared/combos/schema';
+import { exaltedLanguageSchema } from './shared/languages/schema';
+import { exaltedDerangementSchema } from './shared/derangements/schema';
+import {
+  downtimeAdvancementSchema,
+  experienceLedgerEntrySchema,
+} from './shared/advancement/schema';
+import {
+  hearthstoneSchema,
+  manseSchema,
+  possessionSchema,
+} from './shared/possessions/schema';
 import {
   combatProfileSchema,
   ownedEquipmentSchema,
@@ -75,6 +86,7 @@ const selectedTraitSchema = z.object({
   chosenCost: z.number().int().nonnegative(),
   choiceLabel: z.string(),
   notes: z.string(),
+  linkedDerangementId: z.string().uuid().nullable().optional(),
 });
 
 export const exalted1eCharacterSchema = z
@@ -115,8 +127,19 @@ export const exalted1eCharacterSchema = z
         definitionId: exaltedBackgroundIdSchema,
         rating: fivePointRating,
         notes: z.string(),
+        label: z.string().default(''),
+        description: z.string().default(''),
+        linkedEntityIds: z.array(z.string().uuid()).default([]),
+        createdAt: z.string().datetime().default('1970-01-01T00:00:00.000Z'),
       }),
     ),
+    languages: z.array(exaltedLanguageSchema),
+    derangements: z.array(exaltedDerangementSchema),
+    experienceLedger: z.array(experienceLedgerEntrySchema),
+    downtimeAdvancement: z.array(downtimeAdvancementSchema),
+    possessions: z.array(possessionSchema),
+    manses: z.array(manseSchema),
+    hearthstones: z.array(hearthstoneSchema),
     virtues: z.object(virtuesShape),
     willpower: z.object({
       permanent: z.number().int().min(0).max(10),
@@ -347,7 +370,7 @@ export function migrateExalted1eCharacter(data: unknown, fromVersion: number) {
       recordCandidate = {
         ...recordCandidate,
         sheetLayout: {
-          groupOrder: [...defaultExaltedSectionGroupOrder],
+          groupOrder: ['character', 'traits', 'advantages', 'records'],
         },
       };
     }
@@ -367,16 +390,15 @@ export function migrateExalted1eCharacter(data: unknown, fromVersion: number) {
       const storedOrder = (
         recordCandidate.sheetLayout as { groupOrder?: unknown } | undefined
       )?.groupOrder;
+      const legacyGroupIds = ['character', 'traits', 'advantages', 'records'];
       const previousOrder = Array.isArray(storedOrder)
         ? storedOrder.filter(
-            (id): id is Exclude<ExaltedSectionGroupId, 'combat'> =>
-              typeof id === 'string' &&
-              id !== 'combat' &&
-              exaltedSectionGroupIds.includes(id as ExaltedSectionGroupId),
+            (id): id is string =>
+              typeof id === 'string' && legacyGroupIds.includes(id),
           )
         : [];
       const recordsIndex = previousOrder.indexOf('records');
-      const migratedOrder: ExaltedSectionGroupId[] = [...previousOrder];
+      const migratedOrder = [...previousOrder];
       migratedOrder.splice(
         recordsIndex < 0 ? migratedOrder.length : recordsIndex,
         0,
@@ -399,6 +421,137 @@ export function migrateExalted1eCharacter(data: unknown, fromVersion: number) {
               ? migratedOrder
               : [...defaultExaltedSectionGroupOrder],
         },
+      };
+    }
+    if (fromVersion < 6) {
+      const legacyGroups: Record<string, ExaltedSectionGroupId> = {
+        character: 'character',
+        traits: 'character',
+        advantages: 'exalted',
+        combat: 'combat',
+        records: 'advancement',
+      };
+      const storedOrder = (
+        recordCandidate.sheetLayout as { groupOrder?: unknown } | undefined
+      )?.groupOrder;
+      const mappedOrder = Array.isArray(storedOrder)
+        ? storedOrder
+            .map((id) =>
+              typeof id === 'string' ? legacyGroups[id] : undefined,
+            )
+            .filter(
+              (id, index, order): id is ExaltedSectionGroupId =>
+                Boolean(id) && order.indexOf(id) === index,
+            )
+        : [];
+      const completeOrder = [...mappedOrder];
+      for (const id of defaultExaltedSectionGroupOrder) {
+        if (completeOrder.includes(id)) continue;
+        if (id === 'resources') {
+          const advancementIndex = completeOrder.indexOf('advancement');
+          completeOrder.splice(
+            advancementIndex < 0 ? completeOrder.length : advancementIndex,
+            0,
+            id,
+          );
+        } else {
+          completeOrder.push(id);
+        }
+      }
+      const createdAt = '1970-01-01T00:00:00.000Z';
+      const equipment = recordCandidate.equipment as
+        Exalted1eCharacter['equipment'] | undefined;
+      const legacyEquipment = equipment
+        ? [
+            ...equipment.weapons,
+            ...equipment.armor,
+            ...equipment.shields,
+            ...equipment.ammunition,
+          ]
+        : [];
+      const equipmentNames = new Map<string, string>([
+        ...Array.from(
+          weaponById,
+          ([id, definition]) => [id, definition.name] as const,
+        ),
+        ...Array.from(
+          armorById,
+          ([id, definition]) => [id, definition.name] as const,
+        ),
+        ...Array.from(
+          ammunitionById,
+          ([id, definition]) => [id, definition.name] as const,
+        ),
+      ]);
+      const backgrounds = Array.isArray(recordCandidate.backgrounds)
+        ? recordCandidate.backgrounds.map((background) => {
+            const entry = background as Record<string, unknown>;
+            return {
+              ...entry,
+              label: typeof entry.label === 'string' ? entry.label : '',
+              description:
+                typeof entry.description === 'string' ? entry.description : '',
+              linkedEntityIds: Array.isArray(entry.linkedEntityIds)
+                ? entry.linkedEntityIds
+                : [],
+              createdAt:
+                typeof entry.createdAt === 'string'
+                  ? entry.createdAt
+                  : createdAt,
+            };
+          })
+        : [];
+      const meritsFlaws = recordCandidate.meritsFlaws as
+        Exalted1eCharacter['meritsFlaws'] | undefined;
+      const migrateTraits = (traits: unknown[] | undefined) =>
+        (traits ?? []).map((trait) => ({
+          ...(trait as Record<string, unknown>),
+          linkedDerangementId: null,
+        }));
+      recordCandidate = {
+        ...recordCandidate,
+        backgrounds,
+        meritsFlaws: {
+          merits: migrateTraits(meritsFlaws?.merits),
+          flaws: migrateTraits(meritsFlaws?.flaws),
+        },
+        languages: [],
+        derangements: [],
+        experienceLedger: [],
+        downtimeAdvancement: [],
+        possessions: legacyEquipment.map((item) => ({
+          id: item.id,
+          name:
+            item.customName ||
+            (item.definitionId ? equipmentNames.get(item.definitionId) : '') ||
+            'Equipment',
+          kind: item.kind,
+          quantity: 1,
+          carried: true,
+          equipped: item.equipped,
+          stored: false,
+          lost: false,
+          loaned: false,
+          notes: item.notes,
+          linkedEquipmentId: item.id,
+          linkedBackgroundIds: [],
+          artifact:
+            item.material !== 'none' || item.attuned
+              ? {
+                  rating: 0,
+                  material: item.material,
+                  attuned: item.attuned,
+                  attunementCost: item.committedEssence,
+                  committedEssence: item.committedEssence,
+                  powers: '',
+                  source: '',
+                }
+              : null,
+          createdAt,
+        })),
+        manses: [],
+        hearthstones: [],
+        sheetLayout: { groupOrder: completeOrder },
       };
     }
     candidate = recordCandidate;
