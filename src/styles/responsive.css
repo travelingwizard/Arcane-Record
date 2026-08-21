@@ -561,4 +561,41 @@
     align-items: flex-start;
     flex-wrap: wrap;
   }
+
+  .burning-wheel-editor-header,
+  .burning-wheel-two-column,
+  .burning-wheel-three-column,
+  .burning-wheel-picker {
+    grid-template-columns: 1fr;
+  }
+
+  .burning-wheel-editor-header {
+    text-align: center;
+  }
+
+  .burning-wheel-editor-header .editor-header__actions {
+    justify-self: center;
+  }
+
+  .burning-wheel-mode-control {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 30rem) {
+  .burning-wheel-field-grid,
+  .burning-wheel-stat-grid,
+  .burning-wheel-attributes,
+  .burning-wheel-selected-grid,
+  .burning-wheel-artha,
+  .burning-wheel-ptgs {
+    grid-template-columns: 1fr;
+  }
+
+  .burning-wheel-card-list > li,
+  .burning-wheel-card-list > article,
+  .burning-wheel-three-column article {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }

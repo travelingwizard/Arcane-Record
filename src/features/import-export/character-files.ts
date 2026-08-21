@@ -136,6 +136,21 @@ export function prepareImportedRecord(
   }
 
   if (!isPositiveLegacyMageFile(parsed)) {
+    for (const system of registry.list()) {
+      const imported = system.importLegacyCharacter?.(contents, fileName);
+      if (!imported) continue;
+      const validated = system.characterSchema.parse(imported);
+      const importedName = `${system.getDisplayName(validated)} (Imported)`;
+      return {
+        id,
+        systemId: system.id,
+        systemVersion: system.currentSchemaVersion,
+        name: importedName,
+        createdAt: timestamp,
+        updatedAt: timestamp,
+        data: system.renameCharacter(validated, importedName),
+      };
+    }
     throw new Error('The file is not a recognized Arcane Record character.');
   }
 

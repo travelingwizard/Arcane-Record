@@ -59,6 +59,10 @@ export interface GameSystemDefinition<TCharacter = unknown> {
   sectionGroups: readonly GameSectionGroupDefinition[];
   variants?: readonly GameSystemVariantDefinition<TCharacter>[];
   appearance?: GameAppearanceDefinition;
+  importLegacyCharacter?: (
+    contents: string,
+    fileName: string,
+  ) => TCharacter | null;
 }
 
 export type RegisteredGameSystem = GameSystemDefinition<unknown>;

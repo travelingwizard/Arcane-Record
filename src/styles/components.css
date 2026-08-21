@@ -4507,3 +4507,242 @@
 .exalted-combo-warning {
   color: #76520d;
 }
+
+/* Burning Wheel Gold + Codex */
+.burning-wheel-editor-shell {
+  max-width: 100%;
+}
+
+.burning-wheel-editor-header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--rule-strong);
+  padding-bottom: 1rem;
+}
+
+.burning-wheel-editor-header h1 {
+  margin: 0.15rem 0;
+}
+
+.burning-wheel-mode-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 auto 1rem;
+  border: 1px solid var(--rule-light);
+  background: var(--surface-raised);
+  padding: 0.7rem 1rem;
+}
+
+.burning-wheel-mode-control p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.burning-wheel-warning {
+  margin-bottom: 1rem;
+  border-left: 0.3rem solid var(--warning);
+  background: var(--surface-raised);
+  padding: 0.75rem 1rem;
+}
+
+.burning-wheel-message {
+  border: 1px solid var(--rule-light);
+  background: var(--selection-soft);
+  padding: 0.7rem 1rem;
+}
+
+.burning-wheel-warning ul {
+  margin-bottom: 0;
+}
+
+.burning-wheel-sheet {
+  min-width: 0;
+}
+
+.burning-wheel-sheet .sheet-section {
+  scroll-margin-top: 5rem;
+}
+
+.burning-wheel-field-grid,
+.burning-wheel-stat-grid,
+.burning-wheel-attributes,
+.burning-wheel-selected-grid,
+.burning-wheel-artha,
+.burning-wheel-ptgs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.75rem;
+}
+
+.burning-wheel-two-column {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.burning-wheel-three-column {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.burning-wheel-two-column > div,
+.burning-wheel-three-column > div,
+.burning-wheel-selected-grid article,
+.burning-wheel-stat-grid article {
+  display: grid;
+  align-content: start;
+  gap: 0.55rem;
+  border: 1px solid var(--rule-light);
+  background: var(--surface-raised);
+  padding: 0.75rem;
+}
+
+.burning-wheel-picker {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.burning-wheel-picker select {
+  width: 100%;
+}
+
+.burning-wheel-card-list {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.burning-wheel-card-list > li,
+.burning-wheel-card-list > article,
+.burning-wheel-three-column article {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.45rem 0.75rem;
+  border-top: 1px solid var(--rule-light);
+  padding: 0.7rem 0;
+}
+
+.burning-wheel-card-list small,
+.burning-wheel-three-column small,
+.burning-wheel-table small {
+  display: block;
+  color: var(--ink-soft);
+}
+
+.burning-wheel-card-list p {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.burning-wheel-totals,
+.burning-wheel-pool-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.burning-wheel-totals span,
+.burning-wheel-pool-summary span {
+  border: 1px solid var(--rule-light);
+  padding: 0.45rem 0.65rem;
+}
+
+.burning-wheel-stat-grid article h3,
+.burning-wheel-selected-grid article h3 {
+  margin: 0;
+}
+
+.burning-wheel-attributes,
+.burning-wheel-ptgs {
+  margin-top: 1rem;
+}
+
+.burning-wheel-attributes > div,
+.burning-wheel-ptgs > div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--rule-light);
+  padding: 0.5rem;
+}
+
+.burning-wheel-catalog-search {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.burning-wheel-catalog-search ul {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  margin: 0;
+  border: 1px solid var(--rule-strong);
+  background: var(--surface-raised);
+  padding: 0.35rem;
+  list-style: none;
+}
+
+.burning-wheel-catalog-search li button {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0.55rem;
+  text-align: left;
+}
+
+.burning-wheel-catalog-search li button:hover,
+.burning-wheel-catalog-search li button:focus-visible {
+  background: var(--selection-soft);
+}
+
+.burning-wheel-table {
+  display: grid;
+  gap: 0.25rem;
+  overflow-x: auto;
+}
+
+.burning-wheel-table [role='row'] {
+  display: grid;
+  grid-template-columns: minmax(10rem, 1fr) 4rem 4rem 4rem minmax(9rem, auto);
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 38rem;
+  border-bottom: 1px solid var(--rule-light);
+  padding: 0.35rem;
+}
+
+.burning-wheel-table__head {
+  font-weight: 700;
+}
+
+.burning-wheel-test-inputs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(2.5rem, 1fr));
+  gap: 0.25rem;
+}
+
+.burning-wheel-artha input {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.burning-wheel-settings {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.burning-wheel-settings details {
+  border-top: 1px solid var(--rule-light);
+  padding-top: 0.8rem;
+}

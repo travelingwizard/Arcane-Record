@@ -12,6 +12,7 @@ interface SheetSectionProps {
   className?: string;
   collapsibleOnDesktop?: boolean;
   hideSummaryWhenCollapsed?: boolean;
+  'data-section-group'?: string;
 }
 
 export function SheetSection({
@@ -24,6 +25,7 @@ export function SheetSection({
   className = '',
   collapsibleOnDesktop = false,
   hideSummaryWhenCollapsed = false,
+  'data-section-group': sectionGroup,
 }: SheetSectionProps) {
   const navigation = useCharacterSectionContext();
   const sectionRef = useRef<HTMLElement>(null);
@@ -70,6 +72,7 @@ export function SheetSection({
         collapsibleOnDesktop ? 'character-section--desktop-collapsible' : ''
       } ${className}`.trim()}
       aria-labelledby={headingId}
+      data-section-group={sectionGroup}
     >
       <div className="sheet-section__heading">
         <div>

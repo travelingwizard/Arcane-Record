@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "prebuild": "node scripts/package-burning-wheel-source.mjs",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
@@ -14,6 +15,8 @@
     "generate:magick-reference": "node scripts/generate-magick-reference.mjs",
     "generate:equipment": "node scripts/generate-equipment.mjs",
     "generate:maneuvers": "node scripts/generate-maneuvers.mjs",
+    "generate:burning-wheel": "node scripts/generate-burning-wheel-catalog.mjs",
+    "package:burning-wheel-source": "node scripts/package-burning-wheel-source.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test"
@@ -21,10 +24,11 @@
   "dependencies": {
     "dexie": "^4.2.0",
     "js-yaml": "^4.1.0",
+    "pdf-lib": "^1.17.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "zustand": "^5.0.8",
-    "zod": "^4.1.5"
+    "zod": "^4.1.5",
+    "zustand": "^5.0.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.34.0",

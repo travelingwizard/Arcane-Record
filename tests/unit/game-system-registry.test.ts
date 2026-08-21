@@ -27,6 +27,21 @@ describe('game system registry', () => {
     ]);
   });
 
+  it('registers Burning Wheel with all supported stock variants', () => {
+    const system = gameSystemRegistry.get('burning-wheel');
+    expect(system?.name).toBe('Burning Wheel Gold + Codex');
+    expect(system?.variants?.map(({ id }) => id)).toEqual([
+      'man',
+      'dwarf',
+      'elf',
+      'orc',
+      'roden',
+      'wolf',
+      'troll',
+    ]);
+    expect(system?.importLegacyCharacter).toBeTypeOf('function');
+  });
+
   it('resolves valid characters and preserves unknown systems as unavailable', () => {
     const mage = resolveCharacter(
       createMageStoredCharacter(),

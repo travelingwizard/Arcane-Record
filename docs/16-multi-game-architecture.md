@@ -11,6 +11,11 @@ adapters, its editor component, section and section-group metadata, and
 optional appearance metadata. Editors consume the shared left-rail/mobile
 navigation and pencil-order controls with those game-owned definitions.
 
+Definitions may also provide an optional system-specific legacy file adapter.
+The shared import boundary invokes that adapter without inspecting or branching
+on the game's payload. Burning Wheel uses this hook for Charred Black `.char`
+files; JSON and YAML continue to use the common Arcane Record envelope.
+
 Mage 20 registers as `mage20`. The older `mage-m20` identifier remains only in
 the legacy Mage editor model and legacy-file detector.
 
@@ -51,4 +56,6 @@ remain browser-local.
 
 - `mage20` — Mage 20 editor;
 - `exalted1e` — Exalted First Edition with `solar` and `dragon-blooded`
-  variants.
+  variants;
+- `burning-wheel` — Burning Wheel Gold + Codex with seven stock choices and a
+  game-owned guided burner, play sheet, legacy adapter, and PDF generator.

@@ -4,7 +4,9 @@ A local-first, multi-game tabletop character-record application. Characters are
 saved only in IndexedDB in the current browser profile. There is no account,
 backend, telemetry, or online backup. Mage: The Ascension 20th Anniversary
 Edition is the first complete game module. Exalted First Edition is registered
-with Solar and Dragon-Blooded foundation sheets.
+with Solar and Dragon-Blooded sheets. Burning Wheel Gold + Codex adds a guided
+character burner and playable sheet for Man, Dwarf, Elf, Orc, Roden, Great
+Wolf, and Troll.
 
 The Mage long-form editor includes URL-addressable sections, a searchable Equipment
 catalog, Combat and Do Maneuvers, a sticky desktop section rail, and a mobile
@@ -45,7 +47,11 @@ The Playwright smoke test starts its own local Vite server. If the bundled brows
 This milestone includes a game-neutral library, explicit game selection,
 registry-routed character pages, recoverable unavailable-system records, and a
 versioned JSON/YAML exchange envelope. The Mage 20 module includes the complete
-existing editor and its browser-local autosave behavior.
+existing editor and its browser-local autosave behavior. Burning Wheel also
+supports legacy Charred Black `.char` interchange and an original locally
+generated PDF. Its adapted catalogs and burner logic are clearly marked
+GPL-3.0; provenance and source-build instructions are in
+`docs/references/burning-wheel/charred-black-source.md`.
 
 See [docs/00-project-charter.md](docs/00-project-charter.md) for goals and assumptions.
 See [docs/16-multi-game-architecture.md](docs/16-multi-game-architecture.md) for

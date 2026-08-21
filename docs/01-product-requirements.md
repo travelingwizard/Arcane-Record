@@ -64,6 +64,24 @@ targets open automatically; multiple sections may remain expanded.
 
 Success reads "Saved in this browser". Pending and failure states read "Unsaved changes", "Saving locally...", and "Local save failed". The interface never suggests online backup.
 
+## Burning Wheel Gold + Codex editor
+
+Creation offers Man, Dwarf, Elf, Orc, Roden, Great Wolf, and Troll as the second
+step and opens the selected sheet immediately. Build mode provides a guided
+burner for lifepaths, stat and shade allocation, skills, traits, relationships,
+reputations, affiliations, gear, property, and resource accounting. Rules and
+point limits are enforced by default with visible override settings. Play mode
+locks burn inputs while keeping beliefs, instincts, Artha, wounds, advancement
+tests, resource taxation, equipment state, and notes editable.
+
+The module calculates derived values from burn inputs, uses the shared sheet
+navigation, Settings, appearance, ordering, autosave, and local persistence,
+and supports Arcane Record JSON/YAML, legacy Charred Black `.char` files, and an
+original browser-generated PDF. `.char` export warns that Arcane Record-only
+play history cannot be represented. Charred-derived catalogs and rules code are
+distributed as an attributed GPL-3.0 module with corresponding-source and
+build instructions.
+
 ## Accessibility
 
 All inputs have programmatic labels. Dot tracks expose the trait and current value, work with pointer and keyboard, show focus, and support disabled/read-only modes. Section navigation uses semantic links and `aria-current`; disclosures expose `aria-expanded` and `aria-controls`; the mobile sheet traps focus, closes with Escape, restores focus on dismissal, and prevents background scrolling. Collapsing a section containing focus moves focus to its disclosure. Controls remain usable under browser zoom and at narrow widths.

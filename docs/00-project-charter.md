@@ -13,6 +13,8 @@ responsive vintage-sheet treatment.
 - Solar and Dragon-Blooded Exalted First Edition foundations with separate
   creation choices, sheet-specific first-page structures, and shared local
   persistence.
+- A Burning Wheel Gold + Codex guided burner and play sheet for all seven
+  Charred Black stocks, with game-owned enforcement warnings and overrides.
 - A focused editor for identity, Attributes, Abilities, Spheres, affinity,
   Enlightenment traits, Combat and Do Maneuvers, Backgrounds, Merits & Flaws,
   Focus, Wonders, Rotes, Equipment, and Health.
@@ -35,9 +37,11 @@ responsive vintage-sheet treatment.
 
 ## Non-goals
 
-No backend, accounts, synchronization, online backup, rules engine, analytics,
-third-party runtime resources, fake game modules, or empty future-game
-placeholders.
+No backend, accounts, synchronization, online backup, analytics, third-party
+runtime resources, fake game modules, or empty future-game placeholders. The
+Burning Wheel module is an explicit exception to the original editable-sheet
+rules-engine boundary: it implements the requested character-burning rules
+inside that module without changing Mage or Exalted behavior.
 
 ## Assumptions
 

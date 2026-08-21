@@ -156,7 +156,7 @@ export function ArcaneRecordLibrary({
             <input
               ref={inputRef}
               type="file"
-              accept=".json,.yaml,.yml,application/json,application/yaml,text/yaml"
+              accept=".json,.yaml,.yml,.char,application/json,application/yaml,text/yaml"
               onChange={(event) => {
                 const file = event.target.files?.[0];
                 if (file) void importFile(file);
