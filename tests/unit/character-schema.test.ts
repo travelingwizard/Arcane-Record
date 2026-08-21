@@ -13,7 +13,8 @@ describe('mageCharacterSchema', () => {
     );
 
     expect(mageCharacterSchema.parse(character)).toEqual(character);
-    expect(character.schemaVersion).toBe(9);
+    expect(character.schemaVersion).toBe(10);
+    expect(character.experience).toEqual({ total: 0, current: 0 });
     expect(character.sheetLayout).toMatchObject({
       mode: 'build',
       groupOrders: {
@@ -77,6 +78,19 @@ describe('mageCharacterSchema', () => {
           'records',
         ],
       },
+    });
+  });
+
+  it('migrates schema-version-nine characters with empty experience totals', () => {
+    const legacy = structuredClone(
+      createBlankMageCharacter(),
+    ) as unknown as Record<string, unknown>;
+    legacy.schemaVersion = 9;
+    delete legacy.experience;
+
+    expect(migrateMageCharacter(legacy).experience).toEqual({
+      total: 0,
+      current: 0,
     });
   });
 

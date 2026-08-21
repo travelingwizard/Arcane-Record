@@ -91,7 +91,8 @@ describe('shared Exalted character sections', () => {
     await user.type(screen.getByLabelText('Signed amount'), '25');
     await user.type(screen.getByLabelText('Description'), 'Story award');
     await user.click(screen.getByRole('button', { name: 'Add entry' }));
-    expect(screen.getByText('Available XP: 25')).toBeVisible();
+    expect(screen.getByText('Current Experience: 25')).toBeVisible();
+    expect(screen.getByText('Total Experience: 25')).toBeVisible();
     await user.click(
       screen.getByRole('button', { name: 'Downtime Advancement' }),
     );

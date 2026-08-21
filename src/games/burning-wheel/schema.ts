@@ -118,6 +118,12 @@ export const burningWheelCharacterSchema = z.object({
     }),
   ),
   play: z.object({
+    experience: z
+      .object({
+        total: z.number().int().nonnegative(),
+        current: z.number().int().nonnegative(),
+      })
+      .default({ total: 0, current: 0 }),
     artha: z.object({
       fate: z.number().int().nonnegative(),
       persona: z.number().int().nonnegative(),

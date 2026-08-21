@@ -12,6 +12,8 @@ test('keeps edited character data after refresh', async ({ page }) => {
   await page
     .getByRole('button', { name: 'Mark Forces as Affinity Sphere' })
     .click();
+  await page.getByLabel('Total Experience').fill('18');
+  await page.getByLabel('Current Experience').fill('7');
 
   await expect(
     page.getByText('Unsaved changes', { exact: true }),
@@ -62,4 +64,6 @@ test('keeps edited character data after refresh', async ({ page }) => {
   await expect(
     page.getByRole('button', { name: 'Clear Forces as Affinity Sphere' }),
   ).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.getByLabel('Total Experience')).toHaveValue('18');
+  await expect(page.getByLabel('Current Experience')).toHaveValue('7');
 });

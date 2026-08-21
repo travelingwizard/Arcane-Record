@@ -27,6 +27,8 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   await page.getByRole('button', { name: 'Choose Solar' }).click();
   await expect(page).toHaveURL(/\/characters\//);
   await expect(page.getByRole('button', { name: 'Settings' })).toBeVisible();
+  await expect(page.getByText('Current Experience: 0')).toBeVisible();
+  await expect(page.getByText('Total Experience: 0')).toBeVisible();
   const navigation = page.getByRole('navigation', {
     name: 'Character sheet sections',
   });

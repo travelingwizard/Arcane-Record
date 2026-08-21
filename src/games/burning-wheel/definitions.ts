@@ -4,7 +4,7 @@ import type {
 } from '../game-system';
 
 export const BURNING_WHEEL_SYSTEM_ID = 'burning-wheel';
-export const BURNING_WHEEL_SCHEMA_VERSION = 1;
+export const BURNING_WHEEL_SCHEMA_VERSION = 2;
 
 export const burningWheelSectionGroups = [
   { id: 'character', label: 'Character' },

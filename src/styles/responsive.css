@@ -271,6 +271,10 @@
 }
 
 @media (max-width: 34rem) {
+  .experience-total-fields {
+    grid-template-columns: 1fr;
+  }
+
   .app-shell.app-shell {
     padding: 0.75rem;
   }

@@ -7,7 +7,8 @@ chrome for every game: a desktop left rail, a mobile Sections sheet, hash
 navigation, and pencil-gated section-group ordering. Each game supplies stable
 section and group definitions. Mage definitions live in
 `src/systems/mage-m20/character-sections.ts`; Exalted definitions live in
-`src/games/exalted1e/definitions.ts`.
+`src/games/exalted1e/definitions.ts`; Burning Wheel definitions live in
+`src/games/burning-wheel/definitions.ts`.
 
 Mage currently registers these groups and anchors:
 
@@ -26,6 +27,7 @@ Mage currently registers these groups and anchors:
 | Paradigm   | Rotes          | `#rotes`         |
 | Gear       | Equipment      | `#equipment`     |
 | Condition  | Health         | `#health`        |
+| Records    | Experience     | `#experience`    |
 | Records    | Save           | `#import-export` |
 
 The current editor implements one combined Enlightenment section instead of

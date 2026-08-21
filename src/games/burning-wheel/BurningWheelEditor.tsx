@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { SaveStatusBadge } from '../../components/character/SaveStatusBadge';
+import { ExperienceTotalsFields } from '../../components/character/ExperienceTotalsFields';
 import { OrderedSheetSections } from '../../components/layout/OrderedSheetSections';
 import { SheetSection } from '../../components/layout/SheetSection';
 import { CharacterSectionNav } from '../../components/navigation/CharacterSectionNav';
@@ -1633,6 +1634,29 @@ export function BurningWheelEditor({
               eyebrow="Tests, practice, and milestones"
               collapsibleOnDesktop
             >
+              <h3>Experience</h3>
+              <p className="section-note">
+                Record earned experience separately from the amount currently
+                available.
+              </p>
+              <ExperienceTotalsFields
+                idPrefix="burning-wheel"
+                total={draft.play.experience.total}
+                current={draft.play.experience.current}
+                onChange={(field, value) =>
+                  update((current) => ({
+                    ...current,
+                    play: {
+                      ...current.play,
+                      experience: {
+                        ...current.play.experience,
+                        [field]: value,
+                      },
+                    },
+                  }))
+                }
+              />
+              <h3>Advancement History</h3>
               <div className="burning-wheel-card-list">
                 {draft.play.advancement.map((entry) => (
                   <article key={entry.id}>

@@ -53,7 +53,16 @@ persistence, restoration, motion reduction, and full reset.
 
 ## End to end
 
-Playwright creates a character, sets Name, Strength, Alertness, Forces, affinity, Arete, and Health damage, reloads the app, and verifies persistence. A Background scenario searches, previews, expands, adds one- and two-point entries, rates them, verifies warning-only totals, edits character details, persists, removes, and restores a selection. A Merits and Flaws scenario searches, previews, expands, projects, adds, persists, changes cost, removes, and restores selections. File exchange verifies JSON Save and local file import. The tests run against a local Vite server only.
+Playwright creates a character, sets Name, Strength, Alertness, Forces,
+affinity, Arete, Health damage, Total Experience, and Current Experience,
+reloads the app, and verifies persistence. Exalted verifies ledger-derived
+experience labels, and Burning Wheel verifies both totals in Play mode. A
+Background scenario searches, previews, expands, adds one- and two-point
+entries, rates them, verifies warning-only totals, edits character details,
+persists, removes, and restores a selection. A Merits and Flaws scenario
+searches, previews, expands, projects, adds, persists, changes cost, removes,
+and restores selections. File exchange verifies JSON Save and local file
+import. The tests run against a local Vite server only.
 
 A Magick scenario selects a catalog Paradigm, records a significant custom
 Instrument, creates a Wonder and a Rote, persists them across refresh, verifies

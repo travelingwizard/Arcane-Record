@@ -131,6 +131,13 @@ export async function createBurningWheelPdf(character: BurningWheelCharacter) {
     168,
     11,
   );
+  text(
+    page,
+    `Experience: ${character.play.experience.current} current / ${character.play.experience.total} total`,
+    52,
+    148,
+    10,
+  );
   text(page, 'Lifepaths', 410, 250, 13, true);
   character.burn.lifepaths.slice(0, 10).forEach((selected, index) => {
     const definition = burningWheelLifepathById.get(selected.definitionId);

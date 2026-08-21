@@ -7,8 +7,14 @@ import {
 } from '../../src/games/burning-wheel/charred-file';
 import { createBlankBurningWheelCharacter } from '../../src/games/burning-wheel/create-character';
 import { createBurningWheelPdf } from '../../src/games/burning-wheel/pdf';
-import { burningWheelCharacterSchema } from '../../src/games/burning-wheel/schema';
-import { prepareImportedRecord } from '../../src/features/import-export/character-files';
+import {
+  burningWheelCharacterSchema,
+  migrateBurningWheelCharacter,
+} from '../../src/games/burning-wheel/schema';
+import {
+  prepareImportedRecord,
+  serializeCharacter,
+} from '../../src/features/import-export/character-files';
 import { gameSystemRegistry } from '../../src/games/registry';
 
 describe('Burning Wheel interchange', () => {
@@ -62,4 +68,45 @@ describe('Burning Wheel interchange', () => {
     expect(document.getPageCount()).toBe(2);
     expect(document.getTitle()).toContain('Ithilien');
   });
+
+  it('migrates version-one records with empty experience totals', () => {
+    const legacy = structuredClone(
+      createBlankBurningWheelCharacter('dwarf'),
+    ) as unknown as Record<string, unknown>;
+    const play = legacy.play as Record<string, unknown>;
+    delete play.experience;
+
+    expect(migrateBurningWheelCharacter(legacy, 1).play.experience).toEqual({
+      total: 0,
+      current: 0,
+    });
+  });
+
+  it.each(['json', 'yaml'] as const)(
+    'preserves experience totals through Arcane Record %s exchange',
+    (format) => {
+      const character = createBlankBurningWheelCharacter('troll');
+      character.play.experience = { total: 16, current: 6 };
+      const stored = prepareImportedRecord(
+        serializeCharacter(
+          {
+            id: 'bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',
+            systemId: 'burning-wheel',
+            systemVersion: 2,
+            name: 'Bridge Keeper',
+            createdAt: '2026-08-21T12:00:00.000Z',
+            updatedAt: '2026-08-21T12:00:00.000Z',
+            data: character,
+          },
+          format,
+        ),
+        `bridge-keeper.${format}`,
+        gameSystemRegistry,
+      );
+
+      expect(stored.data).toMatchObject({
+        play: { experience: { total: 16, current: 6 } },
+      });
+    },
+  );
 });

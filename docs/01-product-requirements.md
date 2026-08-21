@@ -64,6 +64,11 @@ targets open automatically; multiple sections may remain expanded.
 
 Success reads "Saved in this browser". Pending and failure states read "Unsaved changes", "Saving locally...", and "Local save failed". The interface never suggests online backup.
 
+Every registered game exposes Total Experience and Current Experience. Mage and
+Burning Wheel store the two values directly as nonnegative integers. Exalted
+calculates both from its authoritative experience ledger so purchases, refunds,
+and adjustments remain internally consistent.
+
 ## Burning Wheel Gold + Codex editor
 
 Creation offers Man, Dwarf, Elf, Orc, Roden, Great Wolf, and Troll as the second

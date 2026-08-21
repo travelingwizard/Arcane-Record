@@ -125,6 +125,7 @@ export function createBlankMageCharacter(
       },
     },
     health: { damage: [] },
+    experience: { total: 0, current: 0 },
     sheetLayout: {
       mode: 'build',
       groupOrders: {

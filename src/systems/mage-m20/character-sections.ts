@@ -134,11 +134,17 @@ export const characterSections = [
     order: 13,
   },
   {
+    id: 'experience',
+    label: 'Experience',
+    group: 'records',
+    order: 14,
+  },
+  {
     id: 'import-export',
     label: 'Save',
     shortLabel: 'Save',
     group: 'records',
-    order: 14,
+    order: 15,
   },
 ] as const satisfies ReadonlyArray<{
   id: string;

@@ -4062,6 +4062,25 @@
   border-left-color: var(--gold);
 }
 
+.experience-total-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-block: 1rem;
+}
+
+.experience-total-fields label {
+  display: grid;
+  gap: 0.45rem;
+  min-width: 0;
+  font-weight: 700;
+}
+
+.experience-total-fields input {
+  width: 100%;
+  min-height: 2.75rem;
+}
+
 .exalted-selected-trait-groups,
 .exalted-trait-card-grid {
   display: grid;

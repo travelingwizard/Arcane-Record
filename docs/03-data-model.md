@@ -20,6 +20,8 @@ Mage editor model contains:
 - `repeatableEntries`: selected Backgrounds, Merits, Flaws, Focus data, owned
   Wonders, known Rotes, owned Equipment, and Maneuver preferences/selections;
 - `health`: an ordered array of typed damage marks.
+- `experience`: separately editable nonnegative integer totals for lifetime
+  earned and currently available experience.
 
 Ratings are integers. Dot and box controls derive their filled presentation from the rating rather than persisting Boolean arrays.
 
@@ -71,7 +73,14 @@ Wonder strings become custom owned Wonders, and legacy Rotes preserve their
 IDs, Sphere text, and Effects. Version 7 adds an empty Equipment collection and
 initializes the new `Do*` Skill to zero for schema-version-6 and older records.
 Version 8 adds empty Combat favorites, custom Combat references, and known Do
-maneuver selections to schema-version-7 and older records.
+maneuver selections to schema-version-7 and older records. Version 9 adds
+Build/Play layout ordering. Version 10 adds Total Experience and Current
+Experience, initialized to zero without inferring prior advancement.
+
+Exalted derives Total Experience and Current Experience from its existing
+ledger rather than persisting redundant totals. Burning Wheel schema version 2
+adds the same two nonnegative totals to play state while keeping its advancement
+test history separate; version-one records migrate both values to zero.
 
 ## Interface preferences
 

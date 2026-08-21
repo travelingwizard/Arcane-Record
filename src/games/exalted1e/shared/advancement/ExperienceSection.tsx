@@ -119,8 +119,8 @@ export function ExperienceSection({ character, onChange }: Props) {
   return (
     <>
       <div className="exalted-trait-totals" aria-label="Experience totals">
-        <strong>Available XP: {totals.available}</strong>
-        <strong>Lifetime earned: {totals.lifetimeEarned}</strong>
+        <strong>Current Experience: {totals.available}</strong>
+        <strong>Total Experience: {totals.lifetimeEarned}</strong>
         <strong>Lifetime spent: {totals.lifetimeSpent}</strong>
       </div>
       <div className="exalted-action-row">

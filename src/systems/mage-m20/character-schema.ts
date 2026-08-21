@@ -741,6 +741,10 @@ const repeatableEntriesSchema = z.intersection(
 const healthSchema = z.object({
   damage: z.array(z.enum(['bashing', 'lethal', 'aggravated'])).max(7),
 });
+const experienceSchema = z.object({
+  total: z.number().int().nonnegative(),
+  current: z.number().int().nonnegative(),
+});
 
 const sheetLayoutModeSchema = z.enum(['build', 'play']);
 const sectionGroupIdSchema = z.enum([
@@ -909,6 +913,21 @@ export const legacyMageCharacterSchemaV8 = z.object({
   affinitySphere: sphereIdSchema.nullable(),
 });
 
+export const legacyMageCharacterSchemaV9 = z.object({
+  ...commonFields,
+  schemaVersion: z.literal(9),
+  abilities: abilitiesSchema,
+  enlightenment: z.object({
+    arete: tenPointRating.min(1),
+    willpower: tenPointRating.min(1),
+    willpowerTemporary: tenPointRating,
+    quintessence: tenPointRating,
+    paradox: tenPointRating,
+  }),
+  affinitySphere: sphereIdSchema.nullable(),
+  sheetLayout: sheetLayoutSchema,
+});
+
 export const mageCharacterSchema = z.object({
   ...commonFields,
   schemaVersion: z.literal(MAGE_SCHEMA_VERSION),
@@ -921,6 +940,7 @@ export const mageCharacterSchema = z.object({
     paradox: tenPointRating,
   }),
   affinitySphere: sphereIdSchema.nullable(),
+  experience: experienceSchema,
   sheetLayout: sheetLayoutSchema,
 });
 
@@ -1066,11 +1086,21 @@ export function migrateMageCharacter(input: unknown) {
     return current.data;
   }
 
+  const versionNine = legacyMageCharacterSchemaV9.safeParse(input);
+  if (versionNine.success) {
+    return mageCharacterSchema.parse({
+      ...versionNine.data,
+      schemaVersion: MAGE_SCHEMA_VERSION,
+      experience: { total: 0, current: 0 },
+    });
+  }
+
   const versionEight = legacyMageCharacterSchemaV8.safeParse(input);
   if (versionEight.success) {
     return mageCharacterSchema.parse({
       ...versionEight.data,
       schemaVersion: MAGE_SCHEMA_VERSION,
+      experience: { total: 0, current: 0 },
       sheetLayout: createDefaultSheetLayout(),
     });
   }
@@ -1080,6 +1110,7 @@ export function migrateMageCharacter(input: unknown) {
     return mageCharacterSchema.parse({
       ...versionSeven.data,
       schemaVersion: MAGE_SCHEMA_VERSION,
+      experience: { total: 0, current: 0 },
       sheetLayout: createDefaultSheetLayout(),
       repeatableEntries: {
         ...versionSeven.data.repeatableEntries,
@@ -1097,6 +1128,7 @@ export function migrateMageCharacter(input: unknown) {
     return mageCharacterSchema.parse({
       ...versionSix.data,
       schemaVersion: MAGE_SCHEMA_VERSION,
+      experience: { total: 0, current: 0 },
       sheetLayout: createDefaultSheetLayout(),
       abilities: migrateLegacyAbilities(versionSix.data.abilities),
       repeatableEntries: {
@@ -1116,6 +1148,7 @@ export function migrateMageCharacter(input: unknown) {
     return mageCharacterSchema.parse({
       ...versionFive.data,
       schemaVersion: MAGE_SCHEMA_VERSION,
+      experience: { total: 0, current: 0 },
       sheetLayout: createDefaultSheetLayout(),
       abilities: migrateLegacyAbilities(versionFive.data.abilities),
       repeatableEntries: {
@@ -1133,6 +1166,7 @@ export function migrateMageCharacter(input: unknown) {
     return mageCharacterSchema.parse({
       ...versionFour.data,
       schemaVersion: MAGE_SCHEMA_VERSION,
+      experience: { total: 0, current: 0 },
       sheetLayout: createDefaultSheetLayout(),
       abilities: migrateLegacyAbilities(versionFour.data.abilities),
       repeatableEntries: {
@@ -1154,6 +1188,7 @@ export function migrateMageCharacter(input: unknown) {
     return mageCharacterSchema.parse({
       ...versionThree.data,
       schemaVersion: MAGE_SCHEMA_VERSION,
+      experience: { total: 0, current: 0 },
       sheetLayout: createDefaultSheetLayout(),
       abilities: migrateLegacyAbilities(versionThree.data.abilities),
       repeatableEntries: {
@@ -1177,6 +1212,7 @@ export function migrateMageCharacter(input: unknown) {
     return mageCharacterSchema.parse({
       ...versionTwo.data,
       schemaVersion: MAGE_SCHEMA_VERSION,
+      experience: { total: 0, current: 0 },
       sheetLayout: createDefaultSheetLayout(),
       abilities: migrateLegacyAbilities(versionTwo.data.abilities),
       enlightenment: {
@@ -1207,6 +1243,7 @@ export function migrateMageCharacter(input: unknown) {
   return mageCharacterSchema.parse({
     ...legacy.data,
     schemaVersion: MAGE_SCHEMA_VERSION,
+    experience: { total: 0, current: 0 },
     sheetLayout: createDefaultSheetLayout(),
     abilities: createDefaultAbilityRatings(),
     enlightenment: createDefaultEnlightenment(),

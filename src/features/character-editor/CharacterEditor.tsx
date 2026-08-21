@@ -4,6 +4,7 @@ import { AttributesSection } from '../../components/character/AttributesSection'
 import { BackgroundsSection } from '../../components/character/BackgroundsSection';
 import { EnlightenmentSection } from '../../components/character/EnlightenmentSection';
 import { EquipmentSection } from '../../components/character/EquipmentSection';
+import { ExperienceSection } from '../../components/character/ExperienceSection';
 import { FocusSection } from '../../components/character/FocusSection';
 import { HealthSection } from '../../components/character/HealthSection';
 import { IdentitySection } from '../../components/character/IdentitySection';
@@ -200,6 +201,7 @@ function CharacterEditorContent({
                     rotes: <RotesSection />,
                     equipment: <EquipmentSection />,
                     health: <HealthSection />,
+                    experience: <ExperienceSection />,
                     'import-export': (
                       <ImportExportSection
                         character={character}

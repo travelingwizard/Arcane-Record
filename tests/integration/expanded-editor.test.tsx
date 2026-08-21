@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { AbilitiesSection } from '../../src/components/character/AbilitiesSection';
 import { EnlightenmentSection } from '../../src/components/character/EnlightenmentSection';
+import { ExperienceSection } from '../../src/components/character/ExperienceSection';
 import { HealthSection } from '../../src/components/character/HealthSection';
 import { createBlankMageCharacter } from '../../src/systems/mage-m20/create-character';
 import { useEditorStore } from '../../src/state/editor-store';
@@ -131,5 +132,22 @@ describe('expanded character editor', () => {
       screen.getByRole('button', { name: 'Bruised: Aggravated damage' }),
     );
     expect(useEditorStore.getState().character?.health.damage).toEqual([]);
+  });
+
+  it('records total and current experience independently', async () => {
+    const user = userEvent.setup();
+    render(<ExperienceSection />);
+
+    const total = screen.getByLabelText('Total Experience');
+    const current = screen.getByLabelText('Current Experience');
+    await user.clear(total);
+    await user.type(total, '24');
+    await user.clear(current);
+    await user.type(current, '9');
+
+    expect(useEditorStore.getState().character?.experience).toEqual({
+      total: 24,
+      current: 9,
+    });
   });
 });

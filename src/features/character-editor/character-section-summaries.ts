@@ -186,6 +186,9 @@ export function getCharacterSectionSummaries(
         ? `${deepestHealthLevel.label} · ${deepestHealthLevel.penalty}`
         : 'Unhurt · no penalty',
     },
+    experience: {
+      primary: `Total ${character.experience.total} · Current ${character.experience.current}`,
+    },
     'import-export': {
       primary: 'JSON and YAML · files stay on this device',
     },

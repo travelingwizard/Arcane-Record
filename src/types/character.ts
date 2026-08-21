@@ -174,6 +174,11 @@ export interface HealthState {
   damage: Array<'bashing' | 'lethal' | 'aggravated'>;
 }
 
+export interface ExperienceTotals {
+  total: number;
+  current: number;
+}
+
 export interface SheetLayout {
   mode: SheetLayoutMode;
   groupOrders: Record<SheetLayoutMode, CharacterSectionGroupId[]>;
@@ -197,6 +202,7 @@ export interface MageCharacter {
   affinitySphere: SphereId | null;
   repeatableEntries: RepeatableEntries;
   health: HealthState;
+  experience: ExperienceTotals;
   sheetLayout: SheetLayout;
 }
 

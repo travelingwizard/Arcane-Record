@@ -83,7 +83,7 @@ describe('character section navigation', () => {
       name: 'Character sheet sections',
     });
     const links = within(navigation).getAllByRole('link');
-    expect(links).toHaveLength(14);
+    expect(links).toHaveLength(15);
     expect(
       within(navigation).getByRole('link', { name: 'Identity' }),
     ).toHaveAttribute('aria-current', 'location');
@@ -385,7 +385,7 @@ describe('character section navigation', () => {
     const rendered = renderEditor();
 
     expect(IntersectionObserver).toHaveBeenCalledTimes(1);
-    expect(observe).toHaveBeenCalledTimes(14);
+    expect(observe).toHaveBeenCalledTimes(15);
     const navigation = screen.getByRole('navigation', {
       name: 'Character sheet sections',
     });

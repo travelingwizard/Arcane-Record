@@ -259,7 +259,7 @@ export function Exalted1eEditor({
         primary: `${draft.possessions.length} recorded`,
       },
       'exalted-experience': {
-        primary: `${draft.experienceLedger.reduce((sum, entry) => sum + entry.amount, 0)} XP available`,
+        primary: `${draft.experienceLedger.reduce((sum, entry) => sum + entry.amount, 0)} Current Experience`,
       },
       'exalted-notes': { primary: 'Anima · Weapons · Experience' },
       'exalted-later-pages': { primary: 'Deferred foundation areas' },

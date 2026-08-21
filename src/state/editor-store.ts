@@ -121,6 +121,7 @@ interface EditorState {
   ) => void;
   updateEnlightenment: (trait: EnlightenmentId, value: number) => void;
   updateTemporaryWillpower: (value: number) => void;
+  updateExperience: (field: 'total' | 'current', value: number) => void;
   addBackground: (definitionId: string) => string | null;
   updateBackground: (
     selectionId: string,
@@ -331,6 +332,17 @@ export const useEditorStore = create<EditorState>((set) => ({
         enlightenment: {
           ...character.enlightenment,
           willpowerTemporary: value,
+        },
+      })),
+    ),
+
+  updateExperience: (field, value) =>
+    set((state) =>
+      withChange(state, (character) => ({
+        ...character,
+        experience: {
+          ...character.experience,
+          [field]: Math.max(0, Math.trunc(value)),
         },
       })),
     ),

@@ -61,6 +61,8 @@ test('burns, protects, reorders, and persists a Burning Wheel character', async 
   );
   await expect(page.getByLabel('Accounting general points')).toBeDisabled();
   await page.getByLabel('Fate').fill('2');
+  await page.getByLabel('Total Experience').fill('12');
+  await page.getByLabel('Current Experience').fill('5');
   await expect(page.locator('.save-status')).toHaveText('Unsaved changes');
   await expect(page.locator('.save-status')).toHaveText(
     'Saved in this browser',
@@ -71,6 +73,8 @@ test('burns, protects, reorders, and persists a Burning Wheel character', async 
     'Ada of the Hills',
   );
   await expect(page.getByLabel('Fate')).toHaveValue('2');
+  await expect(page.getByLabel('Total Experience')).toHaveValue('12');
+  await expect(page.getByLabel('Current Experience')).toHaveValue('5');
   await expect(page.getByLabel('Accounting routine tests')).toHaveValue('1');
   await expect(page.getByRole('button', { name: 'Save JSON' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Save YAML' })).toBeVisible();

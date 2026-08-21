@@ -42,6 +42,7 @@ export function createBlankBurningWheelCharacter(
     connections: { relationships: [], affiliations: [], reputations: [] },
     possessions: [],
     play: {
+      experience: { total: 0, current: 0 },
       artha: { fate: 0, persona: 0, deeds: 0 },
       resourceTax: 0,
       wounds: [],
