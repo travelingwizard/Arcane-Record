@@ -23,7 +23,7 @@ The editor provides:
 - one nullable affinity Sphere selected with an unboxed star;
 - four local display sort modes;
 - an optional circular wheel at desktop widths that edits the same Sphere data;
-- Arete and Willpower dot tracks; a shared ten-position Quintessence/Paradox
+- Arete and Willpower dot tracks; a shared twenty-position Quintessence/Paradox
   wheel where Quintessence uses dots, Paradox uses X marks, and Paradox wins
   visual overlaps; plus a temporary Willpower track that defaults to boxes and
   can use dots through Mage sheet Settings;

@@ -22,14 +22,12 @@ describe('Mage Quintessence, Paradox, and Willpower tracks', () => {
   it('moves Quintessence up, moves Paradox down, and gives Paradox precedence', async () => {
     const user = userEvent.setup();
     act(() => {
-      for (let index = 0; index < 7; index += 1) {
+      for (let index = 0; index < 10; index += 1) {
         useEditorStore
           .getState()
           .updateEnlightenment('quintessence', index + 1);
       }
-      for (let index = 0; index < 6; index += 1) {
-        useEditorStore.getState().updateEnlightenment('paradox', index + 1);
-      }
+      useEditorStore.getState().updateEnlightenment('paradox', 1);
     });
     const { container } = render(<EnlightenmentSection />);
 
@@ -38,14 +36,15 @@ describe('Mage Quintessence, Paradox, and Willpower tracks', () => {
     expect(marker(0)).toHaveAttribute('data-marker', 'paradox');
     expect(marker(0)).toHaveAttribute('data-overlap', 'true');
     expect(marker(1)).toHaveAttribute('data-marker', 'quintessence');
-    expect(marker(5)).toHaveAttribute('data-marker', 'paradox');
-    expect(marker(5)).toHaveAttribute('data-overlap', 'true');
-    expect(marker(9)).toHaveAttribute('data-marker', 'paradox');
+    expect(marker(9)).toHaveAttribute('data-marker', 'quintessence');
+    expect(marker(10)).toHaveAttribute('data-marker', 'empty');
+    expect(marker(19)).toHaveAttribute('data-marker', 'empty');
+    expect(container.querySelectorAll('[data-position]')).toHaveLength(20);
 
     await user.click(screen.getByRole('button', { name: 'Subtract Paradox' }));
 
-    expect(marker(5)).toHaveAttribute('data-marker', 'quintessence');
-    expect(screen.getByLabelText('Paradox rating')).toHaveTextContent('5 / 10');
+    expect(marker(0)).toHaveAttribute('data-marker', 'quintessence');
+    expect(screen.getByLabelText('Paradox rating')).toHaveTextContent('0 / 10');
   });
 
   it('keeps Temporary Willpower boxes by default and switches to dots in Mage settings', async () => {

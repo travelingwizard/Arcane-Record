@@ -7,10 +7,17 @@ interface QuintessenceParadoxWheelProps {
   onParadoxChange: (value: number) => void;
 }
 
-const wheelPositions = Array.from({ length: 10 }, (_, index) => index);
+const WHEEL_POSITION_COUNT = 20;
+const wheelPositions = Array.from(
+  { length: WHEEL_POSITION_COUNT },
+  (_, index) => index,
+);
 
 function paradoxOccupies(position: number, rating: number) {
-  return rating > 0 && (position === 0 || position >= 11 - rating);
+  return (
+    rating > 0 &&
+    (position === 0 || position >= WHEEL_POSITION_COUNT + 1 - rating)
+  );
 }
 
 function markerAt(position: number, quintessence: number, paradox: number) {

@@ -29,7 +29,7 @@ Visible labels are presentation only. Persistent keys are stable IDs.
 `enlightenment.arete`, `.willpower`, `.willpowerTemporary`, `.quintessence`, `.paradox`
 
 Quintessence and Paradox remain independent integer ratings even though the UI
-projects them onto one ten-position wheel. Both begin at the leftmost position;
+projects them onto one twenty-position wheel. Both begin at the leftmost position;
 Quintessence proceeds through the upper direction and Paradox through the lower
 direction. A Paradox X visually replaces a Quintessence dot at overlaps without
 mutating either stored rating. Temporary Willpower continues to store one

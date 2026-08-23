@@ -281,8 +281,18 @@
   }
 
   .quintessence-paradox-wheel__position {
-    width: 1.8rem;
-    height: 1.8rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .quintessence-paradox-wheel__position--quintessence::before {
+    width: 0.68rem;
+    height: 0.68rem;
+  }
+
+  .quintessence-paradox-wheel__position--paradox::before,
+  .quintessence-paradox-wheel__position--paradox::after {
+    width: 0.9rem;
   }
 
   .quintessence-paradox-control {

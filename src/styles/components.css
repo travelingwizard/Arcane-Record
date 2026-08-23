@@ -2286,7 +2286,7 @@
   border-radius: 50%;
   background: var(--paper-light);
   transform: translate(-50%, -50%)
-    rotate(calc(180deg + var(--wheel-position) * 36deg))
+    rotate(calc(180deg + var(--wheel-position) * 18deg))
     translateX(var(--wheel-radius));
 }
 
