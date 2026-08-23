@@ -36,9 +36,9 @@ describe('expanded character editor', () => {
         name: 'Set Temporary Willpower to 3',
       }),
     );
-    await user.click(
-      screen.getByRole('button', { name: 'Set Quintessence to 3' }),
-    );
+    await user.click(screen.getByRole('button', { name: 'Add Quintessence' }));
+    await user.click(screen.getByRole('button', { name: 'Add Quintessence' }));
+    await user.click(screen.getByRole('button', { name: 'Add Quintessence' }));
 
     const character = useEditorStore.getState().character;
     expect(character?.abilities.talents.alertness).toBe(3);
@@ -69,11 +69,9 @@ describe('expanded character editor', () => {
       name: 'Set Temporary Willpower to 3',
     });
     const quintessence = screen.getByRole('button', {
-      name: 'Set Quintessence to 3',
+      name: 'Add Quintessence',
     });
-    const paradox = screen.getByRole('button', {
-      name: 'Set Paradox to 3',
-    });
+    const paradox = screen.getByRole('button', { name: 'Add Paradox' });
     const health = screen.getByRole('button', {
       name: 'Bruised: Unmarked damage',
     });
@@ -85,6 +83,10 @@ describe('expanded character editor', () => {
 
     await user.click(temporaryWillpower);
     await user.click(quintessence);
+    await user.click(quintessence);
+    await user.click(quintessence);
+    await user.click(paradox);
+    await user.click(paradox);
     await user.click(paradox);
     await user.click(health);
 

@@ -3,6 +3,7 @@ import type { SphereSortMode } from '../../systems/mage-m20/definitions';
 
 const SORT_PREFERENCE_KEY = 'arcane-ledger:sphere-sort';
 const WHEEL_PREFERENCE_KEY = 'arcane-ledger:desktop-sphere-wheel';
+const TEMPORARY_WILLPOWER_DOTS_KEY = 'arcane-ledger:temporary-willpower-dots';
 
 export const sphereSortModes: Array<{
   value: SphereSortMode;
@@ -17,6 +18,7 @@ export const sphereSortModes: Array<{
 export interface MageSheetPreferences {
   sphereSortMode: SphereSortMode;
   desktopSphereWheel: boolean;
+  temporaryWillpowerDots: boolean;
 }
 
 const listeners = new Set<() => void>();
@@ -34,9 +36,15 @@ function readPreferences(): MageSheetPreferences {
       sphereSortMode,
       desktopSphereWheel:
         window.localStorage.getItem(WHEEL_PREFERENCE_KEY) === 'true',
+      temporaryWillpowerDots:
+        window.localStorage.getItem(TEMPORARY_WILLPOWER_DOTS_KEY) === 'true',
     };
   } catch {
-    return { sphereSortMode: 'name-asc', desktopSphereWheel: false };
+    return {
+      sphereSortMode: 'name-asc',
+      desktopSphereWheel: false,
+      temporaryWillpowerDots: false,
+    };
   }
 }
 
@@ -47,6 +55,10 @@ function writePreferences(next: MageSheetPreferences) {
     window.localStorage.setItem(
       WHEEL_PREFERENCE_KEY,
       String(next.desktopSphereWheel),
+    );
+    window.localStorage.setItem(
+      TEMPORARY_WILLPOWER_DOTS_KEY,
+      String(next.temporaryWillpowerDots),
     );
   } catch {
     // The settings remain active for this session if storage is unavailable.
@@ -60,6 +72,10 @@ export function setSphereSortMode(sphereSortMode: SphereSortMode) {
 
 export function setDesktopSphereWheel(desktopSphereWheel: boolean) {
   writePreferences({ ...current, desktopSphereWheel });
+}
+
+export function setTemporaryWillpowerDots(temporaryWillpowerDots: boolean) {
+  writePreferences({ ...current, temporaryWillpowerDots });
 }
 
 export function useMageSheetPreferences() {

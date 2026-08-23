@@ -37,11 +37,9 @@ test('navigates the full desktop sheet with anchors and active-section tracking'
     page.getByRole('button', { name: 'Set Temporary Willpower to 3' }),
   ).toBeEnabled();
   await expect(
-    page.getByRole('button', { name: 'Set Quintessence to 3' }),
+    page.getByRole('button', { name: 'Add Quintessence' }),
   ).toBeEnabled();
-  await expect(
-    page.getByRole('button', { name: 'Set Paradox to 3' }),
-  ).toBeEnabled();
+  await expect(page.getByRole('button', { name: 'Add Paradox' })).toBeEnabled();
   await expect(
     page.getByRole('button', { name: 'Bruised: Unmarked damage' }),
   ).toBeEnabled();

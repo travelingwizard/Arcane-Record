@@ -68,11 +68,11 @@ under `arcane-record:global-preferences`.
 ## Game-specific settings
 
 The shared dialog accepts a game-owned settings panel without teaching shared
-components any game rules. Mage currently exposes Sphere ordering and the
-Desktop Sphere wheel in both Settings and the inline Spheres section; both
-surfaces use one synchronized browser-local preference source. Exalted does not
-show an empty placeholder and can add Solar- or Dragon-Blooded-specific controls
-later.
+components any game rules. Mage exposes Sphere ordering, the Desktop Sphere
+wheel, and a Temporary Willpower boxes-or-dots choice. Boxes are the Willpower
+default. These controls use one synchronized browser-local preference source
+and do not alter exported character ratings. Exalted does not show an empty
+placeholder and can add Solar- or Dragon-Blooded-specific controls later.
 
 ## Accessibility and tokens
 

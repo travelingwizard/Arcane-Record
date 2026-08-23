@@ -161,6 +161,10 @@
 }
 
 @media (max-width: 48rem) {
+  .quintessence-paradox-wheel-card {
+    grid-template-columns: 1fr;
+  }
+
   .app-shell.app-shell {
     width: 100%;
     min-height: 100vh;
@@ -271,6 +275,24 @@
 }
 
 @media (max-width: 34rem) {
+  .quintessence-paradox-wheel {
+    --wheel-radius: 5.6rem;
+    width: 15rem;
+  }
+
+  .quintessence-paradox-wheel__position {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .quintessence-paradox-control {
+    grid-template-columns: 1fr;
+  }
+
+  .quintessence-paradox-control > div {
+    justify-content: start;
+  }
+
   .experience-total-fields {
     grid-template-columns: 1fr;
   }

@@ -28,6 +28,13 @@ Visible labels are presentation only. Persistent keys are stable IDs.
 
 `enlightenment.arete`, `.willpower`, `.willpowerTemporary`, `.quintessence`, `.paradox`
 
+Quintessence and Paradox remain independent integer ratings even though the UI
+projects them onto one ten-position wheel. Both begin at the leftmost position;
+Quintessence proceeds through the upper direction and Paradox through the lower
+direction. A Paradox X visually replaces a Quintessence dot at overlaps without
+mutating either stored rating. Temporary Willpower continues to store one
+rating; its box-or-dot choice is a browser-local Mage view preference.
+
 ## Health
 
 `health.damage` stores an ordered array of `bashing`, `lethal`, or `aggravated` marks. Its indices correspond to Bruised, Hurt, Injured, Wounded, Mauled, Crippled, and Incapacitated.

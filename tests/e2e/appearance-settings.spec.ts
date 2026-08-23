@@ -74,10 +74,20 @@ test('offers character settings and cross-game themes on every sheet', async ({
   await mageSettings
     .getByRole('switch', { name: 'Desktop Sphere wheel' })
     .check();
+  await mageSettings
+    .getByRole('switch', { name: /Temporary Willpower dots/ })
+    .check();
   await mageSettings.getByRole('button', { name: 'Close Settings' }).click();
   await expect(
     page.getByRole('checkbox', { name: 'Desktop Sphere wheel' }),
   ).toBeChecked();
+  await expect(page.getByTestId('rating-temporary-willpower')).toHaveClass(
+    /dot-rating--dots/,
+  );
+  await page.reload();
+  await expect(page.getByTestId('rating-temporary-willpower')).toHaveClass(
+    /dot-rating--dots/,
+  );
 
   await page.getByRole('button', { name: /Character library/ }).click();
   await page.getByRole('button', { name: 'Create Character' }).click();

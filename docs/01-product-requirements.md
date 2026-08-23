@@ -23,7 +23,10 @@ The editor provides:
 - one nullable affinity Sphere selected with an unboxed star;
 - four local display sort modes;
 - an optional circular wheel at desktop widths that edits the same Sphere data;
-- Arete, Willpower, Quintessence, and Paradox tracks from 0 or 1 through 10, plus a temporary Willpower box track;
+- Arete and Willpower dot tracks; a shared ten-position Quintessence/Paradox
+  wheel where Quintessence uses dots, Paradox uses X marks, and Paradox wins
+  visual overlaps; plus a temporary Willpower track that defaults to boxes and
+  can use dots through Mage sheet Settings;
 - optional Backgrounds selected from a searchable, cited catalog, with dot ratings and creation-point totals;
 - seven sequential Health boxes with bashing, lethal, and aggravated damage;
 - optional Merits and Flaws selected from a searchable, cited catalog, with projected and current point totals;

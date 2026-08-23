@@ -66,7 +66,5 @@ test('persists expanded sections and exchanges local character files', async ({
   await expect(
     page.getByRole('group', { name: 'Occult: 4 out of 5' }),
   ).toBeVisible();
-  await expect(
-    page.getByRole('group', { name: 'Quintessence: 6 out of 10' }),
-  ).toBeVisible();
+  await expect(page.getByLabel('Quintessence rating')).toHaveText('6 / 10');
 });
