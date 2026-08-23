@@ -20,6 +20,7 @@ import { wonderById } from './reference/wonders';
 const attributeRating = z.number().int().min(1).max(5);
 const fivePointRating = z.number().int().min(0).max(5);
 const tenPointRating = z.number().int().min(0).max(10);
+const twentyPointRating = z.number().int().min(0).max(20);
 const uuid = z.string().uuid();
 
 const identitySchema = z.object({
@@ -936,8 +937,8 @@ export const mageCharacterSchema = z.object({
     arete: tenPointRating.min(1),
     willpower: tenPointRating.min(1),
     willpowerTemporary: tenPointRating,
-    quintessence: tenPointRating,
-    paradox: tenPointRating,
+    quintessence: twentyPointRating,
+    paradox: twentyPointRating,
   }),
   affinitySphere: sphereIdSchema.nullable(),
   experience: experienceSchema,

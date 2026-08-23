@@ -24,7 +24,8 @@ The editor provides:
 - four local display sort modes;
 - an optional circular wheel at desktop widths that edits the same Sphere data;
 - Arete and Willpower dot tracks; a shared twenty-position Quintessence/Paradox
-  wheel where Quintessence uses dots, Paradox uses X marks, and Paradox wins
+  wheel where both ratings can reach twenty, Quintessence uses dots, Paradox
+  uses X marks, and Paradox wins
   visual overlaps; the two tracks begin in separate neighboring circles on the
   left side; plus a temporary Willpower track that defaults to boxes and can
   use dots through Mage sheet Settings;

@@ -29,7 +29,7 @@ export function EnlightenmentSection() {
       id="enlightenment"
       eyebrow="Awakened potential"
       title="Enlightenment"
-      description="Ten-point tracks for Arete and Willpower, with a shared Quintessence and Paradox wheel."
+      description="Ten-point tracks for Arete and Willpower, with a shared twenty-position Quintessence and Paradox wheel."
     >
       <div className="enlightenment-grid">
         {enlightenmentTraits

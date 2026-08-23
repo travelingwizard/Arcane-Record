@@ -24,7 +24,7 @@ function markerAt(position: number, quintessence: number, paradox: number) {
 }
 
 function clamp(value: number) {
-  return Math.max(0, Math.min(10, value));
+  return Math.max(0, Math.min(WHEEL_POSITION_COUNT, value));
 }
 
 export function QuintessenceParadoxWheel({
@@ -78,12 +78,12 @@ export function QuintessenceParadoxWheel({
               −
             </button>
             <output aria-label="Quintessence rating">
-              {quintessence} / 10
+              {quintessence} / {WHEEL_POSITION_COUNT}
             </output>
             <button
               type="button"
               aria-label="Add Quintessence"
-              disabled={quintessence >= 10}
+              disabled={quintessence >= WHEEL_POSITION_COUNT}
               onClick={() => onQuintessenceChange(clamp(quintessence + 1))}
             >
               +
@@ -106,11 +106,13 @@ export function QuintessenceParadoxWheel({
             >
               −
             </button>
-            <output aria-label="Paradox rating">{paradox} / 10</output>
+            <output aria-label="Paradox rating">
+              {paradox} / {WHEEL_POSITION_COUNT}
+            </output>
             <button
               type="button"
               aria-label="Add Paradox"
-              disabled={paradox >= 10}
+              disabled={paradox >= WHEEL_POSITION_COUNT}
               onClick={() => onParadoxChange(clamp(paradox + 1))}
             >
               +
@@ -119,8 +121,9 @@ export function QuintessenceParadoxWheel({
         </div>
       </div>
       <p className="sr-only" aria-live="polite">
-        Quintessence {quintessence} of 10. Paradox {paradox} of 10. Paradox X
-        marks replace Quintessence dots where the tracks overlap.
+        Quintessence {quintessence} of {WHEEL_POSITION_COUNT}. Paradox {paradox}{' '}
+        of {WHEEL_POSITION_COUNT}. Paradox X marks replace Quintessence dots
+        where the tracks overlap.
       </p>
     </div>
   );

@@ -6,6 +6,17 @@ import {
 import { createBlankMageCharacter } from '../../src/systems/mage-m20/create-character';
 
 describe('mageCharacterSchema', () => {
+  it('accepts full twenty-point Quintessence and Paradox ratings', () => {
+    const character = createBlankMageCharacter();
+    character.enlightenment.quintessence = 20;
+    character.enlightenment.paradox = 20;
+
+    expect(mageCharacterSchema.safeParse(character).success).toBe(true);
+
+    character.enlightenment.paradox = 21;
+    expect(mageCharacterSchema.safeParse(character).success).toBe(false);
+  });
+
   it('validates a complete blank Mage character', () => {
     const character = createBlankMageCharacter(
       new Date('2026-01-02T03:04:05.000Z'),

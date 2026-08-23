@@ -19,14 +19,10 @@ describe('Mage Quintessence, Paradox, and Willpower tracks', () => {
     act(() => useEditorStore.getState().clear());
   });
 
-  it('starts the opposing tracks separately and moves them around opposite halves', async () => {
+  it('lets both tracks fill the wheel from separate starts with Paradox winning overlaps', async () => {
     const user = userEvent.setup();
     act(() => {
-      for (let index = 0; index < 10; index += 1) {
-        useEditorStore
-          .getState()
-          .updateEnlightenment('quintessence', index + 1);
-      }
+      useEditorStore.getState().updateEnlightenment('quintessence', 20);
       useEditorStore.getState().updateEnlightenment('paradox', 1);
     });
     const { container } = render(<EnlightenmentSection />);
@@ -36,15 +32,33 @@ describe('Mage Quintessence, Paradox, and Willpower tracks', () => {
     expect(marker(0)).toHaveAttribute('data-marker', 'quintessence');
     expect(marker(1)).toHaveAttribute('data-marker', 'quintessence');
     expect(marker(9)).toHaveAttribute('data-marker', 'quintessence');
-    expect(marker(10)).toHaveAttribute('data-marker', 'empty');
     expect(marker(19)).toHaveAttribute('data-marker', 'paradox');
+    expect(marker(19)).toHaveAttribute('data-overlap', 'true');
     expect(container.querySelectorAll('[data-position]')).toHaveLength(20);
+    expect(screen.getByLabelText('Quintessence rating')).toHaveTextContent(
+      '20 / 20',
+    );
+    expect(
+      screen.getByRole('button', { name: 'Add Quintessence' }),
+    ).toBeDisabled();
 
     await user.click(screen.getByRole('button', { name: 'Subtract Paradox' }));
 
     expect(marker(0)).toHaveAttribute('data-marker', 'quintessence');
-    expect(marker(19)).toHaveAttribute('data-marker', 'empty');
-    expect(screen.getByLabelText('Paradox rating')).toHaveTextContent('0 / 10');
+    expect(marker(19)).toHaveAttribute('data-marker', 'quintessence');
+    expect(screen.getByLabelText('Paradox rating')).toHaveTextContent('0 / 20');
+
+    act(() => {
+      useEditorStore.getState().updateEnlightenment('paradox', 20);
+    });
+
+    expect(container.querySelectorAll('[data-marker="paradox"]')).toHaveLength(
+      20,
+    );
+    expect(screen.getByLabelText('Paradox rating')).toHaveTextContent(
+      '20 / 20',
+    );
+    expect(screen.getByRole('button', { name: 'Add Paradox' })).toBeDisabled();
   });
 
   it('keeps Temporary Willpower boxes by default and switches to dots in Mage settings', async () => {

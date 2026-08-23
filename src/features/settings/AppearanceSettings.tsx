@@ -360,10 +360,10 @@ export function AppearancePanel({
               <strong>Willpower</strong> 6 / 10
             </span>
             <span className="preview-indicator preview-indicator--quintessence">
-              <strong>Quintessence</strong> 4 / 10
+              <strong>Quintessence</strong> 4 / 20
             </span>
             <span className="preview-indicator preview-indicator--paradox">
-              <strong>Paradox</strong> 2 / 10
+              <strong>Paradox</strong> 2 / 20
             </span>
           </div>
         </div>
