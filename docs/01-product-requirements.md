@@ -25,8 +25,9 @@ The editor provides:
 - an optional circular wheel at desktop widths that edits the same Sphere data;
 - Arete and Willpower dot tracks; a shared twenty-position Quintessence/Paradox
   wheel where Quintessence uses dots, Paradox uses X marks, and Paradox wins
-  visual overlaps; plus a temporary Willpower track that defaults to boxes and
-  can use dots through Mage sheet Settings;
+  visual overlaps; the two tracks begin in separate neighboring circles on the
+  left side; plus a temporary Willpower track that defaults to boxes and can
+  use dots through Mage sheet Settings;
 - optional Backgrounds selected from a searchable, cited catalog, with dot ratings and creation-point totals;
 - seven sequential Health boxes with bashing, lethal, and aggravated damage;
 - optional Merits and Flaws selected from a searchable, cited catalog, with projected and current point totals;

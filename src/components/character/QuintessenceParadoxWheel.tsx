@@ -14,10 +14,7 @@ const wheelPositions = Array.from(
 );
 
 function paradoxOccupies(position: number, rating: number) {
-  return (
-    rating > 0 &&
-    (position === 0 || position >= WHEEL_POSITION_COUNT + 1 - rating)
-  );
+  return rating > 0 && position >= WHEEL_POSITION_COUNT - rating;
 }
 
 function markerAt(position: number, quintessence: number, paradox: number) {
@@ -96,7 +93,9 @@ export function QuintessenceParadoxWheel({
         <div className="quintessence-paradox-control quintessence-paradox-control--paradox">
           <span>
             <strong>Paradox</strong>
-            <small>X marks move down and take visual precedence.</small>
+            <small>
+              X marks move down from their own left-side starting circle.
+            </small>
           </span>
           <div>
             <button

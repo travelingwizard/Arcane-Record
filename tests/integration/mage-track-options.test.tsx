@@ -19,7 +19,7 @@ describe('Mage Quintessence, Paradox, and Willpower tracks', () => {
     act(() => useEditorStore.getState().clear());
   });
 
-  it('moves Quintessence up, moves Paradox down, and gives Paradox precedence', async () => {
+  it('starts the opposing tracks separately and moves them around opposite halves', async () => {
     const user = userEvent.setup();
     act(() => {
       for (let index = 0; index < 10; index += 1) {
@@ -33,17 +33,17 @@ describe('Mage Quintessence, Paradox, and Willpower tracks', () => {
 
     const marker = (position: number) =>
       container.querySelector(`[data-position="${position}"]`);
-    expect(marker(0)).toHaveAttribute('data-marker', 'paradox');
-    expect(marker(0)).toHaveAttribute('data-overlap', 'true');
+    expect(marker(0)).toHaveAttribute('data-marker', 'quintessence');
     expect(marker(1)).toHaveAttribute('data-marker', 'quintessence');
     expect(marker(9)).toHaveAttribute('data-marker', 'quintessence');
     expect(marker(10)).toHaveAttribute('data-marker', 'empty');
-    expect(marker(19)).toHaveAttribute('data-marker', 'empty');
+    expect(marker(19)).toHaveAttribute('data-marker', 'paradox');
     expect(container.querySelectorAll('[data-position]')).toHaveLength(20);
 
     await user.click(screen.getByRole('button', { name: 'Subtract Paradox' }));
 
     expect(marker(0)).toHaveAttribute('data-marker', 'quintessence');
+    expect(marker(19)).toHaveAttribute('data-marker', 'empty');
     expect(screen.getByLabelText('Paradox rating')).toHaveTextContent('0 / 10');
   });
 
