@@ -37,6 +37,13 @@ describe('module repository', () => {
       }),
     ]);
     expect(await database.moduleLocks.count()).toBe(1);
+
+    await repository.setInstallationEnabled('net.example.arcane-test', false);
+    expect((await repository.listInstallations())[0]?.enabled).toBe(false);
+    await repository.activateVersion('net.example.arcane-test', '1.0.0');
+    expect(await repository.listInstallations()).toEqual([
+      expect.objectContaining({ activeVersion: '1.0.0', enabled: true }),
+    ]);
     await installStagedModule(staged, repository);
     expect(await repository.listPackages()).toHaveLength(1);
     expect(await database.moduleLocks.count()).toBe(1);

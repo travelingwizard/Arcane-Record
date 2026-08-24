@@ -25,6 +25,17 @@ test('authors and recovers a local module draft at desktop and mobile widths', a
   await page.getByRole('button', { name: 'Add text component' }).click();
   await expect(page.getByText('Text', { exact: true })).toBeVisible();
 
+  await page.getByRole('button', { name: 'Rules' }).click();
+  await page.getByRole('button', { name: 'Add formula' }).click();
+  await page.getByRole('button', { name: 'Add validation' }).click();
+  await page.getByRole('button', { name: 'Add action' }).click();
+  await expect(page.getByText('formula-1', { exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Flows' }).click();
+  await page.getByRole('button', { name: 'Add creation flow' }).click();
+  await expect(
+    page.getByRole('heading', { name: 'New creation flow' }),
+  ).toBeVisible();
+
   await page.getByRole('button', { name: 'Preview' }).click();
   await page.getByRole('button', { name: 'Mobile 320px' }).click();
   await page.getByRole('button', { name: 'Play' }).click();

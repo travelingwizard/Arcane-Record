@@ -13,6 +13,14 @@ import {
   type ModuleValueSchemaDefinition,
   type SheetTemplateDefinition,
 } from '../schema/module-envelope';
+import { formulaDependencies } from '../rules/expression-engine';
+import { creationFlowDiagnostics } from '../rules/creation-flow';
+import type {
+  ActionDefinition,
+  CreationFlowDefinition,
+  FormulaDefinition,
+  ValidationRuleDefinition,
+} from '../rules/rule-schema';
 
 const issuePath = (path: PropertyKey[]) =>
   `/${path.map((value) => String(value).replaceAll('~', '~0').replaceAll('/', '~1')).join('/')}`;
@@ -727,6 +735,70 @@ export function validateModuleEnvelope(input: unknown): ArcaneModuleEnvelope {
       version = step.toVersion;
     }
   }
+  const formulas = module.formulas.filter(
+    (item): item is FormulaDefinition => !('kind' in item),
+  );
+  const formulaIds = new Set(formulas.map(({ id }) => id));
+  diagnostics.push(
+    ...duplicateDiagnostics(formulas, '/formulas'),
+    ...duplicateDiagnostics(
+      module.actions.filter(
+        (item): item is ActionDefinition => !('kind' in item),
+      ),
+      '/actions',
+    ),
+    ...duplicateDiagnostics(
+      module.validationRules.filter(
+        (item): item is ValidationRuleDefinition => !('kind' in item),
+      ),
+      '/validationRules',
+    ),
+    ...duplicateDiagnostics(
+      module.creationFlows.filter(
+        (item): item is CreationFlowDefinition => !('kind' in item),
+      ),
+      '/creationFlows',
+    ),
+  );
+  for (const formula of formulas) {
+    for (const dependency of formulaDependencies(formula.expression)) {
+      if (!formulaIds.has(dependency)) {
+        diagnostics.push({
+          code: 'unknown-formula-dependency',
+          severity: 'error',
+          path: `/formulas/${formula.id}`,
+          message: `Formula “${formula.id}” references missing formula “${dependency}”.`,
+        });
+      }
+    }
+  }
+  const visitFormula = (id: string, visiting = new Set<string>()): boolean => {
+    if (visiting.has(id)) return true;
+    const formula = formulas.find((item) => item.id === id);
+    if (!formula) return false;
+    const next = new Set(visiting).add(id);
+    return formulaDependencies(formula.expression).some((dependency) =>
+      visitFormula(dependency, next),
+    );
+  };
+  for (const formula of formulas.filter(({ id }) => visitFormula(id)))
+    diagnostics.push({
+      code: 'formula-cycle',
+      severity: 'error',
+      path: `/formulas/${formula.id}`,
+      message: `Formula cycle includes “${formula.id}”.`,
+    });
+  for (const flow of module.creationFlows.filter(
+    (item): item is CreationFlowDefinition => !('kind' in item),
+  )) {
+    for (const message of creationFlowDiagnostics(flow))
+      diagnostics.push({
+        code: 'invalid-creation-flow',
+        severity: 'error',
+        path: `/creationFlows/${flow.id}`,
+        message,
+      });
+  }
   for (const [kind, values] of [
     ['dice systems', module.diceSystems],
     ['actions', module.actions],
@@ -736,14 +808,14 @@ export function validateModuleEnvelope(input: unknown): ArcaneModuleEnvelope {
     ['creation flows', module.creationFlows],
     ['themes', module.themes],
   ] as const) {
-    if (values.length > 0) {
+    if (values.some((item) => 'kind' in item && item.kind === 'deferred')) {
       diagnostics.push({
         code: 'deferred-runtime-capability',
         severity: 'error',
         path: `/${kind.replaceAll(' ', '')}`,
-        message: `Phase 1 cannot activate modules containing ${kind}.`,
+        message: `The module contains a deferred ${kind} placeholder.`,
         remediation:
-          'Keep this definition in a draft until its approved runtime phase.',
+          'Replace or remove the placeholder before creating an installable snapshot.',
       });
     }
   }

@@ -6,6 +6,7 @@ import { ModuleValidationError } from '../../modules/diagnostics/module-diagnost
 import type { ArcaneModuleEnvelope } from '../../modules/schema/module-envelope';
 import { coreModuleComponentRegistry } from '../../modules/renderer/component-registry';
 import { createModuleDraft } from './create-module-draft';
+import { FlowDesigner, RuleDesigner } from './RuleDesigner';
 
 type Panel =
   | 'project'
@@ -14,6 +15,8 @@ type Panel =
   | 'catalogs'
   | 'preview'
   | 'validation'
+  | 'rules'
+  | 'flows'
   | 'theme';
 type History = { past: string[]; present: string; future: string[] };
 const serialize = (value: unknown) => JSON.stringify(value, null, 2);
@@ -303,6 +306,8 @@ export function ModuleBuilderPage({
               'catalogs',
               'preview',
               'validation',
+              'rules',
+              'flows',
               'theme',
             ] as Panel[]
           ).map((id) => (
@@ -717,12 +722,18 @@ export function ModuleBuilderPage({
                   ))}
                 </ul>
               )}
-              <h3>Deferred Phase 6 editors</h3>
+              <h3>Runtime diagnostics</h3>
               <p>
-                Formula, action, dice, validation-rule, and creation-flow
-                editors are read-only placeholders.
+                Rules, actions, dice systems, and creation flows are checked by
+                the same closed schemas used at activation.
               </p>
             </>
+          ) : null}
+          {panel === 'rules' && module ? (
+            <RuleDesigner module={module} mutate={mutate} />
+          ) : null}
+          {panel === 'flows' && module ? (
+            <FlowDesigner module={module} mutate={mutate} />
           ) : null}
           {panel === 'theme' ? (
             <>

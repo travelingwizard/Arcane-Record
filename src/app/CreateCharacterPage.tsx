@@ -1,22 +1,117 @@
 import { useState } from 'react';
 import type { GameSystemRegistry } from '../games/game-system-registry';
 import type { StoredCharacterRepository } from '../storage/stored-character-repository';
+import type { ModuleRegistry } from '../modules/registry/module-registry';
+import { ARCANE_MODULE_SYSTEM_ID } from '../storage/stored-character';
+import { MAGE20_MODULE_ID } from '../games/mage20/module/id-map';
+import { EXALTED1E_MODULE_ID } from '../games/exalted1e/module/id-map';
 
 export function CreateCharacterPage({
   systemId,
   registry,
   repository,
   onNavigate,
+  moduleRegistry,
+  moduleSelection,
 }: {
   systemId?: string;
   registry: GameSystemRegistry;
   repository: StoredCharacterRepository;
   onNavigate: (path: string) => void;
+  moduleRegistry?: ModuleRegistry;
+  moduleSelection?: {
+    moduleId: string;
+    gameNodeId: string;
+    templateId: string;
+  };
 }) {
   const [creating, setCreating] = useState(false);
   const [creatingVariantId, setCreatingVariantId] = useState('');
   const [error, setError] = useState('');
   const system = systemId ? registry.get(systemId) : undefined;
+  const localModules =
+    moduleRegistry
+      ?.list()
+      .filter(
+        ({ moduleId }) =>
+          moduleId !== MAGE20_MODULE_ID && moduleId !== EXALTED1E_MODULE_ID,
+      ) ?? [];
+
+  if (moduleSelection) {
+    const module = moduleRegistry
+      ?.list()
+      .find(({ moduleId }) => moduleId === moduleSelection.moduleId);
+    const template = module?.sheetTemplates.find(
+      ({ id, gameNodeId }) =>
+        id === moduleSelection.templateId &&
+        gameNodeId === moduleSelection.gameNodeId,
+    );
+    const node = module?.gameNodes.find(
+      ({ id }) => id === moduleSelection.gameNodeId,
+    );
+    const createModuleCharacter = async () => {
+      if (!module || !template || !node || !moduleRegistry) return;
+      setCreating(true);
+      try {
+        const resolved = moduleRegistry.resolve(
+          module.moduleId,
+          module.moduleVersion,
+          node.id,
+          template.id,
+          template.templateVersion,
+        );
+        const data = resolved.characterSchema.parse(
+          structuredClone(template.defaults),
+        );
+        const timestamp = new Date().toISOString();
+        const lock = moduleRegistry.findCompatibleLock(
+          module.moduleId,
+          module.moduleVersion,
+        );
+        if (!lock) throw new Error('Dependency lock unavailable.');
+        const record = await repository.create({
+          id: crypto.randomUUID(),
+          systemId: ARCANE_MODULE_SYSTEM_ID,
+          systemVersion: template.templateVersion,
+          name: `Untitled ${node.name} character`,
+          createdAt: timestamp,
+          updatedAt: timestamp,
+          data,
+          moduleRef: {
+            moduleId: module.moduleId,
+            moduleVersion: module.moduleVersion,
+            gameNodeId: node.id,
+            sheetTemplateId: template.id,
+            sheetTemplateVersion: template.templateVersion,
+            dependencyLockId: lock.id,
+            enabledOverlayRefs: [],
+          },
+        });
+        onNavigate(`/characters/${record.id}`);
+      } catch {
+        setError('The module character could not be created.');
+        setCreating(false);
+      }
+    };
+    return (
+      <main className="app-shell neutral-shell creation-shell">
+        <button className="text-button" onClick={() => onNavigate('/create')}>
+          ← Choose another game
+        </button>
+        <p className="eyebrow">Create character · Step 2 of 2</p>
+        <h1>{template?.name ?? 'Module sheet unavailable'}</h1>
+        <p>{node?.description ?? module?.description}</p>
+        {error ? <p className="notice notice--error">{error}</p> : null}
+        <button
+          className="primary-button"
+          disabled={!template || creating}
+          onClick={() => void createModuleCharacter()}
+        >
+          {creating ? 'Opening sheet…' : `Choose ${node?.name ?? 'sheet'}`}
+        </button>
+      </main>
+    );
+  }
 
   if (!systemId) {
     return (
@@ -41,6 +136,33 @@ export function CreateCharacterPage({
               </button>
             </article>
           ))}
+          {localModules.flatMap((module) =>
+            module.sheetTemplates.map((template) => {
+              const node = module.gameNodes.find(
+                ({ id }) => id === template.gameNodeId,
+              );
+              return (
+                <article
+                  className="game-system-card"
+                  key={`${module.moduleId}-${template.id}`}
+                >
+                  <p className="eyebrow">Installed local module</p>
+                  <h2>{node?.name ?? module.name}</h2>
+                  <p>{template.description ?? module.description}</p>
+                  <button
+                    className="primary-button"
+                    onClick={() =>
+                      onNavigate(
+                        `/create-module/${encodeURIComponent(module.moduleId)}/${encodeURIComponent(template.gameNodeId)}/${encodeURIComponent(template.id)}`,
+                      )
+                    }
+                  >
+                    Choose {node?.name ?? module.name}
+                  </button>
+                </article>
+              );
+            }),
+          )}
         </div>
       </main>
     );

@@ -27,4 +27,6 @@ export interface ModuleRepository {
   listDrafts(): Promise<ModuleDraftRecord[]>;
   getDraft(id: string): Promise<ModuleDraftRecord | null>;
   deleteDraft(id: string): Promise<void>;
+  setInstallationEnabled(moduleId: string, enabled: boolean): Promise<void>;
+  activateVersion(moduleId: string, moduleVersion: string): Promise<void>;
 }

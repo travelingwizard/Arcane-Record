@@ -39,7 +39,12 @@ test('opens, edits, persists, and navigates a module-rendered character', async 
         request.onsuccess = () => {
           const database = request.result;
           const transaction = database.transaction(
-            ['modulePackages', 'moduleLocks', 'characters'],
+            [
+              'modulePackages',
+              'moduleInstallations',
+              'moduleLocks',
+              'characters',
+            ],
             'readwrite',
           );
           transaction.objectStore('modulePackages').put({
@@ -56,6 +61,14 @@ test('opens, edits, persists, and navigates a module-rendered character', async 
             moduleVersion: modulePackage.moduleVersion,
             dependencies: [],
             createdAt: '2026-08-24T12:00:00.000Z',
+          });
+          transaction.objectStore('moduleInstallations').put({
+            moduleId: modulePackage.moduleId,
+            activeVersion: modulePackage.moduleVersion,
+            origin: 'local',
+            enabled: true,
+            enabledOverlayRefs: [],
+            updatedAt: '2026-08-24T12:00:00.000Z',
           });
           transaction.objectStore('characters').put(storedCharacter);
           transaction.oncomplete = () => {

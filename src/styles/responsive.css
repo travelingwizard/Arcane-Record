@@ -40,6 +40,16 @@
   .builder-theme-fields {
     grid-template-columns: 1fr;
   }
+
+  .builder-rule-grid,
+  .module-package-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .module-version {
+    align-items: flex-start;
+    flex-direction: column;
+  }
   .mobile-section-trigger {
     width: 100%;
     min-height: 3.5rem;

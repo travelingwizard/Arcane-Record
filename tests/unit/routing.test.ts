@@ -24,6 +24,13 @@ describe('application routes', () => {
       name: 'module-builder',
       draftId: 'draft-id',
     });
+    expect(parseRoute('/modules')).toEqual({ name: 'module-library' });
+    expect(parseRoute('/create-module/local.example/game/sheet')).toEqual({
+      name: 'create-module',
+      moduleId: 'local.example',
+      gameNodeId: 'game',
+      templateId: 'sheet',
+    });
     expect(parseRoute('/mage')).toEqual({ name: 'not-found' });
   });
 });

@@ -148,6 +148,8 @@ editors remain visibly deferred.
 
 ## Phase 6 — rules/actions/flows
 
+Phase 6 is complete; see `phase-6-rules-actions-flows.md`.
+
 | Priority | Item                                    | Acceptance criteria                                                                               |
 | -------- | --------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | P0       | Expression parser/validator/evaluator   | AST types, path typing, arithmetic/logic/condition/functions, budgets, no eval/code.              |
@@ -161,6 +163,8 @@ editors remain visibly deferred.
 
 ## Phase 7 — homebrew and local Module Library
 
+Phase 7 is complete; see `phase-7-local-module-library.md`.
+
 | Priority | Item                                        | Acceptance criteria                                                                                       |
 | -------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | P0       | Module Library states                       | Bundled/published/imported/overlay/fork/draft/legacy/missing/incompatible visibly distinct.               |
@@ -171,6 +175,9 @@ editors remain visibly deferred.
 | P2       | Optional archive                            | Separate approved threat model and format; normal importer rejects it.                                    |
 
 ## Phase 8 — publishing (blocked/deferred)
+
+All local prerequisites are complete. Hosted publishing remains blocked by the
+product boundary; see `phase-8-registry-gate.md`.
 
 | Priority | Item                              | Gate/acceptance criteria                                                                  |
 | -------- | --------------------------------- | ----------------------------------------------------------------------------------------- |

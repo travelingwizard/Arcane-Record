@@ -128,4 +128,33 @@ export class DexieModuleRepository implements ModuleRepository {
   async deleteDraft(id: string) {
     await this.database.moduleDrafts.delete(id);
   }
+
+  async setInstallationEnabled(moduleId: string, enabled: boolean) {
+    const current = await this.database.moduleInstallations.get(moduleId);
+    if (!current) throw new Error('Module installation is unavailable.');
+    await this.database.moduleInstallations.put(
+      moduleInstallationRecordSchema.parse({
+        ...current,
+        enabled,
+        updatedAt: new Date().toISOString(),
+      }),
+    );
+  }
+
+  async activateVersion(moduleId: string, moduleVersion: string) {
+    const [current, target] = await Promise.all([
+      this.database.moduleInstallations.get(moduleId),
+      this.database.modulePackages.get([moduleId, moduleVersion]),
+    ]);
+    if (!current || !target)
+      throw new Error('The requested immutable module version is unavailable.');
+    await this.database.moduleInstallations.put(
+      moduleInstallationRecordSchema.parse({
+        ...current,
+        activeVersion: moduleVersion,
+        enabled: true,
+        updatedAt: new Date().toISOString(),
+      }),
+    );
+  }
 }

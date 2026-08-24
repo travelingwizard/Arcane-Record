@@ -1,5 +1,12 @@
 import { z } from 'zod';
 import { dataPathSchema } from './data-path';
+import {
+  actionDefinitionSchema,
+  creationFlowDefinitionSchema,
+  formulaDefinitionSchema,
+  validationRuleDefinitionSchema,
+} from '../rules/rule-schema';
+import { diceSystemDefinitionSchema } from '../rules/dice-engine';
 
 const stableSlugSchema = z
   .string()
@@ -568,12 +575,27 @@ export const arcaneModuleEnvelopeSchema = z.strictObject({
   sheetTemplates: z.array(sheetTemplateSchema).min(1).max(100),
   reusableComponents: z.array(moduleComponentSchema).max(2_000),
   catalogs: z.array(catalogSchema).max(200),
-  diceSystems: z.array(deferredDefinitionSchema).default([]),
-  actions: z.array(deferredDefinitionSchema).default([]),
-  formulas: z.array(deferredDefinitionSchema).default([]),
-  validationRules: z.array(deferredDefinitionSchema).default([]),
+  diceSystems: z
+    .array(z.union([diceSystemDefinitionSchema, deferredDefinitionSchema]))
+    .max(100)
+    .default([]),
+  actions: z
+    .array(z.union([actionDefinitionSchema, deferredDefinitionSchema]))
+    .max(500)
+    .default([]),
+  formulas: z
+    .array(z.union([formulaDefinitionSchema, deferredDefinitionSchema]))
+    .max(500)
+    .default([]),
+  validationRules: z
+    .array(z.union([validationRuleDefinitionSchema, deferredDefinitionSchema]))
+    .max(500)
+    .default([]),
   creationProfiles: z.array(deferredDefinitionSchema).default([]),
-  creationFlows: z.array(deferredDefinitionSchema).default([]),
+  creationFlows: z
+    .array(z.union([creationFlowDefinitionSchema, deferredDefinitionSchema]))
+    .max(100)
+    .default([]),
   themes: z
     .array(z.union([semanticThemeSchema, deferredDefinitionSchema]))
     .max(20)

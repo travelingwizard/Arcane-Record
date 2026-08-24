@@ -199,6 +199,12 @@ export function ArcaneRecordLibrary({
           >
             Module Builder
           </button>
+          <button
+            className="text-button"
+            onClick={() => onNavigate('/modules')}
+          >
+            Module Library
+          </button>
         </div>
         <p className="local-promise">
           <span aria-hidden="true">◉</span> Saved in this browser — never sent

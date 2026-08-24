@@ -12,6 +12,7 @@ import type { MageCharacter } from '../../types/character';
 import type { ModuleRegistry } from '../../modules/registry/module-registry';
 import {
   ARCANE_MODULE_SYSTEM_ID,
+  characterHomebrewSchema,
   characterModuleRefSchema,
 } from '../../storage/stored-character';
 
@@ -39,6 +40,7 @@ const moduleCharacterFileSchema = z.strictObject({
   createdAt: z.string().datetime(),
   updatedAt: z.string().datetime(),
   moduleRef: characterModuleRefSchema,
+  homebrew: characterHomebrewSchema.optional(),
   character: z.unknown(),
 });
 
@@ -65,6 +67,7 @@ function toFileEnvelope(record: StoredCharacter) {
       createdAt: record.createdAt,
       updatedAt: record.updatedAt,
       moduleRef: record.moduleRef,
+      homebrew: record.homebrew,
       character: record.data,
     };
   }
@@ -178,6 +181,7 @@ export function prepareImportedRecord(
           dependencyLockId:
             localLock?.id ?? envelope.data.moduleRef.dependencyLockId,
         },
+        homebrew: envelope.data.homebrew,
         data: structuredClone(envelope.data.character),
       };
     }

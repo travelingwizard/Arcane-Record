@@ -14,6 +14,7 @@ import { calculateModuleChecksum } from '../modules/interchange/module-files';
 import { getBundledMage20ModuleRecords } from '../games/mage20/module/bundled-module';
 import { getBundledExalted1eModuleRecords } from '../games/exalted1e/module/bundled-module';
 import { ModuleBuilderPage } from '../features/module-builder/ModuleBuilderPage';
+import { ModuleLibraryPage } from '../features/module-library/ModuleLibraryPage';
 
 export function App({
   repository = storedCharacterRepository,
@@ -43,48 +44,63 @@ export function App({
     let active = true;
     void Promise.all([
       moduleRepository.listPackages(),
+      moduleRepository.listInstallations(),
       moduleRepository.listLocks(),
       getBundledMage20ModuleRecords(),
       getBundledExalted1eModuleRecords(),
     ])
-      .then(async ([packages, locks, mageBundled, exaltedBundled]) => {
-        if (!active) return;
-        const verifiedPackages = (
-          await Promise.all(
-            packages.map(async (record) => ({
-              record,
-              valid:
-                (await calculateModuleChecksum(record.envelope)) ===
-                record.checksum,
-            })),
+      .then(
+        async ([
+          packages,
+          installations,
+          locks,
+          mageBundled,
+          exaltedBundled,
+        ]) => {
+          if (!active) return;
+          const verifiedPackages = (
+            await Promise.all(
+              packages.map(async (record) => ({
+                record,
+                valid:
+                  (await calculateModuleChecksum(record.envelope)) ===
+                  record.checksum,
+              })),
+            )
           )
-        )
-          .filter(({ valid }) => valid)
-          .map(({ record }) => record);
-        if (!active) return;
-        const bundled = [mageBundled, exaltedBundled];
-        const withoutBundledVersion = verifiedPackages.filter(
-          ({ moduleId, moduleVersion }) =>
-            !bundled.some(
-              ({ packageRecord }) =>
-                moduleId === packageRecord.moduleId &&
-                moduleVersion === packageRecord.moduleVersion,
-            ),
-        );
-        moduleRegistry.replaceInstalled(
-          [
-            ...withoutBundledVersion,
-            ...bundled.map(({ packageRecord }) => packageRecord),
-          ],
-          [
-            ...locks.filter(
-              ({ id }) => !bundled.some(({ lock }) => id === lock.id),
-            ),
-            ...bundled.map(({ lock }) => lock),
-          ],
-        );
-        setModuleRevision((value) => value + 1);
-      })
+            .filter(({ valid }) => valid)
+            .map(({ record }) => record);
+          if (!active) return;
+          const bundled = [mageBundled, exaltedBundled];
+          const activeInstallations = new Map(
+            installations
+              .filter(({ enabled }) => enabled)
+              .map((entry) => [entry.moduleId, entry.activeVersion]),
+          );
+          const withoutBundledVersion = verifiedPackages.filter(
+            ({ moduleId, moduleVersion }) =>
+              activeInstallations.get(moduleId) === moduleVersion &&
+              !bundled.some(
+                ({ packageRecord }) =>
+                  moduleId === packageRecord.moduleId &&
+                  moduleVersion === packageRecord.moduleVersion,
+              ),
+          );
+          moduleRegistry.replaceInstalled(
+            [
+              ...withoutBundledVersion,
+              ...bundled.map(({ packageRecord }) => packageRecord),
+            ],
+            [
+              ...locks.filter(
+                ({ id }) => !bundled.some(({ lock }) => id === lock.id),
+              ),
+              ...bundled.map(({ lock }) => lock),
+            ],
+          );
+          setModuleRevision((value) => value + 1);
+        },
+      )
       .catch(() => {
         // Existing legacy sheets remain available if the module library fails.
       });
@@ -111,6 +127,18 @@ export function App({
         registry={gameSystemRegistry}
         repository={repository}
         onNavigate={go}
+        moduleRegistry={moduleRegistry}
+      />
+    );
+  }
+  if (route.name === 'create-module') {
+    return (
+      <CreateCharacterPage
+        registry={gameSystemRegistry}
+        repository={repository}
+        onNavigate={go}
+        moduleRegistry={moduleRegistry}
+        moduleSelection={route}
       />
     );
   }
@@ -133,6 +161,15 @@ export function App({
       <ModuleBuilderPage
         draftId={route.draftId}
         repository={moduleRepository}
+        onNavigate={go}
+      />
+    );
+  }
+  if (route.name === 'module-library') {
+    return (
+      <ModuleLibraryPage
+        repository={moduleRepository}
+        registry={moduleRegistry}
         onNavigate={go}
       />
     );
