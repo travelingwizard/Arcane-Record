@@ -7,6 +7,9 @@ import { ModuleSphereRatingWheel } from './ModuleSphereRatingWheel';
 import { ModulePermanentTemporaryRating } from './ModulePermanentTemporaryRating';
 import { ModuleDamageTrack } from './ModuleDamageTrack';
 import { QuintessenceParadoxWheel } from '../../components/character/QuintessenceParadoxWheel';
+import { ModuleMageBackgrounds } from './ModuleMageBackgrounds';
+import { ModuleMageMeritsFlaws } from './ModuleMageMeritsFlaws';
+import { ModuleMageCollection } from './ModuleMageCollection';
 
 export interface ModuleComponentRenderProps {
   component: ModuleComponentDefinition;
@@ -19,6 +22,13 @@ export interface ModuleComponentRenderProps {
     path: { root: 'character'; segments: string[] },
     value: unknown,
   ) => void;
+  onPathsChange: (
+    changes: Array<{
+      path: { root: 'character'; segments: string[] };
+      value: unknown;
+    }>,
+  ) => void;
+  catalogEntries: readonly unknown[];
 }
 
 export interface RegisteredModuleComponent {
@@ -274,6 +284,43 @@ export const coreModuleComponentRegistry = new ModuleComponentRegistry()
           data={data}
           readOnly={readOnly}
           onPathChange={onPathChange}
+        />
+      ) : null,
+  })
+  .register({
+    type: 'mage20-background-catalog',
+    render: ({ component, data, readOnly, onPathChange, catalogEntries }) =>
+      component.type === 'mage20-background-catalog' ? (
+        <ModuleMageBackgrounds
+          component={component}
+          data={data}
+          readOnly={readOnly}
+          onPathChange={onPathChange}
+          catalogEntries={catalogEntries}
+        />
+      ) : null,
+  })
+  .register({
+    type: 'mage20-merits-flaws-catalog',
+    render: ({ component, data, onPathsChange, catalogEntries }) =>
+      component.type === 'mage20-merits-flaws-catalog' ? (
+        <ModuleMageMeritsFlaws
+          component={component}
+          data={data}
+          onPathsChange={onPathsChange}
+          catalogEntries={catalogEntries}
+        />
+      ) : null,
+  })
+  .register({
+    type: 'mage20-collection',
+    render: ({ component, data, onPathChange, catalogEntries }) =>
+      component.type === 'mage20-collection' ? (
+        <ModuleMageCollection
+          component={component}
+          data={data}
+          onPathChange={onPathChange}
+          catalogEntries={catalogEntries}
         />
       ) : null,
   })

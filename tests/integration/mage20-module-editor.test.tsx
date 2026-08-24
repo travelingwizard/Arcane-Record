@@ -112,6 +112,35 @@ describe('Mage 20 Phase 2 module editor', () => {
     expect(
       screen.getByRole('button', { name: 'Set Dexterity to 5' }),
     ).toBeEnabled();
+
+    const backgrounds = screen.getByRole('region', { name: 'Backgrounds' });
+    await user.click(
+      within(backgrounds).getByRole('button', { name: 'Open catalog' }),
+    );
+    await user.click(
+      within(backgrounds).getAllByRole('button', { name: 'Add' })[0]!,
+    );
+    const focus = screen.getByRole('region', { name: 'Focus' });
+    await user.type(
+      within(focus).getByRole('textbox', { name: 'Custom name' }),
+      'Everything is connected',
+    );
+    await user.click(within(focus).getByRole('button', { name: 'Add custom' }));
+    await waitFor(() =>
+      expect(stored.data).toMatchObject({
+        repeatableEntries: {
+          backgrounds: [expect.objectContaining({ rating: 1 })],
+          focus: {
+            paradigms: [
+              expect.objectContaining({
+                customName: 'Everything is connected',
+              }),
+            ],
+          },
+        },
+      }),
+    );
+
     await user.click(screen.getByRole('switch'));
     expect(
       screen.getByText(
@@ -144,7 +173,11 @@ describe('Mage 20 Phase 2 module editor', () => {
       'character-section-nav-condition',
       'character-section-nav-magick',
       'character-section-nav-traits',
+      'character-section-nav-gear',
+      'character-section-nav-advantages',
+      'character-section-nav-paradigm',
       'character-section-nav-character',
+      'character-section-nav-records',
     ]);
 
     await user.click(screen.getByRole('switch'));
@@ -158,12 +191,30 @@ describe('Mage 20 Phase 2 module editor', () => {
       expect(stored.data).toMatchObject({
         sheetLayout: {
           groupOrders: {
-            build: ['traits', 'character', 'magick', 'condition'],
-            play: ['condition', 'magick', 'traits', 'character'],
+            build: [
+              'traits',
+              'character',
+              'magick',
+              'advantages',
+              'condition',
+              'gear',
+              'paradigm',
+              'records',
+            ],
+            play: [
+              'condition',
+              'magick',
+              'traits',
+              'gear',
+              'advantages',
+              'paradigm',
+              'character',
+              'records',
+            ],
           },
         },
       }),
     );
     expect(screen.getByText('Saved in this browser')).toBeVisible();
-  });
+  }, 10_000);
 });

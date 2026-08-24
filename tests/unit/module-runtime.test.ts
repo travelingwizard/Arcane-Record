@@ -91,6 +91,9 @@ describe('Arcane module runtime', () => {
       'permanent-temporary-rating',
       'opposed-wheel-20',
       'cycling-damage-track',
+      'mage20-background-catalog',
+      'mage20-merits-flaws-catalog',
+      'mage20-collection',
       'validation-summary',
     ]);
   });

@@ -11,6 +11,12 @@ import { useActiveSheetSection } from '../../features/character-editor/use-activ
 import { useMediaQuery } from '../../features/character-editor/use-media-query';
 import { useSheetSectionNavigation } from '../../features/character-editor/use-sheet-section-navigation';
 import { AppearanceSettings } from '../../features/settings/AppearanceSettings';
+import { MageSheetSettingsPanel } from '../../games/mage20/MageSheetSettingsPanel';
+import { MAGE20_MODULE_ID } from '../../games/mage20/module/id-map';
+import {
+  createCharacterFileName,
+  serializeCharacter,
+} from '../../features/import-export/character-files';
 import type { SaveStatus } from '../../state/editor-store';
 import type { StoredCharacter } from '../../storage/stored-character';
 import type { StoredCharacterRepository } from '../../storage/stored-character-repository';
@@ -174,6 +180,25 @@ export function ModuleCharacterEditor({
       ),
     [resolved.module.reusableComponents],
   );
+  const catalogs = useMemo(
+    () => new Map(resolved.module.catalogs.map((entry) => [entry.id, entry])),
+    [resolved.module.catalogs],
+  );
+  const download = (format: 'json' | 'yaml') => {
+    const current = { ...record, data };
+    const blob = new Blob([serializeCharacter(current, format)], {
+      type:
+        format === 'json'
+          ? 'application/json;charset=utf-8'
+          : 'application/yaml;charset=utf-8',
+    });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = createCharacterFileName(current, format);
+    link.click();
+    URL.revokeObjectURL(url);
+  };
 
   const updateData = useCallback(
     (mutate: (draft: Record<string, unknown>) => void) => {
@@ -216,7 +241,18 @@ export function ModuleCharacterEditor({
       const savingRevision = revision;
       setSaveStatus('saving');
       void repository
-        .save({ ...record, data })
+        .save({
+          ...record,
+          name: (() => {
+            const nextName = template.displayNamePath
+              ? readDataPath(data, template.displayNamePath)
+              : undefined;
+            return typeof nextName === 'string' && nextName.trim()
+              ? nextName
+              : record.name;
+          })(),
+          data,
+        })
         .then((saved) => {
           setSavedRevision(savingRevision);
           setSaveStatus('saved');
@@ -233,6 +269,7 @@ export function ModuleCharacterEditor({
     revision,
     saveStatus,
     savedRevision,
+    template.displayNamePath,
   ]);
 
   const summaries = useMemo(
@@ -309,7 +346,25 @@ export function ModuleCharacterEditor({
           </div>
           <div className="editor-header__actions">
             <SaveStatusBadge status={saveStatus} />
-            <AppearanceSettings gameLabel={resolved.gameNode.name} />
+            <button
+              type="button"
+              className="secondary-button"
+              onClick={() => download('json')}
+            >
+              Save JSON
+            </button>
+            <button
+              type="button"
+              className="secondary-button"
+              onClick={() => download('yaml')}
+            >
+              Save YAML
+            </button>
+            <AppearanceSettings gameLabel={resolved.gameNode.name}>
+              {record.moduleRef?.moduleId === MAGE20_MODULE_ID ? (
+                <MageSheetSettingsPanel />
+              ) : null}
+            </AppearanceSettings>
           </div>
         </header>
 
@@ -402,6 +457,14 @@ export function ModuleCharacterEditor({
                               data,
                             ),
                           diagnostics,
+                          catalogEntries:
+                            'catalogId' in component
+                              ? (catalogs
+                                  .get(component.catalogId)
+                                  ?.entries.map(
+                                    (entry) => entry.data ?? entry,
+                                  ) ?? [])
+                              : [],
                           onChange: (nextValue) => {
                             if (!('dataPath' in component)) return;
                             updateData((draft) =>
@@ -416,6 +479,12 @@ export function ModuleCharacterEditor({
                             updateData((draft) =>
                               writeDataPath(draft, path, nextValue),
                             ),
+                          onPathsChange: (changes) =>
+                            updateData((draft) => {
+                              changes.forEach(({ path, value }) =>
+                                writeDataPath(draft, path, value),
+                              );
+                            }),
                         })}
                       </div>
                     );

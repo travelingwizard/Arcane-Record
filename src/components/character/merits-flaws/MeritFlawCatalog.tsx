@@ -43,11 +43,13 @@ export function MeritFlawCatalog({
   selectedDefinitionIds,
   onAdd,
   onViewSelected,
+  definitions = meritFlawCatalog,
 }: {
   totals: MeritFlawTotals;
   selectedDefinitionIds: Set<string>;
   onAdd: (definition: MeritFlawDefinition, cost: number) => void;
   onViewSelected: (definitionId: string) => void;
+  definitions?: readonly MeritFlawDefinition[];
 }) {
   const [filters, setFilters] =
     useState<MeritFlawCatalogFilters>(defaultFilters);
@@ -55,8 +57,8 @@ export function MeritFlawCatalog({
   const [chosenCosts, setChosenCosts] = useState<Record<string, number>>({});
 
   const results = useMemo(
-    () => filterAndSortMeritFlaws(meritFlawCatalog, filters),
-    [filters],
+    () => filterAndSortMeritFlaws([...definitions], filters),
+    [definitions, filters],
   );
   const activeFilterCount = [
     filters.search,

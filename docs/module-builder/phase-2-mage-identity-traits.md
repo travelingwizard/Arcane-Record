@@ -1,17 +1,16 @@
-# Phase 2, slices 1–3: Mage identity, Traits, and tracks
+# Phase 2: complete Mage 20 declarative parity
 
 ## Goal and boundary
 
-These slices begin Mage behavioral parity without replacing or partially
-converting the production Mage editor. They cover the stable definition ID
-map, Identity, Attributes, Abilities, Spheres, affinity, Enlightenment,
-Willpower, Quintessence/Paradox, Health, Build/Play protection, responsive
-layout, and per-mode section-group ordering.
+Mage 20 now has a complete bundled declarative module covering the current
+Arcane Record character data model. The existing Mage editor remains the
+default and is not mutated or removed. A user may explicitly create a
+module-backed copy from the character library; the source record remains
+unchanged and the copy records its source character ID.
 
-The package in `src/games/mage20/module/` is a validated bundled-module
-candidate used by golden and browser fixtures. It is not registered for normal
-character creation and there is no conversion button. Existing Mage records,
-schema versions 1–10, imports, and exports remain unchanged.
+The module remains local-first. The bundled package and dependency lock are
+loaded in memory alongside browser-installed packages. No server, account,
+analytics, telemetry, or remote asset was added.
 
 ## Stable IDs
 
@@ -43,10 +42,13 @@ Sheet templates can now declare a distinct group-order path for each mode.
 Section summaries support constrained field slots, rating totals, and rated
 counts. These are presentation strategies, not a general formula engine.
 
-Slices 2 and 3 add the safe `sphere-rating-wheel`,
+Later slices add the safe `sphere-rating-wheel`,
 `permanent-temporary-rating`, `opposed-wheel-20`, and
 `cycling-damage-track` components. Nullable character-schema values represent
-the optional affinity without sentinel strings. Sphere sorting and desktop
+the optional affinity without sentinel strings. Bounded Mage catalog and
+collection adapters render Backgrounds, Merits/Flaws, Focus, Wonders, Rotes,
+equipment, and Maneuvers using the established controls. Their paths and
+catalog references are checked during activation. Sphere sorting and desktop
 wheel display remain browser-local preferences; all views edit the same
 integer ratings. The track components preserve independent 0–20 values and
 Play-mode exceptions without storing Boolean cell arrays.
@@ -67,21 +69,21 @@ The Mage fixture verifies:
 - independent Quintessence and Paradox values, Temporary Willpower display
   preference, and top-down cycling Health damage;
 - desktop navigation, mobile Sections, and no overflow at 320 CSS pixels.
+- Background, Merit/Flaw, Focus, Wonder, Rote, equipment, Maneuver, Special Do,
+  and Experience data without copying catalogs into character records;
+- Mage-specific Settings and JSON/YAML character-file v2 round trips.
 
 ## Migration and persistence
 
-There is no character or database migration in this slice. No production
-character gets a `moduleRef`. Copy-first Mage conversion remains blocked until
-the remaining owned data has a declarative schema and slices 2–6 pass parity;
-creating a partial copy now would risk omitting valid character information.
+`convertMageCharacterToModuleCopy` runs the existing v1–v10 Mage migration and
+validation path before validating the complete result against the declarative
+sheet. It creates a fresh UUID and timestamp and stores the additive
+`convertedFromCharacterId` provenance field. It never writes, renames, or
+deletes the source record. The bundled package does not require a database
+migration.
 
 ## Remaining work
 
-Phase 2 continues with:
-
-1. Backgrounds and Merits/Flaws;
-2. Focus, Wonders, Rotes, equipment, Maneuvers, and Special Do;
-3. Experience, settings, file interchange, copy-first conversion, and opt-in
-   preview activation.
-
-Legacy Mage remains the production fallback through those slices.
+New Mage characters still use the legacy renderer. Making the declarative
+renderer the default is a separate P2 product decision after preview feedback;
+the opt-in copy provides evidence without placing existing records at risk.

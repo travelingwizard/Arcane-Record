@@ -1,9 +1,8 @@
 import { useMemo, useState } from 'react';
 import {
-  doManeuverById,
   getSpecialDoTechniqueAllowance,
   matchesManeuverSearch,
-  officialDoTechniqueCatalog,
+  doManeuverCatalog,
   type DoManeuverDefinition,
 } from '../../../systems/mage-m20/reference/maneuvers';
 import type {
@@ -132,6 +131,7 @@ export function KnownDoManeuvers({
   onAdd,
   onUpdate,
   onRemove,
+  definitions = doManeuverCatalog,
 }: {
   doRating: number;
   selections: SelectedDoManeuver[];
@@ -141,6 +141,7 @@ export function KnownDoManeuvers({
   ) => string | null;
   onUpdate: (selectionId: string, update: Partial<SelectedDoManeuver>) => void;
   onRemove: (selectionId: string) => void;
+  definitions?: readonly DoManeuverDefinition[];
 }) {
   const [search, setSearch] = useState('');
   const [custom, setCustom] = useState(emptyCustomTechnique);
@@ -158,12 +159,16 @@ export function KnownDoManeuvers({
       ),
     [selections],
   );
+  const definitionsById = useMemo(
+    () => new Map(definitions.map((entry) => [entry.id, entry])),
+    [definitions],
+  );
   const results = useMemo(
     () =>
-      officialDoTechniqueCatalog.filter((entry) =>
-        matchesManeuverSearch(entry, search),
+      definitions.filter(
+        (entry) => entry.official && matchesManeuverSearch(entry, search),
       ),
-    [search],
+    [definitions, search],
   );
 
   function toggleExpanded(id: string) {
@@ -206,7 +211,7 @@ export function KnownDoManeuvers({
           <div className="maneuver-card-grid">
             {selections.map((selection) => {
               const definition = selection.definitionId
-                ? doManeuverById.get(selection.definitionId)
+                ? definitionsById.get(selection.definitionId)
                 : undefined;
               const name =
                 definition?.name ||
@@ -374,7 +379,8 @@ export function KnownDoManeuvers({
           </label>
         </div>
         <p className="catalog-result-count" role="status">
-          {results.length} of {officialDoTechniqueCatalog.length} official
+          {results.length} of{' '}
+          {definitions.filter(({ official }) => official).length} official
           techniques
         </p>
         <div className="maneuver-card-grid">

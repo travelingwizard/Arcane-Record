@@ -1153,8 +1153,10 @@
 }
 
 .editor-header__actions {
+  min-width: 0;
   justify-self: end;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.6rem;
 }

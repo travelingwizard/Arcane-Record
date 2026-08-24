@@ -11,10 +11,11 @@ Phase 1 was implemented locally on 2026-08-24. Its synthetic-fixture runtime,
 repository, interchange, coexistence, and recovery scope is recorded in
 `phase-1-runtime.md`. Production game conversion remains unstarted.
 
-Phase 2 slice 1 was implemented locally on 2026-08-24. The Mage ID map,
-identity field grid, grouped Attributes/Abilities, summaries, per-mode order,
-and golden preview fixtures are recorded in `phase-2-mage-identity-traits.md`.
-The legacy Mage editor remains the production editor; slices 2–6 are pending.
+Phase 2 was implemented locally on 2026-08-24. Complete Mage data/catalog
+parity, safe advanced renderers, settings/files, bundled activation, and
+copy-first opt-in conversion are recorded in
+`phase-2-mage-identity-traits.md`. The legacy Mage editor remains the default;
+switching new characters to the module is a separate approval gate.
 
 Priority labels:
 
@@ -78,18 +79,18 @@ Priority labels:
 
 ## Phase 2 — Mage parity backlog
 
-| Priority | Slice                               | Acceptance criteria                                                                                              |
-| -------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| P0       | Freeze Mage module/catalog ID map   | **Slice 1 complete.** Every existing catalog/selection ID maps deterministically; unresolved IDs have fallback.  |
-| P0       | Identity and grouped dot components | **Slice 1 complete.** Stored ratings, Build/Play locks, summaries and order match fixtures.                      |
-| P0       | Sphere list/wheel and affinity      | **Slice 2 complete.** Mobile vertical, desktop preference, sorting and one-star selection share data.            |
-| P0       | Q/P, Health, Willpower              | **Slice 3 complete.** Independent 0–20 values/collisions, damage cycles, temp display setting, Play edits match. |
-| P0       | Background/Merit/Flaw catalogs      | Costs, duplicates, pooling, warnings, compact cards, remove/undo and unresolved preservation match.              |
-| P1       | Focus/Wonders/Rotes                 | Structured requirements, custom entries, citations and unknown refs round-trip.                                  |
-| P1       | Equipment/Maneuvers/Special Do      | Play state, favorites, linked Do allowance and preserve-over-limit warning match.                                |
-| P1       | Mage migration converter            | v1–v10 plus legacy files convert copy-first with no loss and golden parity.                                      |
-| P1       | Make module Mage opt-in preview     | Clear badge/fallback; full integration/E2E/performance/accessibility parity.                                     |
-| P2       | Default new Mage to module renderer | Separate approval after preview evidence; retain legacy fallback for a release window.                           |
+| Priority | Slice                               | Acceptance criteria                                                                                               |
+| -------- | ----------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| P0       | Freeze Mage module/catalog ID map   | **Slice 1 complete.** Every existing catalog/selection ID maps deterministically; unresolved IDs have fallback.   |
+| P0       | Identity and grouped dot components | **Slice 1 complete.** Stored ratings, Build/Play locks, summaries and order match fixtures.                       |
+| P0       | Sphere list/wheel and affinity      | **Slice 2 complete.** Mobile vertical, desktop preference, sorting and one-star selection share data.             |
+| P0       | Q/P, Health, Willpower              | **Slice 3 complete.** Independent 0–20 values/collisions, damage cycles, temp display setting, Play edits match.  |
+| P0       | Background/Merit/Flaw catalogs      | **Complete.** Costs, duplicates, pooling, warnings, compact cards, remove/undo and unresolved preservation match. |
+| P1       | Focus/Wonders/Rotes                 | **Complete.** Structured requirements, custom entries, citations and unknown refs round-trip.                     |
+| P1       | Equipment/Maneuvers/Special Do      | **Complete.** Play state, favorites, linked Do allowance and preserve-over-limit warning match.                   |
+| P1       | Mage migration converter            | **Complete.** v1–v10 data uses the existing migration path and converts copy-first with provenance.               |
+| P1       | Make module Mage opt-in preview     | **Complete.** Bundled local package, explicit library action, fallback, files, Settings and responsive checks.    |
+| P2       | Default new Mage to module renderer | Separate approval after preview evidence; retain legacy fallback for a release window.                            |
 
 ## Phase 3 — Exalted parity backlog
 

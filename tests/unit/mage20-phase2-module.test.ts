@@ -9,7 +9,7 @@ import {
 } from '../fixtures/mage20-phase2-golden';
 
 describe('Mage 20 Phase 2 declarative slice', () => {
-  it('validates the bundled module and preserves golden identity and ratings', () => {
+  it('validates the bundled module and preserves the complete Mage sheet', () => {
     const registry = new ModuleRegistry().register(mage20Phase2Module);
     const resolved = registry.resolve(
       mage20Phase2Module.moduleId,
@@ -19,21 +19,24 @@ describe('Mage 20 Phase 2 declarative slice', () => {
       1,
     );
     const legacy = getMageCharacterData(createMage20Phase2GoldenCharacter());
-    const slice = {
-      ...structuredClone(resolved.template.defaults),
-      identity: legacy.identity,
-      attributes: legacy.attributes,
-      abilities: legacy.abilities,
-    };
+    const slice = structuredClone(legacy);
 
     expect(resolved.characterSchema.parse(slice)).toEqual(slice);
     expect(resolved.template.sections.map(({ id }) => id)).toEqual([
       'identity',
       'attributes',
       'abilities',
+      'maneuvers',
+      'backgrounds',
+      'merits-flaws',
       'spheres',
       'enlightenment',
+      'focus',
+      'wonders',
+      'rotes',
+      'equipment',
       'health',
+      'experience',
     ]);
   });
 

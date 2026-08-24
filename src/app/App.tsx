@@ -11,6 +11,7 @@ import { useAppearance } from '../features/settings/appearance-context';
 import { ModuleRegistry } from '../modules/registry/module-registry';
 import { moduleRepository } from '../storage/repository-instance';
 import { calculateModuleChecksum } from '../modules/interchange/module-files';
+import { getBundledMage20ModuleRecords } from '../games/mage20/module/bundled-module';
 
 export function App({
   repository = storedCharacterRepository,
@@ -41,8 +42,9 @@ export function App({
     void Promise.all([
       moduleRepository.listPackages(),
       moduleRepository.listLocks(),
+      getBundledMage20ModuleRecords(),
     ])
-      .then(async ([packages, locks]) => {
+      .then(async ([packages, locks, bundled]) => {
         if (!active) return;
         const verifiedPackages = (
           await Promise.all(
@@ -57,7 +59,15 @@ export function App({
           .filter(({ valid }) => valid)
           .map(({ record }) => record);
         if (!active) return;
-        moduleRegistry.replaceInstalled(verifiedPackages, locks);
+        const withoutBundledVersion = verifiedPackages.filter(
+          ({ moduleId, moduleVersion }) =>
+            moduleId !== bundled.packageRecord.moduleId ||
+            moduleVersion !== bundled.packageRecord.moduleVersion,
+        );
+        moduleRegistry.replaceInstalled(
+          [...withoutBundledVersion, bundled.packageRecord],
+          [...locks.filter(({ id }) => id !== bundled.lock.id), bundled.lock],
+        );
         setModuleRevision((value) => value + 1);
       })
       .catch(() => {

@@ -20,6 +20,7 @@ export function CombatReference({
   onAddCustom,
   onUpdateCustom,
   onRemoveCustom,
+  definitions = combatManeuverCatalog,
 }: {
   favorites: string[];
   customManeuvers: CustomCombatManeuver[];
@@ -32,6 +33,7 @@ export function CombatReference({
     >,
   ) => void;
   onRemoveCustom: (maneuverId: string) => void;
+  definitions?: readonly (typeof combatManeuverCatalog)[number][];
 }) {
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState<'all' | CombatManeuverCategory>(
@@ -46,7 +48,7 @@ export function CombatReference({
     customName.trim().length > 0 && customDescription.trim().length > 0;
 
   const entries = useMemo(() => {
-    const catalogEntries = combatManeuverCatalog
+    const catalogEntries = definitions
       .filter(
         (entry) =>
           (category === 'all' || entry.category === category) &&
@@ -83,7 +85,14 @@ export function CombatReference({
             left.name.localeCompare(right.name),
         )
       : combined;
-  }, [category, customManeuvers, favoriteIds, favoritesFirst, search]);
+  }, [
+    category,
+    customManeuvers,
+    definitions,
+    favoriteIds,
+    favoritesFirst,
+    search,
+  ]);
 
   return (
     <div className="maneuver-panel">

@@ -10,6 +10,8 @@ import {
 } from '../import-export/character-files';
 import { useAppearance } from '../settings/appearance-context';
 import type { ModuleRegistry } from '../../modules/registry/module-registry';
+import { MAGE20_SYSTEM_ID } from '../../games/mage20/character-adapter';
+import { convertMageCharacterToModuleCopy } from '../../games/mage20/module/convert-character';
 
 function formatUpdatedAt(timestamp: string) {
   return new Intl.DateTimeFormat(undefined, {
@@ -115,6 +117,12 @@ export function ArcaneRecordLibrary({
     });
     setRenamingId(null);
     await refresh();
+  };
+
+  const previewMageModule = async (record: StoredCharacter) => {
+    const copy = convertMageCharacterToModuleCopy(record);
+    await repository.create(copy);
+    onNavigate(`/characters/${encodeURIComponent(copy.id)}`);
   };
 
   const importFile = async (file: File) => {
@@ -318,6 +326,14 @@ export function ArcaneRecordLibrary({
                           <button onClick={() => void duplicate(record)}>
                             Duplicate
                           </button>
+                          {result.interpreter === 'legacy' &&
+                          record.systemId === MAGE20_SYSTEM_ID ? (
+                            <button
+                              onClick={() => void previewMageModule(record)}
+                            >
+                              Preview module copy
+                            </button>
+                          ) : null}
                         </>
                       ) : null}
                       <button onClick={() => downloadRecord(record)}>

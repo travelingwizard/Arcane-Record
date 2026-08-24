@@ -29,17 +29,19 @@ export function BackgroundCatalog({
   totals,
   selectedDefinitionIds,
   onAdd,
+  definitions = backgroundCatalog,
 }: {
   totals: BackgroundTotals;
   selectedDefinitionIds: Set<string>;
   onAdd: (definition: BackgroundDefinition) => void;
+  definitions?: readonly BackgroundDefinition[];
 }) {
   const [filters, setFilters] =
     useState<BackgroundCatalogFilters>(defaultFilters);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const results = useMemo(
-    () => filterAndSortBackgrounds(backgroundCatalog, filters),
-    [filters],
+    () => filterAndSortBackgrounds([...definitions], filters),
+    [definitions, filters],
   );
   const activeFilterCount = [
     filters.search,

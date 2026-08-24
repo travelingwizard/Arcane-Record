@@ -115,6 +115,69 @@ function validateComponentPath(
         },
       ];
     }
+  } else if (component.type === 'mage20-background-catalog') {
+    const target = schemaAtPath(
+      template.characterSchema,
+      component.selectionsPath,
+    );
+    if (target?.type !== 'array' || target.items.type !== 'object') {
+      return [
+        {
+          code: 'component-path-type',
+          severity: 'error',
+          path: `/reusableComponents/${componentIndex}/selectionsPath`,
+          message: `Component “${component.id}” selections path must resolve to an object array.`,
+        },
+      ];
+    }
+  } else if (component.type === 'mage20-merits-flaws-catalog') {
+    for (const [suffix, dataPath] of [
+      ['meritsPath', component.meritsPath],
+      ['flawsPath', component.flawsPath],
+    ] as const) {
+      const target = schemaAtPath(template.characterSchema, dataPath);
+      if (target?.type !== 'array' || target.items.type !== 'object') {
+        return [
+          {
+            code: 'component-path-type',
+            severity: 'error',
+            path: `/reusableComponents/${componentIndex}/${suffix}`,
+            message: `Component “${component.id}” ${suffix} must resolve to an object array.`,
+          },
+        ];
+      }
+    }
+  } else if (component.type === 'mage20-collection') {
+    const target = schemaAtPath(template.characterSchema, component.dataPath);
+    const expectedType =
+      component.kind === 'focus' || component.kind === 'maneuvers'
+        ? 'object'
+        : 'array';
+    if (target?.type !== expectedType) {
+      return [
+        {
+          code: 'component-path-type',
+          severity: 'error',
+          path: `/reusableComponents/${componentIndex}/dataPath`,
+          message: `Component “${component.id}” data path must resolve to an ${expectedType}.`,
+        },
+      ];
+    }
+    if (component.kind === 'maneuvers') {
+      const doRatingTarget = component.doRatingPath
+        ? schemaAtPath(template.characterSchema, component.doRatingPath)
+        : null;
+      if (doRatingTarget?.type !== 'integer') {
+        return [
+          {
+            code: 'component-path-type',
+            severity: 'error',
+            path: `/reusableComponents/${componentIndex}/doRatingPath`,
+            message: `Component “${component.id}” Do rating path must resolve to integer data.`,
+          },
+        ];
+      }
+    }
   } else if ('dataPath' in component) {
     paths.push({
       dataPath: component.dataPath,
@@ -350,6 +413,17 @@ export function validateModuleEnvelope(input: unknown): ArcaneModuleEnvelope {
   );
   const gameNodes = new Set(module.gameNodes.map(({ id }) => id));
   const sourceRefs = new Set(module.sourceReferences.map(({ id }) => id));
+  const catalogIds = new Set(module.catalogs.map(({ id }) => id));
+  module.reusableComponents.forEach((component, index) => {
+    if ('catalogId' in component && !catalogIds.has(component.catalogId)) {
+      diagnostics.push({
+        code: 'unknown-component-catalog',
+        severity: 'error',
+        path: `/reusableComponents/${index}/catalogId`,
+        message: `Component “${component.id}” references missing catalog “${component.catalogId}”.`,
+      });
+    }
+  });
 
   for (const [templateIndex, template] of module.sheetTemplates.entries()) {
     if (!gameNodes.has(template.gameNodeId)) {
@@ -402,6 +476,18 @@ export function validateModuleEnvelope(input: unknown): ArcaneModuleEnvelope {
           message: `Sheet “${template.id}” mode path must target an enum whose default is a declared mode.`,
         });
       }
+    }
+    if (
+      template.displayNamePath &&
+      schemaAtPath(template.characterSchema, template.displayNamePath)?.type !==
+        'string'
+    ) {
+      diagnostics.push({
+        code: 'invalid-display-name-path',
+        severity: 'error',
+        path: `/sheetTemplates/${templateIndex}/displayNamePath`,
+        message: `Sheet “${template.id}” display-name path must resolve to string data.`,
+      });
     }
     for (const [orderMode, orderPath] of [
       ...(template.groupOrderPath

@@ -47,6 +47,9 @@ golden fixtures.
 
 ## Phase 2 — Mage behavioral parity
 
+Status: complete locally on 2026-08-24. The legacy editor remains the default;
+the bundled module is available through an explicit copy-first preview action.
+
 Mage proves the broad standard component set and two advanced tracks. Work in
 vertical slices:
 

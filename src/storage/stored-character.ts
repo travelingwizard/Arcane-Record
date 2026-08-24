@@ -15,6 +15,7 @@ export const characterModuleRefSchema = z.strictObject({
   sheetTemplateVersion: z.number().int().positive(),
   dependencyLockId: z.string().uuid(),
   enabledOverlayRefs: z.array(moduleVersionRefSchema).default([]),
+  convertedFromCharacterId: z.string().min(1).optional(),
 });
 
 export const storedCharacterSchema = z

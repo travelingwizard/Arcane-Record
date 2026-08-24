@@ -334,6 +334,27 @@ export const moduleComponentSchema = z.discriminatedUnion('type', [
   }),
   z.strictObject({
     ...componentBase,
+    type: z.literal('mage20-background-catalog'),
+    selectionsPath: dataPathSchema,
+    catalogId: stableSlugSchema,
+  }),
+  z.strictObject({
+    ...componentBase,
+    type: z.literal('mage20-merits-flaws-catalog'),
+    meritsPath: dataPathSchema,
+    flawsPath: dataPathSchema,
+    catalogId: stableSlugSchema,
+  }),
+  z.strictObject({
+    ...componentBase,
+    type: z.literal('mage20-collection'),
+    kind: z.enum(['focus', 'wonders', 'rotes', 'equipment', 'maneuvers']),
+    dataPath: dataPathSchema,
+    catalogId: stableSlugSchema,
+    doRatingPath: dataPathSchema.optional(),
+  }),
+  z.strictObject({
+    ...componentBase,
     type: z.literal('validation-summary'),
   }),
 ]);
@@ -425,6 +446,7 @@ const sheetTemplateSchema = z.strictObject({
     .max(10),
   defaultModeId: stableSlugSchema,
   playModeNote: z.string().max(500).optional(),
+  displayNamePath: dataPathSchema.optional(),
   modePath: dataPathSchema.optional(),
   groupOrderPath: dataPathSchema.optional(),
   groupOrderPaths: z.record(stableSlugSchema, dataPathSchema).default({}),
@@ -446,6 +468,7 @@ const catalogSchema = z.strictObject({
         category: z.string().max(160).optional(),
         summary: z.string().max(2_000).optional(),
         sourceRefIds: z.array(stableSlugSchema).default([]),
+        data: z.record(objectFieldKeySchema, z.unknown()).optional(),
       }),
     )
     .max(20_000),
