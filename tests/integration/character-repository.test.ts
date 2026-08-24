@@ -400,4 +400,43 @@ describe('DexieCharacterRepository', () => {
       pooled: true,
     });
   });
+
+  it('saves and reopens official, custom, and legacy Do techniques', async () => {
+    const character = createBlankMageCharacter();
+    character.repeatableEntries.maneuvers.selectedDoManeuvers = [
+      {
+        id: crypto.randomUUID(),
+        definitionId: 'do-arrow-cutting',
+        notes: 'Uses a steel fan.',
+        addedAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        customName: 'Falling Leaf',
+        customSummary: 'Yield and redirect.',
+        customRoll: 'Dexterity + Do',
+        customDifficulty: '7',
+        customDamage: 'N/A',
+        customActions: '1',
+        customSourceTitle: 'Custom',
+        customSourcePage: 'House rule',
+        notes: '',
+        addedAt: new Date().toISOString(),
+      },
+      {
+        id: crypto.randomUUID(),
+        definitionId: 'do-retired-form',
+        unresolvedDefinitionName: 'Retired Form',
+        notes: '',
+        addedAt: new Date().toISOString(),
+      },
+    ];
+
+    await repository.create(character);
+
+    expect(
+      (await repository.get(character.id))?.repeatableEntries.maneuvers
+        .selectedDoManeuvers,
+    ).toEqual(character.repeatableEntries.maneuvers.selectedDoManeuvers);
+  });
 });

@@ -5,7 +5,7 @@
 Add a **Maneuvers** section with two tabs or subsections:
 
 1. **Combat Reference**
-2. **Known Do Maneuvers**
+2. **Special Do Techniques**
 
 ### Combat Reference
 
@@ -22,20 +22,27 @@ Support:
 
 Favorites are character-specific shortcuts but do not mean the character has purchased or learned the maneuver.
 
-### Known Do Maneuvers
+### Special Do Techniques
 
 Support:
 
-- 12 Revised maneuvers
-- 3 optional Legacy maneuvers
+- Nine official Mage 20 Special Do Techniques from pp. 427-430
+- Search across names, alternate names, summaries, and mechanics
+- Structured Roll, Difficulty, Damage, Actions, and source-page fields
+- A limit of one technique per Do dot above the first
+- Preserved over-limit selections if Do is lowered
 - Add/remove
-- Custom Do maneuver
+- Structured custom techniques
 - Notes
-- Revised/Legacy labels
+- Official/Custom/Legacy labels
 - Source and page
 - Expand/collapse
 
-Do not include The Final Blow as a maneuver.
+Older Do entries are excluded from the default catalog but remain bundled as
+Legacy definitions so existing saved selections keep their names and sources.
+Unknown retired IDs are also preserved and labeled Legacy. Ordinary Martial
+Arts maneuvers, Peaceful Way, the Eight Limbs, Catching Bullets, and The Final
+Blow are not part of the official catalog.
 
 ## Suggested Character Data
 
@@ -58,6 +65,13 @@ interface SelectedDoManeuver {
   id: string;
   definitionId: string | null;
   customName: string;
+  customSummary?: string;
+  customRoll?: string;
+  customDifficulty?: string;
+  customDamage?: string;
+  customActions?: string;
+  customSourceTitle?: string;
+  customSourcePage?: string;
   notes: string;
   isCustom: boolean;
   addedAt: string;
@@ -77,9 +91,13 @@ interface SelectedDoManeuver {
 
 Schema version 8 stores Combat favorite IDs, custom Combat references, and
 selected Do records under `repeatableEntries.maneuvers`. Schema-version-7 and
-older records migrate with empty Maneuver collections.
+older records migrate with empty Maneuver collections. The richer custom fields
+are optional additions to those records, so existing schema-version-8 through
+10 characters require no destructive migration.
 
-Catalog descriptions, sources, pages, and citations remain in reference data
-and are excluded from character exports. The section is always visible because
-Combat Reference is universal. Do ratings and maneuver limits are not
-enforced.
+Official catalog descriptions, mechanics, sources, pages, and citations remain
+in reference data and are excluded from character exports. Custom mechanics are
+character-owned and therefore participate in JSON/YAML exchange. The section is
+always visible because Combat Reference is universal. Add operations enforce
+the Do allowance in both the UI and editor store; lowering Do never deletes a
+selection.

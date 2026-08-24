@@ -41,9 +41,11 @@ citations stay outside character data.
 
 Maneuver data separates universal reference shortcuts from learned options.
 Combat favorites store stable reference IDs, custom Combat entries store
-character-written content, and selected Do maneuvers store independent UUIDs
-plus stable catalog IDs or custom names. Reference summaries and citations are
-not copied into character data.
+character-written content, and selected Special Do Techniques store independent
+UUIDs plus stable catalog IDs or structured custom names, summaries, mechanics,
+and citations. Official and legacy reference summaries and citations are not
+copied into character data. The Do-based selection allowance is derived at
+runtime; saved over-limit and unknown legacy records remain intact.
 
 Exalted First Edition records use a separate game-owned schema. Schema version
 3 adds Dragon-Blooded power selections as separate Charm and spell arrays.

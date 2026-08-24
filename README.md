@@ -67,4 +67,4 @@ See [docs/14-equipment-implementation.md](docs/14-equipment-implementation.md)
 for the Equipment catalog, ownership model, and schema migration.
 See
 [docs/features/combat-and-do-maneuvers.md](docs/features/combat-and-do-maneuvers.md)
-for Combat Reference favorites and known Do maneuver behavior.
+for Combat Reference favorites and official Special Do Technique behavior.

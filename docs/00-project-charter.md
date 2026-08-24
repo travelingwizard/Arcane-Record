@@ -25,7 +25,8 @@ responsive vintage-sheet treatment.
 - A searchable reference-preview catalog for weapons, armor, and field gear,
   plus custom Equipment requiring a name and description.
 - A universal, searchable Combat Reference with character favorites and custom
-  entries, plus selected and custom Do maneuvers.
+  entries, plus the nine official M20 Special Do Techniques, structured custom
+  techniques, and preserved Legacy selections.
 - Interchangeable list and desktop-wheel Sphere views backed by the same character data.
 - Validated, browser-local JSON and YAML import/export.
 - Debounced persistence through a repository abstraction backed by Dexie/IndexedDB.

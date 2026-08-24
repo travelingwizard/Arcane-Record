@@ -3499,7 +3499,11 @@
 }
 
 .maneuver-custom-adder--do {
-  grid-template-columns: minmax(14rem, 1fr) auto;
+  grid-template-columns: repeat(2, minmax(12rem, 1fr));
+}
+
+.maneuver-custom-adder--do > .primary-button {
+  grid-column: 1 / -1;
 }
 
 .maneuver-catalog-toolbar {
@@ -3521,6 +3525,7 @@
 }
 
 .maneuver-custom-adder input,
+.maneuver-custom-adder textarea,
 .maneuver-catalog-toolbar input,
 .maneuver-catalog-toolbar select,
 .maneuver-card input,
@@ -3534,6 +3539,95 @@
   background: var(--paper-light);
   font-family: var(--font-serif);
   text-transform: none;
+}
+
+.maneuver-custom-adder textarea {
+  resize: vertical;
+}
+
+.do-technique-allowance {
+  padding: 0.75rem 0.85rem;
+  display: grid;
+  gap: 0.25rem;
+  border-left: 4px solid var(--gold);
+  background: var(--surface-glaze);
+  color: var(--ink-soft);
+}
+
+.do-technique-allowance strong {
+  color: var(--ink);
+  font-family: var(--font-serif);
+}
+
+.do-technique-allowance--warning {
+  border-color: var(--danger);
+  background: var(--surface-warning);
+}
+
+.do-technique-custom {
+  border: 1px solid var(--rule-light);
+  background: var(--surface-glaze);
+}
+
+.do-technique-custom > summary {
+  min-height: 2.75rem;
+  padding: 0.75rem 0.85rem;
+  cursor: pointer;
+  color: var(--umber-deep);
+  font-family: var(--font-serif);
+  font-weight: 800;
+}
+
+.do-technique-custom .maneuver-custom-adder {
+  border: 0;
+  border-top: 1px solid var(--rule-light);
+}
+
+.do-technique-custom-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.do-technique-mechanics {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.do-technique-mechanics > div {
+  min-width: 0;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--rule-light);
+  background: var(--surface-glaze);
+}
+
+.do-technique-mechanics dt {
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.do-technique-mechanics dd {
+  margin: 0.15rem 0 0;
+  overflow-wrap: anywhere;
+  line-height: 1.35;
+}
+
+.kind-badge--official {
+  border-color: var(--gold);
+}
+
+.kind-badge--custom {
+  border-style: dashed;
+}
+
+.kind-badge--legacy {
+  opacity: 0.78;
 }
 
 .maneuver-card textarea {

@@ -237,6 +237,11 @@
     grid-template-columns: 1fr;
   }
 
+  .do-technique-mechanics,
+  .do-technique-custom-fields {
+    grid-template-columns: 1fr;
+  }
+
   .focus-context-grid__notes {
     grid-column: auto;
   }

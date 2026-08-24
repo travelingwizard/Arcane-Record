@@ -148,9 +148,27 @@ export interface SelectedDoManeuver {
   id: string;
   definitionId?: string;
   customName?: string;
+  customSummary?: string;
+  customRoll?: string;
+  customDifficulty?: string;
+  customDamage?: string;
+  customActions?: string;
+  customSourceTitle?: string;
+  customSourcePage?: string;
   notes: string;
   addedAt: string;
   unresolvedDefinitionName?: string;
+}
+
+export interface CustomDoTechniqueInput {
+  name: string;
+  summary: string;
+  roll: string;
+  difficulty: string;
+  damage: string;
+  actions: string;
+  sourceTitle: string;
+  sourcePage: string;
 }
 
 export interface CharacterManeuvers {

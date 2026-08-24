@@ -63,41 +63,11 @@ for (const line of combatLines) {
   });
 }
 
-const doLines = readFileSync(
-  resolve(root, 'docs/references/mage-m20/do-maneuvers.md'),
-  'utf8',
-).split('\n');
-const doManeuvers = [];
-let doVersion = '';
-
-for (const line of doLines) {
-  if (line === '## Revised Do Maneuvers') doVersion = 'revised';
-  if (line === '## Legacy Do Maneuvers') doVersion = 'legacy';
-  if (line === '## Cross-References') doVersion = '';
-  const row = tableRow(line);
-  if (!row || !doVersion) continue;
-  const [name, summary, source, page] = row;
-  doManeuvers.push({
-    id: `do-${slugify(name)}`,
-    name,
-    version: doVersion,
-    summary,
-    source,
-    page,
-    citation: `${source}, p. ${page}`,
-    reviewStatus: 'unverified',
-  });
-}
-
 writeFileSync(
   resolve(root, 'src/systems/mage-m20/reference/combat-maneuvers.data.json'),
   `${JSON.stringify(combat, null, 2)}\n`,
 );
-writeFileSync(
-  resolve(root, 'src/systems/mage-m20/reference/do-maneuvers.data.json'),
-  `${JSON.stringify(doManeuvers, null, 2)}\n`,
-);
-
+console.log(`Generated ${combat.length} combat maneuvers.`);
 console.log(
-  `Generated ${combat.length} combat maneuvers and ${doManeuvers.length} Do maneuvers.`,
+  'The structured Special Do Technique catalog is curated separately from the Mage 20 source.',
 );

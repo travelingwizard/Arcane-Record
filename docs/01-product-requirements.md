@@ -17,8 +17,9 @@ The editor provides:
   final Skill;
 - a universal Combat Reference with 31 searchable, categorized maneuvers,
   character-specific favorites, and custom reference entries;
-- Known Do Maneuvers with 12 Revised entries shown by default, 3 opt-in Legacy
-  entries, custom maneuvers, notes, removal, and Undo;
+- nine official M20 Special Do Techniques with structured mechanics, Do-based
+  limits, searchable alternate names, structured custom techniques, preserved
+  Legacy selections, notes, removal, and Undo;
 - all nine Spheres as integer ratings from 0 to 5;
 - one nullable affinity Sphere selected with an unboxed star;
 - four local display sort modes;
@@ -110,8 +111,9 @@ editor and local export. Catalog statistics remain reference-only and never
 modify character ratings automatically.
 
 A Maneuvers acceptance scenario favorites Dodge, records a custom Combat
-Reference entry, adds a Revised Do maneuver and a custom Do maneuver,
-refreshes, and observes the same values in the editor and local export.
+Reference entry, sets Do, adds an official Special Do Technique and a structured
+custom technique, refreshes, and observes the same values in the editor and
+local export.
 
 ## Combat and Do Maneuvers
 
@@ -121,12 +123,14 @@ Defensive, Close Combat, and Ranged categories; expands accessible cards; and
 can place favorites first. Custom combat references require a name and
 description and may also be favorited.
 
-Known Do Maneuvers are character selections with independent UUIDs and stable
-definition IDs. Revised entries appear by default. Legacy entries require an
-explicit opt-in and remain clearly labeled. Custom entries and notes are
-editable. No Do rating, maneuver-count limit, combat roll, damage roll, or
-legality is enforced. The Final Blow remains classified as a Rote and is not
-included in either maneuver catalog.
+Special Do Techniques are character selections with independent UUIDs and
+stable definition IDs. The default catalog contains exactly the nine official
+M20 techniques from pp. 427-430. Older saved definitions and unresolved IDs
+remain visible as Legacy but are not offered in the default catalog. Structured
+custom entries and notes are editable. The sheet allows one technique for each
+Do dot above the first, blocks new additions at the limit, and preserves records
+with an Over limit warning if Do falls. Combat rolls and damage are not
+automated. The Final Blow remains classified as a Rote and is not included.
 
 ## Equipment
 

@@ -72,9 +72,10 @@ An Equipment scenario records catalog armor and custom field gear, persists
 both across refresh, verifies local export boundaries, and checks 320px
 overflow.
 
-A Maneuvers scenario favorites a Combat reference, adds custom Combat and Do
-entries, selects a Revised Do maneuver, persists across refresh, verifies local
-export boundaries, and checks 320px overflow.
+A Maneuvers scenario favorites a Combat reference, adds custom Combat and
+structured Do entries, selects an official M20 Special Do Technique within the
+Do allowance, persists across refresh, verifies local export boundaries, and
+checks 320px overflow.
 
 Section-navigation scenarios cover the desktop rail at 1440px, the 1120px
 breakpoint, IntersectionObserver active links, fragments, Back navigation,

@@ -25,12 +25,67 @@ export const combatManeuverDefinitionSchema = z.object({
   category: combatManeuverCategorySchema,
 });
 
-export const doManeuverVersionSchema = z.enum(['revised', 'legacy']);
-
-export const doManeuverDefinitionSchema = z.object({
-  ...maneuverReferenceFields,
-  version: doManeuverVersionSchema,
-});
+export const doManeuverDefinitionSchema = z
+  .object({
+    id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+    name: z.string().min(1),
+    alternateNames: z.array(z.string().min(1)).default([]),
+    summary: z.string().min(1),
+    roll: z.string().min(1).optional(),
+    difficulty: z.string().min(1).optional(),
+    damage: z.string().min(1).optional(),
+    actions: z.string().min(1).optional(),
+    details: z.array(z.string().min(1)).default([]),
+    sourceTitle: z.string().min(1),
+    sourcePage: z.string().min(1),
+    sourcePageStart: z.number().int().positive(),
+    sourcePageEnd: z.number().int().positive().optional(),
+    category: z.literal('special-do-technique'),
+    official: z.boolean(),
+    legacy: z.boolean(),
+    reviewStatus: reviewStatusSchema,
+  })
+  .superRefine((definition, context) => {
+    if (definition.official === definition.legacy) {
+      context.addIssue({
+        code: 'custom',
+        path: ['official'],
+        message: 'A Do technique must be either Official or Legacy.',
+      });
+    }
+    if (
+      definition.official &&
+      (!definition.roll ||
+        !definition.difficulty ||
+        !definition.damage ||
+        !definition.actions)
+    ) {
+      context.addIssue({
+        code: 'custom',
+        path: ['roll'],
+        message: 'Official techniques require every mechanical field.',
+      });
+    }
+    if (
+      definition.sourcePageEnd !== undefined &&
+      definition.sourcePageEnd < definition.sourcePageStart
+    ) {
+      context.addIssue({
+        code: 'custom',
+        path: ['sourcePageEnd'],
+        message: 'The ending page cannot precede the starting page.',
+      });
+    }
+  })
+  .transform((definition) => ({
+    ...definition,
+    source: definition.sourceTitle,
+    page: definition.sourcePage,
+    citation: `${definition.sourceTitle}, p${
+      definition.sourcePage.includes('-') ? 'p' : ''
+    }. ${definition.sourcePage}`,
+    version: definition.official ? ('official' as const) : ('legacy' as const),
+  }));
 
 export const combatManeuverCatalogSchema = uniqueCatalogSchema(
   combatManeuverDefinitionSchema,
@@ -59,13 +114,26 @@ export const doManeuverById = new Map(
   doManeuverCatalog.map((definition) => [definition.id, definition]),
 );
 
+export const officialDoTechniqueCatalog = doManeuverCatalog.filter(
+  (definition) => definition.official,
+);
+
+export function getSpecialDoTechniqueAllowance(doRating: number) {
+  return Math.max(0, Math.min(4, Math.trunc(doRating) - 1));
+}
+
 export function matchesManeuverSearch(
   entry: {
     name: string;
     summary: string;
+    alternateNames?: string[];
     source?: string;
     page?: string;
     notes?: string;
+    roll?: string;
+    difficulty?: string;
+    damage?: string;
+    actions?: string;
   },
   search: string,
 ) {
@@ -75,9 +143,14 @@ export function matchesManeuverSearch(
   }
   return [
     entry.name,
+    ...(entry.alternateNames ?? []),
     entry.summary,
     entry.source,
     entry.page,
     entry.notes,
+    entry.roll,
+    entry.difficulty,
+    entry.damage,
+    entry.actions,
   ].some((value) => value?.toLocaleLowerCase().includes(query));
 }

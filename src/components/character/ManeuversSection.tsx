@@ -38,7 +38,7 @@ export function ManeuversSection() {
       id="maneuvers"
       eyebrow="Combat reference and learned forms"
       title="Maneuvers"
-      description="Keep universal combat references and this character's known Do maneuvers together."
+      description="Keep universal combat references and this character's Special Do Techniques together."
       collapsibleOnDesktop
       hideSummaryWhenCollapsed
       actions={
@@ -54,9 +54,9 @@ export function ManeuversSection() {
       }
     >
       <p className="reference-preview-note">
-        Reference preview: these summaries and citations come from the supplied
-        local references. This section does not calculate attacks, damage, or
-        maneuver limits.
+        Rules reference: combat summaries and Special Do Technique citations
+        come from the bundled local catalogs. The sheet enforces the M20
+        technique allowance but does not calculate attacks or damage.
       </p>
 
       <div className="maneuver-tabs" role="tablist" aria-label="Maneuver views">
@@ -82,7 +82,7 @@ export function ManeuversSection() {
           className={activeTab === 'do' ? 'secondary-button' : 'small-button'}
           onClick={() => setActiveTab('do')}
         >
-          Known Do Maneuvers
+          Special Do Techniques
         </button>
       </div>
 
@@ -102,6 +102,7 @@ export function ManeuversSection() {
           />
         ) : (
           <KnownDoManeuvers
+            doRating={character.abilities.skills.do}
             selections={maneuvers.selectedDoManeuvers}
             onAdd={addDo}
             onUpdate={updateDo}

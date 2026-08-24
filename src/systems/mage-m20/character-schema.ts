@@ -641,6 +641,13 @@ const selectedDoManeuverSchema = z
     id: uuid,
     definitionId: z.string().min(1).optional(),
     customName: z.string().optional(),
+    customSummary: z.string().optional(),
+    customRoll: z.string().optional(),
+    customDifficulty: z.string().optional(),
+    customDamage: z.string().optional(),
+    customActions: z.string().optional(),
+    customSourceTitle: z.string().optional(),
+    customSourcePage: z.string().optional(),
     notes: z.string(),
     addedAt: z.string().datetime(),
     unresolvedDefinitionName: z.string().optional(),
@@ -658,6 +665,22 @@ const selectedDoManeuverSchema = z
         code: 'custom',
         path: ['customName'],
         message: 'Catalog selections must not store a custom name.',
+      });
+    }
+    if (
+      selection.definitionId &&
+      (selection.customSummary ||
+        selection.customRoll ||
+        selection.customDifficulty ||
+        selection.customDamage ||
+        selection.customActions ||
+        selection.customSourceTitle ||
+        selection.customSourcePage)
+    ) {
+      context.addIssue({
+        code: 'custom',
+        path: ['definitionId'],
+        message: 'Catalog selections must not store custom rules fields.',
       });
     }
   });

@@ -180,7 +180,7 @@ describe('collapsed character section summaries', () => {
     expect(summaries.rotes.primary).toBe('1 saved · Silver Echo');
     expect(summaries.equipment.primary).toBe('1 item · Field satchel');
     expect(summaries.maneuvers.primary).toBe(
-      '1 favorite · 0 custom references · 1 known Do maneuver',
+      '1 favorite · 0 custom references · 1 Special Do Technique',
     );
   });
 });

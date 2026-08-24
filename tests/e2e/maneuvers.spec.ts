@@ -10,6 +10,7 @@ test('persists and exports combat favorites, custom references, and Do maneuvers
   await page.getByRole('button', { name: 'Choose Mage 20' }).click();
   await page.getByRole('button', { name: 'Create Character' }).click();
   await page.getByLabel('Name', { exact: true }).fill('Disciplined Adept');
+  await page.getByRole('button', { name: 'Set Do* to 3', exact: true }).click();
 
   const navigation = page.getByRole('navigation', {
     name: 'Character sheet sections',
@@ -30,15 +31,28 @@ test('persists and exports combat favorites, custom references, and Do maneuvers
     .getByRole('button', { name: 'Add custom combat maneuver' })
     .click();
 
-  await page.getByRole('tab', { name: 'Known Do Maneuvers' }).click();
-  await page.getByLabel('Search Do maneuvers').fill('Arrow Cutting');
-  await page.getByRole('button', { name: 'Add', exact: true }).click();
+  await page.getByRole('tab', { name: 'Special Do Techniques' }).click();
+  await page.getByLabel('Search Special Do Techniques').fill('Arrow Cutting');
+  const arrowCuttingCard = page.locator('article.maneuver-card').filter({
+    has: page.getByRole('heading', { name: 'Arrow Cutting', exact: true }),
+  });
+  await arrowCuttingCard
+    .getByRole('button', { name: 'Add', exact: true })
+    .click();
   await page.getByRole('button', { name: 'Expand Arrow Cutting' }).click();
   await page
     .getByRole('textbox', { name: 'Notes', exact: true })
     .fill('Practiced with a steel fan.');
-  await page.getByLabel('Custom Do maneuver name').fill('Falling Leaf');
-  await page.getByRole('button', { name: 'Add custom Do maneuver' }).click();
+  await page.getByText('Add a custom technique').click();
+  const custom = page.locator('.do-technique-custom');
+  await custom.getByLabel('Name').fill('Falling Leaf');
+  await custom.getByLabel('Summary').fill('Yield and redirect.');
+  await custom.getByLabel('Roll').fill('Dexterity + Do');
+  await custom.getByLabel('Difficulty').fill('7');
+  await custom.getByLabel('Damage').fill('N/A');
+  await custom.getByLabel('Actions').fill('1');
+  await custom.getByLabel('Source page').fill('House rule');
+  await custom.getByRole('button', { name: 'Add custom technique' }).click();
 
   await expect(
     page.getByText('Saved in this browser', { exact: true }),
@@ -53,7 +67,7 @@ test('persists and exports combat favorites, custom references, and Do maneuvers
   await expect(
     page.getByRole('heading', { name: 'Cabal Cover Drill' }),
   ).toBeVisible();
-  await page.getByRole('tab', { name: 'Known Do Maneuvers' }).click();
+  await page.getByRole('tab', { name: 'Special Do Techniques' }).click();
   await expect(
     page.getByRole('heading', { name: 'Arrow Cutting' }).first(),
   ).toBeVisible();

@@ -1,40 +1,34 @@
-# Do Maneuvers Reference
+# Special Do Techniques Reference
 
-Use this file as the local app reference for Do maneuvers.
+The default catalog contains only the nine official Mage 20 Special Do
+Techniques from pp. 427-430.
 
-## Revised Do Maneuvers
+## Official Mage 20 Techniques
 
-| Name | Description | Source | Page |
-|---|---|---|---|
-| Butterfly Palms | Trains both sides of the body to attack, defend, and move together. When splitting actions, restore one die to one reduced dice pool. | Tradition Book: Akashic Brotherhood, Revised | 64 |
-| Weapon Art | Applies Do training to a familiar melee weapon. Compatible Do benefits may apply, but the attack pool remains limited by Do. | Tradition Book: Akashic Brotherhood, Revised | 64 |
-| Peaceful Way | Applies Do's discipline to one Ability associated with the Eight Limbs, granting Do's reduced-difficulty benefit. | Tradition Book: Akashic Brotherhood, Revised | 64 |
-| Arrow Cutting | Deflects arrows and similar missiles. A harder use catches the missile for later use. It does not normally work against bullets. | Tradition Book: Akashic Brotherhood, Revised | 64 |
-| Broken Rhythm | Uses irregular timing to disrupt an opponent's defense. The attack is harder, but the defender may suffer a penalty. | Tradition Book: Akashic Brotherhood, Revised | 64–65 |
-| Iron Shirt | Adds the character's Do rating to soak rolls against bashing damage, subject to the maneuver's limits. | Tradition Book: Akashic Brotherhood, Revised | 65 |
-| Iron Hand | Conditions the hands to break objects and penetrate defenses. The target loses one soak die, but fine touch is impaired. | Tradition Book: Akashic Brotherhood, Revised | 65 |
-| Kiaijutsu | Uses a shout or controlled voice to frighten, disrupt, command, or intimidate. | Tradition Book: Akashic Brotherhood, Revised | 65 |
-| Jou Chuan — Soft Fist | Redirects an incoming unarmed or melee attack into the attacker or another nearby opponent. | Tradition Book: Akashic Brotherhood, Revised | 65–66 |
-| Escape Arts | Uses flexibility and controlled dislocation to escape restraints. More secure restraints require a roll. | Tradition Book: Akashic Brotherhood, Revised | 66 |
-| Plum Flower Blossom | Improves balance, jumping, rebounding, acrobatics, and leaping attacks. | Tradition Book: Akashic Brotherhood, Revised | 66 |
-| Ten Thousand Weapons | Allows almost any handheld, thrown, or spat object to function as a weapon. | Tradition Book: Akashic Brotherhood, Revised | 66 |
+| Name | Roll | Difficulty | Damage | Actions | Page |
+|---|---|---|---|---|---|
+| Arrow Cutting | Dexterity + Do | 7 to deflect / 9 to catch | As Weapon | 1 | 428 |
+| Hurricane Throw | Dexterity + Do | 8 | Strength +3 + successes/B | 1 | 428-429 |
+| Iron Shirt | Adds Do Trait to soak roll | N/A | N/A | none | 429 |
+| Kiaijutsu / Iron Shout | Three application-specific rolls | 7 / target's Willpower +3 / 8 | N/A | 1 | 429 |
+| Plum Flower Blossom | Dexterity + Do | 6 | Leap attack gains +2 dice | 1; attack is separate | 429 |
+| Soft Fist / Jou Chuan / Redirection | Dexterity + Do | 7 | Attacker's Strength + weapon + excess successes | 1 | 429 |
+| Ten Thousand Weapons | Dexterity + Do | Per attack | Varies by object or weapon | 1 | 429 |
+| Typhoon Kick | Dexterity + Do | 8 | Strength +5 + successes; B or L | 1 | 430 |
+| Weapon Art | As per attack | Normal weapon difficulty -1 | As weapon; B may become L | N/A | 430 |
 
-## Legacy Do Maneuvers
+## Compatibility boundary
 
-Keep these separate from the Revised list.
-
-| Name | Description | Source | Page |
-|---|---|---|---|
-| Dim Mak | A pressure-point attack that can delay damage and may temporarily reduce a Physical Attribute. | World of Darkness: Combat | 38 |
-| Kongjin — Empty Force | Projects force through chi so a strike can land without direct contact. | World of Darkness: Combat | 38–39 |
-| San He | Coordinates body, mind, and spirit to channel internal force into exceptional physical performance. | World of Darkness: Combat | 39–40 |
+Older Revised-book and World of Darkness: Combat entries remain bundled only to
+resolve existing saved selections. They are labeled Legacy and are not offered
+by the default catalog. Unknown retired IDs are preserved the same way.
 
 ## Cross-References
 
-- Deflect/Catch Missiles → Arrow Cutting
-- Return Melee Attack → Jou Chuan — Soft Fist
-- Jou Shan → incorrect maneuver name; use Jou Chuan
-- The Final Blow → Rote, not a Do maneuver
+- Catching Bullets is a Mage Trick, not a Special Do Technique.
+- Peaceful Way and the Eight Limbs are optional/supporting rules, not catalog
+  techniques.
+- The Final Blow is a Rote, not a Do technique.
 
 ## The Final Blow
 

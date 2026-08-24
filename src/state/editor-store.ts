@@ -20,11 +20,13 @@ import { meritFlawById } from '../systems/mage-m20/reference/merits-flaws';
 import {
   combatManeuverById,
   doManeuverById,
+  getSpecialDoTechniqueAllowance,
 } from '../systems/mage-m20/reference/maneuvers';
 import { roteById } from '../systems/mage-m20/reference/rotes';
 import { wonderById } from '../systems/mage-m20/reference/wonders';
 import type {
   CustomCombatManeuver,
+  CustomDoTechniqueInput,
   FocusSelection,
   InstrumentSelection,
   KnownRote,
@@ -209,10 +211,26 @@ interface EditorState {
     >,
   ) => void;
   removeCustomCombatManeuver: (maneuverId: string) => void;
-  addDoManeuver: (definitionId?: string, customName?: string) => string | null;
+  addDoManeuver: (
+    definitionId?: string,
+    custom?: CustomDoTechniqueInput,
+  ) => string | null;
   updateDoManeuver: (
     selectionId: string,
-    update: Partial<Pick<SelectedDoManeuver, 'customName' | 'notes'>>,
+    update: Partial<
+      Pick<
+        SelectedDoManeuver,
+        | 'customName'
+        | 'customSummary'
+        | 'customRoll'
+        | 'customDifficulty'
+        | 'customDamage'
+        | 'customActions'
+        | 'customSourceTitle'
+        | 'customSourcePage'
+        | 'notes'
+      >
+    >,
   ) => void;
   removeDoManeuver: (selectionId: string) => void;
   undoManeuverRemoval: () => void;
@@ -1335,7 +1353,7 @@ export const useEditorStore = create<EditorState>((set) => ({
       };
     }),
 
-  addDoManeuver: (definitionId, customName) => {
+  addDoManeuver: (definitionId, custom) => {
     let addedId: string | null = null;
     set((state) => {
       if (!state.character) {
@@ -1344,22 +1362,46 @@ export const useEditorStore = create<EditorState>((set) => ({
       const definition = definitionId
         ? doManeuverById.get(definitionId)
         : undefined;
-      const name = customName?.trim();
-      if ((definitionId && !definition) || (!definition && !name)) {
+      const customValues = custom
+        ? (Object.fromEntries(
+            Object.entries(custom).map(([key, value]) => [key, value.trim()]),
+          ) as unknown as CustomDoTechniqueInput)
+        : undefined;
+      const selections =
+        state.character.repeatableEntries.maneuvers.selectedDoManeuvers;
+      const allowance = getSpecialDoTechniqueAllowance(
+        state.character.abilities.skills.do,
+      );
+      if (
+        selections.length >= allowance ||
+        (definitionId && (!definition || !definition.official)) ||
+        (!definition &&
+          (!customValues ||
+            Object.values(customValues).some((value) => !value)))
+      ) {
         return {};
       }
       if (
         definitionId &&
-        state.character.repeatableEntries.maneuvers.selectedDoManeuvers.some(
-          (selection) => selection.definitionId === definitionId,
-        )
+        selections.some((selection) => selection.definitionId === definitionId)
       ) {
         return {};
       }
       addedId = crypto.randomUUID();
       const selection: SelectedDoManeuver = {
         id: addedId,
-        ...(definitionId ? { definitionId } : { customName: name }),
+        ...(definitionId
+          ? { definitionId }
+          : {
+              customName: customValues?.name,
+              customSummary: customValues?.summary,
+              customRoll: customValues?.roll,
+              customDifficulty: customValues?.difficulty,
+              customDamage: customValues?.damage,
+              customActions: customValues?.actions,
+              customSourceTitle: customValues?.sourceTitle,
+              customSourcePage: customValues?.sourcePage,
+            }),
         notes: '',
         addedAt: new Date().toISOString(),
       };

@@ -98,7 +98,7 @@ export function getCharacterSectionSummaries(
         'custom reference',
       )} · ${countLabel(
         character.repeatableEntries.maneuvers.selectedDoManeuvers.length,
-        'known Do maneuver',
+        'Special Do Technique',
       )}`,
     },
     backgrounds: {

@@ -4,7 +4,9 @@ import {
   combatManeuverCatalogSchema,
   doManeuverCatalog,
   doManeuverCatalogSchema,
+  getSpecialDoTechniqueAllowance,
   matchesManeuverSearch,
+  officialDoTechniqueCatalog,
 } from '../../src/systems/mage-m20/reference/maneuvers';
 
 describe('Maneuver reference catalogs', () => {
@@ -32,16 +34,51 @@ describe('Maneuver reference catalogs', () => {
     );
   });
 
-  it('parses 12 Revised and 3 Legacy Do maneuvers without The Final Blow', () => {
+  it('parses exactly nine official M20 Special Do Techniques', () => {
     expect(doManeuverCatalogSchema.parse(doManeuverCatalog)).toEqual(
       doManeuverCatalog,
     );
     expect(
-      doManeuverCatalog.filter(({ version }) => version === 'revised'),
-    ).toHaveLength(12);
+      officialDoTechniqueCatalog.map(({ name, sourcePage }) => ({
+        name,
+        sourcePage,
+      })),
+    ).toEqual([
+      { name: 'Arrow Cutting', sourcePage: '428' },
+      { name: 'Hurricane Throw', sourcePage: '428-429' },
+      { name: 'Iron Shirt', sourcePage: '429' },
+      { name: 'Kiaijutsu', sourcePage: '429' },
+      { name: 'Plum Flower Blossom', sourcePage: '429' },
+      { name: 'Soft Fist', sourcePage: '429' },
+      { name: 'Ten Thousand Weapons', sourcePage: '429' },
+      { name: 'Typhoon Kick', sourcePage: '430' },
+      { name: 'Weapon Art', sourcePage: '430' },
+    ]);
     expect(
-      doManeuverCatalog.filter(({ version }) => version === 'legacy'),
-    ).toHaveLength(3);
+      officialDoTechniqueCatalog.every(
+        ({
+          roll,
+          difficulty,
+          damage,
+          actions,
+          category,
+          official,
+          legacy,
+          sourceTitle,
+          sourcePageStart,
+        }) =>
+          roll &&
+          difficulty &&
+          damage &&
+          actions &&
+          category === 'special-do-technique' &&
+          official &&
+          !legacy &&
+          sourceTitle === 'Mage: The Ascension 20th Anniversary Edition' &&
+          sourcePageStart >= 428,
+      ),
+    ).toBe(true);
+    expect(doManeuverCatalog.filter(({ legacy }) => legacy)).toHaveLength(9);
     expect(
       doManeuverCatalog.some(({ name }) => name === 'The Final Blow'),
     ).toBe(false);
@@ -54,8 +91,8 @@ describe('Maneuver reference catalogs', () => {
       ),
     ).toBe(true);
     expect(
-      doManeuverCatalog.every(
-        ({ source, page, citation }) => source && page && citation,
+      doManeuverCatalog.every(({ source, page, citation }) =>
+        Boolean(source && page && citation),
       ),
     ).toBe(true);
     expect(
@@ -65,8 +102,19 @@ describe('Maneuver reference catalogs', () => {
     ).toContain('combat-dodge');
     expect(
       doManeuverCatalog
-        .filter((entry) => matchesManeuverSearch(entry, 'pressure-point'))
+        .filter((entry) => matchesManeuverSearch(entry, 'Iron Shout'))
         .map(({ id }) => id),
-    ).toContain('do-dim-mak');
+    ).toContain('do-kiaijutsu');
+    expect(
+      doManeuverCatalog
+        .filter((entry) => matchesManeuverSearch(entry, 'Strength +5'))
+        .map(({ id }) => id),
+    ).toContain('do-typhoon-kick');
+  });
+
+  it('calculates the M20 allowance from Do', () => {
+    expect([0, 1, 2, 3, 4, 5].map(getSpecialDoTechniqueAllowance)).toEqual([
+      0, 0, 1, 2, 3, 4,
+    ]);
   });
 });

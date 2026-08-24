@@ -129,6 +129,19 @@ describe('character files', () => {
         notes: 'Uses a steel fan.',
         addedAt: '2026-07-01T12:00:00.000Z',
       });
+      source.repeatableEntries.maneuvers.selectedDoManeuvers.push({
+        id: '8e17d875-5c56-4eab-9933-a7948bb10a6a',
+        customName: 'Falling Leaf',
+        customSummary: 'Yield and redirect.',
+        customRoll: 'Dexterity + Do',
+        customDifficulty: '7',
+        customDamage: 'N/A',
+        customActions: '1',
+        customSourceTitle: 'Custom',
+        customSourcePage: 'House rule',
+        notes: '',
+        addedAt: '2026-07-01T12:00:00.000Z',
+      });
       localStorage.setItem(
         `arcane-ledger:section-preferences:${source.id}`,
         JSON.stringify({
@@ -200,6 +213,13 @@ describe('character files', () => {
           {
             definitionId: 'do-arrow-cutting',
             notes: 'Uses a steel fan.',
+          },
+          {
+            customName: 'Falling Leaf',
+            customRoll: 'Dexterity + Do',
+            customDifficulty: '7',
+            customDamage: 'N/A',
+            customActions: '1',
           },
         ],
       });
