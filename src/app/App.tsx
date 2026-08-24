@@ -8,6 +8,9 @@ import { CreateCharacterPage } from './CreateCharacterPage';
 import { navigate, parseRoute } from './routing';
 import { SettingsPage } from './SettingsPage';
 import { useAppearance } from '../features/settings/appearance-context';
+import { ModuleRegistry } from '../modules/registry/module-registry';
+import { moduleRepository } from '../storage/repository-instance';
+import { calculateModuleChecksum } from '../modules/interchange/module-files';
 
 export function App({
   repository = storedCharacterRepository,
@@ -18,6 +21,8 @@ export function App({
     parseRoute(window.location.pathname),
   );
   const { setActiveCharacterId } = useAppearance();
+  const [moduleRegistry] = useState(() => new ModuleRegistry());
+  const [, setModuleRevision] = useState(0);
 
   useEffect(() => {
     const update = () => setRoute(parseRoute(window.location.pathname));
@@ -31,10 +36,48 @@ export function App({
     setActiveCharacterId(route.name === 'character' ? route.id : null);
   }, [route, setActiveCharacterId]);
 
+  useEffect(() => {
+    let active = true;
+    void Promise.all([
+      moduleRepository.listPackages(),
+      moduleRepository.listLocks(),
+    ])
+      .then(async ([packages, locks]) => {
+        if (!active) return;
+        const verifiedPackages = (
+          await Promise.all(
+            packages.map(async (record) => ({
+              record,
+              valid:
+                (await calculateModuleChecksum(record.envelope)) ===
+                record.checksum,
+            })),
+          )
+        )
+          .filter(({ valid }) => valid)
+          .map(({ record }) => record);
+        if (!active) return;
+        moduleRegistry.replaceInstalled(verifiedPackages, locks);
+        setModuleRevision((value) => value + 1);
+      })
+      .catch(() => {
+        // Existing legacy sheets remain available if the module library fails.
+      });
+    return () => {
+      active = false;
+    };
+  }, [moduleRegistry]);
+
   const go = (path: string) => navigate(path);
 
   if (route.name === 'home') {
-    return <ArcaneRecordLibrary repository={repository} onNavigate={go} />;
+    return (
+      <ArcaneRecordLibrary
+        repository={repository}
+        moduleRegistry={moduleRegistry}
+        onNavigate={go}
+      />
+    );
   }
   if (route.name === 'create') {
     return (
@@ -51,6 +94,7 @@ export function App({
       <CharacterPage
         id={route.id}
         registry={gameSystemRegistry}
+        moduleRegistry={moduleRegistry}
         repository={repository}
         onNavigate={go}
       />

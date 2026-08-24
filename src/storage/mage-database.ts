@@ -1,4 +1,4 @@
-import Dexie, { type EntityTable } from 'dexie';
+import Dexie, { type EntityTable, type Table } from 'dexie';
 import {
   MAGE20_SYSTEM_ID,
   migrateLegacyMageRecord,
@@ -9,6 +9,12 @@ import {
   storedCharacterSchema,
   type StoredCharacter,
 } from './stored-character';
+import type {
+  ModuleDraftRecord,
+  ModuleInstallationRecord,
+  ModuleLockRecord,
+  ModulePackageRecord,
+} from '../modules/repository/module-records';
 
 function replaceRecord(
   target: Record<string, unknown>,
@@ -73,6 +79,10 @@ function preserveAsEnvelope(input: unknown): StoredCharacter {
 
 export class MageDatabase extends Dexie {
   characters!: EntityTable<StoredCharacter, 'id'>;
+  modulePackages!: Table<ModulePackageRecord, [string, string]>;
+  moduleInstallations!: EntityTable<ModuleInstallationRecord, 'moduleId'>;
+  moduleDrafts!: EntityTable<ModuleDraftRecord, 'id'>;
+  moduleLocks!: EntityTable<ModuleLockRecord, 'id'>;
 
   constructor(name = 'arcane-ledger') {
     super(name);
@@ -142,6 +152,14 @@ export class MageDatabase extends Dexie {
             );
           }),
       );
+    this.version(11).stores({
+      characters: 'id, systemId, updatedAt, createdAt, name',
+      modulePackages:
+        '[moduleId+moduleVersion], moduleId, moduleVersion, origin, installedAt',
+      moduleInstallations: 'moduleId, activeVersion, origin, updatedAt',
+      moduleDrafts: 'id, moduleId, updatedAt',
+      moduleLocks: 'id, moduleId, moduleVersion, createdAt',
+    });
   }
 }
 

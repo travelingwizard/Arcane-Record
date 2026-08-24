@@ -7,6 +7,10 @@ not by visual appeal. No phase begins without explicit approval of that phase.
 An item is complete only when its acceptance criteria and required tests pass;
 a placeholder is labeled as such.
 
+Phase 1 was implemented locally on 2026-08-24. Its synthetic-fixture runtime,
+repository, interchange, coexistence, and recovery scope is recorded in
+`phase-1-runtime.md`. Production game conversion remains unstarted.
+
 Priority labels:
 
 - **P0** blocks safe runtime work or data compatibility.

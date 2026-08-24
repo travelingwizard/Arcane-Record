@@ -1673,6 +1673,27 @@
   gap: 1rem 1.5rem;
 }
 
+.module-character-editor .identity-grid {
+  align-items: start;
+}
+
+.module-component {
+  min-width: 0;
+}
+
+.module-component--full {
+  grid-column: 1 / -1;
+}
+
+.module-component--half {
+  grid-column: span 2;
+}
+
+.module-component--content {
+  width: fit-content;
+  max-width: 100%;
+}
+
 .line-field {
   min-width: 0;
   display: grid;

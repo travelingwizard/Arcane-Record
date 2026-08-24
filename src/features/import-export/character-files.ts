@@ -9,6 +9,11 @@ import { migrateMageCharacter } from '../../systems/mage-m20/character-schema';
 import { MAGE_SYSTEM_ID } from '../../systems/mage-m20/definitions';
 import type { StoredCharacter } from '../../storage/stored-character';
 import type { MageCharacter } from '../../types/character';
+import type { ModuleRegistry } from '../../modules/registry/module-registry';
+import {
+  ARCANE_MODULE_SYSTEM_ID,
+  characterModuleRefSchema,
+} from '../../storage/stored-character';
 
 export type CharacterFileFormat = 'json' | 'yaml';
 
@@ -24,6 +29,24 @@ const characterFileSchema = z.object({
   character: z.unknown(),
 });
 
+const moduleCharacterFileSchema = z.strictObject({
+  format: z.literal('arcane-record-character'),
+  formatVersion: z.literal(2),
+  systemId: z.literal(ARCANE_MODULE_SYSTEM_ID),
+  systemVersion: z.number().int().nonnegative(),
+  id: z.string().min(1),
+  name: z.string(),
+  createdAt: z.string().datetime(),
+  updatedAt: z.string().datetime(),
+  moduleRef: characterModuleRefSchema,
+  character: z.unknown(),
+});
+
+const supportedCharacterFileSchema = z.discriminatedUnion('formatVersion', [
+  characterFileSchema,
+  moduleCharacterFileSchema,
+]);
+
 function asStoredCharacter(
   character: StoredCharacter | MageCharacter,
 ): StoredCharacter {
@@ -31,6 +54,20 @@ function asStoredCharacter(
 }
 
 function toFileEnvelope(record: StoredCharacter) {
+  if (record.moduleRef) {
+    return {
+      format: 'arcane-record-character' as const,
+      formatVersion: 2 as const,
+      systemId: record.systemId,
+      systemVersion: record.systemVersion,
+      id: record.id,
+      name: record.name,
+      createdAt: record.createdAt,
+      updatedAt: record.updatedAt,
+      moduleRef: record.moduleRef,
+      character: record.data,
+    };
+  }
   return {
     format: 'arcane-record-character' as const,
     formatVersion: 1 as const,
@@ -48,7 +85,7 @@ export function serializeCharacter(
   character: StoredCharacter | MageCharacter,
   format: CharacterFileFormat,
 ) {
-  const envelope = characterFileSchema.parse(
+  const envelope = supportedCharacterFileSchema.parse(
     toFileEnvelope(asStoredCharacter(character)),
   );
   return format === 'json'
@@ -102,13 +139,48 @@ export function prepareImportedRecord(
   fileName: string,
   registry: GameSystemRegistry,
   now = new Date(),
-  id = crypto.randomUUID(),
+  id: string = crypto.randomUUID(),
+  moduleRegistry?: ModuleRegistry,
 ): StoredCharacter {
   const parsed = parseContents(contents, fileName);
   const timestamp = now.toISOString();
-  const envelope = characterFileSchema.safeParse(parsed);
+  const envelope = supportedCharacterFileSchema.safeParse(parsed);
 
   if (envelope.success) {
+    if (envelope.data.formatVersion === 2) {
+      const installed = moduleRegistry?.get(
+        envelope.data.moduleRef.moduleId,
+        envelope.data.moduleRef.moduleVersion,
+      );
+      if (installed && moduleRegistry) {
+        const resolved = moduleRegistry.resolve(
+          envelope.data.moduleRef.moduleId,
+          envelope.data.moduleRef.moduleVersion,
+          envelope.data.moduleRef.gameNodeId,
+          envelope.data.moduleRef.sheetTemplateId,
+          envelope.data.moduleRef.sheetTemplateVersion,
+        );
+        resolved.characterSchema.parse(envelope.data.character);
+      }
+      const localLock = moduleRegistry?.findCompatibleLock(
+        envelope.data.moduleRef.moduleId,
+        envelope.data.moduleRef.moduleVersion,
+      );
+      return {
+        id,
+        systemId: envelope.data.systemId,
+        systemVersion: envelope.data.systemVersion,
+        name: `${envelope.data.name || 'Untitled character'} (Imported)`,
+        createdAt: timestamp,
+        updatedAt: timestamp,
+        moduleRef: {
+          ...envelope.data.moduleRef,
+          dependencyLockId:
+            localLock?.id ?? envelope.data.moduleRef.dependencyLockId,
+        },
+        data: structuredClone(envelope.data.character),
+      };
+    }
     const system = registry.get(envelope.data.systemId);
     if (!system) {
       throw new Error(
@@ -178,8 +250,11 @@ export function prepareImportedCharacter(
   id = crypto.randomUUID(),
 ): MageCharacter {
   const parsed = parseContents(contents, fileName);
-  const envelope = characterFileSchema.safeParse(parsed);
+  const envelope = supportedCharacterFileSchema.safeParse(parsed);
   if (envelope.success) {
+    if (envelope.data.formatVersion === 2) {
+      throw new Error('The file is not a legacy Mage character.');
+    }
     const record: StoredCharacter = {
       id,
       systemId: envelope.data.systemId,

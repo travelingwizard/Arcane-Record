@@ -11,6 +11,14 @@ adapters, its editor component, section and section-group metadata, and
 optional appearance metadata. Editors consume the shared left-rail/mobile
 navigation and pencil-order controls with those game-owned definitions.
 
+Phase 1 adds a declarative `ModuleRegistry` beside this code registry. A
+character with `moduleRef` resolves its exact installed package, game node,
+sheet template, and dependency lock through the module interpreter; a character
+without it follows the existing `GameSystemRegistry` path. The shared character
+page handles both and preserves unavailable module records. The production
+Mage, Exalted, and Burning Wheel definitions remain code-owned until their
+individual parity phases pass.
+
 Definitions may also provide an optional system-specific legacy file adapter.
 The shared import boundary invokes that adapter without inspecting or branching
 on the game's payload. Burning Wheel uses this hook for Charred Black `.char`
@@ -40,6 +48,11 @@ Recognized rows first pass through the complete existing Mage migration chain.
 Already wrapped rows are unchanged. Rows that cannot be validated are wrapped
 without deleting their raw content; the character page offers raw JSON export
 instead of trying to open them.
+
+Database version 11 adds module package, installation, draft, and dependency-
+lock tables. It does not rewrite existing character rows. Module-backed
+character files use envelope format version 2; legacy format version 1 remains
+supported.
 
 ## Preference scopes
 

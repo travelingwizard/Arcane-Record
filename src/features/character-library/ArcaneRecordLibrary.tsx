@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { gameSystemRegistry } from '../../games/registry';
 import { resolveCharacter } from '../../games/resolve-character';
 import type { StoredCharacter } from '../../storage/stored-character';
@@ -9,6 +9,7 @@ import {
   serializeCharacter,
 } from '../import-export/character-files';
 import { useAppearance } from '../settings/appearance-context';
+import type { ModuleRegistry } from '../../modules/registry/module-registry';
 
 function formatUpdatedAt(timestamp: string) {
   return new Intl.DateTimeFormat(undefined, {
@@ -31,9 +32,11 @@ function downloadRecord(record: StoredCharacter) {
 
 export function ArcaneRecordLibrary({
   repository,
+  moduleRegistry,
   onNavigate,
 }: {
   repository: StoredCharacterRepository;
+  moduleRegistry: ModuleRegistry;
   onNavigate: (path: string) => void;
 }) {
   const { removeCharacterOverride } = useAppearance();
@@ -60,9 +63,8 @@ export function ArcaneRecordLibrary({
 
   useEffect(() => void refresh(), [refresh]);
 
-  const resolvedRecords = useMemo(
-    () => records.map((record) => resolveCharacter(record, gameSystemRegistry)),
-    [records],
+  const resolvedRecords = records.map((record) =>
+    resolveCharacter(record, gameSystemRegistry, moduleRegistry),
   );
   const filtered = resolvedRecords.filter((result) => {
     if (systemFilter !== 'all' && result.record.systemId !== systemFilter) {
@@ -82,7 +84,7 @@ export function ArcaneRecordLibrary({
   });
 
   const duplicate = async (record: StoredCharacter) => {
-    const result = resolveCharacter(record, gameSystemRegistry);
+    const result = resolveCharacter(record, gameSystemRegistry, moduleRegistry);
     if (result.status !== 'available') return;
     const timestamp = new Date().toISOString();
     const data = result.system.duplicateCharacter(result.character);
@@ -99,12 +101,15 @@ export function ArcaneRecordLibrary({
   };
 
   const rename = async (record: StoredCharacter) => {
-    const result = resolveCharacter(record, gameSystemRegistry);
+    const result = resolveCharacter(record, gameSystemRegistry, moduleRegistry);
     if (result.status !== 'available') return;
     const data = result.system.renameCharacter(result.character, renameValue);
     await repository.save({
       ...record,
-      name: result.system.getDisplayName(data),
+      name:
+        result.interpreter === 'module'
+          ? renameValue
+          : result.system.getDisplayName(data),
       data,
       systemVersion: result.system.currentSchemaVersion,
     });
@@ -118,6 +123,9 @@ export function ArcaneRecordLibrary({
         await file.text(),
         file.name,
         gameSystemRegistry,
+        undefined,
+        undefined,
+        moduleRegistry,
       );
       await repository.create(record);
       onNavigate(`/characters/${encodeURIComponent(record.id)}`);
@@ -197,8 +205,9 @@ export function ArcaneRecordLibrary({
                 >
                   <strong>{displayName}</strong>
                   <small>
-                    {gameSystemRegistry.get(result.record.systemId)
-                      ?.shortName ?? 'Unavailable game'}
+                    {result.status === 'available'
+                      ? result.system.shortName
+                      : 'Unavailable game'}
                   </small>
                 </button>
               );
@@ -259,7 +268,6 @@ export function ArcaneRecordLibrary({
           <div className="character-grid">
             {filtered.map((result) => {
               const record = result.record;
-              const system = gameSystemRegistry.get(record.systemId);
               const displayName =
                 result.status === 'available'
                   ? result.system.getDisplayName(result.character)
@@ -286,8 +294,9 @@ export function ArcaneRecordLibrary({
                     <span className="character-card__copy">
                       <strong>{displayName}</strong>
                       <small>
-                        {system?.shortName ??
-                          `Unavailable · ${record.systemId}`}
+                        {result.status === 'available'
+                          ? result.system.shortName
+                          : `Unavailable · ${record.systemId}`}
                       </small>
                       <small>{summary}</small>
                     </span>

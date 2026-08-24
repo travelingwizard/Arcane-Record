@@ -8,6 +8,8 @@ import {
   serializeCharacter,
 } from '../features/import-export/character-files';
 import { useAppearance } from '../features/settings/appearance-context';
+import type { ModuleRegistry } from '../modules/registry/module-registry';
+import { ModuleCharacterEditor } from '../modules/renderer/ModuleCharacterEditor';
 
 function downloadRawRecord(record: StoredCharacter) {
   const blob = new Blob([serializeCharacter(record, 'json')], {
@@ -24,11 +26,13 @@ function downloadRawRecord(record: StoredCharacter) {
 export function CharacterPage({
   id,
   registry,
+  moduleRegistry,
   repository,
   onNavigate,
 }: {
   id: string;
   registry: GameSystemRegistry;
+  moduleRegistry: ModuleRegistry;
   repository: StoredCharacterRepository;
   onNavigate: (path: string) => void;
 }) {
@@ -74,7 +78,7 @@ export function CharacterPage({
     );
   }
 
-  const result = resolveCharacter(record, registry);
+  const result = resolveCharacter(record, registry, moduleRegistry);
   if (result.status !== 'available') {
     return (
       <main className="app-shell neutral-shell error-shell">
@@ -121,6 +125,23 @@ export function CharacterPage({
           )}
         </div>
       </main>
+    );
+  }
+
+  if (result.interpreter === 'module') {
+    return (
+      <ModuleCharacterEditor
+        record={record}
+        resolved={result.resolved}
+        repository={repository}
+        onBack={async () => onNavigate('/')}
+        onRecordChanged={(nextRecord) => {
+          setRecord(nextRecord);
+          if (nextRecord.id !== id) {
+            onNavigate(`/characters/${encodeURIComponent(nextRecord.id)}`);
+          }
+        }}
+      />
     );
   }
 

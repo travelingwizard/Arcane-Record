@@ -4,6 +4,18 @@ IndexedDB stores a game-neutral `StoredCharacter` envelope with shared ID,
 name, timestamps, registered `systemId`, integer `systemVersion`, and opaque
 game-owned `data`. The shared repository never reads Mage fields.
 
+Database version 11 adds a separate local module repository without rewriting
+the existing `characters` table. Immutable module packages use a compound
+module-ID/version key; installation records select active versions; module
+drafts and exact dependency locks have their own tables. UI components continue
+to access persistence only through repository interfaces.
+
+Module-rendered characters add an optional `moduleRef` to the stored envelope.
+It records the exact module/version, game node, sheet template and template
+version, dependency-lock UUID, and enabled overlay references. Legacy
+characters omit this field and continue through the code-owned game registry.
+Missing modules preserve the opaque character data and remain raw-exportable.
+
 The Mage adapter hydrates its editor model from that envelope. The existing
 Mage editor model contains:
 
@@ -92,6 +104,11 @@ schema version. It is stored in `localStorage` under
 array of registered section IDs. Unknown future or removed IDs are ignored.
 Active-section tracking is transient. Neither expansion nor active-section
 state enters IndexedDB character records, JSON exports, or YAML exports.
+
+Legacy character files remain envelope format version 1. Module-backed files
+use format version 2 so they can include `moduleRef`; both versions contain only
+character-owned data. Module catalogs, components, citations, and preferences
+remain outside normal character files.
 
 Global shell appearance uses `arcane-record:global-preferences`. Cross-game
 sheet defaults and character-ID appearance overrides use the versioned
