@@ -98,32 +98,62 @@ function validateComponentPath(
   template: SheetTemplateDefinition,
   componentIndex: number,
 ): ModuleDiagnostic[] {
-  if (!('dataPath' in component)) return [];
-  const target = schemaAtPath(template.characterSchema, component.dataPath);
-  const path = `/reusableComponents/${componentIndex}/dataPath`;
-  if (!target) {
-    return [
-      {
-        code: 'unknown-data-path',
-        severity: 'error',
-        path,
-        message: `Data path “${dataPathKey(component.dataPath)}” is not declared by sheet “${template.id}”.`,
-        relatedIds: [component.id, template.id],
-      },
-    ];
+  const paths: Array<{
+    dataPath: DataPath;
+    expected: 'string' | 'integer';
+    suffix: string;
+  }> = [];
+  if ('dataPath' in component) {
+    paths.push({
+      dataPath: component.dataPath,
+      expected: component.type === 'text' ? 'string' : 'integer',
+      suffix: 'dataPath',
+    });
+  } else if (component.type === 'field-grid') {
+    component.fields.forEach((field, index) =>
+      paths.push({
+        dataPath: field.dataPath,
+        expected: 'string',
+        suffix: `fields/${index}/dataPath`,
+      }),
+    );
+  } else if (component.type === 'grouped-dot-ratings') {
+    component.groups.forEach((group, groupIndex) =>
+      group.ratings.forEach((rating, ratingIndex) =>
+        paths.push({
+          dataPath: rating.dataPath,
+          expected: 'integer',
+          suffix: `groups/${groupIndex}/ratings/${ratingIndex}/dataPath`,
+        }),
+      ),
+    );
   }
-  const expected = component.type === 'text' ? 'string' : 'integer';
-  return target.type === expected
-    ? []
-    : [
+  return paths.flatMap(({ dataPath, expected, suffix }) => {
+    const target = schemaAtPath(template.characterSchema, dataPath);
+    const path = `/reusableComponents/${componentIndex}/${suffix}`;
+    if (!target) {
+      return [
         {
-          code: 'component-path-type',
-          severity: 'error',
+          code: 'unknown-data-path',
+          severity: 'error' as const,
           path,
-          message: `Component “${component.id}” requires ${expected} data, but its path resolves to ${target.type}.`,
+          message: `Data path “${dataPathKey(dataPath)}” is not declared by sheet “${template.id}”.`,
           relatedIds: [component.id, template.id],
         },
       ];
+    }
+    return target.type === expected
+      ? []
+      : [
+          {
+            code: 'component-path-type',
+            severity: 'error' as const,
+            path,
+            message: `Component “${component.id}” requires ${expected} data, but its path resolves to ${target.type}.`,
+            relatedIds: [component.id, template.id],
+          },
+        ];
+  });
 }
 
 function conditionPaths(condition: ModuleCondition | undefined): DataPath[] {
@@ -309,15 +339,14 @@ export function validateModuleEnvelope(input: unknown): ArcaneModuleEnvelope {
         });
       }
     }
-    if (template.groupOrderPath) {
-      const target = schemaAtPath(
-        template.characterSchema,
-        template.groupOrderPath,
-      );
-      const defaultOrder = readDataPath(
-        template.defaults,
-        template.groupOrderPath,
-      );
+    for (const [orderMode, orderPath] of [
+      ...(template.groupOrderPath
+        ? ([['default', template.groupOrderPath]] as const)
+        : []),
+      ...Object.entries(template.groupOrderPaths),
+    ]) {
+      const target = schemaAtPath(template.characterSchema, orderPath);
+      const defaultOrder = readDataPath(template.defaults, orderPath);
       if (
         target?.type !== 'array' ||
         !Array.isArray(defaultOrder) ||
@@ -330,8 +359,18 @@ export function validateModuleEnvelope(input: unknown): ArcaneModuleEnvelope {
         diagnostics.push({
           code: 'invalid-group-order-path',
           severity: 'error',
-          path: `/sheetTemplates/${templateIndex}/groupOrderPath`,
-          message: `Sheet “${template.id}” group-order path must contain every navigation group exactly once.`,
+          path: `/sheetTemplates/${templateIndex}/groupOrderPaths/${orderMode}`,
+          message: `Sheet “${template.id}” ${orderMode} group-order path must contain every navigation group exactly once.`,
+        });
+      }
+    }
+    for (const modeId of Object.keys(template.groupOrderPaths)) {
+      if (!modeIds.has(modeId)) {
+        diagnostics.push({
+          code: 'unknown-group-order-mode',
+          severity: 'error',
+          path: `/sheetTemplates/${templateIndex}/groupOrderPaths/${modeId}`,
+          message: `Group order is configured for undeclared mode “${modeId}”.`,
         });
       }
     }
@@ -388,6 +427,37 @@ export function validateModuleEnvelope(input: unknown): ArcaneModuleEnvelope {
           diagnostics.push(
             ...validateComponentPath(entry.component, template, entry.index),
           );
+        }
+      }
+      const summaryPaths = section.summary
+        ? section.summary.type === 'fields'
+          ? section.summary.paths.map((dataPath) => ({
+              dataPath,
+              expected: 'string',
+            }))
+          : section.summary.type === 'field-slots'
+            ? section.summary.slots.flatMap((slot) =>
+                slot.paths.map((dataPath) => ({
+                  dataPath,
+                  expected: 'string',
+                })),
+              )
+            : section.summary.groups.flatMap((group) =>
+                group.paths.map((dataPath) => ({
+                  dataPath,
+                  expected: 'integer',
+                })),
+              )
+        : [];
+      for (const { dataPath, expected } of summaryPaths) {
+        const target = schemaAtPath(template.characterSchema, dataPath);
+        if (!target || target.type !== expected) {
+          diagnostics.push({
+            code: 'invalid-section-summary-path',
+            severity: 'error',
+            path: `/sheetTemplates/${templateIndex}/sections/${section.id}/summary`,
+            message: `Section “${section.id}” summary path “${dataPathKey(dataPath)}” must resolve to ${expected} data.`,
+          });
         }
       }
     }

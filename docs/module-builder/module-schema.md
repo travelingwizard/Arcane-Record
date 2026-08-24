@@ -102,6 +102,9 @@ interface SheetTemplateDefinition {
   characterSchema: CharacterSchemaDefinition;
   defaults: JsonObject;
   modes: SheetModeDefinition[];
+  modePath?: DataPath;
+  groupOrderPath?: DataPath;
+  groupOrderPaths?: Record<string, DataPath>;
   navigationGroups: NavigationGroupDefinition[];
   sections: SectionDefinition[];
   componentIds: string[];
@@ -114,6 +117,9 @@ interface SheetTemplateDefinition {
 A package has one node with `parentId: null`. Parent references must remain
 inside the package in Phase 1. Sheets may target the root or any descendant.
 Order affects display only; identity never depends on it.
+Templates may store one group order or a distinct order for each declared mode.
+Section summaries use core-owned field-slot, rating-total, or rated-count
+strategies; they cannot execute arbitrary formulas.
 
 Child additions merge by kind. An override names an exact inherited target,
 lists permitted changed fields, and contains its replacement fragment. It

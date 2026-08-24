@@ -85,6 +85,8 @@ scroll check.
 | `select`                     | scalar enum/reference                          | Native or core combobox based on size.                                        |
 | `multi-select`               | array of unique values                         | Removable tokens and searchable list; count validation.                       |
 | `dot-rating`                 | integer bounds, optional zero, readonly mode   | Existing keyboard/pointer semantics; integers persisted.                      |
+| `field-grid`                 | labeled string paths and semantic column count | Core responsive grid; labels and values remain accessible at 320 pixels.      |
+| `grouped-dot-ratings`        | labeled groups of bounded integer paths        | Shared Attribute/Ability layouts with Build/Play locking and mobile stacking. |
 | `permanent-temporary-rating` | two integer paths and ordering constraints     | Separate accessible labels; boxes/dots are display options.                   |
 | `resource-counter`           | integer/number plus min/max                    | Explicit increment/decrement and direct entry policy.                         |
 | `resource-track`             | rating plus bounded cells/states               | Core-defined states, labels, and readonly mode.                               |

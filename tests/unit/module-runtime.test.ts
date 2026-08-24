@@ -78,13 +78,15 @@ describe('Arcane module runtime', () => {
     ).toThrow(ModuleValidationError);
   });
 
-  it('registers only the Phase 1 safe component types', () => {
+  it('registers only the approved safe component types', () => {
     expect(coreModuleComponentRegistry.list().map(({ type }) => type)).toEqual([
       'heading',
       'static-text',
       'text',
       'number',
       'dot-rating',
+      'field-grid',
+      'grouped-dot-ratings',
       'validation-summary',
     ]);
   });

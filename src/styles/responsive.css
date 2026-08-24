@@ -178,6 +178,11 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .module-field-grid,
+  .module-field-grid[data-columns] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .attribute-groups {
     grid-template-columns: 1fr;
   }
@@ -276,6 +281,13 @@
 
   .appearance-live-preview__heading > p {
     text-align: left;
+  }
+}
+
+@media (max-width: 23rem) {
+  .module-field-grid,
+  .module-field-grid[data-columns] {
+    grid-template-columns: 1fr;
   }
 }
 

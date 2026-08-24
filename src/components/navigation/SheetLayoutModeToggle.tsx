@@ -3,9 +3,11 @@ import type { SheetLayoutMode } from '../../systems/mage-m20/character-sections'
 export function SheetLayoutModeToggle({
   mode,
   onModeChange,
+  playModeNote = 'Build-only ratings are view-only in Play mode.',
 }: {
   mode: SheetLayoutMode;
   onModeChange: (mode: SheetLayoutMode) => void;
+  playModeNote?: string;
 }) {
   const playMode = mode === 'play';
 
@@ -26,8 +28,7 @@ export function SheetLayoutModeToggle({
       </label>
       {playMode ? (
         <p className="sheet-layout-mode-note" role="status">
-          Build ratings are view-only. Health, Temporary Willpower,
-          Quintessence, Paradox, and Equipment remain editable.
+          {playModeNote}
         </p>
       ) : null}
     </div>

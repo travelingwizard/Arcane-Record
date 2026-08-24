@@ -87,7 +87,7 @@ test('opens, edits, persists, and navigates a module-rendered character', async 
   await expect(
     page.getByRole('button', { name: 'Set Resolve to 4' }),
   ).toHaveAttribute('aria-pressed', 'true');
-  await page.getByLabel('Sheet mode').selectOption('play');
+  await page.getByRole('switch').click();
   await expect(
     page.getByRole('button', { name: 'Set Resolve to 5' }),
   ).toBeDisabled();

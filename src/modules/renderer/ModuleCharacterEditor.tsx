@@ -6,6 +6,7 @@ import { CharacterSectionNav } from '../../components/navigation/CharacterSectio
 import { CharacterSectionProvider } from '../../components/navigation/CharacterSectionProvider';
 import { MobileSectionNavigator } from '../../components/navigation/MobileSectionNavigator';
 import { moveOrderedId } from '../../components/navigation/sheet-navigation';
+import { SheetLayoutModeToggle } from '../../components/navigation/SheetLayoutModeToggle';
 import { useActiveSheetSection } from '../../features/character-editor/use-active-sheet-section';
 import { useMediaQuery } from '../../features/character-editor/use-media-query';
 import { useSheetSectionNavigation } from '../../features/character-editor/use-sheet-section-navigation';
@@ -18,6 +19,7 @@ import type { ResolvedModuleSheet } from '../registry/module-registry';
 import { readDataPath, writeDataPath } from '../schema/data-path';
 import { coreModuleComponentRegistry } from './component-registry';
 import { evaluateModuleCondition } from './module-conditions';
+import { resolveSectionSummary } from './section-summary';
 
 const AUTOSAVE_DELAY_MS = 550;
 
@@ -131,8 +133,18 @@ export function ModuleCharacterEditor({
     [template.navigationGroups],
   );
   const defaultGroupOrder = useMemo(() => groups.map(({ id }) => id), [groups]);
-  const savedGroupOrder = template.groupOrderPath
-    ? readDataPath(data, template.groupOrderPath)
+  const savedMode = template.modePath
+    ? readDataPath(data, template.modePath)
+    : undefined;
+  const mode =
+    typeof savedMode === 'string' &&
+    template.modes.some(({ id }) => id === savedMode)
+      ? savedMode
+      : template.defaultModeId;
+  const activeGroupOrderPath =
+    template.groupOrderPaths[mode] ?? template.groupOrderPath;
+  const savedGroupOrder = activeGroupOrderPath
+    ? readDataPath(data, activeGroupOrderPath)
     : undefined;
   const groupOrder =
     Array.isArray(savedGroupOrder) &&
@@ -142,14 +154,6 @@ export function ModuleCharacterEditor({
     )
       ? (savedGroupOrder as string[])
       : defaultGroupOrder;
-  const savedMode = template.modePath
-    ? readDataPath(data, template.modePath)
-    : undefined;
-  const mode =
-    typeof savedMode === 'string' &&
-    template.modes.some(({ id }) => id === savedMode)
-      ? savedMode
-      : template.defaultModeId;
   const isNarrowLayout = useMediaQuery('(max-width: 69.999rem)');
   const { activeSection, setActiveSection } = useActiveSheetSection(
     sections,
@@ -234,22 +238,31 @@ export function ModuleCharacterEditor({
   const summaries = useMemo(
     () =>
       Object.fromEntries(
-        sections.map((section) => [section.id, { primary: section.label }]),
+        orderedTemplateSections.map((section) => [
+          section.id,
+          {
+            primary: resolveSectionSummary(
+              section.summary,
+              data,
+              section.label,
+            ),
+          },
+        ]),
       ),
-    [sections],
+    [data, orderedTemplateSections],
   );
   const moveGroup = useCallback(
     (groupId: string, direction: 'earlier' | 'later') => {
-      if (!template.groupOrderPath) return;
+      if (!activeGroupOrderPath) return;
       updateData((draft) =>
         writeDataPath(
           draft,
-          template.groupOrderPath!,
+          activeGroupOrderPath,
           moveOrderedId(groupOrder, groupId, direction),
         ),
       );
     },
-    [groupOrder, template.groupOrderPath, updateData],
+    [activeGroupOrderPath, groupOrder, updateData],
   );
   const sectionContext = useMemo(
     () => ({
@@ -301,29 +314,43 @@ export function ModuleCharacterEditor({
         </header>
 
         {template.modes.length > 1 && template.modePath ? (
-          <div className="sheet-layout-mode-control">
-            <label className="line-field">
-              <span>Sheet mode</span>
-              <select
-                value={mode}
-                onChange={(event) =>
-                  updateData((draft) =>
-                    writeDataPath(
-                      draft,
-                      template.modePath!,
-                      event.target.value,
-                    ),
-                  )
-                }
-              >
-                {template.modes.map((entry) => (
-                  <option value={entry.id} key={entry.id}>
-                    {entry.label}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
+          template.modes.length === 2 &&
+          template.modes[0]?.id === 'build' &&
+          template.modes[1]?.id === 'play' ? (
+            <SheetLayoutModeToggle
+              mode={mode as 'build' | 'play'}
+              playModeNote={template.playModeNote}
+              onModeChange={(nextMode) =>
+                updateData((draft) =>
+                  writeDataPath(draft, template.modePath!, nextMode),
+                )
+              }
+            />
+          ) : (
+            <div className="sheet-layout-mode-control">
+              <label className="line-field">
+                <span>Sheet mode</span>
+                <select
+                  value={mode}
+                  onChange={(event) =>
+                    updateData((draft) =>
+                      writeDataPath(
+                        draft,
+                        template.modePath!,
+                        event.target.value,
+                      ),
+                    )
+                  }
+                >
+                  {template.modes.map((entry) => (
+                    <option value={entry.id} key={entry.id}>
+                      {entry.label}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+          )
         ) : null}
 
         <MobileSectionNavigator />
@@ -367,6 +394,7 @@ export function ModuleCharacterEditor({
                         {entry.render({
                           component,
                           value,
+                          data,
                           readOnly:
                             behavior !== 'edit' ||
                             !evaluateModuleCondition(
@@ -384,6 +412,10 @@ export function ModuleCharacterEditor({
                               ),
                             );
                           },
+                          onPathChange: (path, nextValue) =>
+                            updateData((draft) =>
+                              writeDataPath(draft, path, nextValue),
+                            ),
                         })}
                       </div>
                     );

@@ -174,6 +174,7 @@ function CharacterEditorContent({
         <SheetLayoutModeToggle
           mode={character.sheetLayout.mode}
           onModeChange={setSheetLayoutMode}
+          playModeNote="Build ratings are view-only. Health, Temporary Willpower, Quintessence, Paradox, and Equipment remain editable."
         />
 
         <MobileSectionNavigator />

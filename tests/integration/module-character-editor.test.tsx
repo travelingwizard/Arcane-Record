@@ -86,7 +86,7 @@ describe('minimal declarative module renderer', () => {
     expect(stored.data).toMatchObject({ traits: { resolve: 4 } });
     expect(screen.getByText('Saved in this browser')).toBeVisible();
 
-    await user.selectOptions(screen.getByLabelText('Sheet mode'), 'play');
+    await user.click(screen.getByRole('switch'));
     await waitFor(() =>
       expect(
         screen.getByRole('button', { name: 'Set Resolve to 5' }),

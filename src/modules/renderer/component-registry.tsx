@@ -2,13 +2,19 @@ import type { ReactNode } from 'react';
 import { DotRating } from '../../components/controls/DotRating';
 import type { ModuleDiagnostic } from '../diagnostics/module-diagnostic';
 import type { ModuleComponentDefinition } from '../schema/module-envelope';
+import { readDataPath } from '../schema/data-path';
 
 export interface ModuleComponentRenderProps {
   component: ModuleComponentDefinition;
   value: unknown;
   readOnly: boolean;
   diagnostics: ModuleDiagnostic[];
+  data: Record<string, unknown>;
   onChange: (value: unknown) => void;
+  onPathChange: (
+    path: { root: 'character'; segments: string[] },
+    value: unknown,
+  ) => void;
 }
 
 export interface RegisteredModuleComponent {
@@ -115,6 +121,101 @@ export const coreModuleComponentRegistry = new ModuleComponentRegistry()
             readOnly={readOnly}
             onChange={onChange}
           />
+        </div>
+      ) : null,
+  })
+  .register({
+    type: 'field-grid',
+    render: ({ component, data, readOnly, onPathChange }) =>
+      component.type === 'field-grid' ? (
+        <div className="module-field-grid" data-columns={component.columns}>
+          {component.fields.map((field) => {
+            const value = readDataPath(data, field.dataPath);
+            return (
+              <label className="line-field" key={field.id}>
+                <span>{field.label}</span>
+                <input
+                  aria-label={field.accessibilityLabel}
+                  value={typeof value === 'string' ? value : ''}
+                  maxLength={field.maximumLength}
+                  readOnly={readOnly}
+                  onChange={(event) =>
+                    onPathChange(field.dataPath, event.target.value)
+                  }
+                />
+              </label>
+            );
+          })}
+        </div>
+      ) : null,
+  })
+  .register({
+    type: 'grouped-dot-ratings',
+    render: ({ component, data, readOnly, onPathChange }) =>
+      component.type === 'grouped-dot-ratings' ? (
+        <div
+          className={
+            component.presentation === 'abilities'
+              ? 'ability-groups'
+              : 'attribute-groups'
+          }
+        >
+          {component.groups.map((group) => (
+            <div
+              className={
+                component.presentation === 'abilities'
+                  ? 'ability-group'
+                  : 'trait-group'
+              }
+              key={group.id}
+            >
+              <h3>{group.label}</h3>
+              <div
+                className={
+                  component.presentation === 'abilities'
+                    ? 'ability-list'
+                    : 'trait-list'
+                }
+              >
+                {group.ratings.map((rating) => {
+                  const value = readDataPath(data, rating.dataPath);
+                  return (
+                    <div
+                      className={
+                        component.presentation === 'abilities'
+                          ? 'ability-row'
+                          : 'trait-row'
+                      }
+                      key={rating.id}
+                    >
+                      <span
+                        className={
+                          component.presentation === 'abilities'
+                            ? 'ability-row__label'
+                            : 'trait-row__label'
+                        }
+                      >
+                        {rating.label}
+                      </span>
+                      <DotRating
+                        label={rating.label}
+                        ariaLabel={rating.accessibilityLabel}
+                        value={
+                          typeof value === 'number' ? value : rating.minimum
+                        }
+                        min={rating.minimum}
+                        max={rating.maximum}
+                        readOnly={readOnly}
+                        onChange={(nextValue) =>
+                          onPathChange(rating.dataPath, nextValue)
+                        }
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
         </div>
       ) : null,
   })

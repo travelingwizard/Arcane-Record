@@ -214,6 +214,50 @@ export const moduleComponentSchema = z.discriminatedUnion('type', [
   }),
   z.strictObject({
     ...componentBase,
+    type: z.literal('field-grid'),
+    columns: z.number().int().min(1).max(4).default(3),
+    fields: z
+      .array(
+        z.strictObject({
+          id: stableSlugSchema,
+          label: z.string().min(1).max(160),
+          accessibilityLabel: z.string().min(1).max(200),
+          dataPath: dataPathSchema,
+          maximumLength: z.number().int().positive().max(20_000).default(500),
+        }),
+      )
+      .min(1)
+      .max(100),
+  }),
+  z.strictObject({
+    ...componentBase,
+    type: z.literal('grouped-dot-ratings'),
+    presentation: z.enum(['attributes', 'abilities']).default('attributes'),
+    groups: z
+      .array(
+        z.strictObject({
+          id: stableSlugSchema,
+          label: z.string().min(1).max(160),
+          ratings: z
+            .array(
+              z.strictObject({
+                id: stableSlugSchema,
+                label: z.string().min(1).max(160),
+                accessibilityLabel: z.string().min(1).max(200),
+                dataPath: dataPathSchema,
+                minimum: z.number().int().nonnegative().default(0),
+                maximum: z.number().int().positive().max(20),
+              }),
+            )
+            .min(1)
+            .max(100),
+        }),
+      )
+      .min(1)
+      .max(20),
+  }),
+  z.strictObject({
+    ...componentBase,
     type: z.literal('validation-summary'),
   }),
 ]);
@@ -244,6 +288,38 @@ const navigationGroupSchema = z.strictObject({
   order: z.number().int().nonnegative(),
 });
 
+const sectionSummaryGroupSchema = z.strictObject({
+  label: z.string().min(1).max(100),
+  paths: z.array(dataPathSchema).min(1).max(100),
+});
+
+export const sectionSummarySchema = z.discriminatedUnion('type', [
+  z.strictObject({
+    type: z.literal('fields'),
+    paths: z.array(dataPathSchema).min(1).max(20),
+    separator: z.string().min(1).max(10).default(' · '),
+    fallback: z.string().min(1).max(200),
+  }),
+  z.strictObject({
+    type: z.literal('field-slots'),
+    slots: z
+      .array(
+        z.strictObject({
+          paths: z.array(dataPathSchema).min(1).max(20),
+          fallback: z.string().min(1).max(200),
+        }),
+      )
+      .min(1)
+      .max(10),
+    separator: z.string().min(1).max(10).default(' · '),
+  }),
+  z.strictObject({
+    type: z.enum(['rating-group-totals', 'rated-group-counts']),
+    groups: z.array(sectionSummaryGroupSchema).min(1).max(20),
+    separator: z.string().min(1).max(10).default(' · '),
+  }),
+]);
+
 const sectionSchema = z.strictObject({
   id: stableSlugSchema,
   label: z.string().min(1).max(160),
@@ -251,6 +327,7 @@ const sectionSchema = z.strictObject({
   groupId: stableSlugSchema,
   order: z.number().int().nonnegative(),
   componentIds: z.array(stableSlugSchema).max(200),
+  summary: sectionSummarySchema.optional(),
 });
 
 const sheetTemplateSchema = z.strictObject({
@@ -271,8 +348,10 @@ const sheetTemplateSchema = z.strictObject({
     .min(1)
     .max(10),
   defaultModeId: stableSlugSchema,
+  playModeNote: z.string().max(500).optional(),
   modePath: dataPathSchema.optional(),
   groupOrderPath: dataPathSchema.optional(),
+  groupOrderPaths: z.record(stableSlugSchema, dataPathSchema).default({}),
   navigationGroups: z.array(navigationGroupSchema).min(1).max(100),
   sections: z.array(sectionSchema).min(1).max(300),
   componentIds: z.array(stableSlugSchema).max(1_000),
@@ -385,5 +464,6 @@ export type ArcaneModuleEnvelope = z.infer<typeof arcaneModuleEnvelopeSchema>;
 export type SheetTemplateDefinition =
   ArcaneModuleEnvelope['sheetTemplates'][number];
 export type GameNodeDefinition = ArcaneModuleEnvelope['gameNodes'][number];
+export type SectionSummaryDefinition = z.infer<typeof sectionSummarySchema>;
 export type ModuleMigrationDefinition =
   ArcaneModuleEnvelope['migrations'][number];
