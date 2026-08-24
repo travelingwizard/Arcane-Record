@@ -152,9 +152,11 @@ forks. Never auto-merge or overwrite local work.
 
 ## Phase 8 — optional registry
 
-Blocked by current project instructions. Only after the explicit gates in
-`publishing-security.md` may a separate service add public browse/download and
-authorized staging/review/publish/deprecate/rollback. Characters remain local.
+Implemented after the explicit product-boundary amendment. The separate service
+provides public browse/verified download plus authorized staging, independent
+review, immutable publication, deprecation, token revocation, and pointer
+rollback. Characters remain local. Deployment and public publication retain a
+separate approval gate.
 
 ## Coexistence and routing
 

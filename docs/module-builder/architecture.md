@@ -110,13 +110,13 @@ longer receives implicit base updates.
 
 ### 6. Optional publishing registry
 
-The requested registry is a future service that stores only immutable module
-packages and public metadata. It must never receive characters, appearance
-preferences, drafts, or local module-library contents. It is not authorized by
-the current `AGENTS.md`, which prohibits backends and accounts. Phase 8 is
-therefore blocked until the product boundary is explicitly amended and a
-separate service/repository and deployment review are approved. See
-`publishing-security.md`.
+Phase 8 provides a separately built service that stores only immutable module
+packages, publisher authorization references, review/deprecation metadata,
+checksums, catalog pointers, revocations, and audit events. It never receives
+characters, appearance preferences, drafts, telemetry, or local
+module-library inventories. The amended `AGENTS.md` authorizes this narrow
+boundary while keeping deployment and public publication separate approvals.
+See `phase-8-hosted-registry.md` and `publishing-security.md`.
 
 ## Resolution model
 

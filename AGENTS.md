@@ -5,7 +5,15 @@
 - Build Arcane Record as a local-first, multi-game character-sheet application.
   Mage 20 is the complete first module; Exalted First Edition includes Solar
   and Dragon-Blooded sheet variants.
-- Keep character data in browser-local IndexedDB. Never add a backend, accounts, analytics, telemetry, cloud sync, or external runtime assets.
+- Keep character data in browser-local IndexedDB. Never upload character data,
+  local drafts, preferences, or usage events. Analytics, telemetry, cloud
+  character sync, and external character-sheet runtime assets remain
+  prohibited.
+- A separately deployed hosted Module Registry is authorized. It may store
+  authenticated publisher identities, namespace grants, immutable validated
+  module packages, checksums, review/deprecation state, catalog pointers, and
+  security audit events. It must never receive character data and the app must
+  remain fully usable offline with cached modules.
 - Use the exact phrase "Saved in this browser" for successful persistence.
 - This milestone is an editable sheet, not a character-creation rules engine.
 - Keep deferred features visibly labeled as previews or placeholders; do not imply they work.
@@ -32,7 +40,10 @@
 
 ## Change safety and verification
 
-- Work only inside this repository. Do not publish, use sudo, change global settings, or install operating-system packages. Deployment is permitted only with the user's explicit authorization.
+- Work only inside this repository. Do not publish, use sudo, change global
+  settings, or install operating-system packages. Registry implementation and
+  local verification are authorized; deployment and public publication still
+  require the user's explicit authorization.
 - Use npm and preserve the lockfile.
 - Keep changes reviewable and make local commits only after the scaffold works and all checks pass.
 - Before completion, run formatting, typecheck, lint, unit/integration tests, the supported E2E smoke test, and a production build.

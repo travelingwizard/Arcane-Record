@@ -15,6 +15,11 @@ import {
   compareModules,
   createModuleFork,
 } from '../../modules/homebrew/module-homebrew';
+import {
+  configuredRegistryUrl,
+  RegistryClient,
+  type RegistryCatalogEntry,
+} from '../../modules/registry/registry-client';
 
 function download(text: string, name: string) {
   const url = URL.createObjectURL(
@@ -42,6 +47,12 @@ export function ModuleLibraryPage({
   >([]);
   const [staged, setStaged] = useState<StagedModule | null>(null);
   const [message, setMessage] = useState('');
+  const [remote, setRemote] = useState<RegistryCatalogEntry[]>([]);
+  const [remoteStatus, setRemoteStatus] = useState(
+    configuredRegistryUrl
+      ? 'Browse the hosted catalog when ready.'
+      : 'No hosted registry URL is configured for this build.',
+  );
   const inputRef = useRef<HTMLInputElement>(null);
   const refresh = async () => {
     setPackages(await repository.listPackages());
@@ -100,6 +111,35 @@ export function ModuleLibraryPage({
       diagnostics: [],
     });
     onNavigate(`/module-builder/${id}`);
+  };
+  const browseRegistry = async () => {
+    if (!configuredRegistryUrl) return;
+    setRemoteStatus('Opening hosted catalog…');
+    try {
+      const result = await new RegistryClient(configuredRegistryUrl).catalog();
+      setRemote(result.modules);
+      setRemoteStatus(`${result.modules.length} published module version(s).`);
+    } catch {
+      setRemoteStatus(
+        'Registry unavailable. Installed modules and characters remain usable offline.',
+      );
+    }
+  };
+  const installPublished = async (entry: RegistryCatalogEntry) => {
+    if (!configuredRegistryUrl) return;
+    setRemoteStatus('Downloading and verifying immutable package…');
+    try {
+      await new RegistryClient(configuredRegistryUrl).downloadAndInstall(
+        entry,
+        repository,
+        registry,
+      );
+      window.location.reload();
+    } catch (error) {
+      setRemoteStatus(
+        error instanceof Error ? error.message : 'Published install failed.',
+      );
+    }
   };
   return (
     <main className="app-shell neutral-shell module-library-shell">
@@ -283,13 +323,41 @@ export function ModuleLibraryPage({
         )}
       </section>
       <section className="library-section">
-        <h2>Publishing status</h2>
-        <p className="notice">
-          Hosted publishing is unavailable. Project policy permits local
-          staging, checksum review, immutable versions, disable, and rollback
-          only. No account, namespace authorization, or public registry is
-          connected.
+        <h2>Hosted registry</h2>
+        <p className="notice" role="status">
+          {remoteStatus}
         </p>
+        <button
+          disabled={!configuredRegistryUrl}
+          onClick={() => void browseRegistry()}
+        >
+          Browse published modules
+        </button>
+        <div className="module-package-grid">
+          {remote.map((entry) => (
+            <article
+              className="builder-catalog"
+              key={`${entry.moduleId}@${entry.moduleVersion}`}
+            >
+              <strong>{entry.moduleId}</strong>
+              <small>
+                {entry.moduleVersion} ·{' '}
+                {entry.recommended ? 'Recommended' : 'Published'}
+                {entry.deprecatedAt ? ' · Deprecated' : ''}
+              </small>
+              <code>{entry.checksum.slice(0, 16)}…</code>
+              {entry.deprecationReason ? (
+                <p>{entry.deprecationReason}</p>
+              ) : null}
+              <button
+                disabled={Boolean(entry.deprecatedAt)}
+                onClick={() => void installPublished(entry)}
+              >
+                Download, verify, and install
+              </button>
+            </article>
+          ))}
+        </div>
       </section>
     </main>
   );

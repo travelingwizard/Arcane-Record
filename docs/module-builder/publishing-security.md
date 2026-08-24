@@ -2,11 +2,11 @@
 
 ## Current authorization status
 
-No publishing service is authorized or implemented by this specification.
-`AGENTS.md` currently says never to add a backend or accounts. The requested
-Phase 8 requires both authenticated publishers and server storage, so work must
-stop at a client-side interface boundary until the user explicitly changes that
-product constraint and approves a separate service/deployment architecture.
+On 2026-08-24 the user explicitly authorized the narrow `AGENTS.md` amendment
+for a separate hosted Module Registry. Registry implementation and local
+verification are authorized. Deployment and public publication still require
+separate explicit authorization. Character data, drafts, preferences,
+telemetry, analytics, and cloud character sync remain outside the service.
 
 The local application continues to store characters, module drafts, imported
 modules, overlays, forks, and preferences in the browser. Even after a registry
@@ -152,21 +152,29 @@ without taking offline character editing down.
 Authorization tests must run against the deployed policy/database constraints,
 not only mocked UI handlers.
 
-## Approval gates before Phase 8
+## Phase 8 implementation gates
 
-1. Explicitly amend the no-backend/no-accounts product boundary.
-2. Approve service ownership, hosting, domain, data flow, retention, backups,
-   monitoring, and incident response.
-3. Select an authentication provider and namespace-role administration model.
-4. Complete threat modeling and independent security review.
-5. Resolve safe assets and license/compliance enforcement.
-6. Define API/version/support and registry disaster-recovery commitments.
-7. Verify the HEMA virtual host and character static host remain isolated.
+1. **Complete:** the product boundary has a registry-only exception.
+2. **Implemented:** the service has isolated storage/hosting, audit, backup, and
+   incident-response deployment requirements. Named operational owners remain
+   a deployment input.
+3. **Implemented interface:** Ed25519 OIDC-style claims provide roles,
+   namespaces, revocation, expiry, and MFA evidence. The production identity
+   provider remains a deployment input.
+4. **Complete locally:** threat model and automated policy tests. Independent
+   review of the deployed configuration remains a launch gate.
+5. **Complete for this format:** assets remain rejected; licenses and
+   provenance remain mandatory module data.
+6. **Complete:** versioned `/v1` API, immutable retention, pointer rollback,
+   backup, and restore/checksum procedures are documented.
+7. **Complete in tracked configuration:** registry, character, and HEMA use
+   separate virtual hosts, roots/upstreams, and service users.
 
-## Unresolved decisions and risks
+## Deployment inputs and residual risks
 
-- Identity provider, MFA, reviewer separation, and publisher onboarding.
-- Hosting/database/object-store choices and costs.
+- Production identity provider, publisher onboarding, and namespace-grant
+  administration.
+- Deployment ownership, monitoring destination, retention approval, and costs.
 - Package signing/key management beyond registry checksums.
 - Moderation, takedown, copyright/license disputes, and malicious-but-valid
   content.

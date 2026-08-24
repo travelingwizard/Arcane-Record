@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-test('reviews local module states without offering hosted publishing', async ({
+test('reviews local and hosted module states without weakening offline use', async ({
   page,
 }) => {
   await page.goto('/');
@@ -13,8 +13,11 @@ test('reviews local module states without offering hosted publishing', async ({
     page.getByRole('heading', { name: 'Bundled modules' }),
   ).toBeVisible();
   await expect(
-    page.getByText(/Hosted publishing is unavailable/),
+    page.getByText(/No hosted registry URL is configured/),
   ).toBeVisible();
+  await expect(
+    page.getByRole('button', { name: 'Browse published modules' }),
+  ).toBeDisabled();
   await page.setViewportSize({ width: 320, height: 900 });
   await expect
     .poll(() => page.evaluate(() => document.documentElement.scrollWidth))

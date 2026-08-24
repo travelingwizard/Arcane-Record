@@ -1,0 +1,22 @@
+[Unit]
+Description=Arcane Record Module Registry
+After=network.target
+
+[Service]
+Type=simple
+User=arcane-registry
+Group=arcane-registry
+WorkingDirectory=/opt/arcane-registry/current
+EnvironmentFile=/etc/arcane-record-registry.env
+ExecStart=/usr/bin/node /opt/arcane-registry/current/registry-dist/server.js
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/arcane-record-registry
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

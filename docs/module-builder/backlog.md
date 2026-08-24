@@ -174,19 +174,19 @@ Phase 7 is complete; see `phase-7-local-module-library.md`.
 | P1       | Character-level custom/override integration | Highest precedence, owned data remains across catalog updates, import/export covered.                     |
 | P2       | Optional archive                            | Separate approved threat model and format; normal importer rejects it.                                    |
 
-## Phase 8 — publishing (blocked/deferred)
+## Phase 8 — publishing
 
-All local prerequisites are complete. Hosted publishing remains blocked by the
-product boundary; see `phase-8-registry-gate.md`.
+Phase 8 implementation is complete; see `phase-8-hosted-registry.md`.
+Deployment and public publication remain separately authorized release actions.
 
-| Priority | Item                              | Gate/acceptance criteria                                                                  |
-| -------- | --------------------------------- | ----------------------------------------------------------------------------------------- |
-| Deferred | Amend product boundary            | Explicit approval for separate backend/accounts and updated project instructions.         |
-| Deferred | Threat model/service architecture | Auth, roles, hosting, DB/object store, retention/backups/incident response reviewed.      |
-| Deferred | Public catalog/download           | Metadata and checksum only; offline cache; no character requests/telemetry.               |
-| Deferred | Authorized staging/review/publish | Server-enforced namespace roles, exact-checksum review, immutable versions.               |
-| Deferred | Deprecation/rollback              | No deletion/overwrite; pointer rollback and audited events.                               |
-| Deferred | Security test suite               | Unauthorized access, CSRF/CORS, bombs/content, immutability, checksum, outage tests pass. |
+| Priority | Item                              | Gate/acceptance criteria                                                                 |
+| -------- | --------------------------------- | ---------------------------------------------------------------------------------------- |
+| Complete | Amend product boundary            | Registry-only backend exception; characters and telemetry remain excluded.               |
+| Complete | Threat model/service architecture | Signed auth, roles, isolated storage/host, retention/backups and incident gates defined. |
+| Complete | Public catalog/download           | Metadata/checksum browse and verified explicit install; offline cache remains usable.    |
+| Complete | Authorized staging/review/publish | Server namespace roles, separate exact-checksum review, immutable versions.              |
+| Complete | Deprecation/rollback              | No deletion/overwrite; pointer rollback and audited events.                              |
+| Complete | Security test suite               | Auth, namespace, MFA, executable content, immutability, checksum, deprecation tested.    |
 
 ## Cross-cutting test backlog
 
@@ -202,7 +202,8 @@ product boundary; see `phase-8-registry-gate.md`.
   and mobile layouts, and 320-pixel overflow.
 - Large-catalog resolution/search/render budgets.
 - Golden behavior for every current game before switching defaults.
-- Publishing authorization/checksum tests only after Phase 8 is authorized.
+- Publishing authorization/checksum, tamper, immutability, MFA, concurrency,
+  CORS, and outage behavior are covered after the Phase 8 authorization.
 
 ## Known risks to track
 
