@@ -1,5 +1,6 @@
 import { useSyncExternalStore } from 'react';
 import type { SphereSortMode } from '../../systems/mage-m20/definitions';
+import { notifyLocalViewPreferenceChanged } from '../../features/settings/local-view-preference';
 
 const SORT_PREFERENCE_KEY = 'arcane-ledger:sphere-sort';
 const WHEEL_PREFERENCE_KEY = 'arcane-ledger:desktop-sphere-wheel';
@@ -64,6 +65,9 @@ function writePreferences(next: MageSheetPreferences) {
     // The settings remain active for this session if storage is unavailable.
   }
   listeners.forEach((listener) => listener());
+  notifyLocalViewPreferenceChanged(SORT_PREFERENCE_KEY);
+  notifyLocalViewPreferenceChanged(WHEEL_PREFERENCE_KEY);
+  notifyLocalViewPreferenceChanged(TEMPORARY_WILLPOWER_DOTS_KEY);
 }
 
 export function setSphereSortMode(sphereSortMode: SphereSortMode) {

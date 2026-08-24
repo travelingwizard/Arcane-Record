@@ -20,16 +20,10 @@ describe('Mage 20 Phase 2 declarative slice', () => {
     );
     const legacy = getMageCharacterData(createMage20Phase2GoldenCharacter());
     const slice = {
+      ...structuredClone(resolved.template.defaults),
       identity: legacy.identity,
       attributes: legacy.attributes,
       abilities: legacy.abilities,
-      sheetLayout: {
-        mode: legacy.sheetLayout.mode,
-        groupOrders: {
-          build: ['character', 'traits'],
-          play: ['traits', 'character'],
-        },
-      },
     };
 
     expect(resolved.characterSchema.parse(slice)).toEqual(slice);
@@ -37,6 +31,9 @@ describe('Mage 20 Phase 2 declarative slice', () => {
       'identity',
       'attributes',
       'abilities',
+      'spheres',
+      'enlightenment',
+      'health',
     ]);
   });
 
@@ -58,10 +55,12 @@ describe('Mage 20 Phase 2 declarative slice', () => {
 
     expect(
       Object.fromEntries(
-        resolved.template.sections.map((section) => [
-          section.id,
-          resolveSectionSummary(section.summary, data, section.label),
-        ]),
+        resolved.template.sections
+          .filter(({ summary }) => summary)
+          .map((section) => [
+            section.id,
+            resolveSectionSummary(section.summary, data, section.label),
+          ]),
       ),
     ).toEqual(mage20Phase2GoldenSummaries);
   });

@@ -78,18 +78,18 @@ Priority labels:
 
 ## Phase 2 — Mage parity backlog
 
-| Priority | Slice                               | Acceptance criteria                                                                                             |
-| -------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| P0       | Freeze Mage module/catalog ID map   | **Slice 1 complete.** Every existing catalog/selection ID maps deterministically; unresolved IDs have fallback. |
-| P0       | Identity and grouped dot components | **Slice 1 complete.** Stored ratings, Build/Play locks, summaries and order match fixtures.                     |
-| P0       | Sphere list/wheel and affinity      | Mobile vertical, desktop preference, sorting and one-star selection share data.                                 |
-| P0       | Q/P, Health, Willpower              | Independent 0–20 wheel values/collision visuals, damage cycles, temp display setting, Play edits match.         |
-| P0       | Background/Merit/Flaw catalogs      | Costs, duplicates, pooling, warnings, compact cards, remove/undo and unresolved preservation match.             |
-| P1       | Focus/Wonders/Rotes                 | Structured requirements, custom entries, citations and unknown refs round-trip.                                 |
-| P1       | Equipment/Maneuvers/Special Do      | Play state, favorites, linked Do allowance and preserve-over-limit warning match.                               |
-| P1       | Mage migration converter            | v1–v10 plus legacy files convert copy-first with no loss and golden parity.                                     |
-| P1       | Make module Mage opt-in preview     | Clear badge/fallback; full integration/E2E/performance/accessibility parity.                                    |
-| P2       | Default new Mage to module renderer | Separate approval after preview evidence; retain legacy fallback for a release window.                          |
+| Priority | Slice                               | Acceptance criteria                                                                                              |
+| -------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| P0       | Freeze Mage module/catalog ID map   | **Slice 1 complete.** Every existing catalog/selection ID maps deterministically; unresolved IDs have fallback.  |
+| P0       | Identity and grouped dot components | **Slice 1 complete.** Stored ratings, Build/Play locks, summaries and order match fixtures.                      |
+| P0       | Sphere list/wheel and affinity      | **Slice 2 complete.** Mobile vertical, desktop preference, sorting and one-star selection share data.            |
+| P0       | Q/P, Health, Willpower              | **Slice 3 complete.** Independent 0–20 values/collisions, damage cycles, temp display setting, Play edits match. |
+| P0       | Background/Merit/Flaw catalogs      | Costs, duplicates, pooling, warnings, compact cards, remove/undo and unresolved preservation match.              |
+| P1       | Focus/Wonders/Rotes                 | Structured requirements, custom entries, citations and unknown refs round-trip.                                  |
+| P1       | Equipment/Maneuvers/Special Do      | Play state, favorites, linked Do allowance and preserve-over-limit warning match.                                |
+| P1       | Mage migration converter            | v1–v10 plus legacy files convert copy-first with no loss and golden parity.                                      |
+| P1       | Make module Mage opt-in preview     | Clear badge/fallback; full integration/E2E/performance/accessibility parity.                                     |
+| P2       | Default new Mage to module renderer | Separate approval after preview evidence; retain legacy fallback for a release window.                           |
 
 ## Phase 3 — Exalted parity backlog
 

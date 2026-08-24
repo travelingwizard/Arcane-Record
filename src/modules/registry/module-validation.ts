@@ -103,7 +103,19 @@ function validateComponentPath(
     expected: 'string' | 'integer';
     suffix: string;
   }> = [];
-  if ('dataPath' in component) {
+  if (component.type === 'cycling-damage-track') {
+    const target = schemaAtPath(template.characterSchema, component.dataPath);
+    if (target?.type !== 'array' || target.items.type !== 'enum') {
+      return [
+        {
+          code: 'component-path-type',
+          severity: 'error',
+          path: `/reusableComponents/${componentIndex}/dataPath`,
+          message: `Component “${component.id}” damage path must resolve to an enum array.`,
+        },
+      ];
+    }
+  } else if ('dataPath' in component) {
     paths.push({
       dataPath: component.dataPath,
       expected: component.type === 'text' ? 'string' : 'integer',
@@ -126,6 +138,58 @@ function validateComponentPath(
           suffix: `groups/${groupIndex}/ratings/${ratingIndex}/dataPath`,
         }),
       ),
+    );
+  } else if (component.type === 'sphere-rating-wheel') {
+    component.ratings.forEach((rating, index) =>
+      paths.push({
+        dataPath: rating.dataPath,
+        expected: 'integer',
+        suffix: `ratings/${index}/dataPath`,
+      }),
+    );
+    const affinityTarget = schemaAtPath(
+      template.characterSchema,
+      component.affinityPath,
+    );
+    if (
+      affinityTarget?.type !== 'nullable' ||
+      affinityTarget.item.type !== 'enum'
+    ) {
+      return [
+        {
+          code: 'component-path-type',
+          severity: 'error',
+          path: `/reusableComponents/${componentIndex}/affinityPath`,
+          message: `Component “${component.id}” affinity path must resolve to a nullable enum.`,
+          relatedIds: [component.id, template.id],
+        },
+      ];
+    }
+  } else if (component.type === 'permanent-temporary-rating') {
+    paths.push(
+      {
+        dataPath: component.permanentPath,
+        expected: 'integer',
+        suffix: 'permanentPath',
+      },
+      {
+        dataPath: component.temporaryPath,
+        expected: 'integer',
+        suffix: 'temporaryPath',
+      },
+    );
+  } else if (component.type === 'opposed-wheel-20') {
+    paths.push(
+      {
+        dataPath: component.firstPath,
+        expected: 'integer',
+        suffix: 'firstPath',
+      },
+      {
+        dataPath: component.secondPath,
+        expected: 'integer',
+        suffix: 'secondPath',
+      },
     );
   }
   return paths.flatMap(({ dataPath, expected, suffix }) => {

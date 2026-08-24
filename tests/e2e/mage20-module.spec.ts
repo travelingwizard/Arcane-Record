@@ -82,7 +82,9 @@ test('renders the Mage identity and grouped Trait parity slice', async ({
   );
 
   await page.goto(`/characters/${characterId}`);
-  await expect(page.getByLabel('Name')).toHaveValue('Morgan Vale');
+  await expect(page.getByRole('textbox', { name: 'Name' })).toHaveValue(
+    'Morgan Vale',
+  );
   await expect(page.getByRole('heading', { name: 'Physical' })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Talents' })).toBeVisible();
   await page.getByRole('button', { name: 'Set Dexterity to 5' }).click();
@@ -91,7 +93,7 @@ test('renders the Mage identity and grouped Trait parity slice', async ({
   await expect(
     page.getByRole('button', { name: 'Set Dexterity to 5' }),
   ).toBeDisabled();
-  await expect(page.getByLabel('Name')).toBeEditable();
+  await expect(page.getByRole('textbox', { name: 'Name' })).toBeEditable();
 
   await page.setViewportSize({ width: 320, height: 760 });
   await page.reload();

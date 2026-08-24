@@ -87,6 +87,10 @@ describe('Arcane module runtime', () => {
       'dot-rating',
       'field-grid',
       'grouped-dot-ratings',
+      'sphere-rating-wheel',
+      'permanent-temporary-rating',
+      'opposed-wheel-20',
+      'cycling-damage-track',
       'validation-summary',
     ]);
   });

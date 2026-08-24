@@ -82,6 +82,11 @@ export type ModuleValueSchemaDefinition =
       items: ModuleValueSchemaDefinition;
       minimum?: number;
       maximum?: number;
+    }
+  | {
+      type: 'nullable';
+      required?: boolean;
+      item: ModuleValueSchemaDefinition;
     };
 
 export const moduleValueSchemaDefinitionSchema: z.ZodType<ModuleValueSchemaDefinition> =
@@ -126,6 +131,11 @@ export const moduleValueSchemaDefinitionSchema: z.ZodType<ModuleValueSchemaDefin
         items: moduleValueSchemaDefinitionSchema,
         minimum: z.number().int().nonnegative().optional(),
         maximum: z.number().int().positive().max(10_000).optional(),
+      }),
+      z.strictObject({
+        type: z.literal('nullable'),
+        required: z.boolean().optional(),
+        item: moduleValueSchemaDefinitionSchema,
       }),
     ]),
   );
@@ -255,6 +265,72 @@ export const moduleComponentSchema = z.discriminatedUnion('type', [
       )
       .min(1)
       .max(20),
+  }),
+  z.strictObject({
+    ...componentBase,
+    type: z.literal('sphere-rating-wheel'),
+    affinityPath: dataPathSchema,
+    sortPreferenceKey: z.string().min(1).max(200),
+    wheelPreferenceKey: z.string().min(1).max(200),
+    ratings: z
+      .array(
+        z.strictObject({
+          id: stableSlugSchema,
+          label: z.string().min(1).max(160),
+          dataPath: dataPathSchema,
+        }),
+      )
+      .min(3)
+      .max(20),
+    minimum: z.number().int().nonnegative().default(0),
+    maximum: z.number().int().positive().max(20),
+  }),
+  z.strictObject({
+    ...componentBase,
+    type: z.literal('permanent-temporary-rating'),
+    permanentPath: dataPathSchema,
+    temporaryPath: dataPathSchema,
+    permanentLabel: z.string().min(1).max(160),
+    temporaryLabel: z.string().min(1).max(160),
+    minimum: z.number().int().nonnegative().default(0),
+    permanentMinimum: z.number().int().nonnegative().default(0),
+    maximum: z.number().int().positive().max(20),
+    temporaryDotsPreferenceKey: z.string().min(1).max(200),
+    temporaryEditableInViewMode: z.boolean().default(true),
+  }),
+  z.strictObject({
+    ...componentBase,
+    type: z.literal('opposed-wheel-20'),
+    firstPath: dataPathSchema,
+    secondPath: dataPathSchema,
+    firstLabel: z.string().min(1).max(160),
+    secondLabel: z.string().min(1).max(160),
+    maximum: z.literal(20),
+  }),
+  z.strictObject({
+    ...componentBase,
+    type: z.literal('cycling-damage-track'),
+    dataPath: dataPathSchema,
+    levels: z
+      .array(
+        z.strictObject({
+          id: stableSlugSchema,
+          label: z.string().min(1).max(160),
+          penalty: z.string().min(1).max(20),
+        }),
+      )
+      .min(1)
+      .max(20),
+    states: z
+      .array(
+        z.strictObject({
+          id: stableSlugSchema,
+          label: z.string().min(1).max(100),
+          mark: z.string().min(1).max(10),
+        }),
+      )
+      .min(1)
+      .max(10),
   }),
   z.strictObject({
     ...componentBase,

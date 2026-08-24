@@ -53,16 +53,10 @@ describe('Mage 20 Phase 2 module editor', () => {
         enabledOverlayRefs: [],
       },
       data: {
+        ...structuredClone(resolved.template.defaults),
         identity: legacy.identity,
         attributes: legacy.attributes,
         abilities: legacy.abilities,
-        sheetLayout: {
-          mode: 'build',
-          groupOrders: {
-            build: ['character', 'traits'],
-            play: ['traits', 'character'],
-          },
-        },
       },
     };
     let stored = record;
@@ -93,6 +87,29 @@ describe('Mage 20 Phase 2 module editor', () => {
     expect(screen.getByRole('heading', { name: 'Physical' })).toBeVisible();
     expect(screen.getByRole('heading', { name: 'Talents' })).toBeVisible();
     expect(
+      screen.getByRole('heading', { name: 'Correspondence' }),
+    ).toBeVisible();
+    await user.click(
+      screen.getByRole('button', {
+        name: 'Mark Correspondence as Affinity Sphere',
+      }),
+    );
+    expect(
+      screen.getByRole('button', {
+        name: 'Clear Correspondence as Affinity Sphere',
+      }),
+    ).toBeVisible();
+    await user.click(screen.getByRole('button', { name: 'Add Quintessence' }));
+    expect(screen.getByLabelText('Quintessence rating')).toHaveTextContent(
+      '1 / 20',
+    );
+    await user.click(
+      screen.getByRole('button', { name: 'Bruised: Unmarked damage' }),
+    );
+    expect(
+      screen.getByRole('button', { name: 'Bruised: Bashing damage' }),
+    ).toBeVisible();
+    expect(
       screen.getByRole('button', { name: 'Set Dexterity to 5' }),
     ).toBeEnabled();
     await user.click(screen.getByRole('switch'));
@@ -104,6 +121,16 @@ describe('Mage 20 Phase 2 module editor', () => {
     expect(
       screen.getByRole('button', { name: 'Set Dexterity to 5' }),
     ).toBeDisabled();
+    expect(
+      screen.getByRole('button', { name: 'Set Arete to 2' }),
+    ).toBeDisabled();
+    expect(
+      screen.getByRole('button', { name: 'Set Temporary Willpower to 6' }),
+    ).toBeEnabled();
+    expect(screen.getByRole('button', { name: 'Add Paradox' })).toBeEnabled();
+    expect(
+      screen.getByRole('button', { name: 'Hurt: Unmarked damage' }),
+    ).toBeEnabled();
     expect(screen.getByLabelText('Name')).not.toHaveAttribute('readonly');
 
     const navigation = screen.getByRole('navigation', {
@@ -114,6 +141,8 @@ describe('Mage 20 Phase 2 module editor', () => {
       .map((heading) => within(heading).getByRole('button'))
       .map((button) => button.getAttribute('aria-controls'));
     expect(groupControls).toEqual([
+      'character-section-nav-condition',
+      'character-section-nav-magick',
       'character-section-nav-traits',
       'character-section-nav-character',
     ]);
@@ -129,8 +158,8 @@ describe('Mage 20 Phase 2 module editor', () => {
       expect(stored.data).toMatchObject({
         sheetLayout: {
           groupOrders: {
-            build: ['traits', 'character'],
-            play: ['traits', 'character'],
+            build: ['traits', 'character', 'magick', 'condition'],
+            play: ['condition', 'magick', 'traits', 'character'],
           },
         },
       }),

@@ -3,6 +3,10 @@ import { DotRating } from '../../components/controls/DotRating';
 import type { ModuleDiagnostic } from '../diagnostics/module-diagnostic';
 import type { ModuleComponentDefinition } from '../schema/module-envelope';
 import { readDataPath } from '../schema/data-path';
+import { ModuleSphereRatingWheel } from './ModuleSphereRatingWheel';
+import { ModulePermanentTemporaryRating } from './ModulePermanentTemporaryRating';
+import { ModuleDamageTrack } from './ModuleDamageTrack';
+import { QuintessenceParadoxWheel } from '../../components/character/QuintessenceParadoxWheel';
 
 export interface ModuleComponentRenderProps {
   component: ModuleComponentDefinition;
@@ -217,6 +221,60 @@ export const coreModuleComponentRegistry = new ModuleComponentRegistry()
             </div>
           ))}
         </div>
+      ) : null,
+  })
+  .register({
+    type: 'sphere-rating-wheel',
+    render: ({ component, data, readOnly, onPathChange }) =>
+      component.type === 'sphere-rating-wheel' ? (
+        <ModuleSphereRatingWheel
+          component={component}
+          data={data}
+          readOnly={readOnly}
+          onPathChange={onPathChange}
+        />
+      ) : null,
+  })
+  .register({
+    type: 'permanent-temporary-rating',
+    render: ({ component, data, readOnly, onPathChange }) =>
+      component.type === 'permanent-temporary-rating' ? (
+        <ModulePermanentTemporaryRating
+          component={component}
+          data={data}
+          readOnly={readOnly}
+          onPathChange={onPathChange}
+        />
+      ) : null,
+  })
+  .register({
+    type: 'opposed-wheel-20',
+    render: ({ component, data, onPathChange }) => {
+      if (component.type !== 'opposed-wheel-20') return null;
+      const first = readDataPath(data, component.firstPath);
+      const second = readDataPath(data, component.secondPath);
+      return (
+        <QuintessenceParadoxWheel
+          quintessence={typeof first === 'number' ? first : 0}
+          paradox={typeof second === 'number' ? second : 0}
+          onQuintessenceChange={(value) =>
+            onPathChange(component.firstPath, value)
+          }
+          onParadoxChange={(value) => onPathChange(component.secondPath, value)}
+        />
+      );
+    },
+  })
+  .register({
+    type: 'cycling-damage-track',
+    render: ({ component, data, readOnly, onPathChange }) =>
+      component.type === 'cycling-damage-track' ? (
+        <ModuleDamageTrack
+          component={component}
+          data={data}
+          readOnly={readOnly}
+          onPathChange={onPathChange}
+        />
       ) : null,
   })
   .register({

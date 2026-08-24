@@ -2,7 +2,9 @@ import { createBlankMageCharacter } from '../../../systems/mage-m20/create-chara
 import {
   abilityGroups,
   attributeGroups,
+  healthLevels,
   identityFields,
+  spheres,
 } from '../../../systems/mage-m20/definitions';
 import type { ModuleValueSchemaDefinition } from '../../../modules/schema/module-envelope';
 import {
@@ -47,6 +49,16 @@ const rating = (minimum: number): ModuleValueSchemaDefinition => ({
   maximum: 5,
 });
 
+const integer = (
+  minimum: number,
+  maximum: number,
+): ModuleValueSchemaDefinition => ({
+  type: 'integer',
+  required: true,
+  minimum,
+  maximum,
+});
+
 const requiredObject = (
   properties: Record<string, ModuleValueSchemaDefinition>,
 ): ModuleValueSchemaDefinition => ({
@@ -87,11 +99,15 @@ export const mage20Phase2Defaults = {
   identity: structuredClone(blank.identity),
   attributes: structuredClone(blank.attributes),
   abilities: structuredClone(blank.abilities),
+  spheres: structuredClone(blank.spheres),
+  affinitySphere: blank.affinitySphere,
+  enlightenment: structuredClone(blank.enlightenment),
+  health: structuredClone(blank.health),
   sheetLayout: {
     mode: 'build',
     groupOrders: {
-      build: ['character', 'traits'],
-      play: ['traits', 'character'],
+      build: ['character', 'traits', 'magick', 'condition'],
+      play: ['condition', 'magick', 'traits', 'character'],
     },
   },
 };
@@ -137,6 +153,37 @@ export const mage20Phase2Module = {
         identity: identitySchema,
         attributes: attributesSchema,
         abilities: abilitiesSchema,
+        spheres: requiredObject(
+          Object.fromEntries(spheres.map(({ id }) => [id, rating(0)])),
+        ),
+        affinitySphere: {
+          type: 'nullable',
+          required: true,
+          item: {
+            type: 'enum',
+            required: true,
+            values: spheres.map(({ id }) => id),
+          },
+        },
+        enlightenment: requiredObject({
+          arete: integer(1, 10),
+          willpower: integer(1, 10),
+          willpowerTemporary: integer(0, 10),
+          quintessence: integer(0, 20),
+          paradox: integer(0, 20),
+        }),
+        health: requiredObject({
+          damage: {
+            type: 'array',
+            required: true,
+            items: {
+              type: 'enum',
+              required: true,
+              values: ['bashing', 'lethal', 'aggravated'],
+            },
+            maximum: 7,
+          },
+        }),
         sheetLayout: requiredObject({
           mode: {
             type: 'enum',
@@ -150,10 +197,10 @@ export const mage20Phase2Module = {
               items: {
                 type: 'enum',
                 required: true,
-                values: ['character', 'traits'],
+                values: ['character', 'traits', 'magick', 'condition'],
               },
-              minimum: 2,
-              maximum: 2,
+              minimum: 4,
+              maximum: 4,
             },
             play: {
               type: 'array',
@@ -161,10 +208,10 @@ export const mage20Phase2Module = {
               items: {
                 type: 'enum',
                 required: true,
-                values: ['character', 'traits'],
+                values: ['character', 'traits', 'magick', 'condition'],
               },
-              minimum: 2,
-              maximum: 2,
+              minimum: 4,
+              maximum: 4,
             },
           }),
         }),
@@ -185,6 +232,8 @@ export const mage20Phase2Module = {
       navigationGroups: [
         { id: 'character', label: 'Character', order: 0 },
         { id: 'traits', label: 'Traits', order: 1 },
+        { id: 'magick', label: 'Magic', order: 2 },
+        { id: 'condition', label: 'Conditions', order: 3 },
       ],
       sections: [
         {
@@ -238,8 +287,48 @@ export const mage20Phase2Module = {
             separator: ' · ',
           },
         },
+        {
+          id: 'spheres',
+          label: 'Spheres',
+          description:
+            'Choose one affinity, or select the current affinity again to clear it.',
+          groupId: 'magick',
+          order: 3,
+          componentIds: ['sphere-ratings'],
+        },
+        {
+          id: 'enlightenment',
+          label: 'Enlightenment',
+          description:
+            'Ten-point tracks for Arete and Willpower, with a shared twenty-position Quintessence and Paradox wheel.',
+          groupId: 'magick',
+          order: 4,
+          componentIds: [
+            'arete-rating',
+            'willpower-rating',
+            'quintessence-paradox',
+          ],
+        },
+        {
+          id: 'health',
+          label: 'Health',
+          description:
+            'Add damage from the top down. Activate a marked box to cycle through damage types and clear.',
+          groupId: 'condition',
+          order: 5,
+          componentIds: ['health-track'],
+        },
       ],
-      componentIds: ['identity-fields', 'attribute-ratings', 'ability-ratings'],
+      componentIds: [
+        'identity-fields',
+        'attribute-ratings',
+        'ability-ratings',
+        'sphere-ratings',
+        'arete-rating',
+        'willpower-rating',
+        'quintessence-paradox',
+        'health-track',
+      ],
       creationProfileIds: [],
       creationFlowIds: [],
     },
@@ -302,6 +391,84 @@ export const mage20Phase2Module = {
           maximum: 5,
         })),
       })),
+    },
+    {
+      id: 'sphere-ratings',
+      type: 'sphere-rating-wheel',
+      label: 'Spheres',
+      accessibilityLabel: 'Mage Sphere ratings and affinity',
+      affinityPath: path('affinitySphere'),
+      sortPreferenceKey: 'arcane-ledger:sphere-sort',
+      wheelPreferenceKey: 'arcane-ledger:desktop-sphere-wheel',
+      minimum: 0,
+      maximum: 5,
+      layout: { width: 'full' },
+      modes: { build: 'edit', play: 'view' },
+      ratings: spheres.map(({ id, label }) => ({
+        id,
+        label,
+        dataPath: path('spheres', id),
+      })),
+    },
+    {
+      id: 'arete-rating',
+      type: 'dot-rating',
+      label: 'Arete',
+      accessibilityLabel: 'Arete rating',
+      dataPath: path('enlightenment', 'arete'),
+      minimum: 1,
+      maximum: 10,
+      layout: { width: 'full' },
+      modes: { build: 'edit', play: 'view' },
+    },
+    {
+      id: 'willpower-rating',
+      type: 'permanent-temporary-rating',
+      label: 'Willpower',
+      accessibilityLabel: 'Permanent and Temporary Willpower',
+      permanentPath: path('enlightenment', 'willpower'),
+      temporaryPath: path('enlightenment', 'willpowerTemporary'),
+      permanentLabel: 'Willpower',
+      temporaryLabel: 'Temporary Willpower',
+      minimum: 0,
+      permanentMinimum: 1,
+      maximum: 10,
+      temporaryDotsPreferenceKey: 'arcane-ledger:temporary-willpower-dots',
+      temporaryEditableInViewMode: true,
+      layout: { width: 'full' },
+      modes: { build: 'edit', play: 'view' },
+    },
+    {
+      id: 'quintessence-paradox',
+      type: 'opposed-wheel-20',
+      label: 'Quintessence and Paradox',
+      accessibilityLabel: 'Quintessence and Paradox wheel',
+      firstPath: path('enlightenment', 'quintessence'),
+      secondPath: path('enlightenment', 'paradox'),
+      firstLabel: 'Quintessence',
+      secondLabel: 'Paradox',
+      maximum: 20,
+      layout: { width: 'full' },
+      modes: { build: 'edit', play: 'edit' },
+    },
+    {
+      id: 'health-track',
+      type: 'cycling-damage-track',
+      label: 'Health',
+      accessibilityLabel: 'Health damage track',
+      dataPath: path('health', 'damage'),
+      levels: healthLevels.map(({ id, label, penalty }) => ({
+        id,
+        label,
+        penalty,
+      })),
+      states: [
+        { id: 'bashing', label: 'Bashing', mark: '╱' },
+        { id: 'lethal', label: 'Lethal', mark: '×' },
+        { id: 'aggravated', label: 'Aggravated', mark: '✱' },
+      ],
+      layout: { width: 'full' },
+      modes: { build: 'edit', play: 'edit' },
     },
   ],
   catalogs: [],

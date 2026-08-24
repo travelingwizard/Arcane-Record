@@ -1,10 +1,11 @@
-# Phase 2, slice 1: Mage identity and Traits
+# Phase 2, slices 1–3: Mage identity, Traits, and tracks
 
 ## Goal and boundary
 
-This slice begins Mage behavioral parity without replacing or partially
-converting the production Mage editor. It covers the stable definition ID map,
-Identity, Attributes, Abilities, summaries, Build/Play protection, responsive
+These slices begin Mage behavioral parity without replacing or partially
+converting the production Mage editor. They cover the stable definition ID
+map, Identity, Attributes, Abilities, Spheres, affinity, Enlightenment,
+Willpower, Quintessence/Paradox, Health, Build/Play protection, responsive
 layout, and per-mode section-group ordering.
 
 The package in `src/games/mage20/module/` is a validated bundled-module
@@ -42,6 +43,14 @@ Sheet templates can now declare a distinct group-order path for each mode.
 Section summaries support constrained field slots, rating totals, and rated
 counts. These are presentation strategies, not a general formula engine.
 
+Slices 2 and 3 add the safe `sphere-rating-wheel`,
+`permanent-temporary-rating`, `opposed-wheel-20`, and
+`cycling-damage-track` components. Nullable character-schema values represent
+the optional affinity without sentinel strings. Sphere sorting and desktop
+wheel display remain browser-local preferences; all views edit the same
+integer ratings. The track components preserve independent 0–20 values and
+Play-mode exceptions without storing Boolean cell arrays.
+
 ## Golden parity
 
 The Mage fixture verifies:
@@ -54,6 +63,9 @@ The Mage fixture verifies:
 - editable identity in both modes and locked ratings in Play mode;
 - independent Build and Play navigation order;
 - autosave and the exact “Saved in this browser” message;
+- one optional affinity shared by the sorted list and desktop wheel;
+- independent Quintessence and Paradox values, Temporary Willpower display
+  preference, and top-down cycling Health damage;
 - desktop navigation, mobile Sections, and no overflow at 320 CSS pixels.
 
 ## Migration and persistence
@@ -67,11 +79,9 @@ creating a partial copy now would risk omitting valid character information.
 
 Phase 2 continues with:
 
-1. Spheres, affinity, mobile list, and desktop wheel;
-2. Enlightenment, Willpower, Quintessence/Paradox, and Health;
-3. Backgrounds and Merits/Flaws;
-4. Focus, Wonders, Rotes, equipment, Maneuvers, and Special Do;
-5. Experience, settings, file interchange, copy-first conversion, and opt-in
+1. Backgrounds and Merits/Flaws;
+2. Focus, Wonders, Rotes, equipment, Maneuvers, and Special Do;
+3. Experience, settings, file interchange, copy-first conversion, and opt-in
    preview activation.
 
 Legacy Mage remains the production fallback through those slices.

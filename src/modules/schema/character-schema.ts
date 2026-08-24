@@ -51,6 +51,9 @@ export function buildModuleCharacterSchema(
       schema = value;
       break;
     }
+    case 'nullable':
+      schema = buildModuleCharacterSchema(definition.item).nullable();
+      break;
   }
   if (!definition.required) schema = schema.optional();
   return schema;
