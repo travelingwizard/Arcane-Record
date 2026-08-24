@@ -6,10 +6,13 @@ import {
   exaltedWeaponCatalog,
 } from '../equipment/catalog';
 import type {
+  AmmunitionDefinition,
+  ArmorDefinition,
   EquipmentKind,
   EquipmentQuality,
   MagicalMaterial,
   OwnedEquipment,
+  WeaponDefinition,
 } from '../equipment/types';
 
 type EquipmentState = Exalted1eCharacter['equipment'];
@@ -33,16 +36,18 @@ function blankItem(
   kind: EquipmentKind,
   definitionId: string | null,
   customName = '',
+  weaponDefinitions: readonly WeaponDefinition[] = exaltedWeaponCatalog,
 ): OwnedEquipment {
   const modeId =
     kind === 'weapon' && definitionId
-      ? (exaltedWeaponCatalog.find(({ id }) => id === definitionId)?.modes[0]
+      ? (weaponDefinitions.find(({ id }) => id === definitionId)?.modes[0]
           ?.id ?? null)
       : null;
   return {
     id: crypto.randomUUID(),
     kind,
     definitionId,
+    unresolvedReference: null,
     customName,
     modeId,
     quality: 'normal',
@@ -64,15 +69,17 @@ function blankItem(
   };
 }
 
-function definitionName(item: OwnedEquipment) {
+function definitionName(
+  item: OwnedEquipment,
+  definitions: EquipmentDefinitions,
+) {
   if (item.customName.trim()) return item.customName;
   if (item.kind === 'weapon')
-    return exaltedWeaponCatalog.find(({ id }) => id === item.definitionId)
-      ?.name;
+    return definitions.weapons.find(({ id }) => id === item.definitionId)?.name;
   if (item.kind === 'armor')
-    return exaltedArmorCatalog.find(({ id }) => id === item.definitionId)?.name;
+    return definitions.armor.find(({ id }) => id === item.definitionId)?.name;
   if (item.kind === 'ammunition')
-    return exaltedAmmunitionCatalog.find(({ id }) => id === item.definitionId)
+    return definitions.ammunition.find(({ id }) => id === item.definitionId)
       ?.name;
   return undefined;
 }
@@ -80,18 +87,38 @@ function definitionName(item: OwnedEquipment) {
 interface Props {
   equipment: EquipmentState;
   onChange: (equipment: EquipmentState) => void;
+  definitions?: EquipmentDefinitions;
 }
 
-export function EquipmentSection({ equipment, onChange }: Props) {
+interface EquipmentDefinitions {
+  weapons: readonly WeaponDefinition[];
+  armor: readonly ArmorDefinition[];
+  ammunition: readonly AmmunitionDefinition[];
+}
+
+export function EquipmentSection({
+  equipment,
+  onChange,
+  definitions: suppliedDefinitions,
+}: Props) {
+  const catalogDefinitions = useMemo(
+    () =>
+      suppliedDefinitions ?? {
+        weapons: exaltedWeaponCatalog,
+        armor: exaltedArmorCatalog,
+        ammunition: exaltedAmmunitionCatalog,
+      },
+    [suppliedDefinitions],
+  );
   const [kind, setKind] = useState<EquipmentKind>('weapon');
   const [definitionId, setDefinitionId] = useState('');
   const [customName, setCustomName] = useState('');
   const definitions = useMemo(() => {
-    if (kind === 'weapon') return exaltedWeaponCatalog;
-    if (kind === 'armor') return exaltedArmorCatalog;
-    if (kind === 'ammunition') return exaltedAmmunitionCatalog;
+    if (kind === 'weapon') return catalogDefinitions.weapons;
+    if (kind === 'armor') return catalogDefinitions.armor;
+    if (kind === 'ammunition') return catalogDefinitions.ammunition;
     return [];
-  }, [kind]);
+  }, [catalogDefinitions, kind]);
   const allItems = Object.values(equipment).flat();
 
   const updateItem = (
@@ -110,7 +137,12 @@ export function EquipmentSection({ equipment, onChange }: Props) {
   const add = () => {
     const chosenDefinition = definitionId || null;
     if (!chosenDefinition && !customName.trim()) return;
-    const item = blankItem(kind, chosenDefinition, customName.trim());
+    const item = blankItem(
+      kind,
+      chosenDefinition,
+      customName.trim(),
+      catalogDefinitions.weapons,
+    );
     const group = groupForKind[kind];
     onChange({ ...equipment, [group]: [...equipment[group], item] });
     setDefinitionId('');
@@ -179,7 +211,7 @@ export function EquipmentSection({ equipment, onChange }: Props) {
             const group = groupForKind[item.kind];
             const weapon =
               item.kind === 'weapon'
-                ? exaltedWeaponCatalog.find(
+                ? catalogDefinitions.weapons.find(
                     ({ id }) => id === item.definitionId,
                   )
                 : undefined;
@@ -188,7 +220,10 @@ export function EquipmentSection({ equipment, onChange }: Props) {
                 <div className="exalted-equipment-card__heading">
                   <div>
                     <p className="eyebrow">{kindLabels[item.kind]}</p>
-                    <h3>{definitionName(item) ?? 'Custom item'}</h3>
+                    <h3>
+                      {definitionName(item, catalogDefinitions) ??
+                        'Custom item'}
+                    </h3>
                   </div>
                   <button
                     type="button"
@@ -250,7 +285,10 @@ export function EquipmentSection({ equipment, onChange }: Props) {
                     <span>Item name</span>
                     <input
                       value={item.customName}
-                      placeholder={definitionName({ ...item, customName: '' })}
+                      placeholder={definitionName(
+                        { ...item, customName: '' },
+                        catalogDefinitions,
+                      )}
                       onChange={(event) =>
                         updateItem(item, { customName: event.target.value })
                       }
@@ -331,7 +369,7 @@ export function EquipmentSection({ equipment, onChange }: Props) {
                         }
                       >
                         <option value="">None</option>
-                        {exaltedAmmunitionCatalog.map((ammo) => (
+                        {catalogDefinitions.ammunition.map((ammo) => (
                           <option key={ammo.id} value={ammo.id}>
                             {ammo.name}
                           </option>

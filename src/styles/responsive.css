@@ -519,6 +519,7 @@
   .exalted-field-grid,
   .exalted-rating-columns,
   .exalted-advantage-grid,
+  .module-exalted-advantages,
   .exalted-limit-grid,
   .exalted-notes-grid,
   .exalted-background-list article {
@@ -578,7 +579,8 @@
   }
 
   .exalted-rating-columns,
-  .exalted-advantage-grid {
+  .exalted-advantage-grid,
+  .module-exalted-advantages {
     grid-template-columns: 1fr;
   }
 }

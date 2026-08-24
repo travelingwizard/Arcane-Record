@@ -415,7 +415,11 @@ export function validateModuleEnvelope(input: unknown): ArcaneModuleEnvelope {
   const sourceRefs = new Set(module.sourceReferences.map(({ id }) => id));
   const catalogIds = new Set(module.catalogs.map(({ id }) => id));
   module.reusableComponents.forEach((component, index) => {
-    if ('catalogId' in component && !catalogIds.has(component.catalogId)) {
+    if (
+      'catalogId' in component &&
+      component.catalogId &&
+      !catalogIds.has(component.catalogId)
+    ) {
       diagnostics.push({
         code: 'unknown-component-catalog',
         severity: 'error',

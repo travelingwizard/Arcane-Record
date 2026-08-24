@@ -94,6 +94,7 @@ describe('Arcane module runtime', () => {
       'mage20-background-catalog',
       'mage20-merits-flaws-catalog',
       'mage20-collection',
+      'exalted1e-section',
       'validation-summary',
     ]);
   });

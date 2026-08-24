@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { unresolvedExaltedReferenceSchema } from '../unresolved-reference';
 
 export const combatProfileSchema = z.enum(['classic', 'power-combat']);
 export const equipmentQualitySchema = z.enum([
@@ -21,6 +22,7 @@ export const ownedEquipmentSchema = z.object({
   id: z.string().uuid(),
   kind: z.enum(['weapon', 'armor', 'shield', 'ammunition']),
   definitionId: z.string().nullable(),
+  unresolvedReference: unresolvedExaltedReferenceSchema,
   customName: z.string(),
   modeId: z.string().nullable(),
   quality: equipmentQualitySchema,

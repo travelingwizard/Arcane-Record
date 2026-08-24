@@ -17,6 +17,12 @@ copy-first opt-in conversion are recorded in
 `phase-2-mage-identity-traits.md`. The legacy Mage editor remains the default;
 switching new characters to the module is a separate approval gate.
 
+Phase 3 was implemented locally on 2026-08-24. The shared Exalted root,
+Solar/Dragon-Blooded children, catalogs, advanced shared systems, unresolved
+reference records, and copy-first v1–v6 conversion are recorded in
+`phase-3-exalted-parity.md`. Legacy Exalted creation remains the default;
+switching either variant is a separate approval gate.
+
 Priority labels:
 
 - **P0** blocks safe runtime work or data compatibility.
@@ -94,17 +100,17 @@ Priority labels:
 
 ## Phase 3 — Exalted parity backlog
 
-| Priority | Slice                                          | Acceptance criteria                                                                          |
-| -------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| P0       | Root/Solar/DB hierarchy fixture                | Shared definitions resolve once; variant availability/overrides tested.                      |
-| P0       | Unresolved reference representation            | Existing/unknown power, Trait and equipment IDs preserve owned fields and remain repairable. |
-| P0       | Shared fields/languages/backgrounds            | Linguistics and temporary sources match; no duplicated child definitions.                    |
-| P0       | Virtues/Willpower/Essence/Limit/Derangements   | Great Curse separation, Flaw link/unlink, pools and Play behavior match.                     |
-| P0       | DB Merits/Flaws and powers                     | Catalog counts/IDs, costs, repeats, warnings, source/page, prerequisites match.              |
-| P1       | Combat/equipment and Combo advanced components | Classic/Power calculations, material/quality, links, costs and explanations match fixtures.  |
-| P1       | Experience/downtime/possessions                | Ledger-derived totals, DB XP overrides, separate downtime and links round-trip.              |
-| P1       | Exalted v1–v6 converter                        | Both variants migrate copy-first; Solar placeholders remain explicit.                        |
-| P2       | Module renderer default                        | Separate approval after both variants pass parity and legacy fallback window.                |
+| Priority | Slice                                          | Acceptance criteria                                                                           |
+| -------- | ---------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| P0       | Root/Solar/DB hierarchy fixture                | **Complete.** Shared definitions resolve once; variant availability/overrides are tested.     |
+| P0       | Unresolved reference representation            | **Complete.** Unknown owned references stay visible, removable, exportable, and repairable.   |
+| P0       | Shared fields/languages/backgrounds            | **Complete.** Linguistics/temporary sources use one shared catalog and component system.      |
+| P0       | Virtues/Willpower/Essence/Limit/Derangements   | **Complete.** Great Curse separation, links, pools, and Play protections match.               |
+| P0       | DB Merits/Flaws and powers                     | **Complete.** Existing 80-Trait and 320-Charm/99-spell catalogs drive module adapters.        |
+| P1       | Combat/equipment and Combo advanced components | **Complete.** Shared Classic/Power, equipment, material/quality, and Combo adapters are used. |
+| P1       | Experience/downtime/possessions                | **Complete.** Ledger totals, DB overrides, downtime, Manses, and Hearthstones round-trip.     |
+| P1       | Exalted v1–v6 converter                        | **Complete.** Both variants convert copy-first; Solar placeholders remain explicit.           |
+| P2       | Module renderer default                        | Separate approval after preview evidence; legacy fallback remains available.                  |
 
 ## Phase 4 — Burning Wheel parity backlog
 
@@ -200,6 +206,7 @@ Priority labels:
 
 ## Recommended next phase
 
-Review and approve the six Phase 1 decision gates first. Then implement only
-Phase 1's synthetic-fixture runtime foundation. Do not start Mage conversion or
-the visual builder in the same change set.
+Phase 4 begins with the Burning Wheel GPL/distribution review and large-catalog
+performance gate. Do not switch Mage or Exalted creation to declarative
+defaults without a separate preview-feedback approval, and do not begin the
+visual builder before the converted-game parity sequence is complete.

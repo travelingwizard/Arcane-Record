@@ -1,8 +1,10 @@
 import { z } from 'zod';
+import { unresolvedExaltedReferenceSchema } from '../unresolved-reference';
 
 export const exaltedDerangementSchema = z.object({
   id: z.string().uuid(),
   definitionId: z.string().nullable(),
+  unresolvedReference: unresolvedExaltedReferenceSchema,
   customName: z.string(),
   description: z.string(),
   mechanics: z.string(),

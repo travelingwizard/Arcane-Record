@@ -40,6 +40,7 @@ import {
   armorById,
   weaponById,
 } from './shared/equipment/catalog';
+import { unresolvedExaltedReferenceSchema } from './shared/unresolved-reference';
 
 const fivePointRating = z.number().int().min(0).max(5);
 const attributeRating = z.number().int().min(1).max(5);
@@ -87,6 +88,7 @@ const selectedTraitSchema = z.object({
   choiceLabel: z.string(),
   notes: z.string(),
   linkedDerangementId: z.string().uuid().nullable().optional(),
+  unresolvedReference: unresolvedExaltedReferenceSchema,
 });
 
 export const exalted1eCharacterSchema = z
@@ -125,6 +127,7 @@ export const exalted1eCharacterSchema = z
       z.object({
         id: z.string().uuid(),
         definitionId: exaltedBackgroundIdSchema,
+        unresolvedReference: unresolvedExaltedReferenceSchema,
         rating: fivePointRating,
         notes: z.string(),
         label: z.string().default(''),
@@ -164,6 +167,7 @@ export const exalted1eCharacterSchema = z
         z.object({
           id: z.string().uuid(),
           definitionId: z.string(),
+          unresolvedReference: unresolvedExaltedReferenceSchema,
           notes: z.string(),
         }),
       ),
@@ -171,6 +175,7 @@ export const exalted1eCharacterSchema = z
         z.object({
           id: z.string().uuid(),
           definitionId: z.string(),
+          unresolvedReference: unresolvedExaltedReferenceSchema,
           notes: z.string(),
         }),
       ),
@@ -362,7 +367,10 @@ export const exalted1eCharacterSchema = z
 
 export type Exalted1eCharacter = z.infer<typeof exalted1eCharacterSchema>;
 
-export function migrateExalted1eCharacter(data: unknown, fromVersion: number) {
+export function prepareExalted1eCharacterData(
+  data: unknown,
+  fromVersion: number,
+) {
   let candidate = data;
   if (candidate && typeof candidate === 'object' && !Array.isArray(candidate)) {
     let recordCandidate = candidate as Record<string, unknown>;
@@ -556,5 +564,11 @@ export function migrateExalted1eCharacter(data: unknown, fromVersion: number) {
     }
     candidate = recordCandidate;
   }
-  return exalted1eCharacterSchema.parse(candidate);
+  return candidate;
+}
+
+export function migrateExalted1eCharacter(data: unknown, fromVersion: number) {
+  return exalted1eCharacterSchema.parse(
+    prepareExalted1eCharacterData(data, fromVersion),
+  );
 }

@@ -92,6 +92,15 @@ export interface OwnedEquipment {
   id: string;
   kind: EquipmentKind;
   definitionId: string | null;
+  unresolvedReference?: {
+    definitionId: string;
+    label: string;
+    summary: string;
+    source: string;
+    page: string;
+    repairNotes: string;
+    ownedDataJson: string;
+  } | null;
   customName: string;
   modeId: string | null;
   quality: EquipmentQuality;

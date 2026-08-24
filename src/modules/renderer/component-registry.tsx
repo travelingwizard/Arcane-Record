@@ -10,6 +10,7 @@ import { QuintessenceParadoxWheel } from '../../components/character/Quintessenc
 import { ModuleMageBackgrounds } from './ModuleMageBackgrounds';
 import { ModuleMageMeritsFlaws } from './ModuleMageMeritsFlaws';
 import { ModuleMageCollection } from './ModuleMageCollection';
+import { ModuleExaltedSection } from './ModuleExaltedSection';
 
 export interface ModuleComponentRenderProps {
   component: ModuleComponentDefinition;
@@ -321,6 +322,27 @@ export const coreModuleComponentRegistry = new ModuleComponentRegistry()
           data={data}
           onPathChange={onPathChange}
           catalogEntries={catalogEntries}
+        />
+      ) : null,
+  })
+  .register({
+    type: 'exalted1e-section',
+    render: ({
+      component,
+      data,
+      readOnly,
+      catalogEntries,
+      onPathChange,
+      onPathsChange,
+    }) =>
+      component.type === 'exalted1e-section' ? (
+        <ModuleExaltedSection
+          component={component}
+          data={data}
+          readOnly={readOnly}
+          catalogEntries={catalogEntries}
+          onPathChange={onPathChange}
+          onPathsChange={onPathsChange}
         />
       ) : null,
   })

@@ -79,6 +79,10 @@ renderer by default. Retirement of the hard-coded editor is a separate change.
 
 ## Phase 3 — Exalted hierarchy and shared systems
 
+Status: complete locally on 2026-08-24. Both legacy variants remain the
+creation default; a library action creates an explicit module-backed preview
+copy with provenance.
+
 Create one Exalted root node with shared definitions and Solar and Dragon-
 Blooded child nodes/sheets. Do not duplicate languages, Backgrounds,
 Derangements, combat equipment, possessions, or advancement systems.

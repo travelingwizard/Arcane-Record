@@ -458,7 +458,7 @@ export function ModuleCharacterEditor({
                             ),
                           diagnostics,
                           catalogEntries:
-                            'catalogId' in component
+                            'catalogId' in component && component.catalogId
                               ? (catalogs
                                   .get(component.catalogId)
                                   ?.entries.map(

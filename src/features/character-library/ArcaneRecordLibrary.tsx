@@ -12,6 +12,8 @@ import { useAppearance } from '../settings/appearance-context';
 import type { ModuleRegistry } from '../../modules/registry/module-registry';
 import { MAGE20_SYSTEM_ID } from '../../games/mage20/character-adapter';
 import { convertMageCharacterToModuleCopy } from '../../games/mage20/module/convert-character';
+import { EXALTED1E_SYSTEM_ID } from '../../games/exalted1e/definitions';
+import { convertExaltedCharacterToModuleCopy } from '../../games/exalted1e/module/convert-character';
 
 function formatUpdatedAt(timestamp: string) {
   return new Intl.DateTimeFormat(undefined, {
@@ -121,6 +123,12 @@ export function ArcaneRecordLibrary({
 
   const previewMageModule = async (record: StoredCharacter) => {
     const copy = convertMageCharacterToModuleCopy(record);
+    await repository.create(copy);
+    onNavigate(`/characters/${encodeURIComponent(copy.id)}`);
+  };
+
+  const previewExaltedModule = async (record: StoredCharacter) => {
+    const copy = convertExaltedCharacterToModuleCopy(record);
     await repository.create(copy);
     onNavigate(`/characters/${encodeURIComponent(copy.id)}`);
   };
@@ -330,6 +338,14 @@ export function ArcaneRecordLibrary({
                           record.systemId === MAGE20_SYSTEM_ID ? (
                             <button
                               onClick={() => void previewMageModule(record)}
+                            >
+                              Preview module copy
+                            </button>
+                          ) : null}
+                          {result.interpreter === 'legacy' &&
+                          record.systemId === EXALTED1E_SYSTEM_ID ? (
+                            <button
+                              onClick={() => void previewExaltedModule(record)}
                             >
                               Preview module copy
                             </button>

@@ -21,6 +21,7 @@ export function DerangementsSection({ derangements, onChange }: Props) {
       {
         id: crypto.randomUUID(),
         definitionId: null,
+        unresolvedReference: null,
         customName: '',
         description: '',
         mechanics: '',

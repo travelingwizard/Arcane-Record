@@ -1714,6 +1714,23 @@
   max-width: 100%;
 }
 
+.module-exalted-fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.module-exalted-advantages {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.module-exalted-advantages__wide {
+  grid-column: 1 / -1;
+}
+
 .line-field {
   min-width: 0;
   display: grid;

@@ -1,12 +1,11 @@
 import { useMemo, useState } from 'react';
 import type { Exalted1eCharacter } from './schema';
 import {
-  dragonBloodedCharmById,
   dragonBloodedCharms,
-  dragonBloodedSpellById,
   dragonBloodedSpells,
   type DragonBloodedCharmDefinition,
   type DragonBloodedPowerDefinition,
+  type TerrestrialSpellDefinition,
 } from './reference/dragonblooded-powers';
 import {
   getDragonBloodedPowerExperienceCost,
@@ -76,9 +75,12 @@ function prerequisitesMet(
 interface Props {
   powers: Exalted1eCharacter['powers'];
   onChange: (powers: Exalted1eCharacter['powers']) => void;
+  definitions?: readonly (
+    DragonBloodedCharmDefinition | TerrestrialSpellDefinition
+  )[];
   character?: Exalted1eCharacter;
   onLearnWithExperience?: (
-    definition: DragonBloodedPowerDefinition,
+    definition: DragonBloodedCharmDefinition | TerrestrialSpellDefinition,
     cost: number,
     explanation: string,
   ) => void;
@@ -87,6 +89,7 @@ interface Props {
 export function DragonBloodedPowersSection({
   powers,
   onChange,
+  definitions: suppliedDefinitions,
   character,
   onLearnWithExperience,
 }: Props) {
@@ -98,20 +101,34 @@ export function DragonBloodedPowersSection({
   const [review, setReview] = useState('all');
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
-  const definitions =
-    activeKind === 'charms' ? dragonBloodedCharms : dragonBloodedSpells;
+  const allDefinitions = useMemo(
+    () =>
+      suppliedDefinitions ?? [...dragonBloodedCharms, ...dragonBloodedSpells],
+    [suppliedDefinitions],
+  );
+  const definitions = allDefinitions.filter(({ kind }) =>
+    activeKind === 'charms' ? kind === 'charm' : kind === 'spell',
+  );
   const selections = powers[activeKind];
   const selectedIds = new Set(
     selections.map(({ definitionId }) => definitionId),
   );
-  const definitionById =
-    activeKind === 'charms' ? dragonBloodedCharmById : dragonBloodedSpellById;
+  const definitionById = new Map(
+    definitions.map((definition) => [definition.id, definition]),
+  );
   const abilities = useMemo(
     () =>
       Array.from(
-        new Set(dragonBloodedCharms.map(({ ability }) => ability)),
+        new Set(
+          allDefinitions
+            .filter(
+              (entry): entry is DragonBloodedCharmDefinition =>
+                entry.kind === 'charm',
+            )
+            .map(({ ability }) => ability),
+        ),
       ).sort(),
-    [],
+    [allDefinitions],
   );
   const knowsTerrestrialCircle = powers.charms.some(
     ({ definitionId }) => definitionId === 'terrestrial-circle-sorcery',
@@ -150,7 +167,12 @@ export function DragonBloodedPowersSection({
       ...powers,
       [activeKind]: [
         ...selections,
-        { id: crypto.randomUUID(), definitionId, notes: '' },
+        {
+          id: crypto.randomUUID(),
+          definitionId,
+          unresolvedReference: null,
+          notes: '',
+        },
       ],
     });
   };
@@ -216,7 +238,38 @@ export function DragonBloodedPowersSection({
         {selections.length ? (
           selections.map((selection: PowerSelection) => {
             const definition = definitionById.get(selection.definitionId);
-            if (!definition) return null;
+            if (!definition) {
+              return (
+                <article key={selection.id}>
+                  <div className="exalted-selected-power__heading">
+                    <div>
+                      <p className="eyebrow">Unresolved reference</p>
+                      <h3>{selection.definitionId}</h3>
+                    </div>
+                    <button
+                      type="button"
+                      className="small-button small-button--quiet"
+                      onClick={() => removeSelection(selection.id)}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                  <p className="exalted-power-warning" role="status">
+                    This definition is unavailable. The owned selection and
+                    notes remain preserved for repair.
+                  </p>
+                  <label>
+                    <span>Character notes</span>
+                    <textarea
+                      value={selection.notes}
+                      onChange={(event) =>
+                        updateSelection(selection.id, event.target.value)
+                      }
+                    />
+                  </label>
+                </article>
+              );
+            }
             return (
               <article key={selection.id}>
                 <div className="exalted-selected-power__heading">

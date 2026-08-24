@@ -12,6 +12,7 @@ import { ModuleRegistry } from '../modules/registry/module-registry';
 import { moduleRepository } from '../storage/repository-instance';
 import { calculateModuleChecksum } from '../modules/interchange/module-files';
 import { getBundledMage20ModuleRecords } from '../games/mage20/module/bundled-module';
+import { getBundledExalted1eModuleRecords } from '../games/exalted1e/module/bundled-module';
 
 export function App({
   repository = storedCharacterRepository,
@@ -43,8 +44,9 @@ export function App({
       moduleRepository.listPackages(),
       moduleRepository.listLocks(),
       getBundledMage20ModuleRecords(),
+      getBundledExalted1eModuleRecords(),
     ])
-      .then(async ([packages, locks, bundled]) => {
+      .then(async ([packages, locks, mageBundled, exaltedBundled]) => {
         if (!active) return;
         const verifiedPackages = (
           await Promise.all(
@@ -59,14 +61,26 @@ export function App({
           .filter(({ valid }) => valid)
           .map(({ record }) => record);
         if (!active) return;
+        const bundled = [mageBundled, exaltedBundled];
         const withoutBundledVersion = verifiedPackages.filter(
           ({ moduleId, moduleVersion }) =>
-            moduleId !== bundled.packageRecord.moduleId ||
-            moduleVersion !== bundled.packageRecord.moduleVersion,
+            !bundled.some(
+              ({ packageRecord }) =>
+                moduleId === packageRecord.moduleId &&
+                moduleVersion === packageRecord.moduleVersion,
+            ),
         );
         moduleRegistry.replaceInstalled(
-          [...withoutBundledVersion, bundled.packageRecord],
-          [...locks.filter(({ id }) => id !== bundled.lock.id), bundled.lock],
+          [
+            ...withoutBundledVersion,
+            ...bundled.map(({ packageRecord }) => packageRecord),
+          ],
+          [
+            ...locks.filter(
+              ({ id }) => !bundled.some(({ lock }) => id === lock.id),
+            ),
+            ...bundled.map(({ lock }) => lock),
+          ],
         );
         setModuleRevision((value) => value + 1);
       })

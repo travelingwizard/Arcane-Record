@@ -6,9 +6,15 @@ interface Props {
   languages: Exalted1eCharacter['languages'];
   linguistics: number;
   onChange: (languages: Exalted1eCharacter['languages']) => void;
+  definitions?: readonly { id: string; name: string }[];
 }
 
-export function LanguagesSection({ languages, linguistics, onChange }: Props) {
+export function LanguagesSection({
+  languages,
+  linguistics,
+  onChange,
+  definitions = exaltedLanguageCatalog,
+}: Props) {
   const [choice, setChoice] = useState('');
   const [customName, setCustomName] = useState('');
   const [proficiency, setProficiency] =
@@ -25,6 +31,7 @@ export function LanguagesSection({ languages, linguistics, onChange }: Props) {
       {
         id: crypto.randomUUID(),
         definitionId: choice || null,
+        unresolvedReference: null,
         customName: custom,
         proficiency,
         spoken: true,
@@ -65,7 +72,7 @@ export function LanguagesSection({ languages, linguistics, onChange }: Props) {
             onChange={(event) => setChoice(event.target.value)}
           >
             <option value="">Custom / regional</option>
-            {exaltedLanguageCatalog.map((language) => (
+            {definitions.map((language) => (
               <option key={language.id} value={language.id}>
                 {language.name}
               </option>
@@ -116,6 +123,9 @@ export function LanguagesSection({ languages, linguistics, onChange }: Props) {
                   <summary>
                     <strong>
                       {language.customName ||
+                        definitions.find(
+                          ({ id }) => id === language.definitionId,
+                        )?.name ||
                         exaltedLanguageById.get(language.definitionId ?? '')
                           ?.name ||
                         'Unnamed language'}

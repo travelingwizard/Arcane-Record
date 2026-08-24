@@ -1,7 +1,6 @@
 import { useMemo, useState } from 'react';
 import type { Exalted1eCharacter } from './schema';
 import {
-  dragonBloodedTraitById,
   dragonBloodedTraits,
   exaltedTraitCategories,
   getDragonBloodedTraitCostPolicy,
@@ -68,6 +67,7 @@ interface Props {
   onDerangementsChange: (
     derangements: Exalted1eCharacter['derangements'],
   ) => void;
+  definitions?: readonly DragonBloodedTraitDefinition[];
 }
 
 export function DragonBloodedMeritsFlawsSection({
@@ -75,6 +75,7 @@ export function DragonBloodedMeritsFlawsSection({
   onChange,
   derangements,
   onDerangementsChange,
+  definitions = dragonBloodedTraits,
 }: Props) {
   const [activeKind, setActiveKind] = useState<ExaltedTraitKind>('merit');
   const [catalogOpen, setCatalogOpen] = useState(false);
@@ -88,16 +89,20 @@ export function DragonBloodedMeritsFlawsSection({
     {},
   );
   const [lastRemoval, setLastRemoval] = useState<RemovedTrait | null>(null);
+  const definitionById = useMemo(
+    () => new Map(definitions.map((definition) => [definition.id, definition])),
+    [definitions],
+  );
 
   const filteredDefinitions = useMemo(
     () =>
-      dragonBloodedTraits.filter(
+      definitions.filter(
         (definition) =>
           definition.kind === activeKind &&
           (category === 'all' || definition.category === category) &&
           matchesDragonBloodedTraitSearch(definition, query),
       ),
-    [activeKind, category, query],
+    [activeKind, category, definitions, query],
   );
 
   const groupedDefinitions = exaltedTraitCategories
@@ -171,6 +176,7 @@ export function DragonBloodedMeritsFlawsSection({
           {
             id: linkedDerangementId,
             definitionId: null,
+            unresolvedReference: null,
             customName: '',
             description: '',
             mechanics: '',
@@ -199,6 +205,7 @@ export function DragonBloodedMeritsFlawsSection({
     const nextSelection: SelectedTrait = {
       id: selectionId,
       definitionId: definition.id,
+      unresolvedReference: null,
       chosenCost,
       choiceLabel: pendingLabels[definition.id]?.trim() ?? '',
       notes: '',
@@ -281,11 +288,7 @@ export function DragonBloodedMeritsFlawsSection({
         <div className="exalted-trait-undo" role="status">
           <span>
             Removed{' '}
-            {
-              dragonBloodedTraitById.get(lastRemoval.selection.definitionId)
-                ?.name
-            }
-            .
+            {definitionById.get(lastRemoval.selection.definitionId)?.name}.
           </span>
           <button type="button" className="small-button" onClick={undoRemoval}>
             Undo
@@ -307,10 +310,50 @@ export function DragonBloodedMeritsFlawsSection({
               </h3>
               {traits[key].length ? (
                 traits[key].map((selection) => {
-                  const definition = dragonBloodedTraitById.get(
-                    selection.definitionId,
-                  );
-                  if (!definition) return null;
+                  const definition = definitionById.get(selection.definitionId);
+                  if (!definition) {
+                    return (
+                      <details
+                        className="exalted-compact-record exalted-selected-trait"
+                        key={selection.id}
+                      >
+                        <summary className="exalted-selected-trait__heading">
+                          <div>
+                            <h4>
+                              Unresolved:{' '}
+                              {selection.choiceLabel || selection.definitionId}
+                            </h4>
+                            <p>{selection.chosenCost} points</p>
+                          </div>
+                        </summary>
+                        <div className="exalted-record-fields">
+                          <p className="exalted-trait-warning" role="status">
+                            Definition “{selection.definitionId}” is
+                            unavailable. The owned record remains editable and
+                            removable.
+                          </p>
+                          <label>
+                            <span>Character notes</span>
+                            <textarea
+                              value={selection.notes}
+                              onChange={(event) =>
+                                updateSelection(kind, selection.id, {
+                                  notes: event.target.value,
+                                })
+                              }
+                            />
+                          </label>
+                          <button
+                            type="button"
+                            className="small-button small-button--quiet"
+                            onClick={() => removeSelection(kind, selection.id)}
+                          >
+                            Remove
+                          </button>
+                        </div>
+                      </details>
+                    );
+                  }
                   return (
                     <details
                       className="exalted-compact-record exalted-selected-trait"
@@ -418,7 +461,7 @@ export function DragonBloodedMeritsFlawsSection({
                 onClick={() => setActiveKind(kind)}
               >
                 Browse {kind === 'merit' ? 'Merits' : 'Flaws'} (
-                {kind === 'merit' ? 40 : 40})
+                {definitions.filter((entry) => entry.kind === kind).length})
               </button>
             ))}
           </div>

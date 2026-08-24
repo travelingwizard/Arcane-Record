@@ -355,6 +355,26 @@ export const moduleComponentSchema = z.discriminatedUnion('type', [
   }),
   z.strictObject({
     ...componentBase,
+    type: z.literal('exalted1e-section'),
+    kind: z.enum([
+      'abilities',
+      'backgrounds',
+      'languages',
+      'advantages',
+      'merits-flaws',
+      'derangements',
+      'powers',
+      'equipment',
+      'combat',
+      'combos',
+      'possessions',
+      'experience',
+    ]),
+    sheetType: z.enum(['solar', 'dragon-blooded']),
+    catalogId: stableSlugSchema.optional(),
+  }),
+  z.strictObject({
+    ...componentBase,
     type: z.literal('validation-summary'),
   }),
 ]);
