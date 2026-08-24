@@ -126,7 +126,14 @@ Priority labels:
 | P1       | File/PDF adapters                        | JSON/YAML and `.char` round trips/loss warning; original local PDF remains safe.                        |
 | P1       | v1/v2 converter and all-stock E2E        | Copy-first migration, complete representative burn, mobile/settings/files pass.                         |
 
+Phase 4 engineering parity is complete; see `phase-4-burning-wheel-parity.md`.
+External legal approval remains a release gate and is not represented as an
+application capability.
+
 ## Phase 5 — visual builder
+
+Phase 5 is complete; see `phase-5-visual-builder.md`. Phase 6 rule/action/flow
+editors remain visibly deferred.
 
 | Priority | Item                                    | Acceptance criteria                                                                               |
 | -------- | --------------------------------------- | ------------------------------------------------------------------------------------------------- |

@@ -24,5 +24,7 @@ export interface ModuleRepository {
   listLocks(): Promise<ModuleLockRecord[]>;
   install(input: InstallModuleInput): Promise<ModulePackageRecord>;
   saveDraft(draft: ModuleDraftRecord): Promise<ModuleDraftRecord>;
+  listDrafts(): Promise<ModuleDraftRecord[]>;
   getDraft(id: string): Promise<ModuleDraftRecord | null>;
+  deleteDraft(id: string): Promise<void>;
 }

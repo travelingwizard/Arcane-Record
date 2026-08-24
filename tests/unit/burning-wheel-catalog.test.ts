@@ -6,6 +6,9 @@ import {
   burningWheelTraits,
   lifepathsForStock,
 } from '../../src/games/burning-wheel/catalog';
+import { createBlankBurningWheelCharacter } from '../../src/games/burning-wheel/create-character';
+import { availableLifepaths } from '../../src/games/burning-wheel/engine';
+import { burningWheelCharacterSchema } from '../../src/games/burning-wheel/schema';
 
 describe('Burning Wheel Gold + Codex catalog', () => {
   it('contains all normalized Charred Black catalogs with stable unique IDs', () => {
@@ -59,5 +62,15 @@ describe('Burning Wheel Gold + Codex catalog', () => {
       ['+has_n_lifepaths_or_more', 4],
       ['+age_greater_than', 35],
     ]);
+  });
+
+  it('provides a valid sheet and initial burner choices for every stock', () => {
+    for (const stock of burningWheelCatalog.stocks) {
+      const character = burningWheelCharacterSchema.parse(
+        createBlankBurningWheelCharacter(stock.id),
+      );
+      expect(character.stock).toBe(stock.id);
+      expect(availableLifepaths(character).length).toBeGreaterThan(0);
+    }
   });
 });

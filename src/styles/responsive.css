@@ -16,6 +16,30 @@
 }
 
 @media (max-width: 69.999rem) {
+  .builder-header,
+  .builder-workspace,
+  .builder-designer {
+    display: block;
+  }
+
+  .builder-panels {
+    overflow-x: auto;
+    flex-direction: row;
+    border-right: 0;
+    border-bottom: 1px solid var(--color-rule);
+  }
+
+  .builder-panels button {
+    flex: 0 0 auto;
+  }
+
+  .builder-designer > * {
+    margin-bottom: var(--space-4);
+  }
+
+  .builder-theme-fields {
+    grid-template-columns: 1fr;
+  }
   .mobile-section-trigger {
     width: 100%;
     min-height: 3.5rem;

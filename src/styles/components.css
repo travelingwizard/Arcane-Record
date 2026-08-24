@@ -1714,6 +1714,120 @@
   max-width: 100%;
 }
 
+.builder-dashboard,
+.module-builder-shell {
+  min-height: 100vh;
+}
+
+.builder-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.builder-workspace {
+  display: grid;
+  grid-template-columns: 13rem minmax(0, 1fr);
+  min-height: 70vh;
+}
+
+.builder-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: var(--space-4);
+  border-right: 1px solid var(--color-rule);
+}
+
+.builder-panels button {
+  min-height: 44px;
+  text-align: left;
+}
+
+.builder-panels button[aria-current='page'] {
+  border-color: var(--color-accent);
+  font-weight: 700;
+}
+
+.builder-panel {
+  min-width: 0;
+  padding: var(--space-5);
+}
+
+.builder-panel > label,
+.builder-list label,
+.builder-catalog label {
+  display: grid;
+  gap: 0.35rem;
+  margin-block: var(--space-3);
+}
+
+.builder-panel textarea,
+.builder-panel input,
+.builder-panel select {
+  width: 100%;
+}
+
+.builder-json {
+  min-height: 30rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8rem;
+}
+
+.builder-list {
+  display: grid;
+  gap: var(--space-3);
+  padding: 0;
+  list-style: none;
+}
+
+.builder-list li,
+.builder-catalog,
+.builder-component {
+  padding: var(--space-3);
+  border: 1px solid var(--color-rule);
+  background: var(--color-surface);
+}
+
+.builder-designer {
+  display: grid;
+  grid-template-columns: 12rem minmax(18rem, 1fr) 16rem;
+  gap: var(--space-4);
+}
+
+.builder-designer aside {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.builder-preview {
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--color-rule);
+  background: var(--color-page);
+}
+
+.builder-preview--mobile {
+  width: min(100%, 320px);
+  margin-inline: auto;
+}
+
+.builder-theme-fields {
+  display: grid;
+  grid-template-columns: minmax(12rem, 2fr) repeat(3, minmax(6rem, 1fr));
+  gap: var(--space-3);
+  margin-block: var(--space-4);
+}
+
+.builder-theme-fields label {
+  display: grid;
+  gap: 0.35rem;
+}
+
 .module-exalted-fieldset {
   min-width: 0;
   margin: 0;

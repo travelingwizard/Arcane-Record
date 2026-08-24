@@ -17,6 +17,13 @@ describe('application routes', () => {
       id: 'abc',
     });
     expect(parseRoute('/settings')).toEqual({ name: 'settings' });
+    expect(parseRoute('/module-builder')).toEqual({
+      name: 'module-builder',
+    });
+    expect(parseRoute('/module-builder/draft-id')).toEqual({
+      name: 'module-builder',
+      draftId: 'draft-id',
+    });
     expect(parseRoute('/mage')).toEqual({ name: 'not-found' });
   });
 });

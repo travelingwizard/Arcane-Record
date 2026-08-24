@@ -118,4 +118,14 @@ export class DexieModuleRepository implements ModuleRepository {
     const draft = await this.database.moduleDrafts.get(id);
     return draft ? moduleDraftRecordSchema.parse(draft) : null;
   }
+
+  async listDrafts() {
+    return (
+      await this.database.moduleDrafts.orderBy('updatedAt').reverse().toArray()
+    ).map((draft) => moduleDraftRecordSchema.parse(draft));
+  }
+
+  async deleteDraft(id: string) {
+    await this.database.moduleDrafts.delete(id);
+  }
 }

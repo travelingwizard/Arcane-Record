@@ -3,6 +3,7 @@ export type AppRoute =
   | { name: 'create'; systemId?: string }
   | { name: 'character'; id: string }
   | { name: 'settings' }
+  | { name: 'module-builder'; draftId?: string }
   | { name: 'not-found' };
 
 export function parseRoute(pathname: string): AppRoute {
@@ -16,6 +17,9 @@ export function parseRoute(pathname: string): AppRoute {
   }
   if (parts[0] === 'settings' && parts.length === 1) {
     return { name: 'settings' };
+  }
+  if (parts[0] === 'module-builder' && parts.length <= 2) {
+    return { name: 'module-builder', draftId: parts[1] };
   }
   return { name: 'not-found' };
 }

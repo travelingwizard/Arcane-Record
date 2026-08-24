@@ -13,6 +13,7 @@ import { moduleRepository } from '../storage/repository-instance';
 import { calculateModuleChecksum } from '../modules/interchange/module-files';
 import { getBundledMage20ModuleRecords } from '../games/mage20/module/bundled-module';
 import { getBundledExalted1eModuleRecords } from '../games/exalted1e/module/bundled-module';
+import { ModuleBuilderPage } from '../features/module-builder/ModuleBuilderPage';
 
 export function App({
   repository = storedCharacterRepository,
@@ -126,6 +127,15 @@ export function App({
   }
   if (route.name === 'settings') {
     return <SettingsPage onBack={() => go('/')} />;
+  }
+  if (route.name === 'module-builder') {
+    return (
+      <ModuleBuilderPage
+        draftId={route.draftId}
+        repository={moduleRepository}
+        onNavigate={go}
+      />
+    );
   }
   return (
     <main className="app-shell neutral-shell error-shell">

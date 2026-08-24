@@ -499,6 +499,16 @@ const deferredDefinitionSchema = z.strictObject({
   kind: z.literal('deferred'),
 });
 
+const semanticThemeSchema = z.strictObject({
+  id: stableSlugSchema,
+  name: z.string().min(1).max(160),
+  tokens: z.strictObject({
+    accent: z.string().regex(/^#[0-9a-fA-F]{6}$/),
+    surface: z.string().regex(/^#[0-9a-fA-F]{6}$/),
+    text: z.string().regex(/^#[0-9a-fA-F]{6}$/),
+  }),
+});
+
 const moduleMigrationSchema = z.strictObject({
   id: stableSlugSchema,
   fromVersion: moduleVersionSchema,
@@ -564,7 +574,10 @@ export const arcaneModuleEnvelopeSchema = z.strictObject({
   validationRules: z.array(deferredDefinitionSchema).default([]),
   creationProfiles: z.array(deferredDefinitionSchema).default([]),
   creationFlows: z.array(deferredDefinitionSchema).default([]),
-  themes: z.array(deferredDefinitionSchema).default([]),
+  themes: z
+    .array(z.union([semanticThemeSchema, deferredDefinitionSchema]))
+    .max(20)
+    .default([]),
   assets: z
     .array(
       z.strictObject({
