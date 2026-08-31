@@ -1,0 +1,4458 @@
+[
+  {
+    "id": "wise-arrow",
+    "name": "Wise Arrow",
+    "kind": "charm",
+    "summary": "Adds dice to an Archery attack up to Dex+Archery.",
+    "description": "Adds dice to an Archery attack up to Dex+Archery.",
+    "cost": "1m/die",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Archery",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 154",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Archery",
+    "style": null
+  },
+  {
+    "id": "sight-without-eyes",
+    "name": "Sight Without Eyes",
+    "kind": "charm",
+    "summary": "Negates penalties for bad visibility on an Archery attack.",
+    "description": "Negates penalties for bad visibility on an Archery attack.",
+    "cost": "1m",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Archery",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["wise-arrow"],
+    "prerequisiteText": "Wise Arrow",
+    "sourceDisplay": "Exalted 154",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Archery",
+    "style": null
+  },
+  {
+    "id": "accuracy-without-distance",
+    "name": "Accuracy Without Distance",
+    "kind": "charm",
+    "summary": "Forces an Archery attack to hit with absolute certainty.",
+    "description": "Forces an Archery attack to hit with absolute certainty.",
+    "cost": "1m, 1W",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Archery",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["sight-without-eyes"],
+    "prerequisiteText": "Sight Without Eyes",
+    "sourceDisplay": "Exalted 154",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Archery",
+    "style": null
+  },
+  {
+    "id": "there-is-no-wind",
+    "name": "There Is No Wind",
+    "kind": "charm",
+    "summary": "Negates all environmental penalties for an Archery attack.",
+    "description": "Negates all environmental penalties for an Archery attack.",
+    "cost": "3m",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Archery",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["sight-without-eyes"],
+    "prerequisiteText": "Sight Without Eyes",
+    "sourceDisplay": "Exalted 155",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Archery",
+    "style": null
+  },
+  {
+    "id": "trance-of-unhesitating-speed",
+    "name": "Trance of Unhesitating Speed",
+    "kind": "charm",
+    "summary": "Allows multiple rapid Archery attacks.",
+    "description": "Allows multiple rapid Archery attacks.",
+    "cost": "Varies",
+    "duration": "Instant",
+    "type": "Extra Action",
+    "minimumRequirements": [
+      {
+        "trait": "Archery",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["wise-arrow"],
+    "prerequisiteText": "Wise Arrow",
+    "sourceDisplay": "Exalted 155",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Archery",
+    "style": null
+  },
+  {
+    "id": "fiery-arrow-attack",
+    "name": "Fiery Arrow Attack",
+    "kind": "charm",
+    "summary": "Arrow ignites in mid-flight, adding raw damage based on Essence.",
+    "description": "Arrow ignites in mid-flight, adding raw damage based on Essence.",
+    "cost": "2m",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Archery",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 156",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Archery",
+    "style": null
+  },
+  {
+    "id": "dazzling-flare-attack",
+    "name": "Dazzling Flare Attack",
+    "kind": "charm",
+    "summary": "Arrow shines like a beacon, adding damage and illuminating terrain.",
+    "description": "Arrow shines like a beacon, adding damage and illuminating terrain.",
+    "cost": "1m/2 Dmg",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Archery",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["fiery-arrow-attack"],
+    "prerequisiteText": "Fiery Arrow Attack",
+    "sourceDisplay": "Exalted 156",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Archery",
+    "style": null
+  },
+  {
+    "id": "phantom-arrow-technique",
+    "name": "Phantom Arrow Technique",
+    "kind": "charm",
+    "summary": "Fires a solid arrow of pure Essence, bypassing ammunition needs.",
+    "description": "Fires a solid arrow of pure Essence, bypassing ammunition needs.",
+    "cost": "1m/arrow",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Archery",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["fiery-arrow-attack"],
+    "prerequisiteText": "Fiery Arrow Attack",
+    "sourceDisplay": "Exalted 156",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Archery",
+    "style": null
+  },
+  {
+    "id": "solar-spike",
+    "name": "Solar Spike",
+    "kind": "charm",
+    "summary": "Fires a bolt of pure Essence that does double damage to undead/demons.",
+    "description": "Fires a bolt of pure Essence that does double damage to undead/demons.",
+    "cost": "1m/2 dice",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Archery",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["phantom-arrow-technique"],
+    "prerequisiteText": "Phantom Arrow Technique",
+    "sourceDisplay": "Exalted 157",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Archery",
+    "style": null
+  },
+  {
+    "id": "immaculate-golden-bow",
+    "name": "Immaculate Golden Bow",
+    "kind": "charm",
+    "summary": "Weaves Essence into a solid, highly accurate gold bow.",
+    "description": "Weaves Essence into a solid, highly accurate gold bow.",
+    "cost": "5m, 1W",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Archery",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["phantom-arrow-technique"],
+    "prerequisiteText": "Phantom Arrow Technique",
+    "sourceDisplay": "Exalted 157",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Archery",
+    "style": null
+  },
+  {
+    "id": "rain-of-feathered-death",
+    "name": "Rain of Feathered Death",
+    "kind": "charm",
+    "summary": "Multiplies a single shot into a flurry of duplicate arrows in flight.",
+    "description": "Multiplies a single shot into a flurry of duplicate arrows in flight.",
+    "cost": "3m/arrow",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Archery",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["phantom-arrow-technique"],
+    "prerequisiteText": "Phantom Arrow Technique",
+    "sourceDisplay": "Exalted 157",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Archery",
+    "style": null
+  },
+  {
+    "id": "bolt-of-fiery-devastation-technique",
+    "name": "Bolt of Fiery Devastation Technique",
+    "kind": "charm",
+    "summary": "Launches a massive bolt of solar fire that inflicts aggravated damage.",
+    "description": "Launches a massive bolt of solar fire that inflicts aggravated damage.",
+    "cost": "10m, 1W",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Archery",
+        "rating": 6
+      }
+    ],
+    "minimumEssence": 6,
+    "prerequisiteCharms": ["solar-spike"],
+    "prerequisiteText": "Solar Spike",
+    "sourceDisplay": "CB: Dawn 71",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Archery",
+    "style": null
+  },
+  {
+    "id": "inexhaustible-bolts-of-solar-fire",
+    "name": "Inexhaustible Bolts of Solar Fire",
+    "kind": "charm",
+    "summary": "Allows the Solar to fire bolts of Essence without needing any ammunition for a scene.",
+    "description": "Allows the Solar to fire bolts of Essence without needing any ammunition for a scene.",
+    "cost": "10m, 1W",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Archery",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["rain-of-feathered-death", "solar-spike"],
+    "prerequisiteText": "Solar Spike, Rain of Feathered Death",
+    "sourceDisplay": "CB: Dawn 71",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Archery",
+    "style": null
+  },
+  {
+    "id": "shot-without-distance-exercise",
+    "name": "Shot Without Distance Exercise",
+    "kind": "charm",
+    "summary": "Fires an arrow across empty air to strike any visible target up to 5 miles away.",
+    "description": "Fires an arrow across empty air to strike any visible target up to 5 miles away.",
+    "cost": "4m",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Archery",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["there-is-no-wind"],
+    "prerequisiteText": "There Is No Wind",
+    "sourceDisplay": "CB: Dawn 71",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Archery",
+    "style": null
+  },
+  {
+    "id": "ferocious-jab",
+    "name": "Ferocious Jab",
+    "kind": "charm",
+    "summary": "Adds extra successes twice for determining raw damage of an unarmed strike.",
+    "description": "Adds extra successes twice for determining raw damage of an unarmed strike.",
+    "cost": "1m",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Brawl",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 157",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Brawl",
+    "style": null
+  },
+  {
+    "id": "fists-of-iron-technique",
+    "name": "Fists of Iron Technique",
+    "kind": "charm",
+    "summary": "Makes fists as hard as iron, allowing lethal unarmed damage.",
+    "description": "Makes fists as hard as iron, allowing lethal unarmed damage.",
+    "cost": "1m",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Brawl",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["ferocious-jab"],
+    "prerequisiteText": "Ferocious Jab",
+    "sourceDisplay": "Exalted 157",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Brawl",
+    "style": null
+  },
+  {
+    "id": "ox-stunning-blow",
+    "name": "Ox-Stunning Blow",
+    "kind": "charm",
+    "summary": "Unarmed strike designed to stun and disorient the target.",
+    "description": "Unarmed strike designed to stun and disorient the target.",
+    "cost": "1m/die",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Brawl",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["fists-of-iron-technique"],
+    "prerequisiteText": "Fists of Iron Technique",
+    "sourceDisplay": "Exalted 157",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Brawl",
+    "style": null
+  },
+  {
+    "id": "hammer-on-iron-technique",
+    "name": "Hammer on Iron Technique",
+    "kind": "charm",
+    "summary": "Executes a rapid flurry of brawling strikes against a single target.",
+    "description": "Executes a rapid flurry of brawling strikes against a single target.",
+    "cost": "4m, 1W",
+    "duration": "Instant",
+    "type": "Extra Action",
+    "minimumRequirements": [
+      {
+        "trait": "Brawl",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Thunderclap Rush Attack",
+    "sourceDisplay": "Exalted 159",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Brawl",
+    "style": null
+  },
+  {
+    "id": "sledgehammer-fist-punch",
+    "name": "Sledgehammer Fist Punch",
+    "kind": "charm",
+    "summary": "Unarmed strike that deals double damage to inanimate objects.",
+    "description": "Unarmed strike that deals double damage to inanimate objects.",
+    "cost": "3m",
+    "duration": "One turn",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Brawl",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 159",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Brawl",
+    "style": null
+  },
+  {
+    "id": "crashing-wave-throw",
+    "name": "Crashing Wave Throw",
+    "kind": "charm",
+    "summary": "Throws an opponent, dealing damage and sending them flying.",
+    "description": "Throws an opponent, dealing damage and sending them flying.",
+    "cost": "2m",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Brawl",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["sledgehammer-fist-punch"],
+    "prerequisiteText": "Sledgehammer Fist Punch",
+    "sourceDisplay": "Exalted 159",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Brawl",
+    "style": null
+  },
+  {
+    "id": "inevitable-victory-meditation",
+    "name": "Inevitable Victory Meditation",
+    "kind": "charm",
+    "summary": "Commits Essence to guarantee Brawl successes.",
+    "description": "Commits Essence to guarantee Brawl successes.",
+    "cost": "3m, 1W",
+    "duration": "Until used",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Brawl",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["fists-of-iron-technique"],
+    "prerequisiteText": "Fists of Iron Technique",
+    "sourceDisplay": "CoI 191",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Brawl",
+    "style": null
+  },
+  {
+    "id": "irrepressible-bravery-tactic",
+    "name": "Irrepressible Bravery Tactic",
+    "kind": "charm",
+    "summary": "Converts brawling stunt dice directly into automatic successes.",
+    "description": "Converts brawling stunt dice directly into automatic successes.",
+    "cost": "3m/success",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Brawl",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Thunderclap Rush Attack",
+    "sourceDisplay": "CoI 192",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Brawl",
+    "style": null
+  },
+  {
+    "id": "dancing-with-strife-technique",
+    "name": "Dancing with Strife Technique",
+    "kind": "charm",
+    "summary": "Restores a point of Willpower when defending against a powerful attack.",
+    "description": "Restores a point of Willpower when defending against a powerful attack.",
+    "cost": "3m",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Brawl",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["irrepressible-bravery-tactic"],
+    "prerequisiteText": "Irrepressible Bravery Tactic",
+    "sourceDisplay": "CoI 193",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Brawl",
+    "style": null
+  },
+  {
+    "id": "supremacy-of-war-method",
+    "name": "Supremacy of War Method",
+    "kind": "charm",
+    "summary": "Commits Essence based on enemy actions to add to later Brawl rolls.",
+    "description": "Commits Essence based on enemy actions to add to later Brawl rolls.",
+    "cost": "1m/die",
+    "duration": "One scene/until used",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Brawl",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["inevitable-victory-meditation"],
+    "prerequisiteText": "Inevitable Victory Meditation, Dancing with Strife",
+    "sourceDisplay": "CoI 194",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Brawl",
+    "style": null
+  },
+  {
+    "id": "ascendant-battle-visage",
+    "name": "Ascendant Battle Visage",
+    "kind": "charm",
+    "summary": "Totemic anima transformation adding Essence in successes to combat rolls.",
+    "description": "Totemic anima transformation adding Essence in successes to combat rolls.",
+    "cost": "10m, 1W",
+    "duration": "One turn",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Brawl",
+        "rating": 5
+      },
+      {
+        "trait": "End",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Supremacy of War, Bloodthirsty Sword-Dancer",
+    "sourceDisplay": "CoI 195",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Brawl",
+    "style": null
+  },
+  {
+    "id": "excellent-strike",
+    "name": "Excellent Strike",
+    "kind": "charm",
+    "summary": "Adds extra dice to a Melee attack pool.",
+    "description": "Adds extra dice to a Melee attack pool.",
+    "cost": "1m/die",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 164",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null
+  },
+  {
+    "id": "hungry-tiger-technique",
+    "name": "Hungry Tiger Technique",
+    "kind": "charm",
+    "summary": "Doubles extra successes for determining raw damage of a Melee hit.",
+    "description": "Doubles extra successes for determining raw damage of a Melee hit.",
+    "cost": "1m",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["excellent-strike"],
+    "prerequisiteText": "Excellent Strike",
+    "sourceDisplay": "Exalted 164",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null
+  },
+  {
+    "id": "one-weapon-two-blows",
+    "name": "One Weapon, Two Blows",
+    "kind": "charm",
+    "summary": "Allows a second strike with a single weapon at full pool.",
+    "description": "Allows a second strike with a single weapon at full pool.",
+    "cost": "3m",
+    "duration": "Instant",
+    "type": "Extra Action",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["excellent-strike"],
+    "prerequisiteText": "Excellent Strike",
+    "sourceDisplay": "Exalted 164",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null
+  },
+  {
+    "id": "fire-and-stones-strike",
+    "name": "Fire and Stones Strike",
+    "kind": "charm",
+    "summary": "Converts extra successes into automatic damage dice.",
+    "description": "Converts extra successes into automatic damage dice.",
+    "cost": "1m/die",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["hungry-tiger-technique"],
+    "prerequisiteText": "Hungry Tiger Technique",
+    "sourceDisplay": "Exalted 164",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null
+  },
+  {
+    "id": "peony-blossom-attack",
+    "name": "Peony Blossom Attack",
+    "kind": "charm",
+    "summary": "Unleashes rapid attacks up to Melee + 1.",
+    "description": "Unleashes rapid attacks up to Melee + 1.",
+    "cost": "3m/attack",
+    "duration": "Instant",
+    "type": "Extra Action",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["one-weapon-two-blows"],
+    "prerequisiteText": "One Weapon, Two Blows",
+    "sourceDisplay": "Exalted 164",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null
+  },
+  {
+    "id": "iron-whirlwind-attack",
+    "name": "Iron Whirlwind Attack",
+    "kind": "charm",
+    "summary": "Massive flurry of strikes up to Dexterity + 1.",
+    "description": "Massive flurry of strikes up to Dexterity + 1.",
+    "cost": "5m, 1W",
+    "duration": "Instant",
+    "type": "Extra Action",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["peony-blossom-attack"],
+    "prerequisiteText": "Peony Blossom Attack",
+    "sourceDisplay": "Exalted 164",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null
+  },
+  {
+    "id": "call-the-blade",
+    "name": "Call the Blade",
+    "kind": "charm",
+    "summary": "Draws a weapon to hand from up to Essence x 10 yards.",
+    "description": "Draws a weapon to hand from up to Essence x 10 yards.",
+    "cost": "1m",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 164",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null
+  },
+  {
+    "id": "retrieve-the-fallen-weapon",
+    "name": "Retrieve the Fallen Weapon",
+    "kind": "charm",
+    "summary": "Recalls weapon from up to 10x Essence yards.",
+    "description": "Recalls weapon from up to 10x Essence yards.",
+    "cost": "2m",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["call-the-blade"],
+    "prerequisiteText": "Call the Blade",
+    "sourceDisplay": "Exalted 164",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null
+  },
+  {
+    "id": "summoning-the-loyal-steel",
+    "name": "Summoning the Loyal Steel",
+    "kind": "charm",
+    "summary": "Banishes or summons weapon to/from Elsewhere.",
+    "description": "Banishes or summons weapon to/from Elsewhere.",
+    "cost": "1m",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["call-the-blade"],
+    "prerequisiteText": "Call the Blade",
+    "sourceDisplay": "Exalted 164",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null
+  },
+  {
+    "id": "glorious-solar-saber",
+    "name": "Glorious Solar Saber",
+    "kind": "charm",
+    "summary": "Weaves golden Essence into a solid, personalized melee weapon.",
+    "description": "Weaves golden Essence into a solid, personalized melee weapon.",
+    "cost": "5m, 1W",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["call-the-blade"],
+    "prerequisiteText": "Call the Blade",
+    "sourceDisplay": "Exalted 164",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null
+  },
+  {
+    "id": "iron-raptor-technique",
+    "name": "Iron Raptor Technique",
+    "kind": "charm",
+    "summary": "Allows throwing a melee weapon at range, returning instantly.",
+    "description": "Allows throwing a melee weapon at range, returning instantly.",
+    "cost": "2m",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["retrieve-the-fallen-weapon"],
+    "prerequisiteText": "Retrieve the Fallen Weapon",
+    "sourceDisplay": "Exalted 164",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null
+  },
+  {
+    "id": "sandstorm-wind-attack",
+    "name": "Sandstorm-Wind Attack",
+    "kind": "charm",
+    "summary": "Fires a compressed blade of air to hit distant targets.",
+    "description": "Fires a compressed blade of air to hit distant targets.",
+    "cost": "3m",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["iron-raptor-technique"],
+    "prerequisiteText": "Iron Raptor Technique",
+    "sourceDisplay": "Exalted 165",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null
+  },
+  {
+    "id": "edge-of-morning-sunlight",
+    "name": "Edge of Morning Sunlight",
+    "kind": "charm",
+    "summary": "Weapon shines, dealing additional damage vs creatures of darkness.",
+    "description": "Weapon shines, dealing additional damage vs creatures of darkness.",
+    "cost": "1m",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["iron-raptor-technique"],
+    "prerequisiteText": "Iron Raptor Technique",
+    "sourceDisplay": "Exalted 166",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null
+  },
+  {
+    "id": "corona-of-radiance",
+    "name": "Corona of Radiance",
+    "kind": "charm",
+    "summary": "Melee weapon burns with solar flame, dealing aggravated damage vs creatures of darkness.",
+    "description": "Melee weapon burns with solar flame, dealing aggravated damage vs creatures of darkness.",
+    "cost": "5m, 1W",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["edge-of-morning-sunlight"],
+    "prerequisiteText": "Edge of Morning Sunlight",
+    "sourceDisplay": "Exalted 166",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null
+  },
+  {
+    "id": "blazing-solar-bolt",
+    "name": "Blazing Solar Bolt",
+    "kind": "charm",
+    "summary": "Launches a powerful bolt of solar energy dealing aggravated damage vs Malfeas/Underworld.",
+    "description": "Launches a powerful bolt of solar energy dealing aggravated damage vs Malfeas/Underworld.",
+    "cost": "3m, 1W",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["corona-of-radiance"],
+    "prerequisiteText": "Corona of Radiance, Sandstorm-Wind",
+    "sourceDisplay": "Exalted 166",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null
+  },
+  {
+    "id": "golden-essence-block",
+    "name": "Golden Essence Block",
+    "kind": "charm",
+    "summary": "Purchases defensive dice to parry hand-to-hand attacks.",
+    "description": "Purchases defensive dice to parry hand-to-hand attacks.",
+    "cost": "1m/2 dice",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 166",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null
+  },
+  {
+    "id": "dipping-swallow-defense",
+    "name": "Dipping Swallow Defense",
+    "kind": "charm",
+    "summary": "Parry with full Dexterity + Melee pool.",
+    "description": "Parry with full Dexterity + Melee pool.",
+    "cost": "2m",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["golden-essence-block"],
+    "prerequisiteText": "Golden Essence Block",
+    "sourceDisplay": "Exalted 166",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null
+  },
+  {
+    "id": "bulwark-stance",
+    "name": "Bulwark Stance",
+    "kind": "charm",
+    "summary": "Parry all incoming attacks for a turn.",
+    "description": "Parry all incoming attacks for a turn.",
+    "cost": "5m",
+    "duration": "Until action",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["dipping-swallow-defense"],
+    "prerequisiteText": "Dipping Swallow Defense",
+    "sourceDisplay": "Exalted 166",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null
+  },
+  {
+    "id": "heavenly-guardian-defense",
+    "name": "Heavenly Guardian Defense",
+    "kind": "charm",
+    "summary": "Perfect parry that blocks any single attack, even unblockable ones.",
+    "description": "Perfect parry that blocks any single attack, even unblockable ones.",
+    "cost": "3m, 1W",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["bulwark-stance"],
+    "prerequisiteText": "Bulwark Stance",
+    "sourceDisplay": "Exalted 166",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null
+  },
+  {
+    "id": "precision-of-the-striking-raptor",
+    "name": "Precision of the Striking Raptor",
+    "kind": "charm",
+    "summary": "Adds dice to a Thrown attack up to Dexterity + Thrown.",
+    "description": "Adds dice to a Thrown attack up to Dexterity + Thrown.",
+    "cost": "1m/die",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Thrown",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 168",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Thrown",
+    "style": null
+  },
+  {
+    "id": "joint-wounding-attack",
+    "name": "Joint-Wounding Attack",
+    "kind": "charm",
+    "summary": "Unfolds strikes that reduce target's physical pools per damage level.",
+    "description": "Unfolds strikes that reduce target's physical pools per damage level.",
+    "cost": "3m",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Thrown",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Precision of the Raptor",
+    "sourceDisplay": "Exalted 168",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Thrown",
+    "style": null
+  },
+  {
+    "id": "observer-deceiving-attack",
+    "name": "Observer-Deceiving Attack",
+    "kind": "charm",
+    "summary": "Thrown weapon attacks mislead target as to the direction of strike.",
+    "description": "Thrown weapon attacks mislead target as to the direction of strike.",
+    "cost": "3m",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Thrown",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["joint-wounding-attack"],
+    "prerequisiteText": "Joint-Wounding Attack",
+    "sourceDisplay": "Exalted 168",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Thrown",
+    "style": null
+  },
+  {
+    "id": "mist-on-water-attack",
+    "name": "Mist on Water Attack",
+    "kind": "charm",
+    "summary": "Fires thrown weapons silently and hides the visual display of the attack.",
+    "description": "Fires thrown weapons silently and hides the visual display of the attack.",
+    "cost": "3m/turn",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Thrown",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["observer-deceiving-attack"],
+    "prerequisiteText": "Observer-Deceiving Attack",
+    "sourceDisplay": "Exalted 168",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Thrown",
+    "style": null
+  },
+  {
+    "id": "falling-icicle-strike",
+    "name": "Falling Icicle Strike",
+    "kind": "charm",
+    "summary": "Doubles extra successes for raw damage when attacking from surprise.",
+    "description": "Doubles extra successes for raw damage when attacking from surprise.",
+    "cost": "6m",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Thrown",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["joint-wounding-attack"],
+    "prerequisiteText": "Joint-Wounding Attack",
+    "sourceDisplay": "Exalted 168",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Thrown",
+    "style": null
+  },
+  {
+    "id": "triple-distance-attack-technique",
+    "name": "Triple-Distance Attack Technique",
+    "kind": "charm",
+    "summary": "Triples the range of a thrown weapon.",
+    "description": "Triples the range of a thrown weapon.",
+    "cost": "3m",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Thrown",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 169",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Thrown",
+    "style": null
+  },
+  {
+    "id": "cascade-of-cutting-terror",
+    "name": "Cascade of Cutting Terror",
+    "kind": "charm",
+    "summary": "Saturates an entire area, doubling the Thrown attack pool.",
+    "description": "Saturates an entire area, doubling the Thrown attack pool.",
+    "cost": "5m",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Thrown",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Triple-Distance Attack",
+    "sourceDisplay": "Exalted 169",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Thrown",
+    "style": null
+  },
+  {
+    "id": "shower-of-deadly-blades",
+    "name": "Shower of Deadly Blades",
+    "kind": "charm",
+    "summary": "Launches a massive volley of duplicate weapons at multiple targets.",
+    "description": "Launches a massive volley of duplicate weapons at multiple targets.",
+    "cost": "5m, 1W",
+    "duration": "Instant",
+    "type": "Extra Action",
+    "minimumRequirements": [
+      {
+        "trait": "Thrown",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["cascade-of-cutting-terror"],
+    "prerequisiteText": "Cascade of Cutting Terror",
+    "sourceDisplay": "Exalted 169",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Thrown",
+    "style": null
+  },
+  {
+    "id": "fiery-solar-chakram",
+    "name": "Fiery Solar Chakram",
+    "kind": "charm",
+    "summary": "Materializes thrown weapons of pure solar flame.",
+    "description": "Materializes thrown weapons of pure solar flame.",
+    "cost": "5m, 1W",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Thrown",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["cascade-of-cutting-terror"],
+    "prerequisiteText": "Cascade of Cutting Terror",
+    "sourceDisplay": "Exalted 169",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Thrown",
+    "style": null
+  },
+  {
+    "id": "returning-weapon-concentration",
+    "name": "Returning Weapon Concentration",
+    "kind": "charm",
+    "summary": "Causes any thrown weapon used in the scene to return to the Solar's hand.",
+    "description": "Causes any thrown weapon used in the scene to return to the Solar's hand.",
+    "cost": "4m",
+    "duration": "One scene",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Thrown",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Precision of the Raptor",
+    "sourceDisplay": "CB: Dawn 76",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Thrown",
+    "style": null
+  },
+  {
+    "id": "ox-body-technique",
+    "name": "Ox-Body Technique",
+    "kind": "charm",
+    "summary": "Grants extra health levels to raise resistance to death.",
+    "description": "Grants extra health levels to raise resistance to death.",
+    "cost": "None",
+    "duration": "Permanent",
+    "type": "Special",
+    "minimumRequirements": [
+      {
+        "trait": "Endurance",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 171",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Endurance",
+    "style": null
+  },
+  {
+    "id": "armored-scouts-invigoration",
+    "name": "Armored Scout's Invigoration",
+    "kind": "charm",
+    "summary": "Reduces armor fatigue and mobility penalties.",
+    "description": "Reduces armor fatigue and mobility penalties.",
+    "cost": "2m",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Endurance",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["ox-body-technique"],
+    "prerequisiteText": "Ox-Body Technique",
+    "sourceDisplay": "Exalted 171",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Endurance",
+    "style": null
+  },
+  {
+    "id": "front-line-warriors-stamina",
+    "name": "Front-Line Warrior's Stamina",
+    "kind": "charm",
+    "summary": "Reduces armor penalties further.",
+    "description": "Reduces armor penalties further.",
+    "cost": "3m",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Endurance",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["armored-scouts-invigoration"],
+    "prerequisiteText": "Armored Scout's Invigoration",
+    "sourceDisplay": "Exalted 171",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Endurance",
+    "style": null
+  },
+  {
+    "id": "tiger-warriors-endurance",
+    "name": "Tiger-Warrior's Endurance",
+    "kind": "charm",
+    "summary": "Reduces armor penalties to zero for a day.",
+    "description": "Reduces armor penalties to zero for a day.",
+    "cost": "15m",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Endurance",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["front-line-warriors-stamina"],
+    "prerequisiteText": "Front-Line Warrior's Stamina",
+    "sourceDisplay": "Exalted 171",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Endurance",
+    "style": null
+  },
+  {
+    "id": "essence-gathering-temper",
+    "name": "Essence-Gathering Temper",
+    "kind": "charm",
+    "summary": "Allows the Solar to roll to gain Essence when hit in combat.",
+    "description": "Allows the Solar to roll to gain Essence when hit in combat.",
+    "cost": "1m",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Endurance",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 171",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Endurance",
+    "style": null
+  },
+  {
+    "id": "willpower-enhancing-spirit",
+    "name": "Willpower-Enhancing Spirit",
+    "kind": "charm",
+    "summary": "Regain Willpower when injured in battle.",
+    "description": "Regain Willpower when injured in battle.",
+    "cost": "3m",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Endurance",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["essence-gathering-temper"],
+    "prerequisiteText": "Essence-Gathering Temper",
+    "sourceDisplay": "Exalted 171",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Endurance",
+    "style": null
+  },
+  {
+    "id": "battle-fury-focus",
+    "name": "Battle Fury Focus",
+    "kind": "charm",
+    "summary": "Enter a combat trance, ignoring pain and fatigue penalties.",
+    "description": "Enter a combat trance, ignoring pain and fatigue penalties.",
+    "cost": "5m",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Endurance",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["willpower-enhancing-spirit"],
+    "prerequisiteText": "Willpower-Enhancing Spirit",
+    "sourceDisplay": "Exalted 171",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Endurance",
+    "style": null
+  },
+  {
+    "id": "controlled-breathing-exercise",
+    "name": "Controlled Breathing Exercise",
+    "kind": "charm",
+    "summary": "Allows the Solar to hold their breath for a scene or survive poison gas.",
+    "description": "Allows the Solar to hold their breath for a scene or survive poison gas.",
+    "cost": "5m",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Endurance",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "CB: Zenith 72",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Endurance",
+    "style": null
+  },
+  {
+    "id": "sleep-of-death-technique",
+    "name": "Sleep of Death Technique",
+    "kind": "charm",
+    "summary": "Slows breathing and heartbeat to fake death flawlessly.",
+    "description": "Slows breathing and heartbeat to fake death flawlessly.",
+    "cost": "15m",
+    "duration": "Special",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Endurance",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["controlled-breathing-exercise"],
+    "prerequisiteText": "Controlled Breathing Exercise",
+    "sourceDisplay": "CB: Zenith 72",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Endurance",
+    "style": null
+  },
+  {
+    "id": "unsleeping-watchman-technique",
+    "name": "Unsleeping Watchman Technique",
+    "kind": "charm",
+    "summary": "Replaces a night's sleep with Essence, avoiding sleep deprivation.",
+    "description": "Replaces a night's sleep with Essence, avoiding sleep deprivation.",
+    "cost": "5m",
+    "duration": "One night",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Endurance",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "CB: Zenith 72",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Endurance",
+    "style": null
+  },
+  {
+    "id": "tireless-runners-stride",
+    "name": "Tireless Runner's Stride",
+    "kind": "charm",
+    "summary": "Triples running speed for long distance travel without sleep/food.",
+    "description": "Triples running speed for long distance travel without sleep/food.",
+    "cost": "10m",
+    "duration": "Special",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Endurance",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Unsleeping Watchman",
+    "sourceDisplay": "CB: Zenith 72",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Endurance",
+    "style": null
+  },
+  {
+    "id": "extended-life-prana",
+    "name": "Extended Life Prana",
+    "kind": "charm",
+    "summary": "Supernaturally extends the lifespan of the Chosen up to 7,000 years.",
+    "description": "Supernaturally extends the lifespan of the Chosen up to 7,000 years.",
+    "cost": "None",
+    "duration": "Permanent",
+    "type": "Special",
+    "minimumRequirements": [
+      {
+        "trait": "Endurance",
+        "rating": 7
+      }
+    ],
+    "minimumEssence": 7,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Sleep of Death, Tireless Runner",
+    "sourceDisplay": "CB: Zenith 72",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Endurance",
+    "style": null
+  },
+  {
+    "id": "tireless-travelers-stamina",
+    "name": "Tireless Traveler's Stamina",
+    "kind": "charm",
+    "summary": "Allows the Solar to walk or ride all day without fatigue.",
+    "description": "Allows the Solar to walk or ride all day without fatigue.",
+    "cost": "5m",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Endurance",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "CB: Eclipse 72",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Endurance",
+    "style": null
+  },
+  {
+    "id": "commanding-the-ideal-celestial-army",
+    "name": "Commanding the Ideal Celestial Army",
+    "kind": "charm",
+    "summary": "Transmits voice-commands up to Essence x 100 yards on a battlefield.",
+    "description": "Transmits voice-commands up to Essence x 100 yards on a battlefield.",
+    "cost": "3m",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Performance",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Heroism-Encouraging Presence",
+    "sourceDisplay": "CB: Dawn 76",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Performance",
+    "style": null
+  },
+  {
+    "id": "general-of-the-all-seeing-sun",
+    "name": "General of the All-Seeing Sun",
+    "kind": "charm",
+    "summary": "Provides immediate awareness of troop movements and battle lines.",
+    "description": "Provides immediate awareness of troop movements and battle lines.",
+    "cost": "4m",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Performance",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Commanding Celestial Army",
+    "sourceDisplay": "CB: Dawn 76",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Performance",
+    "style": null
+  },
+  {
+    "id": "ideal-battle-knowledge-prana",
+    "name": "Ideal Battle Knowledge Prana",
+    "kind": "charm",
+    "summary": "Erases the fog of war, giving complete tactical overview and boosting troop pools.",
+    "description": "Erases the fog of war, giving complete tactical overview and boosting troop pools.",
+    "cost": "10m, 1W",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Performance",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 6,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "General of All-Seeing Sun",
+    "sourceDisplay": "CB: Dawn 76",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Performance",
+    "style": null
+  },
+  {
+    "id": "tiger-warrior-training-technique",
+    "name": "Tiger-Warrior Training Technique",
+    "kind": "charm",
+    "summary": "Rapidly trains standard recruits into elite tiger warriors.",
+    "description": "Rapidly trains standard recruits into elite tiger warriors.",
+    "cost": "10m, 2W",
+    "duration": "One week",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Performance",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Heroism-Encouraging Presence",
+    "sourceDisplay": "Exalted 173",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Performance",
+    "style": null
+  },
+  {
+    "id": "dragon-soul-enlightening-method",
+    "name": "Dragon-Soul Enlightening Method",
+    "kind": "charm",
+    "summary": "Teaches speech, intelligence, and Essence channeling to beasts (e.g. Dragon Kings).",
+    "description": "Teaches speech, intelligence, and Essence channeling to beasts (e.g. Dragon Kings).",
+    "cost": "20m, 3W",
+    "duration": "One month",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Performance",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Tiger-Warrior Training",
+    "sourceDisplay": "EPG 158",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Performance",
+    "style": null
+  },
+  {
+    "id": "harmonious-presence-meditation",
+    "name": "Harmonious Presence Meditation",
+    "kind": "charm",
+    "summary": "Reduces the cost of other Presence and Socialize Charms.",
+    "description": "Reduces the cost of other Presence and Socialize Charms.",
+    "cost": "6m",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Presence",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 176",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Presence",
+    "style": null
+  },
+  {
+    "id": "hypnotic-tongue-technique",
+    "name": "Hypnotic Tongue Technique",
+    "kind": "charm",
+    "summary": "Seeds a post-hypnotic suggestion deep within the target's mind.",
+    "description": "Seeds a post-hypnotic suggestion deep within the target's mind.",
+    "cost": "10m",
+    "duration": "Special",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Presence",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Harmonious Presence",
+    "sourceDisplay": "Exalted 176",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Presence",
+    "style": null
+  },
+  {
+    "id": "underling-promoting-touch",
+    "name": "Underling Promoting Touch",
+    "kind": "charm",
+    "summary": "Enhances a subordinate's abilities supernaturally.",
+    "description": "Enhances a subordinate's abilities supernaturally.",
+    "cost": "6m, 1W",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Presence",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Harmonious Presence",
+    "sourceDisplay": "Exalted 176",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Presence",
+    "style": null
+  },
+  {
+    "id": "terrifying-apparition-of-glory",
+    "name": "Terrifying Apparition of Glory",
+    "kind": "charm",
+    "summary": "Manifests a terrifying, blinding display of divine majesty.",
+    "description": "Manifests a terrifying, blinding display of divine majesty.",
+    "cost": "10m, 1W",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Presence",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Majestic Radiant Presence",
+    "sourceDisplay": "Exalted 176",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Presence",
+    "style": null
+  },
+  {
+    "id": "prey-freezing-gaze",
+    "name": "Prey-Freezing Gaze",
+    "kind": "charm",
+    "summary": "Paralyzes a target's body with a commanding, terrifying stare.",
+    "description": "Paralyzes a target's body with a commanding, terrifying stare.",
+    "cost": "4m",
+    "duration": "One scene/special",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Presence",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Harmonious Presence",
+    "sourceDisplay": "CB: Dawn 76",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Presence",
+    "style": null
+  },
+  {
+    "id": "command-voice",
+    "name": "Command Voice",
+    "kind": "charm",
+    "summary": "Issues an absolute command that compels obedience.",
+    "description": "Issues an absolute command that compels obedience.",
+    "cost": "8m",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Presence",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Hypnotic Tongue",
+    "sourceDisplay": "CB: Dawn 76",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Presence",
+    "style": null
+  },
+  {
+    "id": "soul-shaping-words-technique",
+    "name": "Soul-Shaping Words Technique",
+    "kind": "charm",
+    "summary": "Speaks profound truths that either break a target's spirit or inspire them.",
+    "description": "Speaks profound truths that either break a target's spirit or inspire them.",
+    "cost": "3m, 1W",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Presence",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Listener-Swaying Argument",
+    "sourceDisplay": "CoI 197",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Presence",
+    "style": null
+  },
+  {
+    "id": "true-harmony-revelation",
+    "name": "True Harmony Revelation",
+    "kind": "charm",
+    "summary": "Molds a target's spent will to change their Virtues and Nature.",
+    "description": "Molds a target's spent will to change their Virtues and Nature.",
+    "cost": "15m, 1W",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Presence",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Soul-Shaping Words",
+    "sourceDisplay": "CoI 198",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Presence",
+    "style": null
+  },
+  {
+    "id": "horizon-to-horizon-presence-method",
+    "name": "Horizon-to-Horizon Presence Method",
+    "kind": "charm",
+    "summary": "Projects charismatic aura over vast distances via reputation.",
+    "description": "Projects charismatic aura over vast distances via reputation.",
+    "cost": "5m, 1W",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Presence",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Hypnotic Tongue, Terrifying Apparition",
+    "sourceDisplay": "CoI 199",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Presence",
+    "style": null
+  },
+  {
+    "id": "durability-of-oak-meditation",
+    "name": "Durability of Oak Meditation",
+    "kind": "charm",
+    "summary": "Enchants skin, raising basic bashing soak by Resistance.",
+    "description": "Enchants skin, raising basic bashing soak by Resistance.",
+    "cost": "1m/die",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Resistance",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 176",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Resistance",
+    "style": null
+  },
+  {
+    "id": "iron-skin-concentration",
+    "name": "Iron Skin Concentration",
+    "kind": "charm",
+    "summary": "Allows Solar to soak lethal damage with full bashing soak.",
+    "description": "Allows Solar to soak lethal damage with full bashing soak.",
+    "cost": "3m, 1W",
+    "duration": "Varies",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Resistance",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["durability-of-oak-meditation"],
+    "prerequisiteText": "Durability of Oak Meditation",
+    "sourceDisplay": "Exalted 176",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Resistance",
+    "style": null
+  },
+  {
+    "id": "spirit-strengthens-the-skin",
+    "name": "Spirit Strengthens the Skin",
+    "kind": "charm",
+    "summary": "Increases bashing soak by spending Essence.",
+    "description": "Increases bashing soak by spending Essence.",
+    "cost": "3m/point",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Resistance",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["durability-of-oak-meditation"],
+    "prerequisiteText": "Durability of Oak Meditation",
+    "sourceDisplay": "Exalted 176",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Resistance",
+    "style": null
+  },
+  {
+    "id": "adamant-skin-technique",
+    "name": "Adamant Skin Technique",
+    "kind": "charm",
+    "summary": "Solar takes zero damage from any single incoming attack.",
+    "description": "Solar takes zero damage from any single incoming attack.",
+    "cost": "5m, 1HL, 1W",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Resistance",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Iron Skin, Spirit Strengthens Skin",
+    "sourceDisplay": "Exalted 177",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Resistance",
+    "style": null
+  },
+  {
+    "id": "unfailing-tortoise-technique",
+    "name": "Unfailing Tortoise Technique",
+    "kind": "charm",
+    "summary": "Adds Resistance score directly to bashing soak.",
+    "description": "Adds Resistance score directly to bashing soak.",
+    "cost": "1m",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Resistance",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["durability-of-oak-meditation"],
+    "prerequisiteText": "Durability of Oak Meditation",
+    "sourceDisplay": "Exalted 177",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Resistance",
+    "style": null
+  },
+  {
+    "id": "iron-kettle-body",
+    "name": "Iron Kettle Body",
+    "kind": "charm",
+    "summary": "Adds Resistance score directly to lethal soak.",
+    "description": "Adds Resistance score directly to lethal soak.",
+    "cost": "3m",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Resistance",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["unfailing-tortoise-technique"],
+    "prerequisiteText": "Unfailing Tortoise Technique",
+    "sourceDisplay": "Exalted 178",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Resistance",
+    "style": null
+  },
+  {
+    "id": "whirlwind-armor-donning-prana",
+    "name": "Whirlwind Armor-Donning Prana",
+    "kind": "charm",
+    "summary": "Allows armor to be donned in seconds, reducing normal time.",
+    "description": "Allows armor to be donned in seconds, reducing normal time.",
+    "cost": "2m/turn",
+    "duration": "Special",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Resistance",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 178",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Resistance",
+    "style": null
+  },
+  {
+    "id": "hauberk-summoning-gesture",
+    "name": "Hauberk-Summoning Gesture",
+    "kind": "charm",
+    "summary": "Summons attuned armor instantly onto the Solar's body.",
+    "description": "Summons attuned armor instantly onto the Solar's body.",
+    "cost": "5m",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Resistance",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Whirlwind Armor-Donning",
+    "sourceDisplay": "Exalted 178",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Resistance",
+    "style": null
+  },
+  {
+    "id": "glorious-solar-plate",
+    "name": "Glorious Solar Plate",
+    "kind": "charm",
+    "summary": "Conjures a magnificent suit of golden lamellar armor of pure Essence.",
+    "description": "Conjures a magnificent suit of golden lamellar armor of pure Essence.",
+    "cost": "10m, 1W",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Resistance",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["hauberk-summoning-gesture"],
+    "prerequisiteText": "Hauberk-Summoning Gesture",
+    "sourceDisplay": "Exalted 178",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Resistance",
+    "style": null
+  },
+  {
+    "id": "poison-resisting-meditation",
+    "name": "Poison-Resisting Meditation",
+    "kind": "charm",
+    "summary": "Ensures complete immunity to non-magical poisons and resistance to magical ones.",
+    "description": "Ensures complete immunity to non-magical poisons and resistance to magical ones.",
+    "cost": "4m",
+    "duration": "One scene",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Resistance",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 179",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Resistance",
+    "style": null
+  },
+  {
+    "id": "illness-resisting-meditation",
+    "name": "Illness-Resisting Meditation",
+    "kind": "charm",
+    "summary": "Protects the Solar from contracting any standard disease.",
+    "description": "Protects the Solar from contracting any standard disease.",
+    "cost": "6m",
+    "duration": "One day",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Resistance",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 179",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Resistance",
+    "style": null
+  },
+  {
+    "id": "immunity-to-everything-technique",
+    "name": "Immunity to Everything Technique",
+    "kind": "charm",
+    "summary": "Provides absolute immunity to all poisons, diseases, and the Great Contagion.",
+    "description": "Provides absolute immunity to all poisons, diseases, and the Great Contagion.",
+    "cost": "6m, 1W",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Resistance",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Illness-Resisting, Poison-Resisting",
+    "sourceDisplay": "Exalted 179",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Resistance",
+    "style": null
+  },
+  {
+    "id": "environmental-hazard-resisting-meditation",
+    "name": "Environmental Hazard-Resisting Meditation",
+    "kind": "charm",
+    "summary": "Grants complete immunity to non-magical environmental hazards.",
+    "description": "Grants complete immunity to non-magical environmental hazards.",
+    "cost": "None",
+    "duration": "Permanent",
+    "type": "Special",
+    "minimumRequirements": [
+      {
+        "trait": "Resistance",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "CB: Zenith 72",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Resistance",
+    "style": null
+  },
+  {
+    "id": "fivefold-armor-of-virtue-technique",
+    "name": "Fivefold Armor of Virtue Technique",
+    "kind": "charm",
+    "summary": "Increases lethal soak by the rating of a chosen Virtue.",
+    "description": "Increases lethal soak by the rating of a chosen Virtue.",
+    "cost": "5m",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Resistance",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Armor of Virtue Technique",
+    "sourceDisplay": "CB: Zenith 75",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Resistance",
+    "style": null
+  },
+  {
+    "id": "friendship-with-animals-approach",
+    "name": "Friendship with Animals Approach",
+    "kind": "charm",
+    "summary": "Allows safe, non-violent interactions with wild animals.",
+    "description": "Allows safe, non-violent interactions with wild animals.",
+    "cost": "3m",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Survival",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 179",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Survival",
+    "style": null
+  },
+  {
+    "id": "spirit-tied-pet",
+    "name": "Spirit-Tied Pet",
+    "kind": "charm",
+    "summary": "Binds an animal as a loyal, spiritually linked familiar.",
+    "description": "Binds an animal as a loyal, spiritually linked familiar.",
+    "cost": "10m, 1W, 1xp",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Survival",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Friendship with Animals",
+    "sourceDisplay": "Exalted 179",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Survival",
+    "style": null
+  },
+  {
+    "id": "trackless-region-navigation-charm",
+    "name": "Trackless Region Navigation Charm",
+    "kind": "charm",
+    "summary": "Allows safe travel across the most hostile, trackless terrain.",
+    "description": "Allows safe travel across the most hostile, trackless terrain.",
+    "cost": "7m",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Survival",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Hardship-Surviving Spirit",
+    "sourceDisplay": "Exalted 181",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Survival",
+    "style": null
+  },
+  {
+    "id": "food-gathering-exercise",
+    "name": "Food-Gathering Exercise",
+    "kind": "charm",
+    "summary": "Gathers enough wild food to feed a group in any environment.",
+    "description": "Gathers enough wild food to feed a group in any environment.",
+    "cost": "3m/person",
+    "duration": "One hour",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Survival",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Trackless Region Navigation",
+    "sourceDisplay": "Exalted 181",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Survival",
+    "style": null
+  },
+  {
+    "id": "unshakeable-bloodhound-technique",
+    "name": "Unshakeable Bloodhound Technique",
+    "kind": "charm",
+    "summary": "Allows tracking a target over any terrain and through time.",
+    "description": "Allows tracking a target over any terrain and through time.",
+    "cost": "8m, 1W",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Survival",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Hardship-Surviving Spirit",
+    "sourceDisplay": "Exalted 181",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Survival",
+    "style": null
+  },
+  {
+    "id": "storm-warden-concentration",
+    "name": "Storm Warden Concentration",
+    "kind": "charm",
+    "summary": "Shields the Solar from severe weather with a small climate zone.",
+    "description": "Shields the Solar from severe weather with a small climate zone.",
+    "cost": "6m",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Survival",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Hardship-Surviving Spirit",
+    "sourceDisplay": "CB: Zenith 75",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Survival",
+    "style": null
+  },
+  {
+    "id": "salamanders-touch-technique",
+    "name": "Salamander's Touch Technique",
+    "kind": "charm",
+    "summary": "Enables the Solar to light small fires instantly using Essence.",
+    "description": "Enables the Solar to light small fires instantly using Essence.",
+    "cost": "1m",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Survival",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Hardship-Surviving Spirit",
+    "sourceDisplay": "CB: Zenith 75",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Survival",
+    "style": null
+  },
+  {
+    "id": "unquenchable-conflagration-technique",
+    "name": "Unquenchable Conflagration Technique",
+    "kind": "charm",
+    "summary": "Springs a massive bonfire into existence even in pouring rain.",
+    "description": "Springs a massive bonfire into existence even in pouring rain.",
+    "cost": "10m",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Survival",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Salamander's Touch",
+    "sourceDisplay": "CB: Zenith 75",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Survival",
+    "style": null
+  },
+  {
+    "id": "suns-flaming-tongue-attack",
+    "name": "Sun's Flaming Tongue Attack",
+    "kind": "charm",
+    "summary": "Rains solar fire on a single foe, dealing lethal/aggravated damage.",
+    "description": "Rains solar fire on a single foe, dealing lethal/aggravated damage.",
+    "cost": "15m, 1W",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Survival",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Unquenchable Conflagration",
+    "sourceDisplay": "CB: Zenith 75",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Survival",
+    "style": null
+  },
+  {
+    "id": "flawless-handiwork-method",
+    "name": "Flawless Handiwork Method",
+    "kind": "charm",
+    "summary": "Adds dice to any Craft roll to ensure success.",
+    "description": "Adds dice to any Craft roll to ensure success.",
+    "cost": "1m/die",
+    "duration": "One task",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Craft",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 183",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Craft",
+    "style": null
+  },
+  {
+    "id": "object-strengthening-touch",
+    "name": "Object-Strengthening Touch",
+    "kind": "charm",
+    "summary": "Imbues an object with temporary, massive durability.",
+    "description": "Imbues an object with temporary, massive durability.",
+    "cost": "6m",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Craft",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Flawless Handiwork",
+    "sourceDisplay": "Exalted 183",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Craft",
+    "style": null
+  },
+  {
+    "id": "durability-enhancing-technique",
+    "name": "Durability-Enhancing Technique",
+    "kind": "charm",
+    "summary": "Permanently doubles the durability and strength of an object.",
+    "description": "Permanently doubles the durability and strength of an object.",
+    "cost": "10m",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Craft",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Object-Strengthening",
+    "sourceDisplay": "Exalted 183",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Craft",
+    "style": null
+  },
+  {
+    "id": "chaos-resistance-preparation",
+    "name": "Chaos-Resistance Preparation",
+    "kind": "charm",
+    "summary": "Protects a crafted object from Wyld warpings and changes.",
+    "description": "Protects a crafted object from Wyld warpings and changes.",
+    "cost": "10m, 1W",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Craft",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Object-Strengthening",
+    "sourceDisplay": "Exalted 183",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Craft",
+    "style": null
+  },
+  {
+    "id": "crack-mending-technique",
+    "name": "Crack-Mending Technique",
+    "kind": "charm",
+    "summary": "Instantly repairs broken items or structures by touch.",
+    "description": "Instantly repairs broken items or structures by touch.",
+    "cost": "10m, 1W, 1HL",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Craft",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Durability-Enhancing",
+    "sourceDisplay": "Exalted 183",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Craft",
+    "style": null
+  },
+  {
+    "id": "swift-sages-eye",
+    "name": "Swift Sage's Eye",
+    "kind": "charm",
+    "summary": "Allows reading and comprehension of text at superhuman speed.",
+    "description": "Allows reading and comprehension of text at superhuman speed.",
+    "cost": "3m",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Linguistics",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "CB: Eclipse 72",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Linguistics",
+    "style": null
+  },
+  {
+    "id": "perfect-recollection-discipline",
+    "name": "Perfect Recollection Discipline",
+    "kind": "charm",
+    "summary": "Flawlessly memorizes any written or spoken work.",
+    "description": "Flawlessly memorizes any written or spoken work.",
+    "cost": "1m/work",
+    "duration": "Special",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Linguistics",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["swift-sages-eye"],
+    "prerequisiteText": "Swift Sage's Eye",
+    "sourceDisplay": "CB: Eclipse 72",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Linguistics",
+    "style": null
+  },
+  {
+    "id": "excellent-emissarys-tongue",
+    "name": "Excellent Emissary's Tongue",
+    "kind": "charm",
+    "summary": "Grants accent-free spoken fluency in any language after hearing it for an hour.",
+    "description": "Grants accent-free spoken fluency in any language after hearing it for an hour.",
+    "cost": "3m/lang",
+    "duration": "Special",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Linguistics",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "CB: Eclipse 72",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Linguistics",
+    "style": null
+  },
+  {
+    "id": "welcome-guest-method",
+    "name": "Welcome Guest Method",
+    "kind": "charm",
+    "summary": "Enhances social presence, charisma, and introductions.",
+    "description": "Enhances social presence, charisma, and introductions.",
+    "cost": "3m",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Socialize",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Mastery of Small Manners",
+    "sourceDisplay": "CB: Eclipse 77",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Socialize",
+    "style": null
+  },
+  {
+    "id": "flawless-discretion-style",
+    "name": "Flawless Discretion Style",
+    "kind": "charm",
+    "summary": "Masks actions and conversations from being spied on.",
+    "description": "Masks actions and conversations from being spied on.",
+    "cost": "8m",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Socialize",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Mastery of Small Manners",
+    "sourceDisplay": "CB: Eclipse 77",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Socialize",
+    "style": null
+  },
+  {
+    "id": "graceful-courtier-attitude",
+    "name": "Graceful Courtier Attitude",
+    "kind": "charm",
+    "summary": "Bypasses external difficulty penalties on Socialize rolls.",
+    "description": "Bypasses external difficulty penalties on Socialize rolls.",
+    "cost": "2m/point",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Socialize",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Mastery of Small Manners",
+    "sourceDisplay": "CB: Eclipse 77",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Socialize",
+    "style": null
+  },
+  {
+    "id": "graceful-deflection-technique",
+    "name": "Graceful Deflection Technique",
+    "kind": "charm",
+    "summary": "Adds Socialize pool to dodge in combat by using witty banter.",
+    "description": "Adds Socialize pool to dodge in combat by using witty banter.",
+    "cost": "4m",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Socialize",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Wise-Eyed Courtier, Master of Manners",
+    "sourceDisplay": "CB: Eclipse 77",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Socialize",
+    "style": null
+  },
+  {
+    "id": "soaring-spirit-steed",
+    "name": "Soaring Spirit Steed",
+    "kind": "charm",
+    "summary": "Summons a flying mount of pure Essence.",
+    "description": "Summons a flying mount of pure Essence.",
+    "cost": "15m, 1W",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ride",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Phantom Steed",
+    "sourceDisplay": "CB: Eclipse 76",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Ride",
+    "style": null
+  },
+  {
+    "id": "feathery-gallop-exercise",
+    "name": "Feathery Gallop Exercise",
+    "kind": "charm",
+    "summary": "Mount lightens to cross water, mud, or lava without sinking.",
+    "description": "Mount lightens to cross water, mud, or lava without sinking.",
+    "cost": "2m",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Ride",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Spirit-Steadying Assurances",
+    "sourceDisplay": "CB: Eclipse 76",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Ride",
+    "style": null
+  },
+  {
+    "id": "bridge-of-clouds-technique",
+    "name": "Bridge of Clouds Technique",
+    "kind": "charm",
+    "summary": "Solidifies air to allow mount to run across canyons and chasms.",
+    "description": "Solidifies air to allow mount to run across canyons and chasms.",
+    "cost": "4m",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Ride",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Feathery Gallop",
+    "sourceDisplay": "CB: Eclipse 76",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Ride",
+    "style": null
+  },
+  {
+    "id": "wind-racing-essence-infusion",
+    "name": "Wind-Racing Essence Infusion",
+    "kind": "charm",
+    "summary": "Grants mount extraordinary speed for a scene.",
+    "description": "Grants mount extraordinary speed for a scene.",
+    "cost": "5m, 1W",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ride",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Steed-Sustaining, Flawless Partnership",
+    "sourceDisplay": "CB: Eclipse 76",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Ride",
+    "style": null
+  },
+  {
+    "id": "golden-essence-sails",
+    "name": "Golden Essence Sails",
+    "kind": "charm",
+    "summary": "Weaves sails of pure gold Essence that resist damage.",
+    "description": "Weaves sails of pure gold Essence that resist damage.",
+    "cost": "6m, 1W",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Sail",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Salty Dog Method",
+    "sourceDisplay": "CB: Eclipse 76",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Sail",
+    "style": null
+  },
+  {
+    "id": "phantom-crew-charm",
+    "name": "Phantom Crew Charm",
+    "kind": "charm",
+    "summary": "Summons tireless phantom sailors to crew any vessel.",
+    "description": "Summons tireless phantom sailors to crew any vessel.",
+    "cost": "8m, 1W",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Sail",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["golden-essence-sails"],
+    "prerequisiteText": "Golden Essence Sails",
+    "sourceDisplay": "CB: Eclipse 76",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Sail",
+    "style": null
+  },
+  {
+    "id": "glorious-solar-ship",
+    "name": "Glorious Solar Ship",
+    "kind": "charm",
+    "summary": "Conjures a magnificent ship made entirely of pure Essence.",
+    "description": "Conjures a magnificent ship made entirely of pure Essence.",
+    "cost": "15m, 1W",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Sail",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Phantom Crew",
+    "sourceDisplay": "CB: Eclipse 77",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Sail",
+    "style": null
+  },
+  {
+    "id": "seeking-the-earths-bounty-method",
+    "name": "Seeking the Earth's Bounty Method",
+    "kind": "charm",
+    "summary": "Locates the nearest safe harbor or beaching site.",
+    "description": "Locates the nearest safe harbor or beaching site.",
+    "cost": "6m",
+    "duration": "One turn",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Sail",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Perfect Reckoning Technique",
+    "sourceDisplay": "Savage Seas 115",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Sail",
+    "style": null
+  },
+  {
+    "id": "fires-kiss-resistance-prana",
+    "name": "Fire's Kiss Resistance Prana",
+    "kind": "charm",
+    "summary": "Renders ship completely immune to fire and environmental heat.",
+    "description": "Renders ship completely immune to fire and environmental heat.",
+    "cost": "6m, 1W",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Sail",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Wind-Defying Course",
+    "sourceDisplay": "Savage Seas 115",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Sail",
+    "style": null
+  },
+  {
+    "id": "ignore-the-winds-course-technique",
+    "name": "Ignore the Wind's Course Technique",
+    "kind": "charm",
+    "summary": "Allows vessel to sail at full speed regardless of wind direction.",
+    "description": "Allows vessel to sail at full speed regardless of wind direction.",
+    "cost": "10m",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Sail",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Wind-Defying Course",
+    "sourceDisplay": "Savage Seas 115",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Sail",
+    "style": null
+  },
+  {
+    "id": "masts-unbreakable-will-prana",
+    "name": "Mast's Unbreakable Will Prana",
+    "kind": "charm",
+    "summary": "Makes the ship's mast unbreakable against squalls or attacks.",
+    "description": "Makes the ship's mast unbreakable against squalls or attacks.",
+    "cost": "4m",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Sail",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Wind-Defying Course",
+    "sourceDisplay": "Savage Seas 115",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Sail",
+    "style": null
+  },
+  {
+    "id": "harden-the-hull-practice",
+    "name": "Harden the Hull Practice",
+    "kind": "charm",
+    "summary": "Reinforces ship's hull with extra lethal soak.",
+    "description": "Reinforces ship's hull with extra lethal soak.",
+    "cost": "3m+2m/L",
+    "duration": "One scene",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sail",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Storm-Weathering Infusion",
+    "sourceDisplay": "Savage Seas 115",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Sail",
+    "style": null
+  },
+  {
+    "id": "owl-eye-technique",
+    "name": "Owl-Eye Technique",
+    "kind": "charm",
+    "summary": "Allows perfect vision in absolute darkness.",
+    "description": "Allows perfect vision in absolute darkness.",
+    "cost": "5m",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Awareness",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["sensory-acuity-prana"],
+    "prerequisiteText": "Sensory Acuity Prana",
+    "sourceDisplay": "CB: Night 75",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Awareness",
+    "style": null
+  },
+  {
+    "id": "barrier-bypassing-senses",
+    "name": "Barrier-Bypassing Senses",
+    "kind": "charm",
+    "summary": "Enables hearing or seeing through solid barriers.",
+    "description": "Enables hearing or seeing through solid barriers.",
+    "cost": "6m",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Awareness",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Unsurpassed Sense Discipline",
+    "sourceDisplay": "CB: Night 75",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Awareness",
+    "style": null
+  },
+  {
+    "id": "eye-of-the-unconquered-sun",
+    "name": "Eye of the Unconquered Sun",
+    "kind": "charm",
+    "summary": "Pierces all forms of magical or mundane illusions and disguises.",
+    "description": "Pierces all forms of magical or mundane illusions and disguises.",
+    "cost": "12m, 1W",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Awareness",
+        "rating": 6
+      }
+    ],
+    "minimumEssence": 6,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Unsurpassed Sight Discipline",
+    "sourceDisplay": "CB: Night 75",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Awareness",
+    "style": null
+  },
+  {
+    "id": "sensory-acuity-prana",
+    "name": "Sensory Acuity Prana",
+    "kind": "charm",
+    "summary": "Heightens all five physical senses, adding dice to Awareness rolls.",
+    "description": "Heightens all five physical senses, adding dice to Awareness rolls.",
+    "cost": "5m",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Awareness",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 196",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Awareness",
+    "style": null
+  },
+  {
+    "id": "leaping-dodge-method",
+    "name": "Leaping Dodge Method",
+    "kind": "charm",
+    "summary": "Solars can make a massive leap away from an incoming attack reflexively.",
+    "description": "Solars can make a massive leap away from an incoming attack reflexively.",
+    "cost": "4m",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dodge",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Shadow Over Water",
+    "sourceDisplay": "CB: Night 75",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Dodge",
+    "style": null
+  },
+  {
+    "id": "chaos-repelling-pattern",
+    "name": "Chaos-Repelling Pattern",
+    "kind": "charm",
+    "summary": "Repels the chaotic effects of the Wyld, stabilizing reality.",
+    "description": "Repels the chaotic effects of the Wyld, stabilizing reality.",
+    "cost": "10m, 1W",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Lore",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Wyld-Shaping Technique",
+    "sourceDisplay": "Exalted 187",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Lore",
+    "style": null
+  },
+  {
+    "id": "order-affirming-blow",
+    "name": "Order-Affirming Blow",
+    "kind": "charm",
+    "summary": "Restores a Wyld-mutated target back to its original state.",
+    "description": "Restores a Wyld-mutated target back to its original state.",
+    "cost": "15m, 1W",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Lore",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["chaos-repelling-pattern"],
+    "prerequisiteText": "Chaos-Repelling Pattern",
+    "sourceDisplay": "CB: Twilight 72",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Lore",
+    "style": null
+  },
+  {
+    "id": "injury-forcing-technique",
+    "name": "Injury-Forcing Technique",
+    "kind": "charm",
+    "summary": "Transfers current injuries to another target by touch.",
+    "description": "Transfers current injuries to another target by touch.",
+    "cost": "5m/HL, 1W",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Lore",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["wound-accepting-technique"],
+    "prerequisiteText": "Wound-Accepting Technique",
+    "sourceDisplay": "CB: Twilight 72",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Lore",
+    "style": null
+  },
+  {
+    "id": "sorcery-conferring-contemplation",
+    "name": "Sorcery-Conferring Contemplation",
+    "kind": "charm",
+    "summary": "Lends one of the Solar's spells to another sorcerer.",
+    "description": "Lends one of the Solar's spells to another sorcerer.",
+    "cost": "10m, 1W, 1xp",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Lore",
+        "rating": 6
+      }
+    ],
+    "minimumEssence": 6,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Power-Awarding Prana",
+    "sourceDisplay": "CB: Twilight 72",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Lore",
+    "style": null
+  },
+  {
+    "id": "main-essence-lending-method",
+    "name": "Main Essence-Lending Method",
+    "kind": "charm",
+    "summary": "Allows the Solar to transfer Essence to another character.",
+    "description": "Allows the Solar to transfer Essence to another character.",
+    "cost": "3m",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Lore",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 187",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Lore",
+    "style": null
+  },
+  {
+    "id": "will-bolstering-method",
+    "name": "Will-Bolstering Method",
+    "kind": "charm",
+    "summary": "Allows the Solar to transfer Willpower to another character.",
+    "description": "Allows the Solar to transfer Willpower to another character.",
+    "cost": "5m, 1W",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Lore",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Essence-Lending Method",
+    "sourceDisplay": "Exalted 187",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Lore",
+    "style": null
+  },
+  {
+    "id": "wound-accepting-technique",
+    "name": "Wound-Accepting Technique",
+    "kind": "charm",
+    "summary": "Solar takes on another's injuries to heal them instantly.",
+    "description": "Solar takes on another's injuries to heal them instantly.",
+    "cost": "3m/HL, 1W",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Lore",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["will-bolstering-method"],
+    "prerequisiteText": "Will-Bolstering Method",
+    "sourceDisplay": "Exalted 188",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Lore",
+    "style": null
+  },
+  {
+    "id": "addiction-cleansing-touch",
+    "name": "Addiction-Cleansing Touch",
+    "kind": "charm",
+    "summary": "Instantly cleanses a character of physical/psychological addiction.",
+    "description": "Instantly cleanses a character of physical/psychological addiction.",
+    "cost": "8m, 1W",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Medicine",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["anointment-of-miraculous-health"],
+    "prerequisiteText": "Anointment of Miraculous Health",
+    "sourceDisplay": "CB: Twilight 72",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Medicine",
+    "style": null
+  },
+  {
+    "id": "unhealing-wound-infliction",
+    "name": "Unhealing Wound Infliction",
+    "kind": "charm",
+    "summary": "Causes hits to inflict wounds that take 5x longer to heal.",
+    "description": "Causes hits to inflict wounds that take 5x longer to heal.",
+    "cost": "10m, 1W",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Medicine",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Wound-Mending Care",
+    "sourceDisplay": "CB: Twilight 73",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Medicine",
+    "style": null
+  },
+  {
+    "id": "merciful-balm-of-sleep",
+    "name": "Merciful Balm of Sleep",
+    "kind": "charm",
+    "summary": "Puts a target into a deep sleep to heal mental illness.",
+    "description": "Puts a target into a deep sleep to heal mental illness.",
+    "cost": "10m, 1W",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Medicine",
+        "rating": 6
+      }
+    ],
+    "minimumEssence": 6,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Healing Trance Meditation",
+    "sourceDisplay": "CB: Twilight 73",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Medicine",
+    "style": null
+  },
+  {
+    "id": "body-mending-meditation",
+    "name": "Body-Mending Meditation",
+    "kind": "charm",
+    "summary": "Speeds up Solar's natural healing rate by 10x.",
+    "description": "Speeds up Solar's natural healing rate by 10x.",
+    "cost": "10m",
+    "duration": "One day",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Medicine",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 188",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Medicine",
+    "style": null
+  },
+  {
+    "id": "flawless-diagnosis-technique",
+    "name": "Flawless Diagnosis Technique",
+    "kind": "charm",
+    "summary": "Enables flawless diagnosis of any injury or disease.",
+    "description": "Enables flawless diagnosis of any injury or disease.",
+    "cost": "1m",
+    "duration": "Five mins",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Medicine",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 188",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Medicine",
+    "style": null
+  },
+  {
+    "id": "ailment-rectifying-method",
+    "name": "Ailment-Rectifying Method",
+    "kind": "charm",
+    "summary": "Cures standard, non-life-threatening illnesses instantly.",
+    "description": "Cures standard, non-life-threatening illnesses instantly.",
+    "cost": "10m",
+    "duration": "Six hours",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Medicine",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Flawless Diagnosis",
+    "sourceDisplay": "Exalted 188",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Medicine",
+    "style": null
+  },
+  {
+    "id": "contagion-curing-touch",
+    "name": "Contagion-Curing Touch",
+    "kind": "charm",
+    "summary": "Cures serious or incurable plagues with a touch.",
+    "description": "Cures serious or incurable plagues with a touch.",
+    "cost": "10m",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Medicine",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Ailment-Rectifying",
+    "sourceDisplay": "Exalted 189",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Medicine",
+    "style": null
+  },
+  {
+    "id": "touch-of-blissful-release",
+    "name": "Touch of Blissful Release",
+    "kind": "charm",
+    "summary": "Numbs pain, reducing wound penalties of the target by two.",
+    "description": "Numbs pain, reducing wound penalties of the target by two.",
+    "cost": "5m",
+    "duration": "Six hours",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Medicine",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["body-mending-meditation"],
+    "prerequisiteText": "Body-Mending Meditation",
+    "sourceDisplay": "Exalted 189",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Medicine",
+    "style": null
+  },
+  {
+    "id": "grievous-injury-recovery-method",
+    "name": "Grievous Injury Recovery Method",
+    "kind": "charm",
+    "summary": "Speeds natural recovery from lethal and bashing wounds.",
+    "description": "Speeds natural recovery from lethal and bashing wounds.",
+    "cost": "10m",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Medicine",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["body-mending-meditation"],
+    "prerequisiteText": "Body-Mending Meditation",
+    "sourceDisplay": "Exalted 190",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Medicine",
+    "style": null
+  },
+  {
+    "id": "wound-mending-care-technique",
+    "name": "Wound-Mending Care Technique",
+    "kind": "charm",
+    "summary": "Enables the Solar to treat others, speeding their healing.",
+    "description": "Enables the Solar to treat others, speeding their healing.",
+    "cost": "10m",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Medicine",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Grievous Injury, Blissful Release",
+    "sourceDisplay": "Exalted 190",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Medicine",
+    "style": null
+  },
+  {
+    "id": "anointment-of-miraculous-health",
+    "name": "Anointment of Miraculous Health",
+    "kind": "charm",
+    "summary": "Heals wounds instantly without needing direct physical contact.",
+    "description": "Heals wounds instantly without needing direct physical contact.",
+    "cost": "10m",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Medicine",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Contagion-Curing, Wound-Mending",
+    "sourceDisplay": "Exalted 190",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Medicine",
+    "style": null
+  },
+  {
+    "id": "power-draining-whisper",
+    "name": "Power-Draining Whisper",
+    "kind": "charm",
+    "summary": "Whispers that drain or dampen an enemy's ability to use Essence.",
+    "description": "Whispers that drain or dampen an enemy's ability to use Essence.",
+    "cost": "5m/turn",
+    "duration": "Varies",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Spirit-Cutting Attack",
+    "sourceDisplay": "CB: Twilight 73",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Occult",
+    "style": null
+  },
+  {
+    "id": "terrestrial-circle-sorcery",
+    "name": "Terrestrial Circle Sorcery",
+    "kind": "charm",
+    "summary": "Allows the Solar to cast Terrestrial-tier spells.",
+    "description": "Allows the Solar to cast Terrestrial-tier spells.",
+    "cost": "1W",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 191",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Occult",
+    "style": null
+  },
+  {
+    "id": "celestial-circle-sorcery",
+    "name": "Celestial Circle Sorcery",
+    "kind": "charm",
+    "summary": "Allows the Solar to cast Celestial-tier spells.",
+    "description": "Allows the Solar to cast Celestial-tier spells.",
+    "cost": "2W",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Terrestrial Sorcery",
+    "sourceDisplay": "Exalted 191",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Occult",
+    "style": null
+  },
+  {
+    "id": "solar-circle-sorcery",
+    "name": "Solar Circle Sorcery",
+    "kind": "charm",
+    "summary": "Allows the Solar to cast the most powerful Solar-tier spells.",
+    "description": "Allows the Solar to cast the most powerful Solar-tier spells.",
+    "cost": "3W",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Celestial Sorcery",
+    "sourceDisplay": "Exalted 191",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Occult",
+    "style": null
+  },
+  {
+    "id": "graceful-crane-stance",
+    "name": "Graceful Crane Stance",
+    "kind": "charm",
+    "summary": "Grants perfect balance, letting Solar walk on wire or water.",
+    "description": "Grants perfect balance, letting Solar walk on wire or water.",
+    "cost": "3m",
+    "duration": "One scene",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Athletics",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted 193",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Athletics",
+    "style": null
+  },
+  {
+    "id": "monkey-leap-technique",
+    "name": "Monkey Leap Technique",
+    "kind": "charm",
+    "summary": "Enables enormous vertical and horizontal leaps.",
+    "description": "Enables enormous vertical and horizontal leaps.",
+    "cost": "1m",
+    "duration": "One turn",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Athletics",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["graceful-crane-stance"],
+    "prerequisiteText": "Graceful Crane Stance",
+    "sourceDisplay": "Exalted 193",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Athletics",
+    "style": null
+  },
+  {
+    "id": "thunderbolt-attack-prana",
+    "name": "Thunderbolt Attack Prana",
+    "kind": "charm",
+    "summary": "Leaps high into the air to double the damage of a combat strike.",
+    "description": "Leaps high into the air to double the damage of a combat strike.",
+    "cost": "5m, 1W",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Athletics",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["monkey-leap-technique"],
+    "prerequisiteText": "Monkey Leap",
+    "sourceDisplay": "Exalted 193",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Athletics",
+    "style": null
+  },
+  {
+    "id": "lightning-speed",
+    "name": "Lightning Speed",
+    "kind": "charm",
+    "summary": "Temporarily boosts running speed dramatically.",
+    "description": "Temporarily boosts running speed dramatically.",
+    "cost": "1m",
+    "duration": "One turn",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Athletics",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["graceful-crane-stance"],
+    "prerequisiteText": "Graceful Crane Stance",
+    "sourceDisplay": "Exalted 193",
+    "reviewStatus": "needs-review",
+    "reviewFlags": [
+      "Compiled handbook entry; verify mechanics against the cited book and page."
+    ],
+    "category": "native",
+    "element": null,
+    "ability": "Athletics",
+    "style": null
+  }
+]

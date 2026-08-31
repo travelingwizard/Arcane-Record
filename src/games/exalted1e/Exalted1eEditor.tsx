@@ -29,7 +29,7 @@ import {
   type ExaltedVirtueId,
 } from './definitions';
 import { exalted1eCharacterSchema, type Exalted1eCharacter } from './schema';
-import { DragonBloodedPowersSection } from './DragonBloodedPowersSection';
+import { ExaltedPowersSection } from './DragonBloodedPowersSection';
 import { DragonBloodedMeritsFlawsSection } from './DragonBloodedMeritsFlawsSection';
 import { EquipmentSection } from './shared/components/EquipmentSection';
 import { CombatSection } from './shared/components/CombatSection';
@@ -40,6 +40,7 @@ import { DerangementsSection } from './shared/derangements/DerangementsSection';
 import { ExperienceSection } from './shared/advancement/ExperienceSection';
 import { PossessionsSection } from './shared/possessions/PossessionsSection';
 import type { DragonBloodedPowerDefinition } from './reference/dragonblooded-powers';
+import { solarCharms } from './reference/solar-charms';
 
 const AUTOSAVE_DELAY_MS = 550;
 
@@ -78,10 +79,7 @@ export function Exalted1eEditor({
   const activeSections = useMemo(
     () =>
       isSolar
-        ? exaltedSections.filter(
-            ({ id }) =>
-              id !== 'exalted-merits-flaws' && id !== 'exalted-charms-sorcery',
-          )
+        ? exaltedSections.filter(({ id }) => id !== 'exalted-merits-flaws')
         : [...exaltedSections],
     [isSolar],
   );
@@ -1114,17 +1112,32 @@ export function Exalted1eEditor({
               />
             </section>
 
-            {!isSolar ? (
-              <section
-                id="exalted-charms-sorcery"
-                data-section-group="exalted"
-                className="exalted-sheet-section"
-              >
-                <p className="eyebrow">Dragon-Blooded powers</p>
-                <h2 id="exalted-charms-sorcery-heading" tabIndex={-1}>
-                  Charms &amp; Sorcery
-                </h2>
-                <DragonBloodedPowersSection
+            <section
+              id="exalted-charms-sorcery"
+              data-section-group="exalted"
+              className="exalted-sheet-section"
+            >
+              <p className="eyebrow">
+                {isSolar ? 'Solar powers' : 'Dragon-Blooded powers'}
+              </p>
+              <h2 id="exalted-charms-sorcery-heading" tabIndex={-1}>
+                {isSolar ? 'Charms' : 'Charms & Sorcery'}
+              </h2>
+              {isSolar ? (
+                <ExaltedPowersSection
+                  powers={draft.powers}
+                  definitions={solarCharms}
+                  catalogId="solar-charm-catalog"
+                  catalogDescription="Choose from 159 Solar Charms compiled by Ability from the supplied First Edition handbook. Requirements are advisory; entries retain their cited book and page and are marked for source review."
+                  showSpells={false}
+                  showElementFilter={false}
+                  showCategory={false}
+                  onChange={(powers) =>
+                    update((current) => ({ ...current, powers }))
+                  }
+                />
+              ) : (
+                <ExaltedPowersSection
                   powers={draft.powers}
                   character={draft}
                   onChange={(powers) =>
@@ -1187,9 +1200,8 @@ export function Exalted1eEditor({
                     })
                   }
                 />
-              </section>
-            ) : null}
-
+              )}
+            </section>
             <section
               id="exalted-possessions"
               data-section-group="resources"

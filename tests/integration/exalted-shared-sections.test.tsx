@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useState } from 'react';
 import { describe, expect, it } from 'vitest';
@@ -7,6 +7,8 @@ import type { Exalted1eCharacter } from '../../src/games/exalted1e/schema';
 import { LanguagesSection } from '../../src/games/exalted1e/shared/languages/LanguagesSection';
 import { ExperienceSection } from '../../src/games/exalted1e/shared/advancement/ExperienceSection';
 import { DerangementsSection } from '../../src/games/exalted1e/shared/derangements/DerangementsSection';
+import { ExaltedPowersSection } from '../../src/games/exalted1e/DragonBloodedPowersSection';
+import { solarCharms } from '../../src/games/exalted1e/reference/solar-charms';
 
 function LanguageHarness() {
   const [languages, setLanguages] = useState<Exalted1eCharacter['languages']>(
@@ -40,7 +42,51 @@ function DerangementHarness() {
   );
 }
 
+function SolarCharmHarness() {
+  const [powers, setPowers] = useState<Exalted1eCharacter['powers']>({
+    charms: [],
+    spells: [],
+  });
+  return (
+    <ExaltedPowersSection
+      powers={powers}
+      definitions={solarCharms}
+      catalogId="solar-charm-catalog"
+      catalogDescription="Solar handbook catalog"
+      showSpells={false}
+      showElementFilter={false}
+      showCategory={false}
+      onChange={setPowers}
+    />
+  );
+}
+
 describe('shared Exalted character sections', () => {
+  it('searches and selects Solar Charms from the supplied handbook catalog', async () => {
+    const user = userEvent.setup();
+    render(<SolarCharmHarness />);
+    expect(screen.queryByRole('tab')).not.toBeInTheDocument();
+    await user.click(
+      screen.getByRole('button', { name: 'Browse charms catalog' }),
+    );
+    await user.type(
+      screen.getByRole('searchbox', { name: 'Search' }),
+      'Wise Arrow',
+    );
+    const wiseArrowCard = screen
+      .getByRole('heading', { name: 'Wise Arrow' })
+      .closest('article')!;
+    expect(within(wiseArrowCard).getByText('Exalted 154')).toBeVisible();
+    await user.click(
+      within(wiseArrowCard).getByRole('button', {
+        name: 'Add Without Spending XP',
+      }),
+    );
+    expect(
+      screen.getByRole('heading', { name: 'Wise Arrow', level: 3 }),
+    ).toBeVisible();
+  });
+
   it('adds catalog, native, temporary, and custom languages', async () => {
     const user = userEvent.setup();
     render(<LanguageHarness />);

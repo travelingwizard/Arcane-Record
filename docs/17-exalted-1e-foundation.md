@@ -54,7 +54,11 @@ plus the Classic combat profile.
 - sheet-specific Background selection, ratings, and notes;
 - Virtues, Willpower, Essence, pools, Solar Limit Break, and Virtue Flaw;
 - Anima, weapons, and experience notes;
-- a Dragon-Blooded-only Charms & Sorcery section with 320 Charms and 99
+- a Solar Charms section with 159 entries from the supplied _Solar Exalted
+  Charms Reference Handbook_, grouped/filterable by Ability with costs,
+  durations, types, requirements, prerequisite text, summaries, citations,
+  character notes, and explicit source-review labels;
+- a Dragon-Blooded Charms & Sorcery section with 320 Charms and 99
   Terrestrial/Emerald Circle spells, search and filters, source-review labels,
   expanded reference details, and character notes;
 - advisory display of minimums and sorcery access without blocking edits;
@@ -80,7 +84,7 @@ plus the Classic combat profile.
 ## Deferred, visibly labeled areas
 
 The editor identifies but does not yet claim to implement Solar Merits and
-Flaws, Solar Charms and Sorcery, a sourced shield catalog, Power Combat
+Flaws, Solar spell catalogs, a sourced shield catalog, Power Combat
 Hardness, full exceptional/perfect quality presets, expanded Background
 narratives, general possessions, languages, derangements, detailed experience
 history, character history/description, or a sketch surface. Custom shields and
@@ -92,3 +96,11 @@ and review queue are preserved under
 source of truth; its Markdown and CSV forms support human review. Entries marked
 for power source review remain selectable and visibly labeled; uncertain rules
 are not silently reconstructed.
+
+The Solar Charm catalog is normalized from the user-supplied 16-page handbook.
+The handbook's per-Ability counts sum to 159, and all 159 table rows are
+retained. The handbook cites the core book, Caste Books, _Savage Seas_, _Cult
+of the Illuminated_, and the _Exalted Player's Guide_. Those primary texts were
+not independently compared, so every entry remains visibly marked for source
+review and shortened or unresolved prerequisite text is preserved rather than
+guessed.

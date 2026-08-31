@@ -19,6 +19,7 @@ import {
   dragonBloodedCharmIds,
   dragonBloodedSpellIds,
 } from './reference/dragonblooded-powers';
+import { solarCharmIds } from './reference/solar-charms';
 import { exaltedComboSchema } from './shared/combos/schema';
 import { exaltedLanguageSchema } from './shared/languages/schema';
 import { exaltedDerangementSchema } from './shared/derangements/schema';
@@ -260,6 +261,16 @@ export const exalted1eCharacterSchema = z
             });
           }
         });
+      } else {
+        combo.charmIds.forEach((charmId) => {
+          if (!solarCharmIds.has(charmId)) {
+            context.addIssue({
+              code: 'custom',
+              message: 'Unknown Solar Charm in Combo.',
+              path: ['combos', index, 'charmIds'],
+            });
+          }
+        });
       }
     });
     const allowedBackgroundIds =
@@ -275,20 +286,28 @@ export const exalted1eCharacterSchema = z
         });
       }
     });
+    const allowedCharmIds =
+      character.sheetType === 'solar' ? solarCharmIds : dragonBloodedCharmIds;
     character.powers.charms.forEach((selection, index) => {
-      if (!dragonBloodedCharmIds.has(selection.definitionId)) {
+      if (!allowedCharmIds.has(selection.definitionId)) {
         context.addIssue({
           code: 'custom',
-          message: 'Unknown Dragon-Blooded Charm definition.',
+          message: `Unknown ${character.sheetType === 'solar' ? 'Solar' : 'Dragon-Blooded'} Charm definition.`,
           path: ['powers', 'charms', index, 'definitionId'],
         });
       }
     });
     character.powers.spells.forEach((selection, index) => {
-      if (!dragonBloodedSpellIds.has(selection.definitionId)) {
+      if (
+        character.sheetType === 'solar' ||
+        !dragonBloodedSpellIds.has(selection.definitionId)
+      ) {
         context.addIssue({
           code: 'custom',
-          message: 'Unknown Dragon-Blooded spell definition.',
+          message:
+            character.sheetType === 'solar'
+              ? 'Solar spell definitions are not available in the supplied Charm handbook.'
+              : 'Unknown Dragon-Blooded spell definition.',
           path: ['powers', 'spells', index, 'definitionId'],
         });
       }
@@ -351,8 +370,7 @@ export const exalted1eCharacterSchema = z
     }
     if (
       character.sheetType === 'solar' &&
-      (character.powers.charms.length > 0 ||
-        character.powers.spells.length > 0 ||
+      (character.powers.spells.length > 0 ||
         character.meritsFlaws.merits.length > 0 ||
         character.meritsFlaws.flaws.length > 0)
     ) {

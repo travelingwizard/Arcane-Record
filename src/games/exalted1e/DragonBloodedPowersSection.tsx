@@ -84,14 +84,24 @@ interface Props {
     cost: number,
     explanation: string,
   ) => void;
+  catalogId?: string;
+  catalogDescription?: string;
+  showSpells?: boolean;
+  showElementFilter?: boolean;
+  showCategory?: boolean;
 }
 
-export function DragonBloodedPowersSection({
+export function ExaltedPowersSection({
   powers,
   onChange,
   definitions: suppliedDefinitions,
   character,
   onLearnWithExperience,
+  catalogId = 'dragon-blooded-power-catalog',
+  catalogDescription = 'Choose from 320 Dragon-Blooded Charms and 99 Terrestrial/Emerald Circle spells. Requirements are shown as guidance and do not enforce character creation rules.',
+  showSpells = true,
+  showElementFilter = true,
+  showCategory = true,
 }: Props) {
   const [activeKind, setActiveKind] = useState<PowerKind>('charms');
   const [catalogOpen, setCatalogOpen] = useState(false);
@@ -195,33 +205,31 @@ export function DragonBloodedPowersSection({
 
   return (
     <>
-      <p className="section-note">
-        Choose from 320 Dragon-Blooded Charms and 99 Terrestrial/Emerald Circle
-        spells. Requirements are shown as guidance and do not enforce character
-        creation rules.
-      </p>
-      <div
-        className="exalted-power-tabs"
-        role="tablist"
-        aria-label="Power type"
-      >
-        {(['charms', 'spells'] as const).map((kind) => (
-          <button
-            key={kind}
-            type="button"
-            role="tab"
-            aria-selected={activeKind === kind}
-            className={
-              activeKind === kind ? 'primary-button' : 'secondary-button'
-            }
-            onClick={() => changeTab(kind)}
-          >
-            {kind === 'charms'
-              ? `Charms (${powers.charms.length})`
-              : `Sorcery (${powers.spells.length})`}
-          </button>
-        ))}
-      </div>
+      <p className="section-note">{catalogDescription}</p>
+      {showSpells ? (
+        <div
+          className="exalted-power-tabs"
+          role="tablist"
+          aria-label="Power type"
+        >
+          {(['charms', 'spells'] as const).map((kind) => (
+            <button
+              key={kind}
+              type="button"
+              role="tab"
+              aria-selected={activeKind === kind}
+              className={
+                activeKind === kind ? 'primary-button' : 'secondary-button'
+              }
+              onClick={() => changeTab(kind)}
+            >
+              {kind === 'charms'
+                ? `Charms (${powers.charms.length})`
+                : `Sorcery (${powers.spells.length})`}
+            </button>
+          ))}
+        </div>
+      ) : null}
 
       {activeKind === 'spells' && !knowsTerrestrialCircle ? (
         <p className="exalted-power-warning" role="status">
@@ -311,17 +319,14 @@ export function DragonBloodedPowersSection({
         type="button"
         className="secondary-button exalted-catalog-toggle"
         aria-expanded={catalogOpen}
-        aria-controls="dragon-blooded-power-catalog"
+        aria-controls={catalogId}
         onClick={() => setCatalogOpen((open) => !open)}
       >
         {catalogOpen ? 'Close catalog' : `Browse ${activeKind} catalog`}
       </button>
 
       {catalogOpen ? (
-        <div
-          id="dragon-blooded-power-catalog"
-          className="exalted-power-catalog"
-        >
+        <div id={catalogId} className="exalted-power-catalog">
           <div className="exalted-power-filters">
             <label>
               <span>Search</span>
@@ -337,21 +342,25 @@ export function DragonBloodedPowersSection({
             </label>
             {activeKind === 'charms' ? (
               <>
-                <label>
-                  <span>Element</span>
-                  <select
-                    value={element}
-                    onChange={(event) => {
-                      setElement(event.target.value);
-                      setVisibleCount(PAGE_SIZE);
-                    }}
-                  >
-                    <option value="all">All elements</option>
-                    {['Air', 'Earth', 'Fire', 'Water', 'Wood'].map((value) => (
-                      <option key={value}>{value}</option>
-                    ))}
-                  </select>
-                </label>
+                {showElementFilter ? (
+                  <label>
+                    <span>Element</span>
+                    <select
+                      value={element}
+                      onChange={(event) => {
+                        setElement(event.target.value);
+                        setVisibleCount(PAGE_SIZE);
+                      }}
+                    >
+                      <option value="all">All elements</option>
+                      {['Air', 'Earth', 'Fire', 'Water', 'Wood'].map(
+                        (value) => (
+                          <option key={value}>{value}</option>
+                        ),
+                      )}
+                    </select>
+                  </label>
+                ) : null}
                 <label>
                   <span>Ability</span>
                   <select
@@ -416,7 +425,7 @@ export function DragonBloodedPowersSection({
                             : 'Emerald Circle'}
                         </span>
                         {charm?.element ? <span>{charm.element}</span> : null}
-                        {charm ? (
+                        {charm && showCategory ? (
                           <span>{categoryLabels[charm.category]}</span>
                         ) : null}
                       </div>
@@ -535,3 +544,6 @@ export function DragonBloodedPowersSection({
     </>
   );
 }
+
+// Compatibility export for callers introduced before the catalog became shared.
+export const DragonBloodedPowersSection = ExaltedPowersSection;

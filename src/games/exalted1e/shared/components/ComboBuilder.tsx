@@ -4,6 +4,7 @@ import {
   dragonBloodedCharmById,
   type DragonBloodedCharmDefinition,
 } from '../../reference/dragonblooded-powers';
+import { solarCharmById } from '../../reference/solar-charms';
 import type { Exalted1eCharacter } from '../../schema';
 import { analyzeCombo } from '../combos/engine';
 import type { ExaltedCombo } from '../combos/types';
@@ -29,19 +30,21 @@ export function ComboBuilder({ character, onChange }: Props) {
   const [ability, setAbility] = useState('all');
   const [type, setType] = useState('all');
 
-  const knownCharms = useMemo(
-    () =>
+  const knownCharms = useMemo(() => {
+    const definitions =
       character.sheetType === 'dragon-blooded'
-        ? character.powers.charms
-            .map(({ definitionId }) => dragonBloodedCharmById.get(definitionId))
-            .filter((value): value is DragonBloodedCharmDefinition =>
-              Boolean(value),
-            )
-        : [],
-    [character.powers.charms, character.sheetType],
-  );
+        ? dragonBloodedCharmById
+        : solarCharmById;
+    return character.powers.charms
+      .map(({ definitionId }) => definitions.get(definitionId))
+      .filter((value): value is DragonBloodedCharmDefinition => Boolean(value));
+  }, [character.powers.charms, character.sheetType]);
+  const charmById =
+    character.sheetType === 'dragon-blooded'
+      ? dragonBloodedCharmById
+      : solarCharmById;
   const selected = charmIds
-    .map((id) => dragonBloodedCharmById.get(id))
+    .map((id) => charmById.get(id))
     .filter((value): value is DragonBloodedCharmDefinition => Boolean(value));
   const analysis = analyzeCombo(
     character,
@@ -100,9 +103,9 @@ export function ComboBuilder({ character, onChange }: Props) {
     <div className="exalted-combo-section">
       {character.sheetType === 'solar' ? (
         <p className="exalted-power-warning" role="status">
-          The shared Combo record and validator are ready, but the Solar Charm
-          catalog is not part of the current local reference data. No Solar
-          Charm rules are inferred.
+          Solar Charms are available for Combo records. The supplied handbook
+          does not include complete Combo eligibility rules, so verify each
+          combination against the cited source.
         </p>
       ) : null}
       <div className="exalted-combo-builder">

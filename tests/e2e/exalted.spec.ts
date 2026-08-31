@@ -41,6 +41,21 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   await page.getByRole('button', { name: 'Set Strength to 3' }).click();
   await page.getByRole('button', { name: 'Set Archery to 2' }).click();
   await page.getByRole('button', { name: 'Mark Archery as favored' }).click();
+  await expect(
+    page.getByRole('heading', { name: 'Charms', exact: true }),
+  ).toBeVisible();
+  await page.getByRole('button', { name: 'Browse charms catalog' }).click();
+  await page
+    .locator('#solar-charm-catalog')
+    .getByRole('searchbox', { name: 'Search', exact: true })
+    .fill('Wise Arrow');
+  const wiseArrow = page
+    .locator('#solar-charm-catalog .exalted-power-card')
+    .filter({ has: page.getByRole('heading', { name: 'Wise Arrow' }) });
+  await expect(wiseArrow).toContainText('Exalted 154');
+  await wiseArrow
+    .getByRole('button', { name: 'Add Without Spending XP' })
+    .click();
   await page
     .getByRole('combobox', { name: 'Background' })
     .selectOption('artifact');
@@ -74,6 +89,11 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   ).toHaveAttribute('aria-pressed', 'true');
   await expect(
     page.getByRole('group', { name: 'Artifact: 3 out of 5' }),
+  ).toBeVisible();
+  await expect(
+    page.locator('.exalted-selected-powers').getByRole('heading', {
+      name: 'Wise Arrow',
+    }),
   ).toBeVisible();
   await expect(
     page.locator('.exalted-character-sheet > section').first(),
