@@ -20,6 +20,11 @@ import {
   dragonBloodedSpellIds,
 } from './reference/dragonblooded-powers';
 import { solarCharmIds } from './reference/solar-charms';
+import {
+  getSolarTraitRepeatLimit,
+  isLegalSolarTraitCost,
+  solarTraitById,
+} from './reference/solar-merits-flaws';
 import { exaltedComboSchema } from './shared/combos/schema';
 import { exaltedLanguageSchema } from './shared/languages/schema';
 import { exaltedDerangementSchema } from './shared/derangements/schema';
@@ -319,16 +324,27 @@ export const exalted1eCharacterSchema = z
       const pathKey = kind === 'merit' ? 'merits' : 'flaws';
       const definitionCounts = new Map<string, number>();
       selections.forEach((selection, index) => {
-        const definition = dragonBloodedTraitById.get(selection.definitionId);
+        const definition =
+          character.sheetType === 'solar'
+            ? solarTraitById.get(selection.definitionId)
+            : dragonBloodedTraitById.get(selection.definitionId);
         if (!definition || definition.kind !== kind) {
           context.addIssue({
             code: 'custom',
-            message: `Unknown Dragon-Blooded ${kind} definition.`,
+            message: `Unknown ${character.sheetType === 'solar' ? 'Solar' : 'Dragon-Blooded'} ${kind} definition.`,
             path: ['meritsFlaws', pathKey, index, 'definitionId'],
           });
           return;
         }
-        if (!isLegalDragonBloodedTraitCost(definition, selection.chosenCost)) {
+        const legalCost =
+          character.sheetType === 'solar'
+            ? isLegalSolarTraitCost(
+                definition,
+                selection.chosenCost,
+                character.identity.caste,
+              )
+            : isLegalDragonBloodedTraitCost(definition, selection.chosenCost);
+        if (!legalCost) {
           context.addIssue({
             code: 'custom',
             message: `Chosen cost is not legal for ${definition.name}.`,
@@ -341,7 +357,10 @@ export const exalted1eCharacterSchema = z
         );
       });
       definitionCounts.forEach((count, definitionId) => {
-        const limit = getDragonBloodedTraitRepeatLimit(definitionId);
+        const limit =
+          character.sheetType === 'solar'
+            ? getSolarTraitRepeatLimit(definitionId)
+            : getDragonBloodedTraitRepeatLimit(definitionId);
         if (limit !== undefined && count > limit) {
           context.addIssue({
             code: 'custom',
@@ -368,12 +387,7 @@ export const exalted1eCharacterSchema = z
         path: ['meritsFlaws', 'flaws'],
       });
     }
-    if (
-      character.sheetType === 'solar' &&
-      (character.powers.spells.length > 0 ||
-        character.meritsFlaws.merits.length > 0 ||
-        character.meritsFlaws.flaws.length > 0)
-    ) {
+    if (character.sheetType === 'solar' && character.powers.spells.length > 0) {
       context.addIssue({
         code: 'custom',
         message:

@@ -1,0 +1,1587 @@
+{
+  "format": "arcane-record-reference-catalog",
+  "formatVersion": 1,
+  "gameSystemId": "exalted1e",
+  "characterType": "solar",
+  "catalogType": "merits-and-flaws",
+  "counts": {
+    "total": 71,
+    "merits": 33,
+    "flaws": 38
+  },
+  "sourcePolicy": "Normalized from the user-supplied Solar Exalted Merits & Flaws Database workbook. Workbook mechanics and Solar-specific adjustments are preserved; primary-source comparison remains pending.",
+  "entries": [
+    {
+      "id": "double-jointed",
+      "name": "Double-Jointed",
+      "kind": "merit",
+      "category": "physical",
+      "cost": "1 or 3 pt",
+      "summary": "Grappling/flexibility bonuses. +2 dice for 3-pt version to escape constraints.",
+      "mechanics": "Grappling/flexibility bonuses. +2 dice for 3-pt version to escape constraints. Unusually supple. +1 die to grappling/athletics/larceny. 3-pt version allows dislocating joints and resetting painlessly to slip any restraint.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 19
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Unusually supple. +1 die to grappling/athletics/larceny. 3-pt version allows dislocating joints and resetting painlessly to slip any restraint."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "pain-tolerance",
+      "name": "Pain Tolerance",
+      "kind": "merit",
+      "category": "physical",
+      "cost": "3, 5, or 7 pt",
+      "summary": "Ignore wound penalties. Non-cumulative with other wound-negation magic.",
+      "mechanics": "Ignore wound penalties. Non-cumulative with other wound-negation magic. Ignore wound penalties. 3-pt ignores 1 die; 5-pt ignores 2 dice (increases difficulty of touch-based Awareness by 2); 7-pt ignores all penalties (automatically fails touch-based rolls).",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 19
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Ignore wound penalties. 3-pt ignores 1 die; 5-pt ignores 2 dice (increases difficulty of touch-based Awareness by 2); 7-pt ignores all penalties (automatically fails touch-based rolls)."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "large-size",
+      "name": "Large Size",
+      "kind": "merit",
+      "category": "physical",
+      "cost": "4 or 6 pt",
+      "summary": "Adds extra health levels. Size remains in all Lunar/spirit forms (noted for reference).",
+      "mechanics": "Adds extra health levels. Size remains in all Lunar/spirit forms (noted for reference). 4-pt: +1 -0 health level (stands >7 ft). 6-pt: +1 -0 and +1 -1 health level (stands 8-9 ft) but lose 1 die on Dex rolls for small tools.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 19
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "4-pt: +1 -0 health level (stands >7 ft). 6-pt: +1 -0 and +1 -1 health level (stands 8-9 ft) but lose 1 die on Dex rolls for small tools."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "legendary-attribute",
+      "name": "Legendary Attribute",
+      "kind": "merit",
+      "category": "physical",
+      "cost": "5 pt (3 pt for Exalted)",
+      "summary": "Raises maximum Attribute limit by 1 dot. Can raise to 7 at Essence 6+.",
+      "mechanics": "Raises maximum Attribute limit by 1 dot. Can raise to 7 at Essence 6+. Celestial Exalted pay only 3 points. Can raise a Physical Attribute one dot higher than standard cap (e.g. to 6 for Essence 1-5).",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 19
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Celestial Exalted pay only 3 points. Can raise a Physical Attribute one dot higher than standard cap (e.g. to 6 for Essence 1-5)."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "special-resistance",
+      "name": "Special Resistance",
+      "kind": "merit",
+      "category": "physical",
+      "cost": "Variable (1-5 pt)",
+      "summary": "Resisting/immunity to environmental toxins, diseases, or alcohol poisoning.",
+      "mechanics": "Resisting/immunity to environmental toxins, diseases, or alcohol poisoning. Adds +1 die per point to resist poison or disease (max 5 dice). Total immunity to a single toxin/disease for 1 point. Immunity to alcohol poisoning for 1 point.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 19
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Adds +1 die per point to resist poison or disease (max 5 dice). Total immunity to a single toxin/disease for 1 point. Immunity to alcohol poisoning for 1 point."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "special-sense",
+      "name": "Special Sense",
+      "kind": "merit",
+      "category": "physical",
+      "cost": "Variable (2 pt/sense)",
+      "summary": "Expands sensory range. Every significant expansion of a single sense costs 2 points.",
+      "mechanics": "Expands sensory range. Every significant expansion of a single sense costs 2 points. Allows processing stimuli beyond normal ranges (e.g., see heat/infrared, see visible light, hear high frequency, recognize pheromones).",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 20
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Allows processing stimuli beyond normal ranges (e.g., see heat/infrared, see visible light, hear high frequency, recognize pheromones)."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "mutation",
+      "name": "Mutation",
+      "kind": "merit",
+      "category": "physical",
+      "cost": "Variable",
+      "summary": "Unusual/unnatural features representing Wyld or demonic ancestry.",
+      "mechanics": "Unusual/unnatural features representing Wyld or demonic ancestry. Useful mutations cost points equal to mutation rating + 2. Exalted can spend 2 motes to fuel mutations instead of 1 WP.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 20
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Useful mutations cost points equal to mutation rating + 2. Exalted can spend 2 motes to fuel mutations instead of 1 WP."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "common-sense",
+      "name": "Common Sense",
+      "kind": "merit",
+      "category": "mental",
+      "cost": "1 pt",
+      "summary": "Decent grasp of what constitutes a good/bad/very bad idea. For new players.",
+      "mechanics": "Decent grasp of what constitutes a good/bad/very bad idea. For new players. Storyteller must warn player before character is about to perform an action that constitutes an obviously bad idea.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 20
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Storyteller must warn player before character is about to perform an action that constitutes an obviously bad idea."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "internal-compass",
+      "name": "Internal Compass",
+      "kind": "merit",
+      "category": "mental",
+      "cost": "1 pt",
+      "summary": "Automatically identify cardinal directions in Creation or the Underworld.",
+      "mechanics": "Automatically identify cardinal directions in Creation or the Underworld. Has an uncanny sense of direction. Gains +1 die to navigate ships or find way through mazes (Wits + Awareness standard difficulty).",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 20
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Has an uncanny sense of direction. Gains +1 die to navigate ships or find way through mazes (Wits + Awareness standard difficulty)."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "eidetic-recall",
+      "name": "Eidetic Recall",
+      "kind": "merit",
+      "category": "mental",
+      "cost": "1 to 5 pt",
+      "summary": "Camera-like recall of details, speeches, or visual elements under stress.",
+      "mechanics": "Camera-like recall of details, speeches, or visual elements under stress. Perfect memory of everything witnessed. Costs 1 point per sense, or a flat 3 points for Alchemical Exalted.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 20
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Perfect memory of everything witnessed. Costs 1 point per sense, or a flat 3 points for Alchemical Exalted."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "virtue-specialty",
+      "name": "Virtue Specialty",
+      "kind": "merit",
+      "category": "mental",
+      "cost": "2 to 6 pt",
+      "summary": "Increases Virtue's effective rating when character wishes to act against it.",
+      "mechanics": "Increases Virtue's effective rating when character wishes to act against it. Moral resolve strengthened under certain conditions. Adds dice to Virtue rolls equal to half the points invested (max 3 specialty dice for 6 points).",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 21
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Moral resolve strengthened under certain conditions. Adds dice to Virtue rolls equal to half the points invested (max 3 specialty dice for 6 points)."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "driving-passion",
+      "name": "Driving Passion",
+      "kind": "merit",
+      "category": "mental",
+      "cost": "3 pt",
+      "summary": "Live for a cause (e.g. avenging a loved one, becoming a peerless swordsman).",
+      "mechanics": "Live for a cause (e.g. avenging a loved one, becoming a peerless swordsman). Must be tied directly to Nature. Adds +1 die to all rolls directly furthering the goal. Resolving/fulfilling the passion grants 6 experience points.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 21
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Must be tied directly to Nature. Adds +1 die to all rolls directly furthering the goal. Resolving/fulfilling the passion grants 6 experience points."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "tactical-instincts",
+      "name": "Tactical Instincts",
+      "kind": "merit",
+      "category": "mental",
+      "cost": "3 pt (2 pt for Dawn)",
+      "summary": "Intuitive understanding of tactics on the battlefield or in Gateway boards.",
+      "mechanics": "Intuitive understanding of tactics on the battlefield or in Gateway boards. Dawn Caste Solars pay only 2 points. Roll Wits + Lore to accumulate a pool of up to 3 extra dice to add to Lore/strategy or Presence combat rolls.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 21
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Dawn Caste Solars pay only 2 points. Roll Wits + Lore to accumulate a pool of up to 3 extra dice to add to Lore/strategy or Presence combat rolls."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "true-love",
+      "name": "True Love",
+      "kind": "merit",
+      "category": "mental",
+      "cost": "3 pt",
+      "summary": "If lover perishes, the Merit is lost immediately without compensation.",
+      "mechanics": "If lover perishes, the Merit is lost immediately without compensation. Abiding romance. Adds +1 die to all rolls made in defense or aid of that love. Regain 1 temporary Willpower each morning.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 21
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Abiding romance. Adds +1 die to all rolls made in defense or aid of that love. Regain 1 temporary Willpower each morning."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "true-paragon",
+      "name": "True Paragon",
+      "kind": "merit",
+      "category": "mental",
+      "cost": "3 pt",
+      "summary": "Exudes honor/nobility. Betraying the code loses the Merit immediately.",
+      "mechanics": "Exudes honor/nobility. Betraying the code loses the Merit immediately. Only characters with Paragon Nature. Can raise Virtues above 5 to raise permit maximum. Can roll highest Virtue in Conviction roll to regain WP.",
+      "eligibility": "Solar Exalted",
+      "requirements": ["Paragon Nature"],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 21
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Only characters with Paragon Nature. Can raise Virtues above 5 to raise permit maximum. Can roll highest Virtue in Conviction roll to regain WP."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "jack-of-all-trades",
+      "name": "Jack of All Trades",
+      "kind": "merit",
+      "category": "mental",
+      "cost": "4 pt",
+      "summary": "Preternatural edge in applying basic skills without training.",
+      "mechanics": "Preternatural edge in applying basic skills without training. Broad basis of knowledge. Can roll any standard Ability without suffering untutored penalties.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 21
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Broad basis of knowledge. Can roll any standard Ability without suffering untutored penalties."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "favor",
+      "name": "Favor",
+      "kind": "merit",
+      "category": "social",
+      "cost": "Variable (1-4 pt)",
+      "summary": "Someone of equal or greater power owes the character a favor.",
+      "mechanics": "Someone of equal or greater power owes the character a favor. Under Yu-Shan/spirit court politics, minor Celestial favor is worth 2 points, moderate is 4, major is 6 points.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 23
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Under Yu-Shan/spirit court politics, minor Celestial favor is worth 2 points, moderate is 4, major is 6 points."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "heirloom",
+      "name": "Heirloom",
+      "kind": "merit",
+      "category": "social",
+      "cost": "1 pt",
+      "summary": "Owns a treasured relic, gift, or asset representing Resources value +1.",
+      "mechanics": "Owns a treasured relic, gift, or asset representing Resources value +1. Character owns a piece of property more valuable than lifestyle/resources afford. Most weapons/armor with Heirloom are exceptional.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 23
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Character owns a piece of property more valuable than lifestyle/resources afford. Most weapons/armor with Heirloom are exceptional."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "hidden-manse",
+      "name": "Hidden Manse",
+      "kind": "merit",
+      "category": "social",
+      "cost": "1 or 2 pt",
+      "summary": "Controls a Manse forgotten to history or geomantic maps (veiled in mystery).",
+      "mechanics": "Controls a Manse forgotten to history or geomantic maps (veiled in mystery). 1 point for hidden Demesne, 2 points for hidden Manse. Must have Manse Background. Ideal secure headquarters.",
+      "eligibility": "Solar Exalted",
+      "requirements": ["Manse Background"],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 23
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "1 point for hidden Demesne, 2 points for hidden Manse. Must have Manse Background. Ideal secure headquarters."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "heir-apparent",
+      "name": "Heir Apparent",
+      "kind": "merit",
+      "category": "social",
+      "cost": "1 to 5 pt",
+      "summary": "Will receive an inheritance from parents or benefactor. Requires Resources 4+.",
+      "mechanics": "Will receive an inheritance from parents or benefactor. Requires Resources 4+. Every point invested grants 2 dots of Backgrounds upon inheritance (max 5 points/10 dots). Specific conditions apply.",
+      "eligibility": "Solar Exalted",
+      "requirements": ["Resources 4+"],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 24
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Every point invested grants 2 dots of Backgrounds upon inheritance (max 5 points/10 dots). Specific conditions apply."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "legendary-artifact",
+      "name": "Legendary Artifact",
+      "kind": "merit",
+      "category": "social",
+      "cost": "10 pt",
+      "summary": "Owns a relic of world-shaking power that defines the epoch of their use.",
+      "mechanics": "Owns a relic of world-shaking power that defines the epoch of their use. ST veto applies. Relic on par with Mantis of Brigid or Eye of Autochthon. Attracts extreme danger and covetous gods/demons.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 24
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "ST veto applies. Relic on par with Mantis of Brigid or Eye of Autochthon. Attracts extreme danger and covetous gods/demons."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "cache",
+      "name": "Cache",
+      "kind": "merit",
+      "category": "social",
+      "cost": "Variable (1-5 pt)",
+      "summary": "Wealth hidden or legally stored in banks in multiple major cities.",
+      "mechanics": "Wealth hidden or legally stored in banks in multiple major cities. 1 point per city beyond home city. Allows full access to Resources or Salary at these locations.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 24
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "1 point per city beyond home city. Allows full access to Resources or Salary at these locations."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "alternative-divination",
+      "name": "Alternative Divination",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "1 pt",
+      "summary": "Allows crudely divining fate through alternative methods. Can be bought multiple times.",
+      "mechanics": "Allows crudely divining fate through alternative methods. Can be bought multiple times. Divines fate through tea leaves, entrails, spider webs, etc. Increased difficulty compared to astrology (difficulty 5+, takes a scene).",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 24
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Divines fate through tea leaves, entrails, spider webs, etc. Increased difficulty compared to astrology (difficulty 5+, takes a scene)."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "terrestrial-bloodline",
+      "name": "Terrestrial Bloodline",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "1 pt",
+      "summary": "Mortal children roll a 1 on a d10 to Exalt. (Normal mortals have no chance).",
+      "mechanics": "Mortal children roll a 1 on a d10 to Exalt. (Normal mortals have no chance). Solars can purchase and retain this Merit until they reach Essence 4. Greatly increases odds of children Exalting as Dragon-Blooded.",
+      "eligibility": "Solar Exalted",
+      "requirements": ["Essence below 4"],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 24
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Solars can purchase and retain this Merit until they reach Essence 4. Greatly increases odds of children Exalting as Dragon-Blooded."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "priest",
+      "name": "Priest",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "1 or 7 pt",
+      "summary": "Recognized priest. Decreases prayer difficulties by 1. Zenith Caste gets 1-pt version.",
+      "mechanics": "Recognized priest. Decreases prayer difficulties by 1. Zenith Caste gets 1-pt version. Zenith Caste Solars get the 1-point Priest Merit automatically FOR FREE as an innate aspect of Exaltation. 7-pt Priest allows calling miracles.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 25
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Zenith Caste Solars get the 1-point Priest Merit automatically FOR FREE as an innate aspect of Exaltation. 7-pt Priest allows calling miracles."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "destiny",
+      "name": "Destiny",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "1 to 5 pt",
+      "summary": "Fate written large in stars. Propelled toward a glorious (or tragic) end.",
+      "mechanics": "Fate written large in stars. Propelled toward a glorious (or tragic) end. 1 pt: good health. 2 pt: financial prosperity. 3 pt: destiny of a king/elder. 4 pt: general/hero of song. 5 pt: emperor/world-shaper.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 25
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "1 pt: good health. 2 pt: financial prosperity. 3 pt: destiny of a king/elder. 4 pt: general/hero of song. 5 pt: emperor/world-shaper."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "signature-style",
+      "name": "Signature Style",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "2 pt",
+      "summary": "Combine movement and attitude. Only one purchase can benefit a single stunt.",
+      "mechanics": "Combine movement and attitude. Only one purchase can benefit a single stunt. Distinctive flair for stunts. Adds +1 extra die to appropriate stunts. Stacks with standard stunt dice. Max 3 purchases.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 28
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Distinctive flair for stunts. Adds +1 extra die to appropriate stunts. Stacks with standard stunt dice. Max 3 purchases."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "sworn-brotherhood",
+      "name": "Sworn Brotherhood",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "2 pt (Exalted only)",
+      "summary": "Bond linking characters in common purpose. Very rare outside Dragon-Blooded.",
+      "mechanics": "Bond linking characters in common purpose. Very rare outside Dragon-Blooded. Shares an oath with a rating equal to the number of members. Promotes ultimate loyalty and coordination.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 28
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Shares an oath with a rating equal to the number of members. Promotes ultimate loyalty and coordination."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "taints-warning",
+      "name": "Taint's Warning",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "2 pt (1 pt for Abyssals)",
+      "summary": "Senses the approach of unclean things. Costs 1 mote (reflexive/automatic).",
+      "mechanics": "Senses the approach of unclean things. Costs 1 mote (reflexive/automatic). Solars pay 2 points. reflexively sense demons, deathknights, Deathlords, undead, etc. within permanent Essence in yards. Lights Caste Mark.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 28
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Solars pay 2 points. reflexively sense demons, deathknights, Deathlords, undead, etc. within permanent Essence in yards. Lights Caste Mark."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "prescient-dreamer",
+      "name": "Prescient Dreamer",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "3 pt",
+      "summary": "Regularly receives prophetic dreams from Unconquered Sun or fate.",
+      "mechanics": "Regularly receives prophetic dreams from Unconquered Sun or fate. Dreams of what may be. Requires Intelligence + Occult roll (difficulty varies based on specificity) to interpret symbols.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 29
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Dreams of what may be. Requires Intelligence + Occult roll (difficulty varies based on specificity) to interpret symbols."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "eternal-vow",
+      "name": "Eternal Vow",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "3 pt",
+      "summary": "If spouse dies, lose temporary Willpower equal to Compassion. Can be a 1-pt Flaw.",
+      "mechanics": "If spouse dies, lose temporary Willpower equal to Compassion. Can be a 1-pt Flaw. Solars, Lunars, and Abyssals only. Reincarnation of First Age marriage. May sense partner's emotions/health. Can donate Essence.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 29
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Solars, Lunars, and Abyssals only. Reincarnation of First Age marriage. May sense partner's emotions/health. Can donate Essence."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "daredevil",
+      "name": "Daredevil",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "4 pt",
+      "summary": "Fortune smiles on the recklessly brave. Exalted can stack with Signature Style.",
+      "mechanics": "Fortune smiles on the recklessly brave. Exalted can stack with Signature Style. Reflexively spend 1 Willpower to DOUBLE standard stunt dice on a physical action with a difficulty of 3 or higher.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 30
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Reflexively spend 1 Willpower to DOUBLE standard stunt dice on a physical action with a difficulty of 3 or higher."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "brigids-heir",
+      "name": "Brigid's Heir",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "5 pt (4 pt for Twilight)",
+      "summary": "Twilight Solars have native affinity for sorcery. Exempts Ox-Body from doubling.",
+      "mechanics": "Twilight Solars have native affinity for sorcery. Exempts Ox-Body from doubling. Twilight Caste Solars pay only 4 points. Doubles cost and training time for standard Charms but HALVES costs/time for spells.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 30
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Twilight Caste Solars pay only 4 points. Doubles cost and training time for standard Charms but HALVES costs/time for spells."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "unusual-appearance",
+      "name": "Unusual Appearance",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "1 or 2 pt",
+      "summary": "Appearance deviates notably from normal. Harder to disguise or impersonate.",
+      "mechanics": "Appearance deviates notably from normal. Harder to disguise or impersonate. 1 point: strikingly odd eyes/hair (scarlet, sea green, ashen white). 2 points: skin pigmentation (albinism) or completely hairless.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 30
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "1 point: strikingly odd eyes/hair (scarlet, sea green, ashen white). 2 points: skin pigmentation (albinism) or completely hairless."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "mute",
+      "name": "Mute",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "1, 3, or 4 pt",
+      "summary": "No vocal communication. 3-pt version is actual physical damage to vocal cords.",
+      "mechanics": "No vocal communication. 3-pt version is actual physical damage to vocal cords. Exalted pay 1 point less (1 pt for temporary/vow of silence, 3 pt for vocal cord damage/silence). Cannot speak/vocalize.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 30
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Exalted pay 1 point less (1 pt for temporary/vow of silence, 3 pt for vocal cord damage/silence). Cannot speak/vocalize."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "sterile",
+      "name": "Sterile",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "1 to 3 pt",
+      "summary": "Result of accident, illness, or birth defect. Dynasts suffer immense stigma.",
+      "mechanics": "Result of accident, illness, or birth defect. Dynasts suffer immense stigma. Physically incapable of siring or bearing children. Normal characters gain 1 pt; Dynastic characters gain 3 pt.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 30
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Physically incapable of siring or bearing children. Normal characters gain 1 pt; Dynastic characters gain 3 pt."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "one-eye",
+      "name": "One Eye",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "2 pt",
+      "summary": "Reduces peripheral vision and depth perception. Limits ranged combat accuracy.",
+      "mechanics": "Reduces peripheral vision and depth perception. Limits ranged combat accuracy. Only one functioning eye. Imposes a 1-die penalty to vision-based Awareness and increases ranged attack difficulties by 1.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 30
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Only one functioning eye. Imposes a 1-die penalty to vision-based Awareness and increases ranged attack difficulties by 1."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "sun-seared",
+      "name": "Sun-Seared",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "2, 3, or 6 pt",
+      "summary": "Sunlight uncomfortable/damaging. Extreme 6-pt version is for Abyssals/monsters.",
+      "mechanics": "Sunlight uncomfortable/damaging. Extreme 6-pt version is for Abyssals/monsters. Solars rarely have the 6-point version. 2 pt: albino, -1 in sunlight, 1 unsoakable bashing/hour. 3 pt: -2 in sunlight, damage every 30 mins.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 31
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Solars rarely have the 6-point version. 2 pt: albino, -1 in sunlight, 1 unsoakable bashing/hour. 3 pt: -2 in sunlight, damage every 30 mins."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "climate-sensitive",
+      "name": "Climate Sensitive",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "2 to 4 pt",
+      "summary": "Experience severe discomfort or illness when outside native climate zone.",
+      "mechanics": "Experience severe discomfort or illness when outside native climate zone. Discomfort in environments. 2 pt: arctic/tropical. 3 pt: non-temperate. 4 pt: specific micro-region. Adds +1 to Survival/Endurance/Resistance.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 31
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Discomfort in environments. 2 pt: arctic/tropical. 3 pt: non-temperate. 4 pt: specific micro-region. Adds +1 to Survival/Endurance/Resistance."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "amputee",
+      "name": "Amputee",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "2 to 8 pt (1 to 6 for Exalted)",
+      "summary": "Lacks arm or leg from birth or battle. -2 penalty to Athletics/Dexterity tasks.",
+      "mechanics": "Lacks arm or leg from birth or battle. -2 penalty to Athletics/Dexterity tasks. Exalted receive less compensation. 1 pt: missing hand. 2 pt: missing arm. 3 pt: missing leg. 4 pt: missing both arms. 5 pt: two limbs. 6 pt: quadriplegic.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 31
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Exalted receive less compensation. 1 pt: missing hand. 2 pt: missing arm. 3 pt: missing leg. 4 pt: missing both arms. 5 pt: two limbs. 6 pt: quadriplegic."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "dying",
+      "name": "Dying",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "2 to 10 pt",
+      "summary": "Fatal condition. Cannot be cured except via truly heroic/sorcerous means.",
+      "mechanics": "Fatal condition. Cannot be cured except via truly heroic/sorcerous means. Terminal illness or curse. Lose 1 dot of Stamina per interval (interval is weeks/days depending on rating). Stamina 0 is death.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 31
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Terminal illness or curse. Lose 1 dot of Stamina per interval (interval is weeks/days depending on rating). Stamina 0 is death."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "small",
+      "name": "Small",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "3 pt",
+      "summary": "Reduced physical size. Stands out in crowds, limits raw physical reach.",
+      "mechanics": "Reduced physical size. Stands out in crowds, limits raw physical reach. Stands 4.5 ft tall or less. Reduces effective Strength by 1 dot for weapon minimums, and lose one -1 health level.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 32
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Stands 4.5 ft tall or less. Reduces effective Strength by 1 dot for weapon minimums, and lose one -1 health level."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "disfigured",
+      "name": "Disfigured",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "3 or 4 pt",
+      "summary": "Wretched physical deformity. Cannot improve Appearance above 0/1.",
+      "mechanics": "Wretched physical deformity. Cannot improve Appearance above 0/1. 3 pt: ugly birth defects/burns. Max Appearance 1, -1 die to Social. 4 pt: monstrous, leper-like. Appearance 0, -2 to all Social.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 32
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "3 pt: ugly birth defects/burns. Max Appearance 1, -1 die to Social. 4 pt: monstrous, leper-like. Appearance 0, -2 to all Social."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "slow-healing",
+      "name": "Slow Healing",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "4 pt",
+      "summary": "Recovers from injury at half normal rate. Highly dangerous in the Threshold.",
+      "mechanics": "Recovers from injury at half normal rate. Highly dangerous in the Threshold. Solars recover from wounds at the rate of normal mortals (instead of half rate). Still cannot regenerate limbs.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 33
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Solars recover from wounds at the rate of normal mortals (instead of half rate). Still cannot regenerate limbs."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "weak-immune-system",
+      "name": "Weak Immune System",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "4 pt (3 pt for Exalted)",
+      "summary": "Harder time fighting off illness. Suffer long, debilitating bouts of sickness.",
+      "mechanics": "Harder time fighting off illness. Suffer long, debilitating bouts of sickness. Exalted pay only 3 points. Halves dice pools to resist or throw off diseases, infections, or sicknesses.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 33
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Exalted pay only 3 points. Halves dice pools to resist or throw off diseases, infections, or sicknesses."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "diminished-attributes",
+      "name": "Diminished Attributes",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "Variable",
+      "summary": "Stunted/atrophied body. Represents old age, illness, or childhood development.",
+      "mechanics": "Stunted/atrophied body. Represents old age, illness, or childhood development. Gain 3 bonus points for every Physical Attribute dot forfeited during creation. Cannot spend bonus points to raise them.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 33
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Gain 3 bonus points for every Physical Attribute dot forfeited during creation. Cannot spend bonus points to raise them."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "diminished-sense",
+      "name": "Diminished Sense",
+      "kind": "flaw",
+      "category": "physical",
+      "cost": "Variable",
+      "summary": "Partial/total loss of sense. No Exalt can lose more than one sense entirely.",
+      "mechanics": "Partial/total loss of sense. No Exalt can lose more than one sense entirely. Exalted receive 1 less point. Blindness is 5 pt, deafness/numbness is 3 pt, loss of smell/taste is 2 pt for Exalted.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 33
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Exalted receive 1 less point. Blindness is 5 pt, deafness/numbness is 3 pt, loss of smell/taste is 2 pt for Exalted."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "derangement",
+      "name": "Derangement",
+      "kind": "flaw",
+      "category": "mental",
+      "cost": "1 or 3 pt",
+      "summary": "Curse of madness (from Wyld, trauma, or spirits). Debilitating bouts of insanity.",
+      "mechanics": "Curse of madness (from Wyld, trauma, or spirits). Debilitating bouts of insanity. Madness. 3 points for the first derangement, 1 point for subsequent forms. Subtract 2 dice from Social pools.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 33
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Madness. 3 points for the first derangement, 1 point for subsequent forms. Subtract 2 dice from Social pools."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "addiction",
+      "name": "Addiction",
+      "kind": "flaw",
+      "category": "mental",
+      "cost": "1 to 5 pt",
+      "summary": "Addicted to a substance. Deprivation causes withdrawal penalties/damage.",
+      "mechanics": "Addicted to a substance. Deprivation causes withdrawal penalties/damage. 1 pt: cheap/legal (alcohol). 2 pt: rare/illegal (opium). 3 pt: dangerous (heroin, bright morning). Wyld addiction is 3 points.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 35
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "1 pt: cheap/legal (alcohol). 2 pt: rare/illegal (opium). 3 pt: dangerous (heroin, bright morning). Wyld addiction is 3 points."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "callous",
+      "name": "Callous",
+      "kind": "flaw",
+      "category": "mental",
+      "cost": "2 to 10 pt",
+      "summary": "Selfish pragmatism, lack of moral compass. Cannot begin with high Willpower.",
+      "mechanics": "Selfish pragmatism, lack of moral compass. Cannot begin with high Willpower. Gain 2 points for every dot of Virtues forfeited. Can't forfeit last dot. Virtues can't be >1. Max Willpower is 3.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 35
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Gain 2 points for every dot of Virtues forfeited. Can't forfeit last dot. Virtues can't be >1. Max Willpower is 3."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "nightmares",
+      "name": "Nightmares",
+      "kind": "flaw",
+      "category": "mental",
+      "cost": "3 pt",
+      "summary": "Wakes plagued with lingering horror, unable to find solace in slumber.",
+      "mechanics": "Wakes plagued with lingering horror, unable to find solace in slumber. Horrific dreams. Adds +1 to the difficulty to regain Willpower. Botching Conviction roll causes -1 on all actions for the day.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 35
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Horrific dreams. Adds +1 to the difficulty to regain Willpower. Botching Conviction roll causes -1 on all actions for the day."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "pacifist",
+      "name": "Pacifist",
+      "kind": "flaw",
+      "category": "mental",
+      "cost": "3 or 5 pt",
+      "summary": "Peaceful nature. Rejects violence, making combat extremely difficult.",
+      "mechanics": "Peaceful nature. Rejects violence, making combat extremely difficult. 3 pt: +1 difficulty to all attacks. 5 pt: cannot attack anyone without spending a WP point for the scene. Standard attack penalty.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 36
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "3 pt: +1 difficulty to all attacks. 5 pt: cannot attack anyone without spending a WP point for the scene. Standard attack penalty."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "unskilled",
+      "name": "Unskilled",
+      "kind": "flaw",
+      "category": "mental",
+      "cost": "Variable",
+      "summary": "Lacks education or practiced skills. Cannot purchase Abilities with bonus points.",
+      "mechanics": "Lacks education or practiced skills. Cannot purchase Abilities with bonus points. Receive 1 bonus point for every dot of Abilities forfeited during character creation. Must still meet Favored minimums.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 36
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Receive 1 bonus point for every dot of Abilities forfeited during character creation. Must still meet Favored minimums."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "weak-willed",
+      "name": "Weak-Willed",
+      "kind": "flaw",
+      "category": "mental",
+      "cost": "Variable",
+      "summary": "Pathetic wretch with severe self-doubt and complete lack of drive.",
+      "mechanics": "Pathetic wretch with severe self-doubt and complete lack of drive. Only Exalted who suffered Willpower loss since Exaltation can take this. 1 point per dot of permanent Willpower forfeited.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 36
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Only Exalted who suffered Willpower loss since Exaltation can take this. 1 point per dot of permanent Willpower forfeited."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "barbarian",
+      "name": "Barbarian",
+      "kind": "flaw",
+      "category": "social",
+      "cost": "1 pt",
+      "summary": "Uncivilized upbringing. Cannot read or write without separate training.",
+      "mechanics": "Uncivilized upbringing. Cannot read or write without separate training. Grew up outside civilized bounds. Lose 1 die from Social pools related to etiquette, cannot have Lore 2+, assumed illiterate.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 36
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Grew up outside civilized bounds. Lose 1 die from Social pools related to etiquette, cannot have Lore 2+, assumed illiterate."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "secrets",
+      "name": "Secrets",
+      "kind": "flaw",
+      "category": "social",
+      "cost": "1 to 3 pt",
+      "summary": "Discovery means ruin. 3-point secrets carry immediate death penalty.",
+      "mechanics": "Discovery means ruin. 3-point secrets carry immediate death penalty. Harbors an embarrassing or dangerous secret. 1 pt: inconvenient. 2 pt: criminal. 3 pt: deadly (e.g., Anathema in Realm).",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 36
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Harbors an embarrassing or dangerous secret. 1 pt: inconvenient. 2 pt: criminal. 3 pt: deadly (e.g., Anathema in Realm)."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "disciple",
+      "name": "Disciple",
+      "kind": "flaw",
+      "category": "social",
+      "cost": "1 to 5 pt",
+      "summary": "Must train/protect student. Failing duties leads to loss of status/Backing.",
+      "mechanics": "Must train/protect student. Failing duties leads to loss of status/Backing. Entrusted with a student. 1 pt: minimal attention. 2 pt: regular. 3 pt: daily/responsible. 4 pt: spoiled brat. 5 pt: malicious terror.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 36
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Entrusted with a student. 1 pt: minimal attention. 2 pt: regular. 3 pt: daily/responsible. 4 pt: spoiled brat. 5 pt: malicious terror."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "enemy-rival",
+      "name": "Enemy/Rival",
+      "kind": "flaw",
+      "category": "social",
+      "cost": "1 to 5 pt",
+      "summary": "Opposing force actively working against the character (inverse of Allies).",
+      "mechanics": "Opposing force actively working against the character (inverse of Allies). Enmity of an individual or group. 5-pt version represents a god, Deathlord, First Age survivor, or Third Circle Demon.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 37
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Enmity of an individual or group. 5-pt version represents a god, Deathlord, First Age survivor, or Third Circle Demon."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "known-anathema",
+      "name": "Known Anathema",
+      "kind": "flaw",
+      "category": "social",
+      "cost": "1 to 5 pt (Celestial only)",
+      "summary": "Widespread infamy. Wyld Hunt is actively tracking and trying to kill character.",
+      "mechanics": "Widespread infamy. Wyld Hunt is actively tracking and trying to kill character. Celestial Exalted only. 1 pt: regional fame. 2 pt: widespread. 3 pt: Hunt is active. 4 pt: Hunt marshals armies. 5 pt: Kejak/Mouth of Peace involved.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 37
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Celestial Exalted only. 1 pt: regional fame. 2 pt: widespread. 3 pt: Hunt is active. 4 pt: Hunt marshals armies. 5 pt: Kejak/Mouth of Peace involved."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "wanted",
+      "name": "Wanted",
+      "kind": "flaw",
+      "category": "social",
+      "cost": "1 to 5 pt",
+      "summary": "Wrath of authorities. Must keep low profile; capture means death/prison.",
+      "mechanics": "Wrath of authorities. Must keep low profile; capture means death/prison. Known criminal. 1 pt: escaped slave, defaulted loan. 3 pt: violent crime. 5 pt: treason, consorting with Deathlords/fae.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 37
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Known criminal. 1 pt: escaped slave, defaulted loan. 3 pt: violent crime. 5 pt: treason, consorting with Deathlords/fae."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "disturbing",
+      "name": "Disturbing",
+      "kind": "flaw",
+      "category": "social",
+      "cost": "2 or 3 pt",
+      "summary": "Makes others highly uncomfortable. People avoid character; socially isolating.",
+      "mechanics": "Makes others highly uncomfortable. People avoid character; socially isolating. Exudes an indefinable mien of menace. 2 points: +1 to difficulty of all Social rolls except Intimidation. 3 points: penalty is +2.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 38
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Exudes an indefinable mien of menace. 2 points: +1 to difficulty of all Social rolls except Intimidation. 3 points: penalty is +2."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "child",
+      "name": "Child",
+      "kind": "flaw",
+      "category": "social",
+      "cost": "3 pt",
+      "summary": "A child Exalt. Opinions ignored, requires adult guardians to act legally.",
+      "mechanics": "A child Exalt. Opinions ignored, requires adult guardians to act legally. Has not yet reached physical maturity. Treated with patronizing amusement. Lose 1-3 dice from Social with adults.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 38
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Has not yet reached physical maturity. Treated with patronizing amusement. Lose 1-3 dice from Social with adults."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "damaged-artifact",
+      "name": "Damaged Artifact",
+      "kind": "flaw",
+      "category": "property",
+      "cost": "1 to 3 pt",
+      "summary": "Represents tarnished or malfunctioning First Age relic from a tomb.",
+      "mechanics": "Represents tarnished or malfunctioning First Age relic from a tomb. One of the character's starting artifacts is broken. 1 pt: minor damage (-1 penalty). 2 pt: major. 3 pt: useless until repaired.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 38
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "One of the character's starting artifacts is broken. 1 pt: minor damage (-1 penalty). 2 pt: major. 3 pt: useless until repaired."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "debt",
+      "name": "Debt",
+      "kind": "flaw",
+      "category": "property",
+      "cost": "1 to 5 pt",
+      "summary": "Imposes constant financial pressure. Failing to pay leads to violent pursuit.",
+      "mechanics": "Imposes constant financial pressure. Failing to pay leads to violent pursuit. Owes money/goods to wealthy Dynast or the Guild. Must make regular payments or face mercenaries/assassins.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 38
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Owes money/goods to wealthy Dynast or the Guild. Must make regular payments or face mercenaries/assassins."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "dark-fate",
+      "name": "Dark Fate",
+      "kind": "flaw",
+      "category": "supernatural",
+      "cost": "1 to 5 pt",
+      "summary": "Fated for epic disaster. Sidereals cannot change this destiny.",
+      "mechanics": "Fated for epic disaster. Sidereals cannot change this destiny. Character is doomed to a terrible end (e.g. madness, damnation, treason). Evoked/unintentional curses occur regularly.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 40
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Character is doomed to a terrible end (e.g. madness, damnation, treason). Evoked/unintentional curses occur regularly."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "unlucky",
+      "name": "Unlucky",
+      "kind": "flaw",
+      "category": "supernatural",
+      "cost": "1 to 5 pt",
+      "summary": "Endless stream of misfortune. Refreshes at the end of every story.",
+      "mechanics": "Endless stream of misfortune. Refreshes at the end of every story. Bad luck pool equal to points. Storyteller can spend points to force rerolls (least successful applies) or cause random chaos.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 40
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Bad luck pool equal to points. Storyteller can spend points to force rerolls (least successful applies) or cause random chaos."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "greater-curse",
+      "name": "Greater Curse",
+      "kind": "flaw",
+      "category": "supernatural",
+      "cost": "1 to 5 pt (Celestial only)",
+      "summary": "Suffer more deeply from the Great Curse laid by dying Primordials.",
+      "mechanics": "Suffer more deeply from the Great Curse laid by dying Primordials. Celestial Exalted only. Reduces maximum Limit pool by one dot per point (max 5 dots). Undergoes Limit Break at 5 Limit instead of 10.",
+      "eligibility": "Solar Exalted",
+      "requirements": ["Celestial Exalted"],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 40
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Celestial Exalted only. Reduces maximum Limit pool by one dot per point (max 5 dots). Undergoes Limit Break at 5 Limit instead of 10."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "permanent-caste-mark",
+      "name": "Permanent Caste Mark",
+      "kind": "flaw",
+      "category": "supernatural",
+      "cost": "2 pt (Celestial only)",
+      "summary": "Mark does not fade. Standard citizens recognize it as the sign of Anathema.",
+      "mechanics": "Mark does not fade. Standard citizens recognize it as the sign of Anathema. Celestial Exalted only. Caste Mark is permanently visible on brow as a tattoo. Gold for Solars. Easily recognized by Hunt.",
+      "eligibility": "Solar Exalted",
+      "requirements": ["Celestial Exalted"],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 40
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Celestial Exalted only. Caste Mark is permanently visible on brow as a tattoo. Gold for Solars. Easily recognized by Hunt."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "beacon-of-power",
+      "name": "Beacon of Power",
+      "kind": "flaw",
+      "category": "supernatural",
+      "cost": "4 pt (Exalted only)",
+      "summary": "Essence flows loudly, creating massive anima flares upon any expenditure.",
+      "mechanics": "Essence flows loudly, creating massive anima flares upon any expenditure. Exalted only. Cannot hide divinity. Combined Personal/Peripheral pool. All spent Essence triggers totemic flare. Unusable by Night.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 41
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Exalted only. Cannot hide divinity. Combined Personal/Peripheral pool. All spent Essence triggers totemic flare. Unusable by Night."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "weak-essence",
+      "name": "Weak Essence",
+      "kind": "flaw",
+      "category": "supernatural",
+      "cost": "6 pt",
+      "summary": "Waives experience cost of withheld Charms, but limits power growth.",
+      "mechanics": "Waives experience cost of withheld Charms, but limits power growth. Stunted magical development. Starting Essence rating is 1, severely limiting starting Charms.",
+      "eligibility": "Solar Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 41
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Stunted magical development. Starting Essence rating is 1, severely limiting starting Charms."
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "id": "throwback",
+      "name": "Throwback",
+      "kind": "flaw",
+      "category": "supernatural",
+      "cost": "Variable (Celestial only)",
+      "summary": "Possessed by past life. Must resist impulses via Willpower roll.",
+      "mechanics": "Possessed by past life. Must resist impulses via Willpower roll. Celestial Exalted only. Impulses/personality fragments from previous incarnation. 1 pt: inconvenient. 3 pt: feuds. 5 pt: insane/malignant voices.",
+      "eligibility": "Solar Exalted",
+      "requirements": ["Celestial Exalted"],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 41
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": ["solar"],
+      "notes": [
+        "Celestial Exalted only. Impulses/personality fragments from previous incarnation. 1 pt: inconvenient. 3 pt: feuds. 5 pt: insane/malignant voices."
+      ],
+      "reviewStatus": "needs-review"
+    }
+  ],
+  "excludedForSolar": [
+    {
+      "name": "Prodigy",
+      "reason": "NOT AVAILABLE to Solar Exalted. Solars already reach these limits as part of their Exaltation.",
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 20
+      }
+    }
+  ]
+}

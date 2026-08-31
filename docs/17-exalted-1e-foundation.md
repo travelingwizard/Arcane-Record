@@ -58,6 +58,12 @@ plus the Classic combat profile.
   Charms Reference Handbook_, grouped/filterable by Ability with costs,
   durations, types, requirements, prerequisite text, summaries, citations,
   character notes, and explicit source-review labels;
+- a Solar Merits & Flaws section with 33 selectable Merits and 38 selectable
+  Flaws normalized from the supplied workbook, including Solar/Exalted cost
+  adjustments, Dawn/Zenith/Twilight discounts, variable costs, repeat
+  purchases, citations, notes, Derangement links, and explicit source-review
+  labels; Prodigy remains documented but excluded because the workbook marks it
+  unavailable to Solars;
 - a Dragon-Blooded Charms & Sorcery section with 320 Charms and 99
   Terrestrial/Emerald Circle spells, search and filters, source-review labels,
   expanded reference details, and character notes;
@@ -83,9 +89,9 @@ plus the Classic combat profile.
 
 ## Deferred, visibly labeled areas
 
-The editor identifies but does not yet claim to implement Solar Merits and
-Flaws, Solar spell catalogs, a sourced shield catalog, Power Combat
-Hardness, full exceptional/perfect quality presets, expanded Background
+The editor identifies but does not yet claim to implement Solar spell catalogs,
+a sourced shield catalog, Power Combat Hardness, full exceptional/perfect
+quality presets, expanded Background
 narratives, general possessions, languages, derangements, detailed experience
 history, character history/description, or a sketch surface. Custom shields and
 quality allocations remain editable, but no missing modifier is guessed.

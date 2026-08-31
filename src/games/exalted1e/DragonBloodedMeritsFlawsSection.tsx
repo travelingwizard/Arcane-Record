@@ -68,14 +68,31 @@ interface Props {
     derangements: Exalted1eCharacter['derangements'],
   ) => void;
   definitions?: readonly DragonBloodedTraitDefinition[];
+  getCostPolicy?: (
+    definition: DragonBloodedTraitDefinition,
+  ) => ReturnType<typeof getDragonBloodedTraitCostPolicy>;
+  getRepeatLimit?: (definitionId: string) => number | undefined;
+  matchesSearch?: (
+    definition: DragonBloodedTraitDefinition,
+    query: string,
+  ) => boolean;
+  approvalTraitIds?: ReadonlySet<string>;
+  catalogId?: string;
+  catalogDescription?: string;
 }
 
-export function DragonBloodedMeritsFlawsSection({
+export function ExaltedMeritsFlawsSection({
   traits,
   onChange,
   derangements,
   onDerangementsChange,
   definitions = dragonBloodedTraits,
+  getCostPolicy = getDragonBloodedTraitCostPolicy,
+  getRepeatLimit = getDragonBloodedTraitRepeatLimit,
+  matchesSearch = matchesDragonBloodedTraitSearch,
+  approvalTraitIds = storytellerApprovalTraitIds,
+  catalogId = 'dragon-blooded-trait-catalog',
+  catalogDescription = 'Record character Traits from the Dragon-Blooded catalog. Requirements are advisory; Arcane Record does not enforce character-creation limits.',
 }: Props) {
   const [activeKind, setActiveKind] = useState<ExaltedTraitKind>('merit');
   const [catalogOpen, setCatalogOpen] = useState(false);
@@ -100,9 +117,9 @@ export function DragonBloodedMeritsFlawsSection({
         (definition) =>
           definition.kind === activeKind &&
           (category === 'all' || definition.category === category) &&
-          matchesDragonBloodedTraitSearch(definition, query),
+          matchesSearch(definition, query),
       ),
-    [activeKind, category, definitions, query],
+    [activeKind, category, definitions, matchesSearch, query],
   );
 
   const groupedDefinitions = exaltedTraitCategories
@@ -128,7 +145,7 @@ export function DragonBloodedMeritsFlawsSection({
     if (definition.id === 'derangement') {
       return selectedCount(definition.id, definition.kind) === 0 ? 3 : 1;
     }
-    const policy = getDragonBloodedTraitCostPolicy(definition);
+    const policy = getCostPolicy(definition);
     if (policy.kind === 'options' && policy.options.length === 1) {
       return policy.options[0]!;
     }
@@ -152,7 +169,7 @@ export function DragonBloodedMeritsFlawsSection({
   };
 
   const canAdd = (definition: DragonBloodedTraitDefinition) => {
-    const limit = getDragonBloodedTraitRepeatLimit(definition.id);
+    const limit = getRepeatLimit(definition.id);
     const count = selectedCount(definition.id, definition.kind);
     const repeatable = limit === undefined || limit > 1;
     return (
@@ -275,10 +292,7 @@ export function DragonBloodedMeritsFlawsSection({
 
   return (
     <>
-      <p className="section-note">
-        Record character Traits from the Dragon-Blooded catalog. Requirements
-        are advisory; Arcane Record does not enforce character-creation limits.
-      </p>
+      <p className="section-note">{catalogDescription}</p>
       <div className="exalted-trait-totals" aria-label="Trait point totals">
         <strong>Merit points: {totals.merit}</strong>
         <strong>Flaw points: {totals.flaw}</strong>
@@ -384,14 +398,13 @@ export function DragonBloodedMeritsFlawsSection({
                         >
                           Remove
                         </button>
-                        {storytellerApprovalTraitIds.has(definition.id) ? (
+                        {approvalTraitIds.has(definition.id) ? (
                           <p className="exalted-trait-warning">
                             Storyteller approval recommended: this Trait may be
                             rare or plot-dominating.
                           </p>
                         ) : null}
-                        {getDragonBloodedTraitRepeatLimit(definition.id) !==
-                        1 ? (
+                        {getRepeatLimit(definition.id) !== 1 ? (
                           <label>
                             <span>Choice / label</span>
                             <input
@@ -433,17 +446,14 @@ export function DragonBloodedMeritsFlawsSection({
         type="button"
         className="secondary-button exalted-catalog-toggle"
         aria-expanded={catalogOpen}
-        aria-controls="dragon-blooded-trait-catalog"
+        aria-controls={catalogId}
         onClick={() => setCatalogOpen((open) => !open)}
       >
         {catalogOpen ? 'Close catalog' : 'Browse Merits & Flaws'}
       </button>
 
       {catalogOpen ? (
-        <div
-          id="dragon-blooded-trait-catalog"
-          className="exalted-trait-catalog"
-        >
+        <div id={catalogId} className="exalted-trait-catalog">
           <div
             className="exalted-power-tabs"
             role="tablist"
@@ -505,8 +515,8 @@ export function DragonBloodedMeritsFlawsSection({
               <h3>{categoryLabels[group.category]}</h3>
               <div className="exalted-trait-card-grid">
                 {group.definitions.map((definition) => {
-                  const policy = getDragonBloodedTraitCostPolicy(definition);
-                  const limit = getDragonBloodedTraitRepeatLimit(definition.id);
+                  const policy = getCostPolicy(definition);
+                  const limit = getRepeatLimit(definition.id);
                   const count = selectedCount(definition.id, definition.kind);
                   const repeatable = limit === undefined || limit > 1;
                   const limitReached = limit !== undefined && count >= limit;
@@ -526,7 +536,7 @@ export function DragonBloodedMeritsFlawsSection({
                       <p className="catalog-card__source">
                         {sourceLabel(definition)}
                       </p>
-                      {storytellerApprovalTraitIds.has(definition.id) ? (
+                      {approvalTraitIds.has(definition.id) ? (
                         <p className="exalted-trait-warning">
                           Storyteller approval recommended
                         </p>
@@ -691,3 +701,5 @@ export function DragonBloodedMeritsFlawsSection({
     </>
   );
 }
+
+export const DragonBloodedMeritsFlawsSection = ExaltedMeritsFlawsSection;

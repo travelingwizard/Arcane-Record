@@ -56,6 +56,16 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   await wiseArrow
     .getByRole('button', { name: 'Add Without Spending XP' })
     .click();
+  await page.getByRole('button', { name: 'Expand Merits & Flaws' }).click();
+  await page.getByRole('button', { name: 'Browse Merits & Flaws' }).click();
+  await page
+    .getByRole('searchbox', { name: 'Search Merits and Flaws' })
+    .fill('Tactical Instincts');
+  const tacticalInstincts = page
+    .locator('#solar-trait-catalog .exalted-trait-card')
+    .filter({ has: page.getByRole('heading', { name: 'Tactical Instincts' }) });
+  await tacticalInstincts.getByRole('button', { name: 'Add Merit' }).click();
+  await expect(page.getByText('Merit points: 2')).toBeVisible();
   await page
     .getByRole('combobox', { name: 'Background' })
     .selectOption('artifact');
@@ -94,6 +104,11 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
     page.locator('.exalted-selected-powers').getByRole('heading', {
       name: 'Wise Arrow',
     }),
+  ).toBeVisible();
+  await expect(
+    page
+      .getByRole('region', { name: 'Selected Merits' })
+      .getByText('Tactical Instincts'),
   ).toBeVisible();
   await expect(
     page.locator('.exalted-character-sheet > section').first(),

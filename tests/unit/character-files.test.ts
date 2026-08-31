@@ -438,4 +438,48 @@ describe('character files', () => {
       });
     },
   );
+
+  it('preserves Solar Merits and Flaws through JSON file exchange', () => {
+    const character = createBlankExaltedCharacter('solar');
+    character.identity.name = 'Sun-at-Midnight';
+    character.identity.caste = 'Twilight';
+    character.meritsFlaws.merits.push({
+      id: 'ca80bb44-41c3-40cc-953b-376551f66cca',
+      definitionId: 'brigids-heir',
+      chosenCost: 4,
+      choiceLabel: '',
+      notes: 'The legacy calls through dreams.',
+    });
+    character.meritsFlaws.flaws.push({
+      id: '9d73cc1f-3a25-4b23-9d8c-6940b38a781b',
+      definitionId: 'known-anathema',
+      chosenCost: 3,
+      choiceLabel: '',
+      notes: 'The Wyld Hunt is active.',
+    });
+    const serialized = serializeCharacter(
+      {
+        id: 'solar-source',
+        systemId: 'exalted1e',
+        systemVersion: EXALTED1E_SCHEMA_VERSION,
+        name: character.identity.name,
+        createdAt: '2026-08-31T12:00:00.000Z',
+        updatedAt: '2026-08-31T12:00:00.000Z',
+        data: character,
+      },
+      'json',
+    );
+    const imported = prepareImportedRecord(
+      serialized,
+      'solar.json',
+      gameSystemRegistry,
+    );
+    expect(imported.data).toMatchObject({
+      sheetType: 'solar',
+      meritsFlaws: {
+        merits: [{ definitionId: 'brigids-heir', chosenCost: 4 }],
+        flaws: [{ definitionId: 'known-anathema', chosenCost: 3 }],
+      },
+    });
+  });
 });

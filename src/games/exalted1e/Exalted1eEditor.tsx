@@ -30,7 +30,7 @@ import {
 } from './definitions';
 import { exalted1eCharacterSchema, type Exalted1eCharacter } from './schema';
 import { ExaltedPowersSection } from './DragonBloodedPowersSection';
-import { DragonBloodedMeritsFlawsSection } from './DragonBloodedMeritsFlawsSection';
+import { ExaltedMeritsFlawsSection } from './DragonBloodedMeritsFlawsSection';
 import { EquipmentSection } from './shared/components/EquipmentSection';
 import { CombatSection } from './shared/components/CombatSection';
 import { ComboBuilder } from './shared/components/ComboBuilder';
@@ -41,6 +41,13 @@ import { ExperienceSection } from './shared/advancement/ExperienceSection';
 import { PossessionsSection } from './shared/possessions/PossessionsSection';
 import type { DragonBloodedPowerDefinition } from './reference/dragonblooded-powers';
 import { solarCharms } from './reference/solar-charms';
+import {
+  getSolarTraitCostPolicy,
+  getSolarTraitRepeatLimit,
+  matchesSolarTraitSearch,
+  solarStorytellerApprovalTraitIds,
+  solarTraits,
+} from './reference/solar-merits-flaws';
 
 const AUTOSAVE_DELAY_MS = 550;
 
@@ -76,13 +83,7 @@ export function Exalted1eEditor({
   );
   const isNarrowLayout = useMediaQuery('(max-width: 69.999rem)');
   const isSolar = draft.sheetType === 'solar';
-  const activeSections = useMemo(
-    () =>
-      isSolar
-        ? exaltedSections.filter(({ id }) => id !== 'exalted-merits-flaws')
-        : [...exaltedSections],
-    [isSolar],
-  );
+  const activeSections = useMemo(() => [...exaltedSections], []);
   const sheetName = isSolar ? 'Solar' : 'Dragon-Blooded';
   const abilityGroups = isSolar
     ? solarAbilityGroups
@@ -996,53 +997,74 @@ export function Exalted1eEditor({
               </div>
             </section>
 
-            {!isSolar ? (
-              <section
-                id="exalted-merits-flaws"
-                data-section-group="character"
-                className={`exalted-sheet-section exalted-sheet-section--collapsible ${
-                  meritsFlawsExpanded
-                    ? 'exalted-sheet-section--expanded'
-                    : 'exalted-sheet-section--collapsed'
-                }`}
-              >
-                <p className="eyebrow" hidden={!meritsFlawsExpanded}>
-                  Dragon-Blooded Traits
-                </p>
-                <h2 id="exalted-merits-flaws-heading" tabIndex={-1}>
-                  <button
-                    type="button"
-                    className="exalted-section-disclosure"
-                    aria-expanded={meritsFlawsExpanded}
-                    aria-controls="exalted-merits-flaws-content"
-                    aria-label={`${meritsFlawsExpanded ? 'Collapse' : 'Expand'} Merits & Flaws`}
-                    onClick={() =>
-                      setMeritsFlawsExpanded((expanded) => !expanded)
-                    }
-                  >
-                    <span>Merits &amp; Flaws</span>
-                    <span aria-hidden="true">
-                      {meritsFlawsExpanded ? '−' : '+'}
-                    </span>
-                  </button>
-                </h2>
-                <div
-                  id="exalted-merits-flaws-content"
-                  hidden={!meritsFlawsExpanded}
+            <section
+              id="exalted-merits-flaws"
+              data-section-group="character"
+              className={`exalted-sheet-section exalted-sheet-section--collapsible ${
+                meritsFlawsExpanded
+                  ? 'exalted-sheet-section--expanded'
+                  : 'exalted-sheet-section--collapsed'
+              }`}
+            >
+              <p className="eyebrow" hidden={!meritsFlawsExpanded}>
+                {isSolar ? 'Solar Traits' : 'Dragon-Blooded Traits'}
+              </p>
+              <h2 id="exalted-merits-flaws-heading" tabIndex={-1}>
+                <button
+                  type="button"
+                  className="exalted-section-disclosure"
+                  aria-expanded={meritsFlawsExpanded}
+                  aria-controls="exalted-merits-flaws-content"
+                  aria-label={`${meritsFlawsExpanded ? 'Collapse' : 'Expand'} Merits & Flaws`}
+                  onClick={() =>
+                    setMeritsFlawsExpanded((expanded) => !expanded)
+                  }
                 >
-                  <DragonBloodedMeritsFlawsSection
-                    traits={draft.meritsFlaws}
-                    derangements={draft.derangements}
-                    onChange={(meritsFlaws) =>
-                      update((current) => ({ ...current, meritsFlaws }))
-                    }
-                    onDerangementsChange={(derangements) =>
-                      update((current) => ({ ...current, derangements }))
-                    }
-                  />
-                </div>
-              </section>
-            ) : null}
+                  <span>Merits &amp; Flaws</span>
+                  <span aria-hidden="true">
+                    {meritsFlawsExpanded ? '−' : '+'}
+                  </span>
+                </button>
+              </h2>
+              <div
+                id="exalted-merits-flaws-content"
+                hidden={!meritsFlawsExpanded}
+              >
+                <ExaltedMeritsFlawsSection
+                  traits={draft.meritsFlaws}
+                  derangements={draft.derangements}
+                  definitions={isSolar ? solarTraits : undefined}
+                  getCostPolicy={
+                    isSolar
+                      ? (definition) =>
+                          getSolarTraitCostPolicy(
+                            definition,
+                            draft.identity.caste,
+                          )
+                      : undefined
+                  }
+                  getRepeatLimit={
+                    isSolar ? getSolarTraitRepeatLimit : undefined
+                  }
+                  matchesSearch={isSolar ? matchesSolarTraitSearch : undefined}
+                  approvalTraitIds={
+                    isSolar ? solarStorytellerApprovalTraitIds : undefined
+                  }
+                  catalogId={isSolar ? 'solar-trait-catalog' : undefined}
+                  catalogDescription={
+                    isSolar
+                      ? "Record Solar Merits and Flaws from the supplied Exalted Player's Guide workbook. Solar and Caste-specific costs are applied; requirements remain advisory."
+                      : undefined
+                  }
+                  onChange={(meritsFlaws) =>
+                    update((current) => ({ ...current, meritsFlaws }))
+                  }
+                  onDerangementsChange={(derangements) =>
+                    update((current) => ({ ...current, derangements }))
+                  }
+                />
+              </div>
+            </section>
 
             <section
               id="exalted-derangements"

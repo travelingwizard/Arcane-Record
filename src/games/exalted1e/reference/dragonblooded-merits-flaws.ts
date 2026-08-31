@@ -15,7 +15,7 @@ const sourceSchema = z.object({
   page: z.union([z.number().int().positive(), z.string().min(1)]),
 });
 
-export const dragonBloodedTraitDefinitionSchema = z.object({
+export const exaltedTraitDefinitionSchema = z.object({
   id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
   name: z.string().min(1),
   kind: z.enum(exaltedTraitKinds),
@@ -28,10 +28,16 @@ export const dragonBloodedTraitDefinitionSchema = z.object({
   aliases: z.array(z.string()),
   source: sourceSchema,
   edition: z.literal('Exalted First Edition'),
-  appliesTo: z.array(z.literal('dragon-blooded')).min(1),
+  appliesTo: z.array(z.enum(['solar', 'dragon-blooded'])).min(1),
   notes: z.array(z.string()),
-  reviewStatus: z.literal('source-checked'),
+  reviewStatus: z.enum(['source-checked', 'needs-review']),
 });
+
+export const dragonBloodedTraitDefinitionSchema =
+  exaltedTraitDefinitionSchema.refine(
+    (definition) => definition.appliesTo.includes('dragon-blooded'),
+    { message: 'Dragon-Blooded definitions must apply to Dragon-Blooded.' },
+  );
 
 const excludedTraitSchema = z.object({
   name: z.string().min(1),
@@ -79,7 +85,7 @@ const catalogSchema = z
   });
 
 export type DragonBloodedTraitDefinition = z.infer<
-  typeof dragonBloodedTraitDefinitionSchema
+  typeof exaltedTraitDefinitionSchema
 >;
 export type ExaltedTraitKind = (typeof exaltedTraitKinds)[number];
 export type ExaltedTraitCategory = (typeof exaltedTraitCategories)[number];
