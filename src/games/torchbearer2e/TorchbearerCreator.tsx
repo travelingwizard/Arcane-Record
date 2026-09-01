@@ -409,32 +409,50 @@ export function TorchbearerCreator({
               . Then add a second Wise of your choice.
             </p>
           ) : null}
-          {creation.wiseNames.map((wise, index) => (
-            <label key={index}>
-              <span>Wise {index + 1}</span>
-              <input
-                list="tb2-wise-examples"
-                value={wise}
-                onChange={(event) =>
-                  updateCreation({
-                    wiseNames: creation.wiseNames.map((value, wiseIndex) =>
-                      wiseIndex === index ? event.target.value : value,
-                    ),
-                  })
-                }
-              />
-              <small className="tb2-choice-guidance">
-                {torchbearerWises.find(({ name }) => name === wise)
-                  ?.creationHint ??
-                  'Choose a specific town, location, monster, group, or thing and add “-wise.” A focused Wise augments related tests and may establish a language; broad adventuring or condition Wises are not valid.'}
-              </small>
-            </label>
-          ))}
-          <datalist id="tb2-wise-examples">
-            {torchbearerWises.map((wise) => (
-              <option key={wise.id} value={wise.name} />
-            ))}
-          </datalist>
+          {creation.wiseNames.map((wise, index) => {
+            const referenceWise = torchbearerWises.find(
+              ({ name }) => name === wise,
+            );
+            const updateWise = (name: string) =>
+              updateCreation({
+                wiseNames: creation.wiseNames.map((value, wiseIndex) =>
+                  wiseIndex === index ? name : value,
+                ),
+              });
+            return (
+              <fieldset className="tb2-wise-row" key={index}>
+                <legend>Wise {index + 1}</legend>
+                <label>
+                  <span>Reference list</span>
+                  <select
+                    aria-label={`Wise ${index + 1} reference list`}
+                    value={referenceWise?.name ?? ''}
+                    onChange={(event) => updateWise(event.target.value)}
+                  >
+                    <option value="">Type a custom Wise</option>
+                    {torchbearerWises.map((entry) => (
+                      <option key={entry.id} value={entry.name}>
+                        {entry.name}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  <span>Custom or selected Wise name</span>
+                  <input
+                    aria-label={`Wise ${index + 1} name`}
+                    value={wise}
+                    placeholder="For example, My Hometown-wise"
+                    onChange={(event) => updateWise(event.target.value)}
+                  />
+                </label>
+                <small className="tb2-choice-guidance">
+                  {referenceWise?.creationHint ??
+                    'Choose a specific town, location, monster, group, or thing and add “-wise.” A focused Wise augments related tests and may establish a language; broad adventuring or condition Wises are not valid.'}
+                </small>
+              </fieldset>
+            );
+          })}
           <div className="button-row">
             <button
               type="button"

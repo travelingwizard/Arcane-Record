@@ -49,7 +49,11 @@ test('guides, finalizes, edits, browses, reorders, and persists a Torchbearer ch
 
   await goToStep(page, 'Wises');
   await page.getByRole('button', { name: 'Add Wise' }).click();
-  await page.getByLabel('Wise 1').fill('Dungeons-wise');
+  await page.getByLabel('Wise 1 reference list').selectOption('Dragon-wise');
+  await expect(page.getByLabel('Wise 1 name')).toHaveValue('Dragon-wise');
+  await page.getByRole('button', { name: 'Add Wise' }).click();
+  await page.getByLabel('Wise 2 name').fill('Dungeons-wise');
+  await expect(page.getByLabel('Wise 2 reference list')).toHaveValue('');
 
   await goToStep(page, 'Nature');
   await page
@@ -119,6 +123,8 @@ test('guides, finalizes, edits, browses, reorders, and persists a Torchbearer ch
   await expect(
     page.getByRole('group', { name: 'Fighter: 4 out of 6' }),
   ).toBeVisible();
+  await expect(page.locator('input[value="Dragon-wise"]')).toBeVisible();
+  await expect(page.locator('input[value="Dungeons-wise"]')).toBeVisible();
 
   await page.getByRole('button', { name: 'Injured' }).click();
   await page.getByRole('button', { name: 'Add Trait' }).click();

@@ -734,9 +734,14 @@
   .tb2-choice-grid,
   .tb2-check-grid,
   .tb2-derived-grid,
+  .tb2-wise-row,
   .tb2-catalog-controls,
   .tb2-catalog-results {
     grid-template-columns: 1fr;
+  }
+
+  .tb2-wise-row .tb2-choice-guidance {
+    grid-column: auto;
   }
 
   .tb2-character-sheet {
