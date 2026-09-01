@@ -432,20 +432,20 @@ const advancedComponents: ModuleComponentDefinition[] = (
       'advancement',
       playEditable,
     ),
-    ...(['anima', 'weapons', 'experience'] as const).map(
-      (note): ModuleComponentDefinition => ({
-        id: `${sheetType}-notes-${note}`,
-        label: `${note[0]!.toUpperCase()}${note.slice(1)} notes`,
-        type: 'text',
-        dataPath: path('notes', note),
-        maximumLength: 20_000,
-        accessibilityLabel: `${note} notes`,
-        sourceRefIds: ['exalted-1e-sheet-structure'],
-        layout: { width: 'full' },
-        modes: playEditable,
-        display: { format: 'plain' },
-      }),
-    ),
+    ...(
+      ['description', 'history', 'anima', 'weapons', 'experience'] as const
+    ).map((note): ModuleComponentDefinition => ({
+      id: `${sheetType}-notes-${note}`,
+      label: `${note[0]!.toUpperCase()}${note.slice(1)} notes`,
+      type: 'text',
+      dataPath: path('notes', note),
+      maximumLength: 20_000,
+      accessibilityLabel: `${note} notes`,
+      sourceRefIds: ['exalted-1e-sheet-structure'],
+      layout: { width: 'full' },
+      modes: playEditable,
+      display: { format: 'plain' },
+    })),
   ];
 });
 

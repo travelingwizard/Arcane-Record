@@ -57,7 +57,13 @@ export function createBlankExaltedCharacter(
       staticDodgeModifier: 0,
     },
     combos: [],
-    notes: { anima: '', weapons: '', experience: '' },
+    notes: {
+      description: '',
+      history: '',
+      anima: '',
+      weapons: '',
+      experience: '',
+    },
     sheetLayout: {
       groupOrder: [...defaultExaltedSectionGroupOrder],
     },

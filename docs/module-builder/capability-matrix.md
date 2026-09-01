@@ -92,7 +92,7 @@ exports.
 | Equipment/combat                | Weapons, armor, shields, ammo, material, quality, profile             | Weapon/armor/equipment plus advanced combat profile | Derived attack/damage/soak/protection with explanation and citations.                                                     |
 | Possessions/Manses/Hearthstones | Owned records and links                                               | Structured and linked records                       | Keep definition and instance data separate.                                                                               |
 | Experience                      | Signed ledger plus separate downtime events                           | Ledger + advancement action                         | Current/lifetime totals derived; DB overrides for Essence, Charms, spells, Immaculate Charms; insufficient-XP validation. |
-| Later pages                     | Solar placeholder                                                     | Explicit preview/placeholder                        | Must not be represented as implemented module capability.                                                                 |
+| History & Description           | Shared editable character record                                      | Full-width text components                          | Preserves description, history, and the existing optional free-form notes.                                                |
 
 Current Exalted schema migrations cover powers, Merits/Flaws, combat equipment,
 Combos, languages, Derangements, experience, downtime, possessions, Manses, and

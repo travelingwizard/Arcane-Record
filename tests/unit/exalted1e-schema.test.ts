@@ -31,6 +31,8 @@ describe('Exalted First Edition foundation', () => {
       });
       expect(character.combat.profile).toBe('classic');
       expect(character.combos).toEqual([]);
+      expect(character.notes.description).toBe('');
+      expect(character.notes.history).toBe('');
       expect(character.sheetLayout.groupOrder).toEqual(
         defaultExaltedSectionGroupOrder,
       );
@@ -174,6 +176,27 @@ describe('Exalted First Edition foundation', () => {
     expect(migrateExalted1eCharacter(versionTwo, 2).powers).toEqual({
       charms: [],
       spells: [],
+    });
+  });
+
+  it('adds empty History and Description fields to version-six sheets', () => {
+    const versionSix = createBlankExaltedCharacter('solar') as Partial<
+      ReturnType<typeof createBlankExaltedCharacter>
+    >;
+    versionSix.notes = {
+      anima: 'Golden halo',
+      weapons: 'Daiklave notes',
+      experience: 'First session',
+    } as never;
+
+    const migrated = migrateExalted1eCharacter(versionSix, 6);
+
+    expect(migrated.notes).toEqual({
+      description: '',
+      history: '',
+      anima: 'Golden halo',
+      weapons: 'Daiklave notes',
+      experience: 'First session',
     });
   });
 

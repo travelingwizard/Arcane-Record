@@ -4346,9 +4346,7 @@
 }
 
 .section-note,
-.empty-inline,
-.exalted-later-pages > p,
-.exalted-later-pages li {
+.empty-inline {
   color: var(--ink-soft);
   line-height: 1.55;
 }
@@ -4391,13 +4389,24 @@
   resize: vertical;
 }
 
-.exalted-later-pages {
-  border-bottom: 0;
+.exalted-character-record-grid textarea {
+  min-height: 12rem;
 }
 
-.exalted-later-pages ul {
-  columns: 2;
-  column-gap: 2rem;
+.exalted-legacy-notes {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--rule-light);
+}
+
+.exalted-legacy-notes summary {
+  min-height: 2.75rem;
+  display: flex;
+  align-items: center;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-weight: 800;
+  cursor: pointer;
 }
 
 .exalted-power-tabs {

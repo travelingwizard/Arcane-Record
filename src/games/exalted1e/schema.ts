@@ -208,6 +208,8 @@ export const exalted1eCharacterSchema = z
     }),
     combos: z.array(exaltedComboSchema),
     notes: z.object({
+      description: z.string(),
+      history: z.string(),
       anima: z.string(),
       weapons: z.string(),
       experience: z.string(),
@@ -592,6 +594,19 @@ export function prepareExalted1eCharacterData(
         manses: [],
         hearthstones: [],
         sheetLayout: { groupOrder: completeOrder },
+      };
+    }
+    if (fromVersion < 7) {
+      const notes = recordCandidate.notes as
+        Record<string, unknown> | undefined;
+      recordCandidate = {
+        ...recordCandidate,
+        notes: {
+          ...notes,
+          description:
+            typeof notes?.description === 'string' ? notes.description : '',
+          history: typeof notes?.history === 'string' ? notes.history : '',
+        },
       };
     }
     candidate = recordCandidate;

@@ -381,6 +381,8 @@ export const exalted1eModuleCharacterSchema: ModuleValueSchemaDefinition =
       1_000,
     ),
     notes: object({
+      description: string(),
+      history: string(),
       anima: string(),
       weapons: string(),
       experience: string(),

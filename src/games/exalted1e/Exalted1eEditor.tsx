@@ -260,8 +260,12 @@ export function Exalted1eEditor({
       'exalted-experience': {
         primary: `${draft.experienceLedger.reduce((sum, entry) => sum + entry.amount, 0)} Current Experience`,
       },
-      'exalted-notes': { primary: 'Anima · Weapons · Experience' },
-      'exalted-later-pages': { primary: 'Deferred foundation areas' },
+      'exalted-history-description': {
+        primary:
+          draft.notes.history || draft.notes.description
+            ? 'Character record added'
+            : 'No character record yet',
+      },
     }),
     [displayName, draft, sheetName],
   );
@@ -1255,54 +1259,79 @@ export function Exalted1eEditor({
             </section>
 
             <section
-              id="exalted-notes"
+              id="exalted-history-description"
               data-section-group="advancement"
               className="exalted-sheet-section"
             >
-              <p className="eyebrow">Initial free-form records</p>
-              <h2 id="exalted-notes-heading" tabIndex={-1}>
-                Anima, Weapons, and Experience
+              <p className="eyebrow">Character record</p>
+              <h2 id="exalted-history-description-heading" tabIndex={-1}>
+                History &amp; Description
               </h2>
-              <div className="exalted-notes-grid">
-                {(['anima', 'weapons', 'experience'] as const).map((field) => (
-                  <label key={field}>
-                    <span>{field[0].toUpperCase() + field.slice(1)}</span>
-                    <textarea
-                      value={draft.notes[field]}
-                      onChange={(event) =>
-                        update((current) => ({
-                          ...current,
-                          notes: {
-                            ...current.notes,
-                            [field]: event.target.value,
-                          },
-                        }))
-                      }
-                    />
-                  </label>
-                ))}
+              <div className="exalted-notes-grid exalted-character-record-grid">
+                <label>
+                  <span>Description</span>
+                  <textarea
+                    value={draft.notes.description}
+                    placeholder="Appearance, demeanor, distinctive features, and character sketch notes"
+                    onChange={(event) =>
+                      update((current) => ({
+                        ...current,
+                        notes: {
+                          ...current.notes,
+                          description: event.target.value,
+                        },
+                      }))
+                    }
+                  />
+                </label>
+                <label>
+                  <span>History</span>
+                  <textarea
+                    value={draft.notes.history}
+                    placeholder="Origins, Exaltation, important events, relationships, and goals"
+                    onChange={(event) =>
+                      update((current) => ({
+                        ...current,
+                        notes: {
+                          ...current.notes,
+                          history: event.target.value,
+                        },
+                      }))
+                    }
+                  />
+                </label>
               </div>
-            </section>
-
-            <section
-              id="exalted-later-pages"
-              data-section-group="advancement"
-              className="exalted-sheet-section exalted-later-pages"
-            >
-              <p className="eyebrow">Foundation milestone</p>
-              <h2 id="exalted-later-pages-heading" tabIndex={-1}>
-                Later sheet pages
-              </h2>
-              <p>
-                The source sheets also contain the following areas. They are
-                documented for the next implementation pass and are not editable
-                yet.
-              </p>
-              <ul>
-                {isSolar ? <li>Merits and Flaws</li> : null}
-                {isSolar ? <li>Charms and Sorcery</li> : null}
-                <li>History, description, and character sketch</li>
-              </ul>
+              <details className="exalted-legacy-notes">
+                <summary>Additional notes</summary>
+                <p className="section-note">
+                  Existing free-form notes remain available here. Structured
+                  Anima, Equipment, and Experience sections appear earlier on
+                  the sheet.
+                </p>
+                <div className="exalted-notes-grid">
+                  {(['anima', 'weapons', 'experience'] as const).map(
+                    (field) => (
+                      <label key={field}>
+                        <span>
+                          {field[0].toUpperCase() + field.slice(1)} notes
+                        </span>
+                        <textarea
+                          value={draft.notes[field]}
+                          onChange={(event) =>
+                            update((current) => ({
+                              ...current,
+                              notes: {
+                                ...current.notes,
+                                [field]: event.target.value,
+                              },
+                            }))
+                          }
+                        />
+                      </label>
+                    ),
+                  )}
+                </div>
+              </details>
             </section>
           </OrderedSheetSections>
         </div>

@@ -596,10 +596,6 @@
     height: 0;
     flex-basis: 100%;
   }
-
-  .exalted-later-pages ul {
-    columns: 1;
-  }
 }
 
 @media (max-width: 52rem) {
