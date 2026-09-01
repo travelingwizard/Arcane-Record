@@ -4,7 +4,7 @@ import type {
 } from '../game-system';
 
 export const TORCHBEARER2E_SYSTEM_ID = 'torchbearer2e';
-export const TORCHBEARER2E_SCHEMA_VERSION = 1;
+export const TORCHBEARER2E_SCHEMA_VERSION = 2;
 
 export const torchbearer2eSectionGroups = [
   { id: 'character', label: 'Character' },
@@ -56,6 +56,7 @@ export const torchbearer2eSkills = [
   ['alchemist', 'Alchemist', 'will'],
   ['arcanist', 'Arcanist', 'will'],
   ['armorer', 'Armorer', 'health'],
+  ['carpenter', 'Carpenter', 'health'],
   ['cartographer', 'Cartographer', 'will'],
   ['commander', 'Commander', 'will'],
   ['cook', 'Cook', 'will'],
@@ -65,19 +66,26 @@ export const torchbearer2eSkills = [
   ['haggler', 'Haggler', 'will'],
   ['healer', 'Healer', 'will'],
   ['hunter', 'Hunter', 'health'],
+  ['laborer', 'Laborer', 'health'],
   ['lore-master', 'Lore Master', 'will'],
   ['manipulator', 'Manipulator', 'will'],
   ['mentor', 'Mentor', 'will'],
   ['orator', 'Orator', 'will'],
   ['pathfinder', 'Pathfinder', 'health'],
+  ['peasant', 'Peasant', 'health'],
   ['persuader', 'Persuader', 'will'],
   ['rider', 'Rider', 'health'],
   ['ritualist', 'Ritualist', 'will'],
+  ['sailor', 'Sailor', 'health'],
+  ['sapper', 'Sapper', 'health'],
   ['scavenger', 'Scavenger', 'health'],
   ['scholar', 'Scholar', 'will'],
   ['scout', 'Scout', 'will'],
+  ['steward', 'Steward', 'will'],
+  ['stonemason', 'Stonemason', 'health'],
   ['survivalist', 'Survivalist', 'health'],
   ['theologian', 'Theologian', 'will'],
+  ['weaver', 'Weaver', 'health'],
 ] as const;
 
 export type Torchbearer2eSkillId = (typeof torchbearer2eSkills)[number][0];

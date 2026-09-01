@@ -1,9 +1,16 @@
 import {
   defaultTorchbearer2eGroupOrder,
   torchbearer2eConditionIds,
-  torchbearer2eSkills,
 } from './definitions';
-import type { Torchbearer2eCharacter } from './schema';
+import {
+  TORCHBEARER_CORE_SOURCE,
+  TORCHBEARER_CORE_SOURCE_ID,
+  torchbearerSkills,
+} from './catalog';
+import {
+  emptyTorchbearerCreationState,
+  type Torchbearer2eCharacter,
+} from './schema';
 
 const advancement = () => ({ rating: 0, passed: 0, failed: 0 });
 
@@ -23,6 +30,7 @@ export function createBlankTorchbearer2eCharacter(): Torchbearer2eCharacter {
       level: 1,
     },
     drives: { belief: '', creed: '', goal: '', instinct: '' },
+    creation: emptyTorchbearerCreationState(),
     traits: [],
     rewards: {
       fate: { current: 0, total: 0, totalSpent: 0 },
@@ -40,15 +48,22 @@ export function createBlankTorchbearer2eCharacter(): Torchbearer2eCharacter {
       precedence: 0,
       might: 0,
     },
-    skills: torchbearer2eSkills.map(([definitionId, name, root]) => ({
+    skills: torchbearerSkills.map((definition) => ({
       id: crypto.randomUUID(),
-      definitionId,
-      name,
-      beginnersLuckRoot: root,
+      definitionId: definition.id,
+      name: definition.name,
+      beginnersLuckRoot: definition.beginnersLuckRoot,
       rating: 0,
+      startingRating: 0,
       passed: 0,
       failed: 0,
       notes: '',
+      source: {
+        sourceId: TORCHBEARER_CORE_SOURCE_ID,
+        source: TORCHBEARER_CORE_SOURCE,
+        page: definition.page,
+      },
+      origin: { type: 'creation', choiceId: 'core-skill-catalog' },
     })),
     wises: [],
     inventory: [],
@@ -57,6 +72,7 @@ export function createBlankTorchbearer2eCharacter(): Torchbearer2eCharacter {
     advancement: {
       experience: { total: 0, current: 0 },
       levelBenefit: '',
+      levelBenefits: [],
       history: '',
     },
     notes: '',

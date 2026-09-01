@@ -19,7 +19,7 @@ export const torchbearer2eDefinition: GameSystemDefinition<Torchbearer2eCharacte
     name: 'Torchbearer Second Edition',
     shortName: 'Torchbearer 2e',
     description:
-      'An editable local-first adventurer record based on the two-page Torchbearer Second Edition sheet.',
+      'A local-first guided core character creator and editable Torchbearer Second Edition adventurer record.',
     currentSchemaVersion: TORCHBEARER2E_SCHEMA_VERSION,
     characterSchema: torchbearer2eCharacterSchema,
     createInitialCharacter: createBlankTorchbearer2eCharacter,

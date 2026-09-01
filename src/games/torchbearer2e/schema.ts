@@ -7,10 +7,20 @@ import {
 
 const nonnegativeInteger = z.number().int().nonnegative();
 const uuid = z.string().uuid();
+const nullableDefinitionId = z.string().nullable();
 const advancementSchema = z.object({
   rating: z.number().int().min(0).max(10),
   passed: z.number().int().min(0).max(99),
   failed: z.number().int().min(0).max(99),
+});
+const sourceSchema = z.object({
+  sourceId: z.string(),
+  source: z.string(),
+  page: z.number().int().positive(),
+});
+const originSchema = z.object({
+  type: z.enum(['manual', 'creation', 'migration', 'import']),
+  choiceId: z.string().nullable(),
 });
 const groupIdSchema = z.enum(torchbearer2eGroupIds);
 const groupOrderSchema = z
@@ -19,6 +29,117 @@ const groupOrderSchema = z
   .refine((order) => new Set(order).size === torchbearer2eGroupIds.length, {
     message: 'Section order must contain every group exactly once.',
   });
+
+export const torchbearerCreationRollSchema = z.object({
+  id: uuid,
+  method: z.enum(['roll', 'manual']),
+  dice: z.array(z.number().int().min(1).max(6)),
+  total: z.number().int().min(0).max(18),
+  resultId: z.string(),
+  createdAt: z.string().datetime(),
+});
+
+export const torchbearerCreationOverrideSchema = z.object({
+  id: uuid,
+  code: z.string(),
+  reason: z.string(),
+  createdAt: z.string().datetime(),
+});
+
+const creationBaselineSchema = z.object({
+  abilityRatings: z.record(z.string(), z.number().int().nonnegative()),
+  skillRatings: z.record(z.string(), z.number().int().nonnegative()),
+  traitLevels: z.record(z.string(), z.number().int().nonnegative()),
+  creatorRecordIds: z.array(uuid),
+});
+
+export const torchbearerCreationSchema = z.object({
+  status: z.enum(['manual', 'draft', 'finalized']),
+  currentStep: z.number().int().min(0).max(13),
+  enforceRules: z.boolean(),
+  overrides: z.array(torchbearerCreationOverrideSchema),
+  classId: z
+    .enum(['burglar', 'magician', 'outcast', 'ranger', 'theurge', 'warrior'])
+    .nullable(),
+  will: z.number().int().min(0).max(6),
+  health: z.number().int().min(0).max(6),
+  upbringingSkillId: nullableDefinitionId,
+  homeId: nullableDefinitionId,
+  homeSkillId: nullableDefinitionId,
+  homeTraitId: nullableDefinitionId,
+  socialSkillId: nullableDefinitionId,
+  specialtySkillId: nullableDefinitionId,
+  wiseNames: z.array(z.string()),
+  natureAnswerIds: z.array(z.string()),
+  relationshipChoices: z.object({
+    loner: z.boolean(),
+    friend: z.boolean(),
+    parents: z.boolean(),
+    mentor: z.boolean(),
+    enemy: z.boolean(),
+  }),
+  resources: z.number().int().min(0).max(10),
+  gearDefinitionIds: z.array(z.string()),
+  containerDefinitionIds: z.array(z.string()),
+  weaponDefinitionId: nullableDefinitionId,
+  armorDefinitionId: nullableDefinitionId,
+  takeHelmet: z.boolean(),
+  takeShield: z.boolean(),
+  magic: z.object({
+    method: z.enum(['none', 'roll', 'manual']),
+    selectedResultId: z.string().nullable(),
+    selectedDefinitionIds: z.array(z.string()),
+    rollHistory: z.array(torchbearerCreationRollSchema),
+  }),
+  finalizedAt: z.string().datetime().nullable(),
+  baseline: creationBaselineSchema.nullable(),
+});
+
+export type TorchbearerCreationState = z.infer<
+  typeof torchbearerCreationSchema
+>;
+
+export const emptyTorchbearerCreationState = (
+  status: TorchbearerCreationState['status'] = 'draft',
+): TorchbearerCreationState => ({
+  status,
+  currentStep: 0,
+  enforceRules: true,
+  overrides: [],
+  classId: null,
+  will: 0,
+  health: 0,
+  upbringingSkillId: null,
+  homeId: null,
+  homeSkillId: null,
+  homeTraitId: null,
+  socialSkillId: null,
+  specialtySkillId: null,
+  wiseNames: [],
+  natureAnswerIds: [],
+  relationshipChoices: {
+    loner: false,
+    friend: false,
+    parents: false,
+    mentor: false,
+    enemy: false,
+  },
+  resources: 0,
+  gearDefinitionIds: [],
+  containerDefinitionIds: [],
+  weaponDefinitionId: null,
+  armorDefinitionId: null,
+  takeHelmet: false,
+  takeShield: false,
+  magic: {
+    method: 'none',
+    selectedResultId: null,
+    selectedDefinitionIds: [],
+    rollHistory: [],
+  },
+  finalizedAt: null,
+  baseline: null,
+});
 
 export const torchbearer2eCharacterSchema = z.object({
   identity: z.object({
@@ -40,14 +161,19 @@ export const torchbearer2eCharacterSchema = z.object({
     goal: z.string(),
     instinct: z.string(),
   }),
+  creation: torchbearerCreationSchema,
   traits: z.array(
     z.object({
       id: uuid,
+      definitionId: nullableDefinitionId,
       name: z.string(),
       level: z.number().int().min(1).max(3),
+      startingLevel: z.number().int().min(0).max(3),
       beneficialUses: z.number().int().min(0).max(3),
       checks: z.number().int().min(0).max(3),
       notes: z.string(),
+      source: sourceSchema.nullable(),
+      origin: originSchema,
     }),
   ),
   rewards: z.object({
@@ -82,18 +208,22 @@ export const torchbearer2eCharacterSchema = z.object({
   skills: z.array(
     z.object({
       id: uuid,
-      definitionId: z.string().nullable(),
+      definitionId: nullableDefinitionId,
       name: z.string(),
       beginnersLuckRoot: z.enum(['will', 'health']),
       rating: z.number().int().min(0).max(6),
+      startingRating: z.number().int().min(0).max(6),
       passed: z.number().int().min(0).max(99),
       failed: z.number().int().min(0).max(99),
       notes: z.string(),
+      source: sourceSchema.nullable(),
+      origin: originSchema,
     }),
   ),
   wises: z.array(
     z.object({
       id: uuid,
+      definitionId: nullableDefinitionId,
       name: z.string(),
       uses: z.object({
         pass: z.boolean(),
@@ -102,11 +232,14 @@ export const torchbearer2eCharacterSchema = z.object({
         persona: z.boolean(),
       }),
       notes: z.string(),
+      source: sourceSchema.nullable(),
+      origin: originSchema,
     }),
   ),
   inventory: z.array(
     z.object({
       id: uuid,
+      definitionId: nullableDefinitionId,
       name: z.string(),
       location: z.enum(torchbearer2eInventoryLocations),
       slots: z.number().int().min(0).max(12),
@@ -115,6 +248,8 @@ export const torchbearer2eCharacterSchema = z.object({
       damaged: z.boolean(),
       weariness: z.boolean(),
       notes: z.string(),
+      source: sourceSchema.nullable(),
+      origin: originSchema,
     }),
   ),
   relationships: z.array(
@@ -125,6 +260,7 @@ export const torchbearer2eCharacterSchema = z.object({
       location: z.string(),
       status: z.string(),
       notes: z.string(),
+      origin: originSchema,
     }),
   ),
   magic: z.object({
@@ -134,16 +270,20 @@ export const torchbearer2eCharacterSchema = z.object({
     relics: z.array(
       z.object({
         id: uuid,
+        definitionId: nullableDefinitionId,
         name: z.string(),
         inventory: z.string(),
         invocationName: z.string(),
         circle: nonnegativeInteger,
         notes: z.string(),
+        source: sourceSchema.nullable(),
+        origin: originSchema,
       }),
     ),
     spells: z.array(
       z.object({
         id: uuid,
+        definitionId: nullableDefinitionId,
         name: z.string(),
         obstacle: nonnegativeInteger,
         library: z.boolean(),
@@ -153,6 +293,8 @@ export const torchbearer2eCharacterSchema = z.object({
         scroll: z.boolean(),
         supplies: z.boolean(),
         effect: z.string(),
+        source: sourceSchema.nullable(),
+        origin: originSchema,
       }),
     ),
   }),
@@ -162,6 +304,17 @@ export const torchbearer2eCharacterSchema = z.object({
       current: nonnegativeInteger,
     }),
     levelBenefit: z.string(),
+    levelBenefits: z.array(
+      z.object({
+        id: uuid,
+        definitionId: nullableDefinitionId,
+        name: z.string(),
+        level: z.number().int().min(1).max(99),
+        notes: z.string(),
+        source: sourceSchema.nullable(),
+        origin: originSchema,
+      }),
+    ),
     history: z.string(),
   }),
   notes: z.string(),
@@ -172,10 +325,78 @@ export type Torchbearer2eCharacter = z.infer<
   typeof torchbearer2eCharacterSchema
 >;
 
+const migratedOrigin = { type: 'migration' as const, choiceId: null };
+
+type LegacyRecord = Record<string, unknown>;
+type LegacyTorchbearerCharacter = LegacyRecord & {
+  traits?: LegacyRecord[];
+  skills?: LegacyRecord[];
+  wises?: LegacyRecord[];
+  inventory?: LegacyRecord[];
+  relationships?: LegacyRecord[];
+  magic?: LegacyRecord & {
+    relics?: LegacyRecord[];
+    spells?: LegacyRecord[];
+  };
+  advancement?: LegacyRecord;
+};
+
 export function migrateTorchbearer2eCharacter(
   data: unknown,
   fromVersion: number,
 ) {
-  void fromVersion;
-  return torchbearer2eCharacterSchema.parse(data);
+  if (fromVersion >= 2) return torchbearer2eCharacterSchema.parse(data);
+
+  const legacy = data as LegacyTorchbearerCharacter;
+  const migrated = {
+    ...legacy,
+    creation: emptyTorchbearerCreationState('manual'),
+    traits: (legacy.traits ?? []).map((record) => ({
+      ...record,
+      definitionId: null,
+      startingLevel: typeof record.level === 'number' ? record.level : 0,
+      source: null,
+      origin: migratedOrigin,
+    })),
+    skills: (legacy.skills ?? []).map((record) => ({
+      ...record,
+      startingRating: typeof record.rating === 'number' ? record.rating : 0,
+      source: null,
+      origin: migratedOrigin,
+    })),
+    wises: (legacy.wises ?? []).map((record) => ({
+      ...record,
+      definitionId: null,
+      source: null,
+      origin: migratedOrigin,
+    })),
+    inventory: (legacy.inventory ?? []).map((record) => ({
+      ...record,
+      definitionId: null,
+      source: null,
+      origin: migratedOrigin,
+    })),
+    relationships: (legacy.relationships ?? []).map((record) => ({
+      ...record,
+      origin: migratedOrigin,
+    })),
+    magic: {
+      ...legacy.magic,
+      relics: (legacy.magic?.relics ?? []).map((record) => ({
+        ...record,
+        definitionId: null,
+        source: null,
+        origin: migratedOrigin,
+      })),
+      spells: (legacy.magic?.spells ?? []).map((record) => ({
+        ...record,
+        definitionId: null,
+        source: null,
+        origin: migratedOrigin,
+      })),
+    },
+    advancement: { ...legacy.advancement, levelBenefits: [] },
+  };
+
+  return torchbearer2eCharacterSchema.parse(migrated);
 }

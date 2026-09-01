@@ -5479,3 +5479,320 @@
 .tb2-spell-checks {
   grid-column: 1 / -1;
 }
+
+.tb2-creator-sheet {
+  min-width: 0;
+  background: var(--paper);
+}
+
+.tb2-normal-sheet--hidden {
+  display: none;
+}
+
+.tb2-creator {
+  min-width: 0;
+  padding: clamp(1rem, 2vw, 1.75rem);
+}
+
+.tb2-creator-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--rule-strong);
+}
+
+.tb2-creator-header h2,
+.tb2-creator-step h3,
+.tb2-creator-step h4,
+.tb2-rule-panel h3 {
+  margin-top: 0;
+}
+
+.tb2-live-summary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.4rem;
+}
+
+.tb2-live-summary span {
+  min-width: 4.5rem;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  color: var(--ink-soft);
+  background: var(--paper-light);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.tb2-live-summary strong {
+  display: block;
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.tb2-step-list {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.35rem;
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tb2-step-list button {
+  width: 100%;
+  min-height: 2.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  color: var(--ink-soft);
+  background: var(--paper-light);
+  font-size: 0.72rem;
+  text-align: left;
+}
+
+.tb2-step-list button > span {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--selection-soft);
+  font-weight: 800;
+}
+
+.tb2-step-list button.is-current {
+  border-color: var(--accent);
+  color: var(--ink);
+  box-shadow: inset 0 0 0 1px var(--accent);
+  font-weight: 800;
+}
+
+.tb2-creator-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(15rem, 0.75fr);
+  align-items: start;
+  gap: 1rem;
+}
+
+.tb2-creator-step,
+.tb2-rule-panel {
+  min-width: 0;
+  padding: clamp(0.85rem, 2vw, 1.3rem);
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--paper-light) 90%, transparent);
+}
+
+.tb2-creator-step > label,
+.tb2-catalog-controls label {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0.7rem 0;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.tb2-creator-step input:not([type='radio']):not([type='checkbox']),
+.tb2-creator-step select,
+.tb2-creator-step textarea,
+.tb2-catalog-controls input,
+.tb2-catalog-controls select {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: var(--paper-light);
+}
+
+.tb2-choice-grid,
+.tb2-check-grid,
+.tb2-derived-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin: 0.75rem 0 1rem;
+}
+
+.tb2-choice-card,
+.tb2-check-card {
+  min-width: 0;
+  min-height: 2.75rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.25rem 0.55rem;
+  padding: 0.65rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: var(--paper-light);
+  cursor: pointer;
+}
+
+.tb2-choice-card > input,
+.tb2-check-card > input {
+  grid-row: 1 / span 2;
+}
+
+.tb2-choice-card > span,
+.tb2-check-card small {
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+}
+
+.tb2-check-card span,
+.tb2-check-card small {
+  display: block;
+}
+
+.tb2-choice-card.is-selected {
+  border-color: var(--accent);
+  background: var(--selection-soft);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.tb2-creator-fieldset {
+  margin: 1rem 0;
+  padding: 0.75rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+}
+
+.tb2-creator-fieldset legend {
+  padding: 0 0.4rem;
+  font-weight: 800;
+}
+
+.tb2-advisory,
+.tb2-source-note,
+.tb2-citation {
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+}
+
+.tb2-source-note {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.tb2-rule-panel {
+  position: sticky;
+  top: 1rem;
+}
+
+.tb2-rule-issue {
+  margin-top: 0.7rem;
+  padding: 0.65rem;
+  border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.tb2-rule-issue.warning {
+  border-left-color: var(--accent-muted);
+}
+
+.tb2-rule-issue p {
+  margin: 0.25rem 0;
+}
+
+.tb2-override-label {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.tb2-live-result,
+.tb2-derived-grid > span {
+  padding: 0.7rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  background: var(--selection-soft);
+}
+
+.tb2-derived-grid > span strong,
+.tb2-derived-grid > span small {
+  display: block;
+}
+
+.tb2-derived-grid > span small {
+  margin-top: 0.2rem;
+  color: var(--ink-soft);
+}
+
+.tb2-creator-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.7rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule-light);
+}
+
+.tb2-catalog-backdrop {
+  z-index: 80;
+}
+
+.tb2-catalog-dialog {
+  width: min(72rem, calc(100vw - 2rem));
+}
+
+.tb2-catalog-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(10rem, 1fr);
+  gap: 0.75rem;
+}
+
+.tb2-catalog-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+  padding-bottom: 1rem;
+}
+
+.tb2-catalog-card {
+  min-width: 0;
+  padding: 0.8rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  background: var(--paper-light);
+}
+
+.tb2-catalog-card > header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.tb2-catalog-card h3,
+.tb2-catalog-card .eyebrow {
+  margin: 0;
+}
+
+.tb2-catalog-card > header > span {
+  padding: 0.2rem 0.4rem;
+  border: 1px solid var(--rule-light);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  font-size: 0.7rem;
+  white-space: nowrap;
+}

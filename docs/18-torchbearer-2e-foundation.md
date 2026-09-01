@@ -1,16 +1,17 @@
-# Torchbearer Second Edition foundation
+# Torchbearer Second Edition guided creator
 
 ## Scope
 
 Torchbearer Second Edition is registered as the `torchbearer2e` game system.
-This first milestone is an editable two-page adventurer record, not an automated
-character-creation or advancement rules engine. Character data remains in the
-existing browser-local repository and uses the shared JSON/YAML interchange.
+It combines the editable adventurer record with a 14-step guided creator for
+the six core classes. Character data remains in the existing browser-local
+repository and uses the shared JSON/YAML interchange.
 
 ## Source mapping
 
-The field map was derived from the supplied `TB2_Character_blank.pdf` and
-checked against the Anatomy material on printed pages 7-14 of the supplied
+The field map was derived from the supplied `TB2_Character_blank.pdf`. Creator
+choices, starting packages, Nature questions, equipment, magic tables, and
+level benefits were checked against the supplied
 `Torchbearer - Dungeoneers Handbook.pdf`.
 
 The sheet records:
@@ -29,12 +30,36 @@ The sheet records:
 - Current/total Experience as Arcane Record's shared campaign field, level
   benefit notes, advancement history, and general notes.
 
-No source art, logo, or PDF page is used at runtime. The interface uses original
-CSS decoration and the established Arcane Record themes.
+The creator supports Burglar, Magician, Outcast, Ranger, Theurge, and Warrior;
+human upbringing; homes; social graces; specialties; Wises; Nature questions;
+relationships; Resources; containers and gear; weapons and armor; and starting
+spells or relics. A pure rules engine produces the preview and explained
+validation issues. Official restrictions block finalization by default, while
+explicit Storyteller overrides are recorded with the character.
 
-## Deferred rules
+Starting magic supports cryptographically random browser rolls and clearly
+labeled manual selections. Roll history, individual dice, result IDs, method,
+and timestamps remain part of the local character record.
 
-Automatic stock/class packages, character-creation questionnaires, starting
-equipment, spell and relic catalogs, condition recovery logic, advancement
-calculation, and level-benefit enforcement are deferred. The current controls
-store user-entered records without implying those rules are validated.
+Schema version 2 stores stable creator choice IDs, source provenance, creation
+origins, starting ratings, overrides, roll history, and a finalization baseline.
+Version-1 sheets migrate as manual legacy records without inferring historical
+creation choices. Reopening the creator shows a rebuild comparison and
+preserves manual additions and advancement beyond starting ratings.
+
+## Catalog and extension boundary
+
+Core character-facing Skills, Traits, Wises, gear, weapons, spells,
+invocations, relics, starting tables, and class level benefits use stable
+`tb2.core.*` definition IDs and source/page metadata. Future books must use a
+separate namespace so saved core IDs remain stable. Unknown future definition
+IDs remain preservable through import/export.
+
+Condition recovery, conflict procedures, advancement-cost calculation,
+monsters, adventures, and general town/camp procedure tables remain outside
+this milestone. Party-wide specialty uniqueness is advisory because Arcane
+Record has no party or cloud coordination model.
+
+No source art, logo, PDF page, or long source passage is used at runtime. The
+interface uses original CSS decoration and the established Arcane Record
+themes.

@@ -33,6 +33,13 @@ import {
   torchbearer2eCharacterSchema,
   type Torchbearer2eCharacter,
 } from './schema';
+import { previewTorchbearerRebuild } from './creator';
+import { TorchbearerCreator } from './TorchbearerCreator';
+import { TorchbearerCatalogBrowser } from './TorchbearerCatalogBrowser';
+import {
+  type TorchbearerCatalogKind,
+  type TorchbearerReferenceDefinition,
+} from './catalog';
 
 const AUTOSAVE_DELAY_MS = 550;
 
@@ -77,6 +84,9 @@ export function Torchbearer2eEditor({
 }: GameCharacterEditorProps<Torchbearer2eCharacter>) {
   const [draft, setDraft] = useState(character);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>('saved');
+  const [catalogKind, setCatalogKind] = useState<
+    TorchbearerCatalogKind | 'all' | null
+  >(null);
   const isNarrowLayout = useMediaQuery('(max-width: 69.999rem)');
   const activeSections = useMemo(() => [...torchbearer2eSections], []);
 
@@ -243,6 +253,197 @@ export function Torchbearer2eEditor({
       };
     });
 
+  const openCreator = () => {
+    if (draft.creation.status === 'finalized') {
+      const diff = previewTorchbearerRebuild(draft);
+      const changeCount =
+        diff.added.length + diff.removed.length + diff.changed.length;
+      const confirmed = window.confirm(
+        `Reopen the guided creator? Your manual records and advancement are preserved. The current choices would produce ${changeCount} creation-derived change${changeCount === 1 ? '' : 's'}; a detailed before/after preview appears at Review before you finalize again.`,
+      );
+      if (!confirmed) return;
+    }
+    update((current) => ({
+      ...current,
+      creation: {
+        ...current.creation,
+        status: 'draft',
+        currentStep: 0,
+        finalizedAt: null,
+      },
+    }));
+  };
+
+  const addCatalogDefinition = (definition: TorchbearerReferenceDefinition) => {
+    const source = {
+      sourceId: definition.sourceId,
+      source: definition.source,
+      page: definition.page,
+    };
+    const origin = { type: 'manual' as const, choiceId: definition.id };
+    update((current) => {
+      if (definition.kind === 'skill') {
+        if (
+          current.skills.some(
+            ({ definitionId }) => definitionId === definition.id,
+          )
+        )
+          return current;
+        const root = definition.category === 'health' ? 'health' : 'will';
+        return {
+          ...current,
+          skills: [
+            ...current.skills,
+            {
+              id: crypto.randomUUID(),
+              definitionId: definition.id,
+              name: definition.name,
+              beginnersLuckRoot: root,
+              rating: 0,
+              startingRating: 0,
+              passed: 0,
+              failed: 0,
+              notes: '',
+              source,
+              origin,
+            },
+          ],
+        };
+      }
+      if (definition.kind === 'wise') {
+        return {
+          ...current,
+          wises: [
+            ...current.wises,
+            {
+              id: crypto.randomUUID(),
+              definitionId: definition.id,
+              name: definition.name,
+              uses: { pass: false, fail: false, fate: false, persona: false },
+              notes: '',
+              source,
+              origin,
+            },
+          ],
+        };
+      }
+      if (definition.kind === 'trait') {
+        return {
+          ...current,
+          traits: [
+            ...current.traits,
+            {
+              id: crypto.randomUUID(),
+              definitionId: definition.id,
+              name: definition.name,
+              level: 1,
+              startingLevel: 0,
+              beneficialUses: 0,
+              checks: 0,
+              notes: '',
+              source,
+              origin,
+            },
+          ],
+        };
+      }
+      if (definition.kind === 'gear' || definition.kind === 'weapon') {
+        return {
+          ...current,
+          inventory: [
+            ...current.inventory,
+            {
+              id: crypto.randomUUID(),
+              definitionId: definition.id,
+              name: definition.name,
+              location: 'satchel-backpack',
+              slots: 1,
+              quantity: 1,
+              status: 'carried',
+              damaged: false,
+              weariness: false,
+              notes: '',
+              source,
+              origin,
+            },
+          ],
+        };
+      }
+      if (definition.kind === 'spell') {
+        return {
+          ...current,
+          magic: {
+            ...current.magic,
+            spells: [
+              ...current.magic.spells,
+              {
+                id: crypto.randomUUID(),
+                definitionId: definition.id,
+                name: definition.name,
+                obstacle: Number(definition.category.replace(/\D/g, '')) || 0,
+                library: false,
+                spellBook: false,
+                memorized: false,
+                cast: false,
+                scroll: false,
+                supplies: false,
+                effect: definition.summary,
+                source,
+                origin,
+              },
+            ],
+          },
+        };
+      }
+      if (definition.kind === 'invocation' || definition.kind === 'relic') {
+        return {
+          ...current,
+          magic: {
+            ...current.magic,
+            relics: [
+              ...current.magic.relics,
+              {
+                id: crypto.randomUUID(),
+                definitionId: definition.id,
+                name: definition.kind === 'relic' ? definition.name : '',
+                inventory: definition.kind === 'relic' ? definition.name : '',
+                invocationName:
+                  definition.kind === 'invocation' ? definition.name : '',
+                circle: Number(definition.category.replace(/\D/g, '')) || 0,
+                notes: definition.summary,
+                source,
+                origin,
+              },
+            ],
+          },
+        };
+      }
+      if (definition.kind === 'level-benefit') {
+        return {
+          ...current,
+          advancement: {
+            ...current.advancement,
+            levelBenefits: [
+              ...current.advancement.levelBenefits,
+              {
+                id: crypto.randomUUID(),
+                definitionId: definition.id,
+                name: definition.name,
+                level: Number(
+                  definition.requirements[0]?.match(/\d+$/)?.[0] ?? 1,
+                ),
+                notes: definition.summary,
+                source,
+                origin,
+              },
+            ],
+          },
+        };
+      }
+      return current;
+    });
+  };
+
   const section = (
     id: string,
     group: Torchbearer2eGroupId,
@@ -278,16 +479,65 @@ export function Torchbearer2eEditor({
           </div>
           <div className="editor-header__actions">
             <SaveStatusBadge status={saveStatus} />
-            <AppearanceSettings gameLabel="Torchbearer 2e" />
+            {draft.creation.status !== 'draft' ? (
+              <button
+                type="button"
+                className="secondary-button"
+                onClick={() => setCatalogKind('all')}
+              >
+                Browse catalogs
+              </button>
+            ) : null}
+            <AppearanceSettings gameLabel="Torchbearer 2e">
+              <label className="appearance-switch">
+                <input
+                  type="checkbox"
+                  role="switch"
+                  checked={draft.creation.enforceRules}
+                  onChange={(event) =>
+                    update((current) => ({
+                      ...current,
+                      creation: {
+                        ...current.creation,
+                        enforceRules: event.target.checked,
+                      },
+                    }))
+                  }
+                />
+                <span>
+                  <strong>Enforce core creation rules</strong>
+                  <small>
+                    Block invalid finalization unless a Storyteller override is
+                    recorded.
+                  </small>
+                </span>
+              </label>
+              {draft.creation.status !== 'draft' ? (
+                <button
+                  type="button"
+                  className="secondary-button"
+                  onClick={openCreator}
+                >
+                  {draft.creation.status === 'manual'
+                    ? 'Start guided creation'
+                    : 'Reopen Character Creator'}
+                </button>
+              ) : null}
+            </AppearanceSettings>
           </div>
         </header>
 
         <MobileSectionNavigator />
         <div className="character-editor-layout">
           <CharacterSectionNav />
+          {draft.creation.status === 'draft' ? (
+            <div className="character-sheet tb2-character-sheet tb2-creator-sheet">
+              <TorchbearerCreator character={draft} update={update} />
+            </div>
+          ) : null}
           <OrderedSheetSections
             groupOrder={draft.sheetLayout.groupOrder}
-            className="character-sheet tb2-character-sheet"
+            className={`character-sheet tb2-character-sheet${draft.creation.status === 'draft' ? ' tb2-normal-sheet--hidden' : ''}`}
           >
             {section(
               'tb2-identity',
@@ -374,17 +624,28 @@ export function Torchbearer2eEditor({
                         ...current.traits,
                         {
                           id: crypto.randomUUID(),
+                          definitionId: null,
                           name: '',
                           level: 1,
+                          startingLevel: 0,
                           beneficialUses: 0,
                           checks: 0,
                           notes: '',
+                          source: null,
+                          origin: { type: 'manual', choiceId: null },
                         },
                       ],
                     }))
                   }
                 >
                   Add Trait
+                </button>
+                <button
+                  type="button"
+                  className="text-button"
+                  onClick={() => setCatalogKind('trait')}
+                >
+                  Browse Traits
                 </button>
                 <div className="tb2-card-list">
                   {draft.traits.map((trait) => (
@@ -708,15 +969,25 @@ export function Torchbearer2eEditor({
                           name: '',
                           beginnersLuckRoot: 'will',
                           rating: 0,
+                          startingRating: 0,
                           passed: 0,
                           failed: 0,
                           notes: '',
+                          source: null,
+                          origin: { type: 'manual', choiceId: null },
                         },
                       ],
                     }))
                   }
                 >
                   Add Custom Skill
+                </button>
+                <button
+                  type="button"
+                  className="text-button"
+                  onClick={() => setCatalogKind('skill')}
+                >
+                  Browse Skills
                 </button>
                 <div className="tb2-skill-grid">
                   {draft.skills.map((skill) => (
@@ -828,6 +1099,7 @@ export function Torchbearer2eEditor({
                         ...current.wises,
                         {
                           id: crypto.randomUUID(),
+                          definitionId: null,
                           name: '',
                           uses: {
                             pass: false,
@@ -836,12 +1108,21 @@ export function Torchbearer2eEditor({
                             persona: false,
                           },
                           notes: '',
+                          source: null,
+                          origin: { type: 'manual', choiceId: null },
                         },
                       ],
                     }))
                   }
                 >
                   Add Wise
+                </button>
+                <button
+                  type="button"
+                  className="text-button"
+                  onClick={() => setCatalogKind('wise')}
+                >
+                  Browse Wises
                 </button>
                 <div className="tb2-card-list">
                   {draft.wises.map((wise) => (
@@ -928,6 +1209,7 @@ export function Torchbearer2eEditor({
                         ...current.inventory,
                         {
                           id: crypto.randomUUID(),
+                          definitionId: null,
                           name: '',
                           location: 'satchel-backpack',
                           slots: 1,
@@ -936,12 +1218,28 @@ export function Torchbearer2eEditor({
                           damaged: false,
                           weariness: false,
                           notes: '',
+                          source: null,
+                          origin: { type: 'manual', choiceId: null },
                         },
                       ],
                     }))
                   }
                 >
                   Add Inventory Item
+                </button>
+                <button
+                  type="button"
+                  className="text-button"
+                  onClick={() => setCatalogKind('gear')}
+                >
+                  Browse Gear
+                </button>
+                <button
+                  type="button"
+                  className="text-button"
+                  onClick={() => setCatalogKind('weapon')}
+                >
+                  Browse Weapons
                 </button>
                 <div className="tb2-card-list">
                   {draft.inventory.map((item) => (
@@ -1011,7 +1309,10 @@ export function Torchbearer2eEditor({
                             ...current,
                             inventory: current.inventory.map((entry) =>
                               entry.id === item.id
-                                ? { ...entry, quantity: Math.max(1, quantity) }
+                                ? {
+                                    ...entry,
+                                    quantity: Math.max(1, quantity),
+                                  }
                                 : entry,
                             ),
                           }))
@@ -1125,6 +1426,7 @@ export function Torchbearer2eEditor({
                           location: '',
                           status: '',
                           notes: '',
+                          origin: { type: 'manual', choiceId: null },
                         },
                       ],
                     }))
@@ -1265,11 +1567,14 @@ export function Torchbearer2eEditor({
                             ...current.magic.relics,
                             {
                               id: crypto.randomUUID(),
+                              definitionId: null,
                               name: '',
                               inventory: '',
                               invocationName: '',
                               circle: 0,
                               notes: '',
+                              source: null,
+                              origin: { type: 'manual', choiceId: null },
                             },
                           ],
                         },
@@ -1290,6 +1595,7 @@ export function Torchbearer2eEditor({
                             ...current.magic.spells,
                             {
                               id: crypto.randomUUID(),
+                              definitionId: null,
                               name: '',
                               obstacle: 0,
                               library: false,
@@ -1299,6 +1605,8 @@ export function Torchbearer2eEditor({
                               scroll: false,
                               supplies: false,
                               effect: '',
+                              source: null,
+                              origin: { type: 'manual', choiceId: null },
                             },
                           ],
                         },
@@ -1306,6 +1614,27 @@ export function Torchbearer2eEditor({
                     }
                   >
                     Add Arcane Spell
+                  </button>
+                  <button
+                    type="button"
+                    className="text-button"
+                    onClick={() => setCatalogKind('spell')}
+                  >
+                    Browse Spells
+                  </button>
+                  <button
+                    type="button"
+                    className="text-button"
+                    onClick={() => setCatalogKind('invocation')}
+                  >
+                    Browse Invocations
+                  </button>
+                  <button
+                    type="button"
+                    className="text-button"
+                    onClick={() => setCatalogKind('relic')}
+                  >
+                    Browse Relics
                   </button>
                 </div>
                 <div className="tb2-card-list">
@@ -1539,6 +1868,13 @@ export function Torchbearer2eEditor({
                   The Experience fields remain available as Arcane Record’s
                   shared campaign record and do not calculate level advancement.
                 </p>
+                <button
+                  type="button"
+                  className="text-button"
+                  onClick={() => setCatalogKind('level-benefit')}
+                >
+                  Browse Level Benefits
+                </button>
                 <div className="tb2-field-grid">
                   <NumericField
                     label="Current Experience"
@@ -1628,6 +1964,13 @@ export function Torchbearer2eEditor({
             )}
           </OrderedSheetSections>
         </div>
+        {catalogKind ? (
+          <TorchbearerCatalogBrowser
+            initialKind={catalogKind}
+            onAdd={addCatalogDefinition}
+            onClose={() => setCatalogKind(null)}
+          />
+        ) : null}
       </main>
     </CharacterSectionProvider>
   );

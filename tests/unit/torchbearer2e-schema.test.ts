@@ -4,7 +4,10 @@ import {
   defaultTorchbearer2eGroupOrder,
   torchbearer2eSkills,
 } from '../../src/games/torchbearer2e/definitions';
-import { torchbearer2eCharacterSchema } from '../../src/games/torchbearer2e/schema';
+import {
+  migrateTorchbearer2eCharacter,
+  torchbearer2eCharacterSchema,
+} from '../../src/games/torchbearer2e/schema';
 import {
   prepareImportedRecord,
   serializeCharacter,
@@ -58,6 +61,57 @@ describe('Torchbearer Second Edition foundation', () => {
     ).toThrow();
   });
 
+  it('migrates version-1 records as manual legacy sheets without inferred choices', () => {
+    const current = createBlankTorchbearer2eCharacter();
+    current.identity.name = 'Legacy Delver';
+    current.skills[0]!.rating = 3;
+    current.traits.push({
+      id: crypto.randomUUID(),
+      definitionId: null,
+      name: 'Old Campaign Trait',
+      level: 2,
+      startingLevel: 0,
+      beneficialUses: 1,
+      checks: 1,
+      notes: 'Preserve me',
+      source: null,
+      origin: { type: 'manual', choiceId: null },
+    });
+    const legacy = structuredClone(current) as unknown as Record<
+      string,
+      unknown
+    >;
+    delete legacy.creation;
+    delete (legacy.advancement as Record<string, unknown>).levelBenefits;
+    for (const record of legacy.skills as Array<Record<string, unknown>>) {
+      delete record.startingRating;
+      delete record.source;
+      delete record.origin;
+    }
+    for (const record of legacy.traits as Array<Record<string, unknown>>) {
+      delete record.definitionId;
+      delete record.startingLevel;
+      delete record.source;
+      delete record.origin;
+    }
+
+    const migrated = migrateTorchbearer2eCharacter(legacy, 1);
+    expect(migrated.creation.status).toBe('manual');
+    expect(migrated.creation.classId).toBeNull();
+    expect(migrated.creation.baseline).toBeNull();
+    expect(migrated.skills[0]).toMatchObject({
+      rating: 3,
+      startingRating: 3,
+      origin: { type: 'migration', choiceId: null },
+    });
+    expect(migrated.traits[0]).toMatchObject({
+      name: 'Old Campaign Trait',
+      level: 2,
+      startingLevel: 2,
+    });
+    expect(migrated.advancement.levelBenefits).toEqual([]);
+  });
+
   it.each(['json', 'yaml'] as const)(
     'preserves Torchbearer records through %s file exchange',
     (format) => {
@@ -68,6 +122,7 @@ describe('Torchbearer Second Edition foundation', () => {
       character.conditions.injured = true;
       character.inventory.push({
         id: '0a77874d-5daf-44bd-8180-c3188c6740d5',
+        definitionId: 'tb2.core.weapon.sword',
         name: 'Sword',
         location: 'belt',
         slots: 1,
@@ -76,6 +131,12 @@ describe('Torchbearer Second Edition foundation', () => {
         damaged: false,
         weariness: false,
         notes: '',
+        source: {
+          sourceId: 'tb2.core.dungeoneers-handbook',
+          source: 'Torchbearer 2e: Dungeoneer’s Handbook',
+          page: 157,
+        },
+        origin: { type: 'manual', choiceId: null },
       });
       const serialized = serializeCharacter(
         {

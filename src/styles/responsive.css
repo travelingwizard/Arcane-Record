@@ -672,8 +672,22 @@
   .tb2-text-grid,
   .tb2-reward-grid,
   .tb2-ability-grid,
-  .tb2-skill-grid {
+  .tb2-skill-grid,
+  .tb2-creator-header,
+  .tb2-creator-workspace {
     grid-template-columns: 1fr;
+  }
+
+  .tb2-step-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tb2-live-summary {
+    justify-content: flex-start;
+  }
+
+  .tb2-rule-panel {
+    position: static;
   }
 
   .tb2-editor-header {
@@ -716,7 +730,12 @@
 
   .tb2-card-list article,
   .tb2-reward-grid article,
-  .tb2-condition-grid {
+  .tb2-condition-grid,
+  .tb2-choice-grid,
+  .tb2-check-grid,
+  .tb2-derived-grid,
+  .tb2-catalog-controls,
+  .tb2-catalog-results {
     grid-template-columns: 1fr;
   }
 
