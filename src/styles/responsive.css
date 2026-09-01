@@ -666,6 +666,36 @@
     align-items: stretch;
     flex-direction: column;
   }
+
+  .tb2-editor-header,
+  .tb2-field-grid,
+  .tb2-text-grid,
+  .tb2-reward-grid,
+  .tb2-ability-grid,
+  .tb2-skill-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tb2-editor-header {
+    text-align: center;
+  }
+
+  .tb2-editor-header .editor-header__actions {
+    justify-self: center;
+  }
+
+  .tb2-card-list article {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tb2-card-list__name,
+  .tb2-spell-checks {
+    grid-column: 1 / -1;
+  }
+
+  .tb2-condition-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 30rem) {
@@ -682,5 +712,15 @@
   .burning-wheel-card-list > article,
   .burning-wheel-three-column article {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tb2-card-list article,
+  .tb2-reward-grid article,
+  .tb2-condition-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tb2-character-sheet {
+    background: var(--paper);
   }
 }

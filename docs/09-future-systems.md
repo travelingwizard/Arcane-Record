@@ -5,6 +5,9 @@ the stable outer ID `mage20`; its definitions remain under
 `src/systems/mage-m20` and its adapter under `src/games/mage20`.
 Exalted First Edition is registered as `exalted1e` with stable `solar` and
 `dragon-blooded` sheet variants.
+Burning Wheel Gold + Codex is registered as `burning-wheel` with seven stock
+variants. Torchbearer Second Edition is registered as `torchbearer2e` with one
+shared adventurer sheet for all stocks and classes.
 
 A system adapter provides:
 

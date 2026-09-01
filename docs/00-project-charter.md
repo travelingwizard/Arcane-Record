@@ -15,6 +15,9 @@ responsive vintage-sheet treatment.
   persistence.
 - A Burning Wheel Gold + Codex guided burner and play sheet for all seven
   Charred Black stocks, with game-owned enforcement warnings and overrides.
+- A Torchbearer Second Edition editable two-page adventurer record covering
+  identity, drives, traits, rewards, conditions, abilities, skills, Wises,
+  inventory, relationships, magic, advancement, and notes.
 - A focused editor for identity, Attributes, Abilities, Spheres, affinity,
   Enlightenment traits, Combat and Do Maneuvers, Backgrounds, Merits & Flaws,
   Focus, Wonders, Rotes, Equipment, and Health.

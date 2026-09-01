@@ -42,6 +42,13 @@ describe('game system registry', () => {
     expect(system?.importLegacyCharacter).toBeTypeOf('function');
   });
 
+  it('registers the Torchbearer Second Edition editable sheet', () => {
+    const system = gameSystemRegistry.get('torchbearer2e');
+    expect(system?.name).toBe('Torchbearer Second Edition');
+    expect(system?.sections.map(({ id }) => id)).toContain('tb2-inventory');
+    expect(system?.sections.map(({ id }) => id)).toContain('tb2-magic');
+  });
+
   it('resolves valid characters and preserves unknown systems as unavailable', () => {
     const mage = resolveCharacter(
       createMageStoredCharacter(),

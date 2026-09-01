@@ -6,7 +6,8 @@ backend, telemetry, or online backup. Mage: The Ascension 20th Anniversary
 Edition is the first complete game module. Exalted First Edition is registered
 with Solar and Dragon-Blooded sheets. Burning Wheel Gold + Codex adds a guided
 character burner and playable sheet for Man, Dwarf, Elf, Orc, Roden, Great
-Wolf, and Troll.
+Wolf, and Troll. Torchbearer Second Edition adds an editable two-page
+adventurer record with the same local-first and responsive sheet controls.
 
 The Mage long-form editor includes URL-addressable sections, a searchable Equipment
 catalog, Combat and Do Maneuvers, a sticky desktop section rail, and a mobile
@@ -58,6 +59,8 @@ See [docs/16-multi-game-architecture.md](docs/16-multi-game-architecture.md) for
 the game registry, persistence envelope, routes, and migration.
 See [docs/17-exalted-1e-foundation.md](docs/17-exalted-1e-foundation.md) for the
 two Exalted sheet variants and the implemented first-page scope.
+See [docs/18-torchbearer-2e-foundation.md](docs/18-torchbearer-2e-foundation.md)
+for the Torchbearer field map and deferred rules boundary.
 See [docs/12-section-navigation.md](docs/12-section-navigation.md) for the
 section registry, anchors, responsive behavior, and preference boundary.
 See [docs/13-magick-sections-plan.md](docs/13-magick-sections-plan.md) for the

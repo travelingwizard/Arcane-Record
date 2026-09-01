@@ -5247,3 +5247,235 @@
   border-top: 1px solid var(--rule-light);
   padding-top: 0.8rem;
 }
+
+/* Torchbearer 2e uses original CSS decoration inspired by a compact expedition ledger. */
+.tb2-editor-shell {
+  width: min(100%, 106rem);
+}
+
+.tb2-editor-header {
+  display: grid;
+  grid-template-columns: minmax(10rem, 1fr) minmax(18rem, 2fr) minmax(
+      10rem,
+      1fr
+    );
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 0 1rem;
+  text-align: center;
+}
+
+.tb2-editor-header .editor-header__actions {
+  justify-self: end;
+}
+
+.tb2-character-sheet {
+  min-width: 0;
+  border: 1px solid var(--rule-strong);
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0 49.8%,
+      var(--rule-light) 50%,
+      transparent 50.2%
+    ),
+    var(--paper);
+  box-shadow: var(--shadow-card);
+}
+
+.tb2-sheet-section {
+  min-width: 0;
+  padding: clamp(1rem, 2vw, 1.6rem);
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.tb2-sheet-section > h2 {
+  margin: 0 0 1rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid
+    color-mix(in srgb, var(--accent) 60%, var(--rule-strong));
+  color: var(--ink);
+}
+
+.tb2-field-grid,
+.tb2-text-grid,
+.tb2-reward-grid,
+.tb2-ability-grid,
+.tb2-skill-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.tb2-field-grid label,
+.tb2-text-grid label,
+.tb2-card-list label,
+.tb2-reward-grid label,
+.tb2-advancement-inputs label,
+.tb2-full-textarea {
+  min-width: 0;
+  display: grid;
+  gap: 0.3rem;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.tb2-field-grid input,
+.tb2-text-grid textarea,
+.tb2-card-list input,
+.tb2-card-list select,
+.tb2-reward-grid input,
+.tb2-advancement-inputs input,
+.tb2-full-textarea textarea,
+.tb2-skill-heading input {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: var(--paper-light);
+}
+
+.tb2-text-grid textarea,
+.tb2-full-textarea textarea {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+.tb2-card-list,
+.tb2-skill-grid {
+  margin-top: 1rem;
+}
+
+.tb2-card-list {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.tb2-card-list article,
+.tb2-skill-grid article,
+.tb2-reward-grid article,
+.tb2-ability-grid article {
+  min-width: 0;
+  padding: 0.8rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--paper-light) 88%, transparent);
+}
+
+.tb2-card-list article {
+  display: grid;
+  grid-template-columns: minmax(10rem, 2fr) repeat(3, minmax(7rem, 1fr)) auto;
+  align-items: end;
+  gap: 0.65rem;
+}
+
+.tb2-card-list__name {
+  min-width: 0;
+}
+
+.tb2-reward-grid article,
+.tb2-ability-grid article,
+.tb2-skill-grid article {
+  display: grid;
+  align-content: start;
+  gap: 0.65rem;
+}
+
+.tb2-ability-grid .dot-rating,
+.tb2-skill-grid .dot-rating {
+  width: 100%;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.tb2-ability-grid .dot-rating__break,
+.tb2-skill-grid .dot-rating__break {
+  height: 0;
+  flex-basis: 100%;
+}
+
+.tb2-reward-grid article {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.tb2-reward-grid h3 {
+  grid-column: 1 / -1;
+}
+
+.tb2-condition-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.tb2-condition-grid button {
+  min-height: 2.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: var(--paper-light);
+}
+
+.tb2-condition-grid button[aria-pressed='true'] {
+  border-color: var(--accent);
+  background: var(--selection-soft);
+  font-weight: 800;
+}
+
+.tb2-advancement-inputs,
+.tb2-inline-checks,
+.tb2-wise-uses,
+.tb2-magic-actions,
+.tb2-skill-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.tb2-advancement-inputs > *,
+.tb2-skill-heading > *:first-child {
+  min-width: 0;
+  flex: 1;
+}
+
+.tb2-inline-checks,
+.tb2-wise-uses,
+.tb2-magic-actions {
+  flex-wrap: wrap;
+}
+
+.tb2-inline-checks label,
+.tb2-wise-uses label {
+  min-height: 2.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.tb2-ability-static-grid,
+.tb2-magic-actions {
+  margin-top: 1rem;
+}
+
+.tb2-skill-heading h3 {
+  margin: 0;
+}
+
+.tb2-skill-heading > span {
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.tb2-spell-checks {
+  grid-column: 1 / -1;
+}

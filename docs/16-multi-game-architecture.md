@@ -16,8 +16,8 @@ character with `moduleRef` resolves its exact installed package, game node,
 sheet template, and dependency lock through the module interpreter; a character
 without it follows the existing `GameSystemRegistry` path. The shared character
 page handles both and preserves unavailable module records. The production
-Mage, Exalted, and Burning Wheel definitions remain code-owned until their
-individual parity phases pass.
+Mage, Exalted, Burning Wheel, and Torchbearer definitions remain code-owned
+until their individual parity phases pass.
 
 Definitions may also provide an optional system-specific legacy file adapter.
 The shared import boundary invokes that adapter without inspecting or branching
@@ -72,3 +72,5 @@ remain browser-local.
   variants;
 - `burning-wheel` — Burning Wheel Gold + Codex with seven stock choices and a
   game-owned guided burner, play sheet, legacy adapter, and PDF generator.
+- `torchbearer2e` — Torchbearer Second Edition editable two-page adventurer
+  record with shared navigation, persistence, appearance, and interchange.
