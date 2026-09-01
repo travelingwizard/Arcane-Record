@@ -54,6 +54,10 @@ function optionName(id: string | null) {
   return id ? (torchbearerReferenceById.get(id)?.name ?? id) : 'Not chosen';
 }
 
+function optionHint(id: string | null) {
+  return id ? (torchbearerReferenceById.get(id)?.creationHint ?? '') : '';
+}
+
 function ChoiceGrid({
   name,
   value,
@@ -208,7 +212,7 @@ export function TorchbearerCreator({
             options={torchbearerClasses.map((entry) => ({
               id: entry.classId,
               name: entry.name,
-              description: `${entry.stockId} · ${entry.fixedWill === null ? 'distributed Will/Health' : `Will ${entry.fixedWill}, Health ${entry.fixedHealth}`}`,
+              description: `${entry.creationHint} ${entry.stockId[0]!.toUpperCase()}${entry.stockId.slice(1)} · ${entry.fixedWill === null ? 'distribute 8 points between Will and Health' : `Will ${entry.fixedWill}, Health ${entry.fixedHealth}`}.`,
             }))}
             onChange={(classId) => {
               const selectedClass = torchbearerClasses.find(
@@ -275,6 +279,7 @@ export function TorchbearerCreator({
               options={humanUpbringingSkillIds.map((id) => ({
                 id,
                 name: optionName(id),
+                description: optionHint(id),
               }))}
               onChange={(upbringingSkillId) =>
                 updateCreation({ upbringingSkillId })
@@ -304,6 +309,7 @@ export function TorchbearerCreator({
             options={torchbearerHomes.map((entry) => ({
               id: entry.id,
               name: entry.name,
+              description: entry.creationHint,
             }))}
             onChange={(homeId) =>
               updateCreation({ homeId, homeSkillId: null, homeTraitId: null })
@@ -318,6 +324,7 @@ export function TorchbearerCreator({
                 options={home.skillIds.map((id) => ({
                   id,
                   name: optionName(id),
+                  description: optionHint(id),
                 }))}
                 onChange={(homeSkillId) => updateCreation({ homeSkillId })}
               />
@@ -328,6 +335,7 @@ export function TorchbearerCreator({
                 options={home.traitIds.map((id) => ({
                   id,
                   name: optionName(id),
+                  description: optionHint(id),
                 }))}
                 onChange={(homeTraitId) => updateCreation({ homeTraitId })}
               />
@@ -350,6 +358,7 @@ export function TorchbearerCreator({
             options={socialGraceSkillIds.map((id) => ({
               id,
               name: optionName(id),
+              description: optionHint(id),
             }))}
             onChange={(socialSkillId) => updateCreation({ socialSkillId })}
           />
@@ -367,6 +376,7 @@ export function TorchbearerCreator({
             options={specialtySkillIds.map((id) => ({
               id,
               name: optionName(id),
+              description: optionHint(id),
             }))}
             onChange={(specialtySkillId) =>
               updateCreation({ specialtySkillId })
@@ -413,6 +423,11 @@ export function TorchbearerCreator({
                   })
                 }
               />
+              <small className="tb2-choice-guidance">
+                {torchbearerWises.find(({ name }) => name === wise)
+                  ?.creationHint ??
+                  'Choose a specific town, location, monster, group, or thing and add “-wise.” A focused Wise augments related tests and may establish a language; broad adventuring or condition Wises are not valid.'}
+              </small>
             </label>
           ))}
           <datalist id="tb2-wise-examples">
@@ -468,7 +483,11 @@ export function TorchbearerCreator({
                 }
                 options={answers
                   .filter((answer) => answer.question === question)
-                  .map((answer) => ({ id: answer.id, name: answer.label }))}
+                  .map((answer) => ({
+                    id: answer.id,
+                    name: answer.label,
+                    description: answer.creationHint,
+                  }))}
                 onChange={(id) =>
                   updateCreation({
                     natureAnswerIds: [
@@ -521,7 +540,13 @@ export function TorchbearerCreator({
                 })
               }
             />{' '}
-            Take the loner path
+            <span>
+              <strong>Take the loner path</strong>
+              <small>
+                Keep Circles at 1, gain an enemy, and gain or increase the Loner
+                Trait; the remaining relationship questions are skipped.
+              </small>
+            </span>
           </label>
           {(['friend', 'parents', 'mentor', 'enemy'] as const).map((kind) => (
             <label className="tb2-check-card" key={kind}>
@@ -538,7 +563,23 @@ export function TorchbearerCreator({
                   })
                 }
               />{' '}
-              {kind[0].toUpperCase() + kind.slice(1)}
+              <span>
+                <strong>{kind[0].toUpperCase() + kind.slice(1)}</strong>
+                <small>
+                  {
+                    {
+                      friend:
+                        'Add 1 Circles and name a town-bound or adventuring friend who may enter play.',
+                      parents:
+                        'Add 1 Circles and name your family; without parents, you instead receive a sentimental keepsake worth 1D treasure.',
+                      mentor:
+                        'Add 1 Circles and name a seventh-level mentor of your class; magicians must select this relationship.',
+                      enemy:
+                        'Add 1 Circles and name a rival or nemesis one level above you; declining simply means no starting enemy.',
+                    }[kind]
+                  }
+                </small>
+              </span>
             </label>
           ))}
           <p>
@@ -587,6 +628,7 @@ export function TorchbearerCreator({
                 />{' '}
                 <span>
                   <strong>{entry.name}</strong>
+                  <small>{entry.creationHint}</small>
                   <small>
                     {entry.slotText} · Ob {entry.cost}
                   </small>
@@ -607,6 +649,7 @@ export function TorchbearerCreator({
                 />{' '}
                 <span>
                   <strong>{entry.name}</strong>
+                  <small>{entry.creationHint}</small>
                   <small>
                     {entry.slotText} · Ob {entry.cost}
                   </small>
@@ -629,7 +672,7 @@ export function TorchbearerCreator({
             options={torchbearerWeapons.map((entry) => ({
               id: entry.id,
               name: entry.name,
-              description: entry.slotText,
+              description: entry.creationHint,
             }))}
             onChange={(weaponDefinitionId) =>
               updateCreation({ weaponDefinitionId })
@@ -658,6 +701,16 @@ export function TorchbearerCreator({
                 ))}
             </select>
           </label>
+          {creation.armorDefinitionId ? (
+            <p className="tb2-choice-guidance" aria-live="polite">
+              {optionHint(creation.armorDefinitionId)}
+            </p>
+          ) : (
+            <p className="tb2-choice-guidance">
+              No armor leaves the torso unburdened but provides no starting body
+              protection. Class restrictions still apply.
+            </p>
+          )}
           <div className="tb2-check-grid">
             <label className="tb2-check-card">
               <input
@@ -667,7 +720,10 @@ export function TorchbearerCreator({
                   updateCreation({ takeHelmet: event.target.checked })
                 }
               />{' '}
-              Helmet
+              <span>
+                <strong>Helmet</strong>
+                <small>{optionHint('tb2.core.gear.helmet')}</small>
+              </span>
             </label>
             <label className="tb2-check-card">
               <input
@@ -677,7 +733,10 @@ export function TorchbearerCreator({
                   updateCreation({ takeShield: event.target.checked })
                 }
               />{' '}
-              Shield
+              <span>
+                <strong>Shield</strong>
+                <small>{optionHint('tb2.core.weapon.shield')}</small>
+              </span>
             </label>
           </div>
           {sourceNote(41)}
@@ -702,6 +761,9 @@ export function TorchbearerCreator({
       const results = isMagician
         ? torchbearerStartingMagicSchools
         : torchbearerStartingRelicResults;
+      const selectedMagicResult = results.find(
+        ({ id }) => id === creation.magic.selectedResultId,
+      );
       content = (
         <>
           <h3>{isMagician ? 'Starting spell book' : 'Starting relics'}</h3>
@@ -731,11 +793,18 @@ export function TorchbearerCreator({
                 .filter((result) => result.id !== 'choose')
                 .map((result) => (
                   <option key={result.id} value={result.id}>
-                    {result.id} ({result.range[0]}–{result.range[1]})
+                    {result.id[0]!.toUpperCase() + result.id.slice(1)} (
+                    {result.range[0]}–{result.range[1]})
                   </option>
                 ))}
             </select>
           </label>
+          <p className="tb2-choice-guidance" aria-live="polite">
+            {selectedMagicResult?.creationHint ??
+              (isMagician
+                ? 'Roll or choose a school to learn which three spells your master placed in your starting spell book.'
+                : 'Roll or choose a result to receive two minor relics and the invocations each relic channels.')}
+          </p>
           {creation.magic.selectedResultId ? (
             <div className="tb2-live-result">
               <strong>Selected result:</strong>{' '}
@@ -757,7 +826,11 @@ export function TorchbearerCreator({
                 value={null}
                 options={torchbearerStartingMagicSchools
                   .filter(({ id }) => id !== 'choose')
-                  .map(({ id }) => ({ id, name: id }))}
+                  .map(({ id, creationHint }) => ({
+                    id,
+                    name: id[0]!.toUpperCase() + id.slice(1),
+                    description: creationHint,
+                  }))}
                 onChange={(resultId) => chooseMagicResult(resultId, 'roll')}
               />
             </fieldset>

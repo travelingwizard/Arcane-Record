@@ -19,6 +19,9 @@ test('guides, finalizes, edits, browses, reorders, and persists a Torchbearer ch
   await expect(
     page.getByRole('heading', { name: 'Build your Torchbearer' }),
   ).toBeVisible();
+  await expect(
+    page.getByText(/A human martial specialist comfortable with every weapon/),
+  ).toBeVisible();
   await page.getByRole('radio', { name: /Warrior/ }).check();
 
   await goToStep(page, 'Upbringing');
@@ -27,14 +30,22 @@ test('guides, finalizes, edits, browses, reorders, and persists a Torchbearer ch
   await page.getByRole('radio', { name: /Laborer/ }).check();
 
   await goToStep(page, 'Home');
-  await page.getByRole('radio', { name: 'Religious Bastion' }).check();
-  await page.getByRole('radio', { name: 'Cartographer' }).check();
-  await page.getByRole('radio', { name: 'Defender' }).check();
+  await expect(
+    page.getByText(/A fortified center of faith and learning/),
+  ).toBeVisible();
+  await page.getByRole('radio', { name: /Religious Bastion/ }).check();
+  await page.getByRole('radio', { name: /Cartographer/ }).check();
+  await page.getByRole('radio', { name: /Defender/ }).check();
+  await expect(
+    page.getByText(
+      /Instinctively protective of people, places, and principles/,
+    ),
+  ).toBeVisible();
 
   await goToStep(page, 'Social grace');
-  await page.getByRole('radio', { name: 'Haggler' }).check();
+  await page.getByRole('radio', { name: /Haggler/ }).check();
   await goToStep(page, 'Specialty');
-  await page.getByRole('radio', { name: 'Cook' }).check();
+  await page.getByRole('radio', { name: /Cook/ }).check();
 
   await goToStep(page, 'Wises');
   await page.getByRole('button', { name: 'Add Wise' }).click();
@@ -42,24 +53,39 @@ test('guides, finalizes, edits, browses, reorders, and persists a Torchbearer ch
 
   await goToStep(page, 'Nature');
   await page
-    .getByRole('radio', { name: 'Boast of my great deeds by the hearth.' })
+    .getByRole('radio', { name: /Boast of my great deeds by the hearth/ })
+    .check();
+  await expect(
+    page.getByText('Increase starting Nature by 1.').first(),
+  ).toBeVisible();
+  await page
+    .getByRole('radio', { name: /Demand to be heard as an equal/ })
     .check();
   await page
-    .getByRole('radio', { name: 'Demand to be heard as an equal.' })
-    .check();
-  await page
-    .getByRole('radio', { name: 'Flee and hide inside tall citadels.' })
+    .getByRole('radio', { name: /Flee and hide inside tall citadels/ })
     .check();
 
   await goToStep(page, 'Circles');
-  await page.getByRole('checkbox', { name: 'Friend' }).check();
+  await expect(
+    page.getByText(/Add 1 Circles and name a town-bound or adventuring friend/),
+  ).toBeVisible();
+  await page.getByRole('checkbox', { name: /Friend/ }).check();
 
   await goToStep(page, 'Containers & gear');
+  await expect(
+    page.getByText(/A large worn container with six pack slots/),
+  ).toBeVisible();
   await page.getByRole('checkbox', { name: /Backpack/ }).check();
   await page.getByRole('checkbox', { name: /Tinderbox/ }).check();
 
   await goToStep(page, 'Weapons & armor');
   await page.getByRole('radio', { name: /Battle Axe/ }).check();
+  const creatorArmor = page.locator('.tb2-creator').getByLabel('Armor');
+  await creatorArmor.selectOption({ label: 'Chain Armor' });
+  await expect(
+    page.getByText(/Stronger body protection than leather/),
+  ).toBeVisible();
+  await creatorArmor.selectOption({ label: 'Leather Armor' });
 
   await goToStep(page, 'Identity');
   const creator = page.locator('.tb2-creator');
@@ -166,6 +192,12 @@ test('keeps the guided creator usable at 320px with keyboard controls', async ({
   await warrior.focus();
   await warrior.press('Space');
   await expect(warrior).toBeChecked();
+  await page.getByRole('radio', { name: /Magician/ }).check();
+  await goToStep(page, 'Starting magic');
+  await page.getByLabel('Manual table choice').selectOption('necromancy');
+  await expect(
+    page.getByText(/Necromancy defines your master’s specialty/),
+  ).toBeVisible();
   const dimensions = await page.evaluate(() => ({
     viewport: document.documentElement.clientWidth,
     content: document.documentElement.scrollWidth,

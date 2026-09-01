@@ -94,4 +94,51 @@ describe('Torchbearer 2e core catalogs', () => {
       ).toBe(true);
     }
   });
+
+  it('provides concise, non-placeholder guidance for every creator choice', () => {
+    const selectableDefinitions = [
+      ...torchbearerClasses,
+      ...torchbearerHomes,
+      ...torchbearerSkills,
+      ...torchbearerWises,
+      ...torchbearerTraits,
+      ...torchbearerGear.filter(({ startingEligible }) => startingEligible),
+      ...torchbearerWeapons,
+    ];
+    expect(
+      selectableDefinitions.every(
+        ({ creationHint }) =>
+          creationHint.trim().length >= 35 &&
+          !creationHint.includes('core Torchbearer Second Edition'),
+      ),
+    ).toBe(true);
+    expect(
+      [
+        ...torchbearerStartingMagicSchools,
+        ...torchbearerStartingRelicResults,
+      ].every(({ creationHint }) => creationHint.trim().length >= 35),
+    ).toBe(true);
+  });
+
+  it('explains the exact mechanical consequence of Nature answers', () => {
+    const hintFor = (ending: string) =>
+      torchbearerNatureAnswers.find(({ id }) => id.endsWith(ending))
+        ?.creationHint;
+    expect(hintFor('dwarf-q1-revenge')).toBe('Increase starting Nature by 1.');
+    expect(hintFor('dwarf-q1-negotiate')).toContain(
+      'Replace the Avenging Grudges Nature descriptor with Negotiating',
+    );
+    expect(hintFor('human-q1-prepare')).toBe(
+      'Increase the class Trait to level 2.',
+    );
+    expect(hintFor('human-q2-listen-elf-wise')).toBe(
+      'Add Elf-wise as an additional Wise.',
+    );
+    expect(hintFor('dwarf-q3-spend')).toBe(
+      'Set starting Resources to at least 1.',
+    );
+    expect(hintFor('elf-q3-struggle-curious')).toContain(
+      'Replace the home Trait with Curious at level 1',
+    );
+  });
 });

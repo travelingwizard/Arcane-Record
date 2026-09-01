@@ -20,6 +20,7 @@ export interface TorchbearerReferenceDefinition {
   name: string;
   category: string;
   summary: string;
+  creationHint: string;
   mechanics: string;
   requirements: string[];
   aliases: string[];
@@ -43,12 +44,14 @@ const reference = (
   page: number,
   mechanics: string,
   requirements: string[] = [],
+  creationHint = mechanics,
 ): TorchbearerReferenceDefinition => ({
   id: `tb2.core.${kind}.${slug(name)}`,
   kind,
   name,
   category,
   summary: `${name} is a core Torchbearer Second Edition ${kind.replace('-', ' ')} entry.`,
+  creationHint,
   mechanics,
   requirements,
   aliases: [],
@@ -115,6 +118,21 @@ const classDefinition = (
       ? 26
       : 27,
     'Select this class to apply its stock, starting abilities, Skills, Trait, equipment permissions, and level-one benefit.',
+    [],
+    {
+      burglar:
+        'A patient, underestimated halfling who excels at stealth, scavenging, and surviving trouble with limited heavy gear.',
+      magician:
+        'A human scholar who stores dangerous arcane spells in a Memory Palace; starts highly skilled in magic but cannot wear armor.',
+      outcast:
+        'A tough dwarf separated from the ancestral halls, built for fighting and dungeon craft with broad armor access.',
+      ranger:
+        'A wakeful elf who ranges through the wild, combining keen scouting and pathfinding with a narrow, practical weapon selection.',
+      theurge:
+        'A human conduit for divine power who channels invocations through relics and Urðr; starts without armor but may carry a shield.',
+      warrior:
+        'A human martial specialist comfortable with every weapon and armor, suited to direct conflict and leading companions.',
+    }[value.classId],
   ),
   ...value,
 });
@@ -319,6 +337,23 @@ const home = (
     'settlement',
     30,
     'Choose one listed Skill at rating 2 (or increase an existing rating by one, maximum 4) and one listed Trait at level 1.',
+    [],
+    {
+      Elfhome:
+        'An elven refuge shaped by patience, healing, and hidden paths; only elves may claim it as home.',
+      'Dwarven Halls':
+        'A disciplined underground culture of stonework, labor, armor, cunning, and fierce tempers.',
+      'Religious Bastion':
+        'A fortified center of faith and learning that produces scholars, theologians, defenders, and scarred survivors.',
+      'Bustling Metropolis':
+        'A crowded trade city where bargaining, ships, service, luxury, and hard-earned cynicism shape its people.',
+      'Wizard’s Tower':
+        'An isolated scholarly household steeped in alchemy and lore, encouraging skepticism and careful thought.',
+      'Remote Village':
+        'A practical rural community of crafts and fieldwork, known for early mornings and hands made rough by labor.',
+      'Busy Crossroads':
+        'A lively meeting place of travelers and trade, favoring cooks, bargainers, riders, quick wits, and bold risks.',
+    }[name],
   ),
   skillIds: skills.map(skillId),
   traitIds: traits.map(traitId),
@@ -400,6 +435,72 @@ const skillRows = [
   ['Weaver', 'health', 176],
 ] as const;
 
+const skillCreationHints: Record<string, string> = {
+  Alchemist:
+    'Prepare and identify useful compounds, strange substances, and alchemical materials.',
+  Arcanist:
+    'Cast arcane spells and understand the dangerous practice of formal magic.',
+  Armorer:
+    'Make, assess, maintain, and repair armor for people who expect to be hit.',
+  Carpenter:
+    'Build and repair practical objects and structures made primarily from wood.',
+  Cartographer:
+    'Read, create, and reason from maps when routes and locations matter.',
+  Commander:
+    'Organize companions and direct coordinated action under pressure.',
+  Cook: 'Turn provisions and ingredients into meals that sustain an adventuring group.',
+  Criminal:
+    'Apply underworld experience to locks, theft, illicit dealings, and covert entry.',
+  Dungeoneer:
+    'Navigate and understand ruins, passages, traps, and the hazards of underground exploration.',
+  Fighter:
+    'Prevail in violence through practiced weapons, positioning, and martial experience.',
+  Haggler:
+    'Negotiate prices and terms when trade, treasure, or supplies are at stake.',
+  Healer:
+    'Treat injury and illness and help companions recover from physical hardship.',
+  Hunter: 'Track, pursue, trap, and understand animals and other quarry.',
+  Laborer:
+    'Apply strength, endurance, and practical technique to demanding physical work.',
+  'Lore Master':
+    'Recall old histories, legends, peoples, monsters, and the world’s hidden knowledge.',
+  Manipulator:
+    'Influence others indirectly through pressure, misdirection, and emotional leverage.',
+  Mentor:
+    'Teach, advise, and guide another character through difficult learning.',
+  Orator:
+    'Move an audience through formal speech, public argument, or inspiration.',
+  Pathfinder: 'Find viable routes through dangerous or unfamiliar country.',
+  Peasant:
+    'Draw on farm work, village life, crops, livestock, and rural self-sufficiency.',
+  Persuader:
+    'Win another person over through honest personal appeal and reasoned conversation.',
+  Rider:
+    'Handle and ride mounts, especially when travel or danger tests control.',
+  Ritualist:
+    'Invoke divine power and manage the burdens attached to sacred rites.',
+  Sailor:
+    'Work vessels, read waterways, and endure the practical demands of travel by water.',
+  Sapper:
+    'Undermine, fortify, breach, or safely alter structures and obstacles.',
+  Scavenger:
+    'Find overlooked necessities and salvage value from poor or exhausted surroundings.',
+  Scholar:
+    'Research texts, analyze written knowledge, and pursue disciplined study.',
+  Scout:
+    'Move ahead, notice threats, and gather information without drawing attention.',
+  Steward:
+    'Manage households, stores, hospitality, and the orderly use of resources.',
+  Stonemason:
+    'Shape, assess, and repair stonework, walls, and underground construction.',
+  Survivalist:
+    'Find shelter and endure exposure when civilization offers no protection.',
+  Theologian:
+    'Understand doctrine, sacred traditions, religious institutions, and disputes of faith.',
+  Weaver:
+    'Make and repair cloth, clothing, and woven goods through patient craft.',
+};
+
 export const torchbearerSkills = skillRows.map(([name, root, page]) => ({
   ...reference(
     'skill',
@@ -407,6 +508,8 @@ export const torchbearerSkills = skillRows.map(([name, root, page]) => ({
     root,
     page,
     `Untrained tests use Beginner’s Luck rooted in ${root === 'will' ? 'Will' : 'Health'}. The expanded card summarizes the core use and directs the player to its cited factor list.`,
+    [],
+    `${skillCreationHints[name]} If newly opened during creation, it begins at rating 2; an existing rating increases by one, to a maximum of 4.`,
   ),
   beginnersLuckRoot: root,
 }));
@@ -443,6 +546,8 @@ export const torchbearerWises = wiseRows.map(([name, category]) =>
     category,
     category.includes('stock') ? 31 : 32,
     'Wises are not rolled. They augment related tests and may establish knowledge of an associated language. Custom specific Wises are allowed.',
+    [],
+    `${name} represents focused expertise about ${category.replace('stock', 'your people and their culture')}. It augments related tests rather than being rolled on its own, and may establish an associated language.`,
   ),
 );
 
@@ -486,6 +591,79 @@ const traitRows = [
   ['Wizard’s Sight', 182],
 ] as const;
 
+const traitCreationHints: Record<string, string> = {
+  Adventurous:
+    'Eager to explore and accept danger, even when caution might be wiser.',
+  Bitter:
+    'Hardened by resentment, drawing resolve from old hurts while risking harsh judgment.',
+  Bold: 'Ready to act decisively and be noticed when hesitation would be safer.',
+  'Born of Earth and Stone':
+    'Dwarven toughness and affinity for stone, depth, craft, and ancestral places.',
+  Brave:
+    'Able to face fear for a worthy purpose, though courage can invite unnecessary danger.',
+  Calm: 'Composed under pressure, with restraint that can help or slow urgent action.',
+  Cunning:
+    'Clever and indirect, inclined to solve problems through schemes and advantageous angles.',
+  Curious:
+    'Driven to investigate mysteries, gaining insight while risking unwanted trouble.',
+  Defender:
+    'Instinctively protective of people, places, and principles placed in your care.',
+  'Early Riser':
+    'Alert and productive at the start of the day, shaped by a disciplined rural routine.',
+  Extravagant:
+    'Drawn to impressive display and fine things, useful socially but rarely economical.',
+  Extrovert:
+    'Energized by company and comfortable engaging strangers or groups.',
+  Fearless:
+    'Unshaken by threats that stop others, but prone to overlooking reasonable fear.',
+  Fiery:
+    'Passionate and forceful, quick to commit and sometimes quick to anger.',
+  'First Born':
+    'Elven dignity and ancient perspective, carrying the confidence and burdens of an elder people.',
+  Foolhardy:
+    'Willing to take audacious risks before consequences have been fully weighed.',
+  Generous:
+    'Inclined to share time, goods, and mercy, even when resources are painfully scarce.',
+  'Heart of Battle':
+    'At home amid conflict, danger, and the hard choices of martial life.',
+  'Hidden Depths':
+    'An underestimated reserve of halfling endurance, patience, and unexpected capability.',
+  Honorable:
+    'Bound by promises and standards of conduct, even when expedience offers an easier path.',
+  Jaded:
+    'Difficult to impress or shock after long exposure to worldly excess and disappointment.',
+  Loner:
+    'Self-reliant and emotionally guarded, capable alone but distant from dependable relationships.',
+  Lost: 'Unmoored from familiar direction or belonging, open to discovery but prone to uncertainty.',
+  'Quick-Witted':
+    'Fast with ideas and replies, especially when a situation changes without warning.',
+  Quiet:
+    'Patient, unobtrusive, and more likely to observe than draw attention.',
+  'Rough Hands':
+    'Marked by sustained physical labor and practical experience with demanding work.',
+  Restless:
+    'Unable to remain settled, always pulled toward motion, change, or the next horizon.',
+  Scarred:
+    'Visibly shaped by past hardship, carrying both hard-earned resilience and painful history.',
+  'Sharp-Eyed':
+    'Keenly observant of small details and distant signs that others overlook.',
+  Skeptical:
+    'Reluctant to accept claims without evidence, resistant to deceit but slow to trust.',
+  Skinny:
+    'Slight and narrow-framed, useful in tight spaces but lacking physical bulk.',
+  'Steady Hands':
+    'Precise and controlled during careful craft or delicate work.',
+  Stoic:
+    'Endures discomfort without complaint, sometimes hiding needs that should be addressed.',
+  Tall: 'Noticeably high in stature, providing reach and presence while making concealment harder.',
+  Thoughtful:
+    'Deliberate and reflective, considering consequences before committing to action.',
+  'Touched by the Gods':
+    'Marked as a conduit of Immortal power, granting sacred potential with dangerous burdens.',
+  'Wizard’s Sight':
+    'Attuned to arcane forces and signs invisible to ordinary perception.',
+};
+
 export const torchbearerTraits = traitRows.map(([name, page]) =>
   reference(
     'trait',
@@ -493,6 +671,8 @@ export const torchbearerTraits = traitRows.map(([name, page]) =>
     'core trait',
     page,
     'Use this quality to help appropriate tests or invoke it against the character to earn checks, following its level and the core Trait rules.',
+    [],
+    `${traitCreationHints[name]} A creation choice grants it at level 1, or raises an existing copy by one.`,
   ),
 );
 
@@ -503,6 +683,79 @@ export interface TorchbearerGearDefinition extends TorchbearerReferenceDefinitio
   startingEligible: boolean;
   startingQuantity: number;
 }
+
+const gearPurposes: Record<string, string> = {
+  'Chain Armor':
+    'Stronger body protection than leather, with a heavier inventory burden.',
+  Helmet:
+    'Protective headgear available only to classes permitted to start with it.',
+  'Leather Armor':
+    'The standard light protection issued to burglars, outcasts, rangers, and warriors.',
+  'Plate Armor': 'Heavy body protection that occupies substantial torso space.',
+  Backpack:
+    'A large worn container with six pack slots, useful when carrying many necessities.',
+  Bottle:
+    'A small vessel that holds two draughts of water, wine, or another liquid.',
+  Jug: 'A bulky vessel that holds three draughts and consumes more carried space.',
+  'Pouch, Belt':
+    'A one-slot container worn on the belt for a small, accessible item.',
+  Quiver:
+    'A dedicated container for a bow’s arrows, worn on the torso or belt.',
+  'Sack, Large':
+    'A collapsible six-slot container that must be carried when full.',
+  'Sacks, Small': 'Two small empty sacks for separating or hauling finds.',
+  Satchel:
+    'A compact worn container offering three pack slots without a backpack’s capacity.',
+  'Waterskin/Wineskin':
+    'A belt-sized skin that carries one draught of water or wine.',
+  'Flasks of Oil':
+    'Two flasks useful for fueling a lantern and other practical plans.',
+  Garlic:
+    'A compact folk remedy and protective provision that can be worn or packed.',
+  'Grappling Hook':
+    'A climbing and access tool that pairs naturally with rope.',
+  Hammer:
+    'A general striking tool for spikes, repairs, and practical dungeon work.',
+  'Iron Spikes':
+    'Six spikes packed together for securing, marking, or obstructing dungeon spaces.',
+  Mirror:
+    'A fragile reflective tool for looking around hazards and supporting careful observation.',
+  'Pole, 10 Foot':
+    'A long, awkward probing tool for testing suspicious ground and distant objects.',
+  Rope: 'Versatile climbing, hauling, restraint, and rescue gear with a meaningful slot cost.',
+  'Thieves’ Tools':
+    'Specialized equipment for Criminal work such as locks and covert entry.',
+  Tinderbox:
+    'A compact means of starting the fire needed for light, warmth, and camp tasks.',
+  'Rations, Fresh':
+    'Two portions of perishable food packed into one inventory slot.',
+  'Rations, Preserved':
+    'Three durable portions of food packed into one inventory slot.',
+  Water: 'One draught stored inside a compatible skin, bottle, or jug.',
+  Wine: 'One draught stored inside a compatible skin, bottle, or jug.',
+  Candles: 'Four compact light sources that share one carried or pack slot.',
+  Lantern:
+    'A reusable carried light source that needs oil and occupies more pack space.',
+  Torches: 'Four robust light sources bundled into one carried or pack slot.',
+  'Holy Water Flasks':
+    'Three flasks of consecrated water bundled into one slot.',
+  Sacramentals:
+    'A sacred object carried or worn to support a particular invocation.',
+  'Spell Book':
+    'A magician’s required two-slot book containing the starting spell library.',
+  'Spell Materials':
+    'A carried or worn component associated with a particular arcane spell.',
+  'Stakes and Mallet':
+    'Three stakes and their mallet packed together for practical or protective use.',
+  Wolfsbane:
+    'A compact traditional protective herb kept among adventuring supplies.',
+  'Writing Kit':
+    'Skill equipment for recording maps, notes, research, and other written work.',
+  'Parents’ Keepsake':
+    'An orphan’s sentimental heirloom, worn rather than packed and worth 1D treasure.',
+  'Pouch of Gold Coins':
+    'The reward for making your own way without a mentor, carried on the belt and worth 2D treasure.',
+};
 
 const gear = (
   name: string,
@@ -520,6 +773,11 @@ const gear = (
     category,
     page,
     `Resources Ob ${cost}; inventory ${slotText}. Use the expanded reference for the item’s concise core effect.`,
+    [],
+    category === 'weapon'
+      ? `${name} is a possible starting weapon; it is ${slotText}. Your class determines whether you may choose it.`
+      : (gearPurposes[name] ??
+          `${name} is ${category} carried as ${slotText}; consider its space before adding it to the starting loadout.`),
   ),
   cost,
   slotText,
@@ -989,6 +1247,10 @@ export const torchbearerStartingMagicSchools = [
 ].map((entry) => ({
   ...entry,
   spellIds: entry.spellNames.map((name) => `tb2.core.spell.${slug(name)}`),
+  creationHint:
+    entry.id === 'choose'
+      ? 'Your high roll lets you choose any listed master’s school and receive its three starting spells.'
+      : `${entry.id[0]!.toUpperCase()}${entry.id.slice(1)} defines your master’s specialty and adds the three listed spells to your starting spell book.`,
 }));
 
 export interface TorchbearerNatureAnswerDefinition {
@@ -996,6 +1258,7 @@ export interface TorchbearerNatureAnswerDefinition {
   stockId: TorchbearerStockId;
   question: number;
   label: string;
+  creationHint: string;
   natureDelta: number;
   resourcesMinimum: number;
   descriptorReplacement: [string, string] | null;
@@ -1021,30 +1284,46 @@ const natureAnswer = (
       | 'grantedWise'
     >
   > = {},
-): TorchbearerNatureAnswerDefinition => ({
-  id: `tb2.core.nature.${stockId}-q${question}-${key}`,
-  stockId,
-  question,
-  label,
-  natureDelta: effects.natureDelta ?? 0,
-  resourcesMinimum: effects.resourcesMinimum ?? 0,
-  descriptorReplacement: effects.descriptorReplacement ?? null,
-  classTraitLevel2: effects.classTraitLevel2 ?? false,
-  replacementHomeTraitId: effects.replacementHomeTraitId ?? null,
-  grantedWise: effects.grantedWise ?? null,
-  page:
-    stockId === 'dwarf'
-      ? question === 1
-        ? 33
-        : 34
-      : stockId === 'elf'
-        ? 34
-        : stockId === 'halfling'
-          ? 35
-          : question < 3
+): TorchbearerNatureAnswerDefinition => {
+  const mechanicalEffect = effects.natureDelta
+    ? 'Increase starting Nature by 1.'
+    : effects.resourcesMinimum
+      ? `Set starting Resources to at least ${effects.resourcesMinimum}.`
+      : effects.descriptorReplacement
+        ? `Replace the ${effects.descriptorReplacement[0]} Nature descriptor with ${effects.descriptorReplacement[1]}.`
+        : effects.classTraitLevel2
+          ? 'Increase the class Trait to level 2.'
+          : effects.replacementHomeTraitId
+            ? `Replace the home Trait with ${traitRows.find(([name]) => traitId(name) === effects.replacementHomeTraitId)?.[0] ?? effects.replacementHomeTraitId} at level 1, or increase it if already owned.`
+            : effects.grantedWise
+              ? `Add ${effects.grantedWise} as an additional Wise.`
+              : 'This answer does not change a derived rating.';
+  return {
+    id: `tb2.core.nature.${stockId}-q${question}-${key}`,
+    stockId,
+    question,
+    label,
+    creationHint: mechanicalEffect,
+    natureDelta: effects.natureDelta ?? 0,
+    resourcesMinimum: effects.resourcesMinimum ?? 0,
+    descriptorReplacement: effects.descriptorReplacement ?? null,
+    classTraitLevel2: effects.classTraitLevel2 ?? false,
+    replacementHomeTraitId: effects.replacementHomeTraitId ?? null,
+    grantedWise: effects.grantedWise ?? null,
+    page:
+      stockId === 'dwarf'
+        ? question === 1
+          ? 33
+          : 34
+        : stockId === 'elf'
+          ? 34
+          : stockId === 'halfling'
             ? 35
-            : 36,
-});
+            : question < 3
+              ? 35
+              : 36,
+  };
+};
 
 export const torchbearerNatureAnswers: TorchbearerNatureAnswerDefinition[] = [
   natureAnswer('dwarf', 1, 'revenge', 'Avenge my kin at any cost.', {
@@ -1180,6 +1459,7 @@ export interface TorchbearerStartingRelicResult {
   range: [number, number];
   relicNames: [string, string];
   invocationNames: [string, string];
+  creationHint: string;
   page: number;
 }
 
@@ -1193,6 +1473,8 @@ export const torchbearerStartingRelicResults: TorchbearerStartingRelicResult[] =
         'Sigrun’s Voice of Thunder',
         'Chant of the Lords of Valor',
       ],
+      creationHint:
+        'Relics of thunder and valor support a commanding voice and courage in battle.',
       page: 42,
     },
     {
@@ -1200,6 +1482,8 @@ export const torchbearerStartingRelicResults: TorchbearerStartingRelicResult[] =
       range: [5, 5],
       relicNames: ['Hero’s Mantle', 'Anointed Weapon'],
       invocationNames: ['Inspiring Aura', 'Evocation of the Lords of Battle'],
+      creationHint:
+        'Battle relics channel martial inspiration and the authority of divine warriors.',
       page: 42,
     },
     {
@@ -1207,6 +1491,8 @@ export const torchbearerStartingRelicResults: TorchbearerStartingRelicResult[] =
       range: [6, 6],
       relicNames: ['Pearl of Mercy', 'Funerary Vestments'],
       invocationNames: ['Merciful Balm', 'Fury of the Lords of Life and Death'],
+      creationHint:
+        'Relics of life and death join merciful restoration with terrible divine fury.',
       page: 42,
     },
     {
@@ -1214,6 +1500,8 @@ export const torchbearerStartingRelicResults: TorchbearerStartingRelicResult[] =
       range: [7, 7],
       relicNames: ['Oath Pearl', 'Ritual Chalice'],
       invocationNames: ['Merciful Balm', 'Blood Vow to the Lords of Creation'],
+      creationHint:
+        'Creation relics pair mercy with the power of binding sacred vows.',
       page: 42,
     },
     {
@@ -1221,6 +1509,8 @@ export const torchbearerStartingRelicResults: TorchbearerStartingRelicResult[] =
       range: [8, 8],
       relicNames: ['Bone Needles', 'Silver Skull'],
       invocationNames: ['Bone Knitter', 'Catholicon of the Lord of Plagues'],
+      creationHint:
+        'Healing relics mend broken bodies and confront disease through sacred power.',
       page: 42,
     },
     {
@@ -1231,6 +1521,8 @@ export const torchbearerStartingRelicResults: TorchbearerStartingRelicResult[] =
         'Blessing of the Lord of Labor',
         'Balm of the Lords of Serenity',
       ],
+      creationHint:
+        'Relics of labor and serenity bless difficult work and offer restorative calm.',
       page: 42,
     },
     {
@@ -1241,6 +1533,8 @@ export const torchbearerStartingRelicResults: TorchbearerStartingRelicResult[] =
         'Benediction of the Lords of Creation',
         'Gift of Hospitality',
       ],
+      creationHint:
+        'Hospitality relics sanctify welcome, fellowship, and the bonds formed by shelter.',
       page: 42,
     },
     {
@@ -1248,6 +1542,8 @@ export const torchbearerStartingRelicResults: TorchbearerStartingRelicResult[] =
       range: [11, 11],
       relicNames: ['Sea Salt', 'Harvest Sickle'],
       invocationNames: ['Shipwright’s Chant', 'Grace of the Lords of Plenty'],
+      creationHint:
+        'Relics of plenty bless craft, provision, and the abundance needed to sustain others.',
       page: 42,
     },
     {
@@ -1255,6 +1551,8 @@ export const torchbearerStartingRelicResults: TorchbearerStartingRelicResult[] =
       range: [12, 12],
       relicNames: ['Bone Shuttlecock', 'Dowsing Rod'],
       invocationNames: ['Loom of the Disir', 'Spring of the Eternal'],
+      creationHint:
+        'These relics reveal hidden courses through fate, water, and uncertain paths.',
       page: 42,
     },
     {
@@ -1265,6 +1563,8 @@ export const torchbearerStartingRelicResults: TorchbearerStartingRelicResult[] =
         'Breath of the Burning Lord',
         'Cloak of the Lords of Forges',
       ],
+      creationHint:
+        'Fire relics channel burning force and protection associated with the forge.',
       page: 42,
     },
     {
@@ -1272,6 +1572,8 @@ export const torchbearerStartingRelicResults: TorchbearerStartingRelicResult[] =
       range: [14, 14],
       relicNames: ['Forge Ruby', 'Burning Amulet'],
       invocationNames: ['Forge Rites', 'Supplication to the Burning Lord'],
+      creationHint:
+        'Forge relics support sacred making and direct appeal to the Burning Lord.',
       page: 42,
     },
     {
@@ -1282,6 +1584,8 @@ export const torchbearerStartingRelicResults: TorchbearerStartingRelicResult[] =
         'Sigtyr’s Arresting Speech',
         'Wrath of the Lords of Law',
       ],
+      creationHint:
+        'Relics of law lend authority to speech and invoke judgment against transgression.',
       page: 42,
     },
     {
@@ -1292,6 +1596,8 @@ export const torchbearerStartingRelicResults: TorchbearerStartingRelicResult[] =
         'Wisdom of the Mother',
         'Vision of the Lords of Chaos and Law',
       ],
+      creationHint:
+        'Vision relics seek divine knowledge and reveal the tension between chaos and law.',
       page: 42,
     },
     {
@@ -1302,6 +1608,8 @@ export const torchbearerStartingRelicResults: TorchbearerStartingRelicResult[] =
         'Mudra of Fate',
         'Guidance of the Lord of Paths and Ways',
       ],
+      creationHint:
+        'Relics of fate and paths guide movement through uncertain choices and foretold outcomes.',
       page: 42,
     },
   ];
