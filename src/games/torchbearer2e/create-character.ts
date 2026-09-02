@@ -14,7 +14,12 @@ import {
 
 const advancement = () => ({ rating: 0, passed: 0, failed: 0 });
 
-export function createBlankTorchbearer2eCharacter(): Torchbearer2eCharacter {
+export function createBlankTorchbearer2eCharacter(
+  options: {
+    creationStatus?: Torchbearer2eCharacter['creation']['status'];
+    mode?: Torchbearer2eCharacter['sheetLayout']['mode'];
+  } = {},
+): Torchbearer2eCharacter {
   return {
     identity: {
       name: '',
@@ -30,7 +35,7 @@ export function createBlankTorchbearer2eCharacter(): Torchbearer2eCharacter {
       level: 1,
     },
     drives: { belief: '', creed: '', goal: '', instinct: '' },
-    creation: emptyTorchbearerCreationState(),
+    creation: emptyTorchbearerCreationState(options.creationStatus ?? 'draft'),
     traits: [],
     rewards: {
       fate: { current: 0, total: 0, totalSpent: 0 },
@@ -76,6 +81,9 @@ export function createBlankTorchbearer2eCharacter(): Torchbearer2eCharacter {
       history: '',
     },
     notes: '',
-    sheetLayout: { groupOrder: [...defaultTorchbearer2eGroupOrder] },
+    sheetLayout: {
+      mode: options.mode ?? 'edit',
+      groupOrder: [...defaultTorchbearer2eGroupOrder],
+    },
   };
 }

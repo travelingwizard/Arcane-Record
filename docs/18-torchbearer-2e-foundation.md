@@ -3,9 +3,10 @@
 ## Scope
 
 Torchbearer Second Edition is registered as the `torchbearer2e` game system.
-It combines the editable adventurer record with a 14-step guided creator for
-the six core classes. Character data remains in the existing browser-local
-repository and uses the shared JSON/YAML interchange.
+Its second entry step offers a guided Build Character path, a blank manual Play
+Character path, and a Torchbearer-only JSON/YAML import. It combines the
+editable adventurer record with a 14-step guided creator for the six core
+classes. Character data remains in the existing browser-local repository.
 
 ## Source mapping
 
@@ -35,17 +36,28 @@ human upbringing; homes; social graces; specialties; Wises; Nature questions;
 relationships; Resources; containers and gear; weapons and armor; and starting
 spells or relics. A pure rules engine produces the preview and explained
 validation issues. Official restrictions block finalization by default, while
-explicit Storyteller overrides are recorded with the character.
+explicit Storyteller overrides are recorded with the character. Creator
+choices that do not apply to the selected class or Race / Stock are hidden by
+default. Each affected step can reveal those choices and enable a GM Approved
+switch before selecting an exception.
 
 Starting magic supports cryptographically random browser rolls and clearly
 labeled manual selections. Roll history, individual dice, result IDs, method,
 and timestamps remain part of the local character record.
 
-Schema version 2 stores stable creator choice IDs, source provenance, creation
-origins, starting ratings, overrides, roll history, and a finalization baseline.
-Version-1 sheets migrate as manual legacy records without inferring historical
-creation choices. Reopening the creator shows a rebuild comparison and
-preserves manual additions and advancement beyond starting ratings.
+Schema version 3 stores stable creator choice IDs, source provenance, creation
+origins, starting ratings, overrides, roll history, a finalization baseline,
+and the persisted Edit/Play sheet mode. Version-1 sheets migrate as manual
+legacy records and version-2 sheets retain their existing behavior in Edit
+mode without inferring historical creation choices. Reopening the creator shows
+a rebuild comparison and preserves manual additions and advancement beyond
+starting ratings.
+
+The normal sheet uses compact numeric Ability and Skill disclosures. Edit mode
+allows structural and base-rating changes. Play mode protects permanent
+character-building fields while leaving conditions, rewards, Goal, advancement
+marks, current Nature, Wise use, equipment state, relationship status,
+transient magic state, history, and notes available during play.
 
 ## Catalog and extension boundary
 

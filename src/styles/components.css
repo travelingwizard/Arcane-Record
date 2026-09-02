@@ -5698,6 +5698,68 @@
   margin: 0;
 }
 
+.tb2-unavailable-controls {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0.75rem 0;
+  padding: 0.7rem;
+  border: 1px dashed var(--rule-light);
+  border-radius: var(--radius);
+  background: var(--selection-soft);
+}
+
+.tb2-unavailable-reason {
+  color: var(--warning-ink, var(--accent)) !important;
+  font-weight: 700;
+}
+
+.tb2-mode-control {
+  margin: 0 auto 1rem;
+}
+
+.tb2-compact-rating-card {
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  background: var(--paper-light);
+}
+
+.tb2-compact-rating-card > summary {
+  min-height: 2.75rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.65rem;
+  cursor: pointer;
+}
+
+.tb2-compact-rating-card > summary > span {
+  min-width: 2rem;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  text-align: center;
+  font-family: var(--font-sans);
+  font-weight: 800;
+}
+
+.tb2-compact-rating-card > summary > small,
+.tb2-compact-rating-card > p {
+  color: var(--ink-soft);
+}
+
+.tb2-compact-rating-card > :not(summary) {
+  margin-inline: 0.65rem;
+}
+
+.tb2-compact-rating-card > :last-child {
+  margin-bottom: 0.65rem;
+}
+
+.tb2-rating-name {
+  font-weight: 700;
+}
+
 .tb2-creator-fieldset {
   margin: 1rem 0;
   padding: 0.75rem;

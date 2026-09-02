@@ -318,7 +318,10 @@ export const torchbearer2eCharacterSchema = z.object({
     history: z.string(),
   }),
   notes: z.string(),
-  sheetLayout: z.object({ groupOrder: groupOrderSchema }),
+  sheetLayout: z.object({
+    mode: z.enum(['edit', 'play']),
+    groupOrder: groupOrderSchema,
+  }),
 });
 
 export type Torchbearer2eCharacter = z.infer<
@@ -345,7 +348,18 @@ export function migrateTorchbearer2eCharacter(
   data: unknown,
   fromVersion: number,
 ) {
-  if (fromVersion >= 2) return torchbearer2eCharacterSchema.parse(data);
+  if (fromVersion >= 3) return torchbearer2eCharacterSchema.parse(data);
+
+  if (fromVersion === 2) {
+    const versionTwo = data as LegacyTorchbearerCharacter;
+    return torchbearer2eCharacterSchema.parse({
+      ...versionTwo,
+      sheetLayout: {
+        ...(versionTwo.sheetLayout as LegacyRecord),
+        mode: 'edit',
+      },
+    });
+  }
 
   const legacy = data as LegacyTorchbearerCharacter;
   const migrated = {
@@ -396,6 +410,10 @@ export function migrateTorchbearer2eCharacter(
       })),
     },
     advancement: { ...legacy.advancement, levelBenefits: [] },
+    sheetLayout: {
+      ...(legacy.sheetLayout as LegacyRecord),
+      mode: 'edit',
+    },
   };
 
   return torchbearer2eCharacterSchema.parse(migrated);

@@ -1,4 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
+import { createBlankTorchbearer2eCharacter } from '../../src/games/torchbearer2e/create-character';
+import { serializeCharacter } from '../../src/features/import-export/character-files';
 
 async function goToStep(page: Page, name: string) {
   await page
@@ -13,7 +15,7 @@ test('guides, finalizes, edits, browses, reorders, and persists a Torchbearer ch
   await page.goto('/');
   await page.getByRole('button', { name: 'Create Character' }).click();
   await page.getByRole('button', { name: 'Choose Torchbearer 2e' }).click();
-  await page.getByRole('button', { name: 'Create Character' }).click();
+  await page.getByRole('button', { name: 'Build Character' }).click();
 
   await expect(page).toHaveURL(/\/characters\//);
   await expect(
@@ -22,6 +24,7 @@ test('guides, finalizes, edits, browses, reorders, and persists a Torchbearer ch
   await expect(
     page.getByText(/A human martial specialist comfortable with every weapon/),
   ).toBeVisible();
+  await expect(page.getByText(/Race \/ Stock: Human/).last()).toBeVisible();
   await page.getByRole('radio', { name: /Warrior/ }).check();
 
   await goToStep(page, 'Upbringing');
@@ -30,6 +33,12 @@ test('guides, finalizes, edits, browses, reorders, and persists a Torchbearer ch
   await page.getByRole('radio', { name: /Laborer/ }).check();
 
   await goToStep(page, 'Home');
+  await expect(page.getByRole('radio', { name: /Elfhome/ })).toHaveCount(0);
+  await page.getByLabel(/Show unavailable options/).check();
+  const unavailableElfhome = page.getByRole('radio', { name: /Elfhome/ });
+  await expect(unavailableElfhome).toBeDisabled();
+  await page.getByRole('switch', { name: /GM Approved/ }).check();
+  await expect(unavailableElfhome).toBeEnabled();
   await expect(
     page.getByText(/A fortified center of faith and learning/),
   ).toBeVisible();
@@ -85,7 +94,15 @@ test('guides, finalizes, edits, browses, reorders, and persists a Torchbearer ch
   await goToStep(page, 'Weapons & armor');
   await page.getByRole('radio', { name: /Battle Axe/ }).check();
   const creatorArmor = page.locator('.tb2-creator').getByLabel('Armor');
-  await creatorArmor.selectOption({ label: 'Chain Armor' });
+  await expect(
+    creatorArmor.locator('option', { hasText: 'Chain Armor' }),
+  ).toHaveCount(0);
+  await page.getByLabel(/Show unavailable options/).check();
+  await page.getByRole('switch', { name: /GM Approved/ }).check();
+  const chainArmorValue = await creatorArmor
+    .locator('option', { hasText: 'Chain Armor' })
+    .getAttribute('value');
+  await creatorArmor.selectOption(chainArmorValue!);
   await expect(
     page.getByText(/Stronger body protection than leather/),
   ).toBeVisible();
@@ -120,13 +137,29 @@ test('guides, finalizes, edits, browses, reorders, and persists a Torchbearer ch
     'aria-pressed',
     'true',
   );
-  await expect(
-    page.getByRole('group', { name: 'Fighter: 4 out of 6' }),
-  ).toBeVisible();
+  const fighterCard = page
+    .locator('details.tb2-compact-rating-card')
+    .filter({ hasText: 'Fighter' });
+  await expect(fighterCard.getByText('4', { exact: true })).toBeVisible();
+  await fighterCard.locator('summary').click();
+  const fighterRating = fighterCard.getByRole('spinbutton', {
+    name: 'Rating',
+  });
+  await expect(fighterRating).toHaveValue('4');
   await expect(page.locator('input[value="Dragon-wise"]')).toBeVisible();
   await expect(page.locator('input[value="Dungeons-wise"]')).toBeVisible();
 
+  const modeSwitch = page.getByRole('switch', {
+    name: 'Torchbearer Edit and Play mode',
+  });
+  await modeSwitch.check();
+  await expect(page.getByLabel('Name', { exact: true })).toHaveAttribute(
+    'readonly',
+    '',
+  );
+  await expect(fighterRating).toBeDisabled();
   await page.getByRole('button', { name: 'Injured' }).click();
+  await modeSwitch.uncheck();
   await page.getByRole('button', { name: 'Add Trait' }).click();
   await page.getByLabel('Trait name').last().fill('Campaign Gift');
 
@@ -192,7 +225,7 @@ test('keeps the guided creator usable at 320px with keyboard controls', async ({
   await page.goto('/');
   await page.getByRole('button', { name: 'Create Character' }).click();
   await page.getByRole('button', { name: 'Choose Torchbearer 2e' }).click();
-  await page.getByRole('button', { name: 'Create Character' }).click();
+  await page.getByRole('button', { name: 'Build Character' }).click();
 
   const warrior = page.getByRole('radio', { name: /Warrior/ });
   await warrior.focus();
@@ -209,4 +242,65 @@ test('keeps the guided creator usable at 320px with keyboard controls', async ({
     content: document.documentElement.scrollWidth,
   }));
   expect(dimensions.content).toBeLessThanOrEqual(dimensions.viewport);
+});
+
+test('offers Build, Play, and Torchbearer-only import entry paths', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Create Character' }).click();
+  await page.getByRole('button', { name: 'Choose Torchbearer 2e' }).click();
+
+  await expect(
+    page.getByRole('button', { name: 'Build Character' }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole('button', { name: 'Play Character' }),
+  ).toBeVisible();
+  await expect(
+    page.getByText('Import Character', { exact: true }),
+  ).toBeVisible();
+
+  await page.getByRole('button', { name: 'Play Character' }).click();
+  await expect(page).toHaveURL(/\/characters\//);
+  await expect(
+    page.getByRole('switch', { name: 'Torchbearer Edit and Play mode' }),
+  ).toBeChecked();
+  await expect(page.getByLabel('Name', { exact: true })).toHaveAttribute(
+    'readonly',
+    '',
+  );
+
+  await page.goto('/create');
+  await page.getByRole('button', { name: 'Choose Torchbearer 2e' }).click();
+
+  const character = createBlankTorchbearer2eCharacter({
+    creationStatus: 'manual',
+    mode: 'play',
+  });
+  character.identity.name = 'Imported Delver';
+  const contents = serializeCharacter(
+    {
+      id: 'torchbearer-import-source',
+      systemId: 'torchbearer2e',
+      systemVersion: 3,
+      name: character.identity.name,
+      createdAt: '2026-09-02T12:00:00.000Z',
+      updatedAt: '2026-09-02T12:00:00.000Z',
+      data: character,
+    },
+    'json',
+  );
+  await page.getByLabel('Choose Torchbearer file').setInputFiles({
+    name: 'imported-delver.json',
+    mimeType: 'application/json',
+    buffer: Buffer.from(contents),
+  });
+  await expect(page).toHaveURL(/\/characters\//);
+  await expect(page.getByLabel('Name', { exact: true })).toHaveValue(
+    'Imported Delver (Imported)',
+  );
+  await expect(
+    page.getByRole('switch', { name: 'Torchbearer Edit and Play mode' }),
+  ).toBeChecked();
 });

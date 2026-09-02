@@ -23,6 +23,30 @@ export const torchbearer2eDefinition: GameSystemDefinition<Torchbearer2eCharacte
     currentSchemaVersion: TORCHBEARER2E_SCHEMA_VERSION,
     characterSchema: torchbearer2eCharacterSchema,
     createInitialCharacter: createBlankTorchbearer2eCharacter,
+    creationActions: [
+      {
+        id: 'build',
+        name: 'Build Character',
+        description:
+          'Use the guided first-level creator with core rules and explained choices.',
+        createInitialCharacter: () =>
+          createBlankTorchbearer2eCharacter({
+            creationStatus: 'draft',
+            mode: 'edit',
+          }),
+      },
+      {
+        id: 'play',
+        name: 'Play Character',
+        description:
+          'Open a blank manual sheet in Play mode for a character created elsewhere.',
+        createInitialCharacter: () =>
+          createBlankTorchbearer2eCharacter({
+            creationStatus: 'manual',
+            mode: 'play',
+          }),
+      },
+    ],
     migrateCharacter: (data, fromVersion) =>
       migrateTorchbearer2eCharacter(data, fromVersion),
     getDisplayName: (character) =>

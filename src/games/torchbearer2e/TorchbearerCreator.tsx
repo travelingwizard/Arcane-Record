@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import {
   humanUpbringingSkillIds,
   socialGraceSkillIds,
@@ -63,11 +63,18 @@ function ChoiceGrid({
   value,
   options,
   onChange,
+  allowUnavailable = false,
 }: {
   name: string;
   value: string | null;
-  options: { id: string; name: string; description?: string }[];
+  options: {
+    id: string;
+    name: string;
+    description?: string;
+    unavailableReason?: string;
+  }[];
   onChange: (id: string) => void;
+  allowUnavailable?: boolean;
 }) {
   return (
     <div className="tb2-choice-grid">
@@ -80,10 +87,16 @@ function ChoiceGrid({
             type="radio"
             name={name}
             checked={value === option.id}
+            disabled={Boolean(option.unavailableReason) && !allowUnavailable}
             onChange={() => onChange(option.id)}
           />
           <strong>{option.name}</strong>
           {option.description ? <span>{option.description}</span> : null}
+          {option.unavailableReason ? (
+            <span className="tb2-unavailable-reason">
+              Unavailable: {option.unavailableReason}
+            </span>
+          ) : null}
         </label>
       ))}
     </div>
@@ -102,6 +115,12 @@ export function TorchbearerCreator({
     [character],
   );
   const creation = character.creation;
+  const [showUnavailableSteps, setShowUnavailableSteps] = useState<Set<number>>(
+    new Set(),
+  );
+  const [gmApprovedSteps, setGmApprovedSteps] = useState<Set<number>>(
+    new Set(),
+  );
   const step = creation.currentStep;
   const classDefinition = preview.classDefinition;
   const home = torchbearerHomes.find(({ id }) => id === creation.homeId);
@@ -129,6 +148,84 @@ export function TorchbearerCreator({
         magic: { ...current.creation.magic, ...values },
       },
     }));
+
+  const applyUnavailableOverride = (
+    code: string,
+    values: Partial<Torchbearer2eCharacter['creation']>,
+  ) =>
+    update((current) => ({
+      ...current,
+      creation: {
+        ...current.creation,
+        ...values,
+        overrides: [
+          ...current.creation.overrides.filter((entry) => entry.code !== code),
+          {
+            id: crypto.randomUUID(),
+            code,
+            reason: `GM Approved on creator step ${step + 1}.`,
+            createdAt: new Date().toISOString(),
+          },
+        ],
+      },
+    }));
+
+  const applyAvailableChoice = (
+    code: string,
+    values: Partial<Torchbearer2eCharacter['creation']>,
+  ) =>
+    update((current) => ({
+      ...current,
+      creation: {
+        ...current.creation,
+        ...values,
+        overrides: current.creation.overrides.filter(
+          (entry) => entry.code !== code,
+        ),
+      },
+    }));
+
+  const unavailableControls = (count: number) =>
+    count ? (
+      <div className="tb2-unavailable-controls">
+        <label>
+          <input
+            type="checkbox"
+            checked={showUnavailableSteps.has(step)}
+            onChange={(event) =>
+              setShowUnavailableSteps((current) => {
+                const next = new Set(current);
+                if (event.target.checked) next.add(step);
+                else next.delete(step);
+                return next;
+              })
+            }
+          />
+          Show unavailable options ({count})
+        </label>
+        {showUnavailableSteps.has(step) ? (
+          <label className="appearance-switch">
+            <input
+              type="checkbox"
+              role="switch"
+              checked={gmApprovedSteps.has(step)}
+              onChange={(event) =>
+                setGmApprovedSteps((current) => {
+                  const next = new Set(current);
+                  if (event.target.checked) next.add(step);
+                  else next.delete(step);
+                  return next;
+                })
+              }
+            />
+            <span>
+              <strong>GM Approved</strong>
+              <small>Enable unavailable choices for this step.</small>
+            </span>
+          </label>
+        ) : null}
+      </div>
+    ) : null;
 
   const toggleArrayValue = (
     field: 'gearDefinitionIds' | 'containerDefinitionIds',
@@ -212,7 +309,7 @@ export function TorchbearerCreator({
             options={torchbearerClasses.map((entry) => ({
               id: entry.classId,
               name: entry.name,
-              description: `${entry.creationHint} ${entry.stockId[0]!.toUpperCase()}${entry.stockId.slice(1)} · ${entry.fixedWill === null ? 'distribute 8 points between Will and Health' : `Will ${entry.fixedWill}, Health ${entry.fixedHealth}`}.`,
+              description: `Race / Stock: ${entry.stockId[0]!.toUpperCase()}${entry.stockId.slice(1)}. ${entry.creationHint} ${entry.fixedWill === null ? 'Distribute 8 points between Will and Health' : `Will ${entry.fixedWill}, Health ${entry.fixedHealth}`}.`,
             }))}
             onChange={(classId) => {
               const selectedClass = torchbearerClasses.find(
@@ -299,22 +396,51 @@ export function TorchbearerCreator({
           </>
         );
       break;
-    case 2:
+    case 2: {
+      const unavailableHomes = torchbearerHomes.filter(
+        (entry) =>
+          Boolean(preview.stockId) &&
+          !entry.allowedStocks.includes(preview.stockId!),
+      );
+      const visibleHomes = torchbearerHomes.filter(
+        (entry) =>
+          !unavailableHomes.includes(entry) ||
+          showUnavailableSteps.has(step) ||
+          creation.homeId === entry.id,
+      );
       content = (
         <>
           <h3>Home</h3>
           <ChoiceGrid
             name="tb2-home"
             value={creation.homeId}
-            options={torchbearerHomes.map((entry) => ({
+            options={visibleHomes.map((entry) => ({
               id: entry.id,
               name: entry.name,
               description: entry.creationHint,
+              unavailableReason: unavailableHomes.includes(entry)
+                ? `restricted to ${entry.allowedStocks.join(', ')} characters`
+                : undefined,
             }))}
-            onChange={(homeId) =>
-              updateCreation({ homeId, homeSkillId: null, homeTraitId: null })
-            }
+            allowUnavailable={gmApprovedSteps.has(step)}
+            onChange={(homeId) => {
+              const selected = torchbearerHomes.find(
+                (entry) => entry.id === homeId,
+              )!;
+              const values = {
+                homeId,
+                homeSkillId: null,
+                homeTraitId: null,
+              };
+              if (
+                preview.stockId &&
+                !selected.allowedStocks.includes(preview.stockId)
+              ) {
+                applyUnavailableOverride('home-stock', values);
+              } else applyAvailableChoice('home-stock', values);
+            }}
           />
+          {unavailableControls(unavailableHomes.length)}
           {home ? (
             <>
               <h4>Home Skill</h4>
@@ -345,6 +471,7 @@ export function TorchbearerCreator({
         </>
       );
       break;
+    }
     case 3:
       content = (
         <>
@@ -566,40 +693,57 @@ export function TorchbearerCreator({
               </small>
             </span>
           </label>
-          {(['friend', 'parents', 'mentor', 'enemy'] as const).map((kind) => (
-            <label className="tb2-check-card" key={kind}>
-              <input
-                type="checkbox"
-                disabled={creation.relationshipChoices.loner}
-                checked={creation.relationshipChoices[kind]}
-                onChange={(event) =>
-                  updateCreation({
-                    relationshipChoices: {
-                      ...creation.relationshipChoices,
-                      [kind]: event.target.checked,
-                    },
-                  })
-                }
-              />{' '}
-              <span>
-                <strong>{kind[0].toUpperCase() + kind.slice(1)}</strong>
-                <small>
-                  {
-                    {
-                      friend:
-                        'Add 1 Circles and name a town-bound or adventuring friend who may enter play.',
-                      parents:
-                        'Add 1 Circles and name your family; without parents, you instead receive a sentimental keepsake worth 1D treasure.',
-                      mentor:
-                        'Add 1 Circles and name a seventh-level mentor of your class; magicians must select this relationship.',
-                      enemy:
-                        'Add 1 Circles and name a rival or nemesis one level above you; declining simply means no starting enemy.',
-                    }[kind]
+          {unavailableControls(creation.relationshipChoices.loner ? 4 : 0)}
+          {(['friend', 'parents', 'mentor', 'enemy'] as const)
+            .filter(
+              (kind) =>
+                !creation.relationshipChoices.loner ||
+                showUnavailableSteps.has(step) ||
+                creation.relationshipChoices[kind],
+            )
+            .map((kind) => (
+              <label className="tb2-check-card" key={kind}>
+                <input
+                  type="checkbox"
+                  disabled={
+                    creation.relationshipChoices.loner &&
+                    !gmApprovedSteps.has(step)
                   }
-                </small>
-              </span>
-            </label>
-          ))}
+                  checked={creation.relationshipChoices[kind]}
+                  onChange={(event) => {
+                    const values = {
+                      relationshipChoices: {
+                        ...creation.relationshipChoices,
+                        [kind]: event.target.checked,
+                      },
+                    };
+                    if (
+                      creation.relationshipChoices.loner &&
+                      event.target.checked
+                    ) {
+                      applyUnavailableOverride('loner-exclusive', values);
+                    } else updateCreation(values);
+                  }}
+                />{' '}
+                <span>
+                  <strong>{kind[0].toUpperCase() + kind.slice(1)}</strong>
+                  <small>
+                    {
+                      {
+                        friend:
+                          'Add 1 Circles and name a town-bound or adventuring friend who may enter play.',
+                        parents:
+                          'Add 1 Circles and name your family; without parents, you instead receive a sentimental keepsake worth 1D treasure.',
+                        mentor:
+                          'Add 1 Circles and name a seventh-level mentor of your class; magicians must select this relationship.',
+                        enemy:
+                          'Add 1 Circles and name a rival or nemesis one level above you; declining simply means no starting enemy.',
+                      }[kind]
+                    }
+                  </small>
+                </span>
+              </label>
+            ))}
           <p>
             Derived Circles: <strong>{preview.circles}</strong>
           </p>
@@ -680,41 +824,100 @@ export function TorchbearerCreator({
       );
       break;
     }
-    case 10:
+    case 10: {
+      const unavailableWeapons = torchbearerWeapons.filter(
+        (entry) => !classDefinition?.allowedWeaponIds.includes(entry.id),
+      );
+      const visibleWeapons = torchbearerWeapons.filter(
+        (entry) =>
+          !unavailableWeapons.includes(entry) ||
+          showUnavailableSteps.has(step) ||
+          creation.weaponDefinitionId === entry.id,
+      );
+      const armorOptions = torchbearerGear.filter(
+        ({ category, name }) => category === 'armor' && name !== 'Helmet',
+      );
+      const unavailableArmor = armorOptions.filter(
+        ({ id }) => id !== classDefinition?.startingArmorId,
+      );
+      const noArmorUnavailable = Boolean(classDefinition?.startingArmorId);
+      const unavailableCount =
+        unavailableWeapons.length +
+        unavailableArmor.length +
+        (noArmorUnavailable ? 1 : 0) +
+        (classDefinition?.mayTakeHelmet ? 0 : 1) +
+        (classDefinition?.mayTakeShield ? 0 : 1);
       content = (
         <>
           <h3>Weapon, armor, helmet, and shield</h3>
           <ChoiceGrid
             name="tb2-weapon"
             value={creation.weaponDefinitionId}
-            options={torchbearerWeapons.map((entry) => ({
+            options={visibleWeapons.map((entry) => ({
               id: entry.id,
               name: entry.name,
               description: entry.creationHint,
+              unavailableReason: unavailableWeapons.includes(entry)
+                ? `the ${classDefinition?.name ?? 'selected'} class cannot start with this weapon`
+                : undefined,
             }))}
-            onChange={(weaponDefinitionId) =>
-              updateCreation({ weaponDefinitionId })
-            }
+            allowUnavailable={gmApprovedSteps.has(step)}
+            onChange={(weaponDefinitionId) => {
+              if (
+                !classDefinition?.allowedWeaponIds.includes(weaponDefinitionId)
+              ) {
+                applyUnavailableOverride('weapon-class', {
+                  weaponDefinitionId,
+                });
+              } else
+                applyAvailableChoice('weapon-class', { weaponDefinitionId });
+            }}
           />
+          {unavailableControls(unavailableCount)}
           <label>
             <span>Armor</span>
             <select
               value={creation.armorDefinitionId ?? ''}
-              onChange={(event) =>
-                updateCreation({
-                  armorDefinitionId: event.target.value || null,
-                })
-              }
+              onChange={(event) => {
+                const armorDefinitionId = event.target.value || null;
+                if (armorDefinitionId !== classDefinition?.startingArmorId) {
+                  applyUnavailableOverride('starting-armor', {
+                    armorDefinitionId,
+                  });
+                } else
+                  applyAvailableChoice('starting-armor', {
+                    armorDefinitionId,
+                  });
+              }}
             >
-              <option value="">No armor</option>
-              {torchbearerGear
+              {!noArmorUnavailable ||
+              showUnavailableSteps.has(step) ||
+              creation.armorDefinitionId === null ? (
+                <option
+                  value=""
+                  disabled={noArmorUnavailable && !gmApprovedSteps.has(step)}
+                >
+                  No armor{noArmorUnavailable ? ' — unavailable' : ''}
+                </option>
+              ) : null}
+              {armorOptions
                 .filter(
-                  ({ category, name }) =>
-                    category === 'armor' && name !== 'Helmet',
+                  (entry) =>
+                    !unavailableArmor.includes(entry) ||
+                    showUnavailableSteps.has(step) ||
+                    creation.armorDefinitionId === entry.id,
                 )
                 .map((entry) => (
-                  <option key={entry.id} value={entry.id}>
+                  <option
+                    key={entry.id}
+                    value={entry.id}
+                    disabled={
+                      unavailableArmor.includes(entry) &&
+                      !gmApprovedSteps.has(step)
+                    }
+                  >
                     {entry.name}
+                    {unavailableArmor.includes(entry) ? ' — unavailable' : ''}
                   </option>
                 ))}
             </select>
@@ -730,37 +933,74 @@ export function TorchbearerCreator({
             </p>
           )}
           <div className="tb2-check-grid">
-            <label className="tb2-check-card">
-              <input
-                type="checkbox"
-                checked={creation.takeHelmet}
-                onChange={(event) =>
-                  updateCreation({ takeHelmet: event.target.checked })
-                }
-              />{' '}
-              <span>
-                <strong>Helmet</strong>
-                <small>{optionHint('tb2.core.gear.helmet')}</small>
-              </span>
-            </label>
-            <label className="tb2-check-card">
-              <input
-                type="checkbox"
-                checked={creation.takeShield}
-                onChange={(event) =>
-                  updateCreation({ takeShield: event.target.checked })
-                }
-              />{' '}
-              <span>
-                <strong>Shield</strong>
-                <small>{optionHint('tb2.core.weapon.shield')}</small>
-              </span>
-            </label>
+            {classDefinition?.mayTakeHelmet ||
+            showUnavailableSteps.has(step) ||
+            creation.takeHelmet ? (
+              <label className="tb2-check-card">
+                <input
+                  type="checkbox"
+                  disabled={
+                    !classDefinition?.mayTakeHelmet &&
+                    !gmApprovedSteps.has(step)
+                  }
+                  checked={creation.takeHelmet}
+                  onChange={(event) => {
+                    if (
+                      !classDefinition?.mayTakeHelmet &&
+                      event.target.checked
+                    ) {
+                      applyUnavailableOverride('helmet-class', {
+                        takeHelmet: true,
+                      });
+                    } else
+                      applyAvailableChoice('helmet-class', {
+                        takeHelmet: event.target.checked,
+                      });
+                  }}
+                />{' '}
+                <span>
+                  <strong>Helmet</strong>
+                  <small>{optionHint('tb2.core.gear.helmet')}</small>
+                </span>
+              </label>
+            ) : null}
+            {classDefinition?.mayTakeShield ||
+            showUnavailableSteps.has(step) ||
+            creation.takeShield ? (
+              <label className="tb2-check-card">
+                <input
+                  type="checkbox"
+                  disabled={
+                    !classDefinition?.mayTakeShield &&
+                    !gmApprovedSteps.has(step)
+                  }
+                  checked={creation.takeShield}
+                  onChange={(event) => {
+                    if (
+                      !classDefinition?.mayTakeShield &&
+                      event.target.checked
+                    ) {
+                      applyUnavailableOverride('shield-class', {
+                        takeShield: true,
+                      });
+                    } else
+                      applyAvailableChoice('shield-class', {
+                        takeShield: event.target.checked,
+                      });
+                  }}
+                />{' '}
+                <span>
+                  <strong>Shield</strong>
+                  <small>{optionHint('tb2.core.weapon.shield')}</small>
+                </span>
+              </label>
+            ) : null}
           </div>
           {sourceNote(41)}
         </>
       );
       break;
+    }
     case 11: {
       if (
         !classDefinition ||

@@ -34,6 +34,7 @@ describe('Torchbearer Second Edition foundation', () => {
     expect(character.sheetLayout.groupOrder).toEqual(
       defaultTorchbearer2eGroupOrder,
     );
+    expect(character.sheetLayout.mode).toBe('edit');
   });
 
   it('validates rating boundaries and complete section ordering', () => {
@@ -51,6 +52,7 @@ describe('Torchbearer Second Edition foundation', () => {
       torchbearer2eCharacterSchema.parse({
         ...character,
         sheetLayout: {
+          mode: 'edit',
           groupOrder: [
             'character',
             'character',
@@ -59,6 +61,20 @@ describe('Torchbearer Second Edition foundation', () => {
         },
       }),
     ).toThrow();
+  });
+
+  it('migrates version-2 sheets to Edit mode without changing their data', () => {
+    const current = createBlankTorchbearer2eCharacter();
+    current.identity.name = 'Existing Adventurer';
+    const versionTwo = structuredClone(current) as unknown as Record<
+      string,
+      unknown
+    >;
+    delete (versionTwo.sheetLayout as Record<string, unknown>).mode;
+
+    const migrated = migrateTorchbearer2eCharacter(versionTwo, 2);
+    expect(migrated.sheetLayout.mode).toBe('edit');
+    expect(migrated.identity.name).toBe('Existing Adventurer');
   });
 
   it('migrates version-1 records as manual legacy sheets without inferred choices', () => {
@@ -118,6 +134,7 @@ describe('Torchbearer Second Edition foundation', () => {
       const character = createBlankTorchbearer2eCharacter();
       character.identity.name = 'Karolina';
       character.identity.class = 'Warrior';
+      character.sheetLayout.mode = 'play';
       character.conditions.fresh = false;
       character.conditions.injured = true;
       character.inventory.push({
@@ -161,6 +178,7 @@ describe('Torchbearer Second Edition foundation', () => {
       expect(imported.systemId).toBe('torchbearer2e');
       expect(imported.data).toMatchObject({
         identity: { name: 'Karolina (Imported)', class: 'Warrior' },
+        sheetLayout: { mode: 'play' },
         conditions: { fresh: false, injured: true },
         inventory: [{ name: 'Sword', location: 'belt' }],
       });

@@ -36,6 +36,13 @@ export interface GameSystemVariantDefinition<TCharacter> {
   createInitialCharacter: () => TCharacter;
 }
 
+export interface GameSystemCreationAction<TCharacter> {
+  id: string;
+  name: string;
+  description: string;
+  createInitialCharacter: () => TCharacter;
+}
+
 export interface GameSystemDefinition<TCharacter = unknown> {
   id: string;
   name: string;
@@ -44,6 +51,7 @@ export interface GameSystemDefinition<TCharacter = unknown> {
   currentSchemaVersion: number;
   characterSchema: z.ZodType<TCharacter>;
   createInitialCharacter: () => TCharacter;
+  creationActions?: readonly GameSystemCreationAction<TCharacter>[];
   migrateCharacter: (
     data: unknown,
     fromVersion: number,

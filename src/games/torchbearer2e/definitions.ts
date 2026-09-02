@@ -4,7 +4,7 @@ import type {
 } from '../game-system';
 
 export const TORCHBEARER2E_SYSTEM_ID = 'torchbearer2e';
-export const TORCHBEARER2E_SCHEMA_VERSION = 2;
+export const TORCHBEARER2E_SCHEMA_VERSION = 3;
 
 export const torchbearer2eSectionGroups = [
   { id: 'character', label: 'Character' },

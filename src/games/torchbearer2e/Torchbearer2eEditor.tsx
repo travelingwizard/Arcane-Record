@@ -37,11 +37,24 @@ import { previewTorchbearerRebuild } from './creator';
 import { TorchbearerCreator } from './TorchbearerCreator';
 import { TorchbearerCatalogBrowser } from './TorchbearerCatalogBrowser';
 import {
+  torchbearerReferenceById,
   type TorchbearerCatalogKind,
   type TorchbearerReferenceDefinition,
 } from './catalog';
 
 const AUTOSAVE_DELAY_MS = 550;
+
+const abilityDescriptions = {
+  will: 'Mental resilience, judgment, and the capacity to press on through fear or doubt.',
+  health:
+    'Physical strength and endurance used when the body must withstand hardship.',
+  nature:
+    'Instinctive stock behavior. Current Nature can change during play while the maximum rating advances separately.',
+  resources:
+    'The character’s ability to obtain goods and services when returning to civilization.',
+  circles:
+    'The character’s ability to find useful people, contacts, and information in town.',
+} as const;
 
 function integerValue(value: string, maximum = 999) {
   const parsed = Number.parseInt(value, 10);
@@ -53,11 +66,13 @@ function NumericField({
   value,
   maximum = 999,
   onChange,
+  disabled = false,
 }: {
   label: string;
   value: number;
   maximum?: number;
   onChange: (value: number) => void;
+  disabled?: boolean;
 }) {
   return (
     <label>
@@ -67,6 +82,7 @@ function NumericField({
         min={0}
         max={maximum}
         value={value}
+        disabled={disabled}
         onChange={(event) =>
           onChange(integerValue(event.target.value, maximum))
         }
@@ -83,6 +99,7 @@ export function Torchbearer2eEditor({
   onRecordChanged,
 }: GameCharacterEditorProps<Torchbearer2eCharacter>) {
   const [draft, setDraft] = useState(character);
+  const playMode = draft.sheetLayout.mode === 'play';
   const [saveStatus, setSaveStatus] = useState<SaveStatus>('saved');
   const [catalogKind, setCatalogKind] = useState<
     TorchbearerCatalogKind | 'all' | null
@@ -148,6 +165,7 @@ export function Torchbearer2eEditor({
       update((current) => ({
         ...current,
         sheetLayout: {
+          ...current.sheetLayout,
           groupOrder: moveOrderedId(
             current.sheetLayout.groupOrder,
             groupId as Torchbearer2eGroupId,
@@ -479,7 +497,7 @@ export function Torchbearer2eEditor({
           </div>
           <div className="editor-header__actions">
             <SaveStatusBadge status={saveStatus} />
-            {draft.creation.status !== 'draft' ? (
+            {draft.creation.status !== 'draft' && !playMode ? (
               <button
                 type="button"
                 className="secondary-button"
@@ -512,10 +530,11 @@ export function Torchbearer2eEditor({
                   </small>
                 </span>
               </label>
-              {draft.creation.status !== 'draft' ? (
+              {draft.creation.status !== 'draft' && !playMode ? (
                 <button
                   type="button"
                   className="secondary-button"
+                  disabled={playMode}
                   onClick={openCreator}
                 >
                   {draft.creation.status === 'manual'
@@ -526,6 +545,43 @@ export function Torchbearer2eEditor({
             </AppearanceSettings>
           </div>
         </header>
+
+        {draft.creation.status !== 'draft' ? (
+          <div className="sheet-layout-mode-control tb2-mode-control">
+            <label className="sheet-layout-mode-toggle">
+              <span>Edit mode</span>
+              <input
+                type="checkbox"
+                role="switch"
+                aria-label="Torchbearer Edit and Play mode"
+                checked={playMode}
+                onChange={() =>
+                  update((current) => ({
+                    ...current,
+                    sheetLayout: {
+                      ...current.sheetLayout,
+                      mode:
+                        current.sheetLayout.mode === 'edit' ? 'play' : 'edit',
+                    },
+                  }))
+                }
+              />
+              <span
+                className="sheet-layout-mode-toggle__track"
+                aria-hidden="true"
+              >
+                <span />
+              </span>
+              <span>Play mode</span>
+            </label>
+            {playMode ? (
+              <p className="sheet-layout-mode-note" role="status">
+                Character-building fields are protected. Conditions, rewards,
+                advancement marks, and other play-state controls remain active.
+              </p>
+            ) : null}
+          </div>
+        ) : null}
 
         <MobileSectionNavigator />
         <div className="character-editor-layout">
@@ -548,7 +604,7 @@ export function Torchbearer2eEditor({
                 {(
                   [
                     ['name', 'Name'],
-                    ['stock', 'Stock'],
+                    ['stock', 'Race / Stock'],
                     ['class', 'Class'],
                     ['age', 'Age'],
                     ['home', 'Home'],
@@ -563,6 +619,7 @@ export function Torchbearer2eEditor({
                     <span>{label}</span>
                     <input
                       value={draft.identity[field]}
+                      readOnly={playMode}
                       onChange={(event) =>
                         updateIdentity(field, event.target.value)
                       }
@@ -573,6 +630,7 @@ export function Torchbearer2eEditor({
                   label="Level"
                   value={draft.identity.level}
                   maximum={99}
+                  disabled={playMode}
                   onChange={(value) =>
                     updateIdentity('level', Math.max(1, value))
                   }
@@ -592,6 +650,7 @@ export function Torchbearer2eEditor({
                       <span>{field[0].toUpperCase() + field.slice(1)}</span>
                       <textarea
                         value={draft.drives[field]}
+                        readOnly={playMode && field !== 'goal'}
                         onChange={(event) =>
                           update((current) => ({
                             ...current,
@@ -617,6 +676,7 @@ export function Torchbearer2eEditor({
                 <button
                   type="button"
                   className="secondary-button"
+                  disabled={playMode}
                   onClick={() =>
                     update((current) => ({
                       ...current,
@@ -643,6 +703,7 @@ export function Torchbearer2eEditor({
                 <button
                   type="button"
                   className="text-button"
+                  disabled={playMode}
                   onClick={() => setCatalogKind('trait')}
                 >
                   Browse Traits
@@ -654,6 +715,7 @@ export function Torchbearer2eEditor({
                         <span>Trait name</span>
                         <input
                           value={trait.name}
+                          readOnly={playMode}
                           onChange={(event) =>
                             update((current) => ({
                               ...current,
@@ -672,6 +734,7 @@ export function Torchbearer2eEditor({
                         min={1}
                         max={3}
                         variant="boxes"
+                        readOnly={playMode}
                         onChange={(level) =>
                           update((current) => ({
                             ...current,
@@ -712,6 +775,7 @@ export function Torchbearer2eEditor({
                       <button
                         type="button"
                         className="text-button"
+                        disabled={playMode}
                         onClick={() =>
                           update((current) => ({
                             ...current,
@@ -816,80 +880,88 @@ export function Torchbearer2eEditor({
                     const label = ability[0].toUpperCase() + ability.slice(1);
                     return (
                       <article key={ability}>
-                        <h3>{label}</h3>
-                        <DotRating
-                          label={label}
-                          value={data.rating}
-                          max={maximum}
-                          showBreakAfterFive={maximum > 5}
-                          onChange={(rating) =>
-                            update((current) => ({
-                              ...current,
-                              abilities: {
-                                ...current.abilities,
-                                [ability]: {
-                                  ...current.abilities[ability],
-                                  rating,
-                                },
-                              },
-                            }))
-                          }
-                        />
-                        <div className="tb2-advancement-inputs">
+                        <details className="tb2-compact-rating-card">
+                          <summary>
+                            <strong>{label}</strong>
+                            <span aria-label={`${label} rating ${data.rating}`}>
+                              {data.rating}
+                            </span>
+                          </summary>
+                          <p>{abilityDescriptions[ability]}</p>
                           <NumericField
-                            label="Passed"
-                            value={data.passed}
-                            maximum={99}
-                            onChange={(passed) =>
+                            label="Rating"
+                            value={data.rating}
+                            maximum={maximum}
+                            disabled={playMode}
+                            onChange={(rating) =>
                               update((current) => ({
                                 ...current,
                                 abilities: {
                                   ...current.abilities,
                                   [ability]: {
                                     ...current.abilities[ability],
-                                    passed,
+                                    rating,
                                   },
                                 },
                               }))
                             }
                           />
-                          <NumericField
-                            label="Failed"
-                            value={data.failed}
-                            maximum={99}
-                            onChange={(failed) =>
-                              update((current) => ({
-                                ...current,
-                                abilities: {
-                                  ...current.abilities,
-                                  [ability]: {
-                                    ...current.abilities[ability],
-                                    failed,
+                          <div className="tb2-advancement-inputs">
+                            <NumericField
+                              label="Passed"
+                              value={data.passed}
+                              maximum={99}
+                              onChange={(passed) =>
+                                update((current) => ({
+                                  ...current,
+                                  abilities: {
+                                    ...current.abilities,
+                                    [ability]: {
+                                      ...current.abilities[ability],
+                                      passed,
+                                    },
                                   },
-                                },
-                              }))
-                            }
-                          />
-                        </div>
-                        {ability === 'nature' ? (
-                          <NumericField
-                            label="Current Nature"
-                            value={draft.abilities.nature.current}
-                            maximum={7}
-                            onChange={(currentNature) =>
-                              update((current) => ({
-                                ...current,
-                                abilities: {
-                                  ...current.abilities,
-                                  nature: {
-                                    ...current.abilities.nature,
-                                    current: currentNature,
+                                }))
+                              }
+                            />
+                            <NumericField
+                              label="Failed"
+                              value={data.failed}
+                              maximum={99}
+                              onChange={(failed) =>
+                                update((current) => ({
+                                  ...current,
+                                  abilities: {
+                                    ...current.abilities,
+                                    [ability]: {
+                                      ...current.abilities[ability],
+                                      failed,
+                                    },
                                   },
-                                },
-                              }))
-                            }
-                          />
-                        ) : null}
+                                }))
+                              }
+                            />
+                          </div>
+                          {ability === 'nature' ? (
+                            <NumericField
+                              label="Current Nature"
+                              value={draft.abilities.nature.current}
+                              maximum={7}
+                              onChange={(currentNature) =>
+                                update((current) => ({
+                                  ...current,
+                                  abilities: {
+                                    ...current.abilities,
+                                    nature: {
+                                      ...current.abilities.nature,
+                                      current: currentNature,
+                                    },
+                                  },
+                                }))
+                              }
+                            />
+                          ) : null}
+                        </details>
                       </article>
                     );
                   })}
@@ -899,6 +971,7 @@ export function Torchbearer2eEditor({
                     label="Precedence"
                     value={draft.abilities.precedence}
                     maximum={7}
+                    disabled={playMode}
                     onChange={(precedence) =>
                       update((current) => ({
                         ...current,
@@ -910,6 +983,7 @@ export function Torchbearer2eEditor({
                     label="Might"
                     value={draft.abilities.might}
                     maximum={8}
+                    disabled={playMode}
                     onChange={(might) =>
                       update((current) => ({
                         ...current,
@@ -923,6 +997,7 @@ export function Torchbearer2eEditor({
                         <span>Nature descriptor {index + 1}</span>
                         <input
                           value={descriptor}
+                          readOnly={playMode}
                           onChange={(event) =>
                             update((current) => ({
                               ...current,
@@ -958,6 +1033,7 @@ export function Torchbearer2eEditor({
                 <button
                   type="button"
                   className="secondary-button"
+                  disabled={playMode}
                   onClick={() =>
                     update((current) => ({
                       ...current,
@@ -992,14 +1068,32 @@ export function Torchbearer2eEditor({
                 <div className="tb2-skill-grid">
                   {draft.skills.map((skill) => (
                     <article key={skill.id}>
-                      <div className="tb2-skill-heading">
+                      <details className="tb2-compact-rating-card">
+                        <summary>
+                          <strong>{skill.name || 'Custom Skill'}</strong>
+                          <span
+                            aria-label={`${skill.name || 'Custom Skill'} rating ${skill.rating}`}
+                          >
+                            {skill.rating}
+                          </span>
+                          <small>
+                            BL: {skill.beginnersLuckRoot === 'will' ? 'W' : 'H'}
+                          </small>
+                        </summary>
+                        <p>
+                          {skill.definitionId
+                            ? torchbearerReferenceById.get(skill.definitionId)
+                                ?.creationHint
+                            : 'A custom Skill supplied by the group. Record its Beginner’s Luck root and use notes for its scope.'}
+                        </p>
                         {skill.definitionId ? (
-                          <h3>{skill.name}</h3>
+                          <p className="tb2-rating-name">{skill.name}</p>
                         ) : (
                           <label>
                             <span>Custom skill name</span>
                             <input
                               value={skill.name}
+                              readOnly={playMode}
                               onChange={(event) =>
                                 update((current) => ({
                                   ...current,
@@ -1013,70 +1107,86 @@ export function Torchbearer2eEditor({
                             />
                           </label>
                         )}
-                        <span>
-                          BL: {skill.beginnersLuckRoot === 'will' ? 'W' : 'H'}
-                        </span>
-                      </div>
-                      <DotRating
-                        label={skill.name || 'Custom skill'}
-                        value={skill.rating}
-                        max={6}
-                        showBreakAfterFive
-                        onChange={(rating) =>
-                          update((current) => ({
-                            ...current,
-                            skills: current.skills.map((item) =>
-                              item.id === skill.id ? { ...item, rating } : item,
-                            ),
-                          }))
-                        }
-                      />
-                      <div className="tb2-advancement-inputs">
                         <NumericField
-                          label="Passed"
-                          value={skill.passed}
-                          onChange={(passed) =>
+                          label="Rating"
+                          value={skill.rating}
+                          maximum={6}
+                          disabled={playMode}
+                          onChange={(rating) =>
                             update((current) => ({
                               ...current,
                               skills: current.skills.map((item) =>
                                 item.id === skill.id
-                                  ? { ...item, passed }
+                                  ? { ...item, rating }
                                   : item,
                               ),
                             }))
                           }
                         />
-                        <NumericField
-                          label="Failed"
-                          value={skill.failed}
-                          onChange={(failed) =>
-                            update((current) => ({
-                              ...current,
-                              skills: current.skills.map((item) =>
-                                item.id === skill.id
-                                  ? { ...item, failed }
-                                  : item,
-                              ),
-                            }))
-                          }
-                        />
-                      </div>
-                      {!skill.definitionId ? (
-                        <button
-                          type="button"
-                          className="text-button"
-                          onClick={() =>
-                            update((current) => ({
-                              ...current,
-                              skills: current.skills.filter(
-                                ({ id }) => id !== skill.id,
-                              ),
-                            }))
-                          }
-                        >
-                          Remove
-                        </button>
-                      ) : null}
+                        <div className="tb2-advancement-inputs">
+                          <NumericField
+                            label="Passed"
+                            value={skill.passed}
+                            onChange={(passed) =>
+                              update((current) => ({
+                                ...current,
+                                skills: current.skills.map((item) =>
+                                  item.id === skill.id
+                                    ? { ...item, passed }
+                                    : item,
+                                ),
+                              }))
+                            }
+                          />
+                          <NumericField
+                            label="Failed"
+                            value={skill.failed}
+                            onChange={(failed) =>
+                              update((current) => ({
+                                ...current,
+                                skills: current.skills.map((item) =>
+                                  item.id === skill.id
+                                    ? { ...item, failed }
+                                    : item,
+                                ),
+                              }))
+                            }
+                          />
+                        </div>
+                        <label>
+                          <span>Notes</span>
+                          <textarea
+                            value={skill.notes}
+                            onChange={(event) =>
+                              update((current) => ({
+                                ...current,
+                                skills: current.skills.map((item) =>
+                                  item.id === skill.id
+                                    ? { ...item, notes: event.target.value }
+                                    : item,
+                                ),
+                              }))
+                            }
+                          />
+                        </label>
+                        {!skill.definitionId ? (
+                          <button
+                            type="button"
+                            className="text-button"
+                            disabled={playMode}
+                            onClick={() =>
+                              update((current) => ({
+                                ...current,
+                                skills: current.skills.filter(
+                                  ({ id }) => id !== skill.id,
+                                ),
+                              }))
+                            }
+                          >
+                            Remove
+                          </button>
+                        ) : null}
+                      </details>
                     </article>
                   ))}
                 </div>
@@ -1092,6 +1202,7 @@ export function Torchbearer2eEditor({
                 <button
                   type="button"
                   className="secondary-button"
+                  disabled={playMode}
                   onClick={() =>
                     update((current) => ({
                       ...current,
@@ -1120,6 +1231,7 @@ export function Torchbearer2eEditor({
                 <button
                   type="button"
                   className="text-button"
+                  disabled={playMode}
                   onClick={() => setCatalogKind('wise')}
                 >
                   Browse Wises
@@ -1131,6 +1243,7 @@ export function Torchbearer2eEditor({
                         <span>Wise</span>
                         <input
                           value={wise.name}
+                          readOnly={playMode}
                           placeholder="Goblin-wise"
                           onChange={(event) =>
                             update((current) => ({
@@ -1176,6 +1289,7 @@ export function Torchbearer2eEditor({
                       <button
                         type="button"
                         className="text-button"
+                        disabled={playMode}
                         onClick={() =>
                           update((current) => ({
                             ...current,
@@ -1230,6 +1344,7 @@ export function Torchbearer2eEditor({
                 <button
                   type="button"
                   className="text-button"
+                  disabled={playMode}
                   onClick={() => setCatalogKind('gear')}
                 >
                   Browse Gear
@@ -1237,6 +1352,7 @@ export function Torchbearer2eEditor({
                 <button
                   type="button"
                   className="text-button"
+                  disabled={playMode}
                   onClick={() => setCatalogKind('weapon')}
                 >
                   Browse Weapons
@@ -1248,6 +1364,7 @@ export function Torchbearer2eEditor({
                         <span>Item</span>
                         <input
                           value={item.name}
+                          readOnly={playMode}
                           onChange={(event) =>
                             update((current) => ({
                               ...current,
@@ -1264,6 +1381,7 @@ export function Torchbearer2eEditor({
                         <span>Location</span>
                         <select
                           value={item.location}
+                          disabled={playMode}
                           onChange={(event) =>
                             update((current) => ({
                               ...current,
@@ -1290,6 +1408,7 @@ export function Torchbearer2eEditor({
                         label="Slots"
                         value={item.slots}
                         maximum={12}
+                        disabled={playMode}
                         onChange={(slots) =>
                           update((current) => ({
                             ...current,
@@ -1304,6 +1423,7 @@ export function Torchbearer2eEditor({
                       <NumericField
                         label="Quantity"
                         value={item.quantity}
+                        disabled={playMode}
                         onChange={(quantity) =>
                           update((current) => ({
                             ...current,
@@ -1388,6 +1508,7 @@ export function Torchbearer2eEditor({
                       <button
                         type="button"
                         className="text-button"
+                        disabled={playMode}
                         onClick={() =>
                           update((current) => ({
                             ...current,
@@ -1441,6 +1562,7 @@ export function Torchbearer2eEditor({
                         <span>Name</span>
                         <input
                           value={relationship.name}
+                          readOnly={playMode}
                           onChange={(event) =>
                             update((current) => ({
                               ...current,
@@ -1460,6 +1582,7 @@ export function Torchbearer2eEditor({
                             <span>Kind</span>
                             <select
                               value={relationship.kind}
+                              disabled={playMode}
                               onChange={(event) =>
                                 update((current) => ({
                                   ...current,
@@ -1487,6 +1610,7 @@ export function Torchbearer2eEditor({
                             </span>
                             <input
                               value={relationship[field]}
+                              readOnly={playMode && field !== 'status'}
                               onChange={(event) =>
                                 update((current) => ({
                                   ...current,
@@ -1508,6 +1632,7 @@ export function Torchbearer2eEditor({
                       <button
                         type="button"
                         className="text-button"
+                        disabled={playMode}
                         onClick={() =>
                           update((current) => ({
                             ...current,
@@ -1544,6 +1669,7 @@ export function Torchbearer2eEditor({
                               : 'Burden'
                         }
                         value={draft.magic[field]}
+                        disabled={playMode && field === 'memoryPalace'}
                         onChange={(value) =>
                           update((current) => ({
                             ...current,
@@ -1558,6 +1684,7 @@ export function Torchbearer2eEditor({
                   <button
                     type="button"
                     className="secondary-button"
+                    disabled={playMode}
                     onClick={() =>
                       update((current) => ({
                         ...current,
@@ -1586,6 +1713,7 @@ export function Torchbearer2eEditor({
                   <button
                     type="button"
                     className="secondary-button"
+                    disabled={playMode}
                     onClick={() =>
                       update((current) => ({
                         ...current,
@@ -1618,6 +1746,7 @@ export function Torchbearer2eEditor({
                   <button
                     type="button"
                     className="text-button"
+                    disabled={playMode}
                     onClick={() => setCatalogKind('spell')}
                   >
                     Browse Spells
@@ -1625,6 +1754,7 @@ export function Torchbearer2eEditor({
                   <button
                     type="button"
                     className="text-button"
+                    disabled={playMode}
                     onClick={() => setCatalogKind('invocation')}
                   >
                     Browse Invocations
@@ -1632,6 +1762,7 @@ export function Torchbearer2eEditor({
                   <button
                     type="button"
                     className="text-button"
+                    disabled={playMode}
                     onClick={() => setCatalogKind('relic')}
                   >
                     Browse Relics
@@ -1644,6 +1775,7 @@ export function Torchbearer2eEditor({
                         <span>Relic</span>
                         <input
                           value={relic.name}
+                          readOnly={playMode}
                           onChange={(event) =>
                             update((current) => ({
                               ...current,
@@ -1663,6 +1795,7 @@ export function Torchbearer2eEditor({
                         <span>Inventory</span>
                         <input
                           value={relic.inventory}
+                          readOnly={playMode}
                           onChange={(event) =>
                             update((current) => ({
                               ...current,
@@ -1685,6 +1818,7 @@ export function Torchbearer2eEditor({
                         <span>Invocation / Name / Circle</span>
                         <input
                           value={relic.invocationName}
+                          readOnly={playMode}
                           onChange={(event) =>
                             update((current) => ({
                               ...current,
@@ -1706,6 +1840,7 @@ export function Torchbearer2eEditor({
                       <NumericField
                         label="Circle"
                         value={relic.circle}
+                        disabled={playMode}
                         onChange={(circle) =>
                           update((current) => ({
                             ...current,
@@ -1723,6 +1858,7 @@ export function Torchbearer2eEditor({
                       <button
                         type="button"
                         className="text-button"
+                        disabled={playMode}
                         onClick={() =>
                           update((current) => ({
                             ...current,
@@ -1745,6 +1881,7 @@ export function Torchbearer2eEditor({
                         <span>Spell</span>
                         <input
                           value={spell.name}
+                          readOnly={playMode}
                           onChange={(event) =>
                             update((current) => ({
                               ...current,
@@ -1763,6 +1900,7 @@ export function Torchbearer2eEditor({
                       <NumericField
                         label="Obstacle"
                         value={spell.obstacle}
+                        disabled={playMode}
                         onChange={(obstacle) =>
                           update((current) => ({
                             ...current,
@@ -1792,6 +1930,10 @@ export function Torchbearer2eEditor({
                             <input
                               type="checkbox"
                               checked={spell[field]}
+                              disabled={
+                                playMode &&
+                                (field === 'library' || field === 'spellBook')
+                              }
                               onChange={(event) =>
                                 update((current) => ({
                                   ...current,
@@ -1819,6 +1961,7 @@ export function Torchbearer2eEditor({
                         <span>Effect</span>
                         <input
                           value={spell.effect}
+                          readOnly={playMode}
                           onChange={(event) =>
                             update((current) => ({
                               ...current,
@@ -1837,6 +1980,7 @@ export function Torchbearer2eEditor({
                       <button
                         type="button"
                         className="text-button"
+                        disabled={playMode}
                         onClick={() =>
                           update((current) => ({
                             ...current,
@@ -1871,6 +2015,7 @@ export function Torchbearer2eEditor({
                 <button
                   type="button"
                   className="text-button"
+                  disabled={playMode}
                   onClick={() => setCatalogKind('level-benefit')}
                 >
                   Browse Level Benefits
@@ -1879,6 +2024,7 @@ export function Torchbearer2eEditor({
                   <NumericField
                     label="Current Experience"
                     value={draft.advancement.experience.current}
+                    disabled={playMode}
                     onChange={(currentExperience) =>
                       update((current) => ({
                         ...current,
@@ -1895,6 +2041,7 @@ export function Torchbearer2eEditor({
                   <NumericField
                     label="Total Experience"
                     value={draft.advancement.experience.total}
+                    disabled={playMode}
                     onChange={(total) =>
                       update((current) => ({
                         ...current,
@@ -1914,6 +2061,7 @@ export function Torchbearer2eEditor({
                     <span>Current level benefit</span>
                     <textarea
                       value={draft.advancement.levelBenefit}
+                      readOnly={playMode}
                       onChange={(event) =>
                         update((current) => ({
                           ...current,

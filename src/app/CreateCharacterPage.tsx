@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import type { GameSystemRegistry } from '../games/game-system-registry';
 import type { StoredCharacterRepository } from '../storage/stored-character-repository';
 import type { ModuleRegistry } from '../modules/registry/module-registry';
 import { ARCANE_MODULE_SYSTEM_ID } from '../storage/stored-character';
 import { MAGE20_MODULE_ID } from '../games/mage20/module/id-map';
 import { EXALTED1E_MODULE_ID } from '../games/exalted1e/module/id-map';
+import { prepareImportedRecord } from '../features/import-export/character-files';
 
 export function CreateCharacterPage({
   systemId,
@@ -28,6 +29,7 @@ export function CreateCharacterPage({
   const [creating, setCreating] = useState(false);
   const [creatingVariantId, setCreatingVariantId] = useState('');
   const [error, setError] = useState('');
+  const importInputRef = useRef<HTMLInputElement>(null);
   const system = systemId ? registry.get(systemId) : undefined;
   const localModules =
     moduleRegistry
@@ -183,7 +185,7 @@ export function CreateCharacterPage({
     );
   }
 
-  const create = async (variantId?: string) => {
+  const create = async (variantId?: string, creationActionId?: string) => {
     const selectedVariant = variantId
       ? system.variants?.find((variant) => variant.id === variantId)
       : undefined;
@@ -196,10 +198,15 @@ export function CreateCharacterPage({
     setError('');
     try {
       const timestamp = new Date().toISOString();
+      const creationAction = creationActionId
+        ? system.creationActions?.find(({ id }) => id === creationActionId)
+        : undefined;
       const data = system.characterSchema.parse(
         selectedVariant
           ? selectedVariant.createInitialCharacter()
-          : system.createInitialCharacter(),
+          : creationAction
+            ? creationAction.createInitialCharacter()
+            : system.createInitialCharacter(),
       );
       const record = await repository.create({
         id: crypto.randomUUID(),
@@ -215,6 +222,37 @@ export function CreateCharacterPage({
       setError('The browser-local character could not be created.');
       setCreating(false);
       setCreatingVariantId('');
+    }
+  };
+
+  const importForSystem = async (file: File) => {
+    setCreating(true);
+    setError('');
+    try {
+      const imported = prepareImportedRecord(
+        await file.text(),
+        file.name,
+        registry,
+        undefined,
+        undefined,
+        moduleRegistry,
+      );
+      if (imported.systemId !== system.id) {
+        throw new Error(
+          `Choose a ${system.shortName} character file on this screen.`,
+        );
+      }
+      await repository.create(imported);
+      onNavigate(`/characters/${encodeURIComponent(imported.id)}`);
+    } catch (cause) {
+      setError(
+        cause instanceof Error
+          ? cause.message
+          : 'The character file could not be imported.',
+      );
+      setCreating(false);
+    } finally {
+      if (importInputRef.current) importInputRef.current.value = '';
     }
   };
 
@@ -250,6 +288,63 @@ export function CreateCharacterPage({
             </article>
           ))}
         </div>
+      </main>
+    );
+  }
+
+  if (system.creationActions?.length) {
+    return (
+      <main className="app-shell neutral-shell creation-shell">
+        <button className="text-button" onClick={() => onNavigate('/create')}>
+          ← Choose another game
+        </button>
+        <p className="eyebrow">Create character · Step 2 of 2</p>
+        <h1>Choose how to use {system.shortName}</h1>
+        <p>Build a new adventurer, open a manual play sheet, or import one.</p>
+        {error ? (
+          <p className="notice notice--error" role="alert">
+            {error}
+          </p>
+        ) : null}
+        <div className="game-system-grid">
+          {system.creationActions.map((action) => (
+            <article className="game-system-card" key={action.id}>
+              <p className="eyebrow">New local character</p>
+              <h2>{action.name}</h2>
+              <p>{action.description}</p>
+              <button
+                className="primary-button"
+                disabled={creating}
+                onClick={() => void create(undefined, action.id)}
+              >
+                {creatingVariantId === 'default'
+                  ? 'Opening sheet…'
+                  : action.name}
+              </button>
+            </article>
+          ))}
+          <article className="game-system-card">
+            <p className="eyebrow">Existing local file</p>
+            <h2>Import Character</h2>
+            <p>
+              Open an Arcane Record JSON or YAML Torchbearer character file.
+            </p>
+            <label className="secondary-button file-picker-inline">
+              Choose Torchbearer file
+              <input
+                ref={importInputRef}
+                type="file"
+                disabled={creating}
+                accept=".json,.yaml,.yml,application/json,application/yaml,text/yaml"
+                onChange={(event) => {
+                  const file = event.target.files?.[0];
+                  if (file) void importForSystem(file);
+                }}
+              />
+            </label>
+          </article>
+        </div>
+        <p className="local-promise">Saved in this browser</p>
       </main>
     );
   }
