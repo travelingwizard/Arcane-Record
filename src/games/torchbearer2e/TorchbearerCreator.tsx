@@ -318,10 +318,13 @@ export function TorchbearerCreator({
               updateCreation({
                 classId:
                   classId as Torchbearer2eCharacter['creation']['classId'],
+                classOption: { type: 'none', skillId: null },
                 natureAnswerIds: [],
                 armorDefinitionId: selectedClass.startingArmorId,
-                takeHelmet: false,
+                weaponDefinitionId: selectedClass.requiredWeaponId ?? null,
+                takeHelmet: selectedClass.requiredHelmet ?? false,
                 takeShield: false,
+                resources: selectedClass.startingResources ?? 0,
                 magic: {
                   method: 'none',
                   selectedResultId: null,
@@ -331,13 +334,82 @@ export function TorchbearerCreator({
               });
             }}
           />
-          {sourceNote(26)}
+          {classDefinition?.classId === 'dreamwalker' ? (
+            <fieldset>
+              <legend>Dreamwalker level-one choice</legend>
+              <label>
+                <input
+                  type="radio"
+                  name="dreamwalker-level-one"
+                  checked={creation.classOption.type === 'dreamwalker-skill'}
+                  onChange={() =>
+                    updateCreation({
+                      classOption: {
+                        type: 'dreamwalker-skill',
+                        skillId:
+                          creation.classOption.skillId ??
+                          Object.keys(classDefinition.skillRatings)[0]!,
+                      },
+                    })
+                  }
+                />
+                Increase a starting Skill by one (maximum 5)
+              </label>
+              {creation.classOption.type === 'dreamwalker-skill' ? (
+                <label>
+                  <span>Starting Skill</span>
+                  <select
+                    value={creation.classOption.skillId ?? ''}
+                    onChange={(event) =>
+                      updateCreation({
+                        classOption: {
+                          type: 'dreamwalker-skill',
+                          skillId: event.target.value,
+                        },
+                      })
+                    }
+                  >
+                    {Object.keys(classDefinition.skillRatings).map((id) => (
+                      <option key={id} value={id}>
+                        {optionName(id)}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              ) : null}
+              <label>
+                <input
+                  type="radio"
+                  name="dreamwalker-level-one"
+                  checked={creation.classOption.type === 'dreamwalker-wise'}
+                  onChange={() =>
+                    updateCreation({
+                      classOption: {
+                        type: 'dreamwalker-wise',
+                        skillId: null,
+                      },
+                    })
+                  }
+                />
+                Take a third Wise
+              </label>
+            </fieldset>
+          ) : null}
+          {classDefinition?.sourceId ===
+          'tb2.scavengers-supplement.first-printing' ? (
+            <small className="tb2-source-note">
+              Scavenger’s Supplement, p. {classDefinition.page}
+            </small>
+          ) : (
+            sourceNote(26)
+          )}
         </>
       );
       break;
     case 1:
       content =
-        classDefinition?.stockId === 'human' ? (
+        classDefinition?.stockId === 'human' &&
+        classDefinition.fixedWill === null ? (
           <>
             <h3>Human upbringing and abilities</h3>
             <p>
@@ -400,7 +472,11 @@ export function TorchbearerCreator({
       const unavailableHomes = torchbearerHomes.filter(
         (entry) =>
           Boolean(preview.stockId) &&
-          !entry.allowedStocks.includes(preview.stockId!),
+          (!entry.allowedStocks.includes(preview.stockId!) ||
+            Boolean(
+              classDefinition?.allowedHomeIds &&
+              !classDefinition.allowedHomeIds.includes(entry.id),
+            )),
       );
       const visibleHomes = torchbearerHomes.filter(
         (entry) =>
@@ -419,7 +495,10 @@ export function TorchbearerCreator({
               name: entry.name,
               description: entry.creationHint,
               unavailableReason: unavailableHomes.includes(entry)
-                ? `restricted to ${entry.allowedStocks.join(', ')} characters`
+                ? classDefinition?.allowedHomeIds &&
+                  !classDefinition.allowedHomeIds.includes(entry.id)
+                  ? `not a starting home for ${classDefinition.name}`
+                  : `restricted to ${entry.allowedStocks.join(', ')} characters`
                 : undefined,
             }))}
             allowUnavailable={gmApprovedSteps.has(step)}
@@ -434,7 +513,11 @@ export function TorchbearerCreator({
               };
               if (
                 preview.stockId &&
-                !selected.allowedStocks.includes(preview.stockId)
+                (!selected.allowedStocks.includes(preview.stockId) ||
+                  Boolean(
+                    classDefinition?.allowedHomeIds &&
+                    !classDefinition.allowedHomeIds.includes(selected.id),
+                  ))
               ) {
                 applyUnavailableOverride('home-stock', values);
               } else applyAvailableChoice('home-stock', values);

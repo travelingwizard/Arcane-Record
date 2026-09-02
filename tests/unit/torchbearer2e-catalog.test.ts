@@ -27,14 +27,17 @@ describe('Torchbearer 2e core catalogs', () => {
     expect(
       torchbearerCoreCatalog.every(
         ({ sourceId, source, page }) =>
-          sourceId === 'tb2.core.dungeoneers-handbook' &&
+          [
+            'tb2.core.dungeoneers-handbook',
+            'tb2.scavengers-supplement.first-printing',
+          ].includes(sourceId) &&
           source.length > 0 &&
           page > 0,
       ),
     ).toBe(true);
   });
 
-  it('includes all six classes and the core character-facing catalogs', () => {
+  it('includes all core and Scavenger’s Supplement classes and character-facing catalogs', () => {
     expect(torchbearerClasses.map(({ classId }) => classId)).toEqual([
       'burglar',
       'magician',
@@ -42,17 +45,23 @@ describe('Torchbearer 2e core catalogs', () => {
       'ranger',
       'theurge',
       'warrior',
+      'bounder',
+      'dreamwalker',
+      'guide',
+      'noble-scion',
+      'sorcerer',
+      'stoneteller',
     ]);
-    expect(torchbearerSkills).toHaveLength(33);
+    expect(torchbearerSkills).toHaveLength(38);
     expect(torchbearerWises).toHaveLength(22);
-    expect(torchbearerTraits).toHaveLength(37);
+    expect(torchbearerTraits).toHaveLength(45);
     expect(torchbearerGear.length).toBeGreaterThanOrEqual(40);
-    expect(torchbearerWeapons).toHaveLength(16);
+    expect(torchbearerWeapons).toHaveLength(18);
     expect(torchbearerOtherWeapons.length).toBeGreaterThanOrEqual(20);
     expect(torchbearerSpells).toHaveLength(42);
     expect(torchbearerInvocations).toHaveLength(51);
     expect(torchbearerRelics.length).toBeGreaterThanOrEqual(20);
-    expect(torchbearerLevelBenefits).toHaveLength(114);
+    expect(torchbearerLevelBenefits.length).toBeGreaterThanOrEqual(228);
   });
 
   it('keeps catalog cross-references resolvable', () => {

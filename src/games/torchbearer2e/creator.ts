@@ -103,16 +103,43 @@ export function calculateTorchbearerCreation(
   const wiseNames = [...creation.wiseNames.filter((name) => name.trim())];
 
   if (!classDefinition) {
-    issues.push(
-      issue('class-required', 0, 'Choose one of the six core classes.', 26),
-    );
+    issues.push(issue('class-required', 0, 'Choose a Torchbearer class.', 26));
   } else {
     traitLevels[classDefinition.traitId] = 1;
+    if (classDefinition.classId === 'dreamwalker') {
+      if (creation.classOption.type === 'dreamwalker-skill') {
+        const skillId = creation.classOption.skillId;
+        if (!skillId || !(skillId in classDefinition.skillRatings)) {
+          issues.push(
+            issue(
+              'dreamwalker-starting-skill',
+              0,
+              'Choose one Dreamwalker starting Skill to increase by one.',
+              12,
+            ),
+          );
+        } else {
+          skillRatings[skillId] = Math.min(5, (skillRatings[skillId] ?? 0) + 1);
+        }
+      } else if (creation.classOption.type !== 'dreamwalker-wise') {
+        issues.push(
+          issue(
+            'dreamwalker-level-one-choice',
+            0,
+            'Choose a starting Skill increase or a third Wise.',
+            12,
+          ),
+        );
+      }
+    }
   }
 
   const will = classDefinition?.fixedWill ?? creation.will;
   const health = classDefinition?.fixedHealth ?? creation.health;
-  if (classDefinition?.stockId === 'human') {
+  if (
+    classDefinition?.stockId === 'human' &&
+    classDefinition.fixedWill === null
+  ) {
     if (
       will + health !== 8 ||
       will < 2 ||
@@ -150,7 +177,12 @@ export function calculateTorchbearerCreation(
   const home = torchbearerHomes.find((entry) => entry.id === creation.homeId);
   if (!home) {
     issues.push(issue('home-required', 2, 'Choose a home settlement.', 30));
-  } else if (stockId && !home.allowedStocks.includes(stockId)) {
+  } else if (
+    stockId &&
+    (!home.allowedStocks.includes(stockId) ||
+      (classDefinition?.allowedHomeIds &&
+        !classDefinition.allowedHomeIds.includes(home.id)))
+  ) {
     issues.push(
       issue(
         'home-stock',
@@ -239,7 +271,12 @@ export function calculateTorchbearerCreation(
     elf: ['Elven Lore-wise', 'Folly of Humanity-wise', 'Folly of Dwarves-wise'],
     halfling: ['Home-wise', 'Needs a Little Salt-wise'],
   };
-  const requiredWiseCount = stockId === 'human' ? 1 : stockId ? 2 : 1;
+  const requiredWiseCount =
+    (classDefinition?.classId === 'dreamwalker' &&
+    creation.classOption.type === 'dreamwalker-wise'
+      ? 3
+      : classDefinition?.wiseCount) ??
+    (stockId === 'human' ? 1 : stockId ? 2 : 1);
   if (wiseNames.length < requiredWiseCount) {
     issues.push(
       issue(
@@ -250,7 +287,9 @@ export function calculateTorchbearerCreation(
       ),
     );
   }
-  const requiredStockWises = stockId ? stockWiseOptions[stockId] : undefined;
+  const requiredStockWises =
+    classDefinition?.wiseSuggestions ??
+    (stockId ? stockWiseOptions[stockId] : undefined);
   if (
     requiredStockWises &&
     !wiseNames.some((name) => requiredStockWises.includes(name))
@@ -404,6 +443,19 @@ export function calculateTorchbearerCreation(
         ),
       );
     }
+    if (
+      classDefinition?.requiredParents &&
+      !creation.relationshipChoices.parents
+    ) {
+      issues.push(
+        issue(
+          'class-parents',
+          7,
+          `${classDefinition.name} characters must begin with parents.`,
+          classDefinition.page,
+        ),
+      );
+    }
   }
   for (const key of ['friend', 'parents', 'mentor', 'enemy'] as const) {
     if (
@@ -425,13 +477,18 @@ export function calculateTorchbearerCreation(
     ? 1
     : Math.min(4, 1 + relationshipCount);
 
-  const resources = natureResources;
-  if (creation.resources !== 0) {
+  const resources = Math.max(
+    natureResources,
+    classDefinition?.startingResources ?? 0,
+  );
+  if (creation.resources !== (classDefinition?.startingResources ?? 0)) {
     issues.push(
       issue(
         'resources-fixed',
         8,
-        'First-level characters start with Resources 0 unless a Nature answer sets it to 1.',
+        classDefinition?.startingResources
+          ? `${classDefinition.name} begins with Resources ${classDefinition.startingResources}.`
+          : 'First-level characters start with Resources 0 unless a Nature answer sets it to 1.',
         38,
       ),
     );
@@ -504,6 +561,19 @@ export function calculateTorchbearerCreation(
       ),
     );
   }
+  if (
+    classDefinition?.requiredWeaponId &&
+    creation.weaponDefinitionId !== classDefinition.requiredWeaponId
+  ) {
+    issues.push(
+      issue(
+        'required-starting-weapon',
+        10,
+        `${classDefinition.name} begins with ${torchbearerReferenceById.get(classDefinition.requiredWeaponId)?.name ?? 'its listed weapon'}.`,
+        classDefinition.page,
+      ),
+    );
+  }
   if (creation.takeShield && !classDefinition?.mayTakeShield) {
     issues.push(
       issue(
@@ -524,6 +594,16 @@ export function calculateTorchbearerCreation(
       ),
     );
   }
+  if (classDefinition?.requiredHelmet && !creation.takeHelmet) {
+    issues.push(
+      issue(
+        'required-starting-helmet',
+        10,
+        `${classDefinition.name} begins with a helmet.`,
+        classDefinition.page,
+      ),
+    );
+  }
   if (creation.takeHelmet && creation.takeShield) {
     issues.push(
       issue(
@@ -541,7 +621,7 @@ export function calculateTorchbearerCreation(
         'starting-armor',
         10,
         expectedArmorId
-          ? 'This class begins in leather armor.'
+          ? `This class begins with ${torchbearerReferenceById.get(expectedArmorId)?.name ?? 'its listed armor'}.`
           : 'This class does not begin with armor.',
         40,
       ),
@@ -726,6 +806,18 @@ function creationSource(page: number) {
   };
 }
 
+function definitionSource(definition: {
+  sourceId: string;
+  source: string;
+  page: number;
+}) {
+  return {
+    sourceId: definition.sourceId,
+    source: definition.source,
+    page: definition.page,
+  };
+}
+
 const creationOrigin = (choiceId: string) => ({
   type: 'creation' as const,
   choiceId,
@@ -784,7 +876,7 @@ function buildFinalizedCharacter(
       passed: prior?.passed ?? 0,
       failed: prior?.failed ?? 0,
       notes: prior?.notes ?? '',
-      source: creationSource(definition.page),
+      source: definitionSource(definition),
       origin: creationOrigin(definitionId),
     };
   });
@@ -814,7 +906,7 @@ function buildFinalizedCharacter(
         beneficialUses: prior?.beneficialUses ?? 0,
         checks: prior?.checks ?? 0,
         notes: prior?.notes ?? '',
-        source: creationSource(definition.page),
+        source: definitionSource(definition),
         origin: creationOrigin(definitionId),
       };
     },
@@ -861,6 +953,7 @@ function buildFinalizedCharacter(
       classDefinition.classId === 'magician'
         ? 'tb2.core.gear.spell-book'
         : null,
+      ...(classDefinition.startingGearIds ?? []),
     ].filter((id): id is string => Boolean(id)),
   );
   const manualInventory = character.inventory.filter(
@@ -900,7 +993,7 @@ function buildFinalizedCharacter(
       damaged: prior?.damaged ?? false,
       weariness: prior?.weariness ?? false,
       notes: prior?.notes ?? '',
-      source: creationSource(definition.page),
+      source: definitionSource(definition),
       origin: creationOrigin(definitionId),
     };
   });
@@ -1013,6 +1106,9 @@ function buildFinalizedCharacter(
         rating: preview.resources,
       },
       circles: { ...character.abilities.circles, rating: preview.circles },
+      precedence:
+        classDefinition.startingPrecedence ?? character.abilities.precedence,
+      might: classDefinition.startingMight ?? character.abilities.might,
     },
     skills: [...manualSkills, ...skills],
     traits: [...manualTraits, ...traits],

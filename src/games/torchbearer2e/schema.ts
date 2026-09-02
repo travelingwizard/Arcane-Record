@@ -59,8 +59,25 @@ export const torchbearerCreationSchema = z.object({
   enforceRules: z.boolean(),
   overrides: z.array(torchbearerCreationOverrideSchema),
   classId: z
-    .enum(['burglar', 'magician', 'outcast', 'ranger', 'theurge', 'warrior'])
+    .enum([
+      'burglar',
+      'magician',
+      'outcast',
+      'ranger',
+      'theurge',
+      'warrior',
+      'bounder',
+      'dreamwalker',
+      'guide',
+      'noble-scion',
+      'sorcerer',
+      'stoneteller',
+    ])
     .nullable(),
+  classOption: z.object({
+    type: z.enum(['none', 'dreamwalker-skill', 'dreamwalker-wise']),
+    skillId: nullableDefinitionId,
+  }),
   will: z.number().int().min(0).max(6),
   health: z.number().int().min(0).max(6),
   upbringingSkillId: nullableDefinitionId,
@@ -107,6 +124,7 @@ export const emptyTorchbearerCreationState = (
   enforceRules: true,
   overrides: [],
   classId: null,
+  classOption: { type: 'none', skillId: null },
   will: 0,
   health: 0,
   upbringingSkillId: null,
@@ -348,12 +366,27 @@ export function migrateTorchbearer2eCharacter(
   data: unknown,
   fromVersion: number,
 ) {
-  if (fromVersion >= 3) return torchbearer2eCharacterSchema.parse(data);
+  if (fromVersion >= 4) return torchbearer2eCharacterSchema.parse(data);
+
+  if (fromVersion === 3) {
+    const versionThree = data as LegacyTorchbearerCharacter;
+    return torchbearer2eCharacterSchema.parse({
+      ...versionThree,
+      creation: {
+        ...(versionThree.creation as LegacyRecord),
+        classOption: { type: 'none', skillId: null },
+      },
+    });
+  }
 
   if (fromVersion === 2) {
     const versionTwo = data as LegacyTorchbearerCharacter;
     return torchbearer2eCharacterSchema.parse({
       ...versionTwo,
+      creation: {
+        ...(versionTwo.creation as LegacyRecord),
+        classOption: { type: 'none', skillId: null },
+      },
       sheetLayout: {
         ...(versionTwo.sheetLayout as LegacyRecord),
         mode: 'edit',

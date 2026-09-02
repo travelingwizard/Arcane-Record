@@ -1,5 +1,9 @@
 export const TORCHBEARER_CORE_SOURCE_ID = 'tb2.core.dungeoneers-handbook';
 export const TORCHBEARER_CORE_SOURCE = 'Torchbearer 2e: Dungeoneer’s Handbook';
+export const TORCHBEARER_SCAVENGERS_SOURCE_ID =
+  'tb2.scavengers-supplement.first-printing';
+export const TORCHBEARER_SCAVENGERS_SOURCE =
+  'Torchbearer 2e: Scavenger’s Supplement';
 
 export type TorchbearerCatalogKind =
   | 'class'
@@ -60,8 +64,42 @@ const reference = (
   page,
 });
 
+const supplementReference = (
+  kind: TorchbearerCatalogKind,
+  name: string,
+  category: string,
+  page: number,
+  mechanics: string,
+  requirements: string[] = [],
+  creationHint = mechanics,
+): TorchbearerReferenceDefinition => ({
+  id: `tb2.scavengers.${kind}.${slug(name)}`,
+  kind,
+  name,
+  category,
+  summary: `${name} is a Scavenger’s Supplement ${kind.replace('-', ' ')} entry.`,
+  creationHint,
+  mechanics,
+  requirements,
+  aliases: [],
+  sourceId: TORCHBEARER_SCAVENGERS_SOURCE_ID,
+  source: TORCHBEARER_SCAVENGERS_SOURCE,
+  page,
+});
+
 export type TorchbearerClassId =
-  'burglar' | 'magician' | 'outcast' | 'ranger' | 'theurge' | 'warrior';
+  | 'burglar'
+  | 'magician'
+  | 'outcast'
+  | 'ranger'
+  | 'theurge'
+  | 'warrior'
+  | 'bounder'
+  | 'dreamwalker'
+  | 'guide'
+  | 'noble-scion'
+  | 'sorcerer'
+  | 'stoneteller';
 export type TorchbearerStockId = 'halfling' | 'human' | 'dwarf' | 'elf';
 
 export interface TorchbearerClassDefinition extends TorchbearerReferenceDefinition {
@@ -79,6 +117,16 @@ export interface TorchbearerClassDefinition extends TorchbearerReferenceDefiniti
   requiresMentor: boolean;
   startingMemoryPalace: number;
   startingUrdr: number;
+  allowedHomeIds?: string[];
+  startingResources?: number;
+  startingMight?: number;
+  startingPrecedence?: number;
+  startingGearIds?: string[];
+  requiredParents?: boolean;
+  requiredWeaponId?: string;
+  requiredHelmet?: boolean;
+  wiseSuggestions?: string[];
+  wiseCount?: number;
 }
 
 const skillId = (name: string) => `tb2.core.skill.${slug(name)}`;
@@ -119,20 +167,23 @@ const classDefinition = (
       : 27,
     'Select this class to apply its stock, starting abilities, Skills, Trait, equipment permissions, and level-one benefit.',
     [],
-    {
-      burglar:
-        'A patient, underestimated halfling who excels at stealth, scavenging, and surviving trouble with limited heavy gear.',
-      magician:
-        'A human scholar who stores dangerous arcane spells in a Memory Palace; starts highly skilled in magic but cannot wear armor.',
-      outcast:
-        'A tough dwarf separated from the ancestral halls, built for fighting and dungeon craft with broad armor access.',
-      ranger:
-        'A wakeful elf who ranges through the wild, combining keen scouting and pathfinding with a narrow, practical weapon selection.',
-      theurge:
-        'A human conduit for divine power who channels invocations through relics and Urðr; starts without armor but may carry a shield.',
-      warrior:
-        'A human martial specialist comfortable with every weapon and armor, suited to direct conflict and leading companions.',
-    }[value.classId],
+    (
+      {
+        burglar:
+          'A patient, underestimated halfling who excels at stealth, scavenging, and surviving trouble with limited heavy gear.',
+        magician:
+          'A human scholar who stores dangerous arcane spells in a Memory Palace; starts highly skilled in magic but cannot wear armor.',
+        outcast:
+          'A tough dwarf separated from the ancestral halls, built for fighting and dungeon craft with broad armor access.',
+        ranger:
+          'A wakeful elf who ranges through the wild, combining keen scouting and pathfinding with a narrow, practical weapon selection.',
+        theurge:
+          'A human conduit for divine power who channels invocations through relics and Urðr; starts without armor but may carry a shield.',
+        warrior:
+          'A human martial specialist comfortable with every weapon and armor, suited to direct conflict and leading companions.',
+      } as Partial<Record<TorchbearerClassId, string>>
+    )[value.classId] ??
+      'A Torchbearer adventuring class with its own starting abilities and equipment permissions.',
   ),
   ...value,
 });
@@ -286,6 +337,250 @@ export const torchbearerClasses: TorchbearerClassDefinition[] = [
   }),
 ];
 
+const scavengersSkillId = (name: string) =>
+  `tb2.scavengers.skill.${slug(name)}`;
+const scavengersTraitId = (name: string) =>
+  `tb2.scavengers.trait.${slug(name)}`;
+const scavengersWeaponId = (name: string) =>
+  `tb2.scavengers.weapon.${slug(name)}`;
+
+const supplementClassDefinition = (
+  name: string,
+  page: number,
+  hint: string,
+  value: Omit<TorchbearerClassDefinition, keyof TorchbearerReferenceDefinition>,
+): TorchbearerClassDefinition => ({
+  ...supplementReference(
+    'class',
+    name,
+    value.stockId,
+    page,
+    'Applies the class’s stock, fixed abilities, starting Skills, Trait, equipment permissions, settlement restrictions, and first-level rules.',
+    [],
+    hint,
+  ),
+  ...value,
+});
+
+torchbearerClasses.push(
+  supplementClassDefinition(
+    'Bounder',
+    5,
+    'A Halfling border warden and sturdy community defender, trained to scout, hunt, map, and fight with light armor.',
+    {
+      classId: 'bounder',
+      stockId: 'halfling',
+      fixedWill: 4,
+      fixedHealth: 4,
+      skillRatings: {
+        [skillId('Fighter')]: 3,
+        [skillId('Hunter')]: 3,
+        [skillId('Scout')]: 3,
+        [skillId('Cartographer')]: 2,
+        [skillId('Pathfinder')]: 2,
+        [skillId('Steward')]: 2,
+      },
+      traitId: traitId('Hidden Depths'),
+      allowedWeaponIds: allStartingWeapons.filter(
+        (id) =>
+          !['crossbow', 'great-sword', 'halberd', 'polearm'].some((name) =>
+            id.endsWith(name),
+          ),
+      ),
+      forbiddenWeaponIds: ['Crossbow', 'Great Sword', 'Halberd', 'Polearm'].map(
+        weaponId,
+      ),
+      startingArmorId: gearId('Leather Armor'),
+      mayTakeShield: true,
+      mayTakeHelmet: true,
+      requiresMentor: false,
+      startingMemoryPalace: 0,
+      startingUrdr: 0,
+      allowedHomeIds: ['tb2.scavengers.home.the-shire'],
+      wiseSuggestions: ['Shire-wise', 'Disputes-wise'],
+      wiseCount: 2,
+    },
+  ),
+  supplementClassDefinition(
+    'Dreamwalker',
+    12,
+    'An Elf driven from long dreams by ominous visions, combining scholarship, healing, and dream-touched arcana with no armor.',
+    {
+      classId: 'dreamwalker',
+      stockId: 'elf',
+      fixedWill: 5,
+      fixedHealth: 3,
+      skillRatings: {
+        [skillId('Arcanist')]: 3,
+        [skillId('Healer')]: 3,
+        [scavengersSkillId('Jeweler')]: 3,
+        [skillId('Lore Master')]: 3,
+        [skillId('Scholar')]: 3,
+      },
+      traitId: scavengersTraitId('Dream-Haunted'),
+      allowedWeaponIds: [scavengersWeaponId('Half-Moon Glaive')],
+      forbiddenWeaponIds: [],
+      startingArmorId: null,
+      mayTakeShield: false,
+      mayTakeHelmet: false,
+      requiresMentor: false,
+      startingMemoryPalace: 0,
+      startingUrdr: 0,
+      allowedHomeIds: [
+        'tb2.core.home.elfhome',
+        'tb2.scavengers.home.forgotten-temple-complex',
+        'tb2.core.home.wizards-tower',
+      ],
+      wiseSuggestions: ['Elven Lore-wise', 'Dreams-wise'],
+      wiseCount: 2,
+      requiredWeaponId: scavengersWeaponId('Half-Moon Glaive'),
+    },
+  ),
+  supplementClassDefinition(
+    'Guide',
+    21,
+    'A pragmatic Halfling river guide who scouts, navigates, scavenges, and keeps companions alive in marshes and waterways.',
+    {
+      classId: 'guide',
+      stockId: 'halfling',
+      fixedWill: 4,
+      fixedHealth: 4,
+      skillRatings: {
+        [skillId('Pathfinder')]: 3,
+        [skillId('Cook')]: 2,
+        [skillId('Hunter')]: 2,
+        [skillId('Peasant')]: 2,
+        [skillId('Sailor')]: 2,
+        [skillId('Scavenger')]: 2,
+        [skillId('Survivalist')]: 2,
+      },
+      traitId: traitId('Hidden Depths'),
+      allowedWeaponIds: ['Dagger', 'Spear', 'Bow'].map(weaponId),
+      forbiddenWeaponIds: [],
+      startingArmorId: gearId('Leather Armor'),
+      mayTakeShield: false,
+      mayTakeHelmet: false,
+      requiresMentor: false,
+      startingMemoryPalace: 0,
+      startingUrdr: 0,
+      wiseSuggestions: ['Marsh-wise', 'Precious Gifts-wise'],
+      wiseCount: 2,
+    },
+  ),
+  supplementClassDefinition(
+    'Noble Scion',
+    28,
+    'An advanced Human heir who begins wealthy and influential but physically less formidable, with a narrow martial education.',
+    {
+      classId: 'noble-scion',
+      stockId: 'human',
+      fixedWill: 3,
+      fixedHealth: 3,
+      skillRatings: {
+        [skillId('Rider')]: 4,
+        [skillId('Scholar')]: 2,
+        [skillId('Orator')]: 2,
+        [skillId('Steward')]: 2,
+      },
+      traitId: scavengersTraitId('Superior'),
+      allowedWeaponIds: ['Battle Axe', 'Crossbow', 'Mace', 'Sword'].map(
+        weaponId,
+      ),
+      forbiddenWeaponIds: [],
+      startingArmorId: gearId('Plate Armor'),
+      mayTakeShield: true,
+      mayTakeHelmet: true,
+      requiresMentor: false,
+      startingMemoryPalace: 0,
+      startingUrdr: 0,
+      startingResources: 4,
+      startingMight: 2,
+      startingPrecedence: 3,
+      startingGearIds: [gearId('Finery'), gearId('Shoes')],
+      requiredParents: true,
+      requiredWeaponId: weaponId('Sword'),
+      requiredHelmet: true,
+      allowedHomeIds: [
+        'tb2.scavengers.home.borderland-fortress',
+        'tb2.core.home.bustling-metropolis',
+        'tb2.core.home.religious-bastion',
+        'tb2.scavengers.home.walled-town',
+      ],
+      wiseCount: 1,
+    },
+  ),
+  supplementClassDefinition(
+    'Sorcerer',
+    39,
+    'A Human occultist who senses, bargains with, and binds spirits through the Summoner skill, sacrificing armor for supernatural reach.',
+    {
+      classId: 'sorcerer',
+      stockId: 'human',
+      fixedWill: null,
+      fixedHealth: null,
+      skillRatings: {
+        [scavengersSkillId('Summoner')]: 4,
+        [skillId('Haggler')]: 3,
+        [skillId('Lore Master')]: 2,
+        [skillId('Scholar')]: 2,
+        [skillId('Theologian')]: 2,
+      },
+      traitId: scavengersTraitId('Colossal Pride'),
+      allowedWeaponIds: ['Dagger', 'Staff'].map(weaponId),
+      forbiddenWeaponIds: [],
+      startingArmorId: null,
+      mayTakeShield: false,
+      mayTakeHelmet: false,
+      requiresMentor: false,
+      startingMemoryPalace: 0,
+      startingUrdr: 0,
+      wiseCount: 1,
+    },
+  ),
+  supplementClassDefinition(
+    'Stoneteller',
+    47,
+    'A Dwarf ritual speaker who combines dungeon craft and heavy blows with uncanny communion with stone and old powers.',
+    {
+      classId: 'stoneteller',
+      stockId: 'dwarf',
+      fixedWill: 4,
+      fixedHealth: 4,
+      skillRatings: {
+        [skillId('Dungeoneer')]: 3,
+        [skillId('Fighter')]: 3,
+        [skillId('Ritualist')]: 3,
+        [skillId('Orator')]: 2,
+        [scavengersSkillId('Smith')]: 2,
+        [skillId('Stonemason')]: 2,
+      },
+      traitId: traitId('Born of Earth and Stone'),
+      allowedWeaponIds: [
+        weaponId('Staff'),
+        weaponId('Sling'),
+        weaponId('Mace'),
+        weaponId('Flail'),
+        weaponId('Warhammer'),
+        scavengersWeaponId('Maul'),
+      ],
+      forbiddenWeaponIds: [],
+      startingArmorId: null,
+      mayTakeShield: false,
+      mayTakeHelmet: false,
+      requiresMentor: false,
+      startingMemoryPalace: 0,
+      startingUrdr: 0,
+      allowedHomeIds: [
+        'tb2.core.home.dwarven-halls',
+        'tb2.scavengers.home.forgotten-temple-complex',
+        'tb2.core.home.religious-bastion',
+      ],
+      wiseSuggestions: ['Dwarven Chronicles-wise', 'Stone-wise'],
+      wiseCount: 2,
+    },
+  ),
+);
+
 export const humanUpbringingSkillIds = [
   'Criminal',
   'Laborer',
@@ -398,6 +693,80 @@ export const torchbearerHomes = [
     ['Foolhardy', 'Quick-Witted'],
   ),
 ];
+
+const supplementHome = (
+  name: string,
+  page: number,
+  skills: string[],
+  traits: string[],
+  allowedStocks: TorchbearerStockId[],
+  hint: string,
+): TorchbearerHomeDefinition => ({
+  ...supplementReference(
+    'home',
+    name,
+    'settlement',
+    page,
+    'Choose one listed home Skill and one listed home Trait using the normal creation rules.',
+    [],
+    hint,
+  ),
+  skillIds: skills.map((name) =>
+    ['Beggar', 'Fisher', 'Jeweler', 'Smith', 'Summoner'].includes(name)
+      ? scavengersSkillId(name)
+      : skillId(name),
+  ),
+  traitIds: traits.map((name) =>
+    [
+      'Colossal Pride',
+      'Conservative',
+      'Dream-Haunted',
+      'Emaciated',
+      'Jovial',
+      'Soggy',
+      'Stout',
+      'Superior',
+    ].includes(name)
+      ? scavengersTraitId(name)
+      : traitId(name),
+  ),
+  allowedStocks,
+});
+
+torchbearerHomes.push(
+  supplementHome(
+    'The Shire',
+    5,
+    ['Cook'],
+    ['Jovial'],
+    ['halfling'],
+    'The Bounder’s close-knit Halfling homeland, shaped by meals, neighbors, local duty, and communal good cheer.',
+  ),
+  supplementHome(
+    'Forgotten Temple Complex',
+    12,
+    ['Beggar', 'Theologian'],
+    ['Emaciated', 'Foolhardy'],
+    ['elf', 'human', 'dwarf'],
+    'An isolated ruin of old worship and stranger lore, suitable for Dreamwalkers, Sorcerers, and Stonetellers.',
+  ),
+  supplementHome(
+    'Borderland Fortress',
+    28,
+    ['Commander'],
+    ['Conservative'],
+    ['human'],
+    'A defended noble holding where command, inherited obligations, and rigid tradition shape a young Scion.',
+  ),
+  supplementHome(
+    'Marshtown',
+    63,
+    ['Fisher', 'Carpenter', 'Weaver'],
+    ['Soggy', 'Stout'],
+    ['halfling', 'human'],
+    'A damp settlement of stilt houses and riverfolk; plentiful food and close community reward those who endure mud and suspicion.',
+  ),
+);
 
 const skillRows = [
   ['Alchemist', 'will', 160],
@@ -513,6 +882,53 @@ export const torchbearerSkills = skillRows.map(([name, root, page]) => ({
   ),
   beginnersLuckRoot: root,
 }));
+
+torchbearerSkills.push(
+  {
+    ...supplementReference(
+      'skill',
+      'Summoner',
+      'will',
+      54,
+      'Uses Will for Beginner’s Luck. Lore Master, Scholar, and Theologian may help. It creates spiritual circles and inscriptions and supports pacts or binding.',
+      [],
+      'Draw circles, inscribe talismans, and negotiate with or bind spirits. The Sorcerer begins at rating 4.',
+    ),
+    beginnersLuckRoot: 'will',
+  },
+  ...[
+    [
+      'Beggar',
+      'will',
+      18,
+      'Survive through appeals, street knowledge, and reading what others will spare.',
+    ],
+    [
+      'Fisher',
+      'health',
+      63,
+      'Catch, handle, and preserve food from rivers and other waterways.',
+    ],
+    [
+      'Jeweler',
+      'will',
+      12,
+      'Work with gems, precious metal, and fine ornament.',
+    ],
+    ['Smith', 'health', 47, 'Forge, shape, and assess practical metalwork.'],
+  ].map(([name, root, page, hint]) => ({
+    ...supplementReference(
+      'skill',
+      name as string,
+      root as string,
+      page as number,
+      `Untrained tests use Beginner’s Luck rooted in ${root === 'will' ? 'Will' : 'Health'}.`,
+      [],
+      hint as string,
+    ),
+    beginnersLuckRoot: root as 'will' | 'health',
+  })),
+);
 
 const wiseRows = [
   ['Dwarven Chronicles-wise', 'dwarf stock'],
@@ -673,6 +1089,61 @@ export const torchbearerTraits = traitRows.map(([name, page]) =>
     'Use this quality to help appropriate tests or invoke it against the character to earn checks, following its level and the core Trait rules.',
     [],
     `${traitCreationHints[name]} A creation choice grants it at level 1, or raises an existing copy by one.`,
+  ),
+);
+
+torchbearerTraits.push(
+  ...[
+    [
+      'Colossal Pride',
+      61,
+      'Unshakable confidence helps a Sorcerer impose their will, but makes humility and retreat difficult.',
+    ],
+    [
+      'Dream-Haunted',
+      61,
+      'Nightmares and ominous dreams grant strange insight while making sleep and waking life uneasy.',
+    ],
+    [
+      'Soggy',
+      61,
+      'Constant damp is familiar and tolerable, especially while swimming or traveling through wet country.',
+    ],
+    [
+      'Superior',
+      61,
+      'A Noble Scion’s cultivated certainty in rank and education can command respect or provoke costly arrogance.',
+    ],
+    [
+      'Conservative',
+      37,
+      'Favor inherited custom, proven hierarchy, and cautious change.',
+    ],
+    [
+      'Emaciated',
+      19,
+      'A gaunt frame reflects deprivation and restless wandering.',
+    ],
+    [
+      'Jovial',
+      10,
+      'Warm humor and good fellowship lift a group, even when levity is poorly timed.',
+    ],
+    [
+      'Stout',
+      63,
+      'A sturdy build and constitution suited to labor, weather, and physical hardship.',
+    ],
+  ].map(([name, page, hint]) =>
+    supplementReference(
+      'trait',
+      name as string,
+      'supplement trait',
+      page as number,
+      'Use this quality through the normal Trait rules at its recorded level.',
+      [],
+      hint as string,
+    ),
   ),
 );
 
@@ -880,6 +1351,41 @@ export const torchbearerWeapons = weaponRows.map(([name, cost, slots]) =>
     cost,
     slots,
   ),
+);
+
+torchbearerWeapons.push(
+  {
+    ...supplementReference(
+      'weapon',
+      'Maul',
+      'weapon',
+      62,
+      'A two-handed heavy hammer: +2s Attack, -1D to all actions, bypasses chain, and is especially destructive to plate, helmets, doors, and barricades.',
+      [],
+      'A slow, punishing two-handed hammer available to Stonetellers; powerful against armor and barriers.',
+    ),
+    cost: 3,
+    slotText: 'carried 1; wielded 2',
+    capacity: 0,
+    startingEligible: true,
+    startingQuantity: 1,
+  },
+  {
+    ...supplementReference(
+      'weapon',
+      'Half-Moon Glaive',
+      'weapon',
+      62,
+      'A distinctive elven ritual weapon that uses the halberd’s conflict profile.',
+      ['Dreamwalker'],
+      'The Dreamwalker’s required ritual weapon; mechanically it functions as a halberd.',
+    ),
+    cost: 3,
+    slotText: 'carried 1; wielded 2',
+    capacity: 0,
+    startingEligible: true,
+    startingQuantity: 1,
+  },
 );
 
 const conflictWeaponRows = [
@@ -2201,15 +2707,548 @@ const levelBenefitRows: Record<TorchbearerClassId, LevelBenefitRow[]> = {
       'Gain Precedence, heroic retinue Circles, and an honor guard.',
     ],
   ],
+  bounder: [
+    [
+      1,
+      'Bounder',
+      6,
+      'Grants the class equipment permissions and +1 to Shire town-event rolls.',
+    ],
+    [2, 'Abstemious', 6, 'Exchange hungry and thirsty for angry.'],
+    [2, 'Skirmisher', 6, 'Leather armor rolls an additional protection die.'],
+    [3, 'Bright', 6, 'Gain a free afraid recovery test in camp or town.'],
+    [3, 'Endurance', 6, 'Gain +1D to recover from injury.'],
+    [4, 'Plucky', 6, 'Use Hidden Depths beneficially while angry.'],
+    [
+      4,
+      'Oft-Overlooked',
+      6,
+      'Halfling obscurity changes who is noticed or targeted first.',
+    ],
+    [5, 'Soft Step', 6, 'Concealment in undergrowth penalizes detection.'],
+    [5, 'Helpful', 6, 'Help actions serving your Goal grant +2D.'],
+    [
+      6,
+      'Shrug It Off',
+      7,
+      'Remove injured once per adventure before receiving treatment.',
+    ],
+    [
+      6,
+      'Friend of the Powerful',
+      7,
+      'Certain neutral or allied potentates can become friends without a test.',
+    ],
+    [
+      7,
+      'It Could Be Worse',
+      7,
+      'Once per session, test as though free of conditions other than dead.',
+    ],
+    [
+      7,
+      'Resilient',
+      7,
+      'Raise one of the Health, Nature, or Will rating caps.',
+    ],
+    [
+      8,
+      'Audacious',
+      7,
+      'Use level for dispositions involving bravado or powerful company.',
+    ],
+    [
+      8,
+      'Veteran',
+      7,
+      'Use level for kill, capture, and drive-off dispositions.',
+    ],
+    [9, 'Heroic Ability', 7, 'Make Fighter, Commander, or Scout heroic.'],
+    [
+      9,
+      'Transformed',
+      7,
+      'Replace a Nature descriptor with Counseling, Rallying, or Recounting.',
+    ],
+    [
+      10,
+      'Presence',
+      8,
+      'Grant +2 disposition to your side in major martial conflicts.',
+    ],
+    [
+      10,
+      'Shiriff',
+      8,
+      'Gain Precedence, heroic Halfling Circles, and a growing Bounder retinue.',
+    ],
+  ],
+  dreamwalker: [
+    [
+      1,
+      'Dreamwalker',
+      12,
+      'Increase one starting Skill by one, maximum 5, or take a third Wise.',
+    ],
+    [
+      2,
+      'Dream Palace',
+      13,
+      'Open a one-slot dream Memory Palace and learn a first-circle spell.',
+    ],
+    [
+      2,
+      'Dreaming Recall',
+      13,
+      'Use dream Nature to recall and repeat another dreamer’s prior test.',
+    ],
+    [
+      3,
+      'Born Under Silver Stars',
+      13,
+      'Gain +1D to Pathfinder, Navigator, and Sailor under moon and stars.',
+    ],
+    [3, 'Essence of the Earth', 13, 'Gain +1D to recover from exhausted.'],
+    [
+      4,
+      'Dream Palace',
+      13,
+      'Add a dream spell slot or new one-slot Palace and learn an eligible spell.',
+    ],
+    [
+      4,
+      'Master of Dreams',
+      13,
+      'Use elven Nature to sing listeners into supernatural sleep.',
+    ],
+    [
+      5,
+      'Fearless',
+      13,
+      'Ignore directly assigned afraid, though not fear gained from the grind.',
+    ],
+    [
+      5,
+      'Song of Serenity',
+      13,
+      'Give another character a free mental-condition recovery once per phase.',
+    ],
+    [
+      6,
+      'Dream Palace',
+      14,
+      'Expand dream spell capacity and learn an eligible spell.',
+    ],
+    [
+      6,
+      'Grief',
+      14,
+      'Use level for grief-related dispositions and broaden Nature for a grief-driven Belief or Goal.',
+    ],
+    [
+      7,
+      'Prescience',
+      14,
+      'Once per phase, replace an unrevealed conflict action.',
+    ],
+    [
+      7,
+      'Lucid Nightmares',
+      14,
+      'Manifest remembered terrors or implant nightmares through Nature tests.',
+    ],
+    [
+      8,
+      'Children of Arda',
+      14,
+      'Increase Might, with an additional increase when invoking Grief.',
+    ],
+    [
+      8,
+      'Transformed',
+      14,
+      'Replace a Nature descriptor with Wandering, Dreaming, or Passing Judgment.',
+    ],
+    [9, 'Heroic Ability', 15, 'Make Health, Nature, Will, or Circles heroic.'],
+    [
+      9,
+      'Thief of Dreams',
+      15,
+      'Reveal or alter another sleeper’s drives or Nature through dream intrusion.',
+    ],
+    [
+      10,
+      'Dream Vision',
+      15,
+      'Test Will for impossible sight or to project restorative visions.',
+    ],
+    [
+      10,
+      'Dream Quest',
+      15,
+      'Send a vulnerable dreaming self into the material world while the body sleeps.',
+    ],
+  ],
+  guide: [
+    [
+      1,
+      'Guide',
+      22,
+      'Grants Guide equipment permissions and +1 to riverside or marsh camp events.',
+    ],
+    [2, 'Haversack', 22, 'Satchels and backpacks hold one extra pack-1 item.'],
+    [2, 'Abstemious', 22, 'Exchange hungry and thirsty for angry.'],
+    [3, 'Endurance', 22, 'Gain +1D to recover from injury.'],
+    [3, 'Soft Step', 22, 'Concealment in undergrowth penalizes detection.'],
+    [4, 'Plucky', 22, 'Use Hidden Depths beneficially while angry.'],
+    [
+      4,
+      'Wretched',
+      22,
+      'Use Hidden Depths against yourself twice per session.',
+    ],
+    [5, 'Boon Companion', 22, 'Replace Riddling Nature with Protecting.'],
+    [
+      5,
+      'Stinker and Slinker',
+      22,
+      'Replace Merrymaking Nature with Deceiving.',
+    ],
+    [6, 'Trailblazer', 23, 'Grant +2D help during overland travel.'],
+    [
+      6,
+      'Clever',
+      23,
+      'Add team disposition in riddle, flee, and sneak conflicts.',
+    ],
+    [7, 'Shoulder the Burden', 23, 'Take a condition suffered by a friend.'],
+    [
+      7,
+      'Feral',
+      23,
+      'Add an unrewarded instinct tied to fear, hunger, or shiny objects.',
+    ],
+    [
+      8,
+      'Talented',
+      23,
+      'Use level for protecting, tricking, and capturing dispositions.',
+    ],
+    [
+      8,
+      'Unerring Navigation',
+      23,
+      'Cannot become lost from failed tests and may create mental maps.',
+    ],
+    [
+      9,
+      'Heroic Ability',
+      23,
+      'Make Pathfinder, Scavenger, or Survivalist heroic.',
+    ],
+    [9, 'Spite', 23, 'Use level for revenge- or betrayal-driven dispositions.'],
+    [
+      10,
+      'Stalwart',
+      23,
+      'Once per session, step in after a friend fails and make the test yourself.',
+    ],
+    [
+      10,
+      'Hidden Redoubt',
+      24,
+      'Establish a secret base camp in a known wild or urban location.',
+    ],
+  ],
+  'noble-scion': [
+    [
+      1,
+      'Mark of Privilege',
+      29,
+      'Gain noble privileges, Precedence 3, Might 2, and the class equipment permissions.',
+    ],
+    [
+      2,
+      'Servant',
+      29,
+      'Gain a four-slot follower skilled at cooking and labor.',
+    ],
+    [
+      2,
+      'Serjeant',
+      29,
+      'Gain a martial household follower who can fight and stand watch.',
+    ],
+    [3, 'Father Won’t Mind', 29, 'Take 1D cash when entering your hometown.'],
+    [
+      3,
+      'Mother Won’t Mind',
+      29,
+      'Take available food and wine in your hometown.',
+    ],
+    [
+      4,
+      'Childhood Friend',
+      29,
+      'Gain a loyal noncombat follower who uses Beginner’s Luck.',
+    ],
+    [4, 'Hunting Hound', 29, 'Gain a faithful Nature 3 hunting hound.'],
+    [
+      5,
+      'Scholar',
+      30,
+      'Gain a learned follower who researches, teaches, and maps.',
+    ],
+    [
+      5,
+      'Lover',
+      30,
+      'Gain a devoted companion who helps recovery and may intercept a fatal blow.',
+    ],
+    [
+      6,
+      'Family Heirloom',
+      30,
+      'Claim one dangerous family artifact with a named living owner.',
+    ],
+    [
+      6,
+      'Swift Travel',
+      31,
+      'Use family mounts or ships while in your hometown.',
+    ],
+    [7, 'Captain', 31, 'Gain a Commander 6 follower who helps Fighter tests.'],
+    [7, 'Steward', 31, 'Gain a Steward 6 follower who helps Resources tests.'],
+    [8, 'Venturer', 31, 'Increase Might by one.'],
+    [
+      8,
+      'Entitled',
+      31,
+      'Gain a borderland title and its settlement privileges.',
+    ],
+    [
+      9,
+      'Hero',
+      32,
+      'Gain or promote a formidable follower with one heroic skill.',
+    ],
+    [
+      9,
+      'Transformed',
+      32,
+      'Replace a Nature descriptor with Feasting, Ruling, or Taxing.',
+    ],
+    [
+      10,
+      'Accession',
+      32,
+      'Gain a high noble title and ownership of associated settlements.',
+    ],
+    [
+      10,
+      'Gold and Glory',
+      32,
+      'Increase Precedence and gain heroic recruiting and cash privileges.',
+    ],
+  ],
+  sorcerer: [
+    [
+      1,
+      'Sorcerer',
+      39,
+      'Gain otherworldly senses and the class equipment permissions.',
+    ],
+    [
+      2,
+      'Spirits of Terror',
+      40,
+      'Gain +1D to resist fear and recover from afraid.',
+    ],
+    [
+      2,
+      'Occultist',
+      40,
+      'Once per town, take a free +1D occult research or contact test.',
+    ],
+    [
+      3,
+      'Spirits of Fortune',
+      40,
+      'Adjust your own newly found loot-table result by one.',
+    ],
+    [3, 'Binder', 40, 'Increase Precedence by one for binding spirits.'],
+    [
+      4,
+      'Friend of Darkness',
+      40,
+      'Perceive in total darkness, except color and writing.',
+    ],
+    [
+      4,
+      'Lore of the Ancients',
+      41,
+      'After town, replace one Wise using a spirit-guided result table.',
+    ],
+    [
+      5,
+      'Bond Familiar',
+      41,
+      'Gain a speaking supernatural familiar that grows with level.',
+    ],
+    [5, 'Thaumaturge', 41, 'Increase Precedence by one for spirit pacts.'],
+    [
+      6,
+      'Necromancer',
+      42,
+      'Extend Summoner and bind conflicts to undead creatures.',
+    ],
+    [
+      6,
+      'Troll Lord',
+      42,
+      'Extend Summoner and bind conflicts to troll creatures.',
+    ],
+    [
+      7,
+      'Castigator',
+      42,
+      'Increase Might by one in abjure and banish conflicts.',
+    ],
+    [
+      7,
+      'Iron Will',
+      42,
+      'Use level for spiritual dispositions and resist being taken out first.',
+    ],
+    [8, 'Preceptor', 42, 'Raise one listed occult Skill’s rating cap to 7.'],
+    [
+      8,
+      'Transformed',
+      42,
+      'Replace a Nature descriptor with Bargaining, Binding, or Seeking Knowledge.',
+    ],
+    [
+      9,
+      'Dragon Lord',
+      42,
+      'Extend Summoner and bind conflicts to dragon creatures.',
+    ],
+    [9, 'Heroic Ability', 42, 'Make one listed occult Skill or Will heroic.'],
+    [
+      10,
+      'Spirit Nature',
+      43,
+      'Become ageless, grind-resistant, and able to cross the Shroud once per phase.',
+    ],
+    [
+      10,
+      'Master Namer',
+      43,
+      'Gain Precedence, found an occult school, and recruit students or spirits.',
+    ],
+  ],
+  stoneteller: [
+    [1, 'Stoneteller', 48, 'Gain the class weapon and armor permissions.'],
+    [
+      2,
+      'Born-Under-Mountain',
+      48,
+      'Gain +1D to Dungeoneer and Sapper underground.',
+    ],
+    [
+      2,
+      'Jinx',
+      48,
+      'Unskilled Will or Health help grants +2D but worsens failure.',
+    ],
+    [3, 'Chirurgeon', 48, 'Use Ritualist in place of Healer for wounds.'],
+    [3, 'Hardy Stock', 48, 'Gain +1D against sickness, poison, and drugs.'],
+    [
+      4,
+      'Greed',
+      48,
+      'Turn certain angry, desire-driven action into a free test or conflict.',
+    ],
+    [4, 'Sagacity', 48, 'Wise help grants +2D.'],
+    [5, 'Quake', 48, 'Maul or warhammer takedowns empower allied Maneuvers.'],
+    [
+      5,
+      'Stonefriend',
+      49,
+      'Use Ritualist to befriend local stone for specific help.',
+    ],
+    [
+      6,
+      'Gold Bug',
+      49,
+      'Improve Treasure and Valuables rolls for gems and gold.',
+    ],
+    [
+      6,
+      'Twisted Destiny',
+      49,
+      'Spend three destinies to reshape severe twists before fate exacts a loss.',
+    ],
+    [
+      7,
+      'Dwarven Relic',
+      49,
+      'Gain a gold-and-mithril relic that increases Might and dwarven Precedence.',
+    ],
+    [7, 'Angerthas', 50, 'Inscribe temporary runes of Stone, Iron, and Fire.'],
+    [
+      8,
+      'Ironfriend',
+      50,
+      'Reduce damage from metal or stone when not using chain armor.',
+    ],
+    [8, 'Make Light of Heavy Burdens', 50, 'Raise the Health rating cap to 7.'],
+    [
+      9,
+      'Heroic Skill',
+      50,
+      'Make Fighter, Ritualist, Orator, or Stonemason heroic.',
+    ],
+    [
+      9,
+      'Transformed',
+      50,
+      'Replace a Nature descriptor with Hoarding, Foretelling, or Ruling.',
+    ],
+    [
+      10,
+      'Troll’s Blood',
+      51,
+      'Transform into a troll type and choose a permanent lineage manifestation.',
+    ],
+    [
+      10,
+      'Stonewalker',
+      51,
+      'Use Ritualist to pass through stone doors, walls, or floors.',
+    ],
+  ],
 };
 
 export const torchbearerLevelBenefits: TorchbearerLevelBenefitDefinition[] =
   Object.entries(levelBenefitRows).flatMap(([classId, rows]) =>
     rows.map(([level, name, page, mechanics]) => ({
-      ...reference('level-benefit', name, classId, page, mechanics, [
-        `${classId} level ${level}`,
-      ]),
-      id: `tb2.core.level-benefit.${classId}-${level}-${slug(name)}`,
+      ...(classId in
+      {
+        bounder: 1,
+        dreamwalker: 1,
+        guide: 1,
+        'noble-scion': 1,
+        sorcerer: 1,
+        stoneteller: 1,
+      }
+        ? supplementReference('level-benefit', name, classId, page, mechanics, [
+            `${classId} level ${level}`,
+          ])
+        : reference('level-benefit', name, classId, page, mechanics, [
+            `${classId} level ${level}`,
+          ])),
+      id: `${classId in { bounder: 1, dreamwalker: 1, guide: 1, 'noble-scion': 1, sorcerer: 1, stoneteller: 1 } ? 'tb2.scavengers' : 'tb2.core'}.level-benefit.${classId}-${level}-${slug(name)}`,
       classId: classId as TorchbearerClassId,
       level,
     })),

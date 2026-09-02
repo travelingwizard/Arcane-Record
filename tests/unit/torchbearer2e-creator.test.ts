@@ -3,6 +3,7 @@ import {
   torchbearerClasses,
   torchbearerHomes,
   torchbearerNatureAnswers,
+  torchbearerSkills,
   torchbearerStartingMagicSchools,
   torchbearerStartingRelicResults,
 } from '../../src/games/torchbearer2e/catalog';
@@ -23,8 +24,11 @@ function completeCharacter(
   const classDefinition = torchbearerClasses.find(
     (entry) => entry.classId === classId,
   )!;
-  const home = torchbearerHomes.find(({ allowedStocks }) =>
-    allowedStocks.includes(classDefinition.stockId),
+  const home = torchbearerHomes.find(
+    ({ id, allowedStocks }) =>
+      allowedStocks.includes(classDefinition.stockId) &&
+      (!classDefinition.allowedHomeIds ||
+        classDefinition.allowedHomeIds.includes(id)),
   )!;
   const natureAnswerIds = [1, 2, 3].map(
     (question) =>
@@ -50,8 +54,19 @@ function completeCharacter(
   character.creation = {
     ...character.creation,
     classId,
-    will: classDefinition.stockId === 'human' ? 4 : 0,
-    health: classDefinition.stockId === 'human' ? 4 : 0,
+    classOption:
+      classDefinition.classId === 'dreamwalker'
+        ? {
+            type: 'dreamwalker-skill',
+            skillId: Object.keys(classDefinition.skillRatings)[0]!,
+          }
+        : { type: 'none', skillId: null },
+    will:
+      classDefinition.fixedWill ??
+      (classDefinition.stockId === 'human' ? 4 : 0),
+    health:
+      classDefinition.fixedHealth ??
+      (classDefinition.stockId === 'human' ? 4 : 0),
     upbringingSkillId:
       classDefinition.stockId === 'human' ? 'tb2.core.skill.laborer' : null,
     homeId: home.id,
@@ -59,8 +74,12 @@ function completeCharacter(
     homeTraitId: home.traitIds[0]!,
     socialSkillId: 'tb2.core.skill.haggler',
     specialtySkillId: 'tb2.core.skill.cook',
-    wiseNames:
-      classDefinition.stockId === 'dwarf'
+    wiseNames: classDefinition.wiseSuggestions
+      ? [
+          classDefinition.wiseSuggestions[0]!,
+          ...(classDefinition.wiseCount === 2 ? ['Dungeons-wise'] : []),
+        ]
+      : classDefinition.stockId === 'dwarf'
         ? ['Dwarven Chronicles-wise', 'Dungeons-wise']
         : classDefinition.stockId === 'elf'
           ? ['Elven Lore-wise', 'Dungeons-wise']
@@ -71,16 +90,19 @@ function completeCharacter(
     relationshipChoices: {
       loner: false,
       friend: true,
-      parents: false,
+      parents: classDefinition.requiredParents ?? false,
       mentor: classDefinition.requiresMentor,
       enemy: false,
     },
-    resources: 0,
+    resources: classDefinition.startingResources ?? 0,
     containerDefinitionIds: ['tb2.core.gear.backpack'],
     gearDefinitionIds: ['tb2.core.gear.tinderbox'],
-    weaponDefinitionId: classDefinition.allowedWeaponIds[0]!,
+    weaponDefinitionId:
+      classDefinition.requiredWeaponId ?? classDefinition.allowedWeaponIds[0]!,
     armorDefinitionId: classDefinition.startingArmorId,
+    takeHelmet: classDefinition.requiredHelmet ?? false,
   };
+  if (classDefinition.requiredParents) character.identity.parents = 'Family';
   if (classDefinition.requiresMentor) character.identity.mentor = 'Old Gannet';
   if (classDefinition.classId === 'magician') {
     const result = torchbearerStartingMagicSchools[0]!;
@@ -121,9 +143,30 @@ describe('Torchbearer 2e guided creation engine', () => {
     expect(result.finalized).toBe(true);
     expect(result.character.creation.status).toBe('finalized');
     expect(result.character.creation.baseline).not.toBeNull();
-    expect(result.character.skills).toHaveLength(33);
+    expect(result.character.skills).toHaveLength(torchbearerSkills.length);
     expect(result.character.identity.class.toLowerCase()).toBe(classId);
   });
+
+  it.each([
+    'bounder',
+    'dreamwalker',
+    'guide',
+    'noble-scion',
+    'sorcerer',
+    'stoneteller',
+  ] as const)(
+    'finalizes a valid Scavenger’s Supplement %s character',
+    (classId) => {
+      const character = completeCharacter(classId);
+      const preview = calculateTorchbearerCreation(character);
+      expect(preview.blockingIssues).toEqual([]);
+      const result = finalizeTorchbearerCreation(character);
+      expect(result.finalized).toBe(true);
+      expect(result.character.identity.class).toBe(
+        preview.classDefinition?.name,
+      );
+    },
+  );
 
   it('blocks invalid human allocation and a missing magician mentor', () => {
     const character = completeCharacter('magician');

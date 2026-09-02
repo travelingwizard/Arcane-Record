@@ -77,6 +77,17 @@ describe('Torchbearer Second Edition foundation', () => {
     expect(migrated.identity.name).toBe('Existing Adventurer');
   });
 
+  it('migrates version-3 creation state with an empty supplement class option', () => {
+    const versionThree = createBlankTorchbearer2eCharacter();
+    delete (versionThree.creation as unknown as Record<string, unknown>)
+      .classOption;
+    const migrated = migrateTorchbearer2eCharacter(versionThree, 3);
+    expect(migrated.creation.classOption).toEqual({
+      type: 'none',
+      skillId: null,
+    });
+  });
+
   it('migrates version-1 records as manual legacy sheets without inferred choices', () => {
     const current = createBlankTorchbearer2eCharacter();
     current.identity.name = 'Legacy Delver';

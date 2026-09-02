@@ -5,15 +5,17 @@
 Torchbearer Second Edition is registered as the `torchbearer2e` game system.
 Its second entry step offers a guided Build Character path, a blank manual Play
 Character path, and a Torchbearer-only JSON/YAML import. It combines the
-editable adventurer record with a 14-step guided creator for the six core
-classes. Character data remains in the existing browser-local repository.
+editable adventurer record with a 14-step guided creator for the six core and
+six Scavenger’s Supplement classes. Character data remains in the existing
+browser-local repository.
 
 ## Source mapping
 
 The field map was derived from the supplied `TB2_Character_blank.pdf`. Creator
 choices, starting packages, Nature questions, equipment, magic tables, and
 level benefits were checked against the supplied
-`Torchbearer - Dungeoneers Handbook.pdf`.
+`Torchbearer - Dungeoneers Handbook.pdf`. The additional classes and their
+character-facing rules were mapped from `Torchbearer - ss_new_classes_r10.pdf`.
 
 The sheet records:
 
@@ -31,7 +33,8 @@ The sheet records:
 - Current/total Experience as Arcane Record's shared campaign field, level
   benefit notes, advancement history, and general notes.
 
-The creator supports Burglar, Magician, Outcast, Ranger, Theurge, and Warrior;
+The creator supports Burglar, Magician, Outcast, Ranger, Theurge, Warrior,
+Bounder, Dreamwalker, Guide, Noble Scion, Sorcerer, and Stoneteller;
 human upbringing; homes; social graces; specialties; Wises; Nature questions;
 relationships; Resources; containers and gear; weapons and armor; and starting
 spells or relics. A pure rules engine produces the preview and explained
@@ -45,13 +48,13 @@ Starting magic supports cryptographically random browser rolls and clearly
 labeled manual selections. Roll history, individual dice, result IDs, method,
 and timestamps remain part of the local character record.
 
-Schema version 3 stores stable creator choice IDs, source provenance, creation
+Schema version 4 stores stable creator choice IDs, source provenance, creation
 origins, starting ratings, overrides, roll history, a finalization baseline,
 and the persisted Edit/Play sheet mode. Version-1 sheets migrate as manual
 legacy records and version-2 sheets retain their existing behavior in Edit
-mode without inferring historical creation choices. Reopening the creator shows
-a rebuild comparison and preserves manual additions and advancement beyond
-starting ratings.
+mode. Version-3 sheets gain an empty supplement class-option record without
+inferring a choice. Reopening the creator shows a rebuild comparison and
+preserves manual additions and advancement beyond starting ratings.
 
 The normal sheet uses compact numeric Ability and Skill disclosures. Edit mode
 allows structural and base-rating changes. Play mode protects permanent
@@ -66,6 +69,15 @@ invocations, relics, starting tables, and class level benefits use stable
 `tb2.core.*` definition IDs and source/page metadata. Future books must use a
 separate namespace so saved core IDs remain stable. Unknown future definition
 IDs remain preservable through import/export.
+
+Scavenger’s Supplement definitions use the independent `tb2.scavengers.*`
+namespace. Integrated player-facing material includes its six classes, class
+restrictions, level benefits, Summoner and referenced Skills, new Traits, Maul,
+Half-Moon Glaive, Marshtown, and referenced class homes. Dreamwalkers explicitly
+choose their level-one Skill increase or third Wise. Noble Scions receive their
+special starting Resources, Might, Precedence, equipment, and required parents.
+Summoning procedures are summarized through the cited Summoner entry; denizen
+stat blocks and town-event tables are not copied into the character runtime.
 
 Condition recovery, conflict procedures, advancement-cost calculation,
 monsters, adventures, and general town/camp procedure tables remain outside

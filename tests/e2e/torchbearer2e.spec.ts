@@ -93,16 +93,13 @@ test('guides, finalizes, edits, browses, reorders, and persists a Torchbearer ch
 
   await goToStep(page, 'Weapons & armor');
   await page.getByRole('radio', { name: /Battle Axe/ }).check();
-  const creatorArmor = page.locator('.tb2-creator').getByLabel('Armor');
+  const creatorArmor = page.locator('.tb2-creator select').first();
   await expect(
     creatorArmor.locator('option', { hasText: 'Chain Armor' }),
   ).toHaveCount(0);
   await page.getByLabel(/Show unavailable options/).check();
   await page.getByRole('switch', { name: /GM Approved/ }).check();
-  const chainArmorValue = await creatorArmor
-    .locator('option', { hasText: 'Chain Armor' })
-    .getAttribute('value');
-  await creatorArmor.selectOption(chainArmorValue!);
+  await creatorArmor.selectOption('tb2.core.gear.chain-armor');
   await expect(
     page.getByText(/Stronger body protection than leather/),
   ).toBeVisible();
@@ -231,6 +228,9 @@ test('keeps the guided creator usable at 320px with keyboard controls', async ({
   await warrior.focus();
   await warrior.press('Space');
   await expect(warrior).toBeChecked();
+  await page.getByRole('radio', { name: /Bounder/ }).check();
+  await expect(page.getByText(/Race \/ Stock: Halfling/).last()).toBeVisible();
+  await expect(page.getByText(/Scavenger’s Supplement, p\. 5/)).toBeVisible();
   await page.getByRole('radio', { name: /Magician/ }).check();
   await goToStep(page, 'Starting magic');
   await page.getByLabel('Manual table choice').selectOption('necromancy');
@@ -283,7 +283,7 @@ test('offers Build, Play, and Torchbearer-only import entry paths', async ({
     {
       id: 'torchbearer-import-source',
       systemId: 'torchbearer2e',
-      systemVersion: 3,
+      systemVersion: 4,
       name: character.identity.name,
       createdAt: '2026-09-02T12:00:00.000Z',
       updatedAt: '2026-09-02T12:00:00.000Z',
