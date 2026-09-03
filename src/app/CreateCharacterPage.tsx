@@ -327,13 +327,23 @@ export function CreateCharacterPage({
             <p className="eyebrow">Existing local file</p>
             <h2>Import Character</h2>
             <p>
-              Open an Arcane Record JSON or YAML Torchbearer character file.
+              Open an Arcane Record JSON or YAML {system.shortName} character
+              file
+              {system.importLegacyCharacter
+                ? ', or a supported legacy JSON file'
+                : ''}
+              .
             </p>
             <label className="secondary-button file-picker-inline">
-              Choose Torchbearer file
+              Choose {system.shortName} file
               <input
                 ref={importInputRef}
                 type="file"
+                aria-label={
+                  system.id === 'torchbearer2e'
+                    ? 'Choose Torchbearer file'
+                    : `Choose ${system.shortName} file`
+                }
                 disabled={creating}
                 accept=".json,.yaml,.yml,application/json,application/yaml,text/yaml"
                 onChange={(event) => {
