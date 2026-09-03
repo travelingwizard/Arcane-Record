@@ -14,7 +14,10 @@ p. 45 (Palimpsest). NPC-only Abyssal Lunatic remains reference-only.
 ## Unresolved rules and content
 
 - Sphere Inept, Book of Secrets p. 94: prose and printed cost table must be
-  reconciled by an explicit table ruling. Do not silently apply a formula.
+  reconciled by an explicit table ruling. Sphere Natural also has table cells
+  that differ from percentage rounding. The sheet now requires a saved affected
+  Sphere, pricing interpretation, justification, and approval before applying
+  either modifier. Old XP entries are never repriced.
 - Enlightened Grimoire is community content. Its index pages are not sufficient
   citations for verified Rote mechanics. Appendix rules require independent opt-in.
 - Existing Lore of the Traditions citations above the supplied book's page range
@@ -25,7 +28,9 @@ p. 45 (Palimpsest). NPC-only Abyssal Lunatic remains reference-only.
 
 ## Persistence
 
-Mage schema 12 adds source preferences. Older characters retain their records;
+Mage schema 12 adds source preferences; schema 13 adds optional approved Sphere
+Trait choices to both selected records and creation drafts. Older characters
+retain their records;
 core is enabled and supplements are disabled for browsing until selected.
 Sources never delete or deactivate previously selected Traits. Browser defaults
 apply only to newly created characters, not migrations.

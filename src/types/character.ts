@@ -60,6 +60,7 @@ export interface SelectedBackground {
 }
 
 export interface SelectedMeritFlaw {
+  choice?: import('../games/mage20/supplements/trait-choice').MageTraitChoice;
   id: string;
   definitionId: string;
   chosenCost: number;

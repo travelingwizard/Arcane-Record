@@ -261,7 +261,7 @@ describe('character files', () => {
       format: 'arcane-record-character',
       formatVersion: 1,
       systemId: 'mage20',
-      systemVersion: 12,
+      systemVersion: 13,
     });
     expect(() =>
       prepareImportedRecord(

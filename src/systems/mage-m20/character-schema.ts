@@ -7,6 +7,7 @@ import {
 import { MAGE_SCHEMA_VERSION, MAGE_SYSTEM_ID, spheres } from './definitions';
 import { mageDevelopmentSchema } from '../../games/mage20/development/schema';
 import { mageSourcePreferencesSchema } from '../../games/mage20/supplements/sources';
+import { mageTraitChoiceSchema } from '../../games/mage20/supplements/trait-choice';
 import { developmentFor } from '../../games/mage20/development/rules';
 import {
   characterSectionGroupIds,
@@ -156,6 +157,7 @@ function selectedMeritFlawSchema(expectedKind: MeritFlawKind) {
       notes: z.string(),
       addedAt: z.string().datetime(),
       kind: z.enum(['merit', 'flaw']).optional(),
+      choice: mageTraitChoiceSchema.optional(),
     })
     .superRefine((selection, context) => {
       if (selection.kind && selection.kind !== expectedKind) {
@@ -188,6 +190,7 @@ function selectedMeritFlawSchema(expectedKind: MeritFlawKind) {
       id: selection.id,
       definitionId: selection.definitionId,
       chosenCost: selection.chosenCost,
+      ...(selection.choice ? { choice: selection.choice } : {}),
       notes: selection.notes,
       addedAt: selection.addedAt,
     }));
@@ -1140,6 +1143,15 @@ export function migrateMageCharacter(input: unknown) {
           }),
         });
   }
+
+  const versionTwelve = mageCharacterSchema
+    .extend({ schemaVersion: z.literal(12) })
+    .safeParse(input);
+  if (versionTwelve.success)
+    return mageCharacterSchema.parse({
+      ...versionTwelve.data,
+      schemaVersion: MAGE_SCHEMA_VERSION,
+    });
 
   const versionEleven = mageCharacterSchema
     .extend({ schemaVersion: z.literal(11) })

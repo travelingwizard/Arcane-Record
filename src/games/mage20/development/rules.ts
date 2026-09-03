@@ -6,6 +6,7 @@ import {
   type SphereId,
 } from '../../../systems/mage-m20/definitions';
 import { backgroundById } from '../../../systems/mage-m20/reference/backgrounds';
+import { sphereTraitPrice } from '../supplements/trait-choice';
 import { meritFlawById } from '../../../systems/mage-m20/reference/merits-flaws';
 import type {
   MageCreationDraft,
@@ -433,6 +434,15 @@ export function creationIssues(
       331,
     );
   for (const m of [...d.merits, ...d.flaws]) {
+    if (
+      ['sphere-natural', 'sphere-inept'].includes(m.definitionId) &&
+      !m.choice
+    )
+      add(
+        `sphere-choice-${m.id}`,
+        'Select the affected Sphere and record a GM-approved pricing interpretation.',
+        642,
+      );
     const def = meritFlawById.get(m.definitionId);
     if (!def || !def.allowedCosts.includes(m.chosenCost))
       add(`merit-cost-${m.id}`, 'Trait cost needs source review.', 642);
@@ -541,6 +551,34 @@ export function advancementQuote(c: MageCharacter, key: string) {
         : `Current Sphere × ${affinity ? '7 (affinity)' : '8'}.`;
     if (t.rating + 1 > c.enlightenment.arete)
       issue = 'Raise Arete before this Sphere.';
+    const modifiers = [
+      ...c.repeatableEntries.merits,
+      ...c.repeatableEntries.flaws,
+    ].filter((entry) =>
+      ['sphere-natural', 'sphere-inept'].includes(entry.definitionId),
+    );
+    if (modifiers.some((entry) => !entry.choice)) {
+      issue =
+        'Complete the affected Sphere and GM pricing ruling on selected Sphere Natural / Sphere Inept before buying Sphere dots.';
+    } else {
+      const applicable = modifiers.filter(
+        (entry) => key === `spheres.${entry.choice!.sphere}`,
+      );
+      if (applicable.length > 1)
+        issue =
+          'Conflicting Sphere Natural and Sphere Inept choices require a GM ruling; no stacking formula is assumed.';
+      else if (applicable[0] && t.rating < 5) {
+        const modifier = applicable[0];
+        const adjusted = sphereTraitPrice(
+          modifier.definitionId as 'sphere-natural' | 'sphere-inept',
+          t.rating,
+          affinity,
+          modifier.choice!,
+        );
+        cost = adjusted.cost;
+        explanation = adjusted.explanation;
+      }
+    }
   }
   if (t.kind === 'arete') {
     cost = t.rating * 8;

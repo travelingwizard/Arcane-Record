@@ -22,6 +22,8 @@ Mage editor model contains:
 - `id`: UUID independent of name;
 - an internal legacy-compatible `systemId`: literal `mage-m20`;
 - `schemaVersion`: current integer schema version;
+- `sourcePreferences`: enabled Mage books and mature-content consent, introduced
+  in version 12; migration never reads new-character browser defaults;
 - ISO creation and update timestamps;
 - `identity`: named string fields;
 - `attributes`: grouped integer ratings;

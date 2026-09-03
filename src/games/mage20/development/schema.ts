@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { mageTraitChoiceSchema } from '../supplements/trait-choice';
 
 const points = z.number().int().min(0).max(10000);
 const ratings = z.record(z.string(), points);
@@ -12,6 +13,7 @@ const selection = z.object({
   pooled: z.boolean(),
 });
 const merit = z.object({
+  choice: mageTraitChoiceSchema.optional(),
   id: z.string().uuid(),
   definitionId: z.string(),
   chosenCost: points,

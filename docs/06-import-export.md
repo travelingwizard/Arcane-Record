@@ -1,5 +1,10 @@
 # 06. Import and export
 
+Mage schema 13 preserves optional Sphere Trait choices (affected Sphere,
+pricing interpretation, justification, and approval timestamp) on selected
+Merits/Flaws and creator drafts. Schema 12 source preferences also round-trip.
+Neither migration reconstructs choices or changes previously recorded XP costs.
+
 Mage creation and advancement records are supported by the production Mage
 editor and JSON/YAML interchange. The experimental declarative Mage preview
 does not support these new records; conversion is blocked when they contain

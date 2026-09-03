@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { MageSourceWarning } from '../../../games/mage20/supplements/SourceControls';
+import { TraitChoiceFields } from '../../../games/mage20/supplements/TraitChoiceFields';
 import {
   formatAllowedCosts,
   formatMeritFlawSources,
@@ -22,7 +23,7 @@ export function SelectedMeritFlawList({
   sort: SelectedMeritFlawSort;
   onUpdate: (
     selectionId: string,
-    update: Partial<Pick<SelectedMeritFlaw, 'chosenCost' | 'notes'>>,
+    update: Partial<Pick<SelectedMeritFlaw, 'chosenCost' | 'notes' | 'choice'>>,
   ) => void;
   onRemove: (selectionId: string) => void;
 }) {
@@ -122,6 +123,11 @@ export function SelectedMeritFlawList({
 
               {isExpanded ? (
                 <div className="selected-merit-flaw__details" id={detailId}>
+                  <TraitChoiceFields
+                    definitionId={selection.definitionId}
+                    choice={selection.choice}
+                    onChange={(choice) => onUpdate(selection.id, { choice })}
+                  />
                   {definition ? <p>{definition.description}</p> : null}
                   {definition && definition.allowedCosts.length > 1 ? (
                     <label>

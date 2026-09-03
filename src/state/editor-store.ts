@@ -143,7 +143,7 @@ interface EditorState {
   updateMeritFlaw: (
     kind: MeritFlawKind,
     selectionId: string,
-    update: Partial<Pick<SelectedMeritFlaw, 'chosenCost' | 'notes'>>,
+    update: Partial<Pick<SelectedMeritFlaw, 'chosenCost' | 'notes' | 'choice'>>,
   ) => void;
   removeMeritFlaw: (kind: MeritFlawKind, selectionId: string) => void;
   undoMeritFlawChange: () => void;

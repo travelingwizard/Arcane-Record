@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { TraitChoiceFields } from '../supplements/TraitChoiceFields';
 import {
   useMageSourceFilter,
   MageSourceWarning,
@@ -714,6 +715,21 @@ export function MageCreator() {
               <li key={m.id}>
                 {meritFlawById.get(m.definitionId)?.name ?? m.definitionId} ·{' '}
                 {m.chosenCost}
+                <TraitChoiceFields
+                  definitionId={m.definitionId}
+                  choice={m.choice}
+                  onChange={(choice) =>
+                    patch((v) => ({
+                      ...v,
+                      merits: v.merits.map((e) =>
+                        e.id === m.id ? { ...e, choice } : e,
+                      ),
+                      flaws: v.flaws.map((e) =>
+                        e.id === m.id ? { ...e, choice } : e,
+                      ),
+                    }))
+                  }
+                />
                 <button
                   onClick={() =>
                     patch((v) => ({

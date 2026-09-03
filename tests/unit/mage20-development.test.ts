@@ -231,7 +231,7 @@ describe('Mage 20 creation and advancement', () => {
     legacy.experience = { total: 25, current: 9 };
     delete legacy.development;
     const migrated = migrateMageCharacter(legacy);
-    expect(migrated.schemaVersion).toBe(12);
+    expect(migrated.schemaVersion).toBe(13);
     expect(migrated.development?.ledger).toHaveLength(1);
     expect(migrated.development?.ledger[0].description).toContain(
       'historical purchases unknown',

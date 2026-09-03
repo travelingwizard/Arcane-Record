@@ -15,6 +15,19 @@ export function MageSheetSettingsPanel() {
   return (
     <>
       <MageSourceSettings />
+      <fieldset className="appearance-group">
+        <legend>Optional Rules</legend>
+        <p>
+          Sphere Natural and Sphere Inept pricing rulings are recorded on each
+          selected Trait. Expand the Trait to choose its Sphere and confirm the
+          GM interpretation.
+        </p>
+        <p>
+          Preview — not yet implemented: Resonance/Synergy, detailed Wonder
+          crafting, Grimoire Rote Rules, and Digital Web tools. Enabling a
+          source does not enable these mechanics.
+        </p>
+      </fieldset>
       <MageDevelopmentSettings />
       <fieldset className="appearance-group mage-sheet-settings-panel">
         <legend>Spheres</legend>
