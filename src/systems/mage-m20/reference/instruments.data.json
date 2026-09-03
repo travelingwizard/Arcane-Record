@@ -561,9 +561,9 @@
     "id": "qi-tools",
     "name": "Qì tools",
     "family": "tradition-specific",
-    "summary": "Needles, brushes, and other tools for manipulating energy.",
-    "citation": "Lore of the Traditions; page not supplied",
-    "reviewStatus": "unverified",
+    "summary": "Luópǎn compasses reveal local energy flow; acupuncture needles redirect meridians through carefully placed interventions.",
+    "citation": "Lore of the Traditions, p. 34",
+    "reviewStatus": "verified",
     "contentLabel": "standard"
   },
   {

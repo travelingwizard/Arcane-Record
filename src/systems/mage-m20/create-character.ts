@@ -5,6 +5,7 @@ import type {
 } from '../../types/character';
 import { defaultGroupOrderByMode } from './character-sections';
 import { MAGE_SCHEMA_VERSION, MAGE_SYSTEM_ID } from './definitions';
+import { readMageSourceDefaults } from '../../games/mage20/supplements/sources';
 
 export function createDefaultAbilityRatings(): AbilityRatings {
   return {
@@ -126,6 +127,7 @@ export function createBlankMageCharacter(
     },
     health: { damage: [] },
     experience: { total: 0, current: 0 },
+    sourcePreferences: readMageSourceDefaults(),
     development: {
       version: 1,
       status: 'manual',

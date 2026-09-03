@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ReferenceCatalog } from '../controls/ReferenceCatalog';
+import { MageReferenceCatalog as ReferenceCatalog } from '../../games/mage20/supplements/MageReferenceCatalog';
 import { SheetSection } from '../layout/SheetSection';
 import { useEditorStore } from '../../state/editor-store';
 import {

@@ -4,7 +4,7 @@ import {
   wonderCatalog,
   type WonderDefinition,
 } from '../../systems/mage-m20/reference/wonders';
-import { ReferenceCatalog } from '../controls/ReferenceCatalog';
+import { MageReferenceCatalog as ReferenceCatalog } from '../../games/mage20/supplements/MageReferenceCatalog';
 import { SheetSection } from '../layout/SheetSection';
 import { SelectedWonderList } from './wonders/SelectedWonderList';
 

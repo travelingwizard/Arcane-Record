@@ -245,8 +245,8 @@
     "family": "mystic",
     "requirements": "Matter 3, Time 2, Prime 2",
     "summary": "Restores faded or altered documents and art to an earlier state.",
-    "citation": "Lore of the Traditions, pp. 45, 212",
-    "reviewStatus": "unverified",
+    "citation": "Lore of the Traditions, p. 45",
+    "reviewStatus": "verified",
     "contentLabel": "standard"
   },
   {

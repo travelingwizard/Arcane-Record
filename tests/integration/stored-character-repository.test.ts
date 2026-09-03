@@ -34,7 +34,7 @@ describe('generic stored character repository', () => {
     expect(migrated).toMatchObject({
       id: legacy.id,
       systemId: 'mage20',
-      systemVersion: 11,
+      systemVersion: 12,
       name: 'Mara Voss',
       createdAt: legacy.createdAt,
       updatedAt: legacy.updatedAt,

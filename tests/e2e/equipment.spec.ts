@@ -9,6 +9,14 @@ test('records, persists, and exports catalog and custom equipment', async ({
   await page.getByRole('button', { name: 'Create Character' }).click();
   await page.getByRole('button', { name: 'Choose Mage 20' }).click();
   await page.getByRole('button', { name: 'Open Blank Sheet' }).click();
+  await page.getByRole('button', { name: 'Settings', exact: true }).click();
+  const sourceSettings = page.getByRole('dialog', { name: 'Settings' });
+  await sourceSettings
+    .getByLabel('Other legacy references (unverified) · unverified', {
+      exact: true,
+    })
+    .check();
+  await sourceSettings.getByRole('button', { name: 'Close Settings' }).click();
   await page.getByLabel('Name', { exact: true }).fill('Prepared Adept');
 
   const navigation = page.getByRole('navigation', {

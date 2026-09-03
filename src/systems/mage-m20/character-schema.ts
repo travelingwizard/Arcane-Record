@@ -6,6 +6,7 @@ import {
 } from './create-character';
 import { MAGE_SCHEMA_VERSION, MAGE_SYSTEM_ID, spheres } from './definitions';
 import { mageDevelopmentSchema } from '../../games/mage20/development/schema';
+import { mageSourcePreferencesSchema } from '../../games/mage20/supplements/sources';
 import { developmentFor } from '../../games/mage20/development/rules';
 import {
   characterSectionGroupIds,
@@ -956,6 +957,10 @@ export const legacyMageCharacterSchemaV9 = z.object({
 
 export const mageCharacterSchema = z.object({
   ...commonFields,
+  sourcePreferences: mageSourcePreferencesSchema.default({
+    enabled: ['mage-20'],
+    mature: false,
+  }),
   development: mageDevelopmentSchema.default({
     version: 1,
     status: 'manual',
@@ -1135,6 +1140,15 @@ export function migrateMageCharacter(input: unknown) {
           }),
         });
   }
+
+  const versionEleven = mageCharacterSchema
+    .extend({ schemaVersion: z.literal(11) })
+    .safeParse(input);
+  if (versionEleven.success)
+    return mageCharacterSchema.parse({
+      ...versionEleven.data,
+      schemaVersion: MAGE_SCHEMA_VERSION,
+    });
 
   const versionTen = mageCharacterSchema
     .extend({ schemaVersion: z.literal(10) })

@@ -1,4 +1,8 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
+import {
+  useMageSourceFilter,
+  MageSourceWarning,
+} from '../../../games/mage20/supplements/SourceControls';
 import {
   filterAndSortMeritFlaws,
   projectMeritFlawTotals,
@@ -56,9 +60,10 @@ export function MeritFlawCatalog({
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [chosenCosts, setChosenCosts] = useState<Record<string, number>>({});
 
-  const results = useMemo(
-    () => filterAndSortMeritFlaws([...definitions], filters),
-    [definitions, filters],
+  const sourceFilter = useMageSourceFilter();
+  const results = filterAndSortMeritFlaws(
+    definitions.filter(sourceFilter.visible),
+    filters,
   );
   const activeFilterCount = [
     filters.search,
@@ -75,6 +80,7 @@ export function MeritFlawCatalog({
 
   return (
     <div className="merit-flaw-catalog" aria-label="Merits and Flaws catalog">
+      {sourceFilter.controls}
       <div className="catalog-toolbar">
         <label className="catalog-search">
           <span>Search catalog</span>
@@ -254,6 +260,16 @@ export function MeritFlawCatalog({
               <p className="catalog-card__source">
                 {formatMeritFlawSources(definition)}
               </p>
+              <MageSourceWarning entry={definition} />
+              <p>
+                {definition.verificationStatus === 'verified'
+                  ? 'Source verified'
+                  : 'Mechanics unverified'}
+                {!definition.playerSelectable
+                  ? ' · Reference only (Storyteller character)'
+                  : ''}
+              </p>
+              {definition.eligibility && <p>{definition.eligibility}</p>}
               <p className="catalog-card__cost">
                 {definition.kind === 'merit' ? 'Cost' : 'Benefit'}:{' '}
                 {formatAllowedCosts(definition)}
@@ -333,7 +349,10 @@ export function MeritFlawCatalog({
                 }
                 disabled={
                   !alreadySelected &&
-                  (definition.requiresReview || chosenCost === undefined)
+                  (definition.requiresReview ||
+                    !definition.playerSelectable ||
+                    chosenCost === undefined ||
+                    !sourceFilter.available(definition))
                 }
                 onClick={() => {
                   if (alreadySelected) {

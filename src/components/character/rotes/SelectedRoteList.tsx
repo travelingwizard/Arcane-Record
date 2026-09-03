@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { MageSourceWarning } from '../../../games/mage20/supplements/SourceControls';
 import { spheres } from '../../../systems/mage-m20/definitions';
 import { roteById } from '../../../systems/mage-m20/reference/rotes';
 import type { KnownRote, SphereRequirement } from '../../../types/character';
@@ -107,6 +108,7 @@ export function SelectedRoteList({
               </button>
             </div>
 
+            {definition && <MageSourceWarning entry={definition} />}
             {definition ? (
               <p className="catalog-card__source">
                 {definition.citation} · reference preview

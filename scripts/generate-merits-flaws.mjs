@@ -171,4 +171,19 @@ if (definitions.length !== 231) {
   throw new Error(`Expected 231 definitions, found ${definitions.length}`);
 }
 
-process.stdout.write(`${JSON.stringify(definitions, null, 2)}\n`);
+const reviewed = JSON.parse(
+  readFileSync(
+    new URL(
+      '../docs/references/mage-m20/reviewed-overrides.json',
+      import.meta.url,
+    ),
+    'utf8',
+  ),
+)['merits-flaws'];
+process.stdout.write(
+  `${JSON.stringify(
+    definitions.map((entry) => ({ ...entry, ...reviewed[entry.id] })),
+    null,
+    2,
+  )}\n`,
+);

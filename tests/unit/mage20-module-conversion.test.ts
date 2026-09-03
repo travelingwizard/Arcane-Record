@@ -57,7 +57,7 @@ describe('Mage 20 declarative module parity', () => {
     });
     const expected = Object.fromEntries(
       Object.entries(mageCharacterDataSchema.parse(source.data)).filter(
-        ([key]) => key !== 'development',
+        ([key]) => key !== 'development' && key !== 'sourcePreferences',
       ),
     );
     expect(copy.data).toEqual(expected);

@@ -19,6 +19,14 @@ function cells(line) {
 }
 
 function writeCatalog(fileName, entries) {
+  const reviewed =
+    JSON.parse(
+      readFileSync(
+        resolve(root, 'docs/references/mage-m20/reviewed-overrides.json'),
+        'utf8',
+      ),
+    )[fileName.replace('.data.json', '')] ?? {};
+  entries = entries.map((entry) => ({ ...entry, ...reviewed[entry.id] }));
   writeFileSync(
     resolve(root, 'src/systems/mage-m20/reference', fileName),
     `${JSON.stringify(entries, null, 2)}\n`,

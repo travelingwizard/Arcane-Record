@@ -1,3 +1,4 @@
+import { MageSourceWarning } from '../../../games/mage20/supplements/SourceControls';
 import {
   focusDefinitionsByKind,
   type FocusKind,
@@ -88,6 +89,7 @@ export function FocusSelectionList({
                 </label>
               ) : null}
 
+              {definition && <MageSourceWarning entry={definition} />}
               {definition ? (
                 <details className="magick-reference-note">
                   <summary>Reference note</summary>

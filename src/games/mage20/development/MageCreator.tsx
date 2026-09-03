@@ -1,4 +1,8 @@
 import { useState } from 'react';
+import {
+  useMageSourceFilter,
+  MageSourceWarning,
+} from '../supplements/SourceControls';
 import { useEditorStore } from '../../../state/editor-store';
 import { DotRating } from '../../../components/controls/DotRating';
 import {
@@ -57,6 +61,7 @@ const pages = [250, 254, 255, 255, 256, 256, 257, 253, 259, 250];
 export function MageCreator() {
   const c = useEditorStore((s) => s.character)!;
   const update = useEditorStore((s) => s.updateMage);
+  const sourceFilter = useMageSourceFilter();
   const [search, setSearch] = useState('');
   const [focusKind, setFocusKind] = useState<
     'paradigm' | 'practice' | 'instrument'
@@ -90,9 +95,12 @@ export function MageCreator() {
   const matches = (name: string) =>
     name.toLowerCase().includes(search.toLowerCase());
   const source = (
-    <p className="section-note">
-      Mage 20, p. {pages[d.step]} · Saved draft; not yet applied to the sheet.
-    </p>
+    <>
+      {sourceFilter.controls}
+      <p className="section-note">
+        Mage 20, p. {pages[d.step]} · Saved draft; not yet applied to the sheet.
+      </p>
+    </>
   );
   const setAmount = (key: string, value: number, pool: 'base' | 'freebies') =>
     patch((v) => ({ ...v, [pool]: { ...v[pool], [key]: value } }));
@@ -446,7 +454,7 @@ export function MageCreator() {
           </label>
           <div className="mage-catalog-results">
             {backgroundCatalog
-              .filter((b) => matches(b.name))
+              .filter((b) => matches(b.name) && sourceFilter.visible(b))
               .map((b) => (
                 <article key={b.id}>
                   <h4>
@@ -454,10 +462,12 @@ export function MageCreator() {
                   </h4>
                   <p>{b.description}</p>
                   <small>{formatBackgroundSources(b)}</small>
+                  <MageSourceWarning entry={b} />
                   <button
                     disabled={
-                      !b.canBeSelectedMultipleTimes &&
-                      d.backgrounds.some((e) => e.definitionId === b.id)
+                      !sourceFilter.available(b) ||
+                      (!b.canBeSelectedMultipleTimes &&
+                        d.backgrounds.some((e) => e.definitionId === b.id))
                     }
                     onClick={() =>
                       patch((v) => ({
@@ -570,18 +580,20 @@ export function MageCreator() {
           </label>
           <div className="mage-catalog-results">
             {focusCatalogs[focusKind]
-              .filter((f) => matches(f.name))
+              .filter((f) => matches(f.name) && sourceFilter.visible(f))
               .map((f) => (
                 <article key={f.id}>
                   <h4>{f.name}</h4>
                   <p>{f.summary}</p>
+                  <MageSourceWarning entry={f} />
                   <small>
                     {f.citation} · {f.reviewStatus}
                   </small>
                   <button
-                    disabled={d.focus[focusKey].some(
-                      (e) => e.definitionId === f.id,
-                    )}
+                    disabled={
+                      !sourceFilter.available(f) ||
+                      d.focus[focusKey].some((e) => e.definitionId === f.id)
+                    }
                     onClick={() =>
                       patch((v) => ({
                         ...v,
@@ -726,7 +738,7 @@ export function MageCreator() {
           </label>
           <div className="mage-catalog-results">
             {meritFlawCatalog
-              .filter((m) => matches(m.name))
+              .filter((m) => matches(m.name) && sourceFilter.visible(m))
               .map((m) => (
                 <article key={m.id}>
                   <h4>
@@ -741,6 +753,7 @@ export function MageCreator() {
                         .join('; ')}
                     </small>
                   </details>
+                  <MageSourceWarning entry={m} />
                   <label>
                     <span>{m.name} cost</span>
                     <select
@@ -762,6 +775,8 @@ export function MageCreator() {
                   </label>
                   <button
                     disabled={
+                      !m.playerSelectable ||
+                      !sourceFilter.available(m) ||
                       !m.allowedCosts.includes(traitCost[m.id]) ||
                       [...d.merits, ...d.flaws].some(
                         (e) => e.definitionId === m.id,

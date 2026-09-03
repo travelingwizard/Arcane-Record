@@ -572,6 +572,7 @@ export const useEditorStore = create<EditorState>((set) => ({
       if (
         !definition ||
         definition.kind !== kind ||
+        !definition.playerSelectable ||
         !definition.allowedCosts.includes(chosenCost) ||
         alreadySelected
       ) {

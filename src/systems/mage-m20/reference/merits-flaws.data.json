@@ -4001,18 +4001,21 @@
     "aliases": [],
     "kind": "merit",
     "category": "nephandic",
-    "allowedCosts": [],
-    "description": "Uncanny social prowess makes character frightfully tempting.",
+    "allowedCosts": [3],
+    "description": "Insights gained through the Caul reduce the difficulty of shadow-directed social manipulation by two, including beyond the usual modifier limit.",
     "sources": [
       {
         "bookId": "bof",
-        "bookLabel": "BoF",
+        "bookLabel": "Book of the Fallen",
         "page": 117
       }
     ],
-    "requiresReview": true,
-    "reviewNote": "The supplied reference identifies this entry as a Merit or Flaw but does not provide a point cost.",
-    "sourceLine": 238
+    "requiresReview": false,
+    "reviewNote": "Verified against the supplied PDF; source eligibility still applies.",
+    "sourceLine": 238,
+    "verificationStatus": "verified",
+    "playerSelectable": true,
+    "eligibility": "Caul-initiated Fallen only unless the Storyteller explicitly rules otherwise."
   },
   {
     "id": "innocuous-aura",
@@ -4020,18 +4023,21 @@
     "aliases": [],
     "kind": "merit",
     "category": "nephandic",
-    "allowedCosts": [],
-    "description": "Aura appears mundane despite Nephandic nature.",
+    "allowedCosts": [5],
+    "description": "The aura lacks the usual visible traces of Qlippothic passage; this conceals origin, not every emotional state.",
     "sources": [
       {
         "bookId": "bof",
-        "bookLabel": "BoF",
+        "bookLabel": "Book of the Fallen",
         "page": 117
       }
     ],
-    "requiresReview": true,
-    "reviewNote": "The supplied reference identifies this entry as a Merit or Flaw but does not provide a point cost.",
-    "sourceLine": 239
+    "requiresReview": false,
+    "reviewNote": "Verified against the supplied PDF; source eligibility still applies.",
+    "sourceLine": 239,
+    "verificationStatus": "verified",
+    "playerSelectable": true,
+    "eligibility": "Caul-initiated Fallen only unless the Storyteller explicitly rules otherwise."
   },
   {
     "id": "abyssal-mastery",
@@ -4039,18 +4045,21 @@
     "aliases": [],
     "kind": "merit",
     "category": "nephandic",
-    "allowedCosts": [],
-    "description": "Innate mastery over entropic/abyssal forces.",
+    "allowedCosts": [7],
+    "description": "Survive deep space and the Deep Umbra without life support; travel still requires a means of movement. Spirit 5 permits escape to an already attained Qlipha.",
     "sources": [
       {
         "bookId": "bof",
-        "bookLabel": "BoF",
+        "bookLabel": "Book of the Fallen",
         "page": 117
       }
     ],
-    "requiresReview": true,
-    "reviewNote": "The supplied reference identifies this entry as a Merit or Flaw but does not provide a point cost.",
-    "sourceLine": 240
+    "requiresReview": false,
+    "reviewNote": "Verified against the supplied PDF; source eligibility still applies.",
+    "sourceLine": 240,
+    "verificationStatus": "verified",
+    "playerSelectable": true,
+    "eligibility": "Caul-initiated Fallen only unless the Storyteller explicitly rules otherwise."
   },
   {
     "id": "saint-of-the-pit",
@@ -4058,18 +4067,21 @@
     "aliases": [],
     "kind": "merit",
     "category": "nephandic",
-    "allowedCosts": [],
-    "description": "High prestige among the Fallen.",
+    "allowedCosts": [7],
+    "description": "Infernal reputation reduces relevant social difficulties by three against lesser malign entities. The most powerful entities are unaffected.",
     "sources": [
       {
         "bookId": "bof",
-        "bookLabel": "BoF",
+        "bookLabel": "Book of the Fallen",
         "page": 118
       }
     ],
-    "requiresReview": true,
-    "reviewNote": "The supplied reference identifies this entry as a Merit or Flaw but does not provide a point cost.",
-    "sourceLine": 241
+    "requiresReview": false,
+    "reviewNote": "Verified against the supplied PDF; source eligibility still applies.",
+    "sourceLine": 241,
+    "verificationStatus": "verified",
+    "playerSelectable": true,
+    "eligibility": "Caul-initiated Fallen only unless the Storyteller explicitly rules otherwise."
   },
   {
     "id": "qlippothic-radiance",
@@ -4096,18 +4108,21 @@
     "aliases": [],
     "kind": "flaw",
     "category": "nephandic",
-    "allowedCosts": [],
-    "description": "Character’s presence is visibly ghostly or unsettling.",
+    "allowedCosts": [3],
+    "description": "A largely Penumbral existence makes physical interaction require Storyteller Willpower rolls and continued temporary Willpower expenditure.",
     "sources": [
       {
         "bookId": "bof",
-        "bookLabel": "BoF",
+        "bookLabel": "Book of the Fallen",
         "page": 119
       }
     ],
-    "requiresReview": true,
-    "reviewNote": "The supplied reference identifies this entry as a Merit or Flaw but does not provide a point cost.",
-    "sourceLine": 243
+    "requiresReview": false,
+    "reviewNote": "Verified against the supplied PDF; source eligibility still applies.",
+    "sourceLine": 243,
+    "verificationStatus": "verified",
+    "playerSelectable": true,
+    "eligibility": "Caul-initiated Fallen only unless the Storyteller explicitly rules otherwise."
   },
   {
     "id": "abyssal-lunatic",
@@ -4115,18 +4130,21 @@
     "aliases": [],
     "kind": "flaw",
     "category": "nephandic",
-    "allowedCosts": [],
-    "description": "Unfathomable madness makes character unsalvageable.",
+    "allowedCosts": [5],
+    "description": "Supernatural disintegration of coherent thought makes this character unsuitable for ordinary player use. Storyteller characters only.",
     "sources": [
       {
         "bookId": "bof",
-        "bookLabel": "BoF",
+        "bookLabel": "Book of the Fallen",
         "page": 119
       }
     ],
-    "requiresReview": true,
-    "reviewNote": "The supplied reference identifies this entry as a Merit or Flaw but does not provide a point cost.",
-    "sourceLine": 244
+    "requiresReview": false,
+    "reviewNote": "Verified against the supplied PDF; source eligibility still applies.",
+    "sourceLine": 244,
+    "verificationStatus": "verified",
+    "playerSelectable": false,
+    "eligibility": "Caul-initiated Fallen only unless the Storyteller explicitly rules otherwise."
   },
   {
     "id": "widderslainte-or-taint-of-corruption",

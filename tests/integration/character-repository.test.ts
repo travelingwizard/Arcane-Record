@@ -97,7 +97,7 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(11);
+    expect(migrated?.schemaVersion).toBe(12);
     expect(migrated?.abilities.talents.alertness).toBe(0);
     expect(migrated?.enlightenment).toEqual({
       arete: 1,
@@ -138,7 +138,7 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(11);
+    expect(migrated?.schemaVersion).toBe(12);
     expect(migrated?.enlightenment.willpower).toBe(7);
     expect(migrated?.enlightenment.willpowerTemporary).toBe(7);
   });
@@ -170,7 +170,7 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(11);
+    expect(migrated?.schemaVersion).toBe(12);
     expect(migrated?.repeatableEntries.merits).toEqual([]);
     expect(migrated?.repeatableEntries.flaws).toEqual([]);
   });
@@ -240,7 +240,7 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(11);
+    expect(migrated?.schemaVersion).toBe(12);
     expect(migrated?.repeatableEntries.backgrounds).toEqual([
       {
         id: resourceId,
@@ -296,7 +296,7 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(11);
+    expect(migrated?.schemaVersion).toBe(12);
     expect(migrated?.repeatableEntries.focus.notes).toBe('Reality is a story');
     expect(migrated?.repeatableEntries.wonders[0]).toMatchObject({
       name: 'Copper Compass',
@@ -336,7 +336,7 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(11);
+    expect(migrated?.schemaVersion).toBe(12);
     expect(migrated?.repeatableEntries.equipment).toEqual([]);
     expect(migrated?.abilities.skills.do).toBe(0);
   });
@@ -368,7 +368,7 @@ describe('DexieCharacterRepository', () => {
     repository = new DexieCharacterRepository(database);
     const migrated = await repository.get(current.id);
 
-    expect(migrated?.schemaVersion).toBe(11);
+    expect(migrated?.schemaVersion).toBe(12);
     expect(migrated?.repeatableEntries.maneuvers).toEqual({
       favoriteCombatManeuverIds: [],
       customCombatManeuvers: [],

@@ -5,7 +5,7 @@ import {
   type EquipmentCategory,
   type EquipmentDefinition,
 } from '../../systems/mage-m20/reference/equipment';
-import { ReferenceCatalog } from '../controls/ReferenceCatalog';
+import { MageReferenceCatalog as ReferenceCatalog } from '../../games/mage20/supplements/MageReferenceCatalog';
 import { SheetSection } from '../layout/SheetSection';
 import { SelectedEquipmentList } from './equipment/SelectedEquipmentList';
 

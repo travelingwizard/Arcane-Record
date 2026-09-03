@@ -436,6 +436,20 @@ export function creationIssues(
     const def = meritFlawById.get(m.definitionId);
     if (!def || !def.allowedCosts.includes(m.chosenCost))
       add(`merit-cost-${m.id}`, 'Trait cost needs source review.', 642);
+    if (def?.verificationStatus !== 'verified')
+      add(
+        `merit-review-${m.id}`,
+        'Unverified catalog mechanics: GM must confirm this Trait and cost against the source.',
+        642,
+      );
+    if (def?.eligibility)
+      add(`merit-eligibility-${m.id}`, def.eligibility, 642);
+    if (def && !def.playerSelectable)
+      add(
+        `merit-npc-${m.id}`,
+        'Reference-only Storyteller Trait; existing record requires explicit review.',
+        642,
+      );
   }
   const available =
     d.budgets.freebies +

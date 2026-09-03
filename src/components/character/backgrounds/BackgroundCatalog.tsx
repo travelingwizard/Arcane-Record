@@ -1,4 +1,8 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
+import {
+  useMageSourceFilter,
+  MageSourceWarning,
+} from '../../../games/mage20/supplements/SourceControls';
 import {
   filterAndSortBackgrounds,
   projectBackgroundTotals,
@@ -39,9 +43,10 @@ export function BackgroundCatalog({
   const [filters, setFilters] =
     useState<BackgroundCatalogFilters>(defaultFilters);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
-  const results = useMemo(
-    () => filterAndSortBackgrounds([...definitions], filters),
-    [definitions, filters],
+  const sourceFilter = useMageSourceFilter();
+  const results = filterAndSortBackgrounds(
+    definitions.filter(sourceFilter.visible),
+    filters,
   );
   const activeFilterCount = [
     filters.search,
@@ -59,6 +64,7 @@ export function BackgroundCatalog({
 
   return (
     <div className="background-catalog" aria-label="Background catalog">
+      {sourceFilter.controls}
       <div className="background-catalog__toolbar">
         <label className="catalog-search">
           <span>Search Backgrounds</span>
@@ -261,6 +267,7 @@ export function BackgroundCatalog({
               <p className="catalog-card__source">
                 {formatBackgroundSources(definition)}
               </p>
+              <MageSourceWarning entry={definition} />
 
               {isExpanded ? (
                 <div className="background-catalog-card__details" id={detailId}>
@@ -327,7 +334,7 @@ export function BackgroundCatalog({
               <button
                 type="button"
                 className="primary-button"
-                disabled={selectedSingle}
+                disabled={selectedSingle || !sourceFilter.available(definition)}
                 onClick={() => onAdd(definition)}
               >
                 {selectedSingle ? 'Added' : 'Add'}

@@ -29,6 +29,11 @@ export const meritFlawDefinitionSchema = z
     description: z.string().min(1),
     sources: z.array(meritFlawSourceSchema).min(1),
     requiresReview: z.boolean(),
+    verificationStatus: z
+      .enum(['unverified', 'verified'])
+      .default('unverified'),
+    playerSelectable: z.boolean().default(true),
+    eligibility: z.string().default(''),
     reviewNote: z.string(),
     sourceLine: z.number().int().positive(),
   })
@@ -47,13 +52,6 @@ export const meritFlawDefinitionSchema = z
         code: 'custom',
         path: ['requiresReview'],
         message: 'Definitions without a cost must require review.',
-      });
-    }
-    if (definition.allowedCosts.length > 0 && definition.requiresReview) {
-      context.addIssue({
-        code: 'custom',
-        path: ['requiresReview'],
-        message: 'Costed definitions must not require review.',
       });
     }
   });

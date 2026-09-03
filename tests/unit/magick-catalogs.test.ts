@@ -35,7 +35,7 @@ describe('Magick reference catalogs', () => {
         catalog.every(
           (definition) =>
             definition.citation.length > 0 &&
-            definition.reviewStatus === 'unverified',
+            ['unverified', 'verified'].includes(definition.reviewStatus),
         ),
       ).toBe(true);
     }

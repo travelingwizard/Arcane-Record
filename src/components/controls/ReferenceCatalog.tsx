@@ -24,12 +24,14 @@ export function ReferenceCatalog<Entry extends ReferenceCatalogEntry>({
   selectedDefinitionIds,
   onAdd,
   getMeta,
+  canAdd,
 }: {
   label: string;
   entries: readonly Entry[];
   selectedDefinitionIds: Set<string>;
   onAdd: (entry: Entry) => void;
   getMeta?: (entry: Entry) => string;
+  canAdd?: (entry: Entry) => boolean;
 }) {
   const [search, setSearch] = useState('');
   const [family, setFamily] = useState('all');
@@ -138,6 +140,12 @@ export function ReferenceCatalog<Entry extends ReferenceCatalogEntry>({
                 </button>
               </div>
               <p className="catalog-card__source">{entry.citation}</p>
+              <p>
+                {entry.reviewStatus === 'verified'
+                  ? 'Source verified'
+                  : 'Unverified reference preview'}
+                {canAdd && !canAdd(entry) ? ' · Source unavailable' : ''}
+              </p>
               {getMeta ? (
                 <p className="catalog-card__cost">{getMeta(entry)}</p>
               ) : null}
@@ -155,7 +163,7 @@ export function ReferenceCatalog<Entry extends ReferenceCatalogEntry>({
               <button
                 type="button"
                 className={isSelected ? 'secondary-button' : 'primary-button'}
-                disabled={isSelected}
+                disabled={isSelected || (canAdd ? !canAdd(entry) : false)}
                 onClick={() => onAdd(entry)}
               >
                 {isSelected ? 'Selected' : 'Add'}

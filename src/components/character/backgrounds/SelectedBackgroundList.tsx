@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { MageSourceWarning } from '../../../games/mage20/supplements/SourceControls';
 import {
   backgroundRatingRules,
   calculateBackgroundCreationCost,
@@ -172,6 +173,7 @@ export function SelectedBackgroundList({
                 </button>
               </div>
 
+              {definition && <MageSourceWarning entry={definition} />}
               {definition ? (
                 <>
                   <DotRating

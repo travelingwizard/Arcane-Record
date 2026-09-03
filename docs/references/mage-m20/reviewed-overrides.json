@@ -1,0 +1,182 @@
+{
+  "merits-flaws": {
+    "shadow-appeal": {
+      "id": "shadow-appeal",
+      "name": "Shadow Appeal",
+      "aliases": [],
+      "kind": "merit",
+      "category": "nephandic",
+      "allowedCosts": [
+        3
+      ],
+      "description": "Insights gained through the Caul reduce the difficulty of shadow-directed social manipulation by two, including beyond the usual modifier limit.",
+      "sources": [
+        {
+          "bookId": "bof",
+          "bookLabel": "Book of the Fallen",
+          "page": 117
+        }
+      ],
+      "requiresReview": false,
+      "reviewNote": "Verified against the supplied PDF; source eligibility still applies.",
+      "sourceLine": 238,
+      "verificationStatus": "verified",
+      "playerSelectable": true,
+      "eligibility": "Caul-initiated Fallen only unless the Storyteller explicitly rules otherwise."
+    },
+    "innocuous-aura": {
+      "id": "innocuous-aura",
+      "name": "Innocuous Aura",
+      "aliases": [],
+      "kind": "merit",
+      "category": "nephandic",
+      "allowedCosts": [
+        5
+      ],
+      "description": "The aura lacks the usual visible traces of Qlippothic passage; this conceals origin, not every emotional state.",
+      "sources": [
+        {
+          "bookId": "bof",
+          "bookLabel": "Book of the Fallen",
+          "page": 117
+        }
+      ],
+      "requiresReview": false,
+      "reviewNote": "Verified against the supplied PDF; source eligibility still applies.",
+      "sourceLine": 239,
+      "verificationStatus": "verified",
+      "playerSelectable": true,
+      "eligibility": "Caul-initiated Fallen only unless the Storyteller explicitly rules otherwise."
+    },
+    "abyssal-mastery": {
+      "id": "abyssal-mastery",
+      "name": "Abyssal Mastery",
+      "aliases": [],
+      "kind": "merit",
+      "category": "nephandic",
+      "allowedCosts": [
+        7
+      ],
+      "description": "Survive deep space and the Deep Umbra without life support; travel still requires a means of movement. Spirit 5 permits escape to an already attained Qlipha.",
+      "sources": [
+        {
+          "bookId": "bof",
+          "bookLabel": "Book of the Fallen",
+          "page": 117
+        }
+      ],
+      "requiresReview": false,
+      "reviewNote": "Verified against the supplied PDF; source eligibility still applies.",
+      "sourceLine": 240,
+      "verificationStatus": "verified",
+      "playerSelectable": true,
+      "eligibility": "Caul-initiated Fallen only unless the Storyteller explicitly rules otherwise."
+    },
+    "saint-of-the-pit": {
+      "id": "saint-of-the-pit",
+      "name": "Saint of the Pit",
+      "aliases": [],
+      "kind": "merit",
+      "category": "nephandic",
+      "allowedCosts": [
+        7
+      ],
+      "description": "Infernal reputation reduces relevant social difficulties by three against lesser malign entities. The most powerful entities are unaffected.",
+      "sources": [
+        {
+          "bookId": "bof",
+          "bookLabel": "Book of the Fallen",
+          "page": 118
+        }
+      ],
+      "requiresReview": false,
+      "reviewNote": "Verified against the supplied PDF; source eligibility still applies.",
+      "sourceLine": 241,
+      "verificationStatus": "verified",
+      "playerSelectable": true,
+      "eligibility": "Caul-initiated Fallen only unless the Storyteller explicitly rules otherwise."
+    },
+    "spectral-presence": {
+      "id": "spectral-presence",
+      "name": "Spectral Presence",
+      "aliases": [],
+      "kind": "flaw",
+      "category": "nephandic",
+      "allowedCosts": [
+        3
+      ],
+      "description": "A largely Penumbral existence makes physical interaction require Storyteller Willpower rolls and continued temporary Willpower expenditure.",
+      "sources": [
+        {
+          "bookId": "bof",
+          "bookLabel": "Book of the Fallen",
+          "page": 119
+        }
+      ],
+      "requiresReview": false,
+      "reviewNote": "Verified against the supplied PDF; source eligibility still applies.",
+      "sourceLine": 243,
+      "verificationStatus": "verified",
+      "playerSelectable": true,
+      "eligibility": "Caul-initiated Fallen only unless the Storyteller explicitly rules otherwise."
+    },
+    "abyssal-lunatic": {
+      "id": "abyssal-lunatic",
+      "name": "Abyssal Lunatic",
+      "aliases": [],
+      "kind": "flaw",
+      "category": "nephandic",
+      "allowedCosts": [
+        5
+      ],
+      "description": "Supernatural disintegration of coherent thought makes this character unsuitable for ordinary player use. Storyteller characters only.",
+      "sources": [
+        {
+          "bookId": "bof",
+          "bookLabel": "Book of the Fallen",
+          "page": 119
+        }
+      ],
+      "requiresReview": false,
+      "reviewNote": "Verified against the supplied PDF; source eligibility still applies.",
+      "sourceLine": 244,
+      "verificationStatus": "verified",
+      "playerSelectable": false,
+      "eligibility": "Caul-initiated Fallen only unless the Storyteller explicitly rules otherwise."
+    }
+  },
+  "practices": {
+    "qi-manipulation": {
+      "id": "qi-manipulation",
+      "name": "Qì Manipulation",
+      "family": "tradition-specific",
+      "summary": "Sense and redirect the flow of qì through bodies and places, restoring balance or deliberately creating blockages.",
+      "citation": "Lore of the Traditions, p. 33",
+      "reviewStatus": "verified",
+      "contentLabel": "standard"
+    }
+  },
+  "instruments": {
+    "qi-tools": {
+      "id": "qi-tools",
+      "name": "Qì tools",
+      "family": "tradition-specific",
+      "summary": "Luópǎn compasses reveal local energy flow; acupuncture needles redirect meridians through carefully placed interventions.",
+      "citation": "Lore of the Traditions, p. 34",
+      "reviewStatus": "verified",
+      "contentLabel": "standard"
+    }
+  },
+  "rotes": {
+    "palimpsest": {
+      "id": "palimpsest",
+      "name": "Palimpsest",
+      "family": "mystic",
+      "requirements": "Matter 3, Time 2, Prime 2",
+      "summary": "Restores faded or altered documents and art to an earlier state.",
+      "citation": "Lore of the Traditions, p. 45",
+      "reviewStatus": "verified",
+      "contentLabel": "standard"
+    }
+  }
+}

@@ -6,7 +6,13 @@
 
 The generated catalog contains 115 Merits and 116 Flaws. Citations retain the supplied labels and use `Book label, p. page`, with multiple sources separated by a centered dot in the interface.
 
-Six Nephandic entries lack point costs in the source: Shadow Appeal, Innocuous Aura, Abyssal Mastery, Saint of the Pit, Spectral Presence, and Abyssal Lunatic. They remain searchable and cited with `requiresReview: true`, but cannot be selected until the source data is resolved. “Taint of Corruption” and “Widderslainte, or Taint of Corruption” remain separate definitions because the source lists them separately.
+The six formerly uncosted Nephandic entries have now been checked against Book
+of the Fallen pp. 117-119. Their corrections are retained in
+`reviewed-overrides.json` and reapplied by the generator. Abyssal Lunatic is
+reference-only. Verification is separate from cost completeness; remaining
+unverified entries require GM source review in guided creation. “Taint of
+Corruption” and “Widderslainte, or Taint of Corruption” remain separate IDs pending
+an explicit alias migration.
 
 ## Selection behavior
 

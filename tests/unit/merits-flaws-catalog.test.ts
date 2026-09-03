@@ -38,9 +38,9 @@ describe('Mage M20 Merits and Flaws catalog', () => {
     ]);
   });
 
-  it('records the six definitions whose source omits point costs', () => {
+  it('resolves six formerly missing costs while keeping NPC-only material restricted', () => {
     const reviewEntries = meritFlawCatalog.filter(
-      (definition) => definition.requiresReview,
+      (definition) => definition.verificationStatus === 'verified',
     );
     expect(reviewEntries.map(({ name }) => name)).toEqual([
       'Shadow Appeal',
@@ -51,8 +51,9 @@ describe('Mage M20 Merits and Flaws catalog', () => {
       'Abyssal Lunatic',
     ]);
     expect(
-      reviewEntries.every(({ allowedCosts }) => allowedCosts.length === 0),
+      reviewEntries.every(({ allowedCosts }) => allowedCosts.length === 1),
     ).toBe(true);
+    expect(meritFlawById.get('abyssal-lunatic')?.playerSelectable).toBe(false);
   });
 
   it('searches names, aliases, and descriptions and applies filters', () => {

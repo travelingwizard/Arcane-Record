@@ -4,7 +4,7 @@ import {
   roteCatalog,
   type RoteDefinition,
 } from '../../systems/mage-m20/reference/rotes';
-import { ReferenceCatalog } from '../controls/ReferenceCatalog';
+import { MageReferenceCatalog as ReferenceCatalog } from '../../games/mage20/supplements/MageReferenceCatalog';
 import { SheetSection } from '../layout/SheetSection';
 import { SelectedRoteList } from './rotes/SelectedRoteList';
 

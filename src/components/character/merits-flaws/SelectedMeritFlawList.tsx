@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { MageSourceWarning } from '../../../games/mage20/supplements/SourceControls';
 import {
   formatAllowedCosts,
   formatMeritFlawSources,
@@ -107,6 +108,7 @@ export function SelectedMeritFlawList({
                   {isExpanded ? '⌃' : '⌄'}
                 </button>
               </div>
+              {definition && <MageSourceWarning entry={definition} />}
               {definition ? (
                 <p className="selected-merit-flaw__source">
                   {formatMeritFlawSources(definition)}

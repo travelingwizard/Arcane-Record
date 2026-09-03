@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { MageSourceWarning } from '../../../games/mage20/supplements/SourceControls';
 import { equipmentById } from '../../../systems/mage-m20/reference/equipment';
 import type {
   EquipmentCategory,
@@ -86,6 +87,7 @@ export function SelectedEquipmentList({
               </button>
             </div>
 
+            {definition && <MageSourceWarning entry={definition} />}
             {definition ? (
               <p className="catalog-card__source">
                 {definition.citation} · reference preview

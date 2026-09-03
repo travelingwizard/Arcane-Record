@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { MageSourceWarning } from '../../../games/mage20/supplements/SourceControls';
 import { wonderById } from '../../../systems/mage-m20/reference/wonders';
 import type { OwnedWonder } from '../../../types/character';
 
@@ -70,6 +71,7 @@ export function SelectedWonderList({
               </button>
             </div>
 
+            {definition && <MageSourceWarning entry={definition} />}
             {definition ? (
               <p className="catalog-card__source">
                 {definition.citation} · reference preview

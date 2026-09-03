@@ -22,6 +22,13 @@ export function convertMageCharacterToModuleCopy(
   id = crypto.randomUUID(),
 ): StoredCharacter {
   const mage = storedCharacterToMage(source);
+  if (
+    mage.sourcePreferences?.mature ||
+    mage.sourcePreferences?.enabled.some((id) => id !== 'mage-20')
+  )
+    throw new Error(
+      'Supplement source settings require the production Mage editor.',
+    );
   const development = mage.development;
   if (
     development &&

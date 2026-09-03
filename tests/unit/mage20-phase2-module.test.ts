@@ -21,6 +21,7 @@ describe('Mage 20 Phase 2 declarative slice', () => {
     const legacy = getMageCharacterData(createMage20Phase2GoldenCharacter());
     const slice = structuredClone(legacy);
     delete slice.development;
+    delete slice.sourcePreferences;
 
     expect(resolved.characterSchema.parse(slice)).toEqual(slice);
     expect(resolved.template.sections.map(({ id }) => id)).toEqual([
