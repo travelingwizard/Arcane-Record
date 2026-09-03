@@ -34,6 +34,9 @@ Mage editor model contains:
 - `health`: an ordered array of typed damage marks.
 - `experience`: separately editable nonnegative integer totals for lifetime
   earned and currently available experience.
+- optional `development`: the Mage guided-creation draft and baseline,
+  approvals, secondary Abilities, specialties, personal details, and the XP
+  ledger from which current and lifetime experience are calculated.
 
 Ratings are integers. Dot and box controls derive their filled presentation from the rating rather than persisting Boolean arrays.
 
@@ -89,7 +92,9 @@ initializes the new `Do*` Skill to zero for schema-version-6 and older records.
 Version 8 adds empty Combat favorites, custom Combat references, and known Do
 maneuver selections to schema-version-7 and older records. Version 9 adds
 Build/Play layout ordering. Version 10 adds Total Experience and Current
-Experience, initialized to zero without inferring prior advancement.
+Experience, initialized to zero. Version 11 adds Mage creation and advancement;
+older sheets migrate as manual records with a labeled opening XP balance and no
+inferred purchase history.
 
 Exalted derives Total Experience and Current Experience from its existing
 ledger rather than persisting redundant totals. Burning Wheel schema version 2

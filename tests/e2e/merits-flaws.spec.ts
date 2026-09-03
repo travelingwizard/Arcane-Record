@@ -6,7 +6,7 @@ test('selects, persists, edits, removes, and restores Merits and Flaws', async (
   await page.goto('/');
   await page.getByRole('button', { name: 'Create Character' }).click();
   await page.getByRole('button', { name: 'Choose Mage 20' }).click();
-  await page.getByRole('button', { name: 'Create Character' }).click();
+  await page.getByRole('button', { name: 'Open Blank Sheet' }).click();
   await page.getByLabel('Name', { exact: true }).fill('Catalog Adept');
   const section = page.locator('section', {
     has: page.getByRole('heading', { name: 'Merits & Flaws' }),

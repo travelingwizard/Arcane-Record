@@ -22,7 +22,7 @@ export function AttributesSection() {
       id="attributes"
       eyebrow="Innate capacities"
       title="Attributes"
-      description="Ratings are editable without point-allocation rules in this milestone."
+      description="Edit manual ratings here, or use guided creation and XP advancement for rule-priced changes."
     >
       <div className="attribute-groups">
         {attributeGroups.map((group) => {

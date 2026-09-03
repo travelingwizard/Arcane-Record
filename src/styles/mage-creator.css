@@ -1,0 +1,67 @@
+.mage-creator,
+.mage-advancement {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.mage-creator {
+  padding: 1rem;
+  border: 1px solid currentColor;
+  border-radius: 0.5rem;
+}
+.mage-creator-steps,
+.mage-creator-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 0.75rem;
+  margin-block: 1rem;
+}
+.mage-creator-steps [aria-current='step'] {
+  outline: 2px solid currentColor;
+  font-weight: 700;
+}
+.mage-creator label,
+.mage-advancement label,
+.mage-creator-grid label {
+  display: grid;
+  gap: 0.3rem;
+  margin-block: 0.5rem;
+  min-width: 0;
+}
+.mage-creator input,
+.mage-creator select,
+.mage-creator textarea,
+.mage-advancement input,
+.mage-advancement select,
+.mage-advancement textarea,
+.mage-creator-grid input {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+.mage-creator input[type='checkbox'],
+.mage-advancement input[type='checkbox'] {
+  width: 1.25rem;
+}
+.mage-creator button,
+.mage-advancement button,
+.mage-creator select,
+.mage-advancement select {
+  min-height: 44px;
+}
+.mage-creator-rating {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+  padding: 0.5rem;
+  border-bottom: 1px solid currentColor;
+}
+.mage-catalog-results {
+  max-height: 32rem;
+  overflow: auto;
+  margin-block: 1rem;
+}
+.mage-catalog-results article,
+.mage-advancement article {
+  padding: 0.75rem;
+  border-bottom: 1px solid currentColor;
+}

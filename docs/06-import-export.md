@@ -1,5 +1,10 @@
 # 06. Import and export
 
+Mage creation and advancement records are supported by the production Mage
+editor and JSON/YAML interchange. The experimental declarative Mage preview
+does not support these new records; conversion is blocked when they contain
+user data rather than silently discarding them.
+
 The Save section saves the active character as JSON by default, offers YAML,
 and imports `.json`, `.yaml`, and `.yml` files. All processing stays in the
 browser.
@@ -58,3 +63,9 @@ fresh, independent section-preference key.
 
 The character’s Build/Play layout mode and both group orders are included so a
 saved character keeps its chosen page and navigation arrangement.
+
+Mage schema-version-11 files also include the guided-creation draft and
+baseline, per-rule GM approvals, secondary Abilities, specialties, personal
+details, and XP ledger. Reference descriptions remain outside character files.
+Opening totals on older sheets migrate to one labeled ledger balance; the app
+does not fabricate historical purchases.

@@ -15,6 +15,7 @@ import type { MageCharacterData } from '../../types/character';
 import type { GameSystemDefinition } from '../game-system';
 import { Mage20Editor } from './Mage20Editor';
 import { getMageCharacterData, MAGE20_SYSTEM_ID } from './character-adapter';
+import { developmentFor, newCreationDraft } from './development/rules';
 
 export const mage20Definition: GameSystemDefinition<MageCharacterData> = {
   id: MAGE20_SYSTEM_ID,
@@ -26,11 +27,32 @@ export const mage20Definition: GameSystemDefinition<MageCharacterData> = {
   characterSchema: mageCharacterDataSchema,
   createInitialCharacter: () =>
     getMageCharacterData(createBlankMageCharacter()),
+  creationActions: [
+    {
+      id: 'build',
+      name: 'Build Character',
+      description:
+        'Guided M20 creation with point budgets and GM-approved exceptions.',
+      createInitialCharacter: () => {
+        const c = createBlankMageCharacter();
+        c.development = {
+          ...developmentFor(c),
+          status: 'draft',
+          draft: newCreationDraft(c),
+        };
+        return getMageCharacterData(c);
+      },
+    },
+    {
+      id: 'manual',
+      name: 'Open Blank Sheet',
+      description:
+        'Use the existing editable Mage sheet without guided creation.',
+      createInitialCharacter: () =>
+        getMageCharacterData(createBlankMageCharacter()),
+    },
+  ],
   migrateCharacter: (data, fromVersion, metadata) => {
-    const current = mageCharacterDataSchema.safeParse(data);
-    if (current.success) {
-      return current.data;
-    }
     return getMageCharacterData(
       migrateMageCharacter({
         ...(data as object),

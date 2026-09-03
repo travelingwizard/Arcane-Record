@@ -8,7 +8,7 @@ test('persists expanded sections and exchanges local character files', async ({
   await page.goto('/');
   await page.getByRole('button', { name: 'Create Character' }).click();
   await page.getByRole('button', { name: 'Choose Mage 20' }).click();
-  await page.getByRole('button', { name: 'Create Character' }).click();
+  await page.getByRole('button', { name: 'Open Blank Sheet' }).click();
   await page.getByLabel('Name', { exact: true }).fill('Expanded Section Adept');
 
   await page.getByRole('button', { name: 'Set Alertness to 3' }).click();

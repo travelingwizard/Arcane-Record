@@ -8,7 +8,7 @@ test('persists and exports combat favorites, custom references, and Do maneuvers
   await page.goto('/');
   await page.getByRole('button', { name: 'Create Character' }).click();
   await page.getByRole('button', { name: 'Choose Mage 20' }).click();
-  await page.getByRole('button', { name: 'Create Character' }).click();
+  await page.getByRole('button', { name: 'Open Blank Sheet' }).click();
   await page.getByLabel('Name', { exact: true }).fill('Disciplined Adept');
   await page.getByRole('button', { name: 'Set Do* to 3', exact: true }).click();
 

@@ -36,6 +36,7 @@ import { useCharacterSectionPreferences } from './use-character-section-preferen
 import { useMediaQuery } from './use-media-query';
 import { AppearanceSettings } from '../settings/AppearanceSettings';
 import { MageSheetSettingsPanel } from '../../games/mage20/MageSheetSettingsPanel';
+import { MageCreator } from '../../games/mage20/development/MageCreator';
 
 export function CharacterEditor({
   onReturnToLibrary,
@@ -171,51 +172,59 @@ function CharacterEditorContent({
           <span>✦</span>
         </div>
 
-        <SheetLayoutModeToggle
-          mode={character.sheetLayout.mode}
-          onModeChange={setSheetLayoutMode}
-          playModeNote="Build ratings are view-only. Health, Temporary Willpower, Quintessence, Paradox, and Equipment remain editable."
-        />
-
-        <MobileSectionNavigator />
-
-        <div className="character-editor-layout">
-          <CharacterSectionNav />
-          <div className="character-sheet">
-            {getOrderedSectionGroups(
-              character.sheetLayout.groupOrders[character.sheetLayout.mode],
-            ).flatMap((group) =>
-              characterSections
-                .filter((section) => section.group === group.id)
-                .map((section) => {
-                  const sections = {
-                    identity: <IdentitySection />,
-                    attributes: <AttributesSection />,
-                    abilities: <AbilitiesSection />,
-                    maneuvers: <ManeuversSection />,
-                    backgrounds: <BackgroundsSection />,
-                    'merits-flaws': <MeritsFlawsSection />,
-                    spheres: <SpheresSection />,
-                    enlightenment: <EnlightenmentSection />,
-                    focus: <FocusSection />,
-                    wonders: <WondersSection />,
-                    rotes: <RotesSection />,
-                    equipment: <EquipmentSection />,
-                    health: <HealthSection />,
-                    experience: <ExperienceSection />,
-                    'import-export': (
-                      <ImportExportSection
-                        character={character}
-                        repository={repository}
-                        onImported={onImported}
-                      />
-                    ),
-                  };
-                  return <div key={section.id}>{sections[section.id]}</div>;
-                }),
-            )}
+        {character.development?.draft ? (
+          <div className="character-sheet mage-creator-shell">
+            <MageCreator />
           </div>
-        </div>
+        ) : (
+          <>
+            <SheetLayoutModeToggle
+              mode={character.sheetLayout.mode}
+              onModeChange={setSheetLayoutMode}
+              playModeNote="Build ratings are view-only. Health, Temporary Willpower, Quintessence, Paradox, and Equipment remain editable."
+            />
+
+            <MobileSectionNavigator />
+
+            <div className="character-editor-layout">
+              <CharacterSectionNav />
+              <div className="character-sheet">
+                {getOrderedSectionGroups(
+                  character.sheetLayout.groupOrders[character.sheetLayout.mode],
+                ).flatMap((group) =>
+                  characterSections
+                    .filter((section) => section.group === group.id)
+                    .map((section) => {
+                      const sections = {
+                        identity: <IdentitySection />,
+                        attributes: <AttributesSection />,
+                        abilities: <AbilitiesSection />,
+                        maneuvers: <ManeuversSection />,
+                        backgrounds: <BackgroundsSection />,
+                        'merits-flaws': <MeritsFlawsSection />,
+                        spheres: <SpheresSection />,
+                        enlightenment: <EnlightenmentSection />,
+                        focus: <FocusSection />,
+                        wonders: <WondersSection />,
+                        rotes: <RotesSection />,
+                        equipment: <EquipmentSection />,
+                        health: <HealthSection />,
+                        experience: <ExperienceSection />,
+                        'import-export': (
+                          <ImportExportSection
+                            character={character}
+                            repository={repository}
+                            onImported={onImported}
+                          />
+                        ),
+                      };
+                      return <div key={section.id}>{sections[section.id]}</div>;
+                    }),
+                )}
+              </div>
+            </div>
+          </>
+        )}
 
         <footer className="privacy-note">
           <strong>Private by design.</strong> Character data is stored in this

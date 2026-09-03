@@ -10,6 +10,7 @@ import {
 } from '../../systems/mage-m20/definitions';
 import type { MageCharacter, MageCharacterData } from '../../types/character';
 import type { StoredCharacter } from '../../storage/stored-character';
+import { developmentFor, experienceTotals } from './development/rules';
 
 export const MAGE20_SYSTEM_ID = 'mage20' as const;
 
@@ -29,7 +30,14 @@ export function createMageStoredCharacter(
 export function mageToStoredCharacter(
   character: MageCharacter,
 ): StoredCharacter {
-  const validated = mageCharacterSchema.parse(character);
+  const validated = mageCharacterSchema.parse(
+    character.development
+      ? {
+          ...character,
+          experience: experienceTotals(character.development.ledger),
+        }
+      : character,
+  );
   return {
     id: validated.id,
     systemId: MAGE20_SYSTEM_ID,
@@ -46,9 +54,13 @@ export function storedCharacterToMage(record: StoredCharacter): MageCharacter {
     throw new Error('This record is not a Mage 20 character.');
   }
 
+  const hadDevelopment =
+    typeof record.data === 'object' &&
+    record.data !== null &&
+    Object.prototype.hasOwnProperty.call(record.data, 'development');
   const currentData = mageCharacterDataSchema.safeParse(record.data);
   if (currentData.success) {
-    return mageCharacterSchema.parse({
+    const hydrated = mageCharacterSchema.parse({
       ...currentData.data,
       id: record.id,
       systemId: MAGE_SYSTEM_ID,
@@ -56,6 +68,17 @@ export function storedCharacterToMage(record: StoredCharacter): MageCharacter {
       createdAt: record.createdAt,
       updatedAt: record.updatedAt,
     });
+    const development = hadDevelopment
+      ? hydrated.development!
+      : developmentFor({ ...hydrated, development: undefined });
+    const normalized = mageCharacterSchema.parse({
+      ...hydrated,
+      development,
+    });
+    return {
+      ...normalized,
+      experience: experienceTotals(normalized.development!.ledger),
+    };
   }
 
   return migrateMageCharacter({

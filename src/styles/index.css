@@ -1,6 +1,7 @@
 @import './tokens.css';
 @import './components.css';
 @import './responsive.css';
+@import './mage-creator.css';
 
 :root {
   font-family: var(--font-serif);

@@ -24,7 +24,7 @@ describe('mageCharacterSchema', () => {
     );
 
     expect(mageCharacterSchema.parse(character)).toEqual(character);
-    expect(character.schemaVersion).toBe(10);
+    expect(character.schemaVersion).toBe(11);
     expect(character.experience).toEqual({ total: 0, current: 0 });
     expect(character.sheetLayout).toMatchObject({
       mode: 'build',

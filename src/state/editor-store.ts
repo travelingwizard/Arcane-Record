@@ -100,6 +100,7 @@ const focusKeyByKind = {
 } as const;
 
 interface EditorState {
+  updateMage: (update: (character: MageCharacter) => MageCharacter) => void;
   character: MageCharacter | null;
   revision: number;
   saveStatus: SaveStatus;
@@ -263,6 +264,7 @@ function withChange(
 }
 
 export const useEditorStore = create<EditorState>((set) => ({
+  updateMage: (update) => set((state) => withChange(state, update)),
   character: null,
   revision: 0,
   saveStatus: 'saved',

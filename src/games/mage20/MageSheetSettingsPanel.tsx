@@ -6,12 +6,14 @@ import {
   useMageSheetPreferences,
 } from './mage-sheet-preferences';
 import type { SphereSortMode } from '../../systems/mage-m20/definitions';
+import { MageDevelopmentSettings } from './development/MageDevelopmentSettings';
 
 export function MageSheetSettingsPanel() {
   const preferences = useMageSheetPreferences();
 
   return (
     <>
+      <MageDevelopmentSettings />
       <fieldset className="appearance-group mage-sheet-settings-panel">
         <legend>Spheres</legend>
         <label>

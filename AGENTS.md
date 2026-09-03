@@ -15,7 +15,8 @@
   security audit events. It must never receive character data and the app must
   remain fully usable offline with cached modules.
 - Use the exact phrase "Saved in this browser" for successful persistence.
-- This milestone is an editable sheet, not a character-creation rules engine.
+- Mage 20 supports an editable sheet plus a guided creation and advancement
+  rules engine. Keep game rules within the Mage module.
 - Keep deferred features visibly labeled as previews or placeholders; do not imply they work.
 
 ## Architecture

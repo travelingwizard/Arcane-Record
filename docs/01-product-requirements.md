@@ -1,5 +1,11 @@
 # 01. Product requirements
 
+Mage 20 offers both its existing manual sheet and a ten-step guided creator.
+The creator explains and validates standard allocation, separates initial dots
+from freebies, records GM exceptions, and hands finalized characters to the
+same Build/Play editor. Mage advancement uses a local XP ledger and published
+cost formulas; narrative prerequisites always remain table decisions.
+
 ## Library
 
 The opening view is game-neutral and lists locally stored characters with game,

@@ -22,6 +22,21 @@ export function convertMageCharacterToModuleCopy(
   id = crypto.randomUUID(),
 ): StoredCharacter {
   const mage = storedCharacterToMage(source);
+  const development = mage.development;
+  if (
+    development &&
+    (development.status !== 'manual' ||
+      development.draft ||
+      development.baseline ||
+      development.ledger.length ||
+      development.extraAbilities.length ||
+      Object.keys(development.specialties).length ||
+      Object.keys(development.details).length)
+  ) {
+    throw new Error(
+      'Mage creation and advancement records require the production Mage editor; this experimental module preview cannot preserve them.',
+    );
+  }
   const data = mageCharacterDataSchema.parse(mage);
   const template = mage20Phase2Module.sheetTemplates[0]!;
   const validated = buildModuleCharacterSchema(template.characterSchema).parse(

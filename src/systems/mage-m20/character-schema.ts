@@ -5,6 +5,8 @@ import {
   createDefaultEnlightenment,
 } from './create-character';
 import { MAGE_SCHEMA_VERSION, MAGE_SYSTEM_ID, spheres } from './definitions';
+import { mageDevelopmentSchema } from '../../games/mage20/development/schema';
+import { developmentFor } from '../../games/mage20/development/rules';
 import {
   characterSectionGroupIds,
   defaultGroupOrderByMode,
@@ -954,6 +956,18 @@ export const legacyMageCharacterSchemaV9 = z.object({
 
 export const mageCharacterSchema = z.object({
   ...commonFields,
+  development: mageDevelopmentSchema.default({
+    version: 1,
+    status: 'manual',
+    draft: null,
+    baseline: null,
+    finalizedAt: null,
+    ledger: [],
+    backgroundXp: true,
+    extraAbilities: [],
+    specialties: {},
+    details: {},
+  }),
   schemaVersion: z.literal(MAGE_SCHEMA_VERSION),
   abilities: abilitiesSchema,
   enlightenment: z.object({
@@ -1107,7 +1121,33 @@ function migrateLegacyAbilities(
 export function migrateMageCharacter(input: unknown) {
   const current = mageCharacterSchema.safeParse(input);
   if (current.success) {
-    return current.data;
+    const hadDevelopment =
+      typeof input === 'object' &&
+      input !== null &&
+      Object.prototype.hasOwnProperty.call(input, 'development');
+    return hadDevelopment
+      ? current.data
+      : mageCharacterSchema.parse({
+          ...current.data,
+          development: developmentFor({
+            ...current.data,
+            development: undefined,
+          }),
+        });
+  }
+
+  const versionTen = mageCharacterSchema
+    .extend({ schemaVersion: z.literal(10) })
+    .safeParse(input);
+  if (versionTen.success) {
+    return mageCharacterSchema.parse({
+      ...versionTen.data,
+      schemaVersion: MAGE_SCHEMA_VERSION,
+      development: developmentFor({
+        ...versionTen.data,
+        development: undefined,
+      }),
+    });
   }
 
   const versionNine = legacyMageCharacterSchemaV9.safeParse(input);

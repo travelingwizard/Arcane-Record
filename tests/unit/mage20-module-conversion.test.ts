@@ -55,7 +55,12 @@ describe('Mage 20 declarative module parity', () => {
       dependencyLockId: MAGE20_BUNDLED_LOCK_ID,
       convertedFromCharacterId: '11111111-1111-4111-8111-111111111111',
     });
-    expect(copy.data).toEqual(mageCharacterDataSchema.parse(source.data));
+    const expected = Object.fromEntries(
+      Object.entries(mageCharacterDataSchema.parse(source.data)).filter(
+        ([key]) => key !== 'development',
+      ),
+    );
+    expect(copy.data).toEqual(expected);
   });
 
   it('converts the oldest supported Mage schema through the existing migration path', () => {

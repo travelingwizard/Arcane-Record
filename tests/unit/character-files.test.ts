@@ -10,12 +10,13 @@ import { EXALTED1E_SCHEMA_VERSION } from '../../src/games/exalted1e/definitions'
 import { gameSystemRegistry } from '../../src/games/registry';
 import { mageCharacterSchema } from '../../src/systems/mage-m20/character-schema';
 import { createBlankMageCharacter } from '../../src/systems/mage-m20/create-character';
+import { setOpeningBalance } from '../../src/games/mage20/development/rules';
 
 describe('character files', () => {
   it.each(['json', 'yaml'] as const)(
     'exports and imports a validated %s copy with a fresh identity',
     (format) => {
-      const source = createBlankMageCharacter(
+      let source = createBlankMageCharacter(
         new Date('2026-07-01T12:00:00.000Z'),
         '0ca052be-bd0b-44db-8f85-a2019f6ae39a',
       );
@@ -48,7 +49,8 @@ describe('character files', () => {
       source.abilities.talents.alertness = 3;
       source.enlightenment.arete = 4;
       source.health.damage = ['lethal'];
-      source.experience = { total: 30, current: 11 };
+      source = setOpeningBalance(source, 'total', 30);
+      source = setOpeningBalance(source, 'current', 11);
       source.repeatableEntries.merits.push({
         id: '23c6246a-d61e-42af-8733-94fc1aa98647',
         definitionId: 'acute-senses',
@@ -259,7 +261,7 @@ describe('character files', () => {
       format: 'arcane-record-character',
       formatVersion: 1,
       systemId: 'mage20',
-      systemVersion: 10,
+      systemVersion: 11,
     });
     expect(() =>
       prepareImportedRecord(

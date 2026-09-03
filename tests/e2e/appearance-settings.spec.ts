@@ -59,7 +59,7 @@ test('offers character settings and cross-game themes on every sheet', async ({
   await page.goto('/');
   await page.getByRole('button', { name: 'Create Character' }).click();
   await page.getByRole('button', { name: 'Choose Mage 20' }).click();
-  await page.getByRole('button', { name: 'Create Character' }).click();
+  await page.getByRole('button', { name: 'Open Blank Sheet' }).click();
 
   await page.getByRole('button', { name: 'Settings' }).click();
   const mageSettings = page.getByRole('dialog', { name: 'Settings' });

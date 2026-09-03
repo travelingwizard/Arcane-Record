@@ -5,6 +5,7 @@ import {
 import { useEditorStore } from '../../state/editor-store';
 import { DotRating } from '../controls/DotRating';
 import { SheetSection } from '../layout/SheetSection';
+import { MageAbilityDetails } from '../../games/mage20/development/MageAbilityDetails';
 
 export function AbilitiesSection() {
   const abilities = useEditorStore((state) => state.character?.abilities);
@@ -51,6 +52,7 @@ export function AbilitiesSection() {
           );
         })}
       </div>
+      <MageAbilityDetails />
     </SheetSection>
   );
 }

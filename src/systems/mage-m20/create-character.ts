@@ -126,6 +126,18 @@ export function createBlankMageCharacter(
     },
     health: { damage: [] },
     experience: { total: 0, current: 0 },
+    development: {
+      version: 1,
+      status: 'manual',
+      draft: null,
+      baseline: null,
+      finalizedAt: null,
+      ledger: [],
+      backgroundXp: true,
+      extraAbilities: [],
+      specialties: {},
+      details: {},
+    },
     sheetLayout: {
       mode: 'build',
       groupOrders: {

@@ -4,7 +4,7 @@ test('keeps edited character data after refresh', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Create Character' }).click();
   await page.getByRole('button', { name: 'Choose Mage 20' }).click();
-  await page.getByRole('button', { name: 'Create Character' }).click();
+  await page.getByRole('button', { name: 'Open Blank Sheet' }).click();
 
   await page.getByLabel('Name', { exact: true }).fill('Mara Voss');
   await page.getByRole('button', { name: 'Set Strength to 3' }).click();

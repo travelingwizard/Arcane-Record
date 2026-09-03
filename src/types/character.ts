@@ -207,6 +207,7 @@ export type EnlightenmentRatings = Record<EnlightenmentId, number> & {
 };
 
 export interface MageCharacter {
+  development?: import('../games/mage20/development/schema').MageDevelopment;
   id: string;
   systemId: typeof MAGE_SYSTEM_ID;
   schemaVersion: typeof MAGE_SCHEMA_VERSION;
