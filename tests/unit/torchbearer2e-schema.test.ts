@@ -88,6 +88,26 @@ describe('Torchbearer Second Edition foundation', () => {
     });
   });
 
+  it('migrates version-4 sheets with empty Lore Master and Scholar state', () => {
+    const versionFour =
+      createBlankTorchbearer2eCharacter() as unknown as Record<string, unknown>;
+    delete versionFour.playState;
+    delete versionFour.terriblePrice;
+    const creation = versionFour.creation as Record<string, unknown>;
+    delete creation.stockVariant;
+    delete creation.advancedStart;
+
+    const migrated = migrateTorchbearer2eCharacter(versionFour, 4);
+    expect(migrated.creation.stockVariant.type).toBe('standard');
+    expect(migrated.creation.advancedStart.enabled).toBe(false);
+    expect(migrated.playState).toMatchObject({
+      phase: 'adventure',
+      adventureTurns: 0,
+      checks: { available: 0, spent: 0 },
+    });
+    expect(migrated.terriblePrice).toEqual([]);
+  });
+
   it('migrates version-1 records as manual legacy sheets without inferred choices', () => {
     const current = createBlankTorchbearer2eCharacter();
     current.identity.name = 'Legacy Delver';

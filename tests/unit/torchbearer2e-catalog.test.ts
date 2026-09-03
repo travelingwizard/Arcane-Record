@@ -30,6 +30,7 @@ describe('Torchbearer 2e core catalogs', () => {
           [
             'tb2.core.dungeoneers-handbook',
             'tb2.scavengers-supplement.first-printing',
+            'tb2.lore-master.first-printing',
           ].includes(sourceId) &&
           source.length > 0 &&
           page > 0,
@@ -51,6 +52,9 @@ describe('Torchbearer 2e core catalogs', () => {
       'noble-scion',
       'sorcerer',
       'stoneteller',
+      'shaman',
+      'skald',
+      'thief',
     ]);
     expect(torchbearerSkills).toHaveLength(38);
     expect(torchbearerWises).toHaveLength(22);

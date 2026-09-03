@@ -9,6 +9,7 @@ import {
 } from './catalog';
 import {
   emptyTorchbearerCreationState,
+  emptyScholarPlayState,
   type Torchbearer2eCharacter,
 } from './schema';
 
@@ -36,6 +37,8 @@ export function createBlankTorchbearer2eCharacter(
     },
     drives: { belief: '', creed: '', goal: '', instinct: '' },
     creation: emptyTorchbearerCreationState(options.creationStatus ?? 'draft'),
+    playState: emptyScholarPlayState(),
+    terriblePrice: [],
     traits: [],
     rewards: {
       fate: { current: 0, total: 0, totalSpent: 0 },

@@ -72,6 +72,9 @@ export const torchbearerCreationSchema = z.object({
       'noble-scion',
       'sorcerer',
       'stoneteller',
+      'shaman',
+      'skald',
+      'thief',
     ])
     .nullable(),
   classOption: z.object({
@@ -110,6 +113,26 @@ export const torchbearerCreationSchema = z.object({
   }),
   finalizedAt: z.string().datetime().nullable(),
   baseline: creationBaselineSchema.nullable(),
+  stockVariant: z.object({
+    type: z.enum(['standard', 'troll-changeling']),
+    apparentAge: z.string(),
+    actualAge: z.string(),
+  }),
+  advancedStart: z.object({
+    enabled: z.boolean(),
+    targetLevel: z.number().int().min(1).max(10),
+    method: z.enum(['manual', 'roll']),
+    selections: z.array(
+      z.object({
+        id: uuid,
+        level: z.number().int().min(2).max(10),
+        definitionId: z.string(),
+        name: z.string(),
+        notes: z.string(),
+      }),
+    ),
+    rollHistory: z.array(torchbearerCreationRollSchema),
+  }),
 });
 
 export type TorchbearerCreationState = z.infer<
@@ -157,6 +180,109 @@ export const emptyTorchbearerCreationState = (
   },
   finalizedAt: null,
   baseline: null,
+  stockVariant: { type: 'standard', apparentAge: '', actualAge: '' },
+  advancedStart: {
+    enabled: false,
+    targetLevel: 1,
+    method: 'manual',
+    selections: [],
+    rollHistory: [],
+  },
+});
+
+const scholarPlayStateSchema = z.object({
+  phase: z.enum(['adventure', 'camp', 'town', 'respite']),
+  adventureTurns: nonnegativeInteger,
+  checks: z.object({
+    available: nonnegativeInteger,
+    spent: nonnegativeInteger,
+  }),
+  lights: z.array(
+    z.object({
+      id: uuid,
+      name: z.string(),
+      status: z.enum(['active', 'spent', 'extinguished']),
+      remainingTurns: nonnegativeInteger,
+      maximumTurns: nonnegativeInteger,
+    }),
+  ),
+  campTown: z.object({
+    campType: z.string(),
+    townName: z.string(),
+    townType: z.string(),
+    lifestyle: nonnegativeInteger,
+    respiteNotes: z.string(),
+  }),
+  recovery: z.array(
+    z.object({
+      id: uuid,
+      date: z.string(),
+      condition: z.string(),
+      method: z.string(),
+      obstacle: nonnegativeInteger,
+      outcome: z.enum(['pending', 'success', 'failure', 'condition', 'twist']),
+      notes: z.string(),
+    }),
+  ),
+  conflict: z.object({
+    active: z.boolean(),
+    type: z.string(),
+    captain: z.string(),
+    participants: z.string(),
+    maximumDisposition: nonnegativeInteger,
+    currentDisposition: nonnegativeInteger,
+    round: nonnegativeInteger,
+    actions: z.array(
+      z.object({
+        id: uuid,
+        action: z.string(),
+        actor: z.string(),
+        notes: z.string(),
+      }),
+    ),
+    equipment: z.string(),
+    result: z.string(),
+    compromise: z.string(),
+  }),
+  rewardLog: z.array(
+    z.object({
+      id: uuid,
+      date: z.string(),
+      type: z.enum(['fate', 'persona']),
+      amount: z.number().int(),
+      context: z.string(),
+      notes: z.string(),
+    }),
+  ),
+});
+
+export const emptyScholarPlayState = () => ({
+  phase: 'adventure' as const,
+  adventureTurns: 0,
+  checks: { available: 0, spent: 0 },
+  lights: [],
+  campTown: {
+    campType: '',
+    townName: '',
+    townType: '',
+    lifestyle: 0,
+    respiteNotes: '',
+  },
+  recovery: [],
+  conflict: {
+    active: false,
+    type: '',
+    captain: '',
+    participants: '',
+    maximumDisposition: 0,
+    currentDisposition: 0,
+    round: 0,
+    actions: [],
+    equipment: '',
+    result: '',
+    compromise: '',
+  },
+  rewardLog: [],
 });
 
 export const torchbearer2eCharacterSchema = z.object({
@@ -180,6 +306,20 @@ export const torchbearer2eCharacterSchema = z.object({
     instinct: z.string(),
   }),
   creation: torchbearerCreationSchema,
+  playState: scholarPlayStateSchema,
+  terriblePrice: z.array(
+    z.object({
+      id: uuid,
+      date: z.string(),
+      trigger: z.string(),
+      optionId: z.string(),
+      optionName: z.string(),
+      affectedRecordIds: z.array(z.string()),
+      rolls: z.array(torchbearerCreationRollSchema),
+      notes: z.string(),
+      createdAt: z.string().datetime(),
+    }),
+  ),
   traits: z.array(
     z.object({
       id: uuid,
@@ -362,36 +502,77 @@ type LegacyTorchbearerCharacter = LegacyRecord & {
   advancement?: LegacyRecord;
 };
 
+const withVersionFiveFields = (legacy: LegacyRecord) => ({
+  ...legacy,
+  creation: {
+    ...(legacy.creation as LegacyRecord),
+    stockVariant: { type: 'standard', apparentAge: '', actualAge: '' },
+    advancedStart: {
+      enabled: false,
+      targetLevel: 1,
+      method: 'manual',
+      selections: [],
+      rollHistory: [],
+    },
+  },
+  playState: emptyScholarPlayState(),
+  terriblePrice: [],
+});
+
 export function migrateTorchbearer2eCharacter(
   data: unknown,
   fromVersion: number,
 ) {
-  if (fromVersion >= 4) return torchbearer2eCharacterSchema.parse(data);
+  if (fromVersion >= 5) return torchbearer2eCharacterSchema.parse(data);
+
+  if (fromVersion === 4) {
+    const versionFour = data as LegacyTorchbearerCharacter;
+    return torchbearer2eCharacterSchema.parse({
+      ...versionFour,
+      creation: {
+        ...(versionFour.creation as LegacyRecord),
+        stockVariant: { type: 'standard', apparentAge: '', actualAge: '' },
+        advancedStart: {
+          enabled: false,
+          targetLevel: 1,
+          method: 'manual',
+          selections: [],
+          rollHistory: [],
+        },
+      },
+      playState: emptyScholarPlayState(),
+      terriblePrice: [],
+    });
+  }
 
   if (fromVersion === 3) {
     const versionThree = data as LegacyTorchbearerCharacter;
-    return torchbearer2eCharacterSchema.parse({
-      ...versionThree,
-      creation: {
-        ...(versionThree.creation as LegacyRecord),
-        classOption: { type: 'none', skillId: null },
-      },
-    });
+    return torchbearer2eCharacterSchema.parse(
+      withVersionFiveFields({
+        ...versionThree,
+        creation: {
+          ...(versionThree.creation as LegacyRecord),
+          classOption: { type: 'none', skillId: null },
+        },
+      }),
+    );
   }
 
   if (fromVersion === 2) {
     const versionTwo = data as LegacyTorchbearerCharacter;
-    return torchbearer2eCharacterSchema.parse({
-      ...versionTwo,
-      creation: {
-        ...(versionTwo.creation as LegacyRecord),
-        classOption: { type: 'none', skillId: null },
-      },
-      sheetLayout: {
-        ...(versionTwo.sheetLayout as LegacyRecord),
-        mode: 'edit',
-      },
-    });
+    return torchbearer2eCharacterSchema.parse(
+      withVersionFiveFields({
+        ...versionTwo,
+        creation: {
+          ...(versionTwo.creation as LegacyRecord),
+          classOption: { type: 'none', skillId: null },
+        },
+        sheetLayout: {
+          ...(versionTwo.sheetLayout as LegacyRecord),
+          mode: 'edit',
+        },
+      }),
+    );
   }
 
   const legacy = data as LegacyTorchbearerCharacter;
@@ -449,5 +630,5 @@ export function migrateTorchbearer2eCharacter(
     },
   };
 
-  return torchbearer2eCharacterSchema.parse(migrated);
+  return torchbearer2eCharacterSchema.parse(withVersionFiveFields(migrated));
 }

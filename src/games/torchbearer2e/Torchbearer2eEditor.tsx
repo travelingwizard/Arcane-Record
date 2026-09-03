@@ -33,6 +33,12 @@ import {
   torchbearer2eCharacterSchema,
   type Torchbearer2eCharacter,
 } from './schema';
+import {
+  AdventureState,
+  CampTownTool,
+  ConflictTool,
+  LegacyTool,
+} from './TorchbearerPlayTools';
 import { previewTorchbearerRebuild } from './creator';
 import { TorchbearerCreator } from './TorchbearerCreator';
 import { TorchbearerCatalogBrowser } from './TorchbearerCatalogBrowser';
@@ -194,6 +200,17 @@ export function Torchbearer2eEditor({
           .map((id) => torchbearer2eConditionLabels[id])
           .join(' · '),
       },
+      'tb2-adventure-state': {
+        primary: `${draft.playState.phase} · ${draft.playState.adventureTurns} turns`,
+      },
+      'tb2-conflict': {
+        primary: draft.playState.conflict.active
+          ? `${draft.playState.conflict.type || 'Active conflict'} · ${draft.playState.conflict.currentDisposition}/${draft.playState.conflict.maximumDisposition}`
+          : 'No active conflict',
+      },
+      'tb2-camp-town': {
+        primary: `${draft.playState.campTown.townName || 'No town'} · Lifestyle ${draft.playState.campTown.lifestyle}`,
+      },
       'tb2-abilities': {
         primary: `Will ${draft.abilities.will.rating} · Health ${draft.abilities.health.rating} · Nature ${draft.abilities.nature.current}/${draft.abilities.nature.rating}`,
       },
@@ -210,6 +227,9 @@ export function Torchbearer2eEditor({
       },
       'tb2-advancement': {
         primary: `${draft.advancement.experience.current} Current Experience`,
+      },
+      'tb2-legacy': {
+        primary: `${draft.terriblePrice.length} permanent records`,
       },
       'tb2-notes': { primary: draft.notes ? 'Notes recorded' : 'No notes yet' },
     }),
@@ -852,6 +872,30 @@ export function Torchbearer2eEditor({
                   </button>
                 ))}
               </div>,
+            )}
+
+            {section(
+              'tb2-adventure-state',
+              'survival',
+              'Scholar’s Guide play tracker',
+              'Adventure State',
+              <AdventureState character={draft} update={update} />,
+            )}
+
+            {section(
+              'tb2-conflict',
+              'survival',
+              'Disposition and actions',
+              'Conflict',
+              <ConflictTool character={draft} update={update} />,
+            )}
+
+            {section(
+              'tb2-camp-town',
+              'survival',
+              'Recovery and lifestyle',
+              'Camp & Town',
+              <CampTownTool character={draft} update={update} />,
             )}
 
             {section(
@@ -2090,6 +2134,14 @@ export function Torchbearer2eEditor({
                   </label>
                 </div>
               </>,
+            )}
+
+            {section(
+              'tb2-legacy',
+              'advancement',
+              'Permanent consequences',
+              'Legacy',
+              <LegacyTool character={draft} update={update} />,
             )}
 
             {section(

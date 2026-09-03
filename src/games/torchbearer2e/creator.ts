@@ -12,7 +12,6 @@ import {
   torchbearerSkills,
   torchbearerStartingMagicSchools,
   torchbearerStartingRelicResults,
-  torchbearerTraits,
   type TorchbearerClassDefinition,
   type TorchbearerStockId,
 } from './catalog';
@@ -106,6 +105,9 @@ export function calculateTorchbearerCreation(
     issues.push(issue('class-required', 0, 'Choose a Torchbearer class.', 26));
   } else {
     traitLevels[classDefinition.traitId] = 1;
+    if (creation.stockVariant.type === 'troll-changeling') {
+      traitLevels['tb2.lore-master.trait.huldrekall'] = 1;
+    }
     if (classDefinition.classId === 'dreamwalker') {
       if (creation.classOption.type === 'dreamwalker-skill') {
         const skillId = creation.classOption.skillId;
@@ -272,11 +274,13 @@ export function calculateTorchbearerCreation(
     halfling: ['Home-wise', 'Needs a Little Salt-wise'],
   };
   const requiredWiseCount =
-    (classDefinition?.classId === 'dreamwalker' &&
-    creation.classOption.type === 'dreamwalker-wise'
-      ? 3
-      : classDefinition?.wiseCount) ??
-    (stockId === 'human' ? 1 : stockId ? 2 : 1);
+    creation.stockVariant.type === 'troll-changeling'
+      ? 1
+      : ((classDefinition?.classId === 'dreamwalker' &&
+        creation.classOption.type === 'dreamwalker-wise'
+          ? 3
+          : classDefinition?.wiseCount) ??
+        (stockId === 'human' ? 1 : stockId ? 2 : 1));
   if (wiseNames.length < requiredWiseCount) {
     issues.push(
       issue(
@@ -288,8 +292,10 @@ export function calculateTorchbearerCreation(
     );
   }
   const requiredStockWises =
-    classDefinition?.wiseSuggestions ??
-    (stockId ? stockWiseOptions[stockId] : undefined);
+    creation.stockVariant.type === 'troll-changeling'
+      ? ['Troll-wise', 'Giant-wise', 'Changeling-wise', 'Folklore-wise']
+      : (classDefinition?.wiseSuggestions ??
+        (stockId ? stockWiseOptions[stockId] : undefined));
   if (
     requiredStockWises &&
     !wiseNames.some((name) => requiredStockWises.includes(name))
@@ -330,9 +336,12 @@ export function calculateTorchbearerCreation(
   }
   let nature = 3;
   let natureResources = 0;
-  const natureDescriptors: [string, string, string] = stockId
-    ? [...stockNatureDescriptors[stockId]]
-    : ['', '', ''];
+  const natureDescriptors: [string, string, string] =
+    creation.stockVariant.type === 'troll-changeling'
+      ? ['Tricking', 'Boasting', 'Breaking']
+      : stockId
+        ? [...stockNatureDescriptors[stockId]]
+        : ['', '', ''];
   for (const answer of answers) {
     if (answer.stockId !== stockId) {
       issues.push(
@@ -707,6 +716,50 @@ export function calculateTorchbearerCreation(
         ),
       );
     }
+  } else if (classDefinition?.classId === 'shaman') {
+    if (creation.magic.selectedDefinitionIds.length !== 2) {
+      issues.push(
+        issue(
+          'shaman-relics',
+          11,
+          'A Shaman begins with two minor relics.',
+          12,
+        ),
+      );
+    }
+    if (creation.magic.method === 'none') {
+      issues.push(
+        issue(
+          'shaman-magic-method',
+          11,
+          'Roll or manually choose two starting Shaman relics.',
+          12,
+        ),
+      );
+    }
+  }
+
+  if (creation.advancedStart.enabled && classDefinition) {
+    for (
+      let level = 2;
+      level <= creation.advancedStart.targetLevel;
+      level += 1
+    ) {
+      if (
+        !creation.advancedStart.selections.some(
+          (entry) => entry.level === level,
+        )
+      ) {
+        issues.push(
+          issue(
+            `advanced-start-level-${level}`,
+            13,
+            `Choose an Advanced Start benefit for level ${level}.`,
+            90,
+          ),
+        );
+      }
+    }
   }
 
   if (!character.identity.name.trim()) {
@@ -714,7 +767,10 @@ export function calculateTorchbearerCreation(
   }
   if (!character.identity.age.trim()) {
     issues.push(issue('age-required', 12, 'Record the character’s age.', 44));
-  } else if (stockId) {
+  } else if (
+    stockId &&
+    character.creation.stockVariant.type !== 'troll-changeling'
+  ) {
     const age = Number.parseInt(character.identity.age, 10);
     const ageRanges: Record<TorchbearerStockId, [number, number]> = {
       dwarf: [30, 51],
@@ -890,9 +946,7 @@ function buildFinalizedCharacter(
   );
   const traits = Object.entries(preview.traitLevels).map(
     ([definitionId, startingLevel]) => {
-      const definition = torchbearerTraits.find(
-        (entry) => entry.id === definitionId,
-      )!;
+      const definition = torchbearerReferenceById.get(definitionId)!;
       const prior = priorTraits.get(definitionId);
       const advancementDelta = prior
         ? Math.max(0, prior.level - prior.startingLevel)
@@ -1049,7 +1103,22 @@ function buildFinalizedCharacter(
             origin: creationOrigin(definitionId),
           };
         })
-      : [];
+      : classDefinition.classId === 'shaman'
+        ? selectedMagic.map((definitionId) => {
+            const definition = torchbearerReferenceById.get(definitionId)!;
+            return {
+              id: crypto.randomUUID(),
+              definitionId,
+              name: definition.name,
+              inventory: definition.name,
+              invocationName: '',
+              circle: 1,
+              notes: '',
+              source: definitionSource(definition),
+              origin: creationOrigin(definitionId),
+            };
+          })
+        : [];
 
   const creatorRecordIds = [
     ...skills,
@@ -1065,13 +1134,17 @@ function buildFinalizedCharacter(
     identity: {
       ...character.identity,
       stock:
-        classDefinition.stockId[0]!.toUpperCase() +
-        classDefinition.stockId.slice(1),
+        character.creation.stockVariant.type === 'troll-changeling'
+          ? 'Troll Changeling'
+          : classDefinition.stockId[0]!.toUpperCase() +
+            classDefinition.stockId.slice(1),
       class: classDefinition.name,
       home:
         torchbearerHomes.find(({ id }) => id === character.creation.homeId)
           ?.name ?? character.identity.home,
-      level: 1,
+      level: character.creation.advancedStart.enabled
+        ? character.creation.advancedStart.targetLevel
+        : 1,
     },
     drives: { ...character.drives, creed: '' },
     creation: {
@@ -1120,6 +1193,25 @@ function buildFinalizedCharacter(
       urdr: classDefinition.startingUrdr,
       spells: [...manualSpells, ...spells],
       relics: [...manualRelics, ...relics],
+    },
+    advancement: {
+      ...character.advancement,
+      levelBenefits: character.creation.advancedStart.enabled
+        ? character.creation.advancedStart.selections.map((selection) => {
+            const definition = torchbearerReferenceById.get(
+              selection.definitionId,
+            );
+            return {
+              id: selection.id,
+              definitionId: selection.definitionId,
+              name: selection.name,
+              level: selection.level,
+              notes: selection.notes,
+              source: definition ? definitionSource(definition) : null,
+              origin: creationOrigin(selection.definitionId),
+            };
+          })
+        : character.advancement.levelBenefits,
     },
   };
 }

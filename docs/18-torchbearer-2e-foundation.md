@@ -48,13 +48,19 @@ Starting magic supports cryptographically random browser rolls and clearly
 labeled manual selections. Roll history, individual dice, result IDs, method,
 and timestamps remain part of the local character record.
 
-Schema version 4 stores stable creator choice IDs, source provenance, creation
+Schema version 5 stores stable creator choice IDs, source provenance, creation
 origins, starting ratings, overrides, roll history, a finalization baseline,
 and the persisted Edit/Play sheet mode. Version-1 sheets migrate as manual
 legacy records and version-2 sheets retain their existing behavior in Edit
 mode. Version-3 sheets gain an empty supplement class-option record without
 inferring a choice. Reopening the creator shows a rebuild comparison and
 preserves manual additions and advancement beyond starting ratings.
+
+Version 5 also adds standard/Troll Changeling stock variants and dual-age
+fields, optional Advanced Start records, Terrible Price history, and structured
+Scholar play state. Version-4 sheets migrate as standard stock with empty play
+and legacy records; no historical turns, conflicts, recovery, or advancement
+are inferred.
 
 The normal sheet uses compact numeric Ability and Skill disclosures. Edit mode
 allows structural and base-rating changes. Play mode protects permanent
@@ -79,10 +85,18 @@ special starting Resources, Might, Precedence, equipment, and required parents.
 Summoning procedures are summarized through the cited Summoner entry; denizen
 stat blocks and town-event tables are not copied into the character runtime.
 
-Condition recovery, conflict procedures, advancement-cost calculation,
-monsters, adventures, and general town/camp procedure tables remain outside
-this milestone. Party-wide specialty uniqueness is advisory because Arcane
+Automated narrative resolution, advancement-cost calculation, monsters,
+adventures, and GM-only town/camp tables remain outside this milestone.
+Party-wide specialty uniqueness is advisory because Arcane
 Record has no party or cloud coordination model.
+
+Lore Master’s Manual definitions use the independent `tb2.lore-master.*`
+namespace. Its character-facing catalog includes Shaman, Skald, Thief, the
+Troll Changeling stock override, Traits, Skills, magic, equipment, and level
+benefits. The Scholar’s Guide informs the Adventure State, Conflict, Camp &
+Town, light, checks, Grind, lifestyle, and recovery trackers. These tools
+calculate ranges and totals and present reminders, but the table decides all
+narrative results.
 
 No source art, logo, PDF page, or long source passage is used at runtime. The
 interface uses original CSS decoration and the established Arcane Record

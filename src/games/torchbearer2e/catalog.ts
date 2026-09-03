@@ -99,7 +99,10 @@ export type TorchbearerClassId =
   | 'guide'
   | 'noble-scion'
   | 'sorcerer'
-  | 'stoneteller';
+  | 'stoneteller'
+  | 'shaman'
+  | 'skald'
+  | 'thief';
 export type TorchbearerStockId = 'halfling' | 'human' | 'dwarf' | 'elf';
 
 export interface TorchbearerClassDefinition extends TorchbearerReferenceDefinition {
@@ -2151,6 +2154,194 @@ type LevelBenefitRow = readonly [
 ];
 
 const levelBenefitRows: Record<TorchbearerClassId, LevelBenefitRow[]> = {
+  shaman: [
+    [
+      1,
+      'Initiate',
+      15,
+      'Begin with Urðr, two minor relics, and Shaman equipment permissions.',
+    ],
+    [
+      2,
+      'Battle Fever',
+      15,
+      'Invoke battle fever under its listed conflict conditions.',
+    ],
+    [
+      2,
+      'Fever Dreams',
+      15,
+      'Receive troubling spiritual insight through fevered dreams.',
+    ],
+    [3, 'Acolyte', 16, 'Gain an acolyte companion under the follower rules.'],
+    [
+      3,
+      'Vow to the Lords of Hunger',
+      16,
+      'Take a binding vow and its associated spiritual benefit.',
+    ],
+    [4, 'Heartbeast', 16, 'Develop a lasting bond with an animal spirit form.'],
+    [
+      4,
+      'Vow to the Mother of Beasts',
+      16,
+      'Take the Mother of Beasts vow and its benefit.',
+    ],
+    [5, 'Adept', 17, 'Advance the Shaman’s command of relics and spirits.'],
+    [
+      5,
+      'Armor of Fury',
+      17,
+      'Gain supernatural protection while fury is active.',
+    ],
+    [
+      6,
+      'Skinchanger',
+      18,
+      'Assume an established animal skin under the transformation rules.',
+    ],
+    [
+      6,
+      'Vow to the Lord of Endings',
+      18,
+      'Take the Lord of Endings vow and its benefit.',
+    ],
+    [7, 'Seer', 18, 'Gain a seer’s supernatural perception.'],
+    [7, 'Völva', 18, 'Practice the Völva’s deeper rites.'],
+    [8, 'Paragon', 19, 'Become a paragon of a selected ability.'],
+    [
+      8,
+      'Transformed',
+      19,
+      'Replace a Nature descriptor with an eligible transformed descriptor.',
+    ],
+    [9, 'Heroic Ability', 19, 'Raise an eligible ability to heroic stature.'],
+    [9, 'Hamask', 19, 'Manifest the Shaman’s fearsome spirit shape.'],
+    [10, 'Primal Beast', 19, 'Embody an ancient primal beast.'],
+    [10, 'Spirit Nature', 19, 'Complete a lasting transformation of Nature.'],
+  ],
+  skald: [
+    [
+      1,
+      'Skald',
+      20,
+      'Begin with the Skald’s voice, skills, and equipment permissions.',
+    ],
+    [
+      2,
+      'Welcome in Every Hall',
+      20,
+      'Find hospitality where the Skald’s calling is honored.',
+    ],
+    [2, 'Deep Mind', 20, 'Draw on a deep store of stories and recollection.'],
+    [3, 'Flyting', 21, 'Meet rivals through formal contests of cutting verse.'],
+    [3, 'Inspiring Counsel', 21, 'Strengthen companions with timely counsel.'],
+    [
+      4,
+      'Master of Kennings',
+      21,
+      'Use masterful poetic language to shape an audience.',
+    ],
+    [
+      4,
+      'Skaldic Reputation',
+      21,
+      'Establish a durable reputation as a celebrated Skald.',
+    ],
+    [5, 'Apprentice', 22, 'Gain and teach an apprentice.'],
+    [
+      5,
+      'Honored Guest',
+      22,
+      'Receive the consideration due an honored storyteller.',
+    ],
+    [6, 'Rune Master', 22, 'Learn the practice of potent runes.'],
+    [6, 'Gondul', 22, 'Call on the Gondul tradition in battle.'],
+    [7, 'Seiðworker', 23, 'Practice deeper and stranger magic.'],
+    [7, 'Warrior-Poet', 23, 'Join martial prowess and poetic command.'],
+    [8, 'Heroic Skill', 23, 'Raise an eligible Skill to heroic stature.'],
+    [
+      8,
+      'Transformed',
+      23,
+      'Replace a Nature descriptor with an eligible transformed descriptor.',
+    ],
+    [
+      9,
+      'Maker of Legends',
+      24,
+      'Create stories whose weight alters reputation and memory.',
+    ],
+    [9, 'Shapeshifter', 24, 'Assume an established alternate form.'],
+    [10, 'Songs to Be Sung', 24, 'Leave deeds worthy of enduring song.'],
+    [10, 'Courts of the Wise', 24, 'Stand among the great keepers of lore.'],
+  ],
+  thief: [
+    [
+      1,
+      'Thief',
+      25,
+      'Begin with a dagger, no armor, and the Thief’s trained Skills.',
+    ],
+    [
+      2,
+      'Concealed Pocket',
+      25,
+      'Gain a discreet place for a small carried item.',
+    ],
+    [2, 'Improvisational', 25, 'Make resourceful use of tools at hand.'],
+    [3, 'Surprise Attack', 25, 'Exploit surprise in an eligible conflict.'],
+    [
+      3,
+      'Pickpocket',
+      25,
+      'Lift a carried object through practiced misdirection.',
+    ],
+    [
+      4,
+      'Good Ear',
+      25,
+      'Notice valuable information through careful listening.',
+    ],
+    [4, 'Fence', 25, 'Gain access to a reliable buyer of suspect goods.'],
+    [5, 'Mechanic', 26, 'Understand and defeat complex mechanisms.'],
+    [5, 'Friends in Low Places', 26, 'Call on contacts in the criminal world.'],
+    [6, 'Thief’s Apprentice', 26, 'Gain and train a thief’s apprentice.'],
+    [
+      6,
+      'Symbological Dilettante',
+      26,
+      'Recognize useful marks, signs, and symbols.',
+    ],
+    [7, 'Leverage', 26, 'Turn compromising knowledge into pressure.'],
+    [7, 'Expert', 26, 'Become an expert in an eligible discipline.'],
+    [
+      8,
+      'Protection',
+      26,
+      'Maintain protection through established underworld ties.',
+    ],
+    [
+      8,
+      'A Life in Shadows',
+      26,
+      'Disappear into the habits and networks of secrecy.',
+    ],
+    [
+      9,
+      'Transformed',
+      26,
+      'Replace a Nature descriptor with an eligible transformed descriptor.',
+    ],
+    [9, 'Heroic Ability', 26, 'Raise an eligible ability to heroic stature.'],
+    [
+      10,
+      'Luck of the Devil',
+      26,
+      'Survive through extraordinary and dangerous luck.',
+    ],
+    [10, 'Spider', 26, 'Become an unmatched infiltrator and climber.'],
+  ],
   burglar: [
     [
       1,
@@ -3269,6 +3460,25 @@ export const torchbearerCoreCatalog: TorchbearerReferenceDefinition[] = [
   ...torchbearerRelics,
   ...torchbearerLevelBenefits,
 ];
+
+// The Lore Master expansion is source-separated but participates in the same
+// stable catalog browser and persistence boundary as core definitions.
+import {
+  loreMasterCatalog,
+  loreMasterClasses,
+  loreMasterHomes,
+  terriblePriceOptions,
+  trollChangelingDefinition,
+} from './lore-master-catalog';
+
+torchbearerClasses.push(...loreMasterClasses);
+torchbearerHomes.push(...loreMasterHomes);
+torchbearerCoreCatalog.push(
+  ...loreMasterClasses,
+  ...loreMasterCatalog,
+  trollChangelingDefinition,
+  ...terriblePriceOptions,
+);
 
 export const torchbearerReferenceById = new Map(
   torchbearerCoreCatalog.map((entry) => [entry.id, entry]),

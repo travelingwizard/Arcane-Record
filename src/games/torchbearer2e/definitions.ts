@@ -4,7 +4,7 @@ import type {
 } from '../game-system';
 
 export const TORCHBEARER2E_SYSTEM_ID = 'torchbearer2e';
-export const TORCHBEARER2E_SCHEMA_VERSION = 4;
+export const TORCHBEARER2E_SCHEMA_VERSION = 5;
 
 export const torchbearer2eSectionGroups = [
   { id: 'character', label: 'Character' },
@@ -32,6 +32,9 @@ export const torchbearer2eSections = [
   { id: 'tb2-traits', label: 'Traits', group: 'character' },
   { id: 'tb2-rewards', label: 'Fate & Persona', group: 'survival' },
   { id: 'tb2-conditions', label: 'Conditions', group: 'survival' },
+  { id: 'tb2-adventure-state', label: 'Adventure State', group: 'survival' },
+  { id: 'tb2-conflict', label: 'Conflict', group: 'survival' },
+  { id: 'tb2-camp-town', label: 'Camp & Town', group: 'survival' },
   { id: 'tb2-abilities', label: 'Abilities', group: 'abilities' },
   { id: 'tb2-skills', label: 'Skills', group: 'abilities' },
   { id: 'tb2-wises', label: 'Wises', group: 'abilities' },
@@ -47,6 +50,7 @@ export const torchbearer2eSections = [
     label: 'Level & Experience',
     group: 'advancement',
   },
+  { id: 'tb2-legacy', label: 'Legacy', group: 'advancement' },
   { id: 'tb2-notes', label: 'Notes', group: 'records' },
 ] as const satisfies readonly GameSectionDefinition[];
 

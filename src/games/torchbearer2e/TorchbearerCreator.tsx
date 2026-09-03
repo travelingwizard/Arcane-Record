@@ -6,6 +6,7 @@ import {
   torchbearerClasses,
   torchbearerGear,
   torchbearerHomes,
+  torchbearerLevelBenefits,
   torchbearerNatureAnswers,
   torchbearerReferenceById,
   torchbearerStartingMagicSchools,
@@ -21,6 +22,7 @@ import {
   rollStartingMagic,
 } from './creator';
 import type { Torchbearer2eCharacter } from './schema';
+import { loreMasterCatalog } from './lore-master-catalog';
 
 const steps = [
   'Class',
@@ -334,6 +336,84 @@ export function TorchbearerCreator({
               });
             }}
           />
+          {classDefinition ? (
+            <fieldset className="tb2-creator-fieldset">
+              <legend>Stock variant</legend>
+              <label>
+                <input
+                  type="radio"
+                  name="tb2-stock-variant"
+                  checked={creation.stockVariant.type === 'standard'}
+                  onChange={() =>
+                    updateCreation({
+                      stockVariant: {
+                        type: 'standard',
+                        apparentAge: '',
+                        actualAge: '',
+                      },
+                    })
+                  }
+                />
+                Standard {classDefinition.stockId}
+              </label>
+              {[
+                'magician',
+                'shaman',
+                'skald',
+                'theurge',
+                'thief',
+                'warrior',
+              ].includes(classDefinition.classId) ? (
+                <label>
+                  <input
+                    type="radio"
+                    name="tb2-stock-variant"
+                    checked={creation.stockVariant.type === 'troll-changeling'}
+                    onChange={() =>
+                      updateCreation({
+                        stockVariant: {
+                          ...creation.stockVariant,
+                          type: 'troll-changeling',
+                        },
+                      })
+                    }
+                  />
+                  Troll Changeling — human upbringing, Huldrekall, Changeling
+                  Wises, and Tricking, Boasting, Breaking Nature
+                </label>
+              ) : showUnavailableSteps.has(step) ? (
+                <label>
+                  <input
+                    type="radio"
+                    name="tb2-stock-variant"
+                    disabled={!gmApprovedSteps.has(step)}
+                    checked={creation.stockVariant.type === 'troll-changeling'}
+                    onChange={() =>
+                      applyUnavailableOverride('troll-changeling-class', {
+                        stockVariant: {
+                          ...creation.stockVariant,
+                          type: 'troll-changeling',
+                        },
+                      })
+                    }
+                  />
+                  Troll Changeling — unavailable for this class without GM
+                  approval
+                </label>
+              ) : null}
+            </fieldset>
+          ) : null}
+          {classDefinition &&
+          ![
+            'magician',
+            'shaman',
+            'skald',
+            'theurge',
+            'thief',
+            'warrior',
+          ].includes(classDefinition.classId)
+            ? unavailableControls(1)
+            : null}
           {classDefinition?.classId === 'dreamwalker' ? (
             <fieldset>
               <legend>Dreamwalker level-one choice</legend>
@@ -1085,6 +1165,96 @@ export function TorchbearerCreator({
       break;
     }
     case 11: {
+      if (classDefinition?.classId === 'shaman') {
+        const relics = loreMasterCatalog.filter(
+          (entry) => entry.kind === 'relic',
+        );
+        content = (
+          <>
+            <h3>Starting Shaman relics</h3>
+            <p>
+              Choose two minor relics, or roll 3d6 and let the recorded total
+              select a pair. Each relic channels an invocation agreed with the
+              GM.
+            </p>
+            <button
+              type="button"
+              className="primary-button"
+              onClick={() => {
+                const dice = Array.from(
+                  { length: 3 },
+                  () =>
+                    (crypto.getRandomValues(new Uint32Array(1))[0]! % 6) + 1,
+                );
+                const total = dice.reduce((sum, die) => sum + die, 0);
+                const start = (total - 3) % relics.length;
+                const selectedDefinitionIds = [
+                  relics[start]!.id,
+                  relics[(start + 1) % relics.length]!.id,
+                ];
+                updateCreation({
+                  magic: {
+                    method: 'roll',
+                    selectedResultId: `shaman-${total}`,
+                    selectedDefinitionIds,
+                    rollHistory: [
+                      ...creation.magic.rollHistory,
+                      {
+                        id: crypto.randomUUID(),
+                        method: 'roll',
+                        dice,
+                        total,
+                        resultId: `shaman-${total}`,
+                        createdAt: new Date().toISOString(),
+                      },
+                    ],
+                  },
+                });
+              }}
+            >
+              Roll 3d6
+            </button>
+            <div className="tb2-choice-grid">
+              {relics.map((relic) => (
+                <label className="tb2-check-card" key={relic.id}>
+                  <input
+                    type="checkbox"
+                    checked={creation.magic.selectedDefinitionIds.includes(
+                      relic.id,
+                    )}
+                    onChange={(event) => {
+                      const ids = event.target.checked
+                        ? [
+                            ...creation.magic.selectedDefinitionIds,
+                            relic.id,
+                          ].slice(-2)
+                        : creation.magic.selectedDefinitionIds.filter(
+                            (id) => id !== relic.id,
+                          );
+                      updateCreation({
+                        magic: {
+                          ...creation.magic,
+                          method: 'manual',
+                          selectedResultId: 'shaman-manual',
+                          selectedDefinitionIds: ids,
+                        },
+                      });
+                    }}
+                  />
+                  <span>
+                    <strong>{relic.name}</strong>
+                    <small>{relic.creationHint}</small>
+                  </span>
+                </label>
+              ))}
+            </div>
+            <small className="tb2-source-note">
+              Lore Master’s Manual, p. 12
+            </small>
+          </>
+        );
+        break;
+      }
       if (
         !classDefinition ||
         !['magician', 'theurge'].includes(classDefinition.classId)
@@ -1228,6 +1398,38 @@ export function TorchbearerCreator({
                 />
               </label>
             ))}
+            {creation.stockVariant.type === 'troll-changeling' ? (
+              <>
+                <label>
+                  <span>Apparent age (17–25)</span>
+                  <input
+                    value={creation.stockVariant.apparentAge}
+                    onChange={(event) =>
+                      updateCreation({
+                        stockVariant: {
+                          ...creation.stockVariant,
+                          apparentAge: event.target.value,
+                        },
+                      })
+                    }
+                  />
+                </label>
+                <label>
+                  <span>Actual age (1–101)</span>
+                  <input
+                    value={creation.stockVariant.actualAge}
+                    onChange={(event) =>
+                      updateCreation({
+                        stockVariant: {
+                          ...creation.stockVariant,
+                          actualAge: event.target.value,
+                        },
+                      })
+                    }
+                  />
+                </label>
+              </>
+            ) : null}
           </div>
           <div className="tb2-text-grid">
             {(['belief', 'instinct', 'goal'] as const).map((field) => (
@@ -1260,6 +1462,129 @@ export function TorchbearerCreator({
       content = (
         <>
           <h3>Review and finalize</h3>
+          <details className="tb2-rebuild-diff">
+            <summary>Advanced Start — Advance &amp; Vanquish</summary>
+            <p>
+              Ordinary first-level creation remains the default. For an advanced
+              character, select the requested level and record each level
+              benefit below; review the complete result with the GM before
+              finalizing.
+            </p>
+            <label className="settings-checkbox">
+              <input
+                type="checkbox"
+                checked={creation.advancedStart.enabled}
+                onChange={(event) =>
+                  updateCreation({
+                    advancedStart: {
+                      ...creation.advancedStart,
+                      enabled: event.target.checked,
+                      targetLevel: event.target.checked
+                        ? Math.max(2, creation.advancedStart.targetLevel)
+                        : 1,
+                    },
+                  })
+                }
+              />
+              <span>Use Advanced Start</span>
+            </label>
+            {creation.advancedStart.enabled ? (
+              <>
+                <label>
+                  <span>Starting level</span>
+                  <input
+                    type="number"
+                    min="2"
+                    max="10"
+                    value={creation.advancedStart.targetLevel}
+                    onChange={(event) =>
+                      updateCreation({
+                        advancedStart: {
+                          ...creation.advancedStart,
+                          targetLevel: Math.min(
+                            10,
+                            Math.max(
+                              2,
+                              Number.parseInt(event.target.value, 10) || 2,
+                            ),
+                          ),
+                        },
+                      })
+                    }
+                  />
+                </label>
+                {classDefinition
+                  ? Array.from(
+                      { length: creation.advancedStart.targetLevel - 1 },
+                      (_, index) => index + 2,
+                    ).map((level) => {
+                      const choices = torchbearerLevelBenefits.filter(
+                        (benefit) =>
+                          benefit.classId === classDefinition.classId &&
+                          benefit.level === level,
+                      );
+                      const selected = creation.advancedStart.selections.find(
+                        (entry) => entry.level === level,
+                      );
+                      return (
+                        <label key={level}>
+                          <span>Level {level} benefit</span>
+                          <select
+                            value={selected?.definitionId ?? ''}
+                            onChange={(event) => {
+                              const benefit = choices.find(
+                                ({ id }) => id === event.target.value,
+                              );
+                              updateCreation({
+                                advancedStart: {
+                                  ...creation.advancedStart,
+                                  selections: [
+                                    ...creation.advancedStart.selections.filter(
+                                      (entry) => entry.level !== level,
+                                    ),
+                                    ...(benefit
+                                      ? [
+                                          {
+                                            id: crypto.randomUUID(),
+                                            level,
+                                            definitionId: benefit.id,
+                                            name: benefit.name,
+                                            notes: '',
+                                          },
+                                        ]
+                                      : []),
+                                  ],
+                                },
+                              });
+                            }}
+                          >
+                            <option value="">Choose a benefit</option>
+                            {choices.map((benefit) => (
+                              <option key={benefit.id} value={benefit.id}>
+                                {benefit.name}
+                              </option>
+                            ))}
+                          </select>
+                          {selected ? (
+                            <small className="tb2-choice-guidance">
+                              {
+                                torchbearerReferenceById.get(
+                                  selected.definitionId,
+                                )?.mechanics
+                              }
+                            </small>
+                          ) : null}
+                        </label>
+                      );
+                    })
+                  : null}
+              </>
+            ) : null}
+            <p className="tb2-advisory">
+              Arcane Record records the selected results and roll history;
+              ambiguous advancement outcomes remain GM decisions.
+            </p>
+          </details>
           <div className="tb2-derived-grid">
             <span>
               <strong>{classDefinition?.name ?? 'No class'}</strong>
