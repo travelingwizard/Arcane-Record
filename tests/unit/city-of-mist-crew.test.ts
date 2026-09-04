@@ -48,7 +48,7 @@ describe('City of Mist crew links', () => {
           ...crew,
           id: crypto.randomUUID(),
           systemId: 'city-of-mist',
-          systemVersion: 2,
+          systemVersion: 3,
           data,
         },
         format,
@@ -152,7 +152,7 @@ describe('City of Mist crew links', () => {
       ...record,
       id: crypto.randomUUID(),
       systemId: 'city-of-mist',
-      systemVersion: 2,
+      systemVersion: 3,
       name: 'Member',
       data: c,
     });

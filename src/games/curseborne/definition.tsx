@@ -12,7 +12,7 @@ export const curseDefinition: GameSystemDefinition<CurseCharacter> = {
   shortName: 'Curseborne',
   description:
     'Editable sheet preview with curse resources, injuries and manual EXP. Guided creation is in development.',
-  currentSchemaVersion: 2,
+  currentSchemaVersion: 3,
   characterSchema: curseCharacterSchema,
   createInitialCharacter: createCurseCharacter,
   migrateCharacter: migrateCurseCharacter,

@@ -66,6 +66,19 @@ No network sync or cross-device linkage is implied.
 
 ## Remaining work
 
+### Source-infrastructure checkpoint
+
+Character schema version 3 and crew schema version 2 store source selections.
+The Player's Guide is required; Shadows & Showdowns defaults off for new sheets.
+Theme browsing now searches 27 cited themebook references, explains their
+purpose, hides disabled sources by default, and retains saved selections when a
+source is disabled. These references are citation-checked but do not yet contain
+complete question and improvement automation, so the preview label remains.
+
+The generated heading inventory and blocking ambiguity register are under
+`docs/references/`. Inventory status is not catalog completion; milestone 1
+remains open until every in-scope entry is reviewed or explicitly excluded.
+
 1. Verify full Rift and Gatekeeper source rules and catalogs; extend structured
    play with reviewed Juice-to-effect actions and development history.
 2. Extend the existing crew review with richer field-by-field snapshot comparison.

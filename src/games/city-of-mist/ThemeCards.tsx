@@ -1,33 +1,11 @@
 import type { z } from 'zod';
+import { useState } from 'react';
+import { cityThemeCatalog } from './catalog';
+import { citySources } from './sources';
+import { catalogAvailability } from '../shared/catalog-sources';
 import { cityThemeSchema } from './schema';
 import { TextField } from '../shared/LocalSheet';
 type Theme = z.infer<typeof cityThemeSchema>;
-
-export const themebooks = [
-  ['Adaptation', 'mythos', 82],
-  ['Bastion', 'mythos', 86],
-  ['Divination', 'mythos', 90],
-  ['Expression', 'mythos', 94],
-  ['Mobility', 'mythos', 98],
-  ['Relic', 'mythos', 102],
-  ['Subversion', 'mythos', 106],
-  ['Defining Event', 'logos', 110],
-  ['Defining Relationship', 'logos', 114],
-  ['Mission', 'logos', 118],
-  ['Personality', 'logos', 122],
-  ['Possessions', 'logos', 126],
-  ['Routine', 'logos', 130],
-  ['Training', 'logos', 134],
-  ['Conjuration', 'mythos', 12],
-  ['Destiny', 'mythos', 16],
-  ['Enclave', 'mythos', 20],
-  ['Familiar', 'mythos', 24],
-  ['Struggle', 'logos', 28],
-  ['Turf', 'logos', 32],
-  ['Shrouding', 'mist', 238],
-  ['Advanced Art', 'mist', 242],
-  ['Unit', 'mist', 246],
-] as const;
 
 export function newTheme(name: string, kind: Theme['kind']): Theme {
   return {
@@ -59,12 +37,17 @@ export function ThemeCards({
   onChange,
   locked,
   profile = 'rift',
+  enabledSources = ['com.players-guide'],
 }: {
   themes: Theme[];
   onChange: (themes: Theme[]) => void;
   locked: boolean;
   profile?: 'rift' | 'gatekeeper' | 'crew';
+  enabledSources?: string[];
 }) {
+  const [query, setQuery] = useState('');
+  const [showUnavailable, setShowUnavailable] = useState(false);
+  const [sourceFilter, setSourceFilter] = useState('');
   const change = (id: string, patch: Partial<Theme>) =>
     onChange(themes.map((t) => (t.id === id ? { ...t, ...patch } : t)));
   return (
@@ -78,21 +61,78 @@ export function ThemeCards({
       {!locked && (
         <details>
           <summary>Browse themebooks</summary>
-          {themebooks
-            .filter(
-              ([, kind]) =>
-                profile === 'crew' ||
-                kind === 'logos' ||
-                kind === (profile === 'rift' ? 'mythos' : 'mist'),
+          <label>
+            Search themebooks
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+          </label>
+          <label>
+            Themebook source
+            <select
+              value={sourceFilter}
+              onChange={(e) => setSourceFilter(e.target.value)}
+            >
+              <option value="">All enabled books</option>
+              {citySources.map((s) => (
+                <option key={s.id} value={s.id}>
+                  {s.title}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              checked={showUnavailable}
+              onChange={(e) => setShowUnavailable(e.target.checked)}
+            />{' '}
+            Show unavailable sources
+          </label>
+          {cityThemeCatalog
+            .filter(({ kind }) =>
+              profile === 'crew'
+                ? kind === 'crew'
+                : kind === 'logos' ||
+                  kind === (profile === 'rift' ? 'mythos' : 'mist'),
             )
-            .map(([name, kind, page]) => (
+            .filter(
+              (entry) =>
+                (!sourceFilter || entry.sourceId === sourceFilter) &&
+                `${entry.name} ${entry.summary} ${entry.aliases.join(' ')}`
+                  .toLowerCase()
+                  .includes(query.toLowerCase()) &&
+                (showUnavailable ||
+                  catalogAvailability(
+                    entry.sourceId,
+                    enabledSources,
+                    citySources,
+                  ) === 'available'),
+            )
+            .map(({ name, kind, page, sourceId, summary }) => (
               <p key={name}>
                 {name} · {kind} ·{' '}
-                {themebooks.findIndex(([title]) => title === name) < 14
-                  ? 'Player’s Guide'
-                  : 'Shadows & Showdowns'}{' '}
-                p. {page}{' '}
+                {citySources.find((s) => s.id === sourceId)?.title} p. {page}{' '}
+                <span>
+                  {summary} Citation checked; full question and improvement
+                  automation pending.
+                </span>{' '}
+                {catalogAvailability(sourceId, enabledSources, citySources) !==
+                  'available' && (
+                  <strong>
+                    Source disabled — enable it in Settings to add.
+                  </strong>
+                )}
                 <button
+                  disabled={
+                    catalogAvailability(
+                      sourceId,
+                      enabledSources,
+                      citySources,
+                    ) !== 'available'
+                  }
                   onClick={() =>
                     onChange([
                       ...themes,
@@ -111,6 +151,31 @@ export function ThemeCards({
           <summary>
             {t.name || 'Untitled theme'} · {t.kind} · {t.state}
           </summary>
+          {(() => {
+            const definition = cityThemeCatalog.find(
+              (d) => d.id === t.definitionId,
+            );
+            return definition ? (
+              <p>
+                {citySources.find((s) => s.id === definition.sourceId)?.title}{' '}
+                p. {definition.page} · Citation checked; rules automation
+                pending.
+                {catalogAvailability(
+                  definition.sourceId,
+                  enabledSources,
+                  citySources,
+                ) !== 'available' &&
+                  ' Source disabled; existing theme retained.'}
+              </p>
+            ) : (
+              <p>
+                {t.definitionId
+                  ? 'Unresolved definition preserved'
+                  : 'Custom theme'}
+                ; no verified catalog rules.
+              </p>
+            );
+          })()}
           <TextField
             label="Theme name"
             value={t.name}

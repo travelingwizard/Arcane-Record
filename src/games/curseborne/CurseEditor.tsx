@@ -1,4 +1,9 @@
 import { useState } from 'react';
+import { CatalogSourceSettings } from '../shared/CatalogSourceSettings';
+import { curseSources } from './sources';
+import { CurseCatalog } from './CurseCatalog';
+import { curseCatalog } from './catalog';
+import { catalogAvailability } from '../shared/catalog-sources';
 import type { GameCharacterEditorProps } from '../game-system';
 import { LocalSheet, TextField, useLocalSheet } from '../shared/LocalSheet';
 import { DotRating } from '../../components/controls/DotRating';
@@ -116,6 +121,12 @@ export function CurseEditor(props: GameCharacterEditorProps<CurseCharacter>) {
       settings={
         <>
           <CurseBuildReview character={c} onChange={update} />
+          <CatalogSourceSettings
+            gameId="curseborne"
+            sources={curseSources}
+            enabled={c.enabledSources}
+            onChange={(enabledSources) => update({ ...c, enabledSources })}
+          />
           <button onClick={() => download('json')}>Save JSON file</button>
           <button onClick={() => download('yaml')}>Save YAML file</button>
         </>
@@ -247,6 +258,7 @@ export function CurseEditor(props: GameCharacterEditorProps<CurseCharacter>) {
         ),
         'curse-entries': (
           <>
+            <CurseCatalog character={c} onChange={update} />
             {!locked && (
               <button
                 onClick={() =>
@@ -256,6 +268,8 @@ export function CurseEditor(props: GameCharacterEditorProps<CurseCharacter>) {
                       ...c.entries,
                       {
                         id: crypto.randomUUID(),
+                        definitionId: null,
+                        sourceId: null,
                         kind: 'spell',
                         name: '',
                         rating: 0,
@@ -276,6 +290,23 @@ export function CurseEditor(props: GameCharacterEditorProps<CurseCharacter>) {
                 <summary>
                   {entry.name || 'New record'} · {entry.kind} · {entry.rating}
                 </summary>
+                <p>
+                  {entry.source}{' '}
+                  {entry.page ? `p. ${entry.page}` : '(page unverified)'} ·{' '}
+                  {entry.definitionId
+                    ? curseCatalog.some((d) => d.id === entry.definitionId)
+                      ? 'Catalog reference; effects recorded manually.'
+                      : 'Unresolved definition preserved.'
+                    : 'Custom or legacy record; not verified.'}
+                  {entry.sourceId &&
+                  catalogAvailability(
+                    entry.sourceId,
+                    c.enabledSources,
+                    curseSources,
+                  ) !== 'available'
+                    ? ' Source disabled or unavailable; selection retained.'
+                    : ''}
+                </p>
                 <label>
                   Kind
                   <select

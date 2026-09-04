@@ -15,7 +15,7 @@ import {
 } from '../../src/games/curseborne/resources';
 import { cityMoves } from '../../src/games/city-of-mist/moves';
 
-describe('new-sheet version two migration', () => {
+describe('new-sheet legacy migration', () => {
   it('retains old EXP amounts, notes and ratings without inventing history', () => {
     const old = {
       ...createCurseCharacter(),
@@ -34,11 +34,11 @@ describe('new-sheet version two migration', () => {
       ],
     };
     const migrated = migrateCurseCharacter(old, 1);
-    expect(migrated.schemaVersion).toBe(2);
+    expect(migrated.schemaVersion).toBe(3);
     expect(migrated.notes).toBe(old.notes);
     expect(migrated.experience).toEqual(old.experience);
     expect(migrated.resourceHistory).toEqual([]);
-    expect(() => migrateCurseCharacter(old, 3)).toThrow();
+    expect(() => migrateCurseCharacter(old, 4)).toThrow();
   });
   it('preserves City free text and linked crew IDs without inferring structured play', () => {
     const old = {
@@ -52,7 +52,7 @@ describe('new-sheet version two migration', () => {
     expect(migrated.playState.clues).toBe(old.playState.clues);
     expect(migrated.crew).toEqual(old.crew);
     expect(migrated.playRecords.batches).toEqual([]);
-    expect(() => migrateCityCharacter(old, 3)).toThrow();
+    expect(() => migrateCityCharacter(old, 4)).toThrow();
   });
 });
 describe('explicit Curseborne resource actions', () => {

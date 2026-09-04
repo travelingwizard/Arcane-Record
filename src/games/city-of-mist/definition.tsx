@@ -25,7 +25,7 @@ export const cityDefinition: GameSystemDefinition<CityCharacter> = {
   shortName: 'City of Mist',
   description:
     'Rift and Gatekeeper editable sheet preview; guided creation is in development.',
-  currentSchemaVersion: 2,
+  currentSchemaVersion: 3,
   characterSchema: cityCharacterSchema,
   createInitialCharacter: createCityCharacter,
   variants: [
@@ -72,7 +72,7 @@ export const cityCrewDefinition: GameSystemDefinition<CityCrew> = {
   shortName: 'Crew',
   description:
     'A standalone local crew sheet shared by linked City of Mist characters.',
-  currentSchemaVersion: 1,
+  currentSchemaVersion: 2,
   characterSchema: cityCrewSchema,
   createInitialCharacter: createCityCrew,
   migrateCharacter: (data) => cityCrewSchema.parse(data),

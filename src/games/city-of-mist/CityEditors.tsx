@@ -10,6 +10,8 @@ import {
 } from './schema';
 import { CityCrewService, type ResolvedCityCrew } from './crew-service';
 import { ThemeCards } from './ThemeCards';
+import { CatalogSourceSettings } from '../shared/CatalogSourceSettings';
+import { citySources } from './sources';
 import { CityPlay } from './CityPlay';
 import { CityMoves } from './CityMoves';
 import { CityBuildReview } from './CityBuildReview';
@@ -262,6 +264,7 @@ function CrewLink({
                 <legend>Linked crew themes (view only)</legend>
                 <ThemeCards
                   themes={resolved.crew.themes}
+                  enabledSources={resolved.crew.enabledSources}
                   onChange={() => undefined}
                   locked
                   profile="crew"
@@ -291,6 +294,7 @@ function CrewLink({
                 />
                 <ThemeCards
                   themes={character.crew.crew.themes}
+                  enabledSources={character.enabledSources}
                   onChange={(themes) =>
                     update({
                       ...character,
@@ -378,6 +382,12 @@ export function CityEditor(props: GameCharacterEditorProps<CityCharacter>) {
       settings={
         <>
           <CityBuildReview character={c} onChange={update} />
+          <CatalogSourceSettings
+            gameId="city-of-mist"
+            sources={citySources}
+            enabled={c.enabledSources}
+            onChange={(enabledSources) => update({ ...c, enabledSources })}
+          />
           <button
             onClick={() =>
               void download('json').catch((e) =>
@@ -562,6 +572,7 @@ export function CityEditor(props: GameCharacterEditorProps<CityCharacter>) {
             </p>
             <ThemeCards
               themes={c.themes}
+              enabledSources={c.enabledSources}
               onChange={(themes) => update({ ...c, themes })}
               locked={locked}
               profile={c.profile}
@@ -727,6 +738,12 @@ export function CrewEditor(props: GameCharacterEditorProps<CityCrew>) {
       title="City of Mist Crew"
       settings={
         <>
+          <CatalogSourceSettings
+            gameId="city-of-mist"
+            sources={citySources}
+            enabled={c.enabledSources}
+            onChange={(enabledSources) => update({ ...c, enabledSources })}
+          />
           <button onClick={() => download('json')}>Save JSON file</button>
           <button onClick={() => download('yaml')}>Save YAML file</button>
         </>
@@ -767,6 +784,7 @@ export function CrewEditor(props: GameCharacterEditorProps<CityCrew>) {
         'com-themes': (
           <ThemeCards
             themes={c.themes}
+            enabledSources={c.enabledSources}
             onChange={(themes) => update({ ...c, themes })}
             locked={locked}
             profile="crew"

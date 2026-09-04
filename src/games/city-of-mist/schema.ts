@@ -1,6 +1,11 @@
 import { z } from 'zod';
 import { cityPlayRecordsSchema } from './play';
 import { buildReviewSchema } from '../shared/reviewed-build';
+import {
+  readSourceDefaults,
+  sourceSelectionSchema,
+} from '../shared/catalog-sources';
+import { citySources } from './sources';
 
 export const CITY_OF_MIST_SYSTEM_ID = 'city-of-mist';
 export const CITY_OF_MIST_CREW_SYSTEM_ID = 'city-of-mist-crew';
@@ -47,8 +52,9 @@ export const cityLayoutSchema = z.object({
     .default(['play', 'themes', 'crew', 'identity', 'records']),
 });
 
-export const cityCrewSchema = z.object({
-  schemaVersion: z.literal(1),
+const crewDataSchema = z.object({
+  schemaVersion: z.literal(2),
+  enabledSources: sourceSelectionSchema(citySources),
   name: z.string(),
   concept: z.string(),
   city: z.string(),
@@ -61,6 +67,19 @@ export const cityCrewSchema = z.object({
   notes: z.string(),
 });
 
+// Embedded and exported legacy snapshots pass through the same migration boundary.
+export const cityCrewSchema = z.preprocess((data) => {
+  if (
+    data &&
+    typeof data === 'object' &&
+    'schemaVersion' in data &&
+    data.schemaVersion === 1
+  ) {
+    return { ...data, schemaVersion: 2 };
+  }
+  return data;
+}, crewDataSchema);
+
 /** Embedded crews belong to this sheet. Linked crews have one authoritative record. */
 export const cityCrewBindingSchema = z.discriminatedUnion('kind', [
   z.object({ kind: z.literal('none') }),
@@ -70,7 +89,8 @@ export const cityCrewBindingSchema = z.discriminatedUnion('kind', [
 
 export const cityCharacterSchema = z.object({
   buildReview: buildReviewSchema.default({ draft: null, history: [] }),
-  schemaVersion: z.literal(2),
+  schemaVersion: z.literal(3),
+  enabledSources: sourceSelectionSchema(citySources),
   profile: z.enum(['rift', 'gatekeeper']),
   name: z.string(),
   mythos: z.string(),
@@ -173,19 +193,20 @@ export function migrateCityCharacter(
   data: unknown,
   fromVersion: number,
 ): CityCharacter {
-  if (fromVersion !== 1 && fromVersion !== 2)
+  if (![1, 2, 3].includes(fromVersion))
     throw new Error('Unsupported City of Mist character version.');
   const versioned = z
     .object({ schemaVersion: z.literal(fromVersion) })
     .passthrough()
     .parse(data);
-  return cityCharacterSchema.parse({ ...versioned, schemaVersion: 2 });
+  return cityCharacterSchema.parse({ ...versioned, schemaVersion: 3 });
 }
 export type CityCrewBinding = z.infer<typeof cityCrewBindingSchema>;
 
 export function createCityCrew(name = ''): CityCrew {
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
+    enabledSources: readSourceDefaults('city-of-mist', citySources),
     name,
     concept: '',
     city: '',
@@ -203,7 +224,8 @@ export function createCityCharacter(
   profile: CityCharacter['profile'] = 'rift',
 ): CityCharacter {
   return cityCharacterSchema.parse({
-    schemaVersion: 2,
+    schemaVersion: 3,
+    enabledSources: readSourceDefaults('city-of-mist', citySources),
     profile,
     name: '',
     mythos: '',

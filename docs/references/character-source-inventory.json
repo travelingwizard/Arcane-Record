@@ -1,0 +1,2042 @@
+{
+  "schemaVersion": 1,
+  "generatedFrom": "PDF outline metadata and reviewed scope ranges",
+  "meaning": {
+    "needs-entry-review": "Heading is inventoried but is not automatically selectable, priced, or mechanically verified."
+  },
+  "sources": [
+    {
+      "sourceId": "curseborne.core",
+      "title": "Curseborne (final core)",
+      "classification": "official",
+      "pdfPages": 389,
+      "rangesAudited": [
+        [
+          41,
+          155
+        ],
+        [
+          212,
+          293
+        ]
+      ],
+      "headings": [
+        {
+          "heading": "The Dead",
+          "pdfPage": 42,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Dead Systems",
+          "pdfPage": 47,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Incorporeality",
+          "pdfPage": 47,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Lineage Path",
+          "pdfPage": 48,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Damnation",
+          "pdfPage": 48,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Torments",
+          "pdfPage": 49,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Haunting Practices",
+          "pdfPage": 50,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Emotional Manipulation",
+          "pdfPage": 50,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Incorporeality",
+          "pdfPage": 50,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Metaphysics",
+          "pdfPage": 50,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Furies",
+          "pdfPage": 51,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Mavens",
+          "pdfPage": 53,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Poltergeists",
+          "pdfPage": 55,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Shades",
+          "pdfPage": 57,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Wardens",
+          "pdfPage": 59,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Zeds",
+          "pdfPage": 61,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Hungry",
+          "pdfPage": 63,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Hungry Systems",
+          "pdfPage": 68,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Blood Thirst",
+          "pdfPage": 68,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Damned Hunger",
+          "pdfPage": 69,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Nocturnal Predator",
+          "pdfPage": 69,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Undead Strength",
+          "pdfPage": 69,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Lineage Path",
+          "pdfPage": 70,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Damnation",
+          "pdfPage": 70,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Torments",
+          "pdfPage": 71,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Predation Practices",
+          "pdfPage": 72,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Vital Force",
+          "pdfPage": 72,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Iron Edict",
+          "pdfPage": 74,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Smoke and Shadow",
+          "pdfPage": 74,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Ascetics",
+          "pdfPage": 75,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Black Hearts",
+          "pdfPage": 77,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Gaki",
+          "pdfPage": 79,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Heirs",
+          "pdfPage": 81,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "House Báthory",
+          "pdfPage": 83,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Iscariots",
+          "pdfPage": 85,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Vorare",
+          "pdfPage": 87,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Outcasts",
+          "pdfPage": 90,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Outcast Systems",
+          "pdfPage": 95,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Being an Outcast",
+          "pdfPage": 95,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Lineage Path",
+          "pdfPage": 96,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Damnation",
+          "pdfPage": 96,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Torments",
+          "pdfPage": 97,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Manifestation Practices",
+          "pdfPage": 98,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Mayhem",
+          "pdfPage": 98,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Summoning",
+          "pdfPage": 98,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Physical Perfection",
+          "pdfPage": 98,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Battleground Angels",
+          "pdfPage": 99,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Chimerae",
+          "pdfPage": 101,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Keepers of the Broken Vine",
+          "pdfPage": 103,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "League of the Hidden Crossroads",
+          "pdfPage": 105,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Munificents",
+          "pdfPage": 107,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Nephilim",
+          "pdfPage": 109,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Primal",
+          "pdfPage": 112,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Primal Systems",
+          "pdfPage": 117,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Wild Form",
+          "pdfPage": 117,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Protean Challenges",
+          "pdfPage": 119,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Primal Sense",
+          "pdfPage": 119,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Lineage Path",
+          "pdfPage": 119,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Damnation",
+          "pdfPage": 119,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Torments",
+          "pdfPage": 121,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Maelstrom Practices",
+          "pdfPage": 121,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Depthless Fury",
+          "pdfPage": 121,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Mutable Form",
+          "pdfPage": 121,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Stranger",
+          "pdfPage": 122,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Eight Hands",
+          "pdfPage": 123,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Get of Lyka",
+          "pdfPage": 125,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Hydes",
+          "pdfPage": 127,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Raptors",
+          "pdfPage": 129,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Spawn of Vodník",
+          "pdfPage": 131,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Sphinx",
+          "pdfPage": 133,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Sorcerers",
+          "pdfPage": 136,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Sorcerer Systems",
+          "pdfPage": 141,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Sacrifices",
+          "pdfPage": 141,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Fast Casting",
+          "pdfPage": 141,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Spell Mimicry",
+          "pdfPage": 141,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Lineage Path",
+          "pdfPage": 141,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Damnation",
+          "pdfPage": 142,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Torments",
+          "pdfPage": 143,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Invocation Practices",
+          "pdfPage": 143,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Acquisition",
+          "pdfPage": 143,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Biomancy",
+          "pdfPage": 143,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Consuming Siphon",
+          "pdfPage": 144,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Illusion",
+          "pdfPage": 144,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Spiritualism",
+          "pdfPage": 144,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Telelocation",
+          "pdfPage": 144,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Thaumaturgy",
+          "pdfPage": 144,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Archivists",
+          "pdfPage": 145,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Faceless",
+          "pdfPage": 147,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Network",
+          "pdfPage": 149,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Premiere",
+          "pdfPage": 151,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Reeves",
+          "pdfPage": 153,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Unburdened",
+          "pdfPage": 155,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Contacts",
+          "pdfPage": 212,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Equipment",
+          "pdfPage": 213,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Tags",
+          "pdfPage": 213,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Weapons",
+          "pdfPage": 213,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Armor",
+          "pdfPage": 215,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Tools",
+          "pdfPage": 215,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Equipment List",
+          "pdfPage": 216,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Heirlooms",
+          "pdfPage": 218,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Gear",
+          "pdfPage": 218,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Relics",
+          "pdfPage": 219,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Artifacts",
+          "pdfPage": 220,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Chapter Five: Making an Accursed",
+          "pdfPage": 223,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Step One: Decide on a Concept",
+          "pdfPage": 224,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Step Two: Choose a Lineage Path",
+          "pdfPage": 226,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Torments",
+          "pdfPage": 226,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Lineage Benefits",
+          "pdfPage": 227,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Step Three: Choose a Family Path",
+          "pdfPage": 228,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Step Four: Choose a Role Path",
+          "pdfPage": 229,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Academic",
+          "pdfPage": 229,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Activist",
+          "pdfPage": 229,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Caregiver",
+          "pdfPage": 229,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Creative",
+          "pdfPage": 230,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Criminal",
+          "pdfPage": 230,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Enforcer",
+          "pdfPage": 230,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Executive",
+          "pdfPage": 230,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Fighter",
+          "pdfPage": 230,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Healer",
+          "pdfPage": 231,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Hunter",
+          "pdfPage": 231,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Influencer",
+          "pdfPage": 231,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Investigator",
+          "pdfPage": 231,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Occultist",
+          "pdfPage": 232,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Student",
+          "pdfPage": 232,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Step Five: Finalize Statistics",
+          "pdfPage": 232,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Contacts",
+          "pdfPage": 233,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Step Six: Gain Edges and Spells",
+          "pdfPage": 233,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Edges",
+          "pdfPage": 234,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Action Edges",
+          "pdfPage": 234,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Ambusher",
+          "pdfPage": 234,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Field Medic",
+          "pdfPage": 234,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Hands on the Wheel",
+          "pdfPage": 234,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Maneuverable",
+          "pdfPage": 235,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Nimble Defense",
+          "pdfPage": 235,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Quick and the Dead",
+          "pdfPage": 235,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Ricochet",
+          "pdfPage": 235,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Influence Edges",
+          "pdfPage": 235,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Anonymity",
+          "pdfPage": 235,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Fame",
+          "pdfPage": 235,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Favor",
+          "pdfPage": 236,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Notoriety",
+          "pdfPage": 236,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Resources",
+          "pdfPage": 236,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Investigation Edges",
+          "pdfPage": 236,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Determined Silence",
+          "pdfPage": 236,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "It’s a Feature",
+          "pdfPage": 236,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "LogicaL Leap",
+          "pdfPage": 237,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Quick Read",
+          "pdfPage": 237,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Well-Read",
+          "pdfPage": 237,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Supernatural Edges",
+          "pdfPage": 237,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Allure",
+          "pdfPage": 237,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Archon’s Blessing",
+          "pdfPage": 237,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Devil’s Own Luck",
+          "pdfPage": 237,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Emotional Siphon",
+          "pdfPage": 237,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Endless Rage",
+          "pdfPage": 237,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Expanded Palate",
+          "pdfPage": 237,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "FLexible Spellcasting",
+          "pdfPage": 237,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Haunt",
+          "pdfPage": 238,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Heirloom — Gear, Relic, or Artifact",
+          "pdfPage": 238,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Loophole",
+          "pdfPage": 239,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Thief of Lore",
+          "pdfPage": 239,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Unusually Secure Headquarters",
+          "pdfPage": 239,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Step Seven: Character Bonds",
+          "pdfPage": 239,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Step Eight: Assign Aspirations",
+          "pdfPage": 240,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Experience",
+          "pdfPage": 241,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Advancement",
+          "pdfPage": 241,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Tweaks",
+          "pdfPage": 241,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Starting at Higher Entanglement",
+          "pdfPage": 242,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Chapter Six: Accursed Magic",
+          "pdfPage": 243,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Entanglement",
+          "pdfPage": 244,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Like Recognizes Like",
+          "pdfPage": 244,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Curse Dice",
+          "pdfPage": 244,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Cursebinding",
+          "pdfPage": 247,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Lineage Practices",
+          "pdfPage": 247,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Attunements",
+          "pdfPage": 247,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Advances",
+          "pdfPage": 248,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Casting Spells",
+          "pdfPage": 249,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Clashes",
+          "pdfPage": 249,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Haunting Practices",
+          "pdfPage": 250,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Emotional Manipulation",
+          "pdfPage": 250,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Dissonance",
+          "pdfPage": 250,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Homewrecker",
+          "pdfPage": 250,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Mental Fortitude",
+          "pdfPage": 251,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Quiet Space",
+          "pdfPage": 251,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Provocation",
+          "pdfPage": 252,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Incorporeality",
+          "pdfPage": 252,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Commune",
+          "pdfPage": 252,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Creepy Doll",
+          "pdfPage": 253,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Manifestation",
+          "pdfPage": 253,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Shared Senses",
+          "pdfPage": 254,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Soul Scry",
+          "pdfPage": 254,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Metaphysics",
+          "pdfPage": 255,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ As Smoke",
+          "pdfPage": 255,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Haunted Ground",
+          "pdfPage": 256,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Memoryscape",
+          "pdfPage": 256,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Through Time",
+          "pdfPage": 256,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Universal Keyhole",
+          "pdfPage": 257,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Predation Practices",
+          "pdfPage": 257,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Vital Force",
+          "pdfPage": 257,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Blood Offering",
+          "pdfPage": 257,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Foul Humors",
+          "pdfPage": 258,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Life Bridge",
+          "pdfPage": 258,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Red Death",
+          "pdfPage": 258,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Vital Flow",
+          "pdfPage": 259,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Iron Edict",
+          "pdfPage": 260,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Bestial Familiar",
+          "pdfPage": 260,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Dire Command",
+          "pdfPage": 260,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Inhabit the Beast",
+          "pdfPage": 260,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Instill Dread",
+          "pdfPage": 261,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Tabula Rasa",
+          "pdfPage": 261,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Smoke and Shadow",
+          "pdfPage": 262,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Ebon Step",
+          "pdfPage": 262,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Embraced by Darkness",
+          "pdfPage": 262,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Gloomhold",
+          "pdfPage": 262,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Personal Predator",
+          "pdfPage": 263,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Tenebrous Sight",
+          "pdfPage": 264,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼Manifestation Practices",
+          "pdfPage": 264,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Mayhem",
+          "pdfPage": 264,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Archonic Voice",
+          "pdfPage": 264,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Devil’s Bargain",
+          "pdfPage": 264,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Implacable Pursuer",
+          "pdfPage": 265,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Soul Contract",
+          "pdfPage": 265,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Supernal Aim",
+          "pdfPage": 266,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Summoning",
+          "pdfPage": 266,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Assistive Construct",
+          "pdfPage": 266,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Burning Halo",
+          "pdfPage": 267,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Elemental Cloak",
+          "pdfPage": 267,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Weather Control",
+          "pdfPage": 267,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Weaponmaster’s Blade",
+          "pdfPage": 268,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Physical Perfection",
+          "pdfPage": 269,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Bulletproof Heart",
+          "pdfPage": 269,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Executive Function",
+          "pdfPage": 269,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Flowing Movement",
+          "pdfPage": 270,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Many Faces",
+          "pdfPage": 270,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Swift Defense",
+          "pdfPage": 271,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Maelstrom Practices",
+          "pdfPage": 271,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Mutable Form",
+          "pdfPage": 271,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Aspect of the Beast",
+          "pdfPage": 271,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Bestial Voice",
+          "pdfPage": 272,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼  Force of Nature",
+          "pdfPage": 272,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼  Impenetrable Skin",
+          "pdfPage": 272,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Precise Transformation",
+          "pdfPage": 273,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Depthless Fury",
+          "pdfPage": 274,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Kinetic Focus",
+          "pdfPage": 274,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Master of Beasts",
+          "pdfPage": 274,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Pack Leader",
+          "pdfPage": 274,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Predator’s Roar",
+          "pdfPage": 275,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Scent of Danger",
+          "pdfPage": 275,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Stranger",
+          "pdfPage": 275,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Agitation",
+          "pdfPage": 276,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Hidden Things",
+          "pdfPage": 276,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Nightmares",
+          "pdfPage": 276,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼  Silver Tongue",
+          "pdfPage": 277,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼  Unreality",
+          "pdfPage": 277,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Invocation Practices",
+          "pdfPage": 278,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Acquisition",
+          "pdfPage": 278,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Transmutation",
+          "pdfPage": 278,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Instant Gratification",
+          "pdfPage": 279,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Social Saboteur",
+          "pdfPage": 279,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Sympatico",
+          "pdfPage": 279,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Seize the Spotlight",
+          "pdfPage": 280,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Biomancy",
+          "pdfPage": 280,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Envenom",
+          "pdfPage": 280,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Photosynses",
+          "pdfPage": 280,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Preservation",
+          "pdfPage": 281,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Proliferate",
+          "pdfPage": 281,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Regrowth",
+          "pdfPage": 281,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Consuming Siphon",
+          "pdfPage": 282,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Drain Quality",
+          "pdfPage": 282,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Experience Mine",
+          "pdfPage": 282,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Life Absorption",
+          "pdfPage": 283,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Mental Vivisection",
+          "pdfPage": 283,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Power Tap",
+          "pdfPage": 283,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Illusion",
+          "pdfPage": 284,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Hallucination",
+          "pdfPage": 284,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Body Double",
+          "pdfPage": 285,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Camouflage",
+          "pdfPage": 285,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Overload",
+          "pdfPage": 285,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Prestige",
+          "pdfPage": 286,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Spiritualism",
+          "pdfPage": 286,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Forbidden Temptation",
+          "pdfPage": 286,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Formless Barricade",
+          "pdfPage": 286,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Present Dismissal",
+          "pdfPage": 287,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Psychic Barrage",
+          "pdfPage": 288,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Ring Silent Bells",
+          "pdfPage": 288,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Telelocation",
+          "pdfPage": 288,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Extradimensional Pocket",
+          "pdfPage": 288,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Flit",
+          "pdfPage": 289,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Portal",
+          "pdfPage": 289,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Telekinesis",
+          "pdfPage": 289,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Teleport",
+          "pdfPage": 290,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Thaumaturgy",
+          "pdfPage": 291,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Bombardment",
+          "pdfPage": 291,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Alter Fate",
+          "pdfPage": 291,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Elemental Armor",
+          "pdfPage": 292,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Summon Imp",
+          "pdfPage": 292,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "￼ Time Warp",
+          "pdfPage": 292,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Rituals",
+          "pdfPage": 293,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Rite Stuff",
+          "pdfPage": 293,
+          "status": "needs-entry-review"
+        }
+      ]
+    },
+    {
+      "sourceId": "curseborne.accursed-adventures",
+      "title": "Accursed Adventures",
+      "classification": "official",
+      "pdfPages": 79,
+      "rangesAudited": [
+        [
+          46,
+          47
+        ]
+      ],
+      "headings": [
+        {
+          "heading": "Scene 9: Scar Tissue",
+          "pdfPage": 46,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Scenario Two Appendix",
+          "pdfPage": 47,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Adversaries",
+          "pdfPage": 47,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Heirlooms",
+          "pdfPage": 47,
+          "status": "needs-entry-review"
+        }
+      ]
+    },
+    {
+      "sourceId": "com.players-guide",
+      "title": "City of Mist Player's Guide",
+      "classification": "official",
+      "pdfPages": 304,
+      "rangesAudited": [
+        [
+          54,
+          155
+        ],
+        [
+          162,
+          296
+        ]
+      ],
+      "headings": [
+        {
+          "heading": "Character Creation",
+          "pdfPage": 54,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Step 1: Character Concept",
+          "pdfPage": 60,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Step 2: Choosing Themes",
+          "pdfPage": 64,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Character Tropes",
+          "pdfPage": 69,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Step 3: Themebooks",
+          "pdfPage": 74,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Adaptation",
+          "pdfPage": 82,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Bastion",
+          "pdfPage": 86,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Divination",
+          "pdfPage": 90,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Expression",
+          "pdfPage": 94,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Mobility",
+          "pdfPage": 98,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Relic",
+          "pdfPage": 102,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Subversion",
+          "pdfPage": 106,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Defining Event",
+          "pdfPage": 110,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Defining Relationship",
+          "pdfPage": 114,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Mission",
+          "pdfPage": 118,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Personality",
+          "pdfPage": 122,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Possessions",
+          "pdfPage": 126,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Routine",
+          "pdfPage": 130,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Training",
+          "pdfPage": 134,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Your Crew",
+          "pdfPage": 144,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Crew",
+          "pdfPage": 145,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Crew Themebook",
+          "pdfPage": 146,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Quick Start Crew Themes",
+          "pdfPage": 148,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Crew Relationships",
+          "pdfPage": 155,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Conversation",
+          "pdfPage": 166,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Moves: Taking Action",
+          "pdfPage": 172,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "More on Using Moves",
+          "pdfPage": 178,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Diceless Moves",
+          "pdfPage": 179,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Core Moves",
+          "pdfPage": 180,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Change the Game",
+          "pdfPage": 182,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Convince",
+          "pdfPage": 185,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Face Danger",
+          "pdfPage": 187,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Go Toe to Toe",
+          "pdfPage": 188,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Hit With All You’ve Got",
+          "pdfPage": 190,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Investigate",
+          "pdfPage": 192,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Sneak Around",
+          "pdfPage": 195,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Take the Risk",
+          "pdfPage": 196,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Cinematic Moves",
+          "pdfPage": 198,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Flashback",
+          "pdfPage": 199,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Voiceover Monologue",
+          "pdfPage": 199,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Montage",
+          "pdfPage": 201,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Geek Out During Credits",
+          "pdfPage": 202,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Game Resources",
+          "pdfPage": 204,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Tags",
+          "pdfPage": 205,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Statuses",
+          "pdfPage": 218,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Clues",
+          "pdfPage": 227,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Juice",
+          "pdfPage": 232,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Secondary Characters",
+          "pdfPage": 236,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Character and Crew Growth",
+          "pdfPage": 244,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Attention and Improvements",
+          "pdfPage": 244,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Crew Theme Development",
+          "pdfPage": 247,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Dramatic Moments",
+          "pdfPage": 248,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Balance of Mythos and Logos",
+          "pdfPage": 250,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Making a Hard Choice",
+          "pdfPage": 254,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Stop. Holding. Back.",
+          "pdfPage": 256,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Crisis & Beginning: Replacing a Theme",
+          "pdfPage": 261,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Nascent Themes",
+          "pdfPage": 265,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Moments of Evolution",
+          "pdfPage": 267,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Becoming an Avatar",
+          "pdfPage": 270,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Falling Asleep",
+          "pdfPage": 276,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "The Life Cycle of Themes",
+          "pdfPage": 281,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Ally",
+          "pdfPage": 284,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Base of Operations",
+          "pdfPage": 288,
+          "status": "needs-entry-review"
+        }
+      ]
+    },
+    {
+      "sourceId": "com.shadows-showdowns",
+      "title": "City of Mist Shadows & Showdowns",
+      "classification": "official",
+      "pdfPages": 299,
+      "rangesAudited": [
+        [
+          10,
+          73
+        ],
+        [
+          203,
+          255
+        ]
+      ],
+      "headings": [
+        {
+          "heading": "New Rules: Theme Kits",
+          "pdfPage": 10,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "New Themebooks",
+          "pdfPage": 11,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Conjuration",
+          "pdfPage": 12,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Destiny",
+          "pdfPage": 16,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Enclave",
+          "pdfPage": 20,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Familiar",
+          "pdfPage": 24,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Struggle",
+          "pdfPage": 28,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "New Character Creation Tools",
+          "pdfPage": 36,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Concept: Three Mythic Features",
+          "pdfPage": 37,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Rapid Character Creation",
+          "pdfPage": 40,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Mythos Theme Kits: Legendary Archetypes",
+          "pdfPage": 42,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Logos Theme Kits: Noir Tropes",
+          "pdfPage": 47,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "New Character Development Options",
+          "pdfPage": 52,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Relics",
+          "pdfPage": 58,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Familiars",
+          "pdfPage": 68,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Life of an Agent",
+          "pdfPage": 203,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "An Introduction to Gatekeeping",
+          "pdfPage": 204,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Gatekeeper Creed and Agent Outlook",
+          "pdfPage": 206,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Gatekeeper Mist-Powered Abilities",
+          "pdfPage": 208,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Standard Issue Gatekeeper Gear",
+          "pdfPage": 213,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Agent Careers",
+          "pdfPage": 217,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Playing Gatekeeper Characters",
+          "pdfPage": 230,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Gatekeeper Series Concepts",
+          "pdfPage": 231,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Creating a Gatekeeper Character",
+          "pdfPage": 232,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Shrouding Themebook",
+          "pdfPage": 238,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Advanced Art Themebook",
+          "pdfPage": 242,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Gatekeeper Player Moves",
+          "pdfPage": 250,
+          "status": "needs-entry-review"
+        },
+        {
+          "heading": "Gatekeeper Character Development",
+          "pdfPage": 252,
+          "status": "needs-entry-review"
+        }
+      ]
+    }
+  ]
+}

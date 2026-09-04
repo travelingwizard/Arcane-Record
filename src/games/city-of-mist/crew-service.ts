@@ -54,7 +54,7 @@ export class CityCrewService {
       const record = await this.repository.create({
         id: crypto.randomUUID(),
         systemId: CITY_OF_MIST_CREW_SYSTEM_ID,
-        systemVersion: 1,
+        systemVersion: transfer.snapshot.schemaVersion,
         name: transfer.snapshot.name,
         createdAt: timestamp,
         updatedAt: timestamp,
@@ -91,7 +91,7 @@ export class CityCrewService {
     return this.repository.create({
       id: crypto.randomUUID(),
       systemId: CITY_OF_MIST_CREW_SYSTEM_ID,
-      systemVersion: 1,
+      systemVersion: 2,
       name,
       createdAt: timestamp,
       updatedAt: timestamp,
@@ -115,7 +115,7 @@ export class CityCrewService {
         reason: 'The linked crew is missing or is not a City of Mist crew.',
       };
     }
-    if (record.systemVersion !== 1)
+    if (![1, 2].includes(record.systemVersion))
       return {
         status: 'unavailable',
         crewId: binding.crewId,

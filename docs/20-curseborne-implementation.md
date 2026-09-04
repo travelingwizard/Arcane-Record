@@ -51,6 +51,19 @@ is optional and contributes player items only; no scenarios or pregens.
 
 ## Remaining delivery
 
+### Source-infrastructure checkpoint
+
+Schema version 3 stores required core and optional Accursed Adventures source
+IDs per character, retaining unknown IDs for forward compatibility. Settings
+can save browser defaults without changing existing sheets. The first reviewed
+supplement entries are the four player-usable heirlooms on Accursed Adventures
+pp. 46-47; they are reference-only and require explicit Storyguide approval to
+add. No effect or EXP cost is applied automatically.
+
+The generated heading inventory and blocking ambiguity register are under
+`docs/references/`. Inventory status is not catalog completion: core entries
+still require rules-level review before milestone 1 can be closed.
+
 1. Finish source audit and complete catalogs, manifest, schema, approvals, and
    source controls. Verify official corrections rather than relying on forum
    interpretations or treating a known cost as full rules verification.

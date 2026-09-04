@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { TextField } from '../shared/LocalSheet';
 import type { CityCharacter } from './schema';
-import { newTheme, themebooks } from './ThemeCards';
+import { newTheme } from './ThemeCards';
+import { cityThemeCatalog } from './catalog';
+import { citySources } from './sources';
+import { catalogAvailability } from '../shared/catalog-sources';
 import {
   markCityAttention,
   markCityStrain,
@@ -36,8 +39,13 @@ export function CityDevelopment({
     [nemesis, setNemesis] = useState('');
   const theme = active.find((t) => t.id === id) ?? active[0];
   const quote = theme ? quoteCityReplacement(c, theme.id, promotion) : null;
-  const books = themebooks.filter(([, kind]) => kind === quote?.nextKind);
-  const selected = books.find(([name]) => name === book) ?? books[0];
+  const books = cityThemeCatalog.filter(
+    (entry) =>
+      entry.kind === quote?.nextKind &&
+      catalogAvailability(entry.sourceId, c.enabledSources, citySources) ===
+        'available',
+  );
+  const selected = books.find(({ name }) => name === book) ?? books[0];
   const perform = (action: () => CityCharacter, message: string) => {
     if (!approved || !reason.trim() || !window.confirm(message)) return;
     try {
@@ -217,10 +225,10 @@ export function CityDevelopment({
                 <label>
                   Nascent themebook
                   <select
-                    value={selected?.[0] ?? ''}
+                    value={selected?.name ?? ''}
                     onChange={(e) => setBook(e.target.value)}
                   >
-                    {books.map(([name]) => (
+                    {books.map(({ name }) => (
                       <option key={name}>{name}</option>
                     ))}
                   </select>
@@ -228,7 +236,7 @@ export function CityDevelopment({
                 <p>
                   Use the power tag above to answer question A.{' '}
                   {selected &&
-                    `Source: ${themebooks.indexOf(selected) < 14 ? 'Player’s Guide' : 'Shadows & Showdowns'}, p. ${selected[2]}.`}
+                    `Source: ${citySources.find((s) => s.id === selected.sourceId)?.title}, p. ${selected.page}.`}
                 </p>
                 <TextField
                   label="Nascent Mystery, Identity or Directive"
@@ -256,7 +264,7 @@ export function CityDevelopment({
                   const replacement =
                     quote!.nextKind && selected
                       ? {
-                          ...newTheme(selected[0], quote!.nextKind),
+                          ...newTheme(selected.name, quote!.nextKind),
                           state: 'nascent' as const,
                           statement,
                           tags: [

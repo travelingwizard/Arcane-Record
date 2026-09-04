@@ -1,6 +1,11 @@
 import { z } from 'zod';
 import { curseRollSchema } from './dice';
 import { buildReviewSchema } from '../shared/reviewed-build';
+import {
+  readSourceDefaults,
+  sourceSelectionSchema,
+} from '../shared/catalog-sources';
+import { curseSources } from './sources';
 export const curseAttributes = [
   'Intellect',
   'Cunning',
@@ -31,6 +36,8 @@ export const curseSkills = [
   'Technology',
 ] as const;
 const entry = z.object({
+  definitionId: z.string().nullable().default(null),
+  sourceId: z.string().nullable().default(null),
   id: z.string().uuid(),
   kind: z.enum(['edge', 'spell', 'contact', 'equipment', 'bond']),
   name: z.string(),
@@ -42,7 +49,8 @@ const entry = z.object({
 });
 export const curseCharacterSchema = z.object({
   buildReview: buildReviewSchema.default({ draft: null, history: [] }),
-  schemaVersion: z.literal(2),
+  schemaVersion: z.literal(3),
+  enabledSources: sourceSelectionSchema(curseSources),
   name: z.string(),
   concept: z.string(),
   lineage: z.enum(['', 'dead', 'hungry', 'outcast', 'primal', 'sorcerer']),
@@ -107,17 +115,18 @@ export function migrateCurseCharacter(
   data: unknown,
   fromVersion: number,
 ): CurseCharacter {
-  if (fromVersion !== 1 && fromVersion !== 2)
+  if (![1, 2, 3].includes(fromVersion))
     throw new Error('Unsupported Curseborne character version.');
   const versioned = z
     .object({ schemaVersion: z.literal(fromVersion) })
     .passthrough()
     .parse(data);
-  return curseCharacterSchema.parse({ ...versioned, schemaVersion: 2 });
+  return curseCharacterSchema.parse({ ...versioned, schemaVersion: 3 });
 }
 export function createCurseCharacter(): CurseCharacter {
   return curseCharacterSchema.parse({
-    schemaVersion: 2,
+    schemaVersion: 3,
+    enabledSources: readSourceDefaults('curseborne', curseSources),
     name: '',
     concept: '',
     lineage: '',
