@@ -74,6 +74,12 @@ remain browser-local.
 
 ## Registered systems
 
+City of Mist groups Character and Crew sheet choices under one game card.
+The Character choice retains Rift/Gatekeeper variants; Crew opens directly.
+The crew keeps its `city-of-mist-crew` backing system ID for existing records,
+links, and interchange. Optional `parentSystemId` and `sheetChoiceLabel`
+definition metadata control creation presentation only, not persistence.
+
 - `mage20` — Mage 20 editor;
 - `exalted1e` — Exalted First Edition with `solar` and `dragon-blooded`
   variants;

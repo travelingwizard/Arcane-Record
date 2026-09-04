@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import type { RegisteredGameSystem } from '../games/game-system';
 import type { GameSystemRegistry } from '../games/game-system-registry';
 import type { StoredCharacterRepository } from '../storage/stored-character-repository';
 import type { ModuleRegistry } from '../modules/registry/module-registry';
@@ -29,6 +30,7 @@ export function CreateCharacterPage({
   const [creating, setCreating] = useState(false);
   const [creatingVariantId, setCreatingVariantId] = useState('');
   const [error, setError] = useState('');
+  const [chosenSheet, setChosenSheet] = useState('');
   const importInputRef = useRef<HTMLInputElement>(null);
   const system = systemId ? registry.get(systemId) : undefined;
   const localModules =
@@ -125,19 +127,25 @@ export function CreateCharacterPage({
         <h1>Choose a game</h1>
         <p>Select the game system that defines this character’s sheet.</p>
         <div className="game-system-grid">
-          {registry.list().map((definition) => (
-            <article className="game-system-card" key={definition.id}>
-              <p className="eyebrow">Available game</p>
-              <h2>{definition.name}</h2>
-              <p>{definition.description}</p>
-              <button
-                className="primary-button"
-                onClick={() => onNavigate(`/create/${definition.id}`)}
-              >
-                Choose {definition.shortName}
-              </button>
-            </article>
-          ))}
+          {registry
+            .list()
+            .filter((definition) => !definition.parentSystemId)
+            .map((definition) => (
+              <article className="game-system-card" key={definition.id}>
+                <p className="eyebrow">Available game</p>
+                <h2>{definition.name}</h2>
+                <p>{definition.description}</p>
+                <button
+                  className="primary-button"
+                  onClick={() => {
+                    setChosenSheet('');
+                    onNavigate(`/create/${definition.id}`);
+                  }}
+                >
+                  Choose {definition.shortName}
+                </button>
+              </article>
+            ))}
           {localModules.flatMap((module) =>
             module.sheetTemplates.map((template) => {
               const node = module.gameNodes.find(
@@ -185,9 +193,13 @@ export function CreateCharacterPage({
     );
   }
 
-  const create = async (variantId?: string, creationActionId?: string) => {
+  const create = async (
+    variantId?: string,
+    creationActionId?: string,
+    targetSystem: RegisteredGameSystem = system,
+  ) => {
     const selectedVariant = variantId
-      ? system.variants?.find((variant) => variant.id === variantId)
+      ? targetSystem.variants?.find((variant) => variant.id === variantId)
       : undefined;
     if (variantId && !selectedVariant) {
       setError('That character sheet is not available.');
@@ -199,20 +211,22 @@ export function CreateCharacterPage({
     try {
       const timestamp = new Date().toISOString();
       const creationAction = creationActionId
-        ? system.creationActions?.find(({ id }) => id === creationActionId)
+        ? targetSystem.creationActions?.find(
+            ({ id }) => id === creationActionId,
+          )
         : undefined;
-      const data = system.characterSchema.parse(
+      const data = targetSystem.characterSchema.parse(
         selectedVariant
           ? selectedVariant.createInitialCharacter()
           : creationAction
             ? creationAction.createInitialCharacter()
-            : system.createInitialCharacter(),
+            : targetSystem.createInitialCharacter(),
       );
       const record = await repository.create({
         id: crypto.randomUUID(),
-        systemId: system.id,
-        systemVersion: system.currentSchemaVersion,
-        name: system.getDisplayName(data),
+        systemId: targetSystem.id,
+        systemVersion: targetSystem.currentSchemaVersion,
+        name: targetSystem.getDisplayName(data),
         createdAt: timestamp,
         updatedAt: timestamp,
         data,
@@ -256,11 +270,60 @@ export function CreateCharacterPage({
     }
   };
 
+  const childSheets = registry
+    .list()
+    .filter(({ parentSystemId }) => parentSystemId === system.id);
+  if (childSheets.length && chosenSheet !== system.id) {
+    return (
+      <main className="app-shell neutral-shell creation-shell">
+        <button
+          className="text-button"
+          disabled={creating}
+          onClick={() => onNavigate('/create')}
+        >
+          ← Choose another game
+        </button>
+        <p className="eyebrow">{system.name}</p>
+        <h1>Choose a character or crew sheet</h1>
+        {error ? (
+          <p role="alert" className="notice notice--error">
+            {error}
+          </p>
+        ) : null}
+        <div className="game-system-grid">
+          {[system, ...childSheets].map((choice) => (
+            <article className="game-system-card" key={choice.id}>
+              <h2>{choice.sheetChoiceLabel ?? choice.name}</h2>
+              <p>{choice.description}</p>
+              <button
+                className="primary-button"
+                disabled={creating}
+                onClick={() => {
+                  if (choice.id === system.id) setChosenSheet(system.id);
+                  else void create(undefined, undefined, choice);
+                }}
+              >
+                Choose {choice.sheetChoiceLabel ?? choice.name}
+              </button>
+            </article>
+          ))}
+        </div>
+      </main>
+    );
+  }
+
   if (system.variants?.length) {
     return (
       <main className="app-shell neutral-shell creation-shell">
-        <button className="text-button" onClick={() => onNavigate('/create')}>
-          ← Choose another game
+        <button
+          className="text-button"
+          onClick={() =>
+            childSheets.length ? setChosenSheet('') : onNavigate('/create')
+          }
+        >
+          {childSheets.length
+            ? '← Choose another sheet'
+            : '← Choose another game'}
         </button>
         <p className="eyebrow">Create character · Step 2 of 2</p>
         <h1>Choose an {system.shortName} character type</h1>

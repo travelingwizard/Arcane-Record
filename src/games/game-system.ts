@@ -49,6 +49,9 @@ export interface GameSystemDefinition<TCharacter = unknown> {
   shortName: string;
   description: string;
   currentSchemaVersion: number;
+  /** Group a separately persisted sheet beneath another game in creation. */
+  parentSystemId?: string;
+  sheetChoiceLabel?: string;
   characterSchema: z.ZodType<TCharacter>;
   createInitialCharacter: () => TCharacter;
   creationActions?: readonly GameSystemCreationAction<TCharacter>[];

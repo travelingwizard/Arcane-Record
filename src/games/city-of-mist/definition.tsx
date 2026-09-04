@@ -20,6 +20,7 @@ export const cityDefinition: GameSystemDefinition<CityCharacter> = {
   prepareExport: (character, repository) =>
     new CityCrewService(repository).prepareExport(character),
   id: 'city-of-mist',
+  sheetChoiceLabel: 'Character sheet',
   name: 'City of Mist',
   shortName: 'City of Mist',
   description:
@@ -65,6 +66,8 @@ export const cityCrewDefinition: GameSystemDefinition<CityCrew> = {
       : null;
   },
   id: 'city-of-mist-crew',
+  parentSystemId: 'city-of-mist',
+  sheetChoiceLabel: 'Crew sheet',
   name: 'City of Mist Crew',
   shortName: 'Crew',
   description:

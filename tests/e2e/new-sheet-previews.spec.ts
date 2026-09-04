@@ -1,5 +1,44 @@
 import { expect, test } from '@playwright/test';
 
+test('City of Mist groups crew creation beneath its game choice', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 320, height: 800 });
+  await page.goto('/create');
+  await expect(
+    page.getByRole('button', { name: 'Choose Crew', exact: true }),
+  ).toHaveCount(0);
+  await page
+    .getByRole('button', { name: 'Choose City of Mist', exact: true })
+    .click();
+  await page
+    .getByRole('button', { name: 'Choose Character sheet', exact: true })
+    .click();
+  await expect(
+    page.getByRole('button', { name: 'Choose Gatekeeper', exact: true }),
+  ).toBeVisible();
+  await page
+    .getByRole('button', { name: '← Choose another sheet', exact: true })
+    .click();
+  await page
+    .getByRole('button', { name: 'Choose Crew sheet', exact: true })
+    .focus();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/\/characters\//);
+  await expect(
+    page.getByLabel('Shared crew notes', { exact: true }),
+  ).toBeVisible();
+  await page.reload();
+  await expect(
+    page.getByLabel('Shared crew notes', { exact: true }),
+  ).toBeVisible();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+});
+
 test('linked crew refreshes across tabs and stale edits cannot overwrite a saved crew', async ({
   page,
   context,
@@ -7,6 +46,9 @@ test('linked crew refreshes across tabs and stale edits cannot overwrite a saved
   await page.goto('/create');
   await page
     .getByRole('button', { name: 'Choose City of Mist', exact: true })
+    .click();
+  await page
+    .getByRole('button', { name: 'Choose Character sheet', exact: true })
     .click();
   await page.getByRole('button', { name: /Rift/ }).click();
   await page
@@ -123,6 +165,9 @@ test('City of Mist opens a Rift sheet and personal crew at 320px', async ({
   await page.goto('/create');
   await page
     .getByRole('button', { name: 'Choose City of Mist', exact: true })
+    .click();
+  await page
+    .getByRole('button', { name: 'Choose Character sheet', exact: true })
     .click();
   await page.getByRole('button', { name: /Rift/ }).click();
   await page.getByLabel('Name', { exact: true }).fill('Local Rift');
