@@ -62,6 +62,14 @@ export interface GameSystemDefinition<TCharacter = unknown> {
   getSearchText: (character: TCharacter) => string;
   renameCharacter: (character: TCharacter, name: string) => TCharacter;
   duplicateCharacter: (character: TCharacter) => TCharacter;
+  prepareExport?: (
+    character: TCharacter,
+    repository: StoredCharacterRepository,
+  ) => Promise<TCharacter>;
+  getDeleteWarning?: (
+    recordId: string,
+    repository: StoredCharacterRepository,
+  ) => Promise<string | null>;
   CharacterEditor: ComponentType<GameCharacterEditorProps<TCharacter>>;
   sections: readonly GameSectionDefinition[];
   sectionGroups: readonly GameSectionGroupDefinition[];

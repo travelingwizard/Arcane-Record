@@ -1,0 +1,218 @@
+import { z } from 'zod';
+import { cityPlayRecordsSchema } from './play';
+import { buildReviewSchema } from '../shared/reviewed-build';
+
+export const CITY_OF_MIST_SYSTEM_ID = 'city-of-mist';
+export const CITY_OF_MIST_CREW_SYSTEM_ID = 'city-of-mist-crew';
+
+const tagSchema = z.object({
+  id: z.string().uuid(),
+  name: z.string(),
+  kind: z.enum(['power', 'weakness']),
+  questionId: z.string().nullable(),
+  burnt: z.boolean(),
+  broad: z.boolean(),
+});
+
+export const cityThemeSchema = z.object({
+  id: z.string().uuid(),
+  definitionId: z.string().nullable(),
+  name: z.string(),
+  kind: z.enum(['mythos', 'logos', 'mist', 'crew', 'extra']),
+  state: z.enum(['nascent', 'standard', 'archived']),
+  statement: z.string(),
+  statementKind: z.enum(['mystery', 'identity', 'directive', 'custom']),
+  tags: z.array(tagSchema),
+  attention: z.number().int().min(0).max(3),
+  strain: z.number().int().min(0).max(3),
+  strainKind: z.enum(['fade', 'crack', 'strikes', 'custom']),
+  improvements: z.array(
+    z.object({
+      id: z.string().uuid(),
+      definitionId: z.string().nullable(),
+      name: z.string(),
+      notes: z.string(),
+    }),
+  ),
+  flipside: z.string(),
+  notes: z.string(),
+});
+
+export const cityLayoutSchema = z.object({
+  build: z
+    .array(z.string())
+    .default(['identity', 'themes', 'crew', 'play', 'records']),
+  play: z
+    .array(z.string())
+    .default(['play', 'themes', 'crew', 'identity', 'records']),
+});
+
+export const cityCrewSchema = z.object({
+  schemaVersion: z.literal(1),
+  name: z.string(),
+  concept: z.string(),
+  city: z.string(),
+  layout: cityLayoutSchema.default({
+    build: ['identity', 'themes', 'records'],
+    play: ['themes', 'identity', 'records'],
+  }),
+  mode: z.enum(['build', 'play']).default('build'),
+  themes: z.array(cityThemeSchema),
+  notes: z.string(),
+});
+
+/** Embedded crews belong to this sheet. Linked crews have one authoritative record. */
+export const cityCrewBindingSchema = z.discriminatedUnion('kind', [
+  z.object({ kind: z.literal('none') }),
+  z.object({ kind: z.literal('embedded'), crew: cityCrewSchema }),
+  z.object({ kind: z.literal('linked'), crewId: z.string().min(1) }),
+]);
+
+export const cityCharacterSchema = z.object({
+  buildReview: buildReviewSchema.default({ draft: null, history: [] }),
+  schemaVersion: z.literal(2),
+  profile: z.enum(['rift', 'gatekeeper']),
+  name: z.string(),
+  mythos: z.string(),
+  logos: z.string(),
+  notes: z.string(),
+  playRecords: cityPlayRecordsSchema.default({
+    statuses: [],
+    batches: [],
+    tags: [],
+    events: [],
+  }),
+  creation: z.object({
+    status: z.enum(['draft', 'manual', 'finalized']),
+    step: z.string(),
+    approvals: z.array(
+      z.object({
+        ruleId: z.string(),
+        reason: z.string().min(1),
+        approvedAt: z.string().datetime(),
+      }),
+    ),
+  }),
+  mode: z.enum(['build', 'play']),
+  layout: cityLayoutSchema.default({
+    build: ['identity', 'themes', 'crew', 'play', 'records'],
+    play: ['play', 'themes', 'crew', 'identity', 'records'],
+  }),
+  gatekeeper: z
+    .object({
+      role: z.string(),
+      clearance: z.number().int().min(1).max(9),
+      outlook: z.string(),
+    })
+    .default({ role: '', clearance: 9, outlook: '' }),
+  playState: z
+    .object({
+      clues: z.string(),
+      juice: z.string(),
+      statuses: z.string(),
+      storyTags: z.string(),
+      buildUp: z.number().int().nonnegative(),
+      history: z.string(),
+    })
+    .default({
+      clues: '',
+      juice: '',
+      statuses: '',
+      storyTags: '',
+      buildUp: 0,
+      history: '',
+    }),
+  themes: z.array(cityThemeSchema),
+  crew: cityCrewBindingSchema,
+  crewTransfer: z
+    .object({
+      sourceCrewId: z.string(),
+      capturedAt: z.string().datetime(),
+      snapshot: cityCrewSchema,
+    })
+    .nullable()
+    .default(null),
+  development: z
+    .object({
+      pendingMoments: z.number().int().nonnegative(),
+      state: z.enum(['normal', 'sleeper', 'avatar', 'fired', 'bigwig']),
+      nemeses: z.array(
+        z.object({
+          id: z.string().uuid(),
+          lostThemeId: z.string().uuid(),
+          description: z.string(),
+        }),
+      ),
+      history: z.array(
+        z.object({
+          id: z.string().uuid(),
+          date: z.string().datetime(),
+          themeId: z.string().uuid(),
+          reason: z.string(),
+          before: cityThemeSchema,
+          after: cityThemeSchema.nullable(),
+        }),
+      ),
+    })
+    .default({ pendingMoments: 0, state: 'normal', nemeses: [], history: [] }),
+  relationships: z.array(
+    z.object({
+      id: z.string().uuid(),
+      characterId: z.string().nullable(),
+      name: z.string(),
+      help: z.number().int().nonnegative(),
+      hurt: z.number().int().nonnegative(),
+      notes: z.string(),
+    }),
+  ),
+});
+
+export type CityCrew = z.infer<typeof cityCrewSchema>;
+export type CityCharacter = z.infer<typeof cityCharacterSchema>;
+export function migrateCityCharacter(
+  data: unknown,
+  fromVersion: number,
+): CityCharacter {
+  if (fromVersion !== 1 && fromVersion !== 2)
+    throw new Error('Unsupported City of Mist character version.');
+  const versioned = z
+    .object({ schemaVersion: z.literal(fromVersion) })
+    .passthrough()
+    .parse(data);
+  return cityCharacterSchema.parse({ ...versioned, schemaVersion: 2 });
+}
+export type CityCrewBinding = z.infer<typeof cityCrewBindingSchema>;
+
+export function createCityCrew(name = ''): CityCrew {
+  return {
+    schemaVersion: 1,
+    name,
+    concept: '',
+    city: '',
+    mode: 'build',
+    layout: {
+      build: ['identity', 'themes', 'records'],
+      play: ['themes', 'identity', 'records'],
+    },
+    themes: [],
+    notes: '',
+  };
+}
+
+export function createCityCharacter(
+  profile: CityCharacter['profile'] = 'rift',
+): CityCharacter {
+  return cityCharacterSchema.parse({
+    schemaVersion: 2,
+    profile,
+    name: '',
+    mythos: '',
+    logos: '',
+    notes: '',
+    creation: { status: 'draft', step: 'concept', approvals: [] },
+    mode: 'build',
+    themes: [],
+    crew: { kind: 'none' },
+    relationships: [],
+  });
+}

@@ -34,4 +34,19 @@ export class DexieStoredCharacterRepository implements StoredCharacterRepository
   async delete(id: string) {
     await this.database.characters.delete(id);
   }
+
+  async saveIfUnchanged(record: StoredCharacter, expectedData: string) {
+    return this.database.transaction(
+      'rw',
+      this.database.characters,
+      async () => {
+        const current = await this.database.characters.get(record.id);
+        if (!current || JSON.stringify(current.data) !== expectedData)
+          throw new Error(
+            'This character changed or was deleted in another editor. Save a file copy before reloading.',
+          );
+        return this.save(record);
+      },
+    );
+  }
 }

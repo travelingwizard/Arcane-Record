@@ -364,13 +364,46 @@ export function ArcaneRecordLibrary({
                           ) : null}
                         </>
                       ) : null}
-                      <button onClick={() => downloadRecord(record)}>
+                      <button
+                        onClick={() =>
+                          void (async () => {
+                            try {
+                              if (
+                                result.status === 'available' &&
+                                result.interpreter === 'legacy' &&
+                                result.system.prepareExport
+                              ) {
+                                const data = await result.system.prepareExport(
+                                  result.character,
+                                  repository,
+                                );
+                                downloadRecord({
+                                  ...record,
+                                  data,
+                                  systemVersion:
+                                    result.system.currentSchemaVersion,
+                                });
+                              } else downloadRecord(record);
+                            } catch (failure) {
+                              setError(
+                                failure instanceof Error
+                                  ? failure.message
+                                  : 'Could not prepare export.',
+                              );
+                            }
+                          })()
+                        }
+                      >
                         Export
                       </button>
                       {deletingId === record.id ? (
                         <>
                           <button
                             onClick={async () => {
+                              const warning = await gameSystemRegistry
+                                .get(record.systemId)
+                                ?.getDeleteWarning?.(record.id, repository);
+                              if (warning && !window.confirm(warning)) return;
                               await repository.delete(record.id);
                               removeCharacterOverride(record.id);
                               setDeletingId(null);

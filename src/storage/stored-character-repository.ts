@@ -5,5 +5,9 @@ export interface StoredCharacterRepository {
   get(id: string): Promise<StoredCharacter | null>;
   create(record: StoredCharacter): Promise<StoredCharacter>;
   save(record: StoredCharacter): Promise<StoredCharacter>;
+  saveIfUnchanged?(
+    record: StoredCharacter,
+    expectedData: string,
+  ): Promise<StoredCharacter>;
   delete(id: string): Promise<void>;
 }

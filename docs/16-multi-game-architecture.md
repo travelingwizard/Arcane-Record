@@ -24,6 +24,13 @@ The shared import boundary invokes that adapter without inspecting or branching
 on the game's payload. Burning Wheel uses this hook for Charred Black `.char`
 files; JSON and YAML continue to use the common Arcane Record envelope.
 
+Code-owned definitions may provide `prepareExport` for repository-resolved
+portable data and `getDeleteWarning` for cross-record deletion warnings. City of
+Mist uses these hooks for reviewed crew snapshots and linked-character warnings;
+the library does not inspect game-specific fields. Sheet-level exports use the
+same game-owned service. Shared preview editors use the repository's atomic
+`saveIfUnchanged` transaction to reject stale writers and deleted records.
+
 Mage 20 registers as `mage20`. The older `mage-m20` identifier remains only in
 the legacy Mage editor model and legacy-file detector.
 
