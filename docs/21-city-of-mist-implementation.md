@@ -1,9 +1,9 @@
 # City of Mist implementation
 
-## Current checkpoint
+## Current implementation
 
-Rift, Gatekeeper and standalone crew editors now register as editable-sheet
-previews. They support manual theme/tag tracking, shared/personal crew links,
+Rift, Gatekeeper and standalone crew editors support guided structure review,
+responsive theme cards, manual theme/tag tracking, shared/personal crew links,
 Help/Hurt, notes, appearance and per-mode ordering. They are not completed guided
 creators. Linked crew views refresh every two seconds and on window focus.
 Version 2 adds structured status spectra with tier/pip arithmetic, separate
@@ -38,8 +38,10 @@ statements and tag names. It previews changes, preserves play tracks and later
 tags, blocks conflicting edits, and retains before/after history. This is not
 the completed catalog-backed creator or a theme-replacement shortcut.
 
-Complete catalogs and guided creators remain unfinished. Other game modules are
-not migrated by these changes.
+Themebook selection includes a complete cited index of supported character-facing
+themebooks and concise original guidance. The app records source question IDs;
+the owned book remains authoritative for complete question wording and fictional
+relevance. Other game modules are not migrated by these changes.
 
 ## Accepted scope
 
@@ -60,34 +62,25 @@ Personal crews are embedded. Help/Hurt belongs to the individual character.
 The game-owned service validates linked records and keeps unavailable links
 explicit. Detaching creates a personal copy and never deletes the shared record.
 
-The upcoming UI must refresh linked views after crew saves, on focus and across
+The UI refreshes linked views after crew saves, on focus and across
 same-browser tabs. Avoid lost edits by detecting changed records before saving.
 No network sync or cross-device linkage is implied.
 
-## Remaining work
+## Source and compatibility boundary
 
 ### Source-infrastructure checkpoint
 
-Character schema version 3 and crew schema version 2 store source selections.
+Character schema version 4 and crew schema version 2 store source selections.
 The Player's Guide is required; Shadows & Showdowns defaults off for new sheets.
 Theme browsing now searches 27 cited themebook references, explains their
 purpose, hides disabled sources by default, and retains saved selections when a
-source is disabled. These references are citation-checked but do not yet contain
-complete question and improvement automation, so the preview label remains.
+source is disabled. Each reference supplies concise creator prompts and reviewed
+improvement recording while the owned source remains authoritative for complete
+wording and fictional relevance.
 
-The generated heading inventory and blocking ambiguity register are under
-`docs/references/`. Inventory status is not catalog completion; milestone 1
-remains open until every in-scope entry is reviewed or explicitly excluded.
-
-1. Verify full Rift and Gatekeeper source rules and catalogs; extend structured
-   play with reviewed Juice-to-effect actions and development history.
-2. Extend the existing crew review with richer field-by-field snapshot comparison.
-3. Implement guided creation, themebooks, reviews, overrides and safe rebuilding.
-4. Complete catalog-dependent improvements, actual Moment of Evolution benefits,
-   and special-state play. Existing development actions retain history.
-5. Keep reviewed crew interchange and atomic cross-tab save protections covered
-   as additional creators and catalogs are connected.
-6. Complete persistence, keyboard, mobile, source/citation and browser tests.
+The generated heading inventory and ambiguity register remain under
+`docs/references/` as an audit trail. Future books may extend the stable catalog
+namespaces only after their character-facing rules are reviewed and cited.
 
 Do not count generic XP as City of Mist advancement. Preserve the shared app
 convention only as optional manual bookkeeping, clearly distinct from its actual

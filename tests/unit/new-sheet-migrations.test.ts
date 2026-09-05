@@ -100,7 +100,12 @@ describe('new-sheet legacy migration', () => {
     expect(migrated.playState.clues).toBe(old.playState.clues);
     expect(migrated.crew).toEqual(old.crew);
     expect(migrated.playRecords.batches).toEqual([]);
-    expect(() => migrateCityCharacter(old, 4)).toThrow();
+    expect(migrated.schemaVersion).toBe(4);
+    expect(migrated.player).toBe('');
+    expect(migrated.layout.build).toContain('story');
+    expect(migrated.layout.build).toContain('development');
+    expect(migrated.development.claimedMoments).toEqual([]);
+    expect(() => migrateCityCharacter(old, 5)).toThrow();
   });
 });
 describe('explicit Curseborne resource actions', () => {

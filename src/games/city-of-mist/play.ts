@@ -50,6 +50,18 @@ export const cityPlayRecordsSchema = z.object({
       description: z.string(),
     }),
   ),
+  spends: z
+    .array(
+      z.object({
+        id: z.string().uuid(),
+        batchId: z.string().uuid(),
+        kind: z.enum(['clue', 'juice']),
+        amount: z.number().int().positive(),
+        outcome: z.string(),
+        createdAt: z.string().datetime(),
+      }),
+    )
+    .default([]),
 });
 export type CityStatus = z.infer<typeof cityStatusSchema>;
 export type CityBatch = z.infer<typeof cityBatchSchema>;

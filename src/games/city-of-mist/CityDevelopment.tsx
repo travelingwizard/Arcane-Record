@@ -37,6 +37,7 @@ export function CityDevelopment({
     [weakness, setWeakness] = useState(''),
     [weakQuestion, setWeakQuestion] = useState(''),
     [nemesis, setNemesis] = useState('');
+  const [improvement, setImprovement] = useState('');
   const theme = active.find((t) => t.id === id) ?? active[0];
   const quote = theme ? quoteCityReplacement(c, theme.id, promotion) : null;
   const books = cityThemeCatalog.filter(
@@ -46,6 +47,9 @@ export function CityDevelopment({
         'available',
   );
   const selected = books.find(({ name }) => name === book) ?? books[0];
+  const activeDefinition = theme
+    ? cityThemeCatalog.find((entry) => entry.id === theme.definitionId)
+    : undefined;
   const perform = (action: () => CityCharacter, message: string) => {
     if (!approved || !reason.trim() || !window.confirm(message)) return;
     try {
@@ -162,6 +166,51 @@ export function CityDevelopment({
           >
             Spend Attention to stabilize theme
           </button>
+          {activeDefinition && (
+            <>
+              <label>
+                Reviewed theme improvement
+                <select
+                  value={improvement}
+                  onChange={(e) => setImprovement(e.target.value)}
+                >
+                  <option value="">Choose an improvement</option>
+                  {activeDefinition.improvements.map((name, index) => (
+                    <option key={name} value={`${index}:${name}`}>
+                      {name}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <button
+                disabled={
+                  !approved ||
+                  !reason.trim() ||
+                  theme.attention !== 3 ||
+                  !improvement
+                }
+                onClick={() =>
+                  perform(() => {
+                    const [index, ...parts] = improvement.split(':');
+                    return claimCityImprovement(
+                      c,
+                      theme.id,
+                      'catalog',
+                      reason,
+                      undefined,
+                      {
+                        definitionId: `${activeDefinition.id}.improvement.${index}`,
+                        name: parts.join(':'),
+                        notes: `Reviewed against ${citySources.find((s) => s.id === activeDefinition.sourceId)?.title} p. ${activeDefinition.page}.`,
+                      },
+                    );
+                  }, 'Apply this reviewed improvement and reset Attention?')
+                }
+              >
+                Spend Attention on reviewed improvement
+              </button>
+            </>
+          )}
           <button
             disabled={!approved || !reason.trim() || theme.strain >= 3}
             onClick={() =>
@@ -275,6 +324,7 @@ export function CityDevelopment({
                               kind: 'power' as const,
                               broad: false,
                               burnt: false,
+                              invoked: false,
                             },
                             {
                               id: crypto.randomUUID(),
@@ -283,6 +333,7 @@ export function CityDevelopment({
                               kind: 'weakness' as const,
                               broad: false,
                               burnt: false,
+                              invoked: false,
                             },
                           ],
                         }

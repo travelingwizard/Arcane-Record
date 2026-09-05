@@ -28,6 +28,37 @@ test('City source controls reveal supplement themes and retain them when disable
   ).toBeVisible();
 });
 
+test('City responsive sheet uses four primary theme cards and Play-safe marks', async ({
+  page,
+}) => {
+  await page.goto('/create');
+  await page.getByRole('button', { name: 'Choose City of Mist' }).click();
+  await page.getByRole('button', { name: 'Choose Character sheet' }).click();
+  await page.getByRole('button', { name: 'Choose Rift' }).click();
+  await expect(page.locator('.city-character-sheet')).toBeVisible();
+  await page.getByText('Browse themebooks', { exact: true }).click();
+  for (const name of ['Adaptation', 'Bastion', 'Defining Event', 'Mission']) {
+    await page.getByLabel('Search themebooks').fill(name);
+    await page.getByRole('button', { name: `Add ${name}` }).click();
+  }
+  await expect(page.locator('.city-theme-card--primary')).toHaveCount(4);
+  const columns = await page
+    .locator('.city-theme-card-grid')
+    .evaluate(
+      (node) => getComputedStyle(node).gridTemplateColumns.split(' ').length,
+    );
+  expect(columns).toBe(4);
+  await page.getByRole('switch', { name: 'Play mode' }).check();
+  await expect(page.getByLabel('Player')).toHaveAttribute('readonly', '');
+  await page.setViewportSize({ width: 320, height: 800 });
+  const overflow = await page.evaluate(
+    () =>
+      document.documentElement.scrollWidth -
+      document.documentElement.clientWidth,
+  );
+  expect(overflow).toBeLessThanOrEqual(0);
+});
+
 test('Curseborne optional catalog requires source and Storyguide approval', async ({
   page,
 }) => {

@@ -23,7 +23,8 @@ export function CityPlay({
   const [kind, setKind] = useState<'clue' | 'juice'>('clue'),
     [method, setMethod] = useState(''),
     [amount, setAmount] = useState(1),
-    [source, setSource] = useState('');
+    [source, setSource] = useState(''),
+    [spendOutcome, setSpendOutcome] = useState('');
   const power = cityStatusPower(r.statuses);
   const change = (next: CityPlayRecords, description: string) =>
     onChange({
@@ -398,8 +399,17 @@ export function CityPlay({
               })
             }
           />
+          <TextField
+            label={
+              b.kind === 'clue'
+                ? 'Answer or useful lead received'
+                : 'Created tag, removed status, or other confirmed effect'
+            }
+            value={spendOutcome}
+            onChange={setSpendOutcome}
+          />
           <button
-            disabled={b.expired || b.spent >= b.amount}
+            disabled={b.expired || b.spent >= b.amount || !spendOutcome.trim()}
             onClick={() => {
               if (
                 window.confirm(
@@ -407,16 +417,29 @@ export function CityPlay({
                     ? 'Did the MC provide an answer or useful lead? Spend one Clue?'
                     : 'Has the table confirmed this effect and its cost? Spend one Juice?',
                 )
-              )
+              ) {
                 change(
                   {
                     ...r,
                     batches: r.batches.map((v) =>
                       v.id === b.id ? spendCityBatch(v, 1) : v,
                     ),
+                    spends: [
+                      ...r.spends,
+                      {
+                        id: crypto.randomUUID(),
+                        batchId: b.id,
+                        kind: b.kind,
+                        amount: 1,
+                        outcome: spendOutcome.trim(),
+                        createdAt: new Date().toISOString(),
+                      },
+                    ],
                   },
-                  `Spent one ${b.kind}: ${b.method}.`,
+                  `Spent one ${b.kind}: ${b.method}. ${spendOutcome.trim()}`,
                 );
+                setSpendOutcome('');
+              }
             }}
           >
             Spend one {b.kind}

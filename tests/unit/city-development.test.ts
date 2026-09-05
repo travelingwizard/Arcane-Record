@@ -58,6 +58,7 @@ it('archives lost themes, counts weakness tags toward Build-Up and records Nemes
     kind: i === 5 ? ('weakness' as const) : ('power' as const),
     questionId: String(i),
     burnt: false,
+    invoked: false,
     broad: false,
   }));
   c.playState.buildUp = 4;

@@ -11,11 +11,13 @@ export function CityBuildReview({
 }) {
   const values: BuildValues = {
     name: c.name,
+    player: c.player,
     mythos: c.mythos,
     logos: c.logos,
   };
   const fields: BuildField[] = [
     { id: 'name', label: 'Name' },
+    { id: 'player', label: 'Player' },
     { id: 'mythos', label: 'Mythos' },
     { id: 'logos', label: 'Logos' },
   ];
@@ -42,6 +44,7 @@ export function CityBuildReview({
         onChange({
           ...c,
           name: String(next.name),
+          player: String(next.player),
           mythos: String(next.mythos),
           logos: String(next.logos),
           buildReview,

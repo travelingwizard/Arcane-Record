@@ -24,8 +24,8 @@ export const cityDefinition: GameSystemDefinition<CityCharacter> = {
   name: 'City of Mist',
   shortName: 'City of Mist',
   description:
-    'Rift and Gatekeeper editable sheet preview; guided creation is in development.',
-  currentSchemaVersion: 3,
+    'Guided Rift and Gatekeeper character creation, theme development, and structured play.',
+  currentSchemaVersion: 4,
   characterSchema: cityCharacterSchema,
   createInitialCharacter: createCityCharacter,
   variants: [
@@ -48,7 +48,7 @@ export const cityDefinition: GameSystemDefinition<CityCharacter> = {
   getDisplayName: (c) => c.name || 'Untitled City of Mist character',
   getSummary: (c) =>
     `${c.profile} · ${c.themes.filter((t) => t.state !== 'archived').length} themes`,
-  getSearchText: (c) => [c.name, c.mythos, c.logos].join(' '),
+  getSearchText: (c) => [c.name, c.player, c.mythos, c.logos].join(' '),
   renameCharacter: (c, name) => ({ ...c, name }),
   duplicateCharacter: (c) => ({
     ...structuredClone(c),

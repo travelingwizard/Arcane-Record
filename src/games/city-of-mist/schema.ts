@@ -16,6 +16,7 @@ const tagSchema = z.object({
   kind: z.enum(['power', 'weakness']),
   questionId: z.string().nullable(),
   burnt: z.boolean(),
+  invoked: z.boolean().default(false),
   broad: z.boolean(),
 });
 
@@ -46,10 +47,26 @@ export const cityThemeSchema = z.object({
 export const cityLayoutSchema = z.object({
   build: z
     .array(z.string())
-    .default(['identity', 'themes', 'crew', 'play', 'records']),
+    .default([
+      'identity',
+      'themes',
+      'crew',
+      'story',
+      'development',
+      'play',
+      'records',
+    ]),
   play: z
     .array(z.string())
-    .default(['play', 'themes', 'crew', 'identity', 'records']),
+    .default([
+      'play',
+      'themes',
+      'story',
+      'crew',
+      'development',
+      'identity',
+      'records',
+    ]),
 });
 
 const crewDataSchema = z.object({
@@ -89,10 +106,11 @@ export const cityCrewBindingSchema = z.discriminatedUnion('kind', [
 
 export const cityCharacterSchema = z.object({
   buildReview: buildReviewSchema.default({ draft: null, history: [] }),
-  schemaVersion: z.literal(3),
+  schemaVersion: z.literal(4),
   enabledSources: sourceSelectionSchema(citySources),
   profile: z.enum(['rift', 'gatekeeper']),
   name: z.string(),
+  player: z.string().default(''),
   mythos: z.string(),
   logos: z.string(),
   notes: z.string(),
@@ -101,6 +119,7 @@ export const cityCharacterSchema = z.object({
     batches: [],
     tags: [],
     events: [],
+    spends: [],
   }),
   creation: z.object({
     status: z.enum(['draft', 'manual', 'finalized']),
@@ -115,8 +134,24 @@ export const cityCharacterSchema = z.object({
   }),
   mode: z.enum(['build', 'play']),
   layout: cityLayoutSchema.default({
-    build: ['identity', 'themes', 'crew', 'play', 'records'],
-    play: ['play', 'themes', 'crew', 'identity', 'records'],
+    build: [
+      'identity',
+      'themes',
+      'crew',
+      'story',
+      'development',
+      'play',
+      'records',
+    ],
+    play: [
+      'play',
+      'themes',
+      'story',
+      'crew',
+      'development',
+      'identity',
+      'records',
+    ],
   }),
   gatekeeper: z
     .object({
@@ -173,8 +208,25 @@ export const cityCharacterSchema = z.object({
           after: cityThemeSchema.nullable(),
         }),
       ),
+      claimedMoments: z
+        .array(
+          z.object({
+            id: z.string().uuid(),
+            definitionId: z.string(),
+            name: z.string(),
+            notes: z.string(),
+            claimedAt: z.string().datetime(),
+          }),
+        )
+        .default([]),
     })
-    .default({ pendingMoments: 0, state: 'normal', nemeses: [], history: [] }),
+    .default({
+      pendingMoments: 0,
+      state: 'normal',
+      nemeses: [],
+      history: [],
+      claimedMoments: [],
+    }),
   relationships: z.array(
     z.object({
       id: z.string().uuid(),
@@ -193,13 +245,48 @@ export function migrateCityCharacter(
   data: unknown,
   fromVersion: number,
 ): CityCharacter {
-  if (![1, 2, 3].includes(fromVersion))
+  if (![1, 2, 3, 4].includes(fromVersion))
     throw new Error('Unsupported City of Mist character version.');
   const versioned = z
     .object({ schemaVersion: z.literal(fromVersion) })
     .passthrough()
     .parse(data);
-  return cityCharacterSchema.parse({ ...versioned, schemaVersion: 3 });
+  if (fromVersion === 4) return cityCharacterSchema.parse(versioned);
+  const old = versioned as { layout?: { build?: string[]; play?: string[] } };
+  const migrateOrder = (
+    order: string[] | undefined,
+    mode: 'build' | 'play',
+  ) => {
+    const result: string[] = [];
+    for (const id of order ?? []) {
+      if (id === 'play')
+        result.push(
+          ...(mode === 'build'
+            ? ['story', 'development', 'play']
+            : ['play', 'story', 'development']),
+        );
+      else if (!result.includes(id)) result.push(id);
+    }
+    for (const id of [
+      'identity',
+      'themes',
+      'crew',
+      'story',
+      'development',
+      'play',
+      'records',
+    ])
+      if (!result.includes(id)) result.push(id);
+    return result;
+  };
+  return cityCharacterSchema.parse({
+    ...versioned,
+    schemaVersion: 4,
+    layout: {
+      build: migrateOrder(old.layout?.build, 'build'),
+      play: migrateOrder(old.layout?.play, 'play'),
+    },
+  });
 }
 export type CityCrewBinding = z.infer<typeof cityCrewBindingSchema>;
 
@@ -224,10 +311,11 @@ export function createCityCharacter(
   profile: CityCharacter['profile'] = 'rift',
 ): CityCharacter {
   return cityCharacterSchema.parse({
-    schemaVersion: 3,
+    schemaVersion: 4,
     enabledSources: readSourceDefaults('city-of-mist', citySources),
     profile,
     name: '',
+    player: '',
     mythos: '',
     logos: '',
     notes: '',

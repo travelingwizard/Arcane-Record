@@ -28,6 +28,7 @@ function complete(profile: 'rift' | 'gatekeeper') {
       questionId,
       kind: i === 3 ? 'weakness' : 'power',
       burnt: false,
+      invoked: false,
       broad: false,
     }));
   }

@@ -74,6 +74,14 @@ describe('City of Mist structured play', () => {
     expect(migrated.playState.statuses).toBe('badly hurt');
     expect(migrated.playRecords.statuses).toEqual([]);
     c.playRecords.statuses.push(status());
+    c.playRecords.spends.push({
+      id: crypto.randomUUID(),
+      batchId: crypto.randomUUID(),
+      kind: 'juice',
+      amount: 1,
+      outcome: 'Created safe-passage',
+      createdAt: new Date().toISOString(),
+    });
     expect(cityCharacterSchema.parse(JSON.parse(JSON.stringify(c)))).toEqual(c);
     expect(
       cityPlayRecordsSchema.safeParse({

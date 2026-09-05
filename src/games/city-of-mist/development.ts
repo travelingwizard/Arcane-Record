@@ -35,6 +35,7 @@ function addPower(theme: Theme, choice?: PowerChoice): Theme {
         questionId,
         broad: false,
         burnt: false,
+        invoked: false,
       },
     ],
   };
@@ -94,15 +95,33 @@ export function markCityAttention(
 export function claimCityImprovement(
   c: CityCharacter,
   id: string,
-  kind: 'power' | 'stabilize',
+  kind: 'power' | 'stabilize' | 'catalog',
   reason: string,
   choice?: PowerChoice,
+  improvement?: { definitionId: string; name: string; notes: string },
 ): CityCharacter {
   const before = getTheme(c, id);
   if (before.state !== 'standard' || before.attention !== 3)
     throw new Error('A completed standard Attention track is required.');
-  const improved =
-    kind === 'power' ? addPower(before, choice) : { ...before, strain: 0 };
+  let improved: Theme;
+  if (kind === 'power') improved = addPower(before, choice);
+  else if (kind === 'stabilize') improved = { ...before, strain: 0 };
+  else {
+    if (!improvement?.definitionId || !improvement.name.trim())
+      throw new Error('Choose a reviewed catalog improvement.');
+    improved = {
+      ...before,
+      improvements: [
+        ...before.improvements,
+        {
+          id: crypto.randomUUID(),
+          definitionId: improvement.definitionId,
+          name: improvement.name.trim(),
+          notes: improvement.notes.trim(),
+        },
+      ],
+    };
+  }
   const after = { ...improved, attention: 0 };
   return record(
     { ...c, themes: c.themes.map((t) => (t.id === id ? after : t)) },

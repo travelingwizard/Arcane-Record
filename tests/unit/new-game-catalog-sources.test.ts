@@ -47,6 +47,10 @@ describe('Curseborne and City source infrastructure', () => {
       expect(definition.page).toBeGreaterThan(0);
       expect(definition.page).toBeLessThanOrEqual(source.maxPage);
       expect(definition.summary.length).toBeGreaterThan(30);
+      expect(definition.creationHint.length).toBeGreaterThan(40);
+      expect(definition.powerQuestions.length).toBeGreaterThanOrEqual(3);
+      expect(definition.weaknessQuestions.length).toBeGreaterThanOrEqual(2);
+      expect(definition.improvements.length).toBeGreaterThanOrEqual(3);
       expect(canAutomateCatalogEntry(definition, false)).toBe(false);
     }
   });

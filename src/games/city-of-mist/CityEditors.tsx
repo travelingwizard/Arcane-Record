@@ -16,12 +16,15 @@ import { CityPlay } from './CityPlay';
 import { CityMoves } from './CityMoves';
 import { CityBuildReview } from './CityBuildReview';
 import { CityDevelopment } from './CityDevelopment';
-import { cityCreationIssues, unapprovedCityIssues } from './creation';
+import { CityStorySection } from './CityStorySection';
+import { CityCreatorGuide } from './CityCreatorGuide';
 
 export const citySections = [
   'identity',
   'themes',
   'crew',
+  'story',
+  'development',
   'play',
   'records',
 ].map((id) => ({
@@ -32,6 +35,8 @@ export const citySections = [
       identity: 'Character',
       themes: 'Themes',
       crew: 'Crew',
+      story: 'Story',
+      development: 'Development',
       play: 'Play State',
       records: 'Records',
     } as Record<string, string>
@@ -59,6 +64,9 @@ function CrewLink({
   });
   const [error, setError] = useState('');
   const [relinkId, setRelinkId] = useState('');
+  const relinkCrew = relinkId
+    ? cityCrewSchema.safeParse(crews.find((crew) => crew.id === relinkId)?.data)
+    : null;
   useEffect(() => {
     let active = true;
     const refresh = async () => {
@@ -145,13 +153,54 @@ function CrewLink({
             </select>
           </label>
           {relinkId && (
-            <a
-              href={`/characters/${relinkId}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Review local crew before linking
-            </a>
+            <>
+              <a
+                href={`/characters/${relinkId}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Review local crew before linking
+              </a>
+              {relinkCrew?.success && (
+                <table>
+                  <caption>Snapshot and local crew comparison</caption>
+                  <thead>
+                    <tr>
+                      <th>Field</th>
+                      <th>Imported snapshot</th>
+                      <th>Local crew</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th>Name</th>
+                      <td>{character.crewTransfer.snapshot.name}</td>
+                      <td>{relinkCrew.data.name}</td>
+                    </tr>
+                    <tr>
+                      <th>Concept</th>
+                      <td>{character.crewTransfer.snapshot.concept}</td>
+                      <td>{relinkCrew.data.concept}</td>
+                    </tr>
+                    <tr>
+                      <th>City</th>
+                      <td>{character.crewTransfer.snapshot.city}</td>
+                      <td>{relinkCrew.data.city}</td>
+                    </tr>
+                    <tr>
+                      <th>Themes</th>
+                      <td>{character.crewTransfer.snapshot.themes.length}</td>
+                      <td>{relinkCrew.data.themes.length}</td>
+                    </tr>
+                    <tr>
+                      <th>Notes</th>
+                      <td>{character.crewTransfer.snapshot.notes}</td>
+                      <td>{relinkCrew.data.notes}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              )}
+            </>
           )}
           <button
             disabled={!relinkId}
@@ -375,13 +424,40 @@ export function CityEditor(props: GameCharacterEditorProps<CityCharacter>) {
     exportService.prepareExport(data),
   );
   const locked = c.mode === 'play';
-  const [approvalReason, setApprovalReason] = useState('');
   return (
     <LocalSheet
       title={`City of Mist · ${c.profile === 'rift' ? 'Rift' : 'Gatekeeper'}`}
+      classes={{
+        shell: 'city-editor-shell',
+        header: 'city-editor-header',
+        sheet: 'city-character-sheet',
+        section: 'city-sheet-section',
+      }}
       settings={
         <>
           <CityBuildReview character={c} onChange={update} />
+          {c.creation.status === 'finalized' && (
+            <button
+              onClick={() => {
+                if (
+                  window.confirm(
+                    'Reopen guided creation? Existing play and development records will be preserved. Theme replacement still belongs in Development.',
+                  )
+                )
+                  update({
+                    ...c,
+                    creation: {
+                      ...c.creation,
+                      status: 'draft',
+                      step: 'review',
+                    },
+                    mode: 'build',
+                  });
+              }}
+            >
+              Reopen guided creator
+            </button>
+          )}
           <CatalogSourceSettings
             gameId="city-of-mist"
             sources={citySources}
@@ -433,14 +509,20 @@ export function CityEditor(props: GameCharacterEditorProps<CityCharacter>) {
         'com-identity': (
           <>
             <p role="status">
-              Editable sheet preview. Complete rules-validated creation and
-              automatic development are not yet available.
+              Guided creation validates objective structure. The MC decides
+              fictional relevance and any approved exceptions.
             </p>
             <TextField
               label="Name"
               value={c.name}
               locked={locked}
               onChange={(name) => update({ ...c, name })}
+            />
+            <TextField
+              label="Player"
+              value={c.player}
+              locked={locked}
+              onChange={(player) => update({ ...c, player })}
             />
             <TextField
               label={
@@ -503,67 +585,11 @@ export function CityEditor(props: GameCharacterEditorProps<CityCharacter>) {
         'com-themes': (
           <>
             {c.creation.status === 'draft' && (
-              <details open>
-                <summary>Creation structure review</summary>
-                <p>
-                  This review validates starting counts and recorded question
-                  letters, not the fictional suitability of your tags. Consult
-                  each cited themebook with your MC.
-                </p>
-                {cityCreationIssues(c).map((issue) => (
-                  <div key={issue.id}>
-                    <p>
-                      {issue.message} {issue.source} p. {issue.page}
-                    </p>
-                    {c.creation.approvals.some((a) => a.ruleId === issue.id) ? (
-                      <p>MC Approved exception recorded</p>
-                    ) : (
-                      <button
-                        disabled={locked || !approvalReason.trim()}
-                        onClick={() =>
-                          update({
-                            ...c,
-                            creation: {
-                              ...c.creation,
-                              approvals: [
-                                ...c.creation.approvals,
-                                {
-                                  ruleId: issue.id,
-                                  reason: approvalReason,
-                                  approvedAt: new Date().toISOString(),
-                                },
-                              ],
-                            },
-                          })
-                        }
-                      >
-                        Record MC Approved exception
-                      </button>
-                    )}
-                  </div>
-                ))}
-                <TextField
-                  label="MC ruling and explanation"
-                  value={approvalReason}
-                  onChange={setApprovalReason}
-                />
-                <button
-                  disabled={locked || unapprovedCityIssues(c).length > 0}
-                  onClick={() =>
-                    update({
-                      ...c,
-                      creation: {
-                        ...c.creation,
-                        status: 'finalized',
-                        step: 'complete',
-                      },
-                      mode: 'play',
-                    })
-                  }
-                >
-                  Confirm creation structure and enter Play
-                </button>
-              </details>
+              <CityCreatorGuide
+                character={c}
+                onChange={update}
+                locked={locked}
+              />
             )}
             <p>
               {c.profile === 'rift'
@@ -576,6 +602,19 @@ export function CityEditor(props: GameCharacterEditorProps<CityCharacter>) {
               onChange={(themes) => update({ ...c, themes })}
               locked={locked}
               profile={c.profile}
+              approvedRuleIds={c.creation.approvals.map((a) => a.ruleId)}
+              onApprove={(ruleId, reason) =>
+                update({
+                  ...c,
+                  creation: {
+                    ...c.creation,
+                    approvals: [
+                      ...c.creation.approvals,
+                      { ruleId, reason, approvedAt: new Date().toISOString() },
+                    ],
+                  },
+                })
+              }
             />
           </>
         ),
@@ -627,6 +666,32 @@ export function CityEditor(props: GameCharacterEditorProps<CityCharacter>) {
                     />
                   </label>
                 ))}
+                <TextField
+                  label={`Relationship notes for ${r.name || 'crewmate'}`}
+                  value={r.notes}
+                  onChange={(notes) =>
+                    update({
+                      ...c,
+                      relationships: c.relationships.map((v) =>
+                        v.id === r.id ? { ...v, notes } : v,
+                      ),
+                    })
+                  }
+                />
+                {!locked && (
+                  <button
+                    onClick={() =>
+                      update({
+                        ...c,
+                        relationships: c.relationships.filter(
+                          (v) => v.id !== r.id,
+                        ),
+                      })
+                    }
+                  >
+                    Remove relationship
+                  </button>
+                )}
               </div>
             ))}
             {!locked && (
@@ -655,7 +720,6 @@ export function CityEditor(props: GameCharacterEditorProps<CityCharacter>) {
         ),
         'com-play': (
           <>
-            <CityDevelopment character={c} onChange={update} />
             <CityMoves
               records={c.playRecords}
               onChange={(playRecords) => update({ ...c, playRecords })}
@@ -686,23 +750,6 @@ export function CityEditor(props: GameCharacterEditorProps<CityCharacter>) {
                 into statuses or resource amounts automatically.
               </p>
             </details>
-            <label>
-              Build-Up
-              <input
-                type="number"
-                min={0}
-                value={c.playState.buildUp}
-                onChange={(e) =>
-                  update({
-                    ...c,
-                    playState: {
-                      ...c.playState,
-                      buildUp: Math.max(0, Math.trunc(Number(e.target.value))),
-                    },
-                  })
-                }
-              />
-            </label>
             <TextField
               label="Development history"
               value={c.playState.history}
@@ -712,6 +759,8 @@ export function CityEditor(props: GameCharacterEditorProps<CityCharacter>) {
             />
           </>
         ),
+        'com-story': <CityStorySection character={c} onChange={update} />,
+        'com-development': <CityDevelopment character={c} onChange={update} />,
         'com-records': (
           <TextField
             label="History and notes"
@@ -736,6 +785,12 @@ export function CrewEditor(props: GameCharacterEditorProps<CityCrew>) {
   return (
     <LocalSheet
       title="City of Mist Crew"
+      classes={{
+        shell: 'city-editor-shell',
+        header: 'city-editor-header',
+        sheet: 'city-character-sheet',
+        section: 'city-sheet-section',
+      }}
       settings={
         <>
           <CatalogSourceSettings

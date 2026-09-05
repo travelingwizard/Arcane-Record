@@ -7,6 +7,10 @@ export interface CityThemeDefinition extends CatalogCitation {
   summary: string;
   aliases: string[];
   requirements: string[];
+  creationHint: string;
+  powerQuestions: readonly { id: string; prompt: string }[];
+  weaknessQuestions: readonly { id: string; prompt: string }[];
+  improvements: readonly string[];
 }
 
 const core = [
@@ -193,5 +197,29 @@ export const cityThemeCatalog: readonly CityThemeDefinition[] = [
       : kind === 'extra'
         ? ['Extra theme; not an ordinary starting personal theme.']
         : [],
+  creationHint: `Use ${name} when ${summary.charAt(0).toLowerCase()}${summary.slice(1)}`,
+  powerQuestions: [
+    {
+      id: 'A',
+      prompt: `What is the central capability of this ${name} theme?`,
+    },
+    {
+      id: 'B',
+      prompt: 'What related quality, technique, or resource broadens it?',
+    },
+    { id: 'C', prompt: 'How does it help when pressure or danger escalates?' },
+  ],
+  weaknessQuestions: [
+    { id: 'A', prompt: `What limitation or complication comes with ${name}?` },
+    {
+      id: 'B',
+      prompt: 'What situation makes this theme difficult to rely on?',
+    },
+  ],
+  improvements: [
+    'Add a reviewed power tag from an unanswered themebook question.',
+    'Replace a weakness tag through the themebook’s reviewed improvement rules.',
+    'Select a verified theme-specific improvement from the owned source.',
+  ],
   verification: 'citation-only',
 }));
