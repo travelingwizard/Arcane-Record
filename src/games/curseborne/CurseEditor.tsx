@@ -123,12 +123,6 @@ export function CurseEditor(props: GameCharacterEditorProps<CurseCharacter>) {
   return (
     <LocalSheet
       title="Curseborne"
-      classes={{
-        shell: 'curseborne-editor-shell',
-        header: 'curseborne-editor-header',
-        sheet: 'curseborne-character-sheet',
-        section: 'curseborne-sheet-section',
-      }}
       settings={
         <>
           <CurseBuildReview character={c} onChange={update} />

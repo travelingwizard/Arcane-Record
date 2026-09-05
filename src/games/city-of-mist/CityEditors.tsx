@@ -427,12 +427,6 @@ export function CityEditor(props: GameCharacterEditorProps<CityCharacter>) {
   return (
     <LocalSheet
       title={`City of Mist · ${c.profile === 'rift' ? 'Rift' : 'Gatekeeper'}`}
-      classes={{
-        shell: 'city-editor-shell',
-        header: 'city-editor-header',
-        sheet: 'city-character-sheet',
-        section: 'city-sheet-section',
-      }}
       settings={
         <>
           <CityBuildReview character={c} onChange={update} />
@@ -785,12 +779,6 @@ export function CrewEditor(props: GameCharacterEditorProps<CityCrew>) {
   return (
     <LocalSheet
       title="City of Mist Crew"
-      classes={{
-        shell: 'city-editor-shell',
-        header: 'city-editor-header',
-        sheet: 'city-character-sheet',
-        section: 'city-sheet-section',
-      }}
       settings={
         <>
           <CatalogSourceSettings

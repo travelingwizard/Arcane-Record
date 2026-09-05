@@ -2,6 +2,10 @@
 
 ## Boundary
 
+The editor uses the shared Arcane Record sheet shell, section headings, cards,
+spacing, navigation and responsive behavior. Source sheets inform field
+coverage only and do not define a separate visual skin.
+
 Curseborne now registers an explicitly labeled editable-sheet preview. Attributes,
 Skills, curse resources, injuries and custom entries are editable and saved
 through the repository. Version 2 adds confirmed Attribute/Skill EXP purchases,

@@ -3,7 +3,7 @@
 ## Current implementation
 
 Rift, Gatekeeper and standalone crew editors support guided structure review,
-responsive theme cards, manual theme/tag tracking, shared/personal crew links,
+shared Arcane Record cards, manual theme/tag tracking, shared/personal crew links,
 Help/Hurt, notes, appearance and per-mode ordering. They are not completed guided
 creators. Linked crew views refresh every two seconds and on window focus.
 Version 2 adds structured status spectra with tier/pip arithmetic, separate

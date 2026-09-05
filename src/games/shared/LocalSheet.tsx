@@ -140,7 +140,6 @@ export function LocalSheet({
   onBack,
   onSave,
   settings,
-  classes,
 }: {
   title: string;
   name: string;
@@ -154,12 +153,6 @@ export function LocalSheet({
   onBack: () => void;
   onSave: () => void;
   settings?: ReactNode;
-  classes?: {
-    shell?: string;
-    header?: string;
-    sheet?: string;
-    section?: string;
-  };
 }) {
   const [closed, setClosed] = useState<Set<string>>(new Set());
   const { activeSection, setActiveSection } = useActiveSheetSection(
@@ -204,8 +197,8 @@ export function LocalSheet({
           onOrder(moveOrderedId(order, id, direction)),
       }}
     >
-      <main className={`app-shell ${classes?.shell ?? 'tb2-editor-shell'}`}>
-        <header className={classes?.header ?? 'tb2-editor-header'}>
+      <main className="app-shell tb2-editor-shell">
+        <header className="tb2-editor-header">
           <button onClick={onBack}>← Character library</button>
           <div>
             <p className="eyebrow">Arcane Record · {title}</p>
@@ -249,14 +242,14 @@ export function LocalSheet({
           <CharacterSectionNav />
           <OrderedSheetSections
             groupOrder={order}
-            className={`character-sheet ${classes?.sheet ?? 'tb2-character-sheet'}`}
+            className="character-sheet tb2-character-sheet"
           >
             {sections.map((s) => (
               <section
                 key={s.id}
                 id={s.id}
                 data-section-group={s.group}
-                className={classes?.section ?? 'tb2-sheet-section'}
+                className="tb2-sheet-section"
               >
                 <h2 id={`${s.id}-heading`} tabIndex={-1}>
                   <button

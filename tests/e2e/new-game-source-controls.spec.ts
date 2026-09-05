@@ -28,14 +28,14 @@ test('City source controls reveal supplement themes and retain them when disable
   ).toBeVisible();
 });
 
-test('City responsive sheet uses four primary theme cards and Play-safe marks', async ({
+test('City sheet uses shared Arcane Record cards and Play-safe marks', async ({
   page,
 }) => {
   await page.goto('/create');
   await page.getByRole('button', { name: 'Choose City of Mist' }).click();
   await page.getByRole('button', { name: 'Choose Character sheet' }).click();
   await page.getByRole('button', { name: 'Choose Rift' }).click();
-  await expect(page.locator('.city-character-sheet')).toBeVisible();
+  await expect(page.locator('.tb2-character-sheet')).toBeVisible();
   await page.getByText('Browse themebooks', { exact: true }).click();
   for (const name of ['Adaptation', 'Bastion', 'Defining Event', 'Mission']) {
     await page.getByLabel('Search themebooks').fill(name);
@@ -47,7 +47,7 @@ test('City responsive sheet uses four primary theme cards and Play-safe marks', 
     .evaluate(
       (node) => getComputedStyle(node).gridTemplateColumns.split(' ').length,
     );
-  expect(columns).toBe(4);
+  expect(columns).toBe(2);
   await page.getByRole('switch', { name: 'Play mode' }).check();
   await expect(page.getByLabel('Player')).toHaveAttribute('readonly', '');
   await page.setViewportSize({ width: 320, height: 800 });
@@ -81,12 +81,12 @@ test('Curseborne optional catalog requires source and Storyguide approval', asyn
   await expect(page.getByText(/Witness Lens · carried/)).toBeVisible();
 });
 
-test('Curseborne responsive sheet groups records and protects permanent fields in Play', async ({
+test('Curseborne sheet uses shared Arcane Record cards and protects permanent fields in Play', async ({
   page,
 }) => {
   await page.goto('/create/curseborne');
   await page.getByRole('button', { name: /Create Character/ }).click();
-  await expect(page.locator('.curseborne-character-sheet')).toBeVisible();
+  await expect(page.locator('.tb2-character-sheet')).toBeVisible();
   await expect(page.locator('#curse-connections-heading')).toBeVisible();
   await expect(page.locator('#curse-gear-heading')).toBeVisible();
   await expect(page.locator('#curse-spells-heading')).toBeVisible();
