@@ -6132,49 +6132,173 @@
 .litm-choice-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
   gap: 1rem;
 }
+
+.litm-identity-grid,
+.litm-field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.litm-identity-grid .field:last-child {
+  grid-column: 1 / -1;
+}
+
 .litm-theme-card {
   min-width: 0;
+  height: 100%;
   padding: 1rem;
+  display: grid;
+  align-content: start;
+  gap: 0.8rem;
   border: 1px solid var(--rule-light);
   border-radius: var(--radius);
   background: var(--paper-light);
   box-shadow: var(--shadow-card);
 }
+
 .litm-theme-card > header {
+  min-height: 3.5rem;
   display: flex;
+  align-items: start;
   justify-content: space-between;
   gap: 1rem;
   padding-bottom: 0.65rem;
   border-bottom: 2px solid var(--accent);
-  margin-bottom: 0.75rem;
   color: var(--ink);
   font-family: var(--font-serif);
 }
+
+.litm-theme-card > header strong {
+  overflow-wrap: anywhere;
+  font-size: 1.08rem;
+  line-height: 1.2;
+}
+
 .litm-theme-card > header span {
+  flex: none;
+  max-width: 45%;
   color: var(--ink-soft);
   font-family: var(--font-metadata);
   font-size: 0.72rem;
   font-weight: 800;
   text-transform: uppercase;
 }
+
+.litm-theme-card .field,
+.litm-action-panel .field,
+.litm-field-grid .field,
+.litm-identity-grid .field {
+  min-width: 0;
+  display: grid;
+  gap: 0.35rem;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.litm-theme-card :is(input:not([type='checkbox']), select, textarea),
+.litm-action-panel :is(input:not([type='checkbox']), select, textarea),
+.litm-field-grid :is(input:not([type='checkbox']), select, textarea),
+.litm-identity-grid :is(input:not([type='checkbox']), select, textarea) {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: var(--paper-light);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
 .litm-theme-card fieldset {
   min-width: 0;
+  margin: 0;
+  padding: 0.75rem;
+  display: grid;
+  gap: 0.65rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  background: var(--surface-glaze);
 }
+
 .litm-tag-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
-  gap: 0.35rem;
-  align-items: center;
-}
-.litm-tag-row input {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.45rem;
   min-width: 0;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--rule-light);
 }
+
+.litm-tag-row:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.litm-tag-actions {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+}
+
+.litm-tag-actions button {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 2.75rem;
+}
+
 .litm-tracks {
-  padding: 0.5rem 0;
+  padding-top: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.4rem;
+  border-top: 1px solid var(--rule-light);
   font-weight: 700;
+  text-align: center;
 }
+
+.litm-tracks span {
+  min-width: 0;
+  padding: 0.45rem 0.2rem;
+  border: 1px solid var(--rule-light);
+  background: var(--surface-glaze);
+}
+
+.litm-tracks small {
+  display: block;
+  overflow: hidden;
+  color: var(--ink-soft);
+  font-family: var(--font-metadata);
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+}
+
+.litm-card-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.litm-record-card,
+.litm-action-panel {
+  min-width: 0;
+  padding: 0.9rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  background: var(--paper-light);
+  box-shadow: var(--shadow-card);
+}
+
 @media (max-width: 70rem) {
   .litm-theme-grid,
   .litm-choice-grid {
@@ -6186,9 +6310,13 @@
   .litm-choice-grid {
     grid-template-columns: 1fr;
   }
-  .litm-tag-row {
-    grid-template-columns: 1fr 44px 44px;
+
+  .litm-identity-grid,
+  .litm-field-grid,
+  .litm-tracks {
+    grid-template-columns: 1fr;
   }
+
   .litm-tag-row button {
     min-width: 44px;
     min-height: 44px;

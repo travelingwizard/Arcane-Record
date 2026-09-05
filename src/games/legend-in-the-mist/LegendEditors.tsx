@@ -122,8 +122,8 @@ function ThemeCard({
         locked={locked}
         onChange={(name) => onChange({ ...theme, name })}
       />
-      <label>
-        Might
+      <label className="field litm-theme-field">
+        <span>Might</span>
         <select
           disabled={locked}
           value={theme.might}
@@ -143,39 +143,45 @@ function ThemeCard({
         <legend>Power tags</legend>
         {theme.powerTags.map((tag, i) => (
           <div key={tag.id} className="litm-tag-row">
-            <input
-              aria-label={`Power tag ${i + 1}`}
-              value={tag.name}
-              readOnly={locked}
-              onChange={(e) => setTag('powerTags', i, e.target.value)}
-            />
-            <button
-              disabled={locked}
-              aria-pressed={tag.scratched}
-              onClick={() =>
-                onChange({
-                  ...theme,
-                  powerTags: theme.powerTags.map((t) =>
-                    t.id === tag.id ? { ...t, scratched: !t.scratched } : t,
-                  ),
-                })
-              }
-            >
-              Scratch
-            </button>
-            <button
-              disabled={locked || tag.burned}
-              onClick={() =>
-                onChange({
-                  ...theme,
-                  powerTags: theme.powerTags.map((t) =>
-                    t.id === tag.id ? { ...t, burned: true } : t,
-                  ),
-                })
-              }
-            >
-              Burn
-            </button>
+            <label className="field litm-tag-field">
+              <span>Power tag {i + 1}</span>
+              <input
+                value={tag.name}
+                readOnly={locked}
+                onChange={(e) => setTag('powerTags', i, e.target.value)}
+              />
+            </label>
+            <div className="compact-actions litm-tag-actions">
+              <button
+                className="small-button"
+                disabled={locked}
+                aria-pressed={tag.scratched}
+                onClick={() =>
+                  onChange({
+                    ...theme,
+                    powerTags: theme.powerTags.map((t) =>
+                      t.id === tag.id ? { ...t, scratched: !t.scratched } : t,
+                    ),
+                  })
+                }
+              >
+                Scratch
+              </button>
+              <button
+                className="small-button"
+                disabled={locked || tag.burned}
+                onClick={() =>
+                  onChange({
+                    ...theme,
+                    powerTags: theme.powerTags.map((t) =>
+                      t.id === tag.id ? { ...t, burned: true } : t,
+                    ),
+                  })
+                }
+              >
+                Burn
+              </button>
+            </div>
           </div>
         ))}
       </fieldset>
@@ -183,25 +189,30 @@ function ThemeCard({
         <legend>Weakness tags</legend>
         {theme.weaknessTags.map((tag, i) => (
           <div key={tag.id} className="litm-tag-row">
-            <input
-              aria-label={`Weakness tag ${i + 1}`}
-              value={tag.name}
-              readOnly={locked}
-              onChange={(e) => setTag('weaknessTags', i, e.target.value)}
-            />
-            <button
-              aria-pressed={tag.scratched}
-              onClick={() =>
-                onChange({
-                  ...theme,
-                  weaknessTags: theme.weaknessTags.map((t) =>
-                    t.id === tag.id ? { ...t, scratched: !t.scratched } : t,
-                  ),
-                })
-              }
-            >
-              Scratch
-            </button>
+            <label className="field litm-tag-field">
+              <span>Weakness tag {i + 1}</span>
+              <input
+                value={tag.name}
+                readOnly={locked}
+                onChange={(e) => setTag('weaknessTags', i, e.target.value)}
+              />
+            </label>
+            <div className="compact-actions litm-tag-actions">
+              <button
+                className="small-button"
+                aria-pressed={tag.scratched}
+                onClick={() =>
+                  onChange({
+                    ...theme,
+                    weaknessTags: theme.weaknessTags.map((t) =>
+                      t.id === tag.id ? { ...t, scratched: !t.scratched } : t,
+                    ),
+                  })
+                }
+              >
+                Scratch
+              </button>
+            </div>
           </div>
         ))}
       </fieldset>
@@ -213,9 +224,16 @@ function ThemeCard({
           onChange({ ...theme, quest: { ...theme.quest, text } })
         }
       />
-      <div className="litm-tracks">
-        Improve {theme.improve}/3 · Abandon {theme.abandon}/3 · Milestone{' '}
-        {theme.milestone}/3
+      <div className="litm-tracks" aria-label="Theme development tracks">
+        <span>
+          <small>Improve</small> {theme.improve}/3
+        </span>
+        <span>
+          <small>Abandon</small> {theme.abandon}/3
+        </span>
+        <span>
+          <small>Milestone</small> {theme.milestone}/3
+        </span>
       </div>
     </article>
   );
@@ -369,10 +387,10 @@ function Statuses({
     onChange({ ...hero, statuses: [...hero.statuses, status] });
   };
   return (
-    <div>
+    <div className="litm-card-list">
       <button onClick={add}>Add status</button>
       {hero.statuses.map((s) => (
-        <article key={s.id}>
+        <article className="litm-record-card" key={s.id}>
           <Field
             label="Status"
             value={s.name}
@@ -389,40 +407,42 @@ function Statuses({
             Current tier: {currentStatusTier(s)} · marks{' '}
             {s.markedTiers.join(', ') || 'none'}
           </p>
-          <button
-            onClick={() =>
-              onChange({
-                ...hero,
-                statuses: hero.statuses.map((x) =>
-                  x.id === s.id ? stackLegendStatus(x, 1) : x,
-                ),
-              })
-            }
-          >
-            Stack tier 1
-          </button>
-          <button
-            onClick={() =>
-              onChange({
-                ...hero,
-                statuses: hero.statuses.map((x) =>
-                  x.id === s.id ? reduceLegendStatus(x, 1) : x,
-                ),
-              })
-            }
-          >
-            Reduce 1
-          </button>
-          <button
-            onClick={() =>
-              onChange({
-                ...hero,
-                statuses: hero.statuses.filter((x) => x.id !== s.id),
-              })
-            }
-          >
-            Remove
-          </button>
+          <div className="compact-actions">
+            <button
+              onClick={() =>
+                onChange({
+                  ...hero,
+                  statuses: hero.statuses.map((x) =>
+                    x.id === s.id ? stackLegendStatus(x, 1) : x,
+                  ),
+                })
+              }
+            >
+              Stack tier 1
+            </button>
+            <button
+              onClick={() =>
+                onChange({
+                  ...hero,
+                  statuses: hero.statuses.map((x) =>
+                    x.id === s.id ? reduceLegendStatus(x, 1) : x,
+                  ),
+                })
+              }
+            >
+              Reduce 1
+            </button>
+            <button
+              onClick={() =>
+                onChange({
+                  ...hero,
+                  statuses: hero.statuses.filter((x) => x.id !== s.id),
+                })
+              }
+            >
+              Remove
+            </button>
+          </div>
         </article>
       ))}
     </div>
@@ -456,9 +476,9 @@ function Roller({
     onChange({ ...hero, rolls: [result, ...hero.rolls] });
   };
   return (
-    <div>
-      <label>
-        Roll type
+    <div className="litm-action-panel">
+      <label className="field">
+        <span>Roll type</span>
         <select
           value={kind}
           onChange={(e) => setKind(e.target.value as typeof kind)}
@@ -547,7 +567,7 @@ export function LegendHeroEditor(props: GameCharacterEditorProps<LegendHero>) {
       }
       content={{
         'litm-character': (
-          <>
+          <div className="identity-grid litm-identity-grid">
             <Field
               label="Hero name"
               value={c.name}
@@ -566,7 +586,7 @@ export function LegendHeroEditor(props: GameCharacterEditorProps<LegendHero>) {
               locked={locked}
               onChange={(description) => update({ ...c, description })}
             />
-          </>
+          </div>
         ),
         'litm-creator':
           c.creation.status === 'finalized' ? (
@@ -608,7 +628,7 @@ export function LegendHeroEditor(props: GameCharacterEditorProps<LegendHero>) {
           </div>
         ),
         'litm-backpack': (
-          <>
+          <div className="litm-card-list">
             <button
               disabled={locked}
               onClick={() =>
@@ -623,23 +643,25 @@ export function LegendHeroEditor(props: GameCharacterEditorProps<LegendHero>) {
             >
               Add backpack tag
             </button>
-            {c.backpack.map((t, i) => (
-              <Field
-                key={t.id}
-                label={`Backpack tag ${i + 1}`}
-                value={t.name}
-                locked={locked}
-                onChange={(name) =>
-                  update({
-                    ...c,
-                    backpack: c.backpack.map((x) =>
-                      x.id === t.id ? { ...x, name } : x,
-                    ),
-                  })
-                }
-              />
-            ))}
-          </>
+            <div className="litm-field-grid">
+              {c.backpack.map((t, i) => (
+                <Field
+                  key={t.id}
+                  label={`Backpack tag ${i + 1}`}
+                  value={t.name}
+                  locked={locked}
+                  onChange={(name) =>
+                    update({
+                      ...c,
+                      backpack: c.backpack.map((x) =>
+                        x.id === t.id ? { ...x, name } : x,
+                      ),
+                    })
+                  }
+                />
+              ))}
+            </div>
+          </div>
         ),
         'litm-relationships': (
           <>
@@ -668,7 +690,7 @@ export function LegendHeroEditor(props: GameCharacterEditorProps<LegendHero>) {
               Add relationship
             </button>
             {c.relationships.map((r) => (
-              <div key={r.id}>
+              <article className="litm-record-card" key={r.id}>
                 <Field
                   label="Companion"
                   value={r.companionName}
@@ -707,14 +729,14 @@ export function LegendHeroEditor(props: GameCharacterEditorProps<LegendHero>) {
                 >
                   {r.scratched ? 'Refresh' : 'Scratch'}
                 </button>
-              </div>
+              </article>
             ))}
           </>
         ),
         'litm-statuses': <Statuses hero={c} onChange={update} />,
         'litm-actions': <Roller hero={c} onChange={update} />,
         'litm-development': (
-          <>
+          <div className="litm-field-grid">
             <p>Promise {c.promise}/5</p>
             <button
               onClick={() =>
@@ -743,7 +765,7 @@ export function LegendHeroEditor(props: GameCharacterEditorProps<LegendHero>) {
               Theme changes are previewed before replacement; history is
               retained.
             </p>
-          </>
+          </div>
         ),
         'litm-records': (
           <>
