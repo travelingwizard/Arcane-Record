@@ -138,7 +138,7 @@ test('Curseborne preview saves identity and protects it in Play', async ({
   await expect(page.getByLabel('Name', { exact: true })).toHaveValue(
     'Local Accursed',
   );
-  await page.getByRole('switch', { name: 'Play mode', exact: true }).check();
+  await page.getByRole('switch', { name: /Build mode.*Play mode/i }).check();
   await expect(page.getByLabel('Name', { exact: true })).toHaveAttribute(
     'readonly',
     '',

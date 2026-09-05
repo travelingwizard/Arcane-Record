@@ -174,15 +174,16 @@
 }
 
 @media (max-width: 36rem) {
-  .tb2-character-sheet .city-theme-card-grid,
-  .tb2-character-sheet .city-story-layout,
-  .tb2-character-sheet .curseborne-grid,
-  .tb2-character-sheet .curseborne-arena-grid,
-  .tb2-character-sheet .curseborne-traits-layout,
-  .tb2-character-sheet .curseborne-record-grid,
-  .tb2-character-sheet .curseborne-writing-row,
-  .tb2-character-sheet .curseborne-injury-track,
-  .tb2-character-sheet .curseborne-rating-row {
+  :where(.tb2-character-sheet, .local-character-sheet) .city-theme-card-grid,
+  :where(.tb2-character-sheet, .local-character-sheet) .city-story-layout,
+  :where(.tb2-character-sheet, .local-character-sheet) .curseborne-grid,
+  :where(.tb2-character-sheet, .local-character-sheet) .curseborne-arena-grid,
+  :where(.tb2-character-sheet, .local-character-sheet)
+    .curseborne-traits-layout,
+  :where(.tb2-character-sheet, .local-character-sheet) .curseborne-record-grid,
+  :where(.tb2-character-sheet, .local-character-sheet) .curseborne-writing-row,
+  :where(.tb2-character-sheet, .local-character-sheet) .curseborne-injury-track,
+  :where(.tb2-character-sheet, .local-character-sheet) .curseborne-rating-row {
     grid-template-columns: minmax(0, 1fr);
   }
 }

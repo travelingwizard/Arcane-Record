@@ -14,6 +14,7 @@ import type {
 import { SaveStatusBadge } from '../../components/character/SaveStatusBadge';
 import type { SaveStatus } from '../../state/editor-store';
 import { AppearanceSettings } from '../../features/settings/AppearanceSettings';
+import { SheetLayoutModeToggle } from '../../components/navigation/SheetLayoutModeToggle';
 import { CharacterSectionProvider } from '../../components/navigation/CharacterSectionProvider';
 import { CharacterSectionNav } from '../../components/navigation/CharacterSectionNav';
 import { MobileSectionNavigator } from '../../components/navigation/MobileSectionNavigator';
@@ -197,73 +198,92 @@ export function LocalSheet({
           onOrder(moveOrderedId(order, id, direction)),
       }}
     >
-      <main className="app-shell tb2-editor-shell">
-        <header className="tb2-editor-header">
-          <button onClick={onBack}>← Character library</button>
-          <div>
+      <main className="app-shell editor-shell local-sheet-editor-shell">
+        <header className="editor-header local-sheet-editor-header">
+          <button className="text-button editor-header__back" onClick={onBack}>
+            <span aria-hidden="true">←</span> Character library
+          </button>
+          <div className="editor-header__title">
             <p className="eyebrow">Arcane Record · {title}</p>
             <h1>{name || `Untitled ${title}`}</h1>
+            <p className="editor-header__subtitle">
+              An editable record kept only on this device.
+            </p>
           </div>
-          <SaveStatusBadge status={status} />
-          <button onClick={onSave}>Save now</button>
-          <AppearanceSettings gameLabel={title}>{settings}</AppearanceSettings>
-          <label className="sheet-layout-mode-toggle">
-            <span>Build</span>
-            <input
-              type="checkbox"
-              role="switch"
-              aria-label="Play mode"
-              checked={mode === 'play'}
-              onChange={(e) => onMode(e.target.checked ? 'play' : 'build')}
-            />
-            <span
-              className="sheet-layout-mode-toggle__track"
-              aria-hidden="true"
-            >
-              <span />
-            </span>
-            <span>Play</span>
-          </label>
+          <div className="editor-header__actions">
+            <SaveStatusBadge status={status} />
+            <button className="secondary-button" onClick={onSave}>
+              Save now
+            </button>
+            <AppearanceSettings gameLabel={title}>
+              {settings}
+            </AppearanceSettings>
+          </div>
         </header>
+        <div className="ornament-rule" aria-hidden="true">
+          <span>✦</span>
+        </div>
         {status === 'error' && (
           <p role="alert">
             Save failed. Keep this page open. If another editor changed or
             deleted this record, save a file copy in Settings before reloading.
           </p>
         )}
-        {mode === 'play' && (
-          <p>
-            Play mode protects permanent definitions. Switch to Build to edit
-            them.
-          </p>
-        )}
+        <SheetLayoutModeToggle
+          mode={mode}
+          onModeChange={onMode}
+          playModeNote="Play mode protects permanent definitions while keeping session controls available."
+        />
         <MobileSectionNavigator />
         <div className="character-editor-layout">
           <CharacterSectionNav />
           <OrderedSheetSections
             groupOrder={order}
-            className="character-sheet tb2-character-sheet"
+            className="character-sheet local-character-sheet"
           >
             {sections.map((s) => (
               <section
                 key={s.id}
                 id={s.id}
                 data-section-group={s.group}
-                className="tb2-sheet-section"
+                className={`sheet-section character-section character-section--desktop-collapsible local-sheet-section ${
+                  closed.has(s.id)
+                    ? 'character-section--collapsed'
+                    : 'character-section--expanded'
+                }`}
+                aria-labelledby={`${s.id}-heading`}
               >
-                <h2 id={`${s.id}-heading`} tabIndex={-1}>
-                  <button
-                    aria-expanded={!closed.has(s.id)}
-                    onClick={() => expand(s.id, closed.has(s.id))}
-                  >
-                    {s.label}
-                  </button>
-                </h2>
-                <div hidden={closed.has(s.id)}>{content[s.id]}</div>
+                <div className="sheet-section__heading">
+                  <h2 id={`${s.id}-heading`} tabIndex={-1}>
+                    <button
+                      className="character-section-disclosure"
+                      aria-expanded={!closed.has(s.id)}
+                      aria-controls={`${s.id}-content`}
+                      onClick={() => expand(s.id, closed.has(s.id))}
+                    >
+                      <span className="character-section-disclosure__label">
+                        {s.label}
+                      </span>
+                      <span
+                        className="character-section-disclosure__icon"
+                        aria-hidden="true"
+                      >
+                        {closed.has(s.id) ? '+' : '−'}
+                      </span>
+                    </button>
+                  </h2>
+                </div>
+                <div id={`${s.id}-content`} hidden={closed.has(s.id)}>
+                  {content[s.id]}
+                </div>
               </section>
             ))}
           </OrderedSheetSections>
         </div>
+        <footer className="privacy-note">
+          <strong>Private by design.</strong> Character data is stored in this
+          browser profile and is not backed up online.
+        </footer>
       </main>
     </CharacterSectionProvider>
   );

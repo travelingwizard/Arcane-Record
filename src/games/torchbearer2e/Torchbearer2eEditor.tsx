@@ -489,7 +489,11 @@ export function Torchbearer2eEditor({
     title: string,
     children: ReactNode,
   ) => (
-    <section id={id} data-section-group={group} className="tb2-sheet-section">
+    <section
+      id={id}
+      data-section-group={group}
+      className="sheet-section local-sheet-section tb2-sheet-section"
+    >
       <p className="eyebrow">{eyebrow}</p>
       <h2 id={`${id}-heading`} tabIndex={-1}>
         {title}
@@ -500,8 +504,8 @@ export function Torchbearer2eEditor({
 
   return (
     <CharacterSectionProvider value={sectionContext}>
-      <main className="app-shell tb2-editor-shell">
-        <header className="tb2-editor-header">
+      <main className="app-shell editor-shell local-sheet-editor-shell tb2-editor-shell">
+        <header className="editor-header local-sheet-editor-header tb2-editor-header">
           <button
             className="text-button"
             onClick={() => void returnToLibrary()}
@@ -607,13 +611,13 @@ export function Torchbearer2eEditor({
         <div className="character-editor-layout">
           <CharacterSectionNav />
           {draft.creation.status === 'draft' ? (
-            <div className="character-sheet tb2-character-sheet tb2-creator-sheet">
+            <div className="character-sheet local-character-sheet tb2-character-sheet tb2-creator-sheet">
               <TorchbearerCreator character={draft} update={update} />
             </div>
           ) : null}
           <OrderedSheetSections
             groupOrder={draft.sheetLayout.groupOrder}
-            className={`character-sheet tb2-character-sheet${draft.creation.status === 'draft' ? ' tb2-normal-sheet--hidden' : ''}`}
+            className={`character-sheet local-character-sheet tb2-character-sheet${draft.creation.status === 'draft' ? ' tb2-normal-sheet--hidden' : ''}`}
           >
             {section(
               'tb2-identity',

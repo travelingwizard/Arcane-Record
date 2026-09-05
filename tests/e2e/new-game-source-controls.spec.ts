@@ -35,7 +35,7 @@ test('City sheet uses shared Arcane Record cards and Play-safe marks', async ({
   await page.getByRole('button', { name: 'Choose City of Mist' }).click();
   await page.getByRole('button', { name: 'Choose Character sheet' }).click();
   await page.getByRole('button', { name: 'Choose Rift' }).click();
-  await expect(page.locator('.tb2-character-sheet')).toBeVisible();
+  await expect(page.locator('.local-character-sheet')).toBeVisible();
   await page.getByText('Browse themebooks', { exact: true }).click();
   for (const name of ['Adaptation', 'Bastion', 'Defining Event', 'Mission']) {
     await page.getByLabel('Search themebooks').fill(name);
@@ -86,7 +86,7 @@ test('Curseborne sheet uses shared Arcane Record cards and protects permanent fi
 }) => {
   await page.goto('/create/curseborne');
   await page.getByRole('button', { name: /Create Character/ }).click();
-  await expect(page.locator('.tb2-character-sheet')).toBeVisible();
+  await expect(page.locator('.local-character-sheet')).toBeVisible();
   await expect(page.locator('#curse-connections-heading')).toBeVisible();
   await expect(page.locator('#curse-gear-heading')).toBeVisible();
   await expect(page.locator('#curse-spells-heading')).toBeVisible();

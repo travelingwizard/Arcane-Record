@@ -16,6 +16,16 @@ The two A4 pages use a nearly monochrome warm paper, high-contrast black ink, a 
 
 No PDF page, extracted logo, border art, or source artwork is used as an application asset.
 
+## Shared character-sheet language
+
+Every production character editor uses the same semantic theme tokens,
+`editor-header` hierarchy, parchment sheet surface, bordered `sheet-section`
+cards, serif headings, sans-serif field labels, shared controls, and navigation
+chrome. Game-owned classes may arrange fields and cards, but must not introduce
+a second palette or reference undefined color or spacing variables. New editors
+use the shared `LocalSheet` shell or equivalent canonical classes from the Mage
+editor.
+
 Section navigation uses the same parchment surfaces, fine rules, serif labels,
 small-caps group headings, and restrained umber accents. The active desktop
 link has both a left rule and diamond marker in addition to color. Mobile

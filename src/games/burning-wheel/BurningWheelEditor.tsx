@@ -324,15 +324,15 @@ export function BurningWheelEditor({
 
   return (
     <CharacterSectionProvider value={sectionContext}>
-      <main className="app-shell burning-wheel-editor-shell">
-        <header className="burning-wheel-editor-header">
+      <main className="app-shell editor-shell burning-wheel-editor-shell">
+        <header className="editor-header burning-wheel-editor-header">
           <button
-            className="text-button"
+            className="text-button editor-header__back"
             onClick={() => void returnToLibrary()}
           >
             ← Character library
           </button>
-          <div>
+          <div className="editor-header__title">
             <p className="eyebrow">
               Arcane Record · Burning Wheel Gold + Codex
             </p>

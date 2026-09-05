@@ -11,6 +11,25 @@
   --portrait-border-style: solid;
   --ornament-opacity: 0.55;
   --overlay-illustration: linear-gradient(transparent, transparent);
+  /* Compatibility aliases for game-owned layouts. These resolve to the same
+     semantic palette used by the Mage sheet and must not introduce a second
+     theme vocabulary. */
+  --color-page: var(--paper);
+  --color-surface: var(--paper-light);
+  --color-rule: var(--rule-light);
+  --color-accent: var(--accent);
+  --rule-strong: var(--border-strong);
+  --selection-soft: var(--active-background);
+  --shadow-soft: var(--shadow-card);
+  --warning: var(--status-warning);
+  --warning-ink: var(--status-warning);
+  --accent-muted: var(--theme-ornament);
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
 }
 
 :root,

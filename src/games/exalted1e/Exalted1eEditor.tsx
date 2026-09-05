@@ -298,15 +298,15 @@ export function Exalted1eEditor({
 
   return (
     <CharacterSectionProvider value={sectionContext}>
-      <main className="app-shell exalted-editor-shell">
-        <header className="exalted-editor-header">
+      <main className="app-shell editor-shell exalted-editor-shell">
+        <header className="editor-header exalted-editor-header">
           <button
-            className="text-button"
+            className="text-button editor-header__back"
             onClick={() => void returnToLibrary()}
           >
             ← Character library
           </button>
-          <div>
+          <div className="editor-header__title">
             <p className="eyebrow">Arcane Record · Exalted First Edition</p>
             <h1>{displayName}</h1>
             <p>{sheetName} character sheet foundation</p>
