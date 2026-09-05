@@ -6,6 +6,10 @@ import { torchbearer2eDefinition } from './torchbearer2e/definition';
 import { earthdawn4eDefinition } from './earthdawn4e/definition';
 import { cityDefinition, cityCrewDefinition } from './city-of-mist/definition';
 import { curseDefinition } from './curseborne/definition';
+import {
+  legendDefinition,
+  legendFellowshipDefinition,
+} from './legend-in-the-mist/definition';
 
 export const gameSystemRegistry = new GameSystemRegistry()
   .register(mage20Definition)
@@ -15,4 +19,6 @@ export const gameSystemRegistry = new GameSystemRegistry()
   .register(earthdawn4eDefinition)
   .register(cityDefinition)
   .register(cityCrewDefinition)
-  .register(curseDefinition);
+  .register(curseDefinition)
+  .register(legendDefinition)
+  .register(legendFellowshipDefinition);
