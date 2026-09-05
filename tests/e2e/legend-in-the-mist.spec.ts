@@ -17,6 +17,7 @@ test('Legend Hero uses the shared semantic sheet and responsive four-theme layou
   await page.getByRole('button', { name: 'Build Hero', exact: true }).click();
 
   await expect(page.locator('.local-character-sheet')).toBeVisible();
+  await expect(page.locator('.litm-creator.character-creator')).toBeVisible();
   await expect(page.locator('.litm-theme-card')).toHaveCount(4);
   const desktopColumns = await page
     .locator('.litm-theme-grid')

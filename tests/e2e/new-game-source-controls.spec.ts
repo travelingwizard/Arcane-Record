@@ -35,6 +35,7 @@ test('City sheet uses shared Arcane Record cards and Play-safe marks', async ({
   await page.getByRole('button', { name: 'Choose City of Mist' }).click();
   await page.getByRole('button', { name: 'Choose Character sheet' }).click();
   await page.getByRole('button', { name: 'Choose Rift' }).click();
+  await expect(page.locator('.city-creator.character-creator')).toBeVisible();
   await expect(page.locator('.local-character-sheet')).toBeVisible();
   await page.getByText('Browse themebooks', { exact: true }).click();
   for (const name of ['Adaptation', 'Bastion', 'Defining Event', 'Mission']) {
@@ -65,6 +66,7 @@ test('Curseborne optional catalog requires source and Storyguide approval', asyn
   await page.goto('/create/curseborne');
   await page.getByRole('button', { name: /Create Character/ }).click();
   await page.getByRole('button', { name: /Settings/ }).click();
+  await expect(page.locator('.reviewed-build.character-creator')).toBeVisible();
   await page.getByRole('checkbox', { name: /Accursed Adventures/ }).check();
   await page.getByRole('button', { name: 'Close Settings' }).click();
   await page

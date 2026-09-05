@@ -1671,8 +1671,11 @@ export function TorchbearerCreator({
   }
 
   return (
-    <section className="tb2-creator" aria-labelledby="tb2-creator-heading">
-      <header className="tb2-creator-header">
+    <section
+      className="tb2-creator character-creator"
+      aria-labelledby="tb2-creator-heading"
+    >
+      <header className="tb2-creator-header character-creator__header">
         <div>
           <p className="eyebrow">Guided first-level creation</p>
           <h2 id="tb2-creator-heading">Build your Torchbearer</h2>
@@ -1698,7 +1701,10 @@ export function TorchbearerCreator({
           </span>
         </div>
       </header>
-      <ol className="tb2-step-list" aria-label="Character creation steps">
+      <ol
+        className="tb2-step-list character-creator__steps"
+        aria-label="Character creation steps"
+      >
         {steps.map((label, index) => (
           <li key={label}>
             <button
@@ -1715,9 +1721,14 @@ export function TorchbearerCreator({
           </li>
         ))}
       </ol>
-      <div className="tb2-creator-workspace">
-        <div className="tb2-creator-step">{content}</div>
-        <aside className="tb2-rule-panel" aria-label="Rule validation">
+      <div className="tb2-creator-workspace character-creator__workspace">
+        <div className="tb2-creator-step character-creator__panel">
+          {content}
+        </div>
+        <aside
+          className="tb2-rule-panel character-creator__panel"
+          aria-label="Rule validation"
+        >
           <h3>Rules for this step</h3>
           {currentIssues.length === 0 ? (
             <p>No unresolved issues.</p>

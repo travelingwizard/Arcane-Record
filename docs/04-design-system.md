@@ -26,6 +26,15 @@ a second palette or reference undefined color or spacing variables. New editors
 use the shared `LocalSheet` shell or equivalent canonical classes from the Mage
 editor.
 
+Guided character creators are sheet views, not separately themed wizards. Every
+creator uses the shared `character-creator` contract for semantic panel
+surfaces, typography, labeled controls, step navigation, validation cards,
+focus treatment, and mobile stacking. Game-owned creator classes may define the
+number of steps or arrange rules-specific choices, but cannot introduce a
+separate palette, field treatment, or control sizing. Creator release coverage
+must compare the rendered contract with the production Mage sheet and verify
+44px controls and no page-level overflow at 320 CSS pixels.
+
 Section navigation uses the same parchment surfaces, fine rules, serif labels,
 small-caps group headings, and restrained umber accents. The active desktop
 link has both a left rule and diamond marker in addition to color. Mobile

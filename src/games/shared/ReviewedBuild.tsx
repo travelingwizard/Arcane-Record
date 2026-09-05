@@ -24,7 +24,7 @@ export function ReviewedBuild({
   const draft = review.draft;
   const preview = draft ? previewBuildReview(values, draft, fields) : null;
   return (
-    <details>
+    <details className="reviewed-build character-creator character-creator--embedded">
       <summary>Review permanent build changes</summary>
       <p>
         This is a manual rebuild draft, not a rules-validated creator. Only the

@@ -18,6 +18,7 @@ test('guides, finalizes, edits, browses, reorders, and persists a Torchbearer ch
   await page.getByRole('button', { name: 'Build Character' }).click();
 
   await expect(page).toHaveURL(/\/characters\//);
+  await expect(page.locator('.tb2-creator.character-creator')).toBeVisible();
   await expect(
     page.getByRole('heading', { name: 'Build your Torchbearer' }),
   ).toBeVisible();

@@ -324,7 +324,10 @@ export function EarthdawnCreator({
     </>,
   ];
   return (
-    <section className="tb2-creator">
+    <section
+      className="tb2-creator character-creator"
+      aria-label="Earthdawn character creator"
+    >
       <p className="eyebrow">Earthdawn creation · Step {step + 1} of 10</p>
       {screens[step]}
       <div className="button-row">

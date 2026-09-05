@@ -3,11 +3,137 @@
   min-width: 0;
   overflow-wrap: anywhere;
 }
-.mage-creator {
-  padding: 1rem;
-  border: 1px solid currentColor;
-  border-radius: 0.5rem;
+
+/* Every guided creator is a sheet view. Game classes control workflow layout;
+   this contract owns the same surfaces, type, and controls as Mage/Exalted. */
+.character-creator {
+  min-width: 0;
+  padding: clamp(1rem, 3vw, 2rem);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: var(--panel-background);
+  box-shadow: var(--shadow-card);
+  overflow-wrap: anywhere;
 }
+
+.character-creator--embedded {
+  border-color: var(--rule-light);
+  background: var(--surface-glaze);
+  box-shadow: none;
+}
+
+.character-creator__header {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.character-creator :is(h2, h3, h4, legend, summary) {
+  color: var(--ink);
+  font-family: var(--font-serif);
+}
+
+.character-creator > h2,
+.character-creator__header h2 {
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  font-weight: 500;
+}
+
+.character-creator__steps {
+  margin-block: 1rem;
+}
+
+.character-creator__steps :is(ol, ul),
+.character-creator__steps:is(ol, ul) {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  gap: 0.45rem;
+  list-style: none;
+}
+
+.character-creator__steps button,
+.mage-creator-steps button {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: var(--paper-light);
+  font-family: var(--font-sans);
+  text-align: left;
+}
+
+.character-creator__steps button[aria-current='step'],
+.mage-creator-steps [aria-current='step'] {
+  border-color: var(--accent);
+  background: var(--active-background);
+  box-shadow: inset 0 0 0 1px var(--accent);
+  font-weight: 800;
+}
+
+.character-creator__workspace {
+  align-items: start;
+}
+
+.character-creator__panel,
+.character-creator :is(article, fieldset) {
+  min-width: 0;
+  border-color: var(--rule-light);
+  border-radius: var(--radius);
+  background: var(--paper-light);
+}
+
+.character-creator__panel {
+  padding: clamp(0.85rem, 2vw, 1.3rem);
+  border: 1px solid var(--rule-light);
+}
+
+.character-creator label {
+  min-width: 0;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.character-creator
+  :is(input:not([type='checkbox']):not([type='radio']), select, textarea) {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: var(--paper-light);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.character-creator textarea {
+  resize: vertical;
+}
+
+.character-creator :is(button, summary) {
+  min-height: 44px;
+}
+
+.character-creator summary {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.character-creator .eyebrow,
+.character-creator :is(small, .source-citation) {
+  font-family: var(--font-metadata);
+}
+
 .mage-creator-steps,
 .mage-creator-grid {
   display: grid;
@@ -16,8 +142,7 @@
   margin-block: 1rem;
 }
 .mage-creator-steps [aria-current='step'] {
-  outline: 2px solid currentColor;
-  font-weight: 700;
+  outline: 0;
 }
 .mage-creator label,
 .mage-advancement label,
@@ -53,7 +178,9 @@
   gap: 0.35rem;
   min-width: 0;
   padding: 0.5rem;
-  border-bottom: 1px solid currentColor;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  background: var(--paper-light);
 }
 .mage-catalog-results {
   max-height: 32rem;
@@ -63,5 +190,19 @@
 .mage-catalog-results article,
 .mage-advancement article {
   padding: 0.75rem;
-  border-bottom: 1px solid currentColor;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  background: var(--paper-light);
+}
+
+@media (max-width: 40rem) {
+  .character-creator {
+    padding: 1rem;
+  }
+
+  .character-creator__steps :is(ol, ul),
+  .character-creator__steps:is(ol, ul),
+  .mage-creator-steps {
+    grid-template-columns: 1fr;
+  }
 }

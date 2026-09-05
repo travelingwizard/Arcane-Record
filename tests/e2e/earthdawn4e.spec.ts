@@ -8,6 +8,7 @@ test('creates an Earthdawn adept and exposes source and dice tools', async ({
   await page.getByRole('button', { name: 'Choose Earthdawn 4e' }).click();
   await page.getByRole('button', { name: 'Build Character' }).click();
 
+  await expect(page.locator('.tb2-creator.character-creator')).toBeVisible();
   await expect(
     page.getByText(/Earthdawn creation · Step 1 of 10/),
   ).toBeVisible();
@@ -16,6 +17,16 @@ test('creates an Earthdawn adept and exposes source and dice tools', async ({
   const human = page.getByRole('button', { name: /Human/ });
   await human.click();
   await expect(human).toHaveAttribute('aria-pressed', 'true');
+  await page.setViewportSize({ width: 320, height: 800 });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth > window.innerWidth,
+    ),
+  ).toBe(false);
+  const nextButtonHeight = await page
+    .getByRole('button', { name: 'Next' })
+    .evaluate((button) => button.getBoundingClientRect().height);
+  expect(nextButtonHeight).toBeGreaterThanOrEqual(44);
 });
 
 test('blank play sheet remains usable at 320px', async ({ page }) => {

@@ -184,7 +184,10 @@ export function MageCreator() {
         ? 'practices'
         : 'instruments';
   return (
-    <section className="mage-creator" aria-label="Mage character creator">
+    <section
+      className="mage-creator character-creator"
+      aria-label="Mage character creator"
+    >
       <h2>Build your Mage</h2>
       <nav aria-label="Mage creation steps" className="mage-creator-steps">
         {steps.map((name, i) => (

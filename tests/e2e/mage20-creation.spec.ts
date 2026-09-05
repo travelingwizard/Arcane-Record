@@ -18,6 +18,41 @@ test('offers guided, manual and import Mage entry paths', async ({ page }) => {
     page.getByRole('heading', { name: 'Import Character' }),
   ).toBeVisible();
   await page.getByRole('button', { name: 'Build Character' }).click();
+  await expect(page.locator('.mage-creator.character-creator')).toBeVisible();
+  const creatorContract = await page
+    .locator('.character-creator')
+    .evaluate((node) => {
+      const borderProbe = document.createElement('span');
+      borderProbe.style.border = '1px solid var(--rule)';
+      borderProbe.style.background = 'var(--panel-background)';
+      borderProbe.style.fontFamily = 'var(--font-serif)';
+      document.body.append(borderProbe);
+      const expected = getComputedStyle(borderProbe);
+      const heading = node.querySelector('h2')!;
+      const control = node.querySelector('select')!;
+      const result = {
+        border: getComputedStyle(node).borderColor,
+        expectedBorder: expected.borderColor,
+        backgroundColor: getComputedStyle(node).backgroundColor,
+        expectedBackgroundColor: expected.backgroundColor,
+        backgroundImage: getComputedStyle(node).backgroundImage,
+        expectedBackgroundImage: expected.backgroundImage,
+        headingFont: getComputedStyle(heading).fontFamily,
+        expectedHeadingFont: expected.fontFamily,
+        controlHeight: control.getBoundingClientRect().height,
+      };
+      borderProbe.remove();
+      return result;
+    });
+  expect(creatorContract.border).toBe(creatorContract.expectedBorder);
+  expect(creatorContract.backgroundColor).toBe(
+    creatorContract.expectedBackgroundColor,
+  );
+  expect(creatorContract.backgroundImage).toBe(
+    creatorContract.expectedBackgroundImage,
+  );
+  expect(creatorContract.headingFont).toBe(creatorContract.expectedHeadingFont);
+  expect(creatorContract.controlHeight).toBeGreaterThanOrEqual(44);
   await expect(
     page.getByRole('heading', { name: 'Build your Mage' }),
   ).toBeVisible();

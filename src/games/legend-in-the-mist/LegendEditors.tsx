@@ -249,7 +249,7 @@ function Creator({
   const issues = legendCreationIssues(hero);
   const blocking = issues.filter((i) => i.severity === 'blocking');
   return (
-    <div className="litm-creator">
+    <div className="litm-creator character-creator character-creator--embedded">
       <p>
         Choose one method for the whole Hero or mix methods theme by theme.
         References: core rules pp. 68–137.

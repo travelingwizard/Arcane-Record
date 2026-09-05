@@ -60,9 +60,15 @@ export function CityCreatorGuide({
   const index = steps.indexOf(current);
   const issues = cityCreationIssues(c);
   return (
-    <section className="city-creator" aria-labelledby="city-creator-heading">
+    <section
+      className="city-creator character-creator character-creator--embedded"
+      aria-labelledby="city-creator-heading"
+    >
       <h3 id="city-creator-heading">Guided character creation</h3>
-      <nav aria-label="City of Mist creation steps">
+      <nav
+        className="character-creator__steps"
+        aria-label="City of Mist creation steps"
+      >
         <ol>
           {steps.map(([id, name], stepIndex) => (
             <li key={id}>
@@ -78,7 +84,7 @@ export function CityCreatorGuide({
           ))}
         </ol>
       </nav>
-      <div className="city-creator__step">
+      <div className="city-creator__step character-creator__panel">
         <p className="eyebrow">
           Step {index + 1} of {steps.length}
         </p>
