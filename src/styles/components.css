@@ -5377,6 +5377,45 @@
   border-color: var(--rule-light);
 }
 
+/* Local-sheet fields follow the same label-over-control grid used by Mage and
+   Exalted. This prevents inline labels from offsetting otherwise equal fields. */
+.local-character-sheet
+  :is(
+    .field,
+    label:has(> input:not([type='checkbox']):not([type='radio'])),
+    label:has(> select),
+    label:has(> textarea)
+  ) {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 0.35rem;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.local-character-sheet
+  :is(input:not([type='checkbox']):not([type='radio']), select, textarea) {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: var(--paper-light);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.local-identity-grid > :is(p, aside, datalist) {
+  grid-column: 1 / -1;
+}
+
 /* City of Mist and Curseborne use the same Arcane Record sheet language as
    other game modules. Their classes describe content layout only. */
 :where(.tb2-character-sheet, .local-character-sheet) .city-theme-card-grid,

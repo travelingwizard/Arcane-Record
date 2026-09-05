@@ -37,6 +37,35 @@ test('City sheet uses shared Arcane Record cards and Play-safe marks', async ({
   await page.getByRole('button', { name: 'Choose Rift' }).click();
   await expect(page.locator('.city-creator.character-creator')).toBeVisible();
   await expect(page.locator('.local-character-sheet')).toBeVisible();
+  await expect(page.locator('.local-identity-grid textarea')).toHaveCount(0);
+  const identityGeometry = await page
+    .locator('.local-identity-grid > .field')
+    .evaluateAll((fields) =>
+      fields.map((field) => {
+        const bounds = field.getBoundingClientRect();
+        const label = field.querySelector('label')!.getBoundingClientRect();
+        const control = field.querySelector('input')!.getBoundingClientRect();
+        return {
+          top: Math.round(bounds.top),
+          width: Math.round(bounds.width),
+          labelAboveControl: label.bottom <= control.top,
+          controlWidth: Math.round(control.width),
+        };
+      }),
+    );
+  expect(identityGeometry).toHaveLength(4);
+  expect(new Set(identityGeometry.slice(0, 3).map(({ top }) => top)).size).toBe(
+    1,
+  );
+  expect(
+    new Set(identityGeometry.slice(0, 3).map(({ width }) => width)).size,
+  ).toBe(1);
+  expect(
+    identityGeometry.every(({ labelAboveControl }) => labelAboveControl),
+  ).toBe(true);
+  expect(
+    identityGeometry.every(({ width, controlWidth }) => controlWidth === width),
+  ).toBe(true);
   await page.getByText('Browse themebooks', { exact: true }).click();
   for (const name of ['Adaptation', 'Bastion', 'Defining Event', 'Mission']) {
     await page.getByLabel('Search themebooks').fill(name);

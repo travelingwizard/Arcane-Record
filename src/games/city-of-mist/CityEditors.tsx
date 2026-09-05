@@ -501,7 +501,7 @@ export function CityEditor(props: GameCharacterEditorProps<CityCharacter>) {
       }
       content={{
         'com-identity': (
-          <>
+          <div className="identity-grid local-identity-grid">
             <p role="status">
               Guided creation validates objective structure. The MC decides
               fictional relevance and any approved exceptions.
@@ -510,12 +510,14 @@ export function CityEditor(props: GameCharacterEditorProps<CityCharacter>) {
               label="Name"
               value={c.name}
               locked={locked}
+              multiline={false}
               onChange={(name) => update({ ...c, name })}
             />
             <TextField
               label="Player"
               value={c.player}
               locked={locked}
+              multiline={false}
               onChange={(player) => update({ ...c, player })}
             />
             <TextField
@@ -524,12 +526,14 @@ export function CityEditor(props: GameCharacterEditorProps<CityCharacter>) {
               }
               value={c.mythos}
               locked={locked}
+              multiline={false}
               onChange={(mythos) => update({ ...c, mythos })}
             />
             <TextField
               label="Logos / everyday life"
               value={c.logos}
               locked={locked}
+              multiline={false}
               onChange={(logos) => update({ ...c, logos })}
             />
             {c.profile === 'gatekeeper' && (
@@ -538,6 +542,7 @@ export function CityEditor(props: GameCharacterEditorProps<CityCharacter>) {
                   label="Gatekeeper role"
                   value={c.gatekeeper.role}
                   locked={locked}
+                  multiline={false}
                   onChange={(role) =>
                     update({ ...c, gatekeeper: { ...c.gatekeeper, role } })
                   }
@@ -568,13 +573,14 @@ export function CityEditor(props: GameCharacterEditorProps<CityCharacter>) {
                   label="Outlook and affiliations"
                   value={c.gatekeeper.outlook}
                   locked={locked}
+                  multiline={false}
                   onChange={(outlook) =>
                     update({ ...c, gatekeeper: { ...c.gatekeeper, outlook } })
                   }
                 />
               </>
             )}
-          </>
+          </div>
         ),
         'com-themes': (
           <>

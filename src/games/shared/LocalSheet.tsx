@@ -294,23 +294,34 @@ export function TextField({
   value,
   onChange,
   locked = false,
+  multiline = true,
 }: {
   label: string;
   value: string;
   onChange: (value: string) => void;
   locked?: boolean;
+  multiline?: boolean;
 }) {
   const id = useId();
   return (
     <div className="field">
       <label htmlFor={id}>{label}</label>
-      <textarea
-        id={id}
-        rows={2}
-        value={value}
-        readOnly={locked}
-        onChange={(e) => onChange(e.target.value)}
-      />
+      {multiline ? (
+        <textarea
+          id={id}
+          rows={2}
+          value={value}
+          readOnly={locked}
+          onChange={(e) => onChange(e.target.value)}
+        />
+      ) : (
+        <input
+          id={id}
+          value={value}
+          readOnly={locked}
+          onChange={(e) => onChange(e.target.value)}
+        />
+      )}
     </div>
   );
 }

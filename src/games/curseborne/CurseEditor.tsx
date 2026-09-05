@@ -84,6 +84,7 @@ export function CurseEditor(props: GameCharacterEditorProps<CurseCharacter>) {
       label={label}
       value={c[key]}
       locked={permanent && locked}
+      multiline={key !== 'name'}
       onChange={(value) => update({ ...c, [key]: value })}
     />
   );
@@ -153,7 +154,7 @@ export function CurseEditor(props: GameCharacterEditorProps<CurseCharacter>) {
       }
       content={{
         'curse-identity': (
-          <>
+          <div className="identity-grid local-identity-grid">
             <p role="status">
               Editable sheet preview. The rules-validated creator and complete
               selectable catalogs are still in development.
@@ -305,7 +306,7 @@ export function CurseEditor(props: GameCharacterEditorProps<CurseCharacter>) {
               automatically validated.
             </p>
             <CurseAspirations character={c} onChange={update} locked={locked} />
-          </>
+          </div>
         ),
         'curse-traits': (
           <CurseTraitsSection character={c} onChange={update} locked={locked} />
