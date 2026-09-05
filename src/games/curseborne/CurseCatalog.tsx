@@ -93,24 +93,24 @@ export function CurseCatalog({
                   c.enabledSources,
                   curseSources,
                 ) !== 'available' ||
-                c.entries.some((e) => e.definitionId === d.id)
+                c.gear.some((e) => e.definitionId === d.id)
               }
               onClick={() =>
                 onChange({
                   ...c,
-                  entries: [
-                    ...c.entries,
+                  gear: [
+                    ...c.gear,
                     {
                       id: crypto.randomUUID(),
                       definitionId: d.id,
                       sourceId: d.sourceId,
                       name: d.name,
-                      kind: d.kind,
-                      rating: d.dotCost ?? 0,
+                      legacyEntryId: null,
                       source: curseSources.find((s) => s.id === d.sourceId)!
                         .title,
                       page: d.page,
-                      active: false,
+                      tags: [],
+                      state: 'carried',
                       notes: `${d.summary}\n${d.requirements.join('\n')}\nStoryguide-approved acquisition recorded ${new Date().toISOString()}. Added without spending EXP.`,
                     },
                   ],

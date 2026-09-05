@@ -16,6 +16,18 @@
 }
 
 @media (max-width: 69.999rem) {
+  .curseborne-editor-header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .curseborne-editor-header > :nth-child(2),
+  .curseborne-editor-header > .sheet-layout-mode-toggle {
+    grid-column: 1 / -1;
+  }
+
+  .curseborne-arena-grid {
+    grid-template-columns: 1fr;
+  }
   .builder-header,
   .builder-workspace,
   .builder-designer {
@@ -146,6 +158,24 @@
 
   .character-section--collapsed .sheet-section__heading {
     margin-bottom: 0;
+  }
+}
+
+@media (max-width: 36rem) {
+  .curseborne-grid--two,
+  .curseborne-traits-layout,
+  .curseborne-writing-row,
+  .curseborne-injury-track {
+    grid-template-columns: 1fr;
+  }
+
+  .curseborne-character-sheet,
+  .curseborne-sheet-section > div {
+    padding-inline: var(--space-2);
+  }
+
+  .curseborne-rating-row {
+    grid-template-columns: minmax(5.5rem, 1fr) auto;
   }
 }
 

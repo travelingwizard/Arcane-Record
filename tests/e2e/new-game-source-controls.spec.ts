@@ -47,8 +47,42 @@ test('Curseborne optional catalog requires source and Storyguide approval', asyn
   await expect(add).toBeDisabled();
   await page.getByLabel('Storyguide approved acquisition').check();
   await add.click();
-  await expect(page.getByText(/Witness Lens · equipment · 1/)).toBeVisible();
+  await expect(page.getByText(/Witness Lens · carried/)).toBeVisible();
+});
+
+test('Curseborne responsive sheet groups records and protects permanent fields in Play', async ({
+  page,
+}) => {
+  await page.goto('/create/curseborne');
+  await page.getByRole('button', { name: /Create Character/ }).click();
+  await expect(page.locator('.curseborne-character-sheet')).toBeVisible();
+  await expect(page.locator('#curse-connections-heading')).toBeVisible();
+  await expect(page.locator('#curse-gear-heading')).toBeVisible();
+  await expect(page.locator('#curse-spells-heading')).toBeVisible();
+
+  await page.getByRole('button', { name: 'Add Contact' }).click();
+  await page.getByText(/New contact · 0/).click();
+  await page.getByLabel('Name').last().fill('Mara Vale');
+  await page.getByRole('button', { name: 'Add Gear' }).click();
+  await page.getByText(/New gear · carried/).click();
+  await page.getByLabel('Item').fill('Silver thread');
+  await page.getByRole('button', { name: 'Add Spell' }).click();
+  await page.getByText(/New spell · cost — · ready/).click();
+  await page.getByLabel('Spell', { exact: true }).fill('Quiet the Grave');
+
+  await page.getByRole('switch', { name: 'Play mode' }).check();
+  await expect(page.getByLabel('Item')).toHaveAttribute('readonly', '');
+  await page.getByLabel('State').first().selectOption('equipped');
+  await page.getByRole('button', { name: 'Set injuries to 1' }).click();
   await expect(
-    page.getByText(/Catalog reference; effects recorded manually/),
-  ).toBeVisible();
+    page.getByRole('button', { name: 'Set injuries to 1' }),
+  ).toHaveAttribute('aria-pressed', 'true');
+
+  await page.setViewportSize({ width: 320, height: 800 });
+  const overflow = await page.evaluate(
+    () =>
+      document.documentElement.scrollWidth -
+      document.documentElement.clientWidth,
+  );
+  expect(overflow).toBeLessThanOrEqual(0);
 });

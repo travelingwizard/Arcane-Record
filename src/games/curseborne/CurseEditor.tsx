@@ -2,29 +2,32 @@ import { useState } from 'react';
 import { CatalogSourceSettings } from '../shared/CatalogSourceSettings';
 import { curseSources } from './sources';
 import { CurseCatalog } from './CurseCatalog';
-import { curseCatalog } from './catalog';
-import { catalogAvailability } from '../shared/catalog-sources';
+import { curseFamilies, curseLineages, curseRoles } from './catalog';
 import type { GameCharacterEditorProps } from '../game-system';
 import { LocalSheet, TextField, useLocalSheet } from '../shared/LocalSheet';
-import { DotRating } from '../../components/controls/DotRating';
-import {
-  curseCharacterSchema,
-  curseAttributes,
-  curseSkills,
-  type CurseCharacter,
-} from './schema';
+import { curseCharacterSchema, type CurseCharacter } from './schema';
 import { experienceCosts, experienceTotals, injuryLevels } from './rules';
 import { CurseRoller } from './CurseRoller';
 import { CurseAdvancement } from './CurseAdvancement';
 import { CurseResources } from './CurseResources';
 import { CurseBuildReview } from './CurseBuildReview';
+import {
+  CurseAspirations,
+  CurseConnectionsSection,
+  CurseGearSection,
+  CurseSpellsSection,
+  CurseTorments,
+  CurseTraitsSection,
+} from './CurseSheetSections';
 
 export const curseSections = [
   'identity',
   'traits',
   'curse',
-  'entries',
+  'connections',
   'health',
+  'gear',
+  'spells',
   'experience',
   'records',
 ].map((id) => ({
@@ -35,8 +38,10 @@ export const curseSections = [
       identity: 'Character',
       traits: 'Attributes & Skills',
       curse: 'The Curse',
-      entries: 'Edges, Spells & Connections',
+      connections: 'Connections',
       health: 'Health & Combat',
+      gear: 'Gear',
+      spells: 'Spells',
       experience: 'Experience',
       records: 'Records',
     } as Record<string, string>
@@ -118,6 +123,12 @@ export function CurseEditor(props: GameCharacterEditorProps<CurseCharacter>) {
   return (
     <LocalSheet
       title="Curseborne"
+      classes={{
+        shell: 'curseborne-editor-shell',
+        header: 'curseborne-editor-header',
+        sheet: 'curseborne-character-sheet',
+        section: 'curseborne-sheet-section',
+      }}
       settings={
         <>
           <CurseBuildReview character={c} onChange={update} />
@@ -168,15 +179,114 @@ export function CurseEditor(props: GameCharacterEditorProps<CurseCharacter>) {
                 }
               >
                 <option value="">Choose Lineage</option>
-                {['dead', 'hungry', 'outcast', 'primal', 'sorcerer'].map(
-                  (id) => (
-                    <option key={id}>{id}</option>
-                  ),
-                )}
+                {curseLineages.map(({ id, name }) => (
+                  <option key={id} value={id}>
+                    {name}
+                  </option>
+                ))}
               </select>
             </label>
-            {text('family', 'Family Path')}
-            {text('role', 'Role Path')}
+            {c.lineage &&
+              (() => {
+                const lineage = curseLineages.find((d) => d.id === c.lineage)!;
+                const allocation =
+                  c.majorPath === 'lineage' ? lineage.major : lineage.minor;
+                return (
+                  <aside>
+                    <strong>{lineage.name}</strong>
+                    <p>{lineage.summary}</p>
+                    <p>
+                      Choose three of: {lineage.skills.join(', ')}.{' '}
+                      {c.majorPath === 'lineage' ? 'Major' : 'Minor'}{' '}
+                      allocation: Mental {allocation.mental}, Physical{' '}
+                      {allocation.physical}, Social {allocation.social}. Core p.{' '}
+                      {lineage.page}.
+                    </p>
+                  </aside>
+                );
+              })()}
+            <label>
+              Family Path
+              <input
+                list="curseborne-family-paths"
+                readOnly={locked}
+                value={c.family}
+                onChange={(e) => update({ ...c, family: e.target.value })}
+              />
+              <datalist id="curseborne-family-paths">
+                {curseFamilies
+                  .filter(
+                    (family) => !c.lineage || family.lineage === c.lineage,
+                  )
+                  .map((family) => (
+                    <option key={family.id} value={family.name} />
+                  ))}
+              </datalist>
+            </label>
+            {c.family &&
+              (() => {
+                const family = curseFamilies.find((d) => d.name === c.family);
+                if (!family)
+                  return (
+                    <p>
+                      Custom or legacy Family retained; record its approved
+                      allocations in notes.
+                    </p>
+                  );
+                const allocation =
+                  c.majorPath === 'family' ? family.major : family.minor;
+                return (
+                  <aside>
+                    <p>{family.summary}</p>
+                    <p>
+                      Choose three of: {family.skills.join(', ')}.{' '}
+                      {c.majorPath === 'family' ? 'Major' : 'Minor'} allocation:
+                      Mental {allocation.mental}, Physical {allocation.physical}
+                      , Social {allocation.social}. Core p. {family.page}.
+                      {c.lineage && family.lineage !== c.lineage
+                        ? ' This Family belongs to another Lineage and needs specific Storyguide approval.'
+                        : ''}
+                    </p>
+                  </aside>
+                );
+              })()}
+            <label>
+              Role Path
+              <input
+                list="curseborne-role-paths"
+                readOnly={locked}
+                value={c.role}
+                onChange={(e) => update({ ...c, role: e.target.value })}
+              />
+              <datalist id="curseborne-role-paths">
+                {curseRoles.map((role) => (
+                  <option key={role.id} value={role.name} />
+                ))}
+              </datalist>
+            </label>
+            {c.role &&
+              (() => {
+                const role = curseRoles.find((d) => d.name === c.role);
+                return role ? (
+                  <aside>
+                    <p>{role.summary}</p>
+                    <p>
+                      Path Skills: {role.skills.join(', ')}
+                      {role.skillChoice
+                        ? ', plus choose Close Combat or Ranged Combat'
+                        : ''}
+                      . Attribute allocation: Mental {role.attributes.mental},
+                      Physical {role.attributes.physical}, Social{' '}
+                      {role.attributes.social}. Core p. {role.page}.
+                    </p>
+                  </aside>
+                ) : (
+                  <p>
+                    Custom or legacy Role retained. Record Storyguide approval
+                    in notes; it is not automatically validated.
+                  </p>
+                );
+              })()}
             <label>
               Major Path
               <select
@@ -200,42 +310,11 @@ export function CurseEditor(props: GameCharacterEditorProps<CurseCharacter>) {
               unrestricted Skill dots afterward. These budgets are not yet
               automatically validated.
             </p>
-            {text(
-              'aspirations',
-              'Two short-term Aspirations and one long-term Aspiration',
-              false,
-            )}
+            <CurseAspirations character={c} onChange={update} locked={locked} />
           </>
         ),
         'curse-traits': (
-          <>
-            {curseAttributes.map((id) => (
-              <DotRating
-                key={id}
-                label={id}
-                value={c.attributes[id]}
-                min={1}
-                max={5}
-                readOnly={locked}
-                onChange={(value) =>
-                  update({ ...c, attributes: { ...c.attributes, [id]: value } })
-                }
-              />
-            ))}
-            <h3>Skills</h3>
-            {curseSkills.map((id) => (
-              <DotRating
-                key={id}
-                label={id}
-                value={c.skills[id]}
-                max={5}
-                readOnly={locked}
-                onChange={(value) =>
-                  update({ ...c, skills: { ...c.skills, [id]: value } })
-                }
-              />
-            ))}
-          </>
+          <CurseTraitsSection character={c} onChange={update} locked={locked} />
         ),
         'curse-curse': (
           <>
@@ -250,160 +329,57 @@ export function CurseEditor(props: GameCharacterEditorProps<CurseCharacter>) {
             {text('damnation', 'Damnation')}
             {text('inheritance', 'Inheritance')}
             {text('motif', 'Motif')}
-            {text('lineageTorment', 'Lineage Torment and trigger')}
-            {text('personalTorment', 'Personal Torment and trigger')}
+            <CurseTorments character={c} onChange={update} locked={locked} />
             <CurseResources character={c} onChange={update} />
             <CurseRoller character={c} onChange={update} />
           </>
         ),
-        'curse-entries': (
-          <>
-            <CurseCatalog character={c} onChange={update} />
-            {!locked && (
-              <button
-                onClick={() =>
-                  update({
-                    ...c,
-                    entries: [
-                      ...c.entries,
-                      {
-                        id: crypto.randomUUID(),
-                        definitionId: null,
-                        sourceId: null,
-                        kind: 'spell',
-                        name: '',
-                        rating: 0,
-                        notes: '',
-                        source: 'Curseborne',
-                        page: 0,
-                        active: false,
-                      },
-                    ],
-                  })
-                }
-              >
-                Add custom record
-              </button>
-            )}
-            {c.entries.map((entry) => (
-              <details key={entry.id} open>
-                <summary>
-                  {entry.name || 'New record'} · {entry.kind} · {entry.rating}
-                </summary>
-                <p>
-                  {entry.source}{' '}
-                  {entry.page ? `p. ${entry.page}` : '(page unverified)'} ·{' '}
-                  {entry.definitionId
-                    ? curseCatalog.some((d) => d.id === entry.definitionId)
-                      ? 'Catalog reference; effects recorded manually.'
-                      : 'Unresolved definition preserved.'
-                    : 'Custom or legacy record; not verified.'}
-                  {entry.sourceId &&
-                  catalogAvailability(
-                    entry.sourceId,
-                    c.enabledSources,
-                    curseSources,
-                  ) !== 'available'
-                    ? ' Source disabled or unavailable; selection retained.'
-                    : ''}
-                </p>
-                <label>
-                  Kind
-                  <select
-                    disabled={locked}
-                    value={entry.kind}
-                    onChange={(e) =>
-                      update({
-                        ...c,
-                        entries: c.entries.map((v) =>
-                          v.id === entry.id
-                            ? {
-                                ...v,
-                                kind: e.target.value as typeof entry.kind,
-                              }
-                            : v,
-                        ),
-                      })
-                    }
-                  >
-                    {['edge', 'spell', 'contact', 'equipment', 'bond'].map(
-                      (v) => (
-                        <option key={v}>{v}</option>
-                      ),
-                    )}
-                  </select>
-                </label>
-                <TextField
-                  label="Record name"
-                  value={entry.name}
-                  locked={locked}
-                  onChange={(name) =>
-                    update({
-                      ...c,
-                      entries: c.entries.map((v) =>
-                        v.id === entry.id ? { ...v, name } : v,
-                      ),
-                    })
-                  }
-                />
-                <DotRating
-                  label={`${entry.kind} rating`}
-                  value={entry.rating}
-                  max={5}
-                  readOnly={locked}
-                  onChange={(rating) =>
-                    update({
-                      ...c,
-                      entries: c.entries.map((v) =>
-                        v.id === entry.id ? { ...v, rating } : v,
-                      ),
-                    })
-                  }
-                />
-                <TextField
-                  label="Rules, cost, attunements, advances, tags and notes"
-                  value={entry.notes}
-                  onChange={(notes) =>
-                    update({
-                      ...c,
-                      entries: c.entries.map((v) =>
-                        v.id === entry.id ? { ...v, notes } : v,
-                      ),
-                    })
-                  }
-                />
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={entry.active}
-                    onChange={(e) =>
-                      update({
-                        ...c,
-                        entries: c.entries.map((v) =>
-                          v.id === entry.id
-                            ? { ...v, active: e.target.checked }
-                            : v,
-                        ),
-                      })
-                    }
-                  />
-                  In use
-                </label>
-              </details>
-            ))}
-          </>
+        'curse-connections': (
+          <CurseConnectionsSection
+            character={c}
+            onChange={update}
+            locked={locked}
+          />
         ),
         'curse-health': (
           <>
             {number('armor', 'Armor rating', true)}
             {number('armorSpent', 'Armor boxes marked')}
-            <DotRating
-              label="Injuries"
-              variant="boxes"
-              value={c.injuries}
-              max={7}
-              onChange={(injuries) => update({ ...c, injuries })}
-            />
+            <div
+              className="curseborne-injury-track"
+              role="group"
+              aria-label={`${c.injuries} of 7 Injury boxes marked`}
+            >
+              {injuryLevels.map((level) => (
+                <fieldset key={level.name}>
+                  <legend>{level.name}</legend>
+                  {Array.from({ length: level.boxes }, (_, local) => {
+                    const before = injuryLevels
+                      .slice(0, injuryLevels.indexOf(level))
+                      .reduce((sum, v) => sum + v.boxes, 0);
+                    const box = before + local + 1;
+                    return (
+                      <button
+                        key={box}
+                        type="button"
+                        aria-label={`Set injuries to ${box}`}
+                        aria-pressed={box <= c.injuries}
+                        onClick={() =>
+                          update({
+                            ...c,
+                            injuries: box === c.injuries ? box - 1 : box,
+                          })
+                        }
+                      >
+                        <span aria-hidden="true">
+                          {box <= c.injuries ? '×' : ''}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </fieldset>
+              ))}
+            </div>
             <p>
               {injuryLevels.map((l) => `${l.name}: ${l.boxes}`).join(' · ')}.
               Core p. 203.
@@ -418,6 +394,15 @@ export function CurseEditor(props: GameCharacterEditorProps<CurseCharacter>) {
             </label>
             {text('conditions', 'Status effects and combat notes', false)}
           </>
+        ),
+        'curse-gear': (
+          <>
+            <CurseCatalog character={c} onChange={update} />
+            <CurseGearSection character={c} onChange={update} locked={locked} />
+          </>
+        ),
+        'curse-spells': (
+          <CurseSpellsSection character={c} onChange={update} locked={locked} />
         ),
         'curse-experience': (
           <>
@@ -495,7 +480,40 @@ export function CurseEditor(props: GameCharacterEditorProps<CurseCharacter>) {
             ))}
           </>
         ),
-        'curse-records': text('notes', 'History, description and notes', false),
+        'curse-records': (
+          <>
+            <TextField
+              label="History, description and notes"
+              value={c.notes}
+              onChange={(notes) => update({ ...c, notes })}
+            />
+            {c.entries.length > 0 && (
+              <details>
+                <summary>
+                  Legacy and unresolved generic records ({c.entries.length})
+                </summary>
+                <p>
+                  These original records are retained byte-for-byte for
+                  compatibility. Recognized records also appear in their
+                  structured panels.
+                </p>
+                {c.entries.map((entry) => (
+                  <article key={entry.id}>
+                    <strong>
+                      {entry.name || 'Unnamed record'} · {entry.kind} ·{' '}
+                      {entry.rating}
+                    </strong>
+                    <p>{entry.notes}</p>
+                    <p>
+                      {entry.source}
+                      {entry.page ? ` · p. ${entry.page}` : ''}
+                    </p>
+                  </article>
+                ))}
+              </details>
+            )}
+          </>
+        ),
       }}
     />
   );

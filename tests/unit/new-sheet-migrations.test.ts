@@ -34,11 +34,59 @@ describe('new-sheet legacy migration', () => {
       ],
     };
     const migrated = migrateCurseCharacter(old, 1);
-    expect(migrated.schemaVersion).toBe(3);
+    expect(migrated.schemaVersion).toBe(4);
     expect(migrated.notes).toBe(old.notes);
     expect(migrated.experience).toEqual(old.experience);
     expect(migrated.resourceHistory).toEqual([]);
-    expect(() => migrateCurseCharacter(old, 4)).toThrow();
+    expect(() => migrateCurseCharacter(old, 5)).toThrow();
+  });
+  it('creates structured Curseborne views without deleting legacy records', () => {
+    const base = createCurseCharacter();
+    const legacyId = crypto.randomUUID();
+    const old = {
+      ...base,
+      schemaVersion: 3,
+      aspirationRecords: undefined,
+      edges: undefined,
+      contacts: undefined,
+      bonds: undefined,
+      gear: undefined,
+      spells: undefined,
+      entries: [
+        {
+          id: legacyId,
+          definitionId: null,
+          sourceId: null,
+          kind: 'equipment' as const,
+          name: 'Old satchel',
+          rating: 2,
+          notes: 'Do not parse this: sharp, hidden',
+          source: 'Legacy file',
+          page: 12,
+          active: true,
+        },
+      ],
+      layout: {
+        build: ['identity', 'entries', 'records'],
+        play: ['entries', 'health'],
+      },
+    };
+    const migrated = migrateCurseCharacter(old, 3);
+    expect(migrated.entries).toEqual(old.entries);
+    expect(migrated.gear[0]).toMatchObject({
+      name: 'Old satchel',
+      legacyEntryId: legacyId,
+      tags: [],
+      state: 'equipped',
+      notes: old.entries[0].notes,
+    });
+    expect(migrated.layout.build).toEqual([
+      'identity',
+      'connections',
+      'gear',
+      'spells',
+      'records',
+    ]);
   });
   it('preserves City free text and linked crew IDs without inferring structured play', () => {
     const old = {

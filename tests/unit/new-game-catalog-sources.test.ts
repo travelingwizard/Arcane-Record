@@ -7,7 +7,12 @@ import {
   createCityCrew,
   migrateCityCharacter,
 } from '../../src/games/city-of-mist/schema';
-import { curseCatalog } from '../../src/games/curseborne/catalog';
+import {
+  curseCatalog,
+  curseFamilies,
+  curseLineages,
+  curseRoles,
+} from '../../src/games/curseborne/catalog';
 import { curseSources } from '../../src/games/curseborne/sources';
 import {
   createCurseCharacter,
@@ -63,6 +68,31 @@ describe('Curseborne and City source infrastructure', () => {
           d.automation === 'reference-only',
       ),
     ).toBe(true);
+  });
+
+  it('records all core Lineage, Family, and Role allocation packages', () => {
+    expect(curseLineages).toHaveLength(5);
+    expect(curseFamilies).toHaveLength(31);
+    expect(curseRoles).toHaveLength(14);
+    expect(
+      new Set(
+        [...curseLineages, ...curseFamilies, ...curseRoles].map((d) => d.id),
+      ).size,
+    ).toBe(50);
+    for (const lineage of curseLineages) {
+      expect(lineage.skills).toHaveLength(4);
+      expect(Object.values(lineage.major).reduce((a, b) => a + b, 0)).toBe(10);
+      expect(Object.values(lineage.minor).reduce((a, b) => a + b, 0)).toBe(4);
+    }
+    for (const role of curseRoles) {
+      expect(Object.values(role.attributes).reduce((a, b) => a + b, 0)).toBe(4);
+      expect(role.skills.length + (role.skillChoice ? 1 : 0)).toBe(3);
+    }
+    for (const family of curseFamilies) {
+      expect(family.skills).toHaveLength(4);
+      expect(Object.values(family.major).reduce((a, b) => a + b, 0)).toBe(10);
+      expect(Object.values(family.minor).reduce((a, b) => a + b, 0)).toBe(4);
+    }
   });
 
   it('migrates sources additively without inferring optional ownership', () => {
