@@ -37,6 +37,40 @@ test('authors and recovers a local module draft at desktop and mobile widths', a
   ).toBeVisible();
 
   await page.getByRole('button', { name: 'Preview' }).click();
+  await expect(
+    page.getByText(/Generated sheets inherit Arcane Record’s shared semantic/),
+  ).toBeVisible();
+  await expect(
+    page.locator('main.module-builder-shell.editor-shell'),
+  ).toBeVisible();
+  const previewSurface = await page
+    .locator('.builder-preview .local-sheet-section')
+    .first()
+    .evaluate((node) => {
+      const probe = document.createElement('span');
+      probe.style.border = '1px solid var(--rule)';
+      probe.style.background = 'var(--panel-background)';
+      document.body.append(probe);
+      const expectedBorder = getComputedStyle(probe).borderColor;
+      const expectedBackgroundColor = getComputedStyle(probe).backgroundColor;
+      const expectedBackgroundImage = getComputedStyle(probe).backgroundImage;
+      probe.remove();
+      return {
+        border: getComputedStyle(node).borderColor,
+        expectedBorder,
+        backgroundColor: getComputedStyle(node).backgroundColor,
+        backgroundImage: getComputedStyle(node).backgroundImage,
+        expectedBackgroundColor,
+        expectedBackgroundImage,
+      };
+    });
+  expect(previewSurface.border).toBe(previewSurface.expectedBorder);
+  expect(previewSurface.backgroundColor).toBe(
+    previewSurface.expectedBackgroundColor,
+  );
+  expect(previewSurface.backgroundImage).toBe(
+    previewSurface.expectedBackgroundImage,
+  );
   await page.getByRole('button', { name: 'Mobile 320px' }).click();
   await page.getByRole('button', { name: 'Play' }).click();
   await expect(

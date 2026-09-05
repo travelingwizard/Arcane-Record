@@ -25,6 +25,20 @@ test('blank play sheet remains usable at 320px', async ({ page }) => {
   await page.getByRole('button', { name: 'Choose Earthdawn 4e' }).click();
   await page.getByRole('button', { name: 'Open Blank Play Sheet' }).click();
 
+  await expect(page.locator('main.local-sheet-editor-shell')).toBeVisible();
+  await expect(page.locator('.local-character-sheet')).toBeVisible();
+  const sheetSurface = await page
+    .locator('.tb2-character-sheet')
+    .evaluate((node) => ({
+      border: getComputedStyle(node).borderTopWidth,
+      background: getComputedStyle(node).backgroundImage,
+      shadow: getComputedStyle(node).boxShadow,
+    }));
+  expect(sheetSurface).toEqual({
+    border: '0px',
+    background: 'none',
+    shadow: 'none',
+  });
   await expect(
     page.getByRole('switch', { name: /Earthdawn Edit and Play mode/ }),
   ).toBeChecked();

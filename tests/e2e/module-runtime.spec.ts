@@ -90,6 +90,27 @@ test('opens, edits, persists, and navigates a module-rendered character', async 
   await expect(
     page.getByRole('heading', { name: 'Module E2E Character' }),
   ).toBeVisible();
+  await expect(page.locator('main.local-sheet-editor-shell')).toBeVisible();
+  await expect(page.locator('.local-character-sheet')).toBeVisible();
+  const moduleSectionSurface = await page
+    .locator('.local-character-sheet .sheet-section')
+    .first()
+    .evaluate((node) => {
+      const probe = document.createElement('span');
+      probe.style.border = '1px solid var(--rule)';
+      document.body.append(probe);
+      const expectedBorder = getComputedStyle(probe).borderColor;
+      probe.remove();
+      return {
+        border: getComputedStyle(node).borderColor,
+        expectedBorder,
+        background: getComputedStyle(node).backgroundImage,
+        headingFont: getComputedStyle(node.querySelector('h2')!).fontFamily,
+      };
+    });
+  expect(moduleSectionSurface.border).toBe(moduleSectionSurface.expectedBorder);
+  expect(moduleSectionSurface.background).not.toBe('none');
+  expect(moduleSectionSurface.headingFont).toContain('Iowan Old Style');
   await expect(
     page.getByRole('navigation', { name: 'Character sheet sections' }),
   ).toBeVisible();

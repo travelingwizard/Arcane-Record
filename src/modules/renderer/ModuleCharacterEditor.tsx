@@ -332,8 +332,8 @@ export function ModuleCharacterEditor({
 
   return (
     <CharacterSectionProvider value={sectionContext}>
-      <main className="app-shell editor-shell module-character-editor">
-        <header className="editor-header">
+      <main className="app-shell editor-shell local-sheet-editor-shell module-character-editor">
+        <header className="editor-header local-sheet-editor-header">
           <button className="text-button" onClick={() => void onBack()}>
             ← Character library
           </button>
@@ -413,7 +413,7 @@ export function ModuleCharacterEditor({
           <CharacterSectionNav />
           <OrderedSheetSections
             groupOrder={groupOrder}
-            className="character-sheet"
+            className="character-sheet local-character-sheet"
           >
             {orderedTemplateSections.map((section) => (
               <SheetSection

@@ -224,6 +224,15 @@ keyboard tests, accessible-name checks, narrow-screen fixtures, invalid-path
 tests, and import round trips. Advanced types additionally require golden
 parity fixtures from the game that motivated them.
 
+Every generated editor and Builder preview must also retain Arcane Record's
+canonical presentation contract: the shared editor shell and section
+navigation, semantic theme tokens, parchment panel surfaces, serif headings,
+sans-serif labels, shared controls, visible focus, practical touch targets, and
+responsive card alignment. Release tests compare rendered surface, border,
+typography, and responsive grid behavior with the production Mage and Exalted
+editors. A module that introduces a separate palette, bypasses Settings, or
+creates page-level overflow at 320 CSS pixels does not pass validation.
+
 ## Open decisions
 
 - Whether tabs are justified in generated character sheets or should initially

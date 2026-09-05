@@ -263,6 +263,29 @@ test('offers Build, Play, and Torchbearer-only import entry paths', async ({
 
   await page.getByRole('button', { name: 'Play Character' }).click();
   await expect(page).toHaveURL(/\/characters\//);
+  await expect(page.locator('main.local-sheet-editor-shell')).toBeVisible();
+  await expect(page.locator('.local-character-sheet')).toBeVisible();
+  const torchbearerSurface = await page
+    .locator('.tb2-sheet-section')
+    .first()
+    .evaluate((node) => {
+      const probe = document.createElement('span');
+      probe.style.border = '1px solid var(--rule)';
+      document.body.append(probe);
+      const expectedBorder = getComputedStyle(probe).borderColor;
+      probe.remove();
+      return {
+        border: getComputedStyle(node).borderColor,
+        expectedBorder,
+        background: getComputedStyle(node).backgroundImage,
+        panel: getComputedStyle(document.documentElement)
+          .getPropertyValue('--panel-background')
+          .trim(),
+      };
+    });
+  expect(torchbearerSurface.border).toBe(torchbearerSurface.expectedBorder);
+  expect(torchbearerSurface.background).not.toBe('none');
+  expect(torchbearerSurface.panel).toContain('linear-gradient');
   await expect(
     page.getByRole('switch', { name: 'Torchbearer Edit and Play mode' }),
   ).toBeChecked();

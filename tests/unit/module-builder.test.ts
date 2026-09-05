@@ -19,6 +19,15 @@ describe('local module builder drafts', () => {
     expect(module.sheetTemplates[0]?.sections[0]?.componentIds).toEqual([
       'character-name',
     ]);
+    expect(module.sheetTemplates[0]?.navigationGroups).toEqual([
+      { id: 'character', label: 'Character', order: 0 },
+    ]);
+    expect(module.sheetTemplates[0]?.modes.map(({ id }) => id)).toEqual([
+      'build',
+      'play',
+    ]);
+    expect(module.reusableComponents[0]?.layout).toEqual({ width: 'full' });
+    expect(module.themes).toEqual([]);
   });
 
   it('stores invalid and valid drafts separately from characters', async () => {

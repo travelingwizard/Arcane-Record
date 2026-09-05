@@ -238,8 +238,8 @@ export function ModuleBuilderPage({
   const section = template?.sections[selectedSection];
   const theme = module?.themes.find((item) => 'tokens' in item);
   return (
-    <main className="app-shell neutral-shell module-builder-shell">
-      <header className="builder-header">
+    <main className="app-shell editor-shell module-builder-shell">
+      <header className="editor-header builder-header">
         <div>
           <button
             className="text-button"
@@ -662,6 +662,12 @@ export function ModuleBuilderPage({
           {panel === 'preview' ? (
             <>
               <h2>Responsive preview</h2>
+              <p className="builder-design-contract">
+                Generated sheets inherit Arcane Record’s shared semantic tokens,
+                parchment surfaces, serif headings, labeled controls, section
+                navigation, and responsive card behavior. A module cannot
+                replace these core presentation rules.
+              </p>
               <div className="compact-actions">
                 <button
                   aria-pressed={viewport === 'desktop'}
@@ -688,13 +694,18 @@ export function ModuleBuilderPage({
                   Play
                 </button>
               </div>
-              <div className={`builder-preview builder-preview--${viewport}`}>
+              <div
+                className={`builder-preview character-sheet local-character-sheet builder-preview--${viewport}`}
+              >
                 <p className="eyebrow">{mode} mode · real module structure</p>
                 <h2>{template?.name}</h2>
                 {template?.sections
                   .sort((a, b) => a.order - b.order)
                   .map((item) => (
-                    <article className="sheet-section" key={item.id}>
+                    <section
+                      className="sheet-section local-sheet-section"
+                      key={item.id}
+                    >
                       <h3>{item.label}</h3>
                       {item.componentIds.map((id) => (
                         <div className="builder-component" key={id}>
@@ -702,7 +713,7 @@ export function ModuleBuilderPage({
                             ?.label ?? id}
                         </div>
                       ))}
-                    </article>
+                    </section>
                   ))}
               </div>
             </>
@@ -726,6 +737,11 @@ export function ModuleBuilderPage({
               <p>
                 Rules, actions, dice systems, and creation flows are checked by
                 the same closed schemas used at activation.
+              </p>
+              <p className="builder-design-contract">
+                Release requirement: generated character sheets must retain the
+                shared Mage/Exalted presentation contract and pass semantic
+                token, keyboard, touch-target, and 320px overflow checks.
               </p>
             </>
           ) : null}

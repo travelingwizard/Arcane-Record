@@ -18,6 +18,8 @@ test('burns, protects, reorders, and persists a Burning Wheel character', async 
   await page.getByRole('button', { name: 'Choose Man' }).click();
 
   await expect(page).toHaveURL(/\/characters\//);
+  await expect(page.locator('main.local-sheet-editor-shell')).toBeVisible();
+  await expect(page.locator('.local-character-sheet')).toBeVisible();
   await expect(page.getByRole('button', { name: 'Settings' })).toBeVisible();
   await page.getByLabel('Name', { exact: true }).fill('Ada of the Hills');
   await page.getByLabel('Gender', { exact: true }).fill('female');
