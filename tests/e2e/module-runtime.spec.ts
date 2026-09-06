@@ -92,6 +92,11 @@ test('opens, edits, persists, and navigates a module-rendered character', async 
   ).toBeVisible();
   await expect(page.locator('main.local-sheet-editor-shell')).toBeVisible();
   await expect(page.locator('.local-character-sheet')).toBeVisible();
+  await expect(
+    page
+      .locator('.module-character-editor .identity-grid.sheet-field-grid')
+      .first(),
+  ).toBeVisible();
   const moduleSectionSurface = await page
     .locator('.local-character-sheet .sheet-section')
     .first()

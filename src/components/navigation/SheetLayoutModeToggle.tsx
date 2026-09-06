@@ -1,25 +1,32 @@
-import type { SheetLayoutMode } from '../../systems/mage-m20/character-sections';
+type EditableSheetMode = 'build' | 'edit';
 
-export function SheetLayoutModeToggle({
+export function SheetLayoutModeToggle<T extends EditableSheetMode = 'build'>({
   mode,
   onModeChange,
   playModeNote = 'Build-only ratings are view-only in Play mode.',
+  editMode = 'build' as T,
+  editLabel = 'Build mode',
+  ariaLabel,
 }: {
-  mode: SheetLayoutMode;
-  onModeChange: (mode: SheetLayoutMode) => void;
+  mode: T | 'play';
+  onModeChange: (mode: T | 'play') => void;
   playModeNote?: string;
+  editMode?: T;
+  editLabel?: string;
+  ariaLabel?: string;
 }) {
   const playMode = mode === 'play';
 
   return (
     <div className="sheet-layout-mode-control">
       <label className="sheet-layout-mode-toggle">
-        <span>Build mode</span>
+        <span>{editLabel}</span>
         <input
           type="checkbox"
           role="switch"
+          aria-label={ariaLabel}
           checked={playMode}
-          onChange={() => onModeChange(playMode ? 'build' : 'play')}
+          onChange={() => onModeChange(playMode ? editMode : 'play')}
         />
         <span className="sheet-layout-mode-toggle__track" aria-hidden="true">
           <span />

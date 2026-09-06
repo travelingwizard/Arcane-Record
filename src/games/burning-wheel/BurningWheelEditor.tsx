@@ -1,11 +1,17 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { SaveStatusBadge } from '../../components/character/SaveStatusBadge';
 import { ExperienceTotalsFields } from '../../components/character/ExperienceTotalsFields';
 import { OrderedSheetSections } from '../../components/layout/OrderedSheetSections';
 import { SheetSection } from '../../components/layout/SheetSection';
+import {
+  SheetField,
+  SheetFieldGrid,
+  SheetNotice,
+} from '../../components/layout/SheetPrimitives';
+import { SheetEditorShell } from '../../components/layout/SheetEditorShell';
 import { CharacterSectionNav } from '../../components/navigation/CharacterSectionNav';
 import { CharacterSectionProvider } from '../../components/navigation/CharacterSectionProvider';
 import { MobileSectionNavigator } from '../../components/navigation/MobileSectionNavigator';
+import { SheetLayoutModeToggle } from '../../components/navigation/SheetLayoutModeToggle';
 import { moveOrderedId } from '../../components/navigation/sheet-navigation';
 import { useActiveSheetSection } from '../../features/character-editor/use-active-sheet-section';
 import { useMediaQuery } from '../../features/character-editor/use-media-query';
@@ -324,26 +330,18 @@ export function BurningWheelEditor({
 
   return (
     <CharacterSectionProvider value={sectionContext}>
-      <main className="app-shell editor-shell local-sheet-editor-shell burning-wheel-editor-shell">
-        <header className="editor-header local-sheet-editor-header burning-wheel-editor-header">
-          <button
-            className="text-button editor-header__back"
-            onClick={() => void returnToLibrary()}
-          >
-            ← Character library
-          </button>
-          <div className="editor-header__title">
-            <p className="eyebrow">
-              Arcane Record · Burning Wheel Gold + Codex
-            </p>
-            <h1>
-              {draft.identity.name.trim() ||
-                `Untitled ${stockLabel(draft.stock)}`}
-            </h1>
-            <p>Character burner and play record</p>
-          </div>
-          <div className="editor-header__actions">
-            <SaveStatusBadge status={saveStatus} />
+      <SheetEditorShell
+        gameLabel="Burning Wheel Gold + Codex"
+        title={
+          draft.identity.name.trim() || `Untitled ${stockLabel(draft.stock)}`
+        }
+        subtitle="Character burner and play record"
+        saveStatus={saveStatus}
+        onBack={returnToLibrary}
+        className="local-sheet-editor-shell burning-wheel-editor-shell"
+        headerClassName="local-sheet-editor-header burning-wheel-editor-header"
+        headerActions={
+          <>
             <AppearanceSettings gameLabel="Burning Wheel">
               <BurningWheelSettingsPanel
                 settings={draft.burn.settings}
@@ -355,39 +353,20 @@ export function BurningWheelEditor({
                 }
               />
             </AppearanceSettings>
-          </div>
-        </header>
-        <div className="burning-wheel-mode-control">
-          <label className="sheet-layout-mode-toggle">
-            <span>Build mode</span>
-            <input
-              type="checkbox"
-              role="switch"
-              checked={draft.mode === 'play'}
-              onChange={() =>
-                update((current) => ({
-                  ...current,
-                  mode: current.mode === 'build' ? 'play' : 'build',
-                }))
-              }
-            />
-            <span
-              className="sheet-layout-mode-toggle__track"
-              aria-hidden="true"
-            >
-              <span />
-            </span>
-            <span>Play mode</span>
-          </label>
-          {readOnlyBuild ? (
-            <p role="status">
-              Burn selections and starting allocations are protected. Play-state
-              fields remain editable.
-            </p>
-          ) : null}
-        </div>
+          </>
+        }
+      >
+        <SheetLayoutModeToggle
+          mode={draft.mode}
+          onModeChange={(mode) => update((current) => ({ ...current, mode }))}
+          playModeNote="Burn selections and starting allocations are protected. Play-state fields remain editable."
+        />
         {warnings.length ? (
-          <div className="burning-wheel-warning" role="status">
+          <SheetNotice
+            className="burning-wheel-warning"
+            tone="warning"
+            role="status"
+          >
             <strong>
               {warnings.length} burn warning{warnings.length === 1 ? '' : 's'}
             </strong>
@@ -396,12 +375,12 @@ export function BurningWheelEditor({
                 <li key={warning}>{warning}</li>
               ))}
             </ul>
-          </div>
+          </SheetNotice>
         ) : null}
         {message ? (
-          <p className="burning-wheel-message" role="status">
+          <SheetNotice className="burning-wheel-message" role="status">
             {message}
-          </p>
+          </SheetNotice>
         ) : null}
         <MobileSectionNavigator />
         <div className="character-editor-layout">
@@ -417,11 +396,13 @@ export function BurningWheelEditor({
               eyebrow="Identity"
               collapsibleOnDesktop
             >
-              <div className="burning-wheel-field-grid">
+              <SheetFieldGrid className="burning-wheel-field-grid">
                 {(['name', 'player', 'concept', 'gender'] as const).map(
                   (field) => (
-                    <label key={field}>
-                      <span>{field[0].toUpperCase() + field.slice(1)}</span>
+                    <SheetField
+                      key={field}
+                      label={field[0].toUpperCase() + field.slice(1)}
+                    >
                       <input
                         value={draft.identity[field]}
                         onChange={(event) =>
@@ -434,18 +415,16 @@ export function BurningWheelEditor({
                           }))
                         }
                       />
-                    </label>
+                    </SheetField>
                   ),
                 )}
-                <label>
-                  <span>Stock</span>
+                <SheetField label="Stock">
                   <input readOnly value={stockLabel(draft.stock)} />
-                </label>
-                <label>
-                  <span>Age</span>
+                </SheetField>
+                <SheetField label="Age">
                   <input readOnly value={totals.age} />
-                </label>
-              </div>
+                </SheetField>
+              </SheetFieldGrid>
             </SheetSection>
 
             <SheetSection
@@ -1910,7 +1889,7 @@ export function BurningWheelEditor({
             </SheetSection>
           </OrderedSheetSections>
         </div>
-      </main>
+      </SheetEditorShell>
     </CharacterSectionProvider>
   );
 }

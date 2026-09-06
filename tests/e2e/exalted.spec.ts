@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
+import { expectMageAlignedFieldGrid } from './support/sheet-alignment';
 
 async function chooseExalted(page: Page) {
   await page.getByRole('button', { name: 'Create Character' }).click();
@@ -27,6 +28,10 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   await page.getByRole('button', { name: 'Choose Solar' }).click();
   await expect(page).toHaveURL(/\/characters\//);
   await expect(page.getByRole('button', { name: 'Settings' })).toBeVisible();
+  await expectMageAlignedFieldGrid(
+    page,
+    '.exalted-field-grid.sheet-field-grid',
+  );
   await expect(page.getByText('Current Experience: 0')).toBeVisible();
   await expect(page.getByText('Total Experience: 0')).toBeVisible();
   const navigation = page.getByRole('navigation', {

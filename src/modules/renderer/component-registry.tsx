@@ -11,6 +11,11 @@ import { ModuleMageBackgrounds } from './ModuleMageBackgrounds';
 import { ModuleMageMeritsFlaws } from './ModuleMageMeritsFlaws';
 import { ModuleMageCollection } from './ModuleMageCollection';
 import { ModuleExaltedSection } from './ModuleExaltedSection';
+import {
+  SheetField,
+  SheetFieldGrid,
+  type SheetGridColumns,
+} from '../../components/layout/SheetPrimitives';
 
 export interface ModuleComponentRenderProps {
   component: ModuleComponentDefinition;
@@ -83,8 +88,7 @@ export const coreModuleComponentRegistry = new ModuleComponentRegistry()
     type: 'text',
     render: ({ component, value, readOnly, onChange }) =>
       component.type === 'text' ? (
-        <label className="line-field">
-          <span>{component.label}</span>
+        <SheetField className="line-field" label={component.label}>
           <input
             aria-label={component.accessibilityLabel}
             aria-describedby={
@@ -98,15 +102,14 @@ export const coreModuleComponentRegistry = new ModuleComponentRegistry()
           {component.helpText ? (
             <small id={`${component.id}-help`}>{component.helpText}</small>
           ) : null}
-        </label>
+        </SheetField>
       ) : null,
   })
   .register({
     type: 'number',
     render: ({ component, value, readOnly, onChange }) =>
       component.type === 'number' ? (
-        <label className="line-field">
-          <span>{component.label}</span>
+        <SheetField className="line-field" label={component.label}>
           <input
             type="number"
             aria-label={component.accessibilityLabel}
@@ -117,7 +120,7 @@ export const coreModuleComponentRegistry = new ModuleComponentRegistry()
             readOnly={readOnly}
             onChange={(event) => onChange(event.currentTarget.valueAsNumber)}
           />
-        </label>
+        </SheetField>
       ) : null,
   })
   .register({
@@ -143,12 +146,18 @@ export const coreModuleComponentRegistry = new ModuleComponentRegistry()
     type: 'field-grid',
     render: ({ component, data, readOnly, onPathChange }) =>
       component.type === 'field-grid' ? (
-        <div className="module-field-grid" data-columns={component.columns}>
+        <SheetFieldGrid
+          columns={component.columns as SheetGridColumns}
+          className="module-field-grid"
+        >
           {component.fields.map((field) => {
             const value = readDataPath(data, field.dataPath);
             return (
-              <label className="line-field" key={field.id}>
-                <span>{field.label}</span>
+              <SheetField
+                className="line-field"
+                key={field.id}
+                label={field.label}
+              >
                 <input
                   aria-label={field.accessibilityLabel}
                   value={typeof value === 'string' ? value : ''}
@@ -158,10 +167,10 @@ export const coreModuleComponentRegistry = new ModuleComponentRegistry()
                     onPathChange(field.dataPath, event.target.value)
                   }
                 />
-              </label>
+              </SheetField>
             );
           })}
-        </div>
+        </SheetFieldGrid>
       ) : null,
   })
   .register({

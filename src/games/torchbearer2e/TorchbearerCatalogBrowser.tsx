@@ -104,7 +104,10 @@ export function TorchbearerCatalogBrowser({
         </p>
         <div className="tb2-catalog-results">
           {results.map((definition) => (
-            <article key={definition.id} className="tb2-catalog-card">
+            <article
+              key={definition.id}
+              className="sheet-card tb2-catalog-card"
+            >
               <header>
                 <div>
                   <p className="eyebrow">{definition.category}</p>

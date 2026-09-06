@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { expectMageAlignedFieldGrid } from './support/sheet-alignment';
 
 test('burns, protects, reorders, and persists a Burning Wheel character', async ({
   page,
@@ -20,6 +21,10 @@ test('burns, protects, reorders, and persists a Burning Wheel character', async 
   await expect(page).toHaveURL(/\/characters\//);
   await expect(page.locator('main.local-sheet-editor-shell')).toBeVisible();
   await expect(page.locator('.local-character-sheet')).toBeVisible();
+  await expectMageAlignedFieldGrid(
+    page,
+    '.burning-wheel-field-grid.sheet-field-grid',
+  );
   await expect(page.getByRole('button', { name: 'Settings' })).toBeVisible();
   await page.getByLabel('Name', { exact: true }).fill('Ada of the Hills');
   await page.getByLabel('Gender', { exact: true }).fill('female');

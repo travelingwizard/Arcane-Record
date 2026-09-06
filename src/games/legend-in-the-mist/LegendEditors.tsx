@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import type { GameCharacterEditorProps } from '../game-system';
 import { LocalSheet, TextField, useLocalSheet } from '../shared/LocalSheet';
+import {
+  SheetField,
+  SheetFieldGrid,
+  SheetCard,
+} from '../../components/layout/SheetPrimitives';
 import { legendMagicWays, legendThemebooks, legendTropes } from './catalog';
 import { createLegendTag } from './create-character';
 import {
@@ -79,14 +84,13 @@ function Field({
   locked?: boolean;
 }) {
   return (
-    <label className="field">
-      <span>{label}</span>
+    <SheetField className="field" label={label}>
       <input
         value={value}
         readOnly={locked}
         onChange={(e) => onChange(e.target.value)}
       />
-    </label>
+    </SheetField>
   );
 }
 
@@ -109,7 +113,7 @@ function ThemeCard({
       [kind]: theme[kind].map((t, n) => (n === i ? { ...t, name } : t)),
     });
   return (
-    <article className="litm-theme-card">
+    <SheetCard className="litm-theme-card">
       <header>
         <strong>{theme.name || 'Untitled Theme'}</strong>
         <span>
@@ -235,7 +239,7 @@ function ThemeCard({
           <small>Milestone</small> {theme.milestone}/3
         </span>
       </div>
-    </article>
+    </SheetCard>
   );
 }
 
@@ -390,7 +394,7 @@ function Statuses({
     <div className="litm-card-list">
       <button onClick={add}>Add status</button>
       {hero.statuses.map((s) => (
-        <article className="litm-record-card" key={s.id}>
+        <SheetCard className="litm-record-card" density="compact" key={s.id}>
           <Field
             label="Status"
             value={s.name}
@@ -443,7 +447,7 @@ function Statuses({
               Remove
             </button>
           </div>
-        </article>
+        </SheetCard>
       ))}
     </div>
   );
@@ -567,7 +571,10 @@ export function LegendHeroEditor(props: GameCharacterEditorProps<LegendHero>) {
       }
       content={{
         'litm-character': (
-          <div className="identity-grid litm-identity-grid">
+          <SheetFieldGrid
+            columns={2}
+            className="identity-grid litm-identity-grid"
+          >
             <Field
               label="Hero name"
               value={c.name}
@@ -586,7 +593,7 @@ export function LegendHeroEditor(props: GameCharacterEditorProps<LegendHero>) {
               locked={locked}
               onChange={(description) => update({ ...c, description })}
             />
-          </div>
+          </SheetFieldGrid>
         ),
         'litm-creator':
           c.creation.status === 'finalized' ? (
@@ -690,7 +697,11 @@ export function LegendHeroEditor(props: GameCharacterEditorProps<LegendHero>) {
               Add relationship
             </button>
             {c.relationships.map((r) => (
-              <article className="litm-record-card" key={r.id}>
+              <SheetCard
+                className="litm-record-card"
+                density="compact"
+                key={r.id}
+              >
                 <Field
                   label="Companion"
                   value={r.companionName}
@@ -729,7 +740,7 @@ export function LegendHeroEditor(props: GameCharacterEditorProps<LegendHero>) {
                 >
                   {r.scratched ? 'Refresh' : 'Scratch'}
                 </button>
-              </article>
+              </SheetCard>
             ))}
           </>
         ),

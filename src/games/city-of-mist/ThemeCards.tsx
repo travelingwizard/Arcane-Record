@@ -179,7 +179,7 @@ export function ThemeCards({
       <div className="city-theme-card-grid">
         {themes.map((t) => (
           <details
-            className={`city-theme-card city-theme-card--${t.state} ${
+            className={`sheet-card city-theme-card city-theme-card--${t.state} ${
               t.state !== 'archived' &&
               themes.filter((theme) => theme.state !== 'archived').indexOf(t) <
                 4

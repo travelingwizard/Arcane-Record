@@ -283,7 +283,7 @@ export function CombatSection({ character, onCombatChange }: Props) {
       </div>
 
       <h3>Protection</h3>
-      <article className="exalted-protection-card">
+      <article className="sheet-card exalted-protection-card">
         <p>
           <strong>
             {protection.finalLethal} lethal / {protection.finalBashing} bashing

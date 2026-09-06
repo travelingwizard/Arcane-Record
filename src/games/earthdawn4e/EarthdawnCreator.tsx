@@ -49,7 +49,7 @@ export function EarthdawnCreator({
   const screens = [
     <>
       <h2>Choose a Discipline</h2>
-      <div className="tb2-choice-grid">
+      <div className="sheet-choice-grid earthdawn-choice-grid">
         {earthdawnDisciplines.map((d) => (
           <button
             type="button"
@@ -84,7 +84,7 @@ export function EarthdawnCreator({
     </>,
     <>
       <h2>Choose a Race</h2>
-      <div className="tb2-choice-grid">
+      <div className="sheet-choice-grid earthdawn-choice-grid">
         {earthdawnRaces.map((r) => (
           <button
             type="button"
@@ -119,7 +119,7 @@ export function EarthdawnCreator({
         Spend up to 25 points. Remaining points increase maximum Karma after
         final review.
       </p>
-      <div className="tb2-field-grid">
+      <div className="sheet-field-grid earthdawn-field-grid">
         {Object.entries(character.attributes).map(([id, a]) => (
           <label key={id}>
             <span>
@@ -158,7 +158,7 @@ export function EarthdawnCreator({
     </>,
     <>
       <h2>Review Characteristics</h2>
-      <div className="tb2-derived-grid">
+      <div className="sheet-stat-grid earthdawn-derived-grid">
         <span>
           Physical Defense <strong>{derived.physicalDefense}</strong>
         </span>
@@ -207,7 +207,7 @@ export function EarthdawnCreator({
     </>,
     <>
       <h2>Flesh Out the Character</h2>
-      <div className="tb2-text-grid">
+      <div className="sheet-field-grid earthdawn-text-grid">
         <label>
           <span>Name</span>
           <input
@@ -325,7 +325,7 @@ export function EarthdawnCreator({
   ];
   return (
     <section
-      className="tb2-creator character-creator"
+      className="earthdawn-creator character-creator"
       aria-label="Earthdawn character creator"
     >
       <p className="eyebrow">Earthdawn creation · Step {step + 1} of 10</p>

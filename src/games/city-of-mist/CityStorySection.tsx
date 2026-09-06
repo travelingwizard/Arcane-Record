@@ -26,7 +26,7 @@ export function CityStorySection({
   const selected = momentOptions.find(([id]) => id === moment)!;
   return (
     <div className="city-story-layout">
-      <section className="city-sheet-panel">
+      <section className="sheet-card city-sheet-panel">
         <h3>Story Tags</h3>
         {c.playRecords.tags.length === 0 ? (
           <p>No structured Story Tags.</p>
@@ -41,7 +41,7 @@ export function CityStorySection({
           ))
         )}
       </section>
-      <section className="city-sheet-panel city-build-up-panel">
+      <section className="sheet-card city-sheet-panel city-build-up-panel">
         <h3>Build-Up</h3>
         <label>
           Build-Up points
@@ -66,7 +66,7 @@ export function CityStorySection({
         </label>
         <p>Pending Moments of Evolution: {c.development.pendingMoments}</p>
       </section>
-      <section className="city-sheet-panel city-moments-panel">
+      <section className="sheet-card city-sheet-panel city-moments-panel">
         <h3>Moments of Evolution</h3>
         <label>
           Benefit
@@ -123,7 +123,7 @@ export function CityStorySection({
           </div>
         ))}
       </section>
-      <section className="city-sheet-panel">
+      <section className="sheet-card city-sheet-panel">
         <h3>Nemeses</h3>
         {c.development.nemeses.length === 0 ? (
           <p>No Nemeses recorded.</p>

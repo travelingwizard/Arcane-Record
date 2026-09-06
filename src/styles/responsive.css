@@ -247,7 +247,9 @@
     box-shadow: none;
   }
 
-  .identity-grid {
+  .identity-grid,
+  .sheet-field-grid[data-columns='3'],
+  .sheet-field-grid[data-columns='4'] {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -424,7 +426,8 @@
     flex-direction: column;
   }
 
-  .identity-grid {
+  .identity-grid,
+  .sheet-field-grid[data-columns] {
     grid-template-columns: 1fr;
   }
 

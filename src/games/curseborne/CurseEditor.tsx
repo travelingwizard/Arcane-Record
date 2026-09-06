@@ -19,6 +19,7 @@ import {
   CurseTorments,
   CurseTraitsSection,
 } from './CurseSheetSections';
+import { SheetFieldGrid } from '../../components/layout/SheetPrimitives';
 
 export const curseSections = [
   'identity',
@@ -154,7 +155,10 @@ export function CurseEditor(props: GameCharacterEditorProps<CurseCharacter>) {
       }
       content={{
         'curse-identity': (
-          <div className="identity-grid local-identity-grid">
+          <SheetFieldGrid
+            columns={3}
+            className="identity-grid local-identity-grid"
+          >
             <p role="status">
               Editable sheet preview. The rules-validated creator and complete
               selectable catalogs are still in development.
@@ -306,7 +310,7 @@ export function CurseEditor(props: GameCharacterEditorProps<CurseCharacter>) {
               automatically validated.
             </p>
             <CurseAspirations character={c} onChange={update} locked={locked} />
-          </div>
+          </SheetFieldGrid>
         ),
         'curse-traits': (
           <CurseTraitsSection character={c} onChange={update} locked={locked} />

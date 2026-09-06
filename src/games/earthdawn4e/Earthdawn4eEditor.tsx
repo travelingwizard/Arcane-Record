@@ -5,11 +5,17 @@ import {
   useState,
   type ReactNode,
 } from 'react';
-import { SaveStatusBadge } from '../../components/character/SaveStatusBadge';
 import { OrderedSheetSections } from '../../components/layout/OrderedSheetSections';
+import { SheetSection } from '../../components/layout/SheetSection';
+import { SheetEditorShell } from '../../components/layout/SheetEditorShell';
+import {
+  SheetField,
+  SheetFieldGrid,
+} from '../../components/layout/SheetPrimitives';
 import { CharacterSectionNav } from '../../components/navigation/CharacterSectionNav';
 import { CharacterSectionProvider } from '../../components/navigation/CharacterSectionProvider';
 import { MobileSectionNavigator } from '../../components/navigation/MobileSectionNavigator';
+import { SheetLayoutModeToggle } from '../../components/navigation/SheetLayoutModeToggle';
 import { moveOrderedId } from '../../components/navigation/sheet-navigation';
 import { useActiveSheetSection } from '../../features/character-editor/use-active-sheet-section';
 import { useMediaQuery } from '../../features/character-editor/use-media-query';
@@ -168,16 +174,14 @@ export function Earthdawn4eEditor({
     title: string,
     children: ReactNode,
   ) => (
-    <section
+    <SheetSection
       id={id}
       data-section-group={group}
-      className="sheet-section local-sheet-section tb2-sheet-section"
+      className="local-sheet-section earthdawn-sheet-section"
+      title={title}
     >
-      <h2 id={`${id}-heading`} tabIndex={-1}>
-        {title}
-      </h2>
       {children}
-    </section>
+    </SheetSection>
   );
   const addCatalog = (definitionId: string) => {
     const d = earthdawnDefinitionById.get(definitionId)!;
@@ -309,25 +313,18 @@ export function Earthdawn4eEditor({
   };
   return (
     <CharacterSectionProvider value={context}>
-      <main className="app-shell editor-shell local-sheet-editor-shell tb2-editor-shell">
-        <header className="editor-header local-sheet-editor-header tb2-editor-header">
-          <button
-            className="text-button"
-            onClick={() =>
-              void (async () => {
-                if (saveStatus !== 'saved' && !(await save(draft))) return;
-                await onBack();
-              })()
-            }
-          >
-            ← Character library
-          </button>
-          <div>
-            <p className="eyebrow">Arcane Record · Earthdawn Fourth Edition</p>
-            <h1>{draft.identity.name || 'Untitled Earthdawn Adept'}</h1>
-          </div>
-          <div className="editor-header__actions">
-            <SaveStatusBadge status={saveStatus} />
+      <SheetEditorShell
+        gameLabel="Earthdawn Fourth Edition"
+        title={draft.identity.name || 'Untitled Earthdawn Adept'}
+        saveStatus={saveStatus}
+        onBack={async () => {
+          if (saveStatus !== 'saved' && !(await save(draft))) return;
+          await onBack();
+        }}
+        className="local-sheet-editor-shell earthdawn-editor-shell"
+        headerClassName="local-sheet-editor-header earthdawn-editor-header"
+        headerActions={
+          <>
             <button
               className="secondary-button"
               disabled={playMode}
@@ -373,54 +370,40 @@ export function Earthdawn4eEditor({
                 </button>
               ) : null}
             </AppearanceSettings>
-          </div>
-        </header>
+          </>
+        }
+      >
         {draft.creation.status !== 'draft' ? (
-          <div className="sheet-layout-mode-control">
-            <label className="sheet-layout-mode-toggle">
-              <span>Edit mode</span>
-              <input
-                type="checkbox"
-                role="switch"
-                aria-label="Earthdawn Edit and Play mode"
-                checked={playMode}
-                onChange={() =>
-                  update((c) => ({
-                    ...c,
-                    sheetLayout: {
-                      ...c.sheetLayout,
-                      mode: c.sheetLayout.mode === 'edit' ? 'play' : 'edit',
-                    },
-                  }))
-                }
-              />
-              <span
-                className="sheet-layout-mode-toggle__track"
-                aria-hidden="true"
-              >
-                <span />
-              </span>
-              <span>Play mode</span>
-            </label>
-          </div>
+          <SheetLayoutModeToggle
+            mode={draft.sheetLayout.mode}
+            editMode="edit"
+            editLabel="Edit mode"
+            ariaLabel="Earthdawn Edit and Play mode"
+            onModeChange={(mode) =>
+              update((current) => ({
+                ...current,
+                sheetLayout: { ...current.sheetLayout, mode },
+              }))
+            }
+          />
         ) : null}
         <MobileSectionNavigator />
         <div className="character-editor-layout">
           <CharacterSectionNav />
           {draft.creation.status === 'draft' ? (
-            <div className="character-sheet local-character-sheet tb2-character-sheet">
+            <div className="character-sheet local-character-sheet earthdawn-character-sheet">
               <EarthdawnCreator character={draft} update={update} />
             </div>
           ) : (
             <OrderedSheetSections
               groupOrder={draft.sheetLayout.groupOrder}
-              className="character-sheet local-character-sheet tb2-character-sheet"
+              className="character-sheet local-character-sheet earthdawn-character-sheet"
             >
               {section(
                 'ed4-identity',
                 'character',
                 'Identity',
-                <div className="tb2-field-grid">
+                <SheetFieldGrid columns={2} className="earthdawn-field-grid">
                   {(
                     [
                       'name',
@@ -435,8 +418,10 @@ export function Earthdawn4eEditor({
                       'traits',
                     ] as const
                   ).map((field) => (
-                    <label key={field}>
-                      <span>{field.replace(/([A-Z])/g, ' $1')}</span>
+                    <SheetField
+                      key={field}
+                      label={field.replace(/([A-Z])/g, ' $1')}
+                    >
                       <input
                         value={draft.identity[field]}
                         readOnly={playMode}
@@ -450,9 +435,9 @@ export function Earthdawn4eEditor({
                           }))
                         }
                       />
-                    </label>
+                    </SheetField>
                   ))}
-                </div>,
+                </SheetFieldGrid>,
               )}
               {section(
                 'ed4-disciplines',
@@ -487,7 +472,10 @@ export function Earthdawn4eEditor({
                     Add Discipline / Questor
                   </button>
                   {draft.disciplines.map((d) => (
-                    <div key={d.id} className="tb2-compact-record">
+                    <div
+                      key={d.id}
+                      className="sheet-card sheet-card--compact earthdawn-record"
+                    >
                       <input
                         aria-label="Discipline name"
                         readOnly={playMode}
@@ -528,7 +516,7 @@ export function Earthdawn4eEditor({
                 'ed4-attributes',
                 'attributes',
                 'Attributes',
-                <div className="tb2-card-list">
+                <div className="sheet-card-list earthdawn-card-list">
                   {Object.entries(draft.attributes).map(([id, a]) => (
                     <article key={id}>
                       <strong>{labels[id as EarthdawnAttributeId]}</strong>
@@ -589,7 +577,7 @@ export function Earthdawn4eEditor({
                 'ed4-characteristics',
                 'attributes',
                 'Characteristics',
-                <div className="tb2-derived-grid">
+                <div className="sheet-stat-grid earthdawn-derived-grid">
                   <span>
                     Physical Defense <strong>{derived.physicalDefense}</strong>
                   </span>
@@ -772,7 +760,7 @@ export function Earthdawn4eEditor({
                     Browse Equipment
                   </button>
                   {draft.equipment.map((e) => (
-                    <label key={e.id} className="tb2-check-card">
+                    <label key={e.id} className="sheet-choice-card">
                       <input
                         type="checkbox"
                         checked={e.inUse}
@@ -801,7 +789,7 @@ export function Earthdawn4eEditor({
                 'ed4-health',
                 'combat',
                 'Health & Conditions',
-                <div className="tb2-field-grid">
+                <div className="sheet-field-grid earthdawn-field-grid">
                   {(
                     [
                       'damage',
@@ -846,7 +834,7 @@ export function Earthdawn4eEditor({
                 'combat',
                 'Step Dice & Roller',
                 <>
-                  <div className="tb2-field-grid">
+                  <div className="sheet-field-grid earthdawn-field-grid">
                     <label>
                       <span>Step</span>
                       <input
@@ -952,7 +940,7 @@ export function Earthdawn4eEditor({
                 'ed4-advancement',
                 'advancement',
                 'Legend & Advancement',
-                <div className="tb2-field-grid">
+                <div className="sheet-field-grid earthdawn-field-grid">
                   <label>
                     <span>Current Legend Points</span>
                     <input
@@ -1048,9 +1036,9 @@ export function Earthdawn4eEditor({
                       </small>
                     </span>
                   </label>
-                  <div className="tb2-card-list">
+                  <div className="sheet-card-list earthdawn-card-list">
                     {earthdawnSources.map((s) => (
-                      <label className="tb2-check-card" key={s.id}>
+                      <label className="sheet-choice-card" key={s.id}>
                         <input
                           type="checkbox"
                           disabled={s.required || playMode}
@@ -1099,7 +1087,7 @@ export function Earthdawn4eEditor({
                 'ed4-notes',
                 'records',
                 'Description & Notes',
-                <div className="tb2-text-grid">
+                <div className="sheet-field-grid earthdawn-text-grid">
                   <label>
                     <span>Description</span>
                     <textarea
@@ -1196,7 +1184,7 @@ export function Earthdawn4eEditor({
             </div>
           </div>
         ) : null}
-      </main>
+      </SheetEditorShell>
     </CharacterSectionProvider>
   );
 }
@@ -1228,7 +1216,7 @@ function RankedList({
       >
         Browse catalog
       </button>
-      <div className="tb2-card-list">
+      <div className="sheet-card-list earthdawn-card-list">
         {records.map((r) => (
           <article key={r.id}>
             <strong>{r.name}</strong>

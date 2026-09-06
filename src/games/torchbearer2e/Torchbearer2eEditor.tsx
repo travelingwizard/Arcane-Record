@@ -5,12 +5,18 @@ import {
   useState,
   type ReactNode,
 } from 'react';
-import { SaveStatusBadge } from '../../components/character/SaveStatusBadge';
 import { DotRating } from '../../components/controls/DotRating';
 import { OrderedSheetSections } from '../../components/layout/OrderedSheetSections';
+import { SheetSection } from '../../components/layout/SheetSection';
+import { SheetEditorShell } from '../../components/layout/SheetEditorShell';
+import {
+  SheetField,
+  SheetFieldGrid,
+} from '../../components/layout/SheetPrimitives';
 import { CharacterSectionNav } from '../../components/navigation/CharacterSectionNav';
 import { CharacterSectionProvider } from '../../components/navigation/CharacterSectionProvider';
 import { MobileSectionNavigator } from '../../components/navigation/MobileSectionNavigator';
+import { SheetLayoutModeToggle } from '../../components/navigation/SheetLayoutModeToggle';
 import { moveOrderedId } from '../../components/navigation/sheet-navigation';
 import { useActiveSheetSection } from '../../features/character-editor/use-active-sheet-section';
 import { useMediaQuery } from '../../features/character-editor/use-media-query';
@@ -81,8 +87,7 @@ function NumericField({
   disabled?: boolean;
 }) {
   return (
-    <label>
-      <span>{label}</span>
+    <SheetField label={label}>
       <input
         type="number"
         min={0}
@@ -93,7 +98,7 @@ function NumericField({
           onChange(integerValue(event.target.value, maximum))
         }
       />
-    </label>
+    </SheetField>
   );
 }
 
@@ -489,38 +494,29 @@ export function Torchbearer2eEditor({
     title: string,
     children: ReactNode,
   ) => (
-    <section
+    <SheetSection
       id={id}
       data-section-group={group}
-      className="sheet-section local-sheet-section tb2-sheet-section"
+      className="local-sheet-section tb2-sheet-section"
+      eyebrow={eyebrow}
+      title={title}
     >
-      <p className="eyebrow">{eyebrow}</p>
-      <h2 id={`${id}-heading`} tabIndex={-1}>
-        {title}
-      </h2>
       {children}
-    </section>
+    </SheetSection>
   );
 
   return (
     <CharacterSectionProvider value={sectionContext}>
-      <main className="app-shell editor-shell local-sheet-editor-shell tb2-editor-shell">
-        <header className="editor-header local-sheet-editor-header tb2-editor-header">
-          <button
-            className="text-button"
-            onClick={() => void returnToLibrary()}
-          >
-            ← Character library
-          </button>
-          <div>
-            <p className="eyebrow">
-              Arcane Record · Torchbearer Second Edition
-            </p>
-            <h1>{displayName}</h1>
-            <p>Editable two-page adventurer record</p>
-          </div>
-          <div className="editor-header__actions">
-            <SaveStatusBadge status={saveStatus} />
+      <SheetEditorShell
+        gameLabel="Torchbearer Second Edition"
+        title={displayName}
+        subtitle="Editable two-page adventurer record"
+        saveStatus={saveStatus}
+        onBack={returnToLibrary}
+        className="local-sheet-editor-shell tb2-editor-shell"
+        headerClassName="local-sheet-editor-header tb2-editor-header"
+        headerActions={
+          <>
             {draft.creation.status !== 'draft' && !playMode ? (
               <button
                 type="button"
@@ -567,44 +563,23 @@ export function Torchbearer2eEditor({
                 </button>
               ) : null}
             </AppearanceSettings>
-          </div>
-        </header>
-
+          </>
+        }
+      >
         {draft.creation.status !== 'draft' ? (
-          <div className="sheet-layout-mode-control tb2-mode-control">
-            <label className="sheet-layout-mode-toggle">
-              <span>Edit mode</span>
-              <input
-                type="checkbox"
-                role="switch"
-                aria-label="Torchbearer Edit and Play mode"
-                checked={playMode}
-                onChange={() =>
-                  update((current) => ({
-                    ...current,
-                    sheetLayout: {
-                      ...current.sheetLayout,
-                      mode:
-                        current.sheetLayout.mode === 'edit' ? 'play' : 'edit',
-                    },
-                  }))
-                }
-              />
-              <span
-                className="sheet-layout-mode-toggle__track"
-                aria-hidden="true"
-              >
-                <span />
-              </span>
-              <span>Play mode</span>
-            </label>
-            {playMode ? (
-              <p className="sheet-layout-mode-note" role="status">
-                Character-building fields are protected. Conditions, rewards,
-                advancement marks, and other play-state controls remain active.
-              </p>
-            ) : null}
-          </div>
+          <SheetLayoutModeToggle
+            mode={draft.sheetLayout.mode}
+            editMode="edit"
+            editLabel="Edit mode"
+            ariaLabel="Torchbearer Edit and Play mode"
+            playModeNote="Character-building fields are protected. Conditions, rewards, advancement marks, and other play-state controls remain active."
+            onModeChange={(mode) =>
+              update((current) => ({
+                ...current,
+                sheetLayout: { ...current.sheetLayout, mode },
+              }))
+            }
+          />
         ) : null}
 
         <MobileSectionNavigator />
@@ -624,7 +599,7 @@ export function Torchbearer2eEditor({
               'character',
               'Page one',
               'Who You Are',
-              <div className="tb2-field-grid">
+              <SheetFieldGrid columns={2} className="tb2-field-grid">
                 {(
                   [
                     ['name', 'Name'],
@@ -639,8 +614,7 @@ export function Torchbearer2eEditor({
                     ['enemy', 'Enemy'],
                   ] as const
                 ).map(([field, label]) => (
-                  <label key={field}>
-                    <span>{label}</span>
+                  <SheetField key={field} label={label}>
                     <input
                       value={draft.identity[field]}
                       readOnly={playMode}
@@ -648,7 +622,7 @@ export function Torchbearer2eEditor({
                         updateIdentity(field, event.target.value)
                       }
                     />
-                  </label>
+                  </SheetField>
                 ))}
                 <NumericField
                   label="Level"
@@ -659,7 +633,7 @@ export function Torchbearer2eEditor({
                     updateIdentity('level', Math.max(1, value))
                   }
                 />
-              </div>,
+              </SheetFieldGrid>,
             )}
 
             {section(
@@ -2175,7 +2149,7 @@ export function Torchbearer2eEditor({
             onClose={() => setCatalogKind(null)}
           />
         ) : null}
-      </main>
+      </SheetEditorShell>
     </CharacterSectionProvider>
   );
 }

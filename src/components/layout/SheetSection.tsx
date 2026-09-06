@@ -12,6 +12,8 @@ interface SheetSectionProps {
   className?: string;
   collapsibleOnDesktop?: boolean;
   hideSummaryWhenCollapsed?: boolean;
+  expanded?: boolean;
+  onExpandedChange?: (expanded: boolean) => void;
   'data-section-group'?: string;
 }
 
@@ -25,6 +27,8 @@ export function SheetSection({
   className = '',
   collapsibleOnDesktop = false,
   hideSummaryWhenCollapsed = false,
+  expanded: controlledExpanded,
+  onExpandedChange,
   'data-section-group': sectionGroup,
 }: SheetSectionProps) {
   const navigation = useCharacterSectionContext();
@@ -35,11 +39,13 @@ export function SheetSection({
   const canUseDisclosure =
     Boolean(navigation) && (navigation?.isNarrowLayout || collapsibleOnDesktop);
   const summary = navigation?.summaries[id] ?? { primary: '' };
-  const expanded = !canUseDisclosure
-    ? true
-    : navigation?.isNarrowLayout
-      ? navigation.expandedSections.has(id)
-      : desktopExpanded;
+  const expanded =
+    controlledExpanded ??
+    (!canUseDisclosure
+      ? true
+      : navigation?.isNarrowLayout
+        ? navigation.expandedSections.has(id)
+        : desktopExpanded);
   const contentId = `${id}-content`;
   const headingId = `${id}-heading`;
   const collapse = () => {
@@ -53,7 +59,9 @@ export function SheetSection({
     ) {
       disclosureRef.current?.focus();
     }
-    if (navigation?.isNarrowLayout) {
+    if (onExpandedChange) {
+      onExpandedChange(!expanded);
+    } else if (navigation?.isNarrowLayout) {
       navigation.setSectionExpanded(id, !expanded);
     } else {
       setDesktopExpanded(!expanded);

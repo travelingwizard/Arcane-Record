@@ -11,7 +11,6 @@ import type {
   GameCharacterEditorProps,
   GameSectionDefinition,
 } from '../game-system';
-import { SaveStatusBadge } from '../../components/character/SaveStatusBadge';
 import type { SaveStatus } from '../../state/editor-store';
 import { AppearanceSettings } from '../../features/settings/AppearanceSettings';
 import { SheetLayoutModeToggle } from '../../components/navigation/SheetLayoutModeToggle';
@@ -19,6 +18,9 @@ import { CharacterSectionProvider } from '../../components/navigation/CharacterS
 import { CharacterSectionNav } from '../../components/navigation/CharacterSectionNav';
 import { MobileSectionNavigator } from '../../components/navigation/MobileSectionNavigator';
 import { OrderedSheetSections } from '../../components/layout/OrderedSheetSections';
+import { SheetField } from '../../components/layout/SheetPrimitives';
+import { SheetSection } from '../../components/layout/SheetSection';
+import { SheetEditorShell } from '../../components/layout/SheetEditorShell';
 import { moveOrderedId } from '../../components/navigation/sheet-navigation';
 import { useActiveSheetSection } from '../../features/character-editor/use-active-sheet-section';
 import { useSheetSectionNavigation } from '../../features/character-editor/use-sheet-section-navigation';
@@ -198,37 +200,29 @@ export function LocalSheet({
           onOrder(moveOrderedId(order, id, direction)),
       }}
     >
-      <main className="app-shell editor-shell local-sheet-editor-shell">
-        <header className="editor-header local-sheet-editor-header">
-          <button className="text-button editor-header__back" onClick={onBack}>
-            <span aria-hidden="true">←</span> Character library
-          </button>
-          <div className="editor-header__title">
-            <p className="eyebrow">Arcane Record · {title}</p>
-            <h1>{name || `Untitled ${title}`}</h1>
-            <p className="editor-header__subtitle">
-              An editable record kept only on this device.
-            </p>
-          </div>
-          <div className="editor-header__actions">
-            <SaveStatusBadge status={status} />
+      <SheetEditorShell
+        gameLabel={title}
+        title={name || `Untitled ${title}`}
+        saveStatus={status}
+        onBack={onBack}
+        className="local-sheet-editor-shell"
+        headerClassName="local-sheet-editor-header"
+        errorMessage={
+          status === 'error'
+            ? 'Save failed. Keep this page open. If another editor changed or deleted this record, save a file copy in Settings before reloading.'
+            : undefined
+        }
+        headerActions={
+          <>
             <button className="secondary-button" onClick={onSave}>
               Save now
             </button>
             <AppearanceSettings gameLabel={title}>
               {settings}
             </AppearanceSettings>
-          </div>
-        </header>
-        <div className="ornament-rule" aria-hidden="true">
-          <span>✦</span>
-        </div>
-        {status === 'error' && (
-          <p role="alert">
-            Save failed. Keep this page open. If another editor changed or
-            deleted this record, save a file copy in Settings before reloading.
-          </p>
-        )}
+          </>
+        }
+      >
         <SheetLayoutModeToggle
           mode={mode}
           onModeChange={onMode}
@@ -242,49 +236,23 @@ export function LocalSheet({
             className="character-sheet local-character-sheet"
           >
             {sections.map((s) => (
-              <section
+              <SheetSection
                 key={s.id}
                 id={s.id}
                 data-section-group={s.group}
-                className={`sheet-section character-section character-section--desktop-collapsible local-sheet-section ${
-                  closed.has(s.id)
-                    ? 'character-section--collapsed'
-                    : 'character-section--expanded'
-                }`}
-                aria-labelledby={`${s.id}-heading`}
+                title={s.label}
+                className="local-sheet-section"
+                collapsibleOnDesktop
+                hideSummaryWhenCollapsed
+                expanded={!closed.has(s.id)}
+                onExpandedChange={(value) => expand(s.id, value)}
               >
-                <div className="sheet-section__heading">
-                  <h2 id={`${s.id}-heading`} tabIndex={-1}>
-                    <button
-                      className="character-section-disclosure"
-                      aria-expanded={!closed.has(s.id)}
-                      aria-controls={`${s.id}-content`}
-                      onClick={() => expand(s.id, closed.has(s.id))}
-                    >
-                      <span className="character-section-disclosure__label">
-                        {s.label}
-                      </span>
-                      <span
-                        className="character-section-disclosure__icon"
-                        aria-hidden="true"
-                      >
-                        {closed.has(s.id) ? '+' : '−'}
-                      </span>
-                    </button>
-                  </h2>
-                </div>
-                <div id={`${s.id}-content`} hidden={closed.has(s.id)}>
-                  {content[s.id]}
-                </div>
-              </section>
+                {content[s.id]}
+              </SheetSection>
             ))}
           </OrderedSheetSections>
         </div>
-        <footer className="privacy-note">
-          <strong>Private by design.</strong> Character data is stored in this
-          browser profile and is not backed up online.
-        </footer>
-      </main>
+      </SheetEditorShell>
     </CharacterSectionProvider>
   );
 }
@@ -304,11 +272,11 @@ export function TextField({
 }) {
   const id = useId();
   return (
-    <div className="field">
-      <label htmlFor={id}>{label}</label>
+    <SheetField className="field" label={label} htmlFor={id}>
       {multiline ? (
         <textarea
           id={id}
+          aria-label={label}
           rows={2}
           value={value}
           readOnly={locked}
@@ -317,11 +285,12 @@ export function TextField({
       ) : (
         <input
           id={id}
+          aria-label={label}
           value={value}
           readOnly={locked}
           onChange={(e) => onChange(e.target.value)}
         />
       )}
-    </div>
+    </SheetField>
   );
 }

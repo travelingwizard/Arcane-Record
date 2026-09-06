@@ -1,7 +1,11 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { SaveStatusBadge } from '../../components/character/SaveStatusBadge';
 import { DotRating } from '../../components/controls/DotRating';
 import { OrderedSheetSections } from '../../components/layout/OrderedSheetSections';
+import {
+  SheetField,
+  SheetFieldGrid,
+} from '../../components/layout/SheetPrimitives';
+import { SheetEditorShell } from '../../components/layout/SheetEditorShell';
 import { CharacterSectionNav } from '../../components/navigation/CharacterSectionNav';
 import { CharacterSectionProvider } from '../../components/navigation/CharacterSectionProvider';
 import { MobileSectionNavigator } from '../../components/navigation/MobileSectionNavigator';
@@ -298,25 +302,20 @@ export function Exalted1eEditor({
 
   return (
     <CharacterSectionProvider value={sectionContext}>
-      <main className="app-shell editor-shell exalted-editor-shell">
-        <header className="editor-header exalted-editor-header">
-          <button
-            className="text-button editor-header__back"
-            onClick={() => void returnToLibrary()}
-          >
-            ← Character library
-          </button>
-          <div className="editor-header__title">
-            <p className="eyebrow">Arcane Record · Exalted First Edition</p>
-            <h1>{displayName}</h1>
-            <p>{sheetName} character sheet foundation</p>
-          </div>
-          <div className="editor-header__actions">
-            <SaveStatusBadge status={saveStatus} />
+      <SheetEditorShell
+        gameLabel="Exalted First Edition"
+        title={displayName}
+        subtitle={`${sheetName} character sheet foundation`}
+        saveStatus={saveStatus}
+        onBack={returnToLibrary}
+        className="exalted-editor-shell"
+        headerClassName="exalted-editor-header"
+        headerActions={
+          <>
             <AppearanceSettings gameLabel={`${sheetName} Exalted`} />
-          </div>
-        </header>
-
+          </>
+        }
+      >
         <MobileSectionNavigator />
 
         <div className="character-editor-layout">
@@ -328,97 +327,89 @@ export function Exalted1eEditor({
             <section
               id="exalted-identity"
               data-section-group="character"
-              className="exalted-sheet-section"
+              className="sheet-section character-section exalted-sheet-section"
             >
               <p className="eyebrow">Page one</p>
               <h2 id="exalted-identity-heading" tabIndex={-1}>
                 Character
               </h2>
-              <div className="exalted-field-grid">
-                <label>
-                  <span>Name</span>
+              <SheetFieldGrid columns={2} className="exalted-field-grid">
+                <SheetField label="Name">
                   <input
                     value={draft.identity.name}
                     onChange={(event) =>
                       updateIdentity('name', event.target.value)
                     }
                   />
-                </label>
-                <label>
-                  <span>Player</span>
+                </SheetField>
+                <SheetField label="Player">
                   <input
                     value={draft.identity.player}
                     onChange={(event) =>
                       updateIdentity('player', event.target.value)
                     }
                   />
-                </label>
-                <label>
-                  <span>Concept</span>
+                </SheetField>
+                <SheetField label="Concept">
                   <input
                     value={draft.identity.concept}
                     onChange={(event) =>
                       updateIdentity('concept', event.target.value)
                     }
                   />
-                </label>
-                <label>
-                  <span>Nature</span>
+                </SheetField>
+                <SheetField label="Nature">
                   <input
                     value={draft.identity.nature}
                     onChange={(event) =>
                       updateIdentity('nature', event.target.value)
                     }
                   />
-                </label>
+                </SheetField>
                 {isSolar ? (
-                  <label>
-                    <span>Caste</span>
+                  <SheetField label="Caste">
                     <input
                       value={draft.identity.caste}
                       onChange={(event) =>
                         updateIdentity('caste', event.target.value)
                       }
                     />
-                  </label>
+                  </SheetField>
                 ) : (
                   <>
-                    <label>
-                      <span>Aspect</span>
+                    <SheetField label="Aspect">
                       <input
                         value={draft.identity.aspect}
                         onChange={(event) =>
                           updateIdentity('aspect', event.target.value)
                         }
                       />
-                    </label>
-                    <label>
-                      <span>House</span>
+                    </SheetField>
+                    <SheetField label="House">
                       <input
                         value={draft.identity.house}
                         onChange={(event) =>
                           updateIdentity('house', event.target.value)
                         }
                       />
-                    </label>
+                    </SheetField>
                   </>
                 )}
-                <label>
-                  <span>Anima</span>
+                <SheetField label="Anima">
                   <input
                     value={draft.identity.anima}
                     onChange={(event) =>
                       updateIdentity('anima', event.target.value)
                     }
                   />
-                </label>
-              </div>
+                </SheetField>
+              </SheetFieldGrid>
             </section>
 
             <section
               id="exalted-attributes"
               data-section-group="character"
-              className="exalted-sheet-section"
+              className="sheet-section character-section exalted-sheet-section"
             >
               <p className="eyebrow">Core traits</p>
               <h2 id="exalted-attributes-heading" tabIndex={-1}>
@@ -450,7 +441,7 @@ export function Exalted1eEditor({
             <section
               id="exalted-abilities"
               data-section-group="character"
-              className="exalted-sheet-section"
+              className="sheet-section character-section exalted-sheet-section"
             >
               <p className="eyebrow">
                 {isSolar ? 'Caste groupings' : 'Elemental groupings'}
@@ -507,7 +498,7 @@ export function Exalted1eEditor({
             <section
               id="exalted-languages"
               data-section-group="character"
-              className="exalted-sheet-section"
+              className="sheet-section character-section exalted-sheet-section"
             >
               <p className="eyebrow">Shared Exalted records</p>
               <h2 id="exalted-languages-heading" tabIndex={-1}>
@@ -525,7 +516,7 @@ export function Exalted1eEditor({
             <section
               id="exalted-backgrounds"
               data-section-group="character"
-              className="exalted-sheet-section"
+              className="sheet-section character-section exalted-sheet-section"
             >
               <p className="eyebrow">Sheet-specific list</p>
               <h2 id="exalted-backgrounds-heading" tabIndex={-1}>
@@ -857,7 +848,7 @@ export function Exalted1eEditor({
             <section
               id="exalted-advantages"
               data-section-group="exalted"
-              className="exalted-sheet-section"
+              className="sheet-section character-section exalted-sheet-section"
             >
               <p className="eyebrow">Page-one tracks</p>
               <h2 id="exalted-advantages-heading" tabIndex={-1}>
@@ -1004,7 +995,7 @@ export function Exalted1eEditor({
             <section
               id="exalted-merits-flaws"
               data-section-group="character"
-              className={`exalted-sheet-section exalted-sheet-section--collapsible ${
+              className={`sheet-section character-section exalted-sheet-section exalted-sheet-section--collapsible ${
                 meritsFlawsExpanded
                   ? 'exalted-sheet-section--expanded'
                   : 'exalted-sheet-section--collapsed'
@@ -1073,7 +1064,7 @@ export function Exalted1eEditor({
             <section
               id="exalted-derangements"
               data-section-group="character"
-              className="exalted-sheet-section"
+              className="sheet-section character-section exalted-sheet-section"
             >
               <p className="eyebrow">Shared Exalted records</p>
               <h2 id="exalted-derangements-heading" tabIndex={-1}>
@@ -1090,7 +1081,7 @@ export function Exalted1eEditor({
             <section
               id="exalted-equipment"
               data-section-group="resources"
-              className="exalted-sheet-section"
+              className="sheet-section character-section exalted-sheet-section"
             >
               <p className="eyebrow">Shared Exalted catalog</p>
               <h2 id="exalted-equipment-heading" tabIndex={-1}>
@@ -1107,7 +1098,7 @@ export function Exalted1eEditor({
             <section
               id="exalted-combat"
               data-section-group="combat"
-              className="exalted-sheet-section"
+              className="sheet-section character-section exalted-sheet-section"
             >
               <p className="eyebrow">Derived values</p>
               <h2 id="exalted-combat-heading" tabIndex={-1}>
@@ -1124,7 +1115,7 @@ export function Exalted1eEditor({
             <section
               id="exalted-combos"
               data-section-group="combat"
-              className="exalted-sheet-section"
+              className="sheet-section character-section exalted-sheet-section"
             >
               <p className="eyebrow">Character-specific powers</p>
               <h2 id="exalted-combos-heading" tabIndex={-1}>
@@ -1141,7 +1132,7 @@ export function Exalted1eEditor({
             <section
               id="exalted-charms-sorcery"
               data-section-group="exalted"
-              className="exalted-sheet-section"
+              className="sheet-section character-section exalted-sheet-section"
             >
               <p className="eyebrow">
                 {isSolar ? 'Solar powers' : 'Dragon-Blooded powers'}
@@ -1231,7 +1222,7 @@ export function Exalted1eEditor({
             <section
               id="exalted-possessions"
               data-section-group="resources"
-              className="exalted-sheet-section"
+              className="sheet-section character-section exalted-sheet-section"
             >
               <p className="eyebrow">Shared Exalted records</p>
               <h2 id="exalted-possessions-heading" tabIndex={-1}>
@@ -1246,7 +1237,7 @@ export function Exalted1eEditor({
             <section
               id="exalted-experience"
               data-section-group="advancement"
-              className="exalted-sheet-section"
+              className="sheet-section character-section exalted-sheet-section"
             >
               <p className="eyebrow">Advancement ledger</p>
               <h2 id="exalted-experience-heading" tabIndex={-1}>
@@ -1261,7 +1252,7 @@ export function Exalted1eEditor({
             <section
               id="exalted-history-description"
               data-section-group="advancement"
-              className="exalted-sheet-section"
+              className="sheet-section character-section exalted-sheet-section"
             >
               <p className="eyebrow">Character record</p>
               <h2 id="exalted-history-description-heading" tabIndex={-1}>
@@ -1335,7 +1326,7 @@ export function Exalted1eEditor({
             </section>
           </OrderedSheetSections>
         </div>
-      </main>
+      </SheetEditorShell>
     </CharacterSectionProvider>
   );
 }

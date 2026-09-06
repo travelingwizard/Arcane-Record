@@ -11,7 +11,6 @@ import { IdentitySection } from '../../components/character/IdentitySection';
 import { MeritsFlawsSection } from '../../components/character/MeritsFlawsSection';
 import { ManeuversSection } from '../../components/character/ManeuversSection';
 import { RotesSection } from '../../components/character/RotesSection';
-import { SaveStatusBadge } from '../../components/character/SaveStatusBadge';
 import { SpheresSection } from '../../components/character/SpheresSection';
 import { WondersSection } from '../../components/character/WondersSection';
 import { CharacterSectionProvider } from '../../components/navigation/CharacterSectionProvider';
@@ -37,6 +36,7 @@ import { useMediaQuery } from './use-media-query';
 import { AppearanceSettings } from '../settings/AppearanceSettings';
 import { MageSheetSettingsPanel } from '../../games/mage20/MageSheetSettingsPanel';
 import { MageCreator } from '../../games/mage20/development/MageCreator';
+import { SheetEditorShell } from '../../components/layout/SheetEditorShell';
 
 export function CharacterEditor({
   onReturnToLibrary,
@@ -144,34 +144,19 @@ function CharacterEditorContent({
 
   return (
     <CharacterSectionProvider value={sectionContext}>
-      <main className="app-shell editor-shell">
-        <header className="editor-header">
-          <button
-            type="button"
-            className="text-button editor-header__back"
-            onClick={() => void onReturnToLibrary()}
-          >
-            <span aria-hidden="true">←</span> Character library
-          </button>
-          <div className="editor-header__title">
-            <p className="eyebrow">Arcane Record · Mage M20</p>
-            <h1>{displayName}</h1>
-            <p className="editor-header__subtitle">
-              An editable record kept only on this device.
-            </p>
-          </div>
-          <div className="editor-header__actions">
-            <SaveStatusBadge status={saveStatus} />
+      <SheetEditorShell
+        gameLabel="Mage M20"
+        title={displayName}
+        saveStatus={saveStatus}
+        onBack={onReturnToLibrary}
+        headerActions={
+          <>
             <AppearanceSettings gameLabel="Mage 20">
               <MageSheetSettingsPanel />
             </AppearanceSettings>
-          </div>
-        </header>
-
-        <div className="ornament-rule" aria-hidden="true">
-          <span>✦</span>
-        </div>
-
+          </>
+        }
+      >
         {character.development?.draft ? (
           <div className="character-sheet mage-creator-shell">
             <MageCreator />
@@ -225,12 +210,7 @@ function CharacterEditorContent({
             </div>
           </>
         )}
-
-        <footer className="privacy-note">
-          <strong>Private by design.</strong> Character data is stored in this
-          browser profile and is not backed up online.
-        </footer>
-      </main>
+      </SheetEditorShell>
     </CharacterSectionProvider>
   );
 }

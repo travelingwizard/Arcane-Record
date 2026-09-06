@@ -7,6 +7,8 @@ import type { ArcaneModuleEnvelope } from '../../modules/schema/module-envelope'
 import { coreModuleComponentRegistry } from '../../modules/renderer/component-registry';
 import { createModuleDraft } from './create-module-draft';
 import { FlowDesigner, RuleDesigner } from './RuleDesigner';
+import { SheetEditorShell } from '../../components/layout/SheetEditorShell';
+import type { SaveStatus } from '../../state/editor-store';
 
 type Panel =
   | 'project'
@@ -237,20 +239,26 @@ export function ModuleBuilderPage({
   const template = module?.sheetTemplates[0];
   const section = template?.sections[selectedSection];
   const theme = module?.themes.find((item) => 'tokens' in item);
+  const saveStatus: SaveStatus = status.includes('could not')
+    ? 'error'
+    : status.includes('Saving')
+      ? 'saving'
+      : 'saved';
   return (
-    <main className="app-shell editor-shell module-builder-shell">
-      <header className="editor-header builder-header">
-        <div>
-          <button
-            className="text-button"
-            onClick={() => onNavigate('/module-builder')}
-          >
-            ← Projects
-          </button>
-          <p className="eyebrow">Module draft</p>
-          <h1>{module?.name ?? record.name}</h1>
-          <p role="status">{status}</p>
-        </div>
+    <SheetEditorShell
+      gameLabel="Module builder"
+      title={module?.name ?? record.name}
+      subtitle="A local module draft using the Arcane Record sheet contract."
+      saveStatus={saveStatus}
+      onBack={() => onNavigate('/module-builder')}
+      className="module-builder-shell"
+      headerClassName="builder-header"
+      errorMessage={
+        saveStatus === 'error'
+          ? 'The module draft could not be saved. Keep this page open and review validation.'
+          : undefined
+      }
+      headerActions={
         <div className="compact-actions">
           <button
             disabled={!history.past.length}
@@ -295,7 +303,8 @@ export function ModuleBuilderPage({
             Export validated snapshot
           </button>
         </div>
-      </header>
+      }
+    >
       <div className="builder-workspace">
         <nav className="builder-panels" aria-label="Module builder panels">
           {(
@@ -845,6 +854,6 @@ export function ModuleBuilderPage({
         </section>
       </div>
       <input ref={inputRef} hidden type="file" />
-    </main>
+    </SheetEditorShell>
   );
 }

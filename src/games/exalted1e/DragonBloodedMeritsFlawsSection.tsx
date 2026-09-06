@@ -522,7 +522,10 @@ export function ExaltedMeritsFlawsSection({
                   const limitReached = limit !== undefined && count >= limit;
                   const calculatedCost = selectedCost(definition);
                   return (
-                    <article className="exalted-trait-card" key={definition.id}>
+                    <article
+                      className="sheet-card exalted-trait-card"
+                      key={definition.id}
+                    >
                       <div className="exalted-trait-card__heading">
                         <div>
                           <h4>{definition.name}</h4>

@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { expectMageAlignedFieldGrid } from './support/sheet-alignment';
 
 async function chooseLegend(page: import('@playwright/test').Page) {
   await page.goto('/create');
@@ -17,6 +18,10 @@ test('Legend Hero uses the shared semantic sheet and responsive four-theme layou
   await page.getByRole('button', { name: 'Build Hero', exact: true }).click();
 
   await expect(page.locator('.local-character-sheet')).toBeVisible();
+  await expectMageAlignedFieldGrid(
+    page,
+    '.litm-identity-grid.sheet-field-grid',
+  );
   await expect(page.locator('.litm-creator.character-creator')).toBeVisible();
   await expect(page.locator('.litm-theme-card')).toHaveCount(4);
   const desktopColumns = await page

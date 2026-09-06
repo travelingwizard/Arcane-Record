@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { SaveStatusBadge } from '../../components/character/SaveStatusBadge';
 import { OrderedSheetSections } from '../../components/layout/OrderedSheetSections';
 import { SheetSection } from '../../components/layout/SheetSection';
+import { SheetFieldGrid } from '../../components/layout/SheetPrimitives';
+import { SheetEditorShell } from '../../components/layout/SheetEditorShell';
 import { CharacterSectionNav } from '../../components/navigation/CharacterSectionNav';
 import { CharacterSectionProvider } from '../../components/navigation/CharacterSectionProvider';
 import { MobileSectionNavigator } from '../../components/navigation/MobileSectionNavigator';
@@ -332,20 +333,16 @@ export function ModuleCharacterEditor({
 
   return (
     <CharacterSectionProvider value={sectionContext}>
-      <main className="app-shell editor-shell local-sheet-editor-shell module-character-editor">
-        <header className="editor-header local-sheet-editor-header">
-          <button className="text-button" onClick={() => void onBack()}>
-            ← Character library
-          </button>
-          <div className="editor-header__title">
-            <p className="eyebrow">Arcane Record · {resolved.gameNode.name}</p>
-            <h1>
-              {record.name || `Untitled ${resolved.gameNode.name} character`}
-            </h1>
-            <p>{template.name} · Declarative module</p>
-          </div>
-          <div className="editor-header__actions">
-            <SaveStatusBadge status={saveStatus} />
+      <SheetEditorShell
+        gameLabel={resolved.gameNode.name}
+        title={record.name || `Untitled ${resolved.gameNode.name} character`}
+        subtitle={`${template.name} · Declarative module`}
+        saveStatus={saveStatus}
+        onBack={onBack}
+        className="local-sheet-editor-shell module-character-editor"
+        headerClassName="local-sheet-editor-header"
+        headerActions={
+          <>
             <button
               type="button"
               className="secondary-button"
@@ -365,9 +362,9 @@ export function ModuleCharacterEditor({
                 <MageSheetSettingsPanel />
               ) : null}
             </AppearanceSettings>
-          </div>
-        </header>
-
+          </>
+        }
+      >
         {template.modes.length > 1 && template.modePath ? (
           template.modes.length === 2 &&
           template.modes[0]?.id === 'build' &&
@@ -423,7 +420,7 @@ export function ModuleCharacterEditor({
                 description={section.description}
                 data-section-group={section.groupId}
               >
-                <div className="identity-grid">
+                <SheetFieldGrid columns={3} className="identity-grid">
                   {section.componentIds.map((componentId) => {
                     const component = components.get(componentId);
                     if (!component) return null;
@@ -489,16 +486,12 @@ export function ModuleCharacterEditor({
                       </div>
                     );
                   })}
-                </div>
+                </SheetFieldGrid>
               </SheetSection>
             ))}
           </OrderedSheetSections>
         </div>
-        <footer className="privacy-note">
-          <strong>Private by design.</strong> Character data is stored in this
-          browser profile and is not backed up online.
-        </footer>
-      </main>
+      </SheetEditorShell>
     </CharacterSectionProvider>
   );
 }

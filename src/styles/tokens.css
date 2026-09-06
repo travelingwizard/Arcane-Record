@@ -79,6 +79,7 @@
   --wheel-center-edge: #dbc9a9;
   --shadow-sheet: 0 1.25rem 3rem rgb(45 35 22 / 18%);
   --shadow-card: 0 0.4rem 1.2rem rgb(45 35 22 / 9%);
+  --indicator-glow: none;
 }
 
 :root[data-theme='midnight-quintessence'] {
@@ -129,6 +130,8 @@
   --wheel-center-edge: #0d1326;
   --shadow-sheet: 0 1.5rem 3.5rem rgb(0 0 0 / 45%);
   --shadow-card: 0 0.5rem 1.4rem rgb(0 0 0 / 30%);
+  --indicator-glow:
+    inset 0 0 1.4rem rgb(128 216 255 / 16%), 0 0 0.7rem rgb(167 139 250 / 14%);
 }
 
 :root[data-theme='hermetic-observatory'] {

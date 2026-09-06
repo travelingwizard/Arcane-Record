@@ -853,9 +853,7 @@
 }
 
 :root[data-theme='midnight-quintessence'] .preview-indicator--quintessence {
-  box-shadow:
-    inset 0 0 1rem rgb(128 216 255 / 18%),
-    0 0 0.8rem rgb(167 139 250 / 18%);
+  box-shadow: var(--indicator-glow);
 }
 
 .primary-button:hover {
@@ -1673,6 +1671,246 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem 1.5rem;
+}
+
+/* Every game and generated module opts into this alignment contract for its
+   primary character fields. Individual systems may choose their column count,
+   but labels, controls, and grid cells must line up like the Mage sheet. */
+.sheet-field-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: 1rem 1.5rem;
+  align-items: start;
+}
+
+.sheet-field-grid[data-columns='1'] {
+  grid-template-columns: 1fr;
+}
+
+.sheet-field-grid[data-columns='2'] {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sheet-field-grid[data-columns='3'] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.sheet-field-grid[data-columns='4'] {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.sheet-field-grid > :is(label, .field, .module-component) {
+  min-width: 0;
+  align-self: stretch;
+}
+
+.sheet-field,
+.sheet-field-grid :is(label, .field) {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 0.35rem;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.sheet-field-grid
+  :is(input:not([type='checkbox']):not([type='radio']), select, textarea) {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.sheet-field
+  :is(input:not([type='checkbox']):not([type='radio']), select, textarea) {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.65rem;
+  box-sizing: border-box;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: var(--paper-light);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.sheet-field textarea {
+  resize: vertical;
+}
+
+/* Primary identity records use Mage's ruled-field treatment in every game.
+   More expressive text areas remain boxed outside the identity grid. */
+.sheet-field-grid.identity-grid .sheet-field {
+  gap: 0.25rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.sheet-field-grid.identity-grid
+  .sheet-field
+  :is(input:not([type='checkbox']):not([type='radio']), select) {
+  min-height: 2.75rem;
+  padding: 0.45rem 0.1rem;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+  background: transparent;
+  font-size: 1.08rem;
+}
+
+.sheet-card {
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: var(--paper-light);
+  box-shadow: var(--shadow-card);
+}
+
+.sheet-card--compact {
+  padding: 0.75rem;
+}
+
+.sheet-card--selected {
+  border-color: var(--accent);
+  background: var(--active-background);
+}
+
+.sheet-toolbar {
+  min-width: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 0.75rem;
+}
+
+.sheet-notice {
+  min-width: 0;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--rule-light);
+  border-left: 0.3rem solid var(--accent);
+  color: var(--ink);
+  background: var(--surface-raised);
+}
+
+.sheet-notice--success {
+  border-left-color: var(--success);
+}
+
+.sheet-notice--warning {
+  border-left-color: var(--warning);
+  background: var(--surface-warning);
+}
+
+.sheet-notice--danger {
+  border-left-color: var(--danger);
+  background: var(--surface-danger);
+}
+
+.sheet-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.75rem;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  color: var(--ink-soft);
+  background: var(--paper-light);
+  font-family: var(--font-metadata);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.sheet-badge--accent {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.sheet-badge--success {
+  color: var(--success);
+}
+
+.sheet-badge--warning {
+  color: var(--warning);
+}
+
+.sheet-badge--danger {
+  color: var(--danger);
+}
+
+.sheet-empty-state {
+  margin: 0;
+  padding: 0.75rem;
+  border: 1px dashed var(--rule-light);
+  color: var(--ink-soft);
+  background: var(--surface-glaze);
+}
+
+.sheet-card-list {
+  min-width: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.sheet-card-list > :is(article, li, details) {
+  min-width: 0;
+  padding: 0.75rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  background: var(--paper-light);
+}
+
+.sheet-stat-grid,
+.sheet-choice-grid {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  gap: 0.75rem;
+}
+
+.sheet-stat-grid > :is(article, div, span) {
+  min-width: 0;
+  padding: 0.75rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  background: var(--paper-light);
+}
+
+.sheet-choice-grid > button,
+.sheet-choice-card {
+  min-width: 0;
+  min-height: 44px;
+  padding: 0.75rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  color: var(--ink);
+  background: var(--paper-light);
+  text-align: left;
+}
+
+.sheet-choice-grid > button[aria-pressed='true'],
+.sheet-choice-card:has(> input:checked) {
+  border-color: var(--accent);
+  background: var(--active-background);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.earthdawn-field-grid,
+.earthdawn-text-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.earthdawn-text-grid textarea {
+  min-height: 8rem;
 }
 
 .module-character-editor .identity-grid {
@@ -2626,9 +2864,7 @@
 }
 
 :root[data-theme='midnight-quintessence'] .enlightenment-track--quintessence {
-  box-shadow:
-    inset 0 0 1.4rem rgb(128 216 255 / 16%),
-    0 0 0.7rem rgb(167 139 250 / 14%);
+  box-shadow: var(--indicator-glow);
 }
 
 .health-layout {
@@ -5035,7 +5271,7 @@
 }
 
 .exalted-combo-analysis.is-valid {
-  border-top: 0.25rem solid #3f6b42;
+  border-top: 0.25rem solid var(--success);
 }
 
 .exalted-combo-analysis.is-invalid,
@@ -5045,7 +5281,7 @@
 }
 
 .exalted-combo-warning {
-  color: #76520d;
+  color: var(--warning);
 }
 
 /* Burning Wheel Gold + Codex */
@@ -5379,13 +5615,7 @@
 
 /* Local-sheet fields follow the same label-over-control grid used by Mage and
    Exalted. This prevents inline labels from offsetting otherwise equal fields. */
-.local-character-sheet
-  :is(
-    .field,
-    label:has(> input:not([type='checkbox']):not([type='radio'])),
-    label:has(> select),
-    label:has(> textarea)
-  ) {
+.local-character-sheet :is(.field, .sheet-field) {
   min-width: 0;
   display: grid;
   align-content: start;

@@ -23,8 +23,18 @@ Every production character editor uses the same semantic theme tokens,
 cards, serif headings, sans-serif field labels, shared controls, and navigation
 chrome. Game-owned classes may arrange fields and cards, but must not introduce
 a second palette or reference undefined color or spacing variables. New editors
-use the shared `LocalSheet` shell or equivalent canonical classes from the Mage
-editor.
+use `SheetEditorShell`, `SheetSection`, `SheetFieldGrid`, `SheetField`,
+`SheetCard`, `SheetToolbar`, `SheetNotice`, `SheetBadge`, and
+`SheetEmptyState`. `LocalSheet` is the adapter for smaller game modules and is
+implemented with the same primitives. Game-prefixed classes may describe only
+rules-specific structure; they must not redefine field, control, card, notice,
+heading, or interaction presentation.
+
+Mage, Exalted Dragon-Blooded, and Burning Wheel are the parity references. A
+new or changed editor is not visually complete until equivalent fields align,
+labels sit above controls, controls fill their grid cells, section and card
+surfaces resolve from semantic tokens, and the shared browser contract tests
+pass at desktop, intermediate, and 320 CSS-pixel widths.
 
 Guided character creators are sheet views, not separately themed wizards. Every
 creator uses the shared `character-creator` contract for semantic panel

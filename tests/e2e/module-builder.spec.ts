@@ -12,9 +12,7 @@ test('authors and recovers a local module draft at desktop and mobile widths', a
   await expect(page).toHaveURL(/\/module-builder\//);
 
   await page.getByLabel('Name', { exact: true }).fill('Lantern Test');
-  await expect(page.getByRole('status')).toHaveText(
-    'Draft saved in this browser',
-  );
+  await expect(page.getByRole('status')).toHaveText('Saved in this browser');
   await page.getByRole('button', { name: 'Hierarchy' }).click();
   await page.getByRole('button', { name: 'Add game node' }).click();
   await expect(page.getByLabel('Parent').last()).toHaveValue('game');

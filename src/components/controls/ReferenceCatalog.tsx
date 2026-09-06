@@ -1,5 +1,12 @@
 import { useMemo, useState } from 'react';
 import { matchesReferenceSearch } from '../../systems/mage-m20/reference/magick';
+import {
+  SheetBadge,
+  SheetCard,
+  SheetEmptyState,
+  SheetField,
+  SheetToolbar,
+} from '../layout/SheetPrimitives';
 
 export interface ReferenceCatalogEntry {
   id: string;
@@ -57,18 +64,19 @@ export function ReferenceCatalog<Entry extends ReferenceCatalogEntry>({
       className="reference-catalog"
       aria-label={`${label} reference catalog`}
     >
-      <div className="catalog-toolbar">
-        <label className="catalog-search">
-          <span>Search {label.toLocaleLowerCase()}</span>
+      <SheetToolbar className="catalog-toolbar">
+        <SheetField
+          className="catalog-search"
+          label={`Search ${label.toLocaleLowerCase()}`}
+        >
           <input
             type="search"
             value={search}
             placeholder="Name, description, or source"
             onChange={(event) => setSearch(event.target.value)}
           />
-        </label>
-        <label>
-          <span>Family</span>
+        </SheetField>
+        <SheetField label="Family">
           <select
             value={family}
             onChange={(event) => setFamily(event.target.value)}
@@ -80,7 +88,7 @@ export function ReferenceCatalog<Entry extends ReferenceCatalogEntry>({
               </option>
             ))}
           </select>
-        </label>
+        </SheetField>
         <label className="catalog-mature-toggle">
           <input
             type="checkbox"
@@ -89,13 +97,16 @@ export function ReferenceCatalog<Entry extends ReferenceCatalogEntry>({
           />
           <span>Include mature material</span>
         </label>
-      </div>
+      </SheetToolbar>
 
       <p className="catalog-result-count" role="status">
         {results.length} of {entries.length} entries
       </p>
 
       <div className="catalog-results">
+        {results.length === 0 ? (
+          <SheetEmptyState>No matching references.</SheetEmptyState>
+        ) : null}
         {results.map((entry) => {
           const isExpanded = expanded.has(entry.id);
           const isSelected = selectedDefinitionIds.has(entry.id);
@@ -103,13 +114,13 @@ export function ReferenceCatalog<Entry extends ReferenceCatalogEntry>({
             .toLocaleLowerCase()
             .replace(/\s+/g, '-')}-${entry.id}-reference`;
           return (
-            <article className="catalog-card" key={entry.id}>
+            <SheetCard className="catalog-card" key={entry.id}>
               <div className="catalog-card__heading">
                 <div>
                   <div className="catalog-card__labels">
-                    <span className="kind-badge">
+                    <SheetBadge className="kind-badge" tone="accent">
                       {familyLabel(entry.family)}
-                    </span>
+                    </SheetBadge>
                     {entry.contentLabel === 'mature' ? (
                       <span>Mature</span>
                     ) : null}
@@ -168,7 +179,7 @@ export function ReferenceCatalog<Entry extends ReferenceCatalogEntry>({
               >
                 {isSelected ? 'Selected' : 'Add'}
               </button>
-            </article>
+            </SheetCard>
           );
         })}
       </div>

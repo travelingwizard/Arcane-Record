@@ -18,6 +18,7 @@ import { CityBuildReview } from './CityBuildReview';
 import { CityDevelopment } from './CityDevelopment';
 import { CityStorySection } from './CityStorySection';
 import { CityCreatorGuide } from './CityCreatorGuide';
+import { SheetFieldGrid } from '../../components/layout/SheetPrimitives';
 
 export const citySections = [
   'identity',
@@ -501,7 +502,10 @@ export function CityEditor(props: GameCharacterEditorProps<CityCharacter>) {
       }
       content={{
         'com-identity': (
-          <div className="identity-grid local-identity-grid">
+          <SheetFieldGrid
+            columns={3}
+            className="identity-grid local-identity-grid"
+          >
             <p role="status">
               Guided creation validates objective structure. The MC decides
               fictional relevance and any approved exceptions.
@@ -580,7 +584,7 @@ export function CityEditor(props: GameCharacterEditorProps<CityCharacter>) {
                 />
               </>
             )}
-          </div>
+          </SheetFieldGrid>
         ),
         'com-themes': (
           <>

@@ -1,6 +1,7 @@
 import { expect, test, type Page } from '@playwright/test';
 import { createBlankTorchbearer2eCharacter } from '../../src/games/torchbearer2e/create-character';
 import { serializeCharacter } from '../../src/features/import-export/character-files';
+import { expectMageAlignedFieldGrid } from './support/sheet-alignment';
 
 async function goToStep(page: Page, name: string) {
   await page
@@ -126,6 +127,7 @@ test('guides, finalizes, edits, browses, reorders, and persists a Torchbearer ch
     page.getByText('All enforced creation rules are satisfied.'),
   ).toBeVisible();
   await page.getByRole('button', { name: 'Finalize character' }).click();
+  await expectMageAlignedFieldGrid(page, '.tb2-field-grid.sheet-field-grid');
 
   await expect(
     page.getByRole('heading', { name: 'Who You Are' }),

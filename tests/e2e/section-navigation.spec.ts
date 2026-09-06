@@ -16,6 +16,7 @@ test('navigates the full desktop sheet with anchors and active-section tracking'
   await page.getByRole('button', { name: 'Create Character' }).click();
   await page.getByRole('button', { name: 'Choose Mage 20' }).click();
   await page.getByRole('button', { name: 'Open Blank Sheet' }).click();
+  await expect(page.locator('.identity-grid.sheet-field-grid')).toBeVisible();
 
   const desktopNavigation = page.getByRole('navigation', {
     name: 'Character sheet sections',

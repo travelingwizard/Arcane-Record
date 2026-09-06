@@ -68,6 +68,14 @@ pixel positioning, overflow, z-index, fixed positioning, or responsive
 breakpoints. Every generated sheet must pass the 320 CSS-pixel no-horizontal-
 scroll check.
 
+The runtime—not the module—maps these roles to `SheetEditorShell`,
+`SheetSection`, `SheetFieldGrid`, `SheetField`, `SheetCard`, `SheetToolbar`,
+`SheetNotice`, `SheetBadge`, and `SheetEmptyState`. Module envelopes have no CSS
+class, color, font, border, shadow, or arbitrary presentation-string fields.
+Because the schemas use strict objects, attempts to add those fields fail
+validation. Builder previews use the same runtime primitives as installed
+modules; a separate preview palette or field treatment is a release failure.
+
 ## Standard registry
 
 | Type ID                      | Value/configuration                            | Required behavior                                                             |

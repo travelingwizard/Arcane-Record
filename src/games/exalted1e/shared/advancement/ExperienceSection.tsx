@@ -140,7 +140,7 @@ export function ExperienceSection({ character, onChange }: Props) {
         </button>
       </div>
       {showSpend ? (
-        <div className="exalted-workflow-card">
+        <div className="sheet-card exalted-workflow-card">
           <h3>Raise Essence</h3>
           <p>
             Current {character.essence.rating} · Proposed{' '}
@@ -177,7 +177,7 @@ export function ExperienceSection({ character, onChange }: Props) {
           </div>
         </div>
       ) : null}
-      <div className="exalted-workflow-card">
+      <div className="sheet-card exalted-workflow-card">
         <h3>Add Award or Manual Adjustment</h3>
         <div className="exalted-background-add">
           <label>
@@ -218,7 +218,7 @@ export function ExperienceSection({ character, onChange }: Props) {
         </div>
       </div>
       {showDowntime ? (
-        <div className="exalted-workflow-card">
+        <div className="sheet-card exalted-workflow-card">
           <h3>Downtime Advancement</h3>
           <p className="section-note">
             Downtime records are shown in history but never converted into fake

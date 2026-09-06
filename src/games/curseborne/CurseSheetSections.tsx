@@ -31,7 +31,7 @@ export function CurseAspirations({ character: c, onChange, locked }: Props) {
       ],
     });
   return (
-    <div className="curseborne-panel curseborne-aspirations">
+    <div className="sheet-card curseborne-panel curseborne-aspirations">
       <h3>Aspirations</h3>
       {(['short', 'long'] as const).map((horizon) => (
         <div key={horizon}>
@@ -113,7 +113,7 @@ export function CurseTraitsSection({ character: c, onChange, locked }: Props) {
   ] as const;
   return (
     <div className="curseborne-traits-layout">
-      <div className="curseborne-panel">
+      <div className="sheet-card curseborne-panel">
         <h3>Skills</h3>
         {Object.keys(c.skills).map((id) => (
           <div className="curseborne-rating-row" key={id}>
@@ -130,7 +130,7 @@ export function CurseTraitsSection({ character: c, onChange, locked }: Props) {
           </div>
         ))}
       </div>
-      <div className="curseborne-panel">
+      <div className="sheet-card curseborne-panel">
         <h3>Edges</h3>
         {c.edges.map((edge) => (
           <details key={edge.id}>
@@ -216,7 +216,10 @@ export function CurseTraitsSection({ character: c, onChange, locked }: Props) {
       </div>
       <div className="curseborne-arena-grid">
         {arenas.map(([arena, ids]) => (
-          <div className="curseborne-panel curseborne-stat-arena" key={arena}>
+          <div
+            className="sheet-card curseborne-panel curseborne-stat-arena"
+            key={arena}
+          >
             <h3>{arena}</h3>
             {ids.map((id) => (
               <div className="curseborne-rating-row" key={id}>
@@ -251,7 +254,7 @@ function Connections({
 }: Props & { kind: 'contacts' | 'bonds' }) {
   const records = c[kind];
   return (
-    <div className="curseborne-panel">
+    <div className="sheet-card curseborne-panel">
       <h3>{kind === 'contacts' ? 'Contacts' : 'Bonds'}</h3>
       {records.map((record) => (
         <details key={record.id}>
@@ -611,7 +614,7 @@ export function CurseTorments({ character: c, onChange, locked }: Props) {
     key: 'accursedTorment' | 'personalTormentRecord',
     label: string,
   ) => (
-    <div className="curseborne-panel">
+    <div className="sheet-card curseborne-panel">
       <h3>{label}</h3>
       <TextField
         label="Torment"

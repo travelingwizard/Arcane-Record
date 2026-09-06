@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { expectMageAlignedFieldGrid } from './support/sheet-alignment';
 
 test('creates an Earthdawn adept and exposes source and dice tools', async ({
   page,
@@ -8,7 +9,9 @@ test('creates an Earthdawn adept and exposes source and dice tools', async ({
   await page.getByRole('button', { name: 'Choose Earthdawn 4e' }).click();
   await page.getByRole('button', { name: 'Build Character' }).click();
 
-  await expect(page.locator('.tb2-creator.character-creator')).toBeVisible();
+  await expect(
+    page.locator('.earthdawn-creator.character-creator'),
+  ).toBeVisible();
   await expect(
     page.getByText(/Earthdawn creation · Step 1 of 10/),
   ).toBeVisible();
@@ -38,8 +41,12 @@ test('blank play sheet remains usable at 320px', async ({ page }) => {
 
   await expect(page.locator('main.local-sheet-editor-shell')).toBeVisible();
   await expect(page.locator('.local-character-sheet')).toBeVisible();
+  await expectMageAlignedFieldGrid(
+    page,
+    '.earthdawn-field-grid.sheet-field-grid',
+  );
   const sheetSurface = await page
-    .locator('.tb2-character-sheet')
+    .locator('.earthdawn-character-sheet')
     .evaluate((node) => ({
       border: getComputedStyle(node).borderTopWidth,
       background: getComputedStyle(node).backgroundImage,
