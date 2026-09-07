@@ -87,3 +87,6 @@ definition metadata control creation presentation only, not persistence.
   game-owned guided burner, play sheet, legacy adapter, and PDF generator.
 - `torchbearer2e` — Torchbearer Second Edition editable two-page adventurer
   record with shared navigation, persistence, appearance, and interchange.
+- `shadowrun1e` — Shadowrun First Edition priority-build foundation with shared
+  navigation, Build/Play modes, source ownership controls, and local
+  interchange.

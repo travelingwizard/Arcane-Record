@@ -51,6 +51,7 @@ export function CatalogSourceSettings({
           <p key={id}>Unresolved source preserved: {id}</p>
         ))}
       <button
+        className="secondary-button"
         type="button"
         onClick={() => {
           try {

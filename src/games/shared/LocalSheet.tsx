@@ -10,6 +10,7 @@ import type { z } from 'zod';
 import type {
   GameCharacterEditorProps,
   GameSectionDefinition,
+  GameSectionGroupDefinition,
 } from '../game-system';
 import type { SaveStatus } from '../../state/editor-store';
 import { AppearanceSettings } from '../../features/settings/AppearanceSettings';
@@ -138,6 +139,7 @@ export function LocalSheet({
   order,
   onOrder,
   sections,
+  groups: suppliedGroups,
   content,
   status,
   onBack,
@@ -151,6 +153,7 @@ export function LocalSheet({
   order: string[];
   onOrder: (order: string[]) => void;
   sections: readonly GameSectionDefinition[];
+  groups?: readonly GameSectionGroupDefinition[];
   content: Record<string, ReactNode>;
   status: SaveStatus;
   onBack: () => void;
@@ -163,7 +166,11 @@ export function LocalSheet({
     sections[0]!.id,
   );
   const nav = useSheetSectionNavigation({ sections, setActiveSection });
-  const groups = sections.map((s) => ({ id: s.group, label: s.label }));
+  const groups = suppliedGroups ?? [
+    ...new Map(
+      sections.map((s) => [s.group, { id: s.group, label: s.label }]),
+    ).values(),
+  ];
   const expand = (id: string, value: boolean) =>
     setClosed((previous) => {
       const next = new Set(previous);

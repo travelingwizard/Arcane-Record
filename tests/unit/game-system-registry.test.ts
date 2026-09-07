@@ -49,6 +49,16 @@ describe('game system registry', () => {
     expect(system?.sections.map(({ id }) => id)).toContain('tb2-magic');
   });
 
+  it('registers Shadowrun First Edition with build and play entry paths', () => {
+    const system = gameSystemRegistry.get('shadowrun1e');
+    expect(system?.name).toBe('Shadowrun First Edition');
+    expect(system?.creationActions?.map(({ id }) => id)).toEqual([
+      'build',
+      'play',
+    ]);
+    expect(system?.sections.map(({ id }) => id)).toContain('sr1-creation');
+  });
+
   it('resolves valid characters and preserves unknown systems as unavailable', () => {
     const mage = resolveCharacter(
       createMageStoredCharacter(),

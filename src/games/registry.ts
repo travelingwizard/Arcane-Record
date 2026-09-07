@@ -10,6 +10,7 @@ import {
   legendDefinition,
   legendFellowshipDefinition,
 } from './legend-in-the-mist/definition';
+import { shadowrun1eDefinition } from './shadowrun1e/definition';
 
 export const gameSystemRegistry = new GameSystemRegistry()
   .register(mage20Definition)
@@ -21,4 +22,5 @@ export const gameSystemRegistry = new GameSystemRegistry()
   .register(cityCrewDefinition)
   .register(curseDefinition)
   .register(legendDefinition)
-  .register(legendFellowshipDefinition);
+  .register(legendFellowshipDefinition)
+  .register(shadowrun1eDefinition);
