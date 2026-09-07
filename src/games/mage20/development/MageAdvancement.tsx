@@ -2,6 +2,10 @@ import { useState } from 'react';
 import type { MageCharacter } from '../../../types/character';
 import { useEditorStore } from '../../../state/editor-store';
 import {
+  SheetField,
+  SheetNotice,
+} from '../../../components/layout/SheetPrimitives';
+import {
   advancementQuote,
   developmentFor,
   experienceTotals,
@@ -43,10 +47,9 @@ export function MageAdvancement() {
         M20, pp. 253, 335–338. Storyteller approval and training are required;
         Arete increases require a Seeking.
       </p>
-      <details>
+      <details className="sheet-card sheet-card--compact mage-advancement-panel">
         <summary>Award or adjust XP</summary>
-        <label>
-          <span>XP entry type</span>
+        <SheetField label="XP entry type">
           <select
             value={kind}
             onChange={(e) => setKind(e.target.value as typeof kind)}
@@ -54,24 +57,23 @@ export function MageAdvancement() {
             <option value="award">Award earned XP</option>
             <option value="adjustment">Adjust available XP only</option>
           </select>
-        </label>
-        <label>
-          <span>XP amount</span>
+        </SheetField>
+        <SheetField label="XP amount">
           <input
             type="number"
             step="1"
             value={amount}
             onChange={(e) => setAmount(Math.trunc(Number(e.target.value)))}
           />
-        </label>
-        <label>
-          <span>XP entry explanation</span>
+        </SheetField>
+        <SheetField label="XP entry explanation">
           <input
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
-        </label>
+        </SheetField>
         <button
+          className="primary-button"
           disabled={!description.trim()}
           onClick={() =>
             perform((current) =>
@@ -82,10 +84,9 @@ export function MageAdvancement() {
           Record XP entry
         </button>
       </details>
-      <details>
+      <details className="sheet-card sheet-card--compact mage-advancement-panel">
         <summary>Spend Experience</summary>
-        <label>
-          <span>Advancement Trait</span>
+        <SheetField label="Advancement Trait">
           <select
             value={target}
             onChange={(e) => {
@@ -100,7 +101,7 @@ export function MageAdvancement() {
               </option>
             ))}
           </select>
-        </label>
+        </SheetField>
         {selected && (
           <>
             <p>
@@ -110,14 +111,15 @@ export function MageAdvancement() {
               {quote.explanation}{' '}
               {quote.cost !== null && <strong>Cost: {quote.cost} XP</strong>}
             </p>
-            {quote.issue && <p className="notice">{quote.issue}</p>}
-            <label>
-              <span>Training, Seeking or story justification</span>
+            {quote.issue && (
+              <SheetNotice tone="warning">{quote.issue}</SheetNotice>
+            )}
+            <SheetField label="Training, Seeking or story justification">
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
-            </label>
+            </SheetField>
             <label>
               <input
                 type="checkbox"
@@ -128,6 +130,7 @@ export function MageAdvancement() {
             </label>
             <div className="button-row">
               <button
+                className="primary-button"
                 disabled={
                   !approved ||
                   !description.trim() ||
@@ -144,6 +147,7 @@ export function MageAdvancement() {
                 Confirm XP purchase
               </button>
               <button
+                className="secondary-button"
                 disabled={!approved || !description.trim()}
                 onClick={() =>
                   perform((current) =>
@@ -160,11 +164,15 @@ export function MageAdvancement() {
           </>
         )}
       </details>
-      {error && <p role="alert">{error}</p>}
-      <details>
+      {error && (
+        <SheetNotice tone="danger" role="alert">
+          {error}
+        </SheetNotice>
+      )}
+      <details className="sheet-card sheet-card--compact mage-advancement-panel">
         <summary>Experience History ({dev.ledger.length})</summary>
         {dev.ledger.map((e) => (
-          <article key={e.id}>
+          <article className="sheet-card sheet-card--compact" key={e.id}>
             <strong>
               {e.date} · {e.kind} · {e.amount > 0 ? '+' : ''}
               {e.amount} XP
@@ -179,6 +187,7 @@ export function MageAdvancement() {
             {e.kind === 'purchase' &&
               !dev.ledger.some((r) => r.reverses === e.id) && (
                 <button
+                  className="secondary-button"
                   onClick={() =>
                     perform((current) => refundPurchase(current, e.id))
                   }
@@ -189,14 +198,13 @@ export function MageAdvancement() {
           </article>
         ))}
       </details>
-      <details>
+      <details className="sheet-card sheet-card--compact mage-advancement-panel">
         <summary>Creation record and personal history</summary>
         <p>
           {dev.status} · {dev.finalizedAt ?? 'No recorded finalization'}
         </p>
         {Object.entries(dev.details).map(([key, value]) => (
-          <label key={key}>
-            <span>{key}</span>
+          <SheetField key={key} label={key}>
             <textarea
               readOnly={c.sheetLayout.mode === 'play'}
               value={value}
@@ -213,7 +221,7 @@ export function MageAdvancement() {
                 }))
               }
             />
-          </label>
+          </SheetField>
         ))}
         {dev.baseline && (
           <ul>

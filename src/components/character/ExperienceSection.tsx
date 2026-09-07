@@ -57,6 +57,7 @@ export function ExperienceSection() {
             onChange={updateExperience}
           />
           <button
+            className="secondary-button"
             onClick={() =>
               update((c) => {
                 const development = developmentFor(c);

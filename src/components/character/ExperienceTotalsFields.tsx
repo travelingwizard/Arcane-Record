@@ -1,3 +1,5 @@
+import { SheetField, SheetFieldGrid } from '../layout/SheetPrimitives';
+
 interface ExperienceTotalsFieldsProps {
   total: number;
   current: number;
@@ -18,9 +20,15 @@ export function ExperienceTotalsFields({
   readOnly = false,
 }: ExperienceTotalsFieldsProps) {
   return (
-    <div className="experience-total-fields" aria-label="Experience totals">
-      <label htmlFor={`${idPrefix}-total-experience`}>
-        <span>Total Experience</span>
+    <SheetFieldGrid
+      columns={2}
+      className="experience-total-fields"
+      aria-label="Experience totals"
+    >
+      <SheetField
+        label="Total Experience"
+        htmlFor={`${idPrefix}-total-experience`}
+      >
         <input
           id={`${idPrefix}-total-experience`}
           type="number"
@@ -33,9 +41,11 @@ export function ExperienceTotalsFields({
             onChange('total', parseExperience(event.target.value))
           }
         />
-      </label>
-      <label htmlFor={`${idPrefix}-current-experience`}>
-        <span>Current Experience</span>
+      </SheetField>
+      <SheetField
+        label="Current Experience"
+        htmlFor={`${idPrefix}-current-experience`}
+      >
         <input
           id={`${idPrefix}-current-experience`}
           type="number"
@@ -48,7 +58,7 @@ export function ExperienceTotalsFields({
             onChange('current', parseExperience(event.target.value))
           }
         />
-      </label>
-    </div>
+      </SheetField>
+    </SheetFieldGrid>
   );
 }

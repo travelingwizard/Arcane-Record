@@ -349,6 +349,7 @@ function Creator({
         <p>No structural issues found.</p>
       )}
       <button
+        className="primary-button"
         disabled={blocking.length > 0}
         onClick={() =>
           onChange({
@@ -392,7 +393,9 @@ function Statuses({
   };
   return (
     <div className="litm-card-list">
-      <button onClick={add}>Add status</button>
+      <button className="secondary-button" onClick={add}>
+        Add status
+      </button>
       {hero.statuses.map((s) => (
         <SheetCard className="litm-record-card" density="compact" key={s.id}>
           <Field
@@ -413,6 +416,7 @@ function Statuses({
           </p>
           <div className="compact-actions">
             <button
+              className="small-button small-button--quiet"
               onClick={() =>
                 onChange({
                   ...hero,
@@ -425,6 +429,7 @@ function Statuses({
               Stack tier 1
             </button>
             <button
+              className="small-button small-button--quiet"
               onClick={() =>
                 onChange({
                   ...hero,
@@ -437,6 +442,7 @@ function Statuses({
               Reduce 1
             </button>
             <button
+              className="small-button small-button--quiet"
               onClick={() =>
                 onChange({
                   ...hero,
@@ -492,7 +498,9 @@ function Roller({
           <option value="reaction">Reaction</option>
         </select>
       </label>
-      <button onClick={roll}>Roll 2d6</button>
+      <button className="primary-button" onClick={roll}>
+        Roll 2d6
+      </button>
       {hero.rolls.slice(0, 10).map((r) => (
         <p key={r.id}>
           {r.dice.join(' + ')} + Power {r.power} = {r.total}: {r.outcome};
@@ -565,8 +573,18 @@ export function LegendHeroEditor(props: GameCharacterEditorProps<LegendHero>) {
               {w.name}
             </label>
           ))}
-          <button onClick={() => void download('json')}>Save JSON file</button>
-          <button onClick={() => void download('yaml')}>Save YAML file</button>
+          <button
+            className="secondary-button"
+            onClick={() => void download('json')}
+          >
+            Save JSON file
+          </button>
+          <button
+            className="secondary-button"
+            onClick={() => void download('yaml')}
+          >
+            Save YAML file
+          </button>
         </>
       }
       content={{
@@ -598,6 +616,7 @@ export function LegendHeroEditor(props: GameCharacterEditorProps<LegendHero>) {
         'litm-creator':
           c.creation.status === 'finalized' ? (
             <button
+              className="secondary-button"
               onClick={() =>
                 update({
                   ...c,
@@ -637,6 +656,7 @@ export function LegendHeroEditor(props: GameCharacterEditorProps<LegendHero>) {
         'litm-backpack': (
           <div className="litm-card-list">
             <button
+              className="secondary-button"
               disabled={locked}
               onClick={() =>
                 update({
@@ -677,6 +697,7 @@ export function LegendHeroEditor(props: GameCharacterEditorProps<LegendHero>) {
               to a server.
             </p>
             <button
+              className="secondary-button"
               disabled={locked}
               onClick={() =>
                 update({
@@ -729,6 +750,7 @@ export function LegendHeroEditor(props: GameCharacterEditorProps<LegendHero>) {
                   }
                 />
                 <button
+                  className="small-button small-button--quiet"
                   onClick={() =>
                     update({
                       ...c,
@@ -750,6 +772,7 @@ export function LegendHeroEditor(props: GameCharacterEditorProps<LegendHero>) {
           <div className="litm-field-grid">
             <p>Promise {c.promise}/5</p>
             <button
+              className="secondary-button"
               onClick={() =>
                 update({
                   ...c,
@@ -828,8 +851,18 @@ export function LegendFellowshipEditor(
       onBack={() => void save().then(props.onBack)}
       settings={
         <>
-          <button onClick={() => void download('json')}>Save JSON file</button>
-          <button onClick={() => void download('yaml')}>Save YAML file</button>
+          <button
+            className="secondary-button"
+            onClick={() => void download('json')}
+          >
+            Save JSON file
+          </button>
+          <button
+            className="secondary-button"
+            onClick={() => void download('yaml')}
+          >
+            Save YAML file
+          </button>
         </>
       }
       content={{
@@ -859,6 +892,7 @@ export function LegendFellowshipEditor(
         'litmf-members': (
           <>
             <button
+              className="secondary-button"
               disabled={locked}
               onClick={() =>
                 update({ ...c, memberNames: [...c.memberNames, ''] })

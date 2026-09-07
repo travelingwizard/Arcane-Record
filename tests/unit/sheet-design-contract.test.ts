@@ -60,4 +60,20 @@ describe('shared sheet presentation contract', () => {
     expect(envelope).not.toMatch(/\b(className|cssClass|color|fontFamily)\s*:/);
     expect(envelope).toContain('z.strictObject');
   });
+
+  it('requires semantic controls in Mage advancement and Legend sheets', () => {
+    const experienceFields = read(
+      'src/components/character/ExperienceTotalsFields.tsx',
+    );
+    expect(experienceFields).toContain('SheetFieldGrid');
+    expect(experienceFields).toContain('SheetField');
+
+    for (const path of [
+      'src/components/character/ExperienceSection.tsx',
+      'src/games/mage20/development/MageAdvancement.tsx',
+      'src/games/legend-in-the-mist/LegendEditors.tsx',
+    ]) {
+      expect(read(path), path).not.toMatch(/<button(?![^>]*className)[^>]*>/gs);
+    }
+  });
 });
