@@ -12,6 +12,7 @@ import {
 } from './legend-in-the-mist/definition';
 import { shadowrun1eDefinition } from './shadowrun1e/definition';
 import { changeling20Definition } from './changeling20/definition';
+import { dav20Definition } from './vampire-dark-ages20/definition';
 
 export const gameSystemRegistry = new GameSystemRegistry()
   .register(mage20Definition)
@@ -25,4 +26,5 @@ export const gameSystemRegistry = new GameSystemRegistry()
   .register(legendDefinition)
   .register(legendFellowshipDefinition)
   .register(shadowrun1eDefinition)
-  .register(changeling20Definition);
+  .register(changeling20Definition)
+  .register(dav20Definition);
