@@ -74,6 +74,21 @@ describe('game system registry', () => {
     ).toBe(true);
   });
 
+  it('registers Werewolf 20 with four character families', () => {
+    const system = gameSystemRegistry.get('werewolf20');
+    expect(system?.variants?.map(({ id }) => id)).toEqual([
+      'garou',
+      'changing-breed',
+      'kinfolk',
+      'wyrm-aligned',
+    ]);
+    expect(
+      system?.variants?.every(({ createManualInitialCharacter }) =>
+        Boolean(createManualInitialCharacter),
+      ),
+    ).toBe(true);
+  });
+
   it('resolves valid characters and preserves unknown systems as unavailable', () => {
     const mage = resolveCharacter(
       createMageStoredCharacter(),

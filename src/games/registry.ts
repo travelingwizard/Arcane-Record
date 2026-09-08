@@ -14,6 +14,7 @@ import { shadowrun1eDefinition } from './shadowrun1e/definition';
 import { changeling20Definition } from './changeling20/definition';
 import { dav20Definition } from './vampire-dark-ages20/definition';
 import { v20Definition } from './vampire20/definition';
+import { w20Definition } from './werewolf20/definition';
 
 export const gameSystemRegistry = new GameSystemRegistry()
   .register(mage20Definition)
@@ -29,4 +30,5 @@ export const gameSystemRegistry = new GameSystemRegistry()
   .register(shadowrun1eDefinition)
   .register(changeling20Definition)
   .register(dav20Definition)
-  .register(v20Definition);
+  .register(v20Definition)
+  .register(w20Definition);
