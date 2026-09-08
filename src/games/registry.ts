@@ -20,6 +20,11 @@ import {
   mouseGuardDefinition,
   mouseGuardPatrolDefinition,
 } from './mouse-guard2e/definition';
+import {
+  bobChosenDefinition,
+  bobDefinition,
+  bobLegionDefinition,
+} from './band-of-blades/definition';
 
 export const gameSystemRegistry = new GameSystemRegistry()
   .register(mage20Definition)
@@ -40,4 +45,7 @@ export const gameSystemRegistry = new GameSystemRegistry()
   .register(wr20Definition)
   .register(wr20ShadowDefinition)
   .register(mouseGuardDefinition)
-  .register(mouseGuardPatrolDefinition);
+  .register(mouseGuardPatrolDefinition)
+  .register(bobDefinition)
+  .register(bobLegionDefinition)
+  .register(bobChosenDefinition);
