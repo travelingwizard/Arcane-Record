@@ -29,6 +29,10 @@ import {
   bitdDefinition,
   bitdCrewDefinition,
 } from './blades-in-the-dark/definition';
+import {
+  mmDefinition,
+  mmCampaignDefinition,
+} from './miseries-and-misfortunes/definition';
 
 export const gameSystemRegistry = new GameSystemRegistry()
   .register(mage20Definition)
@@ -54,4 +58,6 @@ export const gameSystemRegistry = new GameSystemRegistry()
   .register(bobLegionDefinition)
   .register(bobChosenDefinition)
   .register(bitdDefinition)
-  .register(bitdCrewDefinition);
+  .register(bitdCrewDefinition)
+  .register(mmDefinition)
+  .register(mmCampaignDefinition);
