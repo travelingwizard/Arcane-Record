@@ -197,6 +197,7 @@ export function CreateCharacterPage({
     variantId?: string,
     creationActionId?: string,
     targetSystem: RegisteredGameSystem = system,
+    manualVariant = false,
   ) => {
     const selectedVariant = variantId
       ? targetSystem.variants?.find((variant) => variant.id === variantId)
@@ -217,7 +218,9 @@ export function CreateCharacterPage({
         : undefined;
       const data = targetSystem.characterSchema.parse(
         selectedVariant
-          ? selectedVariant.createInitialCharacter()
+          ? manualVariant && selectedVariant.createManualInitialCharacter
+            ? selectedVariant.createManualInitialCharacter()
+            : selectedVariant.createInitialCharacter()
           : creationAction
             ? creationAction.createInitialCharacter()
             : targetSystem.createInitialCharacter(),
@@ -326,7 +329,7 @@ export function CreateCharacterPage({
             : '← Choose another game'}
         </button>
         <p className="eyebrow">Create character · Step 2 of 2</p>
-        <h1>Choose an {system.shortName} character type</h1>
+        <h1>Choose a character type for {system.shortName}</h1>
         <p>Each option uses its own sheet structure and labels.</p>
         {error ? (
           <p className="notice notice--error" role="alert">
@@ -348,8 +351,41 @@ export function CreateCharacterPage({
                   ? 'Opening sheet…'
                   : `Choose ${variant.shortName}`}
               </button>
+              {variant.createManualInitialCharacter ? (
+                <button
+                  className="secondary-button"
+                  disabled={creating}
+                  onClick={() =>
+                    void create(variant.id, undefined, system, true)
+                  }
+                >
+                  Open blank {variant.shortName} sheet
+                </button>
+              ) : null}
             </article>
           ))}
+          <article className="game-system-card">
+            <p className="eyebrow">Existing local file</p>
+            <h2>Import Character</h2>
+            <p>Open an Arcane Record JSON or YAML file for this game.</p>
+            <button
+              className="secondary-button"
+              disabled={creating}
+              onClick={() => importInputRef.current?.click()}
+            >
+              Import Character
+            </button>
+            <input
+              ref={importInputRef}
+              className="visually-hidden"
+              type="file"
+              accept=".json,.yaml,.yml,application/json,text/yaml"
+              onChange={(event) => {
+                const file = event.target.files?.[0];
+                if (file) void importForSystem(file);
+              }}
+            />
+          </article>
         </div>
       </main>
     );

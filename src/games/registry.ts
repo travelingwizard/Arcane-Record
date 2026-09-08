@@ -13,6 +13,7 @@ import {
 import { shadowrun1eDefinition } from './shadowrun1e/definition';
 import { changeling20Definition } from './changeling20/definition';
 import { dav20Definition } from './vampire-dark-ages20/definition';
+import { v20Definition } from './vampire20/definition';
 
 export const gameSystemRegistry = new GameSystemRegistry()
   .register(mage20Definition)
@@ -27,4 +28,5 @@ export const gameSystemRegistry = new GameSystemRegistry()
   .register(legendFellowshipDefinition)
   .register(shadowrun1eDefinition)
   .register(changeling20Definition)
-  .register(dav20Definition);
+  .register(dav20Definition)
+  .register(v20Definition);

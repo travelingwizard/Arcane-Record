@@ -59,6 +59,21 @@ describe('game system registry', () => {
     expect(system?.sections.map(({ id }) => id)).toContain('sr1-creation');
   });
 
+  it('registers Vampire 20 with all three character types', () => {
+    const system = gameSystemRegistry.get('vampire20');
+    expect(system?.name).toBe('Vampire: The Masquerade 20th Anniversary');
+    expect(system?.variants?.map(({ id }) => id)).toEqual([
+      'vampire',
+      'ghoul',
+      'revenant',
+    ]);
+    expect(
+      system?.variants?.every(({ createManualInitialCharacter }) =>
+        Boolean(createManualInitialCharacter),
+      ),
+    ).toBe(true);
+  });
+
   it('resolves valid characters and preserves unknown systems as unavailable', () => {
     const mage = resolveCharacter(
       createMageStoredCharacter(),

@@ -34,6 +34,8 @@ export interface GameSystemVariantDefinition<TCharacter> {
   shortName: string;
   description: string;
   createInitialCharacter: () => TCharacter;
+  /** Optional blank/manual record for systems whose variants support both flows. */
+  createManualInitialCharacter?: () => TCharacter;
 }
 
 export interface GameSystemCreationAction<TCharacter> {
