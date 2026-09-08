@@ -25,6 +25,10 @@ import {
   bobDefinition,
   bobLegionDefinition,
 } from './band-of-blades/definition';
+import {
+  bitdDefinition,
+  bitdCrewDefinition,
+} from './blades-in-the-dark/definition';
 
 export const gameSystemRegistry = new GameSystemRegistry()
   .register(mage20Definition)
@@ -48,4 +52,6 @@ export const gameSystemRegistry = new GameSystemRegistry()
   .register(mouseGuardPatrolDefinition)
   .register(bobDefinition)
   .register(bobLegionDefinition)
-  .register(bobChosenDefinition);
+  .register(bobChosenDefinition)
+  .register(bitdDefinition)
+  .register(bitdCrewDefinition);
