@@ -89,6 +89,18 @@ describe('game system registry', () => {
     ).toBe(true);
   });
 
+  it('registers Wraith 20 with linked Shadow sheets', () => {
+    const system = gameSystemRegistry.get('wraith20');
+    expect(system?.variants?.map(({ id }) => id)).toEqual([
+      'wraith',
+      'medium',
+      'spectre',
+    ]);
+    expect(gameSystemRegistry.get('wraith20-shadow')?.parentSystemId).toBe(
+      'wraith20',
+    );
+  });
+
   it('resolves valid characters and preserves unknown systems as unavailable', () => {
     const mage = resolveCharacter(
       createMageStoredCharacter(),

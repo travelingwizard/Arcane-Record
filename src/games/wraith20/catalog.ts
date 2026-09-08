@@ -1,0 +1,262 @@
+export interface Wr20CatalogEntry {
+  id: string;
+  name: string;
+  kind: string;
+  summary: string;
+  sourceId: string;
+  page: number;
+  cost?: number;
+  restricted?: boolean;
+  verified: boolean;
+}
+const core = (
+  id: string,
+  name: string,
+  kind: string,
+  summary: string,
+  page: number,
+  cost?: number,
+): Wr20CatalogEntry => ({
+  id: `wr20.core.${id}`,
+  name,
+  kind,
+  summary,
+  sourceId: 'wr20.core',
+  page,
+  cost,
+  verified: true,
+});
+export const wr20Arcanoi = [
+  core(
+    'arcanos.argos',
+    'Argos',
+    'arcanos',
+    'Travel through the Tempest and protect fellow travelers.',
+    151,
+  ),
+  core(
+    'arcanos.castigate',
+    'Castigate',
+    'arcanos',
+    'Confront, restrain, and understand Shadows.',
+    155,
+  ),
+  core(
+    'arcanos.embody',
+    'Embody',
+    'arcanos',
+    'Manifest across the Shroud in the living world.',
+    161,
+  ),
+  core(
+    'arcanos.fatalism',
+    'Fatalism',
+    'arcanos',
+    'Read the marks and pressures of Fate.',
+    165,
+  ),
+  core(
+    'arcanos.flux',
+    'Flux',
+    'arcanos',
+    'Alter decay and reconstruction in objects.',
+    169,
+  ),
+  core(
+    'arcanos.inhabit',
+    'Inhabit',
+    'arcanos',
+    'Enter and influence machines and electronic systems.',
+    173,
+  ),
+  core(
+    'arcanos.intimation',
+    'Intimation',
+    'arcanos',
+    'Create, alter, or suppress desire.',
+    177,
+  ),
+  core(
+    'arcanos.keening',
+    'Keening',
+    'arcanos',
+    'Shape emotion through the songs of the dead.',
+    181,
+  ),
+  core(
+    'arcanos.lifeweb',
+    'Lifeweb',
+    'arcanos',
+    'Sense and manipulate the bonds of Fetters.',
+    185,
+  ),
+  core(
+    'arcanos.mnemosynis',
+    'Mnemosynis',
+    'arcanos',
+    'Examine and alter memory.',
+    189,
+  ),
+  core(
+    'arcanos.moliate',
+    'Moliate',
+    'arcanos',
+    'Reshape plasm and Corpus.',
+    195,
+  ),
+  core(
+    'arcanos.outrage',
+    'Outrage',
+    'arcanos',
+    'Exert force across the Shroud.',
+    199,
+  ),
+  core(
+    'arcanos.pandemonium',
+    'Pandemonium',
+    'arcanos',
+    'Create classic haunting phenomena.',
+    203,
+  ),
+  core(
+    'arcanos.phantasm',
+    'Phantasm',
+    'arcanos',
+    'Enter, shape, and create dreams.',
+    209,
+  ),
+  core(
+    'arcanos.puppetry',
+    'Puppetry',
+    'arcanos',
+    'Possess and influence the living.',
+    213,
+  ),
+  core(
+    'arcanos.usury',
+    'Usury',
+    'arcanos',
+    'Transfer vital and spiritual energy.',
+    217,
+  ),
+];
+export const wr20Backgrounds = [
+  'Allies',
+  'Artifact',
+  'Contacts',
+  'Eidolon',
+  'Guild',
+  'Legacy',
+  'Memoriam',
+  'Mentor',
+  'Notoriety',
+  'Relic',
+  'Status',
+].map((name, i) =>
+  core(
+    `background.${name.toLowerCase()}`,
+    name,
+    'background',
+    'A connection, resource, or standing that shapes existence among the Restless.',
+    142 + Math.floor(i / 3),
+  ),
+);
+export const wr20Thorns = [
+  core(
+    'thorn.spectre-prestige',
+    'Spectre Prestige',
+    'thorn',
+    'Standing among Spectres.',
+    231,
+    1,
+  ),
+  core(
+    'thorn.dark-allies',
+    'Dark Allies',
+    'thorn',
+    'Spectral allies willing to aid the Shadow.',
+    231,
+    1,
+  ),
+  core(
+    'thorn.tainted-relic',
+    'Tainted Relic',
+    'thorn',
+    'A relic that manifests during Catharsis.',
+    231,
+    1,
+  ),
+  core(
+    'thorn.infamy',
+    'Infamy',
+    'thorn',
+    'Fear among the living feeds temporary Angst.',
+    231,
+    1,
+  ),
+  core(
+    'thorn.trick-of-the-light',
+    'Trick of the Light',
+    'thorn',
+    'Distort the Psyche’s perception.',
+    232,
+    1,
+  ),
+  core(
+    'thorn.shadow-call',
+    'Shadow Call',
+    'thorn',
+    'Call nearby Shadows to attention.',
+    232,
+    2,
+  ),
+  core(
+    'thorn.pact-of-doom',
+    'Pact of Doom',
+    'thorn',
+    'Offer aid at a dangerous future price.',
+    232,
+    3,
+  ),
+  core(
+    'thorn.shadow-life',
+    'Shadow Life',
+    'thorn',
+    'Act while the Psyche slumbers.',
+    233,
+    5,
+  ),
+  core(
+    'thorn.whispers',
+    'Whispers',
+    'thorn',
+    'Speak secretly with other Shadows.',
+    233,
+    6,
+  ),
+  core(
+    'thorn.manifestation',
+    'Manifestation',
+    'thorn',
+    'Materialize separately for a scene.',
+    233,
+    6,
+  ),
+  core(
+    'thorn.devils-dare',
+    "Devil's Dare",
+    'thorn',
+    'Risk Willpower against a demanded action.',
+    233,
+    7,
+  ),
+  core(
+    'thorn.vampiric-nature',
+    'Vampiric Nature',
+    'thorn',
+    'Draw Angst from another being.',
+    234,
+    7,
+  ),
+];
+export const wr20Catalog = [...wr20Arcanoi, ...wr20Backgrounds, ...wr20Thorns];
