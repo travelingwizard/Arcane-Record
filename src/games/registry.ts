@@ -33,6 +33,10 @@ import {
   mmDefinition,
   mmCampaignDefinition,
 } from './miseries-and-misfortunes/definition';
+import {
+  motwDefinition,
+  motwKeeperDefinition,
+} from './monster-of-the-week/definition';
 
 export const gameSystemRegistry = new GameSystemRegistry()
   .register(mage20Definition)
@@ -60,4 +64,6 @@ export const gameSystemRegistry = new GameSystemRegistry()
   .register(bitdDefinition)
   .register(bitdCrewDefinition)
   .register(mmDefinition)
-  .register(mmCampaignDefinition);
+  .register(mmCampaignDefinition)
+  .register(motwDefinition)
+  .register(motwKeeperDefinition);
