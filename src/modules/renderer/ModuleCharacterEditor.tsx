@@ -419,8 +419,12 @@ export function ModuleCharacterEditor({
                 title={section.label}
                 description={section.description}
                 data-section-group={section.groupId}
+                data-width={section.width ?? 'full'}
               >
-                <SheetFieldGrid columns={3} className="identity-grid">
+                <SheetFieldGrid
+                  columns={3}
+                  className="identity-grid module-component-grid"
+                >
                   {section.componentIds.map((componentId) => {
                     const component = components.get(componentId);
                     if (!component) return null;
@@ -441,7 +445,8 @@ export function ModuleCharacterEditor({
                     return (
                       <div
                         key={component.id}
-                        className={`module-component module-component--${component.layout.width}`}
+                        className="module-component"
+                        data-width={component.layout.width}
                       >
                         {entry.render({
                           component,

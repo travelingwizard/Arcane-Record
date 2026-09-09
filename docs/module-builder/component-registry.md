@@ -1,251 +1,39 @@
-# Safe component registry
+# Module component registry
 
-## Boundary
+## Implemented boundary
 
-The component registry is a core-owned allowlist of renderer and inspector
-definitions. Modules choose a registered type and supply validated data. They
-cannot provide React components, callbacks, markup, stylesheets, event code, or
-URLs.
+`src/modules/renderer/component-registry.tsx` is the only runtime mapping from a declarative component `type` to trusted React. Module JSON cannot contain React, callbacks, HTML, CSS, URLs, or executable code. Unknown component types fail the strict Zod envelope before activation.
 
-Each registry entry defines:
+Every registered type has centralized authoring metadata: stable type, name, category, description, icon, import safety, and, where the general builder can create it, a builder kind. The searchable builder palette is derived from this metadata rather than maintaining a second component list.
 
-- a stable type ID and configuration Zod schema;
-- supported character-schema value types and writable operations;
-- a renderer and a builder inspector owned by core;
-- accessible-name requirements, focus behavior, and keyboard interaction;
-- supported layouts and responsive fallback;
-- allowed Build/Play behavior;
-- formula, action, validation, and citation attachment points;
-- migration/default semantics and test fixtures.
+## General authorable components
 
-Unknown types make a template incompatible. The recovery view preserves and
-exports the module/character rather than guessing a substitute.
+| Type             | Stored value | Runtime behavior                |
+| ---------------- | ------------ | ------------------------------- |
+| `static-text`    | none         | Safe plain instructions         |
+| `text`           | string       | Labeled single-line field       |
+| `multiline-text` | string       | Labeled notes field             |
+| `number`         | integer      | Bounded native numeric field    |
+| `checkbox`       | boolean      | Labeled Boolean choice          |
+| `select`         | string       | Finite labeled options          |
+| `dot-rating`     | integer      | Shared accessible dots or boxes |
 
-## Common component definition
+Adding a bound component also adds its property and default to the template schema. Duplicating a bound component creates a new property and data path; copies therefore do not silently edit the original value. Removing a component does not delete its old schema field, which preserves character data and permits Undo or later repair.
 
-Every concrete definition extends this conceptual shape:
+## Trusted composed components
 
-```ts
-interface ComponentBase {
-  id: string;
-  type: ComponentTypeId;
-  label: string;
-  helpText?: string;
-  accessibilityLabel: string;
-  dataPath?: DataPath;
-  defaultValue?: JsonValue;
-  layout: LayoutDefinition;
-  visibleWhen?: Expression;
-  editableWhen?: Expression;
-  validationRuleIds: string[];
-  display: DisplayFormat;
-  sourceRefIds: string[];
-  modes: Record<string, 'edit' | 'view' | 'hidden'>;
-  buildBehavior?: ModeBehavior;
-  playBehavior?: ModeBehavior;
-  actionBindings?: ActionBinding[];
-}
-```
+The runtime also registers `heading`, `field-grid`, `grouped-dot-ratings`, `sphere-rating-wheel`, `permanent-temporary-rating`, `opposed-wheel-20`, `cycling-damage-track`, `validation-summary`, Mage catalog/collection adapters, and the Exalted section adapter. These are valid imported definitions and render through trusted core code. The generic palette does not fabricate them because their configuration requires structured nested paths or game-specific catalogs; authors may currently configure them through the validated module JSON view.
 
-Labels cannot be replaced by placeholders. Help and citation controls are
-reachable by keyboard. Conditions may hide presentation but never delete data.
-Readonly components remain semantically readable and do not expose misleading
-interactive roles.
+That limitation is visible and remains in `backlog.md`; the UI does not claim a form inspector for those types.
 
-## Layout model
+## Inspector and layout contract
 
-Layout uses semantic constraints, not CSS strings:
+The general inspector edits only relevant safe properties: label/accessibility name, help, full/half width, mode behavior, numeric bounds, select options, and section placement. Data paths are shown but not renamed after creation because renaming persisted paths requires an explicit migration.
 
-- width: `full`, `half`, `third`, `content`, or grid span;
-- minimum safe width selected from core tokens;
-- vertical/horizontal stack with a declared mobile stack fallback;
-- alignment and density from a small enum;
-- group/section membership by stable ID;
-- order as an integer plus keyboard-accessible move commands.
+Sections use `full` or `half` widths. Components normally use `full` or `half`. Core CSS supplies the responsive grid and always stacks it at narrow widths. Modules cannot supply arbitrary classes, breakpoints, colors, or positioning.
 
-Core may collapse columns based on its existing breakpoints. Modules cannot set
-pixel positioning, overflow, z-index, fixed positioning, or responsive
-breakpoints. Every generated sheet must pass the 320 CSS-pixel no-horizontal-
-scroll check.
+Drag-and-drop is an enhancement. Add, move up/down, move to section, copy, paste, duplicate, and delete all have buttons. Changes use the same snapshot history as JSON edits, autosave to the draft repository, and can be undone.
 
-The runtime—not the module—maps these roles to `SheetEditorShell`,
-`SheetSection`, `SheetFieldGrid`, `SheetField`, `SheetCard`, `SheetToolbar`,
-`SheetNotice`, `SheetBadge`, and `SheetEmptyState`. Module envelopes have no CSS
-class, color, font, border, shadow, or arbitrary presentation-string fields.
-Because the schemas use strict objects, attempts to add those fields fail
-validation. Builder previews use the same runtime primitives as installed
-modules; a separate preview palette or field treatment is a release failure.
+## Serialization and migration
 
-## Standard registry
-
-| Type ID                      | Value/configuration                            | Required behavior                                                             |
-| ---------------------------- | ---------------------------------------------- | ----------------------------------------------------------------------------- |
-| `heading`                    | level, label, optional ornament/citation       | Preserves document heading order; no fake headings.                           |
-| `static-text`                | safe plain text/limited structured paragraphs  | No HTML; URLs render only through a core-safe link policy.                    |
-| `help-text`                  | concise guidance and optional disclosure       | Programmatically associated with the target.                                  |
-| `source-citation`            | source registry IDs and page labels            | Visible source/page, optional details disclosure.                             |
-| `text`                       | string, length, autocomplete category          | Single-line input with real label.                                            |
-| `multiline-text`             | string, length, row hint                       | Textarea grows safely and remains usable on mobile.                           |
-| `number`                     | integer/finite number, min/max/step            | Locale-readable display; no browser spinner dependency.                       |
-| `checkbox`                   | Boolean                                        | Native semantics and explicit checked label.                                  |
-| `switch`                     | Boolean                                        | Checkbox-backed switch with state text; settings only when appropriate.       |
-| `radio-group`                | scalar enum and option labels/help             | Arrow-key/native operation; selected state not color-only.                    |
-| `select`                     | scalar enum/reference                          | Native or core combobox based on size.                                        |
-| `multi-select`               | array of unique values                         | Removable tokens and searchable list; count validation.                       |
-| `dot-rating`                 | integer bounds, optional zero, readonly mode   | Existing keyboard/pointer semantics; integers persisted.                      |
-| `field-grid`                 | labeled string paths and semantic column count | Core responsive grid; labels and values remain accessible at 320 pixels.      |
-| `grouped-dot-ratings`        | labeled groups of bounded integer paths        | Shared Attribute/Ability layouts with Build/Play locking and mobile stacking. |
-| `permanent-temporary-rating` | two integer paths and ordering constraints     | Separate accessible labels; boxes/dots are display options.                   |
-| `resource-counter`           | integer/number plus min/max                    | Explicit increment/decrement and direct entry policy.                         |
-| `resource-track`             | rating plus bounded cells/states               | Core-defined states, labels, and readonly mode.                               |
-| `opposed-tracks`             | two bounded paths and collision display policy | Values stay independent; renderer never mutates due to overlap.               |
-| `cycling-damage-track`       | ordered cells and state enum                   | Click/keyboard cycles through declared states; text alternative.              |
-| `tags`                       | string/reference array                         | Add/remove and normalization policies.                                        |
-| `repeatable-list`            | primitive item schema                          | Stable ordering and UUID if items become addressable.                         |
-| `structured-records`         | record schema and card layout                  | Explicit add/edit/remove; stable UUID; preserve owned fields.                 |
-| `table`                      | typed columns, rows path, mobile card mapping  | Semantic table on wide screens and labeled cards on narrow screens.           |
-| `searchable-catalog`         | catalog ref, indexes, result card fields       | Search/filter/pagination; no automatic character mutation.                    |
-| `catalog-picker`             | catalog ref, selection schema/policy           | Explicit Add, variable choices before Add, selected instances separate.       |
-| `derived-value`              | formula ref and format                         | Readonly result, explanation and last-valid/error state.                      |
-| `grouped-matrix`             | row/column definitions and child components    | Responsive labels remain unambiguous.                                         |
-| `conditional-container`      | visibility expression and children             | Hiding preserves child data and validation policy is explicit.                |
-| `tabs`                       | labeled panels                                 | Arrow keys, correct roles, content available without hover.                   |
-| `disclosure`                 | summary and children                           | `aria-expanded`, focus-safe collapse, mounted-content option.                 |
-| `equipment-record`           | definition/custom instance schema              | Quantity/equipped/state/notes stay character-owned.                           |
-| `weapon-attack-record`       | weapon instance and derived formula refs       | Shows base, adjustments, and derived breakdown.                               |
-| `armor-record`               | armor instance and protection formulas         | Equipped/attuned/damaged state and citations.                                 |
-| `linked-records`             | source/target record refs and unlink policy    | Validates links; delete behavior is never implicit.                           |
-| `ledger-history`             | dated typed entry schema and total formulas    | Append-only by default, explicit corrections, derived summaries.              |
-| `dice-pool-action`           | dice system/action refs                        | Announces result, accepts deterministic test source, logs only if configured. |
-| `action-button`              | action ref, label, confirmation                | Uses the atomic action dispatcher; disabled reason is visible.                |
-| `validation-summary`         | scope/severity filters                         | Links diagnostics to controls and includes overrides.                         |
-| `creation-flow-control`      | flow/step commands                             | Resume/review/finalize without a second character model.                      |
-
-## Catalog and selected-instance pattern
-
-The shared catalog pattern has three distinct surfaces:
-
-1. a Browse action and filters over immutable definitions;
-2. definition cards with name, cost/rating, summary, source/page, requirements,
-   availability, and expandable mechanics;
-3. compact selected-instance cards with owned choices/state/notes and explicit
-   edit/remove actions.
-
-Default collapse rules are presentation settings. They may show selected
-records while hiding Browse results, as current Exalted Merits/Flaws and
-Charms/Sorcery do. A missing definition displays its saved ID and owned values
-with repair/remove actions rather than disappearing.
-
-## Advanced core registry
-
-### `opposed-wheel-20`
-
-Configuration names two 0–20 integer paths, 20 cell labels, independent start
-cells/directions, glyphs, collision presentation priority, and increment/
-decrement action IDs. It covers Mage Quintessence dots and Paradox X marks.
-Collision priority affects presentation only; both values can reach 20.
-
-### `sphere-rating-wheel`
-
-Configuration supplies a finite catalog of labeled ratings, ordering formula,
-single affinity path, maximum rating, and desktop-wheel preference key. Core
-always renders a vertical mobile list and shares the same integer paths.
-
-### `exalted-combat-profile`
-
-Configuration references equipment categories, profile constants, rating
-paths, and derived formula IDs. It renders Classic/Power breakdowns and source
-citations. It cannot run Charm logic supplied as code.
-
-### `exalted-combo-analyzer`
-
-Configuration identifies owned power records, eligibility rules, costs, dynamic
-cost choices, and linked-record output. Core presents unmet prerequisites and
-cost explanations and dispatches a validated add/update action.
-
-### `lifepath-burner`
-
-Configuration references lifepath catalogs, setting/lead fields, requirement
-expressions, time/resource/skill/trait grants, repeat policies, special answer
-schemas, and the active creation profile. Core handles the ordered path state
-machine and exposes derived totals through formulas.
-
-### `shaded-rating-allocator`
-
-Configuration defines shade enum/order, shift costs, source pools, rating roots,
-and allocation paths. It displays remaining pools and preserves over-budget
-values with configured severity.
-
-### `wound-tolerance-track`
-
-Configuration references PTGS formula outputs, wound instance paths, severity
-labels, treatment states, and obstacle fields. Derived tolerances remain
-readonly; wounds remain character-owned Play state.
-
-### `advancement-test-matrix`
-
-Configuration identifies rating/test paths, difficulty categories, advancement
-rules, and history action. It supports Burning Wheel advancement without
-pretending it is an XP ledger.
-
-## Builder inspector contract
-
-Each registry type publishes an inspector schema used to generate the right
-pane. Inspector changes are commands with inverse operations for undo/redo.
-Invalid drafts may be autosaved as drafts, but only the last validated snapshot
-can be previewed, exported as installable, activated, or published.
-
-The inspector shows:
-
-- stable ID and type (type immutable after data exists unless converted);
-- label/help/accessibility fields;
-- compatible data paths and defaults;
-- layout and responsive preview;
-- visibility/editability expression builder;
-- validation, action, format, mode, and citation references;
-- diagnostics and affected dependencies.
-
-Drag-and-drop is an enhancement. Every move, nest, unnest, and reorder command
-has buttons and keyboard operation and is represented in undo history.
-
-## Mode and permission behavior
-
-Components declare `edit`, `view`, or `hidden` for each template mode. Runtime
-conditions may further restrict editing but cannot grant editing when the mode
-forbids it. Build/Play behavior affects UI commands only; imports and migrations
-still validate the full character schema.
-
-Module distribution/trust labels never grant runtime capabilities. Bundled and
-local components use the same safe registry.
-
-## Registry evolution
-
-Component type versions are core versions, not module versions. A module states
-its minimum core version. Breaking a configuration schema requires a new type
-version or a core migration that preserves old behavior. Deprecation keeps old
-renderers until installed characters can migrate safely.
-
-## Test obligations
-
-Every standard and advanced type needs schema tests, render/edit/readonly tests,
-keyboard tests, accessible-name checks, narrow-screen fixtures, invalid-path
-tests, and import round trips. Advanced types additionally require golden
-parity fixtures from the game that motivated them.
-
-Every generated editor and Builder preview must also retain Arcane Record's
-canonical presentation contract: the shared editor shell and section
-navigation, semantic theme tokens, parchment panel surfaces, serif headings,
-sans-serif labels, shared controls, visible focus, practical touch targets, and
-responsive card alignment. Release tests compare rendered surface, border,
-typography, and responsive grid behavior with the production Mage and Exalted
-editors. A module that introduces a separate palette, bypasses Settings, or
-creates page-level overflow at 320 CSS pixels does not pass validation.
-
-## Open decisions
-
-- Whether tabs are justified in generated character sheets or should initially
-  be builder-only.
-- Maximum nested component depth and repeatable-record count.
-- Virtualization library or in-house pagination for large catalogs.
-- Core ornament vocabulary for module themes.
-- Whether record removal undo is universally available or action-configured.
+Component definitions are strict JSON data inside format version 1. New optional fields are additive. Character values remain stable, schema-validated values. Module migrations support `set-default-if-missing` and `rename-path`; unsupported future definitions remain recoverable rather than being coerced.

@@ -2048,6 +2048,66 @@
   gap: 0.4rem;
 }
 
+.builder-component-library {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.builder-component-library button,
+.builder-component > button:first-child {
+  width: 100%;
+  min-height: 44px;
+  text-align: left;
+}
+
+.builder-drop-canvas {
+  min-height: 22rem;
+}
+
+.builder-empty-drop {
+  padding: var(--space-5);
+  border: 1px dashed var(--color-rule);
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.builder-component[data-selected='true'] {
+  border-color: var(--color-accent);
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.builder-component[data-drop-target='true'] {
+  border-top: 0.3rem solid var(--color-accent);
+}
+
+.builder-preview-sections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.builder-preview-sections > [data-width='full'] {
+  grid-column: 1 / -1;
+}
+
+.module-component-grid {
+  align-items: start;
+}
+
+.module-component[data-width='full'] {
+  grid-column: 1 / -1;
+}
+
+.module-component[data-width='half'] {
+  grid-column: span 1;
+}
+
+.module-component[data-width='third'],
+.module-component[data-width='content'] {
+  grid-column: auto;
+}
+
 .builder-preview {
   margin-top: var(--space-4);
   padding: var(--space-4);

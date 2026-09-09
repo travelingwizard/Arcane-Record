@@ -108,7 +108,7 @@ function validateComponentPath(
 ): ModuleDiagnostic[] {
   const paths: Array<{
     dataPath: DataPath;
-    expected: 'string' | 'integer';
+    expected: 'string' | 'integer' | 'boolean';
     suffix: string;
   }> = [];
   if (component.type === 'cycling-damage-track') {
@@ -187,9 +187,17 @@ function validateComponentPath(
       }
     }
   } else if ('dataPath' in component) {
+    const expected =
+      component.type === 'text' ||
+      component.type === 'multiline-text' ||
+      component.type === 'select'
+        ? 'string'
+        : component.type === 'checkbox'
+          ? 'boolean'
+          : 'integer';
     paths.push({
       dataPath: component.dataPath,
-      expected: component.type === 'text' ? 'string' : 'integer',
+      expected,
       suffix: 'dataPath',
     });
   } else if (component.type === 'field-grid') {

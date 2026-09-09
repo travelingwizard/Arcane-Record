@@ -215,6 +215,32 @@ export const moduleComponentSchema = z.discriminatedUnion('type', [
   }),
   z.strictObject({
     ...componentBase,
+    type: z.literal('multiline-text'),
+    dataPath: dataPathSchema,
+    maximumLength: z.number().int().positive().max(20_000).default(2_000),
+    rows: z.number().int().min(2).max(20).default(4),
+  }),
+  z.strictObject({
+    ...componentBase,
+    type: z.literal('checkbox'),
+    dataPath: dataPathSchema,
+  }),
+  z.strictObject({
+    ...componentBase,
+    type: z.literal('select'),
+    dataPath: dataPathSchema,
+    options: z
+      .array(
+        z.strictObject({
+          value: stableSlugSchema,
+          label: z.string().min(1).max(160),
+        }),
+      )
+      .min(1)
+      .max(200),
+  }),
+  z.strictObject({
+    ...componentBase,
     type: z.literal('number'),
     dataPath: dataPathSchema,
     minimum: z.number().int(),
@@ -451,6 +477,7 @@ const sectionSchema = z.strictObject({
   groupId: stableSlugSchema,
   order: z.number().int().nonnegative(),
   componentIds: z.array(stableSlugSchema).max(200),
+  width: z.enum(['half', 'full']).optional(),
   summary: sectionSummarySchema.optional(),
 });
 

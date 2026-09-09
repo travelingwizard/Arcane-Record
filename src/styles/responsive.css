@@ -61,6 +61,14 @@
     margin-bottom: var(--space-4);
   }
 
+  .builder-preview-sections {
+    grid-template-columns: 1fr;
+  }
+
+  .module-component[data-width] {
+    grid-column: 1 / -1;
+  }
+
   .builder-theme-fields {
     grid-template-columns: 1fr;
   }

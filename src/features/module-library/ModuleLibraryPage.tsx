@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { ModuleRepository } from '../../modules/repository/module-repository';
 import type {
+  ModuleDraftRecord,
   ModulePackageRecord,
   ModuleInstallationRecord,
 } from '../../modules/repository/module-records';
@@ -45,6 +46,8 @@ export function ModuleLibraryPage({
   const [installations, setInstallations] = useState<
     ModuleInstallationRecord[]
   >([]);
+  const [drafts, setDrafts] = useState<ModuleDraftRecord[]>([]);
+  const [query, setQuery] = useState('');
   const [staged, setStaged] = useState<StagedModule | null>(null);
   const [message, setMessage] = useState('');
   const [remote, setRemote] = useState<RegistryCatalogEntry[]>([]);
@@ -55,8 +58,14 @@ export function ModuleLibraryPage({
   );
   const inputRef = useRef<HTMLInputElement>(null);
   const refresh = async () => {
-    setPackages(await repository.listPackages());
-    setInstallations(await repository.listInstallations());
+    const [nextPackages, nextInstallations, nextDrafts] = await Promise.all([
+      repository.listPackages(),
+      repository.listInstallations(),
+      repository.listDrafts(),
+    ]);
+    setPackages(nextPackages);
+    setInstallations(nextInstallations);
+    setDrafts(nextDrafts);
   };
   useEffect(() => {
     void refresh();
@@ -78,6 +87,13 @@ export function ModuleLibraryPage({
             item.moduleVersion === module.moduleVersion,
         ),
     );
+  const stagedConflict = staged?.summary
+    ? packages.find(
+        (item) =>
+          item.moduleId === staged.summary!.moduleId &&
+          item.moduleVersion === staged.summary!.moduleVersion,
+      )
+    : undefined;
   const stage = async (file: File) => {
     const result = await stageModuleFile(
       await file.text(),
@@ -106,6 +122,23 @@ export function ModuleLibraryPage({
       id,
       moduleId: module.moduleId,
       name: module.name,
+      updatedAt: new Date().toISOString(),
+      draft: module,
+      diagnostics: [],
+    });
+    onNavigate(`/module-builder/${id}`);
+  };
+  const duplicateStagedAsDraft = async () => {
+    if (!staged?.envelope) return;
+    const module = createModuleFork(
+      staged.envelope,
+      `local.fork.${crypto.randomUUID().slice(0, 8)}`,
+    );
+    const id = crypto.randomUUID();
+    await repository.saveDraft({
+      id,
+      moduleId: module.moduleId,
+      name: `${module.name} Copy`,
       updatedAt: new Date().toISOString(),
       draft: module,
       diagnostics: [],
@@ -207,6 +240,13 @@ export function ModuleLibraryPage({
               <p>
                 Checksum: <code>{staged.checksum}</code>
               </p>
+              {stagedConflict ? (
+                <p className="notice notice--error">
+                  {stagedConflict.checksum === staged.checksum
+                    ? 'This exact immutable version is already installed.'
+                    : 'This ID and version are already installed with different content. Published versions are immutable; create an editable copy or import a newer version.'}
+                </p>
+              ) : null}
             </>
           ) : null}
           {staged.diagnostics.map((item) => (
@@ -220,30 +260,95 @@ export function ModuleLibraryPage({
           <div className="compact-actions">
             <button
               className="primary-button"
-              disabled={!staged.canInstall}
+              disabled={!staged.canInstall || Boolean(stagedConflict)}
               onClick={() => void install()}
             >
               Approve local install
             </button>
+            {staged.envelope ? (
+              <button onClick={() => void duplicateStagedAsDraft()}>
+                Create editable copy
+              </button>
+            ) : null}
             <button onClick={() => setStaged(null)}>Cancel staging</button>
           </div>
         </section>
       ) : null}
       <section className="library-section">
+        <h2>Find modules</h2>
+        <label className="line-field">
+          <span>Search by name or module ID</span>
+          <input
+            type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+          />
+        </label>
+      </section>
+      <section className="library-section">
+        <h2>Local drafts</h2>
+        {drafts.length ? (
+          <div className="module-package-grid">
+            {drafts
+              .filter((draft) =>
+                `${draft.name} ${draft.moduleId ?? ''}`
+                  .toLowerCase()
+                  .includes(query.trim().toLowerCase()),
+              )
+              .map((draft) => (
+                <article className="builder-catalog" key={draft.id}>
+                  <strong>{draft.name}</strong>
+                  <small>
+                    Local draft · {draft.moduleId ?? 'ID not yet valid'}
+                  </small>
+                  <div className="compact-actions">
+                    <button
+                      onClick={() => onNavigate(`/module-builder/${draft.id}`)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => {
+                        if (
+                          !window.confirm(
+                            `Delete the local draft “${draft.name}”?`,
+                          )
+                        )
+                          return;
+                        void repository.deleteDraft(draft.id).then(refresh);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </article>
+              ))}
+          </div>
+        ) : (
+          <p>No local drafts.</p>
+        )}
+      </section>
+      <section className="library-section">
         <h2>Bundled modules</h2>
         <div className="module-package-grid">
-          {bundled.map((module) => (
-            <article
-              className="builder-catalog"
-              key={`${module.moduleId}@${module.moduleVersion}`}
-            >
-              <strong>{module.name}</strong>
-              <small>
-                Bundled · {module.moduleId}@{module.moduleVersion}
-              </small>
-              <p>{module.description}</p>
-            </article>
-          ))}
+          {bundled
+            .filter((module) =>
+              `${module.name} ${module.moduleId}`
+                .toLowerCase()
+                .includes(query.trim().toLowerCase()),
+            )
+            .map((module) => (
+              <article
+                className="builder-catalog"
+                key={`${module.moduleId}@${module.moduleVersion}`}
+              >
+                <strong>{module.name}</strong>
+                <small>
+                  Bundled · {module.moduleId}@{module.moduleVersion}
+                </small>
+                <p>{module.description}</p>
+              </article>
+            ))}
         </div>
       </section>
       <section className="library-section">
@@ -251,75 +356,84 @@ export function ModuleLibraryPage({
         {packages.length === 0 ? (
           <p>No imported modules.</p>
         ) : (
-          [...grouped].map(([moduleId, versions]) => {
-            const installation = installations.find(
-              (item) => item.moduleId === moduleId,
-            );
-            const sorted = [...versions].sort((a, b) =>
-              b.moduleVersion.localeCompare(a.moduleVersion),
-            );
-            const comparison =
-              sorted.length > 1
-                ? compareModules(sorted[1]!.envelope, sorted[0]!.envelope)
-                : [];
-            return (
-              <article className="module-installation" key={moduleId}>
-                <h3>{sorted[0]!.envelope.name}</h3>
-                <p>
-                  {installation?.enabled ? 'Enabled' : 'Disabled'} · active{' '}
-                  {installation?.activeVersion ?? 'none'} · {sorted.length}{' '}
-                  immutable version(s)
-                </p>
-                {comparison.length ? (
+          [...grouped]
+            .filter(([moduleId, versions]) =>
+              `${moduleId} ${versions[0]?.envelope.name ?? ''}`
+                .toLowerCase()
+                .includes(query.trim().toLowerCase()),
+            )
+            .map(([moduleId, versions]) => {
+              const installation = installations.find(
+                (item) => item.moduleId === moduleId,
+              );
+              const sorted = [...versions].sort((a, b) =>
+                b.moduleVersion.localeCompare(a.moduleVersion),
+              );
+              const comparison =
+                sorted.length > 1
+                  ? compareModules(sorted[1]!.envelope, sorted[0]!.envelope)
+                  : [];
+              return (
+                <article className="module-installation" key={moduleId}>
+                  <h3>{sorted[0]!.envelope.name}</h3>
                   <p>
-                    {comparison.length} semantic changes between the newest two
-                    versions.
+                    {installation?.enabled ? 'Enabled' : 'Disabled'} · active{' '}
+                    {installation?.activeVersion ?? 'none'} · {sorted.length}{' '}
+                    immutable version(s)
                   </p>
-                ) : null}
-                {sorted.map((item) => (
-                  <div className="module-version" key={item.moduleVersion}>
-                    <span>
-                      <strong>{item.moduleVersion}</strong> · {item.origin} ·{' '}
-                      <code>{item.checksum.slice(0, 12)}…</code>
-                    </span>
-                    <div className="compact-actions">
-                      <button
-                        onClick={() =>
-                          void repository
-                            .activateVersion(moduleId, item.moduleVersion)
-                            .then(() => window.location.reload())
-                        }
-                      >
-                        Activate / rollback
-                      </button>
-                      <button
-                        onClick={() =>
-                          download(
-                            serializeModule(item.envelope, 'json'),
-                            `${item.moduleId}-${item.moduleVersion}.arcane-module.json`,
-                          )
-                        }
-                      >
-                        Export
-                      </button>
-                      <button onClick={() => void fork(item)}>
-                        Create fork
-                      </button>
+                  {comparison.length ? (
+                    <p>
+                      {comparison.length} semantic changes between the newest
+                      two versions.
+                    </p>
+                  ) : null}
+                  {sorted.map((item) => (
+                    <div className="module-version" key={item.moduleVersion}>
+                      <span>
+                        <strong>{item.moduleVersion}</strong> · {item.origin} ·{' '}
+                        <code>{item.checksum.slice(0, 12)}…</code>
+                      </span>
+                      <div className="compact-actions">
+                        <button
+                          onClick={() =>
+                            void repository
+                              .activateVersion(moduleId, item.moduleVersion)
+                              .then(() => window.location.reload())
+                          }
+                        >
+                          Activate / rollback
+                        </button>
+                        <button
+                          onClick={() =>
+                            download(
+                              serializeModule(item.envelope, 'json'),
+                              `${item.moduleId}-${item.moduleVersion}.arcane-module.json`,
+                            )
+                          }
+                        >
+                          Export
+                        </button>
+                        <button onClick={() => void fork(item)}>
+                          Create fork
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                ))}
-                <button
-                  onClick={() =>
-                    void repository
-                      .setInstallationEnabled(moduleId, !installation?.enabled)
-                      .then(() => window.location.reload())
-                  }
-                >
-                  {installation?.enabled ? 'Disable' : 'Enable'} module
-                </button>
-              </article>
-            );
-          })
+                  ))}
+                  <button
+                    onClick={() =>
+                      void repository
+                        .setInstallationEnabled(
+                          moduleId,
+                          !installation?.enabled,
+                        )
+                        .then(() => window.location.reload())
+                    }
+                  >
+                    {installation?.enabled ? 'Disable' : 'Enable'} module
+                  </button>
+                </article>
+              );
+            })
         )}
       </section>
       <section className="library-section">

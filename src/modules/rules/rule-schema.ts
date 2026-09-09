@@ -204,6 +204,7 @@ export const creationFlowDefinitionSchema = z.strictObject({
       z.strictObject({
         id,
         label: z.string().min(1).max(160),
+        description: z.string().max(2_000).optional(),
         componentIds: z.array(id).max(100),
         transitions: z.array(flowTransitionSchema).max(20),
         review: z.boolean().default(false),

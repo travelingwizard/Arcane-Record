@@ -5,7 +5,17 @@ import { validateModuleEnvelope } from '../../modules/registry/module-validation
 import { ModuleValidationError } from '../../modules/diagnostics/module-diagnostic';
 import type { ArcaneModuleEnvelope } from '../../modules/schema/module-envelope';
 import { coreModuleComponentRegistry } from '../../modules/renderer/component-registry';
+import { readDataPath, writeDataPath } from '../../modules/schema/data-path';
 import { createModuleDraft } from './create-module-draft';
+import {
+  addBuilderComponent,
+  duplicateComponent,
+  moveComponent,
+  moveItem,
+  removeComponent,
+  uniqueId,
+  type BuilderComponentKind,
+} from './builder-commands';
 import { FlowDesigner, RuleDesigner } from './RuleDesigner';
 import { SheetEditorShell } from '../../components/layout/SheetEditorShell';
 import type { SaveStatus } from '../../state/editor-store';
@@ -40,6 +50,87 @@ function download(text: string, name: string) {
   URL.revokeObjectURL(url);
 }
 
+function BuilderRuntimePreview({
+  module,
+  mode,
+}: {
+  module: ArcaneModuleEnvelope;
+  mode: 'build' | 'play';
+}) {
+  const template = module.sheetTemplates[0]!;
+  const [data, setData] = useState<Record<string, unknown>>(() =>
+    structuredClone(template.defaults),
+  );
+  useEffect(() => setData(structuredClone(template.defaults)), [template]);
+  const components = new Map(
+    module.reusableComponents.map((item) => [item.id, item]),
+  );
+  const catalogs = new Map(module.catalogs.map((item) => [item.id, item]));
+  const update = (
+    changes: Array<{
+      path: { root: 'character'; segments: string[] };
+      value: unknown;
+    }>,
+  ) =>
+    setData((current) => {
+      const next = structuredClone(current);
+      changes.forEach(({ path, value }) => writeDataPath(next, path, value));
+      return next;
+    });
+  return (
+    <div className="builder-preview-sections">
+      {[...template.sections]
+        .sort((left, right) => left.order - right.order)
+        .map((section) => (
+          <section
+            className="sheet-section local-sheet-section"
+            data-width={section.width ?? 'full'}
+            key={section.id}
+          >
+            <h3>{section.label}</h3>
+            {section.description ? <p>{section.description}</p> : null}
+            <div className="module-component-grid">
+              {section.componentIds.map((id) => {
+                const component = components.get(id);
+                if (!component || component.modes[mode] === 'hidden')
+                  return null;
+                const registered = coreModuleComponentRegistry.get(
+                  component.type,
+                );
+                if (!registered) return null;
+                const path =
+                  'dataPath' in component ? component.dataPath : undefined;
+                return (
+                  <div
+                    className="module-component"
+                    data-width={component.layout.width}
+                    key={id}
+                  >
+                    {registered.render({
+                      component,
+                      value: path ? readDataPath(data, path) : undefined,
+                      readOnly: component.modes[mode] !== 'edit',
+                      diagnostics: [],
+                      data,
+                      onChange: (value) => path && update([{ path, value }]),
+                      onPathChange: (changePath, value) =>
+                        update([{ path: changePath, value }]),
+                      onPathsChange: update,
+                      catalogEntries:
+                        'catalogId' in component && component.catalogId
+                          ? (catalogs.get(component.catalogId)?.entries ?? [])
+                          : [],
+                    })}
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        ))}
+    </div>
+  );
+}
+
 export function ModuleBuilderPage({
   draftId,
   repository,
@@ -57,7 +148,17 @@ export function ModuleBuilderPage({
   const [mode, setMode] = useState<'build' | 'play'>('build');
   const [viewport, setViewport] = useState<'desktop' | 'mobile'>('desktop');
   const [selectedSection, setSelectedSection] = useState(0);
+  const [selectedComponentId, setSelectedComponentId] = useState<string | null>(
+    null,
+  );
+  const [announcement, setAnnouncement] = useState('');
+  const [componentQuery, setComponentQuery] = useState('');
+  const [copiedComponentId, setCopiedComponentId] = useState<string | null>(
+    null,
+  );
+  const [dropTargetIndex, setDropTargetIndex] = useState<number | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const inspectorHeadingRef = useRef<HTMLHeadingElement>(null);
 
   const refresh = useCallback(
     async () => setDrafts(await repository.listDrafts()),
@@ -238,6 +339,15 @@ export function ModuleBuilderPage({
   const module = parsed.value;
   const template = module?.sheetTemplates[0];
   const section = template?.sections[selectedSection];
+  const selectedComponent = module?.reusableComponents.find(
+    (item) => item.id === selectedComponentId,
+  );
+  const builderComponents = coreModuleComponentRegistry
+    .listAuthoring()
+    .filter(
+      (item): item is typeof item & { builderKind: BuilderComponentKind } =>
+        Boolean(item.builderKind),
+    );
   const theme = module?.themes.find((item) => 'tokens' in item);
   const saveStatus: SaveStatus = status.includes('could not')
     ? 'error'
@@ -461,6 +571,50 @@ export function ModuleBuilderPage({
               <h2>Sheet designer</h2>
               <div className="builder-designer">
                 <aside>
+                  <h3>Component library</h3>
+                  <input
+                    aria-label="Search components"
+                    placeholder="Search components"
+                    value={componentQuery}
+                    onChange={(event) => setComponentQuery(event.target.value)}
+                  />
+                  <div className="builder-component-library">
+                    {builderComponents
+                      .filter((item) =>
+                        `${item.name} ${item.category}`
+                          .toLowerCase()
+                          .includes(componentQuery.trim().toLowerCase()),
+                      )
+                      .map(({ builderKind: kind, name, category }) => (
+                        <button
+                          key={kind}
+                          draggable
+                          onDragStart={(event) => {
+                            event.dataTransfer.setData(
+                              'application/x-arcane-component-kind',
+                              kind,
+                            );
+                            event.dataTransfer.effectAllowed = 'copy';
+                          }}
+                          onClick={() =>
+                            section &&
+                            mutate((draft) => {
+                              const id = addBuilderComponent(
+                                draft,
+                                section.id,
+                                kind,
+                              );
+                              setSelectedComponentId(id);
+                              setAnnouncement(
+                                `${name} added to ${section.label}.`,
+                              );
+                            })
+                          }
+                        >
+                          ＋ {name} <small>{category}</small>
+                        </button>
+                      ))}
+                  </div>
                   <h3>Outline</h3>
                   {template?.sections.map((item, index) => (
                     <button
@@ -468,7 +622,10 @@ export function ModuleBuilderPage({
                         selectedSection === index ? 'true' : undefined
                       }
                       key={item.id}
-                      onClick={() => setSelectedSection(index)}
+                      onClick={() => {
+                        setSelectedSection(index);
+                        setSelectedComponentId(null);
+                      }}
                     >
                       {item.label}
                     </button>
@@ -493,19 +650,440 @@ export function ModuleBuilderPage({
                 </aside>
                 <div>
                   <h3>Canvas</h3>
-                  <article className="sheet-section">
+                  <article
+                    className="sheet-section builder-drop-canvas"
+                    onDragOver={(event) => {
+                      event.preventDefault();
+                      const bounds =
+                        event.currentTarget.getBoundingClientRect();
+                      if (event.clientY - bounds.top < 48)
+                        window.scrollBy({ top: -18 });
+                      if (bounds.bottom - event.clientY < 48)
+                        window.scrollBy({ top: 18 });
+                    }}
+                    onDragLeave={() => setDropTargetIndex(null)}
+                    onDrop={(event) => {
+                      event.preventDefault();
+                      if (!section) return;
+                      const kind = event.dataTransfer.getData(
+                        'application/x-arcane-component-kind',
+                      ) as BuilderComponentKind;
+                      const componentId = event.dataTransfer.getData(
+                        'application/x-arcane-component-id',
+                      );
+                      if (kind)
+                        mutate((draft) => {
+                          const id = addBuilderComponent(
+                            draft,
+                            section.id,
+                            kind,
+                          );
+                          setSelectedComponentId(id);
+                          setAnnouncement(
+                            `Component added to ${section.label}.`,
+                          );
+                        });
+                      else if (componentId)
+                        mutate((draft) => {
+                          moveComponent(
+                            draft.sheetTemplates[0]!,
+                            componentId,
+                            section.id,
+                          );
+                          setSelectedComponentId(componentId);
+                          setAnnouncement(
+                            `Component moved to ${section.label}.`,
+                          );
+                        });
+                      setDropTargetIndex(null);
+                    }}
+                  >
                     <h2>{section?.label ?? 'Select a section'}</h2>
-                    {section?.componentIds.map((id) => (
-                      <div className="builder-component" key={id}>
-                        {module?.reusableComponents.find((c) => c.id === id)
-                          ?.label ?? id}
+                    {!section?.componentIds.length ? (
+                      <p className="builder-empty-drop">
+                        Drop a component here or use an Add button.
+                      </p>
+                    ) : null}
+                    {section?.componentIds.map((id, componentIndex) => (
+                      <div
+                        className="builder-component"
+                        data-selected={selectedComponentId === id || undefined}
+                        data-drop-target={
+                          dropTargetIndex === componentIndex || undefined
+                        }
+                        draggable
+                        key={id}
+                        onDragOver={(event) => {
+                          event.preventDefault();
+                          event.stopPropagation();
+                          setDropTargetIndex(componentIndex);
+                        }}
+                        onDrop={(event) => {
+                          event.preventDefault();
+                          event.stopPropagation();
+                          if (!section) return;
+                          const kind = event.dataTransfer.getData(
+                            'application/x-arcane-component-kind',
+                          ) as BuilderComponentKind;
+                          const movingId = event.dataTransfer.getData(
+                            'application/x-arcane-component-id',
+                          );
+                          mutate((draft) => {
+                            const template = draft.sheetTemplates[0]!;
+                            if (kind) {
+                              const addedId = addBuilderComponent(
+                                draft,
+                                section.id,
+                                kind,
+                              );
+                              moveComponent(
+                                template,
+                                addedId,
+                                section.id,
+                                componentIndex,
+                              );
+                              setSelectedComponentId(addedId);
+                            } else if (movingId) {
+                              moveComponent(
+                                template,
+                                movingId,
+                                section.id,
+                                componentIndex,
+                              );
+                              setSelectedComponentId(movingId);
+                            }
+                          });
+                          setDropTargetIndex(null);
+                          setAnnouncement(
+                            `Component inserted in ${section.label}.`,
+                          );
+                        }}
+                        onDragStart={(event) => {
+                          event.dataTransfer.setData(
+                            'application/x-arcane-component-id',
+                            id,
+                          );
+                          event.dataTransfer.effectAllowed = 'move';
+                        }}
+                      >
+                        <button onClick={() => setSelectedComponentId(id)}>
+                          {module?.reusableComponents.find((c) => c.id === id)
+                            ?.label ?? id}
+                        </button>
+                        <div className="compact-actions">
+                          <button
+                            aria-label={`Move ${id} up`}
+                            disabled={section.componentIds.indexOf(id) === 0}
+                            onClick={() =>
+                              mutate((draft) => {
+                                const ids =
+                                  draft.sheetTemplates[0]!.sections[
+                                    selectedSection
+                                  ]!.componentIds;
+                                const index = ids.indexOf(id);
+                                moveItem(ids, index, index - 1);
+                                setAnnouncement(`${id} moved up.`);
+                              })
+                            }
+                          >
+                            ↑
+                          </button>
+                          <button
+                            aria-label={`Move ${id} down`}
+                            disabled={
+                              section.componentIds.indexOf(id) ===
+                              section.componentIds.length - 1
+                            }
+                            onClick={() =>
+                              mutate((draft) => {
+                                const ids =
+                                  draft.sheetTemplates[0]!.sections[
+                                    selectedSection
+                                  ]!.componentIds;
+                                const index = ids.indexOf(id);
+                                moveItem(ids, index, index + 1);
+                                setAnnouncement(`${id} moved down.`);
+                              })
+                            }
+                          >
+                            ↓
+                          </button>
+                        </div>
                       </div>
                     ))}
                   </article>
                 </div>
                 <aside>
-                  <h3>Inspector</h3>
-                  {section ? (
+                  <h3 ref={inspectorHeadingRef} tabIndex={-1}>
+                    Inspector
+                  </h3>
+                  {selectedComponent && section ? (
+                    <>
+                      <label>
+                        Component label
+                        <input
+                          value={selectedComponent.label}
+                          onChange={(event) =>
+                            mutate((draft) => {
+                              const component = draft.reusableComponents.find(
+                                (item) => item.id === selectedComponent.id,
+                              );
+                              if (component) {
+                                component.label = event.target.value;
+                                component.accessibilityLabel =
+                                  event.target.value;
+                              }
+                            })
+                          }
+                        />
+                      </label>
+                      <label>
+                        Width
+                        <select
+                          value={selectedComponent.layout.width}
+                          onChange={(event) =>
+                            mutate((draft) => {
+                              const component = draft.reusableComponents.find(
+                                (item) => item.id === selectedComponent.id,
+                              );
+                              if (component)
+                                component.layout.width = event.target.value as
+                                  'full' | 'half' | 'third' | 'content';
+                            })
+                          }
+                        >
+                          <option value="full">Full row</option>
+                          <option value="half">Half row</option>
+                        </select>
+                      </label>
+                      {'dataPath' in selectedComponent ? (
+                        <p>
+                          <strong>Data path:</strong>{' '}
+                          <code>
+                            {selectedComponent.dataPath.segments.join('.')}
+                          </code>
+                        </p>
+                      ) : null}
+                      {selectedComponent.type !== 'static-text' &&
+                      selectedComponent.type !== 'heading' ? (
+                        <label>
+                          Help text
+                          <textarea
+                            value={selectedComponent.helpText ?? ''}
+                            onChange={(event) =>
+                              mutate((draft) => {
+                                const component = draft.reusableComponents.find(
+                                  (item) => item.id === selectedComponent.id,
+                                );
+                                if (component)
+                                  component.helpText = event.target.value;
+                              })
+                            }
+                          />
+                        </label>
+                      ) : null}
+                      <label>
+                        Play mode
+                        <select
+                          value={selectedComponent.modes.play ?? 'view'}
+                          onChange={(event) =>
+                            mutate((draft) => {
+                              const component = draft.reusableComponents.find(
+                                (item) => item.id === selectedComponent.id,
+                              );
+                              if (component)
+                                component.modes.play = event.target.value as
+                                  'edit' | 'view' | 'hidden';
+                            })
+                          }
+                        >
+                          <option value="edit">Editable</option>
+                          <option value="view">Read only</option>
+                          <option value="hidden">Hidden</option>
+                        </select>
+                      </label>
+                      {selectedComponent.type === 'number' ||
+                      selectedComponent.type === 'dot-rating' ? (
+                        <div className="sheet-field-grid sheet-field-grid--two">
+                          <label>
+                            Minimum
+                            <input
+                              type="number"
+                              value={selectedComponent.minimum}
+                              onChange={(event) =>
+                                mutate((draft) => {
+                                  const component =
+                                    draft.reusableComponents.find(
+                                      (item) =>
+                                        item.id === selectedComponent.id,
+                                    );
+                                  if (
+                                    component?.type === 'number' ||
+                                    component?.type === 'dot-rating'
+                                  )
+                                    component.minimum =
+                                      event.currentTarget.valueAsNumber;
+                                })
+                              }
+                            />
+                          </label>
+                          <label>
+                            Maximum
+                            <input
+                              type="number"
+                              value={selectedComponent.maximum}
+                              onChange={(event) =>
+                                mutate((draft) => {
+                                  const component =
+                                    draft.reusableComponents.find(
+                                      (item) =>
+                                        item.id === selectedComponent.id,
+                                    );
+                                  if (
+                                    component?.type === 'number' ||
+                                    component?.type === 'dot-rating'
+                                  )
+                                    component.maximum =
+                                      event.currentTarget.valueAsNumber;
+                                })
+                              }
+                            />
+                          </label>
+                        </div>
+                      ) : null}
+                      {selectedComponent.type === 'select' ? (
+                        <label>
+                          Options (one label per line)
+                          <textarea
+                            value={selectedComponent.options
+                              .map(({ label }) => label)
+                              .join('\n')}
+                            onChange={(event) =>
+                              mutate((draft) => {
+                                const component = draft.reusableComponents.find(
+                                  (item) => item.id === selectedComponent.id,
+                                );
+                                if (component?.type !== 'select') return;
+                                const options = event.target.value
+                                  .split('\n')
+                                  .map((label) => label.trim())
+                                  .filter(Boolean)
+                                  .map((label, index) => ({
+                                    value: `${slug(label)}-${index + 1}`,
+                                    label,
+                                  }));
+                                component.options = options.length
+                                  ? options
+                                  : [
+                                      {
+                                        value: 'option-one',
+                                        label: 'Option one',
+                                      },
+                                    ];
+                              })
+                            }
+                          />
+                        </label>
+                      ) : null}
+                      <label>
+                        Move to section
+                        <select
+                          value={section.id}
+                          onChange={(event) =>
+                            mutate((draft) => {
+                              moveComponent(
+                                draft.sheetTemplates[0]!,
+                                selectedComponent.id,
+                                event.target.value,
+                              );
+                              const index =
+                                draft.sheetTemplates[0]!.sections.findIndex(
+                                  (item) => item.id === event.target.value,
+                                );
+                              setSelectedSection(index);
+                              setAnnouncement(
+                                `${selectedComponent.label} moved.`,
+                              );
+                            })
+                          }
+                        >
+                          {template?.sections.map((item) => (
+                            <option key={item.id} value={item.id}>
+                              {item.label}
+                            </option>
+                          ))}
+                        </select>
+                      </label>
+                      <div className="compact-actions">
+                        <button
+                          onClick={() => {
+                            setCopiedComponentId(selectedComponent.id);
+                            setAnnouncement(
+                              `${selectedComponent.label} copied.`,
+                            );
+                          }}
+                        >
+                          Copy
+                        </button>
+                        <button
+                          disabled={!copiedComponentId}
+                          onClick={() =>
+                            copiedComponentId &&
+                            mutate((draft) => {
+                              const id = duplicateComponent(
+                                draft,
+                                copiedComponentId,
+                                section.id,
+                              );
+                              setSelectedComponentId(id);
+                              setAnnouncement('Copied component pasted.');
+                            })
+                          }
+                        >
+                          Paste
+                        </button>
+                        <button
+                          onClick={() =>
+                            mutate((draft) => {
+                              const id = duplicateComponent(
+                                draft,
+                                selectedComponent.id,
+                                section.id,
+                              );
+                              setSelectedComponentId(id);
+                              setAnnouncement(
+                                `${selectedComponent.label} duplicated.`,
+                              );
+                            })
+                          }
+                        >
+                          Duplicate
+                        </button>
+                        <button
+                          onClick={() => {
+                            if (
+                              !window.confirm(
+                                `Delete ${selectedComponent.label}? You can undo this change.`,
+                              )
+                            )
+                              return;
+                            mutate((draft) =>
+                              removeComponent(draft, selectedComponent.id),
+                            );
+                            setSelectedComponentId(null);
+                            setAnnouncement(
+                              `${selectedComponent.label} deleted. Use Undo to restore it.`,
+                            );
+                            window.requestAnimationFrame(() =>
+                              inspectorHeadingRef.current?.focus(),
+                            );
+                          }}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </>
+                  ) : section ? (
                     <>
                       <label>
                         Label
@@ -539,6 +1117,22 @@ export function ModuleBuilderPage({
                           ))}
                         </select>
                       </label>
+                      <label>
+                        Section width
+                        <select
+                          value={section.width ?? 'full'}
+                          onChange={(event) =>
+                            mutate((draft) => {
+                              draft.sheetTemplates[0]!.sections[
+                                selectedSection
+                              ]!.width = event.target.value as 'half' | 'full';
+                            })
+                          }
+                        >
+                          <option value="full">Full width</option>
+                          <option value="half">Half width</option>
+                        </select>
+                      </label>
                       <div className="compact-actions">
                         {(['up', 'down'] as const).map((direction) => {
                           const offset = direction === 'up' ? -1 : 1;
@@ -570,30 +1164,68 @@ export function ModuleBuilderPage({
                             </button>
                           );
                         })}
-                      </div>
-                      <button
-                        onClick={() =>
-                          mutate((d) => {
-                            const t = d.sheetTemplates[0]!;
-                            const id = `text-${d.reusableComponents.length + 1}`;
-                            d.reusableComponents.push({
-                              id,
-                              type: 'static-text',
-                              label: 'Text',
-                              text: 'New content',
-                              accessibilityLabel: 'New text',
-                              sourceRefIds: [],
-                              layout: { width: 'full' },
-                              modes: { build: 'edit', play: 'view' },
-                              display: { format: 'plain' },
+                        <button
+                          onClick={() =>
+                            mutate((draft) => {
+                              const template = draft.sheetTemplates[0]!;
+                              const original =
+                                template.sections[selectedSection]!;
+                              const copy = structuredClone(original);
+                              copy.id = uniqueId(
+                                `${original.id}-copy`,
+                                template.sections.map(({ id }) => id),
+                              );
+                              copy.label = `${original.label} copy`;
+                              copy.componentIds = [];
+                              template.sections.splice(
+                                selectedSection + 1,
+                                0,
+                                copy,
+                              );
+                              original.componentIds.forEach((componentId) =>
+                                duplicateComponent(draft, componentId, copy.id),
+                              );
+                              template.sections.forEach(
+                                (item, index) => (item.order = index),
+                              );
+                              setSelectedSection(selectedSection + 1);
+                              setAnnouncement(`${original.label} duplicated.`);
+                            })
+                          }
+                        >
+                          Duplicate section
+                        </button>
+                        <button
+                          disabled={(template?.sections.length ?? 0) <= 1}
+                          onClick={() => {
+                            if (
+                              !window.confirm(
+                                `Delete the section “${section.label}”? Components remain reusable and Undo can restore it.`,
+                              )
+                            )
+                              return;
+                            mutate((draft) => {
+                              const sections =
+                                draft.sheetTemplates[0]!.sections;
+                              sections.splice(selectedSection, 1);
+                              sections.forEach(
+                                (item, index) => (item.order = index),
+                              );
                             });
-                            t.componentIds.push(id);
-                            t.sections[selectedSection]!.componentIds.push(id);
-                          })
-                        }
-                      >
-                        Add text component
-                      </button>
+                            setSelectedSection(
+                              Math.max(0, selectedSection - 1),
+                            );
+                            setAnnouncement(
+                              `${section.label} deleted. Use Undo to restore it.`,
+                            );
+                            window.requestAnimationFrame(() =>
+                              inspectorHeadingRef.current?.focus(),
+                            );
+                          }}
+                        >
+                          Delete section
+                        </button>
+                      </div>
                     </>
                   ) : null}
                   <p>
@@ -607,6 +1239,9 @@ export function ModuleBuilderPage({
                   </p>
                 </aside>
               </div>
+              <p className="visually-hidden" aria-live="polite">
+                {announcement}
+              </p>
             </>
           ) : null}
           {panel === 'catalogs' ? (
@@ -630,6 +1265,80 @@ export function ModuleBuilderPage({
                     />
                   </label>
                   <p>{catalog.entries.length.toLocaleString()} entries</p>
+                  <details>
+                    <summary>Entries</summary>
+                    <div className="builder-list">
+                      {catalog.entries.map((entry, entryIndex) => (
+                        <article className="builder-component" key={entry.id}>
+                          <label>
+                            Name
+                            <input
+                              value={entry.name}
+                              onChange={(event) =>
+                                mutate((draft) => {
+                                  draft.catalogs[index]!.entries[
+                                    entryIndex
+                                  ]!.name = event.target.value;
+                                })
+                              }
+                            />
+                          </label>
+                          <label>
+                            Category
+                            <input
+                              value={entry.category ?? ''}
+                              onChange={(event) =>
+                                mutate((draft) => {
+                                  draft.catalogs[index]!.entries[
+                                    entryIndex
+                                  ]!.category = event.target.value;
+                                })
+                              }
+                            />
+                          </label>
+                          <label>
+                            Summary
+                            <textarea
+                              value={entry.summary ?? ''}
+                              onChange={(event) =>
+                                mutate((draft) => {
+                                  draft.catalogs[index]!.entries[
+                                    entryIndex
+                                  ]!.summary = event.target.value;
+                                })
+                              }
+                            />
+                          </label>
+                          <button
+                            onClick={() =>
+                              mutate((draft) => {
+                                draft.catalogs[index]!.entries.splice(
+                                  entryIndex,
+                                  1,
+                                );
+                              })
+                            }
+                          >
+                            Remove entry
+                          </button>
+                        </article>
+                      ))}
+                    </div>
+                    <button
+                      onClick={() =>
+                        mutate((draft) => {
+                          const entries = draft.catalogs[index]!.entries;
+                          entries.push({
+                            id: `entry-${entries.length + 1}`,
+                            name: 'New entry',
+                            sourceRefIds: [],
+                          });
+                        })
+                      }
+                    >
+                      Add entry
+                    </button>
+                  </details>
                   <textarea
                     aria-label={`${catalog.name} bulk entries`}
                     placeholder="Bulk paste: one entry name per line"
@@ -708,22 +1417,9 @@ export function ModuleBuilderPage({
               >
                 <p className="eyebrow">{mode} mode · real module structure</p>
                 <h2>{template?.name}</h2>
-                {template?.sections
-                  .sort((a, b) => a.order - b.order)
-                  .map((item) => (
-                    <section
-                      className="sheet-section local-sheet-section"
-                      key={item.id}
-                    >
-                      <h3>{item.label}</h3>
-                      {item.componentIds.map((id) => (
-                        <div className="builder-component" key={id}>
-                          {module?.reusableComponents.find((c) => c.id === id)
-                            ?.label ?? id}
-                        </div>
-                      ))}
-                    </section>
-                  ))}
+                {module ? (
+                  <BuilderRuntimePreview module={module} mode={mode} />
+                ) : null}
               </div>
             </>
           ) : null}

@@ -42,6 +42,164 @@ export interface RegisteredModuleComponent {
   render: (props: ModuleComponentRenderProps) => ReactNode;
 }
 
+export interface ModuleComponentAuthoringMetadata {
+  type: ModuleComponentDefinition['type'];
+  name: string;
+  category: string;
+  description: string;
+  icon: string;
+  safeForImportedModules: true;
+  builderKind?: string;
+}
+
+const authoringMetadata: Partial<
+  Record<
+    ModuleComponentDefinition['type'],
+    Omit<ModuleComponentAuthoringMetadata, 'type'>
+  >
+> = {
+  heading: {
+    name: 'Heading',
+    category: 'Structure',
+    description: 'A semantic subsection heading.',
+    icon: 'H',
+    safeForImportedModules: true,
+  },
+  'static-text': {
+    name: 'Instructions',
+    category: 'Content',
+    description: 'Safe plain-text guidance.',
+    icon: '¶',
+    safeForImportedModules: true,
+    builderKind: 'static-text',
+  },
+  text: {
+    name: 'Text field',
+    category: 'Fields',
+    description: 'A labeled single-line text field.',
+    icon: 'T',
+    safeForImportedModules: true,
+    builderKind: 'text',
+  },
+  'multiline-text': {
+    name: 'Notes field',
+    category: 'Fields',
+    description: 'A labeled multiline text field.',
+    icon: '≡',
+    safeForImportedModules: true,
+    builderKind: 'multiline-text',
+  },
+  number: {
+    name: 'Number field',
+    category: 'Fields',
+    description: 'A bounded integer field.',
+    icon: '#',
+    safeForImportedModules: true,
+    builderKind: 'number',
+  },
+  checkbox: {
+    name: 'Checkbox',
+    category: 'Choices',
+    description: 'A labeled Boolean choice.',
+    icon: '☑',
+    safeForImportedModules: true,
+    builderKind: 'checkbox',
+  },
+  select: {
+    name: 'Select',
+    category: 'Choices',
+    description: 'A finite labeled option list.',
+    icon: '⌄',
+    safeForImportedModules: true,
+    builderKind: 'select',
+  },
+  'dot-rating': {
+    name: 'Dot rating',
+    category: 'Ratings',
+    description: 'A bounded integer shown as dots or boxes.',
+    icon: '●',
+    safeForImportedModules: true,
+    builderKind: 'dot-rating',
+  },
+  'field-grid': {
+    name: 'Field grid',
+    category: 'Fields',
+    description: 'A responsive group of text fields.',
+    icon: '▦',
+    safeForImportedModules: true,
+  },
+  'grouped-dot-ratings': {
+    name: 'Grouped ratings',
+    category: 'Ratings',
+    description: 'Grouped Attributes, Abilities, or Skills.',
+    icon: '◉',
+    safeForImportedModules: true,
+  },
+  'sphere-rating-wheel': {
+    name: 'Sphere wheel',
+    category: 'Advanced',
+    description: 'Mage Sphere list and desktop wheel.',
+    icon: '✦',
+    safeForImportedModules: true,
+  },
+  'permanent-temporary-rating': {
+    name: 'Permanent / temporary rating',
+    category: 'Resources',
+    description: 'Related permanent and current ratings.',
+    icon: '◐',
+    safeForImportedModules: true,
+  },
+  'opposed-wheel-20': {
+    name: 'Opposed 20-cell wheel',
+    category: 'Resources',
+    description: 'Two independent ratings on one 20-cell display.',
+    icon: '⊗',
+    safeForImportedModules: true,
+  },
+  'cycling-damage-track': {
+    name: 'Damage track',
+    category: 'Health',
+    description: 'A labeled multi-state damage track.',
+    icon: '✚',
+    safeForImportedModules: true,
+  },
+  'mage20-background-catalog': {
+    name: 'Mage Backgrounds',
+    category: 'Game-specific',
+    description: 'Trusted Mage Background selector.',
+    icon: 'M',
+    safeForImportedModules: true,
+  },
+  'mage20-merits-flaws-catalog': {
+    name: 'Mage Merits & Flaws',
+    category: 'Game-specific',
+    description: 'Trusted Mage Trait selector.',
+    icon: 'M',
+    safeForImportedModules: true,
+  },
+  'mage20-collection': {
+    name: 'Mage collection',
+    category: 'Game-specific',
+    description: 'Trusted Mage record collection.',
+    icon: 'M',
+    safeForImportedModules: true,
+  },
+  'exalted1e-section': {
+    name: 'Exalted section',
+    category: 'Game-specific',
+    description: 'Trusted Exalted section adapter.',
+    icon: 'E',
+    safeForImportedModules: true,
+  },
+  'validation-summary': {
+    name: 'Validation summary',
+    category: 'Rules',
+    description: 'Accessible rule diagnostics.',
+    icon: '!',
+    safeForImportedModules: true,
+  },
+};
+
 export class ModuleComponentRegistry {
   private readonly entries = new Map<
     ModuleComponentDefinition['type'],
@@ -64,6 +222,19 @@ export class ModuleComponentRegistry {
 
   list() {
     return [...this.entries.values()];
+  }
+
+  listAuthoring() {
+    return this.list().map(({ type }) => ({
+      type,
+      ...(authoringMetadata[type] ?? {
+        name: type,
+        category: 'Advanced',
+        description: 'Trusted declarative component.',
+        icon: '◇',
+        safeForImportedModules: true as const,
+      }),
+    }));
   }
 }
 
@@ -120,6 +291,59 @@ export const coreModuleComponentRegistry = new ModuleComponentRegistry()
             readOnly={readOnly}
             onChange={(event) => onChange(event.currentTarget.valueAsNumber)}
           />
+        </SheetField>
+      ) : null,
+  })
+  .register({
+    type: 'multiline-text',
+    render: ({ component, value, readOnly, onChange }) =>
+      component.type === 'multiline-text' ? (
+        <SheetField className="line-field" label={component.label}>
+          <textarea
+            aria-label={component.accessibilityLabel}
+            value={typeof value === 'string' ? value : ''}
+            maxLength={component.maximumLength}
+            rows={component.rows}
+            readOnly={readOnly}
+            onChange={(event) => onChange(event.target.value)}
+          />
+        </SheetField>
+      ) : null,
+  })
+  .register({
+    type: 'checkbox',
+    render: ({ component, value, readOnly, onChange }) =>
+      component.type === 'checkbox' ? (
+        <label className="sheet-checkbox-field">
+          <input
+            type="checkbox"
+            aria-label={component.accessibilityLabel}
+            checked={value === true}
+            disabled={readOnly}
+            onChange={(event) => onChange(event.target.checked)}
+          />
+          <span>{component.label}</span>
+        </label>
+      ) : null,
+  })
+  .register({
+    type: 'select',
+    render: ({ component, value, readOnly, onChange }) =>
+      component.type === 'select' ? (
+        <SheetField className="line-field" label={component.label}>
+          <select
+            aria-label={component.accessibilityLabel}
+            value={typeof value === 'string' ? value : ''}
+            disabled={readOnly}
+            onChange={(event) => onChange(event.target.value)}
+          >
+            <option value="">Choose…</option>
+            {component.options.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
         </SheetField>
       ) : null,
   })

@@ -20,8 +20,10 @@ test('authors and recovers a local module draft at desktop and mobile widths', a
   await page.getByRole('button', { name: 'Sheet' }).click();
   await page.getByRole('button', { name: '＋ Section' }).click();
   await page.getByRole('button', { name: 'New Section' }).click();
-  await page.getByRole('button', { name: 'Add text component' }).click();
-  await expect(page.getByText('Text', { exact: true })).toBeVisible();
+  await page.getByRole('button', { name: /Text field/ }).click();
+  await expect(page.getByRole('button', { name: 'New field' })).toBeVisible();
+  await page.getByRole('button', { name: 'New field' }).click();
+  await page.getByLabel('Component label').fill('Callsign');
 
   await page.getByRole('button', { name: 'Rules' }).click();
   await page.getByRole('button', { name: 'Add formula' }).click();
@@ -30,9 +32,7 @@ test('authors and recovers a local module draft at desktop and mobile widths', a
   await expect(page.getByText('formula-1', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Flows' }).click();
   await page.getByRole('button', { name: 'Add creation flow' }).click();
-  await expect(
-    page.getByRole('heading', { name: 'New creation flow' }),
-  ).toBeVisible();
+  await expect(page.getByLabel('Flow name')).toHaveValue('New creation flow');
 
   await page.getByRole('button', { name: 'Preview' }).click();
   await expect(
@@ -41,6 +41,7 @@ test('authors and recovers a local module draft at desktop and mobile widths', a
   await expect(
     page.locator('main.module-builder-shell.editor-shell'),
   ).toBeVisible();
+  await expect(page.getByLabel('Callsign')).toBeEditable();
   const previewSurface = await page
     .locator('.builder-preview .local-sheet-section')
     .first()
