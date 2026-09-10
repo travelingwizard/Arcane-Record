@@ -44,6 +44,10 @@ import {
 import { coc7eDefinition } from './call-of-cthulhu7e/definition';
 import { rootCampaignDefinition, rootDefinition } from './root-rpg/definition';
 import { dragonbaneDefinition } from './dragonbane/definition';
+import {
+  sandvDefinition,
+  sandvShipDefinition,
+} from './scum-and-villainy/definition';
 
 export const gameSystemRegistry = new GameSystemRegistry()
   .registerFamily({
@@ -86,4 +90,6 @@ export const gameSystemRegistry = new GameSystemRegistry()
   .register(coc7eDefinition)
   .register(rootDefinition)
   .register(rootCampaignDefinition)
-  .register(dragonbaneDefinition);
+  .register(dragonbaneDefinition)
+  .register(sandvDefinition)
+  .register(sandvShipDefinition);
