@@ -42,6 +42,7 @@ import {
   coc2eKeeperDefinition,
 } from './call-of-cthulhu2e/definition';
 import { coc7eDefinition } from './call-of-cthulhu7e/definition';
+import { rootCampaignDefinition, rootDefinition } from './root-rpg/definition';
 
 export const gameSystemRegistry = new GameSystemRegistry()
   .registerFamily({
@@ -81,4 +82,6 @@ export const gameSystemRegistry = new GameSystemRegistry()
   .register(motwKeeperDefinition)
   .register(coc2eDefinition)
   .register(coc2eKeeperDefinition)
-  .register(coc7eDefinition);
+  .register(coc7eDefinition)
+  .register(rootDefinition)
+  .register(rootCampaignDefinition);
