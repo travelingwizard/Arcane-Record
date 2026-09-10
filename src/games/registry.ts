@@ -43,6 +43,7 @@ import {
 } from './call-of-cthulhu2e/definition';
 import { coc7eDefinition } from './call-of-cthulhu7e/definition';
 import { rootCampaignDefinition, rootDefinition } from './root-rpg/definition';
+import { dragonbaneDefinition } from './dragonbane/definition';
 
 export const gameSystemRegistry = new GameSystemRegistry()
   .registerFamily({
@@ -84,4 +85,5 @@ export const gameSystemRegistry = new GameSystemRegistry()
   .register(coc2eKeeperDefinition)
   .register(coc7eDefinition)
   .register(rootDefinition)
-  .register(rootCampaignDefinition);
+  .register(rootCampaignDefinition)
+  .register(dragonbaneDefinition);
