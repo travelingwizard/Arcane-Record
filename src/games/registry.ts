@@ -37,6 +37,10 @@ import {
   motwDefinition,
   motwKeeperDefinition,
 } from './monster-of-the-week/definition';
+import {
+  coc2eDefinition,
+  coc2eKeeperDefinition,
+} from './call-of-cthulhu2e/definition';
 
 export const gameSystemRegistry = new GameSystemRegistry()
   .register(mage20Definition)
@@ -66,4 +70,6 @@ export const gameSystemRegistry = new GameSystemRegistry()
   .register(mmDefinition)
   .register(mmCampaignDefinition)
   .register(motwDefinition)
-  .register(motwKeeperDefinition);
+  .register(motwKeeperDefinition)
+  .register(coc2eDefinition)
+  .register(coc2eKeeperDefinition);
