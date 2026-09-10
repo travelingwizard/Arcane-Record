@@ -28,6 +28,21 @@ export interface GameAppearanceDefinition {
   description: string;
 }
 
+/** A navigation-only grouping. Families are never valid persisted system IDs. */
+export interface GameSystemFamilyDefinition {
+  id: string;
+  name: string;
+  shortName: string;
+  description: string;
+}
+
+export interface UnavailableSheetChoice {
+  id: string;
+  name: string;
+  description: string;
+  requirement: string;
+}
+
 export interface GameSystemVariantDefinition<TCharacter> {
   id: string;
   name: string;
@@ -53,7 +68,10 @@ export interface GameSystemDefinition<TCharacter = unknown> {
   currentSchemaVersion: number;
   /** Group a separately persisted sheet beneath another game in creation. */
   parentSystemId?: string;
+  familyId?: string;
+  editionChoiceLabel?: string;
   sheetChoiceLabel?: string;
+  unavailableSheetChoices?: readonly UnavailableSheetChoice[];
   characterSchema: z.ZodType<TCharacter>;
   createInitialCharacter: () => TCharacter;
   creationActions?: readonly GameSystemCreationAction<TCharacter>[];

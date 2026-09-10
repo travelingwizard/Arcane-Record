@@ -33,6 +33,7 @@ export function CreateCharacterPage({
   const [chosenSheet, setChosenSheet] = useState('');
   const importInputRef = useRef<HTMLInputElement>(null);
   const system = systemId ? registry.get(systemId) : undefined;
+  const family = systemId ? registry.getFamily(systemId) : undefined;
   const localModules =
     moduleRegistry
       ?.list()
@@ -127,9 +128,25 @@ export function CreateCharacterPage({
         <h1>Choose a game</h1>
         <p>Select the game system that defines this character’s sheet.</p>
         <div className="game-system-grid">
+          {registry.listFamilies().map((definition) => (
+            <article className="game-system-card" key={definition.id}>
+              <p className="eyebrow">Available game family</p>
+              <h2>{definition.name}</h2>
+              <p>{definition.description}</p>
+              <button
+                className="primary-button"
+                onClick={() => onNavigate(`/create/${definition.id}`)}
+              >
+                Choose {definition.shortName}
+              </button>
+            </article>
+          ))}
           {registry
             .list()
-            .filter((definition) => !definition.parentSystemId)
+            .filter(
+              (definition) =>
+                !definition.parentSystemId && !definition.familyId,
+            )
             .map((definition) => (
               <article className="game-system-card" key={definition.id}>
                 <p className="eyebrow">Available game</p>
@@ -173,6 +190,40 @@ export function CreateCharacterPage({
               );
             }),
           )}
+        </div>
+      </main>
+    );
+  }
+
+  if (family) {
+    const editions = registry
+      .list()
+      .filter(
+        (definition) =>
+          definition.familyId === family.id && !definition.parentSystemId,
+      );
+    return (
+      <main className="app-shell neutral-shell creation-shell">
+        <button className="text-button" onClick={() => onNavigate('/create')}>
+          ← Choose another game
+        </button>
+        <p className="eyebrow">{family.name}</p>
+        <h1>Choose an edition</h1>
+        <p>Edition rules and saved records remain strictly separate.</p>
+        <div className="game-system-grid">
+          {editions.map((edition) => (
+            <article className="game-system-card" key={edition.id}>
+              <p className="eyebrow">Supported edition</p>
+              <h2>{edition.editionChoiceLabel ?? edition.name}</h2>
+              <p>{edition.description}</p>
+              <button
+                className="primary-button"
+                onClick={() => onNavigate(`/create/${edition.id}`)}
+              >
+                Choose {edition.editionChoiceLabel ?? edition.shortName}
+              </button>
+            </article>
+          ))}
         </div>
       </main>
     );
@@ -276,7 +327,10 @@ export function CreateCharacterPage({
   const childSheets = registry
     .list()
     .filter(({ parentSystemId }) => parentSystemId === system.id);
-  if (childSheets.length && chosenSheet !== system.id) {
+  if (
+    (childSheets.length || system.unavailableSheetChoices?.length) &&
+    chosenSheet !== system.id
+  ) {
     return (
       <main className="app-shell neutral-shell creation-shell">
         <button
@@ -307,6 +361,17 @@ export function CreateCharacterPage({
                 }}
               >
                 Choose {choice.sheetChoiceLabel ?? choice.name}
+              </button>
+            </article>
+          ))}
+          {system.unavailableSheetChoices?.map((choice) => (
+            <article className="game-system-card" key={choice.id}>
+              <p className="eyebrow">Unavailable</p>
+              <h2>{choice.name}</h2>
+              <p>{choice.description}</p>
+              <p className="notice notice--warning">{choice.requirement}</p>
+              <button className="secondary-button" disabled>
+                Source required
               </button>
             </article>
           ))}
@@ -394,8 +459,15 @@ export function CreateCharacterPage({
   if (system.creationActions?.length) {
     return (
       <main className="app-shell neutral-shell creation-shell">
-        <button className="text-button" onClick={() => onNavigate('/create')}>
-          ← Choose another game
+        <button
+          className="text-button"
+          onClick={() =>
+            onNavigate(
+              system.familyId ? `/create/${system.familyId}` : '/create',
+            )
+          }
+        >
+          ← Choose another {system.familyId ? 'edition' : 'game'}
         </button>
         <p className="eyebrow">Create character · Step 2 of 2</p>
         <h1>Choose how to use {system.shortName}</h1>

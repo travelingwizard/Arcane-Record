@@ -1,0 +1,202 @@
+import { z } from 'zod';
+import { COC7E_SCHEMA_VERSION, coc7eGroupIds } from './definitions';
+const uuid = z.string().uuid(),
+  dt = z.string().datetime();
+const layout = z
+  .array(z.enum(coc7eGroupIds as [string, ...string[]]))
+  .length(coc7eGroupIds.length)
+  .refine((x) => new Set(x).size === x.length);
+const cited = z.object({
+  id: uuid,
+  definitionId: z.string().nullable(),
+  name: z.string(),
+  sourceId: z.string(),
+  page: z.number().int().positive().nullable(),
+  notes: z.string(),
+  custom: z.boolean(),
+});
+const approval = z.object({
+  id: uuid,
+  ruleId: z.string(),
+  reason: z.string(),
+  approvedAt: dt,
+});
+const creationRoll = z.object({
+  id: uuid,
+  characteristic: z.string(),
+  method: z.enum(['rolled', 'manual', 'array', 'allocation', 'adjustment']),
+  dice: z.array(z.number().int()),
+  total: z.number().int(),
+  createdAt: dt,
+});
+const characteristic = z.number().int().min(0).max(200);
+const skill = cited.extend({
+  rating: z.number().int().min(0).max(999),
+  baseChance: z.number().int().min(0).max(100),
+  occupationPoints: z.number().int().nonnegative(),
+  personalPoints: z.number().int().nonnegative(),
+  experienceChecked: z.boolean(),
+  training: z.boolean(),
+  specialty: z.string(),
+  family: z.string().nullable(),
+  origin: z.enum(['catalog', 'creation', 'custom', 'keeper', 'import']),
+});
+const roll = z.object({
+  id: uuid,
+  kind: z.enum([
+    'skill',
+    'characteristic',
+    'luck',
+    'opposed',
+    'combat',
+    'damage',
+    'sanity',
+    'reality-check',
+  ]),
+  label: z.string(),
+  goal: z.string(),
+  target: z.number().int().nullable(),
+  difficulty: z.enum(['regular', 'hard', 'extreme']),
+  bonusPenalty: z.number().int().min(-2).max(2),
+  ones: z.number().int().min(0).max(9).nullable(),
+  tens: z.array(z.number().int().min(0).max(9)),
+  selectedTotal: z.number().int(),
+  level: z.enum([
+    'critical',
+    'extreme',
+    'hard',
+    'regular',
+    'failure',
+    'fumble',
+  ]),
+  pushed: z.boolean(),
+  context: z.string(),
+  createdAt: dt,
+});
+const history = z.object({
+  id: uuid,
+  kind: z.string(),
+  title: z.string(),
+  description: z.string(),
+  createdAt: dt,
+});
+
+export const coc7eInvestigatorSchema = z.object({
+  schemaVersion: z.literal(COC7E_SCHEMA_VERSION),
+  name: z.string(),
+  player: z.string(),
+  pronouns: z.string(),
+  age: z.number().int().min(0).max(200),
+  birthplace: z.string(),
+  residence: z.string(),
+  era: z.enum(['1920s', 'modern', 'other']),
+  campaignPremise: z.string(),
+  concept: z.string(),
+  occupationName: z.string(),
+  mode: z.enum(['build', 'play']),
+  layout: z.object({ build: layout, play: layout }),
+  enabledSources: z.array(z.string()),
+  creation: z.object({
+    status: z.enum(['draft', 'manual', 'finalized']),
+    method: z.enum([
+      'standard',
+      'quick-fire',
+      'restart',
+      'low-roll-adjustment',
+      'placed-rolls',
+      'point-buy',
+      'custom',
+    ]),
+    step: z.number().int().min(1).max(11),
+    occupationId: z.string(),
+    occupationPointsSpent: z.number().int().nonnegative(),
+    personalPointsSpent: z.number().int().nonnegative(),
+    ageDeductions: z.object({
+      physical: z.number().int().nonnegative(),
+      education: z.number().int().nonnegative(),
+      appearance: z.number().int().nonnegative(),
+      movement: z.number().int().nonnegative(),
+    }),
+    eduChecks: z.array(creationRoll),
+    rolls: z.array(creationRoll),
+    experiencePackageId: z.string(),
+    experienceSanLoss: z.number().int().nonnegative(),
+    experienceSkillPoints: z.number().int().nonnegative(),
+    optionalRules: z.object({
+      startingSkillCap: z.boolean(),
+      skillCap: z.number().int().min(50).max(99),
+      transferableSpecializations: z.boolean(),
+      humanPotential: z.boolean(),
+    }),
+    approvals: z.array(approval),
+    baseline: z.unknown().nullable(),
+    rebuildDraft: z.unknown().nullable(),
+    finalizedAt: dt.nullable(),
+  }),
+  characteristics: z.object({
+    str: characteristic,
+    con: characteristic,
+    dex: characteristic,
+    app: characteristic,
+    pow: characteristic,
+    siz: characteristic,
+    int: characteristic,
+    edu: characteristic,
+  }),
+  resources: z.object({
+    luckCurrent: z.number().int().min(0).max(999),
+    luckMaximum: z.number().int().min(0).max(999),
+    sanityCurrent: z.number().int().min(0).max(999),
+    sanityMaximum: z.number().int().min(0).max(999),
+    magicPointsCurrent: z.number().int().min(0).max(999),
+    hitPointsCurrent: z.number().int().min(-99).max(999),
+    dailySanityStart: z.number().int().min(0).max(999),
+    dailySanityLoss: z.number().int().min(0).max(999),
+    temporaryInsanity: z.boolean(),
+    indefiniteInsanity: z.boolean(),
+    boutActive: z.boolean(),
+  }),
+  skills: z.array(skill),
+  creditRating: z.number().int().min(0).max(999),
+  spendingLevel: z.string(),
+  cash: z.string(),
+  assets: z.string(),
+  backstory: z.object({
+    personalDescription: z.string(),
+    ideology: z.string(),
+    significantPeople: z.string(),
+    meaningfulLocations: z.string(),
+    treasuredPossessions: z.string(),
+    traits: z.string(),
+    keyConnection: z.string(),
+  }),
+  organizations: z.array(cited),
+  contacts: z.array(cited),
+  phobiasManias: z.array(cited),
+  injuries: z.array(cited),
+  clues: z.array(cited),
+  mythosRecords: z.array(cited),
+  equipment: z.array(
+    cited.extend({
+      quantity: z.number().int().nonnegative(),
+      state: z.enum(['carried', 'stored', 'lost', 'consumed']),
+    }),
+  ),
+  weapons: z.array(
+    cited.extend({
+      skillId: z.string(),
+      damage: z.string(),
+      ammunition: z.number().int().nonnegative(),
+      readied: z.boolean(),
+    }),
+  ),
+  temporaryEffects: z.array(cited),
+  notes: z.string(),
+  totalExperience: z.number().int().nonnegative(),
+  currentExperience: z.number().int().nonnegative(),
+  rollHistory: z.array(roll),
+  history: z.array(history),
+});
+export type Coc7eInvestigator = z.infer<typeof coc7eInvestigatorSchema>;
+export const migrateCoc7eInvestigator = (data: unknown) =>
+  coc7eInvestigatorSchema.parse(data);

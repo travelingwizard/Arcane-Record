@@ -41,8 +41,16 @@ import {
   coc2eDefinition,
   coc2eKeeperDefinition,
 } from './call-of-cthulhu2e/definition';
+import { coc7eDefinition } from './call-of-cthulhu7e/definition';
 
 export const gameSystemRegistry = new GameSystemRegistry()
+  .registerFamily({
+    id: 'call-of-cthulhu',
+    name: 'Call of Cthulhu',
+    shortName: 'Call of Cthulhu',
+    description:
+      'Choose a supported edition, then an Investigator or Keeper record.',
+  })
   .register(mage20Definition)
   .register(exalted1eDefinition)
   .register(burningWheelDefinition)
@@ -72,4 +80,5 @@ export const gameSystemRegistry = new GameSystemRegistry()
   .register(motwDefinition)
   .register(motwKeeperDefinition)
   .register(coc2eDefinition)
-  .register(coc2eKeeperDefinition);
+  .register(coc2eKeeperDefinition)
+  .register(coc7eDefinition);

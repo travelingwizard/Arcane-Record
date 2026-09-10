@@ -24,6 +24,8 @@ export const coc2eDefinition: GameSystemDefinition<Coc2eInvestigator> = {
   id: COC2E_SYSTEM_ID,
   name: 'Call of Cthulhu Second Edition',
   shortName: 'Call of Cthulhu 2E',
+  familyId: 'call-of-cthulhu',
+  editionChoiceLabel: 'Second Edition',
   sheetChoiceLabel: 'Investigator',
   description:
     'Build and play a classic percentile investigator linked to a browser-local Keeper campaign.',
