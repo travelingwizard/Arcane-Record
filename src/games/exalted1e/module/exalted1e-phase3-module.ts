@@ -41,6 +41,11 @@ const path = (...segments: string[]) => ({
   segments,
 });
 
+type LegacyExaltedSheetType = Extract<
+  ExaltedSheetType,
+  'solar' | 'dragon-blooded'
+>;
+
 const clean = <T>(value: T): T => JSON.parse(JSON.stringify(value)) as T;
 const catalogEntries = <
   T extends {
@@ -61,7 +66,7 @@ function component(
     ModuleComponentDefinition,
     { type: 'exalted1e-section' }
   >['kind'],
-  sheetType: ExaltedSheetType,
+  sheetType: LegacyExaltedSheetType,
   catalogId?: string,
   modes: Record<string, 'edit' | 'view' | 'hidden'> = {
     build: 'edit',
@@ -83,7 +88,9 @@ function component(
   };
 }
 
-const identity = (sheetType: ExaltedSheetType): ModuleComponentDefinition => ({
+const identity = (
+  sheetType: LegacyExaltedSheetType,
+): ModuleComponentDefinition => ({
   id: `${sheetType}-identity`,
   label: 'Identity',
   type: 'field-grid',
@@ -155,7 +162,7 @@ const virtueComponents: ModuleComponentDefinition[] = exaltedVirtues.map(
   }),
 );
 
-function normalizeDefaults(sheetType: ExaltedSheetType) {
+function normalizeDefaults(sheetType: LegacyExaltedSheetType) {
   const blank = createBlankExaltedCharacter(sheetType);
   return {
     ...blank,
@@ -204,7 +211,7 @@ const sectionGroups: Record<(typeof sharedSections)[number][0], string> = {
   notes: 'advancement',
 };
 
-function componentIds(sheetType: ExaltedSheetType) {
+function componentIds(sheetType: LegacyExaltedSheetType) {
   return [
     `${sheetType}-identity`,
     'shared-attributes',
@@ -227,7 +234,7 @@ function componentIds(sheetType: ExaltedSheetType) {
   ];
 }
 
-function sections(sheetType: ExaltedSheetType) {
+function sections(sheetType: LegacyExaltedSheetType) {
   const noteIds = [
     `${sheetType}-notes-anima`,
     `${sheetType}-notes-weapons`,
@@ -285,7 +292,7 @@ function sections(sheetType: ExaltedSheetType) {
   }));
 }
 
-function sheetTemplate(sheetType: ExaltedSheetType) {
+function sheetTemplate(sheetType: LegacyExaltedSheetType) {
   const isSolar = sheetType === 'solar';
   return {
     id: isSolar ? EXALTED1E_SOLAR_SHEET_ID : EXALTED1E_DRAGON_BLOODED_SHEET_ID,

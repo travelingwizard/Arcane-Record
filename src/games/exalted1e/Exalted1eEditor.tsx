@@ -20,6 +20,7 @@ import {
   dragonBloodedAbilityGroups,
   dragonBloodedBackgrounds,
   EXALTED1E_SCHEMA_VERSION,
+  exaltedAbilities,
   exaltedSectionGroups,
   exaltedSections,
   exaltedAttributeGroups,
@@ -52,6 +53,7 @@ import {
   solarStorytellerApprovalTraitIds,
   solarTraits,
 } from './reference/solar-merits-flaws';
+import { getExaltedCharacterProfile } from './profiles';
 
 const AUTOSAVE_DELAY_MS = 550;
 
@@ -87,14 +89,33 @@ export function Exalted1eEditor({
   );
   const isNarrowLayout = useMediaQuery('(max-width: 69.999rem)');
   const isSolar = draft.sheetType === 'solar';
+  const isDragonBlooded = draft.sheetType === 'dragon-blooded';
+  const profile = getExaltedCharacterProfile(draft.sheetType);
   const activeSections = useMemo(() => [...exaltedSections], []);
-  const sheetName = isSolar ? 'Solar' : 'Dragon-Blooded';
+  const sheetName = profile.shortName;
   const abilityGroups = isSolar
     ? solarAbilityGroups
-    : dragonBloodedAbilityGroups;
-  const backgroundDefinitions = isSolar
-    ? solarBackgrounds
-    : dragonBloodedBackgrounds;
+    : isDragonBlooded
+      ? dragonBloodedAbilityGroups
+      : [
+          {
+            id: 'abilities',
+            label: 'Abilities',
+            abilityIds: exaltedAbilities.map(({ id }) => id),
+          },
+        ];
+  const backgroundDefinitions: readonly { id: string; label: string }[] =
+    isSolar
+      ? solarBackgrounds
+      : isDragonBlooded
+        ? dragonBloodedBackgrounds
+        : Array.from(
+            new Map(
+              [...solarBackgrounds, ...dragonBloodedBackgrounds].map(
+                (entry) => [entry.id, entry],
+              ),
+            ).values(),
+          );
   const backgroundById = new Map(
     backgroundDefinitions.map((background) => [background.id, background]),
   );
@@ -213,6 +234,7 @@ export function Exalted1eEditor({
       update((current) => ({
         ...current,
         sheetLayout: {
+          ...current.sheetLayout,
           groupOrder: moveOrderedId(
             current.sheetLayout.groupOrder,
             groupId as ExaltedSectionGroupId,
@@ -305,7 +327,7 @@ export function Exalted1eEditor({
       <SheetEditorShell
         gameLabel="Exalted First Edition"
         title={displayName}
-        subtitle={`${sheetName} character sheet foundation`}
+        subtitle={`${sheetName} character sheet`}
         saveStatus={saveStatus}
         onBack={returnToLibrary}
         className="exalted-editor-shell"
@@ -375,7 +397,7 @@ export function Exalted1eEditor({
                       }
                     />
                   </SheetField>
-                ) : (
+                ) : isDragonBlooded ? (
                   <>
                     <SheetField label="Aspect">
                       <input
@@ -393,6 +415,27 @@ export function Exalted1eEditor({
                         }
                       />
                     </SheetField>
+                  </>
+                ) : (
+                  <>
+                    <SheetField label={profile.identityLabel}>
+                      <input
+                        value={draft.identity.familyIdentity}
+                        onChange={(event) =>
+                          updateIdentity('familyIdentity', event.target.value)
+                        }
+                      />
+                    </SheetField>
+                    {profile.organizationLabel ? (
+                      <SheetField label={profile.organizationLabel}>
+                        <input
+                          value={draft.identity.organization}
+                          onChange={(event) =>
+                            updateIdentity('organization', event.target.value)
+                          }
+                        />
+                      </SheetField>
+                    ) : null}
                   </>
                 )}
                 <SheetField label="Anima">
@@ -444,7 +487,11 @@ export function Exalted1eEditor({
               className="sheet-section character-section exalted-sheet-section"
             >
               <p className="eyebrow">
-                {isSolar ? 'Caste groupings' : 'Elemental groupings'}
+                {isSolar
+                  ? 'Caste groupings'
+                  : isDragonBlooded
+                    ? 'Elemental groupings'
+                    : `${sheetName} Abilities`}
               </p>
               <h2 id="exalted-abilities-heading" tabIndex={-1}>
                 Abilities
@@ -1002,7 +1049,7 @@ export function Exalted1eEditor({
               }`}
             >
               <p className="eyebrow" hidden={!meritsFlawsExpanded}>
-                {isSolar ? 'Solar Traits' : 'Dragon-Blooded Traits'}
+                {sheetName} Traits
               </p>
               <h2 id="exalted-merits-flaws-heading" tabIndex={-1}>
                 <button
@@ -1025,39 +1072,50 @@ export function Exalted1eEditor({
                 id="exalted-merits-flaws-content"
                 hidden={!meritsFlawsExpanded}
               >
-                <ExaltedMeritsFlawsSection
-                  traits={draft.meritsFlaws}
-                  derangements={draft.derangements}
-                  definitions={isSolar ? solarTraits : undefined}
-                  getCostPolicy={
-                    isSolar
-                      ? (definition) =>
-                          getSolarTraitCostPolicy(
-                            definition,
-                            draft.identity.caste,
-                          )
-                      : undefined
-                  }
-                  getRepeatLimit={
-                    isSolar ? getSolarTraitRepeatLimit : undefined
-                  }
-                  matchesSearch={isSolar ? matchesSolarTraitSearch : undefined}
-                  approvalTraitIds={
-                    isSolar ? solarStorytellerApprovalTraitIds : undefined
-                  }
-                  catalogId={isSolar ? 'solar-trait-catalog' : undefined}
-                  catalogDescription={
-                    isSolar
-                      ? "Record Solar Merits and Flaws from the supplied Exalted Player's Guide workbook. Solar and Caste-specific costs are applied; requirements remain advisory."
-                      : undefined
-                  }
-                  onChange={(meritsFlaws) =>
-                    update((current) => ({ ...current, meritsFlaws }))
-                  }
-                  onDerangementsChange={(derangements) =>
-                    update((current) => ({ ...current, derangements }))
-                  }
-                />
+                {isSolar || isDragonBlooded ? (
+                  <ExaltedMeritsFlawsSection
+                    traits={draft.meritsFlaws}
+                    derangements={draft.derangements}
+                    definitions={isSolar ? solarTraits : undefined}
+                    getCostPolicy={
+                      isSolar
+                        ? (definition) =>
+                            getSolarTraitCostPolicy(
+                              definition,
+                              draft.identity.caste,
+                            )
+                        : undefined
+                    }
+                    getRepeatLimit={
+                      isSolar ? getSolarTraitRepeatLimit : undefined
+                    }
+                    matchesSearch={
+                      isSolar ? matchesSolarTraitSearch : undefined
+                    }
+                    approvalTraitIds={
+                      isSolar ? solarStorytellerApprovalTraitIds : undefined
+                    }
+                    catalogId={isSolar ? 'solar-trait-catalog' : undefined}
+                    catalogDescription={
+                      isSolar
+                        ? "Record Solar Merits and Flaws from the supplied Exalted Player's Guide workbook. Solar and Caste-specific costs are applied; requirements remain advisory."
+                        : undefined
+                    }
+                    onChange={(meritsFlaws) =>
+                      update((current) => ({ ...current, meritsFlaws }))
+                    }
+                    onDerangementsChange={(derangements) =>
+                      update((current) => ({ ...current, derangements }))
+                    }
+                  />
+                ) : (
+                  <p className="sheet-notice">
+                    The {sheetName} Merit and Flaw inventory is being
+                    source-verified. Existing unresolved records remain
+                    preserved; automatic pricing is unavailable until
+                    verification completes.
+                  </p>
+                )}
               </div>
             </section>
 
@@ -1121,12 +1179,18 @@ export function Exalted1eEditor({
               <h2 id="exalted-combos-heading" tabIndex={-1}>
                 Combos
               </h2>
-              <ComboBuilder
-                character={draft}
-                onChange={(combos) =>
-                  update((current) => ({ ...current, combos }))
-                }
-              />
+              {profile.capabilities.includes('combos') ? (
+                <ComboBuilder
+                  character={draft}
+                  onChange={(combos) =>
+                    update((current) => ({ ...current, combos }))
+                  }
+                />
+              ) : (
+                <p className="sheet-notice">
+                  Combos are not enabled for this character profile.
+                </p>
+              )}
             </section>
 
             <section
@@ -1134,11 +1198,13 @@ export function Exalted1eEditor({
               data-section-group="exalted"
               className="sheet-section character-section exalted-sheet-section"
             >
-              <p className="eyebrow">
-                {isSolar ? 'Solar powers' : 'Dragon-Blooded powers'}
-              </p>
+              <p className="eyebrow">{sheetName} powers</p>
               <h2 id="exalted-charms-sorcery-heading" tabIndex={-1}>
-                {isSolar ? 'Charms' : 'Charms & Sorcery'}
+                {isSolar
+                  ? 'Charms'
+                  : isDragonBlooded
+                    ? 'Charms & Sorcery'
+                    : 'Powers'}
               </h2>
               {isSolar ? (
                 <ExaltedPowersSection
@@ -1153,7 +1219,7 @@ export function Exalted1eEditor({
                     update((current) => ({ ...current, powers }))
                   }
                 />
-              ) : (
+              ) : isDragonBlooded ? (
                 <ExaltedPowersSection
                   powers={draft.powers}
                   character={draft}
@@ -1217,6 +1283,12 @@ export function Exalted1eEditor({
                     })
                   }
                 />
+              ) : (
+                <p className="sheet-notice">
+                  The {sheetName} power catalog is unavailable until its source
+                  inventory and cross-references pass verification. No
+                  definitions are inferred from another Exalted family.
+                </p>
               )}
             </section>
             <section

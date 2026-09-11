@@ -1,8 +1,10 @@
 export const EXALTED1E_SYSTEM_ID = 'exalted1e' as const;
-export const EXALTED1E_SCHEMA_VERSION = 7 as const;
+export const EXALTED1E_SCHEMA_VERSION = 8 as const;
 
-export const exaltedSheetTypes = ['solar', 'dragon-blooded'] as const;
-export type ExaltedSheetType = (typeof exaltedSheetTypes)[number];
+export {
+  exaltedCharacterTypes as exaltedSheetTypes,
+  type ExaltedCharacterType as ExaltedSheetType,
+} from './profiles';
 
 export const exaltedSectionGroups = [
   { id: 'character', label: 'Character' },

@@ -12,9 +12,14 @@ import {
   migrateExalted1eCharacter,
   type Exalted1eCharacter,
 } from './schema';
+import {
+  exaltedCharacterProfiles,
+  exaltedCharacterTypes,
+  getExaltedCharacterProfile,
+} from './profiles';
 
 function sheetLabel(character: Exalted1eCharacter) {
-  return character.sheetType === 'solar' ? 'Solar' : 'Dragon-Blooded';
+  return getExaltedCharacterProfile(character.sheetType).shortName;
 }
 
 export const exalted1eDefinition: GameSystemDefinition<Exalted1eCharacter> = {
@@ -22,7 +27,7 @@ export const exalted1eDefinition: GameSystemDefinition<Exalted1eCharacter> = {
   name: 'Exalted First Edition',
   shortName: 'Exalted 1e',
   description:
-    'Dot-based character records for Solar and Dragon-Blooded Exalted.',
+    'Unified First Edition records for the Exalted character family.',
   currentSchemaVersion: EXALTED1E_SCHEMA_VERSION,
   characterSchema: exalted1eCharacterSchema,
   createInitialCharacter: () => createBlankExaltedCharacter('solar'),
@@ -61,27 +66,24 @@ export const exalted1eDefinition: GameSystemDefinition<Exalted1eCharacter> = {
   CharacterEditor: Exalted1eEditor,
   appearance: {
     label: 'Exalted First Edition sheet settings',
-    description: 'Cross-game appearance for Solar and Dragon-Blooded sheets.',
+    description: 'Shared appearance for every Exalted First Edition family.',
   },
   sections: exaltedSections,
   sectionGroups: exaltedSectionGroups,
-  variants: [
-    {
-      id: 'solar',
-      name: 'Solar Exalted',
-      shortName: 'Solar',
-      description:
-        'Uses Caste-based Ability groupings, Limit Break, and the Solar Background list.',
-      createInitialCharacter: () => createBlankExaltedCharacter('solar'),
-    },
-    {
-      id: 'dragon-blooded',
-      name: 'Dragon-Blooded',
-      shortName: 'Dragon-Blooded',
-      description:
-        'Uses Aspect and House identity fields, elemental Ability groupings, and Dragon-Blooded Backgrounds.',
-      createInitialCharacter: () =>
-        createBlankExaltedCharacter('dragon-blooded'),
-    },
-  ],
+  variants: exaltedCharacterTypes.map((id) => {
+    const profile = exaltedCharacterProfiles[id];
+    const verifiedExistingFamily = id === 'solar' || id === 'dragon-blooded';
+    return {
+      id,
+      name: profile.name,
+      shortName: profile.shortName,
+      description: profile.description,
+      createInitialCharacter: () => createBlankExaltedCharacter(id, 'draft'),
+      createManualInitialCharacter: () =>
+        createBlankExaltedCharacter(id, 'manual'),
+      unavailableRequirement: verifiedExistingFamily
+        ? undefined
+        : 'Source inventory and character-family rules verification must pass before this sheet can create production records.',
+    };
+  }),
 };

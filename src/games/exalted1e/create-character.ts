@@ -6,9 +6,12 @@ import {
   exaltedVirtues,
   type ExaltedSheetType,
 } from './definitions';
+import { createDefaultFamilyState } from './profiles';
+import { defaultExaltedSourceIds } from './sources';
 
 export function createBlankExaltedCharacter(
   sheetType: ExaltedSheetType,
+  creationStatus: 'manual' | 'draft' = 'manual',
 ): Exalted1eCharacter {
   return {
     sheetType,
@@ -21,6 +24,8 @@ export function createBlankExaltedCharacter(
       aspect: '',
       house: '',
       anima: '',
+      familyIdentity: '',
+      organization: '',
     },
     attributes: Object.fromEntries(
       exaltedAttributeGroups.map((group) => [
@@ -64,8 +69,24 @@ export function createBlankExaltedCharacter(
       weapons: '',
       experience: '',
     },
+    familyState: createDefaultFamilyState(sheetType),
+    sourcePreferences: {
+      enabledSourceIds: defaultExaltedSourceIds(sheetType),
+      showUnavailable: false,
+    },
+    creation: {
+      status: creationStatus,
+      currentStep: creationStatus === 'draft' ? 1 : 0,
+      profileId: sheetType,
+      initialPurchases: [],
+      bonusPurchases: [],
+      approvals: [],
+      baselineJson: '',
+      finalizedAt: null,
+    },
     sheetLayout: {
       groupOrder: [...defaultExaltedSectionGroupOrder],
+      mode: 'build',
     },
   };
 }
