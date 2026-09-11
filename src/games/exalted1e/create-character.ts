@@ -78,6 +78,8 @@ export function createBlankExaltedCharacter(
       status: creationStatus,
       currentStep: creationStatus === 'draft' ? 1 : 0,
       profileId: sheetType,
+      favoredAttributeIds: [],
+      rulesVariant: 'standard',
       initialPurchases: [],
       bonusPurchases: [],
       approvals: [],
