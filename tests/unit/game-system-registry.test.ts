@@ -11,13 +11,23 @@ describe('game system registry', () => {
     expect(gameSystemRegistry.get('mage-m20')).toBeUndefined();
   });
 
-  it('registers Exalted 1e with Solar and Dragon-Blooded variants', () => {
+  it('registers the Exalted 1e family and keeps unverified variants unavailable', () => {
     const system = gameSystemRegistry.get('exalted1e');
     expect(system?.name).toBe('Exalted First Edition');
     expect(system?.variants?.map((variant) => variant.id)).toEqual([
       'solar',
       'dragon-blooded',
+      'lunar',
+      'abyssal',
+      'sidereal',
+      'alchemical',
+      'fair-folk',
     ]);
+    expect(
+      system?.variants
+        ?.filter(({ unavailableRequirement }) => unavailableRequirement)
+        .map(({ id }) => id),
+    ).toEqual(['lunar', 'abyssal', 'sidereal', 'alchemical', 'fair-folk']);
     expect(system?.sectionGroups.map(({ id }) => id)).toEqual([
       'character',
       'exalted',

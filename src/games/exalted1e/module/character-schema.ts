@@ -24,6 +24,10 @@ const integer = (
   minimum,
   maximum,
 });
+const optionalInteger = (
+  minimum: number,
+  maximum: number,
+): ModuleValueSchemaDefinition => ({ type: 'integer', minimum, maximum });
 const boolean = (): ModuleValueSchemaDefinition => ({
   type: 'boolean',
   required: true,
@@ -164,6 +168,8 @@ export const exalted1eModuleCharacterSchema: ModuleValueSchemaDefinition =
       aspect: string(500),
       house: string(500),
       anima: string(),
+      familyIdentity: string(500),
+      organization: string(500),
     }),
     attributes: object(
       Object.fromEntries(
@@ -386,6 +392,58 @@ export const exalted1eModuleCharacterSchema: ModuleValueSchemaDefinition =
       anima: string(),
       weapons: string(),
       experience: string(),
+    }),
+    familyState: object({
+      type: enumeration(['solar', 'dragon-blooded']),
+      animaFlux: optionalInteger(0, 99),
+    }),
+    sourcePreferences: object({
+      enabledSourceIds: array(string(200), 100),
+      showUnavailable: boolean(),
+    }),
+    creation: object({
+      status: enumeration(['manual', 'draft', 'finalized']),
+      currentStep: integer(0, 100),
+      profileId: enumeration(['solar', 'dragon-blooded']),
+      initialPurchases: array(
+        object({
+          id: string(100),
+          targetType: string(100),
+          targetId: string(500),
+          fromRating: integer(0, 99),
+          toRating: integer(0, 99),
+          cost: integer(0, 999),
+          origin: enumeration(['initial', 'bonus', 'manual']),
+          sourceId: string(200),
+          sourcePage: string(100),
+        }),
+        10_000,
+      ),
+      bonusPurchases: array(
+        object({
+          id: string(100),
+          targetType: string(100),
+          targetId: string(500),
+          fromRating: integer(0, 99),
+          toRating: integer(0, 99),
+          cost: integer(0, 999),
+          origin: enumeration(['initial', 'bonus', 'manual']),
+          sourceId: string(200),
+          sourcePage: string(100),
+        }),
+        10_000,
+      ),
+      approvals: array(
+        object({
+          id: string(100),
+          ruleId: string(300),
+          reason: string(5_000),
+          approvedAt: string(100),
+        }),
+        1_000,
+      ),
+      baselineJson: string(),
+      finalizedAt: nullable(string(100)),
     }),
     sheetLayout: object({
       groupOrder: array(enumeration(exaltedSectionGroupIds), 5),

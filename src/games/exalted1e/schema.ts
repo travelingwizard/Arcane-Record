@@ -47,6 +47,12 @@ import {
   weaponById,
 } from './shared/equipment/catalog';
 import { unresolvedExaltedReferenceSchema } from './shared/unresolved-reference';
+import {
+  createDefaultFamilyState,
+  exaltedCharacterTypes,
+  type ExaltedCharacterType,
+} from './profiles';
+import { defaultExaltedSourceIds } from './sources';
 
 const fivePointRating = z.number().int().min(0).max(5);
 const attributeRating = z.number().int().min(1).max(5);
@@ -70,15 +76,7 @@ export const exaltedAbilityIdSchema = z.enum(
   exaltedAbilities.map((ability) => ability.id),
 );
 
-export const exaltedBackgroundIdSchema = z.enum(
-  Array.from(
-    new Set(
-      [...solarBackgrounds, ...dragonBloodedBackgrounds].map(
-        (background) => background.id,
-      ),
-    ),
-  ),
-);
+export const exaltedBackgroundIdSchema = z.string().min(1).max(200);
 
 const solarBackgroundIds = new Set<string>(
   solarBackgrounds.map((background) => background.id),
@@ -97,6 +95,82 @@ const selectedTraitSchema = z.object({
   unresolvedReference: unresolvedExaltedReferenceSchema,
 });
 
+const approvalSchema = z.object({
+  id: z.string().uuid(),
+  ruleId: z.string().min(1).max(300),
+  reason: z.string().min(1).max(5_000),
+  approvedAt: z.string().datetime(),
+});
+
+const creationPurchaseSchema = z.object({
+  id: z.string().uuid(),
+  targetType: z.string().min(1).max(100),
+  targetId: z.string().min(1).max(500),
+  fromRating: z.number().int().min(0).max(99),
+  toRating: z.number().int().min(0).max(99),
+  cost: z.number().int().min(0).max(999),
+  origin: z.enum(['initial', 'bonus', 'manual']),
+  sourceId: z.string().min(1).max(200),
+  sourcePage: z.string().max(100),
+});
+
+const familyStateSchema = z.discriminatedUnion('type', [
+  z.object({ type: z.literal('solar') }),
+  z.object({
+    type: z.literal('dragon-blooded'),
+    animaFlux: z.number().int().min(0).max(99),
+  }),
+  z.object({
+    type: z.literal('lunar'),
+    tell: z.string(),
+    tattooed: z.boolean(),
+    heartBloodForms: z.array(
+      z.object({ id: z.string().uuid(), name: z.string(), notes: z.string() }),
+    ),
+    activeFormId: z.string().uuid().nullable(),
+  }),
+  z.object({
+    type: z.literal('abyssal'),
+    resonance: z.number().int().min(0).max(99),
+    liege: z.string(),
+    whispers: z.number().int().min(0).max(5),
+  }),
+  z.object({
+    type: z.literal('sidereal'),
+    division: z.string(),
+    paradox: z.number().int().min(0).max(99),
+    colleges: z.record(z.string(), z.number().int().min(0).max(5)),
+    destinies: z.array(
+      z.object({
+        id: z.string().uuid(),
+        name: z.string(),
+        active: z.boolean(),
+        notes: z.string(),
+      }),
+    ),
+  }),
+  z.object({
+    type: z.literal('alchemical'),
+    clarity: z.number().int().min(0).max(10),
+    installedCharmIds: z.array(z.string()),
+    charmSlots: z.number().int().min(0).max(99),
+  }),
+  z.object({
+    type: z.literal('fair-folk'),
+    graces: z.record(z.string(), z.number().int().min(0).max(5)),
+    feedingNotes: z.string(),
+    activeAssumption: z.string(),
+    oaths: z.array(
+      z.object({
+        id: z.string().uuid(),
+        name: z.string(),
+        state: z.string(),
+        notes: z.string(),
+      }),
+    ),
+  }),
+]);
+
 export const exalted1eCharacterSchema = z
   .object({
     sheetType: z.enum(exaltedSheetTypes),
@@ -109,6 +183,8 @@ export const exalted1eCharacterSchema = z
       aspect: z.string(),
       house: z.string(),
       anima: z.string(),
+      familyIdentity: z.string().default(''),
+      organization: z.string().default(''),
     }),
     attributes: z.object({
       physical: z.object({
@@ -214,11 +290,34 @@ export const exalted1eCharacterSchema = z
       weapons: z.string(),
       experience: z.string(),
     }),
+    familyState: familyStateSchema,
+    sourcePreferences: z.object({
+      enabledSourceIds: z.array(z.string()).min(1),
+      showUnavailable: z.boolean(),
+    }),
+    creation: z.object({
+      status: z.enum(['manual', 'draft', 'finalized']),
+      currentStep: z.number().int().min(0).max(100),
+      profileId: z.enum(exaltedCharacterTypes),
+      initialPurchases: z.array(creationPurchaseSchema),
+      bonusPurchases: z.array(creationPurchaseSchema),
+      approvals: z.array(approvalSchema),
+      baselineJson: z.string(),
+      finalizedAt: z.string().datetime().nullable(),
+    }),
     sheetLayout: z.object({
       groupOrder: exaltedSectionGroupOrderSchema,
+      mode: z.enum(['build', 'play']).default('build'),
     }),
   })
   .superRefine((character, context) => {
+    if (character.familyState.type !== character.sheetType) {
+      context.addIssue({
+        code: 'custom',
+        message: 'Family state must match the selected character type.',
+        path: ['familyState', 'type'],
+      });
+    }
     const equipmentGroups = [
       ['weapons', 'weapon', weaponById] as const,
       ['armor', 'armor', armorById] as const,
@@ -268,7 +367,7 @@ export const exalted1eCharacterSchema = z
             });
           }
         });
-      } else {
+      } else if (character.sheetType === 'solar') {
         combo.charmIds.forEach((charmId) => {
           if (!solarCharmIds.has(charmId)) {
             context.addIssue({
@@ -283,9 +382,14 @@ export const exalted1eCharacterSchema = z
     const allowedBackgroundIds =
       character.sheetType === 'solar'
         ? solarBackgroundIds
-        : dragonBloodedBackgroundIds;
+        : character.sheetType === 'dragon-blooded'
+          ? dragonBloodedBackgroundIds
+          : null;
     character.backgrounds.forEach((background, index) => {
-      if (!allowedBackgroundIds.has(background.definitionId)) {
+      if (
+        allowedBackgroundIds &&
+        !allowedBackgroundIds.has(background.definitionId)
+      ) {
         context.addIssue({
           code: 'custom',
           message: `Background is not available to ${character.sheetType} sheets.`,
@@ -294,9 +398,13 @@ export const exalted1eCharacterSchema = z
       }
     });
     const allowedCharmIds =
-      character.sheetType === 'solar' ? solarCharmIds : dragonBloodedCharmIds;
+      character.sheetType === 'solar'
+        ? solarCharmIds
+        : character.sheetType === 'dragon-blooded'
+          ? dragonBloodedCharmIds
+          : null;
     character.powers.charms.forEach((selection, index) => {
-      if (!allowedCharmIds.has(selection.definitionId)) {
+      if (allowedCharmIds && !allowedCharmIds.has(selection.definitionId)) {
         context.addIssue({
           code: 'custom',
           message: `Unknown ${character.sheetType === 'solar' ? 'Solar' : 'Dragon-Blooded'} Charm definition.`,
@@ -307,7 +415,8 @@ export const exalted1eCharacterSchema = z
     character.powers.spells.forEach((selection, index) => {
       if (
         character.sheetType === 'solar' ||
-        !dragonBloodedSpellIds.has(selection.definitionId)
+        (character.sheetType === 'dragon-blooded' &&
+          !dragonBloodedSpellIds.has(selection.definitionId))
       ) {
         context.addIssue({
           code: 'custom',
@@ -326,6 +435,11 @@ export const exalted1eCharacterSchema = z
       const pathKey = kind === 'merit' ? 'merits' : 'flaws';
       const definitionCounts = new Map<string, number>();
       selections.forEach((selection, index) => {
+        if (
+          character.sheetType !== 'solar' &&
+          character.sheetType !== 'dragon-blooded'
+        )
+          return;
         const definition =
           character.sheetType === 'solar'
             ? solarTraitById.get(selection.definitionId)
@@ -607,6 +721,41 @@ export function prepareExalted1eCharacterData(
             typeof notes?.description === 'string' ? notes.description : '',
           history: typeof notes?.history === 'string' ? notes.history : '',
         },
+      };
+    }
+    if (fromVersion < 8) {
+      const type = (exaltedCharacterTypes as readonly string[]).includes(
+        String(recordCandidate.sheetType),
+      )
+        ? (recordCandidate.sheetType as ExaltedCharacterType)
+        : 'solar';
+      const identity = (recordCandidate.identity ?? {}) as Record<
+        string,
+        unknown
+      >;
+      const sheetLayout = (recordCandidate.sheetLayout ?? {}) as Record<
+        string,
+        unknown
+      >;
+      recordCandidate = {
+        ...recordCandidate,
+        identity: { ...identity, familyIdentity: '', organization: '' },
+        familyState: createDefaultFamilyState(type),
+        sourcePreferences: {
+          enabledSourceIds: defaultExaltedSourceIds(type),
+          showUnavailable: false,
+        },
+        creation: {
+          status: 'manual',
+          currentStep: 0,
+          profileId: type,
+          initialPurchases: [],
+          bonusPurchases: [],
+          approvals: [],
+          baselineJson: '',
+          finalizedAt: null,
+        },
+        sheetLayout: { ...sheetLayout, mode: 'build' },
       };
     }
     candidate = recordCandidate;
