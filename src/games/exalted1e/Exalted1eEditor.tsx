@@ -54,6 +54,9 @@ import {
   solarTraits,
 } from './reference/solar-merits-flaws';
 import { getExaltedCharacterProfile } from './profiles';
+import { getExaltedFamilyBackgrounds } from './family-catalogs';
+import { ExaltedCreationPanel } from './ExaltedCreationPanel';
+import { getExaltedFamilyPowers } from './reference/family-powers';
 
 const AUTOSAVE_DELAY_MS = 550;
 
@@ -109,13 +112,10 @@ export function Exalted1eEditor({
       ? solarBackgrounds
       : isDragonBlooded
         ? dragonBloodedBackgrounds
-        : Array.from(
-            new Map(
-              [...solarBackgrounds, ...dragonBloodedBackgrounds].map(
-                (entry) => [entry.id, entry],
-              ),
-            ).values(),
-          );
+        : getExaltedFamilyBackgrounds(draft.sheetType).map(({ id, name }) => ({
+            id,
+            label: name,
+          }));
   const backgroundById = new Map(
     backgroundDefinitions.map((background) => [background.id, background]),
   );
@@ -355,6 +355,10 @@ export function Exalted1eEditor({
               <h2 id="exalted-identity-heading" tabIndex={-1}>
                 Character
               </h2>
+              <ExaltedCreationPanel
+                character={draft}
+                onChange={(character) => update(() => character)}
+              />
               <SheetFieldGrid columns={2} className="exalted-field-grid">
                 <SheetField label="Name">
                   <input
@@ -388,16 +392,7 @@ export function Exalted1eEditor({
                     }
                   />
                 </SheetField>
-                {isSolar ? (
-                  <SheetField label="Caste">
-                    <input
-                      value={draft.identity.caste}
-                      onChange={(event) =>
-                        updateIdentity('caste', event.target.value)
-                      }
-                    />
-                  </SheetField>
-                ) : isDragonBlooded ? (
+                {isDragonBlooded ? (
                   <>
                     <SheetField label="Aspect">
                       <input
@@ -416,6 +411,22 @@ export function Exalted1eEditor({
                       />
                     </SheetField>
                   </>
+                ) : isSolar ? (
+                  <SheetField label="Caste">
+                    <input
+                      value={draft.identity.caste}
+                      onChange={(event) =>
+                        update((current) => ({
+                          ...current,
+                          identity: {
+                            ...current.identity,
+                            caste: event.target.value,
+                            familyIdentity: event.target.value,
+                          },
+                        }))
+                      }
+                    />
+                  </SheetField>
                 ) : (
                   <>
                     <SheetField label={profile.identityLabel}>
@@ -468,8 +479,13 @@ export function Exalted1eEditor({
                         <DotRating
                           label={trait.label}
                           value={getAttributeRating(draft, group.id, trait.id)}
-                          min={1}
-                          max={5}
+                          min={
+                            draft.sheetType === 'fair-folk' &&
+                            draft.creation.rulesVariant !== 'standard'
+                              ? 0
+                              : 1
+                          }
+                          max={draft.sheetType === 'fair-folk' ? 7 : 5}
                           onChange={(rating) =>
                             updateAttribute(group.id, trait.id, rating)
                           }
@@ -1281,6 +1297,19 @@ export function Exalted1eEditor({
                         ],
                       };
                     })
+                  }
+                />
+              ) : getExaltedFamilyPowers(draft.sheetType).length > 0 ? (
+                <ExaltedPowersSection
+                  powers={draft.powers}
+                  definitions={getExaltedFamilyPowers(draft.sheetType)}
+                  catalogId={`${draft.sheetType}-charm-catalog`}
+                  catalogDescription={`Choose from ${getExaltedFamilyPowers(draft.sheetType).length} source-checked ${sheetName} Charms. Mechanical headers and printed/PDF citations are preserved; narrative effects remain concise references.`}
+                  showSpells={false}
+                  showElementFilter={false}
+                  showCategory={false}
+                  onChange={(powers) =>
+                    update((current) => ({ ...current, powers }))
                   }
                 />
               ) : (

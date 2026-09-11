@@ -41,7 +41,7 @@ export type ExaltedCapability =
 
 export interface ExaltedCreationBudget {
   attributes: readonly [number, number, number];
-  abilities: readonly [number, number, number];
+  abilities: number;
   backgrounds: number;
   virtues: number;
   charms: number;
@@ -66,8 +66,6 @@ export interface ExaltedCharacterProfile {
   verification: 'verified' | 'inventory-required';
 }
 
-const pendingBudget = null;
-
 export const exaltedCharacterProfiles = {
   solar: {
     id: 'solar',
@@ -77,8 +75,15 @@ export const exaltedCharacterProfiles = {
     governingSourceId: 'core',
     identityLabel: 'Caste',
     capabilities: ['anima', 'combos', 'limit', 'sorcery'],
-    creationBudget: pendingBudget,
-    verification: 'inventory-required',
+    creationBudget: {
+      attributes: [8, 6, 4],
+      abilities: 35,
+      backgrounds: 7,
+      virtues: 5,
+      charms: 10,
+      bonusPoints: 15,
+    },
+    verification: 'verified',
   },
   'dragon-blooded': {
     id: 'dragon-blooded',
@@ -89,8 +94,15 @@ export const exaltedCharacterProfiles = {
     identityLabel: 'Aspect',
     organizationLabel: 'House',
     capabilities: ['anima', 'combos', 'sorcery'],
-    creationBudget: pendingBudget,
-    verification: 'inventory-required',
+    creationBudget: {
+      attributes: [7, 6, 4],
+      abilities: 25,
+      backgrounds: 12,
+      virtues: 5,
+      charms: 7,
+      bonusPoints: 15,
+    },
+    verification: 'verified',
   },
   lunar: {
     id: 'lunar',
@@ -101,8 +113,15 @@ export const exaltedCharacterProfiles = {
     governingSourceId: 'lunars',
     identityLabel: 'Caste',
     capabilities: ['anima', 'combos', 'limit', 'sorcery', 'shapeshifting'],
-    creationBudget: pendingBudget,
-    verification: 'inventory-required',
+    creationBudget: {
+      attributes: [9, 7, 5],
+      abilities: 25,
+      backgrounds: 7,
+      virtues: 5,
+      charms: 9,
+      bonusPoints: 15,
+    },
+    verification: 'verified',
   },
   abyssal: {
     id: 'abyssal',
@@ -113,8 +132,15 @@ export const exaltedCharacterProfiles = {
     identityLabel: 'Caste',
     organizationLabel: 'Deathlord',
     capabilities: ['anima', 'combos', 'resonance', 'necromancy'],
-    creationBudget: pendingBudget,
-    verification: 'inventory-required',
+    creationBudget: {
+      attributes: [8, 6, 4],
+      abilities: 25,
+      backgrounds: 13,
+      virtues: 5,
+      charms: 10,
+      bonusPoints: 15,
+    },
+    verification: 'verified',
   },
   sidereal: {
     id: 'sidereal',
@@ -126,8 +152,15 @@ export const exaltedCharacterProfiles = {
     identityLabel: 'Caste',
     organizationLabel: 'Division',
     capabilities: ['anima', 'combos', 'sorcery', 'astrology'],
-    creationBudget: pendingBudget,
-    verification: 'inventory-required',
+    creationBudget: {
+      attributes: [8, 6, 4],
+      abilities: 35,
+      backgrounds: 15,
+      virtues: 5,
+      charms: 12,
+      bonusPoints: 18,
+    },
+    verification: 'verified',
   },
   alchemical: {
     id: 'alchemical',
@@ -137,8 +170,15 @@ export const exaltedCharacterProfiles = {
     governingSourceId: 'autochthonians',
     identityLabel: 'Caste',
     capabilities: ['anima', 'installed-charms'],
-    creationBudget: pendingBudget,
-    verification: 'inventory-required',
+    creationBudget: {
+      attributes: [9, 6, 4],
+      abilities: 23,
+      backgrounds: 10,
+      virtues: 5,
+      charms: 8,
+      bonusPoints: 15,
+    },
+    verification: 'verified',
   },
   'fair-folk': {
     id: 'fair-folk',
@@ -149,8 +189,15 @@ export const exaltedCharacterProfiles = {
     governingSourceId: 'fair-folk',
     identityLabel: 'Caste',
     capabilities: ['shaping'],
-    creationBudget: pendingBudget,
-    verification: 'inventory-required',
+    creationBudget: {
+      attributes: [10, 7, 4],
+      abilities: 25,
+      backgrounds: 10,
+      virtues: 6,
+      charms: 8,
+      bonusPoints: 15,
+    },
+    verification: 'verified',
   },
 } as const satisfies Record<ExaltedCharacterType, ExaltedCharacterProfile>;
 

@@ -55,7 +55,7 @@ import {
 import { defaultExaltedSourceIds } from './sources';
 
 const fivePointRating = z.number().int().min(0).max(5);
-const attributeRating = z.number().int().min(1).max(5);
+const attributeRating = z.number().int().min(0).max(7);
 const exaltedSectionGroupIdSchema = z.enum(exaltedSectionGroupIds);
 const exaltedSectionGroupOrderSchema = z
   .array(exaltedSectionGroupIdSchema)
@@ -299,6 +299,15 @@ export const exalted1eCharacterSchema = z
       status: z.enum(['manual', 'draft', 'finalized']),
       currentStep: z.number().int().min(0).max(100),
       profileId: z.enum(exaltedCharacterTypes),
+      favoredAttributeIds: z.array(z.string()).max(3),
+      rulesVariant: z.enum([
+        'standard',
+        'casteless',
+        'fugitive',
+        'ronin',
+        'common',
+        'heroic-common',
+      ]),
       initialPurchases: z.array(creationPurchaseSchema),
       bonusPurchases: z.array(creationPurchaseSchema),
       approvals: z.array(approvalSchema),
@@ -756,6 +765,20 @@ export function prepareExalted1eCharacterData(
           finalizedAt: null,
         },
         sheetLayout: { ...sheetLayout, mode: 'build' },
+      };
+    }
+    if (fromVersion < 9) {
+      const creation = (recordCandidate.creation ?? {}) as Record<
+        string,
+        unknown
+      >;
+      recordCandidate = {
+        ...recordCandidate,
+        creation: {
+          ...creation,
+          rulesVariant: 'standard',
+          favoredAttributeIds: [],
+        },
       };
     }
     candidate = recordCandidate;

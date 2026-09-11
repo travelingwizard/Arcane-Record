@@ -405,6 +405,15 @@ export const exalted1eModuleCharacterSchema: ModuleValueSchemaDefinition =
       status: enumeration(['manual', 'draft', 'finalized']),
       currentStep: integer(0, 100),
       profileId: enumeration(['solar', 'dragon-blooded']),
+      favoredAttributeIds: array(string(100), 3),
+      rulesVariant: enumeration([
+        'standard',
+        'casteless',
+        'fugitive',
+        'ronin',
+        'common',
+        'heroic-common',
+      ]),
       initialPurchases: array(
         object({
           id: string(100),
