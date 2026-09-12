@@ -137,9 +137,11 @@ describe('computeChecksum', () => {
 });
 
 describe('auditFamily against the real repository (current state)', () => {
-  it('reports the four families with no source material yet as pending-source-material with zero errors', () => {
+  const familiesWithInventory = new Set(['lunar', 'abyssal']);
+
+  it('reports the families with no source material yet as pending-source-material with zero errors', () => {
     for (const family of PLANNED_EXALTED_FAMILIES) {
-      if (family === 'lunar') continue;
+      if (familiesWithInventory.has(family)) continue;
       const report = auditFamily(family);
       expect(report.status).toBe('pending-source-material');
       expect(report.issues).toEqual([]);
@@ -149,6 +151,14 @@ describe('auditFamily against the real repository (current state)', () => {
 
   it('reports Lunar as pending-certification with its real inventory rows and zero audit errors', () => {
     const report = auditFamily('lunar');
+    expect(report.status).toBe('pending-certification');
+    expect(report.issues).toEqual([]);
+    expect(report.inventoryRows).toBeGreaterThan(0);
+    expect(report.promotedEntries).toBe(0);
+  });
+
+  it('reports Abyssal as pending-certification with its real inventory rows and zero audit errors', () => {
+    const report = auditFamily('abyssal');
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);
     expect(report.inventoryRows).toBeGreaterThan(0);

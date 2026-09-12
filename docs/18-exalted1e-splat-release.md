@@ -187,22 +187,32 @@ real, creatable sheet.
 
 ## Status per family
 
-| Family     | Source manifest               | Inventory rows | Promoted | Certification                    |
-| ---------- | ----------------------------- | -------------- | -------- | -------------------------------- |
-| Lunar      | Created (Exalted: The Lunars) | 54             | 0        | Locked, all dimensions `not-run` |
-| Abyssal    | Not created                   | 0              | 0        | Locked, all dimensions `not-run` |
-| Sidereal   | Not created                   | 0              | 0        | Locked, all dimensions `not-run` |
-| Alchemical | Not created                   | 0              | 0        | Locked, all dimensions `not-run` |
-| Fair Folk  | Not created                   | 0              | 0        | Locked, all dimensions `not-run` |
+| Family     | Source manifest                 | Inventory rows | Promoted | Certification                    |
+| ---------- | ------------------------------- | -------------- | -------- | -------------------------------- |
+| Lunar      | Created (Exalted: The Lunars)   | 54             | 0        | Locked, all dimensions `not-run` |
+| Abyssal    | Created (Exalted: The Abyssals) | 27             | 0        | Locked, all dimensions `not-run` |
+| Sidereal   | Not created                     | 0              | 0        | Locked, all dimensions `not-run` |
+| Alchemical | Not created                     | 0              | 0        | Locked, all dimensions `not-run` |
+| Fair Folk  | Not created                     | 0              | 0        | Locked, all dimensions `not-run` |
 
 Lunar's 54 rows (as of this update) cover the core innate powers, the
 complete Shapechanging I/II/III Charm trees, the complete Body Enhancement
 I/II Charm trees, the complete Unarmed Combat I tree, and the first four
 Charms of Unarmed Combat II, all visually reviewed against rendered pages
 of the supplied PDF. See `docs/references/exalted1e/lunar/README.md`
-for what remains outstanding from that book, and the project owner's 14-PDF
-source drop for the other four families and cross-splat supplements still
-to be triaged.
+for what remains outstanding from that book.
+
+Abyssal's 27 rows cover the Chapter Three character-creation overview, the
+universal Anima Effect, all five Castes, the Abyssal Curse, the Virtues of
+Death, the full Resonance mechanic (the Limit-Trait analog, including gain,
+loss, and the 1-10 manifestation table), the-title, Useful Crafts, the
+Cult-and-Abyssals exclusion, and all eleven altered/new Backgrounds, all
+visually reviewed against rendered pages of the supplied (image-based) PDF.
+Chapter Five's Charm trees and Chapter Six's necromancy rules are not yet
+inventoried; see `docs/references/exalted1e/abyssal/README.md`.
+
+Sidereal, Alchemical, and Fair Folk still await inventory work, plus the
+project owner's remaining cross-splat supplements still to be triaged.
 
 ## Next steps (require source material per book)
 

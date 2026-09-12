@@ -1,0 +1,456 @@
+[
+  {
+    "id": "abyssal-character-creation-overview",
+    "name": "Abyssal Character Creation (Five Steps)",
+    "disposition": "calculated",
+    "summary": "Abyssal character creation follows Exalted's Solar guidelines with deathknight-specific differences: Attributes 8/6/4 (primary/secondary/tertiary), Abilities from zero with a Caste/Favored Ability discount, Backgrounds of 13 dots (5 if the character is a renegade on the run from her Deathlord), 10 Charms (at least 5 from Caste or Favored Abilities), Virtues of 5 dots to divide among Compassion/Conviction/Temperance/Valor (max 3 without bonus points), then Willpower (sum of the two highest Virtues) and Essence (starts at 2).",
+    "mechanics": "Step One (Character Concept): choose which of the 13 Deathlords the character serves (each has different motivations/duties) before anything else; see the Deathlord and Paragons of Death sidebars. Step Two (Attributes): 8 dots among primary, 6 among secondary, 4 among tertiary; no Attribute may exceed 5 dots; Abyssals may forgo the free dot of Appearance to begin at Appearance 0 without gaining a bonus dot elsewhere. Step Three (Abilities): Abilities begin at 0; each Caste has 5 Caste Abilities (see the five caste rows) that get bonus-point/XP discounts, and the player also picks 5 Favored Abilities from outside the Caste list with the same discount (Caste Abilities cannot be chosen again as Favored). No Ability may exceed 3 dots without bonus points (4-5 dots permitted with bonus points); bonus points can also buy specialties as in core Exalted. Step Four (Advantages): a deathknight in her master's service gets 13 Background dots; a renegade on the run gets only 5, and Backgrounds may not exceed 3 dots without bonus points if the character is disloyal (ST discretion for punishing sudden 'loyal' turnarounds meant only to buy back dots); several Backgrounds work differently for Abyssals (see the altered-background rows) and several are exclusive to deathknights (see the six new-background rows). The player also selects 10 Charms, at least 5 of which must come from the character's Caste or Favored Abilities. Virtues get 5 dots to divide among Compassion, Conviction, Temperance and Valor, capped at 3 dots each without spending bonus points. Deathknights are tainted by the Great Curse the same as all Exalted, but the Malfeans have twisted it into the Abyssal Curse (see abyssal-curse row). Step Five (Finishing Touches): Willpower = sum of the two highest Virtues (may not be bonus-pointed above 8 unless both of those Virtues are 4+); Essence starts at 2; Personal Essence pool = (Essence x 3) + Willpower, same formula as other Exalted.",
+    "compatibility": "All Abyssal castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 120,
+      "pdfPage": 121
+    },
+    "crossReferences": [
+      "abyssal-curse",
+      "dusk-caste",
+      "midnight-caste",
+      "daybreak-caste",
+      "day-caste",
+      "moonshadow-caste"
+    ],
+    "notes": "Chapter Three: Character Creation, pp. 120-122 (PDF 121-123). Peripheral Essence pool formula is not shown on these pages; presumed identical to core Exalted (needs a citation from Chapter Four or Exalted core if promoted)."
+  },
+  {
+    "id": "abyssal-anima-effects-universal",
+    "name": "Universal Anima Effect (all Castes)",
+    "disposition": "calculated",
+    "summary": "Every Abyssal caste can spend a single mote of Essence for one of four reflexive, no-training-required anima effects: flaring the Caste Mark, flaring the full anima banner for a scene, sensing nearby Underworld emanations, and feeding on the living for sustenance via anima-formed fangs.",
+    "mechanics": "For 1 mote of Essence, any Abyssal may reflexively: (1) cause her Caste Mark to split open and glow bright scarlet or crackle with black energy for a scene, as if she had spent 1-3 motes of Peripheral Essence; (2) cause her anima to glow brightly enough to read by for a scene, as if she had spent 4-7 motes of Peripheral Essence, which also causes the Caste Mark to bleed around the edges; (3) attune her anima to the emanations of the Underworld, sensing shadowlands, ghosts, and the walking dead at a distance of (permanent Essence x 100) yards for the rest of the scene; this does not reveal the location, only the general presence, of such emanations. Although Abyssals cannot regain Essence in the land of the living through rest and respiration as other Exalted do, they have an alternative: by spending 3 motes of Essence and a simple action, an Abyssal may grow a set of fangs that give Spd -3, Acc +0, Dmg +0L and Def -2 if she bites with them. Their primary use is for feeding: placing an opponent in a clinch causes the fangs, if deployed, to inflict one automatic level of unsoakable lethal damage per turn instead of normal clinch damage (even a single die of damage is enough to feed even against a target with Invulnerable Skin of Bronze, which normally grants immunity). Each level of damage fed this way replenishes 1 mote of the Abyssal's Essence. A target cannot have been dead more than one minute for the feeding to work, and an Abyssal cannot drain more motes from a single victim than the victim's remaining health levels + 3; extras provide no more than 3 motes regardless of health levels.",
+    "cost": "1 mote (Caste Mark/anima flare/Underworld sensing); 3 motes + simple action (fangs for feeding)",
+    "compatibility": "All Abyssal castes; reflexive, no Charm purchase required.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 136,
+      "pdfPage": 137
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Traits, 'Castes' intro / 'Anima Effect' section, p. 136 (PDF 137). Distinguishes Abyssals from other Exalted, who regain Essence from the living world through rest and respiration."
+  },
+  {
+    "id": "abyssal-curse",
+    "name": "The Abyssal Curse",
+    "disposition": "calculated",
+    "summary": "Abyssals are not directly subject to the Great Curse the other Exalted suffer, but the Malfeans have twisted its imprint into a separate curse that irrevocably ties a deathknight's destiny to her Deathlord and the Malfeans: defying one's mandate of darkness turns the Abyssal's own tainted power against the world around her.",
+    "mechanics": "Verbatim: 'Should an Abyssal turn against his destiny and defy his mandate of darkness, his tainted power turns against the world around him, leaving the touch of the Abyss where he will not.' The chapter does not give a discrete dice-mechanical trigger/penalty table for this on this page; it is invoked by name elsewhere (e.g. the-title row) as the consequence for an Abyssal who clings to a name/identity she has sacrificed to the Malfeans. Likely manifests through the Resonance Trait's manifestation rules rather than as a separate mechanic, but this cross-reference is not explicit in the text reviewed so far.",
+    "compatibility": "All Abyssal castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 147,
+      "pdfPage": 148
+    },
+    "crossReferences": ["the-title", "resonance"],
+    "notes": "Chapter Four: Traits, 'The Abyssal Curse' section, p. 147 (PDF 148). Flagged for re-verification: whether this curse has its own discrete mechanical trigger distinct from Resonance gain/manifestation, or is purely a narrative framing device for Resonance, should be confirmed against any errata or later chapters before promotion."
+  },
+  {
+    "id": "virtues-of-death",
+    "name": "The Virtues of Death",
+    "disposition": "calculated",
+    "summary": "Abyssals use the same four Virtue names as other Exalted (Compassion, Conviction, Temperance, Valor), but the Malfeans' influence perverts their meaning: each Virtue is redefined in terms of death, service to (or rebellion against) the Deathlords, and the character's relationship to her own mortality.",
+    "mechanics": "Compassion measures empathy toward death rather than life: faithful deathknights find in it a desire to end suffering by bringing the release of death; renegades use it as an overall understanding of others' nature and a desire to help others live fully (in either direction). Conviction represents emotional endurance: faithful deathknights use it to measure loyalty and willingness to serve their liege; renegades use it to measure willingness to rebel against and forge past their former masters. Temperance measures self-control, containing destructive impulses when the situation demands; loyal Abyssals use it to keep their fervor in check, renegades to maintain self-control as normal Exalts do. Valor is simply courage: loyal Abyssals use it to remain steadfast against enemies of their liege (the Realm or rival Deathlords' champions); renegades use it to measure willingness to stand against threats to themselves or the people/places they care about.",
+    "compatibility": "All Abyssal castes; Virtue ratings themselves follow the same dot rules as other Exalted (5 dots at creation, max 3 without bonus points).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 147,
+      "pdfPage": 148
+    },
+    "crossReferences": ["abyssal-character-creation-overview"],
+    "notes": "Chapter Four: Traits, 'The Virtues of Death' section, p. 147 (PDF 148)."
+  },
+  {
+    "id": "resonance",
+    "name": "Resonance",
+    "disposition": "calculated",
+    "summary": "Abyssals do not have a Limit Trait like other Exalted. Instead, their corrupted destiny manifests as Resonance, rated 1-10, which measures accumulated 'death taint' and makes the character's aura increasingly unnatural, uncomfortable to be near, and offensive to the Malfeans' sensibilities.",
+    "mechanics": "As Resonance rises, living beings sense the Abyssal's aura as unnatural and unclean, and the dead/other Abyssals feel the Malfeans' displeasure. For every point of Resonance above the character's lowest Virtue rating, she loses one die from all Social rolls; this penalty does not reduce a character's dice pool below her lowest Virtue and does not affect rolls to intimidate. Even if the character does not actively interact with others, her aura makes those around her subtly uncomfortable. More dire still is the atavistic taint of Resonance opposing the Virtues: the difficulty of any Virtue roll increases by one for every four points of Resonance an Abyssal has (or fraction thereof for characters with a Resonance of 9 or 10).",
+    "compatibility": "All Abyssal castes; replaces the Limit Trait entirely for this splat.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 147,
+      "pdfPage": 148
+    },
+    "crossReferences": ["gaining-resonance", "losing-resonance", "resonance-manipulation-effects"],
+    "notes": "Chapter Four: Traits, 'Resonance' section, p. 147 (PDF 148)."
+  },
+  {
+    "id": "gaining-resonance",
+    "name": "Gaining Resonance (Litany of Sins)",
+    "disposition": "calculated",
+    "summary": "Abyssals gain Resonance by acting in opposition to their nature or the will of the Malfeans; faithful deathknights gain considerably less Resonance than renegades for the same acts, though they risk taint for failing their duties. A non-exhaustive 'Litany of Sins' lists specific triggers, and Resonance over 10 immediately bleeds into a spectral manifestation.",
+    "mechanics": "Whenever an Abyssal commits any of the actions in the Litany of Sins, she automatically gains Resonance as noted in the transgression. Listed triggers (non-exhaustive; Storytellers may add more as a severity guideline) include: dwelling within a Solar Manse or Demesne (1 point per night the deathknight remains in the place of power, +1 additional point per night if attuned to that Manse/Demesne regardless of whether she actually dwells there); living among mortals as if one of them (1 point per night spent dwelling in the same house as one); clinging to your forsaken name (1 point whenever you acknowledge or introduce yourself by your former name, max 3 points/night); taking a willing lover from among the living (1 point per night of intimacy with a living lover); siring or bearing a child with a living lover (4 points when the child is born); saving the life of a mortal (1 point per life saved, max 3 points/single event); fighting against the forces of death on behalf of the living (4 points at the conclusion of the battle, in addition to points gained from saving lives during it); disobeying one's liege (the Deathlord can inflict 1 point of Resonance on the deathknight as a reflexive action, at any distance, at any time). Deathknights who commit these acts at their liege's direct behest suffer for it, but a loyal deathknight who wins without orders can also gain Resonance. If an Abyssal's Resonance total goes over 10, the excess immediately bleeds into a spectral manifestation with a value equal to the excess (see resonance-manipulation-effects); the player chooses this effect.",
+    "compatibility": "All Abyssal castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 147,
+      "pdfPage": 148
+    },
+    "crossReferences": ["resonance", "resonance-manipulation-effects"],
+    "notes": "Chapter Four: Traits, 'Gaining Resonance' / 'Litany of Sins' sections, pp. 147-148 (PDF 148-149). The full bullet list runs across the PDF 148/149 page break; transcribed from both pages."
+  },
+  {
+    "id": "losing-resonance",
+    "name": "Losing Resonance (Castigation and Communion)",
+    "disposition": "calculated",
+    "summary": "Resonance never 'breaks' the way the Limit Trait does; it only bleeds off gradually through two rituals exclusive to Abyssals: Castigation (self-mortification and confession to atone for sins against the Malfeans) and Communion (direct meditative contact with the Malfeans, usable only by loyal deathknights).",
+    "mechanics": "Castigation: an Abyssal engages in acts of contrition and self-mortification against the Malfeans, seeking absolution from an Abyssal of the Midnight Caste or her Deathlord, and spends a scene confessing sins/performing other tortuous rituals to purge her taint. Any caste may pray for absolution and must succeed on a Charisma + Performance roll at difficulty 3; Midnight Caste Abyssals attempting Castigation on themselves roll at difficulty 5. On success, the deathknight loses a number of points of Resonance equal to the number of health levels of lethal damage suffered during the torture session. A character cannot fake contrition to exchange health levels for Resonance loss, and this method can only be used once per night. Communion: usable only by loyal deathknights, this method has a character engage in deep meditation to attempt to commune directly with the dead gods, sometimes called a Harrowing when it takes the deathknight deep into the Labyrinth to prove her devotion to the slumbering Malfeans. By spending a full night and day in deep meditation, a deathknight may bleed off as many points of Resonance as her permanent Essence. By questing deep into the Underworld where the Malfeans dwell, a deathknight may bleed off all his Resonance -- provided the Storyteller allows the Harrowing this dark path. Storytellers are encouraged to run a Harrowing as either a single-episode solo adventure for a character or as a group adventure for an entire Circle seeking communion.",
+    "compatibility": "Castigation: any Abyssal caste, once per night. Communion: loyal deathknights only.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 148,
+      "pdfPage": 149
+    },
+    "crossReferences": ["resonance", "midnight-caste"],
+    "notes": "Chapter Four: Traits, 'Losing Resonance' section, p. 148 (PDF 149)."
+  },
+  {
+    "id": "resonance-manipulation-effects",
+    "name": "Resonance Manipulation Effects (1-10 table)",
+    "disposition": "calculated",
+    "summary": "By tapping into tainted Essence, an Abyssal may deliberately evoke unnatural or outright horrifying effects around herself: the character's Essence rolls against a difficulty, and on a success gains Resonance equal to the excess successes, with the total points discharged determining which of ten escalating manifestation effects (a fixed table, 1-10) occurs.",
+    "mechanics": "Resonance Manipulation: the character's player rolls the character's Essence; if the player rolls no successes, the Abyssal gains 1 point of Resonance and manifests an effect equal to that 1 point (of the ten-tier table). Each success on the roll bleeds one point of Resonance into the world around her (up to her permanent Essence rating), and the total points discharged determines the intensity of the manifestation from the table (see resonance-lost 1 through 10 below). Characters may only attempt this once per scene, but may use it to burn off Resonance as they receive it. The character does not consciously choose which specific effect manifests. Ten-tier Resonance Lost -> Effects table (Storytellers may add more at each level): 1 - eyes glint/shine with cold radiance, skin pale/ashen, shadow distends to include monstrous features (claws, spines), bones grind audibly, voice takes an otherworldly timbre, hair/clothes writhe as though windswept even in still air, smells of decay/overturned soil. 2 - reflection becomes warped/unrecognizable or a creature of decay (e.g. a skeleton); temperature chills noticeably when entering a room; shadows lengthen/darken in the character's presence; symbols of the Unconquered Sun or Immaculate Dragons grow dark/tarnished nearby; birds of ill omen follow in the character's wake; winds sound like lamentations of the Restless Dead; stigmata form on the character's body. 3 - the character casts no reflection for the next day; grass dies where she walks; symbols of the Unconquered Sun within a village/small town grow dark and tarnished; all food within the preparation of corpses spoils; non-magical animals are frightened and flee; character's body becomes ice cold and pale like a corpse; character reeks of the oils/perfumes used in preparation of corpses; all fires smaller than a bonfire die when she comes within her line of sight. 4 - symbols of the Unconquered Sun/Immaculate Dragons within the area of a large town or small city grow bent/twisted; sky grows overcast; black lightning crackles earth to sky; unborn children/animals currently gestating in a large farmstead or small city will be born dead; all mirrors that catch the character's reflection crack/shatter; the sounds of life grow noticeably muffled/muted in a 100-yard radius; all crops within the character's line of sight die; the surf within 100 yards of the character's presence screams/sings haunting paeans to the Abyss. 5 - the character's shadow animates and takes on a dark life of its own (cannot harm any living creature); powerful storms lash the area around the character; phantasmal images of the dead drift about the character; livestock within sight take ill and die over the next few days; plants smaller than a full-grown tree wither/rot; all symbols of the Unconquered Sun/Immaculate Dragons within one mile shatter, melt or burst into unholy flame. 6 - the character's eyes become blackened portals to the tombs of the Malfeans, showing images of death/oblivion to all who look within; the character's searing shadow leaves the ground desiccated/barren; all mortals who look upon the character bleed from the eyes. 7 - the character's flesh melts and dematerializes into wisps of shadow, briefly transforming her into a living skeleton; the character's anima flares to its full iconic splendor and remains so-displayed for a scene. 8 - for the next week, the character's shadow comes to life as a malevolent undead creature in the service of the Malfeans (use the character's Traits); every intact corpse in the character's presence rises as a common zombie and rampages until the following sunrise. 9 - the earth trembles as the character passes and expels bones/noxious vapors from its crevasses; glowing quicksilver or chips of bone/ash rain from the tempest-torn sky for miles. 10 - a shadowland one mile in radius forms around the character over the course of the scene; this shadowland persists for a number of years equal to the character's permanent Essence.",
+    "compatibility": "All Abyssal castes; usable once per scene per the losing-resonance mechanism to deliberately burn off Resonance.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 149,
+      "pdfPage": 150
+    },
+    "crossReferences": ["resonance", "gaining-resonance", "losing-resonance"],
+    "notes": "Chapter Four: Traits, 'Resonance Manipulation' (p. 148/PDF 149) and 'Resonance Manipulation Effects' full table (p. 149/PDF 150)."
+  },
+  {
+    "id": "the-title",
+    "name": "The Title (loss of true name)",
+    "disposition": "calculated",
+    "summary": "At the moment of Exaltation, an Abyssal sacrifices her name to the Malfeans; she can no longer call herself by the name she bore in life and may only use titles or obvious aliases. This does not erase her personal history, but clinging to her lost name invites the Abyssal Curse's punishment.",
+    "mechanics": "The character can no longer call herself by the name she bore in life; she may only call herself by titles or obvious aliases. This does not destroy the Abyssal's name or disassociate her from her personal history -- old identity records still exist, savants and detectives can investigate her history, and those who knew her prior to her Exaltation will still recognize her, assuming she has not decayed or beautified beyond recognition. Abyssals who cling to their now-lost names suffer severely from the Abyssal Curse (see abyssal-curse row).",
+    "compatibility": "All Abyssal castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 131,
+      "pdfPage": 132
+    },
+    "crossReferences": ["abyssal-curse"],
+    "notes": "Chapter Four: Traits, 'The Title' sidebar, p. 131 (PDF 132)."
+  },
+  {
+    "id": "useful-crafts-underworld",
+    "name": "Useful Crafts (Necrosurgery, Jadecrafting, Soulforging, Moliation, Pandemonium)",
+    "disposition": "calculated",
+    "summary": "Five Craft specialty Abilities exist only in the Underworld or among the Abyssal Exalted, used to build undead war machines, shape Underworld jade, hammer ghosts into soulsteel, reshape ghostly flesh, and create horrifying illusions/manifestations among the living.",
+    "mechanics": "Craft (Necrosurgery) -- used by Abyssals: the art of shaping dead flesh; used to construct undead war machines with the necromancy spell Walking War Machine and to prepare prosthetics of bone with the Medicine Charm Bone Graft Technique. Craft (Jadecrafting) -- used by Abyssals and the dead: the art of shaping jade in the Underworld, where it has very different physical properties than among the living. Craft (Soulforging) -- used by Abyssals and the dead: the art of hammering ghosts into soulsteel. Craft (Moliation) -- used by the dead: the art of reshaping ghostly flesh. Craft (Pandemonium) -- used by the dead: the art of creating horrifying illusions and dangerous manifestations in the land of the living.",
+    "compatibility": "All Abyssal castes may take these as Craft specialties; some (Moliation, Pandemonium) are noted as used only by the dead (ghosts), not by living deathknights, per the text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 130,
+      "pdfPage": 131
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Traits, 'Useful Crafts' section, p. 130 (PDF 131). Full crafting rules referenced as being detailed on pp. 232-234 of Chapter Six: The Arts of the Dead, which is not yet inventoried."
+  },
+  {
+    "id": "cult-and-the-abyssals",
+    "name": "Cult and the Abyssals (sidebar)",
+    "disposition": "excluded",
+    "summary": "Sidebar clarifying that the Cult Background (introduced in Exalted: The Lunars and Games of Divinity) does not apply to Abyssals in the normal sense: the dead and Deathlords enjoy worship, but an Abyssal is a nameless servant of her master and is offered no cult of her own, unless she is a renegade running her own temple/cultists.",
+    "mechanics": "The Cult Background represents the Essence and Willpower a character gains from individuals who worship her as a god. The dead, including the Deathlords, enjoy much worship in the form of ancestor-cults or Underworld cults, but Abyssals generally have no cult of their own; the Abyssal is a nameless servant of her master. The only way an Abyssal is likely to start a cult is if she is a renegade who leads a temple of spectres or death cultists.",
+    "compatibility": "Loyal Abyssals: excluded from taking Cult in the ordinary sense. Renegade Abyssals leading their own temple/cult: may qualify at Storyteller discretion.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 132,
+      "pdfPage": 133
+    },
+    "crossReferences": ["liege-background"],
+    "notes": "Chapter Four: Traits, 'Cult and the Abyssals' sidebar, p. 132 (PDF 133). Classified excluded rather than reference-only because it actively forecloses a standard Background option for most character concepts, which matters for creation-flow gating."
+  },
+  {
+    "id": "artifact-background-altered",
+    "name": "Artifact (altered for Abyssals)",
+    "disposition": "calculated",
+    "summary": "The Artifact Background works differently for deathknights loyal to a Deathlord: dot ratings measure trinkets/gear/equipment access up to Supremely Appointed and Divine Regalia tiers, all forged from soulsteel unless otherwise specified, using Underworld Magical Materials (black jade, orichalcum that glows pale in the dead's presence, starmetal that frosts and distorts light, or moonsilver uncomfortable to the Material).",
+    "mechanics": "This alteration to the Artifact Background only applies to Abyssals who continue to faithfully serve their Deathlords; renegades use the standard Artifact Background from the main Exalted rulebook instead. Dot table: no dots = 'Who are you, that your Deathlord has given you no trinkets or power?'; 1 dot = Trinkets, combined Artifact rating no higher than 3; 2 dots = Sound Gear, combined rating no higher than 5, no individual piece above Artifact 3 without Storyteller permission; 3 dots = Well-Equipped, combined rating no higher than 7, no individual piece above Artifact 4 without Storyteller permission; 4 dots = Supremely Appointed, combined rating no higher than 10, no limit on individual Artifact level other than it cannot be N/A; 5 dots = Divine Regalia, combined rating no higher than 13, no limit on individual Artifact level other than it cannot be N/A. All a deathknight's artifacts are forged from soulsteel unless the Storyteller specifies otherwise; the raw materials are found only within the Underworld, and the Deathlords set their ghostly servants to work harvesting the black stone of the Labyrinth and the souls of Artificers to forge them into items of dread wonder. Jade is the most commonly used Magical Material otherwise, taken from grave goods or purchased through Guild caravans that dare trade with the shadowlands. Orichalcum finds its way rarely into the Underworld and glows with soft pale light in the presence of the dead; some Abyssals find themselves uncomfortable in the Material's presence. Moonsilver items are always covered with icy frost and leave a chill in their wake. Starmetal gleams, distorting any light which strikes it like a glass prism. Abyssal characters also have access to and may purchase artifacts of the dead, priced for their normal Artifact value but players should be aware that they are of no use outside the Underworld; for more artifacts, see Chapter Nine: Wonders and Equipment in Exalted and Chapter Six in this book.",
+    "compatibility": "Loyal Abyssal deathknights only; renegades use the standard core Exalted Artifact Background.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 130,
+      "pdfPage": 131
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Traits, 'Altered Backgrounds' -> 'Artifact' section, pp. 130-131 (PDF 131-132)."
+  },
+  {
+    "id": "backing-and-mentor-background-altered",
+    "name": "Backing and Mentor (altered for Abyssals)",
+    "disposition": "calculated",
+    "summary": "Deathknights owe no allegiance to anyone save their Deathlord and the Malfeans, so an Abyssal may begin play with the Backing or Mentor Background only in service to a Deathlord; such characters should instead use the new Liege Background below, though characters who have attempted to forsake their liege may, at Storyteller discretion, begin with some degree of Backing or Mentor.",
+    "mechanics": "Standard Backing/Mentor dot mechanics apply from core Exalted, but the source of the Backing or Mentor must be the character's Deathlord (via Liege) rather than an independent patron, unless the character has attempted to break from her liege, in which case the Storyteller may allow some Backing/Mentor rating from another source at their discretion.",
+    "compatibility": "Loyal deathknights: use Liege instead. Renegades who have broken from their liege: may retain Backing/Mentor from another source at Storyteller discretion.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 131,
+      "pdfPage": 132
+    },
+    "crossReferences": ["liege-background"],
+    "notes": "Chapter Four: Traits, 'Backing and Mentor' section, p. 131 (PDF 132)."
+  },
+  {
+    "id": "familiar-background-altered",
+    "name": "Familiar (altered for Abyssals)",
+    "disposition": "calculated",
+    "summary": "Abyssal familiars are almost exclusively beasts found within the Underworld -- most commonly the monstrous barghest-hounds bred by the Deathlords and the black or occasionally pale horses that frequently serve as a deathknight's steeds -- though any animal, living or dead, can end up as an Abyssal familiar.",
+    "mechanics": "Most Abyssal familiars are beasts native to or associated with death or the Underworld (barghest-hounds, black/pale steeds), though almost any living or dead animal can qualify. Ghostly familiars remain the same sort of creature they were in life. Living familiars will eventually take on the cast of death if kept in the Underworld too long. Standard Familiar Background dot mechanics from core Exalted otherwise apply.",
+    "compatibility": "All Abyssal castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 131,
+      "pdfPage": 132
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Traits, 'Familiar' section, p. 131 (PDF 132)."
+  },
+  {
+    "id": "followers-background-altered",
+    "name": "Followers (altered for Abyssals)",
+    "disposition": "calculated",
+    "summary": "Abyssal Exalted attract followers from among both the living and the dead: living followers are typically drawn from death cults, ghosts and nemissaries; a note on p. 132 cross-references Cult and the Abyssals for the interaction between followers and worship.",
+    "mechanics": "Followers may be drawn from among the living within the shadowlands or from throughout Creation. The former are most often drawn from the numerous death cults found throughout Creation. The latter typically hail from the ranks of the Deathlords' armies and subjects. These include ghosts and nemissaries. Although many mortal followers will be simple Militia, some Deathlords and deathknights may train living subjects as Infantry or even Elite Troops. Members of death cults are typically Heretics, while some murder cults produce Criminals specializing in assassination. Traits for these followers can be found on pp. 277-278 and 298-301 of Exalted.",
+    "compatibility": "All Abyssal castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 131,
+      "pdfPage": 132
+    },
+    "crossReferences": ["cult-and-the-abyssals"],
+    "notes": "Chapter Four: Traits, 'Followers' section, pp. 131-132 (PDF 132-133). Continues onto the Cult and the Abyssals sidebar on the facing page."
+  },
+  {
+    "id": "manse-background-altered",
+    "name": "Manse (altered for Abyssals)",
+    "disposition": "calculated",
+    "summary": "The Deathlords have claimed few Manses among the living, so an Abyssal who wishes to have access to the Manses of the living purchases the Manse Background normally, receiving a Manse with a rating equal to the number of dots in this Background; Manses in the Underworld are instead covered by the new Underworld Manse Background.",
+    "mechanics": "Abyssals who wish to have access to the Manses of the living purchase the Manse Background normally, receiving a Manse with a rating equal to the number of dots in this Background. See underworld-manse-background for the Underworld-specific equivalent.",
+    "compatibility": "All Abyssal castes, for Manses located in the land of the living.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 132,
+      "pdfPage": 133
+    },
+    "crossReferences": ["underworld-manse-background"],
+    "notes": "Chapter Four: Traits, 'Manse' section, p. 132 (PDF 133)."
+  },
+  {
+    "id": "abyssal-command-background",
+    "name": "Abyssal Command (new Background)",
+    "disposition": "selectable",
+    "summary": "New Background: the character has been placed at the head of one of her Deathlord's military formations, ranging from no troops at all up to a 'double dragon' of thousands of troops and hundreds of lesser dead that can only serve as the vanguard of the Deathlord's own personal bodyguard.",
+    "mechanics": "Troops raised through this Background are typically battle-trained and mistreated ghosts, ancestor-cult zealots, or death-cult fanatics. Characters may trade two living soldiers for one ghost, and one living soldier for three skeletons or zombies. These troops are the character's personal retinue and don't have anything to take the character's orders other than the deathknight, though he may second them to the regular military when he is not using them. When the character loses his soldiers, they will be replaced as quickly as the Deathlord is willing and given fresh troops; those who waste their soldiers unlikely to get replacements very soon. The loyalty of the troops is variable, depending on the Deathlord and the Abyssal's fellow abyssals, the troops may have been subjected to conditioning techniques and supernatural training. Unconditioned troops will fight loyally if well-treated and given reason to believe they fight for a strong cause. If subjected to dissonant conditions, thrown away as cannon fodder or given reason to believe that they fight the entire universe that seeks to annihilate the entire universe, their morale will generally be low. Characters will have to act appropriately in front of religiously motivated troops or risk poor morale or outright rebellion. Not all Deathlords have large formations of troops with their rights to put the brakes on characters with military ambitions whose masters have nary a soul in arms. Troops that come from this Background use the Elite Troops template found on page 278 of Exalted. Walking dead are described as on page 299 of Exalted. War ghosts will have higher quality undead handlers to drive them at a rate of about one per ten regular shamblers. All troops are extras. Dot table: no dots = none, not even a bodyguard; 1 dot = a small bodyguard of two ghosts, five soldiers or 15 common zombies, they also have basic domestic chores; 2 dots = a large bodyguard of 13 ghosts, 25 soldiers or 75 zombies and other walking dead commanders, perhaps you fear ambush; 3 dots = an armed company of 50 ghosts, 100 men or 300 common zombies and assorted other animated dead, the character might command a unit of commando raiders, a monastic fighting order, a violent criminal syndicate or a very large personal bodyguard; 4 dots = a heavy company of 250 ghosts, 500 men or 1,500 shamblers, perhaps the character commands the palace guard of his lord's heavy cavalry, the character's force may contain undead war machines at the Storyteller's discretion; 5 dots = a double dragon of 500 war ghosts, 1,000 common soldiers or 3,000 common zombies and an additional 250 more intelligent walking dead to manage them, the force can only be the vanguard of their master's forces or the Deathlord's personal bodyguard.",
+    "cost": "Background dots (0-5), as with any Background.",
+    "compatibility": "Loyal deathknights primarily; a Liege-Background sidebar notes Liege gives bonus points that can be spent on Abyssal Command among other new Backgrounds.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 132,
+      "pdfPage": 133
+    },
+    "crossReferences": ["liege-background"],
+    "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Abyssal Command' section, p. 132 (PDF 133). Transcribed from a partially garbled OCR-adjacent visual pass on the loyalty/morale paragraph; that paragraph's exact wording should be re-verified against a cleaner render before promotion, though the dot table itself was legible and is transcribed with confidence."
+  },
+  {
+    "id": "liege-background",
+    "name": "Liege (new Background)",
+    "disposition": "selectable",
+    "summary": "New Background: represents the closeness of the relationship between an Abyssal and her Deathlord, both as mentor and as backer. Every deathknight has some rating in Liege, and the higher the rating, the more closely entwined the character's destiny is with her Deathlord's.",
+    "mechanics": "Every Abyssal character is considered to have this Background to represent the Deathlord's level of interest in the character's existence and activities, functioning as both a mentor and a backer. A character with the Liege Background has additional bonus points that may be spent on the Backgrounds of Abyssal Command, Artifact, Followers, Influence, Manse, Necromancy, Resources, Underworld Manse and Whispers, as well as on any of the character's Caste or Favored Abilities and on Charms. Renegade deathknights on the run from their Deathlord masters may not buy the Liege Background; if the game is built on hinging on the characters rebelling against their Deathlord masters, the players should discuss if that's appropriate to what degree. Dot table: no dots = 'You no longer have any contact with your Deathlord, either because you have turned back on him or because he has turned his back on you,' 0 additional bonus points; 1 dot = 'You and your Deathlord are distant, and he takes only the minimal interest in your doings. The character possesses 2 additional bonus points to be spent on those Traits detailed in the Liege Background description'; 2 dots = 'Your Deathlord takes an infrequent interest in your activities, perhaps a half-dozen times a year, and gives you a small number of underlings and other resources to use in the course of your duties. The character receives 4 additional bonus points'; 3 dots = 'Your Deathlord calls you into his presence occasionally, perhaps once a month, and grants a moderate amount of resources to use as you see fit. The character receives 6 additional bonus points'; 4 dots = 'You see your Deathlord often, reporting to him almost weekly, and are entrusted with a large number of his empire's resources. The character receives 9 additional bonus points'; 5 dots = 'You are your Deathlord's most trusted servant, acting as his trusted agent and receiving his full support in all things. The character receives 12 additional bonus points.'",
+    "cost": "Background dots (0-5), as with any Background; grants scaling bonus points rather than a direct game effect of its own.",
+    "compatibility": "All loyal Abyssal castes; unavailable to renegades on the run from their Deathlord.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 133,
+      "pdfPage": 134
+    },
+    "crossReferences": [
+      "abyssal-command-background",
+      "artifact-background-altered",
+      "followers-background-altered",
+      "manse-background-altered",
+      "necromancy-background",
+      "underworld-manse-background",
+      "whispers-background"
+    ],
+    "notes": "Chapter Four: Traits, 'Liege' section, p. 133 (PDF 134). Lists Resources and Influence as Backgrounds eligible for Liege bonus points; those two are standard core-Exalted Backgrounds not otherwise altered for Abyssals and are not separately inventoried here."
+  },
+  {
+    "id": "necromancy-background",
+    "name": "Necromancy (new Background)",
+    "disposition": "selectable",
+    "summary": "New Background: represents how much necromantic lore the Deathlords have shared with a character, granting starting knowledge of a number of necromancy spells (Shadowlands and/or Labyrinth Circle) that can be used to swap out Charms for spells during character creation.",
+    "mechanics": "A character who possesses the Necromancy Background has put forth the time and effort to master the dread magics of the Underworld. Most learn at the feet of their Deathlords; some undertake independent instruction or seek out the ghosts of First Age loremasters; a few mad souls descend deep into the Underworld to learn the dark arts from the Malfeans themselves. This Background enables a character to begin the game with knowledge of a certain number of necromancy spells to swap out Charms for spells. All of the spells learned from this Background must be necromantic in nature; it may not be used to learn Terrestrial or Celestial sorcery. Dot table: no dots = no training in the arts of necromancy; 1 dot = basic instruction in the necromantic arts, starts with knowledge of one necromancy spell of the Shadowlands Circle; 2 dots = strong understanding of the core principles of the magic of the Underworld, starts with knowledge of two necromancy spells of the Shadowlands Circle; 3 dots = extensive training in the arts of necromancy, starts with knowledge of three necromancy spells of the Shadowlands Circle; 4 dots = advanced understanding of the power death can wield over Creation, starts with knowledge of five necromancy spells of the Shadowlands or Labyrinth Circles; 5 dots = a prodigy in the study of the dread arts, starts with knowledge of seven necromancy spells of the Shadowlands or Labyrinth Circles.",
+    "cost": "Background dots (0-5), as with any Background; each dot swaps a Charm slot for the listed number of necromancy spells.",
+    "compatibility": "All Abyssal castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 133,
+      "pdfPage": 134
+    },
+    "crossReferences": ["liege-background"],
+    "notes": "Chapter Four: Traits, 'Necromancy' section, p. 133 (PDF 134). The necromancy spell catalog itself (Shadowlands/Labyrinth Circle spell lists) is not yet inventoried."
+  },
+  {
+    "id": "spies-background",
+    "name": "Spies (new Background)",
+    "disposition": "selectable",
+    "summary": "New Background: the Deathlords maintain vast intelligence networks of demons, spies and sorcerous communication apparatus; a character with this Background commands some portion of that network, from no agents at all up to an empire-spanning organization of thousands.",
+    "mechanics": "Characters with this Background have some portion of their Deathlord's intelligence machinery at their command. Perhaps they manage it, or perhaps they have been given it as a status symbol or playtoy. Whatever the case, a character can use the network to spy on his foes. Characters with this Background do not have discretionary budget, but so long as they keep their Deathlord happy, they can take advantage of its facilities and resources for their own personal protection and to fulfill their agenda. Dot table: no dots = no agents serve you; 1 dot = you have control of the security forces in the area around a major Manse or perhaps run a small secret police force; 2 dots = you control a bureau of 25 spies enforcing your master's demesne over one or more shadowlands; 3 dots = you control a bureau of 100 spies, monitoring a single kingdom in the Underworld or perhaps all of your master's affairs in the mortal world; 4 dots = you control a large network of several hundred full-time operators and several hundred additional casuals, you have achieved varying degrees of penetration over an entire Direction, either in the land of the living or the land of the dead; 5 dots = your organization spans an entire Direction in both the lands of the living and the lands of the dead, you have eyes everywhere: thousands of casual agents, hundreds of full time agents and a commando force of 100 elite troops.",
+    "cost": "Background dots (0-5), as with any Background.",
+    "compatibility": "All Abyssal castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 134,
+      "pdfPage": 135
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Traits, 'Spies' section, p. 134 (PDF 135)."
+  },
+  {
+    "id": "underworld-manse-background",
+    "name": "Underworld Manse (new Background)",
+    "disposition": "selectable",
+    "summary": "New Background: covers access to and attunement with Manses located within the Underworld, which are rare (the Deathlords claim few of them) but extremely powerful; a renegade Abyssal may only buy this Background to represent places she has found or stolen access to on her own, and gains only the benefits listed for Manse on p. 145 of Exalted.",
+    "mechanics": "Though the Deathlords lay claim to few Manses among the living, having taken most such places into land of the dead, they claim the sole sorcerers and ghost laborers of that kingdom over many long centuries. With demon and ghost laborers, they have made these places into countless strongpoints and hidden retreats. They keep most of their vast gem-hoard in Hearthstones for themselves, and a Deathlord who so chooses can go about adorned with the Empress' ransom in Hearthstones of the most exquisite power. Some of these secret places hold magical talismans the Deathlords share with their Abyssal servants. But although it is abundant, the power of the Underworld is fragile: the effects of the Hearthstones of Abyssal Manses stop at the edge of the shadowlands. Beyond the borders of the kingdom of death and the lands it holds in sway, the stones provide no Essence, and the Hearthstone's magical powers also vanish. It is simply an inert rock, albeit a very hard one. One deathknight with a military agenda typically put securing Manses in Creation at the top of her list of priorities. Access to a Manse's Hearthstone generally implies the character also has use of the Manse's facilities, such as a fortress, place of habitation, magical library or whatever other functions it might serve. If the deathknight is forbidden the use of the Manses, the Storyteller should consider compensating the character in some other fashion. Underworld Manses are not the sole property of the deathknight, however, and can be stripped or reassigned at the Abyssal's master's whim. Renegade Abyssals may purchase Underworld Manse on their own or stolen cleanly from their former master. Renegades buying Underworld Manse receive only the benefits listed for Manse on page 145 of the Exalted rulebook. Dot table: no dots = the master has not opened any of the Deathlord's Manses to you; 1 dot = permitted use of and attuned to several level 1 and level 2 Manses in the Underworld, may have one Hearthstone of level 1 or 2; 2 dots = allowed to enter and been attuned to several weak Underworld Manses, she has level 1 or level 2 Hearthstones, no more than three levels total; 3 dots = permitted entrance and has attuned to some fairly powerful Underworld Manses, she has a level 3 Hearthstone and several level 1 and level 2 stones (no more than six levels total, including the large stone); 4 dots = access to and attuned to some of the most powerful mansions in the Underworld, she has a level 4 Hearthstone and several level 1 or level 2 and possibly even one of level 3 (no more than eight levels, total, including the large stone); 5 dots = taken into the bosom of her master's powers and allowed to enter/attune herself to the Deathlord's most powerful Underworld Manses, she has even been entrusted with the Hearthstone of one of these temples of the infinite void, she has a level 5 Hearthstone and several others of levels 1-3 (no more than 10 levels total, including the large stone).",
+    "cost": "Background dots (0-5), as with any Background.",
+    "compatibility": "Loyal deathknights get the full benefit table; renegades receive only the standard core-Exalted Manse benefits (p. 145 Exalted) regardless of dots purchased here.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 134,
+      "pdfPage": 135
+    },
+    "crossReferences": ["manse-background-altered", "liege-background"],
+    "notes": "Chapter Four: Traits, 'Underworld Manse' section, pp. 134-135 (PDF 135-136); dot table continues onto the following page."
+  },
+  {
+    "id": "whispers-background",
+    "name": "Whispers (new Background)",
+    "disposition": "selectable",
+    "summary": "New Background: some Abyssals learn to listen to whispering voices from the Malfeans in their hearts, minds and souls. Once per night, the character may roll Perception + Whispers to uncover a secret lost in the void, follow the whispers as an intuitive guide toward wherever the Malfeans believe her action would most benefit them, or spend 1 temporary Willpower to substitute her Whispers rating for a single Ability roll.",
+    "mechanics": "A character with the Whispers Background may use it to tap into the wealth of lore lost in the darkness of Underworld. Once per night (one night being from dusk until dawn the following day), by her player rolling Perception + Whispers, an Abyssal character may perform one of the following actions. (1) By listening to the whispering voices that flow through her mind, a character may uncover a secret lost into the void of the Underworld. The exact nature of this secret is left to the Storyteller's discretion, but the greater the level of success, the more important the secret. A single success might only reveal a story of death or tragedy involving a living person the character is or will soon be dealing with (clever characters will take advantage of this knowledge to engage in blackmail, psychological torture or even to convert the individual to the worship of death); this knowledge fades from the Abyssal's mind after one night. (2) A character may use the whispers of the Underworld as a guide, following them intuitively until she reaches a place the Malfeans believe her action might benefit the most. The greater the number of successes rolled, the stronger the character is drawn in the direction she must go. Often, these are locations where a single death might have monumental consequences (be it politically or on the emotional psyche of an entire town or village), where the population is ripe for recruitment into death cults or where hope threatens the growth of a shadowland. Some renegade Abyssals try to use this ability to find where they might do the most damage against the works of the Malfeans, walking the razor's edge of the Abyssal Curse. (3) A character may attempt to use the knowledge whispered in her mind as a substitute for one Ability. After focusing on the whispered voices (a successful Perception + Whispers roll), her player may substitute the deathknight's Whispers rating for a single Ability rating in a single roll. The commonness of the task determines the difficulty of the Whispers roll. Using Whispers in place of Archery to make a shot would require only a basic success, while using it in place of Lore to operate a complex First Age engineering marvel might require a legendary success. The character must spend 1 temporary Willpower to activate the Background this way. Dot table: no dots = you either have not made an effort to listen to the whispers of the Malfeans or you have successfully ignored them; 1 dot = you have learned to hear the voices in your soul but still have difficulty understanding the wisdom they impart; 2 dots = you have a strong insight into the will of the Malfeans; 3 dots = the music of death sings in your soul; 4 dots = the quiet voices of your dead gods are your constant companion; 5 dots = you are one with the Malfeans, and your eyes shine with the light of divine insight.",
+    "cost": "Background dots (0-5); using the Ability-substitution effect additionally costs 1 temporary Willpower per use.",
+    "compatibility": "All Abyssal castes; the secret-guidance effect is noted as particularly (ab)used by renegades.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 135,
+      "pdfPage": 136
+    },
+    "crossReferences": ["abyssal-curse"],
+    "notes": "Chapter Four: Traits, 'Whispers' section, pp. 135-136 (PDF 136-137)."
+  },
+  {
+    "id": "dusk-caste",
+    "name": "Dusk Caste",
+    "disposition": "selectable",
+    "summary": "Dusk Caste Abyssals are the martial arm of a Circle, chosen for mastery of bringing death through war and combat; in the Underworld they serve as their Deathlord's generals and champions leading armies against the living and the dead.",
+    "mechanics": "Anima Banner: marked by a blackened circle surrounded by black lines branded on the center of the brow; during large expenditures of Peripheral Essence this brand bleeds along the edges; anima tends to be pitch black with an edging of gray, sometimes tinged with dark purple. Anima Effects: by spending 10 motes of Essence, the character can appear dark and terrible for the remainder of the scene (or until she chooses to let the effect dissipate). Players of mortal creatures attempting to face the Abyssal must make a Valor check or be unable to look directly at the character or strongly oppose him, subtracting 2 dice from all attempts to attack the character. Characters whose players botch their Valor rolls (and most natural animals) will flee in terror of the spectre that confronts them. Caste Abilities: Archery, Brawl, Martial Arts, Melee, Thrown. Associations: the season of spring, the colors white and purple, the eastern direction, the element of ghost flame, the full moon. Sobriquets: They Who Sing Forsaken Hymns, Peacebringers, Children of Ash, Ascending Darkness. Concepts: amoral general, brooding swordsman, mercenary assassin, mercy killer, murder cultist, Deathlord's living weapon, La Belle Dame Sans Merci.",
+    "compatibility": "One of the five Abyssal castes chosen at character creation, mirroring the Solar Dawn Caste's role.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 137,
+      "pdfPage": 138
+    },
+    "crossReferences": ["abyssal-character-creation-overview", "abyssal-anima-effects-universal"],
+    "notes": "Chapter Four: Traits, 'Dusk Caste' section, pp. 137-138 (PDF 138-139)."
+  },
+  {
+    "id": "midnight-caste",
+    "name": "Midnight Caste",
+    "disposition": "selectable",
+    "summary": "Midnight Caste Abyssals serve as high priests of the Deathlords in the Underworld, preaching the glory of death and the will of the Malfeans; among the living they spread cults of death and can be spiritual leaders performing the Castigation ritual for other Abyssals.",
+    "mechanics": "Anima Banner: a large black circular Caste Mark branded upon their brow; during large expenditures of Peripheral Essence this circle bleeds along the edges; anima is black so that they seem like a hole in the Tapestry. Anima Effects: the Midnight Caste is empowered with the unholy might of the Deathlords' dark gods. With but a touch, these Exalted can cause the bodies of the fallen to rise as zombies: a character spends 5 motes of Essence and touches a body, and awakens it and rises by the end of the turn. Such zombies are of permanent duration and are always extras; use the Common Zombie statistics on page 299 of Exalted. An Abyssal may also strike down mortals with her icy glance: as her action for a turn, the Exalted may channel 5 motes of Essence through her anima and indicate a normal mortal within 10 yards; she then does her Essence as a dice of unsoakable aggravated damage against that target; this power has no effect on Fair Folk, Exalted or other magical beings. Caste Abilities: Endurance, Performance, Presence, Resistance, Survival. Associations: the season of summer, the colors yellow and cobalt, the southern direction, the ghost-element of jade, the half moon. Sobriquets: They Who Speak Blasphemous Truths, Echoes of the Abyss, Children of Silence, Resplendent Darkness. Concepts: death-cult leader, physician, Deathlord's strong right hand, voice of the Malfeans, deranged hermit, spiritual advisor.",
+    "compatibility": "One of the five Abyssal castes chosen at character creation, mirroring the Solar Zenith Caste's role.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 139,
+      "pdfPage": 140
+    },
+    "crossReferences": ["abyssal-character-creation-overview", "abyssal-anima-effects-universal", "losing-resonance"],
+    "notes": "Chapter Four: Traits, 'Midnight Caste' section, pp. 139-140 (PDF 140-141)."
+  },
+  {
+    "id": "daybreak-caste",
+    "name": "Daybreak Caste",
+    "disposition": "selectable",
+    "summary": "Daybreak Caste Abyssals are the Deathlords' creators of forbidden lore and dark artifice, the Children of Bone who build the mighty engines of destruction, necromantic magics and undead armies/arsenals that the Deathlords rely on.",
+    "mechanics": "Anima Banner: a dark circle branded on their brow, the top half filled in with black and the bottom half being only an empty border; during large expenditures of Peripheral Essence this circle bleeds along the edges; anima tends toward the more spectacular colors of the Underworld, displaying grays with some purples and even dark greens. Anima Effects: Abyssals of the Daybreak Caste may channel Essence through their animas, filling them with the swirling power of the Underworld. If, after an enemy's player has rolled damage, the Daybreak Caste Abyssal would take one or more health levels of damage, he may spend 5 motes of Essence to strengthen his anima in an attempt to stop the attack; roll the character's Essence, and for each success he can subtract one health level from the damage the enemy would have done. This effect can turn an otherwise deadly blow or reduce a weak attack to harmlessness. Caste Abilities: Craft, Investigation, Lore, Medicine, Occult. Associations: the season of autumn, the colors orange and black, the western direction, the corpse-element of bone, the crescent moon. Sobriquets: They Who Work Unclean Arts, Shadows of the Abyss, Children of Bone, Descending Darkness. Concepts: fallen shaman, artificer, obsessed scholar, death witch, military engineer, Deathlord's interrogator, plague bringer.",
+    "compatibility": "One of the five Abyssal castes chosen at character creation, mirroring the Solar Twilight Caste's role.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 141,
+      "pdfPage": 142
+    },
+    "crossReferences": ["abyssal-character-creation-overview", "abyssal-anima-effects-universal"],
+    "notes": "Chapter Four: Traits, 'Daybreak Caste' section, pp. 141-142 (PDF 142-143)."
+  },
+  {
+    "id": "day-caste",
+    "name": "Day Caste",
+    "disposition": "selectable",
+    "summary": "Day Caste Abyssals, the Children of Blood, are the hidden, poisoned dagger to the Dusk Caste's sword: spies, assassins, and secret police who move unseen among the living and the dead, hunting down traitors, spies and unbelievers.",
+    "mechanics": "Anima Banner: Day Caste Abyssals have only an empty black ring branded on their brow; during large expenditures of Peripheral Essence this ring bleeds along the edges; anima is a phantasmal black and gray, tinged with a sickly green. Anima Effects: Exalted of the Day Caste have more control over their animas than the average Abyssal. They may mute their animas, allowing them to exert their powers without the display of an anima banner. When the Day Caste Abyssal expends Peripheral Essence, she may double the number of motes spent in order to prevent the expenditure from adding to her anima banner. This ability does allow the character to mute the Essence displays caused by the muted anima like a choking cloak around her. This extended anima lasts for an entire scene and costs 5 motes of Essence to evoke. The muted anima mutes the senses of those attempting to perceive the Abyssal and the evidence she leaves behind for those who would follow her trail. Shadows are darker, sounds muffled, and the character's scent and footprints are both lighter than normal. In game terms, increase the difficulty of all rolls to detect or track the Exalted by 1, so long as the muted anima is in effect. Caste Abilities: Athletics, Awareness, Dodge, Larceny, Stealth. Associations: the season of winter, the colors indigo and gray, the northern direction, the corpse-element of blood, the new moon. Sobriquets: They Who Dwell Among The Wretched, Daywalkers, Children of Blood, Hidden Darkness. Concepts: Deathlord's quisling, prostitute turned assassin, spy master, heretical cult leader, master inquisitor, power behind a corrupt throne, nihilistic revolutionary.",
+    "compatibility": "One of the five Abyssal castes chosen at character creation, mirroring the Solar Night Caste's role.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 143,
+      "pdfPage": 144
+    },
+    "crossReferences": ["abyssal-character-creation-overview", "abyssal-anima-effects-universal"],
+    "notes": "Chapter Four: Traits, 'Day Caste' section, pp. 143-144 (PDF 144-145)."
+  },
+  {
+    "id": "moonshadow-caste",
+    "name": "Moonshadow Caste",
+    "disposition": "selectable",
+    "summary": "Moonshadow Caste Abyssals, the Children of Dust, serve as the Deathlords' diplomats, endlessly traveling between courts negotiating treaties and striking dark bargains; among the living they are the ruthless, wicked courtesans and master manipulators of a Circle.",
+    "mechanics": "Anima Banner: a black disc within a circle branded upon their brow as a Caste Mark; during large expenditures of Peripheral Essence this disc and circle bleed along the edges; anima is translucent grays and blacks, often with faint pale purple and green sparkles. Anima Effects: when a Moonshadow Caste is party or witness to an oath, he may use his anima to sanctify it. The character must touch hands to seal the agreement or touch the hands of those who are party to it; his anima burns brightly, swirling with the words and runes by which the Malfeans give him the right to sanctify matters to their unspeakable names. Those who break such an oath (including the Exalt himself) suffer a terrible curse. The Exalted spends 10 motes of Essence and a point of Willpower to sanctify the oath. Those who break it will suffer terrible bad luck for a number of times equal to the character's Essence at the time he witnessed the oath, and the oathbreaker's player will horribly botch a critical roll. When this happens is up to the Storyteller, but it is always at the worst possible moment. The Exalted need not be alive when the curse takes effect -- he sanctifies the oath, but the Abyssal's dark gods enforce it. Also, Abyssals of the Moonshadow Caste are talented generalists. Provided they have willing tutors, they may learn Charms of other types of Exalted and even of spirits (including ghosts). Such Charms cost double the normal experience to learn (usually 20 points) and use. Moonshadow Caste characters may not start the game knowing the Charms of other such beings without the Storyteller's permission. Caste Abilities: Bureaucracy, Linguistics, Ride, Sail, Socialize. Associations: the period of Calibration, the color silver, the center direction, the corpse-element of prayer, the gibbous moon. Sobriquets: They Who Walk Within Webs of Deception, Winds of the Abyss, Children of Dust, Hollow Darkness. Concepts: merchant prince, scheming socialite, actor turned Deathlord agent, political troubleshooter, self-serving seneschal, honey-tongued courtesan, sower of discord.",
+    "compatibility": "One of the five Abyssal castes chosen at character creation, mirroring the Solar Eclipse Caste's role. Uniquely among the castes, may learn other Exalted/spirit types' Charms (at double XP cost) with a willing tutor and Storyteller permission.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 145,
+      "pdfPage": 146
+    },
+    "crossReferences": ["abyssal-character-creation-overview", "abyssal-anima-effects-universal"],
+    "notes": "Chapter Four: Traits, 'Moonshadow Caste' section, pp. 145-146 (PDF 146-147). Caste Abilities list (Bureaucracy, Linguistics, Ride, Sail, Socialize) matches the Step Three ability list on p. 121 (PDF 122); the prose description separately says the caste 'excel[s] in all forms of manipulation, organization and travel,' which is flavor text, not a sixth Ability."
+  }
+]

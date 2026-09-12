@@ -55,8 +55,9 @@ describe('exalted1e verification gate', () => {
   });
 
   it('reports zero inventory rows for families with no source material supplied yet', () => {
+    const familiesWithInventory = new Set(['lunar', 'abyssal']);
     for (const family of plannedExaltedFamilies) {
-      if (family === 'lunar') continue;
+      if (familiesWithInventory.has(family)) continue;
       expect(certificationRecords[family].catalog.totalInventoryRows).toBe(0);
     }
   });
@@ -68,6 +69,13 @@ describe('exalted1e verification gate', () => {
     expect(isFamilyAvailable('lunar')).toBe(false);
   });
 
+  it('reflects Abyssal source intake in progress without unlocking the family', () => {
+    const record = certificationRecords.abyssal;
+    expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
+    expect(record.catalog.promotedEntries).toBe(0);
+    expect(isFamilyAvailable('abyssal')).toBe(false);
+  });
+
   it('every checked-in certification record validates against the schema', () => {
     for (const family of plannedExaltedFamilies) {
       expect(() =>
@@ -77,7 +85,7 @@ describe('exalted1e verification gate', () => {
   });
 
   it('describes a locked family with no inventory yet with concrete evidence, not a generic message', () => {
-    const status = getFamilyCertificationStatus('abyssal');
+    const status = getFamilyCertificationStatus('sidereal');
     expect(status.available).toBe(false);
     expect(status.blockReason).toContain('catalog not started');
     expect(status.blockReason).toContain('rules tests not-run');
@@ -90,6 +98,14 @@ describe('exalted1e verification gate', () => {
     const status = getFamilyCertificationStatus('lunar');
     expect(status.available).toBe(false);
     expect(status.blockReason).toContain('0/54 promoted');
+    expect(status.blockReason).toContain('0 unresolved');
+    expect(status.blockReason).toContain('rules tests not-run');
+  });
+
+  it('describes Abyssal as locked with its inventory-in-progress promotion count', () => {
+    const status = getFamilyCertificationStatus('abyssal');
+    expect(status.available).toBe(false);
+    expect(status.blockReason).toContain('0/27 promoted');
     expect(status.blockReason).toContain('0 unresolved');
     expect(status.blockReason).toContain('rules tests not-run');
   });

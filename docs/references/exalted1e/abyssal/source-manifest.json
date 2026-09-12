@@ -1,0 +1,27 @@
+{
+  "systemId": "exalted1e",
+  "moduleId": "abyssal",
+  "catalogVersion": "0.1.0",
+  "generatedFor": "Arcane Record",
+  "scope": {
+    "totalRows": 27,
+    "castes": 5,
+    "newBackgrounds": 6,
+    "alteredBackgrounds": 5,
+    "coreMechanics": 9,
+    "excludedNotes": 1,
+    "notes": "Inventory in progress (27 rows). Covers Exalted: The Abyssals character-creation overview (Chapter Three), the universal Anima Effect available to every caste, all five Castes with their Anima Banners/Anima Effects/Caste Abilities/Associations, the Abyssal Curse, the Virtues of Death, the Resonance Trait (Abyssal Limit analog) including gain/loss/manifestation rules and the 1-10 Resonance Manipulation Effects table, the-title, Useful Crafts, the Cult-and-Abyssals exclusion sidebar, the six new deathknight-only Backgrounds (Abyssal Command, Liege, Necromancy, Spies, Underworld Manse, Whispers), and the altered Backgrounds (Artifact, Backing/Mentor, Familiar, Followers, Manse). Charm trees are not yet inventoried."
+  },
+  "sources": [
+    {
+      "bookId": "exalted-the-abyssals",
+      "bookLabel": "Exalted: The Abyssals",
+      "role": "Primary Abyssal rules, Charms, Backgrounds, and setting material"
+    }
+  ],
+  "rulesNotes": [
+    "Printed page numbers in this book run 1 less than the PDF page number supplied (PDF page = printed page + 1) for the copy used to build this inventory; both are recorded on every citation.",
+    "This PDF is image-based (no selectable text layer); all rows below were transcribed from rendered page images, per the 'OCR is an extraction aid, never verification by itself' rule.",
+    "Abyssals do not have a Limit Trait; Resonance (1-10) fills the equivalent role and is tracked/gained/lost differently. See the resonance-* inventory rows."
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "family": "abyssal",
   "catalog": {
-    "totalInventoryRows": 0,
+    "totalInventoryRows": 27,
     "promotedEntries": 0,
     "unresolvedEntries": 0,
     "checksum": ""
@@ -11,5 +11,5 @@
   "migrationTests": "not-run",
   "browserTests": "not-run",
   "certifiedAt": null,
-  "notes": "No source material has been supplied yet. Locked pending inventory of Exalted: The Abyssals and dependent sourcebooks under docs/references/exalted1e/abyssal/inventory/."
+  "notes": "Exalted: The Abyssals supplied and intake in progress. 27 rows reviewed and inventoried under docs/references/exalted1e/abyssal/inventory/: the character-creation overview, the universal Anima Effect, all five Castes, the Abyssal Curse, the Virtues of Death, the full Resonance mechanic (gain/loss/manipulation), the-title, Useful Crafts, the Cult exclusion sidebar, the six new deathknight-only Backgrounds, and the altered Backgrounds. Nothing promoted to a production catalog yet, and Chapter Five's Charm trees plus Chapter Six (The Arts of the Dead / necromancy) are not yet inventoried. Locked pending the remaining inventory, schema/rules/creator/editor implementation, and passing tests across all five planned families."
 }
