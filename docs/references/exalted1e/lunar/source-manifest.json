@@ -1,0 +1,23 @@
+{
+  "systemId": "exalted1e",
+  "moduleId": "lunar",
+  "catalogVersion": "0.1.0",
+  "generatedFor": "Arcane Record",
+  "scope": {
+    "charms": 7,
+    "gifts": 10,
+    "innatePowers": 5,
+    "notes": "Inventory in progress. Covers Exalted: The Lunars core innate powers (Lunar Shapechanging, the Tell, True Forms, Caste Mark tattooing/Fixing the Caste, Casteless consequences) and the full Shapechanging I Charm tree with its Deadly Beastman Transformation gift table. Remaining Charm trees, Backgrounds, Merits/Flaws, and supplements are not yet inventoried."
+  },
+  "sources": [
+    {
+      "bookId": "exalted-the-lunars",
+      "bookLabel": "Exalted: The Lunars",
+      "role": "Primary Lunar rules, Charms, Backgrounds, Merits/Flaws, and setting material"
+    }
+  ],
+  "rulesNotes": [
+    "Printed page numbers in this book run 3 less than the PDF page number supplied (PDF page = printed page + 3) for the copy used to build this inventory; both are recorded on every citation.",
+    "Lunar Charms use Minimum Attribute (not Minimum Ability) fields, per p. 122 (PDF 125)."
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "family": "lunar",
   "catalog": {
-    "totalInventoryRows": 0,
+    "totalInventoryRows": 22,
     "promotedEntries": 0,
     "unresolvedEntries": 0,
     "checksum": ""
@@ -11,5 +11,5 @@
   "migrationTests": "not-run",
   "browserTests": "not-run",
   "certifiedAt": null,
-  "notes": "No source material has been supplied yet. Locked pending inventory of Exalted: The Lunars and dependent sourcebooks under docs/references/exalted1e/lunar/inventory/."
+  "notes": "Exalted: The Lunars supplied and intake started. 22 rows reviewed and inventoried (core innate powers plus the full Shapechanging I Charm tree and its gift table) under docs/references/exalted1e/lunar/inventory/. Nothing promoted to a production catalog yet, and every other Lunar Charm tree, Background, and Merit/Flaw remains uninventoried. Locked pending the remaining inventory, schema/rules/creator/editor implementation, and passing tests across all five planned families."
 }

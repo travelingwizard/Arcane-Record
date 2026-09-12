@@ -39,7 +39,7 @@ describe('exalted1e verification gate', () => {
     }
   });
 
-  it('reports honest not-run/zero evidence for every planned family', () => {
+  it('reports honest not-run/zero test evidence for every planned family, and zero promoted catalog entries even where inventory intake has started', () => {
     for (const family of plannedExaltedFamilies) {
       const record = certificationRecords[family];
       expect(record.certifiedAt).toBeNull();
@@ -47,10 +47,25 @@ describe('exalted1e verification gate', () => {
       expect(record.creatorTests).toBe('not-run');
       expect(record.migrationTests).toBe('not-run');
       expect(record.browserTests).toBe('not-run');
-      expect(record.catalog.totalInventoryRows).toBe(0);
+      // Lunar has started source intake (inventory rows > 0), but nothing
+      // has been promoted to a production catalog yet for any family.
       expect(record.catalog.promotedEntries).toBe(0);
       expect(record.catalog.checksum).toBe('');
     }
+  });
+
+  it('reports zero inventory rows for families with no source material supplied yet', () => {
+    for (const family of plannedExaltedFamilies) {
+      if (family === 'lunar') continue;
+      expect(certificationRecords[family].catalog.totalInventoryRows).toBe(0);
+    }
+  });
+
+  it('reflects Lunar source intake in progress without unlocking the family', () => {
+    const record = certificationRecords.lunar;
+    expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
+    expect(record.catalog.promotedEntries).toBe(0);
+    expect(isFamilyAvailable('lunar')).toBe(false);
   });
 
   it('every checked-in certification record validates against the schema', () => {
@@ -61,14 +76,22 @@ describe('exalted1e verification gate', () => {
     }
   });
 
-  it('describes a locked family with concrete evidence, not a generic message', () => {
-    const status = getFamilyCertificationStatus('lunar');
+  it('describes a locked family with no inventory yet with concrete evidence, not a generic message', () => {
+    const status = getFamilyCertificationStatus('abyssal');
     expect(status.available).toBe(false);
     expect(status.blockReason).toContain('catalog not started');
     expect(status.blockReason).toContain('rules tests not-run');
     expect(status.blockReason).toContain('creator tests not-run');
     expect(status.blockReason).toContain('migration tests not-run');
     expect(status.blockReason).toContain('browser tests not-run');
+  });
+
+  it('describes a locked family with inventory in progress by its promotion count, not "catalog not started"', () => {
+    const status = getFamilyCertificationStatus('lunar');
+    expect(status.available).toBe(false);
+    expect(status.blockReason).toContain('0/22 promoted');
+    expect(status.blockReason).toContain('0 unresolved');
+    expect(status.blockReason).toContain('rules tests not-run');
   });
 
   it('returns one status entry per planned family', () => {

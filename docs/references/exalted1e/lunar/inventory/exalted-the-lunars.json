@@ -1,0 +1,378 @@
+[
+  {
+    "id": "lunar-shapechanging",
+    "name": "Lunar Shapechanging",
+    "disposition": "calculated",
+    "summary": "Innate power (not a Charm): for 3 motes of Essence, a Lunar can assume the shape of any animal whose heart's blood she has drunk or lapped as it died.",
+    "mechanics": "Simple dice action; the Lunar's player cannot split her dice pool for extra actions while using it. Reverting to the Lunar's last true form is reflexive and can happen even before the Exalt's initiative in the turn. For the heart's blood to count as tasted, the beast must die, the Lunar must kill it (or strike the killing blow if several Lunars take part in the hunt), and drink its blood as it dies. The animal changed into can be no smaller than a large housecat and no larger than an elk unless special Charms extend the size range. Lunars cannot shapeshift into constructs, Wyld offspring, or other humans, and cannot assume the shape of non-natural beasts. A Lunar who shifts into an animal gains its Strength, Stamina, natural attacks/abilities, and natural senses, but keeps his own Attributes and health levels if the animal is smaller/similar-sized; if larger or built for a different locomotion (flight, swimming), the Lunar keeps his own scale but gains the new mode of movement. Shapechanging into a beast form does not itself count against the number of Charms usable that turn, but 3 motes remain committed until the character returns to a true form.",
+    "compatibility": "All Lunar castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 118,
+      "pdfPage": 121
+    },
+    "crossReferences": [],
+    "notes": "Chapter Five (Charms) preamble, 'Lunar Shapechanging' section. Distinct from the Shapechanging I Charm tree, which builds on this innate power."
+  },
+  {
+    "id": "true-forms",
+    "name": "True Forms",
+    "disposition": "calculated",
+    "summary": "A Lunar can have more than one 'true form.' Learning Finding the Spirit's Shape adds a totem animal as a second true form; learning Deadly Beastman Transformation on top of that adds a hybrid war-form as a third.",
+    "mechanics": "Reversion between true forms (human, totem animal, hybrid) is not a Charm use and doesn't cost the Essence that was spent to enter that shape in the first place — the Lunar simply has multiple 'true' shapes. If the Lunar reverts to true form for any reason (usually spending Peripheral Essence), she assumes whichever of her true shapes she wore last.",
+    "compatibility": "All Lunar castes; requires Finding the Spirit's Shape (totem form) and/or Deadly Beastman Transformation (hybrid form) to have more than one true form.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 120,
+      "pdfPage": 123
+    },
+    "crossReferences": ["finding-the-spirits-shape", "deadly-beastman-transformation"],
+    "notes": "'True Forms' sidebar, same page as 'The Tell.'"
+  },
+  {
+    "id": "the-tell",
+    "name": "The Tell",
+    "disposition": "calculated",
+    "summary": "Every Lunar has an unchanging physical oddity called the Tell, left over from the tattooing/scarification ritual that fixes her Caste. How severe the Tell is depends on how many times the character has purchased Deadly Beastman Transformation.",
+    "mechanics": "1-2 purchases of Deadly Beastman Transformation: small Tells (odd hair color, hair with a gray/black stripe, a discolored eyebrow, a prominent birthmark, a missing eye). More purchases: the Tell grows, often manifesting traits of the Lunar's favored (totem) animal — wolf ears, goat hooves, tiger-like paws, or blatant traits such as backward-bending fingers, extra eyes, or cyclopeanism. It is the nature of the Tell to try to conceal itself from those who don't know to look for it and reveal itself to those who do, an automatic effect of Exaltation, not something the character controls directly. A character who has not taken Deadly Beastman Transformation has a small Tell that conceals itself well. A Lunar whose Tell combines the traits of several animals (from changing totem animal) is known as a chimera.",
+    "compatibility": "All Lunar castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 120,
+      "pdfPage": 123
+    },
+    "crossReferences": ["deadly-beastman-transformation", "hide-of-the-cunning-hunter", "masking-the-brilliant-form"],
+    "notes": "Suppressed at low anima-display levels by Hide of the Cunning Hunter, and up through the 4-7 mote anima level by Masking the Brilliant Form."
+  },
+  {
+    "id": "fixing-the-caste-tattoos",
+    "name": "Fixing the Caste (Caste Mark tattooing)",
+    "disposition": "calculated",
+    "summary": "The trials that follow a young Lunar's Exaltation end once the No Moon overseeing them is satisfied of the newly-Exalted's caste. Once caste is confirmed, it is fixed for good via a ritual tattooing/scarification process performed by a No Moon.",
+    "mechanics": "The tattooing ritual takes place under a moon of the young Lunar's caste; the ritual lasts three days and is painful. It is meant to endure for life and, once done, it's rarely too early for a Lunar to start learning to shapeshift. As the tattoos spread across the Lunar's body, the shifting of his Caste Mark slows and eventually stops. No two sets of tattoos are the same; the tattooing process is closer to writing a personalized prayer than replicating a tried-and-true passage verbatim, and requirements vary Lunar to Lunar. Regional/tribal styles vary the specific marks used (runic symbols in the North, geometric scars in the West, curving spiral-toned scars in the East, raised dots in the South).",
+    "compatibility": "All Lunar castes; performed by a No Moon of the Silver Pact (or informally, if the young Lunar has no access to the Pact).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 63,
+      "pdfPage": 66
+    },
+    "crossReferences": ["lunar-without-a-caste"],
+    "notes": "Chapter Two, 'Fixing the Caste' section."
+  },
+  {
+    "id": "lunar-without-a-caste",
+    "name": "A Lunar Without a Caste",
+    "disposition": "calculated",
+    "summary": "Sidebar covering the consequences of a Lunar who is never given the caste-fixing tattoos: the Caste Mark keeps shifting with the moon, and the Lunar never learns the more powerful Charms available to a caste, though the lack of a caste doesn't endanger him in his own right.",
+    "mechanics": "With too much exposure to the Wyld, an untattooed Lunar becomes gradually more and more unable to maintain his own shape. He may find shapeshifting easier as a whole, but he begins to shift involuntarily, whenever his mood changes. He begins to forget his original form and can no longer assume it as a reflex. This gradual loss of control tends to lead to lunacy, and from there, it's a short fall to becoming chimera. Staying away from the Wyld slows but doesn't stop this drift; the farther the young Lunar is from the Wyld, and the farther he is from any Lunars who might assist/protect him against the Realm's hunters, the more dangerous his situation becomes.",
+    "compatibility": "Applies to any Lunar who has not undergone the caste-fixing tattoo ritual.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 63,
+      "pdfPage": 66
+    },
+    "crossReferences": ["fixing-the-caste-tattoos"],
+    "notes": "'A Lunar Without a Caste' sidebar box, same page as 'Fixing the Caste.'"
+  },
+  {
+    "id": "hide-of-the-cunning-hunter",
+    "name": "Hide of the Cunning Hunter",
+    "disposition": "selectable",
+    "summary": "One of the first Charms young Lunars learn; suppresses the Lunar's Tell, making it effectively invisible under most circumstances.",
+    "requirements": "Minimum Manipulation 1; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "The effects of this Charm dissipate if the Lunar's anima banner reaches or exceeds the 4-7 motes level of display. Otherwise, it's impossible to detect the Lunar's tattoos/Tell, even for forms of sight that would perceive the effects of active Essence. Storytellers should assume individuals who see a Lunar with unsuppressed tattoos will regard the Lunar suspiciously for the purposes of perceiving his Tell, and most will immediately realize the character's nature.",
+    "cost": "1 mote",
+    "compatibility": "Duration: One day. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 123,
+      "pdfPage": 126
+    },
+    "crossReferences": ["the-tell"],
+    "notes": "Shapeshifting Charms tree, first Charm (see Shapechanging I tree diagram, p. 124/PDF 127)."
+  },
+  {
+    "id": "masking-the-brilliant-form",
+    "name": "Masking the Brilliant Form",
+    "disposition": "selectable",
+    "summary": "Extends Tell-suppression so it works even while the Lunar's anima is active and blazing at the 4-7 motes display level.",
+    "requirements": "Minimum Manipulation 2; Minimum Essence 1; Prerequisite Charms: Hide of the Cunning Hunter.",
+    "mechanics": "While active, it is impossible to perceive the Tell of a Lunar who has never purchased Deadly Beastman Transformation. Lunars who have purchased Deadly Beastman Transformation 1-2 times are treated as if they had never purchased it for the purposes of having their Tells spotted. Lunars who have purchased Deadly Beastman Transformation 3+ times are treated as if they purchased it 1-2 times for the purposes of Tell-spotting. Effects end when the character's anima becomes more intense than the 4-7 motes level.",
+    "cost": "3 motes, 1 Willpower",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 123,
+      "pdfPage": 126
+    },
+    "crossReferences": ["hide-of-the-cunning-hunter", "the-tell", "deadly-beastman-transformation"],
+    "notes": "Shapeshifting Charms tree, second Charm."
+  },
+  {
+    "id": "finding-the-spirits-shape",
+    "name": "Finding the Spirit's Shape",
+    "disposition": "selectable",
+    "summary": "The Lunar chooses an animal no larger than an elk and no smaller than a large cat; that animal becomes her totem/spirit animal and its shape becomes a second true form.",
+    "requirements": "Minimum Charisma 2; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "Reflexive; almost all Lunars know this Charm. A Lunar either tastes the heart's blood of her totem animal during initiation, or in many cases, finds the totem-shape when she Exalts. Such Exalts are driven by an incredible craving to consume the life of a beast of that species so they can fairly gain its form. If a Lunar wants a totem animal larger than a cat, she may fairly know it already; if smaller, she must know it before she can drink its blood to gain the shape. A Lunar may change her totem animal, but doing so is costly and dangerous: she must pay a dot of permanent Willpower and buy the Charm again. Traces of the previous totem form remain in the Lunar's Tell. A Lunar whose Tell combines the traits of several animals is a chimera and is regarded with scorn; in addition, the Lunar may offend the animal avatar of the species she forsakes.",
+    "cost": "1 mote",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 124,
+      "pdfPage": 127
+    },
+    "crossReferences": ["true-forms", "the-tell"],
+    "notes": "Shapechanging I tree. A Lunar in totem animal shape may spend 1 mote to activate this Charm and return to human shape; this may only be activated once per turn."
+  },
+  {
+    "id": "deadly-beastman-transformation",
+    "name": "Deadly Beastman Transformation",
+    "disposition": "selectable",
+    "summary": "Shifts the Lunar into a monstrous human/totem-animal hybrid war-form, three feet taller than her normal height, mistakable for nothing but a sleek and deadly killing machine.",
+    "requirements": "Minimum Charisma 2; Minimum Essence 2; Prerequisite Charms: Finding the Spirit's Shape.",
+    "mechanics": "This hybrid shape is one of the Lunar's true forms and includes many bonuses. The first time a character takes this Charm, she receives five Attribute points and two gifts, applied immediately after purchase; subsequent purchases each grant three Attribute points and one gift. A character can purchase this Charm no more times than she has points of Essence. Each Attribute point raises Strength or Stamina by 1, or two points raise Dexterity by 1; bonuses are fixed once allocated and cannot be saved up between purchases or moved later. These bonus Attributes count as natural Attributes for the purposes of Charms that double Attributes and of Charms that convert Attribute dice to automatic successes. Members of the Eclipse Caste may not learn this Charm, for it draws on a natural power of the Lunar Exalted that Solars cannot master or emulate.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive. Not available to Eclipse Caste.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 124,
+      "pdfPage": 127
+    },
+    "crossReferences": ["finding-the-spirits-shape", "the-tell", "true-forms", "horrifying-might", "bestial-reflexes", "lightning-speed", "spider-foot-climbing", "glue-foot-climbing", "gift-of-hands", "arm-array", "terrible-beast-claws", "savage-moonsilver-talons", "resilience-of-nature"],
+    "notes": "Purchasing this Charm increases the severity of the Lunar's Tell. Gifts granted by this Charm are listed under the Beastman Transformation Gifts table (p. 126/PDF 129)."
+  },
+  {
+    "id": "calling-lunas-favor",
+    "name": "Calling Luna's Favor",
+    "disposition": "selectable",
+    "summary": "Lets the Lunar manifest one of her Deadly Beastman Transformation gifts while still in human or totem (non-hybrid) form.",
+    "requirements": "Minimum Manipulation 3; Minimum Essence 2; Prerequisite Charms: Deadly Beastman Transformation.",
+    "mechanics": "From immediately after activation until the end of the scene or until the character ends the Charm's effects, the Lunar enjoys the benefits of one of her Deadly Beastman Transformation gifts. The gift actually manifests and is an obvious mark of a supernatural character; it manifests regardless of whether or not it has prerequisite gifts.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 125,
+      "pdfPage": 128
+    },
+    "crossReferences": ["deadly-beastman-transformation"],
+    "notes": "Shapechanging I tree."
+  },
+  {
+    "id": "blossoming-gift-of-luna",
+    "name": "Blossoming Gift of Luna",
+    "disposition": "selectable",
+    "summary": "Extension of Calling Luna's Favor that lets the Lunar retain a single manifested gift indefinitely, rather than only for a scene.",
+    "requirements": "Minimum Charisma 4; Minimum Essence 3; Prerequisite Charms: Calling Luna's Favor.",
+    "mechanics": "By activating this Charm while in Beastman form, the Lunar may retain a single Deadly Beastman Transformation gift until she ends the Charm's effects or next enters hybrid form. As with Calling Luna's Favor, the gift actually manifests and is in no way concealed; it manifests regardless of whether the gift has prerequisites.",
+    "cost": "3 motes, 1 Willpower",
+    "compatibility": "Duration: Indefinite. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 125,
+      "pdfPage": 128
+    },
+    "crossReferences": ["calling-lunas-favor", "deadly-beastman-transformation"],
+    "notes": "Shapechanging I tree."
+  },
+  {
+    "id": "towering-beast-form",
+    "name": "Towering Beast Form",
+    "disposition": "selectable",
+    "summary": "Knowledge-only Charm (no activation cost) that enhances the Lunar's hybrid war-form, letting it scale up to as large as a Tyrant Lizard or other large dinosaur, rather than being capped at elk-size.",
+    "requirements": "Minimum Charisma 3; Minimum Essence 2; Prerequisite Charms: Finding the Spirit's Shape.",
+    "mechanics": "There is no cost to use this Charm's effects — simply learning it enhances the Lunar's capabilities passively. Members of the Eclipse Caste may not learn this Charm, for it draws on a natural power of the Lunar Exalted that Solars cannot master or emulate.",
+    "cost": "None",
+    "compatibility": "Duration: Indefinite. Type: Special. Not available to Eclipse Caste.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 125,
+      "pdfPage": 128
+    },
+    "crossReferences": ["finding-the-spirits-shape"],
+    "notes": "Shapechanging I tree; distinct branch from Deadly Beastman Transformation."
+  },
+  {
+    "id": "horrifying-might",
+    "name": "Horrifying Might (Beastman Transformation gift)",
+    "disposition": "selectable",
+    "summary": "Sample Deadly Beastman Transformation gift giving unparalleled command of the Lunar's body, muscles as strengthened as if transformed into steel hawsers, agility to match that of a monkey.",
+    "requirements": "Selected as one of the gifts granted by a purchase of Deadly Beastman Transformation.",
+    "mechanics": "Grants +2 Attribute points if taken with the first purchase of Deadly Beastman Transformation, or +1 if taken with a subsequent purchase of the Charm. These points may only be spent on physical Attributes (Strength, Dexterity, Stamina). May only be taken once.",
+    "compatibility": "Physical Attributes only; one-time gift.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 126,
+      "pdfPage": 129
+    },
+    "crossReferences": ["deadly-beastman-transformation"],
+    "notes": "Beastman Transformation Gifts table; Charms can mimic gift effects per the table's introduction, and Storytellers/players may develop other gifts beyond this sample list."
+  },
+  {
+    "id": "bestial-reflexes",
+    "name": "Bestial Reflexes (Beastman Transformation gift)",
+    "disposition": "selectable",
+    "summary": "The Lunar moves with bestial speed, raising base initiative.",
+    "requirements": "Selected as one of the gifts granted by a purchase of Deadly Beastman Transformation.",
+    "mechanics": "Increases base initiative by +3. May be taken up to two times (maximum +6).",
+    "compatibility": "Prerequisite for Spider-Foot Climbing (alongside Lightning Speed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 126,
+      "pdfPage": 129
+    },
+    "crossReferences": ["deadly-beastman-transformation", "spider-foot-climbing"],
+    "notes": "Beastman Transformation Gifts table."
+  },
+  {
+    "id": "lightning-speed",
+    "name": "Lightning Speed (Beastman Transformation gift)",
+    "disposition": "selectable",
+    "summary": "Doubles the character's running and jumping distances.",
+    "requirements": "Selected as one of the gifts granted by a purchase of Deadly Beastman Transformation.",
+    "mechanics": "Bonuses operate on the unmodified numbers. If the character is a Full Moon with her anima activated, running speed is tripled rather than merely doubled.",
+    "compatibility": "Prerequisite for Spider-Foot Climbing (alongside Bestial Reflexes).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 126,
+      "pdfPage": 129
+    },
+    "crossReferences": ["deadly-beastman-transformation", "spider-foot-climbing"],
+    "notes": "Beastman Transformation Gifts table."
+  },
+  {
+    "id": "spider-foot-climbing",
+    "name": "Spider-Foot Climbing (Beastman Transformation gift)",
+    "disposition": "selectable",
+    "summary": "The Lunar can move at half normal speed across any surface, however slick, including vertical or upside-down surfaces.",
+    "requirements": "Selected as one of the gifts granted by a purchase of Deadly Beastman Transformation. Prerequisite gift: Bestial Reflexes or Lightning Speed.",
+    "mechanics": "The character may not stop moving while off the horizontal, or he will fall normally. The character can bear loads of up to (Strength x 50 pounds) through the use of this gift.",
+    "compatibility": "Prerequisite for Glue-Foot Climbing.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 126,
+      "pdfPage": 129
+    },
+    "crossReferences": ["deadly-beastman-transformation", "bestial-reflexes", "lightning-speed", "glue-foot-climbing"],
+    "notes": "Beastman Transformation Gifts table."
+  },
+  {
+    "id": "glue-foot-climbing",
+    "name": "Glue-Foot Climbing (Beastman Transformation gift)",
+    "disposition": "selectable",
+    "summary": "The Lunar can scuttle with preternatural speed up walls and across ceilings, and may stop and hang in any orientation without fear of falling.",
+    "requirements": "Selected as one of the gifts granted by a purchase of Deadly Beastman Transformation. Prerequisite gift: Spider-Foot Climbing.",
+    "mechanics": "The character can support loads of up to (Strength x 100 pounds) through the use of this gift.",
+    "compatibility": "Requires Spider-Foot Climbing.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 126,
+      "pdfPage": 129
+    },
+    "crossReferences": ["deadly-beastman-transformation", "spider-foot-climbing"],
+    "notes": "Beastman Transformation Gifts table."
+  },
+  {
+    "id": "gift-of-hands",
+    "name": "Gift of Hands (Beastman Transformation gift)",
+    "disposition": "selectable",
+    "summary": "The character grows one or two extra arms, or other manipulative extremities such as trunks or tails.",
+    "requirements": "Selected as one of the gifts granted by a purchase of Deadly Beastman Transformation.",
+    "mechanics": "The character can hold things normally, wield extra weapons, and more easily do several things at once; the penalty for multiple actions is reduced by -1 for each extra action (never below -0), but the character still cannot split her dice pool for extra actions during any turn in which she is under the effects of an extra-action-type Charm. Characters do not enjoy the benefits of this gift during any turn in which they are under the effects of an extra-action-type Charm during their initiative.",
+    "compatibility": "Prerequisite for Arm-Array.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 126,
+      "pdfPage": 129
+    },
+    "crossReferences": ["deadly-beastman-transformation", "arm-array"],
+    "notes": "Beastman Transformation Gifts table."
+  },
+  {
+    "id": "arm-array",
+    "name": "Arm-Array (Beastman Transformation gift)",
+    "disposition": "selectable",
+    "summary": "The character has more than two arms — as few as three, or possibly as many as 30 — able to hold many weapons at the ready.",
+    "requirements": "Selected as one of the gifts granted by a purchase of Deadly Beastman Transformation. Prerequisite gift: Gift of Hands.",
+    "mechanics": "The character pays the attunement cost for each magical weapon individually. The character's dice-pool penalty from multiple actions is reduced by -3 for each extra action (it cannot go below -0), but the player still cannot split her dice pool for extra actions during her initiative under this gift. Characters do not enjoy the benefits of this gift during any turn in which they are under the effects of an extra-action-type Charm.",
+    "compatibility": "Requires Gift of Hands.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 126,
+      "pdfPage": 129
+    },
+    "crossReferences": ["deadly-beastman-transformation", "gift-of-hands"],
+    "notes": "Beastman Transformation Gifts table."
+  },
+  {
+    "id": "terrible-beast-claws",
+    "name": "Terrible Beast Claws (Beastman Transformation gift)",
+    "disposition": "selectable",
+    "summary": "The Lunar's claws and bite become natural weapons.",
+    "requirements": "Selected as one of the gifts granted by a purchase of Deadly Beastman Transformation.",
+    "mechanics": "Claws: Spd +3, Acc +1, Dmg +3L, Pry +1. Bite: Spd +0, Acc +2, Dmg +5L, Pry +0. A Lunar gets both claws and bite from this gift. Attacking with these natural weapons is a Brawl or Martial Arts attack, whichever the Lunar prefers.",
+    "compatibility": "Prerequisite for Savage Moonsilver Talons.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 126,
+      "pdfPage": 129
+    },
+    "crossReferences": ["deadly-beastman-transformation", "savage-moonsilver-talons"],
+    "notes": "Beastman Transformation Gifts table."
+  },
+  {
+    "id": "savage-moonsilver-talons",
+    "name": "Savage Moonsilver Talons (Beastman Transformation gift)",
+    "disposition": "selectable",
+    "summary": "The Lunar's fangs and claws grow huge and moonsilver-capable, carving through flesh, bone, or metal with equal ease.",
+    "requirements": "Selected as one of the gifts granted by a purchase of Deadly Beastman Transformation. Prerequisite gift: Terrible Beast Claws.",
+    "mechanics": "Claws: Spd +6, Acc +4, Dmg +5L, Pry +4. Bite: Spd +3, Acc +2, Dmg +8L, Pry +0. The character has some control over the fangs and claws and can adapt them to meet his needs (for example, lengthening them to rend flesh or retracting them to allow him to handle objects unimpeded), though the stats remain the same. The Lunar's moonsilver talons and teeth can harm dematerialized spirits and count as moonsilver weapons for the purposes of Charms that affect those items.",
+    "compatibility": "Requires Terrible Beast Claws.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 126,
+      "pdfPage": 129
+    },
+    "crossReferences": ["deadly-beastman-transformation", "terrible-beast-claws"],
+    "notes": "Beastman Transformation Gifts table."
+  },
+  {
+    "id": "resilience-of-nature",
+    "name": "Resilience of Nature (Beastman Transformation gift)",
+    "disposition": "selectable",
+    "summary": "The Lunar heals quickly while in hybrid form.",
+    "requirements": "Selected as one of the gifts granted by a purchase of Deadly Beastman Transformation.",
+    "mechanics": "Heals 1 Bashing point per turn, or 1 Lethal point per hour, while in hybrid form. This healing takes place at the start of the turn, is a reflexive action, and does not count against the Lunar's actions. No dice rolls are required.",
+    "compatibility": "Hybrid form only.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 126,
+      "pdfPage": 129
+    },
+    "crossReferences": ["deadly-beastman-transformation"],
+    "notes": "Beastman Transformation Gifts table."
+  }
+]

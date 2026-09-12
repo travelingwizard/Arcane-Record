@@ -136,13 +136,22 @@ describe('computeChecksum', () => {
   });
 });
 
-describe('auditFamily against the real repository (current pre-source state)', () => {
-  it('reports every planned family as pending-source-material with zero errors', () => {
+describe('auditFamily against the real repository (current state)', () => {
+  it('reports the four families with no source material yet as pending-source-material with zero errors', () => {
     for (const family of PLANNED_EXALTED_FAMILIES) {
+      if (family === 'lunar') continue;
       const report = auditFamily(family);
       expect(report.status).toBe('pending-source-material');
       expect(report.issues).toEqual([]);
       expect(report.inventoryRows).toBe(0);
     }
+  });
+
+  it('reports Lunar as pending-certification with its real inventory rows and zero audit errors', () => {
+    const report = auditFamily('lunar');
+    expect(report.status).toBe('pending-certification');
+    expect(report.issues).toEqual([]);
+    expect(report.inventoryRows).toBeGreaterThan(0);
+    expect(report.promotedEntries).toBe(0);
   });
 });

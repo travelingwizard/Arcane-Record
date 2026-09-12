@@ -25,7 +25,7 @@ arrives.
 
 **Critical constraint:** nothing in this repository, and no tool available to
 an agent working in it, can source the text of _Exalted: The Lunars_, _The
-Abyssals_, _The Sidereals_, _The Alchemicals_, _Exalted: The Fair Folk_, or
+Abyssals_, _The Sidereals_, _The Autochthonians_, _Exalted: The Fair Folk_, or
 their supplements. Those are commercial White Wolf/Onyx Path products. Every
 count and catalog in this document is supplied by the project owner —
 scanned pages, OCR text, or transcriptions — the same way the Dragon-Blooded
@@ -187,13 +187,22 @@ real, creatable sheet.
 
 ## Status per family
 
-| Family     | Source manifest | Inventory rows | Promoted | Certification                    |
-| ---------- | --------------- | -------------- | -------- | -------------------------------- |
-| Lunar      | Not created     | 0              | 0        | Locked, all dimensions `not-run` |
-| Abyssal    | Not created     | 0              | 0        | Locked, all dimensions `not-run` |
-| Sidereal   | Not created     | 0              | 0        | Locked, all dimensions `not-run` |
-| Alchemical | Not created     | 0              | 0        | Locked, all dimensions `not-run` |
-| Fair Folk  | Not created     | 0              | 0        | Locked, all dimensions `not-run` |
+| Family     | Source manifest               | Inventory rows | Promoted | Certification                    |
+| ---------- | ----------------------------- | -------------- | -------- | -------------------------------- |
+| Lunar      | Created (Exalted: The Lunars) | 22             | 0        | Locked, all dimensions `not-run` |
+| Abyssal    | Not created                   | 0              | 0        | Locked, all dimensions `not-run` |
+| Sidereal   | Not created                   | 0              | 0        | Locked, all dimensions `not-run` |
+| Alchemical | Not created                   | 0              | 0        | Locked, all dimensions `not-run` |
+| Fair Folk  | Not created                   | 0              | 0        | Locked, all dimensions `not-run` |
+
+Lunar's 22 rows (as of this update) cover the core innate powers (Lunar
+Shapechanging, the Tell, True Forms, Fixing the Caste/tattooing, A Lunar
+Without a Caste) and the complete Shapechanging I Charm tree with its
+Beastman Transformation gift table, all visually reviewed against rendered
+pages of the supplied PDF. See `docs/references/exalted1e/lunar/README.md`
+for what remains outstanding from that book, and the project owner's 14-PDF
+source drop for the other four families and cross-splat supplements still
+to be triaged.
 
 ## Next steps (require source material per book)
 

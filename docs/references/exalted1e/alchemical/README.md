@@ -8,7 +8,7 @@ the full process this directory will follow.
 ## What needs to be added here, book by book
 
 1. `source-manifest.json` — one entry per source book in scope (at minimum
-   *Exalted: The Alchemicals*; supplements only if their Alchemical-facing
+   *Exalted: The Autochthonians*; supplements only if their Alchemical-facing
    mechanics are complete), in the same shape as
    `docs/references/exalted1e/dragon-blooded/source-manifest.json`.
 2. `inventory/<book-slug>.json` — one file per book, each an array of
