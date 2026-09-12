@@ -1,7 +1,7 @@
 {
   "family": "lunar",
   "catalog": {
-    "totalInventoryRows": 22,
+    "totalInventoryRows": 54,
     "promotedEntries": 0,
     "unresolvedEntries": 0,
     "checksum": ""
@@ -11,5 +11,5 @@
   "migrationTests": "not-run",
   "browserTests": "not-run",
   "certifiedAt": null,
-  "notes": "Exalted: The Lunars supplied and intake started. 22 rows reviewed and inventoried (core innate powers plus the full Shapechanging I Charm tree and its gift table) under docs/references/exalted1e/lunar/inventory/. Nothing promoted to a production catalog yet, and every other Lunar Charm tree, Background, and Merit/Flaw remains uninventoried. Locked pending the remaining inventory, schema/rules/creator/editor implementation, and passing tests across all five planned families."
+  "notes": "Exalted: The Lunars supplied and intake in progress. 54 rows reviewed and inventoried under docs/references/exalted1e/lunar/inventory/: the core innate powers, the full Shapechanging I/II/III Charm trees, the full Body Enhancement I/II Charm trees, the full Unarmed Combat I tree, and the first four Charms of the Unarmed Combat II tree. Nothing promoted to a production catalog yet, and Chapter Five has many more Charm trees left uninventoried (the rest of Unarmed Combat II, Unarmed Combat III, the weapon Charms cascades, sorcery, and more), plus Backgrounds and Merits/Flaws. Locked pending the remaining inventory, schema/rules/creator/editor implementation, and passing tests across all five planned families."
 }

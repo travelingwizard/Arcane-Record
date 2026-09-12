@@ -189,17 +189,17 @@ real, creatable sheet.
 
 | Family     | Source manifest               | Inventory rows | Promoted | Certification                    |
 | ---------- | ----------------------------- | -------------- | -------- | -------------------------------- |
-| Lunar      | Created (Exalted: The Lunars) | 22             | 0        | Locked, all dimensions `not-run` |
+| Lunar      | Created (Exalted: The Lunars) | 54             | 0        | Locked, all dimensions `not-run` |
 | Abyssal    | Not created                   | 0              | 0        | Locked, all dimensions `not-run` |
 | Sidereal   | Not created                   | 0              | 0        | Locked, all dimensions `not-run` |
 | Alchemical | Not created                   | 0              | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Not created                   | 0              | 0        | Locked, all dimensions `not-run` |
 
-Lunar's 22 rows (as of this update) cover the core innate powers (Lunar
-Shapechanging, the Tell, True Forms, Fixing the Caste/tattooing, A Lunar
-Without a Caste) and the complete Shapechanging I Charm tree with its
-Beastman Transformation gift table, all visually reviewed against rendered
-pages of the supplied PDF. See `docs/references/exalted1e/lunar/README.md`
+Lunar's 54 rows (as of this update) cover the core innate powers, the
+complete Shapechanging I/II/III Charm trees, the complete Body Enhancement
+I/II Charm trees, the complete Unarmed Combat I tree, and the first four
+Charms of Unarmed Combat II, all visually reviewed against rendered pages
+of the supplied PDF. See `docs/references/exalted1e/lunar/README.md`
 for what remains outstanding from that book, and the project owner's 14-PDF
 source drop for the other four families and cross-splat supplements still
 to be triaged.
