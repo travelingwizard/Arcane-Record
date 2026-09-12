@@ -1,5 +1,8 @@
 import { useRef, useState } from 'react';
-import type { RegisteredGameSystem } from '../games/game-system';
+import type {
+  RegisteredGameSystem,
+  UnavailableSheetChoice,
+} from '../games/game-system';
 import type { GameSystemRegistry } from '../games/game-system-registry';
 import type { StoredCharacterRepository } from '../storage/stored-character-repository';
 import type { ModuleRegistry } from '../modules/registry/module-registry';
@@ -7,6 +10,25 @@ import { ARCANE_MODULE_SYSTEM_ID } from '../storage/stored-character';
 import { MAGE20_MODULE_ID } from '../games/mage20/module/id-map';
 import { EXALTED1E_MODULE_ID } from '../games/exalted1e/module/id-map';
 import { prepareImportedRecord } from '../features/import-export/character-files';
+
+/** A locked sheet choice card: labeled "Unavailable", never implies it works. */
+function UnavailableSheetChoiceCard({
+  choice,
+}: {
+  choice: UnavailableSheetChoice;
+}) {
+  return (
+    <article className="game-system-card">
+      <p className="eyebrow">Unavailable</p>
+      <h2>{choice.name}</h2>
+      <p>{choice.description}</p>
+      <p className="notice notice--warning">{choice.requirement}</p>
+      <button className="secondary-button" disabled>
+        Source required
+      </button>
+    </article>
+  );
+}
 
 export function CreateCharacterPage({
   systemId,
@@ -327,10 +349,17 @@ export function CreateCharacterPage({
   const childSheets = registry
     .list()
     .filter(({ parentSystemId }) => parentSystemId === system.id);
-  if (
-    (childSheets.length || system.unavailableSheetChoices?.length) &&
-    chosenSheet !== system.id
-  ) {
+  // A system with its own `variants` (e.g. Exalted 1e's Solar/Dragon-Blooded
+  // step) already has a dedicated screen to show unavailable sheet choices
+  // alongside real ones (see the `variants` block below) — it does not need
+  // this separate gate first. Systems without variants (e.g. Call of
+  // Cthulhu 7E, which uses `creationActions`) still need this screen so an
+  // unavailable choice has anywhere to appear.
+  const needsSheetChoiceGate =
+    childSheets.length > 0 ||
+    (Boolean(system.unavailableSheetChoices?.length) &&
+      !system.variants?.length);
+  if (needsSheetChoiceGate && chosenSheet !== system.id) {
     return (
       <main className="app-shell neutral-shell creation-shell">
         <button
@@ -365,15 +394,7 @@ export function CreateCharacterPage({
             </article>
           ))}
           {system.unavailableSheetChoices?.map((choice) => (
-            <article className="game-system-card" key={choice.id}>
-              <p className="eyebrow">Unavailable</p>
-              <h2>{choice.name}</h2>
-              <p>{choice.description}</p>
-              <p className="notice notice--warning">{choice.requirement}</p>
-              <button className="secondary-button" disabled>
-                Source required
-              </button>
-            </article>
+            <UnavailableSheetChoiceCard key={choice.id} choice={choice} />
           ))}
         </div>
       </main>
@@ -428,6 +449,9 @@ export function CreateCharacterPage({
                 </button>
               ) : null}
             </article>
+          ))}
+          {system.unavailableSheetChoices?.map((choice) => (
+            <UnavailableSheetChoiceCard key={choice.id} choice={choice} />
           ))}
           <article className="game-system-card">
             <p className="eyebrow">Existing local file</p>

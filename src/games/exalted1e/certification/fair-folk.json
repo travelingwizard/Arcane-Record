@@ -1,0 +1,15 @@
+{
+  "family": "fair-folk",
+  "catalog": {
+    "totalInventoryRows": 0,
+    "promotedEntries": 0,
+    "unresolvedEntries": 0,
+    "checksum": ""
+  },
+  "rulesTests": "not-run",
+  "creatorTests": "not-run",
+  "migrationTests": "not-run",
+  "browserTests": "not-run",
+  "certifiedAt": null,
+  "notes": "No source material has been supplied yet. Locked pending inventory of Exalted: The Fair Folk and dependent sourcebooks under docs/references/exalted1e/fair-folk/inventory/."
+}

@@ -4,6 +4,32 @@ export const EXALTED1E_SCHEMA_VERSION = 7 as const;
 export const exaltedSheetTypes = ['solar', 'dragon-blooded'] as const;
 export type ExaltedSheetType = (typeof exaltedSheetTypes)[number];
 
+/**
+ * Splats that are planned for Exalted First Edition but have no schema,
+ * catalog, creator, or editor yet. These IDs are never valid persisted
+ * `sheetType` values — `exaltedSheetTypes` above is the only enum a stored
+ * character can use. They exist solely so the certification gate
+ * (`./verification.ts`) and the source audit script have a stable, shared
+ * identifier per family while that family's real implementation is pending.
+ */
+export const plannedExaltedFamilies = [
+  'lunar',
+  'abyssal',
+  'sidereal',
+  'alchemical',
+  'fair-folk',
+] as const;
+export type PlannedExaltedFamily = (typeof plannedExaltedFamilies)[number];
+
+export const plannedExaltedFamilyLabels: Record<PlannedExaltedFamily, string> =
+  {
+    lunar: 'Lunar',
+    abyssal: 'Abyssal',
+    sidereal: 'Sidereal',
+    alchemical: 'Alchemical',
+    'fair-folk': 'Fair Folk',
+  };
+
 export const exaltedSectionGroups = [
   { id: 'character', label: 'Character' },
   { id: 'exalted', label: 'Exalted' },

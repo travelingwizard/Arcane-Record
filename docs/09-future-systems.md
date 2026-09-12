@@ -4,7 +4,14 @@ Game modules register through `GameSystemRegistry`. Mage 20 is registered under
 the stable outer ID `mage20`; its definitions remain under
 `src/systems/mage-m20` and its adapter under `src/games/mage20`.
 Exalted First Edition is registered as `exalted1e` with stable `solar` and
-`dragon-blooded` sheet variants.
+`dragon-blooded` sheet variants. Lunar, Abyssal, Sidereal, Alchemical, and
+Fair Folk are planned but not implemented: no schema, catalog, creator, or
+editor exists for them yet. They appear only as locked "Unavailable" cards on
+the Exalted create page, generated from checked-in certification evidence
+rather than a hand-written label. See
+[18. Exalted First Edition — planned splat release model](18-exalted1e-splat-release.md)
+for the certification gate, the source-inventory process, and the
+`audit:exalted-sources` script that enforces it.
 Burning Wheel Gold + Codex is registered as `burning-wheel` with seven stock
 variants. Torchbearer Second Edition is registered as `torchbearer2e` with one
 shared adventurer sheet for all stocks and classes.

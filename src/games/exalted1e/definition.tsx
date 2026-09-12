@@ -1,10 +1,15 @@
-import type { GameSystemDefinition } from '../game-system';
+import type {
+  GameSystemDefinition,
+  UnavailableSheetChoice,
+} from '../game-system';
 import { createBlankExaltedCharacter } from './create-character';
 import {
   EXALTED1E_SCHEMA_VERSION,
   EXALTED1E_SYSTEM_ID,
   exaltedSectionGroups,
   exaltedSections,
+  plannedExaltedFamilies,
+  plannedExaltedFamilyLabels,
 } from './definitions';
 import { Exalted1eEditor } from './Exalted1eEditor';
 import {
@@ -12,9 +17,30 @@ import {
   migrateExalted1eCharacter,
   type Exalted1eCharacter,
 } from './schema';
+import { getFamilyCertificationStatus } from './verification';
 
 function sheetLabel(character: Exalted1eCharacter) {
   return character.sheetType === 'solar' ? 'Solar' : 'Dragon-Blooded';
+}
+
+/**
+ * One "Unavailable" card per planned splat. The requirement text is
+ * generated from the checked-in certification evidence in
+ * `./certification/*.json` (via `verification.ts`) rather than hand-written,
+ * so it changes only when real evidence changes. No planned family can
+ * currently pass certification because none has a schema, catalog, or
+ * editor yet — see `docs/18-exalted1e-splat-release.md`.
+ */
+function buildUnavailableSheetChoices(): UnavailableSheetChoice[] {
+  return plannedExaltedFamilies
+    .map((family) => getFamilyCertificationStatus(family))
+    .filter((status) => !status.available)
+    .map((status) => ({
+      id: status.family,
+      name: `${plannedExaltedFamilyLabels[status.family]} Exalted`,
+      description: `A rules-complete ${plannedExaltedFamilyLabels[status.family]} character record is not installed.`,
+      requirement: `Locked pending certification: ${status.blockReason}`,
+    }));
 }
 
 export const exalted1eDefinition: GameSystemDefinition<Exalted1eCharacter> = {
@@ -26,6 +52,7 @@ export const exalted1eDefinition: GameSystemDefinition<Exalted1eCharacter> = {
   currentSchemaVersion: EXALTED1E_SCHEMA_VERSION,
   characterSchema: exalted1eCharacterSchema,
   createInitialCharacter: () => createBlankExaltedCharacter('solar'),
+  unavailableSheetChoices: buildUnavailableSheetChoices(),
   migrateCharacter: (data, fromVersion) =>
     migrateExalted1eCharacter(data, fromVersion),
   getDisplayName: (character) =>
