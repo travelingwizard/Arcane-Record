@@ -1,0 +1,568 @@
+[
+  {
+    "id": "fair-folk-creation-overview-noble",
+    "name": "Noble Raksha Character Creation (Five Steps)",
+    "disposition": "calculated",
+    "summary": "Noble raksha creation adapts the Solar guidelines from core Exalted to a creature built around two feeding Virtues at once: nobles begin with fuller Attributes and Backgrounds than common raksha, draw their Charms from paired Graces rather than from Attributes or Abilities, and finish with the same Willpower/Essence formulas as any other Exalted.",
+    "mechanics": "Step One (Character Concept): choose concept, first caste and second caste (the noble's ascendant and shadowed halves; see noble-castes-hybrid) and Nature, while considering Direction, Households and Courts (the Five Courts of Rakshastan), the Church of Balor, and whether the fomorians' nihilism speaks to the character. Step Two (Attributes): nobles start with 3 dots already in every Attribute; divide 10 primary/7 secondary/4 tertiary dots among the Physical/Social/Mental categories (Strength/Dexterity/Stamina, Charisma/Manipulation/Appearance, Perception/Intelligence/Wits); no Attribute may exceed 7 dots (4 added dots) without a Charm-granted mutation such as Huge or Glorious Hero Form. Step Three (Abilities): a noble chooses any 5 of the 10 Abilities tied to her two castes as Caste Abilities, plus 3 more as Favored Abilities; Abilities start at 0, receive 25 dots to spend (max 3 dots per Ability before free dots), then gain 1 free dot in every Caste Ability and 2 free dots in every Favored Ability (not cumulative with the Caste bonus); Favored Abilities cap at 7, Caste Abilities at 6, all others at 5 before bonus points or experience. Step Four (Advantages): choose 10 Background dots (none above 3 without bonus points) from the Fair Folk Background list, plus 6 Virtue dots on top of a free dot already in each of Compassion/Conviction/Temperance/Valor; at least one Virtue rated 3+ must carry a mandatory Lure (see bedlam-overview); both Major Graces automatically equal their corresponding Virtues and both Minor Graces start at 1; choose 8 Charms, at least 5 from the character's two Major Graces. Step Five (Finishing Touches): Willpower equals the sum of the two highest Virtues (may exceed 8 at creation); Essence starts at 2; a raksha's single Essence pool equals permanent Essence x 10 (there is no Personal/Peripheral split); health levels are the ordinary mortal 7, plus any granted by Charms. Bonus Points: nobles receive 15, spent per the noble table -- Attribute 4, Ability 2 (1 if Caste or Favored), Background 1 (2 above 3 dots), Specialty 1, Virtue 3, Major Grace 3, Minor Grace 5, Heart Grace unbuyable, Willpower 2, Essence 10, Charm 7.",
+    "compatibility": "All noble raksha (two-caste hybrids); see diplomat-caste, entertainer-caste, warrior-caste, worker-caste and noble-castes-hybrid for how the two chosen castes combine.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 99,
+      "pdfPage": 100
+    },
+    "crossReferences": [
+      "diplomat-caste",
+      "entertainer-caste",
+      "warrior-caste",
+      "worker-caste",
+      "noble-castes-hybrid",
+      "graces-overview",
+      "bedlam-overview"
+    ],
+    "notes": "Chapter Three: Character Creation. The prose walkthrough of Steps One through Five runs pp. 93-98 (PDF 94-99); the condensed 'Noble Character Creation Summary' box transcribed above for the exact step-by-step numbers runs pp. 99-100 (PDF 100-101). The Five Courts, Church of Balor and fomorian-nihilism concept prompts on p. 93-94 (PDF 94-95) are flavor-only story hooks with no discrete Background or mechanic attached on these pages; flagged here in case a later chapter ties them to a mechanical Court/Title system."
+  },
+  {
+    "id": "fair-folk-creation-overview-common",
+    "name": "Common Raksha Character Creation (Five Steps)",
+    "disposition": "calculated",
+    "summary": "Common raksha creation starts from a much lower baseline than nobles or the Creation-born Exalted -- zero-dot Attributes, zero free Background dots, and a single feeding Virtue/Grace/caste -- but a common raksha who exceeds that baseline can become a heroic commoner with extra bonus points, and can eventually open a second feeding Virtue to become a noble outright.",
+    "mechanics": "Step One (Character Concept): choose concept, one caste and Nature (no second caste). Step Two (Attributes): common raksha begin with 0 dots in every Attribute, not 3; if a player does not raise Intelligence and Wits to 1 the character cannot think, without Perception 1 she cannot perceive, without Dexterity 1 she cannot move, and without Stamina 1 she cannot exist in Creation; the same 10/7/4 primary/secondary/tertiary priority applies, but no Attribute may exceed 4 dots (the noble cap of 7 does not apply) without a Charm-granted mutation. Step Three (Abilities): a commoner takes her single caste's 5 Caste Abilities plus only 1 Favored Ability (a noble gets 3); the 25-dot pool, 3-dot pre-bonus cap, +1 free Caste dot and +2 free Favored dots (non-cumulative) all work identically to nobles. Step Four (Advantages): common raksha receive zero free Background dots -- 'these are, after all, slaves by their nature' -- so even a single dot of Freehold or Manse counts as fortunate, a dot of Gossamer or Style as powerful, and a dot of Allies, Contacts or Mentor as astonishingly well-connected; Virtues get the same 1 free dot each plus 6 to distribute, with a Lure required on any Virtue at 3+; the single Major Grace equals the caste's Virtue, the other three (Minor) Graces start at 1, and the Heart Grace is fixed at 1 (2 for a heroic commoner); Charms: 8, at least 5 from the Major Grace. Step Five (Finishing Touches): identical formulas to nobles -- Willpower from the two highest Virtues, Essence 2, pool Essence x 10, 7 health levels plus Charms. Bonus Points: 15, per the common-raksha table -- Attribute 4, Ability 2/1, Background 1/2, Specialty 'three per 1' (cheap, unlike a noble's 1-per-specialty), Virtue 3, Major Grace 2 (cheaper than a noble's 3), Minor Grace 5, Heart Grace unbuyable, Willpower 2, Essence 10, Charm 7. Heroic Commoners: gain 18 extra bonus points (33 total) and Heart Grace 2 immediately; after roughly 200 experience points, a heroic commoner may open a second feeding Virtue and become a noble.",
+    "compatibility": "All common raksha, including heroic commoners.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 100,
+      "pdfPage": 101
+    },
+    "crossReferences": [
+      "diplomat-caste",
+      "entertainer-caste",
+      "warrior-caste",
+      "worker-caste",
+      "graces-overview",
+      "bedlam-overview",
+      "innate-powers-wyld-immunity"
+    ],
+    "notes": "Chapter Three: Character Creation. The prose walkthrough on pp. 93-98 (PDF 94-99) largely uses the common raksha as its default example (the zero-dot Attribute rule, the 'you cannot think/perceive/move/exist' warnings); the condensed 'Common Raksha Character Creation Summary' box transcribed above runs pp. 100-101 (PDF 101-102), split across the foot of the Noble summary's second page and the whole of the following page."
+  },
+  {
+    "id": "diplomat-caste",
+    "name": "Diplomat Caste (Staff)",
+    "disposition": "selectable",
+    "summary": "Diplomats are the raksha of intrigue, treaty and social order, feeding on Conviction through the Staff Grace; they despise Creation as a world of compulsive oathbreakers but prize the rare mortal zealot or fanatic whose Conviction runs deep enough to feed on richly.",
+    "mechanics": "Caste Abilities: Linguistics, Occult, Ride, Socialize and Thrown. Grace and Virtue: Diplomats feed on Conviction and favor the Staff Grace, whose Charms create and enforce social order, custom, taboo and binding oaths -- a raksha with a Staff Grace cannot break her own sworn word without shattering part of herself. Controlling Grace: Valor (the Sword) controls Conviction; diplomacy is strongest allied with the Sword and weakest opposed to it, which is why nobles who pair Diplomat with Warrior as Imperial Raksha (see noble-castes-hybrid) fit the pure Diplomat archetype best. Associations: the northern direction, the color blue, 'the place between,' the shinma Nirvikalpa, the social world and unity. Sobriquets: Rajanya, Constraining Storms, Shapers of Law, Silent Chains, Culture Dancers, Summit and Chasm Folk, Beguilers, Poison Knives, Tulpa. In Creation, Diplomats hate mortals, gods and Exalted alike as beings physically capable of promising one thing and doing another; those forced to live there anyway learn to navigate that machine, and some feed by draining a fanatic's or cultist's Conviction down to nothing but obedience to the raksha's own extracted oaths.",
+    "compatibility": "One of the four base Fair Folk castes; a common raksha's sole caste, or one half of a noble's paired castes (see noble-castes-hybrid).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 115,
+      "pdfPage": 116
+    },
+    "crossReferences": ["fair-folk-creation-overview-common", "staff-grace", "sword-grace", "noble-castes-hybrid"],
+    "notes": "Chapter Four: Traits, 'Diplomat' section, pp. 114-115 (PDF 115-116)."
+  },
+  {
+    "id": "entertainer-caste",
+    "name": "Entertainer Caste (Cup)",
+    "disposition": "selectable",
+    "summary": "Entertainers are the desirable, needed, addictive raksha, feeding on Compassion through the Cup Grace; they hate Creation for its ultimate indifference to their gifts even as its mortals, gods and Exalts fall hopelessly in love with them.",
+    "mechanics": "Caste Abilities: Investigation, Larceny, Medicine, Performance and Stealth. Grace and Virtue: Entertainers feed on Compassion and favor the Cup Grace, whose Charms grant the parasitic power to subvert the will and nature of others by making themselves needed, desired or beloved. Controlling Grace: Conviction (the Staff) controls Compassion; the Entertainer's art is strongest allied with the social order and weakest when shunned by it, which is why nobles who pair Entertainer with Diplomat as Luminaries (see noble-castes-hybrid) fit the pure Entertainer archetype best. Associations: the western direction, the color black, 'the place inside,' the shinma Dharma, the mind's eye and dissolution. Sobriquets: Shudra, The Desirable, Beckoning Folk, Pleasure Toys, Unmakers, Heart Eaters, Transforming Passions, Lananshee. Entertainers who live in Creation cope with the world's indifference by drawing love and rapture from mortal hearts -- careful parasites rouse mortals and spirits to joyful abandon and skim the Compassion that produces, while ravishers use cruelty to crush a victim's soul until she sees no beauty or value in anything but the raksha's own arts.",
+    "compatibility": "One of the four base Fair Folk castes; a common raksha's sole caste, or one half of a noble's paired castes (see noble-castes-hybrid).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 116,
+      "pdfPage": 117
+    },
+    "crossReferences": ["fair-folk-creation-overview-common", "cup-grace", "staff-grace", "noble-castes-hybrid"],
+    "notes": "Chapter Four: Traits, 'Entertainer' section, pp. 116-117 (PDF 117-118)."
+  },
+  {
+    "id": "warrior-caste",
+    "name": "Warrior Caste (Sword)",
+    "disposition": "selectable",
+    "summary": "Warriors are the legends and terrors of the Wyld, feeding on Valor through the Sword Grace; they hate Creation because it is the one place a mortal blade or a Lunar's claw can end them permanently, so they feed on the fear (and defied fear) of the Creation-born instead.",
+    "mechanics": "Caste Abilities: Archery, Athletics, Brawl, Melee and Presence. Grace and Virtue: Warriors feed on Valor and favor the Sword Grace, whose Charms channel Valor and give the raksha the power to inspire fear -- the sword held in the left hand means stasis, in the right hand means change, and in every configuration means death. Controlling Grace: Temperance (the Ring) controls Valor; two are necessary to war but the third is its antithesis, which is why nobles who pair Warrior with Worker as Cataphractoi (see noble-castes-hybrid) fit the pure Warrior archetype best. Associations: the southern direction, the color red, 'the place outside,' the shinma Nishkriya, the physical world and greatness. Sobriquets: Kshatriya, Nightmare Brood, Hero Spawn, Death and Fear Folk, Killers, Trembling World Walkers, Outriders, Hobgoblins. Warriors trapped in Creation feed on others' fear -- gentler feeders distill the radiance of Valor from those who defy their own fear (gladiators, thugs, heroes), while ravishers cut the bravery from a mortal soul outright and plunge the victim into waking nightmares.",
+    "compatibility": "One of the four base Fair Folk castes; a common raksha's sole caste, or one half of a noble's paired castes (see noble-castes-hybrid).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 119,
+      "pdfPage": 120
+    },
+    "crossReferences": ["fair-folk-creation-overview-common", "sword-grace", "ring-grace", "noble-castes-hybrid"],
+    "notes": "Chapter Four: Traits, 'Warrior' section, pp. 118-119 (PDF 119-120)."
+  },
+  {
+    "id": "worker-caste",
+    "name": "Worker Caste (Ring)",
+    "disposition": "selectable",
+    "summary": "Workers are the crafters and machines of the Wyld, feeding on Temperance through the Ring Grace; they hate Creation as a standing insult to their own rigor and function, but the disciplined temples, workshops and villages of the Creation-born are the closest thing to home a Worker can find there.",
+    "mechanics": "Caste Abilities: Bureaucracy, Craft, Endurance, Lore and Martial Arts. Grace and Virtue: Workers feed on Temperance and favor the Ring Grace, whose Charms channel Temperance and give the awareness of self needed to inspire and control productive labor -- Workers know themselves best of all the raksha and change the least, and their Grace is the source from which nobles harvest gossamer. Controlling Grace: Compassion (the Cup) controls Temperance; a Worker's service is least accepted opposed to desire and most valued when functionality and desire conjoin, which is why nobles who pair Worker with Entertainer as Artisans (see noble-castes-hybrid) fit the pure Worker archetype best. Associations: the inward direction, the color white, 'the place nearby,' the shinma Nirvishesha, creation and insight. Sobriquets: Jathita, Laborers, Chaos Ants, Rigid Ghosts, Circle and Forge Folk, Makers, Ring People, The Servile Ones, Shapers of Worlds, Kobolds. Workers trapped in Creation feed on Temperance from those who live in harmony with themselves, while ravishers rip Temperance out of a mortal soul entirely, leaving a victim whose convictions remain but who can no longer focus enough resolve to act on them.",
+    "compatibility": "One of the four base Fair Folk castes; a common raksha's sole caste, or one half of a noble's paired castes (see noble-castes-hybrid).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 121,
+      "pdfPage": 122
+    },
+    "crossReferences": ["fair-folk-creation-overview-common", "ring-grace", "cup-grace", "noble-castes-hybrid"],
+    "notes": "Chapter Four: Traits, 'Worker' section, pp. 120-121 (PDF 121-122)."
+  },
+  {
+    "id": "noble-castes-hybrid",
+    "name": "Noble Castes (Ascendant/Shadowed Pairings, 12 named types)",
+    "disposition": "selectable",
+    "summary": "Every noble raksha feeds from two Virtues, and therefore belongs to two of the four base castes at once; one caste is ascendant (dominant, defining the noble's essential nature) and the other is shadowed (its purpose bent to serve the ascendant caste), and each of the twelve possible ascendant/shadowed pairings across the six caste-pairs has its own name, culture and archetype.",
+    "mechanics": "A noble favors both Virtues, both Graces and their associated Charms, and chooses 8 Abilities, 5 of which must come from her two castes' lists. She can invert which caste is ascendant (usually only when faced with bleakest failure and sorrow, though some do it at whim). The twelve named noble castes, grouped by which caste is shadowed: Shadowed Diplomats (Staff serves the ascendant caste) -- Anarch (Warrior ascendant): wields sword and staff to destabilize courts and drive kin and victims into primal conflict, finding compromise only to shatter it. Luminary (Entertainer ascendant): wields cup and staff, using desirability to sweep away social resistance and twist others to her ends -- rakes, priests, celebrities and skalds. Panjandrum (Worker ascendant): wields ring and staff, shaping society into the mirror of her own self-definition, from utopian balance to eccentric obsession. Shadowed Entertainers (Cup serves the ascendant caste) -- Artisan (Worker ascendant): wields ring and cup, crafting wonders of art, architecture and glamour to their own eccentric muse rather than a master's design. Courtier (Diplomat ascendant): wields staff and cup, building parasitic social orders around fashion and intrigue that can drain even a throne to a puppet. Xia (Warrior ascendant): wields sword and cup, fighting for glory and limited objectives while using social backing to free themselves for war. Shadowed Warriors (Sword serves the ascendant caste) -- Eshu (Entertainer ascendant): wields cup and sword, using the threat of violence as a warning display to secure survival; includes martial musicians, storytellers, smiths and poets. Imperial Raksha (Diplomat ascendant): wields staff and sword, forging empires and binding conquered strongpoints with oaths rather than raw bloodlust; often serves stronger kin as an emissary backed by force. Strategos (Worker ascendant): wields ring and sword, crafting dispassionate war plans and directing the courts' armies with rigor rather than malice. Shadowed Workers (Ring serves the ascendant caste; these nobles have subtle, understated personalities) -- Scribe (Diplomat ascendant): wields staff and ring, the loyal, nearly invisible functionaries of law and empire. Ornamental Raksha (Entertainer ascendant): wields cup and ring, existing to adorn and please a court, emptying personal hunger to craft themselves to others' desires. Cataphract (Warrior ascendant): wields sword and ring, elite bodyguard-soldiers who fight because war defines them rather than from duty or bloodlust. The text groups these into four 'Transformation' triads describing which types tend to shift into which others under stress (e.g. Luminaries, Anarchs and Panjandrums transform into Courtiers, Imperial Raksha and Scribes if they find a society that satisfies them).",
+    "compatibility": "All noble raksha; determined by which two of the four base castes (diplomat-caste, entertainer-caste, warrior-caste, worker-caste) a noble selects in Step One and which of the two she treats as ascendant.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 122,
+      "pdfPage": 123
+    },
+    "crossReferences": ["diplomat-caste", "entertainer-caste", "warrior-caste", "worker-caste", "fair-folk-creation-overview-noble"],
+    "notes": "Chapter Four: Traits, 'Noble Castes' section, pp. 122-125 (PDF 123-126). This is the single largest consolidated row in this pass; it packs all twelve named hybrid archetypes into one mechanics field rather than creating twelve separate rows, matching how the Abyssal inventory packed the full 1-10 Resonance Manipulation Effects table into one row (resonance-manipulation-effects) instead of ten."
+  },
+  {
+    "id": "graces-overview",
+    "name": "The Graces (general rules)",
+    "disposition": "calculated",
+    "summary": "The Graces are the five fixed Traits -- Cup, Ring, Staff, Sword and Heart -- that give a raksha's otherwise shapeless Essence a stable self; a raksha's Charms are keyed to Grace ratings rather than to Attributes or Abilities, and a Grace can be forged onto (or stolen from, or broken to curse) any consenting creature, raksha or Creation-born alike.",
+    "mechanics": "Raksha have no true form; in the Wyld they are 'a flowing, viscous agglutination of Essence patterns' that coagulates around five fixed points of self. The Heart is the pith, holding Willpower and Nature; the Cup catches Compassion, the Ring is the symbol of Temperance, the Staff is the focus for Conviction, and the Sword is the icon of Valor. A common raksha chooses one of the four Virtue Graces as her Major Grace (the driving Grace that feeds her); a noble chooses two. The other Graces are Minor and exist as counterpoint, dissipating rather than empowering. General forging rules: a raksha can forge a Cup, Ring, Staff or Sword Grace for any consenting creature (including one dominated by beguilement or Heart-possession) with a scene of effort while the creature is present; this gives the recipient the Grace Trait (starting at 1), the matching shaping damage track, a shaping action, and the ability to learn that Grace's Charms -- Eclipse Caste Solar, Moonshadow Caste Abyssal, Fae-Blooded and Lunar Exalted can also learn a Grace's Charms this way at double the normal experience and mote cost (Storytellers may extend this to other Creation-born protagonists as an optional rule). A forged Grace is a possession of the raksha who crafted it, not of the creature whose Virtue it holds; it can in principle be owned by one raksha, invoked/banished by a second, physically held by a third and attuned to by a fourth. Grace artifacts resist damage like the Five Magical Materials. If a character's Grace is broken or destroyed, it inflicts the matching Bedlam curse (see virtue-bedlam-curses) permanently on a raksha (recoverable only if a smith has every remaining piece of the shattered Grace) but only for one or two stories on a Creation-born victim.",
+    "compatibility": "All raksha; extendable to Creation-born characters via Grace-forging Charms.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 106,
+      "pdfPage": 107
+    },
+    "crossReferences": ["cup-grace", "ring-grace", "staff-grace", "sword-grace", "heart-grace", "virtue-bedlam-curses"],
+    "notes": "Chapter Four: Traits, 'Graces and Gossamer' / 'The Anatomy of a Raksha' / 'The Graces' / 'General Rules for Graces' sidebar, pp. 105-106 (PDF 106-107)."
+  },
+  {
+    "id": "cup-grace",
+    "name": "The Cup Grace",
+    "disposition": "calculated",
+    "summary": "The Cup feeds on Compassion and represents Desirability; it is the Grace of parasites and symbiotes, letting a raksha make her service to others pleasing -- and, at the highest ratings, necessary and irresistible.",
+    "mechanics": "The Cup Grace feeds on Compassion and represents Desirability. It encourages others' Compassion and undermines their Temperance. Rating table: no dots (x) -- fundamentally alien, like a spider or chthonic god; may be beautiful or sympathetic but others cannot truly understand you, a mad god of the Wyld. 1 dot -- your motivations and aesthetic are comprehensible but disturbing; there is nothing in you others can love or need except through artifice or fate's work. 2 dots -- skilled at seeming comprehensible, sane and interesting; others grow comfortable around you without effort on your part. 3 dots -- strangers sometimes find you worth their succor; others feel good in your presence, Fair Folk or Creation-born alike. 4 dots -- your Essence is naturally harmonious with others'; you attract love, friendship and devotion through your own compassionate acts. 5 dots -- you are alien to none; birds come to your hand, mortals love you, and even spiders and chthonic gods crawl on you with a comfortable sense of kinship.",
+    "compatibility": "Any raksha; Major Grace for the Entertainer caste (see entertainer-caste), Minor Grace otherwise.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 106,
+      "pdfPage": 107
+    },
+    "crossReferences": ["graces-overview", "entertainer-caste"],
+    "notes": "Chapter Four: Traits, 'The Cup Grace' / 'The Cup' section, pp. 106-107 (PDF 107-108); the dot table splits across the page break."
+  },
+  {
+    "id": "ring-grace",
+    "name": "The Ring Grace",
+    "disposition": "calculated",
+    "summary": "The Ring feeds on Temperance and represents Self-Awareness; it is a raksha's ego and integrity, the Grace that lets her declare 'I am thus' and resist being changed by others.",
+    "mechanics": "The Ring Grace feeds on Temperance and represents Self-Awareness. A raksha's Ring flows from her Temperance to define the circumstances of her Valor. Rating table: no dots (x) -- aware of yourself, at best, as a dream; a transient notion, a soap bubble, a toy of chaos that will leave nothing behind. 1 dot -- shaped yourself to raksha standards; fluid and strange, but a few consistent threads give a sense of self. 2 dots -- your sense of your own nature drives you; integrity of self comparable to the Creation-born. 3 dots -- a point of stability in the Wyld, a bastion of decision and self. 4 dots -- the laws of your nature are a madness and a power; others cannot change you. 5 dots -- self-contained and complete; you will go on as you always have even if the Wyld and the world turn to dust and ash around you.",
+    "compatibility": "Any raksha; Major Grace for the Worker caste (see worker-caste), Minor Grace otherwise.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 107,
+      "pdfPage": 108
+    },
+    "crossReferences": ["graces-overview", "worker-caste"],
+    "notes": "Chapter Four: Traits, 'The Ring Grace' / 'The Ring' section, p. 107 (PDF 108)."
+  },
+  {
+    "id": "staff-grace",
+    "name": "The Staff Grace",
+    "disposition": "calculated",
+    "summary": "The Staff feeds on Conviction and represents Social Power; it is convention, taboo and law made Trait, the reason a raksha literally cannot break a sworn oath without shattering part of herself.",
+    "mechanics": "The Staff Grace feeds on Conviction and represents Social Power, letting the Fair Folk shape the social order around them; a raksha's Staff flows from her Conviction to define the circumstances of her Compassion. Because they have a Staff Grace, raksha cannot voluntarily break their sworn word; their only recourse against an impossible oath is to shatter their own Staff Grace and destroy part of themselves. Rating table: no dots (x) -- Creation-born and other raksha are nothing more than objects and forces to you, not people. 1 dot -- you grasp that others consider themselves people with an identity comparable to your own, and may come to agree. 2 dots -- you understand the necessities and convictions that drive others and where those meet or conflict with your own. 3 dots -- you have a cold appreciation for the motivations of your enemies. 4 dots -- you recognize in others the twisted, mutated form of your own desires. 5 dots -- you understand the essential principles of dedication and conviction and can ruthlessly manipulate their manifestations in yourself and others.",
+    "compatibility": "Any raksha; Major Grace for the Diplomat caste (see diplomat-caste), Minor Grace otherwise.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 108,
+      "pdfPage": 109
+    },
+    "crossReferences": ["graces-overview", "diplomat-caste", "oaths-mechanic"],
+    "notes": "Chapter Four: Traits, 'The Staff Grace' / 'The Staff' section, p. 108 (PDF 109)."
+  },
+  {
+    "id": "sword-grace",
+    "name": "The Sword Grace",
+    "disposition": "calculated",
+    "summary": "The Sword feeds on Valor and represents Greatness; it raises a raksha up as a legendary figure standing above the Wyld, in sharp contrast to the faceless dream that surrounds her.",
+    "mechanics": "The Sword Grace feeds on Valor and represents Greatness. A raksha's Sword makes her a symbol of terror and glory, encouraging others' Valor but overwhelming their Convictions. Rating table: no dots (x) -- your identity is not important, even to yourself. 1 dot -- you are a thing that can do harm. 2 dots -- you cast a shadow of death and dissolution, and these things shy from you. 3 dots -- you are an agency of fear, death and power. 4 dots -- you are a thing others dread, a dream of ice, horror and blood. 5 dots -- you are a dream of glory and endings, imposing and terrible even in the Wyld.",
+    "compatibility": "Any raksha; Major Grace for the Warrior caste (see warrior-caste), Minor Grace otherwise.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 108,
+      "pdfPage": 109
+    },
+    "crossReferences": ["graces-overview", "warrior-caste"],
+    "notes": "Chapter Four: Traits, 'The Sword Grace' / 'The Sword' section, p. 108 (PDF 109)."
+  },
+  {
+    "id": "heart-grace",
+    "name": "The Heart Grace",
+    "disposition": "calculated",
+    "summary": "The Heart channels a raksha's Willpower and Essence and is the one Grace every raksha has, fixed rather than freely bought; its rating is effectively a measure of how 'real' and powerful the raksha is, from an extra bound to a master's dreams up to an unshaped monster.",
+    "mechanics": "The Heart Grace channels a raksha's Willpower and Essence and allows the Fair Folk to exist; the greater the Heart Grace, the more real the raksha. It traditionally manifests as an unbreakable, sacrosanct adamant egg -- unless the raksha has lost all four Virtue Graces to others and every one of those holders withdraws protection, at which point it becomes as fragile as glass. Under the curse of namelessness (see virtue-bedlam-curses), a raksha cannot even see or touch her own Heart Grace. Rating table (fixed, cannot be raised with bonus points): x (1 for ordinary common raksha) -- contingent on another creature's dreams, most likely an extra. 1 (heroic common raksha) -- independent and self-willed, able to shape the Wyld but not make shaping attacks. 2 (heroic commoners who can make shaping attacks) -- a heroic raksha. 3 (noble raksha) -- a noble. 4 (powerful nobles, 200+ experience points) -- one of the great leaders of the Fair Folk. 5 (the unshaped) -- an unshaped monster. Only characters with Heart 2+ can participate in shaping combat (see shaping-combat-basics).",
+    "compatibility": "All raksha; the one Grace every raksha possesses regardless of caste.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 108,
+      "pdfPage": 109
+    },
+    "crossReferences": ["graces-overview", "virtue-bedlam-curses", "shaping-combat-basics"],
+    "notes": "Chapter Four: Traits, 'The Heart Grace' / 'The Heart' section, p. 108 (PDF 109)."
+  },
+  {
+    "id": "bedlam-overview",
+    "name": "Bedlam (general rules)",
+    "disposition": "calculated",
+    "summary": "Bedlam is the Fair Folk's equivalent of a psychological break: like other Exalted, raksha can channel each Virtue a limited number of times per story, and spending a Virtue's last channel throws the raksha automatically into bedlam, rolling that Virtue at +2 difficulty until she works off the associated Curse.",
+    "mechanics": "Raksha can channel each Virtue a number of times per story equal to that Virtue's rating; spending a channel is the same mechanic as for the Exalted. Spending a Virtue's last channel triggers bedlam automatically. While in bedlam, a raksha rolls the relevant Virtue or Virtues at +2 difficulty. Bedlam ends, restoring all of a raksha's expended Virtue channels, only when the raksha's Virtue-specific recovery condition is met (see virtue-bedlam-curses) or at the natural end of a story. Lures: any Virtue rated 3 or higher must have a Lure attached -- a specific circumstance (chosen from the book's list or invented with the Storyteller) that forces the raksha to channel that Virtue if at all possible, at most once per scene, and only when the raksha actually behaves in the relevant fashion. Lures represent 'the uttermost temptation of shape' -- the raksha's favorite aspect of the Virtue, whose overindulgence risks burning out the last of her sanity and sending her into bedlam.",
+    "compatibility": "All raksha; every raksha with a Virtue at 3+ must select a Lure for at least one such Virtue at character creation.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 112,
+      "pdfPage": 113
+    },
+    "crossReferences": ["virtue-bedlam-curses"],
+    "notes": "Chapter Four: Traits, 'Bedlam' / 'General Rules' section, p. 112 (PDF 113). This is the closest Fair Folk equivalent to a Limit Trait: rather than one universal gauge, each Virtue has its own channel-based bedlam trigger and its own recovery condition and Curse (see virtue-bedlam-curses)."
+  },
+  {
+    "id": "virtue-bedlam-curses",
+    "name": "The Four Bedlam Curses (Hubris, Namelessness, Alienation, Meekness)",
+    "disposition": "calculated",
+    "summary": "Each of the four Virtues has its own named bedlam Curse, penalty and recovery condition: Compassion's Curse of Hubris, Conviction's Curse of Namelessness, Temperance's Curse of Alienation, and Valor's Curse of Meekness (also called the Curse of Terror), plus a short list of sample Lures for each Virtue.",
+    "mechanics": "Compassion -- Curse of Hubris: acts as Compassion 0 / Staff 0, a +2 difficulty penalty to influence or understand others (including Cup/Staff reality-shaping); recovers only after committing a number of cruel, genuinely self-risking ('regrettable') acts equal to her Compassion -- slaughtering strangers does not count, but hurting a cherished slave or humiliating a dangerous rival does. Lures: giving help when asked, romantic love, creating beauty, serving justice. Conviction -- Curse of Namelessness: acts as Conviction 0 / Sword 0; forgets her own name, identity, nature and oaths (though they still bind her), +2 difficulty to Lore rolls and to any attempt to interrogate her; recovers only after betraying herself a number of times equal to her Conviction. Lures: seizing power over other raksha, fighting against the odds, making commitments or oaths. Temperance -- Curse of Alienation: acts as Temperance 0 / Cup 0, +2 difficulty to influence or serve others (including Cup/Staff reality-shaping); recovers only after committing acts of regrettable excess equal to her Temperance. Lures: resisting a specific temptation (drugs, sex, dancing), refusing a properly phrased request, hiding one's opinion. Valor -- Curse of Meekness/Terror: acts as Valor 0 / Ring 0, a flat two-die environmental penalty on all rolls; recovers only once fear or passivity has humiliated or harmed her a number of times equal to her Valor. Lures: feats of heroism, facing down terrible things, fighting duels, fighting in great battles. Breaking a character's Grace also inflicts the matching Curse (see graces-overview).",
+    "compatibility": "All raksha; whichever Curse applies depends on which Virtue's last channel was spent.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 113,
+      "pdfPage": 114
+    },
+    "crossReferences": ["bedlam-overview", "cup-grace", "ring-grace", "staff-grace", "sword-grace", "graces-overview"],
+    "notes": "Chapter Four: Traits, 'Compassion' / 'Conviction' / 'Temperance' / 'Valor' bedlam sections, p. 113 (PDF 114). Packed into one row, matching how the Abyssal inventory packed its 1-10 Resonance Manipulation Effects table into a single row."
+  },
+  {
+    "id": "birth-background",
+    "name": "Birth (new Background)",
+    "disposition": "selectable",
+    "summary": "New Background: represents the raw quality of a raksha's genesis from the Wyld, letting a raksha of fortunate birth begin play already knowing certain common Charms without spending Charm slots on them.",
+    "mechanics": "Dot table: no dots (x) -- may choose one Assumption-type Charm for free (this restates the baseline every raksha gets to be able to enter Creation at all; see gossamer-and-glamour-mechanic). 1 dot -- the free Assumption-type Charm, and Ravishing the Created Form. 2 dots -- and Banquet of Crumbs. 3 dots -- and Essence-Forging Art and Awakened Dream Manufacture. 4 dots -- and all five Forging the (Grace) Grace Charms. 5 dots -- and Gaping Virtue Mouth and Ecstatic Reproduction Style. Each additional dot's Charms are cumulative with the ones below it.",
+    "cost": "Background dots (0-5), as with any Background.",
+    "compatibility": "All raksha, common or noble.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 109,
+      "pdfPage": 110
+    },
+    "crossReferences": ["gossamer-and-glamour-mechanic"],
+    "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Birth' section, pp. 109-110 (PDF 110-111); dot table splits across the page break. The specific named Charms (Ravishing the Created Form, Banquet of Crumbs, Essence-Forging Art, Awakened Dream Manufacture, the Forging the Grace Charms, Gaping Virtue Mouth, Ecstatic Reproduction Style) belong to Chapter Five's Charm trees, which are out of scope for this pass; only the Background's dot-by-dot structure is inventoried here."
+  },
+  {
+    "id": "freehold-background",
+    "name": "Freehold (new Background)",
+    "disposition": "selectable",
+    "summary": "New Background: access to a Freehold, the raksha's enclave/fortress/city-world equivalent of a Manse -- a place of Wyld power sustained by a bonefire and yielding Cysts of recoverable Essence.",
+    "mechanics": "A Freehold is a shaped cosmos a household or court of raksha carves out of the Wyld, sustained by the bonefire (a pillar of heatless silver flame that focuses the Freehold's power and holds the Freehold lord's Heart). Freeholds yield Cysts or Carbuncles -- membranous sacs of Essence that raksha attuned to them recover at (Freehold rating) motes per hour; a Freehold's total Cyst rating can be subdivided into smaller Cysts and pennants (an effective 1/3-rated token that does not aid Essence recovery but keeps a raksha from withering in Creation). A newly built Freehold's influence covers (Freehold rating + 5) waypoints, extendable with the Forging the Stronghold Charm. Dot table: no dots (x) -- unwelcome in any Freehold. 1 dot -- permitted to reside in a level-1 or level-2 Freehold. 2 dots -- hold a pennant from a level-1/2 Freehold plus permission to enter one or two others. 3 dots -- hold a pennant from a level-3+ Freehold, or share power over a level-1/2 Freehold and can negotiate for a Cyst; permitted in most of the region's Freeholds. 4 dots -- hold pennants from two or more Freeholds (sheltering from any single lord's disfavor) and might command a tiny (level-1/2) Freehold of your own, or share power over a significant Freehold holding one of its Cysts. 5 dots -- command a significant Freehold, or share power over one and hold an emergency pennant from one or two others.",
+    "cost": "Background dots (0-5), as with any Background.",
+    "compatibility": "All raksha, common or noble.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 110,
+      "pdfPage": 111
+    },
+    "crossReferences": ["gossamer-background", "manse-background-fair-folk"],
+    "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Freehold' section, p. 110 (PDF 111)."
+  },
+  {
+    "id": "gossamer-background",
+    "name": "Gossamer (new Background)",
+    "disposition": "selectable",
+    "summary": "New Background: a raksha's measure of wealth and material influence, paid out as a standard gossamer income per story and equated to a Resources rating for dealings in Creation.",
+    "mechanics": "Each dot of Gossamer grants a standard income of gossamer per story plus an ongoing gossamer supply, representing control over a gossamer-rich Wyld region or the ability to tithe raksha Workers; it does not include gossamer generated by Charms. Dot table: no dots (x) -- no gossamer, isolated and threadbare. 1 dot -- Poor: 1 gossamer/story, effective Resources 3 in Creation. 2 dots -- Comfortable: 3 gossamer/story, effective Resources 4, can caparison capable servants in magical raiment (the Middlemarches' minimum respectable wealth). 3 dots -- Affluent: 6 gossamer/story, effective Resources 5, can buy nobles' services, support a retinue, and wield influence over a large section of the Wyld. 4 dots -- Dominant: 10 gossamer/story, can make multiple Resources 5 purchases per story and trade in the Heart Graces of lesser kin. 5 dots -- Vastly Rich: 20 gossamer/story, unlimited mortal wealth, spending mortal dreams 'as if they were so much tin.' A related sidebar (Where Do I Harvest Gossamer?) describes harvesting gossamer directly from Wyld waypoints as a Ring-shaping action (Perception + Awareness at difficulty 1 to detect a rich waypoint, then 1 Willpower plus a Ring-shaping roll such as Intelligence + Martial Arts or Intelligence + Lore to actually harvest it, at a difficulty and yield-per-story that vary by location).",
+    "cost": "Background dots (0-5), as with any Background.",
+    "compatibility": "All raksha, common or noble; replaces both Resources and (for wealth purposes) part of Followers -- see followers-and-resources-excluded-fair-folk.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 110,
+      "pdfPage": 111
+    },
+    "crossReferences": ["freehold-background", "followers-and-resources-excluded-fair-folk", "gossamer-and-glamour-mechanic"],
+    "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Gossamer' section, pp. 110-111 (PDF 111-112); the harvesting sidebar continues onto the following page."
+  },
+  {
+    "id": "retinue-background",
+    "name": "Retinue (new Background)",
+    "disposition": "selectable",
+    "summary": "New Background: command over a body of common raksha personally bound in service to a noble, replacing Followers for Fair Folk characters (mortal Followers can substitute for some of the common-raksha slots when the retinue serves in Creation).",
+    "mechanics": "Dot table: no dots (x) -- no retinue; a wanderer, a noble too weak or young to have one, or a commoner. 1 dot -- five retainers, common raksha of no exceptional worth. 2 dots -- a personal staff of 25 common raksha. 3 dots -- a substantial retinue of 100 common raksha. 4 dots -- a great force of 200 common raksha, including one or two heroic commoners whose Hearts the character holds. 5 dots -- a small army of 300 common raksha, including a staff of five heroic commoners whose Hearts the character holds. Raksha operating in Creation may substitute powerful mortals (elite troops or Wyld barbarians) for some of the common raksha in their retinue.",
+    "cost": "Background dots (0-5), as with any Background.",
+    "compatibility": "Primarily noble raksha (it is 'the tradition of the noble raksha to construct and enslave the less fearsome of their kind'), though the dot table allows any raksha to hold one.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 111,
+      "pdfPage": 112
+    },
+    "crossReferences": ["followers-and-resources-excluded-fair-folk"],
+    "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Retinue' section, pp. 111-112 (PDF 112-113); dot table splits across the page break."
+  },
+  {
+    "id": "style-background",
+    "name": "Style (new Background)",
+    "disposition": "selectable",
+    "summary": "New Background: converts a raksha's narrative confidence directly into a scene-refreshing pool of self-awarded stunt dice, whose size and special properties escalate with each dot -- and whose maximum spend per action is capped by how deep into the Wyld the raksha currently is.",
+    "mechanics": "Style dice function exactly like ordinary stunt dice (including potential Essence/Willpower regeneration) but the raksha awards them to herself from a pool that refreshes each scene, rather than waiting for the Storyteller to award them (the Storyteller can still award additional dice for genuine coolness). Spend cap by location: 1 die max in Creation and the tainted lands; 2 dice in the Bordermarches, Middlemarches, uncapped Demesnes and Freeholds; 3 dice deeper in the Wyld; 3 dice is the absolute maximum for any single action regardless of source. Dot table: no dots (x) -- no stunt pool; lacks confidence in her own nature. 1 dot -- Sword Stunts: pool equal to Sword. 2 dots -- Cup Stunts: pool equal to Sword plus Cup. 3 dots -- Ring Stunts: recovers Ring in stunt dice every scene, in addition to the normal full refresh at the start of the story. 4 dots -- Heart Stunts: fully refreshes the pool whenever the raksha enters bedlam. 5 dots -- Staff Stunts: in Creation, may perform a number of Wyld stunts per story equal to her Staff.",
+    "cost": "Background dots (0-5), as with any Background.",
+    "compatibility": "All raksha, common or noble.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 112,
+      "pdfPage": 113
+    },
+    "crossReferences": ["wyld-stunts-and-bonuses", "cup-grace", "ring-grace", "staff-grace", "sword-grace", "heart-grace"],
+    "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Style' section, p. 112 (PDF 113)."
+  },
+  {
+    "id": "artifact-background-fair-folk",
+    "name": "Artifact (altered for Fair Folk)",
+    "disposition": "calculated",
+    "summary": "The Artifact Background works differently for raksha, since the treasures of the Wyld are not the Five Magical Materials of Creation: raksha must win major artifacts from the unshaped through questing, and rarely keep more than a small stable of self-forged petty spells, beasts and trinkets.",
+    "mechanics": "Raksha rarely claim artifacts of the Five Magical Materials; their power resides instead in glamour spells, behemoths, adjurations and 'the tools of the Ring.' The simpler artifacts of their kind they forge themselves and trade for Gossamer or services. Dot table: no dots (x) -- none; 'too arrogant for such trinkets, or too weak to keep them.' 1 dot -- Threadbare: a pair of level-1 artifacts. 2 dots -- Equipped: four dots of artifacts, including at least two level-1 artifacts. 3 dots -- Coffers: seven dots of artifacts, including at least four level-1 artifacts. 4 dots -- Hoard: twelve dots of artifacts, including at least five level-1 artifacts and no single artifact greater than level 4. 5 dots -- Prince's Treasure: fifteen dots of artifacts, including at least five level-1 artifacts and one level-3 artifact.",
+    "compatibility": "All raksha, common or noble.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 109,
+      "pdfPage": 110
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Traits, 'Expanded Backgrounds' -> 'Artifact' section, p. 109 (PDF 110)."
+  },
+  {
+    "id": "familiar-background-fair-folk",
+    "name": "Familiar (altered for Fair Folk)",
+    "disposition": "calculated",
+    "summary": "Raksha familiars are scraps of dream rather than ordinary beasts, more often poppets, manikins and homunculi than animals; higher-rated familiars can share their senses with the raksha at range.",
+    "mechanics": "Dot table: no dots (x) -- no familiar. 1 dot -- a small animal with the size and ferocity of a cat or manikin, most likely of Wyld extraction. 2 dots -- an impressive pet: a Threat-1 creature such as a wolf or a poppet, or an unusually useful manikin. 3 dots -- a powerful, dangerous pet: a Threat-2 creature such as a homunculus, or a manikin/poppet/beast with meaningful noncombat abilities; can share one of its senses with the raksha when within 30 miles. 4 dots -- a Threat-1 creature with meaningful noncombat abilities and sense-sharing. 5 dots -- a Threat-2 creature with meaningful noncombat abilities and sense-sharing.",
+    "compatibility": "All raksha, common or noble.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 109,
+      "pdfPage": 110
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Traits, 'Expanded Backgrounds' -> 'Familiar' section, p. 109 (PDF 110)."
+  },
+  {
+    "id": "manse-background-fair-folk",
+    "name": "Manse (altered for Fair Folk)",
+    "disposition": "calculated",
+    "summary": "Fair Folk cannot construct Manses, but can own and attune to existing ones in Creation exactly as the standard Background allows; carrying a Hearthstone keeps a raksha from withering in Creation, though the Hearthstone's own listed power is inert to raksha.",
+    "mechanics": "While they cannot build Manses, raksha can own and attune to Manses and Demesnes; in a Demesne or Manse, a raksha recovers Essence as though in the Wyld, and a raksha carrying a Hearthstone does not wither in Creation while doing so. However, raksha do not receive the normal listed benefits of a Hearthstone -- its power is dead to them. Manses located in the Underworld or the Wyld itself are not covered by this Background at all (there is no Fair Folk equivalent to Abyssal 'Underworld Manse' inventoried on these pages; Freehold Cysts are the closest Wyld analog to a Hearthstone -- see freehold-background).",
+    "compatibility": "All raksha, common or noble, for Manses located in the land of the living.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 109,
+      "pdfPage": 110
+    },
+    "crossReferences": ["freehold-background"],
+    "notes": "Chapter Four: Traits, 'Expanded Backgrounds' -> 'Manse' section, p. 109 (PDF 110)."
+  },
+  {
+    "id": "followers-and-resources-excluded-fair-folk",
+    "name": "Followers and Resources (excluded for Fair Folk)",
+    "disposition": "excluded",
+    "summary": "Raksha do not use the standard Followers or Resources Backgrounds at all; they purchase mortal/raksha servants through the new Retinue Background and wealth through the new Gossamer Background instead.",
+    "mechanics": "The text states plainly: 'Raksha do not use these Backgrounds. Instead, purchase mortal servants with the Retinue Background and wealth with Gossamer.' No dot table or exception is given -- Followers and Resources are simply unavailable to Fair Folk character sheets.",
+    "compatibility": "All raksha, common or noble; excluded outright, unlike Backing/Contacts/Influence which remain merely rare (see backing-contacts-influence-fair-folk).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 109,
+      "pdfPage": 110
+    },
+    "crossReferences": ["retinue-background", "gossamer-background"],
+    "notes": "Chapter Four: Traits, 'Expanded Backgrounds' -> 'Followers and Resources' section, p. 109 (PDF 110). Classified excluded rather than reference-only because it actively forecloses two standard Background options for creation-flow gating, matching how the Abyssal inventory classified 'Cult and the Abyssals' as excluded."
+  },
+  {
+    "id": "backing-contacts-influence-fair-folk",
+    "name": "Backing, Contacts and Influence (altered for Fair Folk)",
+    "disposition": "calculated",
+    "summary": "Raksha rarely possess the standard Backing, Contacts or Influence Backgrounds at all, and when they do, these Backgrounds refer only to influence within mortal communities in Creation rather than any standing in Rakshastan.",
+    "mechanics": "No dot table is given; the book's guidance is a single sentence establishing rarity and scope: raksha who do take these Backgrounds use them to represent pull among mortals in Creation, not among the Fair Folk themselves (compare the new Liege-style role that Freehold, Gossamer and Retinue play for standing among raksha).",
+    "compatibility": "All raksha, common or noble; uncommon but not outright excluded (contrast followers-and-resources-excluded-fair-folk).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 109,
+      "pdfPage": 110
+    },
+    "crossReferences": ["followers-and-resources-excluded-fair-folk"],
+    "notes": "Chapter Four: Traits, 'Expanded Backgrounds' -> 'Backing, Contacts and Influence' section, p. 109 (PDF 110)."
+  },
+  {
+    "id": "innate-powers-wyld-immunity",
+    "name": "Innate Powers: Wyld-Immunity and Shaping Self-Repair",
+    "disposition": "calculated",
+    "summary": "Every raksha, common or noble, has an innate power (no Charm required) that lets her treat damage and change from anything less real than herself -- Wyld phenomena, Wyld creatures, Wyld-mutated creatures and Wyld hazards -- as a dream she can simply shape away, though she remains fully vulnerable to the Creation-born, to other raksha, and to certain named phenomena.",
+    "mechanics": "The raksha may be killed, burned, transformed or driven mad by sub-real Wyld effects, but these things have no true suzerainty over her spirit; her Essence's 'primitive consciousness' does not suffer from such effects and can issue forth an act of will (a shaping action, see shaping-actions-and-reality-shaping) to restore her, and neither mental nor social influence from such a source can turn her from taking that action. This immunity does not extend to the direct actions of the Creation-born, other raksha, or certain phenomena of the Wyld called out by name elsewhere in the book. Noble raksha and heroic commoners can turn this same shaping ability offensively against an enemy as a shaping attack (see shaping-combat-basics); ordinary common raksha cannot. A related note: raksha Nature functions identically to Solar Exalted Nature, but raksha have limited inherent conviction to it and may change their Nature at the start of a story for a cost of 1 Willpower.",
+    "compatibility": "All raksha; the offensive (shaping-attack) extension of this power is limited to nobles and heroic commoners.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 94,
+      "pdfPage": 95
+    },
+    "crossReferences": ["shaping-actions-and-reality-shaping", "shaping-combat-basics"],
+    "notes": "Chapter Three: Character Creation, 'Innate Powers' section, p. 94 (PDF 95), immediately following the Caste/'Casteless Raksha' sidebar discussion."
+  },
+  {
+    "id": "craft-glamour-ability",
+    "name": "Craft (Glamour) — the paramount creator's Craft specialty",
+    "disposition": "calculated",
+    "summary": "Craft (Glamour) is the single most important Craft specialty for raksha: the art of shaping Essence and dream itself, superseding metalwork, woodwork, stonework and every other mundane Craft specialty for a Fair Folk character.",
+    "mechanics": "Craft (Glamour) is described as 'the paramount creator's skill in the Wyld.' In Creation, a raksha player can roll Perception + Craft (Glamour) for her character to identify the glamour-forged works of her peers.",
+    "compatibility": "All raksha, common or noble, as a Craft specialty under the standard Craft Ability.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 104,
+      "pdfPage": 105
+    },
+    "crossReferences": ["gossamer-and-glamour-mechanic"],
+    "notes": "Chapter Four: Traits, 'Craft (Glamour)' section, p. 104 (PDF 105). Comparable in scope to the Abyssal inventory's 'Useful Crafts (Underworld)' row -- a short, self-contained Craft-specialty note rather than a full Charm or Background."
+  },
+  {
+    "id": "wyld-stunts-and-bonuses",
+    "name": "Wyld Stunts and Wyld Bonuses",
+    "disposition": "calculated",
+    "summary": "In the Wyld, an ordinary player stunt on a normal dice action can take on quasi-sorcerous effects against unreal things (a 'Wyld stunt'), tiered by difficulty according to which circle of sorcery or necromancy the effect most resembles; separately, 'Wyld bonuses' are environmental dice bonuses the setting itself can grant regardless of whether a player stunts at all.",
+    "mechanics": "Traditional stunts in the Wyld work like ordinary stunts against real things (raksha with a Heart Grace, the Creation-born) -- cinematic flourish only. Against unreal/environmental things, the same stunt can have the full effect and visual power of sorcery: a difficulty-3 Dexterity + Thrown stunt describing flower petals as cutting shards, for instance, functions like a Terrestrial Circle Sorcery-tier effect if the target is a mirage, but reasonable improvised-weapon-level damage if aimed at a real target. Wyld-stunt difficulty tiers by resembled magic: Terrestrial Circle Sorcery or Shadowlands Circle Necromancy = difficulty 3; Celestial Circle Sorcery or Labyrinth Circle Necromancy = difficulty 5; Solar or Void Circle effects = difficulty 10. Otherwise Wyld stunts work exactly like ordinary stunts, including standard stunt-die awards and Essence/Willpower recovery; inventing an environmental factor as part of the stunt is worth 1 extra die if it clashes with the established scene or 2 dice if it fits well. Wyld bonuses are a separate, non-stunt environmental dice bonus (comparable to a mundane higher-ground bonus) that can grant quasi-supernatural effects to characters the Wyld currently favors, and function whether or not the player does anything narratively impressive; they can stack with stunts.",
+    "compatibility": "All characters (raksha and Creation-born alike) taking normal dice actions while in the Wyld.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 105,
+      "pdfPage": 106
+    },
+    "crossReferences": ["style-background", "shaping-actions-and-reality-shaping"],
+    "notes": "Chapter Four: Traits, 'Stunting in the Wyld' -> 'Improvised Magic' / 'Wyld Bonuses' sections, pp. 104-105 (PDF 105-106)."
+  },
+  {
+    "id": "gossamer-and-glamour-mechanic",
+    "name": "Gossamer and Glamour (Charm-fueling mechanic)",
+    "disposition": "calculated",
+    "summary": "Gossamer is the limited-supply, crystallized Essence that fuels Fair Folk Charms affecting the raksha's normal (non-shaping) actions; Charms that spend it are 'works of glamour,' illusions targeted at a victim's Essence rather than her mind, which sufficiently perceptive or high-Essence Creation-born characters can see through outright.",
+    "mechanics": "Charms that modify a raksha's shaping action resemble Solar Charms in cost and cannot add more dice to a shaping pool than (Attribute + Ability); raksha have no true perfect effects, so sufficient opposition can always overcome them. Charms that instead affect a raksha's normal dice actions carry a gossamer cost (in addition to any mote/Willpower/health cost) and last one scene or one story, with powerful effects sometimes costing extra gossamer on repeated activation within that duration; dice-adding Charms of this type can add at most the raksha's highest feeding Virtue in dice, and raising the feeding Virtue itself does not increase a dice-adder's effect. A gossamer cost of 0 marks a Charm that still draws on gossamer, just negligible scraps of it (or the target's own dreams); Charms with a mutation cost (see mutation-mechanic) also count as having a gossamer cost. Charms with no gossamer cost at all cannot affect the raksha's normal actions and only work within the Wyld, Freeholds, Bordermarches and uncapped Demesnes. Works of glamour: unless stated otherwise, every gossamer-based Charm is a work of glamour -- an illusion aimed at the Essence patterns that make up people and things, not at the mind. Each work of glamour has a shaping Trait and an opposed Trait; any character whose Essence + opposed Trait exceeds the raksha's shaping Trait sees straight through it, gaining no benefit and suffering no penalty (though it can still deceive third parties). Anyone who learns a raksha's true name (via a difficulty-5 Intelligence + Occult roll, or a Charm such as All-Encompassing Sorcerer's Sight) is automatically immune to that raksha's glamour. A few Charms sidestep this by imbuing the raksha's own body/mind with elemental Essence instead of shaping the outside world (e.g. growing real wings, or making elemental attacks), which only the raksha herself could disbelieve. Permanent glamours are gossamer Charms that create something 'effectively real'; Creation slowly withers them -- small permanent glamours survive in Creation for years equal to the crafter's Essence, large ones (bigger than a house) for decades equal to her Essence -- and characters cannot see through a permanent glamour by default.",
+    "compatibility": "All raksha; Creation-born characters interact with glamour as targets/resisters, not as users.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 129,
+      "pdfPage": 130
+    },
+    "crossReferences": ["mutation-mechanic", "cold-wrought-iron", "gossamer-background"],
+    "notes": "Chapter Five: Raksha Magic, 'General Rules' -> 'Gossamer and Glamour' / 'Works of Glamour' / 'Permanent Glamours' sections, pp. 128-130 (PDF 129-131). This is the Charm-fueling resource mechanic; the Gossamer Background (gossamer-background) is the separate wealth-measuring Trait built on the same underlying substance."
+  },
+  {
+    "id": "mutation-mechanic",
+    "name": "Mutation (permanent Charm conversion)",
+    "disposition": "calculated",
+    "summary": "A raksha can convert an eligible gossamer-costed Charm into a permanent mutation, waiving its Essence/Willpower/health cost in exchange for mutation points that raise the experience cost of increasing her Essence and cap how high her Essence can ultimately rise.",
+    "mechanics": "Only Fair Folk Charms with a fixed, nonzero gossamer cost can become mutations; Charms with no gossamer cost, a 0 gossamer cost, or a variable gossamer cost are ineligible. For a Charm that affects the raksha herself, each point of the Charm's gossamer cost becomes 1 mutation point and the effect becomes permanent and always-on; for a Charm that affects other targets, each point of gossamer cost becomes 3 mutation points, and the raksha fixes the Charm's decisions (target description, choices, etc.) permanently at the time she takes the mutation -- the effect is not cumulative with itself (already-affected targets are immune to retriggering it) and remains a work of glamour subject to the normal glamour-detection rules. A raksha's total mutation points add directly to the experience cost of raising her Essence, and she cannot raise (Essence + mutation points) past (Willpower + 4); temporary mutations that would push her over that cap instead calcify her (into stone, gossamer, daydreams or mortal flesh, at the Storyteller's discretion). The Mutations point-cost table from Exalted: The Lunars (p. 210) applies: Pox = 1 point, Affliction = 2 points, Blight = 4 points, Abomination = 6+ points. Mutated servants/artifacts created by other Charms can be built directly from a fixed mutation-point budget without needing to meet a Charm's normal prerequisites.",
+    "cost": "Waives Essence/Willpower/health cost of the source Charm; costs 1 mutation point per gossamer (self-targeting) or 3 mutation points per gossamer (other-targeting) instead.",
+    "compatibility": "All raksha with an eligible gossamer-costed Charm; also usable by the raksha to build monstrous servants with a fixed mutation-point budget.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 130,
+      "pdfPage": 131
+    },
+    "crossReferences": ["gossamer-and-glamour-mechanic", "cold-wrought-iron"],
+    "notes": "Chapter Five: Raksha Magic, 'General Rules' -> 'Mutation' / 'Building Mutations from Charms' / 'Mutations and Monsters' sections, pp. 129-131 (PDF 130-132). Cross-references the Mutations point-cost table originally printed in Exalted: The Lunars, p. 210, which is not itself part of this book and is not re-verified here."
+  },
+  {
+    "id": "shaping-actions-and-reality-shaping",
+    "name": "Shaping Actions and Reality Shaping (general rules)",
+    "disposition": "calculated",
+    "summary": "A raksha's core innate action, taken once per scene, lets her rewrite the local narrative of the Wyld with enormous narrative power but -- absent gossamer-fueled Charms -- essentially no material power over anything real; the Creation-born can violate this rule outright, since their actions and their dead stay real and dead even inside a raksha's story.",
+    "mechanics": "Every raksha gets exactly one shaping action per scene (a 'scene' defaults to about 20 minutes of fiction time, a 'story' to about a season, though both are flexible); a shaping action behaves like a combat dice action scaled to a one-scene timeframe -- it can be taken on initiative, aborted to a defensive shaping action, split with normal multiple-action penalties, or (for reflexive shaping) taken as many times per scene as fits. Shaping actions and normal dice actions are entirely independent of each other. Unrolled shaping actions (e.g. banishing possessions, readying a shaping weapon) automatically succeed but still consume the raksha's shaping action for that scene. Ordinary shaping has no effect at all in Creation; there, only gossamer-based Charms function (Freeholds, uncapped Demesnes and the Bordermarches count as Wyld for this purpose). Effects of reality shaping on real creatures (raksha or Creation-born) are principally cosmetic: a reflexive Perception + Awareness roll lets the target see through the illusion (e.g. a Lunar 'speared through the chest' can simply notice he's still alive and get up). Taking a normal dice action that goes along with the raksha's shaped narrative grants a 1-die Wyld bonus and permits otherwise-impossible feats; acting against it costs an environmental penalty equal to the shaping raksha's Essence, plus 1 Willpower for the first such defiance in a scene. Fantasies, invocations and conjurations: an unfueled shaping action creates fantasies -- unlimited narrative set-dressing (armies, terrors, feasts) with no dice pool and no real material threat, defeatable by stunt or Charm at will; conjuration (via specific Charms) creates lasting effects with real material power; invocation lets a raksha summon her own bound possessions from Elsewhere into the local scene with a single success on a shaping action. Difficulty to shape reality varies by location: Tainted Lands usually impossible (sometimes +5), Bordermarches +2, uncapped Demesne +2 (or optionally +[6 - Demesne level]), Middlemarches +0, Freehold +0. The Creation-born can meaningfully interact with raksha via ordinary dice actions regardless of any of this -- they can permanently kill a raksha, steal from her, scatter her armies or coerce oaths from her outside of any shaping duel, none of which are 'casual constructs of dream.'",
+    "compatibility": "All raksha (one shaping action per scene, granted by having any Grace Trait); Creation-born characters interact through normal dice actions instead.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 134,
+      "pdfPage": 135
+    },
+    "crossReferences": ["shaping-combat-basics", "innate-powers-wyld-immunity", "oaths-mechanic"],
+    "notes": "Chapter Five: Raksha Magic, 'Shaping Actions' / 'Unrolled Shaping Actions' / 'Shaping in Creation' / 'Effects of Reality Shaping' / 'Fantasies, Invocations and Conjurations' sections, pp. 133-136 (PDF 134-137). This row deliberately stays at the mechanical-overview level (per the Abyssal template's precedent of describing the universal Anima Effect and Resonance mechanics without inventorying the Charm trees built on top of them) and does not enumerate individual shaping Charms."
+  },
+  {
+    "id": "shaping-combat-basics",
+    "name": "Shaping Combat (basics: initiative, weapons, attacker/defender flow)",
+    "disposition": "calculated",
+    "summary": "Shaping combat is a derivative of the standard Exalted combat system restricted to characters with Heart 2+: raksha (and heroic commoners) use readied 'shaping weapons' and an initiative order built from their feeding Virtues to narrate offensive and defensive shaping actions against each other or against the Creation-born, resolved with dice rolls at a dramatically pivotal moment the players themselves choose.",
+    "mechanics": "Only characters with Heart 2 or higher can participate in shaping combat (see heart-grace). Shaping weapons are tools (behemoths, milieu effects, and similar items detailed elsewhere in Chapter Five) that focus the oneiromantic power of a shaping attack; a raksha must ready a shaping weapon with an unrolled shaping action, which automatically replaces any previously readied weapon unless a Charm or stunt allows dual-wielding. Initiative: a raksha's base shaping initiative equals the sum of her feeding Virtues; add a 10-sided die and the speed of any readied shaping weapon to get her place in the order. The character with initiative can take offensive shaping actions, delay, or reserve a defensive action, but loses initiative if she does not act. Each offensive exchange follows a fixed narrative structure: the attacker's player declares her dice pool and invokes relevant Charms/Combos, then narrates how the attack unfolds within the shaped fiction; the defender's player declares her defense and Charms/Combos and narrates her character's response; then, at whichever moment either the attacker's player or the Storyteller judges dramatically pivotal, both sides roll and resolve the attack and defense together, completing the action. These rules govern direct-conflict scenes specifically; outside of conflict, raksha simply take or yield shaping actions independently and whenever a given action is logically finished. Material events and normal dice actions during a shaping contest impose only minor (1-2 die) environmental effects on shaping rolls -- except that the presence of the Creation-born changes the stakes entirely, since their normal actions are real and can permanently kill, steal from, or coerce a raksha regardless of who 'wins' the shaping narrative.",
+    "compatibility": "Characters with Heart 2+ (heroic commoners, nobles, the unshaped); ordinary common raksha (Heart 1 or less) cannot take part.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 136,
+      "pdfPage": 137
+    },
+    "crossReferences": ["shaping-actions-and-reality-shaping", "heart-grace", "innate-powers-wyld-immunity"],
+    "notes": "Chapter Five: Raksha Magic, 'Shaping Combat' -> 'Shaping Weapons' / 'Initiative' sections, p. 136 (PDF 137), including the worked Asira/Citraratha duel example. Stops at the mechanical-overview level per the task's Charm-tree exclusion; does not inventory individual shaping weapons (behemoths, milieu, etc.) or the per-Grace attack/defense dice-pool lists that follow on later pages."
+  },
+  {
+    "id": "oaths-mechanic",
+    "name": "Oaths",
+    "disposition": "calculated",
+    "summary": "Oaths become woven into a raksha's own Essence pattern the moment she swears them: she cannot break one voluntarily, and an involuntary breach brings a catastrophic botch down on her exactly as if an Eclipse Caste Solar had sanctified the vow -- though a raksha's native cunning usually lets her find a technical loophole at some cost.",
+    "mechanics": "Players and Storytellers are not expected to draft airtight legal contracts; on the rare occasions where finding a loophole is genuinely fun, treat it as a stunt or plot point, otherwise simply assume a raksha can find some way around the letter of her oath. Circumventing the spirit of a promise imposes an environmental penalty on the raksha's normal and shaping actions while she does so, abstractly representing the effort of working around her own vow: a hastily given, accidental promise (a slip of the tongue) carries a zero-die penalty (though the other party can use it as stunt fodder), while an oath deliberately extorted without Charms by a bargaining opponent carries a penalty equal to that opponent's Essence. The book explicitly encourages players and Storytellers to have raksha simply abide by their oaths' stated terms whenever possible, since it is usually more fun that way. See staff-grace for why a raksha cannot break an oath at all without shattering part of her own Staff Grace.",
+    "compatibility": "All raksha; the environmental penalty scales differently depending on how the oath was made.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 133,
+      "pdfPage": 134
+    },
+    "crossReferences": ["staff-grace"],
+    "notes": "Chapter Five: Raksha Magic, 'General Rules' -> 'Oaths' section, p. 133 (PDF 134)."
+  },
+  {
+    "id": "cold-wrought-iron",
+    "name": "Cold-Wrought Iron",
+    "disposition": "calculated",
+    "summary": "Cold-wrought iron is the Fair Folk's signature material weakness: it deals aggravated damage that ignores their normal soak, and its mere touch dispels most works of glamour on contact, with narrow exceptions for mutations and Assumption-type Charms.",
+    "mechanics": "Cold-wrought iron inflicts aggravated damage on a raksha and bypasses her natural Stamina- and Charm-based soak entirely. On contact, it dispels most works of glamour affecting whatever it touches. Exceptions: a mutation's effects on the mutated creature are immune to iron's dispelling touch, since mutations quasi-permanently change the creature's nature and there is no 'default form' to revert to; Assumption-type Charms (see gossamer-and-glamour-mechanic) are likewise immune, since they infuse the raksha with genuine Creation-Essence that iron does not dispel. When a single work of glamour affects multiple sentient creatures at once, iron must touch each of them individually to dispel its effect on that specific creature (Storytellers may rule otherwise for dramatic purposes, but a typical game of Exalted: The Fair Folk plays this strictly -- touching one sleeping victim with an iron nail does not wake an entire sleeping kingdom).",
+    "compatibility": "All raksha; a handful of Charm types (mutations, Assumption-type Charms) are explicitly exempted.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 132,
+      "pdfPage": 133
+    },
+    "crossReferences": ["mutation-mechanic", "gossamer-and-glamour-mechanic"],
+    "notes": "Chapter Five: Raksha Magic, 'General Rules' -> 'Cold-Wrought Iron' section, pp. 131-132 (PDF 132-133); the section header appears at the foot of p. 131 with the full rule text on p. 132."
+  }
+]

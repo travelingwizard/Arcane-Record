@@ -2,12 +2,15 @@
 
 ## Status
 
-**Not started.** Solar and Dragon-Blooded (`docs/17-exalted-1e-foundation.md`)
-remain the only implemented Exalted 1e sheets. Lunar, Abyssal, Sidereal,
-Alchemical, and Fair Folk have no schema, catalog, creator, editor, or tests.
-This document defines the process and release gate that will apply once
-source material starts arriving for those five splats — it is a plan for
-future work, not a record of work already done.
+**Source inventory in progress; no schema/catalog/creator yet.** Solar and
+Dragon-Blooded (`docs/17-exalted-1e-foundation.md`) remain the only
+implemented, playable Exalted 1e sheets. Lunar, Abyssal, Sidereal,
+Alchemical, and Fair Folk all now have primary-source inventories checked in
+under `docs/references/exalted1e/<family>/` (see the status table below),
+but none of the five has a production schema, promoted catalog, creator
+stage, editor, or passing rules/creator/migration/browser tests yet. This
+document defines the process and release gate that governs the rest of that
+work — it is a plan for what remains, not a record of a finished feature.
 
 All five families ship together, or not at all. No family unlocks in the
 create list ahead of the other four.
@@ -187,13 +190,13 @@ real, creatable sheet.
 
 ## Status per family
 
-| Family     | Source manifest                 | Inventory rows | Promoted | Certification                    |
-| ---------- | ------------------------------- | -------------- | -------- | -------------------------------- |
-| Lunar      | Created (Exalted: The Lunars)   | 54             | 0        | Locked, all dimensions `not-run` |
-| Abyssal    | Created (Exalted: The Abyssals) | 27             | 0        | Locked, all dimensions `not-run` |
-| Sidereal   | Not created                     | 0              | 0        | Locked, all dimensions `not-run` |
-| Alchemical | Not created                     | 0              | 0        | Locked, all dimensions `not-run` |
-| Fair Folk  | Not created                     | 0              | 0        | Locked, all dimensions `not-run` |
+| Family     | Source manifest                       | Inventory rows | Promoted | Certification                    |
+| ---------- | ------------------------------------- | -------------- | -------- | -------------------------------- |
+| Lunar      | Created (Exalted: The Lunars)         | 54             | 0        | Locked, all dimensions `not-run` |
+| Abyssal    | Created (Exalted: The Abyssals)       | 27             | 0        | Locked, all dimensions `not-run` |
+| Sidereal   | Created (Exalted: The Sidereals)      | 22             | 0        | Locked, all dimensions `not-run` |
+| Alchemical | Created (Exalted: The Autochthonians) | 25             | 0        | Locked, all dimensions `not-run` |
+| Fair Folk  | Created (Exalted: The Fair Folk)      | 34             | 0        | Locked, all dimensions `not-run` |
 
 Lunar's 54 rows (as of this update) cover the core innate powers, the
 complete Shapechanging I/II/III Charm trees, the complete Body Enhancement
@@ -211,8 +214,42 @@ visually reviewed against rendered pages of the supplied (image-based) PDF.
 Chapter Five's Charm trees and Chapter Six's necromancy rules are not yet
 inventoried; see `docs/references/exalted1e/abyssal/README.md`.
 
-Sidereal, Alchemical, and Fair Folk still await inventory work, plus the
-project owner's remaining cross-splat supplements still to be triaged.
+Sidereal's 22 rows cover the Chapter Three character-creation overview, the
+five Auspicious Ability groups, the universal anima effect, all five Castes
+(Chosen of Journeys/Serenity/Battles/Secrets/Endings), the Arcane Fate
+mechanic (the Limit-Trait analog — a passive forgetting/disguise effect
+rather than a rated trait — plus its Paradox/visibility table), and ten
+new/altered Backgrounds, reviewed against the supplied PDF (confirmed
+printed page = PDF page − 3). The Colleges/astrology Charm-tree equivalent,
+Sidereal Martial Arts, and Resplendent Destinies are not yet inventoried;
+see `docs/references/exalted1e/sidereal/README.md`.
+
+Alchemical's 25 rows cover the character-creation overview, the universal
+Anima Banner effect, Artificial Metabolism, Life/Death/the Soulgem,
+Refitting/Essence advancement, all five material-named Castes (Orichalcum,
+Moonsilver, Jade, Starmetal, Soulsteel) plus the apocryphal sixth "Adamant"
+legend, the Clarity trait (this splat's Limit-Trait analog, including its
+Dissonance corruption and the 0-10 effects table), and six new/altered
+Backgrounds, reviewed against the supplied PDF's real text layer (printed
+page = PDF page − 1) with spot-checked renders. Chapter Three's Charm trees
+and the setting/adventure chapters are not yet inventoried; see
+`docs/references/exalted1e/alchemical/README.md`.
+
+Fair Folk's 34 rows cover both character-creation tracks (common and noble
+raksha), the four Castes (Diplomat/Entertainer/Warrior/Worker) and their
+twelve noble hybrid archetypes, the five Grace traits that Charms key off
+instead of Attributes/Abilities, the Bedlam mechanic (this splat's
+Limit-Trait analog, split into four per-Virtue Curses rather than a single
+universal trait), and nine new/altered Backgrounds, reviewed against the
+supplied PDF's real text layer (printed page = PDF page − 1) with
+spot-checked renders. Chapter Five's per-Grace Charm trees are not yet
+inventoried; see `docs/references/exalted1e/fair-folk/README.md`.
+
+All five families now have real inventory rows drawn from their primary
+source books; the project owner's remaining cross-splat supplements (Blood
+and Salt, Book of Bone and Ebony, Book of Three Circles, Savage Seas, Savant
+and Sorcerer, the Players Guide, and the Storyteller's Companion) are still
+untriaged, and no family has anything promoted to a production catalog yet.
 
 ## Next steps (require source material per book)
 

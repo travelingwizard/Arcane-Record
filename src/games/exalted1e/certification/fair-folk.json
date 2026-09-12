@@ -1,7 +1,7 @@
 {
   "family": "fair-folk",
   "catalog": {
-    "totalInventoryRows": 0,
+    "totalInventoryRows": 34,
     "promotedEntries": 0,
     "unresolvedEntries": 0,
     "checksum": ""
@@ -11,5 +11,5 @@
   "migrationTests": "not-run",
   "browserTests": "not-run",
   "certifiedAt": null,
-  "notes": "No source material has been supplied yet. Locked pending inventory of Exalted: The Fair Folk and dependent sourcebooks under docs/references/exalted1e/fair-folk/inventory/."
+  "notes": "Exalted: The Fair Folk supplied and intake in progress. 34 rows reviewed and inventoried under docs/references/exalted1e/fair-folk/inventory/: the character-creation overview (split into separate common- and noble-raksha rows), the four base castes (Diplomat/Entertainer/Warrior/Worker), the twelve named noble hybrid castes, the five Graces (Cup/Ring/Staff/Sword/Heart) with their forging rules, the Bedlam mechanic (the raksha's Limit-Trait analog) including all four Virtue-specific Curses, the five new Backgrounds (Birth/Freehold/Gossamer/Retinue/Style), the altered Backgrounds (Artifact/Familiar/Manse/Backing-Contacts-Influence) and the excluded ones (Followers/Resources), and the core signature mechanics (Wyld-damage immunity, Craft (Glamour), Wyld Stunts/Bonuses, Gossamer-and-Glamour, Mutation, Shaping Actions/Reality Shaping, Shaping Combat basics, Oaths, Cold-Wrought Iron). Nothing promoted to a production catalog yet, and Chapter Five's per-Grace Charm trees plus Chapter One/Two/Six/Seven's setting, Mountain Folk and Storytelling material are not yet inventoried. Locked pending the remaining inventory, schema/rules/creator/editor implementation, and passing tests across all five planned families."
 }

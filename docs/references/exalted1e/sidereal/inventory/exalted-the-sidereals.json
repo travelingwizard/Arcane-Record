@@ -1,0 +1,382 @@
+[
+  {
+    "id": "sidereal-character-creation-overview",
+    "name": "Sidereal Character Creation (Five Steps)",
+    "disposition": "calculated",
+    "summary": "Sidereal character creation follows the same five-step Exalted framework as Solars, with Chosen-of-Fate-specific differences layered on: allegiance to a Faction is chosen alongside Caste at Step One, Abilities at Step Three are grouped into five celestial Auspicious-Ability sets with their own bonus-point discount and Celestial Hierarchy minimums, Step Four adds a Colleges purchase (7 dots, at least 4 in the character's own Maiden's Colleges) on top of 15 Background dots and 12 Charms, and 'ronin' Sidereals who evaded Exaltation training use a stripped-down variant of the whole process.",
+    "mechanics": "Step One (Character Concept): choose concept, Caste, Faction allegiance (Bronze, Gold, or Independent) and Nature; Nature functions identically to Solars. Faction determines which of the rival political blocs -- the Bronze Faction (status quo defenders who dominate the Celestial Hierarchy) or the Gold Faction (opposed to the Solars' removal, believing it a mistake) -- the character answers to, or whether she is Independent of both; a handful of ronin have evaded the Hierarchy's training altogether (see the Ronin variant below). Step Two (Attributes): as with all Exalted, each Attribute starts at one dot; a Sidereal has 8 dots to divide among her primary Attribute category, 6 among secondary and 4 among tertiary, with no Attribute exceeding five dots. Step Three (Abilities): Abilities begin at zero. Every Ability is attuned to one of five celestial constellations tied to the five Sidereal Castes (see the auspicious-abilities row for the exact groups); the player selects (4) additional Favored Abilities from outside her Auspicious set, gaining them the same bonus-point/XP discount (Auspicious Abilities cannot be doubled up as Favored). The character has 15 points to spend on her Auspicious and Favored Abilities and a further 20 points to spend on any Abilities; no Ability may exceed 3 dots without bonus points (4-5 dots permitted with bonus points), and bonus points may also buy Ability specialties as in core Exalted, including the new Craft (Fate) specialty. Members of the Celestial Hierarchy must additionally meet a set of absolute minimum Ability scores tied to their household's constellation (see auspicious-abilities). Step Four (Advantages): a Sidereal has fifteen (15) Background dots to spend (several work differently for the Chosen of Fate, and several are exclusive to them -- see the altered- and new-Background rows); she selects twelve (12) Charms, no more than three (3) of which may come from her special Sidereal Martial Arts powers; and she spends at least four (4) of seven (7) starting Colleges dots in the Colleges belonging to her own patron Maiden (Colleges cannot be raised above three dots without bonus points; the individual College trees themselves, akin to a Charm tree, are out of scope for this pass). Virtues get five (5) dots to divide among Compassion, Conviction, Temperance and Valor, none higher than 3 without bonus points. Step Five (Finishing Touches): Willpower equals the sum of the two highest Virtues (may not be bonus-pointed above 8 unless both of those Virtues are 4 or higher); Essence starts at 2; Personal Essence pool = (Essence x 2) + Willpower; Peripheral Essence pool = (Essence x 6) + Willpower + (sum of Virtues) -- both formulas differ from the standard Exalted formulas. Sidereals possess the normal seven mortal-scale health levels (a -0, two -1s, two -2s, a -4 and an Incapacitated level) plus any additional levels gained from the Sidereal Ox-Body Technique Charm. A Sidereal character also has 18 bonus points she may spend at any time during character creation. Ronin variant: a ronin Sidereal (one who evaded Celestial Hierarchy training entirely, at Storyteller discretion only -- see the Ronin Sidereal sidebar) uses reduced totals throughout: 25 Ability dots (at least 10 in Auspicious or Favored Abilities, at least one dot in each Favored Ability, no Ability above 3 without bonus points, and still subject to the Celestial Hierarchy's baseline Ability minimums), only 7 Background dots (limited to Acquaintances, Allies, Artifact, Backing, Connections, Familiar, Manse and Resources, with no Backing from Connections tied to any Celestial faction or Bureau), only 8 Charms (none from the special Sidereal Martial Arts forms, though the core Violet Bier of Sorrows martial arts style is still available), and zero Colleges dots (no access to astrology). Like all Exalted, Sidereals are tainted by the Great Curse, but the Sidereal Curse it produces has no discrete mechanical trigger of its own -- it is confirmed to be roleplaying-only (see rulesNotes).",
+    "compatibility": "All Sidereal castes; the Ronin variant applies only to the rare renegade Sidereal who never underwent Celestial Hierarchy training, at Storyteller discretion.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 96,
+      "pdfPage": 99
+    },
+    "crossReferences": [
+      "auspicious-abilities",
+      "chosen-of-journeys",
+      "chosen-of-serenity",
+      "chosen-of-battles",
+      "chosen-of-secrets",
+      "chosen-of-endings",
+      "craft-fate-ability"
+    ],
+    "notes": "Chapter Three: Character Creation, pp. 96-100 (PDF 99-103), including the Character Creation Summary sidebar and the Ronin Sidereal sidebar on p. 100 (PDF 103). Individual College trees (the astrology equivalent of a Charm tree) are referenced by the point-buy rule here but not themselves inventoried, matching this pass's Charm-tree exclusion."
+  },
+  {
+    "id": "auspicious-abilities",
+    "name": "Auspicious Abilities (the five celestial Ability groups)",
+    "disposition": "calculated",
+    "summary": "Every Ability a Sidereal can learn is tied to one of five celestial constellations, each governed by a facet of a Maiden's household: Journey Abilities (Golden Barque of the Heavens), Serenity Abilities (Cerulean Lute of Harmony), Battle Abilities (Crimson Panoply of Victory), Secret Abilities (Forbidding Manse of Ivy) and Ending Abilities (Violet Bier of Sorrows). A character's own Auspicious Abilities are cheaper to raise with bonus points and experience than other Abilities, and members of the Celestial Hierarchy must meet hard minimum ratings in their household's Abilities.",
+    "mechanics": "Journey Abilities (Golden Barque of the Heavens): Endurance, Ride, Sail, Survival, Thrown. Serenity Abilities (Cerulean Lute of Harmony): Craft, Dodge, Linguistics, Performance, Socialize. Battle Abilities (Crimson Panoply of Victory): Archery, Brawl, Melee, Presence, Resistance. Secret Abilities (Forbidding Manse of Ivy): Investigation, Larceny, Lore, Occult, Stealth. Ending Abilities (Violet Bier of Sorrows): Athletics, Awareness, Bureaucracy, Martial Arts, Medicine. A Sidereal's Auspicious Abilities are the ones tied to her own Caste's constellation and receive the easier bonus-point/experience-point costs; a character also selects four Favored Abilities from outside that list at the same discount, but may not select an Auspicious Ability again as a Favored Ability (no doubling the discount). All members of the Celestial Hierarchy, regardless of household, must meet an absolute minimum of Awareness 2, Bureaucracy 1, Linguistics (Old Realm) 3, Lore 3, Martial Arts 3, Occult 2, Socialize 1, Stealth 1 and Archery, Melee or Thrown 1. Each household then layers its own additional minimums on top: Golden Barque of the Heavens (Journey) members need Athletics 2, Endurance 2, Linguistics (Old Realm plus one other tongue) 2, Stealth 1, Survival 2 and Ride or Sail 3; Cerulean Lute of Harmony (Serenity) members need Craft or Performance 2, Linguistics 3 (choice of tongues secondary to sheer eloquence), Medicine 2, Presence 2 and Socialize 3; Crimson Panoply of Victory (Battle) members need Archery or Melee 3, Dodge 2, Presence 2 and Resistance 3; Forbidding Manse of Ivy (Secret) members need Awareness 3, Investigation 3, Larceny 2, Socialize 2 and Stealth 3; Violet Bier of Sorrows (Ending) members need Athletics 2, Awareness 3, Dodge 3, Martial Arts 3 and Stealth 3. These minimums represent the rigid, demanding training every young Sidereal undergoes -- a year and a day of instruction that compresses a lifetime of skill into an inductee before she is accepted as a full member of her Maiden's household.",
+    "compatibility": "All Sidereal castes and Ability selections at character creation; the Celestial Hierarchy minimums apply to full Hierarchy members and are relaxed for ronin (see sidereal-character-creation-overview).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 97,
+      "pdfPage": 100
+    },
+    "crossReferences": [
+      "sidereal-character-creation-overview",
+      "chosen-of-journeys",
+      "chosen-of-serenity",
+      "chosen-of-battles",
+      "chosen-of-secrets",
+      "chosen-of-endings"
+    ],
+    "notes": "Chapter Three: Character Creation, 'Step Three: Choosing Abilities' section, pp. 97-98 (PDF 100-101). Ability group names/lists match the 'Auspicious Abilities' field given for each Caste in Chapter Four, cross-checked against the pp. 104 (PDF 107) Caste cheat-sheet table."
+  },
+  {
+    "id": "sidereal-anima-effects-universal",
+    "name": "Universal Anima Effect (all Castes)",
+    "disposition": "calculated",
+    "summary": "Every Sidereal Caste can spend a single mote of Essence for one of three reflexive, no-Charm-required anima effects: flaring the Caste Mark, flaring the full anima banner for a scene, and attuning the anima to sense nearby gateways to Heaven.",
+    "mechanics": "For 1 mote of Essence, any Sidereal may reflexively: (1) cause her Caste Mark to glow brightly for a scene, as if she had spent 4-7 motes of Peripheral Essence; (2) cause her anima to glow brightly enough to read by for a scene, as if she had spent 8-10 motes of Peripheral Essence; (3) attune her anima to the emanations of Heaven, enabling her to sense the presence of nearby gateways to Yu-Shan at a distance of (permanent Essence x 100) feet for the rest of the scene; this does not reveal the location of the gateway, only its general presence. These are in addition to whatever caste-specific Anima Effect the character's own Caste grants (see the five chosen-of-* rows).",
+    "cost": "1 mote (any of the three listed effects).",
+    "compatibility": "All Sidereal castes; reflexive, no Charm purchase required.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 110,
+      "pdfPage": 113
+    },
+    "crossReferences": [
+      "chosen-of-journeys",
+      "chosen-of-serenity",
+      "chosen-of-battles",
+      "chosen-of-secrets",
+      "chosen-of-endings"
+    ],
+    "notes": "Chapter Four: Traits, 'Castes' intro / 'Anima Effect' section, p. 110 (PDF 113), immediately preceding the 'Castes' header and the Chosen of Journeys caste writeup that begins on the next page."
+  },
+  {
+    "id": "chosen-of-journeys",
+    "name": "Chosen of Journeys",
+    "disposition": "selectable",
+    "summary": "The Chosen of Journeys oversee travel, transportation and communication on behalf of the Maiden of Journeys, maintaining the trade routes, messenger networks and lines of communication that bind Creation together; among the Bronze and Gold Factions they serve as the secret couriers who keep their rival conspiracies coordinated.",
+    "mechanics": "Anima Banner: yellow irises flecked with minute yellow flecks, resembling a star-filled night sky; during powerful expenditures of Peripheral Essence the Sign of Journeys appears on the Chosen's forehead as bright yellow light. Anima Effect: for 10 motes, a Chosen of Journeys can make the Lesser Sign of Mercury, extending her anima into a brilliant yellow aura that laps around all those under its effect; for the rest of the scene, the Chosen and all her allies within (Sidereal's Essence x 10) yards triple their running speed (affecting mounts and vehicles as well as people), an effect that dissipates the instant a recipient moves out of range. Auspicious Abilities: influenced by the constellations of the Golden Barque of the Heavens (the Captain, the Gull, the Mast, the Messenger and the Ship's Wheel), granting a natural affinity for Endurance, Ride, Sail, Survival and Thrown. Common Natures: Architect, Bureaucrat, Conniver, Explorer, Paragon, Rebel, Savant, Survivor, Thrillseeker, Visionary. Associations: the color yellow, the element and season of air, the astrological house of the Golden Barque of the Heavens. Sobriquets: Heaven's Messengers, Harbingers. Concepts: Bronze Faction messenger, obsessive explorer, ship's navigator, Lunar sympathizer, wandering troublemaker, the Sidereal with No Name, merchant prince, reformed bandit.",
+    "compatibility": "One of the five Sidereal castes chosen at character creation, tied to the Maiden of Journeys.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 111,
+      "pdfPage": 114
+    },
+    "crossReferences": ["sidereal-character-creation-overview", "sidereal-anima-effects-universal", "auspicious-abilities"],
+    "notes": "Chapter Four: Traits, 'Chosen of Journeys' section, pp. 111-112 (PDF 114-115)."
+  },
+  {
+    "id": "chosen-of-serenity",
+    "name": "Chosen of Serenity",
+    "disposition": "selectable",
+    "summary": "The Chosen of Serenity oversee joy, pleasure, health and prosperity on behalf of the Maiden of Serenity, managing everything from the fertility of farms and herds to the entertainments, ceremonies and marriages that keep mortal (and Dynastic) society content -- and, for the caste's darker practitioners, the slave and vice trades as well.",
+    "mechanics": "Anima Banner: blue irises flecked with minute blue flecks, resembling a star-filled night sky; during powerful expenditures of Peripheral Essence the Sign of Serenity appears on the Chosen's forehead as bright blue light. Anima Effect: for 10 motes, a Chosen of Serenity can make the Lesser Sign of Venus, extending her anima into a brilliant blue aura that laps around all those under its effect; for the rest of the scene, add a number of successes equal to the Sidereal's Essence to any Performance rolls made for the Chosen and all her allies within (Sidereal's Essence x 10) yards, an effect that dissipates the instant a recipient moves out of range. Auspicious Abilities: influenced by the constellations of the Cerulean Lute of Harmony (the Ewer, the Lovers, the Musician, the Peacock and the Pillar), granting a natural affinity for Craft, Dodge, Linguistics, Performance and Socialize. Common Natures: Architect, Bureaucrat, Caregiver, Hedonist, Jester, Leader, Paragon, Savant, Visionary. Associations: the color blue, the element and season of wood, the astrological house of the Cerulean Lute of Harmony. Sobriquets: Heaven's Courtesans, Joybringers. Concepts: the world's greatest actress, apprentice artificer, the queen of whores, instructor at a Dragon-Blooded academy, professional matchmaker, priestess of a fertility cult, slave trader, king's favored vizier.",
+    "compatibility": "One of the five Sidereal castes chosen at character creation, tied to the Maiden of Serenity.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 113,
+      "pdfPage": 116
+    },
+    "crossReferences": ["sidereal-character-creation-overview", "sidereal-anima-effects-universal", "auspicious-abilities"],
+    "notes": "Chapter Four: Traits, 'Chosen of Serenity' section, pp. 113-114 (PDF 116-117)."
+  },
+  {
+    "id": "chosen-of-battles",
+    "name": "Chosen of Battles",
+    "disposition": "selectable",
+    "summary": "The Chosen of Battles oversee conflict and strife on behalf of the Maiden of Battles, serving as military advisors, shield maidens and bodyguards who manage the legions and navies of the Realm and Threshold alike, hunt down remaining Fair Folk and plague spirits, and teach martial disciplines to the young.",
+    "mechanics": "Anima Banner: scarlet irises flecked with minute scarlet flecks, resembling a star-filled night sky; during powerful expenditures of Peripheral Essence the Sign of Battles appears on the Chosen's forehead as bright scarlet light. Anima Effect: for 10 motes, a Chosen of Battles can make the Lesser Sign of Mars, extending her anima into a brilliant scarlet aura that laps around all those under its effect; for the rest of the scene, the Chosen and all her allies within (Sidereal's Essence x 10) yards reduce the damage of all blows against them by one health level, applied after damage is rolled (this cannot increase the damage of an attack that generates no damage successes), an effect that dissipates the instant a recipient moves out of range. Auspicious Abilities: influenced by the constellations of the Crimson Panoply of Victory (the Banner, the Gauntlet, the Quiver, the Shield and the Spear), granting a natural affinity for Archery, Brawl, Melee, Presence and Resistance. Common Natures: Architect, Bravo, Bureaucrat, Conniver, Leader, Martyr, Paragon, Savant, Survivor, Visionary. Associations: the color scarlet, the element and season of fire, the astrological house of the Crimson Panoply of Victory. Sobriquets: Heaven's Soldiers, Shieldbearers. Concepts: master strategist, staff officer of a mercenary company, Immaculate martial-arts sifu, behind-the-scenes revolutionary, demon-hunter, enforcer of Heaven's will, patrician financier of legions.",
+    "compatibility": "One of the five Sidereal castes chosen at character creation, tied to the Maiden of Battles.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 115,
+      "pdfPage": 118
+    },
+    "crossReferences": ["sidereal-character-creation-overview", "sidereal-anima-effects-universal", "auspicious-abilities"],
+    "notes": "Chapter Four: Traits, 'Chosen of Battles' section, pp. 115-116 (PDF 118-119)."
+  },
+  {
+    "id": "chosen-of-secrets",
+    "name": "Chosen of Secrets",
+    "disposition": "selectable",
+    "summary": "The Chosen of Secrets oversee hidden knowledge and mundane mystery on behalf of the Maiden of Secrets, managing the great libraries of Yu-Shan and the Bureau of Magistrates that investigates crime and treason -- the caste that first uncovered the Solars' lairs and helped chain their Exalted souls during the Usurpation.",
+    "mechanics": "Anima Banner: green irises flecked with minute green flecks, resembling a star-filled night sky; during powerful expenditures of Peripheral Essence the Sign of Secrets appears on the Chosen's forehead as bright green light. Anima Effect: for 10 motes, a Chosen of Secrets can make the Lesser Sign of Jupiter, extending her anima into a brilliant green aura that laps around all those under its effect; for the rest of the scene, the Chosen and all her allies within (Sidereal's Essence x 10) yards cannot be subjected to magical mind control or have their thoughts read, an effect that dissipates the instant a recipient moves out of range. Auspicious Abilities: influenced by the constellations of the Forbidding Manse of Ivy (the Guardians, the Key, the Mask, the Sorcerer and the Treasure Trove), granting a natural affinity for Investigation, Larceny, Lore, Occult and Stealth. Common Natures: Architect, Bureaucrat, Conniver, Critic, Explorer, Judge, Paragon, Savant, Survivor, Visionary. Associations: the color green, the element and season of water, the astrological house of the Forbidding Manse of Ivy. Sobriquets: Heaven's Eyes, Oracles. Concepts: deep-cover agent of the Gold Faction, director of a Wyld Hunt, demon-hunter, the most devious crime lord in all Creation, spy master of the All-Seeing Eye, power behind several thrones, Realm historian, mentor to a newly Exalted Solar.",
+    "compatibility": "One of the five Sidereal castes chosen at character creation, tied to the Maiden of Secrets.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 117,
+      "pdfPage": 120
+    },
+    "crossReferences": ["sidereal-character-creation-overview", "sidereal-anima-effects-universal", "auspicious-abilities"],
+    "notes": "Chapter Four: Traits, 'Chosen of Secrets' section, pp. 117-118 (PDF 120-121)."
+  },
+  {
+    "id": "chosen-of-endings",
+    "name": "Chosen of Endings",
+    "disposition": "selectable",
+    "summary": "The Chosen of Endings oversee conclusions and mortality on behalf of the Maiden of Endings, arranging funerals, harvests, the closing of negotiations and the ending of sickness -- the caste that pronounced the Solars' downfall during the Usurpation and struck the first deadly blows, and today tracks down the last remnants of the Fair Folk.",
+    "mechanics": "Anima Banner: violet irises flecked with minute violet flecks, resembling a star-filled night sky; during powerful expenditures of Peripheral Essence the Sign of Endings appears on the Chosen's forehead as bright violet light. Anima Effect: for 10 motes, a Chosen of Endings can make the Lesser Sign of Saturn, extending her anima into a brilliant violet aura that laps around all those under its effect; for the rest of the scene, any blows that the Chosen or her allies within (Sidereal's Essence x 10) yards land are increased in damage by one health level, applied after damage is rolled (this cannot increase the damage of an attack that generates no damage successes), an effect that dissipates the instant a recipient moves out of range. Auspicious Abilities: influenced by the constellations of the Violet Bier of Sorrows (the Corpse, the Crow, the Haywain, the Rising Smoke and the Sword), granting a natural affinity for Athletics, Awareness, Bureaucracy, Martial Arts and Medicine. Common Natures: Architect, Bureaucrat, Caregiver, Conniver, Critic, Judge, Martyr, Paragon, Savant, Visionary. Associations: the color violet, the element and season of earth, the astrological house of the Violet Bier of Sorrows. Sobriquets: Heaven's Gardeners, Reckoners. Concepts: ender of plagues, destroyer of financial empires, Sijanese funeral master, character assassin, peacemaker, professional poisoner, anti-imperial revolutionary, harbinger of doom.",
+    "compatibility": "One of the five Sidereal castes chosen at character creation, tied to the Maiden of Endings.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 119,
+      "pdfPage": 122
+    },
+    "crossReferences": ["sidereal-character-creation-overview", "sidereal-anima-effects-universal", "auspicious-abilities"],
+    "notes": "Chapter Four: Traits, 'Chosen of Endings' section, pp. 119-120 (PDF 122-123)."
+  },
+  {
+    "id": "arcane-fate",
+    "name": "Arcane Fate",
+    "disposition": "calculated",
+    "summary": "Sidereals do not suffer a rated Limit-style trait; instead, the Chosen of Fate's centuries of hiding their own hand in the world's destiny have permanently twisted their own fates so that mortals -- and even other Exalted -- have great difficulty recognizing, remembering or forming lasting bonds with them. This is a passive, always-on condition rather than a numeric Trait that rises and falls.",
+    "mechanics": "All Sidereals gain a +3 dice bonus to Performance, Presence, Socialize or Larceny rolls made to masquerade as something they are not, so long as they are not impersonating one specific real person (a character could easily pass as a generic Guild merchant, minor nobleman or Immaculate monk, but not as a particular named individual like the Roseblack). The difficulty of an Intelligence + Larceny roll to alter her apparent gender, age or build is always 1. None of these bonuses apply when a Sidereal tries to impersonate someone who actually exists. Anyone who meets a Sidereal suffers a -3 dice penalty on rolls to spot or later recall her; conversely, the Sidereal herself suffers a -3 dice penalty on any of her own rolls to build lasting relationships, trust or love with those around her -- only long familiarity, represented by the Acquaintances Background, lets her leave a lasting mark on someone's heart. A Sidereal also gains +3 dice on attempts to sell herself as a Resplendent Destiny she has donned (a limited, separate system for bypassing Arcane Fate with a memorable identity, detailed on pp. 215-218 of this book and out of scope for this pass). Mechanically, anyone who has met a Sidereal -- even other high-Essence beings -- must periodically roll Wits + Occult, difficulty 1 (at -3 dice per the above penalty) to retain their memory of her, at escalating intervals after she leaves their presence: one turn, one minute, one hour, one day, one week, one month, one season, one year, and annually thereafter. Failing the roll means the witness's memory of the Sidereal fades; this applies equally to anyone merely told about her (diaries, secondhand accounts, and so on). Investigation and Bureaucracy rolls made by others to learn about or track a Sidereal after the fact suffer the same -3 dice penalty. A small set of individuals are wholly immune to Arcane Fate and always remember a Sidereal clearly: her Familiars and Acquaintances (see the respective Background rows), fellow Sidereals, most other members of the Bureau of Destiny, and beings outside fate's purview entirely; mortals, other Exalted, Fair Folk, and Terrestrial or Celestial gods are not immune, though individuals of Essence 3 or higher tend to retain a vague memory of the encounter as 'an agent of destiny' or 'some Sidereal.' Arcane Fate interacts cleanly with Resplendent Destinies: while a donned destiny is active, witnesses remember the Sidereal as that persona rather than forgetting her outright, and only once the destiny is cancelled, expires or exhausts its effect points does the normal forgetting timer resume for those who knew her by it.",
+    "compatibility": "All Sidereal castes, from the moment of Exaltation onward; it is not a purchasable or ratable Trait.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 121,
+      "pdfPage": 124
+    },
+    "crossReferences": ["arcane-fate-anima-banner-visibility-table", "acquaintances-background"],
+    "notes": "Chapter Four: Traits, 'Rules and Sorcery' -> 'Arcane Fate' and 'Mechanics' subsections, pp. 121-122 (PDF 124-125). The Resplendent Destiny system it references by name (pp. 215-218) has not been rendered or reviewed and is out of scope for this pass; only the interaction described on these two pages is captured here."
+  },
+  {
+    "id": "arcane-fate-anima-banner-visibility-table",
+    "name": "Sidereal Anima Banners (visibility/Paradox table)",
+    "disposition": "calculated",
+    "summary": "A five-tier table (1-3, 4-7, 8-10, 11-15, 16+ motes of Peripheral Essence spent) governs how visible a Sidereal's Caste Mark and anima banner become to onlookers as she burns Essence, escalating from a barely-noticeable glitter up to an unmistakable, unhideable halo; the higher tiers also raise the difficulty of the character's astrology rolls and, if she is wearing a Resplendent Destiny, inflict Paradox and cause the destiny to recede.",
+    "mechanics": "1-3 motes: the Caste Mark glitters and is visible from certain angles; anyone seeing the Exalt may roll Perception + Awareness at difficulty 3 to notice it. The character can use Stealth and Stealth Charms normally without fear of detection; the effect can persist up to an hour after the character stops burning Essence. 4-7 motes: the Caste Mark burns and may be seen by the alert; if uncovered, a reflexive Perception + Awareness roll at difficulty 1 spots it (if covered, it remains invisible); Stealth and Stealth Charms still function normally, but the character suffers +1 difficulty on Sidereal astrology-effect rolls, and if she has donned a Resplendent Destiny she gains 1 point of Paradox. 8-10 motes: the Caste Mark burns clearly and is recognized by anyone who sees it uncovered; the character's aura discharges enough that in dim light or darkness she suffers +2 difficulty on Stealth rolls (Stealth Charms still work normally); a donned Resplendent Destiny gains 2 points of Paradox and immediately recedes. 11-15 motes: the character is lit by a soft, unmistakable halo in her patron Maiden's color; her Caste Mark shines through any covering, Stealth becomes impossible, all Stealth Charms and Colleges automatically fail, and Sidereal astrology-effect rolls suffer +2 difficulty; a donned Resplendent Destiny gains 3 points of Paradox and immediately recedes. 16+ motes: the character is surrounded by a burning halo bright enough to read by from a stonecast away, showing no detail, just a brilliant glow in her anima's color; unlike other anima displays it does not fade the following turn and instead persists until the end of the scene; Stealth remains impossible, all Stealth Charms and Colleges automatically fail, Sidereal astrology-effect rolls suffer +3 difficulty, and a donned Resplendent Destiny gains 3 points of Paradox and immediately recedes.",
+    "compatibility": "All Sidereal castes; applies regardless of which Caste-specific Anima Effect the character is also using.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 121,
+      "pdfPage": 124
+    },
+    "crossReferences": ["arcane-fate"],
+    "notes": "Chapter Four: Traits, 'Sidereal Anima Banners' table, p. 121 (PDF 124), positioned immediately after the five Caste writeups and before the 'Rules and Sorcery' -> 'Arcane Fate' header. Paradox and Resplendent Destiny are only referenced here as consequences of this table; the full Paradox and Resplendent Destiny systems (pp. 215-218) are out of scope for this pass."
+  },
+  {
+    "id": "craft-fate-ability",
+    "name": "Craft (Fate) Ability specialty",
+    "disposition": "calculated",
+    "summary": "Craft (Fate) is a new Craft specialty used to shape and plan fate and to activate Sidereal astrology; any Exalt type can technically learn it, but it is useless without mastery of specific astrological Colleges and Sidereal Charms, and the Chosen of Fate guard the knowledge of just how deeply it makes them agents of the Celestial Bureaucracy.",
+    "mechanics": "Craft (Fate) functions as a normal Craft Ability specialty purchased with bonus points or experience, exactly as any other Craft specialty in core Exalted. On its own it grants no mechanical benefit; it is a prerequisite gate that must be paired with specific astrological Colleges and Sidereal-exclusive Charms (both out of scope for this pass) before it does anything. Few outside the Sidereal Exalted in the Second Age understand quite how central Craft (Fate) is to their role as agents of destiny and the Celestial Bureaucracy, and the Chosen of Fate work to keep that connection obscure.",
+    "compatibility": "Any Exalt type may purchase the specialty itself, but only Sidereals with the matching Colleges and Charms can make meaningful use of it.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 104,
+      "pdfPage": 107
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Traits, 'Useful Crafts' section, p. 104 (PDF 107). The Colleges and Charms it gates access to are not yet inventoried."
+  },
+  {
+    "id": "allies-background-altered",
+    "name": "Allies (altered for Sidereals)",
+    "disposition": "calculated",
+    "summary": "Centuries of hiding their existence from non-Celestial beings mean the Chosen of Fate have very few allies drawn from ordinary mortals; a Sidereal's Allies typically come instead from the ranks of the gods, spirits, elementals, the God-Blooded, and fellow Exalted.",
+    "mechanics": "Standard Allies Background dot mechanics from core Exalted otherwise apply, but the pool of plausible Allies for a Sidereal skews almost entirely toward beings who already move in Celestial or supernatural circles -- gods, spirits, elementals, God-Blooded, and other Exalted -- rather than ordinary mortals, reflecting how thoroughly the Sidereal Exalted have cloaked their existence from the non-Celestial world.",
+    "compatibility": "All Sidereal castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 104,
+      "pdfPage": 107
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Traits, 'Altered Backgrounds' -> 'Allies' section, p. 104 (PDF 107)."
+  },
+  {
+    "id": "artifact-background-altered",
+    "name": "Artifact (altered for Sidereals)",
+    "disposition": "calculated",
+    "summary": "The vast majority of Sidereal-owned artifacts are forged from starmetal, the rarest of the Five Magical Materials; astrological magics let the Chosen of Fate ensure they are present when meteorites fall so they can mine the metal instantly, though even this well-organized harvesting method produces only limited amounts. The Background otherwise uses the standard Solar Artifact scale.",
+    "mechanics": "Sidereal characters use the same Artifact Background dot scale as Solar characters (Exalted core rulebook, p. 142); the alteration is flavor/availability, not the dot table itself. Starmetal is the default Magical Material for Sidereal-forged items because of the caste's unique astrological means of securing a continuing starmetal supply (tracking and instantly mining fallen meteorites), though the difficulty of harvesting enough of it still caps how much any individual Sidereal can outfit herself with.",
+    "compatibility": "All Sidereal castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 104,
+      "pdfPage": 107
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Traits, 'Altered Backgrounds' -> 'Artifact' section, pp. 104-105 (PDF 107-108)."
+  },
+  {
+    "id": "backing-background-altered",
+    "name": "Backing (altered for Sidereals)",
+    "disposition": "calculated",
+    "summary": "Backing is uncommon among the Chosen of Fate: the demands of their work and the difficulty of maintaining face-to-face relationships with mortals make holding a position of responsibility within a mundane organization impractical for most, so most Sidereals prefer to work behind the scenes via the Connections Background instead. The main exceptions are the Gold and Bronze Factions themselves, the primary Sidereal political cliques.",
+    "mechanics": "Standard Backing Background dot mechanics from core Exalted otherwise apply. The alteration is one of narrative plausibility and default expectation: because Arcane Fate makes it hard for a Sidereal to be recognized and trusted by mortals over time, most Chosen of Fate who want organizational pull buy Connections (covert influence within a group) rather than Backing (an overt position of responsibility inside one), reserving Backing for their standing within the Gold or Bronze Faction itself.",
+    "compatibility": "All Sidereal castes; most commonly purchased for standing within the Gold or Bronze Faction rather than a mundane organization.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 105,
+      "pdfPage": 108
+    },
+    "crossReferences": ["connections-background"],
+    "notes": "Chapter Four: Traits, 'Altered Backgrounds' -> 'Backing' section, p. 105 (PDF 108)."
+  },
+  {
+    "id": "familiar-background-altered",
+    "name": "Familiar (altered for Sidereals)",
+    "disposition": "calculated",
+    "summary": "A Sidereal begins play with only a single Familiar, but unlike other Exalted she may eventually gather a total number of Familiars equal to her Essence, through use of the Ride Charm Ordained Bridle of Mercury.",
+    "mechanics": "Standard Familiar Background dot mechanics from core Exalted apply to acquiring the character's first Familiar, but a Sidereal is capped at one Familiar from character creation alone. Growing that number further, up to a maximum equal to the character's permanent Essence rating, requires the Ride Charm Ordained Bridle of Mercury (a Charm, and therefore out of scope for this pass in its own right).",
+    "compatibility": "All Sidereal castes; the multi-Familiar expansion additionally requires the Ordained Bridle of Mercury Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 105,
+      "pdfPage": 108
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Traits, 'Altered Backgrounds' -> 'Familiar' section, p. 105 (PDF 108). The Ordained Bridle of Mercury Charm itself is not inventoried here."
+  },
+  {
+    "id": "manse-background-altered",
+    "name": "Manse (altered for Sidereals)",
+    "disposition": "calculated",
+    "summary": "Sidereal-held Manses in Creation are uncommon: most of the Chosen of Fate find their Celestial Hierarchy duties leave them no time to devote to a Manse's upkeep and defense, so most prefer the new Celestial Manse Background instead, which grants a dwelling within Yu-Shan rather than in the material world.",
+    "mechanics": "Standard Manse Background dot mechanics from core Exalted apply to any Manse a Sidereal does hold in Creation. The alteration is one of default expectation and practicality: because a Manse in Creation demands upkeep and physical defense that a busy Chosen of Fate rarely has time to provide, most Sidereals who want a personal refuge instead buy the Celestial Manse Background for a dwelling inside Yu-Shan itself.",
+    "compatibility": "All Sidereal castes, for Manses located in Creation; see celestial-manse-background for the Yu-Shan equivalent.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 105,
+      "pdfPage": 108
+    },
+    "crossReferences": ["celestial-manse-background"],
+    "notes": "Chapter Four: Traits, 'Altered Backgrounds' -> 'Manse' section, p. 105 (PDF 108)."
+  },
+  {
+    "id": "acquaintances-background",
+    "name": "Acquaintances (new Background)",
+    "disposition": "selectable",
+    "summary": "New Background: because Arcane Fate makes it so hard for mortals to remember a Sidereal, the Chosen of Fate go to great lengths to build and maintain the interpersonal bonds that let a handful of people know and recall her clearly, ranging from having made no effort at all up to holding an established social position within a whole close-knit community. It is also the sole mechanism by which a Sidereal is able to gather Followers, since the standard Followers Background is unavailable to her.",
+    "mechanics": "Without this Background, no mortal ever remembers a Sidereal's name or face; mortals simply accept the character by whatever role she presented and recall her as little more than another face in the crowd. With time and patience, mortals the character works to build a relationship with begin to remember her clearly, first simply finding her face familiar, then recalling her name once she establishes a front identity; front identities are business or personal personas similar to acquaintances rather than one individual knowing the Exalt deeply. Any inquiry into a front identity reveals it does not exist, though the front itself is not necessarily prominent. Sidereals can add to their Acquaintances Background through use of the Ride Charm Breaking the Wild Mortal. Followers are unavailable to Sidereals outright, since their arcane nature makes gathering a loyal, remembering following impossible; the Acquaintances Background is used in Followers' place instead. Dot table: no dots = no effort made to cultivate any personal relationship with mortals; 1 dot = a single person (innkeeper, city guard) recognizes the character as a friendly face; 2 dots = a small handful of people who recognize the character's face and remember her name when they see her, or alternatively a greater number of less-familiar acquaintances, with a front identity such as the owner of a curious bookshop or a gravely humorous undertaker, though patrons only come upon accidents of fate; 3 dots = the regulars at a tavern, gambling den or other small, close-knit group (such as a criminal gang or small farming village) accept the character as one of their own, maintaining a thorough professional appearance in a front identity while her true persona remains an enigma; 4 dots = a close personal relationship with a single mortal plus a small circle of genuine friends, or alternatively a larger number of less-familiar acquaintances (up to three front identities with full sets of casual acquaintances, possibly at the same place or across different fronts); 5 dots = an established social position in a sizable but close-knit community (a town or city neighborhood, a mercenary company, a large temple), dependent on the character's Connections and Resources Backgrounds and not extending beyond the immediate community, or alternatively up to five front identities with full sets of casual acquaintances.",
+    "cost": "Background dots (0-5), as with any Background.",
+    "compatibility": "All Sidereal castes; replaces Followers entirely for this splat.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 105,
+      "pdfPage": 108
+    },
+    "crossReferences": ["arcane-fate"],
+    "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Acquaintances' section, pp. 105-106 (PDF 108-109), including the Followers-unavailable note carried over from the 'Altered Backgrounds' -> 'Followers' section on p. 105 (PDF 108)."
+  },
+  {
+    "id": "celestial-manse-background",
+    "name": "Celestial Manse (new Background)",
+    "disposition": "selectable",
+    "summary": "New Background: represents a personal dwelling within crowded, competitive Yu-Shan itself, ranging from no celestial home at all up to a singular, famously grand property; a Celestial Manse also produces a Hearthstone just like a standard Manse, and Sidereals may not exceed dot rating 3 in this Background without special Storyteller permission.",
+    "mechanics": "Space within Yu-Shan is limited and endlessly competed for, making a Celestial Manse an invaluable temporary reprieve from the demands of Hierarchy duty and a sanctuary from the chaos of the material world; when a Sidereal dies, a cutthroat scramble to claim her dwelling's space follows. In addition to shelter and status, a Celestial Manse produces Hearthstones just like a standard Manse, always Celestial in nature, and functions normally in Creation; characters cannot buy above Celestial Manse 3 without special Storyteller permission. Dot table: no dots = no celestial dwelling of your own, unless you have a residency permit in a squatter camp; 1 dot = a small faux-shrine or comfy townhouse, producing a level 1 Hearthstone; 2 dots = a beautiful pagoda or a spacious townhouse, producing a level 2 Hearthstone; 3 dots = a small palace with grounds or a spacious mansion, producing a level 3 Hearthstone; 4 dots = a towering pagoda, an impressive palace, or a hunting lodge with a hundred acres of land well-stocked with godly deer, producing a level 4 Hearthstone (requires special Storyteller permission above 3); 5 dots = a singular property, either famed for some previous inhabitant or for some element of its vast and overwrought grandeur, producing a level 5 Hearthstone (requires special Storyteller permission above 3).",
+    "cost": "Background dots (0-5), as with any Background; dots above 3 require special Storyteller permission.",
+    "compatibility": "All Sidereal castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 106,
+      "pdfPage": 109
+    },
+    "crossReferences": ["manse-background-altered"],
+    "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Celestial Manse' section, pp. 106-107 (PDF 109-110)."
+  },
+  {
+    "id": "connections-background",
+    "name": "Connections (new Background)",
+    "disposition": "selectable",
+    "summary": "New Background: replaces the standard Contacts and Influence Backgrounds for Sidereals, letting the Chosen of Fate use their unique position within the Celestial Hierarchy to sway individuals and institutions -- the Dragon-Blooded, the Realm, the Immaculate Order, the Guild, the Threshold, the Cult of the Illuminated, outlaws, the Bureau of Destiny, or the Celestial Hierarchy itself -- while drawing little or no attention to themselves. Each named area of influence is purchased and tracked as its own separate Connections rating.",
+    "mechanics": "Sidereal characters do not use the standard Contacts and Influence Backgrounds; they use Connections in their place. When purchasing Connections, a player must select one of the recognized areas of influence -- the Dragon-Blooded, the Realm, the Immaculate Order, the Guild, the Threshold, the Cult of the Illuminated, Outlaws, the Bureau of Destiny, or the Celestial Hierarchy -- and each area effectively counts as a wholly separate Connections Background with its own dot rating. Because the Bureau of Destiny's own internal workings are so complex and incestuous, each of the Maidens' divisions within that bureau additionally counts as its own separate area of influence. Example character concepts illustrate typical spreads: a Bronze Faction member might have Connections (Immaculate Order) 4, Connections (Cloister of Wisdom) 3 and Connections (the Realm) 2, while an independent Sidereal crimelord might have Connections (the Guild) 5 and Connections (Outlaws) 5. A character cannot manage more total points of Connections than the sum of her Physical, Social and Mental Attributes combined; for a starting character this means total Connections dots may not exceed 27 (unless bonus points have been spent raising Attributes) -- there is only so much a person can juggle in a day, and exceeding that limit strains the character's mind and body beyond what they can sustain.",
+    "cost": "Background dots (0-5+ per area of influence, subject to the Attribute-sum cap).",
+    "compatibility": "All Sidereal castes; replaces Contacts and Influence entirely for this splat.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 106,
+      "pdfPage": 109
+    },
+    "crossReferences": ["backing-background-altered"],
+    "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Connections' section, p. 106 (PDF 109); the 'Areas of Influence' sidebar detailing each named area appears on the facing page, p. 108 (PDF 111). Contacts-and-Influence unavailability carried over from the 'Altered Backgrounds' -> 'Contacts and Influence' one-line note, p. 105 (PDF 108)."
+  },
+  {
+    "id": "salary-background",
+    "name": "Salary (new Background)",
+    "disposition": "selectable",
+    "summary": "New Background: because Sidereals cannot develop mortal cults and are forbidden from most conspicuous displays of wealth in Heaven, what matters for a Chosen of Fate is not mortal Resources but her Salary -- the Quintessence and Ambrosia stipend Heaven pays her -- ranging from no pay at all up to unlimited purchasing power in Creation. Non-ronin Sidereals use Salary instead of the standard Resources Background, and even ronin generally cannot exceed Salary 3 until they have served Heaven for at least 100 years.",
+    "mechanics": "Sidereals are neither permitted nor able to develop cults, so mortal wealth matters little to most of the Chosen of Fate; what matters is how much Quintessence and Ambrosia the character can access. Bureau regulations prohibit Sidereals from living above Resources 3 standard of living in Creation lest they draw attention, and heavenly regulations similarly prohibit Celestial salaries being used to maintain armies, fleets, thrones or other trappings of political power; living at Resources 4 in Creation is a Severity 2 offense, living at Resources 5 is a Severity 4 offense, and purchasing mortal armies or principalities is a Severity 5 offense the Bronze Faction's internal-affairs division pursues relentlessly. Only senior Sidereals and higher-ranking gods receive better pay packets; non-ronin Sidereals generally cannot exceed Salary 3 until they have served Heaven for at least 100 years, and any honorarium above Salary 3 is never awarded to Exalted other than Sidereals. Characters who want a separately purchased mortal Resources rating alongside Salary need a compelling Storyteller-approved explanation for how that fits their character. If a Sidereal's Resources derive from Creation rather than her Salary, add 2 dots to the Resources cost of all fees and standards of living, since Heaven's costs of living do not translate to Creation's. Dot table: no dots (x) = no salary, whether because you have pissed someone off or because you owe a heinous court fee (you live in someone's back room and have to beg or crash a feast to eat); 1 dot = the starting salary for most gods, meaning as a new or probationary Sidereal you can afford only a small, meager feast each day, two servants, and Ambrosia problematic in Heaven (Resources 3 in Creation, and dragon boat rental is out of reach); 2 dots = a solid salary -- a small townhouse or spacious apartment in a mediocre neighborhood, a constantly full feasting-board though most of it useless outside Quintessence allowances for servants or basic needs, Resources 3 in Heaven and equivalent to Resources 4 in Creation (though a Sidereal generally can't exert that Creation rating fully) -- the standard Salary for Gold Faction members, typically paid at the bottom of their grade; 3 dots = a towering townhouse, working faux-ranch or rooftop temple-fortress, your own dragon boat, aerial rickshaw and a dozen servitor gods, most of your pay in Ambrosia allowing many godly victuals, Resources 3-4 in Yu-Shan and Resources 4-5 in Creation if you could stand the legal heat -- the standard pay packet for a member of the Bronze Faction; 4 dots = at least two of the above residences and, possibly, a few Essence 2 or 3 gods living with you as yojimbos, advisors or concubines (must be bought with the Allies Background), you eat nothing but godly victuals and pay even your menial servants loyal in Ambrosia, Ambrosia and Quintessence subsidies give you Resources 5 in both Heaven and Creation; 5 dots = a half-dozen grand palaces, penthouse aeries and weekend hunting lodges or party houses in faux-country settings, several dragon boats and a party barge, a legion of servants possibly including up to a dozen militant lesser gods (useful gods must be bought as Allies), you dine on the peaches of immortality, you could make unlimited Resources 5 purchases in Creation, totally ruining the local economy. Only senior Sidereals and the better sort of high god receive these sorts of pay packets; players should decide what kind of high divine criminal or celestial powerbroker they are in bed with and how many Severity 3-5 offenses they will be charged with if the censors catch them.",
+    "cost": "Background dots (0-5), as with any Background.",
+    "compatibility": "Non-ronin Sidereal castes; ronin instead use standard Resources (see sidereal-character-creation-overview), and non-ronin Sidereals generally cannot start above Salary 3 until 100 years of Heaven's service.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 107,
+      "pdfPage": 110
+    },
+    "crossReferences": ["sidereal-character-creation-overview"],
+    "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Salary' section, pp. 107, 109 (PDF 110, 112), including the 'Heaven on a Mortal Budget' sidebar on p. 109 (PDF 112). Resources-altered note carried over from the 'Altered Backgrounds' -> 'Resources' one-line note, pp. 105-106 (PDF 108-109)."
+  },
+  {
+    "id": "savant-background",
+    "name": "Savant (new Background)",
+    "disposition": "selectable",
+    "summary": "New Background: represents how thoroughly a Sidereal has preserved lost First Age lore and craftsmanship that other Exalted have let slip away, ranging from no intuitive grasp of the First Age at all up to an instinctive, almost painful understanding of just how far the Second Age has fallen from it.",
+    "mechanics": "Alone among the Exalted, the Sidereals have preserved the lost secrets of the First Age in their entirety; while the Dragon-Blooded remember only fragments and the Lunars have lost all interest in the arts of civilization, the Chosen of Fate carefully recorded and handed down secrets of Essence and craftsmanship long forgotten in the material world, and even the Sidereal libraries in Yu-Shan remained undisturbed when the Great Contagion threatened to consume Creation. A character with the Savant Background may add her Savant rating in dice to any Lore check involving the history, science and/or magic of the First Age, and may also add her Savant rating in dice to Occult and/or Craft Abilities in order to meet the skill qualifications to operate, maintain or overhaul any First Age artifact. Dot table: no dots (x) = none, you lack any intuitive understanding of First Age lore; 1 dot = you vaguely recall the secrets learned in past existences and intuitively grasp some of the basics of First Age wonder-working; 2 dots = the teaching techniques worked well with you, and you have a reasonable understanding of First Age magical principles; 3 dots = you can remember large amounts of your enhanced training and have excellent insight into the secrets of the First Age; 4 dots = most segments of the knowledge imprinting remained intact, you easily grasp the workings of most First Age artifacts; 5 dots = the elders applied supplemental training to your already-perfect mastery and made you a walking library of First Age secrets. It must be painful to comprehend the distance that the Second Age has fallen from the First.",
+    "cost": "Background dots (0-5), as with any Background.",
+    "compatibility": "All Sidereal castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 109,
+      "pdfPage": 112
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Savant' section, pp. 109-110 (PDF 112-113)."
+  },
+  {
+    "id": "sifu-background",
+    "name": "Sifu (new Background)",
+    "disposition": "selectable",
+    "summary": "New Background: represents access to the tutor, known as a sifu, who teaches a young Sidereal the secrets of martial-arts mastery once she has proven ready to learn Sidereal Martial Arts Charms; the standard Mentor Background is unavailable to Sidereals, since a mentor's knowledge of their special martial-arts forms is instead handled entirely through this Background.",
+    "mechanics": "Every Sidereal is assigned a sifu who begins instructing her in secret martial techniques once she has met all the prerequisites for learning the associated Charms. While all Sidereals have a sifu, only elder Sidereals become sifus themselves, and the greater a sifu's own skill, the more her student will eventually be able to learn. The Sifu Background lets a player stake out which supernatural martial-arts forms her character wishes to learn later in the game; if the character has the Sifu Background, the player and Storyteller should agree on which forms the sifu teaches. Sifus may be busy, but they are expected to make time to train their charges, subject to plot considerations. Standard Mentor Background mechanics do not apply to Sidereals at all; this Background fully replaces it. Dot table: no dots (x) = your sifu knows only a single supernatural martial-arts form and probably has only partial mastery of that; what did you do to get such a poor teacher?; 1 dot = your sifu knows one supernatural martial-arts form and has partially mastered one Sidereal form; 2 dots = your sifu knows two supernatural martial-arts forms and one Sidereal form; 3 dots = your sifu knows three supernatural martial-arts forms and two Sidereal forms; 4 dots = your sifu knows five supernatural martial-arts forms and three Sidereal forms; 5 dots = your sifu knows seven supernatural martial-arts forms and four Sidereal forms.",
+    "cost": "Background dots (0-5), as with any Background.",
+    "compatibility": "All Sidereal castes; fully replaces the Mentor Background for this splat.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 110,
+      "pdfPage": 113
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Sifu' section, p. 110 (PDF 113). Mentor-unavailability note carried over from the 'Altered Backgrounds' -> 'Mentor' one-line note, p. 105 (PDF 108). The specific martial-arts forms and Charms a sifu teaches are not inventoried here (out of scope Charm-tree content)."
+  }
+]

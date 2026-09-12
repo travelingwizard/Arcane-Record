@@ -137,9 +137,20 @@ describe('computeChecksum', () => {
 });
 
 describe('auditFamily against the real repository (current state)', () => {
-  const familiesWithInventory = new Set(['lunar', 'abyssal']);
+  // All five planned families now have supplied source material and real
+  // inventory rows (see docs/18-exalted1e-splat-release.md's status table).
+  // This set exists so a future sixth family (none is planned) or a family
+  // whose inventory directory is deleted would still be caught below as
+  // pending-source-material instead of silently passing.
+  const familiesWithInventory = new Set([
+    'lunar',
+    'abyssal',
+    'sidereal',
+    'alchemical',
+    'fair-folk',
+  ]);
 
-  it('reports the families with no source material yet as pending-source-material with zero errors', () => {
+  it('reports every planned family as having inventory now (none left pending-source-material)', () => {
     for (const family of PLANNED_EXALTED_FAMILIES) {
       if (familiesWithInventory.has(family)) continue;
       const report = auditFamily(family);
@@ -147,6 +158,11 @@ describe('auditFamily against the real repository (current state)', () => {
       expect(report.issues).toEqual([]);
       expect(report.inventoryRows).toBe(0);
     }
+    expect(
+      PLANNED_EXALTED_FAMILIES.every((family) =>
+        familiesWithInventory.has(family),
+      ),
+    ).toBe(true);
   });
 
   it('reports Lunar as pending-certification with its real inventory rows and zero audit errors', () => {
@@ -159,6 +175,30 @@ describe('auditFamily against the real repository (current state)', () => {
 
   it('reports Abyssal as pending-certification with its real inventory rows and zero audit errors', () => {
     const report = auditFamily('abyssal');
+    expect(report.status).toBe('pending-certification');
+    expect(report.issues).toEqual([]);
+    expect(report.inventoryRows).toBeGreaterThan(0);
+    expect(report.promotedEntries).toBe(0);
+  });
+
+  it('reports Sidereal as pending-certification with its real inventory rows and zero audit errors', () => {
+    const report = auditFamily('sidereal');
+    expect(report.status).toBe('pending-certification');
+    expect(report.issues).toEqual([]);
+    expect(report.inventoryRows).toBeGreaterThan(0);
+    expect(report.promotedEntries).toBe(0);
+  });
+
+  it('reports Alchemical as pending-certification with its real inventory rows and zero audit errors', () => {
+    const report = auditFamily('alchemical');
+    expect(report.status).toBe('pending-certification');
+    expect(report.issues).toEqual([]);
+    expect(report.inventoryRows).toBeGreaterThan(0);
+    expect(report.promotedEntries).toBe(0);
+  });
+
+  it('reports Fair Folk as pending-certification with its real inventory rows and zero audit errors', () => {
+    const report = auditFamily('fair-folk');
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);
     expect(report.inventoryRows).toBeGreaterThan(0);

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { plannedExaltedFamilies } from '../../src/games/exalted1e/definitions';
 import {
+  describeCatalog,
   evaluateCertification,
   getAllFamilyCertificationStatuses,
   getFamilyCertificationStatus,
@@ -47,18 +48,19 @@ describe('exalted1e verification gate', () => {
       expect(record.creatorTests).toBe('not-run');
       expect(record.migrationTests).toBe('not-run');
       expect(record.browserTests).toBe('not-run');
-      // Lunar has started source intake (inventory rows > 0), but nothing
-      // has been promoted to a production catalog yet for any family.
+      // All five families have started source intake (inventory rows > 0),
+      // but nothing has been promoted to a production catalog yet for any
+      // family.
       expect(record.catalog.promotedEntries).toBe(0);
       expect(record.catalog.checksum).toBe('');
     }
   });
 
-  it('reports zero inventory rows for families with no source material supplied yet', () => {
-    const familiesWithInventory = new Set(['lunar', 'abyssal']);
+  it('reports every planned family with a positive inventory row count (all five have supplied source material)', () => {
     for (const family of plannedExaltedFamilies) {
-      if (familiesWithInventory.has(family)) continue;
-      expect(certificationRecords[family].catalog.totalInventoryRows).toBe(0);
+      expect(
+        certificationRecords[family].catalog.totalInventoryRows,
+      ).toBeGreaterThan(0);
     }
   });
 
@@ -76,6 +78,27 @@ describe('exalted1e verification gate', () => {
     expect(isFamilyAvailable('abyssal')).toBe(false);
   });
 
+  it('reflects Sidereal source intake in progress without unlocking the family', () => {
+    const record = certificationRecords.sidereal;
+    expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
+    expect(record.catalog.promotedEntries).toBe(0);
+    expect(isFamilyAvailable('sidereal')).toBe(false);
+  });
+
+  it('reflects Alchemical source intake in progress without unlocking the family', () => {
+    const record = certificationRecords.alchemical;
+    expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
+    expect(record.catalog.promotedEntries).toBe(0);
+    expect(isFamilyAvailable('alchemical')).toBe(false);
+  });
+
+  it('reflects Fair Folk source intake in progress without unlocking the family', () => {
+    const record = certificationRecords['fair-folk'];
+    expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
+    expect(record.catalog.promotedEntries).toBe(0);
+    expect(isFamilyAvailable('fair-folk')).toBe(false);
+  });
+
   it('every checked-in certification record validates against the schema', () => {
     for (const family of plannedExaltedFamilies) {
       expect(() =>
@@ -85,13 +108,41 @@ describe('exalted1e verification gate', () => {
   });
 
   it('describes a locked family with no inventory yet with concrete evidence, not a generic message', () => {
-    const status = getFamilyCertificationStatus('sidereal');
-    expect(status.available).toBe(false);
-    expect(status.blockReason).toContain('catalog not started');
-    expect(status.blockReason).toContain('rules tests not-run');
-    expect(status.blockReason).toContain('creator tests not-run');
-    expect(status.blockReason).toContain('migration tests not-run');
-    expect(status.blockReason).toContain('browser tests not-run');
+    // No real planned family has zero inventory rows any more (all five have
+    // supplied source material), so the "catalog not started" wording is
+    // exercised directly against a fixture record instead of real data.
+    const zeroRowRecord: SplatCertificationRecord = {
+      ...passingRecordFor('sidereal'),
+      catalog: {
+        totalInventoryRows: 0,
+        promotedEntries: 0,
+        unresolvedEntries: 0,
+        checksum: '',
+      },
+      rulesTests: 'not-run',
+      creatorTests: 'not-run',
+      migrationTests: 'not-run',
+      browserTests: 'not-run',
+      certifiedAt: null,
+    };
+    expect(describeCatalog(zeroRowRecord)).toBe('catalog not started');
+    expect(evaluateCertification(zeroRowRecord)).toBe(false);
+  });
+
+  it('describes each real planned family locked with concrete promotion-count evidence, not a generic message', () => {
+    for (const family of plannedExaltedFamilies) {
+      const status = getFamilyCertificationStatus(family);
+      const { totalInventoryRows, promotedEntries, unresolvedEntries } =
+        certificationRecords[family].catalog;
+      expect(status.available).toBe(false);
+      expect(status.blockReason).toContain(
+        `catalog ${promotedEntries}/${totalInventoryRows} promoted, ${unresolvedEntries} unresolved`,
+      );
+      expect(status.blockReason).toContain('rules tests not-run');
+      expect(status.blockReason).toContain('creator tests not-run');
+      expect(status.blockReason).toContain('migration tests not-run');
+      expect(status.blockReason).toContain('browser tests not-run');
+    }
   });
 
   it('describes a locked family with inventory in progress by its promotion count, not "catalog not started"', () => {

@@ -1,0 +1,30 @@
+{
+  "systemId": "exalted1e",
+  "moduleId": "sidereal",
+  "catalogVersion": "0.1.0",
+  "generatedFor": "Arcane Record",
+  "scope": {
+    "totalRows": 22,
+    "castes": 5,
+    "newBackgrounds": 6,
+    "alteredBackgrounds": 5,
+    "coreMechanics": 6,
+    "excludedNotes": 0,
+    "notes": "Inventory in progress (22 rows). Covers Exalted: The Sidereals character-creation overview (Chapter Three), the five Auspicious-Ability groups tied to the celestial constellations and their Celestial Hierarchy minimums, the universal caste-agnostic Anima Effect, all five Castes (Journeys, Serenity, Battles, Secrets, Endings) with their Anima Banners/Anima Effects/Caste Abilities/Associations/Sobriquets/Concepts, the Arcane Fate signature trait mechanic and its Sidereal Anima Banner visibility/Paradox table, the Craft (Fate) Ability specialty, and the new/altered Backgrounds (Allies, Artifact, Backing, Familiar, Manse altered; Acquaintances, Celestial Manse, Connections, Salary, Savant, Sifu new). Charm trees, Martial Arts styles, the full Colleges/astrology system, and Resplendent Destinies (pp. 215-218) are not yet inventoried."
+  },
+  "sources": [
+    {
+      "bookId": "exalted-the-sidereals",
+      "bookLabel": "Exalted: The Sidereals",
+      "role": "Primary Sidereal rules, Charms, Backgrounds, and setting material"
+    }
+  ],
+  "rulesNotes": [
+    "Printed page numbers in this book run 3 less than the PDF page number supplied (PDF page = printed page + 3) for the copy used to build this inventory. Confirmed consistently across Chapter Three: Character Creation (PDF pp. 99-103, printed pp. 96-100) and Chapter Four: Traits (PDF pp. 107-127, printed pp. 104-124); both page numbers are recorded on every citation.",
+    "This PDF is image-based (no selectable text layer); all rows below were transcribed from rendered page images, per the 'OCR is an extraction aid, never verification by itself' rule.",
+    "Sidereals do not have a Limit Trait. Unlike Abyssal Resonance, their signature trait mechanic (Arcane Fate) is not a numeric, rated Trait with discrete gain/loss procedures -- it is a passive, always-on effect every Sidereal has from Exaltation onward. It is inventoried as a single mechanic row plus its associated Sidereal Anima Banner visibility/Paradox table, rather than as gain/loss/manifestation rows the way Resonance was for Abyssal.",
+    "The Sidereal Curse (the Great Curse's Sidereal-specific expression) is confirmed to be a roleplaying-only element with no discrete mechanical trigger or penalty table of its own (Chapter Three, PDF p. 103/printed p. 100 sidebar: 'The Sidereal Curse has no mechanical aspect and is, instead, a matter entirely for roleplaying. See page 253 of the Storytelling chapter for more information.'). It is therefore out of scope for this core-mechanics pass; no row was created for it.",
+    "Resplendent Destinies (referenced repeatedly from the Arcane Fate section as the means by which a Sidereal can bypass her own Arcane Fate and don a memorable identity) are detailed in full on pp. 215-218 of this book, which have not been rendered or reviewed in this pass. Only the cross-cutting interaction described within the in-scope Arcane Fate section itself (PDF pp. 124-125) is captured here; the full Resplendent Destiny system is out of scope for this inventory.",
+    "docs/references/exalted1e/dragon-blooded/source-manifest.json already cites this same book once for a single externally-sourced Dragon-Blooded spell (Open the Spirit Door, Terrestrial Circle Sorcery, PDF p. 125-126/printed p. 122-123), flagged 'external-source' because this Sidereals PDF had not been supplied at the time. That citation was not modified or duplicated here; it remains Dragon-Blooded catalog content."
+  ]
+}

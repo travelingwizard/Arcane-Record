@@ -73,7 +73,13 @@ export function isFamilyAvailable(family: PlannedExaltedFamily): boolean {
   return evaluateCertification(certificationRecords[family]);
 }
 
-function describeCatalog(record: SplatCertificationRecord): string {
+/**
+ * Exported (rather than kept private) purely so tests can exercise the
+ * "catalog not started" / "N/M promoted" wording against fixture records.
+ * No real planned family has zero inventory rows any more, so the
+ * zero-row branch can otherwise only be exercised with a fixture.
+ */
+export function describeCatalog(record: SplatCertificationRecord): string {
   const { catalog } = record;
   if (catalog.totalInventoryRows === 0) {
     return 'catalog not started';

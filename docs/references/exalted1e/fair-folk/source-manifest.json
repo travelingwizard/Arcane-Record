@@ -1,0 +1,31 @@
+{
+  "systemId": "exalted1e",
+  "moduleId": "fair-folk",
+  "catalogVersion": "0.1.0",
+  "generatedFor": "Arcane Record",
+  "scope": {
+    "totalRows": 34,
+    "baseCastes": 4,
+    "nobleHybridCastes": 1,
+    "graces": 6,
+    "bedlamRows": 2,
+    "newBackgrounds": 5,
+    "alteredOrExcludedBackgrounds": 5,
+    "coreMechanics": 11,
+    "notes": "Inventory in progress (34 rows). Covers Exalted: The Fair Folk's Chapter Three character-creation overview (separately for noble and common raksha, since the two follow different Attribute/Background baselines), the four base castes (Diplomat/Entertainer/Warrior/Worker) with their Caste Abilities/Grace/Controlling Grace/Associations/Sobriquets, the twelve named noble hybrid castes (ascendant/shadowed caste pairings), the five Graces (Cup/Ring/Staff/Sword/Heart) with full dot tables plus their general forging rules, the Bedlam mechanic (the raksha's Limit-Trait analog) including all four Virtue-specific Curses and their Lures, the five new Fair Folk Backgrounds (Birth, Freehold, Gossamer, Retinue, Style), the altered Backgrounds (Artifact, Familiar, Manse, Backing/Contacts/Influence) and the excluded ones (Followers, Resources), and a set of core signature mechanics (innate Wyld-damage immunity, Craft (Glamour), Wyld stunts/bonuses, Gossamer-and-Glamour Charm fuel, Mutation, Shaping Actions/Reality Shaping, Shaping Combat basics, Oaths, Cold-Wrought Iron). Chapter Five's per-Grace Charm trees, Chapter One's Rakshastan geography/setting material, and Chapter Six's Mountain Folk (a separate playable-adjacent race) are not yet inventoried."
+  },
+  "sources": [
+    {
+      "bookId": "exalted-the-fair-folk",
+      "bookLabel": "Exalted: The Fair Folk",
+      "role": "Primary Fair Folk (raksha) rules, character creation, Graces, Backgrounds, shaping magic, and setting material"
+    }
+  ],
+  "rulesNotes": [
+    "This PDF has a real, selectable text layer (confirmed via direct PyMuPDF text extraction on multiple sample pages); it is not image-only like the Lunar/Abyssal source PDFs. Text was extracted directly and cross-checked by visually rendering and reading a sample of pages (character-creation summary tables, Grace dot tables, Background dot tables, the Noble Castes pages, and the Storyteller-only 'unshaped' Charm-suggestion sidebar) with the same render-pdf-pages.py + Read-tool workflow used for image-based books, since dot-rating tables and sidebar boxes are exactly the layout that can scramble during plain text extraction. No scrambling was found in the sampled pages; the extracted text order matched the visual layout in every spot-checked case.",
+    "Printed page numbers in this book run exactly 1 less than the PDF (physical) page number for the copy used to build this inventory (PDF page = printed page + 1); both are recorded on every citation. This was confirmed both from the Table of Contents (printed page 7, PDF page 8) and from directly reading the printed folio number embedded in the extracted text of dozens of sampled pages.",
+    "Fair Folk (raksha) are structurally unlike Solar/Abyssal/Dragon-Blooded/Lunar creation: there are no Attributes-and-Abilities-only Charms, no five Castes shared uniformly by common and noble characters, and no single universal Limit-Trait analog. Common raksha have one feeding Virtue/Grace/caste; noble raksha have two (an 'ascendant' and a 'shadowed' caste), and the ascendant/shadowed pairing across the four base castes produces twelve distinct named noble-caste archetypes (Anarch, Luminary, Panjandrum, Artisan, Courtier, Xia, Eshu, Imperial Raksha, Strategos, Scribe, Ornamental Raksha, Cataphract). Charms are keyed to five Grace Traits (Cup/Ring/Staff/Sword/Heart) rather than to Attributes or Abilities. The Limit-Trait role is filled by Bedlam, which is Virtue-specific rather than universal: each of the four Virtues has its own named Curse (Hubris/Compassion, Namelessness/Conviction, Alienation/Temperance, Meekness-or-Terror/Valor) with its own trigger and recovery condition, plus a mandatory Lure once any Virtue reaches 3+.",
+    "'Heart's Blood' does not appear anywhere in this book as Fair Folk terminology; the raksha's core existential Trait is instead the Heart Grace (fixed rating, not freely purchasable), and their wealth/Charm-fuel resource is called Gossamer, not Heart's Blood. No conflation with the Lunar Exalted's unrelated use of similar terms was found or assumed.",
+    "Common raksha and noble raksha are covered as two separate character-creation-overview rows in this inventory (fair-folk-creation-overview-common and fair-folk-creation-overview-noble) rather than one combined row, because the book presents them as two materially different baselines (0-dot vs. 3-dot starting Attributes, 0 vs. 10 free Background dots, 1 vs. 3 Favored Abilities, a cheaper Specialty cost for commoners, a cheaper Major Grace cost for nobles) with two separate condensed summary boxes, not one shared creation track with minor caste variation."
+  ]
+}

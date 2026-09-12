@@ -1,0 +1,415 @@
+[
+  {
+    "id": "alchemical-character-creation-overview",
+    "name": "Alchemical Character Creation (Five Steps)",
+    "disposition": "calculated",
+    "summary": "Alchemical creation follows the same five-step Solar skeleton but replaces every step's internals: Attributes come from a Caste-linked triad rather than a Physical/Social/Mental split, Abilities have no Caste/Favored discount at all, Charms are implanted artifacts drawn from a fixed number of Slots instead of a purchasable list, and Willpower/Essence/the two Essence pools use Alchemical-specific formulas built around the signature Clarity Trait rather than the Great Curse.",
+    "mechanics": "Step One (Concept): choose concept, Caste, and Nature before anything else. Caste is assigned by which of the Five Magical Materials predominates in the character's Vat-built frame, not by personality (closer to a Dragon-Blood's aspect than a Solar's Caste); the Sodalities also try to match a resonant soul to that Material. Autochthonian society favors the Natures Architect, Bureaucrat, Follower, Judge, Leader, Paragon, Savant and Visionary; Gallant/Hedonist/Thrillseeker are tolerated at the edge of propriety, and Rebel draws open derision; a sidebar details a unique local reading of Paragon ('Paragon of Integration') as the Autochthonian ideal of a selfless-but-not-servile cooperator. Step Two (Attributes): every character gets 1 free dot in each Attribute as usual, but instead of Primary/Secondary/Tertiary categories, each Caste has 3 fixed Caste Attributes (see the five Caste rows) that receive 9 dots with no Attribute below ••; the player then picks 3 of the remaining 6 Attributes as Favored and assigns 6 dots there; the last 3 Attributes split the final 4 dots. Step Three (Abilities): uniquely among Exalted, Alchemicals have no Caste or Favored Abilities whatsoever - all 23 starting dots are freely distributed, guided only by non-binding suggestions (2+ in a primary attack Ability, 1+ in a secondary range, 2+ in a defensive Ability, 2+ Athletics, at least 1 dot each in a Craft/Lore/Occult, 3+ spread across Performance/Presence/Socialize, 2+ Bureaucracy); Larceny, Ride and Sail are Rare Abilities in Autochthonia before contact with Creation, and a 2-die unfamiliarity penalty applies when Autochthonians handle living mounts/boats (and vice versa for Creation natives with Autochthonian conveyances) until several weeks' practice. Step Four (Advantages): every Alchemical automatically receives Class ••• for free (see class-background) plus 10 further Background dots to spend (13 total); only Artifact may exceed ••• without bonus points. Charms take the form of surgically implanted artifacts: a starting character has 4 General Charm Slots (any Charm) and 4 Dedicated Charm Slots (Caste/Favored Charms only), and must choose 8 Charms to fill all 8 Slots; extra Slots cost bonus points (see alchemical-bonus-points-and-experience-costs) and each comes with a free qualifying Charm. Virtues get 1 free dot each plus 5 more to distribute, capped at 3 without bonus points; Compassion is explicitly the Virtue that pushes back against Clarity. Step Five (Finishing Touches): Willpower equals the sum of the two highest Virtues (capped below 8 unless both of those Virtues are 4+); Essence starts at 2. Personal Essence pool = (Essence x 3) + Willpower. Peripheral Essence pool = (Essence x 5) + (Willpower x 3) + (highest Virtue x 2), before any Charm-granted bonus capacity. Health levels are the standard mortal 7, plus one extra -2 level per dot of permanent Essence. Finally, 15 bonus points may be spent at any time per the bonus-point cost table.",
+    "compatibility": "All Alchemical castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 58,
+      "pdfPage": 59
+    },
+    "crossReferences": [
+      "orichalcum-caste",
+      "moonsilver-caste",
+      "jade-caste",
+      "starmetal-caste",
+      "soulsteel-caste",
+      "clarity-trait",
+      "class-background",
+      "vats-background"
+    ],
+    "notes": "Chapter Two: Character Creation and Traits, Steps One through Five and the Character Creation Process/Castes/Virtues summary sidebar, pp. 58-64 (PDF 59-65). Extracted from a clean text layer and cross-checked against rendered images of the summary/Caste-Attribute/bonus-point pages."
+  },
+  {
+    "id": "alchemical-anima-banners-universal",
+    "name": "Universal Anima Effect & Alchemical Anima Banners (all Castes)",
+    "disposition": "calculated",
+    "summary": "Every Alchemical, regardless of Caste, can spend 1 mote to intensify her anima banner along a five-tier display table keyed to how much Peripheral Essence she has spent this scene (1-3/4-7/8-10/11-15/16+ motes), with each tier trading away more Stealth/concealment capability for a brighter, harder-to-hide, and eventually trail-marking display; she may also spend 3 motes per die to temporarily boost any Caste or Favored Attribute for a scene.",
+    "mechanics": "Anima banners fade by one display level every 20 minutes unless refreshed by further Peripheral Essence spending; a fading anima is treated as still being at its highest recent level for the purpose of flaring back up. Table: 1-3 motes - sparks crackle around the soulgem/used Charms, noticeable only on a reflexive Perception + Awareness roll, Stealth still usable normally, fades within an hour of the character stopping expenditure. 4-7 motes - arcs of Essence sizzle visibly across soulgem and Charms, unmistakably marking the character as Alchemical and shutting off any concealment Charms/magic, though Stealth can still be used in natural cover at +2 difficulty. 8-10 motes - a torch-bright aura envelops the body in a caste-appropriate color, every Charm blazes, and traces of the caste's Magical Material bleed from the skin (evaporating within Essence-rating turns, leaving no useful tracking sign); stealth is impossible at this level. 11-15 motes - same visual display as 8-10 but the bleeding Material traces persist for a full hour, letting the character retrace her own path with automatic success while equally helping anyone else who can see the trail follow her; the display itself still fades in 20 minutes without further spending, so a glowing trail can abruptly stop while the light itself keeps burning at the end point. 16+ motes - an iconic, caste-flavored display (e.g. billowing smoke for Soulsteel, arcing lightning for Orichalcum) that engages every sense for a single turn before receding to the 11-15 level for the rest of the scene; any further Peripheral spending re-triggers the iconic flare. Separately, any Alchemical may spend 3 motes per die (lasting a number of turns equal to permanent Essence) to boost a Caste or Favored Attribute, capped at double the Attribute's unmodified rating; these bonus dice count against the normal Charm dice cap.",
+    "cost": "1 mote to flare the banner to a new display level; 3 motes per die to boost a Caste/Favored Attribute.",
+    "compatibility": "All Alchemical castes; reflexive, no Charm purchase required.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 75,
+      "pdfPage": 76
+    },
+    "crossReferences": ["alchemical-character-creation-overview"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Anima Effect' / 'Alchemical Anima Banners' table, p. 75 (PDF 76). Table verified against a rendered page image; text extraction matched exactly."
+  },
+  {
+    "id": "alchemical-artificial-metabolism",
+    "name": "Artificial Metabolism (feeding, immunities)",
+    "disposition": "calculated",
+    "summary": "Alchemicals do not breathe except to speak, cannot drown, and are immune to inhaled toxins and non-magical disease or infection; they are also permanently sterile. They still eat, but purely to synthesize Essence and fuel autonomic repair rather than for ordinary nourishment, and prolonged starvation progressively cripples their Essence recovery and eventually their ability to heal at all.",
+    "mechanics": "After a number of consecutive days of starvation equal to her Stamina, an Alchemical begins suffering a cumulative 1-mote penalty on her hourly Essence-respiration rate for every additional day of deprivation (or a slower 1 mote per 3 days for less severe food shortfalls). She heals at only the mortal rate once any such penalty is active, and stops healing entirely once the accrued mote penalty reaches 4. A single day of proper eating restores normal metabolic function immediately, but any missed days first require an equal run of consecutive well-fed days (up to a number equal to her Stamina) before full recovery. Otherwise Alchemicals eat and dispose of waste the same amount and way as a mortal of similar build.",
+    "compatibility": "All Alchemical castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 73,
+      "pdfPage": 74
+    },
+    "crossReferences": ["alchemical-life-and-death"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Alchemical Physiology and Powers' -> 'Artificial Metabolism', p. 73 (PDF 74)."
+  },
+  {
+    "id": "alchemical-life-and-death",
+    "name": "Life, Death, and the Soulgem",
+    "disposition": "calculated",
+    "summary": "While properly fed, Alchemicals heal exactly like other Exalted, mending dented metal and cracked Charms without scarring; but lethal or aggravated damage that drops one below Incapacitated causes her whole body to dissolve into a puddle of clay, crystal shards and broken metal over a number of turns equal to her Essence, shattering every installed Charm into raw salvage and leaving only a pristine, undamaged diamond soulgem behind.",
+    "mechanics": "Because so much valuable Magical Material is built into an Alchemical's frame, unscrupulous parties sometimes plunder living Exalted through outright vivisection rather than waiting for a natural death. On death (dropping below Incapacitated from lethal/aggravated damage), the body dissolves over Essence-many turns; the wreckage of shattered Charms is worth roughly Resources ••••• to anyone willing to scavenge it, but the diamond soulgem itself remains intact amid the ruin.",
+    "compatibility": "All Alchemical castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 73,
+      "pdfPage": 74
+    },
+    "crossReferences": ["alchemical-artificial-metabolism"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Alchemical Physiology and Powers' -> 'Life and Death', p. 73 (PDF 74)."
+  },
+  {
+    "id": "alchemical-refitting-essence-and-evolution",
+    "name": "Refitting, Essence Advancement, and Metropolis Evolution",
+    "disposition": "calculated",
+    "summary": "Alchemicals cannot grow, learn new Charms, or raise Essence on their own initiative; every such change requires unconscious surgery at a Vat Complex, and raising Essence in particular physically transforms the Exalt's body through a fixed sequence of size/form thresholds that, after centuries of life, culminates in literal metamorphosis into the living core of an entirely new Autochthonian city.",
+    "mechanics": "Minor refits (installing/removing Charms or Charm Slots) take one week regardless of how many are changed; raising an Attribute takes one week per dot; the Exalt is fully unconscious throughout, floating in the Vat while a technician monitors the process. Raising Essence is far more involved: it takes a number of months equal to the character's current Essence rating, during which she remains dimly, helplessly conscious in total sensory deprivation while her soul is refined. Endowments and similar outside magic cannot grant Essence or raise Attributes for an Alchemical; any attempt instead grants a different Endowment of the Storyteller's choosing. Physical thresholds: Essence 2-3 stay within human size ranges (6-7 feet) and largely human proportions. Essence 4-5 grow to 9-12 feet and become mostly metal and crystal under the weight of installed Charms. The Essence 5-to-6 transition (available only after 100+ years of life) strips the body down to bare soulgem-and-Essence-reservoir core, which is rebuilt into a new, 20+-foot frame resembling a warstrider or many-limbed custodian, usually with a humanoid mask retained somewhere for communication. Essence 7 (available after 250+ years) is a further extension of the same process, reaching up to 30 feet. Essence 8 (available only after 500+ years, and rare even then) is reserved for Alchemicals who undergo a seven-month, largely helpless transformation: the Exalt journeys to an uninhabited site, grows a 100-foot chrysalis egg from her own Essence, and disassembles inside it into the sessile living core of a brand-new city (a patropolis if male, metropolis if female); from that point the city's towers, factories and trams are her body, she can manufacture her own Charms, and only destroying the core itself can kill her. Essence 9 requires roughly a millennium of life and Essence 10 roughly two millennia; Exalted pursuing these deliberately extend their own refit time to decades of conscious meditation.",
+    "compatibility": "All Alchemical castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 73,
+      "pdfPage": 74
+    },
+    "crossReferences": ["vats-background", "building-vats-in-creation", "clarity-trait"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Alchemical Physiology and Powers' -> 'Refitting, Essence and Evolution', pp. 73-74 (PDF 74-75). The Essence 8-10 city-transformation material shades toward Storyteller-facing setting lore, but is kept as calculated here because it directly defines what an advancing player character's Essence rating physically means and requires (unlike the wholly optional adamant-caste-legend sidebar)."
+  },
+  {
+    "id": "orichalcum-caste",
+    "name": "Orichalcum Caste",
+    "disposition": "selectable",
+    "summary": "The Orichalcum Caste are the Shining Ones - brilliant, forceful leaders and doctrinal experts the Tripartite treats as the closest thing Alchemicals have to public visionaries, prone to arrogance and philosophical friction with their own peers even as they inspire mortal civilization toward utopian ambition.",
+    "mechanics": "Anima Effect: for a reflexive 5 motes, an Orichalcum Caste charges her body with golden lightning for a scene, adding her Essence to the damage of all attacks (melee strikes visibly spark on contact; thrown/ranged attacks crackle as they leave hand or weapon). Caste Attributes: Strength, Charisma, Intelligence - the caste is written as immensely strong, unquestionable and brilliant, to the point that high-Charisma Archons are described as commanding awe rather than mere likability. Associations: the color yellow, gold, orichalcum, the element of lightning, illumination, inspiration, leadership, excellence. Sobriquets: Shining Ones, Archons, Flames of Autochthon, Blessed of Noi. Concepts: defender of the people, advisor to the Tripartite, cleric of the Great Maker, mad scientist. Caste Markings/anima flavor: Charms built of burnished brass, gold and orichalcum with crystal/glass windows revealing moving internal works; anima blazes gold and white lightning, leaving momentary residual sparks on nearby metal.",
+    "compatibility": "One of the five Alchemical Castes chosen at character creation, mirroring the Solar Dawn Caste's forceful-leader role.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 76,
+      "pdfPage": 77
+    },
+    "crossReferences": ["alchemical-character-creation-overview", "alchemical-anima-banners-universal"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Orichalcum' Caste section, pp. 76-77 (PDF 77-78); visually cross-checked against a rendered page image."
+  },
+  {
+    "id": "moonsilver-caste",
+    "name": "Moonsilver Caste",
+    "disposition": "selectable",
+    "summary": "The Moonsilver Caste are the Mirrorblades - the Tripartite's secret agents, disguise experts, scouts and assassins, who mute their own anima to work unseen and eventually graduate from spying on citizens to striking directly at gremlin queens and pack leaders once they grow too large for covert work.",
+    "mechanics": "Anima Effect: for a reflexive 5 motes, a Moonsilver Caste suffuses herself with quicksilver grace for a scene, adding (her Essence x 2) to base initiative; she perceives the world in apparent slow motion while moving at her own normal pace, and observers notice only unusual deftness if given any opportunity to notice at all. Caste Attributes: Dexterity, Appearance, Wits - written as universally nimble, quick and socially mercurial, adapting to or evading notice from those around them. Associations: the color white, silver, moonsilver, the element of oil, innovation, secrets, guile. Sobriquets: Mirrorblades, Proteans, Razors of Autochthon, Blessed of Debok Moom. Concepts: everyman spy, explorer of the Far Reaches, assassin, heretic finder. Caste Markings/anima flavor: Charms display smooth, organic, almost grown-rather-than-forged curves; anima seeps from beneath the skin as dozens of undulating tendrils of light flickering pale silver and white.",
+    "compatibility": "One of the five Alchemical Castes chosen at character creation, mirroring the Solar Night Caste's stealth/infiltration role.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 78,
+      "pdfPage": 79
+    },
+    "crossReferences": ["alchemical-character-creation-overview", "alchemical-anima-banners-universal"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Moonsilver' Caste section, pp. 78-79 (PDF 79-80)."
+  },
+  {
+    "id": "jade-caste",
+    "name": "Jade Caste",
+    "disposition": "selectable",
+    "summary": "The Jade Caste are the Hammers of Autochthon - the approachable, egalitarian middle management and frontline officers who interact with ordinary mortals daily, leading by durability and shared example rather than by distant authority, and who tend to command exceptionally loyal mortal units.",
+    "mechanics": "Anima Effect: for a reflexive 5 motes, a Jade Caste hardens her claylike flesh into flexible stone for a scene, adding her Essence to both natural bashing and lethal soak. Caste Attributes: Stamina, Charisma, Wits - built to endure industrial and combat trials while remaining the most publicly approachable Caste, adapting plans on the fly. Associations: the color green, jade, the element of metal, truth, unity. Sobriquets: Stone Hands, Executives, Hammers of Autochthon, Blessed of Runel. Concepts: hero of the factory, voice of the Populat, guardian of morale, arbitrator. Caste Markings/anima flavor: Charms are deliberately blocky and functional rather than baroque, usually restrained to one or two complementary shades of jade's five natural colors; anima expresses as intersecting polyhedrons in a geometric lattice, colored to match the caste's jade tones.",
+    "compatibility": "One of the five Alchemical Castes chosen at character creation, mirroring the Solar Zenith Caste's frontline-leadership role.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 80,
+      "pdfPage": 81
+    },
+    "crossReferences": ["alchemical-character-creation-overview", "alchemical-anima-banners-universal"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Jade' Caste section, pp. 80-81 (PDF 81-82)."
+  },
+  {
+    "id": "starmetal-caste",
+    "name": "Starmetal Caste",
+    "disposition": "selectable",
+    "summary": "The Starmetal Caste are the Viziers - reclusive social engineers, motivational theorists and spymasters who coordinate (rather than personally conduct) most Autochthonian intelligence work, preferring judicious partial-truth and calculated, minimal violence over the Orichalcum Caste's public leadership style.",
+    "mechanics": "Anima Effect: for a reflexive 5 motes, a Starmetal Caste aligns himself with the Design of the Great Maker for a scene, adding (his Essence divided by 2, rounded up) to all attack, damage and base initiative rolls; a prismatic halo trails slightly ahead of him hinting at his coming movements, though onlookers cannot actually use the warning to predict or avoid his specific attacks until they land. Caste Attributes: Dexterity, Manipulation, Intelligence - balancing subtlety and cunning with scalpel-precise, rarely-telegraphed physical action when it becomes necessary. Associations: the color blue, steel, starmetal, the element of crystal, half-truths. Sobriquets: Plot Weavers, Viziers, Daggers of Autochthon, Blessed of Mog. Concepts: tactical advisor, data interpreter, pattern theorist, social prognosticator. Caste Markings/anima flavor: Charms use a minimalist aesthetic of braided starmetal wire filigree (the rarest of the Five Magical Materials) with occasional random Essence sparks; anima is deep blue shot through with prismatic static.",
+    "compatibility": "One of the five Alchemical Castes chosen at character creation, mirroring the Solar Eclipse Caste's diplomat/schemer role.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 82,
+      "pdfPage": 83
+    },
+    "crossReferences": ["alchemical-character-creation-overview", "alchemical-anima-banners-universal"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Starmetal' Caste section, pp. 82-83 (PDF 83-84); visually cross-checked against a rendered page image."
+  },
+  {
+    "id": "soulsteel-caste",
+    "name": "Soulsteel Caste",
+    "disposition": "selectable",
+    "summary": "The Soulsteel Caste are the Grim Watch - relentless enforcers, hunters and interrogators who deal with threats the other Castes' plans fail to prevent, from gremlin incursions to dissidents and Gremlin-Syndrome-afflicted peers, and who are simultaneously the most feared and the most self-policing of the five Castes.",
+    "mechanics": "Anima Effect: for a reflexive 5 motes, a Soulsteel Caste stirs the tormented souls trapped within her frame for a scene, generating an aura of numbing dread that adds (her Essence divided by 2, rounded up) to the difficulty of all attacks targeting her; the effect works even against automatons, the walking dead and other beings normally immune to fear (only perfect magical fear-immunity ignores it). Caste Attributes: Stamina, Manipulation, Perception - built to be as physically tough as they are frightening, skilled at extracting compliance, and constantly, unwaveringly vigilant. Associations: the color black, iron, soulsteel, the element of smoke, violence, callousness, enforcement. Sobriquets: Grim Watch, Sentinels, Scourges of Autochthon, Blessed of Ku. Concepts: gremlin killer, problem solver, torture expert, motivator, dissident recycler. Caste Markings/anima flavor: Charms appear crudely hammered from black alloys with visible rivets, perpetually stained with soot; anima is shadowy black-and-blue-lightning-streaked smoke.",
+    "compatibility": "One of the five Alchemical Castes chosen at character creation, mirroring the Solar Twilight Caste's enforcement/problem-solving role.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 84,
+      "pdfPage": 85
+    },
+    "crossReferences": ["alchemical-character-creation-overview", "alchemical-anima-banners-universal"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Soulsteel' Caste section, pp. 84-85 (PDF 85-86); visually cross-checked against a rendered page image."
+  },
+  {
+    "id": "adamant-caste-legend",
+    "name": "Legends of the Sixth Caste (Adamant, apocryphal)",
+    "disposition": "gm-only",
+    "summary": "An in-world rumor, not an official Vat product: Autochthonian folklore tells of a mysterious sixth Caste built from adamant that appears from nowhere to strike down gremlins or the incompetent and vanishes before anyone can verify the sighting; the book presents this purely as Storyteller-optional material, with a brief stat sketch offered only for STs who decide the legend is literally true in their game.",
+    "mechanics": "If used, Adamant's Caste Attributes are Strength, Appearance and Perception (completing the pattern of every Attribute being shared by exactly two Castes across all six). Its anima power costs 5 motes and adds bonus dice equal to permanent Essence to all Stealth rolls or attempts to escape tracking, for a scene. The text speculates (without confirming) that any real Adamant Caste Exalted would have Vats hidden inside biomechanical factory-deities grown for that purpose and cloaked by powerful enchantments, would serve the highest Autochthonian gods directly as unseen eyes and hands watching over even their own cousins, and would have been created secretly by the Divine Ministers as a contingency against the other Castes growing too powerful, after Autochthon's core sank into torpor. Neither the Olgotary nor the Alchemicals themselves have any confirmed record of ever building such a Caste.",
+    "compatibility": "Storyteller-only, and only if the Storyteller chooses to make the legend literally true; not a standard player-selectable Caste under the normal character-creation rules.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 61,
+      "pdfPage": 62
+    },
+    "crossReferences": ["orichalcum-caste", "moonsilver-caste", "jade-caste", "starmetal-caste", "soulsteel-caste"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Legends of the Sixth Caste' sidebar, p. 61 (PDF 62); visually cross-checked against a rendered page image. Classified gm-only rather than selectable because the book explicitly gates any mechanical use behind Storyteller discretion ('For Storytellers interested in including the sixth caste...') rather than offering it as a chargen option."
+  },
+  {
+    "id": "clarity-trait",
+    "name": "Clarity",
+    "disposition": "calculated",
+    "summary": "Alchemicals were built after Autochthon's withdrawal from Creation and so bear no part of the Great Curse; in its place they carry Clarity, a Trait measuring the balance between the human soul housed in their bodies and the cold, mechanical logic of the Machine God, tracked as separate permanent and temporary ratings whose sum can never exceed 10.",
+    "mechanics": "Permanent Clarity represents an increasing, effectively irreversible mechanization of thought and Essence, gained only from raising Essence above 5 or installing certain powerful Charms; it cannot be shed while the condition that granted it (the Essence rating, the installed Charm) still applies, but removing that condition immediately removes the matching permanent dots. Temporary Clarity fluctuates with behavior and is the half of the Trait that can be actively managed session to session. The two ratings are added together to determine the character's effective total Clarity for the social/behavioral effects table.",
+    "compatibility": "All Alchemical castes; replaces the Limit Trait entirely for this splat.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 69,
+      "pdfPage": 70
+    },
+    "crossReferences": ["gaining-clarity", "losing-clarity", "clarity-effects-table", "gremlin-syndrome-dissonance"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Clarity' section, p. 69 (PDF 70); visually cross-checked against a rendered page image."
+  },
+  {
+    "id": "gaining-clarity",
+    "name": "Gaining Clarity (Inhuman Essence, Suppressing Virtues, Forsaking Humanity, Charms)",
+    "disposition": "calculated",
+    "summary": "Alchemicals accumulate Clarity by leaning into their mechanical nature at the expense of their humanity, through three named triggers plus whatever specific Charms grant on activation or installation.",
+    "mechanics": "Inhuman Essence: gain 1 dot of permanent Clarity for every dot of Essence rated above 5 (this is the primary source of permanent Clarity for most characters). Suppressing Virtues: gain 1 point of temporary Clarity whenever the Exalt spends Willpower to act contrary to a Virtue rated 3+; she may instead suppress that Virtue without spending Willpower by leaning on her mechanical side, but doing so costs 2 points of Clarity instead of 1. Forsaking Humanity: gain 1 point of Clarity for every full week spent without meaningful human contact (such as venturing deep into the Far Reaches); qualifying contact must involve an overt demonstration of empathy or at least sustained, peaceful discourse across a full scene, and contact with other Alchemical Exalted does not count toward avoiding this gain. Charms: certain Charms explicitly award temporary or even permanent Clarity on activation and/or installation, per their own individual text (not detailed here; out of scope for this inventory pass).",
+    "compatibility": "All Alchemical castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 69,
+      "pdfPage": 70
+    },
+    "crossReferences": ["clarity-trait"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Gaining Clarity' section, pp. 69-70 (PDF 70-71); visually cross-checked against rendered page images."
+  },
+  {
+    "id": "losing-clarity",
+    "name": "Losing Clarity (Human Contact, Embracing Virtue)",
+    "disposition": "calculated",
+    "summary": "Clarity never 'breaks' the way a Solar's Limit does; only temporary Clarity can be shed at all, and only through two means - meaningfully connecting with mortals, or successfully spending Willpower to act on a Virtue - while permanent Clarity is locked in place for as long as its granting condition (high Essence, an installed Charm) persists.",
+    "mechanics": "Human Contact: at the end of any scene in which the Exalt meaningfully interacts with normal humans, roll her Compassion at standard difficulty (subject to Clarity's own Social/Compassion dice penalty, if any); success removes 1 point of temporary Clarity, while a botch instead deepens her alienation and adds 1 point of Clarity. This method can only reduce Clarity by 1 point per day, no matter how many qualifying scenes occur. Embracing Virtue: whenever an Alchemical spends Willpower to channel a Virtue and the resulting action succeeds, she loses 1 point of temporary Clarity. Permanent Clarity is unaffected by either method and can only be reduced by removing the Essence-above-5 or Charm condition that granted it in the first place.",
+    "compatibility": "All Alchemical castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 70,
+      "pdfPage": 71
+    },
+    "crossReferences": ["clarity-trait"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Losing Clarity' section, p. 70 (PDF 71); visually cross-checked against a rendered page image."
+  },
+  {
+    "id": "clarity-effects-table",
+    "name": "Effects of Clarity (0-10 social/behavioral table)",
+    "disposition": "calculated",
+    "summary": "As an Alchemical's total (permanent plus temporary) Clarity rises through five bands from 0 up to the fixed maximum of 10, her capacity to empathize with mortals steadily erodes while her rapport with Autochthonian gods, automata, and fellow high-Clarity Alchemicals grows; the book pairs this dice-mechanical progression with explicit guidance that high Clarity should read as alien and unsettling rather than as sadistic or as license for gratuitous cruelty.",
+    "mechanics": "0-2: no detectable dissociation; the character is exactly as pleasant as her Social Attributes/Abilities suggest. 3-4: noticeably colder and less patient; -1 die to all Social rolls except intimidation when dealing with most sentient/feeling beings, but +1 die to Social rolls (including intimidation) with Autochthonian deities, automata, and Alchemicals of equal-or-greater Clarity; also -1 die to Compassion rolls. 5-7: notably inhuman, clipped and laconic, ignoring mortals' emotional needs by default and reporting or chastising dissent; the Social penalty/bonus pair widens to 2 dice. 8-9: humanity is a distant memory; she can simulate courtesy with effort but feels nothing; the Social penalty/bonus pair widens to 3 dice, and she gains +1 die on Mental Attribute or Temperance rolls involving memory, analytical deduction, or dispassionate self-control (Storyteller's call on which rolls qualify). 10 (maximum): aloof and utterly alien, entirely amoral but not malicious, retaining full free will and Nature-driven goals; the Social penalty/bonus pair widens to 4 dice, she automatically fails all Compassion rolls, and the qualifying Mental/Temperance bonus widens to 2 dice. A companion 'Playing and Storytelling Clarity' section stresses that Clarity changes how a character pursues her existing Nature-driven goals (toward cold efficiency and minimum necessary force), not whether she has goals at all, and that even Clarity 10 characters plan and weigh consequences rather than reveling in violence.",
+    "compatibility": "All Alchemical castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 70,
+      "pdfPage": 71
+    },
+    "crossReferences": ["clarity-trait"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Effects of Clarity' table and 'Playing and Storytelling Clarity' guidance, pp. 70-71 (PDF 71-72); visually cross-checked against rendered page images."
+  },
+  {
+    "id": "gremlin-syndrome-dissonance",
+    "name": "Gremlin Syndrome (Dissonance, Alchemical-only Flaw)",
+    "disposition": "selectable",
+    "summary": "A small, growing minority of Alchemicals manifest Dissonance instead of Clarity - a Void-tainted mirror Trait that imposes the same rising Social/Compassion penalties as Clarity but grants none of Clarity's positive bonuses (except among fellow gremlins), replaces Clarity's calm cognitive bonus with a raw damage bonus at maximum rating, and expresses as active, gleeful sociopathy rather than cold order; Autochthonian society hunts down and executes anyone confirmed to have it.",
+    "mechanics": "Dissonance is purchased as an Alchemical-only Flaw worth 5 bonus points. It tracks and penalizes exactly like Clarity for Social interactions and Compassion, but a Dissonant character gains no Social bonus at any Clarity-equivalent band except when dealing with other gremlins or similarly mad beings, and receives no bonus dice for calculated thought/self-control at high ratings; instead, a Dissonance rating of 10 adds 1 die to the raw damage of all attacks, reflecting sheer brutality rather than precision. Where Clarity tends toward building and preserving order, Dissonance tears it down at every opportunity, punctuated by brief lucid periods whenever channeled Virtues knock the rating back down. The book explicitly restricts this Flaw to Storyteller antagonists or, at most, rare tragic PCs played by very mature players who understand the character is likely to end up hunted and destroyed.",
+    "cost": "5 bonus points (Flaw).",
+    "compatibility": "Any Alchemical caste, if the Storyteller allows the Flaw at all; intended primarily for Storyteller characters.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 71,
+      "pdfPage": 72
+    },
+    "crossReferences": ["clarity-trait"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Gremlin Syndrome' sidebar, p. 71 (PDF 72)."
+  },
+  {
+    "id": "class-background",
+    "name": "Class (new Background, replaces Followers/Influence/Resources)",
+    "disposition": "selectable",
+    "summary": "Class is the core socioeconomic Background for anyone in Autochthonia's largely currency-less economy, folding Followers, Influence and Resources into a single rating that sets social standing, requisition authority, and standard of living; Alchemicals automatically receive Class ••• for free at creation (separate from their normal Background dots) and may raise it further with bonus points, while mortal characters must purchase it from scratch like any other Background.",
+    "mechanics": "Dot table: no dots (x) - a Lumpen outcast; a tolerable Resources •-equivalent standard of living, but a 1-die penalty to Social pools against higher-Class characters (also the rating held by surface slaves taken during the Locust Crusade). 1 dot - a general laborer/aide of the Populat; Resources ••-equivalent, dormitory housing shared by dozens with no personal claim to space (also shared, after a successful Locust Crusade, by loyalist Outsider-caste Creation-dwellers who are barred from entering Autochthonia). 2 dots - a Populat shift chief overoseeing 20-300 workers; Resources •••-equivalent, apartment shared with roughly a dozen peers. 3 dots - a Populat foreman overseeing an entire factory, or a junior Tripartite member (expected to also carry 1-2 dots of matching Backing); lives at Resources ••• with a dedicated aide staff but can requisition up to Resources ••••, subject to superiors demanding justification; +1 die to Social rolls against lower-Class Autochthonians. 4 dots - a Populat supervisor over an entire industry in a city, or a veteran Tripartite member (2-3 dots of Backing expected); Resources ••• or •••• standard of living, can requisition as high as Resources ••••• at the risk of scrutiny; +1 die to Social rolls against lower-Class Autochthonians. 5 dots - a Populat director/sub-director or senior Tripartite leader (4-5 dots of Backing expected); palatial residence at Resources •••• or •••••; +2 dice to Social rolls against lower-Class Autochthonians. Lumpen exiled to the Reaches for serious crimes exist entirely outside this Background and receive no resource allocation at all; any status they hold is purchased as Backing instead, and any hoarded wealth or followers come from Resources/Followers under the Solar rules, options otherwise closed to ordinary Autochthonians.",
+    "cost": "Background dots (0-5), as with any Background; Alchemicals start with a free, separate Class ••• at character creation.",
+    "compatibility": "All Alchemicals and Autochthonian mortals; Lumpen exiles in the Reaches use Backing/Resources/Followers instead.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 66,
+      "pdfPage": 67
+    },
+    "crossReferences": ["alchemical-character-creation-overview", "followers-influence-resources-subsumed", "backing-background-altered"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Expanded Backgrounds' -> 'Class' section, pp. 66-67 (PDF 67-68); dot table visually cross-checked against a rendered page image."
+  },
+  {
+    "id": "artifact-background-altered",
+    "name": "Artifact (altered for Alchemicals)",
+    "disposition": "calculated",
+    "summary": "Alchemicals draw on the full resources of Autochthonian industry, so each dot of the Artifact Background buys three total dots of Artifact-rated gear rather than one, the Background may be bought all the way to ••••• during character creation without bonus points (though the 4th and 5th dot each cost two dots), and dots here can additionally buy spare Charms held on retainer at the Vats up to the character's Essence rating.",
+    "mechanics": "Most Alchemical-owned artifacts are built from the same Magical Material as the Exalt's own Caste, though this is not a hard requirement. Because the total combined Artifact rating purchased per Background dot is tripled relative to core Exalted, and because character creation alone permits reaching ••••• (at extra cost for the last two dots), Alchemicals field noticeably more equipment than other Exalted of comparable Background investment. Separately, Artifact dots may buy additional Charms as artifacts (rated up to the character's minimum qualifying Essence, and only for Charms whose Trait prerequisites the character actually meets); these Charms are kept on retainer at the Vats and do not count against or increase the number of Charms installed in Slots.",
+    "compatibility": "All Alchemical castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 65,
+      "pdfPage": 66
+    },
+    "crossReferences": ["vats-background"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Expanded Backgrounds' -> 'Artifact' section, p. 65 (PDF 66)."
+  },
+  {
+    "id": "backing-background-altered",
+    "name": "Backing (altered for Alchemicals/Autochthonians)",
+    "disposition": "calculated",
+    "summary": "Because Autochthonia has no independent power blocs, Backing represents rank inside a specific named branch of the Tripartite - the Olgotary's plutarchs, regulators or adjudicators; the Theomachracy's lectors, preceptors or clerics; or one of the Five Sodalities (Luminors, Conductors, Harvesters, Scholars, Surgeons) - and requires Class •••+ as a prerequisite; a rare, dangerous alternative exists in Backing held within an exile colony (no Class requirement) or an outlawed Voidbringer/black-market circle.",
+    "mechanics": "Characters who are autocrats, celebrants or councilors must hold Backing ••••• in the matching branch of the Olgotary, the Theomachracy, or a Sodality respectively. Backing purchased for standing in a specific Reaches exile colony is understandably limited in scope since it lacks a Class rating behind it. A small number of demented cultists and criminals hold Backing in a Voidbringer sect or the black market instead, at the risk of execution if the authorities ever discover the membership.",
+    "compatibility": "All Alchemical castes and Autochthonian mortals with Class •••+ for legitimate Tripartite Backing; exile-colony and illicit Backing bypass the Class prerequisite entirely.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 65,
+      "pdfPage": 66
+    },
+    "crossReferences": ["class-background"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Expanded Backgrounds' -> 'Backing' section, pp. 65-66 (PDF 66-67)."
+  },
+  {
+    "id": "familiar-background-altered",
+    "name": "Familiar (altered for Alchemicals: requisitioned constructs)",
+    "disposition": "calculated",
+    "summary": "Autochthonia has almost no biological fauna, so Alchemicals do not keep familiars the way other Exalted do; instead the Background sets the maximum power of a spirit-built construct servitor the character may telepathically requisition from the Autochthonian gods on demand, one at a time, with a replacement automatically dispatched if the current one is lost or dismissed.",
+    "mechanics": "A character's rating caps the power of any single familiar summoned, not the properties of one fixed creature; only one familiar may be kept at a time, but losing or dismissing it lets the character immediately requisition another. A familiar still functions in Creation (but not the Wyld, Underworld, or Malfeas) and always knows the exact direction back to its master. Dot table: no dots (x) - human retainers only, or none at all. 1 dot - a small, mostly harmless servitor with Intelligence • and one marginally useful function, able to share one sense within (Essence x 10) yards, obeying verbal commands exactly (even suicidal ones); arrives within an hour inside Autochthonia. 2 dots - larger and either moderately dangerous (guard-dog-analogous) or smarter (Intelligence ••); arrives within three hours. 3 dots - up to the character's own size or as small as a spy-drone insect, usually Intelligence •• (or ••• at a cost to other prowess), combat models rivaling great cats/dire wolves, peaceful models with up to three distinct useful capabilities (one may allow telepathic messaging in shared-sense range), the largest usable as a steed; arrives within a day. 4 dots - up to twice the character's size, Intelligence •• if built for combat (armored, weaponized), or highly mobile/fast if built for transport (wall-climbing, flight), or a master craftsperson with auxiliary skills if built for peaceful tasks; can communicate telepathically and usually speaks passable Autochthonic; arrives within a week (custom-built). 5 dots - an Essence 3 mechanical god in its own right with an appropriate Charm suite, potentially multiple forms up to yeddim-scale, typically materializes with the Dematerialize Charm, superhuman combat skill or multi-mode transit/portal-opening for steeds, or Intelligence ••• seneschal-grade competence for support roles, with telepathy/shared senses out to a mile; takes up to a month to arrive.",
+    "compatibility": "All Alchemical castes; mortals may not purchase this Background.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 66,
+      "pdfPage": 67
+    },
+    "crossReferences": [],
+    "notes": "Chapter Two: Character Creation and Traits, 'Expanded Backgrounds' -> 'Familiar' section, pp. 66-68 (PDF 67-69); dot table visually cross-checked against rendered page images."
+  },
+  {
+    "id": "manse-background-altered",
+    "name": "Manse (restricted for Alchemicals: Autochthonia has none)",
+    "disposition": "calculated",
+    "summary": "Autochthonia contains no actual Manses, so the Manse Background is entirely off-limits to Alchemical characters in any story set while the Seal of Eight Divinities remains unbroken; once the Locust Crusade begins and Alchemicals reach Creation, they discover geomancy as a power source and purchase/use Manse exactly like a Solar Exalt.",
+    "mechanics": "Prior to contact with Creation, this Background simply cannot be purchased or used by Alchemical characters - there is nothing in Autochthonia for it to represent. After Alchemicals begin operating in Creation (post-Locust-Crusade era, or any story that puts them there), the Background reverts to functioning identically to the standard core-Exalted Manse Background.",
+    "compatibility": "All Alchemical castes, but only in stories set after contact with Creation; unavailable entirely for stories confined to Autochthonia before the Seal breaks.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 68,
+      "pdfPage": 69
+    },
+    "crossReferences": [],
+    "notes": "Chapter Two: Character Creation and Traits, 'Expanded Backgrounds' -> 'Manse' section, p. 68 (PDF 69)."
+  },
+  {
+    "id": "vats-background",
+    "name": "Vats (new Background)",
+    "disposition": "selectable",
+    "summary": "Vats tracks an Alchemical's standing access to her home city's Vat Complex: how many spare Charms she keeps on retainer beyond her installed Slots, and how quickly the Complex will schedule a refit for her, functioning simultaneously as a status reward and a practical necessity for characters whose duties change frequently; a Vat can also be used to accelerate healing and Essence recovery.",
+    "mechanics": "Dot table: no dots (x) - no special access; must submit formal refit requests at least a month ahead for minor work (Charms, Attributes) or six months for Essence increases. 1 dot - one extra Charm on retainer; two weeks' notice for minor refits, two months for major upgrades. 2 dots - two extra Charms; a full week's notice for minor refits, a month for major upgrades. 3 dots - three extra Charms; two days' to two weeks' notice depending on complexity. 4 dots - four extra Charms; one day's to one week's notice depending on severity. 5 dots - five extra Charms; refit requests receive immediate priority with no advance notice required, barring the Vats already being at full capacity. Separately, an Alchemical may plug into a Vat to accelerate recovery: for every hour spent, she regains (Essence x 5) motes and multiplies her healing rate by her permanent Essence while she slumbers; she will not wake on her own until fully recovered, and forcibly waking her early costs 1 point of Willpower plus 1 unsoakable level of bashing damage from spiritual shock. She may request as much recovery slumber time as needed, provided she gives (5 minus her Vats rating) hours' notice.",
+    "cost": "Background dots (0-5), as with any Background.",
+    "compatibility": "All Alchemical castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 68,
+      "pdfPage": 69
+    },
+    "crossReferences": ["artifact-background-altered", "building-vats-in-creation", "alchemical-refitting-essence-and-evolution"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Expanded Backgrounds' -> 'Vats' section, pp. 68-69 (PDF 69-70); dot table visually cross-checked against a rendered page image."
+  },
+  {
+    "id": "building-vats-in-creation",
+    "name": "Building a Vat Complex in Creation (sidebar)",
+    "disposition": "calculated",
+    "summary": "Alchemicals operating away from Autochthonia lack access to a real Vat Complex, so the book provides rules for improvising one out of a converted Manse: an expensive, slow, and permanently Hearthstone-destroying substitute that keeps Alchemicals refit-capable while abroad but is strictly a maintenance tool, never a means of creating new Alchemical Exalted.",
+    "mechanics": "Building a synthetic Vat Complex requires a level-4+ Manse and exotic ingredients costing Resources •••••; the technician directing the month-long construction must have ••••• in both Lore and Occult and •••• in Craft (Architecture). Converting a Manse this way permanently destroys any Hearthstone it produces (and crumbles any existing Hearthstone to dust); the site no longer generates ambient Essence to respire. Every use of a synthetic Vat to upgrade an Alchemical costs ongoing Resources: •••• for Essence 3-5, ••••• for Essence 6+, and ••• for all other upgrade uses except accelerated healing/Essence recovery, and all repairs/upgrades performed there take twice as long as they would in Autochthonia. Access to a synthetic Vat costs the same Background dots as access to a real one inside Autochthonia, provided the structure exists yet. It is never possible to build wholly new Alchemical Exalted at a Vat built outside Autochthonia - only Autochthon's own return to Creation could change that.",
+    "compatibility": "All Alchemical castes operating in Creation, contingent on someone actually funding and building the synthetic Complex first.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 69,
+      "pdfPage": 70
+    },
+    "crossReferences": ["vats-background"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Building Vats' sidebar, p. 69 (PDF 70); visually cross-checked against a rendered page image."
+  },
+  {
+    "id": "followers-influence-resources-subsumed",
+    "name": "Followers, Influence, and Resources (subsumed into Class)",
+    "disposition": "excluded",
+    "summary": "A clarifying note that these three standard Backgrounds do not exist independently for ordinary Autochthonians - they are folded entirely into Class - with a single carve-out for Exile characters living in the Reaches' colonies, who fall outside the Class system and may purchase Followers or Resources under the normal core-Exalted rules; Influence has no application inside Autochthonia at all, for anyone.",
+    "mechanics": "For any character subject to the Class Background (i.e., essentially everyone inside civilized Autochthonia), Followers, Influence and Resources are not separately purchasable; their effects are represented by the character's Class rating instead. Exiles in the Reaches, who exist entirely outside the Class system, may buy Followers or Resources exactly as Solar Exalted would. Influence is simply unused within Autochthonia under any circumstances.",
+    "compatibility": "Civilized Autochthonians (including Alchemicals): excluded from these three Backgrounds in favor of Class. Reaches exile characters: may use Followers/Resources normally.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 68,
+      "pdfPage": 69
+    },
+    "crossReferences": ["class-background"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Expanded Backgrounds' -> 'Followers, Influence and Resources' section, p. 68 (PDF 69). Classified excluded rather than reference-only because it actively forecloses three standard Background options for the ordinary chargen path, matching the rationale used for Abyssal's cult-and-the-abyssals row."
+  },
+  {
+    "id": "alchemical-bonus-points-and-experience-costs",
+    "name": "Alchemical Bonus Points and Experience Costs",
+    "disposition": "calculated",
+    "summary": "Alchemical character creation and post-creation advancement use their own bonus-point and experience-cost tables, distinct from core Exalted, because Alchemicals raise Attributes/Essence/Charms exclusively through Vat refits and because Charm Slots (General vs. Dedicated) and Martial Arts Charms carry their own bought-and-installed costs on top of ordinary trait purchases.",
+    "mechanics": "Bonus point costs (15 points available at creation): Attribute 4 (3 for a Caste or Favored Attribute); Ability 2; Background 1 (2 if raised above •••); Specialty 1; Virtue 3; Willpower 2; Essence 10; Charm Slot 6 for General or 5 for Dedicated (each purchase includes one free qualifying Charm); Martial Arts Charm 6 (requires the Perfected Lotus Matrix Charm already installed). Experience costs (post-creation): Caste or Favored Attribute increase = (current rating x 4) - 1; new General Charm Slot = 12 (includes one free Charm the character qualifies for); new Dedicated Charm Slot = 10 (includes one free Charm for a Caste/Favored Attribute the character qualifies for); new Martial Arts Charm = 11 (requires the Perfected Lotus Matrix Charm); new Man Machine Weaving Protocol = 12; new God Machine Weaving Protocol = 14; upgrading a Charm Slot from Dedicated to General = 2; a new Charm placed on retainer at the Vats (without a Slot to house it) = 6; Essence increase = (current rating x 9).",
+    "compatibility": "All Alchemical castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 64,
+      "pdfPage": 65
+    },
+    "crossReferences": ["alchemical-character-creation-overview", "vats-background"],
+    "notes": "Chapter Two: Character Creation and Traits, 'Bonus Points' and 'Experience Costs' tables, p. 64 (PDF 65). Man Machine Weaving Protocol / God Machine Weaving Protocol / Martial Arts Charm and Perfected Lotus Matrix are Chapter Three Charm-system terms referenced here only because they appear directly in this cost table; the Charms themselves are out of scope for this inventory pass."
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "systemId": "exalted1e",
+  "moduleId": "alchemical",
+  "catalogVersion": "0.1.0",
+  "generatedFor": "Arcane Record",
+  "scope": {
+    "totalRows": 25,
+    "castes": 5,
+    "newBackgrounds": 2,
+    "alteredBackgrounds": 4,
+    "coreMechanics": 12,
+    "excludedNotes": 1,
+    "gmOnlyNotes": 1,
+    "notes": "Inventory in progress (25 rows). Covers Exalted: The Autochthonians' Chapter Two character-creation overview (Attributes/Abilities/Advantages/Virtues/Finishing Touches, plus the bonus-point and experience-cost tables), the universal Alchemical Anima Effect (the five-tier 1-3/4-7/8-10/11-15/16+ Anima Banner table and the Attribute-boost anima power available to every caste), the Alchemical Physiology section (Artificial Metabolism/feeding, Life and Death/dissolution, and Refitting/Essence Advancement/city-metamorphosis), all five Castes (Orichalcum, Moonsilver, Jade, Starmetal, Soulsteel) with their Caste Attributes/Anima Effects/Associations/Sobriquets/Concepts, the apocryphal sixth 'Adamant' Caste sidebar, the full Clarity Trait (the Limit analog: gaining, losing, the 0-10 effects table, and Storytelling guidance) plus its corrupted mirror Dissonance/Gremlin Syndrome, and the new/altered Backgrounds (Class, Vats, Artifact, Backing, Familiar, Manse) including the Building Vats in Creation sidebar and the Followers/Influence/Resources exclusion note. Charm trees (Chapter Three) and the Locust War/Great Source/Engines of Extinction adventure chapters are not yet inventoried."
+  },
+  "sources": [
+    {
+      "bookId": "exalted-the-autochthonians",
+      "bookLabel": "Exalted: The Autochthonians",
+      "role": "Primary Alchemical rules, Charms, Backgrounds, and Autochthonia setting material"
+    }
+  ],
+  "rulesNotes": [
+    "This PDF has a real, clean, selectable text layer (it is not image-based). Text was extracted directly with PyMuPDF (fitz) and cross-checked against the on-page header, which prints the same page number as the 0-indexed PyMuPDF page across every chapter sampled (idx 2 through idx 300): printed page number = 0-indexed PDF page = (1-indexed physical PDF page) - 1. Equivalently, pdfPage (1-indexed, as recorded on every citation below) = printedPage + 1, with no additional front-matter shift anywhere in the book.",
+    "Because the text layer is clean, extracted text counts as having been read for every row below. In addition, the tables and several Caste pages that are most vulnerable to multi-column extraction order problems (the Class dot table, the Familiar dot table, the Vats dot table, the Building Vats sidebar, the Clarity effects table, the Alchemical Anima Banners table, and the Orichalcum/Starmetal/Soulsteel Caste pages) were also rendered to page images and visually compared against the extracted text; the extraction matched the rendered pages exactly everywhere it was spot-checked.",
+    "The family in this repository's data model is named `alchemical`, but the source book's real title is 'Exalted: The Autochthonians' (not 'The Alchemicals'). bookId/bookLabel use the real title, matching the correction already applied once before in this project.",
+    "Alchemicals do not have a Limit Trait. The book's own name for the signature trait mechanic is Clarity (a corrupted, actively malicious mirror version exists too, called Dissonance, gained only via the Gremlin Syndrome Flaw). See the clarity-* and gremlin-syndrome-dissonance rows.",
+    "The book still calls Alchemical Exalted's innate magic 'Charms' (it does not rename them), but every Charm is a surgically implanted artifact occupying a General or Dedicated Charm Slot rather than being learned outright the way other Exalted's Charms are. The full Charm list and Slot mechanics (Chapter Three, pp. 86-141/PDF 87-142) are out of scope for this pass; Charm Slot counts/costs are only referenced here where the character-creation overview, the Backgrounds, and the Refitting mechanics unavoidably mention them."
+  ]
+}

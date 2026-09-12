@@ -1,7 +1,7 @@
 {
   "family": "sidereal",
   "catalog": {
-    "totalInventoryRows": 0,
+    "totalInventoryRows": 22,
     "promotedEntries": 0,
     "unresolvedEntries": 0,
     "checksum": ""
@@ -11,5 +11,5 @@
   "migrationTests": "not-run",
   "browserTests": "not-run",
   "certifiedAt": null,
-  "notes": "No source material has been supplied yet. Locked pending inventory of Exalted: The Sidereals and dependent sourcebooks under docs/references/exalted1e/sidereal/inventory/."
+  "notes": "Exalted: The Sidereals supplied and intake in progress. 22 rows reviewed and inventoried under docs/references/exalted1e/sidereal/inventory/: the character-creation overview (including the Ronin variant), the five Auspicious-Ability groups and Celestial Hierarchy minimums, the universal Anima Effect, all five Castes, the Arcane Fate signature trait mechanic and its Sidereal Anima Banner visibility/Paradox table, the Craft (Fate) Ability specialty, and the altered/new Backgrounds. Nothing promoted to a production catalog yet, and Chapter Five's Charm trees, the full Colleges/astrology system, and Resplendent Destinies (pp. 215-218) are not yet inventoried. Locked pending the remaining inventory, schema/rules/creator/editor implementation, and passing tests across all five planned families."
 }
