@@ -21,6 +21,7 @@
     "generate:equipment": "node scripts/generate-equipment.mjs",
     "generate:maneuvers": "node scripts/generate-maneuvers.mjs",
     "generate:burning-wheel": "node scripts/generate-burning-wheel-catalog.mjs",
+    "audit:exalted-sources": "node scripts/audit-exalted-sources.mjs",
     "package:burning-wheel-source": "node scripts/package-burning-wheel-source.mjs",
     "test": "vitest run",
     "test:watch": "vitest",

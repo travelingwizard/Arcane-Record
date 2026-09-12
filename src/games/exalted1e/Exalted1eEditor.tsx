@@ -57,6 +57,7 @@ import { getExaltedCharacterProfile } from './profiles';
 import { getExaltedFamilyBackgrounds } from './family-catalogs';
 import { ExaltedCreationPanel } from './ExaltedCreationPanel';
 import { getExaltedFamilyPowers } from './reference/family-powers';
+import { ExaltedFamilyStatePanel } from './ExaltedFamilyStatePanel';
 
 const AUTOSAVE_DELAY_MS = 550;
 
@@ -458,6 +459,10 @@ export function Exalted1eEditor({
                   />
                 </SheetField>
               </SheetFieldGrid>
+              <ExaltedFamilyStatePanel
+                character={draft}
+                onChange={(character) => update(() => character)}
+              />
             </section>
 
             <section

@@ -1,17 +1,62 @@
 import { describe, expect, it } from 'vitest';
 import { createBlankExaltedCharacter } from '../../src/games/exalted1e/create-character';
+import { exalted1eDefinition } from '../../src/games/exalted1e/definition';
 import { exaltedFamilyBackgroundCatalogs } from '../../src/games/exalted1e/family-catalogs';
 import {
   exaltedFamilyCreationRules,
   getExaltedCreationRules,
   getExaltedDerivedValues,
   quoteExaltedAdvancement,
+  validateExaltedCreation,
 } from '../../src/games/exalted1e/family-rules';
 import { exaltedCharacterTypes } from '../../src/games/exalted1e/profiles';
 import {
   alchemicalCharms,
   fairFolkCharms,
 } from '../../src/games/exalted1e/reference/family-powers';
+import {
+  canCreateProductionExaltedCharacter,
+  exaltedFamilyVerification,
+  getExaltedVerificationRequirement,
+} from '../../src/games/exalted1e/verification';
+
+describe('Exalted production verification gate', () => {
+  it('requires every verification dimension before a family can create records', () => {
+    expect(canCreateProductionExaltedCharacter('solar')).toBe(true);
+    expect(canCreateProductionExaltedCharacter('dragon-blooded')).toBe(true);
+
+    for (const family of exaltedCharacterTypes.filter(
+      (type) => type !== 'solar' && type !== 'dragon-blooded',
+    )) {
+      expect(canCreateProductionExaltedCharacter(family)).toBe(false);
+      expect(exaltedFamilyVerification[family].blockers.length).toBeGreaterThan(
+        0,
+      );
+      expect(getExaltedVerificationRequirement(family)).toMatch(
+        /^Source verification required:/,
+      );
+    }
+  });
+
+  it('keeps a passed inventory from bypassing an incomplete creator', () => {
+    expect(exaltedFamilyVerification.alchemical.sourceInventory).toBe('passed');
+    expect(exaltedFamilyVerification.alchemical.guidedCreator).toBe('blocked');
+    expect(canCreateProductionExaltedCharacter('alchemical')).toBe(false);
+  });
+
+  it('binds the creation route to the verification result', () => {
+    const variants = new Map(
+      exalted1eDefinition.variants?.map((variant) => [variant.id, variant]),
+    );
+    expect(variants.get('solar')?.unavailableRequirement).toBeUndefined();
+    expect(variants.get('alchemical')?.unavailableRequirement).toContain(
+      'Source verification required:',
+    );
+    expect(variants.get('lunar')?.unavailableRequirement).toContain(
+      'OCR Charm inventory',
+    );
+  });
+});
 
 describe('Exalted family creation rules', () => {
   it('has a cited, non-empty creation budget for every family', () => {
@@ -110,6 +155,30 @@ describe('Exalted family creation rules', () => {
       quoteExaltedAdvancement('fair-folk', 'ability', 3, false)?.cost,
     ).toBe(9);
     expect(quoteExaltedAdvancement('fair-folk', 'charm', 0)?.cost).toBe(6);
+    expect(quoteExaltedAdvancement('fair-folk', 'essence', 3)?.cost).toBe(24);
+  });
+
+  it('reports verified Charm Essence and prerequisite requirements', () => {
+    const character = createBlankExaltedCharacter('alchemical', 'draft');
+    character.powers.charms = [
+      {
+        id: crypto.randomUUID(),
+        definitionId: 'celerity-enabling-module',
+        unresolvedReference: null,
+        notes: '',
+      },
+    ];
+    const issues = validateExaltedCreation(character);
+    expect(
+      issues.some(
+        ({ ruleId }) => ruleId === 'power-essence:celerity-enabling-module',
+      ),
+    ).toBe(true);
+    expect(
+      issues.some(({ ruleId }) =>
+        ruleId.startsWith('power-prerequisite:celerity-enabling-module:'),
+      ),
+    ).toBe(true);
   });
 });
 

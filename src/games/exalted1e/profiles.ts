@@ -121,7 +121,7 @@ export const exaltedCharacterProfiles = {
       charms: 9,
       bonusPoints: 15,
     },
-    verification: 'verified',
+    verification: 'inventory-required',
   },
   abyssal: {
     id: 'abyssal',
@@ -140,7 +140,7 @@ export const exaltedCharacterProfiles = {
       charms: 10,
       bonusPoints: 15,
     },
-    verification: 'verified',
+    verification: 'inventory-required',
   },
   sidereal: {
     id: 'sidereal',
@@ -160,7 +160,7 @@ export const exaltedCharacterProfiles = {
       charms: 12,
       bonusPoints: 18,
     },
-    verification: 'verified',
+    verification: 'inventory-required',
   },
   alchemical: {
     id: 'alchemical',
@@ -178,7 +178,7 @@ export const exaltedCharacterProfiles = {
       charms: 8,
       bonusPoints: 15,
     },
-    verification: 'verified',
+    verification: 'inventory-required',
   },
   'fair-folk': {
     id: 'fair-folk',
@@ -197,7 +197,7 @@ export const exaltedCharacterProfiles = {
       charms: 8,
       bonusPoints: 15,
     },
-    verification: 'verified',
+    verification: 'inventory-required',
   },
 } as const satisfies Record<ExaltedCharacterType, ExaltedCharacterProfile>;
 

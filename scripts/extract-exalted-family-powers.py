@@ -124,6 +124,7 @@ def extract(args: argparse.Namespace) -> list[dict]:
                     "summary": summary,
                     "description": summary,
                     "cost": metadata.get("cost"),
+                    "installationCost": metadata.get("installationCost"),
                     "duration": metadata.get("duration"),
                     "type": metadata.get("type"),
                     "minimumRequirements": requirements,

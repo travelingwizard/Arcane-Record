@@ -6,6 +6,7 @@ import {
 } from './definitions';
 import type { ExaltedCharacterType, ExaltedSourceId } from './profiles';
 import type { Exalted1eCharacter } from './schema';
+import { getExaltedFamilyPowers } from './reference/family-powers';
 
 export interface ExaltedRuleCitation {
   sourceId: ExaltedSourceId;
@@ -575,6 +576,38 @@ export function validateExaltedCreation(character: Exalted1eCharacter) {
       message: `Choose exactly ${rules.charms} starting Charms or equivalent powers (currently ${character.powers.charms.length}).`,
     });
   }
+  const verifiedPowers = new Map(
+    getExaltedFamilyPowers(character.sheetType).map((power) => [
+      power.id,
+      power,
+    ]),
+  );
+  const selectedPowerIds = new Set(
+    character.powers.charms.map(({ definitionId }) => definitionId),
+  );
+  for (const selected of character.powers.charms) {
+    const definition = verifiedPowers.get(selected.definitionId);
+    if (!definition) continue;
+    if (
+      definition.minimumEssence != null &&
+      character.essence.rating < definition.minimumEssence
+    ) {
+      issues.push({
+        ruleId: `power-essence:${definition.id}`,
+        message: `${definition.name} requires Essence ${definition.minimumEssence}.`,
+      });
+    }
+    const missingPrerequisite = definition.prerequisiteCharms.find(
+      (prerequisiteId) => !selectedPowerIds.has(prerequisiteId),
+    );
+    if (missingPrerequisite) {
+      const prerequisite = verifiedPowers.get(missingPrerequisite);
+      issues.push({
+        ruleId: `power-prerequisite:${definition.id}:${missingPrerequisite}`,
+        message: `${definition.name} requires ${prerequisite?.name ?? missingPrerequisite}.`,
+      });
+    }
+  }
   const approved = new Set(
     character.creation.approvals.map(({ ruleId }) => ruleId),
   );
@@ -701,7 +734,11 @@ export function quoteExaltedAdvancement(
   }
   if (type === 'fair-folk') {
     const costs: Partial<Record<ExaltedAdvancementTarget, number>> = {
+      attribute: currentRating * 4,
       ability: currentRating * (associated ? 2 : 3),
+      virtue: currentRating * 3,
+      willpower: currentRating * 2,
+      essence: currentRating * 8,
       charm: 6,
     };
     const cost = costs[target];

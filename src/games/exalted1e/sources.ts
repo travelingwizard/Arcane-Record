@@ -7,7 +7,7 @@ export interface ExaltedSourceDefinition {
   defaultEnabled: boolean;
   governingCharacterTypes: readonly ExaltedCharacterType[];
   classification: 'core' | 'family' | 'supplement';
-  inventoryStatus: 'existing' | 'in-progress';
+  inventoryStatus: 'complete' | 'in-progress';
   playerFacingRanges: readonly {
     label: string;
     printedStart: number;
@@ -40,7 +40,7 @@ export const exaltedSources: readonly ExaltedSourceDefinition[] = [
     defaultEnabled: true,
     governingCharacterTypes: ['solar'],
     classification: 'core',
-    inventoryStatus: 'existing',
+    inventoryStatus: 'complete',
     playerFacingRanges: [
       { label: 'Character Creation', printedStart: 94, printedEnd: 111 },
       { label: 'Traits', printedStart: 112, printedEnd: 149 },
@@ -52,7 +52,7 @@ export const exaltedSources: readonly ExaltedSourceDefinition[] = [
     'Dragon-Blooded source foundation',
     'dragon-blooded',
     [],
-    'existing',
+    'complete',
   ),
   familySource('lunars', 'The Lunars', 'lunar', [
     { label: 'Character Creation', printedStart: 86, printedEnd: 93 },
@@ -65,19 +65,31 @@ export const exaltedSources: readonly ExaltedSourceDefinition[] = [
     { label: 'Charms', printedStart: 154, printedEnd: 229 },
     { label: 'Arts of the Dead', printedStart: 230, printedEnd: 261 },
   ]),
-  familySource('fair-folk', 'The Fair Folk', 'fair-folk', [
-    { label: 'Character Creation', printedStart: 90, printedEnd: 101 },
-    { label: 'Traits', printedStart: 102, printedEnd: 125 },
-    { label: 'Raksha Magic', printedStart: 126, printedEnd: 221 },
-  ]),
-  familySource('autochthonians', 'The Autochthonians', 'alchemical', [
-    {
-      label: 'Character Creation and Traits',
-      printedStart: 56,
-      printedEnd: 85,
-    },
-    { label: 'Charms', printedStart: 86, printedEnd: 141 },
-  ]),
+  familySource(
+    'fair-folk',
+    'The Fair Folk',
+    'fair-folk',
+    [
+      { label: 'Character Creation', printedStart: 90, printedEnd: 101 },
+      { label: 'Traits', printedStart: 102, printedEnd: 125 },
+      { label: 'Raksha Magic', printedStart: 126, printedEnd: 221 },
+    ],
+    'complete',
+  ),
+  familySource(
+    'autochthonians',
+    'The Autochthonians',
+    'alchemical',
+    [
+      {
+        label: 'Character Creation and Traits',
+        printedStart: 56,
+        printedEnd: 85,
+      },
+      { label: 'Charms', printedStart: 86, printedEnd: 141 },
+    ],
+    'complete',
+  ),
   familySource('sidereals', 'The Sidereals', 'sidereal', [
     { label: 'Character Creation', printedStart: 94, printedEnd: 101 },
     { label: 'Traits', printedStart: 102, printedEnd: 125 },
