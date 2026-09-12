@@ -1,0 +1,5584 @@
+[
+  {
+    "id": "ox-body-technique",
+    "name": "Ox-Body-Technique",
+    "kind": "charm",
+    "summary": "Sidereal Charm; Essence 1.",
+    "description": "Sidereal Charm; Essence 1.",
+    "cost": "5 motes",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 131",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 131,
+      "pdfPage": 135
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Sidereal",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "unswerving-juggernaut-principle",
+    "name": "Unswerving Juggernaut Principle",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Endurance 2 and Essence 2.",
+    "description": "Sidereal Charm; requires Endurance 2 and Essence 2.",
+    "cost": "5 motes",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Endurance",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 131",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 131,
+      "pdfPage": 135
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Endurance",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "forward-thinking-technique",
+    "name": "Forward-Thinking Technique",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Endurance 3 and Essence 3.",
+    "description": "Sidereal Charm; requires Endurance 3 and Essence 3.",
+    "cost": "10 motes,1 Willpower",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Endurance",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Unswerving Juggernaut",
+    "sourceDisplay": "Exalted: The Sidereals, p. 132",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 132,
+      "pdfPage": 136
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Endurance",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "optimistic-security-practice",
+    "name": "Optimistic Security Practice",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Endurance 2 and Essence 1.",
+    "description": "Sidereal Charm; requires Endurance 2 and Essence 1.",
+    "cost": "5 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Endurance",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 132",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 132,
+      "pdfPage": 136
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Endurance",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "ordained-bridle-of-mercury",
+    "name": "Ordained Bridle Of Mercury",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Ride 2.",
+    "description": "Sidereal Charm; requires Ride 2.",
+    "cost": "10 motes,1 Willpower,1 experience point",
+    "duration": "Until thecharacterapplies Mercury'sbridle",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ride",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": null,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted: The Sidereals, p. 133",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 133,
+      "pdfPage": 137
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Ride",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "spirit-shape-companion",
+    "name": "Spirit-Shape Companion",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Ride 3 and Essence 3.",
+    "description": "Sidereal Charm; requires Ride 3 and Essence 3.",
+    "cost": "10 motes,1 Willpower,1 experiencepoint",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ride",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["ordained-bridle-of-mercury"],
+    "prerequisiteText": "Ordained Bridleof Mercury",
+    "sourceDisplay": "Exalted: The Sidereals, p. 134",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 134,
+      "pdfPage": 138
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Ride",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "godly-companion",
+    "name": "Godly Companion",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Ride 4 and Essence 4.",
+    "description": "Sidereal Charm; requires Ride 4 and Essence 4.",
+    "cost": "20 motes,1 Willpower,5 experience points",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ride",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["spirit-shape-companion"],
+    "prerequisiteText": "Spirit-Shape Companion",
+    "sourceDisplay": "Exalted: The Sidereals, p. 134",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 134,
+      "pdfPage": 138
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Ride",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "breaking-the-wild-mortal",
+    "name": "Breaking The Wild Mortal",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Ride 2 and Essence 2.",
+    "description": "Sidereal Charm; requires Ride 2 and Essence 2.",
+    "cost": "10 motes,1 Willpower,1 experience point",
+    "duration": "Until the character applies Mercury's bit",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ride",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["ordained-bridle-of-mercury"],
+    "prerequisiteText": "Ordained Bridle of Mercury",
+    "sourceDisplay": "Exalted: The Sidereals, p. 135",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 135,
+      "pdfPage": 139
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Ride",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "yellow-path",
+    "name": "Yellow Path",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Ride 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Ride 3 and Essence 2.",
+    "cost": "2 motes",
+    "duration": "One journey",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ride",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 135",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 135,
+      "pdfPage": 139
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Ride",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "glory-path",
+    "name": "Glory Path",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Ride 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Ride 3 and Essence 2.",
+    "cost": "8 motes",
+    "duration": "Five minutes",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ride",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["yellow-path"],
+    "prerequisiteText": "Yellow Path",
+    "sourceDisplay": "Exalted: The Sidereals, p. 135",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 135,
+      "pdfPage": 139
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Ride",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "riding-the-dragon",
+    "name": "Riding The Dragon",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Ride 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Ride 5 and Essence 4.",
+    "cost": "20 motes,1 Willpower,1 healthlevel",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ride",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["godly-companion"],
+    "prerequisiteText": "Godly Companion,Break-",
+    "sourceDisplay": "Exalted: The Sidereals, p. 135",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 135,
+      "pdfPage": 139
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Ride",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "stone-skipping-spirit",
+    "name": "Stone Skipping Spirit",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Sail 2 and Essence 1.",
+    "description": "Sidereal Charm; requires Sail 2 and Essence 1.",
+    "cost": "2 motes +2 motespertarget numberreduction",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Sail",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 136",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 136,
+      "pdfPage": 140
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Sail",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "mirror-shattering-method",
+    "name": "Mirror-Shattering Method",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Sail 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Sail 3 and Essence 2.",
+    "cost": "5 motes",
+    "duration": "Five days",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Sail",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["stone-skipping-spirit"],
+    "prerequisiteText": "Stone Skipping Spirit",
+    "sourceDisplay": "Exalted: The Sidereals, p. 137",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 137,
+      "pdfPage": 141
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Sail",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "five-ordeals-odyssey",
+    "name": "Five Ordeals Odyssey",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Sail 4 and Essence 4.",
+    "description": "Sidereal Charm; requires Sail 4 and Essence 4.",
+    "cost": "10 motes,1 Willpower,1 health level",
+    "duration": "Onehazard",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Sail",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Saltinto Ash Sleight,Mirror",
+    "sourceDisplay": "Exalted: The Sidereals, p. 138",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 138,
+      "pdfPage": 142
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Sail",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "becoming-the-wilderness",
+    "name": "Becoming The Wilderness",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Survival 2 and Essence 2.",
+    "description": "Sidereal Charm; requires Survival 2 and Essence 2.",
+    "cost": "1 mote per targetnumberreduction",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Survival",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 139",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 139,
+      "pdfPage": 143
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Survival",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "adopting-the-untamed-face",
+    "name": "Adopting The Untamed Face",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Survival 2 and Essence 2.",
+    "description": "Sidereal Charm; requires Survival 2 and Essence 2.",
+    "cost": "5 motes,2 Willpower",
+    "duration": "Five days",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Survival",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["becoming-the-wilderness"],
+    "prerequisiteText": "Becoming the Wilderness",
+    "sourceDisplay": "Exalted: The Sidereals, p. 139",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 139,
+      "pdfPage": 143
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Survival",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "dreaming-the-wild-lands",
+    "name": "Dreaming The Wild Lands",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Survival 4 and Essence 3.",
+    "description": "Sidereal Charm; requires Survival 4 and Essence 3.",
+    "cost": "5 motes,2 Willpower",
+    "duration": "Five days",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Survival",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["adopting-the-untamed-face"],
+    "prerequisiteText": "Adoptingthe Untamed Face",
+    "sourceDisplay": "Exalted: The Sidereals, p. 139",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 139,
+      "pdfPage": 143
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Survival",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "sky-and-ra-in-mantra",
+    "name": "Sky And Ra In Mantra",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Survival 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Survival 3 and Essence 2.",
+    "cost": "10 motes",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Survival",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 139",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 139,
+      "pdfPage": 143
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Survival",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "sky-spirit-demand",
+    "name": "Sky Spirit Demand",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Survival 4 and Essence 2.",
+    "description": "Sidereal Charm; requires Survival 4 and Essence 2.",
+    "cost": "5 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Survival",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["sky-and-ra-in-mantra"],
+    "prerequisiteText": "Sky and Rain Mantra",
+    "sourceDisplay": "Exalted: The Sidereals, p. 139",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 139,
+      "pdfPage": 143
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Survival",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "wilderness-commanding-practice",
+    "name": "Wilderness-Commanding Practice",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Survival 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Survival 5 and Essence 4.",
+    "cost": "10 motes, 1 Willpower",
+    "duration": "Five days",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Survival",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["dreaming-the-wild-lands"],
+    "prerequisiteText": "Dreaming the Wild Lands,",
+    "sourceDisplay": "Exalted: The Sidereals, p. 139",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 139,
+      "pdfPage": 143
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Survival",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "willful-weapon-method",
+    "name": "Willful Weapon Method",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Thrown 2 and Essence 1.",
+    "description": "Sidereal Charm; requires Thrown 2 and Essence 1.",
+    "cost": "4 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Thrown",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 140",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 140,
+      "pdfPage": 144
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Thrown",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "life-gets-worse-approach",
+    "name": "Life Gets Worse Approach",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Thrown 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Thrown 3 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Thrown",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 141",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 141,
+      "pdfPage": 145
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Thrown",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "essence-thorn-practice",
+    "name": "Essence Thorn Practice",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Thrown 4 and Essence 3.",
+    "description": "Sidereal Charm; requires Thrown 4 and Essence 3.",
+    "cost": "5 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Thrown",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["life-gets-worse-approach"],
+    "prerequisiteText": "Life Gets Worse Approach",
+    "sourceDisplay": "Exalted: The Sidereals, p. 141",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 141,
+      "pdfPage": 145
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Thrown",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "pa-in-amplification-stratagem",
+    "name": "Pa In Amplification Stratagem",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Thrown 2 and Essence 1.",
+    "description": "Sidereal Charm; requires Thrown 2 and Essence 1.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Thrown",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 141",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 141,
+      "pdfPage": 145
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Thrown",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "unrelenting-torment-technique",
+    "name": "Unrelenting Torment Technique",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Thrown 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Thrown 5 and Essence 4.",
+    "cost": "10 motes,1 Willpower,1 healthlevel",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Thrown",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["willful-weapon-method"],
+    "prerequisiteText": "Willful Weapon Method,",
+    "sourceDisplay": "Exalted: The Sidereals, p. 141",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 141,
+      "pdfPage": 145
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Thrown",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "elegant-patterns-of-fate",
+    "name": "Elegant Patterns Of Fate",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Craft 2 and Essence 2.",
+    "description": "Sidereal Charm; requires Craft 2 and Essence 2.",
+    "cost": "2 motesper die",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Craft",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 142",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 142,
+      "pdfPage": 146
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Craft",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "excellent-implementation-of-objectives",
+    "name": "Excellent Implementation Of Objectives",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Craft 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Craft 3 and Essence 2.",
+    "cost": "None",
+    "duration": "Permanent",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Craft",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["elegant-patterns-of-fate"],
+    "prerequisiteText": "Elegant Patterns of Fate",
+    "sourceDisplay": "Exalted: The Sidereals, p. 143",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 143,
+      "pdfPage": 147
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Craft",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "world-shaping-artistic-vision",
+    "name": "World-Shaping Artistic Vision",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Craft 2 and Essence 2.",
+    "description": "Sidereal Charm; requires Craft 2 and Essence 2.",
+    "cost": "None",
+    "duration": "Permanent",
+    "type": "Special",
+    "minimumRequirements": [
+      {
+        "trait": "Craft",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 143",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 143,
+      "pdfPage": 147
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Craft",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "destiny-knitting-entanglement",
+    "name": "Destiny-Knitting Entanglement",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Craft 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Craft 3 and Essence 2.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Craft",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["world-shaping-artistic-vision"],
+    "prerequisiteText": "World-Shaping Artistic Vision",
+    "sourceDisplay": "Exalted: The Sidereals, p. 143",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 143,
+      "pdfPage": 147
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Craft",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "elemental-vision",
+    "name": "Elemental Vision",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Craft 2 and Essence 2.",
+    "description": "Sidereal Charm; requires Craft 2 and Essence 2.",
+    "cost": "None",
+    "duration": "Permanent",
+    "type": "Special",
+    "minimumRequirements": [
+      {
+        "trait": "Craft",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 143",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 143,
+      "pdfPage": 147
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Craft",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "mending-warped-designs",
+    "name": "Mending Warped Designs",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Craft 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Craft 3 and Essence 2.",
+    "cost": "5 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Craft",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 144",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 144,
+      "pdfPage": 148
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Craft",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "jmplicitconstructionmethodology",
+    "name": "Jmplicitconstructionmethodology",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Craft 4 and Essence 4.",
+    "description": "Sidereal Charm; requires Craft 4 and Essence 4.",
+    "cost": "20 motes,1 Willpower,1 health level",
+    "duration": "Varies",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Craft",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Excellent Implementation",
+    "sourceDisplay": "Exalted: The Sidereals, p. 144",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 144,
+      "pdfPage": 148
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Craft",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "avoidance-kata",
+    "name": "Avoidance Kata",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Dodge 3 and Essence 3.",
+    "description": "Sidereal Charm; requires Dodge 3 and Essence 3.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dodge",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Duck Fate",
+    "sourceDisplay": "Exalted: The Sidereals, p. 145",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 145,
+      "pdfPage": 149
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dodge",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "trouble-reduction-strategy",
+    "name": "Trouble Reduction Strategy",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Dodge 4 and Essence 2.",
+    "description": "Sidereal Charm; requires Dodge 4 and Essence 2.",
+    "cost": "5 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Dodge",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Duck Fate",
+    "sourceDisplay": "Exalted: The Sidereals, p. 145",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 145,
+      "pdfPage": 149
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dodge",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "neighborhood-relocation-scheme",
+    "name": "Neighborhood Relocation Scheme",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Dodge 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Dodge 5 and Essence 4.",
+    "cost": "15 motes,1 Willpower,1 health level",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Dodge",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["avoidance-kata"],
+    "prerequisiteText": "Avoidance Kata,Trouble",
+    "sourceDisplay": "Exalted: The Sidereals, p. 146",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 146,
+      "pdfPage": 150
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dodge",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "favorable-inflection-procedure",
+    "name": "Favorable Inflection Procedure",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Linguistics 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Linguistics 3 and Essence 2.",
+    "cost": "5 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Linguistics",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 147",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 147,
+      "pdfPage": 151
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Linguistics",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "blue-verva-in-binding",
+    "name": "Blue Verva In Binding",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Linguistics 3 and Essence 1.",
+    "description": "Sidereal Charm; requires Linguistics 3 and Essence 1.",
+    "cost": "5 motes,1 experiencepoint",
+    "duration": "Oneminute",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Linguistics",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 147",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 147,
+      "pdfPage": 151
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Linguistics",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "jceandfirebinding",
+    "name": "Jceandfirebinding",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Linguistics 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Linguistics 3 and Essence 2.",
+    "cost": "10 motes",
+    "duration": "One hour",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Linguistics",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 147",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 147,
+      "pdfPage": 151
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Linguistics",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "lovers-oath",
+    "name": "Lover's Oath",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Linguistics 4 and Essence 3.",
+    "description": "Sidereal Charm; requires Linguistics 4 and Essence 3.",
+    "cost": "20 motes,1 Willpower,1 health level",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Linguistics",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Favorable Inflection Proce-",
+    "sourceDisplay": "Exalted: The Sidereals, p. 148",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 148,
+      "pdfPage": 152
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Linguistics",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "compassionate-essence-replenishment",
+    "name": "Compassionate Essence Replenishment",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Performance 1 and Essence 2.",
+    "description": "Sidereal Charm; requires Performance 1 and Essence 2.",
+    "cost": "None",
+    "duration": "Permanent",
+    "type": "Special",
+    "minimumRequirements": [
+      {
+        "trait": "Performance",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 148",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 148,
+      "pdfPage": 152
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Performance",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "defense-of-shining-joy",
+    "name": "Defense Of Shining Joy",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Performance 4 and Essence 3.",
+    "description": "Sidereal Charm; requires Performance 4 and Essence 3.",
+    "cost": "5 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Performance",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Perfectionin Life",
+    "sourceDisplay": "Exalted: The Sidereals, p. 149",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 149,
+      "pdfPage": 153
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Performance",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "song-of-spirit-persuasion",
+    "name": "Song Of Spirit Persuasion",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Performance 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Performance 3 and Essence 2.",
+    "cost": "5 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Performance",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Perfection in Life",
+    "sourceDisplay": "Exalted: The Sidereals, p. 149",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 149,
+      "pdfPage": 153
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Performance",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "faultless-ceremony",
+    "name": "Faultless Ceremony",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Performance 3 and Essence 1.",
+    "description": "Sidereal Charm; requires Performance 3 and Essence 1.",
+    "cost": "1 mote +1 moteper target number reduction",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Performance",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 149",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 149,
+      "pdfPage": 153
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Performance",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "heart-brightening-presentation-style",
+    "name": "Heart-Brightening Presentation Style",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Performance 2 and Essence 2.",
+    "description": "Sidereal Charm; requires Performance 2 and Essence 2.",
+    "cost": "2 motes per die",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Performance",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 150",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 150,
+      "pdfPage": 154
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Performance",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "harmonic-completion",
+    "name": "Harmonic Completion",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Performance 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Performance 5 and Essence 4.",
+    "cost": "16 motes,1 Willpower,1 health level",
+    "duration": "Five days",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Performance",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["defense-of-shining-joy"],
+    "prerequisiteText": "Defense of Shining Joy,Song",
+    "sourceDisplay": "Exalted: The Sidereals, p. 150",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 150,
+      "pdfPage": 154
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Performance",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "cash-and-murder-games",
+    "name": "Cash And Murder Games",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Socialize 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Socialize 3 and Essence 2.",
+    "cost": "10 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Socialize",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Shun the Smiling Lady",
+    "sourceDisplay": "Exalted: The Sidereals, p. 151",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 151,
+      "pdfPage": 155
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Socialize",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "life-without-compunction",
+    "name": "Life Without Compunction",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Socialize 4 and Essence 2.",
+    "description": "Sidereal Charm; requires Socialize 4 and Essence 2.",
+    "cost": "5 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Socialize",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["cash-and-murder-games"],
+    "prerequisiteText": "Cash and Murder Games",
+    "sourceDisplay": "Exalted: The Sidereals, p. 151",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 151,
+      "pdfPage": 155
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Socialize",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "you-and-yours-stance",
+    "name": "You And Yours Stance",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Socialize 3 and Essence 3.",
+    "description": "Sidereal Charm; requires Socialize 3 and Essence 3.",
+    "cost": "10 motes,1 Willpower",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Socialize",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Shun the Smiling Lady",
+    "sourceDisplay": "Exalted: The Sidereals, p. 151",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 151,
+      "pdfPage": 155
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Socialize",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "thequiver-archery",
+    "name": "Thequiver:Archery",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Socialize 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Socialize 3 and Essence 2.",
+    "cost": "1 moteper targetnumber reduction",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Socialize",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 152",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 152,
+      "pdfPage": 156
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Socialize",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "generalized-ammunition-technique",
+    "name": "Generalized Ammunition Technique",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Socialize 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Socialize 5 and Essence 4.",
+    "cost": "10 motes,1 Willpower,1 healthlevel",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Socialize",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["life-without-compunction"],
+    "prerequisiteText": "Life Without Compunction,",
+    "sourceDisplay": "Exalted: The Sidereals, p. 152",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 152,
+      "pdfPage": 156
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Socialize",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "every-direction-arrow",
+    "name": "Every Direction Arrow",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Archery 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Archery 3 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Archery",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Any Direction Arrow",
+    "sourceDisplay": "Exalted: The Sidereals, p. 153",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 153,
+      "pdfPage": 157
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Archery",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "opportune-shot",
+    "name": "Opportune Shot",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Archery 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Archery 3 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Archery",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 153",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 153,
+      "pdfPage": 157
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Archery",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "five-seasons-approach",
+    "name": "Five Seasons Approach",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Archery 4 and Essence 3.",
+    "description": "Sidereal Charm; requires Archery 4 and Essence 3.",
+    "cost": "2 motes per targetnumberreduction",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Archery",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["every-direction-arrow"],
+    "prerequisiteText": "Every Direction Arrow,",
+    "sourceDisplay": "Exalted: The Sidereals, p. 153",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 153,
+      "pdfPage": 157
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Archery",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "many-missiles-bow-technique",
+    "name": "Many Missiles Bow Technique",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Archery 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Archery 5 and Essence 4.",
+    "cost": "10 motes,1 Willpower,1 healthlevel",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Archery",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Generalized Ammunition",
+    "sourceDisplay": "Exalted: The Sidereals, p. 153",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 153,
+      "pdfPage": 157
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Archery",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "unobstructed-blow",
+    "name": "Unobstructed Blow",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Brawl 4 and Essence 2.",
+    "description": "Sidereal Charm; requires Brawl 4 and Essence 2.",
+    "cost": "3 motes +1 mote per die",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Brawl",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 154",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 154,
+      "pdfPage": 158
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Brawl",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "easily-accepted-proposition-stance",
+    "name": "Easily Accepted Proposition Stance",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Brawl 5 and Essence 3.",
+    "description": "Sidereal Charm; requires Brawl 5 and Essence 3.",
+    "cost": "12 motes,1 Willpower,1 healthlevel",
+    "duration": "One battle",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Brawl",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["unobstructed-blow"],
+    "prerequisiteText": "Unobstructed Blow,Toler-",
+    "sourceDisplay": "Exalted: The Sidereals, p. 155",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 155,
+      "pdfPage": 159
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Brawl",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "harmony-of-blows",
+    "name": "Harmony Of Blows",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Melee 2 and Essence 2.",
+    "description": "Sidereal Charm; requires Melee 2 and Essence 2.",
+    "cost": "8 motes",
+    "duration": "Instant",
+    "type": "Extra Action",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 155",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 155,
+      "pdfPage": 159
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "meditation-on-war",
+    "name": "Meditation On War",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Melee 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Melee 3 and Essence 2.",
+    "cost": "1 moteper die+1 moteper dice pool",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["harmony-of-blows"],
+    "prerequisiteText": "Harmony of Blows",
+    "sourceDisplay": "Exalted: The Sidereals, p. 156",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 156,
+      "pdfPage": 160
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "orchestration-of-conflict",
+    "name": "Orchestration Of Conflict",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Melee 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Melee 3 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["harmony-of-blows"],
+    "prerequisiteText": "Harmony of Blows",
+    "sourceDisplay": "Exalted: The Sidereals, p. 156",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 156,
+      "pdfPage": 160
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "smiling-at-the-damned",
+    "name": "Smiling At The Damned",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Melee 4 and Essence 3.",
+    "description": "Sidereal Charm; requires Melee 4 and Essence 3.",
+    "cost": "10 motes,1 Willpower,1 health level",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 157",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 157,
+      "pdfPage": 161
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "perfection-of-the-visionary-warrior",
+    "name": "Perfection Of The Visionary Warrior",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Melee 5 and Essence 3.",
+    "description": "Sidereal Charm; requires Melee 5 and Essence 3.",
+    "cost": "10 motes,1 Willpower,1 health level",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Melee",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["meditation-on-war"],
+    "prerequisiteText": "Meditationon War,Orchestra-",
+    "sourceDisplay": "Exalted: The Sidereals, p. 157",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 157,
+      "pdfPage": 161
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Melee",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "heroic-essence-replenishment",
+    "name": "Heroic Essence Replenishment",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Presence 1 and Essence 2.",
+    "description": "Sidereal Charm; requires Presence 1 and Essence 2.",
+    "cost": "None",
+    "duration": "Permanent",
+    "type": "Special",
+    "minimumRequirements": [
+      {
+        "trait": "Presence",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 157",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 157,
+      "pdfPage": 161
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Presence",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "presence-in-absence-technique",
+    "name": "Presence In Absence Technique",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Presence 2 and Essence 1.",
+    "description": "Sidereal Charm; requires Presence 2 and Essence 1.",
+    "cost": "5 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Presence",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 158",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 158,
+      "pdfPage": 162
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Presence",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "technique",
+    "name": "Technique",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Presence 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Presence 3 and Essence 2.",
+    "cost": "5 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Presence",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Impose Nature",
+    "sourceDisplay": "Exalted: The Sidereals, p. 158",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 158,
+      "pdfPage": 162
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Presence",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "predestined-triumph-practice",
+    "name": "Predestined Triumph Practice",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Presence 4 and Essence 3.",
+    "description": "Sidereal Charm; requires Presence 4 and Essence 3.",
+    "cost": "8 motes,1 Willpower",
+    "duration": "Onebattle",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Presence",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 159",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 159,
+      "pdfPage": 163
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Presence",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "essence-draining-battle-pattern",
+    "name": "Essence-Draining Battle Pattern",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Presence 5 and Essence 3.",
+    "description": "Sidereal Charm; requires Presence 5 and Essence 3.",
+    "cost": "8 motes",
+    "duration": "Until therelevantbattleends",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Presence",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["predestined-triumph-practice", "practice"],
+    "prerequisiteText": "Predestined Triumph Practice",
+    "sourceDisplay": "Exalted: The Sidereals, p. 159",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 159,
+      "pdfPage": 163
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Presence",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "demon-blocking-battle-pattern",
+    "name": "Demon-Blocking Battle Pattern",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Presence 5 and Essence 3.",
+    "description": "Sidereal Charm; requires Presence 5 and Essence 3.",
+    "cost": "8 motes",
+    "duration": "Untiltherelevant battle ends",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Presence",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["predestined-triumph-practice", "practice"],
+    "prerequisiteText": "Predestined Triumph Practice",
+    "sourceDisplay": "Exalted: The Sidereals, p. 159",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 159,
+      "pdfPage": 163
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Presence",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "spirit-binding-battle-pattern",
+    "name": "Spirit-Binding Battle Pattern",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Presence 5 and Essence 3.",
+    "description": "Sidereal Charm; requires Presence 5 and Essence 3.",
+    "cost": "10 motes,1 Willpower,1 health level",
+    "duration": "Until therelevant battle ends",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Presence",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Presence in Absence Tech-",
+    "sourceDisplay": "Exalted: The Sidereals, p. 159",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 159,
+      "pdfPage": 163
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Presence",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "someone-elses-destiny",
+    "name": "Someone Else's Destiny",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Resistance 2 and Essence 1.",
+    "description": "Sidereal Charm; requires Resistance 2 and Essence 1.",
+    "cost": "4 motes+1 moteperdie",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Resistance",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 161",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 161,
+      "pdfPage": 165
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Resistance",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "water-and-fire-legion",
+    "name": "Water And Fire Legion",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Resistance 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Resistance 3 and Essence 2.",
+    "cost": "5 motes,1 Willpower,1 health level",
+    "duration": "Until Calibration",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Resistance",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 161",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 161,
+      "pdfPage": 165
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Resistance",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "shield-of-mars",
+    "name": "Shield Of Mars",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Resistance 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Resistance 3 and Essence 2.",
+    "cost": "5 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Resistance",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 161",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 161,
+      "pdfPage": 165
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Resistance",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "storms-eye-stance",
+    "name": "Storm's Eye Stance",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Resistance 4 and Essence 3.",
+    "description": "Sidereal Charm; requires Resistance 4 and Essence 3.",
+    "cost": "10 motes,1 Willpower,1 health level",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Resistance",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Red Haze, Someone Else's",
+    "sourceDisplay": "Exalted: The Sidereals, p. 161",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 161,
+      "pdfPage": 165
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Resistance",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "auspicious-prospects-for-caste",
+    "name": "Auspicious Prospects For(Caste)",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Investigation 2 and Essence 1.",
+    "description": "Sidereal Charm; requires Investigation 2 and Essence 1.",
+    "cost": "1 mote",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Investigation",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 162",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 162,
+      "pdfPage": 166
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Investigation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "research-assistant-invocation",
+    "name": "Research Assistant Invocation",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Investigation 2 and Essence 2.",
+    "description": "Sidereal Charm; requires Investigation 2 and Essence 2.",
+    "cost": "5 motes",
+    "duration": "Five days",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Investigation",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Efficient Secretary",
+    "sourceDisplay": "Exalted: The Sidereals, p. 163",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 163,
+      "pdfPage": 167
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Investigation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "embracing-life-method",
+    "name": "Embracing Life Method",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Investigation 4 and Essence 3.",
+    "description": "Sidereal Charm; requires Investigation 4 and Essence 3.",
+    "cost": "10 motes,1 Willpower,1 healthlevel",
+    "duration": "Five days",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Investigation",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Marvelous Inclusion of De-",
+    "sourceDisplay": "Exalted: The Sidereals, p. 163",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 163,
+      "pdfPage": 167
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Investigation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "creation-smuggling-procedures",
+    "name": "Creation Smuggling Procedures",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Larceny 2 and Essence 1.",
+    "description": "Sidereal Charm; requires Larceny 2 and Essence 1.",
+    "cost": "5 motes,1 Willpower",
+    "duration": "Oneday",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Larceny",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 164",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 164,
+      "pdfPage": 168
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Larceny",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "sidereal-shell-games",
+    "name": "Sidereal Shell Games",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Larceny 3 and Essence 1.",
+    "description": "Sidereal Charm; requires Larceny 3 and Essence 1.",
+    "cost": "1 mote+2 motesper die orlevel successfully",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Larceny",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Creation Smuggling",
+    "sourceDisplay": "Exalted: The Sidereals, p. 164",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 164,
+      "pdfPage": 168
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Larceny",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "honorable-thief-spirit",
+    "name": "Honorable Thief Spirit",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Larceny 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Larceny 3 and Essence 2.",
+    "cost": "10 motes,1 Willpower",
+    "duration": "Varies",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Larceny",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 165",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 165,
+      "pdfPage": 169
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Larceny",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "conning-chaos-technique",
+    "name": "Conning Chaos Technique",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Larceny 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Larceny 5 and Essence 4.",
+    "cost": "10 motes,1 Willpower",
+    "duration": "Varies",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Larceny",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["sidereal-shell-games"],
+    "prerequisiteText": "Sidereal Shell Games,Dream",
+    "sourceDisplay": "Exalted: The Sidereals, p. 165",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 165,
+      "pdfPage": 169
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Larceny",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "systematic-understanding-of-everything",
+    "name": "Systematic Understanding Of Everything",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Lore 1 and Essence 1.",
+    "description": "Sidereal Charm; requires Lore 1 and Essence 1.",
+    "cost": "1 mote",
+    "duration": "Until the character sleeps",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Lore",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 165",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 165,
+      "pdfPage": 169
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Lore",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "the-methodology-of-secrets",
+    "name": "The Methodology Of Secrets",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Lore 2 and Essence 2.",
+    "description": "Sidereal Charm; requires Lore 2 and Essence 2.",
+    "cost": "5 motes",
+    "duration": "Until the character sleeps",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Lore",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Systematic Understanding",
+    "sourceDisplay": "Exalted: The Sidereals, p. 166",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 166,
+      "pdfPage": 170
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Lore",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "of-things-desired-and-feared",
+    "name": "Of Things Desired And Feared",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Lore 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Lore 3 and Essence 2.",
+    "cost": "10 motes",
+    "duration": "Three hours",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Lore",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Systematic Understanding",
+    "sourceDisplay": "Exalted: The Sidereals, p. 167",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 167,
+      "pdfPage": 171
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Lore",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "of-the-shape-of-the-world",
+    "name": "Of The Shape Of The World",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Lore 5 and Essence 3.",
+    "description": "Sidereal Charm; requires Lore 5 and Essence 3.",
+    "cost": "10 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Lore",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Systematic Understanding",
+    "sourceDisplay": "Exalted: The Sidereals, p. 167",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 167,
+      "pdfPage": 171
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Lore",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "of-horrors-best-unknown",
+    "name": "Of Horrors Best Unknown",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Lore 5 and Essence 3.",
+    "description": "Sidereal Charm; requires Lore 5 and Essence 3.",
+    "cost": "10 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Lore",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["of-the-shape-of-the-world"],
+    "prerequisiteText": "Of the Shape of the World",
+    "sourceDisplay": "Exalted: The Sidereals, p. 167",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 167,
+      "pdfPage": 171
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Lore",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "of-secrets-yet-untold",
+    "name": "Of Secrets Yet Untold",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Lore 4 and Essence 2.",
+    "description": "Sidereal Charm; requires Lore 4 and Essence 2.",
+    "cost": "5 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Lore",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Systematic Understanding",
+    "sourceDisplay": "Exalted: The Sidereals, p. 167",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 167,
+      "pdfPage": 171
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Lore",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "avoiding-the-truth-technique",
+    "name": "Avoiding The Truth Technique",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Lore 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Lore 3 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Lore",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 168",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 168,
+      "pdfPage": 172
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Lore",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "transcendent-hatchet-of-fate",
+    "name": "Transcendent Hatchet Of Fate",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Lore 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Lore 5 and Essence 4.",
+    "cost": "16 motes,1 Willpower,1 health level",
+    "duration": "Until used",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Lore",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["the-methodology-of-secrets"],
+    "prerequisiteText": "The Methodology of Secrets,",
+    "sourceDisplay": "Exalted: The Sidereals, p. 168",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 168,
+      "pdfPage": 172
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Lore",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "mark-of-exaltation",
+    "name": "Mark Of Exaltation",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Occult 1 and Essence 1.",
+    "description": "Sidereal Charm; requires Occult 1 and Essence 1.",
+    "cost": "2 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 169",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 169,
+      "pdfPage": 173
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Occult",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "tell-tale-symphony",
+    "name": "Tell-Tale Symphony",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Occult 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Occult 3 and Essence 2.",
+    "cost": "5 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["mark-of-exaltation"],
+    "prerequisiteText": "Markof Exaltation",
+    "sourceDisplay": "Exalted: The Sidereals, p. 169",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 169,
+      "pdfPage": 173
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Occult",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "incite-decorum",
+    "name": "Incite Decorum",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Occult 1 and Essence 1.",
+    "description": "Sidereal Charm; requires Occult 1 and Essence 1.",
+    "cost": "2 motes",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 169",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 169,
+      "pdfPage": 173
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Occult",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "jnnocuousmaneuver",
+    "name": "Jnnocuousmaneuver",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Occult 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Occult 3 and Essence 2.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["mark-of-exaltation"],
+    "prerequisiteText": "Mark of Exaltation,Incite",
+    "sourceDisplay": "Exalted: The Sidereals, p. 170",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 170,
+      "pdfPage": 174
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Occult",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "unweaving-method",
+    "name": "Unweaving Method",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Occult 4 and Essence 3.",
+    "description": "Sidereal Charm; requires Occult 4 and Essence 3.",
+    "cost": "5 motes,1 Willpower,1 health level",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Innocuous Maneuver",
+    "sourceDisplay": "Exalted: The Sidereals, p. 170",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 170,
+      "pdfPage": 174
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Occult",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "soft-presence-practice",
+    "name": "Soft Presence Practice",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Stealth 1 and Essence 1.",
+    "description": "Sidereal Charm; requires Stealth 1 and Essence 1.",
+    "cost": "5 motes,1 Willpower",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stealth",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 171",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 171,
+      "pdfPage": 175
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stealth",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "walking-outside-fate",
+    "name": "Walking Outside Fate",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Stealth 5 and Essence 3.",
+    "description": "Sidereal Charm; requires Stealth 5 and Essence 3.",
+    "cost": "5 motes,1 Willpower",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stealth",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["soft-presence-practice", "practice"],
+    "prerequisiteText": "Soft Presence Practice",
+    "sourceDisplay": "Exalted: The Sidereals, p. 171",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 171,
+      "pdfPage": 175
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stealth",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "subordinate-inspiration-technique",
+    "name": "Subordinate Inspiration Technique",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Stealth 5 and Essence 3.",
+    "description": "Sidereal Charm; requires Stealth 5 and Essence 3.",
+    "cost": "5 motes,1 Willpower",
+    "duration": "Five turns",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stealth",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["walking-outside-fate"],
+    "prerequisiteText": "Walking Outside Fate",
+    "sourceDisplay": "Exalted: The Sidereals, p. 171",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 171,
+      "pdfPage": 175
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stealth",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "blinding-the-boar",
+    "name": "Blinding The Boar",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Stealth 2 and Essence 2.",
+    "description": "Sidereal Charm; requires Stealth 2 and Essence 2.",
+    "cost": "5 motes,1 Willpower",
+    "duration": "Five turns",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stealth",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 171",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 171,
+      "pdfPage": 175
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stealth",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "ceasing-to-exist-approach",
+    "name": "Ceasing To Exist Approach",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Stealth 5 and Essence 3.",
+    "description": "Sidereal Charm; requires Stealth 5 and Essence 3.",
+    "cost": "5 motes,3 Willpower,1 health level",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stealth",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Subordinate Inspiration",
+    "sourceDisplay": "Exalted: The Sidereals, p. 172",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 172,
+      "pdfPage": 176
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stealth",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "burn-life",
+    "name": "Burn Life",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Athletics 2 and Essence 2.",
+    "description": "Sidereal Charm; requires Athletics 2 and Essence 2.",
+    "cost": "3 motesper dot",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Athletics",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 173",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 173,
+      "pdfPage": 177
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Athletics",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "hungry-touch",
+    "name": "Hungry Touch",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Athletics 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Athletics 3 and Essence 2.",
+    "cost": "1 mote per target number reduction or dam-",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Athletics",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["burn-life"],
+    "prerequisiteText": "Burn Life",
+    "sourceDisplay": "Exalted: The Sidereals, p. 173",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 173,
+      "pdfPage": 177
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Athletics",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "forgotten-earth",
+    "name": "Forgotten Earth",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Athletics 3 and Essence 1.",
+    "description": "Sidereal Charm; requires Athletics 3 and Essence 1.",
+    "cost": "1 mote",
+    "duration": "Five turns",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Athletics",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 174",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 174,
+      "pdfPage": 178
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Athletics",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "inexorable-advance",
+    "name": "Inexorable Advance",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Athletics 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Athletics 3 and Essence 2.",
+    "cost": "1 mote",
+    "duration": "Five turns",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Athletics",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 174",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 174,
+      "pdfPage": 178
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Athletics",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "invisible-motion",
+    "name": "Invisible Motion",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Athletics 4 and Essence 3.",
+    "description": "Sidereal Charm; requires Athletics 4 and Essence 3.",
+    "cost": "10 motes,1 Willpower,1 health level",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Athletics",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["hungry-touch"],
+    "prerequisiteText": "Hungry Touch,Forgotten",
+    "sourceDisplay": "Exalted: The Sidereals, p. 174",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 174,
+      "pdfPage": 178
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Athletics",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "supernal-awareness",
+    "name": "Supernal Awareness",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Awareness 3 and Essence 3.",
+    "description": "Sidereal Charm; requires Awareness 3 and Essence 3.",
+    "cost": "4 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Awareness",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Expected Pain",
+    "sourceDisplay": "Exalted: The Sidereals, p. 175",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 175,
+      "pdfPage": 179
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Awareness",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "wise-choice",
+    "name": "Wise Choice",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Awareness 2 and Essence 1.",
+    "description": "Sidereal Charm; requires Awareness 2 and Essence 1.",
+    "cost": "8 motes,1 Willpower",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Awareness",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 175",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 175,
+      "pdfPage": 179
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Awareness",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "inevitable-pursuit",
+    "name": "Inevitable Pursuit",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Awareness 5 and Essence 2.",
+    "description": "Sidereal Charm; requires Awareness 5 and Essence 2.",
+    "cost": "8 motes,1 Willpower",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Awareness",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 175",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 175,
+      "pdfPage": 179
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Awareness",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "conclusive-wisdom",
+    "name": "Conclusive Wisdom",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Awareness 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Awareness 5 and Essence 4.",
+    "cost": "20 motes,1 Willpower,1 health level",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Awareness",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["supernal-awareness"],
+    "prerequisiteText": "Supernal Awareness,Wise",
+    "sourceDisplay": "Exalted: The Sidereals, p. 176",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 176,
+      "pdfPage": 180
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Awareness",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "practice",
+    "name": "Practice",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Bureaucracy 2 and Essence 2.",
+    "description": "Sidereal Charm; requires Bureaucracy 2 and Essence 2.",
+    "cost": "1 mote",
+    "duration": "Five days",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Bureaucracy",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 177",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 177,
+      "pdfPage": 181
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Bureaucracy",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "terminal-sanction",
+    "name": "Terminal Sanction",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Bureaucracy 4 and Essence 3.",
+    "description": "Sidereal Charm; requires Bureaucracy 4 and Essence 3.",
+    "cost": "8 motes,1 Willpower",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Bureaucracy",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Icy Hand",
+    "sourceDisplay": "Exalted: The Sidereals, p. 177",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 177,
+      "pdfPage": 181
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Bureaucracy",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "underling-invisibility-practice",
+    "name": "Underling Invisibility Practice",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Bureaucracy 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Bureaucracy 3 and Essence 2.",
+    "cost": "4 motes",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Bureaucracy",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 177",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 177,
+      "pdfPage": 181
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Bureaucracy",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "end-debate",
+    "name": "End Debate",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Bureaucracy 5 and Essence 3.",
+    "description": "Sidereal Charm; requires Bureaucracy 5 and Essence 3.",
+    "cost": "10 motes,1 Willpower,1 health level",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Bureaucracy",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["terminal-sanction"],
+    "prerequisiteText": "Terminal Sanction,Under-",
+    "sourceDisplay": "Exalted: The Sidereals, p. 178",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 178,
+      "pdfPage": 182
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Bureaucracy",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "blade-of-the-battle-maiden",
+    "name": "Blade Of The Battle Maiden",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Martial Arts 3 and Essence 2.",
+    "cost": "2 motesper die,2 Willpower",
+    "duration": "One scene",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Secretsof Future Strife",
+    "sourceDisplay": "Exalted: The Sidereals, p. 179",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 179,
+      "pdfPage": 183
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "joy-in-adversity-stance",
+    "name": "Joy In Adversity Stance",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 2 and Essence 1.",
+    "description": "Sidereal Charm; requires Martial Arts 2 and Essence 1.",
+    "cost": "5 motes",
+    "duration": "One scene",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Secrets of Future Strife",
+    "sourceDisplay": "Exalted: The Sidereals, p. 179",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 179,
+      "pdfPage": 183
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "violet-bier-of-sorrows-form",
+    "name": "Violet Bier Of Sorrows Form",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 4 and Essence 2.",
+    "description": "Sidereal Charm; requires Martial Arts 4 and Essence 2.",
+    "cost": "6 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Flight of Mercury,Blade of",
+    "sourceDisplay": "Exalted: The Sidereals, p. 180",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 180,
+      "pdfPage": 184
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "death-parrying-stroke",
+    "name": "Death-Parrying Stroke",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 2.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 2.",
+    "cost": "2 motes per health level",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["violet-bier-of-sorrows-form"],
+    "prerequisiteText": "Violet Bierof Sorrows Form",
+    "sourceDisplay": "Exalted: The Sidereals, p. 180",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 180,
+      "pdfPage": 184
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "life-severing-blow",
+    "name": "Life-Severing Blow",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 3.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 3.",
+    "cost": "2 motes per health level",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["violet-bier-of-sorrows-form"],
+    "prerequisiteText": "Violet Bier of Sorrows Form",
+    "sourceDisplay": "Exalted: The Sidereals, p. 180",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 180,
+      "pdfPage": 184
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "smooth-transition",
+    "name": "Smooth Transition",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Medicine 2 and Essence 1.",
+    "description": "Sidereal Charm; requires Medicine 2 and Essence 1.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Medicine",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 181",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 181,
+      "pdfPage": 185
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Medicine",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "peaceableconclusion",
+    "name": "Peaceableconclusion",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Medicine 3 and Essence 1.",
+    "description": "Sidereal Charm; requires Medicine 3 and Essence 1.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Medicine",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["smooth-transition"],
+    "prerequisiteText": "Smooth Transition",
+    "sourceDisplay": "Exalted: The Sidereals, p. 181",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 181,
+      "pdfPage": 185
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Medicine",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "silence",
+    "name": "Silence",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Medicine 2 and Essence 2.",
+    "description": "Sidereal Charm; requires Medicine 2 and Essence 2.",
+    "cost": "5 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Medicine",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["smooth-transition"],
+    "prerequisiteText": "Smooth Transition",
+    "sourceDisplay": "Exalted: The Sidereals, p. 182",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 182,
+      "pdfPage": 186
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Medicine",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "terminate-illness",
+    "name": "Terminate Illness",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Medicine 3 and Essence 2.",
+    "description": "Sidereal Charm; requires Medicine 3 and Essence 2.",
+    "cost": "10 motes,1 Willpower,1 health level",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Medicine",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 182",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 182,
+      "pdfPage": 186
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Medicine",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "illness",
+    "name": "Illness",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Medicine 4 and Essence 3.",
+    "description": "Sidereal Charm; requires Medicine 4 and Essence 3.",
+    "cost": "10 motes,1 Willpower,1 health level",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Medicine",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["peaceableconclusion"],
+    "prerequisiteText": "Peaceable Conclusion,Invo-",
+    "sourceDisplay": "Exalted: The Sidereals, p. 182",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 182,
+      "pdfPage": 186
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Medicine",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "unnatural-many-step-stride",
+    "name": "Unnatural Many-Step Stride",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "cost": "6 motes,1 Willpower",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 183",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 183,
+      "pdfPage": 187
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "maw-of-dripping-venom",
+    "name": "Maw Of Dripping Venom",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "cost": "5 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 185",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 185,
+      "pdfPage": 189
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "ra-in-of-unseen-threads",
+    "name": "Ra In Of Unseen Threads",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "cost": "8 motes",
+    "duration": "Instant",
+    "type": "Extra Action",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 185",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 185,
+      "pdfPage": 189
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "nest-of-living-strands",
+    "name": "Nest Of Living Strands",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "cost": "15 motes,1 Willpower",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["ra-in-of-unseen-threads"],
+    "prerequisiteText": "Rain of Unseen Threads",
+    "sourceDisplay": "Exalted: The Sidereals, p. 185",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 185,
+      "pdfPage": 189
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "charcoal-march-of-spiders-form",
+    "name": "Charcoal March Of Spiders Form",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 5.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 5.",
+    "cost": "12 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Onecompletemartialart(all",
+    "sourceDisplay": "Exalted: The Sidereals, p. 186",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 186,
+      "pdfPage": 190
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "jumping-spider-strike",
+    "name": "Jumping Spider Strike",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 6 and Essence 6.",
+    "description": "Sidereal Charm; requires Martial Arts 6 and Essence 6.",
+    "cost": "20 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 6
+      }
+    ],
+    "minimumEssence": 6,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Cannibalistic Heritage",
+    "sourceDisplay": "Exalted: The Sidereals, p. 187",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 187,
+      "pdfPage": 191
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "water-spider-bite",
+    "name": "Water Spider Bite",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 6 and Essence 6.",
+    "description": "Sidereal Charm; requires Martial Arts 6 and Essence 6.",
+    "cost": "20 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 6
+      }
+    ],
+    "minimumEssence": 6,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Cannibalistic Heritage",
+    "sourceDisplay": "Exalted: The Sidereals, p. 187",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 187,
+      "pdfPage": 191
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "pattern-spider-touch",
+    "name": "Pattern Spider Touch",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 6 and Essence 6.",
+    "description": "Sidereal Charm; requires Martial Arts 6 and Essence 6.",
+    "cost": "20 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 6
+      }
+    ],
+    "minimumEssence": 6,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Thumbnail Spider March,",
+    "sourceDisplay": "Exalted: The Sidereals, p. 188",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 188,
+      "pdfPage": 192
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "weaponsand-armor",
+    "name": "Weaponsand Armor",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "cost": "5 motes",
+    "duration": "Five turns",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 188",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 188,
+      "pdfPage": 192
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "orichalcumsheathingstance-peng",
+    "name": "Orichalcumsheathingstance(Peng)",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "cost": "5 motes,1 Willpower",
+    "duration": "Five turns",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 189",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 189,
+      "pdfPage": 193
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "flickeringmoonsilverapproach-lu",
+    "name": "Flickeringmoonsilverapproach(Lu)",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "cost": "10 motes",
+    "duration": "Five turns",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 189",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 189,
+      "pdfPage": 193
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "fivejadefury-zhou",
+    "name": "Fivejadefury(Zhou)",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "cost": "10 motes",
+    "duration": "Five turns",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 190",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 190,
+      "pdfPage": 194
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "fourmagicalmaterialsform-houtui",
+    "name": "Fourmagicalmaterialsform(Houtui)",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 5.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 5.",
+    "cost": "15 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "One complete martial art (all",
+    "sourceDisplay": "Exalted: The Sidereals, p. 190",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 190,
+      "pdfPage": 194
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "charmredirectiontechnique-an",
+    "name": "Charmredirectiontechnique(An)",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "cost": "7 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 190",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 190,
+      "pdfPage": 194
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "sequentialcharmdisruption-cai",
+    "name": "Sequentialcharmdisruption(Cai)",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "cost": "5 motes +mote cost of Charms affected,1",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Charm Redirection",
+    "sourceDisplay": "Exalted: The Sidereals, p. 191",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 191,
+      "pdfPage": 195
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "spell-shatteringpalm-li",
+    "name": "Spell-Shatteringpalm(Li)",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "cost": "12 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 191",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 191,
+      "pdfPage": 195
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "astrology-interruption-method-huaji",
+    "name": "Astrology Interruption Method(Huaji)",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "cost": "10 motes, 1 Willpower",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 191",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 191,
+      "pdfPage": 195
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "soulfireshaperform-qianjing",
+    "name": "Soulfireshaperform(Qianjing)",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 5.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 5.",
+    "cost": "15 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Onecompletemartialart(all",
+    "sourceDisplay": "Exalted: The Sidereals, p. 192",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 192,
+      "pdfPage": 196
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "gamesofdivinityform-wu-jj",
+    "name": "Gamesofdivinityform(Wu Jj)",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 5.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 5.",
+    "cost": "7 motes,1 Willpower",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Onecompletemartialart(all",
+    "sourceDisplay": "Exalted: The Sidereals, p. 193",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 193,
+      "pdfPage": 197
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "demesneemulationpractice-kao",
+    "name": "Demesneemulationpractice(Kao)",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "cost": "20 motes,1 Willpower,1 healthlevel",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 193",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 193,
+      "pdfPage": 197
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "demesneand-manseform-chungting",
+    "name": "Demesneand Manseform(Chungting)",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 5.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 5.",
+    "cost": "12 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "One complete martialart (all",
+    "sourceDisplay": "Exalted: The Sidereals, p. 193",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 193,
+      "pdfPage": 197
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "prismatic-arrangement-of-creation-form",
+    "name": "Prismatic Arrangement Of Creation Form",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 5.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 5.",
+    "cost": "10 motes,1 Willpower",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Four Magical Materials Form,",
+    "sourceDisplay": "Exalted: The Sidereals, p. 193",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 193,
+      "pdfPage": 197
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "disjointed-essence-infectious-atemi",
+    "name": "Disjointed Essence Infectious Atemi",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "cost": "7 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 196",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 196,
+      "pdfPage": 200
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "convulsivedisplacementinfectiousatemi",
+    "name": "Convulsivedisplacementinfectiousatemi",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "cost": "12 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 197",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 197,
+      "pdfPage": 201
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "essence-disruptinginfectiousatem1",
+    "name": "Essence-Disruptinginfectiousatem1",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "cost": "12 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Feverish Essence Discharge",
+    "sourceDisplay": "Exalted: The Sidereals, p. 197",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 197,
+      "pdfPage": 201
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "perfect-reconstruction-method",
+    "name": "Perfect Reconstruction Method",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "cost": "8 motes,1 Willpower,1 experiencepoint",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 197",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 197,
+      "pdfPage": 201
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "spirit-and-body-purification-touch",
+    "name": "Spirit And Body Purification Touch",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 4.",
+    "cost": "8 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Sidereals, p. 198",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 198,
+      "pdfPage": 202
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "citrine-poxes-of-contagion-form",
+    "name": "Citrine Poxes Of Contagion Form",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 5 and Essence 5.",
+    "description": "Sidereal Charm; requires Martial Arts 5 and Essence 5.",
+    "cost": "15 motes,1 Willpower",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Onecomplete martialart (all",
+    "sourceDisplay": "Exalted: The Sidereals, p. 199",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 199,
+      "pdfPage": 203
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "spiritual-perfection",
+    "name": "Spiritual Perfection",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 6 and Essence 6.",
+    "description": "Sidereal Charm; requires Martial Arts 6 and Essence 6.",
+    "cost": "1 mote",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 6
+      }
+    ],
+    "minimumEssence": 6,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Citrine Poxes of Contagion",
+    "sourceDisplay": "Exalted: The Sidereals, p. 199",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 199,
+      "pdfPage": 203
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "gentle-touch-of-the-wicked-hand",
+    "name": "Gentle Touch Of The Wicked Hand",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 6 and Essence 7.",
+    "description": "Sidereal Charm; requires Martial Arts 6 and Essence 7.",
+    "cost": "15 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 6
+      }
+    ],
+    "minimumEssence": 7,
+    "prerequisiteCharms": ["spiritual-perfection"],
+    "prerequisiteText": "Spiritual Perfection",
+    "sourceDisplay": "Exalted: The Sidereals, p. 199",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 199,
+      "pdfPage": 203
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "glorious-sidereal-protection",
+    "name": "Glorious Sidereal Protection",
+    "kind": "charm",
+    "summary": "Sidereal Charm; requires Martial Arts 6 and Essence 7.",
+    "description": "Sidereal Charm; requires Martial Arts 6 and Essence 7.",
+    "cost": "15 motes,1 Willpower",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 6
+      }
+    ],
+    "minimumEssence": 7,
+    "prerequisiteCharms": ["spiritual-perfection"],
+    "prerequisiteText": "Spiritual Perfection",
+    "sourceDisplay": "Exalted: The Sidereals, p. 200",
+    "source": {
+      "id": "sidereals",
+      "bookTitle": "Exalted: The Sidereals",
+      "printedPage": 200,
+      "pdfPage": 204
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  }
+]

@@ -6,6 +6,7 @@
     "summary": "Alchemical Charm; requires (Attribute) 1 and Essence 2.",
     "description": "Alchemical Charm; requires (Attribute) 1 and Essence 2.",
     "cost": "1 mote per die",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -17,11 +18,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "None",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 90",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 89",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 90,
+      "printedPage": 89,
       "pdfPage": 92
     },
     "reviewStatus": "source-checked",
@@ -43,6 +44,7 @@
     "summary": "Alchemical Charm; requires (Attribute) 2 and Essence 2.",
     "description": "Alchemical Charm; requires (Attribute) 2 and Essence 2.",
     "cost": "None",
+    "installationCost": "1 mote",
     "duration": "N/A",
     "type": "Permanent",
     "minimumRequirements": [
@@ -54,11 +56,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "None",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 90",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 89",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 90,
+      "printedPage": 89,
       "pdfPage": 92
     },
     "reviewStatus": "source-checked",
@@ -80,6 +82,7 @@
     "summary": "Alchemical Charm; requires Wits 3 and Essence 2.",
     "description": "Alchemical Charm; requires Wits 3 and Essence 2.",
     "cost": "2 motes",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -91,11 +94,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory or Sustained Augmentation of Wits",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 91",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 90",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 91,
+      "printedPage": 90,
       "pdfPage": 93
     },
     "reviewStatus": "source-checked",
@@ -117,6 +120,7 @@
     "summary": "Alchemical Charm; requires Dexterity 3 and Essence 2.",
     "description": "Alchemical Charm; requires Dexterity 3 and Essence 2.",
     "cost": "2 motes",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -128,11 +132,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory or Sustained Augmentation of Dexterity",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 92",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 91",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 92,
+      "printedPage": 91,
       "pdfPage": 94
     },
     "reviewStatus": "source-checked",
@@ -154,6 +158,7 @@
     "summary": "Alchemical Charm; requires Dexterity 2 and Essence 2.",
     "description": "Alchemical Charm; requires Dexterity 2 and Essence 2.",
     "cost": "1 mote per +2 initiative",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -165,11 +170,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory or Sustained Augmentation of Dexterity",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 92",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 91",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 92,
+      "printedPage": 91,
       "pdfPage": 94
     },
     "reviewStatus": "source-checked",
@@ -191,6 +196,7 @@
     "summary": "Alchemical Charm; requires Dexterity 4 and Essence 3.",
     "description": "Alchemical Charm; requires Dexterity 4 and Essence 3.",
     "cost": "5 motes, 1 Willpower",
+    "installationCost": "1 mote",
     "duration": "Instant/One scene",
     "type": "Extra Action/Reflexive",
     "minimumRequirements": [
@@ -202,11 +208,11 @@
     "minimumEssence": 3,
     "prerequisiteCharms": ["dynamic-reaction-enhancement-system"],
     "prerequisiteText": "Dynamic Reaction Enhancement System",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 92",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 91",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 92,
+      "printedPage": 91,
       "pdfPage": 94
     },
     "reviewStatus": "source-checked",
@@ -228,6 +234,7 @@
     "summary": "Alchemical Charm; requires Wits 5 and Essence 4.",
     "description": "Alchemical Charm; requires Wits 5 and Essence 4.",
     "cost": "Varies",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -239,11 +246,11 @@
     "minimumEssence": 4,
     "prerequisiteCharms": ["accelerated-response-system"],
     "prerequisiteText": "Transitory or Sustained Augmentation of Wits, Accelerated Response System, Celerity",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 93",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 92",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 93,
+      "printedPage": 92,
       "pdfPage": 95
     },
     "reviewStatus": "source-checked",
@@ -265,6 +272,7 @@
     "summary": "Alchemical Charm; requires Dexterity 3 and Essence 2.",
     "description": "Alchemical Charm; requires Dexterity 3 and Essence 2.",
     "cost": "2 motes",
+    "installationCost": "1 mote",
     "duration": "Indefinite",
     "type": "Simple",
     "minimumRequirements": [
@@ -276,11 +284,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory or Sustained Augmentation of Dexterity",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 93",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 92",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 93,
+      "printedPage": 92,
       "pdfPage": 95
     },
     "reviewStatus": "source-checked",
@@ -302,17 +310,18 @@
     "summary": "Alchemical Charm; Essence 2.",
     "description": "Alchemical Charm; Essence 2.",
     "cost": "2 motes",
+    "installationCost": "None",
     "duration": "Indefinite",
     "type": "Simple",
     "minimumRequirements": [],
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory or Sustained Augmentation of Dexterity",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 94",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 93",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 94,
+      "printedPage": 93,
       "pdfPage": 96
     },
     "reviewStatus": "source-checked",
@@ -334,6 +343,7 @@
     "summary": "Alchemical Charm; requires Dexterity 3 and Essence 2.",
     "description": "Alchemical Charm; requires Dexterity 3 and Essence 2.",
     "cost": "1 mote/None",
+    "installationCost": "None/1 mote",
     "duration": "Indefinite/N/A",
     "type": "Simple/Permanent",
     "minimumRequirements": [
@@ -345,11 +355,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Sustained Augmentation of",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 94",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 93",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 94,
+      "printedPage": 93,
       "pdfPage": 96
     },
     "reviewStatus": "source-checked",
@@ -371,6 +381,7 @@
     "summary": "Alchemical Charm; requires Dexterity 5 and Essence 3.",
     "description": "Alchemical Charm; requires Dexterity 5 and Essence 3.",
     "cost": "8 motes, 1 Willpower",
+    "installationCost": "1 mote",
     "duration": "One scene",
     "type": "Simple",
     "minimumRequirements": [
@@ -382,11 +393,11 @@
     "minimumEssence": 3,
     "prerequisiteCharms": [],
     "prerequisiteText": "Sustained Augmentation",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 94",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 93",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 94,
+      "printedPage": 93,
       "pdfPage": 96
     },
     "reviewStatus": "source-checked",
@@ -408,6 +419,7 @@
     "summary": "Alchemical Charm; requires Dexterity 3 and Essence 2.",
     "description": "Alchemical Charm; requires Dexterity 3 and Essence 2.",
     "cost": "None",
+    "installationCost": "None",
     "duration": "N/A",
     "type": "Permanent",
     "minimumRequirements": [
@@ -419,11 +431,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": ["multi-limb-frame"],
     "prerequisiteText": "Multi-Limb Frame",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 95",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 94",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 95,
+      "printedPage": 94,
       "pdfPage": 97
     },
     "reviewStatus": "source-checked",
@@ -445,6 +457,7 @@
     "summary": "Alchemical Charm; requires Strength 3 and Essence 2.",
     "description": "Alchemical Charm; requires Strength 3 and Essence 2.",
     "cost": "2 motes",
+    "installationCost": "None",
     "duration": "Instant",
     "type": "Supplemental",
     "minimumRequirements": [
@@ -456,11 +469,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory Augmentation of",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 96",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 95",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 96,
+      "printedPage": 95,
       "pdfPage": 98
     },
     "reviewStatus": "source-checked",
@@ -482,6 +495,7 @@
     "summary": "Alchemical Charm; requires Dexterity 4 and Essence 3.",
     "description": "Alchemical Charm; requires Dexterity 4 and Essence 3.",
     "cost": "Varies",
+    "installationCost": "None",
     "duration": "Indefinite",
     "type": "Simple",
     "minimumRequirements": [
@@ -493,11 +507,11 @@
     "minimumEssence": 3,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory or Sustained Augmentation of Dexterity, (Caste Material) Synthesis Wave Emitter",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 97",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 96",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 97,
+      "printedPage": 96,
       "pdfPage": 99
     },
     "reviewStatus": "source-checked",
@@ -519,6 +533,7 @@
     "summary": "Alchemical Charm; requires Strength 3 and Essence 2.",
     "description": "Alchemical Charm; requires Strength 3 and Essence 2.",
     "cost": "Varies",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -530,11 +545,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory Augmentation of",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 97",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 96",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 97,
+      "printedPage": 96,
       "pdfPage": 99
     },
     "reviewStatus": "source-checked",
@@ -556,6 +571,7 @@
     "summary": "Alchemical Charm; requires Manipulation 3 and Essence 2.",
     "description": "Alchemical Charm; requires Manipulation 3 and Essence 2.",
     "cost": "Varies",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -567,11 +583,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "None",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 97",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 96",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 97,
+      "printedPage": 96,
       "pdfPage": 99
     },
     "reviewStatus": "source-checked",
@@ -593,6 +609,7 @@
     "summary": "Alchemical Charm; requires Martial Arts 2 and Essence 2.",
     "description": "Alchemical Charm; requires Martial Arts 2 and Essence 2.",
     "cost": "None",
+    "installationCost": "2 motes",
     "duration": "N/A",
     "type": "Permanent",
     "minimumRequirements": [
@@ -604,11 +621,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "None",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 99",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 98",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 99,
+      "printedPage": 98,
       "pdfPage": 101
     },
     "reviewStatus": "source-checked",
@@ -630,6 +647,7 @@
     "summary": "Alchemical Charm; requires Perception 2 and Essence 2.",
     "description": "Alchemical Charm; requires Perception 2 and Essence 2.",
     "cost": "1+ motes",
+    "installationCost": "2 motes",
     "duration": "Instant",
     "type": "Supplemental",
     "minimumRequirements": [
@@ -641,11 +659,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "None",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 99",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 98",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 99,
+      "printedPage": 98,
       "pdfPage": 101
     },
     "reviewStatus": "source-checked",
@@ -667,6 +685,7 @@
     "summary": "Alchemical Charm; requires Strength 3 and Essence 2.",
     "description": "Alchemical Charm; requires Strength 3 and Essence 2.",
     "cost": "3 motes",
+    "installationCost": "2 motes",
     "duration": "Instant",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -678,11 +697,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": ["aim-calibrating-sensors"],
     "prerequisiteText": "Aim-Calibrating Sensors",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 99",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 98",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 99,
+      "printedPage": 98,
       "pdfPage": 101
     },
     "reviewStatus": "source-checked",
@@ -704,6 +723,7 @@
     "summary": "Alchemical Charm; requires Strength 4 and Essence 2.",
     "description": "Alchemical Charm; requires Strength 4 and Essence 2.",
     "cost": "2 motes",
+    "installationCost": "1 mote",
     "duration": "Indefinite",
     "type": "Supplemental",
     "minimumRequirements": [
@@ -715,11 +735,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": ["aim-calibrating-sensors"],
     "prerequisiteText": "Aim-Calibrating Sensors",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 100",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 99",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 100,
+      "printedPage": 99,
       "pdfPage": 102
     },
     "reviewStatus": "source-checked",
@@ -741,6 +761,7 @@
     "summary": "Alchemical Charm; requires Wits 3 and Essence 2.",
     "description": "Alchemical Charm; requires Wits 3 and Essence 2.",
     "cost": "2 motes or 3 motes",
+    "installationCost": "None",
     "duration": "Instant",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -752,11 +773,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": ["essence-pulse-cannon"],
     "prerequisiteText": "Essence Pulse Cannon",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 102",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 101",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 102,
+      "printedPage": 101,
       "pdfPage": 104
     },
     "reviewStatus": "source-checked",
@@ -778,6 +799,7 @@
     "summary": "Alchemical Charm; requires Strength 5 and Essence 3.",
     "description": "Alchemical Charm; requires Strength 5 and Essence 3.",
     "cost": "6 motes, 1 Willpower",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Simple",
     "minimumRequirements": [
@@ -789,11 +811,11 @@
     "minimumEssence": 3,
     "prerequisiteCharms": ["essence-pulse-cannon"],
     "prerequisiteText": "Essence Pulse Cannon",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 103",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 102",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 103,
+      "printedPage": 102,
       "pdfPage": 105
     },
     "reviewStatus": "source-checked",
@@ -815,6 +837,7 @@
     "summary": "Alchemical Charm; requires Dexterity 2 and Essence 2.",
     "description": "Alchemical Charm; requires Dexterity 2 and Essence 2.",
     "cost": "1 mote",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -826,11 +849,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": ["aim-calibrating-sensors"],
     "prerequisiteText": "Aim-Calibrating Sensors",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 103",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 102",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 103,
+      "printedPage": 102,
       "pdfPage": 105
     },
     "reviewStatus": "source-checked",
@@ -852,6 +875,7 @@
     "summary": "Alchemical Charm; requires Strength 3 and Essence 3.",
     "description": "Alchemical Charm; requires Strength 3 and Essence 3.",
     "cost": "2 motes",
+    "installationCost": "1 mote",
     "duration": "Indefinite",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -863,11 +887,11 @@
     "minimumEssence": 3,
     "prerequisiteCharms": [],
     "prerequisiteText": "Protosynthetic Ammunition",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 104",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 103",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 104,
+      "printedPage": 103,
       "pdfPage": 106
     },
     "reviewStatus": "source-checked",
@@ -889,6 +913,7 @@
     "summary": "Alchemical Charm; requires Strength 5 and Essence 4.",
     "description": "Alchemical Charm; requires Strength 5 and Essence 4.",
     "cost": "10 motes, 1 Willpower",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Simple",
     "minimumRequirements": [
@@ -900,11 +925,11 @@
     "minimumEssence": 4,
     "prerequisiteCharms": ["repeating-pneumatic-bow"],
     "prerequisiteText": "Repeating Pneumatic Bow",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 104",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 103",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 104,
+      "printedPage": 103,
       "pdfPage": 106
     },
     "reviewStatus": "source-checked",
@@ -926,6 +951,7 @@
     "summary": "Alchemical Charm; requires Dexterity 5 and Essence 4.",
     "description": "Alchemical Charm; requires Dexterity 5 and Essence 4.",
     "cost": "8 motes, 1 Willpower",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Extra Action",
     "minimumRequirements": [
@@ -937,11 +963,11 @@
     "minimumEssence": 4,
     "prerequisiteCharms": ["repeating-pneumatic-bow"],
     "prerequisiteText": "Repeating Pneumatic Bow",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 104",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 103",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 104,
+      "printedPage": 103,
       "pdfPage": 106
     },
     "reviewStatus": "source-checked",
@@ -963,6 +989,7 @@
     "summary": "Alchemical Charm; requires Dexterity 5 and Essence 3.",
     "description": "Alchemical Charm; requires Dexterity 5 and Essence 3.",
     "cost": "3 motes per target",
+    "installationCost": "2 motes",
     "duration": "Instant",
     "type": "Extra Action",
     "minimumRequirements": [
@@ -974,11 +1001,11 @@
     "minimumEssence": 3,
     "prerequisiteCharms": ["aim-calibrating-sensors"],
     "prerequisiteText": "Aim-Calibrating Sensors",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 105",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 104",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 105,
+      "printedPage": 104,
       "pdfPage": 107
     },
     "reviewStatus": "source-checked",
@@ -1000,6 +1027,7 @@
     "summary": "Alchemical Charm; requires Perception 3 and Essence 3.",
     "description": "Alchemical Charm; requires Perception 3 and Essence 3.",
     "cost": "3 motes",
+    "installationCost": "None",
     "duration": "Instant",
     "type": "Supplemental",
     "minimumRequirements": [
@@ -1011,11 +1039,11 @@
     "minimumEssence": 3,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transmodal Rapid Targeting",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 106",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 105",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 106,
+      "printedPage": 105,
       "pdfPage": 108
     },
     "reviewStatus": "source-checked",
@@ -1037,6 +1065,7 @@
     "summary": "Alchemical Charm; requires Stamina 2 and Essence 2.",
     "description": "Alchemical Charm; requires Stamina 2 and Essence 2.",
     "cost": "None",
+    "installationCost": "1 mote",
     "duration": "N/A",
     "type": "Permanent",
     "minimumRequirements": [
@@ -1048,11 +1077,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "None",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 106",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 105",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 106,
+      "printedPage": 105,
       "pdfPage": 108
     },
     "reviewStatus": "source-checked",
@@ -1074,6 +1103,7 @@
     "summary": "Alchemical Charm; requires Stamina 3 and Essence 2.",
     "description": "Alchemical Charm; requires Stamina 3 and Essence 2.",
     "cost": "1mote",
+    "installationCost": "1 mote",
     "duration": "Indefinite",
     "type": "Simple",
     "minimumRequirements": [
@@ -1085,11 +1115,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Sustained Augmentation of",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 106",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 105",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 106,
+      "printedPage": 105,
       "pdfPage": 108
     },
     "reviewStatus": "source-checked",
@@ -1111,6 +1141,7 @@
     "summary": "Alchemical Charm; requires Stamina 3 and Essence 2.",
     "description": "Alchemical Charm; requires Stamina 3 and Essence 2.",
     "cost": "None",
+    "installationCost": "1 mote",
     "duration": "N/A",
     "type": "Permanent",
     "minimumRequirements": [
@@ -1122,11 +1153,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Sustained Augmentation of",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 107",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 106",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 107,
+      "printedPage": 106,
       "pdfPage": 109
     },
     "reviewStatus": "source-checked",
@@ -1148,6 +1179,7 @@
     "summary": "Alchemical Charm; requires Stamina 3 and Essence 2.",
     "description": "Alchemical Charm; requires Stamina 3 and Essence 2.",
     "cost": "5 motes, 1 Willpower",
+    "installationCost": "1 mote",
     "duration": "Five minutes",
     "type": "Simple",
     "minimumRequirements": [
@@ -1159,11 +1191,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Sustained Augmentation of",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 107",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 106",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 107,
+      "printedPage": 106,
       "pdfPage": 109
     },
     "reviewStatus": "source-checked",
@@ -1185,6 +1217,7 @@
     "summary": "Alchemical Charm; requires Stamina 3 and Essence 2.",
     "description": "Alchemical Charm; requires Stamina 3 and Essence 2.",
     "cost": "Varies",
+    "installationCost": "1 mote",
     "duration": "One scene",
     "type": "Simple",
     "minimumRequirements": [
@@ -1196,11 +1229,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "None",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 107",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 106",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 107,
+      "printedPage": 106,
       "pdfPage": 109
     },
     "reviewStatus": "source-checked",
@@ -1222,6 +1255,7 @@
     "summary": "Alchemical Charm; requires Stamina 4 and Essence 3.",
     "description": "Alchemical Charm; requires Stamina 4 and Essence 3.",
     "cost": "5 motes",
+    "installationCost": "1 mote",
     "duration": "One day",
     "type": "Simple",
     "minimumRequirements": [
@@ -1233,11 +1267,11 @@
     "minimumEssence": 3,
     "prerequisiteCharms": [],
     "prerequisiteText": "Sustained Augmentation of",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 108",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 107",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 108,
+      "printedPage": 107,
       "pdfPage": 110
     },
     "reviewStatus": "source-checked",
@@ -1259,6 +1293,7 @@
     "summary": "Alchemical Charm; requires Strength 3 and Essence 2.",
     "description": "Alchemical Charm; requires Strength 3 and Essence 2.",
     "cost": "None",
+    "installationCost": "1 mote",
     "duration": "N/A",
     "type": "Permanent",
     "minimumRequirements": [
@@ -1270,11 +1305,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Sustained or Transitory Augmentation of Strength",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 108",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 107",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 108,
+      "printedPage": 107,
       "pdfPage": 110
     },
     "reviewStatus": "source-checked",
@@ -1296,6 +1331,7 @@
     "summary": "Alchemical Charm; requires Strength 2 and Essence 2.",
     "description": "Alchemical Charm; requires Strength 2 and Essence 2.",
     "cost": "2 motes",
+    "installationCost": "1 mote",
     "duration": "One scene",
     "type": "Simple",
     "minimumRequirements": [
@@ -1307,11 +1343,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "None",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 109",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 108",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 109,
+      "printedPage": 108,
       "pdfPage": 111
     },
     "reviewStatus": "source-checked",
@@ -1333,6 +1369,7 @@
     "summary": "Alchemical Charm; requires Strength 3 and Essence 2.",
     "description": "Alchemical Charm; requires Strength 3 and Essence 2.",
     "cost": "2 motes per turn or 1 mote",
+    "installationCost": "None",
     "duration": "Varies",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -1344,11 +1381,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Personal Gravity Manipulation",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 110",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 109",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 110,
+      "printedPage": 109,
       "pdfPage": 112
     },
     "reviewStatus": "source-checked",
@@ -1370,6 +1407,7 @@
     "summary": "Alchemical Charm; requires Charisma 3 and Essence 2.",
     "description": "Alchemical Charm; requires Charisma 3 and Essence 2.",
     "cost": "6 motes, 1 Willpower",
+    "installationCost": "1 mote",
     "duration": "Indefinite",
     "type": "Simple",
     "minimumRequirements": [
@@ -1381,11 +1419,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory or Sustained Augmentation of Charisma",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 111",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 110",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 111,
+      "printedPage": 110,
       "pdfPage": 113
     },
     "reviewStatus": "source-checked",
@@ -1407,6 +1445,7 @@
     "summary": "Alchemical Charm; requires Charisma 4 and Essence 3.",
     "description": "Alchemical Charm; requires Charisma 4 and Essence 3.",
     "cost": "14 motes, 1 Willpower",
+    "installationCost": "1 mote",
     "duration": "Indefinite",
     "type": "Simple",
     "minimumRequirements": [
@@ -1418,11 +1457,11 @@
     "minimumEssence": 3,
     "prerequisiteCharms": ["electroneural-control-spurs"],
     "prerequisiteText": "Electroneural Control Spurs",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 112",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 111",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 112,
+      "printedPage": 111,
       "pdfPage": 114
     },
     "reviewStatus": "source-checked",
@@ -1444,6 +1483,7 @@
     "summary": "Alchemical Charm; requires Charisma 4 and Essence 3.",
     "description": "Alchemical Charm; requires Charisma 4 and Essence 3.",
     "cost": "8 motes, 1 Willpower",
+    "installationCost": "1 motes",
     "duration": "Indefinite",
     "type": "Simple",
     "minimumRequirements": [
@@ -1455,11 +1495,11 @@
     "minimumEssence": 3,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory and Sustained Augmentation of Charisma",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 112",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 111",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 112,
+      "printedPage": 111,
       "pdfPage": 114
     },
     "reviewStatus": "source-checked",
@@ -1481,6 +1521,7 @@
     "summary": "Alchemical Charm; requires Charisma 2 and Essence 2.",
     "description": "Alchemical Charm; requires Charisma 2 and Essence 2.",
     "cost": "1 mote per target",
+    "installationCost": "1 mote",
     "duration": "One turn",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -1492,11 +1533,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "None",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 113",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 112",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 113,
+      "printedPage": 112,
       "pdfPage": 115
     },
     "reviewStatus": "source-checked",
@@ -1518,17 +1559,18 @@
     "summary": "Alchemical Charm; Essence 2.",
     "description": "Alchemical Charm; Essence 2.",
     "cost": "3 motes, 1 Willpower",
+    "installationCost": "None",
     "duration": "Indefinite",
     "type": "Simple",
     "minimumRequirements": [],
     "minimumEssence": 2,
     "prerequisiteCharms": ["synergy-promoting-upgrade"],
     "prerequisiteText": "Synergy-Promoting Upgrade",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 114",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 113",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 114,
+      "printedPage": 113,
       "pdfPage": 116
     },
     "reviewStatus": "source-checked",
@@ -1550,6 +1592,7 @@
     "summary": "Alchemical Charm; requires Appearance 3 and Essence 2.",
     "description": "Alchemical Charm; requires Appearance 3 and Essence 2.",
     "cost": "5 mote",
+    "installationCost": "1 mote",
     "duration": "One scene",
     "type": "Simple",
     "minimumRequirements": [
@@ -1561,11 +1604,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory or Sustained Augmentation of Appearance",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 114",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 113",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 114,
+      "printedPage": 113,
       "pdfPage": 116
     },
     "reviewStatus": "source-checked",
@@ -1587,6 +1630,7 @@
     "summary": "Alchemical Charm; requires Appearance 4 and Essence 2.",
     "description": "Alchemical Charm; requires Appearance 4 and Essence 2.",
     "cost": "None",
+    "installationCost": "2 motes",
     "duration": "N/A",
     "type": "Permanent",
     "minimumRequirements": [
@@ -1598,11 +1642,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Sustained Augmentation of",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 114",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 113",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 114,
+      "printedPage": 113,
       "pdfPage": 116
     },
     "reviewStatus": "source-checked",
@@ -1624,6 +1668,7 @@
     "summary": "Alchemical Charm; requires Manipulation 3 and Essence 2.",
     "description": "Alchemical Charm; requires Manipulation 3 and Essence 2.",
     "cost": "1 mote",
+    "installationCost": "1 mote",
     "duration": "One Scene",
     "type": "Simple",
     "minimumRequirements": [
@@ -1635,11 +1680,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "None",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 115",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 114",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 115,
+      "printedPage": 114,
       "pdfPage": 117
     },
     "reviewStatus": "source-checked",
@@ -1661,6 +1706,7 @@
     "summary": "Alchemical Charm; requires Manipulation 4 and Essence 2.",
     "description": "Alchemical Charm; requires Manipulation 4 and Essence 2.",
     "cost": "None",
+    "installationCost": "1 mote",
     "duration": "N/A",
     "type": "Permanent",
     "minimumRequirements": [
@@ -1672,11 +1718,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": ["empathy-simulation-engine"],
     "prerequisiteText": "Empathy Simulation Engine",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 115",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 114",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 115,
+      "printedPage": 114,
       "pdfPage": 117
     },
     "reviewStatus": "source-checked",
@@ -1698,6 +1744,7 @@
     "summary": "Alchemical Charm; requires Manipulation 3 and Essence 3.",
     "description": "Alchemical Charm; requires Manipulation 3 and Essence 3.",
     "cost": "6 motes, 1 Willpower",
+    "installationCost": "1 mote",
     "duration": "Indefinite",
     "type": "Simple",
     "minimumRequirements": [
@@ -1709,11 +1756,11 @@
     "minimumEssence": 3,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory or Sustained Augmentation of Manipulation",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 115",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 114",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 115,
+      "printedPage": 114,
       "pdfPage": 117
     },
     "reviewStatus": "source-checked",
@@ -1735,6 +1782,7 @@
     "summary": "Alchemical Charm; requires Manipulation 3 and Essence 3.",
     "description": "Alchemical Charm; requires Manipulation 3 and Essence 3.",
     "cost": "10 motes, 1 Willpower",
+    "installationCost": "1mote",
     "duration": "One day",
     "type": "Simple",
     "minimumRequirements": [
@@ -1746,11 +1794,11 @@
     "minimumEssence": 3,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory or Sustained Augmentation of Manipulation",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 115",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 114",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 115,
+      "printedPage": 114,
       "pdfPage": 117
     },
     "reviewStatus": "source-checked",
@@ -1772,6 +1820,7 @@
     "summary": "Alchemical Charm; requires Manipulation 5 and Essence 4.",
     "description": "Alchemical Charm; requires Manipulation 5 and Essence 4.",
     "cost": "None",
+    "installationCost": "1 mote",
     "duration": "N/A",
     "type": "Permanent",
     "minimumRequirements": [
@@ -1783,11 +1832,11 @@
     "minimumEssence": 4,
     "prerequisiteCharms": [],
     "prerequisiteText": "Personality Override Spike",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 118",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 117",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 118,
+      "printedPage": 117,
       "pdfPage": 120
     },
     "reviewStatus": "source-checked",
@@ -1809,6 +1858,7 @@
     "summary": "Alchemical Charm; requires Appearance 1 and Essence 2.",
     "description": "Alchemical Charm; requires Appearance 1 and Essence 2.",
     "cost": "1 mote per Charm or 5 motes",
+    "installationCost": "1 mote",
     "duration": "Indefinite",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -1820,11 +1870,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "None",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 119",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 118",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 119,
+      "printedPage": 118,
       "pdfPage": 121
     },
     "reviewStatus": "source-checked",
@@ -1846,6 +1896,7 @@
     "summary": "Alchemical Charm; requires Appearance 2 and Essence 3.",
     "description": "Alchemical Charm; requires Appearance 2 and Essence 3.",
     "cost": "3 motes",
+    "installationCost": "None",
     "duration": "Indefinite",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -1857,11 +1908,11 @@
     "minimumEssence": 3,
     "prerequisiteCharms": [],
     "prerequisiteText": "Integrated Artifact",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 120",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 119",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 120,
+      "printedPage": 119,
       "pdfPage": 122
     },
     "reviewStatus": "source-checked",
@@ -1883,6 +1934,7 @@
     "summary": "Alchemical Charm; requires Manipulation 3 and Essence 2.",
     "description": "Alchemical Charm; requires Manipulation 3 and Essence 2.",
     "cost": "1 mote",
+    "installationCost": "1 mote",
     "duration": "Varies",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -1894,11 +1946,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "None",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 121",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 120",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 121,
+      "printedPage": 120,
       "pdfPage": 123
     },
     "reviewStatus": "source-checked",
@@ -1920,6 +1972,7 @@
     "summary": "Alchemical Charm; requires Charisma 2 and Essence 2.",
     "description": "Alchemical Charm; requires Charisma 2 and Essence 2.",
     "cost": "1 mote",
+    "installationCost": "1 mote",
     "duration": "Indefinite",
     "type": "Simple",
     "minimumRequirements": [
@@ -1931,11 +1984,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "None",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 121",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 120",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 121,
+      "printedPage": 120,
       "pdfPage": 123
     },
     "reviewStatus": "source-checked",
@@ -1957,6 +2010,7 @@
     "summary": "Alchemical Charm; requires Appearance 2 and Essence 2.",
     "description": "Alchemical Charm; requires Appearance 2 and Essence 2.",
     "cost": "2 motes",
+    "installationCost": "2 motes",
     "duration": "Indefinite",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -1968,11 +2022,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "None",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 122",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 121",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 122,
+      "printedPage": 121,
       "pdfPage": 124
     },
     "reviewStatus": "source-checked",
@@ -1994,6 +2048,7 @@
     "summary": "Alchemical Charm; requires Appearance 2 and Essence 2.",
     "description": "Alchemical Charm; requires Appearance 2 and Essence 2.",
     "cost": "None",
+    "installationCost": "1 mote",
     "duration": "N/A",
     "type": "Permanent",
     "minimumRequirements": [
@@ -2005,11 +2060,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": ["optical-shroud"],
     "prerequisiteText": "Optical Shroud",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 122",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 121",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 122,
+      "printedPage": 121,
       "pdfPage": 124
     },
     "reviewStatus": "source-checked",
@@ -2031,6 +2086,7 @@
     "summary": "Alchemical Charm; requires Appearance 2 and Essence 3.",
     "description": "Alchemical Charm; requires Appearance 2 and Essence 3.",
     "cost": "5 motes, 1 Willpower",
+    "installationCost": "1 mote",
     "duration": "One hour",
     "type": "Simple",
     "minimumRequirements": [
@@ -2042,11 +2098,11 @@
     "minimumEssence": 3,
     "prerequisiteCharms": ["optical-shroud"],
     "prerequisiteText": "Optical Shroud",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 122",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 121",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 122,
+      "printedPage": 121,
       "pdfPage": 124
     },
     "reviewStatus": "source-checked",
@@ -2068,6 +2124,7 @@
     "summary": "Alchemical Charm; requires Appearance 2 and Essence 4.",
     "description": "Alchemical Charm; requires Appearance 2 and Essence 4.",
     "cost": "None",
+    "installationCost": "1 mote",
     "duration": "N/A",
     "type": "Permanent",
     "minimumRequirements": [
@@ -2079,11 +2136,11 @@
     "minimumEssence": 4,
     "prerequisiteCharms": ["dynamic-cloaking-module"],
     "prerequisiteText": "Dynamic Cloaking Module",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 122",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 121",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 122,
+      "printedPage": 121,
       "pdfPage": 124
     },
     "reviewStatus": "source-checked",
@@ -2105,6 +2162,7 @@
     "summary": "Alchemical Charm; requires Perception 3 and Essence 2.",
     "description": "Alchemical Charm; requires Perception 3 and Essence 2.",
     "cost": "None",
+    "installationCost": "2 motes",
     "duration": "N/A",
     "type": "Permanent",
     "minimumRequirements": [
@@ -2116,11 +2174,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory or Sustained Augmentation of Perception",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 123",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 122",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 123,
+      "printedPage": 122,
       "pdfPage": 125
     },
     "reviewStatus": "source-checked",
@@ -2142,6 +2200,7 @@
     "summary": "Alchemical Charm; requires Perception 3 and Essence 2.",
     "description": "Alchemical Charm; requires Perception 3 and Essence 2.",
     "cost": "3 motes",
+    "installationCost": "1 mote",
     "duration": "One hour",
     "type": "Simple",
     "minimumRequirements": [
@@ -2153,11 +2212,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory or Sustained Augmentation of Perception",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 126",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 125",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 126,
+      "printedPage": 125,
       "pdfPage": 128
     },
     "reviewStatus": "source-checked",
@@ -2179,6 +2238,7 @@
     "summary": "Alchemical Charm; requires Perception 4 and Essence 2.",
     "description": "Alchemical Charm; requires Perception 4 and Essence 2.",
     "cost": "2 motes",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -2190,11 +2250,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Chemical Analysis System or",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 127",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 126",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 127,
+      "printedPage": 126,
       "pdfPage": 129
     },
     "reviewStatus": "source-checked",
@@ -2216,6 +2276,7 @@
     "summary": "Alchemical Charm; requires Wits 4 and Essence 3.",
     "description": "Alchemical Charm; requires Wits 4 and Essence 3.",
     "cost": "4 motes",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Simple",
     "minimumRequirements": [
@@ -2227,11 +2288,11 @@
     "minimumEssence": 3,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory and Sustained Augmentation of Wits",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 127",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 126",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 127,
+      "printedPage": 126,
       "pdfPage": 129
     },
     "reviewStatus": "source-checked",
@@ -2253,6 +2314,7 @@
     "summary": "Alchemical Charm; requires Perception 2 and Essence 2.",
     "description": "Alchemical Charm; requires Perception 2 and Essence 2.",
     "cost": "3 motes",
+    "installationCost": "1 mote",
     "duration": "One scene",
     "type": "Simple",
     "minimumRequirements": [
@@ -2264,11 +2326,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory or Sustained Augmentation of Perception",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 127",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 126",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 127,
+      "printedPage": 126,
       "pdfPage": 129
     },
     "reviewStatus": "source-checked",
@@ -2290,6 +2352,7 @@
     "summary": "Alchemical Charm; requires Perception 3 and Essence 2.",
     "description": "Alchemical Charm; requires Perception 3 and Essence 2.",
     "cost": "2 motes per sense",
+    "installationCost": "1 mote",
     "duration": "One scene",
     "type": "Simple",
     "minimumRequirements": [
@@ -2301,11 +2364,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory or Sustained Augmentation of Perception",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 128",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 127",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 128,
+      "printedPage": 127,
       "pdfPage": 130
     },
     "reviewStatus": "source-checked",
@@ -2327,6 +2390,7 @@
     "summary": "Alchemical Charm; requires Wits 3 and Essence 3.",
     "description": "Alchemical Charm; requires Wits 3 and Essence 3.",
     "cost": "4 motes",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Supplemental",
     "minimumRequirements": [
@@ -2338,11 +2402,11 @@
     "minimumEssence": 3,
     "prerequisiteCharms": ["cross-phase-scanner"],
     "prerequisiteText": "Cross-Phase Scanner",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 128",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 127",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 128,
+      "printedPage": 127,
       "pdfPage": 130
     },
     "reviewStatus": "source-checked",
@@ -2364,6 +2428,7 @@
     "summary": "Alchemical Charm; requires Charisma 5 and Essence 3.",
     "description": "Alchemical Charm; requires Charisma 5 and Essence 3.",
     "cost": "30 mote, 2 Willpower",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Simple",
     "minimumRequirements": [
@@ -2375,11 +2440,11 @@
     "minimumEssence": 3,
     "prerequisiteCharms": ["cross-phase-scanner"],
     "prerequisiteText": "Cross-Phase Scanner",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 129",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 128",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 129,
+      "printedPage": 128,
       "pdfPage": 131
     },
     "reviewStatus": "source-checked",
@@ -2401,6 +2466,7 @@
     "summary": "Alchemical Charm; requires Stamina 3 and Essence 2.",
     "description": "Alchemical Charm; requires Stamina 3 and Essence 2.",
     "cost": "None/5 motes",
+    "installationCost": "1 mote",
     "duration": "Permanent/One minute",
     "type": "Upgrade/Simple",
     "minimumRequirements": [
@@ -2412,11 +2478,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Sustained Augmentation of",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 129",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 128",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 129,
+      "printedPage": 128,
       "pdfPage": 131
     },
     "reviewStatus": "source-checked",
@@ -2438,6 +2504,7 @@
     "summary": "Alchemical Charm; requires Stamina 3 and Essence 2.",
     "description": "Alchemical Charm; requires Stamina 3 and Essence 2.",
     "cost": "2 motes",
+    "installationCost": "1 mote",
     "duration": "One hour",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -2449,11 +2516,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": null,
-    "sourceDisplay": "Exalted: The Autochthonians, p. 129",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 128",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 129,
+      "printedPage": 128,
       "pdfPage": 131
     },
     "reviewStatus": "source-checked",
@@ -2475,6 +2542,7 @@
     "summary": "Alchemical Charm; requires Stamina 3 and Essence 2.",
     "description": "Alchemical Charm; requires Stamina 3 and Essence 2.",
     "cost": "5 motes",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Simple",
     "minimumRequirements": [
@@ -2486,11 +2554,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Biofunction Inhibitor",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 130",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 129",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 130,
+      "printedPage": 129,
       "pdfPage": 132
     },
     "reviewStatus": "source-checked",
@@ -2512,6 +2580,7 @@
     "summary": "Alchemical Charm; requires Stamina 4 and Essence 3.",
     "description": "Alchemical Charm; requires Stamina 4 and Essence 3.",
     "cost": "12 motes, 1 Willpower",
+    "installationCost": "1 mote",
     "duration": "Indefinite",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -2523,11 +2592,11 @@
     "minimumEssence": 3,
     "prerequisiteCharms": ["restorative-fusion-transponder"],
     "prerequisiteText": "Restorative Fusion Transponder",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 130",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 129",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 130,
+      "printedPage": 129,
       "pdfPage": 132
     },
     "reviewStatus": "source-checked",
@@ -2549,17 +2618,18 @@
     "summary": "Alchemical Charm; Essence 2.",
     "description": "Alchemical Charm; Essence 2.",
     "cost": "1 mote",
+    "installationCost": "1 mote",
     "duration": "Until analysis completed",
     "type": "Simple",
     "minimumRequirements": [],
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Sustained or Transitory Augmentation of Perception",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 131",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 130",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 131,
+      "printedPage": 130,
       "pdfPage": 133
     },
     "reviewStatus": "source-checked",
@@ -2581,6 +2651,7 @@
     "summary": "Alchemical Charm; requires Perception 4 and Essence 3.",
     "description": "Alchemical Charm; requires Perception 4 and Essence 3.",
     "cost": "6 motes, 1 Willpower",
+    "installationCost": "1 mote",
     "duration": "One hour",
     "type": "Simple",
     "minimumRequirements": [
@@ -2592,11 +2663,11 @@
     "minimumEssence": 3,
     "prerequisiteCharms": ["diagnostic-sensor-apparatus"],
     "prerequisiteText": "Diagnostic Sensor Apparatus",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 131",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 130",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 131,
+      "printedPage": 130,
       "pdfPage": 133
     },
     "reviewStatus": "source-checked",
@@ -2618,6 +2689,7 @@
     "summary": "Alchemical Charm; requires Intelligence 3 and Essence 2.",
     "description": "Alchemical Charm; requires Intelligence 3 and Essence 2.",
     "cost": "3 motes",
+    "installationCost": "1 mote",
     "duration": "One day or indefinite",
     "type": "Simple or Reflexive",
     "minimumRequirements": [
@@ -2629,11 +2701,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": ["diagnostic-sensor-apparatus"],
     "prerequisiteText": "Biofunction Inhibitor, Diagnostic Sensor Apparatus",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 133",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 132",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 133,
+      "printedPage": 132,
       "pdfPage": 135
     },
     "reviewStatus": "source-checked",
@@ -2655,6 +2727,7 @@
     "summary": "Alchemical Charm; requires Intelligence 4 and Essence 2.",
     "description": "Alchemical Charm; requires Intelligence 4 and Essence 2.",
     "cost": "4 motes",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Simple",
     "minimumRequirements": [
@@ -2666,11 +2739,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": ["diagnostic-sensor-apparatus"],
     "prerequisiteText": "Transitory or Sustained Augmentation of Intelligence, Diagnostic Sensor Apparatus",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 133",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 132",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 133,
+      "printedPage": 132,
       "pdfPage": 135
     },
     "reviewStatus": "source-checked",
@@ -2692,6 +2765,7 @@
     "summary": "Alchemical Charm; requires Intelligence 4 and Essence 3.",
     "description": "Alchemical Charm; requires Intelligence 4 and Essence 3.",
     "cost": "10 motes or Varies",
+    "installationCost": "None",
     "duration": "Indefinite or instant",
     "type": "Simple",
     "minimumRequirements": [
@@ -2706,11 +2780,11 @@
       "multifunction-hypodermic-apparatus"
     ],
     "prerequisiteText": "Biostasis Field Projector, Multifunction Hypodermic Apparatus",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 135",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 134",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 135,
+      "printedPage": 134,
       "pdfPage": 137
     },
     "reviewStatus": "source-checked",
@@ -2732,6 +2806,7 @@
     "summary": "Alchemical Charm; requires Intelligence 4 and Essence 3.",
     "description": "Alchemical Charm; requires Intelligence 4 and Essence 3.",
     "cost": "Varies",
+    "installationCost": "None",
     "duration": "Indefinite",
     "type": "Simple",
     "minimumRequirements": [
@@ -2746,11 +2821,11 @@
       "multifunction-hypodermic-apparatus"
     ],
     "prerequisiteText": "Biostasis Field Projector, Multifunction Hypodermic Apparatus",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 135",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 134",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 135,
+      "printedPage": 134,
       "pdfPage": 137
     },
     "reviewStatus": "source-checked",
@@ -2772,6 +2847,7 @@
     "summary": "Alchemical Charm; requires Intelligence 3 and Essence 2.",
     "description": "Alchemical Charm; requires Intelligence 3 and Essence 2.",
     "cost": "1 mote per dot",
+    "installationCost": "2 motes",
     "duration": "Indefinite",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -2783,11 +2859,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Sustained Augmentation of",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 136",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 135",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 136,
+      "printedPage": 135,
       "pdfPage": 138
     },
     "reviewStatus": "source-checked",
@@ -2809,6 +2885,7 @@
     "summary": "Alchemical Charm; requires Intelligence 3 and Essence 2.",
     "description": "Alchemical Charm; requires Intelligence 3 and Essence 2.",
     "cost": "3 motes",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Supplemental",
     "minimumRequirements": [
@@ -2820,11 +2897,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory or Sustained Augmentation of Intelligence",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 137",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 136",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 137,
+      "printedPage": 136,
       "pdfPage": 139
     },
     "reviewStatus": "source-checked",
@@ -2846,6 +2923,7 @@
     "summary": "Alchemical Charm; requires Intelligence 3 and Essence 2.",
     "description": "Alchemical Charm; requires Intelligence 3 and Essence 2.",
     "cost": "2 mote per success/difficulty point",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Supplemental",
     "minimumRequirements": [
@@ -2857,11 +2935,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory or Sustained Augmentation of Intelligence",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 137",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 136",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 137,
+      "printedPage": 136,
       "pdfPage": 139
     },
     "reviewStatus": "source-checked",
@@ -2883,6 +2961,7 @@
     "summary": "Alchemical Charm; requires Perception 3 and Essence 2.",
     "description": "Alchemical Charm; requires Perception 3 and Essence 2.",
     "cost": "3 motes",
+    "installationCost": "1 motes",
     "duration": "Instant",
     "type": "Simple",
     "minimumRequirements": [
@@ -2894,11 +2973,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": ["abstract-abacus-implant"],
     "prerequisiteText": "Transitory or Sustained Augmentation of Perception, Abstract Abacus Implant",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 137",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 136",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 137,
+      "printedPage": 136,
       "pdfPage": 139
     },
     "reviewStatus": "source-checked",
@@ -2920,6 +2999,7 @@
     "summary": "Alchemical Charm; requires Wits 3 and Essence 2.",
     "description": "Alchemical Charm; requires Wits 3 and Essence 2.",
     "cost": "4 motes",
+    "installationCost": "1 mote",
     "duration": "One hour",
     "type": "Simple",
     "minimumRequirements": [
@@ -2931,11 +3011,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory or Sustained Augmentation of Wits",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 138",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 137",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 138,
+      "printedPage": 137,
       "pdfPage": 140
     },
     "reviewStatus": "source-checked",
@@ -2957,6 +3037,7 @@
     "summary": "Alchemical Charm; requires Wits 3 and Essence 2.",
     "description": "Alchemical Charm; requires Wits 3 and Essence 2.",
     "cost": "2 motes per hour",
+    "installationCost": "1 mote",
     "duration": "Varies",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -2968,11 +3049,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory or Sustained Augmentation of Wits",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 138",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 137",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 138,
+      "printedPage": 137,
       "pdfPage": 140
     },
     "reviewStatus": "source-checked",
@@ -2994,6 +3075,7 @@
     "summary": "Alchemical Charm; requires Wits 5 and Essence 3.",
     "description": "Alchemical Charm; requires Wits 5 and Essence 3.",
     "cost": "6 motes",
+    "installationCost": "1 mote",
     "duration": "Indefinite",
     "type": "Simple",
     "minimumRequirements": [
@@ -3005,11 +3087,11 @@
     "minimumEssence": 3,
     "prerequisiteCharms": ["synaptic-acceleration-node"],
     "prerequisiteText": "Synaptic Acceleration Node",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 138",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 137",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 138,
+      "printedPage": 137,
       "pdfPage": 140
     },
     "reviewStatus": "source-checked",
@@ -3031,6 +3113,7 @@
     "summary": "Alchemical Charm; requires Wits 5 and Essence 3.",
     "description": "Alchemical Charm; requires Wits 5 and Essence 3.",
     "cost": "3 motes per difficulty point",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Reflexive",
     "minimumRequirements": [
@@ -3045,11 +3128,11 @@
       "synaptic-acceleration-node"
     ],
     "prerequisiteText": "Abstract Abacus Implant, Synaptic Acceleration Node",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 139",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 138",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 139,
+      "printedPage": 138,
       "pdfPage": 141
     },
     "reviewStatus": "source-checked",
@@ -3071,6 +3154,7 @@
     "summary": "Alchemical Charm; requires Wits 3 and Essence 2.",
     "description": "Alchemical Charm; requires Wits 3 and Essence 2.",
     "cost": "None",
+    "installationCost": "1 mote",
     "duration": "N/A",
     "type": "Permanent",
     "minimumRequirements": [
@@ -3082,11 +3166,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "Transitory or Sustained Augmentation of Wits",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 139",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 138",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 139,
+      "printedPage": 138,
       "pdfPage": 141
     },
     "reviewStatus": "source-checked",
@@ -3108,6 +3192,7 @@
     "summary": "Alchemical Charm; requires Stamina 1 and Essence 2.",
     "description": "Alchemical Charm; requires Stamina 1 and Essence 2.",
     "cost": "None",
+    "installationCost": "1 mote",
     "duration": "N/A",
     "type": "Permanent",
     "minimumRequirements": [
@@ -3119,11 +3204,11 @@
     "minimumEssence": 2,
     "prerequisiteCharms": [],
     "prerequisiteText": "None",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 140",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 139",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 140,
+      "printedPage": 139,
       "pdfPage": 142
     },
     "reviewStatus": "source-checked",
@@ -3145,6 +3230,7 @@
     "summary": "Alchemical Charm; requires Intelligence 4 and Essence 4.",
     "description": "Alchemical Charm; requires Intelligence 4 and Essence 4.",
     "cost": "1 Willpower",
+    "installationCost": "1 mote",
     "duration": "Instant",
     "type": "Simple",
     "minimumRequirements": [
@@ -3156,11 +3242,11 @@
     "minimumEssence": 4,
     "prerequisiteCharms": [],
     "prerequisiteText": "None",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 140",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 139",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 140,
+      "printedPage": 139,
       "pdfPage": 142
     },
     "reviewStatus": "source-checked",
@@ -3182,6 +3268,7 @@
     "summary": "Alchemical Charm; requires Intelligence 6 and Essence 5.",
     "description": "Alchemical Charm; requires Intelligence 6 and Essence 5.",
     "cost": "2 Willpower",
+    "installationCost": "2 motes",
     "duration": "Instant",
     "type": "Simple",
     "minimumRequirements": [
@@ -3193,11 +3280,11 @@
     "minimumEssence": 5,
     "prerequisiteCharms": ["auxiliary-essence-storage-unit"],
     "prerequisiteText": "Auxiliary Essence Storage Unit,",
-    "sourceDisplay": "Exalted: The Autochthonians, p. 140",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 139",
     "source": {
       "id": "autochthonians",
       "bookTitle": "Exalted: The Autochthonians",
-      "printedPage": 140,
+      "printedPage": 139,
       "pdfPage": 142
     },
     "reviewStatus": "source-checked",

@@ -1,0 +1,6472 @@
+[
+  {
+    "id": "masking-the-brilliant-form",
+    "name": "Masking The Brilliant Form",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 1 and Essence 1.",
+    "description": "Lunar Charm; requires Manipulation 1 and Essence 1.",
+    "cost": "1 mote",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Lunars, p. 122",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 122,
+      "pdfPage": 126
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "hide-of-the-cunning-hunter",
+    "name": "Hide Of The Cunning Hunter",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 1 and Essence 1.",
+    "description": "Lunar Charm; requires Manipulation 1 and Essence 1.",
+    "cost": "1 mote",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Lunars, p. 122",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 122,
+      "pdfPage": 126
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "finding-the-spirits-shape",
+    "name": "Finding The Spirit's Shape",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 2 and Essence 1.",
+    "description": "Lunar Charm; requires Charisma 2 and Essence 1.",
+    "cost": "1 mote",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Lunars, p. 123",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 123,
+      "pdfPage": 127
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "deadly-beastman-transformation",
+    "name": "Deadly Beastman Transformation",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 2 and Essence 2.",
+    "description": "Lunar Charm; requires Charisma 2 and Essence 2.",
+    "cost": "5 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["finding-the-spirits-shape"],
+    "prerequisiteText": "Finding the Spirit's Shape",
+    "sourceDisplay": "Exalted: The Lunars, p. 123",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 123,
+      "pdfPage": 127
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "calling-lunas-favor",
+    "name": "Calling Luna's Favor",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "description": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "cost": "5 motes",
+    "duration": "Scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["deadly-beastman-transformation", "transformation"],
+    "prerequisiteText": "Deadly Beastman Transformation",
+    "sourceDisplay": "Exalted: The Lunars, p. 124",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 124,
+      "pdfPage": 128
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "blossoming-gift-of-luna",
+    "name": "Blossoming Gift Of Luna",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 4 and Essence 3.",
+    "description": "Lunar Charm; requires Charisma 4 and Essence 3.",
+    "cost": "3 motes,1 Willpower",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["calling-lunas-favor"],
+    "prerequisiteText": "Calling Luna's Favor",
+    "sourceDisplay": "Exalted: The Lunars, p. 124",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 124,
+      "pdfPage": 128
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "towering-beast-form",
+    "name": "Towering Beast Form",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 3 and Essence 2.",
+    "description": "Lunar Charm; requires Charisma 3 and Essence 2.",
+    "cost": "None",
+    "duration": "Indefinite",
+    "type": "Special",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["finding-the-spirits-shape"],
+    "prerequisiteText": "Finding the Spirit's Shape",
+    "sourceDisplay": "Exalted: The Lunars, p. 124",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 124,
+      "pdfPage": 128
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "humble-mouse-shape",
+    "name": "Humble Mouse Shape",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 3 and Essence 2.",
+    "description": "Lunar Charm; requires Charisma 3 and Essence 2.",
+    "cost": "1 mote",
+    "duration": "Indefinite",
+    "type": "Special",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["finding-the-spirits-shape"],
+    "prerequisiteText": "Findingthe Spirit's Shape",
+    "sourceDisplay": "Exalted: The Lunars, p. 127",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 127,
+      "pdfPage": 131
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "shaping-the-ideal-form",
+    "name": "Shaping The Ideal Form",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 2 and Essence 1.",
+    "description": "Lunar Charm; requires Manipulation 2 and Essence 1.",
+    "cost": "1 mote",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["finding-the-spirits-shape"],
+    "prerequisiteText": "Finding the Spirit's Shape",
+    "sourceDisplay": "Exalted: The Lunars, p. 127",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 127,
+      "pdfPage": 131
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "many-faced-moon-transformation",
+    "name": "Many-Faced Moon Transformation",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 4 and Essence 2.",
+    "description": "Lunar Charm; requires Charisma 4 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted: The Lunars, p. 127",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 127,
+      "pdfPage": 131
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "preys-sk-in-disguise",
+    "name": "Prey’S Sk In Disguise",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 4 and Essence 3.",
+    "description": "Lunar Charm; requires Charisma 4 and Essence 3.",
+    "cost": "3 motes,1 health level+special",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["towering-beast-form"],
+    "prerequisiteText": "Towering Beast Form,Humble",
+    "sourceDisplay": "Exalted: The Lunars, p. 128",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 128,
+      "pdfPage": 132
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "lunar-blood-reshaping-technique",
+    "name": "Lunar Blood Reshaping Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 4 and Essence 3.",
+    "description": "Lunar Charm; requires Manipulation 4 and Essence 3.",
+    "cost": "3 motes,1 health level+special",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["shaping-the-ideal-form"],
+    "prerequisiteText": "Shaping the Ideal Form",
+    "sourceDisplay": "Exalted: The Lunars, p. 128",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 128,
+      "pdfPage": 132
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "transformation",
+    "name": "Transformation",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 5 and Essence 4.",
+    "description": "Lunar Charm; requires Manipulation 5 and Essence 4.",
+    "cost": "5 motes,1 Willpower,1 health",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Prey's Skin Dis-",
+    "sourceDisplay": "Exalted: The Lunars, p. 129",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 129,
+      "pdfPage": 133
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "shaping-the-once-living-form",
+    "name": "Shaping The Once-Living Form",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 3 and Essence 3.",
+    "description": "Lunar Charm; requires Manipulation 3 and Essence 3.",
+    "cost": "I moteperrawcubicfoot,1 pervolume",
+    "duration": "Indefinite/Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted: The Lunars, p. 129",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 129,
+      "pdfPage": 133
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "fish-tail-technique",
+    "name": "Fish Tail Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 3 and Essence 3.",
+    "description": "Lunar Charm; requires Charisma 3 and Essence 3.",
+    "cost": "6 motes",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["shaping-the-ideal-form"],
+    "prerequisiteText": "Shaping the Ideal Form",
+    "sourceDisplay": "Exalted: The Lunars, p. 130",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 130,
+      "pdfPage": 134
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "tool-hand-technique",
+    "name": "Tool-Hand Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 2 and Essence 2.",
+    "description": "Lunar Charm; requires Manipulation 2 and Essence 2.",
+    "cost": "1 mote",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["shaping-the-ideal-form"],
+    "prerequisiteText": "Shaping the Ideal Form",
+    "sourceDisplay": "Exalted: The Lunars, p. 130",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 130,
+      "pdfPage": 134
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "rat-head-technique",
+    "name": "Rat-Head Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 2 and Essence 2.",
+    "description": "Lunar Charm; requires Manipulation 2 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["shaping-the-ideal-form"],
+    "prerequisiteText": "Shaping the Ideal Form",
+    "sourceDisplay": "Exalted: The Lunars, p. 131",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 131,
+      "pdfPage": 135
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "ox-body-technique",
+    "name": "Ox-Body Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm.",
+    "description": "Lunar Charm.",
+    "cost": "None",
+    "duration": "Permanent",
+    "type": "Special",
+    "minimumRequirements": [],
+    "minimumEssence": null,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted: The Lunars, p. 131",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 131,
+      "pdfPage": 135
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Lunar",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "crouching-tiger-exercise",
+    "name": "Crouching Tiger Exercise",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 3 and Essence 2.",
+    "description": "Lunar Charm; requires Charisma 3 and Essence 2.",
+    "cost": "6 motes,1 Willpower",
+    "duration": "Varies",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["shaping-the-ideal-form"],
+    "prerequisiteText": "Shapingthe Ideal Form",
+    "sourceDisplay": "Exalted: The Lunars, p. 132",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 132,
+      "pdfPage": 136
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "moonsilver-monkey-exercise",
+    "name": "Moonsilver Monkey Exercise",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 3 and Essence 2.",
+    "description": "Lunar Charm; requires Charisma 3 and Essence 2.",
+    "cost": "6 motes,1 Willpower",
+    "duration": "Varies",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["shaping-the-ideal-form"],
+    "prerequisiteText": "Shaping the Ideal Form",
+    "sourceDisplay": "Exalted: The Lunars, p. 132",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 132,
+      "pdfPage": 136
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "regaining-breath-exercise",
+    "name": "Regaining Breath Exercise",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Intelligence 4 and Essence 3.",
+    "description": "Lunar Charm; requires Intelligence 4 and Essence 3.",
+    "cost": "1 Willpower",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Intelligence",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["crouching-tiger-exercise"],
+    "prerequisiteText": "Crouching Tiger Exercise,",
+    "sourceDisplay": "Exalted: The Lunars, p. 133",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 133,
+      "pdfPage": 137
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Intelligence",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "breath-drinking-executioner-attack",
+    "name": "Breath-Drinking Executioner Attack",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Wits 4 and Essence 4.",
+    "description": "Lunar Charm; requires Wits 4 and Essence 4.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["regaining-breath-exercise"],
+    "prerequisiteText": "Regaining Breath Exercise",
+    "sourceDisplay": "Exalted: The Lunars, p. 133",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 133,
+      "pdfPage": 137
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "predator-grace-method",
+    "name": "Predator Grace Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "description": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "cost": "1 moteper 2 dice",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["shaping-the-ideal-form"],
+    "prerequisiteText": "Shaping the Ideal Form",
+    "sourceDisplay": "Exalted: The Lunars, p. 133",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 133,
+      "pdfPage": 137
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "panther-stride-stance",
+    "name": "Panther Stride Stance",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "description": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "cost": "4 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["predator-grace-method"],
+    "prerequisiteText": "Predator Grace Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 133",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 133,
+      "pdfPage": 137
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "flying-tiger-technique",
+    "name": "Flying Tiger Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 4 and Essence 3.",
+    "description": "Lunar Charm; requires Manipulation 4 and Essence 3.",
+    "cost": "3 motes",
+    "duration": "One Scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["panther-stride-stance"],
+    "prerequisiteText": "Panther Stride Stance",
+    "sourceDisplay": "Exalted: The Lunars, p. 133",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 133,
+      "pdfPage": 137
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "tree-dwelling-jaguar-claws",
+    "name": "Tree-Dwelling Jaguar Claws",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 3 and Essence 3.",
+    "description": "Lunar Charm; requires Dexterity 3 and Essence 3.",
+    "cost": "3 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["shaping-the-ideal-form"],
+    "prerequisiteText": "Shaping the Ideal Form",
+    "sourceDisplay": "Exalted: The Lunars, p. 134",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 134,
+      "pdfPage": 138
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "cat-falling-artitude",
+    "name": "Cat-Falling Artitude",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "description": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "cost": "5 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["predator-grace-method"],
+    "prerequisiteText": "Predator Grace Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 134",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 134,
+      "pdfPage": 138
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "cat-paw-climbing-style",
+    "name": "Cat Paw Climbing Style",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 4 and Essence 4.",
+    "description": "Lunar Charm; requires Dexterity 4 and Essence 4.",
+    "cost": "5 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted: The Lunars, p. 134",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 134,
+      "pdfPage": 138
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "body-weapon-technique",
+    "name": "Body Weapon Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Strength 1 and Essence 1.",
+    "description": "Lunar Charm; requires Strength 1 and Essence 1.",
+    "cost": "1 mote",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Strength",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Lunars, p. 135",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 135,
+      "pdfPage": 139
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Strength",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "sinuous-striking-grace",
+    "name": "Sinuous Striking Grace",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 1 and Essence 1.",
+    "description": "Lunar Charm; requires Dexterity 1 and Essence 1.",
+    "cost": "1 moteper+1 initiative",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["body-weapon-technique"],
+    "prerequisiteText": "Body Weapon Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 135",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 135,
+      "pdfPage": 139
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "tyrant-lizard-strike",
+    "name": "Tyrant Lizard Strike",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "description": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "cost": "5 motes",
+    "duration": "Variable",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["sinuous-striking-grace"],
+    "prerequisiteText": "Sinuous Striking Grace",
+    "sourceDisplay": "Exalted: The Lunars, p. 136",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 136,
+      "pdfPage": 140
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "coiled-cobra-stance",
+    "name": "Coiled Cobra Stance",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "description": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "cost": "5 motes",
+    "duration": "Variable",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["snake-body-technique"],
+    "prerequisiteText": "Snake Body Technique,",
+    "sourceDisplay": "Exalted: The Lunars, p. 136",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 136,
+      "pdfPage": 140
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "hydra-head-attack",
+    "name": "Hydra Head Attack",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 3 and Essence 1.",
+    "description": "Lunar Charm; requires Dexterity 3 and Essence 1.",
+    "cost": "3 motes per attack,1 Willpower",
+    "duration": "Instant",
+    "type": "Extra action",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["tyrant-lizard-strike"],
+    "prerequisiteText": "Tyrant Lizard Strike",
+    "sourceDisplay": "Exalted: The Lunars, p. 136",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 136,
+      "pdfPage": 140
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "snake-body-technique",
+    "name": "Snake Body Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 2 and Essence 1.",
+    "description": "Lunar Charm; requires Dexterity 2 and Essence 1.",
+    "cost": "2 motesper success",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["body-weapon-technique"],
+    "prerequisiteText": "Body Weapon Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 136",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 136,
+      "pdfPage": 140
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "deadly-claw-blow",
+    "name": "Deadly Claw Blow",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 2 and Essence 1.",
+    "description": "Lunar Charm; requires Dexterity 2 and Essence 1.",
+    "cost": "2 motesper success",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["body-weapon-technique"],
+    "prerequisiteText": "Body Weapon Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 136",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 136,
+      "pdfPage": 140
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "claws-of-the-silver-moon",
+    "name": "Claws Of The Silver Moon",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Stamina 2 and Essence 1.",
+    "description": "Lunar Charm; requires Stamina 2 and Essence 1.",
+    "cost": "4 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["deadly-claw-blow"],
+    "prerequisiteText": "Deadly Claw Blow",
+    "sourceDisplay": "Exalted: The Lunars, p. 137",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 137,
+      "pdfPage": 141
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "scimitar-claw-technique",
+    "name": "Scimitar Claw Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "description": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "cost": "5 motes,1 Willpower",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["claws-of-the-silver-moon"],
+    "prerequisiteText": "Claws of the Silver Moon",
+    "sourceDisplay": "Exalted: The Lunars, p. 137",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 137,
+      "pdfPage": 141
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "adder-fang-method",
+    "name": "Adder Fang Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Stamina 3 and Essence 2.",
+    "description": "Lunar Charm; requires Stamina 3 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["claws-of-the-silver-moon"],
+    "prerequisiteText": "Clawsof the Silver Moon",
+    "sourceDisplay": "Exalted: The Lunars, p. 138",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 138,
+      "pdfPage": 142
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "burning-saliva-attack",
+    "name": "Burning Saliva Attack",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 4 and Essence 2.",
+    "description": "Lunar Charm; requires Dexterity 4 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["adder-fang-method"],
+    "prerequisiteText": "Adder Fang Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 138",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 138,
+      "pdfPage": 142
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "cobra-eye-method",
+    "name": "Cobra Eye Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Intelligence 5 and Essence 3.",
+    "description": "Lunar Charm; requires Intelligence 5 and Essence 3.",
+    "cost": "4 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Intelligence",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["burning-saliva-attack", "attack"],
+    "prerequisiteText": "Burning Saliva Attack",
+    "sourceDisplay": "Exalted: The Lunars, p. 139",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 139,
+      "pdfPage": 143
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Intelligence",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "soporific-venom-attack",
+    "name": "Soporific Venom Attack",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Wits 3 and Essence 2.",
+    "description": "Lunar Charm; requires Wits 3 and Essence 2.",
+    "cost": "6 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["burning-saliva-attack", "attack"],
+    "prerequisiteText": "Burning Saliva Attack",
+    "sourceDisplay": "Exalted: The Lunars, p. 139",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 139,
+      "pdfPage": 143
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "deadly-viper-strike",
+    "name": "Deadly Viper Strike",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "description": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "cost": "8 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["adder-fang-method"],
+    "prerequisiteText": "Adder Fang Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 139",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 139,
+      "pdfPage": 143
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "rabid-beast-bite",
+    "name": "Rabid Beast Bite",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 3 and Essence 3.",
+    "description": "Lunar Charm; requires Charisma 3 and Essence 3.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["deadly-viper-strike"],
+    "prerequisiteText": "Deadly Viper Strike",
+    "sourceDisplay": "Exalted: The Lunars, p. 139",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 139,
+      "pdfPage": 143
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "form-destroying-touch",
+    "name": "Form-Destroying Touch",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 4 and Essence 4.",
+    "description": "Lunar Charm; requires Charisma 4 and Essence 4.",
+    "cost": "10 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["rabid-beast-bite"],
+    "prerequisiteText": "Rabid Beast Bite",
+    "sourceDisplay": "Exalted: The Lunars, p. 140",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 140,
+      "pdfPage": 144
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "monkey-arm-style",
+    "name": "Monkey Arm Style",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 2 and Essence 1.",
+    "description": "Lunar Charm; requires Manipulation 2 and Essence 1.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["body-weapon-technique"],
+    "prerequisiteText": "Body Weapon Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 141",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 141,
+      "pdfPage": 145
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "attack",
+    "name": "Attack",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 2 and Essence 1.",
+    "description": "Lunar Charm; requires Manipulation 2 and Essence 1.",
+    "cost": "3 motes per attack",
+    "duration": "Instant",
+    "type": "Extra action",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "",
+    "sourceDisplay": "Exalted: The Lunars, p. 141",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 141,
+      "pdfPage": 145
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "grasping-pseudopod-method",
+    "name": "Grasping Pseudopod Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "description": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "cost": "5 motes",
+    "duration": "Until attackends",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["attack"],
+    "prerequisiteText": "Startling Tentacle Attack",
+    "sourceDisplay": "Exalted: The Lunars, p. 142",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 142,
+      "pdfPage": 146
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "tentacle-spear-strike",
+    "name": "Tentacle Spear Strike",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 4 and Essence 3.",
+    "description": "Lunar Charm; requires Manipulation 4 and Essence 3.",
+    "cost": "4 or 5 motesper tentacle",
+    "duration": "Instant",
+    "type": "Extra Action",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["attack"],
+    "prerequisiteText": "Startling Tentacle Attack",
+    "sourceDisplay": "Exalted: The Lunars, p. 142",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 142,
+      "pdfPage": 146
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "bear-embrace-method",
+    "name": "Bear Embrace Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "description": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "cost": "1 moteper die",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["body-weapon-technique"],
+    "prerequisiteText": "Body Weapon Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 143",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 143,
+      "pdfPage": 147
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "gill-breathing-technique",
+    "name": "Gill-Breathing Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Strength 3 and Essence 2.",
+    "description": "Lunar Charm; requires Strength 3 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Strength",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["bear-embrace-method"],
+    "prerequisiteText": "Bear Embrace Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 143",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 143,
+      "pdfPage": 147
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Strength",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "mighty-bear-crush",
+    "name": "Mighty Bear Crush",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Strength 4 and Essence 2.",
+    "description": "Lunar Charm; requires Strength 4 and Essence 2.",
+    "cost": "2 motesperdie",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Strength",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["bear-embrace-method"],
+    "prerequisiteText": "Bear Embrace Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 143",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 143,
+      "pdfPage": 147
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Strength",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "throat-baring-hold",
+    "name": "Throat-Baring Hold",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 4 and Essence 2.",
+    "description": "Lunar Charm; requires Dexterity 4 and Essence 2.",
+    "cost": "5 motesperturn",
+    "duration": "Varies",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["mighty-bear-crush"],
+    "prerequisiteText": "Mighty Bear Crush",
+    "sourceDisplay": "Exalted: The Lunars, p. 144",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 144,
+      "pdfPage": 148
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "hyena-jaw-technique",
+    "name": "Hyena Jaw Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 2 and Essence 3.",
+    "description": "Lunar Charm; requires Manipulation 2 and Essence 3.",
+    "cost": "5 motes,1 Willpower",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["mighty-bear-crush"],
+    "prerequisiteText": "Mighty Bear Crush",
+    "sourceDisplay": "Exalted: The Lunars, p. 144",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 144,
+      "pdfPage": 148
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "ossific-shard-shot",
+    "name": "Ossific Shard Shot",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 3 and Essence 3.",
+    "description": "Lunar Charm; requires Manipulation 3 and Essence 3.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Cunning Porcupine Defense",
+    "sourceDisplay": "Exalted: The Lunars, p. 145",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 145,
+      "pdfPage": 149
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "angry-rhino-charge",
+    "name": "Angry Rhino Charge",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Strength 2 and Essence 2.",
+    "description": "Lunar Charm; requires Strength 2 and Essence 2.",
+    "cost": "1 moteper 2 dice",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Strength",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["body-weapon-technique"],
+    "prerequisiteText": "Body Weapon Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 145",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 145,
+      "pdfPage": 149
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Strength",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "bull-head-technique",
+    "name": "Bull Head Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "description": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "cost": "2 motes per die",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["angry-rhino-charge"],
+    "prerequisiteText": "Angry Rhino Charge",
+    "sourceDisplay": "Exalted: The Lunars, p. 145",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 145,
+      "pdfPage": 149
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "subduing-the-honored-foe",
+    "name": "Subduing The Honored Foe",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Strength 2 and Essence 1.",
+    "description": "Lunar Charm; requires Strength 2 and Essence 1.",
+    "cost": "1 mote per die",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Strength",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["body-weapon-technique"],
+    "prerequisiteText": "Body Weapon Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 146",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 146,
+      "pdfPage": 150
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Strength",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "door-breaking-method",
+    "name": "Door-Breaking Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 4 and Essence 2.",
+    "description": "Lunar Charm; requires Charisma 4 and Essence 2.",
+    "cost": "5 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["bull-head-technique"],
+    "prerequisiteText": "Bull Head Technique,Sub-",
+    "sourceDisplay": "Exalted: The Lunars, p. 146",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 146,
+      "pdfPage": 150
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "hunters-eye-technique",
+    "name": "Hunter's Eye Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "description": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "cost": "2 motesper die",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["body-weapon-technique"],
+    "prerequisiteText": "Body Weapon Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 147",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 147,
+      "pdfPage": 151
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "armor-rending-claw-fist",
+    "name": "Armor-Rending Claw Fist",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Intelligence 4 and Essence 3.",
+    "description": "Lunar Charm; requires Intelligence 4 and Essence 3.",
+    "cost": "4 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Intelligence",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["door-breaking-method"],
+    "prerequisiteText": "Door-Breaking Method,",
+    "sourceDisplay": "Exalted: The Lunars, p. 147",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 147,
+      "pdfPage": 151
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Intelligence",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "sensing-the-deadly-flow",
+    "name": "Sensing The Deadly Flow",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 2 and Essence 1.",
+    "description": "Lunar Charm; requires Dexterity 2 and Essence 1.",
+    "cost": "1 moteper die",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Lunars, p. 148",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 148,
+      "pdfPage": 152
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "striking-mospid-method",
+    "name": "Striking Mospid Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 4 and Essence 1.",
+    "description": "Lunar Charm; requires Dexterity 4 and Essence 1.",
+    "cost": "lmoteper+Iinitiative",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Striking Mospid Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 148",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 148,
+      "pdfPage": 152
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "irresistible-storm-attack",
+    "name": "Irresistible Storm Attack",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 5 and Essence 3.",
+    "description": "Lunar Charm; requires Dexterity 5 and Essence 3.",
+    "cost": "6 motes+1 moteperyard,1 Willpower",
+    "duration": "Instant",
+    "type": "Extra action",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Dance of the Living Blade",
+    "sourceDisplay": "Exalted: The Lunars, p. 149",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 149,
+      "pdfPage": 153
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "spinning-blade-attack",
+    "name": "Spinning Blade Attack",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 3 and Essence 3.",
+    "description": "Lunar Charm; requires Dexterity 3 and Essence 3.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Extra action",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Danceof the Living Blade",
+    "sourceDisplay": "Exalted: The Lunars, p. 150",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 150,
+      "pdfPage": 154
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "lightning-sword-method",
+    "name": "Lightning Sword Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 4 and Essence 3.",
+    "description": "Lunar Charm; requires Dexterity 4 and Essence 3.",
+    "cost": "5 motes",
+    "duration": "Instant",
+    "type": "Extra action",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["attack", "spinning-blade-attack"],
+    "prerequisiteText": "Spinning Blade Attack",
+    "sourceDisplay": "Exalted: The Lunars, p. 150",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 150,
+      "pdfPage": 154
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "dust-devil-advance",
+    "name": "Dust Devil Advance",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 5 and Essence 3.",
+    "description": "Lunar Charm; requires Dexterity 5 and Essence 3.",
+    "cost": "3 motes,1 Willpower",
+    "duration": "Varies",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["attack", "spinning-blade-attack"],
+    "prerequisiteText": "Spinning Blade Attack",
+    "sourceDisplay": "Exalted: The Lunars, p. 150",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 150,
+      "pdfPage": 154
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "weapon-clutching-method",
+    "name": "Weapon-Clutching Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "description": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Monkey Paw Advantage",
+    "sourceDisplay": "Exalted: The Lunars, p. 151",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 151,
+      "pdfPage": 155
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "twisting-monkey-wrist",
+    "name": "Twisting Monkey Wrist",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 3 and Essence 3.",
+    "description": "Lunar Charm; requires Charisma 3 and Essence 3.",
+    "cost": "1 moteper die",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["weapon-clutching-method"],
+    "prerequisiteText": "Weapon Clutching Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 151",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 151,
+      "pdfPage": 155
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "surprising-gibbon-attack",
+    "name": "Surprising Gibbon Attack",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 4 and Essence 2.",
+    "description": "Lunar Charm; requires Manipulation 4 and Essence 2.",
+    "cost": "1 mote",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Monkey Paw Advantage",
+    "sourceDisplay": "Exalted: The Lunars, p. 152",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 152,
+      "pdfPage": 156
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "scar-making-blow",
+    "name": "Scar-Making Blow",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 4 and Essence 2.",
+    "description": "Lunar Charm; requires Dexterity 4 and Essence 2.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Tiger Claw Swat",
+    "sourceDisplay": "Exalted: The Lunars, p. 153",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 153,
+      "pdfPage": 157
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "ferocious-avalanche-technique",
+    "name": "Ferocious Avalanche Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "description": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "cost": "1 moteperyard",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Tiger Claw Swat",
+    "sourceDisplay": "Exalted: The Lunars, p. 153",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 153,
+      "pdfPage": 157
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "limb-maiming-flourish",
+    "name": "Limb-Maiming Flourish",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 4 and Essence 2.",
+    "description": "Lunar Charm; requires Dexterity 4 and Essence 2.",
+    "cost": "6 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Ferocious Avalanche",
+    "sourceDisplay": "Exalted: The Lunars, p. 153",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 153,
+      "pdfPage": 157
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "thunderclap-method",
+    "name": "Thunderclap Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Strength 3 and Essence 3.",
+    "description": "Lunar Charm; requires Strength 3 and Essence 3.",
+    "cost": "1 moteper die",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Strength",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Tiger Claw Swat",
+    "sourceDisplay": "Exalted: The Lunars, p. 153",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 153,
+      "pdfPage": 157
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Strength",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "weapon-fusion-method",
+    "name": "Weapon Fusion Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "description": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "cost": "1 mote",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["sensing-the-deadly-flow"],
+    "prerequisiteText": "Sensing the Deadly Flow",
+    "sourceDisplay": "Exalted: The Lunars, p. 154",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 154,
+      "pdfPage": 158
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "weapon-shaping-prana",
+    "name": "Weapon-Shaping Prana",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Wits 2 and Essence 3.",
+    "description": "Lunar Charm; requires Wits 2 and Essence 3.",
+    "cost": "2 or 3 motes",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["weapon-fusion-method"],
+    "prerequisiteText": "Weapon Fusion Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 154",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 154,
+      "pdfPage": 158
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "insidious-moonsilver-shard",
+    "name": "Insidious Moonsilver Shard",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 4 and Essence 4.",
+    "description": "Lunar Charm; requires Charisma 4 and Essence 4.",
+    "cost": "6 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Surprising Moonsilver De-",
+    "sourceDisplay": "Exalted: The Lunars, p. 155",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 155,
+      "pdfPage": 159
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "eagle-eye-advantage",
+    "name": "Eagle Eye Advantage",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 2 and Essence 1.",
+    "description": "Lunar Charm; requires Perception 2 and Essence 1.",
+    "cost": "2 motes per die",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Lunars, p. 155",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 155,
+      "pdfPage": 159
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "natures-harmony-advantage",
+    "name": "Nature's Harmony Advantage",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "description": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["eagle-eye-advantage"],
+    "prerequisiteText": "Eagle Eye Advantage",
+    "sourceDisplay": "Exalted: The Lunars, p. 155",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 155,
+      "pdfPage": 159
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "knowing-the-arrows-path",
+    "name": "Knowing The Arrow's Path",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "description": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Extra action",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Narure's Harmony Advantage",
+    "sourceDisplay": "Exalted: The Lunars, p. 155",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 155,
+      "pdfPage": 159
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "two-target-method",
+    "name": "Two-Target Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "description": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Extra action",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["knowing-the-arrows-path"],
+    "prerequisiteText": "Knowingthe Arrow's Path",
+    "sourceDisplay": "Exalted: The Lunars, p. 155",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 155,
+      "pdfPage": 159
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "ra-in-of-feathered-doom",
+    "name": "Ra In Of Feathered Doom",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 5 and Essence 3.",
+    "description": "Lunar Charm; requires Dexterity 5 and Essence 3.",
+    "cost": "2 motes per target",
+    "duration": "Instant",
+    "type": "Extra action",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["two-target-method"],
+    "prerequisiteText": "Two-Target Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 156",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 156,
+      "pdfPage": 160
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "finding-the-needles-eye",
+    "name": "Finding The Needle's Eye",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 4 and Essence 2.",
+    "description": "Lunar Charm; requires Perception 4 and Essence 2.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["knowing-the-arrows-path"],
+    "prerequisiteText": "Knowing the Arrow's Path",
+    "sourceDisplay": "Exalted: The Lunars, p. 157",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 157,
+      "pdfPage": 161
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "arrow-breaking-shot",
+    "name": "Arrow-Breaking Shot",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 5 and Essence 3.",
+    "description": "Lunar Charm; requires Perception 5 and Essence 3.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["finding-the-needles-eye"],
+    "prerequisiteText": "Finding the Needle's Eye",
+    "sourceDisplay": "Exalted: The Lunars, p. 157",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 157,
+      "pdfPage": 161
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "skillful-ricochet-attack",
+    "name": "Skillful Ricochet Attack",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "description": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["knowing-the-arrows-path"],
+    "prerequisiteText": "Knowingthe Arrow's Path",
+    "sourceDisplay": "Exalted: The Lunars, p. 158",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 158,
+      "pdfPage": 162
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "arrow-shaping-method",
+    "name": "Arrow-Shaping Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 4 and Essence 3.",
+    "description": "Lunar Charm; requires Manipulation 4 and Essence 3.",
+    "cost": "6 motes,1 Willpower",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Shaping the Once-Living",
+    "sourceDisplay": "Exalted: The Lunars, p. 158",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 158,
+      "pdfPage": 162
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "wind-wings-carry-technique",
+    "name": "Wind-Wings Carry Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "description": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "cost": "4 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Wolf Eye Advantage",
+    "sourceDisplay": "Exalted: The Lunars, p. 159",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 159,
+      "pdfPage": 163
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "bow-bending-method",
+    "name": "Bow-Bending Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Strength 3 and Essence 2.",
+    "description": "Lunar Charm; requires Strength 3 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Strength",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Wind-Wings Carry",
+    "sourceDisplay": "Exalted: The Lunars, p. 159",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 159,
+      "pdfPage": 163
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Strength",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "body-pinning-style",
+    "name": "Body-Pinning Style",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Strength 4 and Essence 2.",
+    "description": "Lunar Charm; requires Strength 4 and Essence 2.",
+    "cost": "3 motes per success",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Strength",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["bow-bending-method"],
+    "prerequisiteText": "Bow-Bending Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 159",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 159,
+      "pdfPage": 163
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Strength",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "deadly-assassins-shot",
+    "name": "Deadly Assassin's Shot",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Strength 4 and Essence 3.",
+    "description": "Lunar Charm; requires Strength 4 and Essence 3.",
+    "cost": "3 motes per success",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Strength",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["body-pinning-style"],
+    "prerequisiteText": "Body-Pinning Style",
+    "sourceDisplay": "Exalted: The Lunars, p. 159",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 159,
+      "pdfPage": 163
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Strength",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "lightning-stroke-attack",
+    "name": "Lightning Stroke Attack",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Strength 5 and Essence 2.",
+    "description": "Lunar Charm; requires Strength 5 and Essence 2.",
+    "cost": "6 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Strength",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["body-pinning-style"],
+    "prerequisiteText": "Body-Pinning Style",
+    "sourceDisplay": "Exalted: The Lunars, p. 159",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 159,
+      "pdfPage": 163
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Strength",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "riding-the-secret-wind",
+    "name": "Riding The Secret Wind",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 4 and Essence 4.",
+    "description": "Lunar Charm; requires Perception 4 and Essence 4.",
+    "cost": "7 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Wind-Wings Carry",
+    "sourceDisplay": "Exalted: The Lunars, p. 159",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 159,
+      "pdfPage": 163
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "steel-paw-style",
+    "name": "Steel Paw Style",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Stamina 2 and Essence 1.",
+    "description": "Lunar Charm; requires Stamina 2 and Essence 1.",
+    "cost": "1 mote",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Lunars, p. 160",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 160,
+      "pdfPage": 164
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "golden-tiger-block",
+    "name": "Golden Tiger Block",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "description": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "cost": "Imoteper success",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["steel-paw-style"],
+    "prerequisiteText": "Steel Paw Style",
+    "sourceDisplay": "Exalted: The Lunars, p. 161",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 161,
+      "pdfPage": 165
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "wary-swallow-method",
+    "name": "Wary Swallow Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "description": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["golden-tiger-block"],
+    "prerequisiteText": "Golden Tiger Block",
+    "sourceDisplay": "Exalted: The Lunars, p. 161",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 161,
+      "pdfPage": 165
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "feline-guard-technique",
+    "name": "Feline Guard Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 4 and Essence 2.",
+    "description": "Lunar Charm; requires Dexterity 4 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["steel-paw-style"],
+    "prerequisiteText": "Steel Paw Style",
+    "sourceDisplay": "Exalted: The Lunars, p. 161",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 161,
+      "pdfPage": 165
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "den-mother-method",
+    "name": "Den Mother Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 4 and Essence 3.",
+    "description": "Lunar Charm; requires Dexterity 4 and Essence 3.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["feline-guard-technique"],
+    "prerequisiteText": "Feline Guard Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 161",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 161,
+      "pdfPage": 165
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "crouching-tiger-stance",
+    "name": "Crouching Tiger Stance",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 4 and Essence 2.",
+    "description": "Lunar Charm; requires Dexterity 4 and Essence 2.",
+    "cost": "4 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["feline-guard-technique"],
+    "prerequisiteText": "Feline Guard Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 161",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 161,
+      "pdfPage": 165
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "bowing-reed-technique",
+    "name": "Bowing Reed Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 2 and Essence 1.",
+    "description": "Lunar Charm; requires Dexterity 2 and Essence 1.",
+    "cost": "4 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Lunars, p. 162",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 162,
+      "pdfPage": 166
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "bending-before-the-storm",
+    "name": "Bending Before The Storm",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "description": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "cost": "1 moteper success",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["bowing-reed-technique"],
+    "prerequisiteText": "Bowing Reed Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 162",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 162,
+      "pdfPage": 166
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "serpent-eye-defense",
+    "name": "Serpent Eye Defense",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 3 and Essence 1.",
+    "description": "Lunar Charm; requires Manipulation 3 and Essence 1.",
+    "cost": "4 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["bowing-reed-technique"],
+    "prerequisiteText": "Bowing Reed Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 163",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 163,
+      "pdfPage": 167
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "unmoving-bear-defense",
+    "name": "Unmoving Bear Defense",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 3 and Essence 1.",
+    "description": "Lunar Charm; requires Dexterity 3 and Essence 1.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["bowing-reed-technique"],
+    "prerequisiteText": "Bowing Reed Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 164",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 164,
+      "pdfPage": 168
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "foot-trapping-counter",
+    "name": "Foot Trapping Counter",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 4 and Essence 3.",
+    "description": "Lunar Charm; requires Dexterity 4 and Essence 3.",
+    "cost": "2 or 3 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["unmoving-bear-defense"],
+    "prerequisiteText": "Unmoving Bear Defense",
+    "sourceDisplay": "Exalted: The Lunars, p. 164",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 164,
+      "pdfPage": 168
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "pack-saving-method",
+    "name": "Pack-Saving Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 4 and Essence 3.",
+    "description": "Lunar Charm; requires Dexterity 4 and Essence 3.",
+    "cost": "2 or 3 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["unmoving-bear-defense"],
+    "prerequisiteText": "Unmoving Bear Defense",
+    "sourceDisplay": "Exalted: The Lunars, p. 164",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 164,
+      "pdfPage": 168
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "flowing-body-evasion",
+    "name": "Flowing Body Evasion",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 4 and Essence 3.",
+    "description": "Lunar Charm; requires Charisma 4 and Essence 3.",
+    "cost": "6 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["unmoving-bear-defense"],
+    "prerequisiteText": "Unmoving Bear Defense",
+    "sourceDisplay": "Exalted: The Lunars, p. 164",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 164,
+      "pdfPage": 168
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "running-through-the-herd",
+    "name": "Running Through The Herd",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 5 and Essence 3.",
+    "description": "Lunar Charm; requires Manipulation 5 and Essence 3.",
+    "cost": "4 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["flowing-body-evasion"],
+    "prerequisiteText": "Flowing Body Evasion,Pack-",
+    "sourceDisplay": "Exalted: The Lunars, p. 165",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 165,
+      "pdfPage": 169
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "hide-toughening-essence",
+    "name": "Hide-Toughening Essence",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Stamina 2 and Essence 1.",
+    "description": "Lunar Charm; requires Stamina 2 and Essence 1.",
+    "cost": "1 per 2 points",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Lunars, p. 165",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 165,
+      "pdfPage": 169
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "armor-forming-technique",
+    "name": "Armor-Forming Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Stamina 3 and Essence 2.",
+    "description": "Lunar Charm; requires Stamina 3 and Essence 2.",
+    "cost": "1 mote per point",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["hide-toughening-essence"],
+    "prerequisiteText": "Hide-Toughening Essence",
+    "sourceDisplay": "Exalted: The Lunars, p. 165",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 165,
+      "pdfPage": 169
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "invulnerable-moonsilver-carapace",
+    "name": "Invulnerable Moonsilver Carapace",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Stamina 3 and Essence 2.",
+    "description": "Lunar Charm; requires Stamina 3 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["hide-toughening-essence"],
+    "prerequisiteText": "Hide-Toughening Essence",
+    "sourceDisplay": "Exalted: The Lunars, p. 166",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 166,
+      "pdfPage": 170
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "scales-of-the-dragon",
+    "name": "Scales Of The Dragon",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Stamina 4 and Essence 3.",
+    "description": "Lunar Charm; requires Stamina 4 and Essence 3.",
+    "cost": "6 motes,1 Willpower",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["armor-forming-technique"],
+    "prerequisiteText": "Armor-Forming Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 166",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 166,
+      "pdfPage": 170
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "beast-instinct-method",
+    "name": "Beast Instinct Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Wits 2 and Essence 1.",
+    "description": "Lunar Charm; requires Wits 2 and Essence 1.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Lunars, p. 167",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 167,
+      "pdfPage": 171
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "whale-breath-technique",
+    "name": "Whale-Breath Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Stamina 3 and Essence 3.",
+    "description": "Lunar Charm; requires Stamina 3 and Essence 3.",
+    "cost": "3 motes",
+    "duration": "Staminax 10 minutes",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["beast-instinct-method"],
+    "prerequisiteText": "Beast Instinct Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 167",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 167,
+      "pdfPage": 171
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "gill-breathing-technique",
+    "name": "Gill-Breathing Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Stamina 3 and Essence 3.",
+    "description": "Lunar Charm; requires Stamina 3 and Essence 3.",
+    "cost": "4 motes",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["whale-breath-technique"],
+    "prerequisiteText": "Whale-Breath Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 167",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 167,
+      "pdfPage": 171
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "sealsk-in-endurance",
+    "name": "Sealsk In Endurance",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Stamina 3 and Essence 2.",
+    "description": "Lunar Charm; requires Stamina 3 and Essence 2.",
+    "cost": "4 motes",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["beast-instinct-method"],
+    "prerequisiteText": "Beast Instinct Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 167",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 167,
+      "pdfPage": 171
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "heat-adapting-method",
+    "name": "Heat-Adapting Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Stamina 3 and Essence 3.",
+    "description": "Lunar Charm; requires Stamina 3 and Essence 3.",
+    "cost": "4 motes",
+    "duration": "10 turns",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Heat Adapting Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 168",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 168,
+      "pdfPage": 172
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "unerring-den-finding-sense",
+    "name": "Unerring Den-Finding Sense",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 3 and Essence 1.",
+    "description": "Lunar Charm; requires Perception 3 and Essence 1.",
+    "cost": "4 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["beast-instinct-method"],
+    "prerequisiteText": "Beast Instinct Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 168",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 168,
+      "pdfPage": 172
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "food-scenting-method",
+    "name": "Food-Scenting Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 3 and Essence 1.",
+    "description": "Lunar Charm; requires Perception 3 and Essence 1.",
+    "cost": "4 motes",
+    "duration": "Varies",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["beast-instinct-method"],
+    "prerequisiteText": "Beast Instinct Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 169",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 169,
+      "pdfPage": 173
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "water-providing-technique",
+    "name": "Water-Providing Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 3 and Essence 1.",
+    "description": "Lunar Charm; requires Perception 3 and Essence 1.",
+    "cost": "5 motes",
+    "duration": "Varies",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["beast-instinct-method"],
+    "prerequisiteText": "Beast Instinct Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 169",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 169,
+      "pdfPage": 173
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "wolf-endurance-method",
+    "name": "Wolf Endurance Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Stamina 4 and Essence 2.",
+    "description": "Lunar Charm; requires Stamina 4 and Essence 2.",
+    "cost": "6 motes",
+    "duration": "Until released",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["food-scenting-method"],
+    "prerequisiteText": "Food-Scenting Method,Wa-",
+    "sourceDisplay": "Exalted: The Lunars, p. 169",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 169,
+      "pdfPage": 173
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "bear-sleep-technique",
+    "name": "Bear Sleep Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Stamina 4 and Essence 2.",
+    "description": "Lunar Charm; requires Stamina 4 and Essence 2.",
+    "cost": "3 motes,1 Stamina",
+    "duration": "lmonth",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["wolf-endurance-method"],
+    "prerequisiteText": "Wolf Endurance Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 170",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 170,
+      "pdfPage": 174
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "prana",
+    "name": "Prana",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Stamina 3 and Essence 2.",
+    "description": "Lunar Charm; requires Stamina 3 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["wolf-endurance-method"],
+    "prerequisiteText": "Wolf Endurance Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 170",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 170,
+      "pdfPage": 174
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "pain-numbing-prana",
+    "name": "Pain-Numbing Prana",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Stamina 3 and Essence 2.",
+    "description": "Lunar Charm; requires Stamina 3 and Essence 2.",
+    "cost": "1 mote",
+    "duration": "Varies",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Lunars, p. 171",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 171,
+      "pdfPage": 175
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "willof-the-stoic-warrior",
+    "name": "Willof The Stoic Warrior",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Stamina 4 and Essence 2.",
+    "description": "Lunar Charm; requires Stamina 4 and Essence 2.",
+    "cost": "2 motes",
+    "duration": "Varies",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["prana", "pain-numbing-prana"],
+    "prerequisiteText": "Pain-Numbing Prana",
+    "sourceDisplay": "Exalted: The Lunars, p. 171",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 171,
+      "pdfPage": 175
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "lunas-fortitude",
+    "name": "Luna's Fortitude",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Stamina 5 and Essence 3.",
+    "description": "Lunar Charm; requires Stamina 5 and Essence 3.",
+    "cost": "4 motes",
+    "duration": "Oneturn",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["willof-the-stoic-warrior"],
+    "prerequisiteText": "Will ofthe Stoic Warrior",
+    "sourceDisplay": "Exalted: The Lunars, p. 171",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 171,
+      "pdfPage": 175
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "infection-resisting-method",
+    "name": "Infection-Resisting Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Stamina 2 and Essence 1.",
+    "description": "Lunar Charm; requires Stamina 2 and Essence 1.",
+    "cost": "1 mote per die",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Lunars, p. 172",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 172,
+      "pdfPage": 176
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "disease-purging-essence",
+    "name": "Disease Purging Essence",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Stamina 3 and Essence 2.",
+    "description": "Lunar Charm; requires Stamina 3 and Essence 2.",
+    "cost": "lmoteperdie",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["infection-resisting-method"],
+    "prerequisiteText": "Infection-Resisting Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 172",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 172,
+      "pdfPage": 176
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "bruise-relief-technique",
+    "name": "Bruise-Relief Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Stamina 3 and Essence 1.",
+    "description": "Lunar Charm; requires Stamina 3 and Essence 1.",
+    "cost": "1 mote per health level",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["infection-resisting-method"],
+    "prerequisiteText": "Infection-Resisting Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 172",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 172,
+      "pdfPage": 176
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "sense-sharpening-change",
+    "name": "Sense-Sharpening Change",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 2 and Essence 1.",
+    "description": "Lunar Charm; requires Perception 2 and Essence 1.",
+    "cost": "1 mote per die",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Lunars, p. 173",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 173,
+      "pdfPage": 177
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "heightened-sense-method",
+    "name": "Heightened(Sense)Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 3 and Essence 1.",
+    "description": "Lunar Charm; requires Perception 3 and Essence 1.",
+    "cost": "5 motes",
+    "duration": "10 turns",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["sense-sharpening-change"],
+    "prerequisiteText": "Sense-Sharpening Change",
+    "sourceDisplay": "Exalted: The Lunars, p. 173",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 173,
+      "pdfPage": 177
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "sense-borrowing-method",
+    "name": "Sense-Borrowing Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "description": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "cost": "5 motes",
+    "duration": "Sustained",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["sense-sharpening-change"],
+    "prerequisiteText": "Sense-Sharpening Change,",
+    "sourceDisplay": "Exalted: The Lunars, p. 174",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 174,
+      "pdfPage": 178
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "unerring-earth-direction-sense",
+    "name": "Unerring Earth Direction Sense",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Wits 2 and Essence 1.",
+    "description": "Lunar Charm; requires Wits 2 and Essence 1.",
+    "cost": "1 mote",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Ever-Wary Fox Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 175",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 175,
+      "pdfPage": 179
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "moonsilver-scenting-sense",
+    "name": "Moonsilver-Scenting Sense",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 3 and Essence 3.",
+    "description": "Lunar Charm; requires Perception 3 and Essence 3.",
+    "cost": "3 motes",
+    "duration": "One hour",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["unerring-earth-direction-sense"],
+    "prerequisiteText": "Unerring Earth Direction Sense",
+    "sourceDisplay": "Exalted: The Lunars, p. 175",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 175,
+      "pdfPage": 179
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "wyld-sensing-instincts",
+    "name": "Wyld-Sensing Instincts",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 3 and Essence 1.",
+    "description": "Lunar Charm; requires Perception 3 and Essence 1.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Ever-Wary Fox Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 175",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 175,
+      "pdfPage": 179
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "resisting-the-lure-of-madness",
+    "name": "Resisting The Lure Of Madness",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "description": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "cost": "3 motes,1 Willpower",
+    "duration": "Onelunar month",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["wyld-sensing-instincts"],
+    "prerequisiteText": "Wyld-Sensing Instincts",
+    "sourceDisplay": "Exalted: The Lunars, p. 176",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 176,
+      "pdfPage": 180
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "wyld-object-appraisal-method",
+    "name": "Wyld Object Appraisal Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Intelligence 4 and Essence 2.",
+    "description": "Lunar Charm; requires Intelligence 4 and Essence 2.",
+    "cost": "10 motes +plus 1 additional mote per pound",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Intelligence",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["wyld-sensing-instincts"],
+    "prerequisiteText": "Wyld-Sensing Instincts",
+    "sourceDisplay": "Exalted: The Lunars, p. 176",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 176,
+      "pdfPage": 180
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Intelligence",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "fish-eye-technique",
+    "name": "Fish-Eye Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "description": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "cost": "2 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Heightened Sight Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 177",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 177,
+      "pdfPage": 181
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "night-is-day",
+    "name": "Night Is Day",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 3 and Essence 1.",
+    "description": "Lunar Charm; requires Perception 3 and Essence 1.",
+    "cost": "1 mote",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Heightened Sight Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 177",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 177,
+      "pdfPage": 181
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "perceiving-the-hidden-world",
+    "name": "Perceiving The Hidden World",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "description": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["night-is-day"],
+    "prerequisiteText": "Night Is Day",
+    "sourceDisplay": "Exalted: The Lunars, p. 177",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 177,
+      "pdfPage": 181
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "comprehending-ears-meditation",
+    "name": "Comprehending Ears Meditation",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Wits 2 and Essence 1.",
+    "description": "Lunar Charm; requires Wits 2 and Essence 1.",
+    "cost": "4 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Heightened Hearing and",
+    "sourceDisplay": "Exalted: The Lunars, p. 178",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 178,
+      "pdfPage": 182
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "calls-of-the-human-prey",
+    "name": "Calls Of The Human Prey",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Wits 3 and Essence 2.",
+    "description": "Lunar Charm; requires Wits 3 and Essence 2.",
+    "cost": "6 motes,1 Willpower",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["comprehending-ears-meditation"],
+    "prerequisiteText": "Comprehending Ears Meditation",
+    "sourceDisplay": "Exalted: The Lunars, p. 178",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 178,
+      "pdfPage": 182
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "feralearsmetamorphosis",
+    "name": "Feralearsmetamorphosis",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "description": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Heightened Hearing and",
+    "sourceDisplay": "Exalted: The Lunars, p. 178",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 178,
+      "pdfPage": 182
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "blood-kin-sense",
+    "name": "Blood-Kin Sense",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "description": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "cost": "1 mote",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Heightened Smelland Taste",
+    "sourceDisplay": "Exalted: The Lunars, p. 179",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 179,
+      "pdfPage": 183
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "blood-on-the-wind",
+    "name": "Blood On The Wind",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "description": "Lunar Charm; requires Perception 3 and Essence 2.",
+    "cost": "5 motes",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Heightened Smelland Taste",
+    "sourceDisplay": "Exalted: The Lunars, p. 180",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 180,
+      "pdfPage": 184
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "stealthy-fox-method",
+    "name": "Stealthy Fox Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "description": "Lunar Charm; requires Dexterity 3 and Essence 2.",
+    "cost": "2 motes per die",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Lunars, p. 181",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 181,
+      "pdfPage": 185
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "chameleon-sk-in-disguise",
+    "name": "Chameleon Sk In Disguise",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 3 and Essence 3.",
+    "description": "Lunar Charm; requires Charisma 3 and Essence 3.",
+    "cost": "2 motesper die",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["stealthy-fox-method"],
+    "prerequisiteText": "Stealthy Fox Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 181",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 181,
+      "pdfPage": 185
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "object-concealing-method",
+    "name": "Object-Concealing Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Wits 3 and Essence 3.",
+    "description": "Lunar Charm; requires Wits 3 and Essence 3.",
+    "cost": "3 motes",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["chameleon-sk-in-disguise"],
+    "prerequisiteText": "Chameleon Skin Disguise",
+    "sourceDisplay": "Exalted: The Lunars, p. 181",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 181,
+      "pdfPage": 185
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "ally-concealing-method",
+    "name": "Ally Concealing Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Wits 4 and Essence 3.",
+    "description": "Lunar Charm; requires Wits 4 and Essence 3.",
+    "cost": "5 motesperperson",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["object-concealing-method"],
+    "prerequisiteText": "Object-Concealing Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 182",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 182,
+      "pdfPage": 186
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "traceless-passage-technique",
+    "name": "Traceless Passage Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "description": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "cost": "4 motes,1 Willpower",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["stealthy-fox-method"],
+    "prerequisiteText": "Stealthy Fox Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 182",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 182,
+      "pdfPage": 186
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "lore-speaking-method",
+    "name": "Lore-Speaking Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Intelligence 3 and Essence 2.",
+    "description": "Lunar Charm; requires Intelligence 3 and Essence 2.",
+    "cost": "3 motes",
+    "duration": "30 minutes+10 minutesperdie",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Intelligence",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Tale-Spinning Mastery",
+    "sourceDisplay": "Exalted: The Lunars, p. 183",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 183,
+      "pdfPage": 187
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Intelligence",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "divining-the-hidden-truth",
+    "name": "Divining The Hidden Truth",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 4 and Essence 3.",
+    "description": "Lunar Charm; requires Perception 4 and Essence 3.",
+    "cost": "5 motes,1 Willpower",
+    "duration": "lhour+",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["lore-speaking-method"],
+    "prerequisiteText": "Lore-Speaking Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 183",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 183,
+      "pdfPage": 187
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "wind-speaking-method",
+    "name": "Wind-Speaking Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Wits 3 and Essence 3.",
+    "description": "Lunar Charm; requires Wits 3 and Essence 3.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["lion-roar-method"],
+    "prerequisiteText": "Lion Roar Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 184",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 184,
+      "pdfPage": 188
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "lion-roar-method",
+    "name": "Lion Roar Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 3 and Essence 3.",
+    "description": "Lunar Charm; requires Charisma 3 and Essence 3.",
+    "cost": "5 motes",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "",
+    "sourceDisplay": "Exalted: The Lunars, p. 184",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 184,
+      "pdfPage": 188
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "river-of-words",
+    "name": "River Of Words",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Wits 4 and Essence 3.",
+    "description": "Lunar Charm; requires Wits 4 and Essence 3.",
+    "cost": "4 motesper 10 words/person,1 Willpower",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["wind-speaking-method"],
+    "prerequisiteText": "Wind-Speaking Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 185",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 185,
+      "pdfPage": 189
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "emotion-shaping-technique",
+    "name": "Emotion-Shaping Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "description": "Lunar Charm; requires Manipulation 3 and Essence 2.",
+    "cost": "4 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Tale-Spinning Mastery",
+    "sourceDisplay": "Exalted: The Lunars, p. 185",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 185,
+      "pdfPage": 189
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "crowd-inciting-method",
+    "name": "Crowd-Inciting Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 4 and Essence 3.",
+    "description": "Lunar Charm; requires Charisma 4 and Essence 3.",
+    "cost": "3 motes+1 per 10 people,1 Willpower",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["emotion-shaping-technique"],
+    "prerequisiteText": "Emotion-Shaping Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 186",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 186,
+      "pdfPage": 190
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "crowd-calming-pronouncement",
+    "name": "Crowd-Calming Pronouncement",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 4 and Essence 3.",
+    "description": "Lunar Charm; requires Charisma 4 and Essence 3.",
+    "cost": "6 motes+1 per 10 people,1 Willpower",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["crowd-inciting-method"],
+    "prerequisiteText": "Crowd-Inciting Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 186",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 186,
+      "pdfPage": 190
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "glibtonguetechnique",
+    "name": "Glibtonguetechnique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 4 and Essence 3.",
+    "description": "Lunar Charm; requires Manipulation 4 and Essence 3.",
+    "cost": "5 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Foe-Taunting Utterance",
+    "sourceDisplay": "Exalted: The Lunars, p. 187",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 187,
+      "pdfPage": 191
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "imposing-presence-attitude",
+    "name": "Imposing Presence Attitude",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 4 and Essence 2.",
+    "description": "Lunar Charm; requires Charisma 4 and Essence 2.",
+    "cost": "2 motes per die",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["emotion-shaping-technique"],
+    "prerequisiteText": "Emotion-Shaping Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 187",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 187,
+      "pdfPage": 191
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "fearful-lunar-form",
+    "name": "Fearful Lunar Form",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 4 and Essence 2.",
+    "description": "Lunar Charm; requires Charisma 4 and Essence 2.",
+    "cost": "5 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["imposing-presence-attitude"],
+    "prerequisiteText": "Imposing Presence Attitude",
+    "sourceDisplay": "Exalted: The Lunars, p. 187",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 187,
+      "pdfPage": 191
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "mind-blanking-fear-technique",
+    "name": "Mind-Blanking Fear Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 4 and Essence 3.",
+    "description": "Lunar Charm; requires Manipulation 4 and Essence 3.",
+    "cost": "5 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["fearful-lunar-form"],
+    "prerequisiteText": "Fearful Lunar Form",
+    "sourceDisplay": "Exalted: The Lunars, p. 187",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 187,
+      "pdfPage": 191
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "unspeaking-aura-of-dread",
+    "name": "Unspeaking Aura Of Dread",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 2 and Essence 1.",
+    "description": "Lunar Charm; requires Charisma 2 and Essence 1.",
+    "cost": "3 motesper die",
+    "duration": "Special",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Lunars, p. 188",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 188,
+      "pdfPage": 192
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "beast-calming-method",
+    "name": "Beast Calming Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 3 and Essence 3.",
+    "description": "Lunar Charm; requires Manipulation 3 and Essence 3.",
+    "cost": "3 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["unspeaking-aura-of-dread"],
+    "prerequisiteText": "Unspeaking Aura of Dread",
+    "sourceDisplay": "Exalted: The Lunars, p. 188",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 188,
+      "pdfPage": 192
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "attention-demanding-presence",
+    "name": "Attention Demanding Presence",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 3 and Essence 2.",
+    "description": "Lunar Charm; requires Charisma 3 and Essence 2.",
+    "cost": "4 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["unspeaking-aura-of-dread"],
+    "prerequisiteText": "Unspeaking Aura of Dread",
+    "sourceDisplay": "Exalted: The Lunars, p. 189",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 189,
+      "pdfPage": 193
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "animal-magnetism",
+    "name": "Animal Magnetism",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Manipulation 4 and Essence 2.",
+    "description": "Lunar Charm; requires Manipulation 4 and Essence 2.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["attention-demanding-presence"],
+    "prerequisiteText": "Attention Demanding Presence",
+    "sourceDisplay": "Exalted: The Lunars, p. 189",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 189,
+      "pdfPage": 193
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "brotherhood-of-lake-and-river",
+    "name": "Brotherhood Of Lake And River",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Wits 2 and Essence 3.",
+    "description": "Lunar Charm; requires Wits 2 and Essence 3.",
+    "cost": "5 motesand 1 Willpowerperperson",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Lunars, p. 189",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 189,
+      "pdfPage": 193
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "blood-singing-instincts",
+    "name": "Blood-Singing Instincts",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Dexterity 3 and Essence 3.",
+    "description": "Lunar Charm; requires Dexterity 3 and Essence 3.",
+    "cost": "Imoteperwolf-siblingdrawnfrom",
+    "duration": "One turn",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Brotherhoodof Lake and",
+    "sourceDisplay": "Exalted: The Lunars, p. 190",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 190,
+      "pdfPage": 194
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "spirit-scenting-technique",
+    "name": "Spirit-Scenting Technique",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 3 and Essence 3.",
+    "description": "Lunar Charm; requires Charisma 3 and Essence 3.",
+    "cost": "I mote per sibling called",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Lunars, p. 190",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 190,
+      "pdfPage": 194
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "pack-calling-cry",
+    "name": "Pack-Calling Cry",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Charisma 3 and Essence 3.",
+    "description": "Lunar Charm; requires Charisma 3 and Essence 3.",
+    "cost": "I mote per sibling called",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Brotherhood of Lake and",
+    "sourceDisplay": "Exalted: The Lunars, p. 190",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 190,
+      "pdfPage": 194
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "pulse-of-the-invisible",
+    "name": "Pulse Of The Invisible",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Perception 4 and Essence 3.",
+    "description": "Lunar Charm; requires Perception 4 and Essence 3.",
+    "cost": "8 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["spirit-scenting-technique"],
+    "prerequisiteText": "Spirit-Scenting Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 191",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 191,
+      "pdfPage": 195
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "devil-restraining-grip",
+    "name": "Devil-Restraining Grip",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Wits 4 and Essence 3.",
+    "description": "Lunar Charm; requires Wits 4 and Essence 3.",
+    "cost": "6 motes,1 Willpower",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["spirit-scenting-technique"],
+    "prerequisiteText": "Spirit-Scenting Technique",
+    "sourceDisplay": "Exalted: The Lunars, p. 191",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 191,
+      "pdfPage": 195
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "spirit-maiming-essence-attack",
+    "name": "Spirit-Maiming Essence Attack",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Intelligence 4 and Essence 4.",
+    "description": "Lunar Charm; requires Intelligence 4 and Essence 4.",
+    "cost": "10 motes,1 Willpower",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Intelligence",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["devil-restraining-grip"],
+    "prerequisiteText": "Devil-Restraining Grip",
+    "sourceDisplay": "Exalted: The Lunars, p. 191",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 191,
+      "pdfPage": 195
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Intelligence",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "terrestrial-circle-sorcery",
+    "name": "Terrestrial Circle Sorcery",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Intelligence 3 and Essence 3.",
+    "description": "Lunar Charm; requires Intelligence 3 and Essence 3.",
+    "cost": "1 Willpower",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Intelligence",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Lunars, p. 191",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 191,
+      "pdfPage": 195
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Intelligence",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "form-fixing-method",
+    "name": "Form-Fixing Method",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Intelligence 3 and Essence 3.",
+    "description": "Lunar Charm; requires Intelligence 3 and Essence 3.",
+    "cost": "5 motes,1 Willpower,3 experiencepoints",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Intelligence",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Lunars, p. 192",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 192,
+      "pdfPage": 196
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Intelligence",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "celestial-circle-sorcery",
+    "name": "Celestial Circle Sorcery",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Intelligence 3 and Essence 3.",
+    "description": "Lunar Charm; requires Intelligence 3 and Essence 3.",
+    "cost": "3 motes,1 Willpower,1 experience point",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Intelligence",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["form-fixing-method"],
+    "prerequisiteText": "Form-Fixing Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 192",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 192,
+      "pdfPage": 196
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Intelligence",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "tattoo-cutting-wisdom",
+    "name": "Tattoo-Cutting Wisdom",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Intelligence 3 and Essence 3.",
+    "description": "Lunar Charm; requires Intelligence 3 and Essence 3.",
+    "cost": "3 motes,1 Willpower,1 experience point",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Intelligence",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["form-fixing-method"],
+    "prerequisiteText": "Form-Fixing Method",
+    "sourceDisplay": "Exalted: The Lunars, p. 192",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 192,
+      "pdfPage": 196
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Intelligence",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "moonsilver-shaping-rite",
+    "name": "Moonsilver-Shaping Rite",
+    "kind": "charm",
+    "summary": "Lunar Charm; requires Intelligence 3 and Essence 3.",
+    "description": "Lunar Charm; requires Intelligence 3 and Essence 3.",
+    "cost": "Special",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Intelligence",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["tattoo-cutting-wisdom"],
+    "prerequisiteText": "Tattoo-Cutting Wisdom",
+    "sourceDisplay": "Exalted: The Lunars, p. 192",
+    "source": {
+      "id": "lunars",
+      "bookTitle": "Exalted: The Lunars",
+      "printedPage": 192,
+      "pdfPage": 196
+    },
+    "reviewStatus": "needs-review",
+    "reviewFlags": ["ocr-transcribed"],
+    "category": "native",
+    "element": null,
+    "ability": "Intelligence",
+    "style": null,
+    "comboRules": {
+      "eligible": true,
+      "restrictions": [],
+      "specialRules": []
+    }
+  }
+]

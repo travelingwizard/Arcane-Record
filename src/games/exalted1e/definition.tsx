@@ -17,6 +17,7 @@ import {
   exaltedCharacterTypes,
   getExaltedCharacterProfile,
 } from './profiles';
+import { getExaltedVerificationRequirement } from './verification';
 
 function sheetLabel(character: Exalted1eCharacter) {
   return getExaltedCharacterProfile(character.sheetType).shortName;
@@ -72,7 +73,6 @@ export const exalted1eDefinition: GameSystemDefinition<Exalted1eCharacter> = {
   sectionGroups: exaltedSectionGroups,
   variants: exaltedCharacterTypes.map((id) => {
     const profile = exaltedCharacterProfiles[id];
-    const verifiedExistingFamily = id === 'solar' || id === 'dragon-blooded';
     return {
       id,
       name: profile.name,
@@ -81,9 +81,7 @@ export const exalted1eDefinition: GameSystemDefinition<Exalted1eCharacter> = {
       createInitialCharacter: () => createBlankExaltedCharacter(id, 'draft'),
       createManualInitialCharacter: () =>
         createBlankExaltedCharacter(id, 'manual'),
-      unavailableRequirement: verifiedExistingFamily
-        ? undefined
-        : 'Source inventory and character-family rules verification must pass before this sheet can create production records.',
+      unavailableRequirement: getExaltedVerificationRequirement(id),
     };
   }),
 };

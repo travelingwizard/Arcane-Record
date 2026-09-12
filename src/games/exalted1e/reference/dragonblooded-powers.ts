@@ -12,6 +12,7 @@ export interface DragonBloodedPowerDefinition {
   summary: string;
   description: string;
   cost: string | null;
+  installationCost?: string | null;
   duration: string | null;
   type: string | null;
   minimumRequirements: { trait: string; rating: number }[];
