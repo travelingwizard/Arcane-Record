@@ -9,7 +9,7 @@ the full process this directory follows.
 
 - `source-manifest.json` — the one source book in scope so far
   (`exalted-the-fair-folk`); supplements are not yet added.
-- `inventory/exalted-the-fair-folk.json` — 233 rows covering:
+- `inventory/exalted-the-fair-folk.json` — 235 rows covering:
   - The Chapter Three character-creation overview, split into two rows
     because common and noble raksha use materially different baselines:
     `fair-folk-creation-overview-common` (0-dot starting Attributes, 0 free
@@ -301,51 +301,48 @@ the full process this directory follows.
     Prerequisite Charms line and the tree diagram both confirm it actually
     branches off `assumption-of-the-citys-heart`, so the reference is
     treated as a naming slip rather than corrected or reinterpreted.
-  - The "Vexing" rules (claiming waypoints, vexing the unshaped, vexing
-    Creation-born creatures without a Sword Grace) and the "Questing"
-    sidebar (raksha ritually dueling the unshaped for artifacts/spells/
-    servants) both sit on pp. 147-148/PDF 148-149, immediately before this
-    tree — neither has been inventoried yet; see "What's still needed."
+  - The "Vexing" rules (Effects of Damage, Vexing, Vexing Places, Vexing
+    the Unshaped, and Vexing Creatures of Creation, folded into one
+    `vexing-mechanic` row) and the "Questing" sidebar (raksha ritually
+    dueling the unshaped in the Deep Wyld for artifacts/spells/servants,
+    `questing-sidebar`) — both on pp. 147-148/PDF 148-149, immediately
+    before the Assumption-type Charm tree. The Sword Grace's
+    shaping-weapon stat table (Entanglement, Extras, Hazard, Horror,
+    Monster, Mutant Warleader, Nishkriya Mask, Personal Prowess) on the
+    same page was deliberately not inventoried as its own row, matching
+    the individual-shaping-weapon exclusion already applied to
+    `shaping-combat-basics`.
 
 ## What's still needed
 
-1. The "Vexing" rules (claiming waypoints with a 3-mote commitment, vexing
-   the unshaped to rip a three-dot behemoth from their Sword Grace, and
-   vexing Creation-born creatures who lack a Sword Grace via a
-   Willpower + Essence resistance roll) and the "Questing" sidebar (raksha
-   ritually dueling the unshaped in the Deep Wyld for artifacts, spells or
-   servants) — both sit on pp. 147-148 / PDF 148-149, immediately before
-   the Assumption-type Charm tree, and are Sword-shaping-combat-adjacent
-   material rather than part of that tree itself. Not yet inventoried;
-   **resume here at printed p. 147 / PDF 148** if picking this up next, or
-   skip ahead to item 2 below.
-2. Glamour Sorcery, Wyld Artifacts, and Adjurations (pp. 205-210 / PDF
+1. Glamour Sorcery, Wyld Artifacts, and Adjurations (pp. 205-210 / PDF
    206-211) and Behemoths (pp. 210-212 / PDF 211-213) — not yet
    inventoried. `great-works-of-the-grace` and
    `unshaped-grace-transformation` both reference these product types by
    page number without cross-referencing them, since no rows exist yet.
-3. A short, apparently sixth Grace called "the Way" (shinma Nirupadhika)
+   **Resume here at printed p. 205 / PDF 206.**
+2. A short, apparently sixth Grace called "the Way" (shinma Nirupadhika)
    surfaces on p. 212 (PDF 213), just before Chapter Six, with a "Forging
    the Way Grace" Charm and a "Perfect Reckoning Technique" Charm. It sits
    outside the five-Grace model (Cup/Ring/Staff/Sword/Heart) used
    throughout the rest of this inventory and has not been reviewed or
    reconciled with that model yet — flagged for dedicated review in a
-   future pass, likely alongside item 2 above.
-4. The Storyteller-only "unshaped" Charm-suggestion sidebar in Chapter
+   future pass, likely alongside item 1 above.
+3. The Storyteller-only "unshaped" Charm-suggestion sidebar in Chapter
    Three (pp. 96-97 / PDF 97-98) — full of specific named Charms for
    building unshaped NPCs, and explicitly GM-facing, not a player-facing
    creation rule. Deliberately **excluded from scope**, not merely
    deferred.
-5. Chapter One: Rakshastan (setting/geography — Freeholds, the
+4. Chapter One: Rakshastan (setting/geography — Freeholds, the
    Middlemarches, the Five Courts, the Church of Balor as story-hook
    flavor) and Chapter Two: The Raksha (broader lore) — not yet
    inventoried; only the character-creation-relevant mechanical content
    from Chapters Three and Four (plus the general-rules content and all
    five full per-Grace Charm trees from Chapter Five) is covered so far.
-6. Chapter Six: The Mountain Folk (a separate non-raksha playable-adjacent
+5. Chapter Six: The Mountain Folk (a separate non-raksha playable-adjacent
    race) and Chapter Seven: Storytelling — not yet inventoried, and not
    necessarily in scope for the Fair Folk sheet family at all.
-7. Merits/Flaws specific to Fair Folk — checked again this round (the
+6. Merits/Flaws specific to Fair Folk — checked again this round (the
    edges of Chapters Three and Four where Backgrounds live, and the
    general-rules portion of Chapter Five); still not found anywhere in the
    chapters reviewed so far. May not exist as a distinct section in this

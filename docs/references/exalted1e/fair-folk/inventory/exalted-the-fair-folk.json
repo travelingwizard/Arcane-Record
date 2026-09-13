@@ -525,7 +525,7 @@
   },
   {
     "id": "craft-glamour-ability",
-    "name": "Craft (Glamour) — the paramount creator's Craft specialty",
+    "name": "Craft (Glamour) \u2014 the paramount creator's Craft specialty",
     "disposition": "calculated",
     "summary": "Craft (Glamour) is the single most important Craft specialty for raksha: the art of shaping Essence and dream itself, superseding metalwork, woodwork, stonework and every other mundane Craft specialty for a Fair Folk character.",
     "mechanics": "Craft (Glamour) is described as 'the paramount creator's skill in the Wyld.' In Creation, a raksha player can roll Perception + Craft (Glamour) for her character to identify the glamour-forged works of her peers.",
@@ -4980,5 +4980,43 @@
       "unwanted-obsession-provocation-technique"
     ],
     "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Emotional Influence' sub-tree, p. 155 (PDF 156). Closes out both the Emotional Influence sub-tree and the entire Assumption-type/Nirakara Charm section; 'NIRGUNA, THE HEART' (the already-inventoried Heart Grace tree's opening) begins immediately afterward on the same page."
+  },
+  {
+    "id": "vexing-mechanic",
+    "name": "Vexing (Effects of Damage, Vexing Places, the Unshaped, and Creatures of Creation)",
+    "disposition": "calculated",
+    "summary": "Losing a Sword-shaping contest lets the winner vex the loser: seizing a handful of her possessions, claiming a waypoint she holds, ripping a fresh three-dot behemoth out of an unshaped's torn Sword Grace, or -- against a Creation-born victim with no Sword Grace of her own -- forcing a resisted Willpower + Essence roll instead of a damage track.",
+    "mechanics": "Effects of Damage: raksha mark Sword damage off against the sum of their Valor and Sword Traits; once a combatant has taken more Sword damage than that sum, she loses the shaping contest and the attacker vexes her. Vexing (general): the attacker seizes a number of the loser's possessions -- artifacts, possessions, waypoints or Graces she owns -- equal to the loser's Sword Grace, with total seized artifact levels capped at 5; the only sacrosanct possession is a character's own Heart Grace, which can be claimed only by whoever holds her Sword Grace, and even that protection lapses once the Sword Grace itself is broken. Vexing Places: vexing a waypoint claims possession of it; the raksha must commit 3 motes to each waypoint she claims, and for as long as that commitment lasts a portion of her spirit resides there, making her aware of all Sword shaping within it, letting her use her own applicable Sword defenses against shaping attacks made against that waypoint, and letting her make Sword-shaping actions as though physically present there. Vexing the Unshaped: vexing an unshaped rips open its Sword Grace; the power that pours out naturally shapes itself into a fresh three-dot behemoth, or the vexing raksha can instead channel it into an existing three- or four-dot behemoth to improve it by one dot. A given unshaped can be vexed at most once per story. Vexing Creatures of Creation: characters with no Sword Grace are still vulnerable to vexation, but since they have no Sword damage track, their players instead roll the character's Willpower + Essence against a difficulty equal to the raksha's damage successes each time she lands a Sword-shaping hit; Dragon-Blooded Exaltation grants a bonus die, Celestial Exaltation two bonus dice, and Solar or Abyssal Exaltation three. A successful roll takes no damage; a failed roll means the victim is vexed. Charms and effects that reduce a victim's soak against Sword-shaping attacks reduce this Willpower + Essence pool by the same amount instead, before Exalted add their bonus dice.",
+    "compatibility": "All raksha engaged in Sword-shaping combat; Creation-born victims without a Sword Grace resist vexation with Willpower + Essence rather than marking a damage track, with Exaltation-based bonus dice for the Dragon-Blooded, Celestial and Solar/Abyssal Exalted.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 147,
+      "pdfPage": 148
+    },
+    "crossReferences": [
+      "shaping-combat-basics",
+      "sword-grace",
+      "innate-powers-wyld-immunity"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Effects of Damage' (p. 147/PDF 148) -> 'Vexing Places' / 'Vexing the Unshaped' / 'Vexing Creatures of Creation' (p. 148/PDF 149) sections, immediately preceding the Questing sidebar (see questing-sidebar) and 'The Shinma' section that introduces Nirakara and the already-inventoried universal Assumption-type Charm tree. Per the same individual-shaping-weapon exclusion already flagged on shaping-combat-basics, this row does not separately inventory the Sword Grace's shaping-weapon stat table (Entanglement, Extras, Hazard, Horror, Monster, Mutant Warleader, Nishkriya Mask, Personal Prowess) that immediately precedes 'Effects of Damage' on p. 147/PDF 148."
+  },
+  {
+    "id": "questing-sidebar",
+    "name": "Questing (sidebar)",
+    "disposition": "calculated",
+    "summary": "A boxed sidebar describing questing: raksha who deliberately seek out the unshaped in the Deep Wyld and engage them in ritual shaping contests, hoping to rip a powerful artifact, spell or servant free from a triumph, but risking terrible retaliation if they linger too long or lose.",
+    "mechanics": "Raksha sometimes seek out the unshaped and engage them in ritual shaping contests; a triumphant raksha can rip a powerful artifact, spell or servant from the unshaped's soul (using the general Vexing rules -- see vexing-mechanic). In the Deep Wyld the unshaped are all but immortal, and only a few rare artifacts can subdue one permanently, so a questing raksha must plan her escape route carefully. The unshaped are believed to derive a certain power from the process of questing itself, which encourages them to tolerate it even when they lose; less tolerant god-monsters of the deep can instead chase an impudent quester all the way to the Middlemarches or even the Bordermarches, inflicting terrible ravishments and burdens on his soul.",
+    "compatibility": "Any raksha willing to travel into the Deep Wyld to challenge an unshaped god-monster.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 148,
+      "pdfPage": 149
+    },
+    "crossReferences": [
+      "vexing-mechanic"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Questing' boxed sidebar, p. 148 (PDF 149), set beside the 'Vexing Places' / 'Vexing the Unshaped' / 'Vexing Creatures of Creation' sections on the same page."
   }
 ]
