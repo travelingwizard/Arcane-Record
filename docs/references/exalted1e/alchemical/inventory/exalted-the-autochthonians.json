@@ -4121,5 +4121,29 @@
       "dynamic-cloaking-module"
     ],
     "notes": "Chapter Four: Miracles of the Machine God, 'Transportation' -> 'Mechanical Rickshaws, Skimmercraft and Aerial Skiffs', p. 194-195 (PDF 195-196); visually cross-checked against both rendered pages. The Exalted Power Combat Statistics table sharing p. 195/PDF 196 (Alpha Custodian, Arc Tender, Cogwheel Dragon, Design Weaver, Destroyer, Fix Beetle, Gezlak, Gremlin, Lapidary, Slacstag) was reviewed and intentionally excluded as pure Storyteller-side creature/NPC combat statistics with no character-creation relevance."
+  },
+  {
+    "id": "steamcar-refurbished",
+    "name": "Steamcar, Refurbished",
+    "disposition": "selectable",
+    "summary": "A large, eight-legged, multi-terrain steel cargo/troop transport with red jade and orichalcum 'circuitry,' originally built to haul heavy replacement parts across Autochthonia's conduits; the Five Sodalities refurbish one to carry the Chapter Six expedition (and up to 20 passengers) into Creation in search of the Eye of Autochthon.",
+    "mechanics": "Suspended on eight short multi-segmented legs that turn and rotate independently to handle both Autochthonian conduits and Creation's uneven terrain; burns any combustible fuel in a rear-mounted Essence-powered furnace, transmitting power to the legs through jade/orichalcum circuitry. A driver steers with two control levers using Dexterity + Ride; understanding the exotic controls requires Craft (First Age Weapons) •• and Lore •, and non-Autochthonians suffer a two-die penalty. Equipped with ports for Alchemicals to use the Electroneural Control Spurs and Universal Pilot Key Charms, plus a built-in Portable Nutriment Recycling Engine to feed passengers. Very noisy (audible from about a mile away). Travels 80 mph in clear terrain, 60 mph in difficult terrain, 30 mph in mountainous terrain. Statistics: soak 8L/15B, 8 health levels to damage and 30 to destroy. Needs at least an hour's maintenance every 500 miles traveled (minimum Craft (Large Mechanism Repair) ••• and Lore •• for Autochthonians, or Craft (First Age Weapons) ••••• and Lore •••• for Creation dwellers); missing maintenance reduces speed by 10 mph, and once speed drops to 30 mph the Storyteller rolls a die every hour, with a result of 6 or higher causing a breakdown (repaired with Intelligence + Craft (Large Mechanism Repair or First Age Weapons) at difficulty 3, taking half a day and permanently reducing top speed by 10 mph). A full day of maintenance restores the steamcar to full speed, minus any permanent reduction from prior breakdowns. Carries up to 20 passengers with no cargo.",
+    "cost": "Artifact N/A (a shared expedition/cargo vehicle rather than a personally rated Artifact; comes with Electroneural Control Spurs/Universal Pilot Key Charm ports and a built-in Portable Nutriment Recycling Engine).",
+    "compatibility": "Any character; built for Autochthonian expedition/cargo use, with Charm ports specifically for installed Alchemicals.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "238",
+      "pdfPage": "239"
+    },
+    "crossReferences": [
+      "electroneural-control-spurs",
+      "universal-pilot-key",
+      "portable-nutriment-recycling-engine",
+      "mechanical-rickshaw",
+      "skimmercraft",
+      "aerial-skiff"
+    ],
+    "notes": "Chapter Six: The Quest for the Great Source, in the sidebar introducing the Sodalities' refurbished steamcar used to carry the Chapter Six expedition into Creation, printed p. 238 (PDF 239); visually cross-checked against the rendered page. Unlike Chapter Four's Autochthonian Technology/Transportation section (mechanical rickshaw, skimmercraft, aerial skiff), this vehicle appears within the adventure text itself rather than the equipment chapter, but gives the same kind of concrete, player-usable vehicle stat block (soak, health levels, speed, maintenance/repair rules), so it is inventoried here alongside them. This is the only genuinely player-facing character-creation-relevant item found across Chapters Five through Seven (printed pp. 196-297/PDF 197-298); see rulesNotes in source-manifest.json for the full review scope and what was intentionally excluded."
   }
 ]

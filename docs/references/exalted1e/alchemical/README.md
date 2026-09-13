@@ -1,7 +1,7 @@
 # Exalted 1e — Alchemical source intake
 
 **Status: source intake in progress.** `Exalted: The Autochthonians` has been
-supplied and 206 inventory rows are checked in under `inventory/`. See
+supplied and 207 inventory rows are checked in under `inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
@@ -14,7 +14,7 @@ title, matching this project's prior naming correction.
 
 - `source-manifest.json` — the one source book in scope so far
   (`exalted-the-autochthonians`); supplements are not yet added.
-- `inventory/exalted-the-autochthonians.json` — 206 rows covering:
+- `inventory/exalted-the-autochthonians.json` — 207 rows covering:
   - The Chapter Two character-creation overview (Concept/Caste/Nature,
     Caste-linked Attributes, the flat 23-dot Ability pool with no Caste or
     Favored discount, Charm Slots and Advantages, Virtues, and Willpower/
@@ -177,33 +177,50 @@ title, matching this project's prior naming correction.
     pure-lore material elsewhere. All of Chapter Four (printed pp.
     142-195/PDF 143-196) has now been reviewed; the parts of it worth
     inventorying are inventoried.
+  - **Chapters Five through Seven** (The Locust War, The Quest for the
+    Great Source, Engines of Extinction, printed pp. 196-297/PDF 197-298)
+    have now been reviewed as a scan/triage pass, as befits their nature
+    as adventure-seed/campaign chapters rather than further
+    character-creation rules chapters. Nearly all of their content —
+    war/invasion timelines and plot, Storyteller/NPC stat blocks (named
+    Alchemical Storyteller characters and their personal bound artifacts,
+    the Deathlord First and Forsaken Lion's full stat block, mortal NPCs),
+    creature templates built purely as GM antagonists (Alchemical beasts,
+    glass beasts), Alchemical Manse adventure-site/puzzle-room
+    descriptions, and mortal/Deathlord-side body-augmentation technology
+    and necrotechnology — was reviewed and intentionally excluded as
+    adventure plot, GM advice, or NPC/antagonist-only content, the same
+    way pure lore and Storyteller-side material is scoped out elsewhere in
+    this book. Exactly **one** genuinely player-facing,
+    character-creation-relevant mechanic was found and added: the
+    **Steamcar, Refurbished** (printed p. 238/PDF 239, Chapter Six), a
+    fully stat-blocked Autochthonian expedition vehicle (soak, health
+    levels, speed, maintenance/repair rules, and Charm ports for the
+    Electroneural Control Spurs and Universal Pilot Key Charms) of the
+    same kind as Chapter Four's Mechanical Rickshaw, Skimmercraft, and
+    Aerial Skiff. **All seven chapters of Exalted: The Autochthonians (the
+    entire book) have now been reviewed** for Alchemical
+    character-creation-relevant material.
 
 ## What's still needed
 
-1. **Resume point: Chapters Five through Seven** (The Locust War, The
-   Quest for the Great Source, Engines of Extinction, printed pp.
-   196-297/PDF 197-298) — these are presented as adventure-seed chapters,
-   not further character-creation rules, and have not yet been reviewed
-   for any additional inventoriable mechanics (a stat-block Charm, Merit,
-   or similar player-facing rule buried in the adventure text would be
-   worth pulling out; pure adventure/plot content should not be
-   inventoried).
-2. Martial Arts Charms specific to Alchemicals: covered so far via
+1. Martial Arts Charms specific to Alchemicals: covered so far via
    Perfected Lotus Matrix (which grants access to ordinary published
    Martial Arts Charms, out of this book's scope), the Alchemical
    Martial Artists style-availability sidebar, and the Thousand Wounds
    Gear Style sidebar (named but with no Charms given); no separate
    Alchemical-only Martial Arts Charm system with actual Charms was found
    anywhere in this book.
-3. Any Alchemical-facing supplements, if their mechanics are complete and
+2. Any Alchemical-facing supplements, if their mechanics are complete and
    in scope.
-4. Alchemical-specific Merits/Flaws beyond Gremlin Syndrome: checked, none
-   found anywhere in Chapter Two's edges, the whole of Chapter Three, or
-   all of Chapter Four (including both the weaving-protocol catalog and
-   the material reviewed in this latest pass). Gremlin Syndrome/Dissonance
-   remains the only one found in the book so far; worth one final check
-   once Chapters Five through Seven are reviewed, in case an adventure
-   chapter buries one in a sample character.
+3. Alchemical-specific Merits/Flaws beyond Gremlin Syndrome: checked, none
+   found anywhere in this book — Chapter Two's edges, the whole of Chapter
+   Three, all of Chapter Four (including both the weaving-protocol
+   catalog and the material reviewed in that pass), and now Chapters Five
+   through Seven (including a dedicated full-text search for
+   "Merit"/"Flaw" across all three adventure chapters). Gremlin
+   Syndrome/Dissonance remains the only Alchemical-specific Merit or Flaw
+   found anywhere in the book.
 
 ## Do not add yet
 
