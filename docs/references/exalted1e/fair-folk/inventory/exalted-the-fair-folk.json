@@ -564,5 +564,591 @@
     },
     "crossReferences": ["mutation-mechanic", "gossamer-and-glamour-mechanic"],
     "notes": "Chapter Five: Raksha Magic, 'General Rules' -> 'Cold-Wrought Iron' section, pp. 131-132 (PDF 132-133); the section header appears at the foot of p. 131 with the full rule text on p. 132."
+  },
+  {
+    "id": "imposition-of-law",
+    "name": "Imposition of Law",
+    "disposition": "selectable",
+    "summary": "Opens the Heart Grace's Name Charms; lets the raksha declare a single Attribute+Ability+specialty combination (or an unrolled task) as a truth about herself that she cannot fail at, backed by her very identity.",
+    "requirements": "Minimum Heart: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The player chooses an Attribute, an Ability and a specialty (or, with Storyteller permission, an otherwise-unrolled task such as 'fertility' or 'attracting the notice of the Realm') when purchasing this Charm. On any normal dice action rolling that Attribute+Ability combination within that specialty, the raksha gets automatic success (a minimum of one success after difficulty and defenses) unless a Charm or stunt actively opposes her; if opposed by a Charm or stunt, this Charm instead grants two bonus successes rather than automatic success. For example, a raksha built around Dexterity + Melee (Swords) still misses an attack if the target reflexively dodges with a Charm after already parrying, because the automatic-success guarantee only holds against undefended actions. A player may purchase this Charm once per dot of the raksha's Heart, choosing a different Attribute/Ability/specialty combination each time.",
+    "cost": "10 motes, 1 Willpower, 4 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive. Purchasable up to once per dot of the raksha's Heart, each purchase covering a different Attribute+Ability+specialty.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 155,
+      "pdfPage": 156
+    },
+    "crossReferences": [
+      "heart-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirguna, the Heart' -> 'Name Charms' section, pp. 155-156 (PDF 156-157); the worked sword-fight and crown-theft examples run onto the top of the following page. Name Charms are described as 'key to the construction of behemoths' (see behemoth material later in the chapter, out of scope this round). First Charm of the Heart Grace tree; has no diagrammed prerequisite tree of its own (Name Charms is a two-Charm section, not a branching tree)."
+  },
+  {
+    "id": "bastion-of-the-self",
+    "name": "Bastion of the Self (Grace)",
+    "disposition": "selectable",
+    "summary": "A second Name Charm granting the raksha near-total immunity to one category of harm (physical, mental, social, or damaging) as long as the attacker relies on nothing but mundane dice; any Charm-, stunt-, or shaping-augmented attack instead merely gets harder to land.",
+    "requirements": "Minimum Heart: 2; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "At purchase, the player picks one of four variants: Bastion of the Self (Cup) protects against normal attacks/effects that weaken the raksha and against Cup-shaping attacks; Bastion of the Self (Ring) protects against undue mental influence and Ring-shaping attacks; Bastion of the Self (Staff) protects against undue social influence and Staff-shaping attacks; Bastion of the Self (Sword) protects against normal damaging attacks and Sword-shaping attacks. Against any attack in the chosen category that uses no Charm, stunt, or shaping action, the raksha is simply immune -- the attack fails outright, letting her walk unharmed through an army of unaugmented spearmen. Against an attack in that category backed by even a one- or two-die stunt, a Charm, or a shaping action, this Charm does not grant immunity; it instead raises the difficulty of hitting the raksha by 2.",
+    "cost": "10 motes, 1 Willpower, 4 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive. Players can purchase this Charm only once (i.e. lock in only one of the four variants, though presumably a raksha could learn it again later for a second variant, subject to Storyteller ruling since the text simply says 'only once').",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 156,
+      "pdfPage": 157
+    },
+    "crossReferences": [
+      "heart-grace",
+      "cup-grace",
+      "ring-grace",
+      "staff-grace",
+      "sword-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirguna, the Heart' -> 'Name Charms' section, p. 156 (PDF 157), immediately following Imposition of Law."
+  },
+  {
+    "id": "spectacular-insanity",
+    "name": "Spectacular Insanity",
+    "disposition": "selectable",
+    "summary": "The root Charm of the Bedlam-Influencing Charms tree (a tree that, unusually, draws its branches from all five Graces rather than just Heart); converts the raksha's entry into bedlam from a pure debility into a fuel source, paying out Willpower and gossamer instead.",
+    "requirements": "Minimum Heart: 2; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The raksha reshapes her Virtues as she passes through the gateway Nirakara, changing how her psyche responds to bedlam. Each time this Charm is active and the raksha enters bedlam, invoking it grants her Willpower and gossamer equal to the rating of whichever Virtue's last channel triggered the bedlam.",
+    "cost": "5 motes, 1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 156,
+      "pdfPage": 157
+    },
+    "crossReferences": [
+      "heart-grace",
+      "bedlam-overview",
+      "virtue-bedlam-curses",
+      "ambrosial-ascension",
+      "bedlam-masterworks",
+      "driven-madness",
+      "raging-vortex-form"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirguna, the Heart' -> 'Bedlam-Influencing Charms' section, p. 156 (PDF 157). Prerequisite root for Ambrosial Ascension (Cup), Bedlam Masterworks (Ring), Driven Madness (Staff) and Raging Vortex Form (Sword), per the tree diagram on p. 157 (PDF 158), visually confirmed against the rendered page."
+  },
+  {
+    "id": "ambrosial-ascension",
+    "name": "Ambrosial Ascension",
+    "disposition": "selectable",
+    "summary": "A Cup-gated branch of the Bedlam-Influencing tree: while the raksha is in bedlam, she becomes an irresistibly beatific, terrifyingly beautiful figure that anyone trying to impede or attack her must overcome a Willpower roll just to bring themselves to act against.",
+    "requirements": "Minimum Cup: 2; Minimum Essence: 1; Prerequisite Charms: Spectacular Insanity.",
+    "mechanics": "A raksha who enters bedlam with this Charm active radiates an angelic, beatific aspect -- glorious and unconquerable beauty undiminished by the ravening madness written across her face, making her an object every Creation-born character desires. While the raksha is in bedlam and this Charm is active, any character whose player wishes to impede or attack her must first succeed on a difficulty 2 Willpower roll; this roll need only be made once per turn for any given character, not once per action.",
+    "cost": "8 motes, 1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 156,
+      "pdfPage": 157
+    },
+    "crossReferences": [
+      "cup-grace",
+      "spectacular-insanity",
+      "bedlam-overview"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirguna, the Heart' -> 'Bedlam-Influencing Charms' section, p. 156 (PDF 157)."
+  },
+  {
+    "id": "bedlam-masterworks",
+    "name": "Bedlam Masterworks",
+    "disposition": "selectable",
+    "summary": "A Ring-gated branch of the Bedlam-Influencing tree: when the raksha returns from bedlam, she brings back inexplicable mad craftworks -- artifacts containing recoverable gossamer -- as an involuntary side effect of her Ring's self-defining nature.",
+    "requirements": "Minimum Ring: 2; Minimum Essence: 1; Prerequisite Charms: Spectacular Insanity.",
+    "mechanics": "As the raksha's bedlam fades, her player rolls Intelligence + Craft (Glamour); the resulting objects are craftworks of madness inexplicable even to the raksha whose spirit constructed them. Each success on the roll yields one incomprehensible artifact containing a single point of gossamer, which anyone can later shatter or ravish to claim that gossamer.",
+    "cost": "10 motes, 1 Willpower, 1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 156,
+      "pdfPage": 157
+    },
+    "crossReferences": [
+      "ring-grace",
+      "spectacular-insanity",
+      "bedlam-overview",
+      "gossamer-and-glamour-mechanic"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirguna, the Heart' -> 'Bedlam-Influencing Charms' section, p. 156 (PDF 157)."
+  },
+  {
+    "id": "driven-madness",
+    "name": "Driven Madness",
+    "disposition": "selectable",
+    "summary": "A Staff-gated branch of the Bedlam-Influencing tree: the raksha shapes herself to the rigor of a binding oath, gaining bonus successes on Virtue rolls that help her keep it -- a benefit that persists even while she is in bedlam.",
+    "requirements": "Minimum Staff: 2; Minimum Essence: 1; Prerequisite Charms: Spectacular Insanity.",
+    "mechanics": "The raksha shapes herself to the rigor of a binding oath. This Charm gives her three bonus successes on all non-shaping Virtue rolls that help her keep that oath, and this bonus continues to apply even while she is in bedlam, when her Virtue rolls would otherwise suffer the standard +2 bedlam difficulty penalty.",
+    "cost": "5 motes, 1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 156,
+      "pdfPage": 157
+    },
+    "crossReferences": [
+      "staff-grace",
+      "spectacular-insanity",
+      "bedlam-overview",
+      "oaths-mechanic"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirguna, the Heart' -> 'Bedlam-Influencing Charms' section, pp. 156-157 (PDF 157-158); the Charm's cost/duration header appears at the foot of p. 156 (PDF 157) with the full mechanics text at the top of p. 157 (PDF 158)."
+  },
+  {
+    "id": "raging-vortex-form",
+    "name": "Raging Vortex Form",
+    "disposition": "selectable",
+    "summary": "A Sword-gated branch of the Bedlam-Influencing tree: bedlam triggers a passage through Nirakara into monstrous shape, letting the raksha temporarily mutate herself with mutation points scaled to half her permanent Willpower for as long as bedlam lasts.",
+    "requirements": "Minimum Sword: 2; Minimum Essence: 2; Prerequisite Charms: Spectacular Insanity.",
+    "mechanics": "At the dry base of the raksha's well of Virtue a monster lurks; bedlam can trigger a passage through Nirakara and the assumption of monstrous shape. Activating this Charm while in bedlam grants the raksha temporary mutation points equal to half her permanent Willpower, which can simulate the permanent effects of any raksha Charms without calcifying her (the normal Essence-plus-mutation-points cap does not force calcification here) and which last only until she leaves bedlam. The player chooses the specific mutations when purchasing the Charm and can only change that choice when the raksha's permanent Willpower rating itself changes.",
+    "cost": "10 motes, 1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 157,
+      "pdfPage": 158
+    },
+    "crossReferences": [
+      "sword-grace",
+      "spectacular-insanity",
+      "bedlam-overview",
+      "mutation-mechanic"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirguna, the Heart' -> 'Bedlam-Influencing Charms' section, p. 157 (PDF 158)."
+  },
+  {
+    "id": "ill-approving-eyes",
+    "name": "Ill-Approving Eyes",
+    "disposition": "selectable",
+    "summary": "The root Charm of the Heart's Dodge Charms tree: a scalable, mote-for-dice bonus to dodging any shaping attack the raksha can see coming, capped by her own shaping Trait plus Dodge.",
+    "requirements": "Minimum Heart: 2; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The character's brooding Essence looks down on the game of worlds the Fair Folk play and is unimpressed, declaring with short, sharp gestures of fate the impotence of others' events. For each mote spent, this Charm adds two dice to an attempt to dodge a shaping attack the raksha can anticipate, though the total dice added cannot exceed the raksha's shaping Trait + Dodge. The raksha's player must declare how many motes to spend before the opponent's player rolls the shaping attack.",
+    "cost": "1 mote per 2 dice",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 157,
+      "pdfPage": 158
+    },
+    "crossReferences": [
+      "heart-grace",
+      "shaping-combat-basics",
+      "assertion-of-a-greater-vision",
+      "sapphire-emptiness-kata"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirguna, the Heart' -> 'Dodge Charms' section, p. 157 (PDF 158). Root of the Dodge Charms tree (diagram on p. 158/PDF 159, visually confirmed): both Assertion of a Greater Vision and Sapphire Emptiness Kata require this Charm directly, and both feed into Howling Dream Consumption Prana."
+  },
+  {
+    "id": "assertion-of-a-greater-vision",
+    "name": "Assertion of a Greater Vision",
+    "disposition": "selectable",
+    "summary": "A cheap, full-power dodge: the raksha denies an anticipated shaping attack as a meaningless background event beneath her own great work of fate, letting her dodge it with her complete shaping Trait + Dodge pool.",
+    "requirements": "Minimum Heart: 2; Minimum Essence: 1; Prerequisite Charms: Ill-Approving Eyes.",
+    "mechanics": "Setting his name upon local reality, the character denies the world-shaping of others as paltry shadows and dreams -- the events may happen, but they are meaningless background images behind the raksha's own great work of fate. This Charm lets the raksha dodge a single anticipated shaping attack with his full shaping Trait + Dodge dice pool (in Exalted Power Combat, add his Essence to that pool as well). The raksha's player must spend the Charm's cost before the opponent's player makes the attack roll.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 157,
+      "pdfPage": 158
+    },
+    "crossReferences": [
+      "heart-grace",
+      "ill-approving-eyes",
+      "howling-dream-consumption-prana"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirguna, the Heart' -> 'Dodge Charms' section, p. 157 (PDF 158)."
+  },
+  {
+    "id": "sapphire-emptiness-kata",
+    "name": "Sapphire Emptiness Kata",
+    "disposition": "selectable",
+    "summary": "A companion branch to Assertion of a Greater Vision: rather than dodging outright, the raksha simply declares an anticipated shaping attack will not land, raising its difficulty by her Dodge rating.",
+    "requirements": "Minimum Heart: 2; Minimum Essence: 1; Prerequisite Charms: Ill-Approving Eyes.",
+    "mechanics": "As an opponent works her shaping, the raksha declares, 'This shall not be' -- and it is not. This Charm increases the difficulty to hit the raksha with a single anticipated, dodgeable shaping attack by an amount equal to the raksha's Dodge rating. The raksha's player must invoke this Charm before the opponent's player makes the attack roll.",
+    "cost": "6 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 157,
+      "pdfPage": 158
+    },
+    "crossReferences": [
+      "heart-grace",
+      "ill-approving-eyes",
+      "howling-dream-consumption-prana"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirguna, the Heart' -> 'Dodge Charms' section, p. 157 (PDF 158)."
+  },
+  {
+    "id": "howling-dream-consumption-prana",
+    "name": "Howling Dream Consumption Prana",
+    "disposition": "selectable",
+    "summary": "The capstone Dodge Charm: for the rest of the story the raksha can reflexively dodge every shaping attack directed at her using her full shaping Trait + Dodge pool, as she opens the mouths of her Graces to devour her enemies' shaped world.",
+    "requirements": "Minimum Heart: 3; Minimum Essence: 2; Prerequisite Charms: Assertion of a Greater Vision, Sapphire Emptiness Kata.",
+    "mechanics": "The raksha opens the mouths of her Graces, and inside them is the hunger of the void; she eats the world shaped by her enemies. For the remainder of the story, this Charm lets the character reflexively dodge all shaping attacks using her full shaping Trait + Dodge dice pool (in Exalted Power Combat, add her Essence to this pool as well) -- not merely a single anticipated attack, as with its two prerequisite Charms.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 158,
+      "pdfPage": 159
+    },
+    "crossReferences": [
+      "heart-grace",
+      "assertion-of-a-greater-vision",
+      "sapphire-emptiness-kata"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirguna, the Heart' -> 'Dodge Charms' section, p. 158 (PDF 159). Requires both prerequisite Dodge Charms simultaneously, matching the convergent diagram on p. 158 (PDF 159)."
+  },
+  {
+    "id": "writhing-ego-evasion",
+    "name": "Writhing Ego Evasion",
+    "disposition": "selectable",
+    "summary": "The root Charm of the Heart's Resistance Charms tree: converts spent motes directly into extra soak (via an effective Willpower boost) against a shaping attack, capped by the raksha's own Temperance.",
+    "requirements": "Minimum Heart: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "Desperate for freedom and the integrity of self, the raksha writhes her way out of the trap of another's shaping. This Charm increases her Willpower by one for every mote spent, purely for the purpose of calculating her soak against that attack. The raksha cannot spend more motes on this Charm in a single use than her Temperance rating.",
+    "cost": "1 mote per soak",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 158,
+      "pdfPage": 159
+    },
+    "crossReferences": [
+      "heart-grace",
+      "shaping-combat-basics",
+      "swallowed-grace-defense",
+      "pyre-of-dreams-defense"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirguna, the Heart' -> 'Resistance Charms' section, p. 158 (PDF 159). Root of the Resistance Charms tree (diagram on p. 159/PDF 160, visually confirmed): both Swallowed Grace Defense and Pyre of Dreams Defense branch directly from this Charm, with no further Charms built atop either."
+  },
+  {
+    "id": "swallowed-grace-defense",
+    "name": "Swallowed Grace Defense",
+    "disposition": "selectable",
+    "summary": "A branch of the Resistance tree that lets the raksha metaphysically swallow her own Graces to seal out an attacker entirely, if the incoming shaping attack's pre-soak damage is weak enough.",
+    "requirements": "Minimum Heart: 1; Minimum Essence: 2; Prerequisite Charms: Writhing Ego Evasion.",
+    "mechanics": "The raksha metaphysically gulps her Graces into herself, sealing them over with Essence to keep an enemy at bay. She invokes this Charm when someone uses shaping to attack her; if the attacker's pre-soak damage on that attack is less than the raksha's Willpower rating, this Charm lets her ignore the attack entirely.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 158,
+      "pdfPage": 159
+    },
+    "crossReferences": [
+      "heart-grace",
+      "writhing-ego-evasion"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirguna, the Heart' -> 'Resistance Charms' section, p. 158 (PDF 159)."
+  },
+  {
+    "id": "pyre-of-dreams-defense",
+    "name": "Pyre of Dreams Defense",
+    "disposition": "selectable",
+    "summary": "The other branch of the Resistance tree: a hard damage cap invoked after a shaping attack already hits, scattering the pain into fiery, disastrous images that limit the attack to two damage successes no matter how many dice the attacker rolled.",
+    "requirements": "Minimum Heart: 3; Minimum Essence: 1; Prerequisite Charms: Writhing Ego Evasion.",
+    "mechanics": "The raksha's pain at a shaping attack scatters images of fire and disaster through the dream. This Charm caps the damage successes of a successful attack that hits the raksha at two, regardless of how many dice the enemy rolled for damage; this cap cannot be further lowered by other Charms or effects. The raksha must invoke this Charm after the attack hits her but before its damage is rolled.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 159,
+      "pdfPage": 160
+    },
+    "crossReferences": [
+      "heart-grace",
+      "writhing-ego-evasion"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirguna, the Heart' -> 'Resistance Charms' section, p. 159 (PDF 160). Last Charm of the Heart Grace tree; the following section on this same page opens 'Dharma, the Cup' and its Cup Combat Charms (out of scope this round)."
+  },
+  {
+    "id": "furiously-stalling-destiny",
+    "name": "Furiously Stalling Destiny",
+    "disposition": "selectable",
+    "summary": "The root Charm of the Staff's 'Laughing Monster Style' Charm tree: a diplomatic counterattack that lets the raksha protest a shaping contest by countering with his full Manipulation + Occult pool the moment an opponent attacks him.",
+    "requirements": "Minimum Staff: 2; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The raksha uses diplomatic techniques to protest the shaping contest. This Charm lets him issue a Staff-shaping counterattack with his full Manipulation + Occult dice pool against an opponent who has just used a shaping attack against him; the counterattack resolves after the opponent's attack roll but before that attack's damage effects are applied. He can only make one such counterattack per triggering attack, and he cannot use this Charm's counterattack to answer another counterattack. Supplemental Charms placed in a Combo with this Charm enhance the counterattack.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 193,
+      "pdfPage": 194
+    },
+    "crossReferences": [
+      "staff-grace",
+      "diplomat-caste",
+      "shaping-combat-basics",
+      "deeper-into-trouble-technique"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvikalpa, the Staff' -> 'Laughing Monster Style' section, p. 193 (PDF 194). Root of the Laughing Monster Style tree diagram on p. 194 (PDF 195), visually confirmed against the rendered page: this Charm leads to Deeper Into Trouble Technique, which leads to Laughing Monster Stance, which then fans out into three parallel lines (Unitary Being Forge, Inauspicious Moment for Attack, Thieves Fall Out) that each feed a second Charm (Shuffling the Pieces, Subtle Hammer, Poisoned Whispers respectively) before all three reconverge on Dancing Wind Monster Transformation."
+  },
+  {
+    "id": "deeper-into-trouble-technique",
+    "name": "Deeper Into Trouble Technique",
+    "disposition": "selectable",
+    "summary": "Drives a shaping-attack target into fury, punishing him with a Willpower drain if his very next shaping attack targets someone other than the raksha.",
+    "requirements": "Minimum Staff: 3; Minimum Essence: 1; Prerequisite Charms: Furiously Stalling Destiny.",
+    "mechanics": "The raksha drives an opponent into fury. The raksha's player rolls Manipulation + Occult as a Staff-shaping attack; on a hit, damage applies normally, but the attack also infuriates the target, provoking him to lash out at the raksha specifically. If the target's next shaping attack action targets anyone other than the raksha, this Charm drains one of that target's temporary Willpower points.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Until the victim's next attack. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 193,
+      "pdfPage": 194
+    },
+    "crossReferences": [
+      "staff-grace",
+      "furiously-stalling-destiny",
+      "laughing-monster-stance"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvikalpa, the Staff' -> 'Laughing Monster Style' section, p. 193 (PDF 194)."
+  },
+  {
+    "id": "laughing-monster-stance",
+    "name": "Laughing Monster Stance",
+    "disposition": "selectable",
+    "summary": "The central Stance-type Charm of the Laughing Monster Style tree: lets the raksha reflexively redirect a missed shaping attack against any target of her choice, including the original attacker, for a full story.",
+    "requirements": "Minimum Staff: 4; Minimum Essence: 2; Prerequisite Charms: Deeper Into Trouble Technique.",
+    "mechanics": "The raksha pours Essence into her Staff Grace, becoming the dweller in the between -- the laughing monster who dances through the cracks in society and twists oaths against their holders, confounding her enemies and turning their own efforts against them. If a shaping attack misses her while this Charm is active, she can reflexively spend 1 Willpower to redirect it against any target of her choice, including the original attacker; the attack is rerolled against the new target as though it had been aimed there from the start. This is a Stance-type Charm, and a character cannot have more than one Stance-type Charm active at a time.",
+    "cost": "6 motes",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 193,
+      "pdfPage": 194
+    },
+    "crossReferences": [
+      "staff-grace",
+      "deeper-into-trouble-technique",
+      "unitary-being-forge",
+      "inauspicious-moment-for-attack",
+      "thieves-fall-out"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvikalpa, the Staff' -> 'Laughing Monster Style' section, p. 193 (PDF 194). Central branch point of the tree: Unitary Being Forge, Inauspicious Moment for Attack and Thieves Fall Out all require this Charm directly."
+  },
+  {
+    "id": "unitary-being-forge",
+    "name": "Unitary Being Forge",
+    "disposition": "selectable",
+    "summary": "One of three Charms branching from Laughing Monster Stance: turns an opponent's existing shaping wounds into bonus damage dice for the raksha's own attack.",
+    "requirements": "Minimum Staff: 4; Minimum Essence: 3; Prerequisite Charms: Laughing Monster Stance.",
+    "mechanics": "The raksha exploits an awkward situation for diplomatic advantage. His player rolls Manipulation + Occult as a Staff-shaping attack; on a success, this Charm adds one damage die for every point of Sword, Ring or Cup damage the opponent is currently suffering.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 193,
+      "pdfPage": 194
+    },
+    "crossReferences": [
+      "staff-grace",
+      "laughing-monster-stance",
+      "shuffling-the-pieces"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvikalpa, the Staff' -> 'Laughing Monster Style' section, p. 193 (PDF 194); the Charm's full mechanics text runs onto the very top of the next page (PDF 195)."
+  },
+  {
+    "id": "shuffling-the-pieces",
+    "name": "Shuffling the Pieces",
+    "disposition": "selectable",
+    "summary": "Builds on Unitary Being Forge: instead of dealing her own damage, the raksha redistributes up to 10 levels of a target's existing Sword/Ring/Cup damage as healing, dumping an equal amount onto the target's Staff Grace instead.",
+    "requirements": "Minimum Staff: 5; Minimum Essence: 3; Prerequisite Charms: Unitary Being Forge.",
+    "mechanics": "The raksha's words revise the world, so that the pounding march of armies, the stringent laws of the world and the harmonious strains of an Entertainer's vision become nothing more than diplomatic tools. Her player rolls Manipulation + Occult as a Staff-shaping attack; on a success, instead of applying her normal damage, she heals up to 10 total levels of the target's Sword, Ring and Cup damage (divided among those tracks however she chooses) and immediately inflicts that same total amount of damage on the target's Staff Grace. This lets the raksha use the Charm to 'heal' allies just as readily as to further damage enemies.",
+    "cost": "2 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 194,
+      "pdfPage": 195
+    },
+    "crossReferences": [
+      "staff-grace",
+      "unitary-being-forge",
+      "dancing-wind-monster-transformation"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvikalpa, the Staff' -> 'Laughing Monster Style' section, p. 194 (PDF 195)."
+  },
+  {
+    "id": "inauspicious-moment-for-attack",
+    "name": "Inauspicious Moment for Attack",
+    "disposition": "selectable",
+    "summary": "A second Charm branching from Laughing Monster Stance: a scene-opening initiative attack that can lock a badly-timed opponent out of taking any shaping action that scene at all.",
+    "requirements": "Minimum Staff: 5; Minimum Essence: 2; Prerequisite Charms: Laughing Monster Stance.",
+    "mechanics": "With the arts of distraction and omen, the laughing monster slows the enemy's advance. The raksha must use this Charm at the very beginning of the scene; it reduces a chosen opponent's shaping initiative by twice the raksha's Essence. If this drops the opponent's shaping initiative below 1, that opponent cannot take a shaping action at all for the rest of the scene, though he can still activate reflexive effects.",
+    "cost": "1 mote",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 194,
+      "pdfPage": 195
+    },
+    "crossReferences": [
+      "staff-grace",
+      "laughing-monster-stance",
+      "subtle-hammer",
+      "shaping-combat-basics"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvikalpa, the Staff' -> 'Laughing Monster Style' section, p. 194 (PDF 195)."
+  },
+  {
+    "id": "subtle-hammer",
+    "name": "Subtle Hammer",
+    "disposition": "selectable",
+    "summary": "Builds on Inauspicious Moment for Attack: a nearly undefendable Staff-shaping attack that the opponent cannot parry or dodge without Charms, and whose extra successes count double toward damage.",
+    "requirements": "Minimum Staff: 5; Minimum Essence: 3; Prerequisite Charms: Inauspicious Moment for Attack.",
+    "mechanics": "The Diplomat's work is subtle, and the opponent does not notice its danger until too late. The raksha makes a Staff-shaping attack; the opponent cannot parry or dodge it without the use of Charms, and the raksha doubles her extra successes for the purposes of determining damage.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 194,
+      "pdfPage": 195
+    },
+    "crossReferences": [
+      "staff-grace",
+      "inauspicious-moment-for-attack",
+      "dancing-wind-monster-transformation"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvikalpa, the Staff' -> 'Laughing Monster Style' section, p. 194 (PDF 195)."
+  },
+  {
+    "id": "thieves-fall-out",
+    "name": "Thieves Fall Out",
+    "disposition": "selectable",
+    "summary": "The third Charm branching from Laughing Monster Stance: sets two named targets against each other, inflicting recurring unblockable Staff damage on the first whenever both occupy the same or adjacent waypoints.",
+    "requirements": "Minimum Staff: 5; Minimum Essence: 2; Prerequisite Charms: Laughing Monster Stance.",
+    "mechanics": "The raksha encourages enmity between two foes. She names two targets, and her player rolls Manipulation + Occult as a shaping action against a difficulty equal to the first target's Essence. On a success, this Charm inflicts one level of unblockable, undodgeable Staff damage on the first target for every scene in which the two named targets occupy the same waypoint or adjacent waypoints.",
+    "cost": "3 motes, 1 Willpower",
+    "compatibility": "Duration: Five scenes. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 194,
+      "pdfPage": 195
+    },
+    "crossReferences": [
+      "staff-grace",
+      "laughing-monster-stance",
+      "poisoned-whispers"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvikalpa, the Staff' -> 'Laughing Monster Style' section, pp. 194-195 (PDF 195-196); the Charm's cost/duration header appears at the foot of p. 194 (PDF 195) with the full mechanics text at the top of p. 195 (PDF 196)."
+  },
+  {
+    "id": "poisoned-whispers",
+    "name": "Poisoned Whispers",
+    "disposition": "selectable",
+    "summary": "Builds on Thieves Fall Out: if a poisoned target attacks the raksha and misses, she can reflexively redirect that failed attack against any target of her choosing at no Willpower cost.",
+    "requirements": "Minimum Staff: 5; Minimum Essence: 3; Prerequisite Charms: Thieves Fall Out.",
+    "mechanics": "The raksha poisons and twists the mind of a target. If that target attacks the raksha and misses during the scene this Charm is active, she can reflexively redirect the failed attack against any target of her choice -- including the original attacker -- without needing to spend a Willpower point to do so (unlike the similar redirection granted by Laughing Monster Stance).",
+    "cost": "8 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 195,
+      "pdfPage": 196
+    },
+    "crossReferences": [
+      "staff-grace",
+      "thieves-fall-out",
+      "dancing-wind-monster-transformation"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvikalpa, the Staff' -> 'Laughing Monster Style' section, p. 195 (PDF 196)."
+  },
+  {
+    "id": "dancing-wind-monster-transformation",
+    "name": "Dancing Wind Monster Transformation",
+    "disposition": "selectable",
+    "summary": "The capstone Charm of the Laughing Monster Style tree: the raksha fades into invisible, laughing wind, leaving only the echo of her spiteful words as her enemies turn on each other, and gains a large automatic bonus on all her shaping dodges for the story.",
+    "requirements": "Minimum Staff: 5; Minimum Essence: 4; Prerequisite Charms: Shuffling the Pieces, Subtle Hammer, Poisoned Whispers.",
+    "mechanics": "The raksha fades into the wind, laughing, invisible, leaving nothing but the echo of her spiteful words; bereft, her enemies must turn on one another. This Charm adds the raksha's Essence rating as automatic successes to all of her shaping dodge actions for the rest of the story.",
+    "cost": "6 motes",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 195,
+      "pdfPage": 196
+    },
+    "crossReferences": [
+      "staff-grace",
+      "shuffling-the-pieces",
+      "subtle-hammer",
+      "poisoned-whispers"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvikalpa, the Staff' -> 'Laughing Monster Style' section, p. 195 (PDF 196). Capstone of the tree: requires all three second-tier Charms (Shuffling the Pieces, Subtle Hammer, Poisoned Whispers) simultaneously, matching the convergent diagram on p. 194 (PDF 195), visually confirmed against the rendered page."
+  },
+  {
+    "id": "oath-gossamer",
+    "name": "Oath Gossamer",
+    "disposition": "selectable",
+    "summary": "The root Charm of the Staff's separate 'Society-Forging Charms' tree, which raksha use to literally construct their society: binds the raksha to a consenting partner in a named relationship that generates gossamer for as long as it is actively pursued, at the cost of shattering the raksha's Staff Grace if she ends it permanently.",
+    "requirements": "Minimum Staff: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The raksha binds himself to a consenting raksha in a gossamer-producing relationship, which can be any relationship the two agree to -- from true love to rivalry to bitterest hate. This Charm grants him 1 bonus gossamer in every story during which he actively pursues the named relationship. If he ever brings that relationship to a permanent end, this Charm instead breaks his Staff Grace and scatters its pieces.",
+    "cost": "4 gossamer",
+    "compatibility": "Duration: One century. Type: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 195,
+      "pdfPage": 196
+    },
+    "crossReferences": [
+      "staff-grace",
+      "gossamer-and-glamour-mechanic",
+      "oaths-mechanic",
+      "eight-corner-ring-binding"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvikalpa, the Staff' -> 'Society-Forging Charms' section, pp. 195-196 (PDF 196-197); the Charm's cost/duration header appears at the foot of p. 195 (PDF 196) with the full mechanics text at the top of p. 196 (PDF 197). Root of a small two-Charm tree diagrammed on p. 196 (PDF 197), visually confirmed: Eight-Corner Ring Binding requires this Charm directly."
+  },
+  {
+    "id": "eight-corner-ring-binding",
+    "name": "Eight-Corner Ring Binding",
+    "disposition": "selectable",
+    "summary": "Scales Oath Gossamer up from a pair to a group of up to eight raksha, each declaring a relationship with every other member; breaking any one relationship shatters that member's Staff Grace and hands out its pieces to the rest of the ring.",
+    "requirements": "Minimum Staff: 3; Minimum Essence: 2; Prerequisite Charms: Oath Gossamer.",
+    "mechanics": "This Charm, the basic unit of pragmatic raksha alliance, binds a group of up to eight raksha into a ring; each member names a desired relationship with each of the others, exactly as with Oath Gossamer. At the end of every story, each raksha in the ring receives 1 bonus gossamer per relationship she actively pursued that story. If any raksha in the binding permanently ends one of her relationships, her Staff Grace shatters, and each of the other raksha in the ring receives one piece of it. Members can revise their declared relationships, but must announce the change a full story in advance.",
+    "cost": "1 gossamer per participant",
+    "compatibility": "Duration: One century. Type: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 196,
+      "pdfPage": 197
+    },
+    "crossReferences": [
+      "staff-grace",
+      "oath-gossamer",
+      "gossamer-and-glamour-mechanic",
+      "oaths-mechanic"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvikalpa, the Staff' -> 'Society-Forging Charms' section, p. 196 (PDF 197). Last Charm of the Staff Grace tree covered this round; 'Nishkriya, the Sword' and its Sword Combat Charms begin immediately afterward on the same page and are out of scope this round."
   }
 ]

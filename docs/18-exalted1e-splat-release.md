@@ -193,10 +193,10 @@ real, creatable sheet.
 | Family     | Source manifest                       | Inventory rows | Promoted | Certification                    |
 | ---------- | ------------------------------------- | -------------- | -------- | -------------------------------- |
 | Lunar      | Created (Exalted: The Lunars)         | 54             | 0        | Locked, all dimensions `not-run` |
-| Abyssal    | Created (Exalted: The Abyssals)       | 27             | 0        | Locked, all dimensions `not-run` |
+| Abyssal    | Created (Exalted: The Abyssals)       | 175            | 0        | Locked, all dimensions `not-run` |
 | Sidereal   | Created (Exalted: The Sidereals)      | 22             | 0        | Locked, all dimensions `not-run` |
-| Alchemical | Created (Exalted: The Autochthonians) | 25             | 0        | Locked, all dimensions `not-run` |
-| Fair Folk  | Created (Exalted: The Fair Folk)      | 34             | 0        | Locked, all dimensions `not-run` |
+| Alchemical | Created (Exalted: The Autochthonians) | 57             | 0        | Locked, all dimensions `not-run` |
+| Fair Folk  | Created (Exalted: The Fair Folk)      | 60             | 0        | Locked, all dimensions `not-run` |
 
 Lunar's 54 rows (as of this update) cover the core innate powers, the
 complete Shapechanging I/II/III Charm trees, the complete Body Enhancement
@@ -205,14 +205,16 @@ Charms of Unarmed Combat II, all visually reviewed against rendered pages
 of the supplied PDF. See `docs/references/exalted1e/lunar/README.md`
 for what remains outstanding from that book.
 
-Abyssal's 27 rows cover the Chapter Three character-creation overview, the
+Abyssal's 175 rows cover the Chapter Three character-creation overview, the
 universal Anima Effect, all five Castes, the Abyssal Curse, the Virtues of
 Death, the full Resonance mechanic (the Limit-Trait analog, including gain,
 loss, and the 1-10 manifestation table), the-title, Useful Crafts, the
-Cult-and-Abyssals exclusion, and all eleven altered/new Backgrounds, all
-visually reviewed against rendered pages of the supplied (image-based) PDF.
-Chapter Five's Charm trees and Chapter Six's necromancy rules are not yet
-inventoried; see `docs/references/exalted1e/abyssal/README.md`.
+Cult-and-Abyssals exclusion, all eleven altered/new Backgrounds, and now 148
+Chapter Five Charm rows covering every Ability line for the Dusk, Midnight
+and Daybreak Castes, all visually reviewed against rendered pages of the
+supplied (image-based) PDF. The Day and Moonshadow Castes' Charm trees and
+Chapter Six's necromancy rules are not yet inventoried; see
+`docs/references/exalted1e/abyssal/README.md`.
 
 Sidereal's 22 rows cover the Chapter Three character-creation overview, the
 five Auspicious Ability groups, the universal anima effect, all five Castes
@@ -224,26 +226,32 @@ printed page = PDF page − 3). The Colleges/astrology Charm-tree equivalent,
 Sidereal Martial Arts, and Resplendent Destinies are not yet inventoried;
 see `docs/references/exalted1e/sidereal/README.md`.
 
-Alchemical's 25 rows cover the character-creation overview, the universal
+Alchemical's 57 rows cover the character-creation overview, the universal
 Anima Banner effect, Artificial Metabolism, Life/Death/the Soulgem,
 Refitting/Essence advancement, all five material-named Castes (Orichalcum,
 Moonsilver, Jade, Starmetal, Soulsteel) plus the apocryphal sixth "Adamant"
 legend, the Clarity trait (this splat's Limit-Trait analog, including its
-Dissonance corruption and the 0-10 effects table), and six new/altered
-Backgrounds, reviewed against the supplied PDF's real text layer (printed
-page = PDF page − 1) with spot-checked renders. Chapter Three's Charm trees
-and the setting/adventure chapters are not yet inventoried; see
-`docs/references/exalted1e/alchemical/README.md`.
+Dissonance corruption and the 0-10 effects table), six new/altered
+Backgrounds, the Chapter Three Charm-system framing (Charm Slots, Panoplies,
+Submodules, Arrays), the two General Attribute-Augmentation Charms, and the
+complete Close Combat (15 Charms) and Ranged Combat (11 Charms) Charm trees,
+reviewed against the supplied PDF's real text layer (printed page = PDF page
+− 1) with spot-checked renders. The Might and Mobility Charm tree onward
+through the rest of Chapter Three, plus the setting/adventure chapters, are
+not yet inventoried; see `docs/references/exalted1e/alchemical/README.md`.
 
-Fair Folk's 34 rows cover both character-creation tracks (common and noble
+Fair Folk's 60 rows cover both character-creation tracks (common and noble
 raksha), the four Castes (Diplomat/Entertainer/Warrior/Worker) and their
 twelve noble hybrid archetypes, the five Grace traits that Charms key off
 instead of Attributes/Abilities, the Bedlam mechanic (this splat's
 Limit-Trait analog, split into four per-Virtue Curses rather than a single
-universal trait), and nine new/altered Backgrounds, reviewed against the
+universal trait), nine new/altered Backgrounds, and two of Chapter Five's
+five per-Grace Charm trees in full (Heart and Staff), reviewed against the
 supplied PDF's real text layer (printed page = PDF page − 1) with
-spot-checked renders. Chapter Five's per-Grace Charm trees are not yet
-inventoried; see `docs/references/exalted1e/fair-folk/README.md`.
+spot-checked renders. The remaining three per-Grace Charm trees (Cup, Ring,
+Sword), the universal Assumption-type Charm tree, and Chapter Five's
+non-Charm magic material (Glamour Sorcery, Wyld Artifacts, Behemoths) are
+not yet inventoried; see `docs/references/exalted1e/fair-folk/README.md`.
 
 All five families now have real inventory rows drawn from their primary
 source books; the project owner's remaining cross-splat supplements (Blood

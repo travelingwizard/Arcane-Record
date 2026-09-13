@@ -38,7 +38,9 @@
       "printedPage": 75,
       "pdfPage": 76
     },
-    "crossReferences": ["alchemical-character-creation-overview"],
+    "crossReferences": [
+      "alchemical-character-creation-overview"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Anima Effect' / 'Alchemical Anima Banners' table, p. 75 (PDF 76). Table verified against a rendered page image; text extraction matched exactly."
   },
   {
@@ -54,7 +56,9 @@
       "printedPage": 73,
       "pdfPage": 74
     },
-    "crossReferences": ["alchemical-life-and-death"],
+    "crossReferences": [
+      "alchemical-life-and-death"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Alchemical Physiology and Powers' -> 'Artificial Metabolism', p. 73 (PDF 74)."
   },
   {
@@ -70,7 +74,9 @@
       "printedPage": 73,
       "pdfPage": 74
     },
-    "crossReferences": ["alchemical-artificial-metabolism"],
+    "crossReferences": [
+      "alchemical-artificial-metabolism"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Alchemical Physiology and Powers' -> 'Life and Death', p. 73 (PDF 74)."
   },
   {
@@ -86,7 +92,11 @@
       "printedPage": 73,
       "pdfPage": 74
     },
-    "crossReferences": ["vats-background", "building-vats-in-creation", "clarity-trait"],
+    "crossReferences": [
+      "vats-background",
+      "building-vats-in-creation",
+      "clarity-trait"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Alchemical Physiology and Powers' -> 'Refitting, Essence and Evolution', pp. 73-74 (PDF 74-75). The Essence 8-10 city-transformation material shades toward Storyteller-facing setting lore, but is kept as calculated here because it directly defines what an advancing player character's Essence rating physically means and requires (unlike the wholly optional adamant-caste-legend sidebar)."
   },
   {
@@ -102,7 +112,10 @@
       "printedPage": 76,
       "pdfPage": 77
     },
-    "crossReferences": ["alchemical-character-creation-overview", "alchemical-anima-banners-universal"],
+    "crossReferences": [
+      "alchemical-character-creation-overview",
+      "alchemical-anima-banners-universal"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Orichalcum' Caste section, pp. 76-77 (PDF 77-78); visually cross-checked against a rendered page image."
   },
   {
@@ -118,7 +131,10 @@
       "printedPage": 78,
       "pdfPage": 79
     },
-    "crossReferences": ["alchemical-character-creation-overview", "alchemical-anima-banners-universal"],
+    "crossReferences": [
+      "alchemical-character-creation-overview",
+      "alchemical-anima-banners-universal"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Moonsilver' Caste section, pp. 78-79 (PDF 79-80)."
   },
   {
@@ -134,7 +150,10 @@
       "printedPage": 80,
       "pdfPage": 81
     },
-    "crossReferences": ["alchemical-character-creation-overview", "alchemical-anima-banners-universal"],
+    "crossReferences": [
+      "alchemical-character-creation-overview",
+      "alchemical-anima-banners-universal"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Jade' Caste section, pp. 80-81 (PDF 81-82)."
   },
   {
@@ -150,7 +169,10 @@
       "printedPage": 82,
       "pdfPage": 83
     },
-    "crossReferences": ["alchemical-character-creation-overview", "alchemical-anima-banners-universal"],
+    "crossReferences": [
+      "alchemical-character-creation-overview",
+      "alchemical-anima-banners-universal"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Starmetal' Caste section, pp. 82-83 (PDF 83-84); visually cross-checked against a rendered page image."
   },
   {
@@ -166,7 +188,10 @@
       "printedPage": 84,
       "pdfPage": 85
     },
-    "crossReferences": ["alchemical-character-creation-overview", "alchemical-anima-banners-universal"],
+    "crossReferences": [
+      "alchemical-character-creation-overview",
+      "alchemical-anima-banners-universal"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Soulsteel' Caste section, pp. 84-85 (PDF 85-86); visually cross-checked against a rendered page image."
   },
   {
@@ -182,7 +207,13 @@
       "printedPage": 61,
       "pdfPage": 62
     },
-    "crossReferences": ["orichalcum-caste", "moonsilver-caste", "jade-caste", "starmetal-caste", "soulsteel-caste"],
+    "crossReferences": [
+      "orichalcum-caste",
+      "moonsilver-caste",
+      "jade-caste",
+      "starmetal-caste",
+      "soulsteel-caste"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Legends of the Sixth Caste' sidebar, p. 61 (PDF 62); visually cross-checked against a rendered page image. Classified gm-only rather than selectable because the book explicitly gates any mechanical use behind Storyteller discretion ('For Storytellers interested in including the sixth caste...') rather than offering it as a chargen option."
   },
   {
@@ -198,7 +229,12 @@
       "printedPage": 69,
       "pdfPage": 70
     },
-    "crossReferences": ["gaining-clarity", "losing-clarity", "clarity-effects-table", "gremlin-syndrome-dissonance"],
+    "crossReferences": [
+      "gaining-clarity",
+      "losing-clarity",
+      "clarity-effects-table",
+      "gremlin-syndrome-dissonance"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Clarity' section, p. 69 (PDF 70); visually cross-checked against a rendered page image."
   },
   {
@@ -214,7 +250,9 @@
       "printedPage": 69,
       "pdfPage": 70
     },
-    "crossReferences": ["clarity-trait"],
+    "crossReferences": [
+      "clarity-trait"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Gaining Clarity' section, pp. 69-70 (PDF 70-71); visually cross-checked against rendered page images."
   },
   {
@@ -230,7 +268,9 @@
       "printedPage": 70,
       "pdfPage": 71
     },
-    "crossReferences": ["clarity-trait"],
+    "crossReferences": [
+      "clarity-trait"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Losing Clarity' section, p. 70 (PDF 71); visually cross-checked against a rendered page image."
   },
   {
@@ -246,7 +286,9 @@
       "printedPage": 70,
       "pdfPage": 71
     },
-    "crossReferences": ["clarity-trait"],
+    "crossReferences": [
+      "clarity-trait"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Effects of Clarity' table and 'Playing and Storytelling Clarity' guidance, pp. 70-71 (PDF 71-72); visually cross-checked against rendered page images."
   },
   {
@@ -263,7 +305,9 @@
       "printedPage": 71,
       "pdfPage": 72
     },
-    "crossReferences": ["clarity-trait"],
+    "crossReferences": [
+      "clarity-trait"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Gremlin Syndrome' sidebar, p. 71 (PDF 72)."
   },
   {
@@ -280,7 +324,11 @@
       "printedPage": 66,
       "pdfPage": 67
     },
-    "crossReferences": ["alchemical-character-creation-overview", "followers-influence-resources-subsumed", "backing-background-altered"],
+    "crossReferences": [
+      "alchemical-character-creation-overview",
+      "followers-influence-resources-subsumed",
+      "backing-background-altered"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Expanded Backgrounds' -> 'Class' section, pp. 66-67 (PDF 67-68); dot table visually cross-checked against a rendered page image."
   },
   {
@@ -296,7 +344,9 @@
       "printedPage": 65,
       "pdfPage": 66
     },
-    "crossReferences": ["vats-background"],
+    "crossReferences": [
+      "vats-background"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Expanded Backgrounds' -> 'Artifact' section, p. 65 (PDF 66)."
   },
   {
@@ -312,7 +362,9 @@
       "printedPage": 65,
       "pdfPage": 66
     },
-    "crossReferences": ["class-background"],
+    "crossReferences": [
+      "class-background"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Expanded Backgrounds' -> 'Backing' section, pp. 65-66 (PDF 66-67)."
   },
   {
@@ -361,7 +413,11 @@
       "printedPage": 68,
       "pdfPage": 69
     },
-    "crossReferences": ["artifact-background-altered", "building-vats-in-creation", "alchemical-refitting-essence-and-evolution"],
+    "crossReferences": [
+      "artifact-background-altered",
+      "building-vats-in-creation",
+      "alchemical-refitting-essence-and-evolution"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Expanded Backgrounds' -> 'Vats' section, pp. 68-69 (PDF 69-70); dot table visually cross-checked against a rendered page image."
   },
   {
@@ -377,7 +433,9 @@
       "printedPage": 69,
       "pdfPage": 70
     },
-    "crossReferences": ["vats-background"],
+    "crossReferences": [
+      "vats-background"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Building Vats' sidebar, p. 69 (PDF 70); visually cross-checked against a rendered page image."
   },
   {
@@ -393,7 +451,9 @@
       "printedPage": 68,
       "pdfPage": 69
     },
-    "crossReferences": ["class-background"],
+    "crossReferences": [
+      "class-background"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Expanded Backgrounds' -> 'Followers, Influence and Resources' section, p. 68 (PDF 69). Classified excluded rather than reference-only because it actively forecloses three standard Background options for the ordinary chargen path, matching the rationale used for Abyssal's cult-and-the-abyssals row."
   },
   {
@@ -409,7 +469,670 @@
       "printedPage": 64,
       "pdfPage": 65
     },
-    "crossReferences": ["alchemical-character-creation-overview", "vats-background"],
+    "crossReferences": [
+      "alchemical-character-creation-overview",
+      "vats-background"
+    ],
     "notes": "Chapter Two: Character Creation and Traits, 'Bonus Points' and 'Experience Costs' tables, p. 64 (PDF 65). Man Machine Weaving Protocol / God Machine Weaving Protocol / Martial Arts Charm and Perfected Lotus Matrix are Chapter Three Charm-system terms referenced here only because they appear directly in this cost table; the Charms themselves are out of scope for this inventory pass."
+  },
+  {
+    "id": "alchemical-charm-slots-panoplies-arrays",
+    "name": "Charm Slots, Panoplies, Submodules, and Arrays",
+    "disposition": "calculated",
+    "summary": "Explains the core Alchemical Charm-as-implant model: Charms are surgically installed in General or Dedicated Charm Slots up to a hard limit, spare Charms are stockpiled as a \"Panoply,\" a single Charm can be permanently expanded with cheap \"submodule\" upgrades, and Alchemicals build \"Arrays\" (their version of a Combo) that bundle several Charms into one surgically-installed unit with a reduced combined installation cost and automatic access to every legal Combo among its members.",
+    "mechanics": "Charm Slots come in two varieties: General (holds any Charm) and Dedicated (only Charms tied to a Favored or Caste Attribute). Starting characters get 4 Dedicated and 4 General Slots plus 8 Charms to fill them. Additional Slots may be bought with bonus points at creation or xp plus a surgical refit during play; every new Slot comes with a free qualifying Charm of the player's choice. Alchemicals may also hold Charms beyond their Slots via the Vats or Artifact Backgrounds; once play begins, extra Panoply Charms (without a new Slot) cost 6 xp. The Charms held in reserve at the Vats are collectively called a Panoply. At the Vats, an Alchemical may swap any installed Charms for Panoply Charms or leave Slots empty (e.g. to conserve Personal Essence), and may upgrade a Dedicated Slot to General for 2 xp; refitting takes time (see alchemical-refitting-essence-and-evolution). Submodules are fixed-xp permanent upgrades to a single specific installed Charm; whenever that Charm is installed, all its purchased submodules are also available. Most submodules need an hour of refit at the Vats. Submodules should generally be weaker than a full Charm; anything as powerful as a Charm should cost more, need a notably higher minimum Essence, or simply be a new Charm. Arrays: cost 1 bonus point per Charm included, or xp equal to the sum of the minimum Attribute ratings of every Charm in the Array; unlike a Combo, any Attribute-based Charm may join an Array (supernatural martial arts Charms are excluded). Once linked, the arrangement is permanent; owning the same Charm both in and out of an Array (or in two Arrays) requires buying separate copies, though any submodules purchased for a Charm automatically apply to every copy for free. Arrays grant two benefits: Reduced Installation Cost (the whole Array has one combined installation cost equal to three-fourths of the summed installation costs of its component Charms, rounded up, but the entire Array must be installed or removed as a single unit — no partial installation) and Integrated Combos (the Alchemical automatically has access to every possible Combo that could be built from instant-duration Charms in the Array that could benefit the same action, plus any reflexive Charms regardless of action; the Storyteller is final arbiter of legality; activating an integrated Combo costs 1 Willpower on the first Charm as with any Combo, and such Combos should have their own name/visual display, ideally planned in advance or built from the first stunt that uses them).",
+    "compatibility": "All Alchemical castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "89-90",
+      "pdfPage": "90-91"
+    },
+    "crossReferences": [
+      "alchemical-character-creation-overview",
+      "alchemical-bonus-points-and-experience-costs",
+      "alchemical-refitting-essence-and-evolution",
+      "vats-background",
+      "artifact-background-altered"
+    ],
+    "notes": "Chapter Three: Charms, 'Charm Slots and Panoplies' / 'Submodules' / 'Arrays' sections, pp. 89-90 (PDF 90-91)."
+  },
+  {
+    "id": "alchemical-designing-new-charms-eclipses-moonshadows",
+    "name": "Designing New Charms & Eclipse/Moonshadow Access to Alchemical Charms",
+    "disposition": "calculated",
+    "summary": "Storyteller-facing rules for how brand-new Alchemical Charms or submodules formally enter play (either by Storyteller fiat or an in-fiction design-and-submission process at a patropolis), plus the separate mechanism letting Solar Eclipse and Lunar Moonshadow Caste Exalted buy limited access to the Alchemical Charm list through their own anima powers.",
+    "mechanics": "Two ways to add a new Charm beyond the book's list: (1) the Storyteller simply rules the Charm already exists, and the character obtains it on her next refit or via experience as usual; (2) the character spends a number of weeks equal to the Charm's minimum Attribute rating designing the artifact, then formally submits the design to her home city's patropolis; if approved, the template is added to the city's Vats records (available to any Exalt), and a functional copy costs normal experience a month later. New Charm designs become a valuable commodity traded between cities for favors, resources, or other templates, and most spread across the Eight Nations within a year. Designing a submodule follows the same process but needs only one week of planning, becoming available a week after the patropolis affirms it. Separately, through their anima powers Eclipse and Moonshadow Caste Exalted can \"learn\" Alchemical Charms for 20 xp each, requiring the same kind of surgical refit at a Vat Complex as an Alchemical; each purchase grants one General Charm Slot plus the desired Charm. As long as the character retains whatever grace granted her access to Autochthonia's technological secrets, she may add further Panoply Charms for 8 xp instead of paying for new Slots. Neither caste may build Arrays, though they can form ordinary Combos of Attribute and Ability Charms provided every non-reflexive Charm in the Combo benefits the same action (a Combo relying on an installed Alchemical Charm only works while that Charm remains installed). An Exalt with empty Charm Slots still visibly displays odd magitech implants even with no Charms currently installed. Non-Alchemicals cannot learn weaving Charms, and the Storyteller may bar any other Charm from these castes for balance or fairness.",
+    "compatibility": "Storyteller guidance for all Alchemicals; the Eclipse/Moonshadow clause applies specifically to Solar Eclipse Caste and Lunar Moonshadow Caste characters who gain access via their own anima powers.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 90,
+      "pdfPage": 91
+    },
+    "crossReferences": [
+      "alchemical-charm-slots-panoplies-arrays"
+    ],
+    "notes": "Chapter Three: Charms, 'Designing New Charms' / 'Eclipses and Moonshadows' sections, p. 90 (PDF 91)."
+  },
+  {
+    "id": "alchemical-charm-format-and-limitations",
+    "name": "Alchemical Charm Format, Limitations, and Presentation Conventions",
+    "disposition": "reference-only",
+    "summary": "A short rules-conventions passage explaining how Alchemical Charm write-ups differ from other Exalted's stat blocks: a new \"permanent\" Charm Type for always-on installed effects, a Prerequisite Charms field meaning devices the Exalt must already have installed or hold in her Panoply, the fact that Alchemicals deliberately lack the universal perfect/persistent defenses other Celestial Exalted enjoy, that called shots cannot target Charms as if they were separate body parts, and that Essence 8+ \"municipal\" Charms work on an urban scale.",
+    "mechanics": "Type gains a new option, 'Permanent': like Ox-Body Technique, such Charms are always considered active as long as they remain installed, have no listed duration or activation cost, and their listed cost is simply the installation cost. Prerequisite Charms lists devices the Alchemical must already have installed or stored in her Panoply before this Charm can be added — mere knowledge is not enough, unlike other Exalted's Charm trees. Alchemical Charms are Celestial-level in raw power, but this splat pointedly lacks any all-purpose perfect or persistent defense; instead it fields many narrower, specialized defensive Charms that a clever opponent can route around. Every Attribute has one basic dice-adding Charm, but it can never add more bonus dice to a pool than the Attribute's own rating; a separate family of Charms instead grants artificial-specialty-type bonuses that stack cumulatively with true specialties rather than counting as ordinary Charm dice. Because Alchemical Charms are literally part of the Exalt's body, called shots cannot disable them any more than a called shot could take out another character's eyes or hands. Charms requiring Essence 8+ are termed 'municipal' Charms, since they function on an urban scale — an entire factory or basic-infrastructure facet may itself constitute a single such Charm for these enormous beings.",
+    "compatibility": "All Alchemical castes; these are stat-block reading conventions that apply to every Charm presented in the chapter.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 91,
+      "pdfPage": 92
+    },
+    "crossReferences": [
+      "alchemical-charm-slots-panoplies-arrays"
+    ],
+    "notes": "Chapter Three: Charms, 'Limitations and Effect' / 'Presentation' sections, p. 91 (PDF 92). Classified reference-only rather than calculated because this is purely a stat-block-reading-convention and design-philosophy passage, not a discrete formula or player choice in its own right."
+  },
+  {
+    "id": "transitory-augmentation-of-attribute",
+    "name": "Transitory Augmentation of (Attribute)",
+    "disposition": "selectable",
+    "summary": "The universal Attribute-boosting General Charm — really nine separately-purchased Charms, one per Attribute — that lets an Alchemical temporarily add dots to that Attribute for a single instant action, and cheapens her anima power's own Attribute boost when installed for a Caste or Favored Attribute.",
+    "requirements": "Minimum (Attribute) 1; Minimum Essence 2; Prerequisite Charms: None. Purchased and installed separately for each of the nine Attributes.",
+    "mechanics": "For every mote spent, add one dot to the controlling Attribute for the purposes of a single instant-duration action or event, up to a maximum bonus equal to the Attribute's own base rating. An Alchemical who has this Charm installed for a Caste or Favored Attribute reduces the cost of her anima power's Attribute boost (see alchemical-anima-banners-universal) from 3 motes per die to 2 motes per die.",
+    "cost": "1 mote per die; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Reflexive. General Charms category (fits any Charm Slot).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 91,
+      "pdfPage": 92
+    },
+    "crossReferences": [
+      "alchemical-anima-banners-universal"
+    ],
+    "notes": "Chapter Three: Charms, 'General Charms' -> 'Transitory Augmentation of (Attribute)', p. 91 (PDF 92)."
+  },
+  {
+    "id": "sustained-augmentation-of-attribute",
+    "name": "Sustained Augmentation of (Attribute)",
+    "disposition": "selectable",
+    "summary": "The permanent-Type counterpart to Transitory Augmentation — nine separately-installed Charms, one per Attribute — that mechanically reinforce the Exalt's body or mind, granting a flat +1 dot to that Attribute's natural rating and raising its maximum possible rating by one dot for as long as the Charm stays installed.",
+    "requirements": "Minimum (Attribute) 2; Minimum Essence 2; Prerequisite Charms: None. Purchased and installed separately for each Attribute; a character cannot install more than one copy for the same Attribute, but may have as many different Attributes augmented as desired.",
+    "mechanics": "No activation cost or duration; the Charm is simply always in effect once installed (Type: Permanent). The Exalt gains one additional dot to the chosen Attribute, counted as part of her natural rating rather than a dispellable bonus, and her maximum possible rating in that Attribute rises by one dot. Flavor ties the specific implant to its Attribute: metal pistons alongside artificial muscle for Strength, ball-bearing joints and higher-function motor skills for Dexterity, organic metal-alloy flesh for Stamina, hardwired protocols for Charisma or Manipulation, a literally sculpted physique for Appearance, integrated sensors for Perception, and transcendent neural webs for Intelligence or Wits.",
+    "cost": "None; Installation Cost: 1 mote.",
+    "compatibility": "Duration: N/A. Type: Permanent. General Charms category (fits any Charm Slot); listed as a qualifying prerequisite ('Transitory or Sustained Augmentation of...') for most other Attribute-keyed Charms in this chapter.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "91-92",
+      "pdfPage": "92-93"
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'General Charms' -> 'Sustained Augmentation of (Attribute)', pp. 91-92 (PDF 92-93)."
+  },
+  {
+    "id": "tactical-analysis-engrams",
+    "name": "Tactical Analysis Engrams",
+    "disposition": "selectable",
+    "summary": "A cluster of skull-mounted analytic implants that let an Alchemical instantly read tell-tale combat data off any target she studies, from raw Trait ratings to the exact statistics of weapons, armor, and visible offensive Charms.",
+    "requirements": "Minimum Wits 3; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Wits.",
+    "mechanics": "Roll Wits + Awareness (difficulty 2) on activation; each success reveals one piece of information the player selects: the target's rating in any one Physical Attribute, Wits, Archery, Athletics, Brawl, Dodge, Endurance, Martial Arts, Melee, Resistance or Thrown (Storytellers may allow other Traits in extreme cases, learning only the bare rating without identifying the Trait); all the target's specialties in one such Trait; the target's base initiative; the target's current wound-penalty rating; the core statistics of any one weapon/attack the Alchemical has seen the target use; the core statistics of any one worn armor or shield; or the function of any one visible, or previously-used-in-scene, directly combative Alchemical Charm installed in the target (this can extend to combative spirit Charms known in Autochthonia after a month of regular exposure and a cost of 3 xp per type of being). Each full minute spent observing the same target lets the Exalt reuse this Charm against that target for free, without spending Essence.",
+    "cost": "2 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Reflexive. Close Combat Charms tree (Wits-keyed); root of the Wits branch of that tree.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "92-93",
+      "pdfPage": "93-94"
+    },
+    "crossReferences": [
+      "sustained-augmentation-of-attribute",
+      "transitory-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Close Combat Charms' tree, first Charm, pp. 92-93 (PDF 93-94); visually cross-checked against the Close Combat Charms I tree diagram (p. 92/PDF 93)."
+  },
+  {
+    "id": "accelerated-response-system",
+    "name": "Accelerated Response System",
+    "disposition": "selectable",
+    "summary": "A pair of separately-installable defensive implants — one in the shoulders/arms for a full-pool parry, one in the hips/thighs for a full-pool dodge — letting an Alchemical fend off a single incoming attack with total commitment.",
+    "requirements": "Minimum Dexterity 3; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Dexterity.",
+    "mechanics": "Two permutations must be bought and installed separately. The shoulder/arm version lets the Exalt parry a single attack against her using her full Dexterity + (Brawl, Martial Arts or Melee) pool on activation. The hip/thigh version lets her dodge one attack using her full Dexterity + Dodge pool (plus Essence under Exalted Power Combat), contorting away without giving ground. Both require the Alchemical to be aware of the incoming attack; a character with both variants installed may use both against the same attack.",
+    "cost": "2 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Reflexive. Close Combat Charms tree (Dexterity-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 93,
+      "pdfPage": 94
+    },
+    "crossReferences": [
+      "sustained-augmentation-of-attribute",
+      "transitory-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Close Combat Charms' tree, p. 93 (PDF 94); visually cross-checked against the Close Combat Charms I tree diagram."
+  },
+  {
+    "id": "dynamic-reaction-enhancement-system",
+    "name": "Dynamic Reaction Enhancement System",
+    "disposition": "selectable",
+    "summary": "A spinal implant that lets an Alchemical burn Essence just before acting to slow her perception of the turn, buying extra initiative.",
+    "requirements": "Minimum Dexterity 2; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Dexterity.",
+    "mechanics": "Activated prior to the character's initiative roll; adds +2 initiative for every mote spent, to a maximum bonus of (Dexterity x 2).",
+    "cost": "1 mote per +2 initiative; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Reflexive. Close Combat Charms tree (Dexterity-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 93,
+      "pdfPage": 94
+    },
+    "crossReferences": [
+      "sustained-augmentation-of-attribute",
+      "transitory-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Close Combat Charms' tree, p. 93 (PDF 94); visually cross-checked against the Close Combat Charms I tree diagram."
+  },
+  {
+    "id": "celerity-enabling-module",
+    "name": "Celerity Enabling Module",
+    "disposition": "selectable",
+    "summary": "A joint-and-spine implant wired to the Dynamic Reaction Enhancement System that grants either a burst of superhuman extra actions or, alternatively, a scene-long ability to reflexively dodge or parry every attack from one chosen foe.",
+    "requirements": "Minimum Dexterity 4; Minimum Essence 3; Prerequisite Charms: Dynamic Reaction Enhancement System.",
+    "mechanics": "Two mutually exclusive modes, never used simultaneously. Primary mode (instant, Extra Action): grants a number of extra actions equal to permanent Essence, usable for any physical task, including declaring or refreshing a full dodge or full parry to its maximum pool. Secondary mode (reflexive, one scene): the Exalt selects a single target and may, for the rest of the scene, dodge or parry every attack that target makes against him using his full dice pool (choosing per attack), without needing to be aware of the attack; the Charm automatically supplies a parry against undodgeable attacks and a dodge against unparriable ones, and lets the Exalt parry lethal attacks unarmed via Brawl, Martial Arts or Melee without a stunt. Selecting a new target, or switching to the extra-action mode, requires reactivating the Charm at full cost, immediately ending all current defenses against the prior target.",
+    "cost": "5 motes, 1 Willpower; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant/One scene. Type: Extra Action/Reflexive. Close Combat Charms tree (Dexterity-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "93-94",
+      "pdfPage": "94-95"
+    },
+    "crossReferences": [
+      "dynamic-reaction-enhancement-system"
+    ],
+    "notes": "Chapter Three: Charms, 'Close Combat Charms' tree, pp. 93-94 (PDF 94-95); visually cross-checked against the Close Combat Charms I tree diagram."
+  },
+  {
+    "id": "anticipatory-simulation-processor",
+    "name": "Anticipatory Simulation Processor",
+    "disposition": "selectable",
+    "summary": "A starmetal-monofilament brain implant that lets an Alchemical's mind race ahead of time itself, provisionally living out a turn's events so she can \"rewind\" and change her action if the outcome goes badly, at the cost of temporary Clarity.",
+    "requirements": "Minimum Wits 5; Minimum Essence 4; Prerequisite Charms: Transitory or Sustained Augmentation of Wits, Accelerated Response System, Celerity Enabling Module.",
+    "mechanics": "The player may declare the Charm's use at any point in a turn for 5 motes (this also awards the Alchemical 1 point of temporary Clarity). The turn then plays out normally, but at any point before it ends the player may reflexively spend another 5 motes and 1 Willpower to \"rewind\" the turn back to the initiative count when the Charm first activated; in-fiction, the character has merely simulated the intervening events, which have not truly happened outside her mind. Unless and until the Alchemical deviates from the earlier simulated sequence, every subsequent roll and action repeats exactly as before; once she deviates, real play resumes and no character is bound by the earlier prediction beyond actions already declared within that turn. Because the Charm relies on intuition and mental acumen rather than true precognition, it cannot be activated in encounters where Primordials, Malfeans, or unshaped raksha have directly acted, since their transcendent, alien nature defies simulation by lesser beings.",
+    "cost": "5 motes (plus a further 5 motes and 1 Willpower to rewind); Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Reflexive. Close Combat Charms tree (Wits-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 94,
+      "pdfPage": 95
+    },
+    "crossReferences": [
+      "sustained-augmentation-of-attribute",
+      "transitory-augmentation-of-attribute",
+      "accelerated-response-system",
+      "celerity-enabling-module",
+      "clarity-trait"
+    ],
+    "notes": "Chapter Three: Charms, 'Close Combat Charms' tree, p. 94 (PDF 95); visually cross-checked against the Close Combat Charms I tree diagram."
+  },
+  {
+    "id": "polymodal-joint-bearings",
+    "name": "Polymodal Joint Bearings",
+    "disposition": "selectable",
+    "summary": "Ball-bearing joint implants granting superhuman flexibility, useful for escaping bindings or clinches and contorting through tight defenses, with an optional submodule that removes offhand penalties and lets feet work as hands.",
+    "requirements": "Minimum Dexterity 3; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Dexterity.",
+    "mechanics": "While active, adds three dice to rolls to escape manacles or other bindings, control or escape a clinch, dodge via extreme contortion, or perform any other feat where preternatural flexibility clearly helps (the Storyteller may deny or reduce the benefit for dubious applicability); these bonus dice are a form of artificial specialty, cumulative with true specialties. The omnidextrous submodule (2 bonus points/6 xp, requires Wits 3+) removes the usual offhand-action penalty entirely and lets the character use his feet as hands for tool use or fine-dexterity feats without penalty (unarmed foot strikes remain classified as kicks).",
+    "cost": "2 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Indefinite. Type: Simple. Close Combat Charms tree (Dexterity-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "94-95",
+      "pdfPage": "95-96"
+    },
+    "crossReferences": [
+      "sustained-augmentation-of-attribute",
+      "transitory-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Close Combat Charms' tree, pp. 94-95 (PDF 95-96); visually cross-checked against a rendered page image and the Close Combat Charms I tree diagram."
+  },
+  {
+    "id": "limb-extension-armatures",
+    "name": "Limb Extension Armatures",
+    "disposition": "selectable",
+    "summary": "Telescoping or moonsilver-stretching limb implants that let an Alchemical extend her reach dramatically, adding speed to hand-to-hand strikes made at extended range and letting her strike mounted foes without penalty.",
+    "requirements": "Minimum Dexterity 3; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Dexterity.",
+    "mechanics": "While active, limbs reach up to (Essence x 2) additional yards for Alchemicals of permanent Essence 2-5, or (Essence x 4) additional yards for Essence 6+; limbs extend or retract reflexively at will. For every two yards of extra reach used at maximum extension, add 1 to the speed modifier of hand-to-hand attacks; the character may also strike mounted targets without penalty. Advantages of added reach outside combat are largely situational, subject to player imagination and Storyteller approval.",
+    "cost": "2 motes; Installation Cost: None.",
+    "compatibility": "Duration: Indefinite. Type: Simple. Close Combat Charms tree (Dexterity-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 95,
+      "pdfPage": 96
+    },
+    "crossReferences": [
+      "sustained-augmentation-of-attribute",
+      "transitory-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Close Combat Charms' tree, p. 95 (PDF 96); visually cross-checked against a rendered page image and the Close Combat Charms II/III tree diagram."
+  },
+  {
+    "id": "multi-limb-frame",
+    "name": "Multi-Limb Frame",
+    "disposition": "selectable",
+    "summary": "Surgically-added extra limbs (insectoid, humanoid, or Moonsilver-quicksilver tendrils depending on caste and preference) that reduce multiple-action penalties, installable repeatedly up to the Exalt's Dexterity or Wits, or alternatively installed permanently in place of the character's original arms.",
+    "requirements": "Minimum Dexterity 3; Minimum Essence 2; Prerequisite Charms: Sustained Augmentation of Dexterity.",
+    "mechanics": "Simple-type installation grants one or two extra limbs per installation (paralyzed/folded without committed Essence; usable as normal arms/hands when activated) and reduces multiple-action penalties for physical actions using any arm by one die per installation, stacking across repeated installations up to a maximum equal to the character's Dexterity or Wits, whichever is lower; unused limbs fold visibly against the body (or hide in compartments if the character also has an Integrated Artifact Transmogrifier). Alternatively, install as a Permanent-type Charm (1 mote installation cost) replacing the character's arms outright with overtly artificial limbs instead of adding extras; this does not count against the installation cap, applies the same cumulative multiple-action-penalty reduction, and adds +1 to hand-to-hand damage dealt through those limbs (or a weapon they hold). Any installation of this Charm also removes the offhand-action penalty for any limb — including natural hands and Hyperdextrous Tentacle Apparatus appendages — provided the Exalt also has Sustained Augmentation of Wits installed.",
+    "cost": "1 mote (simple) / None (permanent); Installation Cost: None (simple) / 1 mote (permanent).",
+    "compatibility": "Duration: Indefinite (simple) / N/A (permanent). Type: Simple/Permanent. Close Combat Charms tree (Dexterity-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 95,
+      "pdfPage": 96
+    },
+    "crossReferences": [
+      "sustained-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Close Combat Charms' tree, p. 95 (PDF 96); visually cross-checked against a rendered page image and the Close Combat Charms II/III tree diagram."
+  },
+  {
+    "id": "hyperdextrous-tentacle-apparatus",
+    "name": "Hyperdextrous Tentacle Apparatus",
+    "disposition": "selectable",
+    "summary": "A pair of long, clawed metal tentacles emerging from the torso that can act as extra dexterous limbs, strike or clinch as improvised weapons, and, when fully empowered, act independently in combat at the cost of the Exalt's first point of permanent Clarity.",
+    "requirements": "Minimum Dexterity 5; Minimum Essence 3; Prerequisite Charms: Sustained Augmentation of Strength, Sustained Augmentation of Wits, Multi-Limb Frame. Installable a maximum number of times equal to the Exalt's Essence.",
+    "mechanics": "Un-activated, the tentacles function as long-reaching arms/hands (reach of permanent Essence yards, doubled at Essence 6+, further extendable by Limb Extension Armatures), reducing multiple-action penalties as Multi-Limb Frame does, cumulatively with it. Used as weapons for striking or parrying: speed +(Essence x 2), accuracy +(Essence), damage +(Dexterity)L, defense +(Essence), rate equal to Wits under Exalted Power Combat; their length allows a sweep maneuver. Used to clinch: accuracy and defense +(number of tentacles performing the grab), rate 1 under Exalted Power Combat. For 8 motes and 1 Willpower, the Alchemical can simultaneously empower every tentacle from every installation, giving each independent life: she may take multiple actions normally at standard (possibly reduced) penalties, each tentacle takes its first action of every turn at her full dice pool, and for every empowered tentacle gripping a victim in a clinch beyond the first she may make extra constriction attempts each turn (Exalted Players Guide, p. 205). The first installation of this Charm grants the Alchemical 1 point of permanent Clarity.",
+    "cost": "8 motes, 1 Willpower (to empower all tentacles); Installation Cost: 1 mote.",
+    "compatibility": "Duration: One scene. Type: Simple. Close Combat Charms tree (Dexterity-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "95-96",
+      "pdfPage": "96-97"
+    },
+    "crossReferences": [
+      "sustained-augmentation-of-attribute",
+      "multi-limb-frame",
+      "limb-extension-armatures",
+      "clarity-trait"
+    ],
+    "notes": "Chapter Three: Charms, 'Close Combat Charms' tree, pp. 95-96 (PDF 96-97); visually cross-checked against a rendered page image and the Close Combat Charms II/III tree diagram."
+  },
+  {
+    "id": "integrated-arsenal-upgrade",
+    "name": "Integrated Arsenal Upgrade",
+    "disposition": "selectable",
+    "summary": "Built-in hand-to-hand weapons (two per installation) housed inside an Alchemical's Multi-Limb Frame appendages, foldable in and out on command and effectively impossible to disarm.",
+    "requirements": "Minimum Dexterity 3; Minimum Essence 2; Prerequisite Charms: Multi-Limb Frame.",
+    "mechanics": "Grants two weapons per installation, each anchored in an extra or replaced Multi-Limb Frame appendage; one reflexive action retracts any number into hidden compartments, another reflexively deploys them (only one weapon deployed per limb at a time, though several can be stored in one arm). Any weapon form is permitted (sword, lance, chain, spinning drill, etc.), using the statistics of the closest mundane weapon type (a drill bit might use knife statistics but deal piercing damage); an hour of upgrade at the Vats (1 bonus point/2 xp) makes a given weapon exceptional, and exceptional weapons may later become perfect weapons for the same cost (Exalted Players Guide, p. 145). Two-handed weapons fold into a single limb but usually need two limbs to wield; an Exalt with Strength double the weapon's requirement may wield it one-handed at -1 to accuracy and defense. Built-in weapons cannot be disarmed by any means, even magic; a destroyed weapon regrows over the course of a week.",
+    "cost": "None; Installation Cost: None.",
+    "compatibility": "Duration: N/A. Type: Permanent. Close Combat Charms tree (Dexterity-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "96-97",
+      "pdfPage": "97-98"
+    },
+    "crossReferences": [
+      "multi-limb-frame"
+    ],
+    "notes": "Chapter Three: Charms, 'Close Combat Charms' tree, pp. 96-97 (PDF 97-98); visually cross-checked against a rendered page image and the Close Combat Charms II/III tree diagram."
+  },
+  {
+    "id": "material-synthesis-wave-emitter",
+    "name": "(Material) Synthesis Wave Emitter",
+    "disposition": "selectable",
+    "summary": "A set of six separately-purchased Charms — one per Magical Material, plus an adamant version — that channels the Exalt's anima through a hand-to-hand strike, imbuing it with the relevant Material's combat bonus or, for adamant, a sharpness that shreds armor.",
+    "requirements": "Minimum Strength 3; Minimum Essence 2; Prerequisite Charms: Transitory Augmentation of Strength. Alchemicals automatically treat the version matching their own Caste's Material as Favored, regardless of whether Strength is itself a Favored/Caste Attribute.",
+    "mechanics": "Used supplementally with a hand-to-hand attack; the striking weapon or limb glows and trails dust of the chosen Material. For the five Magical Materials, applies that Material's standard melee-weapon bonus to the strike (per core Exalted, p. 341, and the Exalted Players Guide, p. 209). The adamant version instead reduces the target's armored soak by 4 on a successful hit, making bladed weapons extremely sharp or blunt attacks shatteringly forceful. Also usable when striking with an actual magical weapon of the matching Material, in which case identical bonuses stack. Alchemicals with multiple versions installed may apply different ones to different attacks in the same turn, but cannot stack multiple versions onto a single attack without a Combo.",
+    "cost": "2 motes; Installation Cost: None.",
+    "compatibility": "Duration: Instant. Type: Supplemental. Close Combat Charms tree (Strength-keyed); six Charms in one family (five Magical Materials plus adamant).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 97,
+      "pdfPage": 98
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "orichalcum-caste",
+      "moonsilver-caste",
+      "jade-caste",
+      "starmetal-caste",
+      "soulsteel-caste"
+    ],
+    "notes": "Chapter Three: Charms, 'Close Combat Charms' tree, p. 97 (PDF 98); visually cross-checked against the Close Combat Charms III tree diagram."
+  },
+  {
+    "id": "transcendent-multimodal-weapon-matrix",
+    "name": "Transcendent Multimodal Weapon Matrix",
+    "disposition": "selectable",
+    "summary": "A hand-mounted assembly of the Alchemical's Caste Material that lets her grow an artifact close-combat weapon on demand, one weapon template per installation, functionally unable to be disarmed since the weapon is a physical extension of her own body.",
+    "requirements": "Minimum Dexterity 4; Minimum Essence 3; Prerequisite Charms: Transitory or Sustained Augmentation of Dexterity, (Caste Material) Synthesis Wave Emitter.",
+    "mechanics": "Each installation provides one weapon template (Artifact rating capped at 3), which must be a simple magical version of a mundane close-combat weapon (daiklave, goremaul, and the like; shock pikes, fire lances, and artifacts with secondary magical functions unrelated to close combat are not permitted). Activating a weapon costs motes equal to its standard attunement cost; weapons are always formed of the Alchemical's Caste Material, granting its bonus. The weapon cannot be disarmed short of amputation, which instantly shatters it into raw Material fragments (so the Charm cannot be farmed for mass-produced artifacts); deactivating it is a reflexive action that folds it away, but the wielding hand can perform no other task while a weapon is grown. Separate installations let different hands (or Multi-Limb Frame appendages) each grow a different weapon simultaneously; limbs can only grow the weapons anchored to them, and changing the arrangement requires removing and reinstalling the Charm.",
+    "cost": "Varies (equal to the grown weapon's attunement cost); Installation Cost: None.",
+    "compatibility": "Duration: Indefinite. Type: Simple. Close Combat Charms tree (Dexterity-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 98,
+      "pdfPage": 99
+    },
+    "crossReferences": [
+      "sustained-augmentation-of-attribute",
+      "transitory-augmentation-of-attribute",
+      "material-synthesis-wave-emitter",
+      "integrated-arsenal-upgrade"
+    ],
+    "notes": "Chapter Three: Charms, 'Close Combat Charms' tree, p. 98 (PDF 99); visually cross-checked against a rendered page image and the Close Combat Charms IV tree diagram."
+  },
+  {
+    "id": "electrification-onslaught-dynamo",
+    "name": "Electrification Onslaught Dynamo",
+    "disposition": "selectable",
+    "summary": "Chest- or back-mounted conductor nodes that let an Alchemical deliver an electric shock through virtually any physical contact — an offensive strike bonus, a retaliatory counter-shock, a clinch jolt, or even a harmless-seeming handshake.",
+    "requirements": "Minimum Strength 3; Minimum Essence 2; Prerequisite Charms: Transitory Augmentation of Strength.",
+    "mechanics": "Activates as few or as many conductor nodes as desired for one of several uses: (1) after a successful hand-to-hand strike, deal an extra 1L or 2B per mote spent (up to Strength motes), soaked separately using only the victim's natural soak; (2) release the same jolt as a retaliatory counter whenever a foe successfully strikes the Alchemical with a metallic weapon or unarmed attack (even for zero damage), including via a parry using the blocking limb/weapon as conductor (which halves the Essence cap, rounded up); used this way the shock is a counterattack that cannot be evaded except by a perfect defense or answered with another counterattack; (3) release the jolt against an opponent immediately after winning a clinch roll, before she can break the hold; (4) deliver the shock through any casual or nonviolent contact, whether or not the Exalt initiated it, such as a handshake.",
+    "cost": "Varies (1L or 2B per mote spent, up to Strength motes); Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Reflexive. Close Combat Charms tree (Strength-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 98,
+      "pdfPage": 99
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Close Combat Charms' tree, p. 98 (PDF 99); visually cross-checked against the Close Combat Charms IV tree diagram."
+  },
+  {
+    "id": "chemical-fog-generator",
+    "name": "Chemical Fog Generator",
+    "disposition": "selectable",
+    "summary": "A torso-mounted vent system that fills an area with obscuring, choking black smoke, upgradeable with four named toxic-gas submodules — knockout, tear, nerve, and soul gas — each with its own resistance roll and effect.",
+    "requirements": "Minimum Manipulation 3; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "Fills a roughly spherical volume with a radius of (Essence) yards per mote spent (capped at Manipulation motes per turn); lingers 20 minutes indoors in still air (10 minutes with a mild breeze, 5 turns with a heavy breeze) or 5 minutes outdoors in still air (1 minute in a light breeze, 3 turns in heavy wind). Base smoke imposes murky-vision penalties out to 10 yards and total blindness beyond that (3-yard murky radius in dim light); anyone breathing it unprotected takes 1 unsoakable bashing level per minute (delayable by holding breath, or slowed to a 5-minute interval with a filter such as a wet scarf). Submodules (2 bonus points/6 xp each; only one may be deployed per use): Knockout Gas — mortals roll Stamina + Resistance (difficulty 2) or pass out for 30 minus (Stamina + Resistance) minutes; Exalted/superhuman beings resist at difficulty 1 with per-minute exposure checks; a filter provides full protection. Tear Gas — a poison-style exposure (difficulty 2, success no damage, failure 1B, duration/penalty one hour/-3) checked every turn until the victim passes out; a filter reduces the resistance difficulty by 1. Nerve Gas (requires Essence 3 to install) — uses the statistics of arrow frog venom, exposure checked every five minutes; mortals convulse and die in a number of turns equal to Stamina unless a Stamina + Resistance roll (difficulty 6) succeeds, otherwise suffering the Exalted failure effect (extras die automatically); a filter reduces the difficulty by 2. Soul Gas (requires Essence 3 to install) — victims roll Stamina + Resistance (difficulty 1 for magical beings, 4 for mortals); failure costs a temporary dot from every Virtue except Compassion and forces a Valor roll (difficulty 2), and failing that roll causes the victim to flee at best speed and suffer a one-die penalty to non-reflexive actions for an hour; a filter reduces the difficulty by 1.",
+    "cost": "Varies (motes spent shape the cloud's size, capped at Manipulation per turn); Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant (the resulting cloud persists per the duration rules above). Type: Reflexive. Close Combat Charms tree (Manipulation-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "98-100",
+      "pdfPage": "99-101"
+    },
+    "crossReferences": [],
+    "notes": "Chapter Three: Charms, 'Close Combat Charms' tree, pp. 98-100 (PDF 99-101); visually cross-checked against the Close Combat Charms IV tree diagram. Spans three printed pages due to the four named gas submodules."
+  },
+  {
+    "id": "perfected-lotus-matrix",
+    "name": "Perfected Lotus Matrix",
+    "disposition": "selectable",
+    "summary": "A skull-mounted memory-crystal port that lets an Alchemical learn and use ordinary Terrestrial or Celestial Martial Arts Charms the same way any other Celestial Exalt would, storing them independently of Charm Slots; the mandatory prerequisite for any Alchemical who wants to be a supernatural martial artist.",
+    "requirements": "Minimum Martial Arts 2; Minimum Essence 2; Prerequisite Charms: None. Because it is not Attribute-based, this Charm is never Favored or Caste for any Alchemical and must occupy a General Charm Slot.",
+    "mechanics": "Enables the Alchemical to comprehend and learn Terrestrial- or Celestial-level Martial Arts Charms exactly as any other Celestial Exalted, at a cost of 6 bonus points or 11 xp each; these Charms need no Charm Slots of their own, instead stored as submodule-like programs in the Matrix's memory crystals. Master sifus may even develop entirely new styles as Solar Exalted can (Exalted Players Guide, p. 232). Removing the Perfected Lotus Matrix suspends access to every Martial Arts Charm stored in it until it is reinstalled. Alchemical martial artists may still build ordinary Combos of their Martial Arts Charms at the usual cost and difficulty, but cannot mix in their Attribute-based Charms.",
+    "cost": "None; Installation Cost: 2 motes.",
+    "compatibility": "Duration: N/A. Type: Permanent. Close Combat Charms tree (Martial Arts-keyed; General Slot only).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 100,
+      "pdfPage": 101
+    },
+    "crossReferences": [
+      "alchemical-bonus-points-and-experience-costs",
+      "alchemical-martial-artists"
+    ],
+    "notes": "Chapter Three: Charms, 'Close Combat Charms' tree, p. 100 (PDF 101). This is the specific Charm referenced by name in the pre-existing alchemical-bonus-points-and-experience-costs row's Martial Arts Charm cost line."
+  },
+  {
+    "id": "alchemical-martial-artists",
+    "name": "Alchemical Martial Artists (available Autochthonian styles)",
+    "disposition": "reference-only",
+    "summary": "A short sidebar noting that Vat Complexes preserve records of numerous Terrestrial and Celestial martial arts styles — including Creation's animal styles and native Autochthonian techniques developed for Alchemicals using advanced cognitive Charms — and lists the specific published styles Alchemical characters may take via the Perfected Lotus Matrix.",
+    "mechanics": "Available styles (or indistinguishable local variants) explicitly listed: Snake, Tiger, Mantis, Ebon Shadow, Celestial Monkey, Righteous Devil, Violet Bier of Sorrows, Five Dragon, and Jade Mountain.",
+    "compatibility": "All Alchemical castes with the Perfected Lotus Matrix installed.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 100,
+      "pdfPage": 101
+    },
+    "crossReferences": [
+      "perfected-lotus-matrix"
+    ],
+    "notes": "Chapter Three: Charms, 'Alchemical Martial Artists' sidebar, p. 100 (PDF 101). Classified reference-only rather than selectable because it is a curated style-availability list, not a discrete purchasable Trait of its own; the styles' actual Charms are standard published Martial Arts Charms outside this book's scope, while Perfected Lotus Matrix is the selectable row that grants access to them."
+  },
+  {
+    "id": "aim-calibrating-sensors",
+    "name": "Aim-Calibrating Sensors",
+    "disposition": "selectable",
+    "summary": "A forehead-mounted rangefinder and targeting implant that strips environmental and situational penalties away from an Alchemical's ranged attacks.",
+    "requirements": "Minimum Perception 2; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "For every mote spent, remove one die of environmental or situational penalty from a ranged attack roll (range, wind, cover short of 100%, shields, low light, and similar factors); every 2 motes instead cancel one point of a difficulty increase or prevent one post-roll success from being subtracted. Does not offset wound penalties, fear-based penalties, multiple-action penalties, or other non-environmental penalties; the Storyteller remains final arbiter of what qualifies.",
+    "cost": "1+ motes; Installation Cost: 2 motes.",
+    "compatibility": "Duration: Instant. Type: Supplemental. Ranged Combat Charms tree (Perception-keyed); root Charm of the tree.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 100,
+      "pdfPage": 101
+    },
+    "crossReferences": [],
+    "notes": "Chapter Three: Charms, 'Ranged Combat Charms' tree, p. 100 (PDF 101); visually cross-checked against the Ranged Combat Charms tree diagram, confirming it as the tree's root prerequisite."
+  },
+  {
+    "id": "paramagnetic-tether-beam",
+    "name": "Paramagnetic Tether Beam",
+    "disposition": "selectable",
+    "summary": "A finger-mounted device that projects a ray of telekinetic force, letting an Alchemical crudely manipulate, grab, disarm, or even hang and winch herself along an intangible line using raw Essence in place of Strength and Dexterity.",
+    "requirements": "Minimum Strength 3; Minimum Essence 2; Prerequisite Charms: Aim-Calibrating Sensors.",
+    "mechanics": "Projects a single beam up to (Strength x 10) yards, lasting as long as it is consciously directed (activating a new beam cancels the old one). Substitutes Essence for both Dexterity and Strength for telekinetic manipulation, with normal Abilities still supplying finesse (feats of strength performed with the beam use Essence + Athletics to determine maximum force). Recalling a thrown weapon or grabbing a loose one is Essence + the appropriate combat Ability; disarming a foe's weapon (not usable against attuned magical weapons still held by their owners) requires Essence + Brawl or Martial Arts; seizing a disarmed weapon off the ground requires a separate Dexterity + Brawl/Martial Arts roll declared as a multiple action. Other feats include hanging suspended by the tether beam or winching oneself up along it.",
+    "cost": "3 motes; Installation Cost: 2 motes.",
+    "compatibility": "Duration: Instant. Type: Reflexive. Ranged Combat Charms tree (Strength-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "100-101",
+      "pdfPage": "101-102"
+    },
+    "crossReferences": [
+      "aim-calibrating-sensors"
+    ],
+    "notes": "Chapter Three: Charms, 'Ranged Combat Charms' tree, pp. 100-101 (PDF 101-102); visually cross-checked against the Ranged Combat Charms tree diagram."
+  },
+  {
+    "id": "essence-pulse-cannon",
+    "name": "Essence Pulse Cannon",
+    "disposition": "selectable",
+    "summary": "A built-in arm-, shoulder-, palm-, or eye-mounted energy weapon firing bolts of anima-colored plasma, with by far the deepest submodule catalog of any Alchemical Charm — ten named upgrades covering stealth, accuracy, ammo reserves, piercing fire, knockback, nonlethal fire, area blasts, Essence-draining, soul-destroying annihilation, and a devastating siege mode.",
+    "requirements": "Minimum Strength 4; Minimum Essence 2; Prerequisite Charms: Aim-Calibrating Sensors.",
+    "mechanics": "Arming the cannon (2 motes, an automatic action like drawing any other sheathed weapon) makes it hum and glow, displaying like an anima banner at the 4-7 mote range and interfering with stealth/disguise. Active statistics: fires with Dexterity + Archery; range (Essence x 50) yards; accuracy +1; rate (Essence x number of installations); damage 2L per mote spent powering the blast (capped at Strength + Essence motes per shot); each shot counts as a supplemental Charm use; bolts have no physical component but are dodgeable/parriable normally. Ten submodules (2 bonus points/6 xp each, freely combinable unless stated otherwise): Discreet (hidden eye/palm mount, +1 difficulty to detect while inactive, displays only at the 1-3 mote range when firing); Guidance Ray (free reflexive on/off, +3 accuracy but grants the target +1 die to dodge/parry via the visible tracer beam); Internal Battery (adds an 8-mote reserve usable only to fire this Charm; refilling costs 2 motes from the main Essence pool per simple action; only one battery permitted); Precision Beam (-2 raw damage dice but the bolt becomes piercing; incompatible with detonation or shockwave); Shockwave (damage capped at one level per hit, but knocks human-sized-or-smaller targets back one yard per die of post-soak raw damage, dealing extra collision damage and forcing a knockdown check at difficulty 2); Stunning Bolt (3B per mote instead of lethal damage; excess damage past Incapacitated does not spill over); Detonation (requires Essence 3; 1L per mote to the direct target, plus a spreading blast dealing base damage at 1 yard and losing a die per further yard; combinable with shockwave for outward knockback); Essence Dampening Bolt / Energy Drain (requires Essence 3 / Essence 4 for the Energy Drain variant; deals lethal damage plus an Essence bonus but only permanent-Essence soak applies, draining 1 mote of the target's Essence per level of damage — feeding an Exalted target's own anima banner in the base version, or refilling the Alchemical's own Essence pool in the Energy Drain variant; incompatible with shockwave, stunning bolt, precision beam, or pattern disruptor); Pattern Disruptor (requires Essence 4; 1A per mote, halves other base-damage bonuses rounded down, disintegrates whatever it kills or destroys, permanently annihilates slain spirits, and obliterates mortal souls unless the victim carries an implanted soulgem; incompatible with detonation, shockwave, or stunning bolt); Siege Devastator (requires Essence 5; reflexive on/off but a full turn to ready or stow, replacing a forearm/hand entirely, dropping rate to 1, imposing a -2 mobility penalty cumulative with armor, and displaying like an anima banner at the 8-10 mote range, in exchange for +1 raw damage die per mote regardless of other modifications used, i.e. 3L per mote unmodified).",
+    "cost": "2 motes (base activation; submodule effects layer on top per shot); Installation Cost: 1 mote.",
+    "compatibility": "Duration: Indefinite. Type: Supplemental. Ranged Combat Charms tree (Strength-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "101-103",
+      "pdfPage": "102-104"
+    },
+    "crossReferences": [
+      "aim-calibrating-sensors"
+    ],
+    "notes": "Chapter Three: Charms, 'Ranged Combat Charms' tree, pp. 101-103 (PDF 102-104); visually cross-checked against the Ranged Combat Charms tree diagram. This is the largest single Charm write-up encountered in this pass; flagged for future re-verification of the exact mutual-exclusion matrix among the Essence Dampening Bolt/Energy Drain and Pattern Disruptor submodules given how many combination restrictions the text lists."
+  },
+  {
+    "id": "interceptor-spark-emitter",
+    "name": "Interceptor Spark Emitter",
+    "disposition": "selectable",
+    "summary": "An Essence Pulse Cannon upgrade Charm that lets an Alchemical shoot incoming missiles out of the air, either against a single tracked projectile or, in a full defensive-trance mode, against every ranged attack aimed at her that turn.",
+    "requirements": "Minimum Wits 3; Minimum Essence 2; Prerequisite Charms: Essence Pulse Cannon (need not be actively armed to use this Charm).",
+    "mechanics": "First mode (2 motes): reflexively target and fire at a single missile within (Essence x 50) yards that the Exalt is aware of, rolling Dexterity + Archery + Essence as a parry (adding a die if using the cannon's guidance ray upgrade); defending someone else instead of himself raises the parry's difficulty by 3. A full success destroys physical missiles or dissipates energy attacks; artifact projectiles are deflected harmlessly, most mortal weapons are heat-warped to uselessness, and other extremely durable objects may qualify for protection at Storyteller discretion. Cannot target anything notably larger than a javelin unless the Alchemical is Essence 6+, which removes the size limit entirely. Second mode (3 motes, usable only if the Exalt has not yet acted that turn): a full parry against every ranged attack she perceives and wishes to block that turn, at her full Dexterity + Archery + Essence pool per attack (including defending others at +3 difficulty), but she cannot abort the trance to defend against hand-to-hand attacks or otherwise act that turn.",
+    "cost": "2 motes or 3 motes; Installation Cost: None.",
+    "compatibility": "Duration: Instant. Type: Reflexive. Ranged Combat Charms tree (Wits-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "103-104",
+      "pdfPage": "104-105"
+    },
+    "crossReferences": [
+      "essence-pulse-cannon"
+    ],
+    "notes": "Chapter Three: Charms, 'Ranged Combat Charms' tree, pp. 103-104 (PDF 104-105); visually cross-checked against the Ranged Combat Charms tree diagram."
+  },
+  {
+    "id": "pulseweb-entanglement-burst",
+    "name": "Pulseweb Entanglement Burst",
+    "disposition": "selectable",
+    "summary": "An Essence Pulse Cannon upgrade that fires a compressed net of Essence instead of a bolt, trapping a target in a crystalline aura that both restrains and lightly protects them while the Alchemical maintains the field turn after turn.",
+    "requirements": "Minimum Strength 5; Minimum Essence 3; Prerequisite Charms: Essence Pulse Cannon.",
+    "mechanics": "Fired with Dexterity + Archery (no default accuracy bonus, though the cannon's guidance ray or internal battery upgrades still apply; no other cannon modification may be used); range increment (Essence x 20) yards. On hitting an animate target, an opposed Strength + Essence roll decides the outcome: if the Alchemical wins, the target is paralyzed for the rest of the turn as if held in a clinch, with the committed motes locked until the aura breaks; if the victim wins, the field shatters harmlessly. Each subsequent turn, a fresh reflexive contested Strength + Essence roll (independent of either character's action, continuing even if either is unconscious) decides whether the aura holds — dealing 1 unsoakable bashing level per turn held, stopping once the victim is Incapacitated but still restraining her — or shatters, freeing the target to act if conscious. The Alchemical may voluntarily dissipate the web at any time. The aura reduces the raw damage of any attack against the trapped victim by the Alchemical's Essence rating (potentially to zero) and inflicts the Alchemical's Essence in dice of piercing bashing damage on anyone striking the entrapped victim in hand-to-hand combat.",
+    "cost": "6 motes, 1 Willpower; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Simple. Ranged Combat Charms tree (Strength-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 104,
+      "pdfPage": 105
+    },
+    "crossReferences": [
+      "essence-pulse-cannon"
+    ],
+    "notes": "Chapter Three: Charms, 'Ranged Combat Charms' tree, p. 104 (PDF 105); visually cross-checked against the Ranged Combat Charms tree diagram."
+  },
+  {
+    "id": "protosynthetic-ammunition-replicator",
+    "name": "Protosynthetic Ammunition Replicator",
+    "disposition": "selectable",
+    "summary": "A forearm-mounted implant that manufactures short-lived but fully solid Essence ammunition on demand — arrows of several head types, throwing daggers, batons, or chakrams — automatically feeding a carried bow as needed.",
+    "requirements": "Minimum Dexterity 2; Minimum Essence 2; Prerequisite Charms: Aim-Calibrating Sensors.",
+    "mechanics": "Each activation creates one projectile of the Exalt's choice (target, frog crotch, fowling or broadhead arrow; throwing dagger; throwing baton; or a chakram whose interlocking blades unfold into something resembling a buzz saw); arrows are automatically fed/notched into a carried bow via an internal tendril for instant firing. Manufactured ammunition is fully solid and functions normally, but dissipates back into wisps of light after a number of turns equal to the creator's Essence. Ammunition scales to the Alchemical's build, so Essence 6+ Exalted generate warstrider-scaled missiles.",
+    "cost": "1 mote; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Reflexive. Ranged Combat Charms tree (Dexterity-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "104-105",
+      "pdfPage": "105-106"
+    },
+    "crossReferences": [
+      "aim-calibrating-sensors"
+    ],
+    "notes": "Chapter Three: Charms, 'Ranged Combat Charms' tree, pp. 104-105 (PDF 105-106); visually cross-checked against the Ranged Combat Charms tree diagram."
+  },
+  {
+    "id": "repeating-pneumatic-bow",
+    "name": "Repeating Pneumatic Bow",
+    "disposition": "selectable",
+    "summary": "A forearm-integrated, steam-and-Essence-powered automatic bow that draws ammunition straight from the Alchemical's Protosynthetic Ammunition Replicator, upgradeable with a targeting ray or a self-contained arrow magazine.",
+    "requirements": "Minimum Strength 3; Minimum Essence 3; Prerequisite Charms: Protosynthetic Ammunition Replicator.",
+    "mechanics": "Statistics: base damage Strength (as modified by its ammunition), accuracy equal to Essence, range increment (100 x Essence) yards, unlimited rate; the weapon visibly hisses and thrums when active, making it obvious to onlookers as a dangerous magical weapon. Must draw arrows from the Ammunition Replicator's internal clip; firing the bow itself does not count as a separate Charm activation. Submodules (2 bonus points/6 xp each, freely combinable): Guidance Ray (duplicates the Essence Pulse Cannon submodule of the same name); Internal Magazine (stores up to 6 arrows generated via the Replicator inside a stasis field that halts their disintegration until they are fired that turn, letting the character feed the weapon from either the replicator or the magazine as desired).",
+    "cost": "2 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Indefinite. Type: Reflexive. Ranged Combat Charms tree (Strength-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 105,
+      "pdfPage": 106
+    },
+    "crossReferences": [
+      "protosynthetic-ammunition-replicator",
+      "essence-pulse-cannon"
+    ],
+    "notes": "Chapter Three: Charms, 'Ranged Combat Charms' tree, p. 105 (PDF 106); visually cross-checked against the Ranged Combat Charms tree diagram."
+  },
+  {
+    "id": "subluminous-onslaught-missile",
+    "name": "Subluminous Onslaught Missile",
+    "disposition": "selectable",
+    "summary": "An upgrade to the Repeating Pneumatic Bow that fires a mile-ranged, near-unparriable spike of crystallized Essence with devastating piercing damage and a concussive shockwave that can send victims flying.",
+    "requirements": "Minimum Strength 5; Minimum Essence 4; Prerequisite Charms: Repeating Pneumatic Bow.",
+    "mechanics": "Fired with the Exalt's full Dexterity + Archery; accuracy equals Essence; range increment one mile; base damage [Strength + (Essence x 2)]L, piercing, and cannot be parried without a stunt or Charm. On dealing damage, the missile loses one raw-damage die and continues flying in a straight line until it fails to inflict further damage. A concussive shockwave follows the missile, knocking human-sized-or-smaller victims back one foot per die of post-soak damage; victims who strike a solid surface instead of skidding to a halt take 1B per remaining yard of travel (potentially lethal against a hazardous surface).",
+    "cost": "10 motes, 1 Willpower; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Simple. Ranged Combat Charms tree (Strength-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 105,
+      "pdfPage": 106
+    },
+    "crossReferences": [
+      "repeating-pneumatic-bow"
+    ],
+    "notes": "Chapter Three: Charms, 'Ranged Combat Charms' tree, p. 105 (PDF 106); visually cross-checked against the Ranged Combat Charms tree diagram."
+  },
+  {
+    "id": "hundredfold-strafing-methodology",
+    "name": "Hundredfold Strafing Methodology",
+    "disposition": "selectable",
+    "summary": "A Repeating Pneumatic Bow upgrade that sweeps a wide arc with a continuous stream of Essence darts, striking every target — friend or foe — caught in the swath with a single attack roll.",
+    "requirements": "Minimum Dexterity 5; Minimum Essence 4; Prerequisite Charms: Repeating Pneumatic Bow (must already be deployed to activate this Charm, though it generates its own ammunition independent of the Ammunition Replicator).",
+    "mechanics": "The Exalt specifies an arc width up to 90 degrees and sweeps her arm across it; for the remainder of the turn, the bow fires a constant stream of darts (existing until the end of the turn) cutting through every target in the path. The player rolls Dexterity + Archery once and applies the result to every target caught in the swath. The darts have a 100-yard range increment and inflict a base lethal damage equal to Essence. Outside combat, the Charm can generally cut down large amounts of vegetation or obstacles in a single sweep.",
+    "cost": "8 motes, 1 Willpower; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Extra Action. Ranged Combat Charms tree (Dexterity-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "105-106",
+      "pdfPage": "106-107"
+    },
+    "crossReferences": [
+      "repeating-pneumatic-bow"
+    ],
+    "notes": "Chapter Three: Charms, 'Ranged Combat Charms' tree, pp. 105-106 (PDF 106-107); visually cross-checked against the Ranged Combat Charms tree diagram."
+  },
+  {
+    "id": "transmodal-rapid-targeting-system",
+    "name": "Transmodal Rapid Targeting System",
+    "disposition": "selectable",
+    "summary": "A neural-tattoo implant letting an Alchemical either bounce a single projectile through a cascading series of targets or unleash a near-simultaneous volley of separate missiles at multiple foes.",
+    "requirements": "Minimum Dexterity 5; Minimum Essence 3; Prerequisite Charms: Aim-Calibrating Sensors.",
+    "mechanics": "First mode (3 motes per additional target): a single projectile is fired or thrown at an initial target, then — whether it hit or missed — the player selects a new target and rolls again at full pool for another 3 motes, repeating up to a total of (Essence + 1) attacks with no target struck twice; the Exalt may pay 1 mote at any point to recall the projectile to hand instead of leaving it lodged in the final target. All targets in a cascade must be traceable in range from the Exalt, with range penalties shifting per normal rules, and weapons with a single maximum range and no increments (such as firewands) require every target within that radius. Combining the retargeting mode with Essence Pulse Cannon in a Combo pays the Essence cost only once and carries submodule effects consistently to every target (a detonation submodule only triggers on the final hit); combining it with Repeating Pneumatic Bow requires a Combo with Protosynthetic Ammunition Replicator but only pays that Charm's cost once; it cannot be Comboed with Paramagnetic Tether Beam, Pulseweb Entanglement Burst, Subluminous Onslaught Missile, or any other Charm the Storyteller rules illogical. Second mode (same cost and rules): fires distinct missiles at superhuman speed instead of one recycled projectile, requiring separate ammunition per shot, unable to recall projectiles, and able to strike the same target multiple times; when Comboed with Essence Pulse Cannon each bolt is paid for and configured separately, and Protosynthetic Ammunition Replicator must be reactivated per shot; this volley mode may be Comboed with any Charm barred from the retargeting mode.",
+    "cost": "3 motes per target; Installation Cost: 2 motes.",
+    "compatibility": "Duration: Instant. Type: Extra Action. Ranged Combat Charms tree (Dexterity-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "106-107",
+      "pdfPage": "107-108"
+    },
+    "crossReferences": [
+      "aim-calibrating-sensors",
+      "essence-pulse-cannon",
+      "repeating-pneumatic-bow",
+      "protosynthetic-ammunition-replicator",
+      "paramagnetic-tether-beam",
+      "pulseweb-entanglement-burst",
+      "subluminous-onslaught-missile"
+    ],
+    "notes": "Chapter Three: Charms, 'Ranged Combat Charms' tree, pp. 106-107 (PDF 107-108); visually cross-checked against the Ranged Combat Charms tree diagram."
+  },
+  {
+    "id": "dedicated-harmonic-targeting",
+    "name": "Dedicated Harmonic Targeting",
+    "disposition": "selectable",
+    "summary": "A sensor-lock Charm used with the Transmodal Rapid Targeting System that dematerializes a fired projectile so it ignores all cover and can never strike an unintended bystander, rematerializing only as it reaches its true target.",
+    "requirements": "Minimum Perception 3; Minimum Essence 3; Prerequisite Charms: Transmodal Rapid Targeting System.",
+    "mechanics": "Locks onto a single currently-perceived target's unique Essence signature and imprints it on a fired or thrown projectile, which becomes translucent and physically ignores all intervening cover, shields, and obstacles (removing associated penalties) and cannot hit a bystander even on the worst botch. It rematerializes just before striking its intended target, so worn armor still protects normally. If the projectile fails to strike its target by the end of the turn, it either disintegrates (most objects) or teleports back to its owner's hand (attuned artifacts). May be used to snipe a target through an intervening wall, provided the Alchemical has some way to perceive the victim through the barrier.",
+    "cost": "3 motes; Installation Cost: None.",
+    "compatibility": "Duration: Instant. Type: Supplemental. Ranged Combat Charms tree (Perception-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 107,
+      "pdfPage": 108
+    },
+    "crossReferences": [
+      "transmodal-rapid-targeting-system"
+    ],
+    "notes": "Chapter Three: Charms, 'Ranged Combat Charms' tree, p. 107 (PDF 108); visually cross-checked against the Ranged Combat Charms tree diagram."
   }
 ]
