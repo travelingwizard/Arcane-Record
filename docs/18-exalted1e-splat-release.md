@@ -194,7 +194,7 @@ real, creatable sheet.
 | ---------- | ------------------------------------- | -------------- | -------- | -------------------------------- |
 | Lunar      | Created (Exalted: The Lunars)         | 122            | 0        | Locked, all dimensions `not-run` |
 | Abyssal    | Created (Exalted: The Abyssals)       | 265            | 0        | Locked, all dimensions `not-run` |
-| Sidereal   | Created (Exalted: The Sidereals)      | 60             | 0        | Locked, all dimensions `not-run` |
+| Sidereal   | Created (Exalted: The Sidereals)      | 184            | 0        | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians) | 175            | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Created (Exalted: The Fair Folk)      | 152            | 0        | Locked, all dimensions `not-run` |
 
@@ -223,21 +223,23 @@ spells, the Craft (Necrosurgery/etc.) rules, and Abyssal-specific Merits/
 Flaws are not yet inventoried; see
 `docs/references/exalted1e/abyssal/README.md`.
 
-Sidereal's 60 rows cover the Chapter Three character-creation overview, the
+Sidereal's 184 rows cover the Chapter Three character-creation overview, the
 five Auspicious Ability groups, the universal anima effect, all five Castes
 (Chosen of Journeys/Serenity/Battles/Secrets/Endings), the Arcane Fate
 mechanic (the Limit-Trait analog — a passive forgetting/disguise effect
 rather than a rated trait — plus its Paradox/visibility table), ten
 new/altered Backgrounds, Chapter Five's general Charm framework (Manipulating
-Fate, Restricted/Unusual Charms, Prayer Strips, and more), and all five of
-the Journeys Caste's Charm trees in full (Endurance "The Mast," Ride "The
-Messenger," Sail "The Captain," Survival "The Ship's Wheel," Thrown "The
-Gull" — 29 Charms total) — the first of this book's 5 Castes to be fully
-inventoried — reviewed against the supplied PDF (confirmed printed page =
-PDF page − 3, including through Chapter Five). The remaining 20 Ability-line
-Charm trees (Serenity, Battles, Secrets, Endings Castes), Sidereal Martial
-Arts, the Colleges/astrology Charm-tree equivalent, and Resplendent Destinies
-are not yet inventoried; see `docs/references/exalted1e/sidereal/README.md`.
+Fate, Restricted/Unusual Charms, Prayer Strips, and more), and now **all 25
+of Chapter Five's Caste-and-Ability Charm trees in full** across all five
+Castes (Journeys, Serenity, Battles, Secrets, Endings — 152 Charms total,
+including the Endings Caste's dedicated Violet Bier of Sorrows Martial Arts
+style), reviewed against the supplied PDF (confirmed printed page = PDF page
+− 3, including through Chapter Five). This is the first of the five planned
+families to reach full Charm-tree parity. The book's further secret Martial
+Arts styles taught to Sidereals generally (Charcoal March of Spiders,
+Prismatic Arrangement of Creation, Citrine Pox of Contagion), the full
+Colleges/astrology Charm-tree equivalent, and Resplendent Destinies are not
+yet inventoried; see `docs/references/exalted1e/sidereal/README.md`.
 
 Alchemical's 175 rows cover the character-creation overview, the universal
 Anima Banner effect, Artificial Metabolism, Life/Death/the Soulgem,
