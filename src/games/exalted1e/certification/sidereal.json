@@ -1,7 +1,7 @@
 {
   "family": "sidereal",
   "catalog": {
-    "totalInventoryRows": 22,
+    "totalInventoryRows": 38,
     "promotedEntries": 0,
     "unresolvedEntries": 0,
     "checksum": ""
@@ -11,5 +11,5 @@
   "migrationTests": "not-run",
   "browserTests": "not-run",
   "certifiedAt": null,
-  "notes": "Exalted: The Sidereals supplied and intake in progress. 22 rows reviewed and inventoried under docs/references/exalted1e/sidereal/inventory/: the character-creation overview (including the Ronin variant), the five Auspicious-Ability groups and Celestial Hierarchy minimums, the universal Anima Effect, all five Castes, the Arcane Fate signature trait mechanic and its Sidereal Anima Banner visibility/Paradox table, the Craft (Fate) Ability specialty, and the altered/new Backgrounds. Nothing promoted to a production catalog yet, and Chapter Five's Charm trees, the full Colleges/astrology system, and Resplendent Destinies (pp. 215-218) are not yet inventoried. Locked pending the remaining inventory, schema/rules/creator/editor implementation, and passing tests across all five planned families."
+  "notes": "Exalted: The Sidereals supplied and intake in progress. 38 rows reviewed and inventoried under docs/references/exalted1e/sidereal/inventory/: the character-creation overview (including the Ronin variant), the five Auspicious-Ability groups and Celestial Hierarchy minimums, the universal Anima Effect, all five Castes, the Arcane Fate signature trait mechanic and its Sidereal Anima Banner visibility/Paradox table, the Craft (Fate) Ability specialty, the altered/new Backgrounds, Chapter Five's general Charm framework (Manipulating Fate, Restricted/Unusual Charms, Prayer Strips, and more), and the complete Journeys Caste Endurance tree (7 Charms). Nothing promoted to a production catalog yet. 24 of the 25 total Ability-line Charm trees, Sidereal Martial Arts, the full Colleges/astrology system, and Resplendent Destinies (pp. 215-218) are not yet inventoried. Locked pending the remaining inventory, schema/rules/creator/editor implementation, and passing tests across all five planned families."
 }

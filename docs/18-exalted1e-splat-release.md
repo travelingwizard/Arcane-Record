@@ -194,7 +194,7 @@ real, creatable sheet.
 | ---------- | ------------------------------------- | -------------- | -------- | -------------------------------- |
 | Lunar      | Created (Exalted: The Lunars)         | 79             | 0        | Locked, all dimensions `not-run` |
 | Abyssal    | Created (Exalted: The Abyssals)       | 175            | 0        | Locked, all dimensions `not-run` |
-| Sidereal   | Created (Exalted: The Sidereals)      | 22             | 0        | Locked, all dimensions `not-run` |
+| Sidereal   | Created (Exalted: The Sidereals)      | 38             | 0        | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians) | 57             | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Created (Exalted: The Fair Folk)      | 60             | 0        | Locked, all dimensions `not-run` |
 
@@ -218,15 +218,19 @@ supplied (image-based) PDF. The Day and Moonshadow Castes' Charm trees and
 Chapter Six's necromancy rules are not yet inventoried; see
 `docs/references/exalted1e/abyssal/README.md`.
 
-Sidereal's 22 rows cover the Chapter Three character-creation overview, the
+Sidereal's 38 rows cover the Chapter Three character-creation overview, the
 five Auspicious Ability groups, the universal anima effect, all five Castes
 (Chosen of Journeys/Serenity/Battles/Secrets/Endings), the Arcane Fate
 mechanic (the Limit-Trait analog — a passive forgetting/disguise effect
-rather than a rated trait — plus its Paradox/visibility table), and ten
-new/altered Backgrounds, reviewed against the supplied PDF (confirmed
-printed page = PDF page − 3). The Colleges/astrology Charm-tree equivalent,
-Sidereal Martial Arts, and Resplendent Destinies are not yet inventoried;
-see `docs/references/exalted1e/sidereal/README.md`.
+rather than a rated trait — plus its Paradox/visibility table), ten
+new/altered Backgrounds, Chapter Five's general Charm framework (Manipulating
+Fate, Restricted/Unusual Charms, Prayer Strips, and more), and the complete
+Journeys Caste Endurance tree (7 Charms) — the first of this book's 25
+per-Caste-per-Ability Charm trees — reviewed against the supplied PDF
+(confirmed printed page = PDF page − 3, including through Chapter Five). The
+remaining 24 Ability-line Charm trees, Sidereal Martial Arts, the
+Colleges/astrology Charm-tree equivalent, and Resplendent Destinies are not
+yet inventoried; see `docs/references/exalted1e/sidereal/README.md`.
 
 Alchemical's 57 rows cover the character-creation overview, the universal
 Anima Banner effect, Artificial Metabolism, Life/Death/the Soulgem,

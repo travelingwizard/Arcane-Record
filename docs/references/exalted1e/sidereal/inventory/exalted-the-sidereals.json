@@ -82,7 +82,11 @@
       "printedPage": 111,
       "pdfPage": 114
     },
-    "crossReferences": ["sidereal-character-creation-overview", "sidereal-anima-effects-universal", "auspicious-abilities"],
+    "crossReferences": [
+      "sidereal-character-creation-overview",
+      "sidereal-anima-effects-universal",
+      "auspicious-abilities"
+    ],
     "notes": "Chapter Four: Traits, 'Chosen of Journeys' section, pp. 111-112 (PDF 114-115)."
   },
   {
@@ -98,7 +102,11 @@
       "printedPage": 113,
       "pdfPage": 116
     },
-    "crossReferences": ["sidereal-character-creation-overview", "sidereal-anima-effects-universal", "auspicious-abilities"],
+    "crossReferences": [
+      "sidereal-character-creation-overview",
+      "sidereal-anima-effects-universal",
+      "auspicious-abilities"
+    ],
     "notes": "Chapter Four: Traits, 'Chosen of Serenity' section, pp. 113-114 (PDF 116-117)."
   },
   {
@@ -114,7 +122,11 @@
       "printedPage": 115,
       "pdfPage": 118
     },
-    "crossReferences": ["sidereal-character-creation-overview", "sidereal-anima-effects-universal", "auspicious-abilities"],
+    "crossReferences": [
+      "sidereal-character-creation-overview",
+      "sidereal-anima-effects-universal",
+      "auspicious-abilities"
+    ],
     "notes": "Chapter Four: Traits, 'Chosen of Battles' section, pp. 115-116 (PDF 118-119)."
   },
   {
@@ -130,7 +142,11 @@
       "printedPage": 117,
       "pdfPage": 120
     },
-    "crossReferences": ["sidereal-character-creation-overview", "sidereal-anima-effects-universal", "auspicious-abilities"],
+    "crossReferences": [
+      "sidereal-character-creation-overview",
+      "sidereal-anima-effects-universal",
+      "auspicious-abilities"
+    ],
     "notes": "Chapter Four: Traits, 'Chosen of Secrets' section, pp. 117-118 (PDF 120-121)."
   },
   {
@@ -146,7 +162,11 @@
       "printedPage": 119,
       "pdfPage": 122
     },
-    "crossReferences": ["sidereal-character-creation-overview", "sidereal-anima-effects-universal", "auspicious-abilities"],
+    "crossReferences": [
+      "sidereal-character-creation-overview",
+      "sidereal-anima-effects-universal",
+      "auspicious-abilities"
+    ],
     "notes": "Chapter Four: Traits, 'Chosen of Endings' section, pp. 119-120 (PDF 122-123)."
   },
   {
@@ -162,7 +182,10 @@
       "printedPage": 121,
       "pdfPage": 124
     },
-    "crossReferences": ["arcane-fate-anima-banner-visibility-table", "acquaintances-background"],
+    "crossReferences": [
+      "arcane-fate-anima-banner-visibility-table",
+      "acquaintances-background"
+    ],
     "notes": "Chapter Four: Traits, 'Rules and Sorcery' -> 'Arcane Fate' and 'Mechanics' subsections, pp. 121-122 (PDF 124-125). The Resplendent Destiny system it references by name (pp. 215-218) has not been rendered or reviewed and is out of scope for this pass; only the interaction described on these two pages is captured here."
   },
   {
@@ -178,7 +201,9 @@
       "printedPage": 121,
       "pdfPage": 124
     },
-    "crossReferences": ["arcane-fate"],
+    "crossReferences": [
+      "arcane-fate"
+    ],
     "notes": "Chapter Four: Traits, 'Sidereal Anima Banners' table, p. 121 (PDF 124), positioned immediately after the five Caste writeups and before the 'Rules and Sorcery' -> 'Arcane Fate' header. Paradox and Resplendent Destiny are only referenced here as consequences of this table; the full Paradox and Resplendent Destiny systems (pp. 215-218) are out of scope for this pass."
   },
   {
@@ -242,7 +267,9 @@
       "printedPage": 105,
       "pdfPage": 108
     },
-    "crossReferences": ["connections-background"],
+    "crossReferences": [
+      "connections-background"
+    ],
     "notes": "Chapter Four: Traits, 'Altered Backgrounds' -> 'Backing' section, p. 105 (PDF 108)."
   },
   {
@@ -274,7 +301,9 @@
       "printedPage": 105,
       "pdfPage": 108
     },
-    "crossReferences": ["celestial-manse-background"],
+    "crossReferences": [
+      "celestial-manse-background"
+    ],
     "notes": "Chapter Four: Traits, 'Altered Backgrounds' -> 'Manse' section, p. 105 (PDF 108)."
   },
   {
@@ -291,7 +320,9 @@
       "printedPage": 105,
       "pdfPage": 108
     },
-    "crossReferences": ["arcane-fate"],
+    "crossReferences": [
+      "arcane-fate"
+    ],
     "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Acquaintances' section, pp. 105-106 (PDF 108-109), including the Followers-unavailable note carried over from the 'Altered Backgrounds' -> 'Followers' section on p. 105 (PDF 108)."
   },
   {
@@ -308,7 +339,9 @@
       "printedPage": 106,
       "pdfPage": 109
     },
-    "crossReferences": ["manse-background-altered"],
+    "crossReferences": [
+      "manse-background-altered"
+    ],
     "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Celestial Manse' section, pp. 106-107 (PDF 109-110)."
   },
   {
@@ -325,7 +358,9 @@
       "printedPage": 106,
       "pdfPage": 109
     },
-    "crossReferences": ["backing-background-altered"],
+    "crossReferences": [
+      "backing-background-altered"
+    ],
     "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Connections' section, p. 106 (PDF 109); the 'Areas of Influence' sidebar detailing each named area appears on the facing page, p. 108 (PDF 111). Contacts-and-Influence unavailability carried over from the 'Altered Backgrounds' -> 'Contacts and Influence' one-line note, p. 105 (PDF 108)."
   },
   {
@@ -342,7 +377,9 @@
       "printedPage": 107,
       "pdfPage": 110
     },
-    "crossReferences": ["sidereal-character-creation-overview"],
+    "crossReferences": [
+      "sidereal-character-creation-overview"
+    ],
     "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Salary' section, pp. 107, 109 (PDF 110, 112), including the 'Heaven on a Mortal Budget' sidebar on p. 109 (PDF 112). Resources-altered note carried over from the 'Altered Backgrounds' -> 'Resources' one-line note, pp. 105-106 (PDF 108-109)."
   },
   {
@@ -378,5 +415,289 @@
     },
     "crossReferences": [],
     "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Sifu' section, p. 110 (PDF 113). Mentor-unavailability note carried over from the 'Altered Backgrounds' -> 'Mentor' one-line note, p. 105 (PDF 108). The specific martial-arts forms and Charms a sifu teaches are not inventoried here (out of scope Charm-tree content)."
+  },
+  {
+    "id": "sidereal-charms-manipulating-fate",
+    "name": "Manipulating Fate (Sidereal Charm framework)",
+    "disposition": "calculated",
+    "summary": "The core mechanical framework governing how Sidereal Charms work: they are strictly weaker at raw dice-pool inflation than Solar Charms but excel at manipulating target numbers and converting successes.",
+    "requirements": "Universal framework; applies to all Sidereal Charms except Sidereal Martial Arts (which follow Solar Charm rules instead).",
+    "mechanics": "Sidereal Charms can only increase their dice pools by the Exalt's permanent Essence, not double her Attribute + Ability (the way Solar Charms can). No combination of Charms can increase a base pool by more than her Essence. For this purpose, automatic successes do not count as increases to a dice pool, and Charms that grant automatic successes stack with all other Charms. Committed Essence is handled exactly the same way for Sidereal Exalted as for Solars: unless a Charm specifies otherwise, its effect lasts until the Exalt stops committing Essence to it. Sidereal Charms can reduce the target number of a roll, biasing certain actions toward a certainty of success, but no combination of Charms can reduce a target number below 4 (anything lower does not bend fate so much as dictate it). If a Sidereal applies or has applied a combination of Charms that would otherwise reduce the target number of an action to 3 or less, she can reflexively spend 2 Willpower and one health level to convert one affected dice into a perfect success (the player does not cast and cannot roll; instead, the player receives one success on each die). This applies only to that action; the target number remains at its minimum of 4 for other actions. Also note that perfect success is not necessarily optimal: dice pools of one to nine dice give at least a 10 percent chance of rolling against a target number of 4 that produces more successes than dice. Sidereal Charms permit a positive synergy between skill and fortune -- the greater an Exalt's dice pool, the more she benefits from target-number reduction and perfect success. Conversely, for a Sidereal's enemies, bad luck is essentially independent of their skill -- Sidereal Abilities and Charms strive to overcome that. Sidereal Charms never increase the target number on an enemy's roll; instead, they can increase an action's difficulty or impose dice pool penalties. The most extreme Charms reduce a target's base dice pool to 0 -- the target must use supernatural dice adders to have any chance of success. When this happens, Lunar Exalted and others can still use Charms that normally convert dice to automatic successes. Each 'automatic success' instead becomes a die returned to the pool. Sidereal Martial Arts is the sole exception to all of the above: because supernatural martial arts rely more on the discipline and Essence of the student than on specific divine gifts, Sidereal Martial Arts Charms double the Exalt's Attribute + Ability dice pool exactly as Solar Charms do, Sidereals can create new martial arts styles and Charms, and none of the special Sidereal-Charm rules above apply to them.",
+    "cost": "n/a (framework)",
+    "compatibility": "n/a",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 128,
+      "pdfPage": 131
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "sidereal-creatures-outside-of-fate",
+    "name": "Creatures Outside of Fate",
+    "disposition": "calculated",
+    "summary": "Defines which beings are immune or partially immune to Sidereal Charms' fate-manipulation effects: Primordials, their immediate servants, Yozis, Malfeans, Deathlords and demons of the Second and Third Circles.",
+    "requirements": "Universal exception rule for targeting Sidereal Charms against certain creature types.",
+    "mechanics": "Certain creatures supersede or stand outside of fate. These include Primordials and their immediate servants, as well as Yozis, Malfeans, Deathlords and demons of the Second and Third Circles. Unless otherwise noted, these creatures are immune to the following effects from Sidereal Charms: loss or gain of temporary Willpower, directly or indirectly, including effects that force them to spend Willpower to take normally allowable actions; compulsions that affect their behavior rather than their dice pools; and transportation from one location to another. A Sidereal must still ignore that portion of a Charm's effect when it is applied to a creature outside of fate -- the Charm may still have other effects on such creatures (for example, Conclusive Wisdom, p. 177, can reduce a Deathlord's temporary Essence and prevent her from regaining Essence, but it neither reduces nor prevents the regaining of her Willpower; Impose Nature, p. 159, marks the palm of creatures outside of fate but does not affect their behavior or their destiny).",
+    "cost": "n/a (framework)",
+    "compatibility": "n/a",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 129,
+      "pdfPage": 132
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "sidereal-restricted-charms",
+    "name": "Restricted Charms",
+    "disposition": "calculated",
+    "summary": "Certain Sidereal Charms that draw directly on a Maiden's personal authority (like Eclipse Caste Solar or Moonshadow Abyssal petitions) require formal, auditable approval through the Celestial Bureaucracy before non-Sidereals may use them.",
+    "requirements": "Applies to a small subset of named Charms that explicitly draw on Maiden authority.",
+    "mechanics": "Certain Sidereal Charms draw directly on the authority of the Maidens. These Charms are noted as requiring a Maiden's personal approval -- approval is automatic for a Sidereal character using her own Charms. However, if an Eclipse Caste Solar (or, in theory, Moonshadow Caste Abyssal) wishes to use one, a Sidereal must file a petition in Yu-Shan on her behalf. The petition follows a long, circular course through the Celestial Bureaucracy, and one must provide its current holder with a small or large bribe to continue its circulation. Providing these bribes pushes the Solar or Abyssal into a series of actions that pleases the Maiden, at which point she authorizes the Charm. The petition continues its eternal march through Heaven, but its entire surface being dead will has no further impact.",
+    "cost": "n/a (framework)",
+    "compatibility": "n/a",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 129,
+      "pdfPage": 132
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "sidereal-unusual-charms",
+    "name": "Unusual Charms",
+    "disposition": "calculated",
+    "summary": "A catch-all note that some Sidereal Charms don't fit the normal Cost/Duration/Type/Minimum Ability/Prerequisite Charms format and are instead presented with custom rules text (e.g., mental-Charm supplements, extra-action Charms), and that changing which Charm supplements a stunt always requires a stunt.",
+    "requirements": "Applies wherever a Charm's own entry departs from the standard presentation format.",
+    "mechanics": "Many Sidereal Charms come with a built-in methodology; however, Sidereal Exalted who generally work out ways to use it a little differently can generally work out ways to use it in ways that suit their personal style. As a matter of personal style, Sidereal can use its Charms to do most of these in one of three or four fashions best suited to the character. The rest, they can adapt on the fly using stunts. For example, a Sidereal character who can dodge an attack with excessive motion can adapt the Absence Charm -- that normally lets her get out of the way -- to make the attacker miss, instead. The Storyteller must, of course, verify that a player's description of the character's manipulation is interesting enough to qualify for a stunt. Depending on the game, this may favor heavily visual images or more abstract wordplay. Knotting the weave of an enemy's weapon together with the tide-flow of a nearby river, dragging it off course, might work -- or the Sidereal might impose her memory of how much being hurt with a sword hurts is bad on the incoming blade.",
+    "cost": "n/a (framework)",
+    "compatibility": "n/a",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 129,
+      "pdfPage": 132
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "sidereal-matters-of-personality",
+    "name": "Matters of Personality (Virtue-linked Charm supplements)",
+    "disposition": "calculated",
+    "summary": "Explains that many Sidereal Charms derive their force from the character's Virtues (paralleling Solar Virtue Charms), letting an Exalt channel temporary Willpower through whichever Virtue the situation calls for -- Compassion, Conviction, Temperance or Valor -- to gain extra dice on rolls the Charm's text supplements.",
+    "requirements": "Applies to the subset of Sidereal Charms explicitly keyed to a Virtue.",
+    "mechanics": "Many of the Sidereal Charms derive their force from the individual Sidereal's personality -- including her Nature and her Virtues. The Sidereal takes a clear view of how she wants the world to work, and she bends Essence and fate alike to match. Certain Charms flow naturally out of the individual Virtues and the strengths of spirit that they represent. A Sidereal Exalted can channel a point of temporary Willpower through the Virtue (as described in Exalted, pp. 129-130) to use these Charms, even if the circumstances are not otherwise appropriate. Compassion: Charms that allow the use of a worldview where Creation inherently reflects the character's wishes -- she is a servant of fate, bound to the world, and vice versa. She need take no overt action (see Innocuous Maneuver, p. 171). Conviction: When a Charm focuses on necessary action, in which the Exalt controls the world for its own good, it generally allows the use of Conviction (see Cash and Murder Games, p. 152). Temperance: If a Charm relies on calm, knowledge, insight, and direct domination of others, a character can use her Temperance (see Meditation on War, p. 157). Valor: When a character remakes the world personally into the shape it ought to hold, particularly by manipulating entities personally hostile to her, her Charms can use Valor (see Becoming the Wilderness, p. 140). Using these rules, characters can gain extra dice on rolls mentioned in the Charm's text, rolls that supplement mental Charm supplements or any roll that an extra action Charm enables. Altering a Charm to take advantage of a different Virtue always requires a stunt.",
+    "cost": "n/a (framework)",
+    "compatibility": "n/a",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 129,
+      "pdfPage": 132
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "sidereal-prayer-strips",
+    "name": "Prayer Strips",
+    "disposition": "calculated",
+    "summary": "Sidereal-specific Charm-fuel items: lengths of paper inscribed with a constellation's associated scripture, which a Sidereal must craft and infuse with a Charm before she can use that Charm, and which persist as physical, destructible, detectable objects that terminate the Charm if destroyed.",
+    "requirements": "Craft cost: Resources \u25cf\u25cf, six hours, and a Dexterity + Linguistics or Dexterity + Craft (Calligraphy) roll at difficulty 2 (difficulty 4 if made in a single turn; ready-made blank strips can be purchased in Yu-Shan).",
+    "mechanics": "A long time ago, someone or something inscribed the scriptures of the Maidens on the Loom of Fate, written in a cramped and ragged hand. This is a chaotic and unruly story that the Sidereal Exalted eventually deciphered and distilled to its barest essence. Inscribed on lengths of paper to form prayer strips, these stories contain a rich power available to those who master the Charms of an associated constellation. Each strip reflects in its structure something of the fundamental patterns of the stars, fate, and the broader existence. Each constellation has an associated story. The Charms for that constellation reflect that story's essential nature. Not all of the stories and Charms match the constellation's personality in tenor. The Sidereals occasionally debate the motivations that drew each stellar god to the scripture of their choice. In general, each story has a Charm that can infuse its prayer strip with power. Creating a prayer strip requires high-quality paper and ink (Resources \u25cf\u25cf), six hours and a Dexterity + Linguistics or Dexterity + Craft (Calligraphy) roll with a difficulty of 2. This difficulty rises to 4 if the character wishes to create a prayer strip in a single turn. In Yu-Shan, one can purchase ready-made blank prayer strips. A Sidereal with her prayer strip case on her person is considered to have reflexive access to the strips -- if she can have the Charm in hand, then she can activate it as it is on the Exalt. This only counts if the prayer strips are on the Exalt. It requires a Wits + Larceny roll to conceal prayer strips on one's person and a Perception + Awareness roll to spot them. Make only one roll for all the character's prayer strips. Until a Charm infuses the prayer strip with power, smearing the ink or crumpling the paper ruins the strip. Once infused, the prayer strip has a soak of 10 and 25 health levels. It reflexively blocks or dodges all attacks, even normally unblockable attacks, with a dice pool equal to the character's Dexterity + Dodge + Essence. Attacks are blunted by flares of power from a nearby immobile prayer strip, while mobile prayer strips dodge. Destroying the prayer strip instantly terminates the Charm. The use of Charms that require prayer strips generally produces major effects. Pattern spiders under prayer-strip destiny and the effects can derail many well-planned fates. Characters who use prayer-strip Charms without cause can be audited on a Severity 2 charge for either offense (see p. 136 of Chapter One for details of censures and audits). Characters who abuse these powers are likely to be censured by their faction leaders or supervisors because Sidereals are reluctant to press charges that would allow censors within the Bureau of Heaven to pass judgment on members of the Bureau of Destiny.",
+    "cost": "n/a (framework)",
+    "compatibility": "n/a",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 130,
+      "pdfPage": 133
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "sidereal-spotting-active-prayer-strips",
+    "name": "Spotting Active Prayer Strips",
+    "disposition": "calculated",
+    "summary": "A Perception + Awareness or Occult difficulty table for detecting an active, power-infused prayer strip at range, since infused strips are always visible to magic-detection effects like Tell-Tale Symphony.",
+    "requirements": "Perception + Awareness or Perception + Occult roll; difficulty varies by range per the table below.",
+    "mechanics": "Infused prayer strips are always visible to powers that detect magic at work, such as Tell-Tale Symphony (see p. 170). The book gives a difficulty table for Perception + Awareness or Occult to notice an active prayer strip at a given range. Otherwise, the prayer strips look unusual but do not otherwise betray their presence, so that one must look directly at the prayer strip or the Exalt to see it.",
+    "cost": "n/a (framework)",
+    "compatibility": "n/a",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 131,
+      "pdfPage": 134
+    },
+    "crossReferences": [
+      "sidereal-prayer-strips"
+    ],
+    "notes": "Row summarizes the existence and purpose of this difficulty table; the full table's numeric difficulty-by-range values were not transcribed line-by-line in this pass and would need a follow-up close read if the exact table is needed for a promoted mechanic."
+  },
+  {
+    "id": "sidereal-on-memory",
+    "name": "On Memory (Sidereal Charm side-effects on recollection)",
+    "disposition": "calculated",
+    "summary": "A design note explaining that many Sidereal Charms alter memory as a side effect, and that NPCs/PCs affected by such Charms react to the resulting discontinuities as something that 'feels right' even when they can't fully explain it.",
+    "requirements": "Applies wherever a Charm's text notes a memory-altering side effect (e.g., Avoidance Kata, Wanting and Fearing Prayer).",
+    "mechanics": "Fate does not deal directly with the past. Magic can influence memory, changing what its victims believe from that point forward -- but most Sidereal Charms do not. Unless otherwise specified by the Charm, what people remember is exactly what takes place. Instead of changing memories, these Charms just make a new state of affairs seem natural. A Sidereal Exalted who uses Avoidance Kata (see p. 146) to avoid a conflict doesn't explain the exact transition; it just becomes obvious to herself and others that something wasn't there. Victims of the Wanting and Fearing Prayer (see p. 152) often realize the artificiality of their new social situation, but it 'feels' right regardless. Characters react in different ways to something that feels right when it shouldn't. It may be helpful for characterization to think about how a character would respond to being powerfully attracted to someone she knows is wrong for her or when witnessing an enemy suffer prosecution for something she knows he didn't do.",
+    "cost": "n/a (framework)",
+    "compatibility": "n/a",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 131,
+      "pdfPage": 134
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "sidereal-presentation-format",
+    "name": "Sidereal Charm Presentation Format",
+    "disposition": "calculated",
+    "summary": "Confirms Sidereal Charms below are laid out exactly like Solar Charms in the core Exalted book: Cost, Duration, Type, Minimum Ability, Minimum Essence and Prerequisite Charms.",
+    "requirements": "Formatting note only; not a game rule.",
+    "mechanics": "The Charms presented in this chapter use the same format as the main Exalted book. Cost, Duration, Type, Minimum Ability, Minimum Essence and Prerequisite Charms are all presented and function just as with Solar Exalted Charms.",
+    "cost": "n/a (framework)",
+    "compatibility": "n/a",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 132,
+      "pdfPage": 135
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "ox-body-technique-sidereal",
+    "name": "Ox-Body Technique (Sidereal)",
+    "disposition": "selectable",
+    "summary": "Lets a Sidereal buy extra health levels as if they were a Charm, purchasable once per dot of Endurance, matching the Charm's standard cross-splat form.",
+    "requirements": "Minimum Endurance: Varies; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "The bodies of the Exalted are more durable than those of mere mortals. To help simulate this, an Exalt may buy extra health levels as if they were a Charm. A player may purchase this Charm up to once per dot of Endurance her character possesses. Each provides one -0 health level.",
+    "cost": "None",
+    "compatibility": "Duration: Permanent. Type: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 132,
+      "pdfPage": 135
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "unswerving-juggernaut-principle",
+    "name": "Unswerving Juggernaut Principle",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Journeys Caste Endurance tree ('The Mast'); a Sidereal bathed in stardust becomes an unstoppable traveler, gaining extra soak and Essence-boosted Endurance rolls so long as she keeps moving straight toward her goal without looking back.",
+    "requirements": "Minimum Endurance 2; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "The stars bathe the character in yellow stardust. It suffuses her, glittering beneath her skin, hair, clothing and eyes. She begins to run. She must keep her eyes focused straight forward, keep her course within 10 degrees of its original heading and can take no other actions save walk, sprint, run, jump, ride, use a mobility-enhancing Charm or invoke the Lesser Sign of Mercury. Violating any of these strictures ends the Charm's effects. In exchange, for the duration of the Charm, the character receives an additional 5L/5B soak, needs no sleep, suffers no fatigue and adds her Essence to all Endurance rolls. Fatigue rolls do not need to be made for her wearing armor, regardless of environmental conditions. These benefits also apply to any horse she rides. The character's journey is a thing of fate and not chance, interwoven with her reasons for traveling. If something renders her journey pointless or alters its appropriate destination, her player automatically makes a reflexive Perception + Awareness check for the Sidereal. On even failure, she senses a change in the situation. Success gives her a hint of what it might be. Exalted who invoke this Charm while fleeing pursuit often know when it is safe to stop their flight.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Indefinite. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 132,
+      "pdfPage": 135
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "forward-thinking-technique",
+    "name": "Forward-Thinking Technique",
+    "disposition": "selectable",
+    "summary": "Extends Unswerving Juggernaut Principle: the Sidereal's world narrows to her journey, granting soak against attacks from behind and lets her flee/track with dice-pool-0 automatic-success evasion while erasing her own trail.",
+    "requirements": "Minimum Endurance 3; Minimum Essence 3; Prerequisite Charms: Unswerving Juggernaut Principle.",
+    "mechanics": "The character's world narrows to her journey. The strands of fate that bind her to things behind her loosen. This Charm includes all of the benefits of the Unswerving Juggernaut Principle. In addition, it grants an increased (10L/10B) soak bonus against attacks the character cannot see coming. She can dodge any attack with a dice pool of 0 and her permanent Essence in automatic successes. She can evade pursuit and cover her tracks without slowing down, deviating from her course or ending the journey. This requires the normal Wits + Survival roll. This Charm does not explicitly prevent trackers from noticing the straight-line travel the Forward-Thinking Technique enforces unless they succeeded at the tracking contest.",
+    "cost": "10 motes, 1 Willpower",
+    "compatibility": "Duration: Indefinite. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 133,
+      "pdfPage": 136
+    },
+    "crossReferences": [
+      "unswerving-juggernaut-principle"
+    ]
+  },
+  {
+    "id": "optimistic-security-practice",
+    "name": "Optimistic Security Practice",
+    "disposition": "selectable",
+    "summary": "Root Charm keyed to sacrifice and generosity: the Sidereal passes harm from weapons and other damage sources over her own skin, adding her permanent Essence to lethal and bashing soak (including against aggravated damage), but Compassion-poor attackers who wish to harm her must spend Willpower.",
+    "requirements": "Minimum Endurance 2; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "Reflecting the great sacrifices she might someday make for others, the character passes hand-over the weave of fate and imbues them with her own generosity of spirit. Weapons and other damage sources turn aside from her skin. She adds her permanent Essence to her lethal and bashing soak. This soak specifically applies even to aggravated damage sources. Creatures with a Compassion lower than her Compassion must spend one Willpower point each time they attempt to damage or disable her, or the attack automatically fails. This Charm is incompatible with the use of armor.",
+    "cost": "5 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 133,
+      "pdfPage": 136
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "unwavering-well-being-meditation",
+    "name": "Unwavering Well-Being Meditation",
+    "disposition": "selectable",
+    "summary": "Root Charm that lets the Sidereal's calm certainty in her own destiny cause attackers with lower Temperance to falter, and adds her permanent Essence to soak against attacks she doesn't see coming.",
+    "requirements": "Minimum Endurance 3; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "The character's calm certainty in his own destiny turns aside a single event that might otherwise do him harm. Players of attackers with an Essence lower than the Sidereal's Temperance must succeed at a Willpower roll, or the attackers falter and their attacks automatically fail. Even if they succeed, the character adds her permanent Essence to her lethal and bashing soak against attacks she cannot see coming. This soak specifically applies even to aggravated damage sources.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 133,
+      "pdfPage": 136
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "heartless-maiden-trance",
+    "name": "Heartless Maiden Trance",
+    "disposition": "selectable",
+    "summary": "Combines Optimistic Security Practice and Unwavering Well-Being Meditation: suspends the Sidereal's body's normal functions, granting near-total immunity to disease, poison, and environmental privation while active, at the cost of being unable to accept incapacitation or death except through Charms.",
+    "requirements": "Minimum Endurance 4; Minimum Essence 2; Prerequisite Charms: Optimistic Security Practice, Unwavering Well-Being Meditation.",
+    "mechanics": "The character's chest convulses as she swallows her heart. This suspends the normal functioning of her body. The Exalt no longer suffers or accumulates penalties from disease, poison, degenerative effects, hunger, thirst, fatigue, exhaustion, cold, heat, wounds or blood loss. She does not need to breathe. She emerges from this Charm in the exact physical state she entered it, save for any new wounds taken and any poisons or diseases she contracted while under the effect -- which, effectively, enter her system at that point. While this Charm lasts, the Exalt ignores all accrued penalties from debilitating conditions and wounds and is unaware of her existence. Sufficient injury yields a nagging tactical distress that encourages her to withdraw from combat, but she otherwise cannot accept the notion that she is sick, poisoned, hungry, cold, wounded or otherwise impaired. She does not regain Essence except through use of the Charms. She functions normally when Incapacitated and cannot be knocked unconscious, but she can be killed by doing more than her Stamina health levels beyond Incapacitated.",
+    "cost": "8 motes, 1 Willpower",
+    "compatibility": "Duration: Indefinite. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 133,
+      "pdfPage": 136
+    },
+    "crossReferences": [
+      "optimistic-security-practice",
+      "unwavering-well-being-meditation"
+    ]
+  },
+  {
+    "id": "one-direction-invocation",
+    "name": "One Direction Invocation",
+    "disposition": "selectable",
+    "summary": "Capstone of the Journeys Caste Endurance tree ('The Mast'); the Sidereal releases a prayer strip that flies alongside her, trailing yellow afterimages, and geases herself into an all-consuming single-minded pursuit of one goal, becoming immune to disease/poison/wounds along the way but forfeiting name and identity until the goal is achieved.",
+    "requirements": "Minimum Endurance 5; Minimum Essence 4; Prerequisite Charms: Forward-Thinking Technique, Heartless Maiden Trance.",
+    "mechanics": "This Charm uses a prayer strip marked with the scripture of the Eternal Maiden. The character releases it into the air, where it darts and dances randomly about, staying within 100 yards of him, trailing vivid afterimages of yellow light. The character names a goal, as grandiose or as mundane as he chooses, and geases himself to fulfill it. A character under the influence of this Charm forsakes his name and his identity. Rolls to remember the character suffer a -3 die penalty (in addition to the normal penalty for remembering a Sidereal). The Exalt cannot focus on any goal save the one named by the Charm. Irrelevant actions are forbidden. He suffers a three die penalty on all rolls -- all while helping him toward his goal have primary purpose. However, any non-aggravated injury or impairment the character receives at the rate of one lethal health level of all bashing health levels per turn heals at one level per turn under the Charm's effects. Aggravated damage taken under the Charm's effects heals at one level per turn instead of the normal rate. The character has near-preexisting conditions at the normal rate. The character can end the Charm at any time but cannot reclaim his name and identity until he achieves his goal. If his goal becomes impossible to achieve, these things are forever lost. He cannot personally establish a new identity or name, and all attempts to do so fail, but high-ranking members of his division can issue replacements.",
+    "cost": "16 motes, 1 Willpower, 1 health level",
+    "compatibility": "Duration: Indefinite. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 133,
+      "pdfPage": 136
+    },
+    "crossReferences": [
+      "forward-thinking-technique",
+      "heartless-maiden-trance"
+    ],
+    "notes": "The mechanics text on healing rates for non-aggravated vs. aggravated injury while this Charm is active reads confusingly in the source ('heals at the rate of one lethal health level of all bashing health levels per turn' / 'near-preexisting conditions at the normal rate'); paraphrased as faithfully as possible but flagged for a closer re-read before promotion."
   }
 ]
