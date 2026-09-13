@@ -525,7 +525,7 @@
   },
   {
     "id": "craft-glamour-ability",
-    "name": "Craft (Glamour) — the paramount creator's Craft specialty",
+    "name": "Craft (Glamour) \u2014 the paramount creator's Craft specialty",
     "disposition": "calculated",
     "summary": "Craft (Glamour) is the single most important Craft specialty for raksha: the art of shaping Essence and dream itself, superseding metalwork, woodwork, stonework and every other mundane Craft specialty for a Fair Folk character.",
     "mechanics": "Craft (Glamour) is described as 'the paramount creator's skill in the Wyld.' In Creation, a raksha player can roll Perception + Craft (Glamour) for her character to identify the glamour-forged works of her peers.",
@@ -2694,5 +2694,604 @@
       "luminous-exhalation"
     ],
     "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Ring Combat Charms' section, p. 175 (PDF 176). Last Charm of the Ring Combat Charms tree diagrammed on p. 173 (PDF 174), visually confirmed as a full 16-Charm tree spanning two independent roots (Flesh-Carved World, Wyld-Curdling Attack) that converge at Sorrowful Firmament Resonance. 'All-Consuming God-Monster Style' -- a separate, clearly titled sub-tree with its own diagram -- begins immediately afterward on the same page (visually confirmed) and is the resume point for the next round; it is not part of Ring Combat Charms despite the lack of an intervening bold section header in the running prose."
+  },
+  {
+    "id": "wyld-communion",
+    "name": "Wyld Communion",
+    "disposition": "selectable",
+    "summary": "The root Charm of the All-Consuming God-Monster Style: meditating on the Wyld's own birth-principles, the raksha adds one extra die to all of her stunts while in the Wyld.",
+    "requirements": "Minimum Ring: 3; Minimum Essence: 2; Prerequisite Charms: None.",
+    "mechanics": "The raksha meditates on the Wyld, dredging forth and harmonizing with the strange Essence of the principles that gave the Wyld birth. This Charm improves all her stunts by one die (for example, a one-die stunt would add two dice to her pool). This functions only in the Wyld.",
+    "cost": "5 motes, 0 gossamer",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 175,
+      "pdfPage": 176
+    },
+    "crossReferences": [
+      "ring-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'All-Consuming God-Monster Style' section, p. 175 (PDF 176). Root Charm of the tree diagrammed on p. 175 (PDF 176), visually confirmed; this named sub-tree begins immediately after These Dreams Are Clay, the last Ring Combat Charm inventoried in the previous round, with no intervening chapter or Grace change."
+  },
+  {
+    "id": "spirit-flaying-meditation",
+    "name": "Spirit-Flaying Meditation",
+    "disposition": "selectable",
+    "summary": "Strives for harmony with a greater principle by cutting a Charm or Trait out of the raksha's own soul, at no other compensation.",
+    "requirements": "Minimum Ring: 4; Minimum Essence: 2; Prerequisite Charms: Wyld Communion.",
+    "mechanics": "Striving for harmony with a greater principle, the raksha cuts a Charm or Trait out of her own soul. This Charm removes one of the raksha's Charms from the character sheet or lowers one of her own Traits by one. Raksha who lose a Charm also lose any permanent mutations gained through purchase of that Charm. The raksha receives no other compensation for the loss.",
+    "cost": "1 Willpower, 1 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 176,
+      "pdfPage": 177
+    },
+    "crossReferences": [
+      "ring-grace",
+      "wyld-communion"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'All-Consuming God-Monster Style' section, p. 176 (PDF 177). Central branch point: both Being-Nonbeing Approach and All-Consuming God-Monster Stance require this Charm directly, per the diagram on p. 175 (PDF 176)."
+  },
+  {
+    "id": "being-nonbeing-approach",
+    "name": "Being-Nonbeing Approach",
+    "disposition": "selectable",
+    "summary": "Elides the raksha from the shaped world into undirected immanent power, raising the difficulty of targeting her with shaping actions and boosting her Stealth against non-Essence-sighted observers.",
+    "requirements": "Minimum Ring: 4; Minimum Essence: 3; Prerequisite Charms: Spirit-Flaying Meditation.",
+    "mechanics": "The raksha elides herself from the shaped world, becoming undirected immanent power inherent in the nature of existence. The raksha's player rolls Intelligence + Martial Arts. On a success, this Charm increases the difficulty of targeting her with shaping actions by one. The Creation-born can still make out her shadowy form in some specific location within the world, but successful use of this Charm also adds her highest feeding Virtue in dice to normal Stealth dice actions unless those attempting to see her have All-Encompassing Sorcerer's Sight or some other form of Essence sense.",
+    "cost": "1 mote, 2 gossamer",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 176,
+      "pdfPage": 177
+    },
+    "crossReferences": [
+      "ring-grace",
+      "spirit-flaying-meditation"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'All-Consuming God-Monster Style' section, p. 176 (PDF 177). Feeds, together with Nature-Eliminating Knife, into the capstone Chimera Exultation per the diagram on p. 175 (PDF 176)."
+  },
+  {
+    "id": "all-consuming-god-monster-stance",
+    "name": "All-Consuming God-Monster Stance",
+    "disposition": "selectable",
+    "summary": "The style's central Stance-type Charm: transforms the raksha's Essence into a purchasable 'God-Monster Body' that grants a menu of special gifts (three on first purchase, two per subsequent purchase), incompatible with Assumption-type Charms unless the raksha also takes the Calling Upon the Dragon's Ire gift.",
+    "requirements": "Minimum Ring: 4; Minimum Essence: 3; Prerequisite Charms: Spirit-Flaying Meditation.",
+    "mechanics": "The raksha strives for transcendence, making herself a channel for the deepest madness of the Wyld and hammering herself into a shape defined by imperatives that predate reason and existence. This Charm transforms the raksha's Essence, giving her what the Fair Folk call a 'God-Monster Body.' The first purchase grants three gifts, chosen immediately; each subsequent purchase grants two more gifts. Gifts exist only while this Charm is in force, many have prerequisite gifts that must be taken first, and no gift can be taken more than once. Raksha can purchase this Charm only once, but unshaped can buy it a number of times equal to half their Essence. Sample gifts (a non-exhaustive menu per the sourcebook's own sidebar) include: Advaita Harmony (three extra Virtue dots split freely, and Virtues can be violated without spending Willpower, while in God-Monster form); Calling Upon the Dragon's Ire (lets an Assumption-type Charm and this Charm run simultaneously -- required for any raksha with an Assumption-type mutation who wants this Stance); Chain-Defying Art (heals one level of shaping damage per scene), upgradable to Untouchable Infinite Spirit (heals all of one chosen shaping damage track plus one point of each other type per scene, replacing Chain-Defying Art's benefit); Fearsome Radiance (low-Valor attackers/defenders suffer +1 difficulty against the raksha), extendable to World-Devourer's Shadow (low-Essence characters' players must pass a difficulty-1 Valor roll once per scene even to attempt attacking the raksha, on top of the Fearsome Radiance penalty); Graces of the Wyld (immunity to the Curses of Alienation, Hubris, Namelessness and Meekness while in God-Monster form); Heart-Stopping Numinous Power (+2 effective Essence in God-Monster form); Lumbering Feet of God (travel three waypoints per scene or sprint six); Terrible Shaping Suasion (+2 dice on all shaping rolls in God-Monster form); and Unshapeable Transcendent Essence (adds Essence to shaping soak), extendable to Miasma of Principle (also adds Essence to natural lethal and bashing soak, cumulative with Unshapeable Transcendent Essence). This Charm is specifically incompatible with Assumption-type Charms unless the raksha takes Calling Upon the Dragon's Ire. This is a Stance-type Charm; characters cannot use more than one Stance-type Charm at a time.",
+    "cost": "10 motes, 1 Willpower, 0 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 176,
+      "pdfPage": 177
+    },
+    "crossReferences": [
+      "ring-grace",
+      "spirit-flaying-meditation",
+      "nature-eliminating-knife"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'All-Consuming God-Monster Style' section, pp. 176-178 (PDF 177-179); the gift menu is printed in a sidebar box on p. 177 (PDF 178) titled 'Sample God-Monster Body Gifts,' visually confirmed. This row paraphrases and condenses that full sidebar list rather than reproducing every gift verbatim; only the sample gifts and any prerequisite chains among them (Untouchable Infinite Spirit needs Chain-Defying Art; World-Devourer's Shadow needs Fearsome Radiance; Miasma of Principle needs Unshapeable Transcendent Essence) are summarized here."
+  },
+  {
+    "id": "nature-eliminating-knife",
+    "name": "Nature-Eliminating Knife",
+    "disposition": "selectable",
+    "summary": "Utterly destroys one of the raksha's own Graces, wherever it dwells, permanently adding the 'Graces of the Wyld' gift (or any other gift of her choice, if she already has it) to her God-Monster Body.",
+    "requirements": "Minimum Ring: 5; Minimum Essence: 3; Prerequisite Charms: All-Consuming God-Monster Stance.",
+    "mechanics": "This Charm utterly destroys one of its user's own Graces, no matter in whose hands it dwells. Invoking this Charm permanently adds the 'Graces of the Wyld' gift to the raksha's God-Monster Body or, if the raksha's God-Monster Body already has this gift, adds any other gift of the raksha's choice.",
+    "cost": "1 Willpower, 1 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 176,
+      "pdfPage": 177
+    },
+    "crossReferences": [
+      "ring-grace",
+      "all-consuming-god-monster-stance"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'All-Consuming God-Monster Style' section, p. 176 (PDF 177). Feeds, together with Being-Nonbeing Approach, into the capstone Chimera Exultation per the diagram on p. 175 (PDF 176)."
+  },
+  {
+    "id": "chimera-exultation",
+    "name": "Chimera Exultation",
+    "disposition": "selectable",
+    "summary": "The style's capstone: assuming a God-Monster Body, the raksha destroys her own Heart Grace and vanishes in a flare of pearlescent light, utterly annihilating herself as a Storyteller-controlled plot device.",
+    "requirements": "Minimum Ring: 5; Minimum Essence: 4; Prerequisite Charms: Being-Nonbeing Approach, Nature-Eliminating Knife.",
+    "mechanics": "Assuming a God-Monster Body, the raksha destroys her Heart Grace and vanishes in a flare of pearlescent light. This Charm utterly destroys the raksha who uses it, driving the radiance of the raksha's will and desire into the substrata of the Wyld. This Charm is a plot device, having such limited or limitless effects as the Storyteller desires.",
+    "cost": "1 Willpower, 1 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 176,
+      "pdfPage": 177
+    },
+    "crossReferences": [
+      "ring-grace",
+      "being-nonbeing-approach",
+      "nature-eliminating-knife"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'All-Consuming God-Monster Style' section, p. 176 (PDF 177, top of the right column, before the 'Body-Strengthening Charms' header). This Charm's body paragraph is displaced ahead of its own header in the PDF's internal text-extraction order (it reads before 'Body-Strengthening Charms' rather than after Chimera Exultation's own stat block on the same page); the visual layout of the rendered page image was used to confirm this is indeed Chimera Exultation's mechanics text, not misplaced flavor text for another Charm. Last Charm of the All-Consuming God-Monster Style tree diagrammed on p. 175 (PDF 176), converging from both Being-Nonbeing Approach and Nature-Eliminating Knife."
+  },
+  {
+    "id": "knife-hand-dream",
+    "name": "Knife-Hand Dream",
+    "disposition": "selectable",
+    "summary": "The root Body-Strengthening Charm: reinforces the raksha's body with elemental Essence so she can deal and parry lethal damage barehanded.",
+    "requirements": "Minimum Ring: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The raksha reinforces her body with elemental Essence. This Charm allows her to do lethal damage barehanded. She can also parry lethal blows barehanded as if wielding a weapon.",
+    "cost": "1 mote, 1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 178,
+      "pdfPage": 179
+    },
+    "crossReferences": [
+      "ring-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Body-Strengthening Charms' section, p. 178 (PDF 179). Root Charm of the tree diagrammed on p. 178 (PDF 179), visually confirmed, alongside a separate, unconnected Ox-Body Technique box."
+  },
+  {
+    "id": "opalescent-gossamer-raiment",
+    "name": "Opalescent Gossamer Raiment",
+    "disposition": "selectable",
+    "summary": "Strengthens the dream of the raksha's flesh against Creation's weapons, adding +1 to natural bashing and lethal soak; a faint opalescent skin sheen can mark her as a raksha to a keen observer.",
+    "requirements": "Minimum Ring: 1; Minimum Essence: 1; Prerequisite Charms: Knife-Hand Dream.",
+    "mechanics": "The raksha strengthens the dream of his flesh against the weapons of Creation. In firelight, his skin glimmers with the faintest opalescent sheen, and a difficulty 3 Perception + Occult roll identifies this as a mark of the raksha. This Charm adds one to his natural bashing soak and one to his natural lethal soak.",
+    "cost": "1 mote, 1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 179,
+      "pdfPage": 180
+    },
+    "crossReferences": [
+      "ring-grace",
+      "knife-hand-dream"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Body-Strengthening Charms' section, p. 179 (PDF 180)."
+  },
+  {
+    "id": "blade-turning-skin",
+    "name": "Blade-Turning Skin",
+    "disposition": "selectable",
+    "summary": "The raksha's delicate skin casts off her enemies' blades, adding +2 to natural bashing and lethal soak (stacking with its prerequisites), with a more visible telltale sheen than Opalescent Gossamer Raiment.",
+    "requirements": "Minimum Ring: 2; Minimum Essence: 1; Prerequisite Charms: Opalescent Gossamer Raiment.",
+    "mechanics": "The raksha's soft and delicate skin casts off the blades of her enemies. In firelight or moonlight, its peculiar and beautiful highlights reveal her as a raksha to those characters whose players make a successful difficulty 5 Perception + Occult roll. This Charm adds two to her natural bashing soak and two to her natural lethal soak. The raksha can benefit from this Charm and its prerequisites simultaneously.",
+    "cost": "1 mote, 2 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 180,
+      "pdfPage": 181
+    },
+    "crossReferences": [
+      "ring-grace",
+      "opalescent-gossamer-raiment"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Body-Strengthening Charms' section, p. 180 (PDF 181)."
+  },
+  {
+    "id": "inviolable-presence",
+    "name": "Inviolable Presence",
+    "disposition": "selectable",
+    "summary": "The capstone Body-Strengthening Charm: a thin, ice-like layer of dream protects the raksha, adding +4 to natural bashing and lethal soak (stacking with its prerequisites), at the cost of unmistakably marking her as a raksha to any onlooker.",
+    "requirements": "Minimum Ring: 3; Minimum Essence: 1; Prerequisite Charms: Blade-Turning Skin.",
+    "mechanics": "The thinnest layer of dream, like ice or clear adamant, protects the raksha from others' touch. Any who see the character can recognize him as a raksha. This Charm adds four to his natural bashing soak and four to his natural lethal soak. The raksha can benefit from this Charm and its prerequisites simultaneously.",
+    "cost": "1 mote, 4 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 180,
+      "pdfPage": 181
+    },
+    "crossReferences": [
+      "ring-grace",
+      "blade-turning-skin"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Body-Strengthening Charms' section, p. 180 (PDF 181). Last Charm of the Body-Strengthening Charms tree diagrammed on p. 178 (PDF 179)."
+  },
+  {
+    "id": "ox-body-technique",
+    "name": "Ox-Body Technique",
+    "disposition": "selectable",
+    "summary": "Raksha purchase additional health levels as if buying a Charm, choosing each purchase's flavor (a free -0 level, a paired -1/-2 level, or a permanent -2 level) up to a number of purchases equal to the raksha's Ring rating.",
+    "requirements": "Minimum Ring: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "Raksha can shape themselves for additional resilience, purchasing additional health levels as if they were a Charm. Each Ox-Body Technique Charm can provide one of the following, chosen at the time of purchase: one -0 health level, costing 1 gossamer per story to activate; one -1 and -2 health level, costing 1 gossamer per story to activate; or one permanent -2 health level with no gossamer or mutation cost. Players can purchase this Charm up to once per dot of the raksha's Ring. Additional health levels for use specifically in shaping combat are available separately through Wyld Prince Resilience.",
+    "cost": "Special (see mechanics)",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 180,
+      "pdfPage": 181
+    },
+    "crossReferences": [
+      "ring-grace",
+      "wyld-prince-resilience"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Body-Strengthening Charms' section, p. 180 (PDF 181). Diagrammed as a standalone box with no connecting arrows to the rest of the Body-Strengthening Charms tree on p. 178 (PDF 179), visually confirmed -- it is purchasable independently of Knife-Hand Dream and its line. Distinct from the general-combat Wyld Prince Resilience Charm already inventoried in the Cup Grace tree's Virtue-Shaping Charms, which this Charm's text explicitly cross-references for shaping-combat health levels."
+  },
+  {
+    "id": "ordinary-object-conjuration",
+    "name": "Ordinary Object Conjuration",
+    "disposition": "selectable",
+    "summary": "The root Creation-Based Crafting Charm: forges a permanent glamour of a mundane item from gossamer, with a Resources value capped by the raksha's rolled successes.",
+    "requirements": "Minimum Ring: 2; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The raksha forges an ordinary item from gossamer. The raksha's player rolls Intelligence + Craft (Glamour) as a Ring-shaping action. This Charm creates the permanent glamour of a mundane object. Its Resources value cannot be greater than the number of successes rolled.",
+    "cost": "1 gossamer",
+    "compatibility": "Duration: Permanent. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 180,
+      "pdfPage": 181
+    },
+    "crossReferences": [
+      "ring-grace",
+      "craft-glamour-ability"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Creation-Based Crafting' section, p. 180 (PDF 181). Root Charm of the tree diagrammed on p. 180 (PDF 181), visually confirmed."
+  },
+  {
+    "id": "limitless-wealth-conjuration-technique",
+    "name": "Limitless Wealth Conjuration Technique",
+    "disposition": "selectable",
+    "summary": "Forges temporary wealth from glamour, granting up to Essence dots of temporary Resources for the story; canny buyers with enough Wits or Bureaucracy plus Essence can recognize the treasure as glamour-forged gilt.",
+    "requirements": "Minimum Ring: 3; Minimum Essence: 1; Prerequisite Charms: Ordinary Object Conjuration.",
+    "mechanics": "The raksha forges wealth from glamour. The raksha's player rolls Intelligence + Bureaucracy as a Ring-shaping action. This Charm gives the raksha one temporary dot of Resources per success, to a maximum of the raksha's Essence. She may immediately upgrade her lifestyle and living conditions to the new condition without needing to actually purchase the trappings. Such wealth is raksha gold, disappearing at the end of the story. Canny buyers, whose Bureaucracy + Essence or Wits + Essence exceeds the raksha's Bureaucracy, recognize her treasure as glamour-forged gilt.",
+    "cost": "2 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 180,
+      "pdfPage": 181
+    },
+    "crossReferences": [
+      "ring-grace",
+      "ordinary-object-conjuration"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Creation-Based Crafting' section, pp. 180-181 (PDF 181-182)."
+  },
+  {
+    "id": "hateful-coin-curse",
+    "name": "Hateful Coin Curse",
+    "disposition": "selectable",
+    "summary": "A work-of-glamour curse that unravels a target's fortunes: temporarily strips Resources dots and raises the difficulty of the target's mercantile dealings, unless the target or the other party is too Essence-sharp to be fooled.",
+    "requirements": "Minimum Ring: 3; Minimum Essence: 2; Prerequisite Charms: Ordinary Object Conjuration.",
+    "mechanics": "The raksha unravels the fates of serenity and wealth. The raksha interacts with the target, and then her player rolls Intelligence + Bureaucracy as a Ring-shaping action. Money slips through the target's fingers -- his clothes grow tattered, no one will take his coin, debtors will not pay, servants forget their contracts, and even the finest house lets in the cold, rain, wind and burglars. This Charm temporarily reduces the target's Resources by one dot per success and adds 2 to the difficulty of all the target's mercantile transactions. This is a work of glamour: it does not affect creatures whose Wits + Essence exceeds the raksha's Bureaucracy, and the mercantile-transaction penalty does not apply when either the target or the merchant they deal with has Wits + Essence exceeding the raksha's Bureaucracy.",
+    "cost": "3 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 181,
+      "pdfPage": 182
+    },
+    "crossReferences": [
+      "ring-grace",
+      "ordinary-object-conjuration"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Creation-Based Crafting' section, p. 181 (PDF 182). Last Charm of the Creation-Based Crafting tree diagrammed on p. 180 (PDF 181), branching directly off Ordinary Object Conjuration in parallel with Limitless Wealth Conjuration Technique."
+  },
+  {
+    "id": "essence-forging-art",
+    "name": "Essence-Forging Art",
+    "disposition": "selectable",
+    "summary": "The root Glamour Charm: crafts a serviceable, fine or exceptional item directly from the Wyld's substance, limited in scale and unable to create artifacts or anything usable to benefit shaping actions.",
+    "requirements": "Minimum Ring: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The Fair Folk use this art to craft substance from the Wyld. The raksha chooses whether to create a serviceable, fine or exceptional item, and his player rolls Intelligence + Craft (Glamour) as a Ring-shaping action against a difficulty of 1 (serviceable: a normal good-quality item, possibly with a purely cosmetic Wyld quirk at the cost of natural effectiveness), 2 (fine: +1 to one weapon statistic, or +1L/+1B armor soak, with an optional touch of the Wyld such as living eyes or unusual sensory traits) or 3 (exceptional: three +1s split across weapon statistics, or two +1s for armor soak/mobility/fatigue, with aesthetic perfection and Wyld touches). On success, this Charm produces the desired creation. It cannot create artifacts, nor anything large enough for two characters to fight on or in without environmental penalties. Possessions created cannot enter Creation unless the raksha uses an atypical effect such as Elemental Invocation. Tools and weapons crafted with this Charm cannot benefit shaping actions.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 181,
+      "pdfPage": 182
+    },
+    "crossReferences": [
+      "ring-grace",
+      "craft-glamour-ability"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Glamour Charms' section, p. 181 (PDF 182). One of two independent roots (with Gossamer-Forging Art, reached via a different branch) of the large tree diagrammed on p. 182 (PDF 183), visually confirmed."
+  },
+  {
+    "id": "principle-of-worlds",
+    "name": "Principle of Worlds",
+    "disposition": "selectable",
+    "summary": "Carves a serviceable, fine or exceptional territory (home, vehicle or region up to roughly 30 miles across) out of the Wyld.",
+    "requirements": "Minimum Ring: 2; Minimum Essence: 1; Prerequisite Charms: Essence-Forging Art.",
+    "mechanics": "The raksha takes up the crafter's art and carves out landscapes from the Wyld. The raksha chooses whether to create a serviceable, fine or exceptional territory, and her player rolls Intelligence + Craft (Glamour) as a Ring-shaping action against a difficulty of 1 (serviceable: a simple landscape, home or small vehicle), 2 (fine: an unusual tailored landscape, a palatial home, or a large vehicle, with cosmetic touches of the Wyld) or 3 (exceptional: an aesthetically perfect region of significant extent, a great fortress or city, or a First Age-caliber war machine, including complex regional phenomena). On a success, this Charm produces the desired creation. Territories are roughly one journey and one waypoint across, so Creation-born using Charms to traverse them are limited to 30 miles in diameter, often much smaller. Territories cannot enter Creation unless the raksha uses an atypical effect such as Elemental Invocation.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 181,
+      "pdfPage": 182
+    },
+    "crossReferences": [
+      "ring-grace",
+      "essence-forging-art"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Glamour Charms' section, pp. 181-182 (PDF 182-183). Feeds into Translucent Dream Sheathing Technology alongside Gossamer-Forging Art per the diagram on p. 182 (PDF 183)."
+  },
+  {
+    "id": "gossamer-forging-art",
+    "name": "Gossamer-Forging Art",
+    "disposition": "selectable",
+    "summary": "Spends gossamer equal to an item's mundane Resources cost to craft a permanent gossamer wonder over the course of a story, with better statistics than an ordinary exceptional item and no special Charm needed to use it in Creation.",
+    "requirements": "Minimum Ring: 2; Minimum Essence: 1; Prerequisite Charms: Essence-Forging Art.",
+    "mechanics": "Raksha who spend gossamer equal to the mundane Resources cost of the item they wish to create can make truly wondrous works of craft. The raksha's player rolls Intelligence + Craft (Glamour) as a Ring-shaping action. If successful, the raksha must leave the motes committed for a full story as she nurtures the craftwork within her Essence pattern; this Charm creates the desired wonder at the story's end. Gossamer weapons add +1 to accuracy, damage and defense, +2 to their rate, and subtract one dot from their Strength minimum. Gossamer armor has neither fatigue nor mobility penalty. Gossamer tools carry dreams of perfection, adding an automatic success to rolls involving their use; these tool benefits replace the exceptional-item benefits of Essence-Forging Art and never apply to artifacts. This Charm shares Essence-Forging Art's scale limits. Gossamer-forged items are works of permanent glamour, and the raksha can invoke them in Creation without special Charms.",
+    "cost": "5 motes, 1 gossamer per Resources dot",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 182,
+      "pdfPage": 183
+    },
+    "crossReferences": [
+      "ring-grace",
+      "essence-forging-art",
+      "gossamer-background"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Glamour Charms' section, p. 182 (PDF 183). The other of the tree's two independent roots (with Essence-Forging Art) per the diagram on p. 182 (PDF 183); feeds both Crafter's Arsenal and (jointly with Principle of Worlds) Translucent Dream Sheathing Technology."
+  },
+  {
+    "id": "translucent-dream-sheathing-technology",
+    "name": "Translucent Dream Sheathing Technology",
+    "disposition": "selectable",
+    "summary": "Traps a shaping effort in a permanent web of Essence, will and gossamer, turning a moment's work into a lasting hazardous item or territory (a sleeping castle, a room no one can open) with a scaling difficulty table and an optional Permanence upgrade that lets it enter Creation unaided.",
+    "requirements": "Minimum Ring: 3; Minimum Essence: 2; Prerequisite Charms: Gossamer-Forging Art, Principle of Worlds.",
+    "mechanics": "The raksha traps a shaping effort in a web of Essence, will and gossamer, transforming it from a moment's work to a permanent possession -- hazardous regions no one ventures into, cabinets no one opens, castles that put every visitor to sleep. This Charm either creates or targets an exceptional item or territory (it can target, but not create, gossamer items). The raksha chooses a serviceable, fine or exceptional effect, and her player rolls Intelligence + Craft (Glamour) as a Ring-shaping action; on success the motes must stay committed for a full story while she finishes the craftwork. A serviceable effect (difficulty 1) can be overcome with a Charm, stunt or Wyld stunt and otherwise imposes the penalties/benefits of an Essence 1 shaping roll on violation or cooperation. A fine effect (difficulty 2) doubles that to a two-die environmental penalty, or can instead produce a one-dot-hazard regional effect. An exceptional effect (difficulty 3) triples it to a three-die environmental penalty, or a two-dot-hazard regional effect. Paying an extra point of difficulty for Permanence lets the result enter Creation without special Charms, treated there as a permanent glamour; without it, the creation needs an atypical effect such as Elemental Invocation to function in Creation at all, even on an item that could otherwise enter normally.",
+    "cost": "5 motes, 1 gossamer per difficulty point",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 182,
+      "pdfPage": 184
+    },
+    "crossReferences": [
+      "ring-grace",
+      "gossamer-forging-art",
+      "principle-of-worlds"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Glamour Charms' section, pp. 182-184 (PDF 183-184); its difficulty table is split across pages 182-183 (PDF 183-184) around the Principle of Worlds and Awakened Dream Manufacture entries, visually confirmed against the two-column layout. Feeds into Glamour per the diagram on p. 182 (PDF 183)."
+  },
+  {
+    "id": "crafters-arsenal",
+    "name": "Crafter's Arsenal",
+    "disposition": "selectable",
+    "summary": "Forges a permanent shaping weapon over a story, with difficulty set by the Gossamer Background rating needed to buy it and increased for fine or exceptional quality.",
+    "requirements": "Minimum Ring: 4; Minimum Essence: 1; Prerequisite Charms: Gossamer-Forging Art.",
+    "mechanics": "In the workshops of the Wyld, the raksha forges a shaping weapon. The raksha's player rolls Intelligence + Craft (Glamour) as a Ring-shaping action. The base difficulty of the roll equals the Gossamer Background rating necessary to purchase the item; the difficulty increases by 2 to make a fine shaping weapon and by 4 to make an exceptional one -- so an exceptional curdling dream bow would be a difficulty 8 task. If successful, the raksha must leave the motes committed for a full story as she nurtures the craftwork within her Essence pattern. This Charm creates the desired wonder at the story's end.",
+    "cost": "5 motes, 1 or more gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 182,
+      "pdfPage": 183
+    },
+    "crossReferences": [
+      "ring-grace",
+      "gossamer-forging-art",
+      "gossamer-background"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Glamour Charms' section, p. 182 (PDF 183). Branches directly off Gossamer-Forging Art per the diagram on p. 182 (PDF 183), in parallel with Translucent Dream Sheathing Technology."
+  },
+  {
+    "id": "glamour-charm",
+    "name": "Glamour",
+    "disposition": "selectable",
+    "summary": "A faster, unstable cousin of the crafting Charms it depends on: creates a servant, item, or territory instantly rather than over a story, but only as a temporary work of glamour that vanishes at the end of its duration and needs a 'seed' of Creation's substance to manifest there at all.",
+    "requirements": "Minimum Ring: 3; Minimum Essence: 2; Prerequisite Charms: Translucent Dream Sheathing Technology, Shape-Forged Servant.",
+    "mechanics": "The raksha focuses her Essence and wrests gossamer into unstable shapes of glamour, without taking the time to properly accustom the gossamer to shape -- what is made is quickly unmade as its own Wyld nature tears it apart. This Charm creates something from gossamer and Essence, using the rules for Shape-Forged Servant (living creatures), Gossamer-Forging Art (gossamer objects) or Translucent Dream Sheathing Technology (enchanted territories or objects), but differs in that the creation completes instantly, vanishes at the end of the Charm's duration, and is a work of glamour rather than a permanent one (no effect on creatures with Wits + Essence higher than the raksha's Intelligence). In Creation, each creation needs a seed of Creation's substance: servants are transformed out of an insect or simple animal, items out of a mundane item, and regions/homes/vehicles are enchantments laid over existing regions, shelters or transport. This Charm normally lasts one scene per success on the raksha's Intelligence + Craft (Glamour) roll; ignoring the seed requirement and crafting from nothingness instead limits it to one turn per success; using particularly apt seeds (Storyteller's judgment) can extend it to one day per success.",
+    "cost": "5 motes, 1 or more gossamer",
+    "compatibility": "Duration: One scene, turn or day per success. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 182,
+      "pdfPage": 185
+    },
+    "crossReferences": [
+      "ring-grace",
+      "translucent-dream-sheathing-technology",
+      "shape-forged-servant",
+      "gossamer-forging-art"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Glamour Charms' section, pp. 182-185 (PDF 184-185). Named identically to the broader 'glamour' concept used throughout this book and inventory (works of glamour, permanent glamour, Glamour Sorcery); id disambiguated as `glamour-charm` to avoid collision with those general-mechanics terms. Central hub of the diagram on p. 182 (PDF 183): it feeds Monstrous Conceit and Burden Ghost Glamour, and (together with Undetectable Lie) Monstrous Conceit specifically."
+  },
+  {
+    "id": "monstrous-conceit",
+    "name": "Monstrous Conceit",
+    "disposition": "selectable",
+    "summary": "A Staff-shaping crossover Charm sitting in the Ring tree's Glamour Charms diagram: forges something directly within a consenting target's mind, functioning as an uncommitted, single-target version of Glamour.",
+    "requirements": "Minimum Staff: 4; Minimum Essence: 3; Prerequisite Charms: Undetectable Lie, Glamour.",
+    "mechanics": "The raksha forges something within a consenting target's mind. This Charm functions exactly as Glamour, except that the motes are not committed, the glamour can interact only with the target, and the raksha is treated as having spent a number of gossamer points on the glamour equal to her Essence.",
+    "cost": "5 motes, 0 gossamer",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 185,
+      "pdfPage": 186
+    },
+    "crossReferences": [
+      "staff-grace",
+      "ring-grace",
+      "undetectable-lie",
+      "glamour-charm"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Glamour Charms' section, p. 185 (PDF 186). Like Beguilement, Spite-Summoning Malediction and Prince and Pauper Approach in the Cup tree and Undetectable Lie in the Ring Combat Charms sub-section, this Charm is explicitly gated on a different Grace ('Minimum Staff: 4') than the tree it sits in, continuing the cross-Grace-crossover pattern flagged throughout this inventory -- though unlike those other examples it is not itself labeled 'This is a Staff-shaping Charm' in the text. Undetectable Lie is one of its two prerequisites; that Charm was already inventoried under Ring Combat Charms and is not duplicated here, only cross-referenced."
+  },
+  {
+    "id": "poppet-integrating-spirit",
+    "name": "Poppet-Integrating Spirit",
+    "disposition": "selectable",
+    "summary": "Binds a small Wyld creature to the raksha as a familiar, destroying the target's own Heart Grace and increasing the raksha's Familiar Background by one dot per use.",
+    "requirements": "Minimum Ring: 2; Minimum Essence: 2; Prerequisite Charms: Shape-Forged Servant.",
+    "mechanics": "The raksha binds a small creature of the Wyld -- a normal or mutated creature with a base form of, at most, Hazard Rating 2 -- to herself. If the creature has a Heart Grace, its Heart Trait cannot exceed 1. This Charm creates a familiar, destroying the target's Heart Grace and binding the creature to the raksha's Heart instead. This Charm increases the raksha's Familiar Background by one dot each time it is used; the raksha's control remains incomplete until she raises her Familiar Background to the point necessary to have the creature. The gossamer cost represents the additional effort needed to bind a mutated familiar. The raksha can bind a creature of her own creation.",
+    "cost": "10 motes, 1 experience point, 1 gossamer per mutation point",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 184,
+      "pdfPage": 185
+    },
+    "crossReferences": [
+      "ring-grace",
+      "shape-forged-servant",
+      "familiar-background-fair-folk"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Glamour Charms' section, pp. 184-185 (PDF 185). Branches directly off Shape-Forged Servant per the diagram on p. 182 (PDF 183)."
+  },
+  {
+    "id": "burden-ghost-glamour",
+    "name": "Burden Ghost Glamour",
+    "disposition": "selectable",
+    "summary": "Disincarnates a mechanical burden (encumbrance) from a bound creature, sending it scuttling off into the Wyld in ghostly insectile form, at the cost of consuming an owned Wyld artifact of sufficient level.",
+    "requirements": "Minimum Ring: 4; Minimum Essence: 3; Prerequisite Charms: Glamour.",
+    "mechanics": "The raksha disincarnates a burden (in the mechanical sense of an encumbrance) from the creature bound to it; the burden takes on a ghostly insectile form and scuttles off into the Wyld. To power its work, this Charm utterly consumes a Wyld artifact that the raksha owns. Used to lift a character's burden, the artifact must have an Artifact level equal to or above the target's Ring; to lift a waypoint burden in a Freehold or Demesne, the artifact must have a level equal to or greater than the Freehold or Demesne level. This Charm is a work of glamour and does not affect Creation-born characters whose Intelligence + Essence exceeds the raksha's Willpower.",
+    "cost": "10 motes, 1 Willpower, 0 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 185,
+      "pdfPage": 186
+    },
+    "crossReferences": [
+      "ring-grace",
+      "glamour-charm"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Glamour Charms' section, p. 185 (PDF 186). Branches directly off Glamour per the diagram on p. 182 (PDF 183). References Wyld artifacts (pp. 207-208), a mechanic not yet inventoried in this pass -- mentioned here only as plain text, no crossReference id created."
+  },
+  {
+    "id": "shape-forged-servant",
+    "name": "Shape-Forged Servant",
+    "disposition": "selectable",
+    "summary": "Forges a mutation-bearing servant over the course of a story, held for a time outside world and Wyld alike in the gateway Nirakara, gaining one mutation point per gossamer spent.",
+    "requirements": "Minimum Ring: 2; Minimum Essence: 1; Prerequisite Charms: Awakened Dream Manufacture.",
+    "mechanics": "The raksha forges a servant in the gateway Nirakara, holding it away from world and Wyld as she gives it certain characteristics of shape and form. The raksha chooses whether to create a basic, fine or exceptional servant, and her player rolls Intelligence + Craft (Glamour) as a Ring-shaping action against the difficulties listed under Awakened Dream Manufacture. If successful, the raksha must leave the motes committed for a full story as she nurtures the budding creature of shape in her Essence pattern. The completed servant has one mutation point for each gossamer spent, up to the raksha's Craft (Glamour) rating in gossamer. The servant cannot enter Creation without a permanent Assumption-type Charm, unless the raksha uses an atypical effect such as Elemental Invocation. Shape-forged servants are works of permanent glamour.",
+    "cost": "5 motes, 1 gossamer per mutation point",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 184,
+      "pdfPage": 184
+    },
+    "crossReferences": [
+      "ring-grace",
+      "awakened-dream-manufacture",
+      "mutation-mechanic"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Glamour Charms' section, p. 184 (PDF 184). Central branch point of the diagram on p. 182 (PDF 183): Tainted Creature Command, Poppet-Integrating Spirit and Glamour all require this Charm; it also grounds the entire 'Greater Arts of Glamour' sub-section that follows (Forging the Heart Grace requires it directly). References the not-yet-inventoried Assumption-type Charm tree (the Mask, pp. 148-155/PDF 149-156) in plain text only."
+  },
+  {
+    "id": "awakened-dream-manufacture",
+    "name": "Awakened Dream Manufacture",
+    "disposition": "selectable",
+    "summary": "The root of the servant-crafting line: forges a basic, fine or exceptional mindless servant with only the mildest self-awareness, no Willpower, Nature or volition of its own.",
+    "requirements": "Minimum Ring: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "Most of the servants of the raksha are forged in the same fashion as their tangible possessions; in some cases the tools, foodstuffs and homes of the raksha possess some measure of life. Servants created with this Charm are patterns and dreams with only the mildest self-awareness -- no Willpower Trait, no Nature, no volition -- serving as dictated by their raksha owner. Drawing on the secrets of his own Ring, the raksha forges an awakened dream. He chooses whether to create a basic, fine or exceptional servant, and his player rolls Intelligence + Craft (Glamour) as a Ring-shaping action against a difficulty of 1 (basic: the Traits of a typical citizen, a horse-caliber combat animal, or a mannikin), 2 (fine: an elite soldier, a war dog-caliber combat animal, or a poppet -- the Storyteller can optionally allow other one-dot hazards) or 3 (exceptional: a tyrant lizard-caliber combat animal or a homunculus -- the Storyteller can optionally allow other two-dot hazards). Servants based on human Traits also gain a three-dot Craft or Performance Ability of the raksha's choice.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 183,
+      "pdfPage": 184
+    },
+    "crossReferences": [
+      "ring-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Glamour Charms' section, p. 183 (PDF 184). Its difficulty table sets the terms Shape-Forged Servant's own roll is measured against."
+  },
+  {
+    "id": "tainted-creature-command",
+    "name": "Tainted Creature Command",
+    "disposition": "selectable",
+    "summary": "A Staff-shaping crossover Charm: asserts dominance over lesser creatures of chaos (mutated humans/animals, artificial Wyld beings, and low-Essence common raksha), forcing submission or stripped mutations.",
+    "requirements": "Minimum Staff: 3; Minimum Essence: 1; Prerequisite Charms: Shape-Forged Servant.",
+    "mechanics": "Wrapping herself in a shimmering cloak of Wyld energy, the raksha asserts dominance over the lesser creatures of chaos: humans and animals with Wyld mutations; mannikins, poppets, homunculi and other natural beasts of the Wyld; and common raksha whose Essence is less than half the character's own. This Charm forces a successful Willpower roll from such creatures, subtracting any points of mutation they possess, or else they submit to the raksha's authority. This Charm is a work of glamour and does not affect creatures whose Wits + Essence exceeds the character's Charisma; Exalted and other Creation-born Essence channelers are also immune. This is a Staff-shaping Charm.",
+    "cost": "8 motes, 1 Willpower, 0 gossamer",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 184,
+      "pdfPage": 184
+    },
+    "crossReferences": [
+      "staff-grace",
+      "ring-grace",
+      "shape-forged-servant"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Glamour Charms' section, p. 184 (PDF 184-185, spanning the column break). Explicitly gated on Staff ('Minimum Staff: 3') and self-declared 'a Staff-shaping Charm' despite branching directly off the Ring tree's Shape-Forged Servant -- the same cross-Grace pattern flagged throughout this inventory (Beguilement, Spite-Summoning Malediction, Prince and Pauper Approach, Undetectable Lie, Monstrous Conceit)."
+  },
+  {
+    "id": "workers-gift",
+    "name": "Worker's Gift",
+    "disposition": "selectable",
+    "summary": "A repeatable Charm granting bonus gossamer whenever the raksha gains Willpower from fulfilling her nature, purchasable up to her Ring rating with cumulative effects.",
+    "requirements": "Minimum Ring: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "Through their efforts and dedication, the Workers in the Wyld produce gossamer. This Charm gives the raksha 2 bonus gossamer whenever she gains Willpower from fulfilling her nature. Players can purchase this Charm a number of times equal to the raksha's Ring, and the effects are cumulative.",
+    "cost": "1 mutation point",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 181,
+      "pdfPage": 182
+    },
+    "crossReferences": [
+      "ring-grace",
+      "gossamer-background",
+      "mutation-mechanic"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Glamour Charms' section, p. 181 (PDF 182). Root of a small, separate 2-Charm pair diagrammed at the bottom of p. 182 (PDF 183), visually confirmed as unconnected to the tree's main Essence-Forging Art / Gossamer-Forging Art branches."
+  },
+  {
+    "id": "style-improving-spirit",
+    "name": "Style-Improving Spirit",
+    "disposition": "selectable",
+    "summary": "Raises the raksha's Style Background by one dot each time it is used, once per story.",
+    "requirements": "Minimum Ring: 2; Minimum Essence: 2; Prerequisite Charms: Worker's Gift.",
+    "mechanics": "Tuning her nature in the forge of the Wyld, the raksha gains power over her own definition. Her Style Background improves by one dot each time she uses this Charm, and she can use it once per story.",
+    "cost": "1 experience point",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 181,
+      "pdfPage": 182
+    },
+    "crossReferences": [
+      "ring-grace",
+      "workers-gift",
+      "style-background"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Glamour Charms' section, p. 181 (PDF 182). Second and last Charm of the small standalone pair rooted at Worker's Gift."
   }
 ]

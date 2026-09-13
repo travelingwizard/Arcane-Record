@@ -1,7 +1,7 @@
 # Exalted 1e — Fair Folk source intake
 
 **Status: source intake in progress.** `Exalted: The Fair Folk` has been
-supplied and 124 inventory rows are checked in under `inventory/`. See
+supplied and 152 inventory rows are checked in under `inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
@@ -9,7 +9,7 @@ the full process this directory follows.
 
 - `source-manifest.json` — the one source book in scope so far
   (`exalted-the-fair-folk`); supplements are not yet added.
-- `inventory/exalted-the-fair-folk.json` — 124 rows covering:
+- `inventory/exalted-the-fair-folk.json` — 152 rows covering:
   - The Chapter Three character-creation overview, split into two rows
     because common and noble raksha use materially different baselines:
     `fair-folk-creation-overview-common` (0-dot starting Attributes, 0 free
@@ -130,46 +130,78 @@ the full process this directory follows.
       labels one box "Impinging Web of Dreams" (plural) where the Charm's
       own header reads "Impinging Web of Dream" (singular)
       (`impinging-web-of-dream`).
-  - **The Ring Grace tree's first named sub-section, Ring Combat Charms, in
-    full** (shinma Nirvishesha; pp. 171-175, PDF 172-176; 16 new Charm rows
-    this round): two independent roots, `flesh-carved-world` (→
-    `shuddering-wyld-inference` → `waypoint-knife` + `minds-grip-rigor`; and
-    → `creators-fugue` → `impinging-web-of-dream`; and →
-    `crippling-destiny-burden`, an explicit anti-Sword-caste counter-Charm)
-    and `wyld-curdling-attack` (→ `endless-yawning-void`,
-    `luminous-exhalation` → `these-dreams-are-clay`, `twisting-serpent-shape`,
-    `gaping-wound-lens`, `pounding-dream-harmony`), with `waypoint-knife` +
-    `pounding-dream-harmony` converging on `sorrowful-firmament-resonance` →
-    `undetectable-lie` (the tree's Staff-shaping crossover finale). This is
-    the first point in the inventory where Cup/Ring/Staff-shaping Charms are
-    consistently interchangeable options on the same Charm text (nearly
-    every Ring Combat Charm reads "Ring-shaping or Staff-shaping"), not just
-    an occasional crossover leaf.
+  - **The Ring Grace tree's first three named sub-sections** (shinma
+    Nirvishesha; 30 new Charm rows this round):
+    - **Ring Combat Charms** (pp. 171-175, PDF 172-176; 16 Charms): two
+      independent roots, `flesh-carved-world` (→ `shuddering-wyld-inference`
+      → `waypoint-knife` + `minds-grip-rigor`; and → `creators-fugue` →
+      `impinging-web-of-dream`; and → `crippling-destiny-burden`, an explicit
+      anti-Sword-caste counter-Charm) and `wyld-curdling-attack` (→
+      `endless-yawning-void`, `luminous-exhalation` → `these-dreams-are-clay`,
+      `twisting-serpent-shape`, `gaping-wound-lens`,
+      `pounding-dream-harmony`), with `waypoint-knife` +
+      `pounding-dream-harmony` converging on `sorrowful-firmament-resonance`
+      → `undetectable-lie` (the tree's Staff-shaping crossover finale). This
+      is the first point in the inventory where Cup/Ring/Staff-shaping
+      Charms are consistently interchangeable options on the same Charm text
+      (nearly every Ring Combat Charm reads "Ring-shaping or
+      Staff-shaping"), not just an occasional crossover leaf.
+    - **All-Consuming God-Monster Style** (pp. 175-178, PDF 176-179; 6
+      Charms): a Stance-type transformation tree, rooted at `wyld-communion`
+      → `spirit-flaying-meditation` → two branches
+      (`being-nonbeing-approach`; `all-consuming-god-monster-stance`, the
+      purchasable "God-Monster Body" Stance Charm with a paraphrased sample
+      gift menu → `nature-eliminating-knife`) reconverging on the capstone
+      `chimera-exultation`, which utterly destroys the raksha who casts it as
+      a Storyteller-controlled plot device. `chimera-exultation`'s mechanics
+      text is displaced ahead of its own header in the PDF's raw
+      text-extraction order (it reads as if attached to the "Body-
+      Strengthening Charms" section instead); this was confirmed against the
+      rendered page image and flagged in that row's `notes`.
+    - **Body-Strengthening Charms** (pp. 178-180, PDF 179-181; 5 Charms):
+      `knife-hand-dream` → `opalescent-gossamer-raiment` →
+      `blade-turning-skin` → `inviolable-presence` (a linear, stacking
+      natural-soak progression), plus the standalone, diagrammatically
+      unconnected `ox-body-technique` (purchasable up to the raksha's Ring
+      rating, distinct from the shaping-combat `wyld-prince-resilience`
+      already inventoried in the Cup Grace tree).
+    - **Creation-Based Crafting** (pp. 180-181, PDF 181-182; 3 Charms):
+      `ordinary-object-conjuration` → two parallel branches,
+      `limitless-wealth-conjuration-technique` and `hateful-coin-curse`.
+    - **Glamour Charms, first tree** (pp. 181-185, PDF 182-186; 14
+      Charms): two independent roots, `essence-forging-art` (→
+      `principle-of-worlds`, `gossamer-forging-art` → `crafters-arsenal`;
+      with `gossamer-forging-art` + `principle-of-worlds` together
+      feeding `translucent-dream-sheathing-technology`) and
+      `awakened-dream-manufacture` (→ `shape-forged-servant` →
+      `poppet-integrating-spirit`, `tainted-creature-command`), with
+      `translucent-dream-sheathing-technology` + `shape-forged-servant`
+      together feeding `glamour-charm` (named simply "Glamour" in the
+      book) → `monstrous-conceit` (a Staff-shaping crossover Charm that
+      also requires the existing `undetectable-lie` Ring Combat Charm)
+      and `burden-ghost-glamour`; plus the standalone, diagrammatically
+      unconnected pair `workers-gift` → `style-improving-spirit`.
 
 ## What's still needed
 
-1. **Two of Chapter Five's five per-Grace Charm trees remain, plus most of
-   the Ring Grace tree**: the Ring Grace tree (shinma Nirvishesha, pp.
-   172-192 / PDF 173-193 — by far the largest of the five) has only its
-   first named sub-section, Ring Combat Charms, inventoried so far. Still
-   needed from the Ring tree, in page order: the "All-Consuming
-   God-Monster Style" Charm tree (a Stance-type transformation tree
-   granting a purchasable "God-Monster Body" with a menu of sample body
-   gifts, pp. 175-178 / PDF 176-179), Body-Strengthening Charms (pp.
-   178-180 / PDF 179-181, including the Ox-Body Technique), Creation-Based
-   Crafting (pp. 180-181 / PDF 181-182), and a very large Glamour Charms
-   section (pp. 181-192 / PDF 182-193) including the "Forging the (Grace)
-   Grace" Charms that let raksha grant Grace Traits to Creation-born
-   characters and the Freehold-anchoring Forging the
-   Stronghold/Glory/Fountainhead/Throne Room Charms. After the Ring tree
-   finishes, the Sword Grace tree remains entirely (shinma Nishkriya, pp.
-   196-203 / PDF 197-204 — Sword Combat Charms plus a "Mutation Charms"
-   section of sample mutations). **Resume with the "All-Consuming
-   God-Monster Style" Charm tree at printed p. 175 / PDF 176** (immediately
-   after `these-dreams-are-clay`, the last Ring Combat Charm inventoried
-   this round; the diagrammed tree title and its own diagram box are
-   visually confirmed to start right there, with no intervening chapter or
-   Grace change), in that page order (rest of Ring, then Sword).
+1. **Two of Chapter Five's five per-Grace Charm trees remain, plus the last
+   section of the Ring Grace tree**: the Ring Grace tree (shinma
+   Nirvishesha, pp. 172-192 / PDF 173-193 — by far the largest of the five)
+   now has Ring Combat Charms, All-Consuming God-Monster Style,
+   Body-Strengthening Charms, Creation-Based Crafting, and the first
+   Glamour Charms tree inventoried. Still needed: the "**Greater Arts of
+   Glamour**" sub-section (pp. 185-192 / PDF 186-193 — three further
+   diagrammed trees covering `forging-the-heart-grace`, the four "Forging
+   the (Grace) Grace" Charms that let raksha grant Grace Traits to
+   Creation-born characters, the Freehold-anchoring Forging the
+   Stronghold/Glory/Fountainhead/Throne Room Charms, and capstone
+   artifact/behemoth-creation Charms). After the Ring tree finishes, the
+   Sword Grace tree remains entirely (shinma Nishkriya, pp. 196-203 / PDF
+   197-204 — Sword Combat Charms plus a "Mutation Charms" section of sample
+   mutations). **Resume with the Greater Arts of Glamour sub-section at
+   printed p. 185 / PDF 186** (immediately after `burden-ghost-glamour` and
+   `monstrous-conceit`, the last Charms of the first Glamour tree
+   inventoried this round), in that page order (rest of Ring, then Sword).
 2. The universal, non-Grace-gated Assumption-type Charm tree (shinma
    Nirakara, "the Mask"; pp. 148-155 / PDF 149-156) that lets any raksha
    take shape and exist within Creation at all — not yet inventoried.

@@ -196,7 +196,7 @@ real, creatable sheet.
 | Abyssal    | Created (Exalted: The Abyssals)       | 265            | 0        | Locked, all dimensions `not-run` |
 | Sidereal   | Created (Exalted: The Sidereals)      | 60             | 0        | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians) | 175            | 0        | Locked, all dimensions `not-run` |
-| Fair Folk  | Created (Exalted: The Fair Folk)      | 124            | 0        | Locked, all dimensions `not-run` |
+| Fair Folk  | Created (Exalted: The Fair Folk)      | 152            | 0        | Locked, all dimensions `not-run` |
 
 Lunar's 122 rows (as of this update) cover the core innate powers, the
 complete Shapechanging I/II/III Charm trees, the complete Body Enhancement
@@ -257,16 +257,19 @@ reviewed against the supplied PDF's real text layer (printed page = PDF page
 setting/artifact/mortal material, plus the setting/adventure chapters, are
 not yet inventoried; see `docs/references/exalted1e/alchemical/README.md`.
 
-Fair Folk's 60 rows cover both character-creation tracks (common and noble
+Fair Folk's 152 rows cover both character-creation tracks (common and noble
 raksha), the four Castes (Diplomat/Entertainer/Warrior/Worker) and their
 twelve noble hybrid archetypes, the five Grace traits that Charms key off
 instead of Attributes/Abilities, the Bedlam mechanic (this splat's
 Limit-Trait analog, split into four per-Virtue Curses rather than a single
-universal trait), nine new/altered Backgrounds, and two of Chapter Five's
-five per-Grace Charm trees in full (Heart and Staff), reviewed against the
-supplied PDF's real text layer (printed page = PDF page − 1) with
-spot-checked renders. The remaining three per-Grace Charm trees (Cup, Ring,
-Sword), the universal Assumption-type Charm tree, and Chapter Five's
+universal trait), nine new/altered Backgrounds, three of Chapter Five's five
+per-Grace Charm trees in full (Heart, Staff, Cup), and four of the fifth's
+five named sub-sections (Ring: Ring Combat Charms, All-Consuming
+God-Monster Style, Body-Strengthening Charms, Creation-Based Crafting, and
+the first Glamour Charms tree), reviewed against the supplied PDF's real
+text layer (printed page = PDF page − 1) with spot-checked renders. The
+Ring tree's "Greater Arts of Glamour" sub-section, the entire Sword Grace
+Charm tree, the universal Assumption-type Charm tree, and Chapter Five's
 non-Charm magic material (Glamour Sorcery, Wyld Artifacts, Behemoths) are
 not yet inventoried; see `docs/references/exalted1e/fair-folk/README.md`.
 
