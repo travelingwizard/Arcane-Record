@@ -192,18 +192,20 @@ real, creatable sheet.
 
 | Family     | Source manifest                       | Inventory rows | Promoted | Certification                    |
 | ---------- | ------------------------------------- | -------------- | -------- | -------------------------------- |
-| Lunar      | Created (Exalted: The Lunars)         | 54             | 0        | Locked, all dimensions `not-run` |
+| Lunar      | Created (Exalted: The Lunars)         | 79             | 0        | Locked, all dimensions `not-run` |
 | Abyssal    | Created (Exalted: The Abyssals)       | 175            | 0        | Locked, all dimensions `not-run` |
 | Sidereal   | Created (Exalted: The Sidereals)      | 22             | 0        | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians) | 57             | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Created (Exalted: The Fair Folk)      | 60             | 0        | Locked, all dimensions `not-run` |
 
-Lunar's 54 rows (as of this update) cover the core innate powers, the
+Lunar's 79 rows (as of this update) cover the core innate powers, the
 complete Shapechanging I/II/III Charm trees, the complete Body Enhancement
-I/II Charm trees, the complete Unarmed Combat I tree, and the first four
-Charms of Unarmed Combat II, all visually reviewed against rendered pages
-of the supplied PDF. See `docs/references/exalted1e/lunar/README.md`
-for what remains outstanding from that book.
+I/II Charm trees, and the complete Unarmed Combat I through V Charm trees
+(the entire Unarmed Combat Charm category), all visually reviewed against
+rendered pages of the supplied PDF. Melee Combat, Ranged Combat, Defensive,
+Survival and Healing, Perception, Stealth, Spirit, and Sorcery-access
+Charms, plus Backgrounds, Merits/Flaws, and caste/tribe creation options,
+remain outstanding; see `docs/references/exalted1e/lunar/README.md`.
 
 Abyssal's 175 rows cover the Chapter Three character-creation overview, the
 universal Anima Effect, all five Castes, the Abyssal Curse, the Virtues of

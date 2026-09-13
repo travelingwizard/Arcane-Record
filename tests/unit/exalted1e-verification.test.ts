@@ -148,7 +148,7 @@ describe('exalted1e verification gate', () => {
   it('describes a locked family with inventory in progress by its promotion count, not "catalog not started"', () => {
     const status = getFamilyCertificationStatus('lunar');
     expect(status.available).toBe(false);
-    expect(status.blockReason).toContain('0/54 promoted');
+    expect(status.blockReason).toContain('0/79 promoted');
     expect(status.blockReason).toContain('0 unresolved');
     expect(status.blockReason).toContain('rules tests not-run');
   });

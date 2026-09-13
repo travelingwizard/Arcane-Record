@@ -20,7 +20,7 @@
     "name": "True Forms",
     "disposition": "calculated",
     "summary": "A Lunar can have more than one 'true form.' Learning Finding the Spirit's Shape adds a totem animal as a second true form; learning Deadly Beastman Transformation on top of that adds a hybrid war-form as a third.",
-    "mechanics": "Reversion between true forms (human, totem animal, hybrid) is not a Charm use and doesn't cost the Essence that was spent to enter that shape in the first place — the Lunar simply has multiple 'true' shapes. If the Lunar reverts to true form for any reason (usually spending Peripheral Essence), she assumes whichever of her true shapes she wore last.",
+    "mechanics": "Reversion between true forms (human, totem animal, hybrid) is not a Charm use and doesn't cost the Essence that was spent to enter that shape in the first place \u2014 the Lunar simply has multiple 'true' shapes. If the Lunar reverts to true form for any reason (usually spending Peripheral Essence), she assumes whichever of her true shapes she wore last.",
     "compatibility": "All Lunar castes; requires Finding the Spirit's Shape (totem form) and/or Deadly Beastman Transformation (hybrid form) to have more than one true form.",
     "verificationState": "reviewed",
     "citation": {
@@ -28,7 +28,10 @@
       "printedPage": 120,
       "pdfPage": 123
     },
-    "crossReferences": ["finding-the-spirits-shape", "deadly-beastman-transformation"],
+    "crossReferences": [
+      "finding-the-spirits-shape",
+      "deadly-beastman-transformation"
+    ],
     "notes": "'True Forms' sidebar, same page as 'The Tell.'"
   },
   {
@@ -36,7 +39,7 @@
     "name": "The Tell",
     "disposition": "calculated",
     "summary": "Every Lunar has an unchanging physical oddity called the Tell, left over from the tattooing/scarification ritual that fixes her Caste. How severe the Tell is depends on how many times the character has purchased Deadly Beastman Transformation.",
-    "mechanics": "1-2 purchases of Deadly Beastman Transformation: small Tells (odd hair color, hair with a gray/black stripe, a discolored eyebrow, a prominent birthmark, a missing eye). More purchases: the Tell grows, often manifesting traits of the Lunar's favored (totem) animal — wolf ears, goat hooves, tiger-like paws, or blatant traits such as backward-bending fingers, extra eyes, or cyclopeanism. It is the nature of the Tell to try to conceal itself from those who don't know to look for it and reveal itself to those who do, an automatic effect of Exaltation, not something the character controls directly. A character who has not taken Deadly Beastman Transformation has a small Tell that conceals itself well. A Lunar whose Tell combines the traits of several animals (from changing totem animal) is known as a chimera.",
+    "mechanics": "1-2 purchases of Deadly Beastman Transformation: small Tells (odd hair color, hair with a gray/black stripe, a discolored eyebrow, a prominent birthmark, a missing eye). More purchases: the Tell grows, often manifesting traits of the Lunar's favored (totem) animal \u2014 wolf ears, goat hooves, tiger-like paws, or blatant traits such as backward-bending fingers, extra eyes, or cyclopeanism. It is the nature of the Tell to try to conceal itself from those who don't know to look for it and reveal itself to those who do, an automatic effect of Exaltation, not something the character controls directly. A character who has not taken Deadly Beastman Transformation has a small Tell that conceals itself well. A Lunar whose Tell combines the traits of several animals (from changing totem animal) is known as a chimera.",
     "compatibility": "All Lunar castes.",
     "verificationState": "reviewed",
     "citation": {
@@ -44,7 +47,11 @@
       "printedPage": 120,
       "pdfPage": 123
     },
-    "crossReferences": ["deadly-beastman-transformation", "hide-of-the-cunning-hunter", "masking-the-brilliant-form"],
+    "crossReferences": [
+      "deadly-beastman-transformation",
+      "hide-of-the-cunning-hunter",
+      "masking-the-brilliant-form"
+    ],
     "notes": "Suppressed at low anima-display levels by Hide of the Cunning Hunter, and up through the 4-7 mote anima level by Masking the Brilliant Form."
   },
   {
@@ -60,7 +67,9 @@
       "printedPage": 63,
       "pdfPage": 66
     },
-    "crossReferences": ["lunar-without-a-caste"],
+    "crossReferences": [
+      "lunar-without-a-caste"
+    ],
     "notes": "Chapter Two, 'Fixing the Caste' section."
   },
   {
@@ -76,7 +85,9 @@
       "printedPage": 63,
       "pdfPage": 66
     },
-    "crossReferences": ["fixing-the-caste-tattoos"],
+    "crossReferences": [
+      "fixing-the-caste-tattoos"
+    ],
     "notes": "'A Lunar Without a Caste' sidebar box, same page as 'Fixing the Caste.'"
   },
   {
@@ -94,7 +105,9 @@
       "printedPage": 123,
       "pdfPage": 126
     },
-    "crossReferences": ["the-tell"],
+    "crossReferences": [
+      "the-tell"
+    ],
     "notes": "Shapeshifting Charms tree, first Charm (see Shapechanging I tree diagram, p. 124/PDF 127)."
   },
   {
@@ -112,7 +125,11 @@
       "printedPage": 123,
       "pdfPage": 126
     },
-    "crossReferences": ["hide-of-the-cunning-hunter", "the-tell", "deadly-beastman-transformation"],
+    "crossReferences": [
+      "hide-of-the-cunning-hunter",
+      "the-tell",
+      "deadly-beastman-transformation"
+    ],
     "notes": "Shapeshifting Charms tree, second Charm."
   },
   {
@@ -130,7 +147,10 @@
       "printedPage": 124,
       "pdfPage": 127
     },
-    "crossReferences": ["true-forms", "the-tell"],
+    "crossReferences": [
+      "true-forms",
+      "the-tell"
+    ],
     "notes": "Shapechanging I tree. A Lunar in totem animal shape may spend 1 mote to activate this Charm and return to human shape; this may only be activated once per turn."
   },
   {
@@ -148,7 +168,21 @@
       "printedPage": 124,
       "pdfPage": 127
     },
-    "crossReferences": ["finding-the-spirits-shape", "the-tell", "true-forms", "horrifying-might", "bestial-reflexes", "lightning-speed", "spider-foot-climbing", "glue-foot-climbing", "gift-of-hands", "arm-array", "terrible-beast-claws", "savage-moonsilver-talons", "resilience-of-nature"],
+    "crossReferences": [
+      "finding-the-spirits-shape",
+      "the-tell",
+      "true-forms",
+      "horrifying-might",
+      "bestial-reflexes",
+      "lightning-speed",
+      "spider-foot-climbing",
+      "glue-foot-climbing",
+      "gift-of-hands",
+      "arm-array",
+      "terrible-beast-claws",
+      "savage-moonsilver-talons",
+      "resilience-of-nature"
+    ],
     "notes": "Purchasing this Charm increases the severity of the Lunar's Tell. Gifts granted by this Charm are listed under the Beastman Transformation Gifts table (p. 126/PDF 129)."
   },
   {
@@ -166,7 +200,9 @@
       "printedPage": 125,
       "pdfPage": 128
     },
-    "crossReferences": ["deadly-beastman-transformation"],
+    "crossReferences": [
+      "deadly-beastman-transformation"
+    ],
     "notes": "Shapechanging I tree."
   },
   {
@@ -184,7 +220,10 @@
       "printedPage": 125,
       "pdfPage": 128
     },
-    "crossReferences": ["calling-lunas-favor", "deadly-beastman-transformation"],
+    "crossReferences": [
+      "calling-lunas-favor",
+      "deadly-beastman-transformation"
+    ],
     "notes": "Shapechanging I tree."
   },
   {
@@ -193,7 +232,7 @@
     "disposition": "selectable",
     "summary": "Knowledge-only Charm (no activation cost) that enhances the Lunar's hybrid war-form, letting it scale up to as large as a Tyrant Lizard or other large dinosaur, rather than being capped at elk-size.",
     "requirements": "Minimum Charisma 3; Minimum Essence 2; Prerequisite Charms: Finding the Spirit's Shape.",
-    "mechanics": "There is no cost to use this Charm's effects — simply learning it enhances the Lunar's capabilities passively. Members of the Eclipse Caste may not learn this Charm, for it draws on a natural power of the Lunar Exalted that Solars cannot master or emulate.",
+    "mechanics": "There is no cost to use this Charm's effects \u2014 simply learning it enhances the Lunar's capabilities passively. Members of the Eclipse Caste may not learn this Charm, for it draws on a natural power of the Lunar Exalted that Solars cannot master or emulate.",
     "cost": "None",
     "compatibility": "Duration: Indefinite. Type: Special. Not available to Eclipse Caste.",
     "verificationState": "reviewed",
@@ -202,7 +241,9 @@
       "printedPage": 125,
       "pdfPage": 128
     },
-    "crossReferences": ["finding-the-spirits-shape"],
+    "crossReferences": [
+      "finding-the-spirits-shape"
+    ],
     "notes": "Shapechanging I tree; distinct branch from Deadly Beastman Transformation."
   },
   {
@@ -219,7 +260,9 @@
       "printedPage": 126,
       "pdfPage": 129
     },
-    "crossReferences": ["deadly-beastman-transformation"],
+    "crossReferences": [
+      "deadly-beastman-transformation"
+    ],
     "notes": "Beastman Transformation Gifts table; Charms can mimic gift effects per the table's introduction, and Storytellers/players may develop other gifts beyond this sample list."
   },
   {
@@ -236,7 +279,10 @@
       "printedPage": 126,
       "pdfPage": 129
     },
-    "crossReferences": ["deadly-beastman-transformation", "spider-foot-climbing"],
+    "crossReferences": [
+      "deadly-beastman-transformation",
+      "spider-foot-climbing"
+    ],
     "notes": "Beastman Transformation Gifts table."
   },
   {
@@ -253,7 +299,10 @@
       "printedPage": 126,
       "pdfPage": 129
     },
-    "crossReferences": ["deadly-beastman-transformation", "spider-foot-climbing"],
+    "crossReferences": [
+      "deadly-beastman-transformation",
+      "spider-foot-climbing"
+    ],
     "notes": "Beastman Transformation Gifts table."
   },
   {
@@ -270,7 +319,12 @@
       "printedPage": 126,
       "pdfPage": 129
     },
-    "crossReferences": ["deadly-beastman-transformation", "bestial-reflexes", "lightning-speed", "glue-foot-climbing"],
+    "crossReferences": [
+      "deadly-beastman-transformation",
+      "bestial-reflexes",
+      "lightning-speed",
+      "glue-foot-climbing"
+    ],
     "notes": "Beastman Transformation Gifts table."
   },
   {
@@ -287,7 +341,10 @@
       "printedPage": 126,
       "pdfPage": 129
     },
-    "crossReferences": ["deadly-beastman-transformation", "spider-foot-climbing"],
+    "crossReferences": [
+      "deadly-beastman-transformation",
+      "spider-foot-climbing"
+    ],
     "notes": "Beastman Transformation Gifts table."
   },
   {
@@ -304,14 +361,17 @@
       "printedPage": 126,
       "pdfPage": 129
     },
-    "crossReferences": ["deadly-beastman-transformation", "arm-array"],
+    "crossReferences": [
+      "deadly-beastman-transformation",
+      "arm-array"
+    ],
     "notes": "Beastman Transformation Gifts table."
   },
   {
     "id": "arm-array",
     "name": "Arm-Array (Beastman Transformation gift)",
     "disposition": "selectable",
-    "summary": "The character has more than two arms — as few as three, or possibly as many as 30 — able to hold many weapons at the ready.",
+    "summary": "The character has more than two arms \u2014 as few as three, or possibly as many as 30 \u2014 able to hold many weapons at the ready.",
     "requirements": "Selected as one of the gifts granted by a purchase of Deadly Beastman Transformation. Prerequisite gift: Gift of Hands.",
     "mechanics": "The character pays the attunement cost for each magical weapon individually. The character's dice-pool penalty from multiple actions is reduced by -3 for each extra action (it cannot go below -0), but the player still cannot split her dice pool for extra actions during her initiative under this gift. Characters do not enjoy the benefits of this gift during any turn in which they are under the effects of an extra-action-type Charm.",
     "compatibility": "Requires Gift of Hands.",
@@ -321,7 +381,10 @@
       "printedPage": 126,
       "pdfPage": 129
     },
-    "crossReferences": ["deadly-beastman-transformation", "gift-of-hands"],
+    "crossReferences": [
+      "deadly-beastman-transformation",
+      "gift-of-hands"
+    ],
     "notes": "Beastman Transformation Gifts table."
   },
   {
@@ -338,7 +401,10 @@
       "printedPage": 126,
       "pdfPage": 129
     },
-    "crossReferences": ["deadly-beastman-transformation", "savage-moonsilver-talons"],
+    "crossReferences": [
+      "deadly-beastman-transformation",
+      "savage-moonsilver-talons"
+    ],
     "notes": "Beastman Transformation Gifts table."
   },
   {
@@ -355,7 +421,10 @@
       "printedPage": 126,
       "pdfPage": 129
     },
-    "crossReferences": ["deadly-beastman-transformation", "terrible-beast-claws"],
+    "crossReferences": [
+      "deadly-beastman-transformation",
+      "terrible-beast-claws"
+    ],
     "notes": "Beastman Transformation Gifts table."
   },
   {
@@ -372,7 +441,9 @@
       "printedPage": 126,
       "pdfPage": 129
     },
-    "crossReferences": ["deadly-beastman-transformation"],
+    "crossReferences": [
+      "deadly-beastman-transformation"
+    ],
     "notes": "Beastman Transformation Gifts table."
   },
   {
@@ -381,12 +452,18 @@
     "disposition": "selectable",
     "summary": "Knowledge-only Charm that lets the Lunar shapeshift into forms smaller than a cat, down to as small as a field mouse.",
     "requirements": "Minimum Charisma 3; Minimum Essence 2; Prerequisite Charms: Finding the Spirit's Shape.",
-    "mechanics": "There is no cost to use this Charm's effects — learning it simply enhances the Lunar's capabilities. Members of the Eclipse Caste may not learn this Charm, for it draws on a natural power of the Lunar Exalted that Solars cannot master or emulate.",
+    "mechanics": "There is no cost to use this Charm's effects \u2014 learning it simply enhances the Lunar's capabilities. Members of the Eclipse Caste may not learn this Charm, for it draws on a natural power of the Lunar Exalted that Solars cannot master or emulate.",
     "cost": "None",
     "compatibility": "Duration: Indefinite. Type: Special. Not available to Eclipse Caste.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 128, "pdfPage": 131 },
-    "crossReferences": ["finding-the-spirits-shape"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 128,
+      "pdfPage": 131
+    },
+    "crossReferences": [
+      "finding-the-spirits-shape"
+    ],
     "notes": "Shapechanging II tree."
   },
   {
@@ -395,12 +472,19 @@
     "disposition": "selectable",
     "summary": "Lets the Lunar make cosmetic changes to the appearance of any of her true forms.",
     "requirements": "Minimum Manipulation 2; Minimum Essence 1; Prerequisite Charms: Finding the Spirit's Shape.",
-    "mechanics": "Modifications include changing hair, eye, or skin color by several shades, lengthening or shortening hair length, and reshaping a chin or nose slightly or straightening teeth. A modification only applies to the form in which it was used — altering hair color in both human and totem-animal shapes requires using the Charm twice. Shaping the Ideal Form does not allow the Lunar to assume the appearance of another being, though it may help disguise his appearance; Lunars who wish to assume the form of specific individuals must instead use the Charm Prey's Skin Disguise. Shaping the Ideal Form cannot be used to conceal the Lunar's Tell or tattoos. No matter how much effort is put into the shaping, the Charm cannot be used to improve the Lunar's Physical Attributes unless the player invests experience in raising the Attribute — in that case, training time can represent an extended campaign of cosmetic self-improvement by reshaping. Overuse of the Charm tends to detract from the Lunar's appearance, rendering him bland, and is regarded as a sign of degeneracy and vanity among Luna's Beloved.",
+    "mechanics": "Modifications include changing hair, eye, or skin color by several shades, lengthening or shortening hair length, and reshaping a chin or nose slightly or straightening teeth. A modification only applies to the form in which it was used \u2014 altering hair color in both human and totem-animal shapes requires using the Charm twice. Shaping the Ideal Form does not allow the Lunar to assume the appearance of another being, though it may help disguise his appearance; Lunars who wish to assume the form of specific individuals must instead use the Charm Prey's Skin Disguise. Shaping the Ideal Form cannot be used to conceal the Lunar's Tell or tattoos. No matter how much effort is put into the shaping, the Charm cannot be used to improve the Lunar's Physical Attributes unless the player invests experience in raising the Attribute \u2014 in that case, training time can represent an extended campaign of cosmetic self-improvement by reshaping. Overuse of the Charm tends to detract from the Lunar's appearance, rendering him bland, and is regarded as a sign of degeneracy and vanity among Luna's Beloved.",
     "cost": "1 mote",
     "compatibility": "Duration: Instant. Type: Simple.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 128, "pdfPage": 131 },
-    "crossReferences": ["finding-the-spirits-shape", "the-tell"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 128,
+      "pdfPage": 131
+    },
+    "crossReferences": [
+      "finding-the-spirits-shape",
+      "the-tell"
+    ],
     "notes": "Shapechanging II tree root Charm; also a prerequisite for the entire Body Enhancement and Shapechanging III cascades."
   },
   {
@@ -409,12 +493,18 @@
     "disposition": "selectable",
     "summary": "Changes the gender the Exalt presents through any of her true forms.",
     "requirements": "Minimum Charisma 4; Minimum Essence 2; Prerequisite Charms: Shaping the Ideal Form.",
-    "mechanics": "Males become females and vice versa through their personalities, knowledge, and Traits unchanged. This is not a cosmetic modification — the Charm changes the Lunar's biology, and he or she becomes capable of siring or bearing children in either sex. While many Lunars have a preferred gender, individual Lunars have a 'natural' sex — they're considered to be in true form in either gender. Attempts by a pregnant Lunar to use this Charm automatically fail. Members of the Eclipse Caste may not learn this Charm, for it draws on a natural power of the Lunar Exalted that Solars cannot master or emulate.",
+    "mechanics": "Males become females and vice versa through their personalities, knowledge, and Traits unchanged. This is not a cosmetic modification \u2014 the Charm changes the Lunar's biology, and he or she becomes capable of siring or bearing children in either sex. While many Lunars have a preferred gender, individual Lunars have a 'natural' sex \u2014 they're considered to be in true form in either gender. Attempts by a pregnant Lunar to use this Charm automatically fail. Members of the Eclipse Caste may not learn this Charm, for it draws on a natural power of the Lunar Exalted that Solars cannot master or emulate.",
     "cost": "3 motes",
     "compatibility": "Duration: Instant. Type: Reflexive. Not available to Eclipse Caste.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 129, "pdfPage": 132 },
-    "crossReferences": ["shaping-the-ideal-form"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 129,
+      "pdfPage": 132
+    },
+    "crossReferences": [
+      "shaping-the-ideal-form"
+    ],
     "notes": "Shapechanging II tree."
   },
   {
@@ -423,12 +513,22 @@
     "disposition": "selectable",
     "summary": "Lets the Lunar assume the outward appearance of a specific other human she has consumed.",
     "requirements": "Minimum Charisma 4; Minimum Essence 3; Prerequisite Charms: Towering Beast Form, Humble Mouse Shape, Many-Faced Moon Transformation.",
-    "mechanics": "The Lunar must consume the target's heart's blood to gain this appearance. She gains the victim's outward appearance and Physical Attributes and Appearance, but not the victim's knowledge, Mental or Social Attributes, or Abilities. If the target is an Exalt, the Lunar gains his outward appearance but remains a Lunar. This Charm cannot be used to mimic the Fair Folk, who, though humanoid, are something other. The character can still dress and act any way she desires — she adopts the victim's outward appearance, not personality. A Lunar willing to consume many mortals can develop quite a diverse catalog of shapes. As with any other type of shapechanging, the appearance of the character's Tell and tattoos is unchanged. Lunars who wish to masquerade as the persons they consumed would thus be well-advised to use Charms to suppress those unmistakable signs. Members of the Eclipse Caste may not learn this Charm, for it draws on a natural power of the Lunar Exalted that Solars cannot master or emulate.",
+    "mechanics": "The Lunar must consume the target's heart's blood to gain this appearance. She gains the victim's outward appearance and Physical Attributes and Appearance, but not the victim's knowledge, Mental or Social Attributes, or Abilities. If the target is an Exalt, the Lunar gains his outward appearance but remains a Lunar. This Charm cannot be used to mimic the Fair Folk, who, though humanoid, are something other. The character can still dress and act any way she desires \u2014 she adopts the victim's outward appearance, not personality. A Lunar willing to consume many mortals can develop quite a diverse catalog of shapes. As with any other type of shapechanging, the appearance of the character's Tell and tattoos is unchanged. Lunars who wish to masquerade as the persons they consumed would thus be well-advised to use Charms to suppress those unmistakable signs. Members of the Eclipse Caste may not learn this Charm, for it draws on a natural power of the Lunar Exalted that Solars cannot master or emulate.",
     "cost": "5 motes, 1 Willpower",
     "compatibility": "Duration: Indefinite. Type: Simple. Not available to Eclipse Caste.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 129, "pdfPage": 132 },
-    "crossReferences": ["towering-beast-form", "humble-mouse-shape", "many-faced-moon-transformation", "the-tell", "lunar-shapechanging"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 129,
+      "pdfPage": 132
+    },
+    "crossReferences": [
+      "towering-beast-form",
+      "humble-mouse-shape",
+      "many-faced-moon-transformation",
+      "the-tell",
+      "lunar-shapechanging"
+    ],
     "notes": "Shapechanging II tree."
   },
   {
@@ -437,12 +537,18 @@
     "disposition": "selectable",
     "summary": "By having a willing subject taste the Lunar's blood, the Lunar can make minor alterations to that subject's form.",
     "requirements": "Minimum Manipulation 4; Minimum Essence 3; Prerequisite Charms: Shaping the Ideal Form.",
-    "mechanics": "The range of possible changes are as per Shaping the Ideal Form — this Charm cannot be used to change a target's shape to a specific person's or to give her the appearance of another human. Unlike modifications the Lunar makes to himself, the changes fade after a day. The subject must also spend a temporary Willpower point (two if she is an Exalt). Unwilling subjects, tattooed Lunars, non-humans, the undead, and unmaterialized spirits cannot be shaped by this Charm. Once the Charm is activated, the player rolls Manipulation + Craft (Body Shaping) at standard difficulty. One success or more indicates success, while if the roll fails, the subject's form is unaltered. A botch, however, results in an unexpected — and usually unpleasant — outcome.",
+    "mechanics": "The range of possible changes are as per Shaping the Ideal Form \u2014 this Charm cannot be used to change a target's shape to a specific person's or to give her the appearance of another human. Unlike modifications the Lunar makes to himself, the changes fade after a day. The subject must also spend a temporary Willpower point (two if she is an Exalt). Unwilling subjects, tattooed Lunars, non-humans, the undead, and unmaterialized spirits cannot be shaped by this Charm. Once the Charm is activated, the player rolls Manipulation + Craft (Body Shaping) at standard difficulty. One success or more indicates success, while if the roll fails, the subject's form is unaltered. A botch, however, results in an unexpected \u2014 and usually unpleasant \u2014 outcome.",
     "cost": "3 motes, 1 health level + special",
     "compatibility": "Duration: One day. Type: Simple.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 129, "pdfPage": 132 },
-    "crossReferences": ["shaping-the-ideal-form"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 129,
+      "pdfPage": 132
+    },
+    "crossReferences": [
+      "shaping-the-ideal-form"
+    ],
     "notes": "Shapechanging II tree; the health-level cost is described in the following (Wondrous Lunar Transformation) and Shaping the Once-Living Form entries as coming from the subject smearing/tasting the Lunar's blood."
   },
   {
@@ -451,26 +557,39 @@
     "disposition": "selectable",
     "summary": "A more powerful version of the Lunar Blood Reshaping Technique, allowing the Lunar to alter a subject's form to match one of the patterns in the Lunar's 'library.'",
     "requirements": "Minimum Manipulation 5; Minimum Essence 4; Prerequisite Charms: Prey's Skin Disguise, Lunar Blood Reshaping Technique.",
-    "mechanics": "This process is difficult and painful for the subject and requires immense skill by the Lunar, but it allows the subject to attain a non-human form or to masquerade as another human. In addition to the costs to the Lunar, the subject must spend 2 temporary Willpower points (3 if an Exalt). Unwilling subjects, tattooed Lunars, non-humans, the undead, and unmaterialized spirits cannot be shaped by this Charm. Once the Charm is activated, the Lunar's player rolls Manipulation + Craft (Body Shaping) at difficulty 3. Three or more successes indicates success, while if the roll fails (or gets only one or two successes), the subject's form is unaltered. A botch, however, results in an unexpected — and usually unpleasant — outcome, probably a subject twisted and crippled for the duration or possibly suffering permanent damage.",
+    "mechanics": "This process is difficult and painful for the subject and requires immense skill by the Lunar, but it allows the subject to attain a non-human form or to masquerade as another human. In addition to the costs to the Lunar, the subject must spend 2 temporary Willpower points (3 if an Exalt). Unwilling subjects, tattooed Lunars, non-humans, the undead, and unmaterialized spirits cannot be shaped by this Charm. Once the Charm is activated, the Lunar's player rolls Manipulation + Craft (Body Shaping) at difficulty 3. Three or more successes indicates success, while if the roll fails (or gets only one or two successes), the subject's form is unaltered. A botch, however, results in an unexpected \u2014 and usually unpleasant \u2014 outcome, probably a subject twisted and crippled for the duration or possibly suffering permanent damage.",
     "cost": "5 motes, 1 Willpower, 1 health level + special",
     "compatibility": "Duration: One day. Type: Simple.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 130, "pdfPage": 133 },
-    "crossReferences": ["preys-skin-disguise", "lunar-blood-reshaping-technique"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 130,
+      "pdfPage": 133
+    },
+    "crossReferences": [
+      "preys-skin-disguise",
+      "lunar-blood-reshaping-technique"
+    ],
     "notes": "Shapechanging II tree."
   },
   {
     "id": "shaping-the-once-living-form",
     "name": "Shaping the Once-Living Form",
     "disposition": "selectable",
-    "summary": "Lets the Lunar reshape inert, once-living material (wood, bone) into another form — a weapon, a piece of armor, or clothing.",
+    "summary": "Lets the Lunar reshape inert, once-living material (wood, bone) into another form \u2014 a weapon, a piece of armor, or clothing.",
     "requirements": "Minimum Manipulation 3; Minimum Essence 3; Prerequisite Charms: Lunar Blood Reshaping Technique.",
     "mechanics": "The Lunar cannot use this Charm to create complex objects with moving parts (a simple buckle is about as sophisticated as it gets), nor can it be used to reshape objects that are already under the influence of Charms, sorcery, or other supernatural effects. The item to be shaped must be smeared with the Lunar's blood, costing him a single health level (unsoakable lethal damage) before Essence can be channeled into the object. The texture and appearance of the original material remains unaltered (a wood weapon is always still wood, not metal), though the product may be modified by conventional means (dyes, paint, and so forth). The Essence cost of the Charm reflects the amount of raw material affected. If the target object is roughly the same size as the raw material, the Essence cost of the Charm is unaltered. If a size change is part of the process, the Lunar must spend additional Essence motes allowing the final product's size to be twice (or half) that of the raw material. An object fashioned in this manner is not permanent, but rather remains the Lunar commits the Essence. If the Lunar uses the Essence for other purposes, the product reverts to original form. A Lunar can, however, make his construct permanent by spending a point of Willpower, but he may only do so at the moment of creation. In this case, the Charm is instant, and the Essence returns normally. Shaping the object requires a Manipulation + Craft roll, usually of difficulty 1. The Storyteller may, however, increase this difficulty for more complex shapes. This Charm cannot effect the undead.",
     "cost": "1 mote per raw cubic foot, 1 per volume increase + 1 health level",
     "compatibility": "Duration: Indefinite/Instant. Type: Simple.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 130, "pdfPage": 133 },
-    "crossReferences": ["lunar-blood-reshaping-technique"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 130,
+      "pdfPage": 133
+    },
+    "crossReferences": [
+      "lunar-blood-reshaping-technique"
+    ],
     "notes": "Shapechanging II tree; description continues onto the next page (printed 131/PDF 134), which opens the Shapechanging III tree."
   },
   {
@@ -483,8 +602,14 @@
     "cost": "6 motes",
     "compatibility": "Duration: Indefinite. Type: Simple.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 131, "pdfPage": 134 },
-    "crossReferences": ["shaping-the-ideal-form"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 131,
+      "pdfPage": 134
+    },
+    "crossReferences": [
+      "shaping-the-ideal-form"
+    ],
     "notes": "Shapechanging III tree."
   },
   {
@@ -497,8 +622,14 @@
     "cost": "1 mote",
     "compatibility": "Duration: One scene. Type: Simple.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 131, "pdfPage": 134 },
-    "crossReferences": ["shaping-the-ideal-form"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 131,
+      "pdfPage": 134
+    },
+    "crossReferences": [
+      "shaping-the-ideal-form"
+    ],
     "notes": "Shapechanging III tree; description continues onto the next page (printed 132/PDF 135)."
   },
   {
@@ -507,12 +638,19 @@
     "disposition": "selectable",
     "summary": "Deforms the Lunar's bones, muscles, and organs to squeeze through gaps far too small to normally fit through.",
     "requirements": "Minimum Manipulation 2; Minimum Essence 2; Prerequisite Charms: Shaping the Ideal Form.",
-    "mechanics": "By means of this Charm, the Lunar can squeeze his bones, muscles and organs capable of immense deformation, allowing him to squeeze through gaps it would not normally fit. By means of this Charm, a human-sized Lunar could wriggle through a hole as small as a mouse hole or a knothole in a fence. The process is very unsettling to watch and is likewise uncomfortable for the Lunar. The Rat-Head Technique cannot be used as part of any Combo or while the Lunar is under the effects of a Charm or sorcery that hardens or reinforces his limbs in any manner (such as the Body Weapon Technique). While using this Charm, the Lunar's natural soak cannot exceed 2B/2L under any circumstances, and he cannot parry lethal attacks without an appropriate stunt — his 'softened' body lacks the strength to do so effectively. A Lunar under the effect of Rat-Head Technique may dodge normally.",
+    "mechanics": "By means of this Charm, the Lunar can squeeze his bones, muscles and organs capable of immense deformation, allowing him to squeeze through gaps it would not normally fit. By means of this Charm, a human-sized Lunar could wriggle through a hole as small as a mouse hole or a knothole in a fence. The process is very unsettling to watch and is likewise uncomfortable for the Lunar. The Rat-Head Technique cannot be used as part of any Combo or while the Lunar is under the effects of a Charm or sorcery that hardens or reinforces his limbs in any manner (such as the Body Weapon Technique). While using this Charm, the Lunar's natural soak cannot exceed 2B/2L under any circumstances, and he cannot parry lethal attacks without an appropriate stunt \u2014 his 'softened' body lacks the strength to do so effectively. A Lunar under the effect of Rat-Head Technique may dodge normally.",
     "cost": "3 motes",
     "compatibility": "Duration: One scene. Type: Simple.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 132, "pdfPage": 135 },
-    "crossReferences": ["shaping-the-ideal-form", "body-weapon-technique"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 132,
+      "pdfPage": 135
+    },
+    "crossReferences": [
+      "shaping-the-ideal-form",
+      "body-weapon-technique"
+    ],
     "notes": "Shapechanging III tree."
   },
   {
@@ -525,7 +663,11 @@
     "cost": "None",
     "compatibility": "Duration: Permanent. Type: Special.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 132, "pdfPage": 135 },
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 132,
+      "pdfPage": 135
+    },
     "crossReferences": [],
     "notes": "Opens the Body Enhancement Charms section and its Body Enhancement I tree; not itself part of the tree diagram."
   },
@@ -539,8 +681,14 @@
     "cost": "5 motes, 1 Willpower",
     "compatibility": "Duration: Varies. Type: Simple.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 133, "pdfPage": 136 },
-    "crossReferences": ["shaping-the-ideal-form"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 133,
+      "pdfPage": 136
+    },
+    "crossReferences": [
+      "shaping-the-ideal-form"
+    ],
     "notes": "Body Enhancement I tree."
   },
   {
@@ -553,8 +701,14 @@
     "cost": "6 motes, 1 Willpower",
     "compatibility": "Duration: Varies. Type: Simple.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 133, "pdfPage": 136 },
-    "crossReferences": ["shaping-the-ideal-form"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 133,
+      "pdfPage": 136
+    },
+    "crossReferences": [
+      "shaping-the-ideal-form"
+    ],
     "notes": "Body Enhancement I tree; description continues onto the next page (printed 134/PDF 137)."
   },
   {
@@ -567,8 +721,15 @@
     "cost": "1 Willpower",
     "compatibility": "Duration: Instant. Type: Simple.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 134, "pdfPage": 137 },
-    "crossReferences": ["crouching-tiger-exercise", "moonsilver-monkey-exercise"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 134,
+      "pdfPage": 137
+    },
+    "crossReferences": [
+      "crouching-tiger-exercise",
+      "moonsilver-monkey-exercise"
+    ],
     "notes": "Body Enhancement I tree."
   },
   {
@@ -581,8 +742,14 @@
     "cost": "2 motes",
     "compatibility": "Duration: Instant. Type: Reflexive.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 134, "pdfPage": 137 },
-    "crossReferences": ["regaining-breath-exercise"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 134,
+      "pdfPage": 137
+    },
+    "crossReferences": [
+      "regaining-breath-exercise"
+    ],
     "notes": "Body Enhancement I tree, terminal Charm."
   },
   {
@@ -595,8 +762,14 @@
     "cost": "1 mote per 2 dice",
     "compatibility": "Duration: Instant. Type: Reflexive.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 134, "pdfPage": 137 },
-    "crossReferences": ["shaping-the-ideal-form"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 134,
+      "pdfPage": 137
+    },
+    "crossReferences": [
+      "shaping-the-ideal-form"
+    ],
     "notes": "Body Enhancement II tree root Charm."
   },
   {
@@ -609,8 +782,14 @@
     "cost": "4 motes",
     "compatibility": "Duration: One scene. Type: Simple.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 134, "pdfPage": 137 },
-    "crossReferences": ["predator-grace-method"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 134,
+      "pdfPage": 137
+    },
+    "crossReferences": [
+      "predator-grace-method"
+    ],
     "notes": "Body Enhancement II tree."
   },
   {
@@ -622,8 +801,14 @@
     "mechanics": "Using this Charm, a Lunar greatly improves his ability to avoid damage from a fall. He will always land on his feet and suffers only one level of bashing damage for every 10 feet fallen. Furthermore, he only suffers lethal damage if he falls more than 100 feet or onto a treacherous surface such as spikes.",
     "compatibility": "Duration: Instant. Type: Supplemental.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 135, "pdfPage": 138 },
-    "crossReferences": ["predator-grace-method"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 135,
+      "pdfPage": 138
+    },
+    "crossReferences": [
+      "predator-grace-method"
+    ],
     "notes": "Body Enhancement II tree. The rendered page did not show a legible 'Cost:' line for this Charm (Duration/Type/Minimums were legible); re-render/re-check this specific entry at higher zoom before promotion to confirm its mote cost."
   },
   {
@@ -636,8 +821,14 @@
     "cost": "3 motes",
     "compatibility": "Duration: One scene. Type: Simple.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 134, "pdfPage": 137 },
-    "crossReferences": ["panther-stride-stance"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 134,
+      "pdfPage": 137
+    },
+    "crossReferences": [
+      "panther-stride-stance"
+    ],
     "notes": "Body Enhancement II tree. The book refers to this Charm's effect internally as the 'Skin-Flap Flying Method' in its own description."
   },
   {
@@ -650,8 +841,14 @@
     "cost": "3 motes",
     "compatibility": "Duration: One scene. Type: Simple.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 135, "pdfPage": 138 },
-    "crossReferences": ["shaping-the-ideal-form"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 135,
+      "pdfPage": 138
+    },
+    "crossReferences": [
+      "shaping-the-ideal-form"
+    ],
     "notes": "Body Enhancement II tree."
   },
   {
@@ -664,8 +861,14 @@
     "cost": "5 motes",
     "compatibility": "Duration: One scene. Type: Simple.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 135, "pdfPage": 138 },
-    "crossReferences": ["tree-dwelling-jaguar-claws"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 135,
+      "pdfPage": 138
+    },
+    "crossReferences": [
+      "tree-dwelling-jaguar-claws"
+    ],
     "notes": "Body Enhancement II tree; description begins at the bottom of printed p. 135 (PDF 138) and continues onto printed p. 136 (PDF 139), which opens the Unarmed Combat Charms section."
   },
   {
@@ -678,7 +881,11 @@
     "cost": "1 mote",
     "compatibility": "Duration: Instant. Type: Supplemental.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 136, "pdfPage": 139 },
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 136,
+      "pdfPage": 139
+    },
     "crossReferences": [],
     "notes": "Root Charm of the Unarmed Combat I, II, and III trees, and of the separately-diagrammed Combat cascade including Subduing the Honored Foe and Bull Head Technique (not yet inventoried)."
   },
@@ -692,8 +899,14 @@
     "cost": "1 mote per +1 initiative",
     "compatibility": "Duration: Instant. Type: Reflexive.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 136, "pdfPage": 139 },
-    "crossReferences": ["body-weapon-technique"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 136,
+      "pdfPage": 139
+    },
+    "crossReferences": [
+      "body-weapon-technique"
+    ],
     "notes": "Unarmed Combat I tree; description continues onto the next page (printed 137/PDF 140)."
   },
   {
@@ -706,8 +919,14 @@
     "cost": "1 mote per die",
     "compatibility": "Duration: Instant. Type: Supplemental.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 137, "pdfPage": 140 },
-    "crossReferences": ["sinuous-striking-grace"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 137,
+      "pdfPage": 140
+    },
+    "crossReferences": [
+      "sinuous-striking-grace"
+    ],
     "notes": "Unarmed Combat I tree."
   },
   {
@@ -720,8 +939,14 @@
     "cost": "5 motes",
     "compatibility": "Duration: Instant. Type: Reflexive.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 137, "pdfPage": 140 },
-    "crossReferences": ["sinuous-striking-grace"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 137,
+      "pdfPage": 140
+    },
+    "crossReferences": [
+      "sinuous-striking-grace"
+    ],
     "notes": "Unarmed Combat I tree."
   },
   {
@@ -734,8 +959,14 @@
     "cost": "5 motes",
     "compatibility": "Duration: Variable. Type: Supplemental.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 137, "pdfPage": 140 },
-    "crossReferences": ["snake-body-technique"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 137,
+      "pdfPage": 140
+    },
+    "crossReferences": [
+      "snake-body-technique"
+    ],
     "notes": "Unarmed Combat I tree. Its second prerequisite, Deadly Viper Strike, belongs to the Unarmed Combat II tree and has not been inventoried yet, so it is named only in this row's requirements text rather than as a crossReferences id (which would fail the audit as unresolved)."
   },
   {
@@ -748,9 +979,15 @@
     "cost": "3 motes per attack, 1 Willpower",
     "compatibility": "Duration: Extra action. Type: Extra action.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 137, "pdfPage": 140 },
-    "crossReferences": ["tyrant-lizard-strike"],
-    "notes": "Unarmed Combat I tree. The rendered page's cap-formula wording was awkward/possibly OCR-damaged in the printed original around 'the character's Essence + 3' — re-verify exact wording against the physical page before promotion."
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 137,
+      "pdfPage": 140
+    },
+    "crossReferences": [
+      "tyrant-lizard-strike"
+    ],
+    "notes": "Unarmed Combat I tree. The rendered page's cap-formula wording was awkward/possibly OCR-damaged in the printed original around 'the character's Essence + 3' \u2014 re-verify exact wording against the physical page before promotion."
   },
   {
     "id": "deadly-claw-blow",
@@ -762,8 +999,14 @@
     "cost": "2 motes per Attribute die converted",
     "compatibility": "Duration: Instant. Type: Reflexive.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 137, "pdfPage": 140 },
-    "crossReferences": ["body-weapon-technique"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 137,
+      "pdfPage": 140
+    },
+    "crossReferences": [
+      "body-weapon-technique"
+    ],
     "notes": "Unarmed Combat I tree terminal Charm; also the root of the Unarmed Combat II tree (Claws of the Silver Moon)."
   },
   {
@@ -776,8 +1019,14 @@
     "cost": "4 motes",
     "compatibility": "Duration: Instant. Type: Simple.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 138, "pdfPage": 141 },
-    "crossReferences": ["deadly-claw-blow"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 138,
+      "pdfPage": 141
+    },
+    "crossReferences": [
+      "deadly-claw-blow"
+    ],
     "notes": "Unarmed Combat II tree root Charm."
   },
   {
@@ -790,8 +1039,14 @@
     "cost": "5 motes, 1 Willpower",
     "compatibility": "Duration: One scene. Type: Simple.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 138, "pdfPage": 141 },
-    "crossReferences": ["claws-of-the-silver-moon"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 138,
+      "pdfPage": 141
+    },
+    "crossReferences": [
+      "claws-of-the-silver-moon"
+    ],
     "notes": "Unarmed Combat II tree; description begins at the bottom of printed p. 138 (PDF 141) and continues onto printed p. 139 (PDF 142)."
   },
   {
@@ -800,12 +1055,18 @@
     "disposition": "selectable",
     "summary": "Lets Lunars enhance their attacks with venom by momentarily generating poison glands or ducts.",
     "requirements": "Minimum Stamina 3; Minimum Essence 2; Prerequisite Charms: Claws of the Silver Moon.",
-    "mechanics": "Lunars who know the Adder Fang Method can enhance their attacks with venom. The Charm momentarily creates poison generating glands or ducts, releasing toxins whenever the Lunar successfully makes an unarmed Brawl or Martial Arts bite attack. In addition to the normal damage of the attack, if the target takes damage, she suffers an additional number of dice of lethal damage equal to the Stamina + Essence of the Lunar. This damage is soaked separately and does not add extra successes. However, it ignores the target's armor — only Stamina and other natural soak apply.",
+    "mechanics": "Lunars who know the Adder Fang Method can enhance their attacks with venom. The Charm momentarily creates poison generating glands or ducts, releasing toxins whenever the Lunar successfully makes an unarmed Brawl or Martial Arts bite attack. In addition to the normal damage of the attack, if the target takes damage, she suffers an additional number of dice of lethal damage equal to the Stamina + Essence of the Lunar. This damage is soaked separately and does not add extra successes. However, it ignores the target's armor \u2014 only Stamina and other natural soak apply.",
     "cost": "3 motes",
     "compatibility": "Duration: Instant. Type: Supplemental.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 139, "pdfPage": 142 },
-    "crossReferences": ["claws-of-the-silver-moon"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 139,
+      "pdfPage": 142
+    },
+    "crossReferences": [
+      "claws-of-the-silver-moon"
+    ],
     "notes": "Unarmed Combat II tree."
   },
   {
@@ -814,12 +1075,499 @@
     "disposition": "selectable",
     "summary": "Lets the Lunar channel Essence into his digestive system, transforming his stomach acids into a lethal ranged weapon.",
     "requirements": "Minimum Dexterity 4; Minimum Essence 2; Prerequisite Charms: Adder Fang Method.",
-    "mechanics": "Using this Charm, a Lunar channels Essence into his digestive system, momentarily transforming his stomach acids into a lethal weapon. He can spit this corrosive phlegm at a target within 10 yards. The attack uses Dexterity + Thrown or Athletics with a -1 accuracy modifier. The opponent may dodge but cannot parry. The attack inflicts 8L + extra successes. The Burning Saliva Attack continues to harm the opponent each turn until it is washed off or otherwise removed. Scraping the acid off requires a Dexterity + Athletics roll and is not a reflexive action — the victim or one of his associates must use a dice action to do so, though she need not roll. Rather than directly attacking an enemy with his acid saliva, the Lunar can target the opponent's weapon. The accuracy of such attacks is -2, and rather than the opponent soaking the damage, her weapon must do so. Its soak is equal to its damage value (so a straight sword that inflicts +3L has a soak of 3). Roll unsoaked damage dice normally, and every two successes reduce the weapon's damage value by one. If the weapon's damage reaches 0, the weapon is rendered useless. The acid continues to harm the weapon.",
+    "mechanics": "Using this Charm, a Lunar channels Essence into his digestive system, momentarily transforming his stomach acids into a lethal weapon. He can spit this corrosive phlegm at a target within 10 yards. The attack uses Dexterity + Thrown or Athletics with a -1 accuracy modifier. The opponent may dodge but cannot parry. The attack inflicts 8L + extra successes. The Burning Saliva Attack continues to harm the opponent each turn until it is washed off or otherwise removed. Scraping the acid off requires a Dexterity + Athletics roll and is not a reflexive action \u2014 the victim or one of his associates must use a dice action to do so, though she need not roll. Rather than directly attacking an enemy with his acid saliva, the Lunar can target the opponent's weapon. The accuracy of such attacks is -2, and rather than the opponent soaking the damage, her weapon must do so. Its soak is equal to its damage value (so a straight sword that inflicts +3L has a soak of 3). Roll unsoaked damage dice normally, and every two successes reduce the weapon's damage value by one. If the weapon's damage reaches 0, the weapon is rendered useless. The acid continues to harm the weapon.",
     "cost": "3 motes",
     "compatibility": "Duration: Instant. Type: Simple.",
     "verificationState": "reviewed",
-    "citation": { "bookId": "exalted-the-lunars", "printedPage": 139, "pdfPage": 142 },
-    "crossReferences": ["adder-fang-method"],
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 139,
+      "pdfPage": 142
+    },
+    "crossReferences": [
+      "adder-fang-method"
+    ],
     "notes": "Unarmed Combat II tree; description continues onto the next page, not yet rendered/reviewed for this checkpoint."
+  },
+  {
+    "id": "cobra-eye-method",
+    "name": "Cobra Eye Method",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar adjust the lethality of his acid saliva, trading damage for the ability to precisely target an opponent's Physical Attributes, Appearance or Perception instead of dealing full damage.",
+    "requirements": "Minimum Intelligence 5; Minimum Essence 3; Prerequisite Charms: Burning Saliva Attack.",
+    "mechanics": "A Lunar may attack as per Burning Saliva Attack (range 10 yards, accuracy -1, damage 8L + extra successes, opponent may not parry), and if the attack succeeds, his player rolls damage normally. However, instead of inflicting lethal health-level damage, such an attack reduces the target's Physical Attributes (Strength, Dexterity and Stamina), his Appearance or his Perception by one for every rolled health level of damage the Lunar chooses to sacrifice for this effect. An Attribute cannot be reduced below 1. An Exalt requires a week of healing to recover each Attribute point lost, but such injuries are permanent if inflicted on mortals.",
+    "cost": "4 motes",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 140,
+      "pdfPage": 143
+    },
+    "crossReferences": [
+      "burning-saliva-attack"
+    ]
+  },
+  {
+    "id": "deadly-viper-strike",
+    "name": "Deadly Viper Strike",
+    "disposition": "selectable",
+    "summary": "Lets the Lunar create and use a more toxic variant of the venom used in the Adder Fang Method, adding lingering poison to an unarmed attack.",
+    "requirements": "Minimum Manipulation 3; Minimum Essence 2; Prerequisite Charms: Adder Fang Method.",
+    "mechanics": "Usable as part of an unarmed Brawl or Martial Arts attack. In addition to the normal attack damage, the venom injected causes injury and pain; the immediate damage is less than Adder Fang Method's, but if the attack succeeds, the victim's player must roll Stamina + Endurance against a difficulty equal to the Lunar's Essence. If the roll fails, the target suffers an automatic level of lethal damage and his player must roll again (at the same difficulty) next turn. Success means no injury, and any additional successes reduce the difficulty of resisting the poison next turn. If the difficulty reaches 0, the poison is no longer effective. A botch indicates the target suffers two automatic levels of lethal damage, and the difficulty of resisting next turn increases by one.",
+    "cost": "8 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 140,
+      "pdfPage": 143
+    },
+    "crossReferences": [
+      "adder-fang-method"
+    ]
+  },
+  {
+    "id": "rabid-beast-bite",
+    "name": "Rabid Beast Bite",
+    "disposition": "selectable",
+    "summary": "Turns a Brawl or Martial Arts bite attack into a vector for infection, risking disease in any wound it causes.",
+    "requirements": "Minimum Charisma 3; Minimum Essence 2; Prerequisite Charms: Deadly Viper Strike.",
+    "mechanics": "Functions as per Deadly Viper Strike, attacking at -1 accuracy at a range of 10 yards, but instead of inflicting lethal damage the target is rendered insensate: he may suffer sufficient bashing damage to be incapacitated, or the toxin may shock him into unconsciousness. The latter may happen if the number of bashing health levels inflicted by a single attack exceeds the target's Stamina Attribute. If it does, the target's player must make a reflexive Stamina + Endurance roll against a difficulty equal to the Lunar's Essence. If the target fails the roll for their character to avoid infection on any injury caused by such an attack, wounds that would normally have a chance of infection (those inflicting lethal or aggravated damage) increase the difficulty of the roll to avoid infection by the Lunar's Essence, and rolls for the unExalted to recover from the infection are also increased by the Lunar's Essence. The difficulty of avoiding infection from bashing damage is 1. The cost of this Charm must be paid before the Lunar makes his attack roll. Using the Rabid Beast Bite on another Lunar is considered a sign of great disrespect.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 140,
+      "pdfPage": 143
+    },
+    "crossReferences": [
+      "deadly-viper-strike"
+    ],
+    "notes": "Summary paraphrases the book's own somewhat run-on description of the infection mechanic; the core effect (rendering the target insensate/infectious via bite) is clear, but the exact resolution order of the two Stamina + Endurance rolls described on the page reads ambiguously and may warrant a closer re-read before promotion."
+  },
+  {
+    "id": "form-destroying-touch",
+    "name": "Form-Destroying Touch",
+    "disposition": "selectable",
+    "summary": "A punishing unarmed attack that implants a fragment of the Lunar's protean power in the target, causing wild, spreading mutation and eventual dissolution if left untreated.",
+    "requirements": "Minimum Charisma 4; Minimum Essence 4; Prerequisite Charms: Rabid Beast Bite.",
+    "mechanics": "Activated when the Lunar makes an unarmed Brawl or Martial Arts attack. The Charm has no effect at first if the attack roll fails or if the target blocks or dodges the attack \u2014 the target takes no effect, and the motes and Willpower are lost. However, if the attack lands, the player's rolled damage successes equal to or exceeding the target's Stamina are recorded as no actual health-level damage but instead implant the Lunar's protean power in the victim; the phantom damage does not end with the scene like normal damage. The target of a successful attack suffers no ill effects for the first day after she has been infected, though normal Essence is already at work. Each day after the first, anomalies begin to emerge, and the target must attempt to resist the corruption (roll Stamina + Endurance against a difficulty equal to the Lunar's Essence). If the roll succeeds, she resists its effects for that day. If the roll fails, she suffers aggravated damage; the first time this happens the damage is a single die, but it increases to two dice the second time the roll fails, three the third, and so on, as the contagion continues to spread its mutations and damage. These damage dice are rolled normally. If the number of contagion-inflicted aggravated health levels exceeds the victim's Essence + Stamina, the victim's body loses cohesion, and she dies, transmuted into a chaotic jumble of mutated organs and protoplasmic sludge. Form-Destroying Touch cannot be used on those immune to shapeshifting (such as Lunars) or where a Charm or sorcery prevents the Lunar from touching the target or shields the target from Wyld mutation. Mortal medicine is powerless to cure the Form-Destroying Touch, though Charms such as Bodily Regeneration Prana can negate the effect of the Charm if they cure all the aggravated damage from the character's health track. Disease-curing Charms and magical remedies do nothing unless they are of incredible power (the legendary Panacea Pipe might cure an afflicted character, for example). The notable exception is the cure-all Sweet Cordial (see Exalted, p. 336), which allows the victim's player a regular Stamina + Resistance roll at difficulty 1 to defeat the infection.",
+    "cost": "10 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 141,
+      "pdfPage": 144
+    },
+    "crossReferences": [
+      "rabid-beast-bite"
+    ]
+  },
+  {
+    "id": "snake-head-defense",
+    "name": "Snake Head Defense",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar reshape part of his body \u2014 usually his hair or a tail \u2014 into one or many venomous snakes that fight semi-independently to defend him.",
+    "requirements": "Minimum Charisma 3; Minimum Essence 4; Prerequisite Charms: Deadly Viper Strike.",
+    "mechanics": "The snake-buds can be as long as half the Lunar's Essence in yards (rounded down), and there can be one large snake or many smaller ones. Though limited in reach to half the Lunar's Essence (rounded down), the snakes can attack targets of the Lunar's choosing and act on the Lunar's initiative. The snake-extensions fight with half (round down, minimum 1) the Lunar's Attribute and Ability scores and do Strength + 1L base damage. They act every turn but can split their die pool normally. Rather than the raw strength of the Exalt, a serpent's bite is venomous, acting in the same manner as the Deadly Viper Strike (see above). The venom is less than the Lunar's own, and the victim's player need only resist Stamina + Endurance against a difficulty equal to half the Lunar's Essence (rounded down, minimum 1). A snake may be attacked independently of the Lunar and has 3 health levels: -1, -2 and -4. A fourth point of damage 'kills' or disables these snakes. These wounds do not affect the Lunar while the snake remains in existence, but if he chooses to discontinue the Charm while any wounds suffered by the character's ophidian offshoots transfer to the Lunar, half (round up) of any wounds suffered by the character's ophidian offshoots transfer to the Lunar. Damaged snakes heal at the same rate as an Exalt (not as fast as the Lunar using the Charm); dead snakes do not heal. While a snake remains 'alive,' a Lunar Exalted cannot be subjected to an unanticipated attack by a visible foe. The snakes cannot parry or dodge, but a Lunar whose snake-extensions are attacked can parry or dodge the attack as if it were against the Lunar himself. A Lunar cannot use this Charm more than once at a time on himself.",
+    "cost": "6 motes",
+    "compatibility": "Duration: Indefinite. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 141,
+      "pdfPage": 144
+    },
+    "crossReferences": [
+      "deadly-viper-strike"
+    ],
+    "notes": "This row sits between Form-Destroying Touch and Monkey Arm Style in the book but is absent from the earlier OCR-only draft index used to plan this pass; visually confirmed present on printed p. 141/PDF 144."
+  },
+  {
+    "id": "monkey-arm-style",
+    "name": "Monkey Arm Style",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar extend his reach by elongating one or both arms into long, sinuous, snake-like limbs that remain fully functional.",
+    "requirements": "Minimum Manipulation 2; Minimum Essence 1; Prerequisite Charms: Body Weapon Technique.",
+    "mechanics": "Ordinarily, a Lunar can only attack targets within arm's reach. Monkey Arm Style allows the Lunar to surprise his opponents by extending his reach by a number of yards equal to his Essence. The Charm causes one or both of the Lunar's arms to elongate, reshaping bone and muscle to create a long, sinuous limb that, despite its snake-like appearance, remains fully functional. The hand can grasp objects or targets but lacks the finesse required to wield a weapon effectively. The Monkey Arm Style can be used on its own to extend the Lunar's reach for an instant, but it is most commonly used as part of a Brawl or Martial Arts attack, allowing the character to make unarmed attacks or wrestling maneuvers at a distance equal to his Essence in yards.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 142,
+      "pdfPage": 145
+    },
+    "crossReferences": [
+      "body-weapon-technique"
+    ]
+  },
+  {
+    "id": "startling-tentacle-attack",
+    "name": "Startling Tentacle Attack",
+    "disposition": "selectable",
+    "summary": "Splits one of the Lunar's limbs into multiple writhing tentacles, each able to make a separate unarmed attack at full dice pool against targets within reach.",
+    "requirements": "Minimum Manipulation 2; Minimum Essence 1; Prerequisite Charms: Monkey Arm Style.",
+    "mechanics": "Allows the Lunar to pour Essence into one of his limbs, which splits into multiple, writhing tentacles. Anything held in that limb is dropped, and while the Exalted's natural weaponry functions as normal, the damage is always converted to bashing before it is applied to the target. Each of the tentacles is capable of making a separate attack at the Lunar's full Dexterity + Brawl or Martial Arts dice, although all must attack the same target within a number of yards equal to twice the Lunar's Essence. If the defender dodges, make one roll and apply it to all attacks. However, parry attempts must be made against each attack. The tentacles re-form into the original limb after the attacks are made. The Exalted cannot create more tentacles than his permanent Essence.",
+    "cost": "3 motes per attack",
+    "compatibility": "Duration: Instant. Type: Extra action.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 142,
+      "pdfPage": 145
+    },
+    "crossReferences": [
+      "monkey-arm-style"
+    ]
+  },
+  {
+    "id": "grasping-pseudopod-method",
+    "name": "Grasping Pseudopod Method",
+    "disposition": "selectable",
+    "summary": "Reshapes one of the Lunar's limbs into a single, powerful tentacle that grants an edge at clinching, holding and throwing opponents.",
+    "requirements": "Minimum Manipulation 3; Minimum Essence 2; Prerequisite Charms: Startling Tentacle Attack.",
+    "mechanics": "The Lunar shapes one of his limbs into a single, powerful tentacle that allows him to make clinch, hold and throw attacks out to yards equal to twice the Lunar's Essence (per the clinch/grapple rules elsewhere in Exalted). If the Lunar's player botches an attack roll if the target gets five or more successes in a contest related to the wrestling, the Lunar's player must have his character thrown toward the target and suffer the effects of being knocked down.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Until attack ends. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 143,
+      "pdfPage": 146
+    },
+    "crossReferences": [
+      "startling-tentacle-attack"
+    ],
+    "notes": "The botch-consequence sentence in the source text reads awkwardly (possibly print/OCR damage around 'botches an attack roll if the target gets five or more successes'); paraphrased faithfully but flagged for a closer re-read before promotion."
+  },
+  {
+    "id": "tentacle-spear-strike",
+    "name": "Tentacle-Spear Strike",
+    "disposition": "selectable",
+    "summary": "Lets the Lunar strike targets at incredible range by committing more Essence to lengthen his tentacles, splitting attacks across multiple foes.",
+    "requirements": "Minimum Manipulation 4; Minimum Essence 3; Prerequisite Charms: Startling Tentacle Attack.",
+    "mechanics": "By increasing the amount of Essence he commits when creating tentacles, the Lunar can strike at targets further away, allowing him to make hand-to-hand attacks at incredible range. The Lunar can make a number of tentacle attacks up to his permanent Essence, and each tentacle may make a separate attack at the Lunar's full Dexterity + Brawl or Martial Arts, adding 1 die for each tentacle formed. Each tentacle may attack the same target, or they may attack different victims, but each defender must be within a number of yards of the Lunar (the Lunar's Essence x 10). Roll each attack separately, but if the target parries or dodges an attack, make one roll and apply it to all attacks directed against him. As a result, the Lunar's opponent may avoid some, all, or none of the tentacles. The tentacles re-form in the original limb immediately after the attacks are made.",
+    "cost": "4 or 5 motes per tentacle",
+    "compatibility": "Duration: Instant. Type: Extra action.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 143,
+      "pdfPage": 146
+    },
+    "crossReferences": [
+      "startling-tentacle-attack"
+    ]
+  },
+  {
+    "id": "weapon-snatching-coils",
+    "name": "Weapon-Snatching Coils",
+    "disposition": "selectable",
+    "summary": "Uses tentacles to entangle and disarm an opponent's weapon rather than to attack the opponent directly.",
+    "requirements": "Minimum Manipulation 4; Minimum Essence 3; Prerequisite Charms: Tentacle-Spear Strike.",
+    "mechanics": "By directing his pseudopodia at an opponent's weapon, the Lunar can use the multiplicity of the tentacles and their speed and reach to foil the opponent's attacks. The maximum number and reach of the tentacles is as per the Tentacle-Spear Strike (Essence x 10 in yards, no more than Essence tentacles), but rather than rolling Dexterity + Brawl, the Lunar's player rolls Strength + Brawl, adding 1 die for each tentacle formed. The opponent may seek to parry or dodge the attack, but if the number of successes remaining after defense still exceeds the target's Dexterity, she is disarmed.",
+    "cost": "4 motes per tentacle, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 143,
+      "pdfPage": 146
+    },
+    "crossReferences": [
+      "tentacle-spear-strike"
+    ]
+  },
+  {
+    "id": "bear-embrace-method",
+    "name": "Bear Embrace Method",
+    "disposition": "selectable",
+    "summary": "Reinforces the Lunar's grappling by letting him add bought dice to a single wrestling attack, or use extra points to extend or escalate a clinch.",
+    "requirements": "Minimum Dexterity 3; Minimum Essence 2; Prerequisite Charms: Body Weapon Technique.",
+    "mechanics": "Lunars revel in the visceral nature of hand-to-hand combat, particularly when they feel the breath of their opponents on their face. As a consequence, grappling is a favored technique. This Charm allows the Lunar's player to fortify his musculature, purchasing additional dice up to the character's Dexterity when rolling a single wrestling attack with Martial Arts or Brawl. The Charm allows the addition of dice to enact, continue or escape from such maneuvers or to do extra points of damage in a clinch attack.",
+    "cost": "1 mote per die",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 144,
+      "pdfPage": 147
+    },
+    "crossReferences": [
+      "body-weapon-technique"
+    ]
+  },
+  {
+    "id": "mighty-bear-crush",
+    "name": "Mighty Bear Crush",
+    "disposition": "selectable",
+    "summary": "Imbues the Lunar's muscles with the strength and consistency of steel, converting a successful clinch, tackle or throw into automatic bonus damage successes.",
+    "requirements": "Minimum Strength 4; Minimum Essence 2; Prerequisite Charms: Bear Embrace Method.",
+    "mechanics": "This Charm allows the Lunar to imbue his muscles with Essence, giving flesh and bone the strength and consistency of steel hawsers. When the character has successfully executed a clinch, tackle or throw or is doing damage from maintaining a clinch, this Charm allows the Lunar to transform dice up to his Strength into automatic damage successes. The maximum number of dice the Lunar can transform is equal to the Essence or Strength, whichever is lower. The Essence for this Charm is spent after soak is applied, so characters need not worry about wagering Essence. The Mighty Bear Crush can be used against any target the Lunar perceives, including dematerialized spirits.",
+    "cost": "2 motes per die",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 144,
+      "pdfPage": 147
+    },
+    "crossReferences": [
+      "bear-embrace-method"
+    ]
+  },
+  {
+    "id": "spine-breaking-technique",
+    "name": "Spine-Breaking Technique",
+    "disposition": "selectable",
+    "summary": "Converts a successful clinch attack into a devastating, hard-to-escape lethal assault, adding automatic successes against escape attempts.",
+    "requirements": "Minimum Strength 3; Minimum Essence 2; Prerequisite Charms: Bear Embrace Method.",
+    "mechanics": "The pinnacle of their wrestling abilities, the Spine-Breaking Technique demonstrates the awesome power of the Lunar's bestial nature. By means of this Charm, the Lunar turns a painful and often incapacitating attack into a lethal demonstration of his prowess. The Lunar makes a clinch attack as normal, but rather than the normal bashing damage, the Spine-Breaking Technique inflicts lethal damage. The Spine-Breaking Technique is also very difficult for the victim to escape from, and a Lunar who activated the technique with his last action adds his Strength's successes to the roll to resist any escape attempt. A Lunar caught in a clinch may activate this Charm on his action to escape. The Spine-Breaking Technique can be used in a Combo with Charms that increase his Strength but not with any that enhance Dexterity.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 144,
+      "pdfPage": 147
+    },
+    "crossReferences": [
+      "bear-embrace-method"
+    ]
+  },
+  {
+    "id": "throat-baring-hold",
+    "name": "Throat-Baring Hold",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar deliberately expose himself while holding a foe, opening his own defenses in exchange for maintaining and worsening the hold turn after turn.",
+    "requirements": "Minimum Dexterity 4; Minimum Essence 2; Prerequisite Charms: Mighty Bear Crush.",
+    "mechanics": "Lunars revel in close combat, and there are times when it is unwise to place themselves in a disadvantageous position while doing so will aid their hunting companions. Indeed, doing so is seen by many as both a test of strength and courage. The Throat-Baring Hold allows a Lunar who has his opponent in a hold to 'open' the opponent's defenses to other attackers. The Lunar must have a successful hold attack. Any extra successes reduce the target's lethal and bashing soak totals until the Lunar's next action or until the opponent breaks free. As with normal hold attacks, the Lunar's attack does not inflict damage. The Throat-Baring Hold may be maintained for multiple turns, but the Lunar must spend 5 motes and his action for the turn (and Charm) to maintain the Charm, and the target may break out, as if it were a normal hold. The penalty inflicted remains the same from turn to turn, until the hold is broken \u2014 a Lunar whose initial attack fares poorly must release his foe and apply the hold again for a new result. In all turns after the initial, the Lunar's player may add the Exalt's Strength as automatic successes to the roll for combating the target's escape attempts and for reducing soak totals for the purposes of the Charm. Attacks against the target will not harm the Lunar \u2014 the Charm keeps him clear of the incoming strikes \u2014 but a botched attack may still strike him.",
+    "cost": "5 motes per turn",
+    "compatibility": "Duration: Varies. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 145,
+      "pdfPage": 148
+    },
+    "crossReferences": [
+      "mighty-bear-crush"
+    ]
+  },
+  {
+    "id": "hyena-jaw-technique",
+    "name": "Hyena Jaw Technique",
+    "disposition": "selectable",
+    "summary": "Available only in beastman form, this Charm lets the Lunar clamp his jaws on a held opponent's throat to quickly subdue or kill him via Stamina drain and Mental Attribute damage.",
+    "requirements": "Minimum Manipulation 2; Minimum Essence 3; Prerequisite Charms: Mighty Bear Crush.",
+    "mechanics": "Activating the Hyena Jaw Technique allows a Lunar who has his opponent in a clinch or hold to subdue the foe quickly. The Charm, usable only in beastman form, allows the Lunar to extend his neck and muzzle, allowing him to clamp his jaws on the opponent's throat. Every turn the Charm is in effect, the target loses a dot of temporary Stamina and falls unconscious if reduced to 0 Stamina. If the target attempts to break away from the clinch or hold, he must soak lethal damage equal to the Lunar's Strength + 2, irrespective of the (successful or otherwise) of her player's escape roll. If the target falls unconscious as a result of Stamina loss or her injuries, further damage inflicted by the Hyena Jaw Technique reduces one of the target's Mental Attributes (Perception, Intelligence or Wits) by one, not below 0. If all four targeted Attributes are reduced to 0, the target dies. A victim of Hyena Jaw Technique regains one Attribute dot per day.",
+    "cost": "6 motes",
+    "compatibility": "Duration: Indefinite. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 145,
+      "pdfPage": 148
+    },
+    "crossReferences": [
+      "mighty-bear-crush"
+    ]
+  },
+  {
+    "id": "cunning-porcupine-defense",
+    "name": "Cunning Porcupine Defense",
+    "disposition": "selectable",
+    "summary": "Sprouts razor-sharp spines from the Lunar's beastman-form body, punishing anyone who clinches, holds or grapples with him, and converting the Lunar's own unarmed attacks to lethal damage.",
+    "requirements": "Minimum Charisma 3; Minimum Essence 3; Prerequisite Charms: Bear Embrace Method.",
+    "mechanics": "Though reveling in close combat, there are times Lunars seek to escape the clutches of their opponents and brute strength is not enough. This Charm, which can only be used when in the hybrid beastman form, allows the Lunar to give his foe a deadly surprise. Activating the Charm, the Lunar sprouts a number of 6-inch, razor-sharp spines. Anyone who clinches, holds or otherwise engages in wrestling with the Lunar, risks grave injury. Those clinching or holding the Lunar suffer damage equal to the Lunar's Strength + 5L, and the Lunar substitutes this for his normal damage when he does damage in a clinch. Any unarmed attacks made by the Lunar while the spines are extended inflict lethal damage rather than bashing. Players of characters who make unarmed attacks against a Lunar using the Cunning Porcupine Defense must make a reflexive Dexterity + Athletics roll (Difficulty 3) or else their character suffers lethal damage equal to their own Strength. Regardless, the Lunar takes damage from the opponent's attack as normal. The Cunning Porcupine Defense remains in effect as long as the Lunar commits Essence to the Charm and stays in beastman form. If the Lunar leaves beastman form or stops committing Essence, the spines merge back into his body.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: Indefinite. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 145,
+      "pdfPage": 148
+    },
+    "crossReferences": [
+      "bear-embrace-method"
+    ]
+  },
+  {
+    "id": "ossific-shard-shot",
+    "name": "Ossific Shard Shot",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar tear a fragment of his own bone free, reforming his muscle around it, and hurl it at a distant target as a horrific ranged weapon.",
+    "requirements": "Minimum Manipulation 3; Minimum Essence 3; Prerequisite Charms: Cunning Porcupine Defense.",
+    "mechanics": "Using this Charm, a Lunar can tear a fragment from his bones and reform his muscles to launch it from his body, hurling it at an opponent within a range of (her Perception x 10) yards. The attack is horrible to behold, as the Lunar tears free of the Lunar's body in a shower of blood and torn tissue, but it regenerates near-instantly. The attack is made with Dexterity + Archery or Thrown, at -1 accuracy, and inflicts 9L + extra successes damage.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 146,
+      "pdfPage": 149
+    },
+    "crossReferences": [
+      "cunning-porcupine-defense"
+    ]
+  },
+  {
+    "id": "angry-rhino-charge",
+    "name": "Angry Rhino Charge",
+    "disposition": "selectable",
+    "summary": "Lets a charging Lunar overbear an opponent with sheer strength and mass, purchasing extra automatic damage-success dice up to his Strength when he lands a Brawl or Martial Arts attack after a full move.",
+    "requirements": "Minimum Strength 2; Minimum Essence 2; Prerequisite Charms: Body Weapon Technique.",
+    "mechanics": "Rather than simply wounding an opponent, a Lunar may use her strength and body mass to overbear the opponent and force him into a disadvantageous position. Using the Angry Rhino Charge while making a successful Brawl or Martial Arts attack allows the Lunar's player to purchase extra dice of damage up to the Exalt's Strength Attribute. These bonus dice do not add to the damage inflicted by the attack, but they do count toward determining knockdown and/or knockback (see Exalted, pp. 234-235) and also determine the difficulty of the target's roll to avoid knockdown. This Charm can only be used while the Lunar is charging into combat (that is, when the character has moved her full movement allowance for the turn) and while in beastman form.",
+    "cost": "1 mote per 2 dice",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 146,
+      "pdfPage": 149
+    },
+    "crossReferences": [
+      "body-weapon-technique"
+    ]
+  },
+  {
+    "id": "bull-head-technique",
+    "name": "Bull Head Technique",
+    "disposition": "selectable",
+    "summary": "Reshapes the Lunar's head into deadly, bull-like horns for the duration of a charge attack, turning a successful hit into lethal damage with purchasable bonus dice.",
+    "requirements": "Minimum Manipulation 3; Minimum Essence 2; Prerequisite Charms: Angry Rhino Charge.",
+    "mechanics": "The Lunars can grow not only tentacles, but also other enhancements as well. Through the use of this Charm, the Lunar reshapes his head to be like that of a bull, including the bull's deadly horns, for the instant of an attack. While the Lunar is charging into combat (that is, has moved his full movement allowance for the turn) and makes a successful Brawl or Martial Arts attack, the player can purchase additional damage dice up to the value of the Exalt's Strength Attribute. All damage from the Bull Head Technique is lethal. Bonus damage is applied before soak, not after.",
+    "cost": "2 motes per die",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 146,
+      "pdfPage": 149
+    },
+    "crossReferences": [
+      "angry-rhino-charge"
+    ]
+  },
+  {
+    "id": "subduing-the-honored-foe",
+    "name": "Subduing the Honored Foe",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar convert a successful unarmed attack into extra automatic successes for a bashing-damage takedown rather than a killing blow, useful for capturing or ransoming a defeated foe.",
+    "requirements": "Minimum Strength 2; Minimum Essence 1; Prerequisite Charms: Body Weapon Technique.",
+    "mechanics": "Though Lunars enjoy the thrill of combat, they don't always want to kill their foes. In many cases, they seek simply to subdue them, as part of a ritual or gentleman-esque duel or to claim a ransom from the defeated foe. This Charm envelops the Lunar's limbs in Essence, lending his blows considerable weight but also cushioning the target from the worst of the blow. When rolling damage for an unarmed Brawl or Martial Arts attack, the Lunar's player can transform a number of dice up to a maximum of his character's Essence into automatic successes at the cost of 1 mote per die. Attacks enhanced with Subduing the Honored Foe automatically do bashing damage. This Charm's effects take place immediately after soak is applied, but the player must pick before he makes the attack roll how many motes he wants to spend converting dice of damage to automatic successes. If the target remains conscious after the attack but suffered more levels of bashing damage than her Stamina, she is dazed, and her player must make a successful Willpower roll (difficulty the Lunar's Strength) or have her character suffer the attack's effects.",
+    "cost": "1 mote per die",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 147,
+      "pdfPage": 150
+    },
+    "crossReferences": [
+      "body-weapon-technique"
+    ]
+  },
+  {
+    "id": "body-breaking-kata",
+    "name": "Body Breaking Kata",
+    "disposition": "selectable",
+    "summary": "Reflects a raw, aggressive melding of strength and initiative that swells the Lunar's form to giant proportions for a single close-combat attack, doubling extra successes toward soak-piercing lethal damage.",
+    "requirements": "Minimum Charisma 4; Minimum Essence 2; Prerequisite Charms: Bull Head Technique, Subduing the Honored Foe.",
+    "mechanics": "Some Lunars employ finesse in combat, but most prefer brute force, and the Body Breaking Kata reflects this fact. It is not a subtle attack, but instead, employs a combination of size, strength and outright aggression to overwhelm an opponent. The Charm is only effective if the Lunar charges into close combat with her opponent \u2014 she must have moved her full movement allowance for the turn engaging the foe. The Lunar channels Essence through her body while making a single unarmed Martial Arts or Brawl attack. This Essence charge causes her form to swell and take giant proportions for an instant. As far as observers are concerned, the Exalt is charged by a monstrous version of his totem. The player of the attacking Lunar should roll Dexterity + Brawl or Martial Arts as normal for the attack but double the number of extra successes when applying the attack's soak. All damage from the Body Breaking Kata is lethal.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 147,
+      "pdfPage": 150
+    },
+    "crossReferences": [
+      "bull-head-technique",
+      "subduing-the-honored-foe"
+    ]
+  },
+  {
+    "id": "foot-confusing-buffet",
+    "name": "Foot-Confusing Buffet",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar sacrifice damage dice from a successful unarmed hit to instead penalize the target's next initiative, distracting the opponent with a dazzling flurry of light rather than injuring him.",
+    "requirements": "Minimum Dexterity 3; Minimum Essence 2; Prerequisite Charms: Subduing the Honored Foe.",
+    "mechanics": "Maintaining the initiative in combat is often as important as the amount of injuries inflicted on the opponent. Keeping control of the direction of a fight in the short term often takes precedence over inflicting injuries on the following turn. The Foot-Confusing Buffet allows the Lunar to keep an opponent off balance, sacrificing one or more damage dice from a successful Brawl or Martial Arts attack in favor of an initiative penalty for the foe in the following turn. The Charm surrounds the Lunar's attacking limbs with a nimbus of light, creating a mesmerizing series of patterns that distract the foe. The Lunar must activate the Charm before making his attack, paying the basic Essence cost even if the attack misses. Only if the attacking Lunar gets at least one extra success does the Foot-Confusing Buffet come into play. The Lunar may sacrifice a number of dice of damage to his Essence or Strength score, whichever is lowest. Damage dice are sacrificed before soak is applied. The number of points sacrificed is applied as a penalty to the target's player's initiative roll in the next turn.",
+    "cost": "2 motes + 1 mote per die",
+    "compatibility": "Duration: One turn. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 147,
+      "pdfPage": 150
+    },
+    "crossReferences": [
+      "subduing-the-honored-foe"
+    ]
+  },
+  {
+    "id": "door-breaking-method",
+    "name": "Door-Breaking Method",
+    "disposition": "selectable",
+    "summary": "A utility Charm that lets a Lunar focus his wrath on an inanimate object, dealing devastating damage particularly effective against man-made items.",
+    "requirements": "Minimum Strength 3; Minimum Essence 2; Prerequisite Charms: Body Weapon Technique.",
+    "mechanics": "By means of this Charm, a Lunar can focus his wrath on an inanimate object, dealing a devastating blow to rend it into splinters. This attack is particularly effective against man-made objects, but it may be used against any non-living, non-magical item. When striking the object, the Lunar focuses his strength and aggression into the blow, as well as Essence. Every mote spent adds one die of damage to a single attack by the Lunar against an item. If the item is man-made, then each mote spent is worth two automatic damage successes instead. The Lunar's player cannot spend more motes when using this Charm than the character's Strength.",
+    "cost": "1 per damage success",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 147,
+      "pdfPage": 150
+    },
+    "crossReferences": [
+      "body-weapon-technique"
+    ]
+  },
+  {
+    "id": "hunters-eye-technique",
+    "name": "Hunter's Eye Technique",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar guide an unarmed attack to a foe's weak point, permanently reducing the target's armor soak with each hit rather than damaging the target directly.",
+    "requirements": "Minimum Perception 3; Minimum Essence 2; Prerequisite Charms: Body Weapon Technique.",
+    "mechanics": "Strength is only part of winning a fight. Knowing where to place the opponent to gain maximum effect is an equally important consideration \u2014 perhaps more important in the case of fast, agile Lunars. Using this Charm, the Lunar guides a single unarmed Brawl or Martial Arts blow to the enemy's weak point, circumventing his armor and defenses. For every 2 motes spent, the Lunar may reduce the soak rating of her opponent's armor by 1. This applies to armor soak only \u2014 the target's natural soak is unaffected. The attack cannot reduce the soak of an opponent's armor by more than the Lunar's Dexterity or below 0. The soak reduction applies only for the enhanced single attack. This Charm is of instant duration \u2014 if the Lunar makes multiple attacks in a turn and desires to reduce the opponent's armor soak each time, she must pay for each reduction separately.",
+    "cost": "2 motes per die",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 148,
+      "pdfPage": 151
+    },
+    "crossReferences": [
+      "body-weapon-technique"
+    ]
+  },
+  {
+    "id": "armor-rending-claw-fist",
+    "name": "Armor-Rending Claw Fist",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar permanently shred an opponent's armor rather than the opponent himself, transforming his claws into rending devices that grind down soak ratings hit after hit.",
+    "requirements": "Minimum Intelligence 4; Minimum Essence 3; Prerequisite Charms: Door-Breaking Method, Hunter's Eye Technique.",
+    "mechanics": "A Lunar's claws are formidable weapons, but the protective effects of armor can blunt the strikes of even the mightiest Exalts. By means of this Charm, a Lunar can reduce the efficacy of his opponent's armor, directing his attacks at the protective layers rather than directly at the opponent. To do so, he transforms his claws into vicious, hooked rending devices, lacking the length to cause serious harm to the opponent but granting them sufficient strength and resilience to rend the hardest armors. The Lunar makes an unarmed Brawl or Martial Arts attack as normal, including determining the amount of raw damage before soak. The opponent may reduce the attack's damage only using his armor's lethal soak rating, not his Stamina or any enhancements, unless they specifically reinforce the armor. Unlike a normal soak, this may reduce the damage of the attack to 0. Roll any remaining damage dice normally, and subtract the number of successes from all of the armor's soak ratings. This reduction is permanent, reflecting the Lunar's efforts to shred and rend the armor, though a skilled armorer may be able to affect repairs.",
+    "cost": "4 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 148,
+      "pdfPage": 151
+    },
+    "crossReferences": [
+      "door-breaking-method",
+      "hunters-eye-technique"
+    ],
+    "notes": "This row's mechanics text is cut off mid-sentence at the bottom of the rendered page ('If the number of...'); the description above covers everything visible through that cutoff. Needs the next page rendered/reviewed to capture the remainder before this row is considered fully complete."
   }
 ]
