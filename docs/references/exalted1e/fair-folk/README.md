@@ -1,7 +1,8 @@
 # Exalted 1e — Fair Folk source intake
 
 **Status: source intake in progress.** `Exalted: The Fair Folk` has been
-supplied and 233 inventory rows are checked in under `inventory/`. See
+supplied and 261 inventory rows are checked in under `inventory/`. Chapter
+Five: Raksha Magic is now fully inventoried end to end. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
@@ -9,7 +10,7 @@ the full process this directory follows.
 
 - `source-manifest.json` — the one source book in scope so far
   (`exalted-the-fair-folk`); supplements are not yet added.
-- `inventory/exalted-the-fair-folk.json` — 235 rows covering:
+- `inventory/exalted-the-fair-folk.json` — 261 rows covering:
   - The Chapter Three character-creation overview, split into two rows
     because common and noble raksha use materially different baselines:
     `fair-folk-creation-overview-common` (0-dot starting Attributes, 0 free
@@ -312,41 +313,91 @@ the full process this directory follows.
     same page was deliberately not inventoried as its own row, matching
     the individual-shaping-weapon exclusion already applied to
     `shaping-combat-basics`.
+  - **The rest of Chapter Five: Raksha Magic** (26 rows, pp. 205-211/PDF
+    206-212), which completes the chapter end to end:
+    - **Glamour Sorcery** (pp. 205-207/PDF 206-208; 7 rows): the raksha's
+      Artifact-Background-purchased spell system, bound to the aspects of
+      Dharma (the Cup) and cast by a lorekeeper who may not be the spell's
+      owner (`glamour-sorcery-overview`, folding in the "Spell Abilities"
+      subsection), the "Glamour Sorcery and Countermagic" sidebar
+      (`glamour-sorcery-countermagic`), and the five named Circle tiers as
+      purchasable options — `waking-circle-spell` (Artifact •),
+      `dreaming-circle-spell` (Artifact ••), `desire-circle-spell`
+      (Artifact •••), `samadhi-circle-spell` (Artifact ••••, restricted to
+      a raksha who owns his own Heart Grace), and `shinma-circle-spell`
+      (Artifact •••••).
+    - **Wyld Artifacts** (pp. 207-208/PDF 208-209; 4 rows): the
+      Ring-forged-treasure category (`wyld-artifacts-overview`) plus three
+      named examples — `resonant-chorus-bow` (Artifact •),
+      `hundred-color-shaping-lens` (Artifact ••), and `artifact-waypoint`
+      (Artifact •••+, an enchanted mobile Ring-shaping weapon built from
+      one or more waypoints).
+    - **Adjurations** (pp. 208-210/PDF 209-211; 7 rows): the
+      unbreakable-oath category bound to Nirvikalpa (the Staff)
+      (`adjurations-overview`), the "How Inconvenient Are a Raksha's
+      Oaths?" framing sidebar (`adjurations-how-inconvenient-sidebar`),
+      and the five named oath tiers, each aspected to one of the five core
+      Graces — `samhara-oath` (Artifact •, Sword), `sthiti-oath` (Artifact
+      ••, Ring), `anugraha-oath` (Artifact •••, Cup), `tirobhava-oath`
+      (Artifact ••••, Staff), and `srishti-oath` (Artifact •••••, Heart).
+    - **Behemoths** (pp. 210-211/PDF 211-212; 5 rows): the Sword-aspected
+      monstrous-companion-artifact category plus the "Behemoth Powers"
+      subsection (`behemoths-overview`), three named tiers —
+      `fey-beast` (Artifact • or ••), `daikaiju` (Artifact •••), and
+      `deep-wyld-horror` (Artifact •••• or •••••) — and one unique,
+      story-specific example, `ishiika` (Artifact N/A, a legendary
+      scorpion-behemoth once tamed by the lost Prince Balor; inventoried
+      with disposition `gm-only` rather than `selectable`, since it is a
+      one-off creature tied to a named NPC and not a build a player
+      follows, unlike the three generic tiers).
+    - **Nirupadhika, the Way** (p. 211/PDF 212; 3 rows), the apparent
+      sixth Grace flagged by earlier passes: `nirupadhika-the-way`
+      documents the shinma itself, and `forging-the-way-grace` /
+      `perfect-reckoning-technique` are its only two Charms. Determination:
+      this is neither a standard sixth playable Grace nor pure GM lore —
+      the book explicitly calls it "an example of one of the other shinma
+      the raksha might tame," gives it only two Charms (versus 12-78 for
+      each of the five real Graces), and it never appears in the
+      character-creation chapters — but its Charms are fully rules-complete
+      and usable in play (any raksha who knows the existing
+      `forging-the-heart-grace` Charm can learn `forging-the-way-grace` to
+      grant a Way Grace to a consenting creature, paralleling the four
+      existing "Forging the (Grace) Grace" Charms). It is inventoried as
+      real, narrowly-scoped player-facing content rather than folded into
+      the five-Grace model or excluded as GM-only. See `source-manifest.json`
+      for the full writeup.
+    - This pass also corrected a one-page offset in this project's own
+      prior page estimates for Behemoths and Nirupadhika (previously
+      estimated at pp. 210-212/PDF 211-213 and p. 212/PDF 213
+      respectively): direct visual confirmation against the rendered page
+      images shows Deep Wyld Horror, Ishiika, and all of Nirupadhika
+      actually sit on printed p. 211/PDF 212, one page earlier than
+      previously estimated, with printed p. 212/PDF 213 being a full-page
+      illustration with no chapter text — the true end of Chapter Five.
 
 ## What's still needed
 
-1. Glamour Sorcery, Wyld Artifacts, and Adjurations (pp. 205-210 / PDF
-   206-211) and Behemoths (pp. 210-212 / PDF 211-213) — not yet
-   inventoried. `great-works-of-the-grace` and
-   `unshaped-grace-transformation` both reference these product types by
-   page number without cross-referencing them, since no rows exist yet.
-   **Resume here at printed p. 205 / PDF 206.**
-2. A short, apparently sixth Grace called "the Way" (shinma Nirupadhika)
-   surfaces on p. 212 (PDF 213), just before Chapter Six, with a "Forging
-   the Way Grace" Charm and a "Perfect Reckoning Technique" Charm. It sits
-   outside the five-Grace model (Cup/Ring/Staff/Sword/Heart) used
-   throughout the rest of this inventory and has not been reviewed or
-   reconciled with that model yet — flagged for dedicated review in a
-   future pass, likely alongside item 1 above.
-3. The Storyteller-only "unshaped" Charm-suggestion sidebar in Chapter
+1. Chapter One: Rakshastan (setting/geography — Freeholds, the
+   Middlemarches, the Five Courts, the Church of Balor as story-hook
+   flavor) and Chapter Two: The Raksha (broader lore) — not yet
+   inventoried; only the character-creation-relevant mechanical content
+   from Chapters Three, Four, and now the entirety of Chapter Five is
+   covered so far. **Resume here at printed p. 1 / PDF 2 (or wherever
+   Chapter One's geography material actually begins — not yet located).**
+2. The Storyteller-only "unshaped" Charm-suggestion sidebar in Chapter
    Three (pp. 96-97 / PDF 97-98) — full of specific named Charms for
    building unshaped NPCs, and explicitly GM-facing, not a player-facing
    creation rule. Deliberately **excluded from scope**, not merely
    deferred.
-4. Chapter One: Rakshastan (setting/geography — Freeholds, the
-   Middlemarches, the Five Courts, the Church of Balor as story-hook
-   flavor) and Chapter Two: The Raksha (broader lore) — not yet
-   inventoried; only the character-creation-relevant mechanical content
-   from Chapters Three and Four (plus the general-rules content and all
-   five full per-Grace Charm trees from Chapter Five) is covered so far.
-5. Chapter Six: The Mountain Folk (a separate non-raksha playable-adjacent
+3. Chapter Six: The Mountain Folk (a separate non-raksha playable-adjacent
    race) and Chapter Seven: Storytelling — not yet inventoried, and not
    necessarily in scope for the Fair Folk sheet family at all.
-6. Merits/Flaws specific to Fair Folk — checked again this round (the
-   edges of Chapters Three and Four where Backgrounds live, and the
-   general-rules portion of Chapter Five); still not found anywhere in the
+4. Merits/Flaws specific to Fair Folk — checked again this round (all of
+   Chapter Five, in addition to the Chapters Three/Four Background
+   material checked in prior rounds); still not found anywhere in the
    chapters reviewed so far. May not exist as a distinct section in this
-   book at all; keep checking as the remaining chapters are reviewed.
+   book at all; the only chapters left where it could plausibly appear are
+   One, Two, Six, and Seven.
 
 ## Do not add yet
 

@@ -525,7 +525,7 @@
   },
   {
     "id": "craft-glamour-ability",
-    "name": "Craft (Glamour) \u2014 the paramount creator's Craft specialty",
+    "name": "Craft (Glamour) — the paramount creator's Craft specialty",
     "disposition": "calculated",
     "summary": "Craft (Glamour) is the single most important Craft specialty for raksha: the art of shaping Essence and dream itself, superseding metalwork, woodwork, stonework and every other mundane Craft specialty for a Fair Folk character.",
     "mechanics": "Craft (Glamour) is described as 'the paramount creator's skill in the Wyld.' In Creation, a raksha player can roll Perception + Craft (Glamour) for her character to identify the glamour-forged works of her peers.",
@@ -5018,5 +5018,579 @@
       "vexing-mechanic"
     ],
     "notes": "Chapter Five: Raksha Magic, 'Questing' boxed sidebar, p. 148 (PDF 149), set beside the 'Vexing Places' / 'Vexing the Unshaped' / 'Vexing Creatures of Creation' sections on the same page."
+  },
+  {
+    "id": "glamour-sorcery-overview",
+    "name": "Glamour Sorcery (overview)",
+    "disposition": "calculated",
+    "summary": "The raksha's great spells: artifacts forged from raksha Graces and bound to the aspects of Dharma (the Cup), purchased through the Artifact Background and used as poisons, drugs and tools of ravishment that undermine or change the Essence patterns of those they touch.",
+    "requirements": "Purchased through the Artifact Background like any other artifact; the spell's Artifact level (one to five, or N/A for the rarest distillations) sets its dot cost.",
+    "mechanics": "Glamour sorcery spells are artifacts, not Charms: a raksha (or Lunar Exalted) buys one with Artifact Background dots, then attunes to it with a commitment of 3 motes per Artifact level plus several scenes of ritual maintenance each day (many nobles delegate this upkeep to a common lorekeeper). The spell uses its lorekeeper's Traits when determining its abilities; the lorekeeper is not necessarily the raksha who holds spiritual ownership of the spell (having created, purchased, or won it) -- it is the owner who spends the motes and gossamer to summon the spell into Creation. Glamour Sorcery spells can be used as weapons in Cup-shaping combat. Each spell tier (Waking, Dreaming, Desire, Samadhi, Shinma Circle -- see waking-circle-spell, dreaming-circle-spell, desire-circle-spell, samadhi-circle-spell, shinma-circle-spell) has its own build-point budget, invocation cost, and Cup-shaping-weapon stat defaults; every tier requires at least one Assumption-type Charm mutation (typically Assumption of Elemental Shape) among its build points, tying the spell's tangible form back to the universal Assumption-type Charm tree.",
+    "cost": "Artifact Background dots (per the spell's Artifact level) plus a per-tier commitment (3 motes per Artifact level) and per-tier invocation cost in motes/gossamer/scenes (see individual spell-tier rows).",
+    "compatibility": "Any raksha (or Lunar Exalted) with Artifact Background dots to spend; the specific spell built with a tier's mutation points is chosen by its creator/owner within that tier's rules.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 205,
+      "pdfPage": 206
+    },
+    "crossReferences": [
+      "artifact-background-fair-folk",
+      "assumption-of-elemental-shape",
+      "cup-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Glamour Sorcery' -> 'Spell Abilities' sections, p. 205 (PDF 206), immediately following the Sword Grace's Mutation Charms section (the last of Chapter Five's five per-Grace Charm trees). Folds in the short 'Spell Abilities' subsection (lorekeeper mechanic) rather than giving it its own row, since it is general framework text rather than a discrete rule or choice."
+  },
+  {
+    "id": "glamour-sorcery-countermagic",
+    "name": "Glamour Sorcery and Countermagic (sidebar)",
+    "disposition": "calculated",
+    "summary": "A boxed sidebar mapping each glamour-sorcery spell tier to an equivalent tier of Creation sorcery for countermagic purposes, and explaining how targeting a spell's physical manifestation with countermagic of equal or greater level can suppress or permanently unmake it.",
+    "mechanics": "For countermagic purposes, Waking and Dreaming Circle spells count as Terrestrial Circle Sorcery, Desire and Samadhi Circle spells count as Celestial Circle Sorcery, and Shinma Circle spells count as Solar Circle Sorcery. Every glamour-sorcery spell has a physical manifestation, usually as sturdy as an artifact made from one of the Five Magical Materials. Countermagic of equal level targeted at that manifestation makes it go inert, dispelling all its effects for the rest of that story (the raksha cannot use that spell again until a new story begins); countermagic of greater level shatters the manifestation outright, destroying the spell entirely and unmaking all its effects permanently. Specifically: Emerald Countermagic shatters Waking Circle spells; Sapphire Countermagic shatters Waking, Dreaming, and Desire Circle spells; and Adamant Countermagic, targeting the manifestation directly, utterly destroys any raksha spell not protected by Mad God Mien.",
+    "compatibility": "Any Creation-born sorcerer with access to Terrestrial-, Celestial-, or Solar-Circle-tier countermagic; any raksha whose glamour sorcery spells lack Mad God Mien's protection.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 206,
+      "pdfPage": 207
+    },
+    "crossReferences": [
+      "mad-god-mien"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Glamour Sorcery and Countermagic' boxed sidebar, p. 206 (PDF 207), set beside the Dreaming and Desire Circle spell entries."
+  },
+  {
+    "id": "waking-circle-spell",
+    "name": "Waking Circle Spell",
+    "disposition": "selectable",
+    "summary": "The pettiest tier of glamour sorcery -- more the caffeine or sugar of the Wyld than its cocaine -- built as a one-dot artifact whose tangible effects are crafted almost entirely from mutation points.",
+    "requirements": "Artifact Background 1 (or as needed for the spell's Artifact rating of one dot).",
+    "mechanics": "In Cup-shaping combat, a Waking Circle spell has qualities similar to a normal one-dot artifact weapon -- by default a piercing clinch enhancer with Speed -5, Accuracy +1, Damage +4, Defense +4, and Rate 1. Invoking the spell in Creation takes one scene, 10 motes, and 1 gossamer; once invoked it remains invoked for a full story, and the motes spent to invoke it are not committed. Build the spell's tangible effects as an object with 10 mutation points, exactly 1 of which must go to an Assumption-type Charm mutation (normally Assumption of Elemental Shape). The remaining 9 mutation points craft the spell's other effects. Example given: a leering wooden mask with the permanent versions of Assumption of Elemental Shape (Wood) and the Hateful Coin Curse; looking at the mask forces an Intelligence + Bureaucracy roll from its lorekeeper, stripping the viewer one dot of Resources per success unless the viewer's Wits + Essence exceeds the lorekeeper's Bureaucracy.",
+    "cost": "Artifact Background dot(s) to own; 3 motes/level to attune; 10 motes + 1 gossamer + one scene to invoke.",
+    "compatibility": "Any raksha or Lunar Exalted with Artifact Background dots to spend on a one-dot artifact.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 205,
+      "pdfPage": 206
+    },
+    "crossReferences": [
+      "glamour-sorcery-overview",
+      "assumption-of-elemental-shape",
+      "hateful-coin-curse",
+      "artifact-background-fair-folk"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Glamour Sorcery' -> 'Waking Circle Spell (Artifact •)', p. 205 (PDF 206)."
+  },
+  {
+    "id": "dreaming-circle-spell",
+    "name": "Dreaming Circle Spell",
+    "disposition": "selectable",
+    "summary": "A two-dot glamour-sorcery tier crafted from the substance of dream, disruptive to elements of pattern; most offer a positive pharmaceutical effect to their user or a disruptive poison to their victims, alongside normal one-dot-artifact-weapon combat qualities.",
+    "requirements": "Artifact Background dots for the spell's two-dot Artifact rating.",
+    "mechanics": "In shaping combat, a Dreaming Circle spell has qualities similar to a normal one-dot artifact weapon. In addition, most offer either a pharmaceutical effect (usually +2 dice to a shaping Ability) or a poison effect (usually forcing a Stamina + Resistance check at difficulty 3 each time the shaping weapon damages a target, lest the target suffer an extra point of Cup damage). Invoking the spell in Creation takes one scene, 15 motes, and 1 gossamer; once invoked it remains invoked for a full story, and the motes are not committed. Build the spell's tangible effects with 11 mutation points, 1 or 2 of which must go to Assumption-type Charm mutations (normally Assumption of Elemental Shape or Assumption of the Land's Heart); the rest craft the spell's other effects. Example given: a spherical gem with the permanent versions of Assumption of the Land's Heart and Fall of Night Shadows the Truth, which blankets a hamlet-sized region so that its people naturally conceal and forget their own suffering, believing they live in a utopia; a lorekeeper's Conviction + Stealth successes raise the difficulty of any Investigation/Lore/Occult/Socialize roll to learn about that pain, though characters with Intelligence + Essence exceeding the lorekeeper's Stealth cannot be shielded this way.",
+    "cost": "Artifact Background dots to own; 3 motes/level to attune; 15 motes + 1 gossamer + one scene to invoke.",
+    "compatibility": "Any raksha or Lunar Exalted with Artifact Background dots to spend on a two-dot artifact.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 206,
+      "pdfPage": 207
+    },
+    "crossReferences": [
+      "glamour-sorcery-overview",
+      "assumption-of-elemental-shape",
+      "assumption-of-the-lands-heart",
+      "fall-of-night-shadows-the-truth",
+      "artifact-background-fair-folk"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dreaming Circle Spell (Artifact ••)', p. 206 (PDF 207), between the Glamour Sorcery and Countermagic sidebar and the Desire Circle Spell entry."
+  },
+  {
+    "id": "desire-circle-spell",
+    "name": "Desire Circle Spell",
+    "disposition": "selectable",
+    "summary": "A three-dot glamour-sorcery tier crafted to influence the deep, shifting undermind urges behind both dreams and nightmares; strong enough that even characters who would normally be immune to a work of glamour still suffer its effects unless they use a stunt or Charm to see through it.",
+    "requirements": "Artifact Background dots for the spell's three-dot Artifact rating.",
+    "mechanics": "In shaping combat, a Desire Circle spell has qualities similar to a normal two- or three-dot artifact weapon, defaulting to Speed +6, Accuracy +1, Damage +8, Defense +1, and Rate 5. Invoking the spell in Creation takes two scenes, 20 motes, and 2 gossamer; once invoked it remains invoked until some condition inherent to the spell is met (up to one year and one day if that condition is simply the passage of time), and the motes are not committed. Build the spell's tangible effects with 13 mutation points, 1 to 4 of which must go to Assumption-type Charm mutations (normally Assumption of Elemental Shape, Assumption of the Land's Heart, or Assumption of the City's Heart); the rest craft the spell's other effects. Unlike lesser tiers, Desire Circle effects overcome characters whose Traits would normally render them immune to a work of glamour -- they still suffer its effects unless they use a stunt or Charm (not necessarily a Wyld-specific defense) to see through it. Example given: a labyrinth drawn on gilt paper with the permanent versions of Assumption of the City's Heart and Undetectable Lie, which sinks its power into a city and convinces characters with Wits + Essence up to the lorekeeper's Manipulation that they are 'hopelessly lost' from the moment they enter, wandering in circles even with their destination in plain sight; characters above that threshold would normally be immune but, because this is a Desire Circle effect, must still use a stunt or Charm to escape it.",
+    "cost": "Artifact Background dots to own; 3 motes/level to attune; 20 motes + 2 gossamer + two scenes to invoke.",
+    "compatibility": "Any raksha or Lunar Exalted with Artifact Background dots to spend on a three-dot artifact.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 206,
+      "pdfPage": 207
+    },
+    "crossReferences": [
+      "glamour-sorcery-overview",
+      "assumption-of-elemental-shape",
+      "assumption-of-the-lands-heart",
+      "assumption-of-the-citys-heart",
+      "undetectable-lie",
+      "artifact-background-fair-folk"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Desire Circle Spell (Artifact •••)', p. 206 (PDF 207), continuing onto p. 207/PDF 208."
+  },
+  {
+    "id": "samadhi-circle-spell",
+    "name": "Samadhi Circle Spell",
+    "disposition": "selectable",
+    "summary": "A four-dot glamour-sorcery tier -- also called a 'True Self Spell' -- crafted to influence the endless primordial dreams of the Wyld, the Graces, and the mortal soul; only a raksha who owns his own Heart Grace can cast one.",
+    "requirements": "Artifact Background dots for the spell's four-dot Artifact rating; the casting/owning raksha must own his own Heart Grace (i.e. it must not be held or claimed by another).",
+    "mechanics": "In shaping combat, a Samadhi Circle spell has qualities appropriate to a three- or four-dot artifact weapon, defaulting to Speed +6, Accuracy +1, Damage +8, Defense +1, Rate 5, and a special power (such as the ability to ready the spell without a shaping action). Invoking the spell in Creation takes two scenes, 25 motes, and 2 gossamer; once invoked it remains invoked until some condition inherent to the spell is met (up to one year and one day if that condition is time-based), and the motes are not committed. Build the spell's tangible effects with 15 mutation points, 1 to 6 of which must go to Assumption-type Charm mutations; the rest craft the spell's other effects. As with the Desire Circle, seeing through a Samadhi Circle work of glamour requires an appropriate Charm or stunt. Example given: a spell that creates a tainted land and slowly gathers an army of Wyld addicts as the Wyld recedes from Creation -- its permanent Assumption of the Wyld-Tainted Land takes force and creates the tainted region, the permanent version of Shiftless Untamed Beauty makes the land itself addictive, the permanent version of Adored By All the Worlds draws a few more Wyld-loyalist followers to the region each scene, the permanent version of Ordinary Object Conjuration forges one suit of armor from the sky each scene, and Mad God Mien protects the whole result from standard countermagic.",
+    "cost": "Artifact Background dots to own; 3 motes/level to attune; 25 motes + 2 gossamer + two scenes to invoke.",
+    "compatibility": "Any raksha (or Lunar Exalted) who owns his own Heart Grace, with Artifact Background dots to spend on a four-dot artifact.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 207,
+      "pdfPage": 208
+    },
+    "crossReferences": [
+      "glamour-sorcery-overview",
+      "assumption-of-the-wyld-tainted-land",
+      "shiftless-untamed-beauty",
+      "adored-by-all-the-worlds",
+      "ordinary-object-conjuration",
+      "mad-god-mien",
+      "artifact-background-fair-folk",
+      "heart-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Samadhi Circle Spell (Artifact ••••)', p. 207 (PDF 208), immediately following the tail end of Desire Circle Spell and the 'Magistrate Eyes' cross-reference to core Exalted."
+  },
+  {
+    "id": "shinma-circle-spell",
+    "name": "Shinma Circle Spell",
+    "disposition": "selectable",
+    "summary": "The most terrifying tier of glamour sorcery: a five-dot spell crafted to influence the substance before dreams, the primal substrata of the Wyld, and the stuff from which the shinma, the Primordials, and certain of the unshaped were made.",
+    "requirements": "Artifact Background dots for the spell's five-dot Artifact rating (or N/A for story-purpose, legendary-tier examples).",
+    "mechanics": "In shaping combat, a Shinma Circle spell has qualities appropriate to a four- or five-dot artifact weapon, defaulting to Speed +6, Accuracy +1, Damage +8, Defense +1, Rate 5, and a major special power (such as a mote-fueled persistent defense or the ability to fight on its own). Invoking the spell in Creation takes three scenes, 30 motes, and 3 gossamer; once invoked it remains invoked until some condition inherent to the spell is met (up to one century if that condition is time-based), and the motes are not committed. Build the spell's tangible effects with up to 18 mutation points, at least 1 of which must go to an Assumption-type Charm mutation; the rest craft the spell's other effects. An appropriate Charm or stunt is needed to see through a Shinma Circle work of glamour, as with the Samadhi and Desire Circles. These player-facing build rules apply only to player-created Shinma Circle spells or to spells the Storyteller creates for casual unshaped use; Shinma Circle spells that exist purely for story purposes can have additional or unusual abilities and are sometimes effectively legendary (N/A) artifacts in power.",
+    "cost": "Artifact Background dots to own; 3 motes/level to attune; 30 motes + 3 gossamer + three scenes to invoke.",
+    "compatibility": "Any raksha or Lunar Exalted with Artifact Background dots to spend on a five-dot artifact; story-purpose Shinma Circle spells above this budget are Storyteller-only.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 207,
+      "pdfPage": 208
+    },
+    "crossReferences": [
+      "glamour-sorcery-overview",
+      "artifact-background-fair-folk"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Shinma Circle Spell (Artifact •••••)', p. 207 (PDF 208), immediately preceding the 'Wyld Artifacts' section."
+  },
+  {
+    "id": "wyld-artifacts-overview",
+    "name": "Wyld Artifacts (overview)",
+    "disposition": "calculated",
+    "summary": "Traditional-style artifacts -- swords, enchanted masks, and similar treasures -- that the Ring forges from raksha Graces and the substance of the Wyld; they rarely display the full predictability of Creation-forged artifacts, and only a few of them double as Ring-shaping weapons.",
+    "requirements": "Purchased through the Artifact Background like glamour sorcery, adjurations, and behemoths.",
+    "mechanics": "A raksha receives a +2 Rate, +1 Accuracy, and +1 Defense bonus to the qualities of a Ring-shaping weapon that she personally crafted or reshaped, on top of its base qualities. Wyld artifacts more generally include things like artifact swords and enchanted masks forged from Ring Graces and the substance of the Wyld; because the Ring's urge to shape is more generic than the Cup's, Staff's, or Sword's, only a few Wyld artifacts function as Ring-shaping weapons themselves. Those that do are usually built on the same principles as the curdling dream bow, the shaping lens, and the world heart (see resonant-chorus-bow, hundred-color-shaping-lens, and artifact-waypoint for named examples of each).",
+    "cost": "Artifact Background dots (per the artifact's level).",
+    "compatibility": "Any raksha with Ring Grace and Artifact Background dots to spend; the self-crafting bonus applies only to weapons the raksha personally crafted or reshaped.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 207,
+      "pdfPage": 208
+    },
+    "crossReferences": [
+      "artifact-background-fair-folk",
+      "ring-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Wyld Artifacts' section header and opening paragraphs, p. 207 (PDF 208), immediately following the Shinma Circle Spell entry."
+  },
+  {
+    "id": "resonant-chorus-bow",
+    "name": "Resonant Chorus Bow",
+    "disposition": "selectable",
+    "summary": "A gossamer-inlaid variant of the curdling dream bow, chiming and thrumming with the deep power and order bound inside it.",
+    "requirements": "Artifact Background 1.",
+    "mechanics": "Accuracy +2, Damage 15, Rate 2, unlimited Maximum Perception, a range of 6 waypoints, and a commitment cost of 3 motes.",
+    "cost": "Artifact Background 1; 3 motes to commit.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a one-dot Wyld artifact.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 207,
+      "pdfPage": 208
+    },
+    "crossReferences": [
+      "wyld-artifacts-overview",
+      "artifact-background-fair-folk"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Resonant Chorus Bow (Artifact •)', p. 207 (PDF 208)."
+  },
+  {
+    "id": "hundred-color-shaping-lens",
+    "name": "Hundred Color Shaping Lens",
+    "disposition": "selectable",
+    "summary": "A writhing microcosm of an artifact, its ornate inlay made from a hundred woven strands of dream struggling eternally to dominate the pattern.",
+    "requirements": "Artifact Background 2.",
+    "mechanics": "Accuracy +2, Damage +3, Rate 2, unlimited Maximum Perception, a range of 10 waypoints, and a commitment cost of 6 motes.",
+    "cost": "Artifact Background 2; 6 motes to commit.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a two-dot Wyld artifact.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 207,
+      "pdfPage": 208
+    },
+    "crossReferences": [
+      "wyld-artifacts-overview",
+      "artifact-background-fair-folk"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Hundred Color Shaping Lens (Artifact ••)', p. 207 (PDF 208)."
+  },
+  {
+    "id": "artifact-waypoint",
+    "name": "Artifact Waypoint",
+    "disposition": "selectable",
+    "summary": "An enchanted waypoint or collection of waypoints that forms a mobile Ring-shaping weapon, functioning like an airship-scale artillery platform that floats through the Wyld at a fixed distance from the waypoints it passes.",
+    "requirements": "Artifact Background 3+ (Artifact level three or higher).",
+    "mechanics": "An artifact waypoint floats through the Wyld at a fixed distance of one journey 'away,' 'above,' or 'below' the waypoints it passes through; the attuned raksha steers it at his normal movement rate. Used in Ring-shaping combat, it has qualities similar to a normal artifact ranged or thrown weapon of equal level, and a commitment cost of 3 motes per level. An artifact waypoint structure contains up to its Artifact level in individual waypoints, and attempts to damage the waypoints themselves through shaping are made at +3 difficulty.",
+    "cost": "Artifact Background 3+; 3 motes per level to commit.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a level-three-or-higher Wyld artifact.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 208,
+      "pdfPage": 209
+    },
+    "crossReferences": [
+      "wyld-artifacts-overview",
+      "artifact-background-fair-folk"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Artifact Waypoint (Artifact •••+)', p. 208 (PDF 209), continuing onto p. 209/PDF 210. This is the last named Wyld Artifact example before the 'Adjurations' section begins."
+  },
+  {
+    "id": "adjurations-overview",
+    "name": "Adjurations (overview)",
+    "disposition": "calculated",
+    "summary": "The 'world-shaping oaths' that bind raksha society together: artifacts of the Fair Folk shaped from Graces and bound to the aspects of Nirvikalpa (the Staff), which empower whoever swears to them and then manipulate the oathtaker and the world itself to ensure their own fulfillment.",
+    "requirements": "Purchased through the Artifact Background like glamour sorcery, Wyld artifacts, and behemoths.",
+    "mechanics": "Adjurations have an Artifact level ranging from one to five, with certain lost oaths qualifying as Artifact N/A. Swearing to an adjuration requires a commitment of 1 mote per level, and the character cannot voluntarily stop committing Essence to it -- she must fulfill the oath before she can reclaim the investment. A raksha sworn to an adjuration cannot voluntarily break that oath; breaking it involuntarily causes the character to suffer a catastrophic botch at the most poetically appropriate moment, exactly as though an Eclipse Caste Solar had sanctified the oath. The environmental penalty for working around the adjuration is usually equal to its Artifact level. When a raksha attuned to a Throne Room swears to an adjuration on behalf of a Freehold, the Freehold holds the benefit in common, and the lord of the Freehold can reflexively assign it to any consenting character in fealty to him. Adjurations are weapons in Staff-shaping combat. Each of the five oath tiers (Samhara/Sword, Sthiti/Ring, Anugraha/Cup, Tirobhava/Staff, Srishti/Heart -- see samhara-oath, sthiti-oath, anugraha-oath, tirobhava-oath, srishti-oath) grants its own mutation-point budget, shaping-weapon stat defaults, and thematic promise structure, corresponding to Artifact levels one through five respectively.",
+    "cost": "Artifact Background dots (per the adjuration's level) to own; 1 mote per level to commit and sustain the sworn oath.",
+    "compatibility": "Any raksha (or Lunar Exalted) with Artifact Background dots to spend, willing to accept an unbreakable oath in exchange for its granted mutations.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 208,
+      "pdfPage": 209
+    },
+    "crossReferences": [
+      "artifact-background-fair-folk",
+      "staff-grace",
+      "forging-the-throne-room"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Adjurations' section header and opening paragraphs, p. 208 (PDF 209), immediately following Artifact Waypoint."
+  },
+  {
+    "id": "adjurations-how-inconvenient-sidebar",
+    "name": "How Inconvenient Are a Raksha's Oaths? (sidebar)",
+    "disposition": "reference-only",
+    "summary": "A tone-setting sidebar clarifying that raksha oaths are not actually inconvenient in practice: raksha squirm out of complicated promises with finesse and exploit an enemy's trivial ones, and the dramatic 'legendary oath' stories associated with adjurations are driven by passion (or an Exalt's trickery), not by any need to access an adjuration's power.",
+    "mechanics": "This sidebar contains no new mechanic; it is Storyteller/player guidance clarifying design intent. In Creation and in the raw Wyld, raksha try hard to avoid promises that would hamstring them, adjuration or otherwise. The complicated, powerful oaths and clever escapes seen in raksha stories are simply one more token in Staff-shaping contests, not evidence that raksha oaths function differently from the mechanics described in adjurations-overview.",
+    "compatibility": "Any raksha; framing guidance for how to roleplay adjurations and oaths in play.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 208,
+      "pdfPage": 209
+    },
+    "crossReferences": [
+      "adjurations-overview"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'How Inconvenient Are a Raksha's Oaths?' boxed sidebar, p. 208 (PDF 209), set beside the Samhara Oath entry."
+  },
+  {
+    "id": "samhara-oath",
+    "name": "Samhara Oath (Sword oath)",
+    "disposition": "selectable",
+    "summary": "A one-dot adjuration sworn in the name of Nishkriya, the Sword -- oaths made in the shadow of endings and the knowledge that all things die, often manifesting as raven shadows that hover near the raksha and drive others into commitments through fear.",
+    "requirements": "Artifact Background 1.",
+    "mechanics": "In shaping combat, a samhara oath has qualities similar to a normal one-dot artifact weapon -- typically Speed +7, Accuracy +2, Damage +9, Defense +3, Rate 2, and piercing damage. Each samhara oath contains a specific promise and up to 2 mutation points of powers; a raksha who attunes to the oath by swearing to that promise receives the associated mutations until the oath is broken or fulfilled. An unwise oath can put a raksha in Bedlam or calcify him. Example given: the raksha Dasasya swore, 'I shall not set foot again on land until I have slain the Unconquered Sun,' gaining the 2-point mutation Gossamer Wing Flight. Also called a Sword oath or one-dot oath.",
+    "cost": "Artifact Background 1; 1 mote to commit and sustain.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a one-dot adjuration.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 208,
+      "pdfPage": 209
+    },
+    "crossReferences": [
+      "adjurations-overview",
+      "artifact-background-fair-folk",
+      "sword-grace",
+      "gossamer-wing-flight"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Samhara Oath (Artifact •)', p. 208 (PDF 209), continuing onto p. 209/PDF 210."
+  },
+  {
+    "id": "sthiti-oath",
+    "name": "Sthiti Oath (Ring oath)",
+    "disposition": "selectable",
+    "summary": "A two-dot adjuration sworn in honor of the shinma of the Ring -- oaths recognizing that the self exists only in context with the other, often manifesting as coronas of light around those who sanctify their integrity with commitments.",
+    "requirements": "Artifact Background 2.",
+    "mechanics": "In shaping combat, a sthiti oath has qualities similar to a normal two-dot artifact weapon -- typically Speed +6, Accuracy +0, Damage +13, Defense -1, Rate 1, and piercing damage. Each sthiti oath contains a specific promise and up to 3 mutation points of powers; a raksha who attunes to the oath by swearing to that promise receives the associated mutations until the oath is broken or fulfilled. Example given: the raksha Ayo swore, 'Until Calibration takes this burden from me, I shall not sleep without weapon in hand,' gaining the mutation version of Ordinary Object Conjuration (needing only to beckon and roll Conviction + Performance at three successes to summon an excellent straight sword to her hand). Also called a Ring oath or two-dot oath.",
+    "cost": "Artifact Background 2; 2 motes to commit and sustain.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a two-dot adjuration.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 209,
+      "pdfPage": 210
+    },
+    "crossReferences": [
+      "adjurations-overview",
+      "artifact-background-fair-folk",
+      "ring-grace",
+      "ordinary-object-conjuration"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Sthiti Oath (Artifact ••)', spanning the bottom of p. 208 (PDF 209) and top of p. 209 (PDF 210)."
+  },
+  {
+    "id": "anugraha-oath",
+    "name": "Anugraha Oath (Cup oath)",
+    "disposition": "selectable",
+    "summary": "A three-dot adjuration sworn in the name of Dharma, the Cup -- oaths made in joy or hunger, out of desire for their outcome, often manifesting as will-o'-wisps or siren scraps of music that lure others into commitments through beauty.",
+    "requirements": "Artifact Background 3.",
+    "mechanics": "In shaping combat, an anugraha oath has qualities similar to a normal three-dot artifact weapon -- typically a piercing weapon with Speed +10, Accuracy +0, Damage +9, Defense +1, and Rate 3. Each anugraha oath contains a specific promise and up to 4 mutation points of powers; a raksha who attunes to the oath by swearing to that promise receives the associated mutations until the oath is broken or fulfilled, but halves the total mutation point cost (rounding up). Example given: the raksha Nishumba swore to dedicate himself for a year and a day to the devastation of his enemies, taking on a monstrous two-headed goblin body via the Huge Wyld affliction and 2 mutation points of Oath Gossamer. Also called a Cup oath or three-dot oath.",
+    "cost": "Artifact Background 3; 3 motes to commit and sustain.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a three-dot adjuration.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 209,
+      "pdfPage": 210
+    },
+    "crossReferences": [
+      "adjurations-overview",
+      "artifact-background-fair-folk",
+      "cup-grace",
+      "oath-gossamer"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Anugraha Oath (Artifact •••)', p. 209 (PDF 210)."
+  },
+  {
+    "id": "tirobhava-oath",
+    "name": "Tirobhava Oath (Staff oath)",
+    "disposition": "selectable",
+    "summary": "A four-dot adjuration sworn in the name of Nirvikalpa, the Staff -- oaths sworn because oaths are bindings, and in bindings there is power, often manifesting as a staff wrapped with the terrible power of law.",
+    "requirements": "Artifact Background 4.",
+    "mechanics": "In shaping combat, a tirobhava oath has qualities similar to a normal four-dot artifact weapon -- typically Speed +10, Accuracy +0, Damage +9, Defense +1, Rate 3, piercing damage, and a minor special power. Each tirobhava oath contains a specific promise and up to 6 mutation points of powers; a raksha who attunes to the oath by swearing to that promise receives the associated mutations until the oath is broken or fulfilled, but halves the total mutation point cost (rounding up). Example given: the raksha Madhu, who dwelt in the endless ocean, swore, 'Let any catch me on the land, and they may slay me,' gaining Assumption of the Living Kingdom paired with an Assumption of the Land's Heart he personally knew; a Solar prince eventually covered the sea in obsidian shards and dredged him up to force his submission to destruction. Also called a Staff oath or four-dot oath.",
+    "cost": "Artifact Background 4; 4 motes to commit and sustain.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a four-dot adjuration.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 209,
+      "pdfPage": 210
+    },
+    "crossReferences": [
+      "adjurations-overview",
+      "artifact-background-fair-folk",
+      "staff-grace",
+      "assumption-of-the-living-kingdom",
+      "assumption-of-the-lands-heart"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Tirobhava Oath (Artifact ••••)', p. 209 (PDF 210), continuing onto p. 210/PDF 211."
+  },
+  {
+    "id": "srishti-oath",
+    "name": "Srishti Oath (Heart oath)",
+    "disposition": "selectable",
+    "summary": "A five-dot adjuration sworn in the name of Nirguna, the Heart -- the truest and deepest oaths of the raksha, sworn for as little as a single mutation point.",
+    "requirements": "Artifact Background 5.",
+    "mechanics": "In shaping combat, a srishti oath has qualities similar to a normal four-dot artifact weapon -- typically Speed +10, Accuracy +0, Damage +9, Defense +1, Rate 3, piercing damage, and a major special power. Its benefits are built on up to 4 points of mutations, but the raksha may swear to the oath for a single mutation point. Example given: Hiranya swore to serve the shinma Nirvikalpa with endless austerities, and the oath's strength was such that neither man nor beast could kill him -- not with a weapon or without one, not by day nor night, not indoors nor outdoors, and not on the earth nor in the sky -- granting the benefit Bastion of the Self with partial immunity to mortal damage and the arts of the Sword; the monstrous raksha Nara-simha nonetheless caught him at the threshold in the twilight hour and strangled him on his lap, a three-die Wyld stunt that broke the oath and caused Hiranya to botch his own reflexive counterattack, snapping his own Sword Grace. Also called a Heart oath or five-dot oath.",
+    "cost": "Artifact Background 5; 1-4 motes to commit and sustain, depending on how many mutation points the oath grants.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a five-dot adjuration.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 210,
+      "pdfPage": 211
+    },
+    "crossReferences": [
+      "adjurations-overview",
+      "artifact-background-fair-folk",
+      "heart-grace",
+      "bastion-of-the-self"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Srishti Oath (Artifact •••••)', p. 210 (PDF 211), the last of the five oath tiers and immediately preceding the 'Behemoths' section."
+  },
+  {
+    "id": "behemoths-overview",
+    "name": "Behemoths (overview and Behemoth Powers)",
+    "disposition": "calculated",
+    "summary": "Monstrous artifacts forged from raksha Graces and bound to the aspects of Nishkriya (the Sword), purchased through the Artifact Background and dominated/attuned much like any other artifact; they exist to make a point, manifesting the attitude of the raksha (or unshaped) who creates them, and use the base Traits of their attuned creature handler.",
+    "requirements": "Purchased through the Artifact Background like glamour sorcery, Wyld artifacts, and adjurations.",
+    "mechanics": "Behemoths have an Artifact level ranging from one to five, with the greatest monsters of the far reaches qualifying as Artifact N/A. Dominating a behemoth requires a commitment of 3 motes per level plus several hours of bonding time per day; nobles typically have creature handlers attune behemoths on their behalf. Behemoths are weapons in Sword-shaping combat. Behemoth Powers: a behemoth uses the base Traits of its attuned creature handler, specifically excluding Backgrounds and most Merits and Flaws, but including Virtues -- a Compassionate raksha's behemoths tend to be sympathetic monsters, while a Valorous raksha's are terrible, fearless foes. Each behemoth tier (Fey Beast, Daikaiju, Deep Wyld Horror -- see fey-beast, daikaiju, deep-wyld-horror) grants its own mutation-point budget and shaping/Sword-combat stat defaults, corresponding to increasing Artifact levels; ishiika documents a unique, story-specific Artifact N/A behemoth as a worked example of the top of the scale rather than a build a player follows.",
+    "cost": "Artifact Background dots (per the behemoth's level) to own; 3 motes per level plus daily bonding time to dominate/attune.",
+    "compatibility": "Any raksha with Artifact Background dots to spend, or a creature handler attuned on a noble's behalf.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 210,
+      "pdfPage": 211
+    },
+    "crossReferences": [
+      "artifact-background-fair-folk",
+      "sword-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Behemoths' section header, opening paragraphs, and 'Behemoth Powers' subsection, p. 210 (PDF 211), immediately following Srishti Oath. Genuinely player-facing: the Artifact Background row (artifact-background-fair-folk) already names 'behemoths' among the treasures raksha buy with Artifact dots, and this section supplies the mechanical framework it references, resolving a forward reference left open by great-works-of-the-grace and unshaped-grace-transformation (both of which name-check p. 210's behemoth material by page number without a cross-reference, since no rows existed yet)."
+  },
+  {
+    "id": "fey-beast",
+    "name": "Fey Beast",
+    "disposition": "selectable",
+    "summary": "The least of the Wyld horrors a raksha marshals in battle -- a one- or two-dot behemoth built around a guaranteed natural weapon (Knife-Hand Dream plus Armament of Flesh) with a handful of mutation points left over to fit its theme.",
+    "requirements": "Artifact Background 1 (one-dot fey beast) or 2 (two-dot fey beast).",
+    "mechanics": "In shaping combat, a fey beast has qualities similar to a normal one-dot artifact weapon -- by default Speed -5, Accuracy +1, Damage +4, Defense +4, and Rate 2. Build a one-dot fey beast on up to 9 mutation points, or a two-dot fey beast on 11; 1 of those mutation points must go to Knife-Hand Dream and 2 to Armament of Flesh, giving the creature a natural attack with Speed -3, Accuracy +1, Damage +4L, Defense +1, and Rate 4 (it can also parry lethal attacks while unarmed). The remaining 6 (or 8) mutation points fit the creature's theme. Example given: a long-necked, sharp-beaked, scaled riding bird with Knife-Hand Dream, Armament of Flesh, Gossamer Wing Flight, Glorious Hero Form, and the Wyld affliction Thick Skin, using its handler's Traits but adding flight, 3L/3B soak, three dice on Survival rolls, a dot each of Strength and Stamina, and a beak-based natural attack.",
+    "cost": "Artifact Background 1-2; 3-6 motes per level to dominate/attune.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a one- or two-dot behemoth.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 211,
+      "pdfPage": 212
+    },
+    "crossReferences": [
+      "behemoths-overview",
+      "artifact-background-fair-folk",
+      "knife-hand-dream",
+      "armament-of-flesh",
+      "gossamer-wing-flight",
+      "glorious-hero-form"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Fey Beasts (Artifact • or ••)', p. 211 (PDF 212), the first named behemoth tier."
+  },
+  {
+    "id": "daikaiju",
+    "name": "Daikaiju",
+    "disposition": "selectable",
+    "summary": "A three-dot behemoth at the heart of a raksha's army -- a monster of terrible prowess with heavy natural armor, weaponized natural attacks, and a generous mutation-point budget.",
+    "requirements": "Artifact Background 3.",
+    "mechanics": "In shaping combat, a daikaiju has qualities similar to a normal two- or three-dot artifact weapon -- by default Speed +10, Accuracy +3, Damage +12, Defense +0, and Rate 4. Daikaiju have 12L/12B armor, which stacks with armor from mutations. Their natural weaponry uses the attack modifiers of an exceptional mundane weapon (for example, great elephantine legs used as exceptional sledges with bonus accuracy, damage, and defense). Daikaiju receive 12 mutation points to spend as desired. Example given: a white hybroc dwelling in an eternal blizzard, with feathers like exceptional throwing knives (improved Rate, melee damage, and ranged damage, cast off at the nadir of a wingbeat), Imposition of Law for automatic success on Presence (Intimidation) rolls, Bastion of the Self for immunity to normal damage, Gossamer Wing Flight, and the Wyld affliction Huge (increasing Strength and Stamina by two dots over its handler's and adding two extra low health levels).",
+    "cost": "Artifact Background 3; 9 motes to dominate/attune.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a three-dot behemoth.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 211,
+      "pdfPage": 212
+    },
+    "crossReferences": [
+      "behemoths-overview",
+      "artifact-background-fair-folk",
+      "imposition-of-law",
+      "bastion-of-the-self",
+      "gossamer-wing-flight"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Daikaiju (Artifact •••)', p. 211 (PDF 212), continuing onto p. 212/PDF 213, illustrated with a full daikaiju artwork on p. 211/PDF 212."
+  },
+  {
+    "id": "deep-wyld-horror",
+    "name": "Deep Wyld Horror",
+    "disposition": "selectable",
+    "summary": "A four- or five-dot behemoth serving as a raksha's terror weapon -- the heaviest-armored and most mutation-rich of the named behemoth tiers, with natural weaponry equivalent to an attuned Magical Material artifact.",
+    "requirements": "Artifact Background 4 or 5.",
+    "mechanics": "In Sword combat, a Deep Wyld horror has qualities appropriate to a four- or five-dot artifact; in shaping combat, it defaults to Speed +10, Accuracy +3, Damage +12, Defense +0, Rate 4, and possesses a special power of some sort. Deep Wyld horrors have 20L/20B armor, which stacks with armor from mutations. Their natural weaponry uses the modifiers for an attuned one- or two-dot artifact weapon, complete with Magical Material bonus. Deep Wyld horrors receive 15 mutation points to spend as desired. Example given: a soul-eating monstrous boar whose writhing barbed spines have the weapon qualities of an attuned soulsteel dire lance (Speed +12, Accuracy +3, Damage +9L, Defense +3, Rate 3, extra damage on a charge, and the ability to drink its handler's Essence in motes from any creature it damages), built as an indefatigable hunter with two picks of Imposition of Law, the Giant blight, the Enhanced Smell and Hearing pox, and Glorious Hero Form.",
+    "cost": "Artifact Background 4-5; 12-15 motes to dominate/attune.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a four- or five-dot behemoth.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 212,
+      "pdfPage": 213
+    },
+    "crossReferences": [
+      "behemoths-overview",
+      "artifact-background-fair-folk",
+      "imposition-of-law",
+      "glorious-hero-form"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Deep Wyld Horror (Artifact •••• or •••••)', p. 212 (PDF 213). Note: this printed-page/PDF-page pair reflects the folio number printed on the physical page image, which reads 211 for the page bearing the 'Deep Wyld Horror,' 'Ishiika,' and 'Nirupadhika, the Way' material (PDF page 212); the source-manifest's earlier estimate of pp. 210-212/PDF 211-213 for Behemoths and p. 212/PDF 213 for Nirupadhika was off by one page and is corrected here after direct visual confirmation against the rendered page images."
+  },
+  {
+    "id": "ishiika",
+    "name": "Ishiika (unique legendary behemoth)",
+    "disposition": "gm-only",
+    "summary": "A unique, story-specific Artifact N/A behemoth -- a scorpion formed of a surging sea of teeth, aspected to the shinma Nishkriya, once tamed by the lost Prince Balor but too vast even for him to wield against Creation. Documented here as a worked example of the top of the behemoth power scale, not as a build a player follows.",
+    "mechanics": "Employed in Sword combat, Ishiika has Speed +10, Accuracy +3, Damage +12, Defense +5, and an unlimited Rate; its wielder automatically wins initiative (rolling normally only against a similar initiative-stealing effect), and the wielder can delay his initiative without penalty, acting at any point in the initiative order. Shaping weapons used to parry Ishiika are utterly destroyed, shattering their Sword and Heart Graces (if any) before eliminating them entirely. In ordinary combat, Ishiika has immortality on the level of the Primordials; it focuses three attacks on each mortal enemy per turn, each with 10 successes on the attack roll and 11L base damage, and targets who do not use Charms or stunts to defend themselves take an automatic three health levels of damage rather than suffer an attack.",
+    "compatibility": "Storyteller-controlled, story-specific legendary artifact; not purchasable through the Artifact Background and not intended as a player build template, unlike fey-beast, daikaiju, and deep-wyld-horror.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 212,
+      "pdfPage": 213
+    },
+    "crossReferences": [
+      "behemoths-overview",
+      "deep-wyld-horror"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Ishiika (Artifact N/A)', p. 212 (PDF 213). Classified gm-only rather than selectable: unlike the three generic behemoth tiers above it, Ishiika is presented as a unique creature tied to a specific lost NPC (Prince Balor) and explicitly too vast even for its own tamer to wield against Creation -- an illustrative extreme, not a purchasable template, matching the task's instruction to skip pure creature stat blocks meant for Storyteller use only."
+  },
+  {
+    "id": "nirupadhika-the-way",
+    "name": "Nirupadhika, the Way (sixth shinma)",
+    "disposition": "calculated",
+    "summary": "A brief, explicitly-illustrative sixth shinma beyond the book's five-Grace baseline (Cup/Ring/Staff/Sword/Heart): Nirupadhika defines space and location, is associated with the Abilities Awareness, Sail, and Survival, and the book presents it only as 'an example of one of the other shinma the raksha might tame' rather than as a standard character-creation option.",
+    "mechanics": "Nirupadhika exists in no place and all places, its mad eyes regarding all things in the Wyld with disorienting simultaneity; it would speak but has no voice, would act but has no space in which to act -- compressed to nothingness and stretched in all directions, its perpetual agony is travel. The book explicitly frames it as one example of the 'other shinma' a raksha might theoretically tame beyond the five (Cup, Ring, Staff, Sword, Heart) used throughout character creation and the rest of this inventory, and notes that Charms for such a Grace are 'extremely rare' -- only two are given (forging-the-way-grace, perfect-reckoning-technique), both far shorter and less developed than any single section of the five main Grace Charm trees.",
+    "compatibility": "Not part of the standard character-creation baseline; a rare, optional extra a Storyteller could sanction, most plausibly reached by a Creation-born character being granted a Way Grace via Forging the Way Grace rather than a raksha choosing it as one of her own starting Graces at chargen.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 211,
+      "pdfPage": 212
+    },
+    "crossReferences": [
+      "forging-the-way-grace",
+      "perfect-reckoning-technique"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirupadhika, the Way' section, p. 211 (PDF 212), immediately following Ishiika and immediately before Chapter Six begins. DETERMINATION on the sixth 'Way' Grace: this is neither a standard sixth playable Grace nor pure GM/setting lore -- it sits in between. It is real, rules-complete, player-facing content (two fully statted Charms usable in actual play, one of which any raksha with the prerequisite Forging the Heart Grace Charm could learn and use to grant a Way Grace to a consenting creature), but the book itself explicitly disclaims it as an 'example' of the shinma system's extensibility rather than a core option, it is never mentioned in the character-creation chapters (Three/Four) already inventoried, no raksha is shown starting play with a Way Grace, and only two Charms exist for it (versus 12-78 for each of the five real Graces). It is inventoried as real, narrowly-scoped player-facing content (its two Charms as selectable rows) rather than folded into the five-Grace model used elsewhere in this inventory or excluded as GM-only, since a Creation-born character actually being granted a Way Grace via Forging the Way Grace is a genuine, usable-in-play outcome, not merely Storyteller-side lore."
+  },
+  {
+    "id": "forging-the-way-grace",
+    "name": "Forging the Way Grace",
+    "disposition": "selectable",
+    "summary": "Crafts a Way Grace -- the sixth, exotic shinma Nirupadhika -- as an artifact for a consenting creature, teaching it to tame Nirupadhika and use its shaping actions to speed travel through the Wyld; requires the raksha to already know Forging the Heart Grace.",
+    "requirements": "Minimum Ring: 0; Minimum Essence: 1; Prerequisite Charms: Forging the Heart Grace.",
+    "mechanics": "Crafting the Way Grace for a consenting creature, the raksha teaches the target to tame Nirupadhika. This Charm consumes a supply of gossamer and creates an artifact; the artifact has the normal qualities of a finely crafted weapon, suit of armor, or tool, in addition to the standard Grace qualities, and it creates a Way Trait for the creature. Raksha and other Essence users can attune to a creature's Way Grace: this requires six scenes of handling and a 1-mote commitment, which erases any previous raksha's attunement. Characters attuned to a creature's Way Grace can reflexively strip away the creature's connection to Nirupadhika, lowering its Way to 0; the Curse associated with this reduction is left to the Storyteller to determine. Raksha with a Way Grace can use their shaping actions to speed their travel through the Wyld -- a single success on a Dexterity + Sail Way-shaping action moves them one journey through the Wyld.",
+    "cost": "10 motes, 1 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple. Any raksha who already knows Forging the Heart Grace; the resulting Way Grace and its associated Charm (Perfect Reckoning Technique) are usable by whichever consenting creature receives it.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 211,
+      "pdfPage": 212
+    },
+    "crossReferences": [
+      "nirupadhika-the-way",
+      "forging-the-heart-grace",
+      "perfect-reckoning-technique"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirupadhika, the Way' -> 'Forging the Way Grace', p. 211 (PDF 212). Parallels the already-inventoried Forging the (Grace) Grace Charms (forging-the-cup-grace, forging-the-ring-grace, forging-the-staff-grace, forging-the-sword-grace), all of which similarly grant a Creation-born character a Grace as an artifact; this is the first hint that the 'Forging the (Grace) Grace' pattern could in principle extend beyond the five core Graces to any shinma a raksha tames, including exotic ones like Nirupadhika."
+  },
+  {
+    "id": "perfect-reckoning-technique",
+    "name": "Perfect Reckoning Technique",
+    "disposition": "selectable",
+    "summary": "The raksha sees for a moment through Nirupadhika's eyes, letting her plot a course to any landmark in the Wyld or Creation that she already knows.",
+    "requirements": "Minimum Way: 3; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The raksha sees for a moment through Nirupadhika's eyes. This Charm lets her plot a course to any landmark in the Wyld or Creation that she knows.",
+    "cost": "4 motes, 1 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple. Only usable by a character with a Way Grace of 3 or higher (see nirupadhika-the-way, forging-the-way-grace).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 211,
+      "pdfPage": 212
+    },
+    "crossReferences": [
+      "nirupadhika-the-way",
+      "forging-the-way-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirupadhika, the Way' -> 'Perfect Reckoning Technique', p. 211 (PDF 212), the last Charm in Chapter Five before Chapter Six: The Mountain Folk begins. Printed p. 212/PDF 213, the page immediately after this one, is a full-page illustration with no chapter text (confirmed by direct render), marking the true end of Chapter Five."
   }
 ]
