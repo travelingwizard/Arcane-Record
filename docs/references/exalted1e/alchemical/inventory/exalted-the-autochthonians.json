@@ -4,7 +4,7 @@
     "name": "Alchemical Character Creation (Five Steps)",
     "disposition": "calculated",
     "summary": "Alchemical creation follows the same five-step Solar skeleton but replaces every step's internals: Attributes come from a Caste-linked triad rather than a Physical/Social/Mental split, Abilities have no Caste/Favored discount at all, Charms are implanted artifacts drawn from a fixed number of Slots instead of a purchasable list, and Willpower/Essence/the two Essence pools use Alchemical-specific formulas built around the signature Clarity Trait rather than the Great Curse.",
-    "mechanics": "Step One (Concept): choose concept, Caste, and Nature before anything else. Caste is assigned by which of the Five Magical Materials predominates in the character's Vat-built frame, not by personality (closer to a Dragon-Blood's aspect than a Solar's Caste); the Sodalities also try to match a resonant soul to that Material. Autochthonian society favors the Natures Architect, Bureaucrat, Follower, Judge, Leader, Paragon, Savant and Visionary; Gallant/Hedonist/Thrillseeker are tolerated at the edge of propriety, and Rebel draws open derision; a sidebar details a unique local reading of Paragon ('Paragon of Integration') as the Autochthonian ideal of a selfless-but-not-servile cooperator. Step Two (Attributes): every character gets 1 free dot in each Attribute as usual, but instead of Primary/Secondary/Tertiary categories, each Caste has 3 fixed Caste Attributes (see the five Caste rows) that receive 9 dots with no Attribute below ••; the player then picks 3 of the remaining 6 Attributes as Favored and assigns 6 dots there; the last 3 Attributes split the final 4 dots. Step Three (Abilities): uniquely among Exalted, Alchemicals have no Caste or Favored Abilities whatsoever - all 23 starting dots are freely distributed, guided only by non-binding suggestions (2+ in a primary attack Ability, 1+ in a secondary range, 2+ in a defensive Ability, 2+ Athletics, at least 1 dot each in a Craft/Lore/Occult, 3+ spread across Performance/Presence/Socialize, 2+ Bureaucracy); Larceny, Ride and Sail are Rare Abilities in Autochthonia before contact with Creation, and a 2-die unfamiliarity penalty applies when Autochthonians handle living mounts/boats (and vice versa for Creation natives with Autochthonian conveyances) until several weeks' practice. Step Four (Advantages): every Alchemical automatically receives Class ••• for free (see class-background) plus 10 further Background dots to spend (13 total); only Artifact may exceed ••• without bonus points. Charms take the form of surgically implanted artifacts: a starting character has 4 General Charm Slots (any Charm) and 4 Dedicated Charm Slots (Caste/Favored Charms only), and must choose 8 Charms to fill all 8 Slots; extra Slots cost bonus points (see alchemical-bonus-points-and-experience-costs) and each comes with a free qualifying Charm. Virtues get 1 free dot each plus 5 more to distribute, capped at 3 without bonus points; Compassion is explicitly the Virtue that pushes back against Clarity. Step Five (Finishing Touches): Willpower equals the sum of the two highest Virtues (capped below 8 unless both of those Virtues are 4+); Essence starts at 2. Personal Essence pool = (Essence x 3) + Willpower. Peripheral Essence pool = (Essence x 5) + (Willpower x 3) + (highest Virtue x 2), before any Charm-granted bonus capacity. Health levels are the standard mortal 7, plus one extra -2 level per dot of permanent Essence. Finally, 15 bonus points may be spent at any time per the bonus-point cost table.",
+    "mechanics": "Step One (Concept): choose concept, Caste, and Nature before anything else. Caste is assigned by which of the Five Magical Materials predominates in the character's Vat-built frame, not by personality (closer to a Dragon-Blood's aspect than a Solar's Caste); the Sodalities also try to match a resonant soul to that Material. Autochthonian society favors the Natures Architect, Bureaucrat, Follower, Judge, Leader, Paragon, Savant and Visionary; Gallant/Hedonist/Thrillseeker are tolerated at the edge of propriety, and Rebel draws open derision; a sidebar details a unique local reading of Paragon ('Paragon of Integration') as the Autochthonian ideal of a selfless-but-not-servile cooperator. Step Two (Attributes): every character gets 1 free dot in each Attribute as usual, but instead of Primary/Secondary/Tertiary categories, each Caste has 3 fixed Caste Attributes (see the five Caste rows) that receive 9 dots with no Attribute below \u2022\u2022; the player then picks 3 of the remaining 6 Attributes as Favored and assigns 6 dots there; the last 3 Attributes split the final 4 dots. Step Three (Abilities): uniquely among Exalted, Alchemicals have no Caste or Favored Abilities whatsoever - all 23 starting dots are freely distributed, guided only by non-binding suggestions (2+ in a primary attack Ability, 1+ in a secondary range, 2+ in a defensive Ability, 2+ Athletics, at least 1 dot each in a Craft/Lore/Occult, 3+ spread across Performance/Presence/Socialize, 2+ Bureaucracy); Larceny, Ride and Sail are Rare Abilities in Autochthonia before contact with Creation, and a 2-die unfamiliarity penalty applies when Autochthonians handle living mounts/boats (and vice versa for Creation natives with Autochthonian conveyances) until several weeks' practice. Step Four (Advantages): every Alchemical automatically receives Class \u2022\u2022\u2022 for free (see class-background) plus 10 further Background dots to spend (13 total); only Artifact may exceed \u2022\u2022\u2022 without bonus points. Charms take the form of surgically implanted artifacts: a starting character has 4 General Charm Slots (any Charm) and 4 Dedicated Charm Slots (Caste/Favored Charms only), and must choose 8 Charms to fill all 8 Slots; extra Slots cost bonus points (see alchemical-bonus-points-and-experience-costs) and each comes with a free qualifying Charm. Virtues get 1 free dot each plus 5 more to distribute, capped at 3 without bonus points; Compassion is explicitly the Virtue that pushes back against Clarity. Step Five (Finishing Touches): Willpower equals the sum of the two highest Virtues (capped below 8 unless both of those Virtues are 4+); Essence starts at 2. Personal Essence pool = (Essence x 3) + Willpower. Peripheral Essence pool = (Essence x 5) + (Willpower x 3) + (highest Virtue x 2), before any Charm-granted bonus capacity. Health levels are the standard mortal 7, plus one extra -2 level per dot of permanent Essence. Finally, 15 bonus points may be spent at any time per the bonus-point cost table.",
     "compatibility": "All Alchemical castes.",
     "verificationState": "reviewed",
     "citation": {
@@ -66,7 +66,7 @@
     "name": "Life, Death, and the Soulgem",
     "disposition": "calculated",
     "summary": "While properly fed, Alchemicals heal exactly like other Exalted, mending dented metal and cracked Charms without scarring; but lethal or aggravated damage that drops one below Incapacitated causes her whole body to dissolve into a puddle of clay, crystal shards and broken metal over a number of turns equal to her Essence, shattering every installed Charm into raw salvage and leaving only a pristine, undamaged diamond soulgem behind.",
-    "mechanics": "Because so much valuable Magical Material is built into an Alchemical's frame, unscrupulous parties sometimes plunder living Exalted through outright vivisection rather than waiting for a natural death. On death (dropping below Incapacitated from lethal/aggravated damage), the body dissolves over Essence-many turns; the wreckage of shattered Charms is worth roughly Resources ••••• to anyone willing to scavenge it, but the diamond soulgem itself remains intact amid the ruin.",
+    "mechanics": "Because so much valuable Magical Material is built into an Alchemical's frame, unscrupulous parties sometimes plunder living Exalted through outright vivisection rather than waiting for a natural death. On death (dropping below Incapacitated from lethal/aggravated damage), the body dissolves over Essence-many turns; the wreckage of shattered Charms is worth roughly Resources \u2022\u2022\u2022\u2022\u2022 to anyone willing to scavenge it, but the diamond soulgem itself remains intact amid the ruin.",
     "compatibility": "All Alchemical castes.",
     "verificationState": "reviewed",
     "citation": {
@@ -314,9 +314,9 @@
     "id": "class-background",
     "name": "Class (new Background, replaces Followers/Influence/Resources)",
     "disposition": "selectable",
-    "summary": "Class is the core socioeconomic Background for anyone in Autochthonia's largely currency-less economy, folding Followers, Influence and Resources into a single rating that sets social standing, requisition authority, and standard of living; Alchemicals automatically receive Class ••• for free at creation (separate from their normal Background dots) and may raise it further with bonus points, while mortal characters must purchase it from scratch like any other Background.",
-    "mechanics": "Dot table: no dots (x) - a Lumpen outcast; a tolerable Resources •-equivalent standard of living, but a 1-die penalty to Social pools against higher-Class characters (also the rating held by surface slaves taken during the Locust Crusade). 1 dot - a general laborer/aide of the Populat; Resources ••-equivalent, dormitory housing shared by dozens with no personal claim to space (also shared, after a successful Locust Crusade, by loyalist Outsider-caste Creation-dwellers who are barred from entering Autochthonia). 2 dots - a Populat shift chief overoseeing 20-300 workers; Resources •••-equivalent, apartment shared with roughly a dozen peers. 3 dots - a Populat foreman overseeing an entire factory, or a junior Tripartite member (expected to also carry 1-2 dots of matching Backing); lives at Resources ••• with a dedicated aide staff but can requisition up to Resources ••••, subject to superiors demanding justification; +1 die to Social rolls against lower-Class Autochthonians. 4 dots - a Populat supervisor over an entire industry in a city, or a veteran Tripartite member (2-3 dots of Backing expected); Resources ••• or •••• standard of living, can requisition as high as Resources ••••• at the risk of scrutiny; +1 die to Social rolls against lower-Class Autochthonians. 5 dots - a Populat director/sub-director or senior Tripartite leader (4-5 dots of Backing expected); palatial residence at Resources •••• or •••••; +2 dice to Social rolls against lower-Class Autochthonians. Lumpen exiled to the Reaches for serious crimes exist entirely outside this Background and receive no resource allocation at all; any status they hold is purchased as Backing instead, and any hoarded wealth or followers come from Resources/Followers under the Solar rules, options otherwise closed to ordinary Autochthonians.",
-    "cost": "Background dots (0-5), as with any Background; Alchemicals start with a free, separate Class ••• at character creation.",
+    "summary": "Class is the core socioeconomic Background for anyone in Autochthonia's largely currency-less economy, folding Followers, Influence and Resources into a single rating that sets social standing, requisition authority, and standard of living; Alchemicals automatically receive Class \u2022\u2022\u2022 for free at creation (separate from their normal Background dots) and may raise it further with bonus points, while mortal characters must purchase it from scratch like any other Background.",
+    "mechanics": "Dot table: no dots (x) - a Lumpen outcast; a tolerable Resources \u2022-equivalent standard of living, but a 1-die penalty to Social pools against higher-Class characters (also the rating held by surface slaves taken during the Locust Crusade). 1 dot - a general laborer/aide of the Populat; Resources \u2022\u2022-equivalent, dormitory housing shared by dozens with no personal claim to space (also shared, after a successful Locust Crusade, by loyalist Outsider-caste Creation-dwellers who are barred from entering Autochthonia). 2 dots - a Populat shift chief overoseeing 20-300 workers; Resources \u2022\u2022\u2022-equivalent, apartment shared with roughly a dozen peers. 3 dots - a Populat foreman overseeing an entire factory, or a junior Tripartite member (expected to also carry 1-2 dots of matching Backing); lives at Resources \u2022\u2022\u2022 with a dedicated aide staff but can requisition up to Resources \u2022\u2022\u2022\u2022, subject to superiors demanding justification; +1 die to Social rolls against lower-Class Autochthonians. 4 dots - a Populat supervisor over an entire industry in a city, or a veteran Tripartite member (2-3 dots of Backing expected); Resources \u2022\u2022\u2022 or \u2022\u2022\u2022\u2022 standard of living, can requisition as high as Resources \u2022\u2022\u2022\u2022\u2022 at the risk of scrutiny; +1 die to Social rolls against lower-Class Autochthonians. 5 dots - a Populat director/sub-director or senior Tripartite leader (4-5 dots of Backing expected); palatial residence at Resources \u2022\u2022\u2022\u2022 or \u2022\u2022\u2022\u2022\u2022; +2 dice to Social rolls against lower-Class Autochthonians. Lumpen exiled to the Reaches for serious crimes exist entirely outside this Background and receive no resource allocation at all; any status they hold is purchased as Backing instead, and any hoarded wealth or followers come from Resources/Followers under the Solar rules, options otherwise closed to ordinary Autochthonians.",
+    "cost": "Background dots (0-5), as with any Background; Alchemicals start with a free, separate Class \u2022\u2022\u2022 at character creation.",
     "compatibility": "All Alchemicals and Autochthonian mortals; Lumpen exiles in the Reaches use Backing/Resources/Followers instead.",
     "verificationState": "reviewed",
     "citation": {
@@ -335,8 +335,8 @@
     "id": "artifact-background-altered",
     "name": "Artifact (altered for Alchemicals)",
     "disposition": "calculated",
-    "summary": "Alchemicals draw on the full resources of Autochthonian industry, so each dot of the Artifact Background buys three total dots of Artifact-rated gear rather than one, the Background may be bought all the way to ••••• during character creation without bonus points (though the 4th and 5th dot each cost two dots), and dots here can additionally buy spare Charms held on retainer at the Vats up to the character's Essence rating.",
-    "mechanics": "Most Alchemical-owned artifacts are built from the same Magical Material as the Exalt's own Caste, though this is not a hard requirement. Because the total combined Artifact rating purchased per Background dot is tripled relative to core Exalted, and because character creation alone permits reaching ••••• (at extra cost for the last two dots), Alchemicals field noticeably more equipment than other Exalted of comparable Background investment. Separately, Artifact dots may buy additional Charms as artifacts (rated up to the character's minimum qualifying Essence, and only for Charms whose Trait prerequisites the character actually meets); these Charms are kept on retainer at the Vats and do not count against or increase the number of Charms installed in Slots.",
+    "summary": "Alchemicals draw on the full resources of Autochthonian industry, so each dot of the Artifact Background buys three total dots of Artifact-rated gear rather than one, the Background may be bought all the way to \u2022\u2022\u2022\u2022\u2022 during character creation without bonus points (though the 4th and 5th dot each cost two dots), and dots here can additionally buy spare Charms held on retainer at the Vats up to the character's Essence rating.",
+    "mechanics": "Most Alchemical-owned artifacts are built from the same Magical Material as the Exalt's own Caste, though this is not a hard requirement. Because the total combined Artifact rating purchased per Background dot is tripled relative to core Exalted, and because character creation alone permits reaching \u2022\u2022\u2022\u2022\u2022 (at extra cost for the last two dots), Alchemicals field noticeably more equipment than other Exalted of comparable Background investment. Separately, Artifact dots may buy additional Charms as artifacts (rated up to the character's minimum qualifying Essence, and only for Charms whose Trait prerequisites the character actually meets); these Charms are kept on retainer at the Vats and do not count against or increase the number of Charms installed in Slots.",
     "compatibility": "All Alchemical castes.",
     "verificationState": "reviewed",
     "citation": {
@@ -353,9 +353,9 @@
     "id": "backing-background-altered",
     "name": "Backing (altered for Alchemicals/Autochthonians)",
     "disposition": "calculated",
-    "summary": "Because Autochthonia has no independent power blocs, Backing represents rank inside a specific named branch of the Tripartite - the Olgotary's plutarchs, regulators or adjudicators; the Theomachracy's lectors, preceptors or clerics; or one of the Five Sodalities (Luminors, Conductors, Harvesters, Scholars, Surgeons) - and requires Class •••+ as a prerequisite; a rare, dangerous alternative exists in Backing held within an exile colony (no Class requirement) or an outlawed Voidbringer/black-market circle.",
-    "mechanics": "Characters who are autocrats, celebrants or councilors must hold Backing ••••• in the matching branch of the Olgotary, the Theomachracy, or a Sodality respectively. Backing purchased for standing in a specific Reaches exile colony is understandably limited in scope since it lacks a Class rating behind it. A small number of demented cultists and criminals hold Backing in a Voidbringer sect or the black market instead, at the risk of execution if the authorities ever discover the membership.",
-    "compatibility": "All Alchemical castes and Autochthonian mortals with Class •••+ for legitimate Tripartite Backing; exile-colony and illicit Backing bypass the Class prerequisite entirely.",
+    "summary": "Because Autochthonia has no independent power blocs, Backing represents rank inside a specific named branch of the Tripartite - the Olgotary's plutarchs, regulators or adjudicators; the Theomachracy's lectors, preceptors or clerics; or one of the Five Sodalities (Luminors, Conductors, Harvesters, Scholars, Surgeons) - and requires Class \u2022\u2022\u2022+ as a prerequisite; a rare, dangerous alternative exists in Backing held within an exile colony (no Class requirement) or an outlawed Voidbringer/black-market circle.",
+    "mechanics": "Characters who are autocrats, celebrants or councilors must hold Backing \u2022\u2022\u2022\u2022\u2022 in the matching branch of the Olgotary, the Theomachracy, or a Sodality respectively. Backing purchased for standing in a specific Reaches exile colony is understandably limited in scope since it lacks a Class rating behind it. A small number of demented cultists and criminals hold Backing in a Voidbringer sect or the black market instead, at the risk of execution if the authorities ever discover the membership.",
+    "compatibility": "All Alchemical castes and Autochthonian mortals with Class \u2022\u2022\u2022+ for legitimate Tripartite Backing; exile-colony and illicit Backing bypass the Class prerequisite entirely.",
     "verificationState": "reviewed",
     "citation": {
       "bookId": "exalted-the-autochthonians",
@@ -372,7 +372,7 @@
     "name": "Familiar (altered for Alchemicals: requisitioned constructs)",
     "disposition": "calculated",
     "summary": "Autochthonia has almost no biological fauna, so Alchemicals do not keep familiars the way other Exalted do; instead the Background sets the maximum power of a spirit-built construct servitor the character may telepathically requisition from the Autochthonian gods on demand, one at a time, with a replacement automatically dispatched if the current one is lost or dismissed.",
-    "mechanics": "A character's rating caps the power of any single familiar summoned, not the properties of one fixed creature; only one familiar may be kept at a time, but losing or dismissing it lets the character immediately requisition another. A familiar still functions in Creation (but not the Wyld, Underworld, or Malfeas) and always knows the exact direction back to its master. Dot table: no dots (x) - human retainers only, or none at all. 1 dot - a small, mostly harmless servitor with Intelligence • and one marginally useful function, able to share one sense within (Essence x 10) yards, obeying verbal commands exactly (even suicidal ones); arrives within an hour inside Autochthonia. 2 dots - larger and either moderately dangerous (guard-dog-analogous) or smarter (Intelligence ••); arrives within three hours. 3 dots - up to the character's own size or as small as a spy-drone insect, usually Intelligence •• (or ••• at a cost to other prowess), combat models rivaling great cats/dire wolves, peaceful models with up to three distinct useful capabilities (one may allow telepathic messaging in shared-sense range), the largest usable as a steed; arrives within a day. 4 dots - up to twice the character's size, Intelligence •• if built for combat (armored, weaponized), or highly mobile/fast if built for transport (wall-climbing, flight), or a master craftsperson with auxiliary skills if built for peaceful tasks; can communicate telepathically and usually speaks passable Autochthonic; arrives within a week (custom-built). 5 dots - an Essence 3 mechanical god in its own right with an appropriate Charm suite, potentially multiple forms up to yeddim-scale, typically materializes with the Dematerialize Charm, superhuman combat skill or multi-mode transit/portal-opening for steeds, or Intelligence ••• seneschal-grade competence for support roles, with telepathy/shared senses out to a mile; takes up to a month to arrive.",
+    "mechanics": "A character's rating caps the power of any single familiar summoned, not the properties of one fixed creature; only one familiar may be kept at a time, but losing or dismissing it lets the character immediately requisition another. A familiar still functions in Creation (but not the Wyld, Underworld, or Malfeas) and always knows the exact direction back to its master. Dot table: no dots (x) - human retainers only, or none at all. 1 dot - a small, mostly harmless servitor with Intelligence \u2022 and one marginally useful function, able to share one sense within (Essence x 10) yards, obeying verbal commands exactly (even suicidal ones); arrives within an hour inside Autochthonia. 2 dots - larger and either moderately dangerous (guard-dog-analogous) or smarter (Intelligence \u2022\u2022); arrives within three hours. 3 dots - up to the character's own size or as small as a spy-drone insect, usually Intelligence \u2022\u2022 (or \u2022\u2022\u2022 at a cost to other prowess), combat models rivaling great cats/dire wolves, peaceful models with up to three distinct useful capabilities (one may allow telepathic messaging in shared-sense range), the largest usable as a steed; arrives within a day. 4 dots - up to twice the character's size, Intelligence \u2022\u2022 if built for combat (armored, weaponized), or highly mobile/fast if built for transport (wall-climbing, flight), or a master craftsperson with auxiliary skills if built for peaceful tasks; can communicate telepathically and usually speaks passable Autochthonic; arrives within a week (custom-built). 5 dots - an Essence 3 mechanical god in its own right with an appropriate Charm suite, potentially multiple forms up to yeddim-scale, typically materializes with the Dematerialize Charm, superhuman combat skill or multi-mode transit/portal-opening for steeds, or Intelligence \u2022\u2022\u2022 seneschal-grade competence for support roles, with telepathy/shared senses out to a mile; takes up to a month to arrive.",
     "compatibility": "All Alchemical castes; mortals may not purchase this Background.",
     "verificationState": "reviewed",
     "citation": {
@@ -425,7 +425,7 @@
     "name": "Building a Vat Complex in Creation (sidebar)",
     "disposition": "calculated",
     "summary": "Alchemicals operating away from Autochthonia lack access to a real Vat Complex, so the book provides rules for improvising one out of a converted Manse: an expensive, slow, and permanently Hearthstone-destroying substitute that keeps Alchemicals refit-capable while abroad but is strictly a maintenance tool, never a means of creating new Alchemical Exalted.",
-    "mechanics": "Building a synthetic Vat Complex requires a level-4+ Manse and exotic ingredients costing Resources •••••; the technician directing the month-long construction must have ••••• in both Lore and Occult and •••• in Craft (Architecture). Converting a Manse this way permanently destroys any Hearthstone it produces (and crumbles any existing Hearthstone to dust); the site no longer generates ambient Essence to respire. Every use of a synthetic Vat to upgrade an Alchemical costs ongoing Resources: •••• for Essence 3-5, ••••• for Essence 6+, and ••• for all other upgrade uses except accelerated healing/Essence recovery, and all repairs/upgrades performed there take twice as long as they would in Autochthonia. Access to a synthetic Vat costs the same Background dots as access to a real one inside Autochthonia, provided the structure exists yet. It is never possible to build wholly new Alchemical Exalted at a Vat built outside Autochthonia - only Autochthon's own return to Creation could change that.",
+    "mechanics": "Building a synthetic Vat Complex requires a level-4+ Manse and exotic ingredients costing Resources \u2022\u2022\u2022\u2022\u2022; the technician directing the month-long construction must have \u2022\u2022\u2022\u2022\u2022 in both Lore and Occult and \u2022\u2022\u2022\u2022 in Craft (Architecture). Converting a Manse this way permanently destroys any Hearthstone it produces (and crumbles any existing Hearthstone to dust); the site no longer generates ambient Essence to respire. Every use of a synthetic Vat to upgrade an Alchemical costs ongoing Resources: \u2022\u2022\u2022\u2022 for Essence 3-5, \u2022\u2022\u2022\u2022\u2022 for Essence 6+, and \u2022\u2022\u2022 for all other upgrade uses except accelerated healing/Essence recovery, and all repairs/upgrades performed there take twice as long as they would in Autochthonia. Access to a synthetic Vat costs the same Background dots as access to a real one inside Autochthonia, provided the structure exists yet. It is never possible to build wholly new Alchemical Exalted at a Vat built outside Autochthonia - only Autochthon's own return to Creation could change that.",
     "compatibility": "All Alchemical castes operating in Creation, contingent on someone actually funding and building the synthetic Complex first.",
     "verificationState": "reviewed",
     "citation": {
@@ -461,7 +461,7 @@
     "name": "Alchemical Bonus Points and Experience Costs",
     "disposition": "calculated",
     "summary": "Alchemical character creation and post-creation advancement use their own bonus-point and experience-cost tables, distinct from core Exalted, because Alchemicals raise Attributes/Essence/Charms exclusively through Vat refits and because Charm Slots (General vs. Dedicated) and Martial Arts Charms carry their own bought-and-installed costs on top of ordinary trait purchases.",
-    "mechanics": "Bonus point costs (15 points available at creation): Attribute 4 (3 for a Caste or Favored Attribute); Ability 2; Background 1 (2 if raised above •••); Specialty 1; Virtue 3; Willpower 2; Essence 10; Charm Slot 6 for General or 5 for Dedicated (each purchase includes one free qualifying Charm); Martial Arts Charm 6 (requires the Perfected Lotus Matrix Charm already installed). Experience costs (post-creation): Caste or Favored Attribute increase = (current rating x 4) - 1; new General Charm Slot = 12 (includes one free Charm the character qualifies for); new Dedicated Charm Slot = 10 (includes one free Charm for a Caste/Favored Attribute the character qualifies for); new Martial Arts Charm = 11 (requires the Perfected Lotus Matrix Charm); new Man Machine Weaving Protocol = 12; new God Machine Weaving Protocol = 14; upgrading a Charm Slot from Dedicated to General = 2; a new Charm placed on retainer at the Vats (without a Slot to house it) = 6; Essence increase = (current rating x 9).",
+    "mechanics": "Bonus point costs (15 points available at creation): Attribute 4 (3 for a Caste or Favored Attribute); Ability 2; Background 1 (2 if raised above \u2022\u2022\u2022); Specialty 1; Virtue 3; Willpower 2; Essence 10; Charm Slot 6 for General or 5 for Dedicated (each purchase includes one free qualifying Charm); Martial Arts Charm 6 (requires the Perfected Lotus Matrix Charm already installed). Experience costs (post-creation): Caste or Favored Attribute increase = (current rating x 4) - 1; new General Charm Slot = 12 (includes one free Charm the character qualifies for); new Dedicated Charm Slot = 10 (includes one free Charm for a Caste/Favored Attribute the character qualifies for); new Martial Arts Charm = 11 (requires the Perfected Lotus Matrix Charm); new Man Machine Weaving Protocol = 12; new God Machine Weaving Protocol = 14; upgrading a Charm Slot from Dedicated to General = 2; a new Charm placed on retainer at the Vats (without a Slot to house it) = 6; Essence increase = (current rating x 9).",
     "compatibility": "All Alchemical castes.",
     "verificationState": "reviewed",
     "citation": {
@@ -480,7 +480,7 @@
     "name": "Charm Slots, Panoplies, Submodules, and Arrays",
     "disposition": "calculated",
     "summary": "Explains the core Alchemical Charm-as-implant model: Charms are surgically installed in General or Dedicated Charm Slots up to a hard limit, spare Charms are stockpiled as a \"Panoply,\" a single Charm can be permanently expanded with cheap \"submodule\" upgrades, and Alchemicals build \"Arrays\" (their version of a Combo) that bundle several Charms into one surgically-installed unit with a reduced combined installation cost and automatic access to every legal Combo among its members.",
-    "mechanics": "Charm Slots come in two varieties: General (holds any Charm) and Dedicated (only Charms tied to a Favored or Caste Attribute). Starting characters get 4 Dedicated and 4 General Slots plus 8 Charms to fill them. Additional Slots may be bought with bonus points at creation or xp plus a surgical refit during play; every new Slot comes with a free qualifying Charm of the player's choice. Alchemicals may also hold Charms beyond their Slots via the Vats or Artifact Backgrounds; once play begins, extra Panoply Charms (without a new Slot) cost 6 xp. The Charms held in reserve at the Vats are collectively called a Panoply. At the Vats, an Alchemical may swap any installed Charms for Panoply Charms or leave Slots empty (e.g. to conserve Personal Essence), and may upgrade a Dedicated Slot to General for 2 xp; refitting takes time (see alchemical-refitting-essence-and-evolution). Submodules are fixed-xp permanent upgrades to a single specific installed Charm; whenever that Charm is installed, all its purchased submodules are also available. Most submodules need an hour of refit at the Vats. Submodules should generally be weaker than a full Charm; anything as powerful as a Charm should cost more, need a notably higher minimum Essence, or simply be a new Charm. Arrays: cost 1 bonus point per Charm included, or xp equal to the sum of the minimum Attribute ratings of every Charm in the Array; unlike a Combo, any Attribute-based Charm may join an Array (supernatural martial arts Charms are excluded). Once linked, the arrangement is permanent; owning the same Charm both in and out of an Array (or in two Arrays) requires buying separate copies, though any submodules purchased for a Charm automatically apply to every copy for free. Arrays grant two benefits: Reduced Installation Cost (the whole Array has one combined installation cost equal to three-fourths of the summed installation costs of its component Charms, rounded up, but the entire Array must be installed or removed as a single unit — no partial installation) and Integrated Combos (the Alchemical automatically has access to every possible Combo that could be built from instant-duration Charms in the Array that could benefit the same action, plus any reflexive Charms regardless of action; the Storyteller is final arbiter of legality; activating an integrated Combo costs 1 Willpower on the first Charm as with any Combo, and such Combos should have their own name/visual display, ideally planned in advance or built from the first stunt that uses them).",
+    "mechanics": "Charm Slots come in two varieties: General (holds any Charm) and Dedicated (only Charms tied to a Favored or Caste Attribute). Starting characters get 4 Dedicated and 4 General Slots plus 8 Charms to fill them. Additional Slots may be bought with bonus points at creation or xp plus a surgical refit during play; every new Slot comes with a free qualifying Charm of the player's choice. Alchemicals may also hold Charms beyond their Slots via the Vats or Artifact Backgrounds; once play begins, extra Panoply Charms (without a new Slot) cost 6 xp. The Charms held in reserve at the Vats are collectively called a Panoply. At the Vats, an Alchemical may swap any installed Charms for Panoply Charms or leave Slots empty (e.g. to conserve Personal Essence), and may upgrade a Dedicated Slot to General for 2 xp; refitting takes time (see alchemical-refitting-essence-and-evolution). Submodules are fixed-xp permanent upgrades to a single specific installed Charm; whenever that Charm is installed, all its purchased submodules are also available. Most submodules need an hour of refit at the Vats. Submodules should generally be weaker than a full Charm; anything as powerful as a Charm should cost more, need a notably higher minimum Essence, or simply be a new Charm. Arrays: cost 1 bonus point per Charm included, or xp equal to the sum of the minimum Attribute ratings of every Charm in the Array; unlike a Combo, any Attribute-based Charm may join an Array (supernatural martial arts Charms are excluded). Once linked, the arrangement is permanent; owning the same Charm both in and out of an Array (or in two Arrays) requires buying separate copies, though any submodules purchased for a Charm automatically apply to every copy for free. Arrays grant two benefits: Reduced Installation Cost (the whole Array has one combined installation cost equal to three-fourths of the summed installation costs of its component Charms, rounded up, but the entire Array must be installed or removed as a single unit \u2014 no partial installation) and Integrated Combos (the Alchemical automatically has access to every possible Combo that could be built from instant-duration Charms in the Array that could benefit the same action, plus any reflexive Charms regardless of action; the Storyteller is final arbiter of legality; activating an integrated Combo costs 1 Willpower on the first Charm as with any Combo, and such Combos should have their own name/visual display, ideally planned in advance or built from the first stunt that uses them).",
     "compatibility": "All Alchemical castes.",
     "verificationState": "reviewed",
     "citation": {
@@ -520,7 +520,7 @@
     "name": "Alchemical Charm Format, Limitations, and Presentation Conventions",
     "disposition": "reference-only",
     "summary": "A short rules-conventions passage explaining how Alchemical Charm write-ups differ from other Exalted's stat blocks: a new \"permanent\" Charm Type for always-on installed effects, a Prerequisite Charms field meaning devices the Exalt must already have installed or hold in her Panoply, the fact that Alchemicals deliberately lack the universal perfect/persistent defenses other Celestial Exalted enjoy, that called shots cannot target Charms as if they were separate body parts, and that Essence 8+ \"municipal\" Charms work on an urban scale.",
-    "mechanics": "Type gains a new option, 'Permanent': like Ox-Body Technique, such Charms are always considered active as long as they remain installed, have no listed duration or activation cost, and their listed cost is simply the installation cost. Prerequisite Charms lists devices the Alchemical must already have installed or stored in her Panoply before this Charm can be added — mere knowledge is not enough, unlike other Exalted's Charm trees. Alchemical Charms are Celestial-level in raw power, but this splat pointedly lacks any all-purpose perfect or persistent defense; instead it fields many narrower, specialized defensive Charms that a clever opponent can route around. Every Attribute has one basic dice-adding Charm, but it can never add more bonus dice to a pool than the Attribute's own rating; a separate family of Charms instead grants artificial-specialty-type bonuses that stack cumulatively with true specialties rather than counting as ordinary Charm dice. Because Alchemical Charms are literally part of the Exalt's body, called shots cannot disable them any more than a called shot could take out another character's eyes or hands. Charms requiring Essence 8+ are termed 'municipal' Charms, since they function on an urban scale — an entire factory or basic-infrastructure facet may itself constitute a single such Charm for these enormous beings.",
+    "mechanics": "Type gains a new option, 'Permanent': like Ox-Body Technique, such Charms are always considered active as long as they remain installed, have no listed duration or activation cost, and their listed cost is simply the installation cost. Prerequisite Charms lists devices the Alchemical must already have installed or stored in her Panoply before this Charm can be added \u2014 mere knowledge is not enough, unlike other Exalted's Charm trees. Alchemical Charms are Celestial-level in raw power, but this splat pointedly lacks any all-purpose perfect or persistent defense; instead it fields many narrower, specialized defensive Charms that a clever opponent can route around. Every Attribute has one basic dice-adding Charm, but it can never add more bonus dice to a pool than the Attribute's own rating; a separate family of Charms instead grants artificial-specialty-type bonuses that stack cumulatively with true specialties rather than counting as ordinary Charm dice. Because Alchemical Charms are literally part of the Exalt's body, called shots cannot disable them any more than a called shot could take out another character's eyes or hands. Charms requiring Essence 8+ are termed 'municipal' Charms, since they function on an urban scale \u2014 an entire factory or basic-infrastructure facet may itself constitute a single such Charm for these enormous beings.",
     "compatibility": "All Alchemical castes; these are stat-block reading conventions that apply to every Charm presented in the chapter.",
     "verificationState": "reviewed",
     "citation": {
@@ -537,7 +537,7 @@
     "id": "transitory-augmentation-of-attribute",
     "name": "Transitory Augmentation of (Attribute)",
     "disposition": "selectable",
-    "summary": "The universal Attribute-boosting General Charm — really nine separately-purchased Charms, one per Attribute — that lets an Alchemical temporarily add dots to that Attribute for a single instant action, and cheapens her anima power's own Attribute boost when installed for a Caste or Favored Attribute.",
+    "summary": "The universal Attribute-boosting General Charm \u2014 really nine separately-purchased Charms, one per Attribute \u2014 that lets an Alchemical temporarily add dots to that Attribute for a single instant action, and cheapens her anima power's own Attribute boost when installed for a Caste or Favored Attribute.",
     "requirements": "Minimum (Attribute) 1; Minimum Essence 2; Prerequisite Charms: None. Purchased and installed separately for each of the nine Attributes.",
     "mechanics": "For every mote spent, add one dot to the controlling Attribute for the purposes of a single instant-duration action or event, up to a maximum bonus equal to the Attribute's own base rating. An Alchemical who has this Charm installed for a Caste or Favored Attribute reduces the cost of her anima power's Attribute boost (see alchemical-anima-banners-universal) from 3 motes per die to 2 motes per die.",
     "cost": "1 mote per die; Installation Cost: 1 mote.",
@@ -557,7 +557,7 @@
     "id": "sustained-augmentation-of-attribute",
     "name": "Sustained Augmentation of (Attribute)",
     "disposition": "selectable",
-    "summary": "The permanent-Type counterpart to Transitory Augmentation — nine separately-installed Charms, one per Attribute — that mechanically reinforce the Exalt's body or mind, granting a flat +1 dot to that Attribute's natural rating and raising its maximum possible rating by one dot for as long as the Charm stays installed.",
+    "summary": "The permanent-Type counterpart to Transitory Augmentation \u2014 nine separately-installed Charms, one per Attribute \u2014 that mechanically reinforce the Exalt's body or mind, granting a flat +1 dot to that Attribute's natural rating and raising its maximum possible rating by one dot for as long as the Charm stays installed.",
     "requirements": "Minimum (Attribute) 2; Minimum Essence 2; Prerequisite Charms: None. Purchased and installed separately for each Attribute; a character cannot install more than one copy for the same Attribute, but may have as many different Attributes augmented as desired.",
     "mechanics": "No activation cost or duration; the Charm is simply always in effect once installed (Type: Permanent). The Exalt gains one additional dot to the chosen Attribute, counted as part of her natural rating rather than a dispellable bonus, and her maximum possible rating in that Attribute rises by one dot. Flavor ties the specific implant to its Attribute: metal pistons alongside artificial muscle for Strength, ball-bearing joints and higher-function motor skills for Dexterity, organic metal-alloy flesh for Stamina, hardwired protocols for Charisma or Manipulation, a literally sculpted physique for Appearance, integrated sensors for Perception, and transcendent neural webs for Intelligence or Wits.",
     "cost": "None; Installation Cost: 1 mote.",
@@ -598,7 +598,7 @@
     "id": "accelerated-response-system",
     "name": "Accelerated Response System",
     "disposition": "selectable",
-    "summary": "A pair of separately-installable defensive implants — one in the shoulders/arms for a full-pool parry, one in the hips/thighs for a full-pool dodge — letting an Alchemical fend off a single incoming attack with total commitment.",
+    "summary": "A pair of separately-installable defensive implants \u2014 one in the shoulders/arms for a full-pool parry, one in the hips/thighs for a full-pool dodge \u2014 letting an Alchemical fend off a single incoming attack with total commitment.",
     "requirements": "Minimum Dexterity 3; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Dexterity.",
     "mechanics": "Two permutations must be bought and installed separately. The shoulder/arm version lets the Exalt parry a single attack against her using her full Dexterity + (Brawl, Martial Arts or Melee) pool on activation. The hip/thigh version lets her dodge one attack using her full Dexterity + Dodge pool (plus Essence under Exalted Power Combat), contorting away without giving ground. Both require the Alchemical to be aware of the incoming attack; a character with both variants installed may use both against the same attack.",
     "cost": "2 motes; Installation Cost: 1 mote.",
@@ -728,7 +728,7 @@
     "disposition": "selectable",
     "summary": "Surgically-added extra limbs (insectoid, humanoid, or Moonsilver-quicksilver tendrils depending on caste and preference) that reduce multiple-action penalties, installable repeatedly up to the Exalt's Dexterity or Wits, or alternatively installed permanently in place of the character's original arms.",
     "requirements": "Minimum Dexterity 3; Minimum Essence 2; Prerequisite Charms: Sustained Augmentation of Dexterity.",
-    "mechanics": "Simple-type installation grants one or two extra limbs per installation (paralyzed/folded without committed Essence; usable as normal arms/hands when activated) and reduces multiple-action penalties for physical actions using any arm by one die per installation, stacking across repeated installations up to a maximum equal to the character's Dexterity or Wits, whichever is lower; unused limbs fold visibly against the body (or hide in compartments if the character also has an Integrated Artifact Transmogrifier). Alternatively, install as a Permanent-type Charm (1 mote installation cost) replacing the character's arms outright with overtly artificial limbs instead of adding extras; this does not count against the installation cap, applies the same cumulative multiple-action-penalty reduction, and adds +1 to hand-to-hand damage dealt through those limbs (or a weapon they hold). Any installation of this Charm also removes the offhand-action penalty for any limb — including natural hands and Hyperdextrous Tentacle Apparatus appendages — provided the Exalt also has Sustained Augmentation of Wits installed.",
+    "mechanics": "Simple-type installation grants one or two extra limbs per installation (paralyzed/folded without committed Essence; usable as normal arms/hands when activated) and reduces multiple-action penalties for physical actions using any arm by one die per installation, stacking across repeated installations up to a maximum equal to the character's Dexterity or Wits, whichever is lower; unused limbs fold visibly against the body (or hide in compartments if the character also has an Integrated Artifact Transmogrifier). Alternatively, install as a Permanent-type Charm (1 mote installation cost) replacing the character's arms outright with overtly artificial limbs instead of adding extras; this does not count against the installation cap, applies the same cumulative multiple-action-penalty reduction, and adds +1 to hand-to-hand damage dealt through those limbs (or a weapon they hold). Any installation of this Charm also removes the offhand-action penalty for any limb \u2014 including natural hands and Hyperdextrous Tentacle Apparatus appendages \u2014 provided the Exalt also has Sustained Augmentation of Wits installed.",
     "cost": "1 mote (simple) / None (permanent); Installation Cost: None (simple) / 1 mote (permanent).",
     "compatibility": "Duration: Indefinite (simple) / N/A (permanent). Type: Simple/Permanent. Close Combat Charms tree (Dexterity-keyed).",
     "verificationState": "reviewed",
@@ -789,7 +789,7 @@
     "id": "material-synthesis-wave-emitter",
     "name": "(Material) Synthesis Wave Emitter",
     "disposition": "selectable",
-    "summary": "A set of six separately-purchased Charms — one per Magical Material, plus an adamant version — that channels the Exalt's anima through a hand-to-hand strike, imbuing it with the relevant Material's combat bonus or, for adamant, a sharpness that shreds armor.",
+    "summary": "A set of six separately-purchased Charms \u2014 one per Magical Material, plus an adamant version \u2014 that channels the Exalt's anima through a hand-to-hand strike, imbuing it with the relevant Material's combat bonus or, for adamant, a sharpness that shreds armor.",
     "requirements": "Minimum Strength 3; Minimum Essence 2; Prerequisite Charms: Transitory Augmentation of Strength. Alchemicals automatically treat the version matching their own Caste's Material as Favored, regardless of whether Strength is itself a Favored/Caste Attribute.",
     "mechanics": "Used supplementally with a hand-to-hand attack; the striking weapon or limb glows and trails dust of the chosen Material. For the five Magical Materials, applies that Material's standard melee-weapon bonus to the strike (per core Exalted, p. 341, and the Exalted Players Guide, p. 209). The adamant version instead reduces the target's armored soak by 4 on a successful hit, making bladed weapons extremely sharp or blunt attacks shatteringly forceful. Also usable when striking with an actual magical weapon of the matching Material, in which case identical bonuses stack. Alchemicals with multiple versions installed may apply different ones to different attacks in the same turn, but cannot stack multiple versions onto a single attack without a Combo.",
     "cost": "2 motes; Installation Cost: None.",
@@ -837,7 +837,7 @@
     "id": "electrification-onslaught-dynamo",
     "name": "Electrification Onslaught Dynamo",
     "disposition": "selectable",
-    "summary": "Chest- or back-mounted conductor nodes that let an Alchemical deliver an electric shock through virtually any physical contact — an offensive strike bonus, a retaliatory counter-shock, a clinch jolt, or even a harmless-seeming handshake.",
+    "summary": "Chest- or back-mounted conductor nodes that let an Alchemical deliver an electric shock through virtually any physical contact \u2014 an offensive strike bonus, a retaliatory counter-shock, a clinch jolt, or even a harmless-seeming handshake.",
     "requirements": "Minimum Strength 3; Minimum Essence 2; Prerequisite Charms: Transitory Augmentation of Strength.",
     "mechanics": "Activates as few or as many conductor nodes as desired for one of several uses: (1) after a successful hand-to-hand strike, deal an extra 1L or 2B per mote spent (up to Strength motes), soaked separately using only the victim's natural soak; (2) release the same jolt as a retaliatory counter whenever a foe successfully strikes the Alchemical with a metallic weapon or unarmed attack (even for zero damage), including via a parry using the blocking limb/weapon as conductor (which halves the Essence cap, rounded up); used this way the shock is a counterattack that cannot be evaded except by a perfect defense or answered with another counterattack; (3) release the jolt against an opponent immediately after winning a clinch roll, before she can break the hold; (4) deliver the shock through any casual or nonviolent contact, whether or not the Exalt initiated it, such as a handshake.",
     "cost": "Varies (1L or 2B per mote spent, up to Strength motes); Installation Cost: 1 mote.",
@@ -857,9 +857,9 @@
     "id": "chemical-fog-generator",
     "name": "Chemical Fog Generator",
     "disposition": "selectable",
-    "summary": "A torso-mounted vent system that fills an area with obscuring, choking black smoke, upgradeable with four named toxic-gas submodules — knockout, tear, nerve, and soul gas — each with its own resistance roll and effect.",
+    "summary": "A torso-mounted vent system that fills an area with obscuring, choking black smoke, upgradeable with four named toxic-gas submodules \u2014 knockout, tear, nerve, and soul gas \u2014 each with its own resistance roll and effect.",
     "requirements": "Minimum Manipulation 3; Minimum Essence 2; Prerequisite Charms: None.",
-    "mechanics": "Fills a roughly spherical volume with a radius of (Essence) yards per mote spent (capped at Manipulation motes per turn); lingers 20 minutes indoors in still air (10 minutes with a mild breeze, 5 turns with a heavy breeze) or 5 minutes outdoors in still air (1 minute in a light breeze, 3 turns in heavy wind). Base smoke imposes murky-vision penalties out to 10 yards and total blindness beyond that (3-yard murky radius in dim light); anyone breathing it unprotected takes 1 unsoakable bashing level per minute (delayable by holding breath, or slowed to a 5-minute interval with a filter such as a wet scarf). Submodules (2 bonus points/6 xp each; only one may be deployed per use): Knockout Gas — mortals roll Stamina + Resistance (difficulty 2) or pass out for 30 minus (Stamina + Resistance) minutes; Exalted/superhuman beings resist at difficulty 1 with per-minute exposure checks; a filter provides full protection. Tear Gas — a poison-style exposure (difficulty 2, success no damage, failure 1B, duration/penalty one hour/-3) checked every turn until the victim passes out; a filter reduces the resistance difficulty by 1. Nerve Gas (requires Essence 3 to install) — uses the statistics of arrow frog venom, exposure checked every five minutes; mortals convulse and die in a number of turns equal to Stamina unless a Stamina + Resistance roll (difficulty 6) succeeds, otherwise suffering the Exalted failure effect (extras die automatically); a filter reduces the difficulty by 2. Soul Gas (requires Essence 3 to install) — victims roll Stamina + Resistance (difficulty 1 for magical beings, 4 for mortals); failure costs a temporary dot from every Virtue except Compassion and forces a Valor roll (difficulty 2), and failing that roll causes the victim to flee at best speed and suffer a one-die penalty to non-reflexive actions for an hour; a filter reduces the difficulty by 1.",
+    "mechanics": "Fills a roughly spherical volume with a radius of (Essence) yards per mote spent (capped at Manipulation motes per turn); lingers 20 minutes indoors in still air (10 minutes with a mild breeze, 5 turns with a heavy breeze) or 5 minutes outdoors in still air (1 minute in a light breeze, 3 turns in heavy wind). Base smoke imposes murky-vision penalties out to 10 yards and total blindness beyond that (3-yard murky radius in dim light); anyone breathing it unprotected takes 1 unsoakable bashing level per minute (delayable by holding breath, or slowed to a 5-minute interval with a filter such as a wet scarf). Submodules (2 bonus points/6 xp each; only one may be deployed per use): Knockout Gas \u2014 mortals roll Stamina + Resistance (difficulty 2) or pass out for 30 minus (Stamina + Resistance) minutes; Exalted/superhuman beings resist at difficulty 1 with per-minute exposure checks; a filter provides full protection. Tear Gas \u2014 a poison-style exposure (difficulty 2, success no damage, failure 1B, duration/penalty one hour/-3) checked every turn until the victim passes out; a filter reduces the resistance difficulty by 1. Nerve Gas (requires Essence 3 to install) \u2014 uses the statistics of arrow frog venom, exposure checked every five minutes; mortals convulse and die in a number of turns equal to Stamina unless a Stamina + Resistance roll (difficulty 6) succeeds, otherwise suffering the Exalted failure effect (extras die automatically); a filter reduces the difficulty by 2. Soul Gas (requires Essence 3 to install) \u2014 victims roll Stamina + Resistance (difficulty 1 for magical beings, 4 for mortals); failure costs a temporary dot from every Virtue except Compassion and forces a Valor roll (difficulty 2), and failing that roll causes the victim to flee at best speed and suffer a one-die penalty to non-reflexive actions for an hour; a filter reduces the difficulty by 1.",
     "cost": "Varies (motes spent shape the cloud's size, capped at Manipulation per turn); Installation Cost: 1 mote.",
     "compatibility": "Duration: Instant (the resulting cloud persists per the duration rules above). Type: Reflexive. Close Combat Charms tree (Manipulation-keyed).",
     "verificationState": "reviewed",
@@ -896,7 +896,7 @@
     "id": "alchemical-martial-artists",
     "name": "Alchemical Martial Artists (available Autochthonian styles)",
     "disposition": "reference-only",
-    "summary": "A short sidebar noting that Vat Complexes preserve records of numerous Terrestrial and Celestial martial arts styles — including Creation's animal styles and native Autochthonian techniques developed for Alchemicals using advanced cognitive Charms — and lists the specific published styles Alchemical characters may take via the Perfected Lotus Matrix.",
+    "summary": "A short sidebar noting that Vat Complexes preserve records of numerous Terrestrial and Celestial martial arts styles \u2014 including Creation's animal styles and native Autochthonian techniques developed for Alchemicals using advanced cognitive Charms \u2014 and lists the specific published styles Alchemical characters may take via the Perfected Lotus Matrix.",
     "mechanics": "Available styles (or indistinguishable local variants) explicitly listed: Snake, Tiger, Mantis, Ebon Shadow, Celestial Monkey, Righteous Devil, Violet Bier of Sorrows, Five Dragon, and Jade Mountain.",
     "compatibility": "All Alchemical castes with the Perfected Lotus Matrix installed.",
     "verificationState": "reviewed",
@@ -952,9 +952,9 @@
     "id": "essence-pulse-cannon",
     "name": "Essence Pulse Cannon",
     "disposition": "selectable",
-    "summary": "A built-in arm-, shoulder-, palm-, or eye-mounted energy weapon firing bolts of anima-colored plasma, with by far the deepest submodule catalog of any Alchemical Charm — ten named upgrades covering stealth, accuracy, ammo reserves, piercing fire, knockback, nonlethal fire, area blasts, Essence-draining, soul-destroying annihilation, and a devastating siege mode.",
+    "summary": "A built-in arm-, shoulder-, palm-, or eye-mounted energy weapon firing bolts of anima-colored plasma, with by far the deepest submodule catalog of any Alchemical Charm \u2014 ten named upgrades covering stealth, accuracy, ammo reserves, piercing fire, knockback, nonlethal fire, area blasts, Essence-draining, soul-destroying annihilation, and a devastating siege mode.",
     "requirements": "Minimum Strength 4; Minimum Essence 2; Prerequisite Charms: Aim-Calibrating Sensors.",
-    "mechanics": "Arming the cannon (2 motes, an automatic action like drawing any other sheathed weapon) makes it hum and glow, displaying like an anima banner at the 4-7 mote range and interfering with stealth/disguise. Active statistics: fires with Dexterity + Archery; range (Essence x 50) yards; accuracy +1; rate (Essence x number of installations); damage 2L per mote spent powering the blast (capped at Strength + Essence motes per shot); each shot counts as a supplemental Charm use; bolts have no physical component but are dodgeable/parriable normally. Ten submodules (2 bonus points/6 xp each, freely combinable unless stated otherwise): Discreet (hidden eye/palm mount, +1 difficulty to detect while inactive, displays only at the 1-3 mote range when firing); Guidance Ray (free reflexive on/off, +3 accuracy but grants the target +1 die to dodge/parry via the visible tracer beam); Internal Battery (adds an 8-mote reserve usable only to fire this Charm; refilling costs 2 motes from the main Essence pool per simple action; only one battery permitted); Precision Beam (-2 raw damage dice but the bolt becomes piercing; incompatible with detonation or shockwave); Shockwave (damage capped at one level per hit, but knocks human-sized-or-smaller targets back one yard per die of post-soak raw damage, dealing extra collision damage and forcing a knockdown check at difficulty 2); Stunning Bolt (3B per mote instead of lethal damage; excess damage past Incapacitated does not spill over); Detonation (requires Essence 3; 1L per mote to the direct target, plus a spreading blast dealing base damage at 1 yard and losing a die per further yard; combinable with shockwave for outward knockback); Essence Dampening Bolt / Energy Drain (requires Essence 3 / Essence 4 for the Energy Drain variant; deals lethal damage plus an Essence bonus but only permanent-Essence soak applies, draining 1 mote of the target's Essence per level of damage — feeding an Exalted target's own anima banner in the base version, or refilling the Alchemical's own Essence pool in the Energy Drain variant; incompatible with shockwave, stunning bolt, precision beam, or pattern disruptor); Pattern Disruptor (requires Essence 4; 1A per mote, halves other base-damage bonuses rounded down, disintegrates whatever it kills or destroys, permanently annihilates slain spirits, and obliterates mortal souls unless the victim carries an implanted soulgem; incompatible with detonation, shockwave, or stunning bolt); Siege Devastator (requires Essence 5; reflexive on/off but a full turn to ready or stow, replacing a forearm/hand entirely, dropping rate to 1, imposing a -2 mobility penalty cumulative with armor, and displaying like an anima banner at the 8-10 mote range, in exchange for +1 raw damage die per mote regardless of other modifications used, i.e. 3L per mote unmodified).",
+    "mechanics": "Arming the cannon (2 motes, an automatic action like drawing any other sheathed weapon) makes it hum and glow, displaying like an anima banner at the 4-7 mote range and interfering with stealth/disguise. Active statistics: fires with Dexterity + Archery; range (Essence x 50) yards; accuracy +1; rate (Essence x number of installations); damage 2L per mote spent powering the blast (capped at Strength + Essence motes per shot); each shot counts as a supplemental Charm use; bolts have no physical component but are dodgeable/parriable normally. Ten submodules (2 bonus points/6 xp each, freely combinable unless stated otherwise): Discreet (hidden eye/palm mount, +1 difficulty to detect while inactive, displays only at the 1-3 mote range when firing); Guidance Ray (free reflexive on/off, +3 accuracy but grants the target +1 die to dodge/parry via the visible tracer beam); Internal Battery (adds an 8-mote reserve usable only to fire this Charm; refilling costs 2 motes from the main Essence pool per simple action; only one battery permitted); Precision Beam (-2 raw damage dice but the bolt becomes piercing; incompatible with detonation or shockwave); Shockwave (damage capped at one level per hit, but knocks human-sized-or-smaller targets back one yard per die of post-soak raw damage, dealing extra collision damage and forcing a knockdown check at difficulty 2); Stunning Bolt (3B per mote instead of lethal damage; excess damage past Incapacitated does not spill over); Detonation (requires Essence 3; 1L per mote to the direct target, plus a spreading blast dealing base damage at 1 yard and losing a die per further yard; combinable with shockwave for outward knockback); Essence Dampening Bolt / Energy Drain (requires Essence 3 / Essence 4 for the Energy Drain variant; deals lethal damage plus an Essence bonus but only permanent-Essence soak applies, draining 1 mote of the target's Essence per level of damage \u2014 feeding an Exalted target's own anima banner in the base version, or refilling the Alchemical's own Essence pool in the Energy Drain variant; incompatible with shockwave, stunning bolt, precision beam, or pattern disruptor); Pattern Disruptor (requires Essence 4; 1A per mote, halves other base-damage bonuses rounded down, disintegrates whatever it kills or destroys, permanently annihilates slain spirits, and obliterates mortal souls unless the victim carries an implanted soulgem; incompatible with detonation, shockwave, or stunning bolt); Siege Devastator (requires Essence 5; reflexive on/off but a full turn to ready or stow, replacing a forearm/hand entirely, dropping rate to 1, imposing a -2 mobility penalty cumulative with armor, and displaying like an anima banner at the 8-10 mote range, in exchange for +1 raw damage die per mote regardless of other modifications used, i.e. 3L per mote unmodified).",
     "cost": "2 motes (base activation; submodule effects layer on top per shot); Installation Cost: 1 mote.",
     "compatibility": "Duration: Indefinite. Type: Supplemental. Ranged Combat Charms tree (Strength-keyed).",
     "verificationState": "reviewed",
@@ -994,7 +994,7 @@
     "disposition": "selectable",
     "summary": "An Essence Pulse Cannon upgrade that fires a compressed net of Essence instead of a bolt, trapping a target in a crystalline aura that both restrains and lightly protects them while the Alchemical maintains the field turn after turn.",
     "requirements": "Minimum Strength 5; Minimum Essence 3; Prerequisite Charms: Essence Pulse Cannon.",
-    "mechanics": "Fired with Dexterity + Archery (no default accuracy bonus, though the cannon's guidance ray or internal battery upgrades still apply; no other cannon modification may be used); range increment (Essence x 20) yards. On hitting an animate target, an opposed Strength + Essence roll decides the outcome: if the Alchemical wins, the target is paralyzed for the rest of the turn as if held in a clinch, with the committed motes locked until the aura breaks; if the victim wins, the field shatters harmlessly. Each subsequent turn, a fresh reflexive contested Strength + Essence roll (independent of either character's action, continuing even if either is unconscious) decides whether the aura holds — dealing 1 unsoakable bashing level per turn held, stopping once the victim is Incapacitated but still restraining her — or shatters, freeing the target to act if conscious. The Alchemical may voluntarily dissipate the web at any time. The aura reduces the raw damage of any attack against the trapped victim by the Alchemical's Essence rating (potentially to zero) and inflicts the Alchemical's Essence in dice of piercing bashing damage on anyone striking the entrapped victim in hand-to-hand combat.",
+    "mechanics": "Fired with Dexterity + Archery (no default accuracy bonus, though the cannon's guidance ray or internal battery upgrades still apply; no other cannon modification may be used); range increment (Essence x 20) yards. On hitting an animate target, an opposed Strength + Essence roll decides the outcome: if the Alchemical wins, the target is paralyzed for the rest of the turn as if held in a clinch, with the committed motes locked until the aura breaks; if the victim wins, the field shatters harmlessly. Each subsequent turn, a fresh reflexive contested Strength + Essence roll (independent of either character's action, continuing even if either is unconscious) decides whether the aura holds \u2014 dealing 1 unsoakable bashing level per turn held, stopping once the victim is Incapacitated but still restraining her \u2014 or shatters, freeing the target to act if conscious. The Alchemical may voluntarily dissipate the web at any time. The aura reduces the raw damage of any attack against the trapped victim by the Alchemical's Essence rating (potentially to zero) and inflicts the Alchemical's Essence in dice of piercing bashing damage on anyone striking the entrapped victim in hand-to-hand combat.",
     "cost": "6 motes, 1 Willpower; Installation Cost: 1 mote.",
     "compatibility": "Duration: Instant. Type: Simple. Ranged Combat Charms tree (Strength-keyed).",
     "verificationState": "reviewed",
@@ -1012,7 +1012,7 @@
     "id": "protosynthetic-ammunition-replicator",
     "name": "Protosynthetic Ammunition Replicator",
     "disposition": "selectable",
-    "summary": "A forearm-mounted implant that manufactures short-lived but fully solid Essence ammunition on demand — arrows of several head types, throwing daggers, batons, or chakrams — automatically feeding a carried bow as needed.",
+    "summary": "A forearm-mounted implant that manufactures short-lived but fully solid Essence ammunition on demand \u2014 arrows of several head types, throwing daggers, batons, or chakrams \u2014 automatically feeding a carried bow as needed.",
     "requirements": "Minimum Dexterity 2; Minimum Essence 2; Prerequisite Charms: Aim-Calibrating Sensors.",
     "mechanics": "Each activation creates one projectile of the Exalt's choice (target, frog crotch, fowling or broadhead arrow; throwing dagger; throwing baton; or a chakram whose interlocking blades unfold into something resembling a buzz saw); arrows are automatically fed/notched into a carried bow via an internal tendril for instant firing. Manufactured ammunition is fully solid and functions normally, but dissipates back into wisps of light after a number of turns equal to the creator's Essence. Ammunition scales to the Alchemical's build, so Essence 6+ Exalted generate warstrider-scaled missiles.",
     "cost": "1 mote; Installation Cost: 1 mote.",
@@ -1073,7 +1073,7 @@
     "id": "hundredfold-strafing-methodology",
     "name": "Hundredfold Strafing Methodology",
     "disposition": "selectable",
-    "summary": "A Repeating Pneumatic Bow upgrade that sweeps a wide arc with a continuous stream of Essence darts, striking every target — friend or foe — caught in the swath with a single attack roll.",
+    "summary": "A Repeating Pneumatic Bow upgrade that sweeps a wide arc with a continuous stream of Essence darts, striking every target \u2014 friend or foe \u2014 caught in the swath with a single attack roll.",
     "requirements": "Minimum Dexterity 5; Minimum Essence 4; Prerequisite Charms: Repeating Pneumatic Bow (must already be deployed to activate this Charm, though it generates its own ammunition independent of the Ammunition Replicator).",
     "mechanics": "The Exalt specifies an arc width up to 90 degrees and sweeps her arm across it; for the remainder of the turn, the bow fires a constant stream of darts (existing until the end of the turn) cutting through every target in the path. The player rolls Dexterity + Archery once and applies the result to every target caught in the swath. The darts have a 100-yard range increment and inflict a base lethal damage equal to Essence. Outside combat, the Charm can generally cut down large amounts of vegetation or obstacles in a single sweep.",
     "cost": "8 motes, 1 Willpower; Installation Cost: 1 mote.",
@@ -1095,7 +1095,7 @@
     "disposition": "selectable",
     "summary": "A neural-tattoo implant letting an Alchemical either bounce a single projectile through a cascading series of targets or unleash a near-simultaneous volley of separate missiles at multiple foes.",
     "requirements": "Minimum Dexterity 5; Minimum Essence 3; Prerequisite Charms: Aim-Calibrating Sensors.",
-    "mechanics": "First mode (3 motes per additional target): a single projectile is fired or thrown at an initial target, then — whether it hit or missed — the player selects a new target and rolls again at full pool for another 3 motes, repeating up to a total of (Essence + 1) attacks with no target struck twice; the Exalt may pay 1 mote at any point to recall the projectile to hand instead of leaving it lodged in the final target. All targets in a cascade must be traceable in range from the Exalt, with range penalties shifting per normal rules, and weapons with a single maximum range and no increments (such as firewands) require every target within that radius. Combining the retargeting mode with Essence Pulse Cannon in a Combo pays the Essence cost only once and carries submodule effects consistently to every target (a detonation submodule only triggers on the final hit); combining it with Repeating Pneumatic Bow requires a Combo with Protosynthetic Ammunition Replicator but only pays that Charm's cost once; it cannot be Comboed with Paramagnetic Tether Beam, Pulseweb Entanglement Burst, Subluminous Onslaught Missile, or any other Charm the Storyteller rules illogical. Second mode (same cost and rules): fires distinct missiles at superhuman speed instead of one recycled projectile, requiring separate ammunition per shot, unable to recall projectiles, and able to strike the same target multiple times; when Comboed with Essence Pulse Cannon each bolt is paid for and configured separately, and Protosynthetic Ammunition Replicator must be reactivated per shot; this volley mode may be Comboed with any Charm barred from the retargeting mode.",
+    "mechanics": "First mode (3 motes per additional target): a single projectile is fired or thrown at an initial target, then \u2014 whether it hit or missed \u2014 the player selects a new target and rolls again at full pool for another 3 motes, repeating up to a total of (Essence + 1) attacks with no target struck twice; the Exalt may pay 1 mote at any point to recall the projectile to hand instead of leaving it lodged in the final target. All targets in a cascade must be traceable in range from the Exalt, with range penalties shifting per normal rules, and weapons with a single maximum range and no increments (such as firewands) require every target within that radius. Combining the retargeting mode with Essence Pulse Cannon in a Combo pays the Essence cost only once and carries submodule effects consistently to every target (a detonation submodule only triggers on the final hit); combining it with Repeating Pneumatic Bow requires a Combo with Protosynthetic Ammunition Replicator but only pays that Charm's cost once; it cannot be Comboed with Paramagnetic Tether Beam, Pulseweb Entanglement Burst, Subluminous Onslaught Missile, or any other Charm the Storyteller rules illogical. Second mode (same cost and rules): fires distinct missiles at superhuman speed instead of one recycled projectile, requiring separate ammunition per shot, unable to recall projectiles, and able to strike the same target multiple times; when Comboed with Essence Pulse Cannon each bolt is paid for and configured separately, and Protosynthetic Ammunition Replicator must be reactivated per shot; this volley mode may be Comboed with any Charm barred from the retargeting mode.",
     "cost": "3 motes per target; Installation Cost: 2 motes.",
     "compatibility": "Duration: Instant. Type: Extra Action. Ranged Combat Charms tree (Dexterity-keyed).",
     "verificationState": "reviewed",
@@ -2577,5 +2577,979 @@
       "clarity-trait"
     ],
     "notes": "Chapter Three: Charms, 'Essence and Weaving Charms' tree, p. 141 (PDF 142); visually cross-checked against the Essence and Weaving Charms tree diagram. This Charm completes both the three-Charm Essence and Weaving Charms tree and the entirety of Chapter Three (pp. 87-141/PDF 88-142); Chapter Four begins at printed p. 142 (PDF 143), confirmed via direct extraction of that page's near-empty title-page text."
+  },
+  {
+    "id": "alchemical-protocols-overview",
+    "name": "Alchemical Protocols (weaving-protocol framing)",
+    "disposition": "reference-only",
+    "summary": "The framing text for Chapter Four's magic system: Autochthon gifted the Alchemical Exalted the power to issue command-prayers ('protocols') to the design weavers/pattern spiders that weave reality's fabric, giving Alchemicals a form of sorcery distinct from Creation's, split into the common Man-Machine Protocols and the rarer, more potent God-Machine Protocols.",
+    "mechanics": "Alchemical protocol weaving is installed via protocol Charms (the Man-Machine Weaving Engine and God-Machine Weaving Engine) and functions in both Autochthonia and Creation, because Autochthon built a permanent back door into the pattern spiders' programming; only destroying or isolating the pattern spiders from the Loom of Fate could ever remove that access. Sidereal Exalted have no comparable authority over Autochthonia and cannot use astrology, Charms limited by Sidereal rules, or prayer strips to affect it or its native denizens, who count as beyond fate for that purpose. Protocols are organized into Man-Machine Protocols (roughly on par with Terrestrial Circle Sorcery, coverable in principle by sufficiently skilled mortal engineers given time and tools) and God-Machine Protocols (effects wholly beyond mortal capacity, generally fusing high technology with transcendent spirituality). Reweaving a pattern directly (to affect beings outside fate, such as Deathlords or Yozis) doubles a protocol's Essence cost; targeting the Exalt or an area is normally more efficient. Enlightened Mountain Folk who buy and surgically implant the relevant Charms (at double the normal cost) can also weave Alchemical protocols.",
+    "compatibility": "Alchemical Exalted (via the Man-Machine Weaving Engine and God-Machine Weaving Engine Charms); Mountain Folk with surgically implanted copies of those Charms at double cost.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "145-146",
+      "pdfPage": "146-147"
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine",
+      "god-machine-weaving-engine",
+      "clarity-trait"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Alchemical Protocols' intro, pp. 145-146 (PDF 146-147); visually cross-checked, plain single-column prose with no layout hazards. Introduces the two protocol echelons inventoried in the rows that follow."
+  },
+  {
+    "id": "what-works-where-sidebar",
+    "name": "What Works Where (cross-cosmology magic compatibility sidebar)",
+    "disposition": "reference-only",
+    "summary": "A boxed sidebar summarizing which of Exalted's several magic systems function in which cosmological venues (Creation, Autochthonia, the Underworld, Malfeas, the Wyld), most relevant to Alchemicals for confirming that their weaving works everywhere but is hampered in the Wyld and against beings outside fate.",
+    "mechanics": "Sorcery and necromancy are Primordial-hardwired and work everywhere. Alchemical weaving also works everywhere, but affecting beings outside fate is harder (see the doubled-cost rule in the protocols overview), and weaving in the Wyld is difficult and usually doesn't work, though one specific protocol (Transcendent Pattern-Weaving Protocol) works only in the Wyld and alerts every nearby Fair Folk to the weaver's presence. Sidereal astrology works everywhere but cannot target anyone or anything originating in Autochthonia, the Underworld, or Malfeas, all of which count as beyond fate for that purpose; Sidereal prayers likewise never affect Autochthonia or its denizens. Sidereal Charms still function, but are subject to the limits described on p. 129 of Exalted: The Sidereals. Prayer strips, powered by sutras composed on Creation's Loom of Fate, only affect beings originating in Creation.",
+    "compatibility": "Cross-splat setting reference; most relevant to Alchemicals confirming their protocols work in Creation and the Wyld caveat for Transcendent Pattern-Weaving Protocol.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 146,
+      "pdfPage": 147
+    },
+    "crossReferences": [
+      "transcendent-pattern-weaving-protocol"
+    ],
+    "notes": "Chapter Four, 'What Works Where' sidebar, p. 146 (PDF 147); visually cross-checked against the rendered page (a plain right-column sidebar box, no reordering issues)."
+  },
+  {
+    "id": "man-machine-protocols-framing",
+    "name": "Man-Machine Protocols (framing)",
+    "disposition": "reference-only",
+    "summary": "The section header text introducing Man-Machine Protocols as the most common echelon of Alchemical weaving, roughly comparable in power to Terrestrial Circle Sorcery, and explaining the universal activation cost and Clarity gating shared by the Man-Machine protocols catalogued below.",
+    "mechanics": "Weaving a Man-Machine Protocol requires the weaver to spend 1 point of Willpower to make initial contact with the design weavers, in addition to each protocol's own Essence cost. Most Man-Machine Protocols also carry a Minimum Clarity requirement, representing the lowest degree of communion with the design weavers the Alchemical must have attained for them to process her protocol; a weaver below a protocol's Minimum Clarity cannot weave it at all.",
+    "requirements": "Minimum Clarity varies per protocol (listed on each protocol's own entry).",
+    "cost": "1 Willpower per weaving, plus the protocol's own Essence cost.",
+    "compatibility": "Alchemical Exalted (and surgically-implanted Mountain Folk) via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 147,
+      "pdfPage": 148
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine",
+      "clarity-trait"
+    ],
+    "notes": "Chapter Four, 'Man-Machine Protocols' section header and framing paragraph, p. 147 (PDF 148); visually cross-checked, ordinary two-column layout with no reordering hazards."
+  },
+  {
+    "id": "spells-that-crossed-over-sidebar",
+    "name": "Spells That Crossed Over (sidebar)",
+    "disposition": "reference-only",
+    "summary": "A boxed sidebar explaining why several Alchemical protocols are identical or near-identical to Creation sorcery spells: both trace back to Primordial-taught magic, and protocols that began with a technological focus or spirits native to Autochthonia survived the transition into the modern weaving-protocol catalog largely unchanged.",
+    "mechanics": "Sorcery spells cannot simply be translated into Alchemical protocols wholesale; only the specific spells that could be translated have been (these are flagged by individual protocol entries below that cite an equivalent Exalted, Savant & Sorcerer spell). Writing an entirely new protocol is otherwise identical to the process of designing a new sorcery spell (see Exalted core, p. 217), with the constraint that its effects must fit the kind of techno-spiritual results the design weavers are accustomed to generating.",
+    "compatibility": "Reference/setting note for any Alchemical protocol-designer or Storyteller adjudicating new protocols.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 148,
+      "pdfPage": 149
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four, 'Spells That Crossed Over' sidebar, p. 148 (PDF 149). IMPORTANT EXTRACTION-ORDER NOTE: on this page, PyMuPDF's default text order placed this sidebar's content and the following Driving the Shadow Machine protocol out of the print layout's true reading order (the sidebar box interrupts the two-column flow); the correct order, confirmed by rendering the page to an image, is: this sidebar (left column top) -> Driving the Shadow Machine (left column, continuing into the right column) -> Elsewhere-Evoking Asana (right column). All affected rows below use this visually-confirmed order and page attribution rather than the raw extraction order."
+  },
+  {
+    "id": "god-machine-protocols-framing",
+    "name": "God-Machine Protocols (framing)",
+    "disposition": "reference-only",
+    "summary": "The section header text introducing God-Machine Protocols as the rarer, far more powerful echelon of Alchemical weaving, belonging solely to Autochthon and his most favored children, advancing the blend of mysticism, technology, and pattern manipulation well beyond what Man-Machine Protocols can achieve.",
+    "mechanics": "No single universal activation cost or Clarity floor is stated for the God-Machine echelon as a whole (unlike Man-Machine Protocols' universal 1-Willpower/design-weaver-contact rule); each God-Machine Protocol lists its own Essence cost and Minimum Clarity individually, and several of the most potent examples carry Minimum Clarity requirements of 6 or higher.",
+    "compatibility": "Alchemical Exalted (and surgically-implanted Mountain Folk) via the God-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 156,
+      "pdfPage": 157
+    },
+    "crossReferences": [
+      "god-machine-weaving-engine",
+      "clarity-trait"
+    ],
+    "notes": "Chapter Four, 'God-Machine Protocols' section header and framing paragraph, p. 156 (PDF 157); visually cross-checked, ordinary two-column layout with no reordering hazards."
+  },
+  {
+    "id": "automaton-override-protocol",
+    "name": "Automaton Override Protocol",
+    "disposition": "selectable",
+    "summary": "A Man-Machine Protocol that lets an Alchemical seize remote control of golems, zombies, and other automata (and low-Essence spirit machines), overriding any prior programming or summoner and directing the targets to act on the weaver's behalf instead.",
+    "mechanics": "The weaver focuses her Essence and speaks a command phrase; a whorl of bright-green arcane symbols flows from her mouth or soulgem into the target automaton, suspending its prior commands. For 5 motes she takes control of one automaton; for 15 motes she may take control of (Essence x 2) automata or technological devices within a 10-yard radius. The protocol can affect golems, zombies, ordinary automata, and items of advanced technology (First Age ships, skyships, weapons), plus spirit machines/mechanical wildlife (such as custodians) whose Essence rating is 2 or less; it has no effect on natural creatures, elementals, or machine spirits of Essence 3 or higher. It can be countered by Emerald Countermagic, by Essence Draining Defense, or by any Alchemical with permanent Essence exceeding the weaver's by 2 or more. Only the invoking Alchemical has override authority; if a higher-Essence Exalt originally summoned the target, the two make a contested Willpower roll to determine who keeps control, with control-wresting potentially stranding a rider inside the automaton if it was a piloted vehicle such as a summoned warstrider.",
+    "requirements": "Minimum Clarity 3.",
+    "cost": "1 Willpower (per the Man-Machine Protocols framing) plus 5 or 15 motes.",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 147,
+      "pdfPage": 148
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine",
+      "man-machine-protocols-framing"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, p. 147 (PDF 148); visually cross-checked, ordinary two-column layout."
+  },
+  {
+    "id": "binding-filament-system",
+    "name": "Binding Filament System",
+    "disposition": "selectable",
+    "summary": "A Man-Machine Protocol (also known by the alternate name Her Glistening Silvery Strands) that instantly wraps a target in extraordinarily tough silvery metallic filament, restraining them indefinitely unless they tear free at a painful cost.",
+    "mechanics": "On completion, the target is wrapped in fine strands of silvery filament. A very strong individual can attempt to break free as a feat of strength requiring a Strength + Athletics total of 10, but doing so causes the strands to act as garrotes, inflicting lethal damage equal to the weaver's Essence (soakable) on the escapee.",
+    "requirements": "Minimum Clarity 0.",
+    "cost": "1 Willpower plus 10 motes.",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 147,
+      "pdfPage": 148
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, p. 147 (PDF 148); visually cross-checked. Duration is listed as Indefinite in the book (until escaped or otherwise ended); target is a single person."
+  },
+  {
+    "id": "crystal-lotus-of-repose",
+    "name": "Crystal Lotus of Repose",
+    "disposition": "selectable",
+    "summary": "A Man-Machine Protocol that traps a target in a crystalline, lotus-flower-shaped protective containment; the book states it is otherwise identical to the Terrestrial Circle sorcery spell Sleep of Stony Safety.",
+    "mechanics": "Except for its crystal, lotus-flower-shaped containment (rather than stone), this protocol's effect is identical to the sorcery spell Sleep of Stony Safety (Savant & Sorcerer, p. 117) - an external supplement outside this inventory's scope.",
+    "requirements": "Minimum Clarity 2.",
+    "cost": "1 Willpower (cost/target/duration otherwise as Sleep of Stony Safety, not independently restated here).",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 147,
+      "pdfPage": 148
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, p. 147 (PDF 148); visually cross-checked. Full mechanics defer to Sleep of Stony Safety in Savant & Sorcerer, a supplement not held/inventoried in this repository; flagged rather than guessed at its exact cost/target/duration."
+  },
+  {
+    "id": "docility-assurance-field",
+    "name": "Docility Assurance Field",
+    "disposition": "selectable",
+    "summary": "A Man-Machine Protocol that binds a target in a mesh of luminous filaments which does not impede movement but inflicts damage on the target every time they spend Essence, for the duration of a scene or hour.",
+    "mechanics": "The target is bound in a shifting mesh of light that in no way impairs mobility, but any time the target spends Essence, they take damage: the weaver chooses at the time of weaving either one bashing health level per mote spent or one lethal health level per 2 motes spent (a single mote spent alone causes no damage under the lethal option). This damage can only be soaked with the target's Essence rating. The field does not interfere with non-Essence activities or with Essence already committed before the field was woven. This protocol cannot target a being of greater Essence than the weaver.",
+    "requirements": "Minimum Clarity 0.",
+    "cost": "1 Willpower plus 25 motes.",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 147,
+      "pdfPage": 148
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, p. 147 (PDF 148); visually cross-checked. Duration: one scene or one hour, whichever is longer."
+  },
+  {
+    "id": "driving-the-shadow-machine",
+    "name": "Driving the Shadow Machine",
+    "disposition": "selectable",
+    "summary": "A Man-Machine Protocol that conjures a silent, perfectly camouflaging flying vehicle of roiling shadow (a 'tenebrapede') that the weaver and companions can ride at high speed, well-protected from attacks and the elements.",
+    "mechanics": "The protocol brings into being an incorporeal, Essence-and-light-feeding pocket of shadow that can carry 200 pounds of cargo/passengers per point of the weaver's permanent Essence. It is perfectly silent, goes wherever the Alchemical wills, offers a fully clear 180-degree view from within (while appearing as darkness from outside), and flies at 200 mph (nearly 600 yards/turn). It has 25 health levels and a soak of 25L/35B, provides 90% hard cover to riders, and only a single attack can be made against it or its occupants per turn unless the attacker matches its flight speed; attacking out from it is similarly restricted. It protects occupants/cargo from all but the most extreme climates. If its travel time elapses before reaching the destination, it lands at the nearest city or safe area and gives one minute to unload before fading; otherwise it persists until reaching its destination, being landed early, or being dispelled.",
+    "requirements": "Minimum Clarity 2.",
+    "cost": "1 Willpower plus 20 motes.",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 148,
+      "pdfPage": 149
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, p. 148 (PDF 149). Duration: (weaver's Essence x 4) hours. Reading order confirmed by rendered-page comparison: this protocol's header and opening text sit in the left column below the 'Spells That Crossed Over' sidebar, continuing into the top of the right column before Elsewhere-Evoking Asana begins; raw text extraction alone would have suggested a different order."
+  },
+  {
+    "id": "elsewhere-evoking-asana",
+    "name": "Elsewhere-Evoking Asana",
+    "disposition": "selectable",
+    "summary": "A Man-Machine Protocol requiring a seated meditative posture that manifests a sphere of the great Void surrounding the weaver: an airless, gravity-free, fire-snuffing, extremely cold defensive field that also serves as a form of spiritual communion with Autochthon's exile.",
+    "mechanics": "While maintained, the weaver is surrounded by a sphere of cold, airless void with radius (Essence x 5) feet. All fire is snuffed, air-breathers inside suffocate, visibility is as heavy snow at night, and damage from the cold equals standing in a bonfire. There is no up or down inside the field; characters need three or more successes on a Dexterity + Athletics roll to propel themselves through it, and once moving they float until they exit (then fall) or fail to muster enough coordination to move at all. Objects/attacks entering the sphere lose all momentum instantly. The weaver, maintaining the posture, floats at the center immune to all the field's effects except the visibility penalty, and regains Essence as though meditating. Ending the posture ends the protocol instantly.",
+    "requirements": "Minimum Clarity 5.",
+    "cost": "1 Willpower plus 20 motes.",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "148-149",
+      "pdfPage": "149-150"
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, pp. 148-149 (PDF 149-150). Duration: the longer of one hour or one scene; Target: area of effect. DATA-QUALITY FLAG: the header on p. 148 names this protocol 'Elsewhere-Evoking Asana,' but the closing paragraph on p. 149 refers to it once as 'Elsewhere-Evoking Prana' - an apparent in-book inconsistency/typo between the two names for the same protocol, not a separate effect. Recorded here under the header name."
+  },
+  {
+    "id": "entropy-manipulation-protocol",
+    "name": "Entropy Manipulation Protocol",
+    "disposition": "selectable",
+    "summary": "A Man-Machine Protocol favored by Alchemicals venturing into the gremlin-infested Far Reaches: it temporarily knocks all nearby automata offline, dealing damage and forcing them inert for the rest of the scene.",
+    "mechanics": "All gremlins, golems, zombies, and other automata within (Essence x 10) yards take the weaver's Essence in bashing damage and fall inert; at the start of the next scene they resume functioning, though they may be confused about their situation and may not necessarily resume their prior task. The protocol does not shut down warstriders or other powered armor outright, but deadens unshielded limbs: it imposes a -2 mobility penalty on Artifact \u2022\u2022\u2022 armor, reduced by 1 for each additional Artifact dot, so Artifact \u2022\u2022\u2022\u2022\u2022 armor is unaffected.",
+    "requirements": "Minimum Clarity 4.",
+    "cost": "1 Willpower plus 25 motes.",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 149,
+      "pdfPage": 150
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, p. 149 (PDF 150); visually cross-checked, ordinary two-column layout continuing directly from Elsewhere-Evoking Asana. Duration: one scene; Target: all automata within range."
+  },
+  {
+    "id": "essence-reallocation-protocol",
+    "name": "Essence Reallocation Protocol",
+    "disposition": "selectable",
+    "summary": "A reflexive Man-Machine Protocol, functionally an Alchemical counterpart to Emerald Countermagic, that counters an incoming Terrestrial Circle Sorcery spell, Man-Machine Protocol, or Shadowlands Circle Necromancy effect and siphons the cancelled effect's Essence into the weaver's own reservoir.",
+    "mechanics": "As a reflexive protocol, it counters a single incoming Terrestrial Circle Sorcery spell, Man-Machine Protocol, or Shadowlands Circle Necromancy effect, absorbing all of the Essence out of the cancelled effect and channeling it into the weaver's own Essence pool. If the absorbed Essence would push the weaver over her maximum, her metal Charms flare and spark for a moment as they shunt away the excess.",
+    "requirements": "Minimum Clarity 0.",
+    "cost": "1 Willpower plus 25 motes.",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "149-150",
+      "pdfPage": "150-151"
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, pp. 149-150 (PDF 150-151); visually cross-checked. Duration: Instant; Target: Special (the cancelled spell/protocol/necromancy effect)."
+  },
+  {
+    "id": "lightning-elemental-concatenation-protocol",
+    "name": "Lightning Elemental Concatenation Protocol",
+    "disposition": "selectable",
+    "summary": "A Man-Machine Protocol the book states is identical to the Creation sorcery spell Lightning Spider, suspected to have been given to Creation's sorcerers by Autochthon himself.",
+    "mechanics": "Identical in effect to the sorcery spell Lightning Spider (an external Exalted core/supplement spell not itself inventoried here).",
+    "requirements": "Minimum Clarity 0.",
+    "cost": "1 Willpower (cost/target/duration otherwise as Lightning Spider, not independently restated here).",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 150,
+      "pdfPage": 151
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, p. 150 (PDF 151); visually cross-checked. Full mechanics defer to the sorcery spell Lightning Spider, not inventoried in this family's scope; flagged rather than guessed at its exact cost/target/duration."
+  },
+  {
+    "id": "the-makers-basic-defense-array",
+    "name": "The Maker's Basic Defense Array",
+    "disposition": "selectable",
+    "summary": "A Man-Machine Protocol that surrounds the weaver with hundreds of whirling polished metal spheres forming a shape-changing defensive sphere, functioning as armor that knocks aside incoming blows and can shatter ordinary weapons.",
+    "mechanics": "The sphere moves with the weaver and can reshape to fit tight spaces. It has an effective hardness of 5 and adds 10L/10B to the weaver's soak. Any weapon not made of the Magical Materials that strikes the array is checked against a single die roll each time: normal weapons shatter on a roll of 7 or less, exceptional weapons on 5 or less, while perfect weapons are immune. Even undamaged, the attacker's player must make a Dexterity + Melee roll (difficulty 2) to avoid having the weapon knocked from their grasp. Unarmed attackers instead suffer 10 dice of soakable bashing damage.",
+    "requirements": "Minimum Clarity 3.",
+    "cost": "1 Willpower plus 20 motes.",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 150,
+      "pdfPage": 151
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine",
+      "the-makers-advanced-defense-array"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, p. 150 (PDF 151); visually cross-checked. Duration: 12 hours; Target: Weaver. Has a more powerful God-Machine-tier counterpart, The Maker's Advanced Defense Array."
+  },
+  {
+    "id": "the-makers-instantaneous-forge",
+    "name": "The Maker's Instantaneous Forge",
+    "disposition": "selectable",
+    "summary": "A Man-Machine Protocol, distantly related to the effect that animates Alchemicals themselves, that conjures a shell out of the ground and binds an Autochthonian elemental into it, creating a temporary automaton servant (a 'golem') that serves the weaver faithfully for a limited time.",
+    "mechanics": "Casting this protocol causes a golem's shell to appear from the ground; the weaver's power binds an Autochthonian elemental (assigned by the Divine Ministers) into the shell to animate it, and while bound the elemental has no will of its own and performs only the weaver's will. The resulting golem's Traits, appearance, and two unique Charms depend on the type of elemental bound (crystal, lightning, metal, oil, or smoke - see the six per-element golem stat block rows). Those two golem-specific Charms cannot be learned by Exalts who could otherwise learn Charms outside their native Exaltation. A summoned golem serves for (summoner's Essence) weeks before merging back into the substance of the Maker; a weaver may have as many such golems active at once as she has points of Essence.",
+    "requirements": "Minimum Clarity 0.",
+    "cost": "1 Willpower plus 20 motes.",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "150-151",
+      "pdfPage": "151-152"
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine",
+      "engine-golem-steam-automaton",
+      "glass-golem-crystal-automaton",
+      "magnet-golem-lightning-automaton",
+      "oil-golem-oil-automaton",
+      "smudge-golem-smoke-automaton"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, pp. 150-151 (PDF 151-152); visually cross-checked. Duration: (Essence) weeks; Target: one conjured automaton. Note: the book lists 5 elemental types (crystal, lightning, metal, oil, smoke/steam) yielding 6 named golem stat blocks below because steam and metal are both represented (Engine golem is the steam variant, Steel golem the metal variant)."
+  },
+  {
+    "id": "engine-golem-steam-automaton",
+    "name": "Engine Golem (Steam Automaton)",
+    "disposition": "gm-only",
+    "summary": "A steam-elemental golem summoned via The Maker's Instantaneous Forge: a strong, resilient, but slow and graceless construct of hissing steam in a black metal exoskeleton, with Charms to cleanse disease and to blast enemies with scalding steam.",
+    "mechanics": "Attributes: Strength 6, Dexterity 2, Stamina 5, Charisma 1, Manipulation 1, Appearance 1, Perception 3, Intelligence 2, Wits 3. Virtue: Automaton (never fails Valor rolls, cannot make any other Virtue rolls). Abilities: Athletics 3 (Lift +2), Awareness 3, Brawl 4, Dodge 4, Endurance 5, Medicine 3, Resistance 9, Stealth 1. Charms: Illness Sterilizing Procedure (10 motes, Instant - sprays a target with warm steam, letting the target reroll Stamina + Endurance with no penalty and two bonus dice to shake off a disease/infection; usable repeatedly if it fails) and Scalding Blast Attack (2 motes per damage die, Instant - a jet of scalding steam dealing a lethal die per 2 motes spent, soakable only with Stamina). Combat stats: Base Initiative 5; Punch Speed 5 Acc 6 Dmg 6L Def 6, Kick Speed 2 Acc 5 Dmg 8L Def 5; Dodge Pool 6; Soak 6L/9B (metal body, 4L/4B); Willpower 2; Health Levels -0/-0/-0/-0/-0/-0/Destroyed; Essence 2; Essence Pool 36. Exalted Power Combat variant: Punch Speed 5 Acc 7 Dmg 6L Def 8 Rate 5, Kick Speed 2 Acc 7 Dmg 9L Def 3 Rate 3, Dodge 8.",
+    "compatibility": "Storyteller-controlled automaton conjured by an Alchemical's The Maker's Instantaneous Forge protocol; serves for (summoner's Essence) weeks.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "150-151",
+      "pdfPage": "151-152"
+    },
+    "crossReferences": [
+      "the-makers-instantaneous-forge"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, The Maker's Instantaneous Forge sub-entry, pp. 150-151 (PDF 151-152); visually cross-checked against the rendered page. Full stat block/NPC content; recorded gm-only per this project's convention for Storyteller-run summoned creatures."
+  },
+  {
+    "id": "glass-golem-crystal-automaton",
+    "name": "Glass Golem (Crystal Automaton)",
+    "disposition": "gm-only",
+    "summary": "A crystal-elemental golem summoned via The Maker's Instantaneous Forge: a squat, transparent, exceedingly hard-to-kill construct of polished glass often used as a body servant, with Charms to detect poisons and dispel illusions.",
+    "mechanics": "Attributes: Strength 3, Dexterity 3, Stamina 5, Charisma 2, Manipulation 2, Appearance 2, Perception 2, Intelligence 2, Wits 2. Virtue: Automaton. Abilities: Athletics 2, Awareness 3, Brawl 4, Dodge 3, Presence 2, Stealth 5, Survival 2, Thrown 4. Charms: Poison Detection Method (3 motes, Instant - any part of the golem within a foot of poison, disease, or venom turns a noxious green) and Vision-Clearing Protocol (4 motes, Instant - nullifies all illusion/glamour-based magic in a 10-foot radius). Combat stats: Base Initiative 5; Punch Speed 5 Acc 7 Dmg 3B Def 7, Shard (thrown glass) Speed 5 Acc 7 Dmg 5L Rate 3 Range 15; Willpower 2; Soak 7B/7L (crystalline body, 2B/5L); Dodge Pool 6; Health Levels -0/-0/-0/-0/-0/Destroyed; Essence 2; Essence Pool 36. Exalted Power Combat variant: Punch Speed 5 Acc 8 Dmg 3B Def 9 Rate 5, Dodge 8.",
+    "compatibility": "Storyteller-controlled automaton conjured by an Alchemical's The Maker's Instantaneous Forge protocol; serves for (summoner's Essence) weeks.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 151,
+      "pdfPage": 152
+    },
+    "crossReferences": [
+      "the-makers-instantaneous-forge"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, The Maker's Instantaneous Forge sub-entry, p. 151 (PDF 152); visually cross-checked. Full stat block/NPC content; recorded gm-only."
+  },
+  {
+    "id": "magnet-golem-lightning-automaton",
+    "name": "Magnet Golem (Lightning Automaton)",
+    "disposition": "gm-only",
+    "summary": "A lightning-elemental golem summoned via The Maker's Instantaneous Forge: a construct of ferrous sand or scrap iron bound by an electrical field that magnetically draws in nearby metal, favored as a warrior/bodyguard, with Charms to fling lightning bolts and shock attackers.",
+    "mechanics": "Any iron or steel item within 10 feet is strongly pulled toward the golem (resistable with Strength equal to the weaver's Essence); metal arrows/bolts that come within range are simply absorbed into its mass. Attributes: Strength 5, Dexterity 3, Stamina 3, Charisma 1, Manipulation 2, Appearance 1, Perception 3, Intelligence 2, Wits 2. Virtue: Automaton. Abilities: Archery 5 (Levinbolt +2), Athletics 3, Brawl 3, Dodge 2, Presence 2 (Intimidation +2), Resistance 5. Charms: Levinbolt (2 motes, Instant - a thrown lightning bolt, Dex + Thrown, base damage 5L, range 50 yards, ignites flammables) and Shocking Aura (5 motes, one scene - adds 2L/2B soak and deals one lethal level to anything touching the golem, ignoring non-Magical-Material metal armor). Combat stats: Base Initiative 5; Punch Speed 5 Acc 6 Dmg 5B Def 6; Dodge Pool 5; Soak 5L/7B (ferrous body, 4L/4B); Willpower 2; Health Levels -0/-0/-0/-0/-0/Destroyed; Essence 2; Essence Pool 36; prefers Levinbolts over melee. Exalted Power Combat variant: Punch Speed 5 Acc 7 Dmg 5B Def 8 Rate 5, Dodge 7.",
+    "compatibility": "Storyteller-controlled automaton conjured by an Alchemical's The Maker's Instantaneous Forge protocol; serves for (summoner's Essence) weeks.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "151-152",
+      "pdfPage": "152-153"
+    },
+    "crossReferences": [
+      "the-makers-instantaneous-forge"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, The Maker's Instantaneous Forge sub-entry, pp. 151-152 (PDF 152-153); visually cross-checked. Full stat block/NPC content; recorded gm-only."
+  },
+  {
+    "id": "oil-golem-oil-automaton",
+    "name": "Oil Golem (Oil Automaton)",
+    "disposition": "gm-only",
+    "summary": "An oil-elemental golem summoned via The Maker's Instantaneous Forge: a fast, liquid entity (clear, amber, or black) that serves as a messenger, scout, or lubricator of the Machine God's factory-cathedrals, with Charms for high-speed movement and merging with bodies of oil.",
+    "mechanics": "Attributes: Strength 2, Dexterity 5, Stamina 2, Charisma 1, Manipulation 1, Appearance 2, Perception 2, Intelligence 3, Wits 2. Virtue: Automaton. Abilities: Athletics 2 (Balance +3), Awareness 3, Dodge 5, Linguistics (Native: Machine, Old Realm) 1, Melee 5 (Slashing Sword +1), Stealth 5. Charms: Bursting Reservoir Method (10 motes, one scene - runs at 5x normal movement, base 17 yards/turn, but can take no action but moving in the most direct path) and Riding the Viscous Tides (5 motes, one scene - becomes one with a body of oil, swims/walks freely through it with no Perception penalty, and gains +3 Stealth/+2 Dodge dice while immersed). Combat stats: Base Initiative 7; Slashing Sword Speed 10 Acc 12 Dmg 4L Def 12; Dodge Pool 9; Soak 3L/5B (fluid body, 2L/3B); Willpower 2; Health Levels -0/-0/-0/-0/-0/Destroyed; Essence 2; Essence Pool 36; commonly armed with a slashing sword (adjustable if re-equipped). Exalted Power Combat variant: Slashing Sword Speed 13 Acc 12 Dmg 6L Def 11 Rate 2, Dodge 11.",
+    "compatibility": "Storyteller-controlled automaton conjured by an Alchemical's The Maker's Instantaneous Forge protocol; serves for (summoner's Essence) weeks.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 152,
+      "pdfPage": 153
+    },
+    "crossReferences": [
+      "the-makers-instantaneous-forge"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, The Maker's Instantaneous Forge sub-entry, p. 152 (PDF 153); visually cross-checked. Full stat block/NPC content; recorded gm-only."
+  },
+  {
+    "id": "smudge-golem-smoke-automaton",
+    "name": "Smudge Golem (Smoke Automaton)",
+    "disposition": "gm-only",
+    "summary": "A smoke-elemental golem summoned via The Maker's Instantaneous Forge: a wispy, dark-gray airborne construct with excellent stealth and surveillance skills, favored as a spy, able to record and later report a whole scene's sensory experience to its master.",
+    "mechanics": "Attributes: Strength 1, Dexterity 5, Stamina 3, Charisma 1, Manipulation 1, Appearance 2, Perception 4, Intelligence 2, Wits 3. Virtue: Automaton. Abilities: Athletics 4 (Jump +2), Awareness 5, Dodge 4, Endurance 2, Stealth 6. Charms: Shared Experience Technique (6 motes, one scene - records everything seen/heard for a scene, unless it takes another action first; to report, the golem returns and the weaver inhales it, downloading the data in a turn) and Unerring Location of the Master (2 motes, Instant - after a turn of concentration, knows the direction and distance to its master). Combat stats: Base Initiative 8; Punch Speed 8 Acc 5 Dmg 1B Def 5 Rate 5, Kick Speed 5 Acc 4 Dmg 4B Def 2 Rate 3; Dodge Pool 9; Soak 5L/7B (insubstantial body, 4L/4B); Willpower 2; Health Levels -0/-0/-0/-0/-0/Destroyed; Essence 2; Essence Pool 36. Exalted Power Combat variant: Punch Speed 8 Acc 6 Dmg 1B Def 7, Kick Speed 5 Acc 6 Dmg 3B Def 4, Dodge 11.",
+    "compatibility": "Storyteller-controlled automaton conjured by an Alchemical's The Maker's Instantaneous Forge protocol; serves for (summoner's Essence) weeks.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 152,
+      "pdfPage": 153
+    },
+    "crossReferences": [
+      "the-makers-instantaneous-forge"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, The Maker's Instantaneous Forge sub-entry, p. 152 (PDF 153); visually cross-checked. Full stat block/NPC content; recorded gm-only."
+  },
+  {
+    "id": "steel-golem-metal-automaton",
+    "name": "Steel Golem (Metal Automaton)",
+    "disposition": "gm-only",
+    "summary": "The metal-elemental variant of golem summoned via The Maker's Instantaneous Forge: the largest of the golem types, a tall, featureless, mirror-polished humanoid of steel that serves as a guardian, able to shriek down enemy morale or turn itself into an immovable statue.",
+    "mechanics": "Attributes: Strength 4, Dexterity 1, Stamina 6, Charisma 1, Manipulation 3, Appearance 1, Perception 2, Intelligence 1, Wits 2. Virtue: Automaton. Abilities: Athletics 5, Awareness 3, Brawl 5 (Clinch +1), Dodge 3, Endurance 2, Presence 3 (Intimidation +2), Resistance 5. Charms: Grinding Metal Shriek (8 motes, Instant - a shrill screech forcing a Valor check on everyone within 50 yards; failures tremble helplessly for a number of turns equal to a reflexive Manipulation + Presence roll's successes) and Immovable Object Stance (3 motes, Special duration - the golem becomes an immobile, denser statue; a Stamina + Athletics roll sets the difficulty for others' Strength + Athletics rolls to move it, and it ignores damage below that roll's success count and is treated as an object requiring no damage rolls; it can act only to revert to animate form, costing another 3 motes). Combat stats: Base Initiative 3; Slam Speed 3 Acc 6 Dmg 6B Def 1, Crush Speed 3 Acc 7 Dmg 6B Def 2; Dodge Pool 4; Soak 10L/10B (steel body, 7L/4B); Willpower 2; Health Levels -0/-0/-0/-0/-0/Destroyed; Essence 2; Essence Pool 36. Exalted Power Combat variant: Slam Speed 3 Acc 7 Dmg 6B Def 8 Rate 5, Crush Speed 3 Acc 7 Dmg 6B Def 2 Rate 1, Dodge 6. Weighs around 400 pounds.",
+    "compatibility": "Storyteller-controlled automaton conjured by an Alchemical's The Maker's Instantaneous Forge protocol; serves for (summoner's Essence) weeks.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 153,
+      "pdfPage": 154
+    },
+    "crossReferences": [
+      "the-makers-instantaneous-forge"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, The Maker's Instantaneous Forge sub-entry, p. 153 (PDF 154); visually cross-checked. Full stat block/NPC content; recorded gm-only. This is the 'metal' elemental variant referenced by The Maker's Instantaneous Forge (the steam variant is the separate Engine Golem row)."
+  },
+  {
+    "id": "optimized-component-integration-protocol",
+    "name": "Optimized Component Integration Protocol",
+    "disposition": "selectable",
+    "summary": "A Man-Machine Protocol that turns the weaver and a group of willing participants into a model of perfect cooperative efficiency on a single shared task, granting bonus dice scaling with group size.",
+    "mechanics": "The weaver and all willing participants within a 10-foot radius become models of perfect cooperation and interdependence. So long as they work on one shared task (typically an extended action such as building a device or opening a tunnel), all benefiting members gain one bonus die per additional group member, up to a maximum of (Wits + Essence) individuals worth of bonus dice (e.g., a five-member group grants each member four bonus dice). The protocol ends early if the group finishes the task before the duration expires.",
+    "requirements": "Minimum Clarity 5.",
+    "cost": "1 Willpower plus 5 motes per target.",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 153,
+      "pdfPage": 154
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, p. 153 (PDF 154); visually cross-checked. Duration: the longer of one hour or one scene; Target: the weaver and all willing targets in a 10-foot radius."
+  },
+  {
+    "id": "phlogiston-web",
+    "name": "Phlogiston Web",
+    "disposition": "selectable",
+    "summary": "A Man-Machine Protocol that expels an enormous net of blazing, sticky solid fire ('phlogiston') from the weaver's body, covering a large area and burning anything caught within it every turn.",
+    "mechanics": "The web covers 100 square feet per point of the weaver's permanent Essence, in dimensions of the sorcerer's choosing (e.g., an Essence-4 weaver could make a 20'x20' or 10'x40' web). It inflicts (weaver's Essence + 4) lethal health levels per turn to anything caught in it. Cutting free requires a weapon of the Magical Materials and four successes on a Strength + Melee roll; breaking free by pure strength requires a Strength + Athletics roll at difficulty 5. Characters immune to fire take no damage from the protocol.",
+    "requirements": "Minimum Clarity 0.",
+    "cost": "1 Willpower plus 15 motes.",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 154,
+      "pdfPage": 155
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, p. 154 (PDF 155); visually cross-checked. Duration: (Essence) turns; Target: area of effect."
+  },
+  {
+    "id": "plague-of-bronze-snakes",
+    "name": "Plague of Bronze Snakes",
+    "disposition": "selectable",
+    "summary": "A Man-Machine Protocol identical to a Savant & Sorcerer spell of the same underlying effect, except that the snakes wriggle out of the Alchemical sorcerer's own body when the protocol is woven.",
+    "mechanics": "Except for the snakes emerging from the weaver's own body rather than however the sorcery version manifests them, this protocol is the same as the spell found on p. 112 of Savant and Sorcerer (an external supplement not inventoried here).",
+    "requirements": "Minimum Clarity 0.",
+    "cost": "1 Willpower (cost/target/duration otherwise as the Savant & Sorcerer spell, not independently restated here).",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "154-155",
+      "pdfPage": "155-156"
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, pp. 154-155 (PDF 155-156); visually cross-checked. Full mechanics defer to an unnamed Savant & Sorcerer spell not inventoried in this family's scope; flagged rather than guessed at its exact cost/target/duration."
+  },
+  {
+    "id": "probability-degradation-matrix",
+    "name": "Probability Degradation Matrix",
+    "disposition": "selectable",
+    "summary": "A Man-Machine Protocol that turns fate itself against a group of enemies, saturating the area with bad luck, driving away weak familiars and hostile spirits, and imposing a lasting penalty on every affected foe's dice rolls.",
+    "mechanics": "Enemy familiars with a Familiar rating below 3 flee the area of effect; hostile spirits with permanent Essence below 2 must succeed on a simple Valor roll or flee as well (fleeing at full movement for two turns per point of the weaver's Essence, not returning until the protocol ends). Allies are unaffected, but for the duration every roll made by an afflicted enemy has its target number increased by one, 10s count as only a single success, and every die that rolls a 1 negates one success.",
+    "requirements": "Minimum Clarity 5.",
+    "cost": "1 Willpower plus 15 motes.",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 154,
+      "pdfPage": 155
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, p. 154 (PDF 155); visually cross-checked. Duration: one hour or one scene, whichever is longer; Target: enemies in a 10-yard radius."
+  },
+  {
+    "id": "sonic-hammer-vocalization",
+    "name": "Sonic Hammer Vocalization",
+    "disposition": "selectable",
+    "summary": "A Man-Machine Protocol in which the weaver emits a devastatingly shrill wail that shakes bone, rattles teeth, shatters glass, and drowns out all other sound; otherwise identical to a named Savant & Sorcerer sorcery spell.",
+    "mechanics": "Items of glass or crystal in the area suffer 10 levels of bashing damage, and hearing over the noise is impossible. In all other respects, this protocol is identical to the spell Thunder Wolf's Howl (Savant & Sorcerer, p. 122, an external supplement not inventoried here).",
+    "requirements": "Minimum Clarity 0.",
+    "cost": "1 Willpower plus 12 motes.",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 154,
+      "pdfPage": 155
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, p. 154 (PDF 155); visually cross-checked. Duration: (Essence) turns; Target: area of effect. Otherwise defers to Thunder Wolf's Howl, not inventoried in this family's scope."
+  },
+  {
+    "id": "soul-archiving-protocol",
+    "name": "Soul Archiving Protocol",
+    "disposition": "selectable",
+    "summary": "A rare, classified Man-Machine Protocol that recaptures a loose ghost's soul into a soulgem when it has escaped after being left too long on its corpse, preserving Autochthon's soul-recycling efficiency; controversial and restricted, requiring high Backing from the Luminors to learn.",
+    "mechanics": "The weaver weaves the protocol while holding out the target soulgem, then makes a contested Willpower + Essence roll against the ghost; if the ghost's will is strong, the weaver may spend 5 motes per additional die added to her pool. A ghost captured this way remains safely in the soulgem with no chance of escape until the death of its next incarnation. The protocol controverts Luminor dogma and is a closely guarded secret; learning it requires Backing of at least 4 from the Luminors.",
+    "requirements": "Minimum Clarity 0; learning requires Backing 4+ from the Luminors.",
+    "cost": "1 Willpower plus 10+ motes.",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "154-155",
+      "pdfPage": "155-156"
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, pp. 154-155 (PDF 155-156); visually cross-checked. Duration: Permanent; Target: Ghost."
+  },
+  {
+    "id": "static-essence-absorption-protocol",
+    "name": "Static Essence Absorption Protocol",
+    "disposition": "selectable",
+    "summary": "A Man-Machine Protocol used to police excessive Essence build-up in Autochthonia, letting the weaver drain stored or committed Essence out of a Hearthstone, Essence-containing gem, or attuned item and into her own reservoir, temporarily disabling the drained item.",
+    "mechanics": "The weaver drains (Essence x 2) motes of Essence from one device that gathers/stores Essence (a Hearthstone or Essence-containing gem) or from an item with committed Essence (an attuned weapon); the drained Essence flows to the weaver as a glistening tendril. A drained Hearthstone stops working for (6 - Manse rating) hours; drained Essence-containing gems must be recharged, and weapons with committed Essence must be reattuned before their wielder regains attunement benefits. The protocol treats all Essence sources the same (Hearthstone, sorcery/necromancy commitment, etc.) and cannot drain an Essence-user's own Essence pools directly.",
+    "requirements": "Minimum Clarity 2.",
+    "cost": "1 Willpower plus 5 motes.",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 155,
+      "pdfPage": 156
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, p. 155 (PDF 156); visually cross-checked. Duration: Instant; Target: one item."
+  },
+  {
+    "id": "summon-autochthonian-elemental",
+    "name": "Summon Autochthonian Elemental",
+    "disposition": "selectable",
+    "summary": "A Man-Machine Protocol that functions exactly like Creation's Terrestrial Circle sorcery spell Summon Elemental, but restricted to the elemental types native to Autochthonia (crystal, lightning, metal, oil, smoke, and steam).",
+    "mechanics": "Identical to Summon Elemental (Exalted core, p. 219), except that only the six Autochthonian elemental types (crystal, lightning, metal, oil, smoke, steam) can be summoned with it. See Exalted: The Autochthonians pp. 173-178 for more on Autochthonian elementals (not yet inventoried).",
+    "requirements": "Minimum Clarity 0.",
+    "cost": "1 Willpower plus 10+ motes.",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 155,
+      "pdfPage": 156
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, p. 155 (PDF 156); visually cross-checked. Duration: up to one month; Target: Elemental. The Autochthonian elemental catalog itself (pp. 173-178/PDF 174-179) is not yet inventoried; noted as a follow-up item."
+  },
+  {
+    "id": "summon-machine-spirit",
+    "name": "Summon Machine Spirit",
+    "disposition": "selectable",
+    "summary": "A Man-Machine Protocol very similar to Summon Elemental, but calling forth a machine spirit rather than an elemental; large machine spirits often send subroutine spirits to serve in their place rather than answering personally.",
+    "mechanics": "Functions like Summon Elemental (Exalted core, p. 219): the weaver designates the desired machine spirit by any criteria and contests it via the same Willpower contest, but captures a machine spirit instead of an elemental. Machine spirits serving the Great Maker are often dedicated to a single function and dislike multi-tasking, so larger spirits frequently dispatch subroutine spirits in their stead (comparable to how greater elementals delegate, per Savant and Sorcerer p. 75).",
+    "requirements": "Minimum Clarity 0.",
+    "cost": "1 Willpower plus 15+ motes.",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "155-156",
+      "pdfPage": "156-157"
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine",
+      "summon-autochthonian-elemental"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, pp. 155-156 (PDF 156-157); visually cross-checked. Duration: Instant; Target: one machine spirit."
+  },
+  {
+    "id": "theoplastic-engineering-protocol",
+    "name": "Theoplastic Engineering Protocol",
+    "disposition": "selectable",
+    "summary": "A Man-Machine Protocol that lets an Alchemical directly reshape Autochthon's living techno-organic landscape (or, in Creation, ordinary earth and stone) by pointing and willing the material to flow, used for tunneling, terraforming, and pulling ore veins to the surface.",
+    "mechanics": "The weaver points toward the material she wishes to work and it flows to accommodate her will, shifting up to 500 cubic feet of material per turn; groups working in concert can open entire new veins. Used in Creation, it can create trenches, mounds, dikes, berms, reservoirs, or pits in soft earth, or sculpt up to (Essence x 100) square feet of stone; repeated use can build tunnels, bridges, or small islands, and pull ore veins to the surface if they are no more than (Essence x 100) feet down and the weaver knows they are there. It can be used to immure an enemy, though slowly (5 turns), while the target can struggle free with a Strength + Athletics roll at escalating difficulty (base 2, +1 per turn the sorcerer continues shaping). The book speculates, untested, that it might also reshape the Underworld's Labyrinth or Malfeas's landscape, both being Primordial flesh as well.",
+    "requirements": "Minimum Clarity 0.",
+    "cost": "1 Willpower plus 15 motes.",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 155,
+      "pdfPage": 156
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, p. 155 (PDF 156); visually cross-checked (page includes a full-page illustration between columns; text order unaffected). Duration: one scene; Target: Terrain."
+  },
+  {
+    "id": "vat-surrogate-reweaving-technique",
+    "name": "Vat Surrogate Reweaving Technique",
+    "disposition": "selectable",
+    "summary": "A Man-Machine Protocol that lets an Alchemical instantaneously swap one of her installed Charms for another Charm she has on retainer at the Vats, bypassing the normal downtime or travel needed to visit the Vats in person.",
+    "mechanics": "If the weaver has Charms held on retainer at the Vats (per the Vats Background), this protocol lets her instantaneously exchange one of her currently installed Charms for one of those retained Charms, without needing downtime or a physical visit to the Vats.",
+    "requirements": "Minimum Clarity 4; requires the Vats Background with Charms on retainer.",
+    "cost": "1 Willpower plus 10 motes.",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 155,
+      "pdfPage": 156
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, p. 155 (PDF 156); visually cross-checked. Duration: Instant; Target: One Alchemical Exalt. Cross-references the Vats Background (pp. 68-69/PDF 69-70), already inventoried in this file."
+  },
+  {
+    "id": "vision-transmitting-protocol",
+    "name": "Vision Transmitting Protocol",
+    "disposition": "selectable",
+    "summary": "The final catalogued Man-Machine Protocol: the weaver spits forth a growing crystal dodecahedron into which she speaks a message; the crystal functions like the Terrestrial spell Infallible Messenger but also visually transmits the speaker's image and background to the recipient.",
+    "mechanics": "The weaver spits out a fist-sized crystal dodecahedron that grows to about the size of a human head as she finishes shaping the Essence, then speaks her message into it. The protocol otherwise functions exactly like the Terrestrial Circle spell Infallible Messenger (Exalted core, p. 218), except the recipient can also see the speaker's image in the crystal (and may glimpse background events) as well as hear the message.",
+    "requirements": "Minimum Clarity 0.",
+    "cost": "1 Willpower plus 10 motes.",
+    "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "155-156",
+      "pdfPage": "156-157"
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: Man-Machine Protocols, pp. 155-156 (PDF 156-157); visually cross-checked. Duration: One message; Target: One creature. This is the last Man-Machine Protocol before the God-Machine Protocols section begins on the same page (p. 156/PDF 157)."
+  },
+  {
+    "id": "auspicious-reformatting-mudra",
+    "name": "Auspicious Reformatting Mudra",
+    "disposition": "selectable",
+    "summary": "A God-Machine Protocol that lets an Alchemical fundamentally reweave an automaton or machine's pattern, assigning it an entirely different destiny: mending it, transforming it into a different device or familiar, or breaking it down entirely.",
+    "mechanics": "With a series of hand gestures, the weaver reweaves a target automaton's pattern. If the weaver's Essence is greater than or equal to the target's, the effect is automatic; otherwise the player makes a contested Essence roll against the machine spirit. This can mend/reactivate a broken machine spirit, transform it into something else entirely (e.g., a gremlin into a custodian, or reduce it to inert parts), or reconfigure a machine spirit with up to half the weaver's Essence (rounded up) into a device with an Artifact rating equal to half the Alchemical's Essence (rounded up), or into an Autochthonian familiar with a rating equal to the weaver's Essence. Transforming one artifact into another of equal power instead requires an Intelligence + Lore roll needing successes equal to the artifact's rating. At Essence 7+, the weaver may reconfigure multiple targets simultaneously for +5 motes per additional target (all within line of sight), though used this way it can only alter automata's programming/behavior rather than rebuild their forms, and no target may have permanent Essence greater than 3.",
+    "requirements": "Minimum Clarity 6.",
+    "cost": "1 Willpower plus (rating affected x 10) motes; +5 motes per additional simultaneous target at Essence 7+.",
+    "compatibility": "God-Machine Protocol; usable via the God-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 156,
+      "pdfPage": 157
+    },
+    "crossReferences": [
+      "god-machine-weaving-engine",
+      "god-machine-protocols-framing"
+    ],
+    "notes": "Chapter Four: God-Machine Protocols, p. 156 (PDF 157); visually cross-checked. Duration: Permanent; Target: one automaton."
+  },
+  {
+    "id": "destiny-optimizing-meditation",
+    "name": "Destiny-Optimizing Meditation",
+    "disposition": "selectable",
+    "summary": "A God-Machine Protocol in which the weaver communes with the Core of the Machine God to discern the optimal path toward her current goal, adding automatic successes to every roll for the protocol's duration.",
+    "mechanics": "For the duration, the weaver adds (Essence rating) automatic successes to every roll she makes.",
+    "requirements": "Minimum Clarity 6.",
+    "cost": "1 Willpower plus 20 motes.",
+    "compatibility": "God-Machine Protocol; usable via the God-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 156,
+      "pdfPage": 157
+    },
+    "crossReferences": [
+      "god-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: God-Machine Protocols, p. 156 (PDF 157); visually cross-checked. Duration: (Essence) turns; Target: Weaver."
+  },
+  {
+    "id": "essence-matrix-inversion-procedure",
+    "name": "Essence Matrix Inversion Procedure",
+    "disposition": "selectable",
+    "summary": "A God-Machine Protocol prepared up to a day in advance that makes the weaver's Essence flow matrix highly reflective, turning almost all incoming sorcery, necromancy, protocols, and Essence weapon attacks back on whoever launched them.",
+    "mechanics": "While active, all incoming protocols, sorcery spells, and necromancy effects targeting the sorcerer (or any area of effect including her) - except Solar Circle Sorcery and Void Circle Necromancy - are instantly reflected back at their caster; Essence weapon effects (implosion bows, Essence cannons, etc.) are likewise reflected back at the attacking weapon. A Perception + Investigation roll (difficulty 4) can spot a faint mirage-like ripple around the weaver, and anyone who can see Essence flows notices foot-long quills of blue light radiating from her body.",
+    "requirements": "Minimum Clarity 0; must be prepared up to one day in advance.",
+    "cost": "1 Willpower plus 10 motes.",
+    "compatibility": "God-Machine Protocol; usable via the God-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 156,
+      "pdfPage": 157
+    },
+    "crossReferences": [
+      "god-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: God-Machine Protocols, p. 156 (PDF 157); visually cross-checked. Duration: One day; Target: Weaver."
+  },
+  {
+    "id": "executive-filature-protocol",
+    "name": "Executive Filature Protocol",
+    "disposition": "selectable",
+    "summary": "A dark, powerful God-Machine Protocol that unweaves a target being's pattern Trait by Trait, ultimately erasing her from existence entirely and purging all memory of her incarnation; historically used, left deliberately unfinished, to reduce exiles to helpless wrecks before abandoning them in the Reaches.",
+    "mechanics": "The weaver must stay within her Essence in feet of the target and can do nothing else while maintaining the effect; being interrupted terminates it (unwoven Traits are not restored, though the weaver can spend 5 motes per dot to reweave them within a day if the target hasn't faded entirely). The first turn inflicts wracking anxiety and panic on the target; afterward, the target loses one Attribute dot per turn, highest first. Once all Attributes reach 1, the target begins losing health levels, growing progressively transparent; when the final health level is removed, the target fades from the pattern entirely and her soulgem clatters to the ground, purged of all memory of that incarnation. In Creation, souls destroyed this way fall instantly into Lethe. Weavers typically must obtain this protocol from the Divine Ministers or the design weavers themselves.",
+    "requirements": "Minimum Clarity 6.",
+    "cost": "1 Willpower plus 5 motes plus 1 mote per turn maintained.",
+    "compatibility": "God-Machine Protocol; usable via the God-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "156-157",
+      "pdfPage": "157-158"
+    },
+    "crossReferences": [
+      "god-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: God-Machine Protocols, pp. 156-157 (PDF 157-158); visually cross-checked. Duration: Varies; Target: One individual."
+  },
+  {
+    "id": "homuncular-drone-deployment",
+    "name": "Homuncular Drone Deployment",
+    "disposition": "selectable",
+    "summary": "A God-Machine Protocol that lets the weaver detach her own forearms and deploy them as flying attack drones, letting her strike targets out of reach at the cost of temporary health levels per drone committed.",
+    "mechanics": "The weaver is down one health level per drone deployed until the limbs return and re-fuse with her body. Drones use the sorcerer's own Traits but gain her Essence rating in Brawl and retain the benefits of brawling aids; they hover at twice the weaver's movement rate, and she always knows their location. Each drone has 3 health levels; if one is destroyed, the character remains permanently down one health level until she returns to the Vats for a replacement limb or is healed of the aggravated damage by an appropriate Charm.",
+    "requirements": "Minimum Clarity 2.",
+    "cost": "1 Willpower plus 5 motes and one committed health level per drone.",
+    "compatibility": "God-Machine Protocol; usable via the God-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 157,
+      "pdfPage": 158
+    },
+    "crossReferences": [
+      "god-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: God-Machine Protocols, p. 157 (PDF 158); visually cross-checked. Duration: One scene; Target: Weaver."
+  },
+  {
+    "id": "incarnation-of-bestial-malice",
+    "name": "Incarnation of Bestial Malice",
+    "disposition": "selectable",
+    "summary": "A God-Machine Protocol comparable to a Lunar war form: the weaver transforms into a terrifying chimeric or vegetative nightmare creature entirely unlike anything native to Autochthonia, gaining enormous natural weapons, hardness, soak, and boosted Strength/Stamina, temporarily losing her mechanical nature altogether.",
+    "mechanics": "The character becomes an enormous (a ton or more), living monstrous form - a chimera of unfamiliar beasts (yeddim, tyrant lizard, stryx, or others), a vegetative form (bark, thorns, prehensile vines), or a mix, agreed with the Storyteller beforehand; the mechanical nature disappears though some bulky Charms may show as vestigial metallic studs. The form gains an effective hardness of 10 and 10 additional soak against both bashing and lethal; Strength and Stamina each increase by 2 (even past 5). Brawl/Martial Arts/Melee attacks with claws gain +3 speed, +1 accuracy, and deal Strength + 6 lethal damage (Strength + 8 lethal in a clinch), with reach extended to (Essence) yards. Natural weapons are treated as roughly Artifact \u2022\u2022 Magical-Material weapons without the Material bonus. Armor and weapons are incompatible with the form (buried within the character's bulk for the duration). Normal movement rate is retained, and the character can grow gills to breathe underwater; for +5 motes, she also grows wings enabling flight at three times land speed.",
+    "requirements": "Minimum Clarity 2; Maximum Clarity 7.",
+    "cost": "1 Willpower plus 30 or 35 motes (+5 more for flight).",
+    "compatibility": "God-Machine Protocol; usable via the God-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "157-158",
+      "pdfPage": "158-159"
+    },
+    "crossReferences": [
+      "god-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: God-Machine Protocols, pp. 157-158 (PDF 158-159); visually cross-checked. Duration: (Essence) hours; Target: Weaver. Notably the only protocol seen in this catalog with both a Minimum and a Maximum Clarity requirement."
+  },
+  {
+    "id": "instantaneous-transfer-protocol",
+    "name": "Instantaneous Transfer Protocol",
+    "disposition": "selectable",
+    "summary": "A God-Machine Protocol identical to the Terrestrial spell Travel Without Distance, except the Alchemical sinks physically into the substance of the Great Maker in one location and emerges from the ground at her destination an instant later.",
+    "mechanics": "Identical to Travel Without Distance (Exalted core, p. 221), except the means of travel is sinking into and re-emerging from the substance of Autochthon rather than however the sorcery version works.",
+    "requirements": "Minimum Clarity 0.",
+    "cost": "1 Willpower (cost/target/duration otherwise as Travel Without Distance, not independently restated here).",
+    "compatibility": "God-Machine Protocol; usable via the God-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 157,
+      "pdfPage": 158
+    },
+    "crossReferences": [
+      "god-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: God-Machine Protocols, p. 157 (PDF 158); visually cross-checked. Full mechanics defer to the Terrestrial spell Travel Without Distance, not inventoried in this family's scope; flagged rather than guessed at its exact cost/target/duration."
+  },
+  {
+    "id": "machine-soul-essence-baffle",
+    "name": "Machine-Soul Essence Baffle",
+    "disposition": "selectable",
+    "summary": "A God-Machine Protocol in which the weaver assumes a sacred asana at the center of an area to render it proof against sorcery and protocols, attuning the space to her own Essence flow and expanding her soul to fill it; the book states this is equivalent to the sorcery effect Mercury's Deliverance.",
+    "mechanics": "The weaver assumes an asana sacred to the Divine Ministers at the exact center of the target area, chants to attune the area to her own Essence flow to the exclusion of all others, then expands her soul out of her soulgem to fill the spherical space. In all other respects this is equivalent to Mercury's Deliverance (Savant and Sorcerer, p. 131, an external supplement not inventoried here).",
+    "requirements": "Minimum Clarity 2.",
+    "cost": "1 Willpower plus 30 motes.",
+    "compatibility": "God-Machine Protocol; usable via the God-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "157-158",
+      "pdfPage": "158-159"
+    },
+    "crossReferences": [
+      "god-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: God-Machine Protocols, pp. 157-158 (PDF 158-159); visually cross-checked. Duration: Five shifts; Target: Area of Effect."
+  },
+  {
+    "id": "the-makers-advanced-defense-array",
+    "name": "The Maker's Advanced Defense Array",
+    "disposition": "selectable",
+    "summary": "The God-Machine-tier upgrade of The Maker's Basic Defense Array: the weaver is surrounded by a sphere of whirling adamant shuriken instead of metal spheres, offering much stronger armor and a chance to sever an attacker's limb.",
+    "mechanics": "The array has an effective hardness of 10 and adds 20L/20B to the weaver's soak. Each time a weapon hits the array, the Storyteller rolls one die: weapons not made of the Magical Materials shatter on a result of 1-9, while weapons of the Magical Materials shatter only on a 1. Even undamaged, the attacker's player must succeed on a Dexterity + Melee roll (difficulty 3) to avoid having the weapon knocked from their grasp. Unarmed Brawl or Martial Arts attackers suffer 10 dice of soakable lethal damage, and if an attacker takes more than two health levels of damage from this, the attacking limb is severed. In bright light, the weaver is surrounded by a vivid storm of rainbow-colored refracted light.",
+    "requirements": "Minimum Clarity 0.",
+    "cost": "1 Willpower plus 25 motes.",
+    "compatibility": "God-Machine Protocol; usable via the God-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 158,
+      "pdfPage": 159
+    },
+    "crossReferences": [
+      "god-machine-weaving-engine",
+      "the-makers-basic-defense-array"
+    ],
+    "notes": "Chapter Four: God-Machine Protocols, p. 158 (PDF 159); visually cross-checked. Duration: 12 hours; Target: Weaver."
+  },
+  {
+    "id": "maser-palm-technique",
+    "name": "Maser Palm Technique",
+    "disposition": "selectable",
+    "summary": "A God-Machine Protocol equivalent to the Creation sorcery spell Blood of Boiling Oil, except that the target's blood simply boils and denatures in her veins rather than becoming oil.",
+    "mechanics": "Equivalent to the spell Blood of Boiling Oil (Exalted core, p. 220), except the target's blood boils and denatures directly rather than transforming into oil first.",
+    "requirements": "Minimum Clarity 0.",
+    "cost": "1 Willpower (cost/target/duration otherwise as Blood of Boiling Oil, not independently restated here).",
+    "compatibility": "God-Machine Protocol; usable via the God-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 158,
+      "pdfPage": 159
+    },
+    "crossReferences": [
+      "god-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: God-Machine Protocols, p. 158 (PDF 159); visually cross-checked. Full mechanics defer to Blood of Boiling Oil, not inventoried in this family's scope; flagged rather than guessed at its exact cost/target/duration."
+  },
+  {
+    "id": "passenger-hosting-protocol",
+    "name": "Passenger Hosting Protocol",
+    "disposition": "selectable",
+    "summary": "A God-Machine Protocol that interweaves the weaver's pattern with willing companions, letting them occupy the same physical space and share a telepathic link, with only the weaver able to act while all passengers' Strength/Stamina/Soak/Resistance stack onto hers and damage is split evenly.",
+    "mechanics": "Up to (half the weaver's permanent Essence, rounded up) willing individuals may step into and occupy the same space as the weaver. All parties are telepathically linked for the duration; passengers think independently but only the weaver can act. The passengers' Strength, Stamina, Soak, and Resistance stack on top of the weaver's, with no external way to tell the sorcerer is more than one individual. All damage taken is split evenly between the weaver and all passengers. A spirit passenger must first Materialize to participate. A sorcerer using this protocol cannot be possessed.",
+    "requirements": "Minimum Clarity 3.",
+    "cost": "1 Willpower plus 15 motes per passenger.",
+    "compatibility": "God-Machine Protocol; usable via the God-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 158,
+      "pdfPage": 159
+    },
+    "crossReferences": [
+      "god-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: God-Machine Protocols, p. 158 (PDF 159); visually cross-checked. Duration: One day; Target: The weaver and passenger(s)."
+  },
+  {
+    "id": "pattern-suspension-protocol",
+    "name": "Pattern Suspension Protocol",
+    "disposition": "selectable",
+    "summary": "A God-Machine Protocol known to both Alchemical weavers and design weavers alike, described as the Alchemical version of Eternal Crystalline Encasement, wrapping a target object in a scintillating cocoon of spun diamond fiber that suspends its pattern until a matching pearl of gem-stuff touches the cocoon.",
+    "mechanics": "Except for the crystalline-filament cocoon (sprayed from the weaver's fingertips) replacing whatever medium the sorcery version uses, this protocol is mechanically identical to Eternal Crystalline Encasement (Savant and Sorcerer, p. 127, an external supplement not inventoried here). The weaver spins a pearl of tightly woven gem-stuff strands that must touch the cocoon to end the protocol and resume the object's pattern function.",
+    "requirements": "Minimum Clarity 0.",
+    "cost": "1 Willpower (cost/target/duration otherwise as Eternal Crystalline Encasement, not independently restated here).",
+    "compatibility": "God-Machine Protocol; usable via the God-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 158,
+      "pdfPage": 159
+    },
+    "crossReferences": [
+      "god-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: God-Machine Protocols, p. 158 (PDF 159); visually cross-checked. Full mechanics defer to Eternal Crystalline Encasement, not inventoried in this family's scope; flagged rather than guessed at its exact cost/target/duration."
+  },
+  {
+    "id": "radiant-matrix-transmutation",
+    "name": "Radiant Matrix Transmutation",
+    "disposition": "selectable",
+    "summary": "A powerful God-Machine Protocol that transmutes solids and liquids in a large radius into beautiful faceted elemental crystal, petrifying creatures caught within it and healing blight zones or reclaiming shadowlands within Autochthon's own substance.",
+    "mechanics": "The weaver assumes a divinely authorized asana; a wave of order radiates outward at 10 feet per turn, transmuting solids/liquids (except things already made of crystal, such as Hearthstones or adamant items) into faceted elemental crystal. Artifacts resist crystallizing for (Artifact rating) turns, or 10 turns if rated N/A; artifacts forged by the Maker himself (such as the Eye of Autochthon) are wholly immune. Creatures in the radius are transmuted too, usually from the feet up, taking the weaver's Essence in aggravated damage per turn within the area; creatures reduced to Incapacitated by this become crystal statues of themselves (any crystal must be cut away before Medicine Charms can heal the damage, or crystal slivers remain in the regenerated flesh). This protocol empowers Autochthon wherever it is used, healing blight zones and reclaiming any sectors that have become shadowlands.",
+    "requirements": "Minimum Clarity 6.",
+    "cost": "1 Willpower plus 35 motes.",
+    "compatibility": "God-Machine Protocol; usable via the God-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "158-159",
+      "pdfPage": "159-160"
+    },
+    "crossReferences": [
+      "god-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: God-Machine Protocols, pp. 158-159 (PDF 159-160); visually cross-checked. Duration: Permanent; Target: (Essence x 10)-foot radius."
+  },
+  {
+    "id": "transcendent-consciousness-protocol",
+    "name": "Transcendent Consciousness Protocol",
+    "disposition": "selectable",
+    "summary": "A God-Machine Protocol that dramatically expands all five of the weaver's senses to fill a 60-yard sphere, letting her sense and instantly process everything happening within it (including through solid barriers), making her impossible to surprise.",
+    "mechanics": "Within the 60-yard-diameter sphere, the weaver feels everything as if touching it, sees everything as if closely examining it, and hears everything as if it were the only sound - solid objects are no barrier, so she can sense activity 30 yards below her, on the far side of a wall, or flowing through the Maker's veins in the area. She instantly processes all sensory data received, aiding reconnaissance, eavesdropping, and perimeter monitoring, and cannot be surprised (an invisible intruder can still be sensed by weight on the floor, air displacement, heartbeat, or scent). The player gains the Exalt's Essence rating as automatic successes on all Perception rolls within the 30-yard radius (i.e. within the sphere).",
+    "requirements": "Minimum Clarity 4.",
+    "cost": "1 Willpower plus 15 motes.",
+    "compatibility": "God-Machine Protocol; usable via the God-Machine Weaving Engine Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 159,
+      "pdfPage": 160
+    },
+    "crossReferences": [
+      "god-machine-weaving-engine"
+    ],
+    "notes": "Chapter Four: God-Machine Protocols, p. 159 (PDF 160); visually cross-checked. Duration: One scene; Target: Weaver."
+  },
+  {
+    "id": "transcendent-pattern-weaving-protocol",
+    "name": "Transcendent Pattern-Weaving Protocol",
+    "disposition": "selectable",
+    "summary": "The single Alchemical protocol that works only in the Wyld (and nowhere else): an extraordinarily rare, extremely high-Clarity God-Machine Protocol that lets a truly powerful Alchemical spin order directly out of the Wyld's chaos, permanently reclaiming territory from it, at the cost of enraging every nearby Fair Folk and holding a rare potential to transform a raksha noble into one of the Mountain Folk.",
+    "mechanics": "The weaver steps into the swirling Wyld and executes a long prayer and complex mudra; each hour spent praying and weaving, she formats a 20-yard radius of reality around her, for as many hours as she has points of Stamina. Fair Folk caught in the area of effect take aggravated damage equal to the weaver's permanent Essence. The protocol causes an unpleasant strangling sensation in every Fair Folk within a radius in miles equal to the weaver's Essence (doubled in the Deep Wyld), making completing a long weaving unlikely without provoking a hostile response. By weaving pattern directly from the substance of a targeted Fair Folk noble (rather than merely catching him in the effect area), the sorcerer can instead attempt to reformat him into one of the Mountain Folk: the raksha's player must win a contested Willpower + Essence roll against the weaver or be transformed into one of the Jadeborn, an inert, memoryless jade-egg soul awaiting a Mountain Folk Charm (Jade's Egg Hatched, Exalted: The Fair Folk p. 271) to quicken it.",
+    "requirements": "Minimum Clarity 10 (perfect Clarity).",
+    "cost": "1 Willpower plus 20 motes.",
+    "compatibility": "God-Machine Protocol; usable via the God-Machine Weaving Engine Charm. Only Alchemical protocol confirmed to work exclusively within the Wyld (per the What Works Where sidebar).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 159,
+      "pdfPage": 160
+    },
+    "crossReferences": [
+      "god-machine-weaving-engine",
+      "what-works-where-sidebar",
+      "clarity-trait"
+    ],
+    "notes": "Chapter Four: God-Machine Protocols, p. 159 (PDF 160); visually cross-checked. Duration: Permanent; Target: Nearby Wyld areas. Requires Minimum Clarity 10, the highest Clarity requirement of any protocol in the catalog, matching Clarity's 0-10 scale already inventoried under clarity-effects-table. This is the last entry in the weaving-protocol catalog; the 'Autochthonian Thaumaturges' section begins immediately after it on the same page, moving into non-protocol content."
   }
 ]

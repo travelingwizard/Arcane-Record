@@ -1,7 +1,7 @@
 # Exalted 1e — Alchemical source intake
 
 **Status: source intake in progress.** `Exalted: The Autochthonians` has been
-supplied and 126 inventory rows are checked in under `inventory/`. See
+supplied and 175 inventory rows are checked in under `inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
@@ -14,7 +14,7 @@ title, matching this project's prior naming correction.
 
 - `source-manifest.json` — the one source book in scope so far
   (`exalted-the-autochthonians`); supplements are not yet added.
-- `inventory/exalted-the-autochthonians.json` — 126 rows covering:
+- `inventory/exalted-the-autochthonians.json` — 175 rows covering:
   - The Chapter Two character-creation overview (Concept/Caste/Nature,
     Caste-linked Attributes, the flat 23-dot Ability pool with no Caste or
     Favored discount, Charm Slots and Advantages, Virtues, and Willpower/
@@ -119,38 +119,58 @@ title, matching this project's prior naming correction.
     Essence Storage Unit, Man-Machine Weaving Engine, and God-Machine
     Weaving Engine) — this is Chapter Three's final Charm tree, so **all of
     Chapter Three (pp. 87-141/PDF 88-142) is now fully inventoried.**
+  - **The full Alchemical weaving-protocol catalog from Chapter Four (49
+    rows, printed pp. 142-159/PDF 143-160)**: the framing/overview rows
+    (`alchemical-protocols-overview`, `man-machine-protocols-framing`,
+    `god-machine-protocols-framing`, the `what-works-where-sidebar` and
+    `spells-that-crossed-over-sidebar` GM-facing notes), the six elemental
+    Golem/automaton Man-Machine protocols (Engine/Glass/Magnet/Oil/
+    Smudge/Steel Golem), and the full remaining list of named Man-Machine
+    and God-Machine weaving protocols (e.g. Automaton Override Protocol,
+    Binding Filament System, Crystal Lotus of Repose, Docility Assurance
+    Field, Driving the Shadow Machine, Elsewhere-Evoking Asana, Entropy
+    Manipulation Protocol, Essence Reallocation Protocol, Lightning
+    Elemental Concatenation Protocol, the Maker's Basic/Advanced Defense
+    Array, the Maker's Instantaneous Forge, Optimized Component
+    Integration Protocol, Phlogiston Web, Plague of Bronze Snakes,
+    Probability Degradation Matrix, Sonic Hammer Vocalization, Soul
+    Archiving Protocol, Static Essence Absorption Protocol, Summon
+    Autochthonian Elemental, Summon Machine Spirit, Theoplastic
+    Engineering Protocol, Vat-Surrogate Reweaving Technique,
+    Vision-Transmitting Protocol, Auspicious Reformatting Mudra, Destiny
+    Optimizing Meditation, Essence Matrix Inversion Procedure, Executive
+    Filature Protocol, Homuncular Drone Deployment, Incarnation of
+    Bestial Malice, Instantaneous Transfer Protocol, Machine-Soul Essence
+    Baffle, Maser Palm Technique, Passenger-Hosting Protocol, Pattern
+    Suspension Protocol, Radiant Matrix Transmutation, Transcendent
+    Consciousness Protocol, and Transcendent Pattern-Weaving Protocol),
+    all cross-referenced back to the Man-Machine/God-Machine Weaving
+    Engine Charms they run through. This closes out the catalog
+    explicitly promised by those two Chapter Three Charms.
 
 ## What's still needed
 
-1. **Resume point: Chapter Four, "Miracles of the Machine God"**, which
-   begins at printed p. 142/PDF p. 143 (confirmed via direct text
-   extraction of that page, which is a near-empty chapter title page).
-   Chapter Three is fully inventoried as of this pass, so the next round
-   should start reading Chapter Four's Autochthonia setting/artifact/
-   mortal material from the top, including the full Alchemical
-   weaving-protocol catalog explicitly cross-referenced in-book to printed
-   pp. 145-159/PDF 146-160 (the actual list of Man-Machine and God-Machine
-   protocols usable via the Man-Machine Weaving Engine and God-Machine
-   Weaving Engine Charms already inventoried).
+1. **Resume point: the rest of Chapter Four, "Miracles of the Machine
+   God"** (printed pp. 159-195/PDF 160-196), immediately after the
+   weaving-protocol catalog above — Autochthonia setting/artifact/mortal
+   material not yet reviewed for additional inventoriable
+   character-creation-relevant mechanics.
 2. Martial Arts Charms specific to Alchemicals: covered so far via
    Perfected Lotus Matrix (which grants access to ordinary published
    Martial Arts Charms, out of this book's scope) and the Alchemical
    Martial Artists style-availability sidebar; no separate Alchemical-only
    Martial Arts Charm system was found anywhere in Chapter Three.
-3. Chapter Four: Miracles of the Machine God (pp. 142-195/PDF 143-196) —
-   Autochthonia setting/artifact/mortal material, including the full
-   weaving-protocol catalog noted above.
-4. Chapters Five through Seven (The Locust War, The Quest for the Great
+3. Chapters Five through Seven (The Locust War, The Quest for the Great
    Source, Engines of Extinction, pp. 196-297/PDF 197-298) — these are
    presented as adventure-seed chapters, not further character-creation
    rules, and have not been reviewed for any additional inventoriable
    mechanics.
-5. Any Alchemical-facing supplements, if their mechanics are complete and
+4. Any Alchemical-facing supplements, if their mechanics are complete and
    in scope.
-6. Alchemical-specific Merits/Flaws beyond Gremlin Syndrome: checked, none
-   found anywhere in Chapter Two's edges or the whole of Chapter Three (see
-   the "inventoried so far" note above); worth one more pass once Chapter
-   Four is reviewed in case any appear there.
+5. Alchemical-specific Merits/Flaws beyond Gremlin Syndrome: checked, none
+   found anywhere in Chapter Two's edges, the whole of Chapter Three, or
+   the weaving-protocol catalog reviewed so far; worth one more pass once
+   the rest of Chapter Four is reviewed in case any appear there.
 
 ## Do not add yet
 

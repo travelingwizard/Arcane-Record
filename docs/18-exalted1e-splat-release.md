@@ -195,7 +195,7 @@ real, creatable sheet.
 | Lunar      | Created (Exalted: The Lunars)         | 122            | 0        | Locked, all dimensions `not-run` |
 | Abyssal    | Created (Exalted: The Abyssals)       | 265            | 0        | Locked, all dimensions `not-run` |
 | Sidereal   | Created (Exalted: The Sidereals)      | 60             | 0        | Locked, all dimensions `not-run` |
-| Alchemical | Created (Exalted: The Autochthonians) | 126            | 0        | Locked, all dimensions `not-run` |
+| Alchemical | Created (Exalted: The Autochthonians) | 175            | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Created (Exalted: The Fair Folk)      | 124            | 0        | Locked, all dimensions `not-run` |
 
 Lunar's 122 rows (as of this update) cover the core innate powers, the
@@ -239,18 +239,22 @@ Charm trees (Serenity, Battles, Secrets, Endings Castes), Sidereal Martial
 Arts, the Colleges/astrology Charm-tree equivalent, and Resplendent Destinies
 are not yet inventoried; see `docs/references/exalted1e/sidereal/README.md`.
 
-Alchemical's 57 rows cover the character-creation overview, the universal
+Alchemical's 175 rows cover the character-creation overview, the universal
 Anima Banner effect, Artificial Metabolism, Life/Death/the Soulgem,
 Refitting/Essence advancement, all five material-named Castes (Orichalcum,
 Moonsilver, Jade, Starmetal, Soulsteel) plus the apocryphal sixth "Adamant"
 legend, the Clarity trait (this splat's Limit-Trait analog, including its
 Dissonance corruption and the 0-10 effects table), six new/altered
 Backgrounds, the Chapter Three Charm-system framing (Charm Slots, Panoplies,
-Submodules, Arrays), the two General Attribute-Augmentation Charms, and the
-complete Close Combat (15 Charms) and Ranged Combat (11 Charms) Charm trees,
+Submodules, Arrays), the two General Attribute-Augmentation Charms, and now
+all nine of Chapter Three's Charm trees in full (Close Combat, Ranged
+Combat, Might and Mobility, Social, Stealth and Disguise, Sensory and
+Spiritual, Medical, Cognitive, and Essence and Weaving — completing Chapter
+Three), plus the complete Chapter Four weaving-protocol catalog (49 rows)
+that the Man-Machine and God-Machine Weaving Engine Charms run through,
 reviewed against the supplied PDF's real text layer (printed page = PDF page
-− 1) with spot-checked renders. The Might and Mobility Charm tree onward
-through the rest of Chapter Three, plus the setting/adventure chapters, are
+− 1) with spot-checked renders. The rest of Chapter Four's Autochthonia
+setting/artifact/mortal material, plus the setting/adventure chapters, are
 not yet inventoried; see `docs/references/exalted1e/alchemical/README.md`.
 
 Fair Folk's 60 rows cover both character-creation tracks (common and noble
