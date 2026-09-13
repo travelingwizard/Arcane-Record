@@ -7,8 +7,8 @@
     "charms": 7,
     "gifts": 10,
     "innatePowers": 5,
-    "totalRows": 79,
-    "notes": "Inventory in progress (79 rows). Covers Exalted: The Lunars core innate powers (Lunar Shapechanging, the Tell, True Forms, Caste Mark tattooing/Fixing the Caste, Casteless consequences), the full Shapechanging I/II/III Charm trees (with the Deadly Beastman Transformation gift table), the full Body Enhancement I/II Charm trees, and the full Unarmed Combat I through V Charm trees plus three further Body Weapon Technique-rooted utility Charms (Door-Breaking Method, Hunter's Eye Technique, Armor-Rending Claw Fist) -- completing the entire Unarmed Combat Charm category. Melee Combat, Ranged Combat, Defensive, Survival and Healing, Perception, Stealth, Presence/social, Spirit, and Sorcery-access Charms (roughly pp. 149-193/PDF 152-196), plus Backgrounds, Merits/Flaws, caste/tribe creation options, and supplements, are not yet inventoried."
+    "totalRows": 122,
+    "notes": "Inventory in progress (122 rows). Covers Exalted: The Lunars core innate powers (Lunar Shapechanging, the Tell, True Forms, Caste Mark tattooing/Fixing the Caste, Casteless consequences), the full Shapechanging I/II/III Charm trees (with the Deadly Beastman Transformation gift table), the full Body Enhancement I/II Charm trees, the full Unarmed Combat I through V Charm trees plus three further Body Weapon Technique-rooted utility Charms -- completing the entire Unarmed Combat Charm category -- and now the complete Melee Combat I/II Charm trees (26 Charms) and the complete Ranged Combat I/II Charm trees (17 Charms), pp. 149-161/PDF 152-164. Defensive, Survival and Healing, Perception, Stealth, Presence/social, Spirit, and Sorcery-access Charms (roughly pp. 161-193/PDF 164-196), plus Backgrounds, Merits/Flaws, caste/tribe creation options, and supplements, are not yet inventoried."
   },
   "sources": [
     {
@@ -20,6 +20,7 @@
   "rulesNotes": [
     "Printed page numbers in this book run 3 less than the PDF page number supplied (PDF page = printed page + 3) for the copy used to build this inventory; both are recorded on every citation.",
     "Lunar Charms use Minimum Attribute (not Minimum Ability) fields, per p. 122 (PDF 125).",
-    "A handful of rows in the Unarmed Combat III-V trees have book text that reads awkwardly around botch/infection resolution (Rabid Beast Bite, Grasping Pseudopod Method); paraphrased faithfully but flagged in each row's notes for a closer re-read before promotion. Armor-Rending Claw Fist's mechanics also cut off mid-sentence at the bottom of its rendered page and needs the following page reviewed to complete it."
+    "A handful of rows in the Unarmed Combat III-V trees have book text that reads awkwardly around botch/infection resolution (Rabid Beast Bite, Grasping Pseudopod Method); paraphrased faithfully but flagged in each row's notes for a closer re-read before promotion. Armor-Rending Claw Fist's mechanics also cut off mid-sentence at the bottom of its rendered page and needs the following page reviewed to complete it.",
+    "Melee Combat I/II and Ranged Combat I/II are now complete (pp. 149-161/PDF 152-164). Several Charm descriptions span a page break in the source (stat block/tree diagram on one page, prose continuing on the next); these were transcribed as single continuous Charms with a note on the page split where applicable. Arrow-Shaping Method cross-references Shaping the Once-Living Form (an existing Shapechanging II Charm row) as a co-prerequisite alongside Nature's Harmony Advantage."
   ]
 }

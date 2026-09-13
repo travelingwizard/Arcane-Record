@@ -5,7 +5,7 @@ has been supplied and partially inventoried. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
-`inventory/exalted-the-lunars.json` currently has 79 reviewed rows. Every row
+`inventory/exalted-the-lunars.json` currently has 122 reviewed rows. Every row
 was visually compared against a rendered page of the source PDF before being
 marked `reviewed` — none of this content came from OCR alone. It covers:
 
@@ -42,7 +42,29 @@ marked `reviewed` — none of this content came from OCR alone. It covers:
   plus three further Body Weapon Technique-rooted utility Charms
   (Door-Breaking Method, Hunter's Eye Technique, Armor-Rending Claw Fist)
   — pp. 140-148 (PDF 143-151), completing the entire Unarmed Combat Charm
-  category (25 new rows this round).
+  category (25 new rows).
+- The complete **Melee Combat I** tree (Sensing the Deadly Flow, Striking
+  Mospid Method, Ferocious Biting Sword, Dance of the Living Blade,
+  Irresistable Storm Attack, Twisting Surprise Attack, Foe-Driving Attack,
+  Monkey Paw Advantage, Weapon-Clutching Method, Twisting Monkey Wrist,
+  Surprising Gibbon Attack, Spinning Blade Attack, Lightning Sword Method,
+  Dust Devil Advance) and **Melee Combat II** tree (Tiger Claw Swat,
+  Knowing Weapon Technique, Weapon Fusion Method, Thunderclap Method,
+  Scar-Making Blow, Ferocious Avalanche Technique, Limb-Maiming Flourish,
+  Weapon-Shaping Prana, Stunning Moonsilver Blow, Surprising Moonsilver
+  Deformation, Deadly Moonsilver Affinity, Insidious Moonsilver Shard) —
+  pp. 149-156 (PDF 152-159), completing the entire Melee Combat Charm
+  category (26 new rows this round).
+- The complete **Ranged Combat I** tree (Eagle Eye Advantage, Nature's
+  Harmony Advantage, Knowing the Arrow's Path, Two-Target Method, Skillful
+  Ricochet Attack, Finding the Needle's Eye, Arrow-Breaking Shot, Silver
+  Waterfall Technique, Rain of Feathered Doom, Arrow-Shaping Method — the
+  last cross-referencing the existing Shaping the Once-Living Form
+  Shapechanging Charm as a co-prerequisite) and **Ranged Combat II** tree
+  (Wolf Eye Advantage, Wind-Wings Carry Technique, Bow-Bending Method,
+  Body-Pinning Style, Lightning Stroke Attack, Riding the Secret Wind,
+  Deadly Assassin's Shot) — pp. 156-161 (PDF 159-164), completing the
+  entire Ranged Combat Charm category (17 new rows this round).
 
 A few rows carry explicit `notes` flagging spots that need a closer look
 before promotion (an illegible cost line on Cat-Falling Attitude, an
@@ -52,11 +74,13 @@ Rabid Beast Bite, an awkward botch-consequence sentence on Grasping
 Pseudopod Method, and Armor-Rending Claw Fist's mechanics text being cut
 off mid-sentence at the bottom of its rendered page — the remainder needs
 to be read off the next page before that row is considered fully
-complete).
+complete). Several Melee/Ranged Combat Charms also carry `notes` flagging
+that their mechanics text spans a page break in the source (stat block on
+one page, prose continuing on the next); these were transcribed as single
+continuous Charms.
 
-Still outstanding from *Exalted: The Lunars*: **Melee Combat Charms**
-(the weapon-Charms cascades, starting at printed p. 149/PDF 152 — resume
-here), **Ranged Combat Charms**, **Defensive Charms**, **Survival and
+Still outstanding from *Exalted: The Lunars*: **Defensive Charms**
+(starting at printed p. 161/PDF 164 — resume here), **Survival and
 Healing Charms**, **Perception Charms**, **Stealth Charms**, a further set
 of Presence/emotion/social Charms, **Spirit Charms**, and the
 **Sorcery-access Charms** (through roughly printed p. 193/PDF 196, where
