@@ -48,6 +48,10 @@ import {
   sandvDefinition,
   sandvShipDefinition,
 } from './scum-and-villainy/definition';
+import {
+  arsCovenantDefinition,
+  arsMagicaDefinition,
+} from './ars-magica-definitive/definition';
 
 export const gameSystemRegistry = new GameSystemRegistry()
   .registerFamily({
@@ -92,4 +96,6 @@ export const gameSystemRegistry = new GameSystemRegistry()
   .register(rootCampaignDefinition)
   .register(dragonbaneDefinition)
   .register(sandvDefinition)
-  .register(sandvShipDefinition);
+  .register(sandvShipDefinition)
+  .register(arsMagicaDefinition)
+  .register(arsCovenantDefinition);
