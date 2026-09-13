@@ -1,7 +1,7 @@
 # Exalted 1e — Alchemical source intake
 
 **Status: source intake in progress.** `Exalted: The Autochthonians` has been
-supplied and 175 inventory rows are checked in under `inventory/`. See
+supplied and 206 inventory rows are checked in under `inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
@@ -14,7 +14,7 @@ title, matching this project's prior naming correction.
 
 - `source-manifest.json` — the one source book in scope so far
   (`exalted-the-autochthonians`); supplements are not yet added.
-- `inventory/exalted-the-autochthonians.json` — 175 rows covering:
+- `inventory/exalted-the-autochthonians.json` — 206 rows covering:
   - The Chapter Two character-creation overview (Concept/Caste/Nature,
     Caste-linked Attributes, the flat 23-dot Ability pool with no Caste or
     Favored discount, Charm Slots and Advantages, Virtues, and Willpower/
@@ -147,30 +147,63 @@ title, matching this project's prior naming correction.
     all cross-referenced back to the Man-Machine/God-Machine Weaving
     Engine Charms they run through. This closes out the catalog
     explicitly promised by those two Chapter Three Charms.
+  - **The rest of Chapter Four, "Miracles of the Machine God" (31 more
+    rows, printed pp. 161, 180-195/PDF 162, 181-196)**: the three
+    Autochthonian-only alchemical formulae (Sweet Sleep Surrogate Syrup,
+    Friction Banishing Preparation, and the restricted The Maker's
+    Inertial Bile), the Machines in the Machine God Efficiency/Inspiration
+    sidebar, and the complete Autochthonian Technology, Warfare, and
+    Transportation sections: 15 Artifact-rated (or mortal Resources-rated)
+    items — Artificial Textiles, Filter Mask, Photo-Resonant Gel, Arc
+    Protector, Autolabe, Essence Capacitor, Flaw Scanner, Light
+    Amplification Visor, Light Sphere, Omnimodal Wardrobe Unit, Portable
+    Nutriment Recycling Engine, Respirator Module, Courier Drone,
+    Soulgem, and Industrial Exoskeleton — plus the Warfare-section
+    Crossbows, Fiber-Weave Bodysuit, Gyroscopic Chakram (with all six
+    Magical Material variants), the Thousand Wounds Gear Style martial
+    art built around it, and the signature Beam Klave (with its
+    beam-axe/beam-lance/beam-talon conversions), and the
+    Transportation-section Pneumatic Trams, Mechanical Rickshaw,
+    Skimmercraft, and Aerial Skiff (with its oil-diver and
+    combat-reconnaissance/transport variants). Chapter Four's remaining
+    Storyteller-side lore, NPC stat blocks, and pure setting flavor
+    (Autochthonian Thaumaturges' Summoning/Warding/Exorcism/Enchantment/
+    Geomancy subsections, the Eight Divinities and The Core, Custodians,
+    Drones, Design Weavers, Destroyers, Gremlins, Autochthonian
+    Elementals, Spirit Charms, the Alternative Machine Virtues sidebar,
+    and The Secret of Soulsteel lore sidebar) was reviewed and
+    intentionally excluded as having no character-creation relevance for
+    Alchemical player characters, the same way this project scopes out
+    pure-lore material elsewhere. All of Chapter Four (printed pp.
+    142-195/PDF 143-196) has now been reviewed; the parts of it worth
+    inventorying are inventoried.
 
 ## What's still needed
 
-1. **Resume point: the rest of Chapter Four, "Miracles of the Machine
-   God"** (printed pp. 159-195/PDF 160-196), immediately after the
-   weaving-protocol catalog above — Autochthonia setting/artifact/mortal
-   material not yet reviewed for additional inventoriable
-   character-creation-relevant mechanics.
+1. **Resume point: Chapters Five through Seven** (The Locust War, The
+   Quest for the Great Source, Engines of Extinction, printed pp.
+   196-297/PDF 197-298) — these are presented as adventure-seed chapters,
+   not further character-creation rules, and have not yet been reviewed
+   for any additional inventoriable mechanics (a stat-block Charm, Merit,
+   or similar player-facing rule buried in the adventure text would be
+   worth pulling out; pure adventure/plot content should not be
+   inventoried).
 2. Martial Arts Charms specific to Alchemicals: covered so far via
    Perfected Lotus Matrix (which grants access to ordinary published
-   Martial Arts Charms, out of this book's scope) and the Alchemical
-   Martial Artists style-availability sidebar; no separate Alchemical-only
-   Martial Arts Charm system was found anywhere in Chapter Three.
-3. Chapters Five through Seven (The Locust War, The Quest for the Great
-   Source, Engines of Extinction, pp. 196-297/PDF 197-298) — these are
-   presented as adventure-seed chapters, not further character-creation
-   rules, and have not been reviewed for any additional inventoriable
-   mechanics.
-4. Any Alchemical-facing supplements, if their mechanics are complete and
+   Martial Arts Charms, out of this book's scope), the Alchemical
+   Martial Artists style-availability sidebar, and the Thousand Wounds
+   Gear Style sidebar (named but with no Charms given); no separate
+   Alchemical-only Martial Arts Charm system with actual Charms was found
+   anywhere in this book.
+3. Any Alchemical-facing supplements, if their mechanics are complete and
    in scope.
-5. Alchemical-specific Merits/Flaws beyond Gremlin Syndrome: checked, none
+4. Alchemical-specific Merits/Flaws beyond Gremlin Syndrome: checked, none
    found anywhere in Chapter Two's edges, the whole of Chapter Three, or
-   the weaving-protocol catalog reviewed so far; worth one more pass once
-   the rest of Chapter Four is reviewed in case any appear there.
+   all of Chapter Four (including both the weaving-protocol catalog and
+   the material reviewed in this latest pass). Gremlin Syndrome/Dissonance
+   remains the only one found in the book so far; worth one final check
+   once Chapters Five through Seven are reviewed, in case an adventure
+   chapter buries one in a sample character.
 
 ## Do not add yet
 

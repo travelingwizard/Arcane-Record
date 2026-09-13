@@ -4,7 +4,7 @@
     "name": "Alchemical Character Creation (Five Steps)",
     "disposition": "calculated",
     "summary": "Alchemical creation follows the same five-step Solar skeleton but replaces every step's internals: Attributes come from a Caste-linked triad rather than a Physical/Social/Mental split, Abilities have no Caste/Favored discount at all, Charms are implanted artifacts drawn from a fixed number of Slots instead of a purchasable list, and Willpower/Essence/the two Essence pools use Alchemical-specific formulas built around the signature Clarity Trait rather than the Great Curse.",
-    "mechanics": "Step One (Concept): choose concept, Caste, and Nature before anything else. Caste is assigned by which of the Five Magical Materials predominates in the character's Vat-built frame, not by personality (closer to a Dragon-Blood's aspect than a Solar's Caste); the Sodalities also try to match a resonant soul to that Material. Autochthonian society favors the Natures Architect, Bureaucrat, Follower, Judge, Leader, Paragon, Savant and Visionary; Gallant/Hedonist/Thrillseeker are tolerated at the edge of propriety, and Rebel draws open derision; a sidebar details a unique local reading of Paragon ('Paragon of Integration') as the Autochthonian ideal of a selfless-but-not-servile cooperator. Step Two (Attributes): every character gets 1 free dot in each Attribute as usual, but instead of Primary/Secondary/Tertiary categories, each Caste has 3 fixed Caste Attributes (see the five Caste rows) that receive 9 dots with no Attribute below \u2022\u2022; the player then picks 3 of the remaining 6 Attributes as Favored and assigns 6 dots there; the last 3 Attributes split the final 4 dots. Step Three (Abilities): uniquely among Exalted, Alchemicals have no Caste or Favored Abilities whatsoever - all 23 starting dots are freely distributed, guided only by non-binding suggestions (2+ in a primary attack Ability, 1+ in a secondary range, 2+ in a defensive Ability, 2+ Athletics, at least 1 dot each in a Craft/Lore/Occult, 3+ spread across Performance/Presence/Socialize, 2+ Bureaucracy); Larceny, Ride and Sail are Rare Abilities in Autochthonia before contact with Creation, and a 2-die unfamiliarity penalty applies when Autochthonians handle living mounts/boats (and vice versa for Creation natives with Autochthonian conveyances) until several weeks' practice. Step Four (Advantages): every Alchemical automatically receives Class \u2022\u2022\u2022 for free (see class-background) plus 10 further Background dots to spend (13 total); only Artifact may exceed \u2022\u2022\u2022 without bonus points. Charms take the form of surgically implanted artifacts: a starting character has 4 General Charm Slots (any Charm) and 4 Dedicated Charm Slots (Caste/Favored Charms only), and must choose 8 Charms to fill all 8 Slots; extra Slots cost bonus points (see alchemical-bonus-points-and-experience-costs) and each comes with a free qualifying Charm. Virtues get 1 free dot each plus 5 more to distribute, capped at 3 without bonus points; Compassion is explicitly the Virtue that pushes back against Clarity. Step Five (Finishing Touches): Willpower equals the sum of the two highest Virtues (capped below 8 unless both of those Virtues are 4+); Essence starts at 2. Personal Essence pool = (Essence x 3) + Willpower. Peripheral Essence pool = (Essence x 5) + (Willpower x 3) + (highest Virtue x 2), before any Charm-granted bonus capacity. Health levels are the standard mortal 7, plus one extra -2 level per dot of permanent Essence. Finally, 15 bonus points may be spent at any time per the bonus-point cost table.",
+    "mechanics": "Step One (Concept): choose concept, Caste, and Nature before anything else. Caste is assigned by which of the Five Magical Materials predominates in the character's Vat-built frame, not by personality (closer to a Dragon-Blood's aspect than a Solar's Caste); the Sodalities also try to match a resonant soul to that Material. Autochthonian society favors the Natures Architect, Bureaucrat, Follower, Judge, Leader, Paragon, Savant and Visionary; Gallant/Hedonist/Thrillseeker are tolerated at the edge of propriety, and Rebel draws open derision; a sidebar details a unique local reading of Paragon ('Paragon of Integration') as the Autochthonian ideal of a selfless-but-not-servile cooperator. Step Two (Attributes): every character gets 1 free dot in each Attribute as usual, but instead of Primary/Secondary/Tertiary categories, each Caste has 3 fixed Caste Attributes (see the five Caste rows) that receive 9 dots with no Attribute below ••; the player then picks 3 of the remaining 6 Attributes as Favored and assigns 6 dots there; the last 3 Attributes split the final 4 dots. Step Three (Abilities): uniquely among Exalted, Alchemicals have no Caste or Favored Abilities whatsoever - all 23 starting dots are freely distributed, guided only by non-binding suggestions (2+ in a primary attack Ability, 1+ in a secondary range, 2+ in a defensive Ability, 2+ Athletics, at least 1 dot each in a Craft/Lore/Occult, 3+ spread across Performance/Presence/Socialize, 2+ Bureaucracy); Larceny, Ride and Sail are Rare Abilities in Autochthonia before contact with Creation, and a 2-die unfamiliarity penalty applies when Autochthonians handle living mounts/boats (and vice versa for Creation natives with Autochthonian conveyances) until several weeks' practice. Step Four (Advantages): every Alchemical automatically receives Class ••• for free (see class-background) plus 10 further Background dots to spend (13 total); only Artifact may exceed ••• without bonus points. Charms take the form of surgically implanted artifacts: a starting character has 4 General Charm Slots (any Charm) and 4 Dedicated Charm Slots (Caste/Favored Charms only), and must choose 8 Charms to fill all 8 Slots; extra Slots cost bonus points (see alchemical-bonus-points-and-experience-costs) and each comes with a free qualifying Charm. Virtues get 1 free dot each plus 5 more to distribute, capped at 3 without bonus points; Compassion is explicitly the Virtue that pushes back against Clarity. Step Five (Finishing Touches): Willpower equals the sum of the two highest Virtues (capped below 8 unless both of those Virtues are 4+); Essence starts at 2. Personal Essence pool = (Essence x 3) + Willpower. Peripheral Essence pool = (Essence x 5) + (Willpower x 3) + (highest Virtue x 2), before any Charm-granted bonus capacity. Health levels are the standard mortal 7, plus one extra -2 level per dot of permanent Essence. Finally, 15 bonus points may be spent at any time per the bonus-point cost table.",
     "compatibility": "All Alchemical castes.",
     "verificationState": "reviewed",
     "citation": {
@@ -66,7 +66,7 @@
     "name": "Life, Death, and the Soulgem",
     "disposition": "calculated",
     "summary": "While properly fed, Alchemicals heal exactly like other Exalted, mending dented metal and cracked Charms without scarring; but lethal or aggravated damage that drops one below Incapacitated causes her whole body to dissolve into a puddle of clay, crystal shards and broken metal over a number of turns equal to her Essence, shattering every installed Charm into raw salvage and leaving only a pristine, undamaged diamond soulgem behind.",
-    "mechanics": "Because so much valuable Magical Material is built into an Alchemical's frame, unscrupulous parties sometimes plunder living Exalted through outright vivisection rather than waiting for a natural death. On death (dropping below Incapacitated from lethal/aggravated damage), the body dissolves over Essence-many turns; the wreckage of shattered Charms is worth roughly Resources \u2022\u2022\u2022\u2022\u2022 to anyone willing to scavenge it, but the diamond soulgem itself remains intact amid the ruin.",
+    "mechanics": "Because so much valuable Magical Material is built into an Alchemical's frame, unscrupulous parties sometimes plunder living Exalted through outright vivisection rather than waiting for a natural death. On death (dropping below Incapacitated from lethal/aggravated damage), the body dissolves over Essence-many turns; the wreckage of shattered Charms is worth roughly Resources ••••• to anyone willing to scavenge it, but the diamond soulgem itself remains intact amid the ruin.",
     "compatibility": "All Alchemical castes.",
     "verificationState": "reviewed",
     "citation": {
@@ -314,9 +314,9 @@
     "id": "class-background",
     "name": "Class (new Background, replaces Followers/Influence/Resources)",
     "disposition": "selectable",
-    "summary": "Class is the core socioeconomic Background for anyone in Autochthonia's largely currency-less economy, folding Followers, Influence and Resources into a single rating that sets social standing, requisition authority, and standard of living; Alchemicals automatically receive Class \u2022\u2022\u2022 for free at creation (separate from their normal Background dots) and may raise it further with bonus points, while mortal characters must purchase it from scratch like any other Background.",
-    "mechanics": "Dot table: no dots (x) - a Lumpen outcast; a tolerable Resources \u2022-equivalent standard of living, but a 1-die penalty to Social pools against higher-Class characters (also the rating held by surface slaves taken during the Locust Crusade). 1 dot - a general laborer/aide of the Populat; Resources \u2022\u2022-equivalent, dormitory housing shared by dozens with no personal claim to space (also shared, after a successful Locust Crusade, by loyalist Outsider-caste Creation-dwellers who are barred from entering Autochthonia). 2 dots - a Populat shift chief overoseeing 20-300 workers; Resources \u2022\u2022\u2022-equivalent, apartment shared with roughly a dozen peers. 3 dots - a Populat foreman overseeing an entire factory, or a junior Tripartite member (expected to also carry 1-2 dots of matching Backing); lives at Resources \u2022\u2022\u2022 with a dedicated aide staff but can requisition up to Resources \u2022\u2022\u2022\u2022, subject to superiors demanding justification; +1 die to Social rolls against lower-Class Autochthonians. 4 dots - a Populat supervisor over an entire industry in a city, or a veteran Tripartite member (2-3 dots of Backing expected); Resources \u2022\u2022\u2022 or \u2022\u2022\u2022\u2022 standard of living, can requisition as high as Resources \u2022\u2022\u2022\u2022\u2022 at the risk of scrutiny; +1 die to Social rolls against lower-Class Autochthonians. 5 dots - a Populat director/sub-director or senior Tripartite leader (4-5 dots of Backing expected); palatial residence at Resources \u2022\u2022\u2022\u2022 or \u2022\u2022\u2022\u2022\u2022; +2 dice to Social rolls against lower-Class Autochthonians. Lumpen exiled to the Reaches for serious crimes exist entirely outside this Background and receive no resource allocation at all; any status they hold is purchased as Backing instead, and any hoarded wealth or followers come from Resources/Followers under the Solar rules, options otherwise closed to ordinary Autochthonians.",
-    "cost": "Background dots (0-5), as with any Background; Alchemicals start with a free, separate Class \u2022\u2022\u2022 at character creation.",
+    "summary": "Class is the core socioeconomic Background for anyone in Autochthonia's largely currency-less economy, folding Followers, Influence and Resources into a single rating that sets social standing, requisition authority, and standard of living; Alchemicals automatically receive Class ••• for free at creation (separate from their normal Background dots) and may raise it further with bonus points, while mortal characters must purchase it from scratch like any other Background.",
+    "mechanics": "Dot table: no dots (x) - a Lumpen outcast; a tolerable Resources •-equivalent standard of living, but a 1-die penalty to Social pools against higher-Class characters (also the rating held by surface slaves taken during the Locust Crusade). 1 dot - a general laborer/aide of the Populat; Resources ••-equivalent, dormitory housing shared by dozens with no personal claim to space (also shared, after a successful Locust Crusade, by loyalist Outsider-caste Creation-dwellers who are barred from entering Autochthonia). 2 dots - a Populat shift chief overoseeing 20-300 workers; Resources •••-equivalent, apartment shared with roughly a dozen peers. 3 dots - a Populat foreman overseeing an entire factory, or a junior Tripartite member (expected to also carry 1-2 dots of matching Backing); lives at Resources ••• with a dedicated aide staff but can requisition up to Resources ••••, subject to superiors demanding justification; +1 die to Social rolls against lower-Class Autochthonians. 4 dots - a Populat supervisor over an entire industry in a city, or a veteran Tripartite member (2-3 dots of Backing expected); Resources ••• or •••• standard of living, can requisition as high as Resources ••••• at the risk of scrutiny; +1 die to Social rolls against lower-Class Autochthonians. 5 dots - a Populat director/sub-director or senior Tripartite leader (4-5 dots of Backing expected); palatial residence at Resources •••• or •••••; +2 dice to Social rolls against lower-Class Autochthonians. Lumpen exiled to the Reaches for serious crimes exist entirely outside this Background and receive no resource allocation at all; any status they hold is purchased as Backing instead, and any hoarded wealth or followers come from Resources/Followers under the Solar rules, options otherwise closed to ordinary Autochthonians.",
+    "cost": "Background dots (0-5), as with any Background; Alchemicals start with a free, separate Class ••• at character creation.",
     "compatibility": "All Alchemicals and Autochthonian mortals; Lumpen exiles in the Reaches use Backing/Resources/Followers instead.",
     "verificationState": "reviewed",
     "citation": {
@@ -335,8 +335,8 @@
     "id": "artifact-background-altered",
     "name": "Artifact (altered for Alchemicals)",
     "disposition": "calculated",
-    "summary": "Alchemicals draw on the full resources of Autochthonian industry, so each dot of the Artifact Background buys three total dots of Artifact-rated gear rather than one, the Background may be bought all the way to \u2022\u2022\u2022\u2022\u2022 during character creation without bonus points (though the 4th and 5th dot each cost two dots), and dots here can additionally buy spare Charms held on retainer at the Vats up to the character's Essence rating.",
-    "mechanics": "Most Alchemical-owned artifacts are built from the same Magical Material as the Exalt's own Caste, though this is not a hard requirement. Because the total combined Artifact rating purchased per Background dot is tripled relative to core Exalted, and because character creation alone permits reaching \u2022\u2022\u2022\u2022\u2022 (at extra cost for the last two dots), Alchemicals field noticeably more equipment than other Exalted of comparable Background investment. Separately, Artifact dots may buy additional Charms as artifacts (rated up to the character's minimum qualifying Essence, and only for Charms whose Trait prerequisites the character actually meets); these Charms are kept on retainer at the Vats and do not count against or increase the number of Charms installed in Slots.",
+    "summary": "Alchemicals draw on the full resources of Autochthonian industry, so each dot of the Artifact Background buys three total dots of Artifact-rated gear rather than one, the Background may be bought all the way to ••••• during character creation without bonus points (though the 4th and 5th dot each cost two dots), and dots here can additionally buy spare Charms held on retainer at the Vats up to the character's Essence rating.",
+    "mechanics": "Most Alchemical-owned artifacts are built from the same Magical Material as the Exalt's own Caste, though this is not a hard requirement. Because the total combined Artifact rating purchased per Background dot is tripled relative to core Exalted, and because character creation alone permits reaching ••••• (at extra cost for the last two dots), Alchemicals field noticeably more equipment than other Exalted of comparable Background investment. Separately, Artifact dots may buy additional Charms as artifacts (rated up to the character's minimum qualifying Essence, and only for Charms whose Trait prerequisites the character actually meets); these Charms are kept on retainer at the Vats and do not count against or increase the number of Charms installed in Slots.",
     "compatibility": "All Alchemical castes.",
     "verificationState": "reviewed",
     "citation": {
@@ -353,9 +353,9 @@
     "id": "backing-background-altered",
     "name": "Backing (altered for Alchemicals/Autochthonians)",
     "disposition": "calculated",
-    "summary": "Because Autochthonia has no independent power blocs, Backing represents rank inside a specific named branch of the Tripartite - the Olgotary's plutarchs, regulators or adjudicators; the Theomachracy's lectors, preceptors or clerics; or one of the Five Sodalities (Luminors, Conductors, Harvesters, Scholars, Surgeons) - and requires Class \u2022\u2022\u2022+ as a prerequisite; a rare, dangerous alternative exists in Backing held within an exile colony (no Class requirement) or an outlawed Voidbringer/black-market circle.",
-    "mechanics": "Characters who are autocrats, celebrants or councilors must hold Backing \u2022\u2022\u2022\u2022\u2022 in the matching branch of the Olgotary, the Theomachracy, or a Sodality respectively. Backing purchased for standing in a specific Reaches exile colony is understandably limited in scope since it lacks a Class rating behind it. A small number of demented cultists and criminals hold Backing in a Voidbringer sect or the black market instead, at the risk of execution if the authorities ever discover the membership.",
-    "compatibility": "All Alchemical castes and Autochthonian mortals with Class \u2022\u2022\u2022+ for legitimate Tripartite Backing; exile-colony and illicit Backing bypass the Class prerequisite entirely.",
+    "summary": "Because Autochthonia has no independent power blocs, Backing represents rank inside a specific named branch of the Tripartite - the Olgotary's plutarchs, regulators or adjudicators; the Theomachracy's lectors, preceptors or clerics; or one of the Five Sodalities (Luminors, Conductors, Harvesters, Scholars, Surgeons) - and requires Class •••+ as a prerequisite; a rare, dangerous alternative exists in Backing held within an exile colony (no Class requirement) or an outlawed Voidbringer/black-market circle.",
+    "mechanics": "Characters who are autocrats, celebrants or councilors must hold Backing ••••• in the matching branch of the Olgotary, the Theomachracy, or a Sodality respectively. Backing purchased for standing in a specific Reaches exile colony is understandably limited in scope since it lacks a Class rating behind it. A small number of demented cultists and criminals hold Backing in a Voidbringer sect or the black market instead, at the risk of execution if the authorities ever discover the membership.",
+    "compatibility": "All Alchemical castes and Autochthonian mortals with Class •••+ for legitimate Tripartite Backing; exile-colony and illicit Backing bypass the Class prerequisite entirely.",
     "verificationState": "reviewed",
     "citation": {
       "bookId": "exalted-the-autochthonians",
@@ -372,7 +372,7 @@
     "name": "Familiar (altered for Alchemicals: requisitioned constructs)",
     "disposition": "calculated",
     "summary": "Autochthonia has almost no biological fauna, so Alchemicals do not keep familiars the way other Exalted do; instead the Background sets the maximum power of a spirit-built construct servitor the character may telepathically requisition from the Autochthonian gods on demand, one at a time, with a replacement automatically dispatched if the current one is lost or dismissed.",
-    "mechanics": "A character's rating caps the power of any single familiar summoned, not the properties of one fixed creature; only one familiar may be kept at a time, but losing or dismissing it lets the character immediately requisition another. A familiar still functions in Creation (but not the Wyld, Underworld, or Malfeas) and always knows the exact direction back to its master. Dot table: no dots (x) - human retainers only, or none at all. 1 dot - a small, mostly harmless servitor with Intelligence \u2022 and one marginally useful function, able to share one sense within (Essence x 10) yards, obeying verbal commands exactly (even suicidal ones); arrives within an hour inside Autochthonia. 2 dots - larger and either moderately dangerous (guard-dog-analogous) or smarter (Intelligence \u2022\u2022); arrives within three hours. 3 dots - up to the character's own size or as small as a spy-drone insect, usually Intelligence \u2022\u2022 (or \u2022\u2022\u2022 at a cost to other prowess), combat models rivaling great cats/dire wolves, peaceful models with up to three distinct useful capabilities (one may allow telepathic messaging in shared-sense range), the largest usable as a steed; arrives within a day. 4 dots - up to twice the character's size, Intelligence \u2022\u2022 if built for combat (armored, weaponized), or highly mobile/fast if built for transport (wall-climbing, flight), or a master craftsperson with auxiliary skills if built for peaceful tasks; can communicate telepathically and usually speaks passable Autochthonic; arrives within a week (custom-built). 5 dots - an Essence 3 mechanical god in its own right with an appropriate Charm suite, potentially multiple forms up to yeddim-scale, typically materializes with the Dematerialize Charm, superhuman combat skill or multi-mode transit/portal-opening for steeds, or Intelligence \u2022\u2022\u2022 seneschal-grade competence for support roles, with telepathy/shared senses out to a mile; takes up to a month to arrive.",
+    "mechanics": "A character's rating caps the power of any single familiar summoned, not the properties of one fixed creature; only one familiar may be kept at a time, but losing or dismissing it lets the character immediately requisition another. A familiar still functions in Creation (but not the Wyld, Underworld, or Malfeas) and always knows the exact direction back to its master. Dot table: no dots (x) - human retainers only, or none at all. 1 dot - a small, mostly harmless servitor with Intelligence • and one marginally useful function, able to share one sense within (Essence x 10) yards, obeying verbal commands exactly (even suicidal ones); arrives within an hour inside Autochthonia. 2 dots - larger and either moderately dangerous (guard-dog-analogous) or smarter (Intelligence ••); arrives within three hours. 3 dots - up to the character's own size or as small as a spy-drone insect, usually Intelligence •• (or ••• at a cost to other prowess), combat models rivaling great cats/dire wolves, peaceful models with up to three distinct useful capabilities (one may allow telepathic messaging in shared-sense range), the largest usable as a steed; arrives within a day. 4 dots - up to twice the character's size, Intelligence •• if built for combat (armored, weaponized), or highly mobile/fast if built for transport (wall-climbing, flight), or a master craftsperson with auxiliary skills if built for peaceful tasks; can communicate telepathically and usually speaks passable Autochthonic; arrives within a week (custom-built). 5 dots - an Essence 3 mechanical god in its own right with an appropriate Charm suite, potentially multiple forms up to yeddim-scale, typically materializes with the Dematerialize Charm, superhuman combat skill or multi-mode transit/portal-opening for steeds, or Intelligence ••• seneschal-grade competence for support roles, with telepathy/shared senses out to a mile; takes up to a month to arrive.",
     "compatibility": "All Alchemical castes; mortals may not purchase this Background.",
     "verificationState": "reviewed",
     "citation": {
@@ -425,7 +425,7 @@
     "name": "Building a Vat Complex in Creation (sidebar)",
     "disposition": "calculated",
     "summary": "Alchemicals operating away from Autochthonia lack access to a real Vat Complex, so the book provides rules for improvising one out of a converted Manse: an expensive, slow, and permanently Hearthstone-destroying substitute that keeps Alchemicals refit-capable while abroad but is strictly a maintenance tool, never a means of creating new Alchemical Exalted.",
-    "mechanics": "Building a synthetic Vat Complex requires a level-4+ Manse and exotic ingredients costing Resources \u2022\u2022\u2022\u2022\u2022; the technician directing the month-long construction must have \u2022\u2022\u2022\u2022\u2022 in both Lore and Occult and \u2022\u2022\u2022\u2022 in Craft (Architecture). Converting a Manse this way permanently destroys any Hearthstone it produces (and crumbles any existing Hearthstone to dust); the site no longer generates ambient Essence to respire. Every use of a synthetic Vat to upgrade an Alchemical costs ongoing Resources: \u2022\u2022\u2022\u2022 for Essence 3-5, \u2022\u2022\u2022\u2022\u2022 for Essence 6+, and \u2022\u2022\u2022 for all other upgrade uses except accelerated healing/Essence recovery, and all repairs/upgrades performed there take twice as long as they would in Autochthonia. Access to a synthetic Vat costs the same Background dots as access to a real one inside Autochthonia, provided the structure exists yet. It is never possible to build wholly new Alchemical Exalted at a Vat built outside Autochthonia - only Autochthon's own return to Creation could change that.",
+    "mechanics": "Building a synthetic Vat Complex requires a level-4+ Manse and exotic ingredients costing Resources •••••; the technician directing the month-long construction must have ••••• in both Lore and Occult and •••• in Craft (Architecture). Converting a Manse this way permanently destroys any Hearthstone it produces (and crumbles any existing Hearthstone to dust); the site no longer generates ambient Essence to respire. Every use of a synthetic Vat to upgrade an Alchemical costs ongoing Resources: •••• for Essence 3-5, ••••• for Essence 6+, and ••• for all other upgrade uses except accelerated healing/Essence recovery, and all repairs/upgrades performed there take twice as long as they would in Autochthonia. Access to a synthetic Vat costs the same Background dots as access to a real one inside Autochthonia, provided the structure exists yet. It is never possible to build wholly new Alchemical Exalted at a Vat built outside Autochthonia - only Autochthon's own return to Creation could change that.",
     "compatibility": "All Alchemical castes operating in Creation, contingent on someone actually funding and building the synthetic Complex first.",
     "verificationState": "reviewed",
     "citation": {
@@ -461,7 +461,7 @@
     "name": "Alchemical Bonus Points and Experience Costs",
     "disposition": "calculated",
     "summary": "Alchemical character creation and post-creation advancement use their own bonus-point and experience-cost tables, distinct from core Exalted, because Alchemicals raise Attributes/Essence/Charms exclusively through Vat refits and because Charm Slots (General vs. Dedicated) and Martial Arts Charms carry their own bought-and-installed costs on top of ordinary trait purchases.",
-    "mechanics": "Bonus point costs (15 points available at creation): Attribute 4 (3 for a Caste or Favored Attribute); Ability 2; Background 1 (2 if raised above \u2022\u2022\u2022); Specialty 1; Virtue 3; Willpower 2; Essence 10; Charm Slot 6 for General or 5 for Dedicated (each purchase includes one free qualifying Charm); Martial Arts Charm 6 (requires the Perfected Lotus Matrix Charm already installed). Experience costs (post-creation): Caste or Favored Attribute increase = (current rating x 4) - 1; new General Charm Slot = 12 (includes one free Charm the character qualifies for); new Dedicated Charm Slot = 10 (includes one free Charm for a Caste/Favored Attribute the character qualifies for); new Martial Arts Charm = 11 (requires the Perfected Lotus Matrix Charm); new Man Machine Weaving Protocol = 12; new God Machine Weaving Protocol = 14; upgrading a Charm Slot from Dedicated to General = 2; a new Charm placed on retainer at the Vats (without a Slot to house it) = 6; Essence increase = (current rating x 9).",
+    "mechanics": "Bonus point costs (15 points available at creation): Attribute 4 (3 for a Caste or Favored Attribute); Ability 2; Background 1 (2 if raised above •••); Specialty 1; Virtue 3; Willpower 2; Essence 10; Charm Slot 6 for General or 5 for Dedicated (each purchase includes one free qualifying Charm); Martial Arts Charm 6 (requires the Perfected Lotus Matrix Charm already installed). Experience costs (post-creation): Caste or Favored Attribute increase = (current rating x 4) - 1; new General Charm Slot = 12 (includes one free Charm the character qualifies for); new Dedicated Charm Slot = 10 (includes one free Charm for a Caste/Favored Attribute the character qualifies for); new Martial Arts Charm = 11 (requires the Perfected Lotus Matrix Charm); new Man Machine Weaving Protocol = 12; new God Machine Weaving Protocol = 14; upgrading a Charm Slot from Dedicated to General = 2; a new Charm placed on retainer at the Vats (without a Slot to house it) = 6; Essence increase = (current rating x 9).",
     "compatibility": "All Alchemical castes.",
     "verificationState": "reviewed",
     "citation": {
@@ -480,7 +480,7 @@
     "name": "Charm Slots, Panoplies, Submodules, and Arrays",
     "disposition": "calculated",
     "summary": "Explains the core Alchemical Charm-as-implant model: Charms are surgically installed in General or Dedicated Charm Slots up to a hard limit, spare Charms are stockpiled as a \"Panoply,\" a single Charm can be permanently expanded with cheap \"submodule\" upgrades, and Alchemicals build \"Arrays\" (their version of a Combo) that bundle several Charms into one surgically-installed unit with a reduced combined installation cost and automatic access to every legal Combo among its members.",
-    "mechanics": "Charm Slots come in two varieties: General (holds any Charm) and Dedicated (only Charms tied to a Favored or Caste Attribute). Starting characters get 4 Dedicated and 4 General Slots plus 8 Charms to fill them. Additional Slots may be bought with bonus points at creation or xp plus a surgical refit during play; every new Slot comes with a free qualifying Charm of the player's choice. Alchemicals may also hold Charms beyond their Slots via the Vats or Artifact Backgrounds; once play begins, extra Panoply Charms (without a new Slot) cost 6 xp. The Charms held in reserve at the Vats are collectively called a Panoply. At the Vats, an Alchemical may swap any installed Charms for Panoply Charms or leave Slots empty (e.g. to conserve Personal Essence), and may upgrade a Dedicated Slot to General for 2 xp; refitting takes time (see alchemical-refitting-essence-and-evolution). Submodules are fixed-xp permanent upgrades to a single specific installed Charm; whenever that Charm is installed, all its purchased submodules are also available. Most submodules need an hour of refit at the Vats. Submodules should generally be weaker than a full Charm; anything as powerful as a Charm should cost more, need a notably higher minimum Essence, or simply be a new Charm. Arrays: cost 1 bonus point per Charm included, or xp equal to the sum of the minimum Attribute ratings of every Charm in the Array; unlike a Combo, any Attribute-based Charm may join an Array (supernatural martial arts Charms are excluded). Once linked, the arrangement is permanent; owning the same Charm both in and out of an Array (or in two Arrays) requires buying separate copies, though any submodules purchased for a Charm automatically apply to every copy for free. Arrays grant two benefits: Reduced Installation Cost (the whole Array has one combined installation cost equal to three-fourths of the summed installation costs of its component Charms, rounded up, but the entire Array must be installed or removed as a single unit \u2014 no partial installation) and Integrated Combos (the Alchemical automatically has access to every possible Combo that could be built from instant-duration Charms in the Array that could benefit the same action, plus any reflexive Charms regardless of action; the Storyteller is final arbiter of legality; activating an integrated Combo costs 1 Willpower on the first Charm as with any Combo, and such Combos should have their own name/visual display, ideally planned in advance or built from the first stunt that uses them).",
+    "mechanics": "Charm Slots come in two varieties: General (holds any Charm) and Dedicated (only Charms tied to a Favored or Caste Attribute). Starting characters get 4 Dedicated and 4 General Slots plus 8 Charms to fill them. Additional Slots may be bought with bonus points at creation or xp plus a surgical refit during play; every new Slot comes with a free qualifying Charm of the player's choice. Alchemicals may also hold Charms beyond their Slots via the Vats or Artifact Backgrounds; once play begins, extra Panoply Charms (without a new Slot) cost 6 xp. The Charms held in reserve at the Vats are collectively called a Panoply. At the Vats, an Alchemical may swap any installed Charms for Panoply Charms or leave Slots empty (e.g. to conserve Personal Essence), and may upgrade a Dedicated Slot to General for 2 xp; refitting takes time (see alchemical-refitting-essence-and-evolution). Submodules are fixed-xp permanent upgrades to a single specific installed Charm; whenever that Charm is installed, all its purchased submodules are also available. Most submodules need an hour of refit at the Vats. Submodules should generally be weaker than a full Charm; anything as powerful as a Charm should cost more, need a notably higher minimum Essence, or simply be a new Charm. Arrays: cost 1 bonus point per Charm included, or xp equal to the sum of the minimum Attribute ratings of every Charm in the Array; unlike a Combo, any Attribute-based Charm may join an Array (supernatural martial arts Charms are excluded). Once linked, the arrangement is permanent; owning the same Charm both in and out of an Array (or in two Arrays) requires buying separate copies, though any submodules purchased for a Charm automatically apply to every copy for free. Arrays grant two benefits: Reduced Installation Cost (the whole Array has one combined installation cost equal to three-fourths of the summed installation costs of its component Charms, rounded up, but the entire Array must be installed or removed as a single unit — no partial installation) and Integrated Combos (the Alchemical automatically has access to every possible Combo that could be built from instant-duration Charms in the Array that could benefit the same action, plus any reflexive Charms regardless of action; the Storyteller is final arbiter of legality; activating an integrated Combo costs 1 Willpower on the first Charm as with any Combo, and such Combos should have their own name/visual display, ideally planned in advance or built from the first stunt that uses them).",
     "compatibility": "All Alchemical castes.",
     "verificationState": "reviewed",
     "citation": {
@@ -520,7 +520,7 @@
     "name": "Alchemical Charm Format, Limitations, and Presentation Conventions",
     "disposition": "reference-only",
     "summary": "A short rules-conventions passage explaining how Alchemical Charm write-ups differ from other Exalted's stat blocks: a new \"permanent\" Charm Type for always-on installed effects, a Prerequisite Charms field meaning devices the Exalt must already have installed or hold in her Panoply, the fact that Alchemicals deliberately lack the universal perfect/persistent defenses other Celestial Exalted enjoy, that called shots cannot target Charms as if they were separate body parts, and that Essence 8+ \"municipal\" Charms work on an urban scale.",
-    "mechanics": "Type gains a new option, 'Permanent': like Ox-Body Technique, such Charms are always considered active as long as they remain installed, have no listed duration or activation cost, and their listed cost is simply the installation cost. Prerequisite Charms lists devices the Alchemical must already have installed or stored in her Panoply before this Charm can be added \u2014 mere knowledge is not enough, unlike other Exalted's Charm trees. Alchemical Charms are Celestial-level in raw power, but this splat pointedly lacks any all-purpose perfect or persistent defense; instead it fields many narrower, specialized defensive Charms that a clever opponent can route around. Every Attribute has one basic dice-adding Charm, but it can never add more bonus dice to a pool than the Attribute's own rating; a separate family of Charms instead grants artificial-specialty-type bonuses that stack cumulatively with true specialties rather than counting as ordinary Charm dice. Because Alchemical Charms are literally part of the Exalt's body, called shots cannot disable them any more than a called shot could take out another character's eyes or hands. Charms requiring Essence 8+ are termed 'municipal' Charms, since they function on an urban scale \u2014 an entire factory or basic-infrastructure facet may itself constitute a single such Charm for these enormous beings.",
+    "mechanics": "Type gains a new option, 'Permanent': like Ox-Body Technique, such Charms are always considered active as long as they remain installed, have no listed duration or activation cost, and their listed cost is simply the installation cost. Prerequisite Charms lists devices the Alchemical must already have installed or stored in her Panoply before this Charm can be added — mere knowledge is not enough, unlike other Exalted's Charm trees. Alchemical Charms are Celestial-level in raw power, but this splat pointedly lacks any all-purpose perfect or persistent defense; instead it fields many narrower, specialized defensive Charms that a clever opponent can route around. Every Attribute has one basic dice-adding Charm, but it can never add more bonus dice to a pool than the Attribute's own rating; a separate family of Charms instead grants artificial-specialty-type bonuses that stack cumulatively with true specialties rather than counting as ordinary Charm dice. Because Alchemical Charms are literally part of the Exalt's body, called shots cannot disable them any more than a called shot could take out another character's eyes or hands. Charms requiring Essence 8+ are termed 'municipal' Charms, since they function on an urban scale — an entire factory or basic-infrastructure facet may itself constitute a single such Charm for these enormous beings.",
     "compatibility": "All Alchemical castes; these are stat-block reading conventions that apply to every Charm presented in the chapter.",
     "verificationState": "reviewed",
     "citation": {
@@ -537,7 +537,7 @@
     "id": "transitory-augmentation-of-attribute",
     "name": "Transitory Augmentation of (Attribute)",
     "disposition": "selectable",
-    "summary": "The universal Attribute-boosting General Charm \u2014 really nine separately-purchased Charms, one per Attribute \u2014 that lets an Alchemical temporarily add dots to that Attribute for a single instant action, and cheapens her anima power's own Attribute boost when installed for a Caste or Favored Attribute.",
+    "summary": "The universal Attribute-boosting General Charm — really nine separately-purchased Charms, one per Attribute — that lets an Alchemical temporarily add dots to that Attribute for a single instant action, and cheapens her anima power's own Attribute boost when installed for a Caste or Favored Attribute.",
     "requirements": "Minimum (Attribute) 1; Minimum Essence 2; Prerequisite Charms: None. Purchased and installed separately for each of the nine Attributes.",
     "mechanics": "For every mote spent, add one dot to the controlling Attribute for the purposes of a single instant-duration action or event, up to a maximum bonus equal to the Attribute's own base rating. An Alchemical who has this Charm installed for a Caste or Favored Attribute reduces the cost of her anima power's Attribute boost (see alchemical-anima-banners-universal) from 3 motes per die to 2 motes per die.",
     "cost": "1 mote per die; Installation Cost: 1 mote.",
@@ -557,7 +557,7 @@
     "id": "sustained-augmentation-of-attribute",
     "name": "Sustained Augmentation of (Attribute)",
     "disposition": "selectable",
-    "summary": "The permanent-Type counterpart to Transitory Augmentation \u2014 nine separately-installed Charms, one per Attribute \u2014 that mechanically reinforce the Exalt's body or mind, granting a flat +1 dot to that Attribute's natural rating and raising its maximum possible rating by one dot for as long as the Charm stays installed.",
+    "summary": "The permanent-Type counterpart to Transitory Augmentation — nine separately-installed Charms, one per Attribute — that mechanically reinforce the Exalt's body or mind, granting a flat +1 dot to that Attribute's natural rating and raising its maximum possible rating by one dot for as long as the Charm stays installed.",
     "requirements": "Minimum (Attribute) 2; Minimum Essence 2; Prerequisite Charms: None. Purchased and installed separately for each Attribute; a character cannot install more than one copy for the same Attribute, but may have as many different Attributes augmented as desired.",
     "mechanics": "No activation cost or duration; the Charm is simply always in effect once installed (Type: Permanent). The Exalt gains one additional dot to the chosen Attribute, counted as part of her natural rating rather than a dispellable bonus, and her maximum possible rating in that Attribute rises by one dot. Flavor ties the specific implant to its Attribute: metal pistons alongside artificial muscle for Strength, ball-bearing joints and higher-function motor skills for Dexterity, organic metal-alloy flesh for Stamina, hardwired protocols for Charisma or Manipulation, a literally sculpted physique for Appearance, integrated sensors for Perception, and transcendent neural webs for Intelligence or Wits.",
     "cost": "None; Installation Cost: 1 mote.",
@@ -598,7 +598,7 @@
     "id": "accelerated-response-system",
     "name": "Accelerated Response System",
     "disposition": "selectable",
-    "summary": "A pair of separately-installable defensive implants \u2014 one in the shoulders/arms for a full-pool parry, one in the hips/thighs for a full-pool dodge \u2014 letting an Alchemical fend off a single incoming attack with total commitment.",
+    "summary": "A pair of separately-installable defensive implants — one in the shoulders/arms for a full-pool parry, one in the hips/thighs for a full-pool dodge — letting an Alchemical fend off a single incoming attack with total commitment.",
     "requirements": "Minimum Dexterity 3; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Dexterity.",
     "mechanics": "Two permutations must be bought and installed separately. The shoulder/arm version lets the Exalt parry a single attack against her using her full Dexterity + (Brawl, Martial Arts or Melee) pool on activation. The hip/thigh version lets her dodge one attack using her full Dexterity + Dodge pool (plus Essence under Exalted Power Combat), contorting away without giving ground. Both require the Alchemical to be aware of the incoming attack; a character with both variants installed may use both against the same attack.",
     "cost": "2 motes; Installation Cost: 1 mote.",
@@ -728,7 +728,7 @@
     "disposition": "selectable",
     "summary": "Surgically-added extra limbs (insectoid, humanoid, or Moonsilver-quicksilver tendrils depending on caste and preference) that reduce multiple-action penalties, installable repeatedly up to the Exalt's Dexterity or Wits, or alternatively installed permanently in place of the character's original arms.",
     "requirements": "Minimum Dexterity 3; Minimum Essence 2; Prerequisite Charms: Sustained Augmentation of Dexterity.",
-    "mechanics": "Simple-type installation grants one or two extra limbs per installation (paralyzed/folded without committed Essence; usable as normal arms/hands when activated) and reduces multiple-action penalties for physical actions using any arm by one die per installation, stacking across repeated installations up to a maximum equal to the character's Dexterity or Wits, whichever is lower; unused limbs fold visibly against the body (or hide in compartments if the character also has an Integrated Artifact Transmogrifier). Alternatively, install as a Permanent-type Charm (1 mote installation cost) replacing the character's arms outright with overtly artificial limbs instead of adding extras; this does not count against the installation cap, applies the same cumulative multiple-action-penalty reduction, and adds +1 to hand-to-hand damage dealt through those limbs (or a weapon they hold). Any installation of this Charm also removes the offhand-action penalty for any limb \u2014 including natural hands and Hyperdextrous Tentacle Apparatus appendages \u2014 provided the Exalt also has Sustained Augmentation of Wits installed.",
+    "mechanics": "Simple-type installation grants one or two extra limbs per installation (paralyzed/folded without committed Essence; usable as normal arms/hands when activated) and reduces multiple-action penalties for physical actions using any arm by one die per installation, stacking across repeated installations up to a maximum equal to the character's Dexterity or Wits, whichever is lower; unused limbs fold visibly against the body (or hide in compartments if the character also has an Integrated Artifact Transmogrifier). Alternatively, install as a Permanent-type Charm (1 mote installation cost) replacing the character's arms outright with overtly artificial limbs instead of adding extras; this does not count against the installation cap, applies the same cumulative multiple-action-penalty reduction, and adds +1 to hand-to-hand damage dealt through those limbs (or a weapon they hold). Any installation of this Charm also removes the offhand-action penalty for any limb — including natural hands and Hyperdextrous Tentacle Apparatus appendages — provided the Exalt also has Sustained Augmentation of Wits installed.",
     "cost": "1 mote (simple) / None (permanent); Installation Cost: None (simple) / 1 mote (permanent).",
     "compatibility": "Duration: Indefinite (simple) / N/A (permanent). Type: Simple/Permanent. Close Combat Charms tree (Dexterity-keyed).",
     "verificationState": "reviewed",
@@ -789,7 +789,7 @@
     "id": "material-synthesis-wave-emitter",
     "name": "(Material) Synthesis Wave Emitter",
     "disposition": "selectable",
-    "summary": "A set of six separately-purchased Charms \u2014 one per Magical Material, plus an adamant version \u2014 that channels the Exalt's anima through a hand-to-hand strike, imbuing it with the relevant Material's combat bonus or, for adamant, a sharpness that shreds armor.",
+    "summary": "A set of six separately-purchased Charms — one per Magical Material, plus an adamant version — that channels the Exalt's anima through a hand-to-hand strike, imbuing it with the relevant Material's combat bonus or, for adamant, a sharpness that shreds armor.",
     "requirements": "Minimum Strength 3; Minimum Essence 2; Prerequisite Charms: Transitory Augmentation of Strength. Alchemicals automatically treat the version matching their own Caste's Material as Favored, regardless of whether Strength is itself a Favored/Caste Attribute.",
     "mechanics": "Used supplementally with a hand-to-hand attack; the striking weapon or limb glows and trails dust of the chosen Material. For the five Magical Materials, applies that Material's standard melee-weapon bonus to the strike (per core Exalted, p. 341, and the Exalted Players Guide, p. 209). The adamant version instead reduces the target's armored soak by 4 on a successful hit, making bladed weapons extremely sharp or blunt attacks shatteringly forceful. Also usable when striking with an actual magical weapon of the matching Material, in which case identical bonuses stack. Alchemicals with multiple versions installed may apply different ones to different attacks in the same turn, but cannot stack multiple versions onto a single attack without a Combo.",
     "cost": "2 motes; Installation Cost: None.",
@@ -837,7 +837,7 @@
     "id": "electrification-onslaught-dynamo",
     "name": "Electrification Onslaught Dynamo",
     "disposition": "selectable",
-    "summary": "Chest- or back-mounted conductor nodes that let an Alchemical deliver an electric shock through virtually any physical contact \u2014 an offensive strike bonus, a retaliatory counter-shock, a clinch jolt, or even a harmless-seeming handshake.",
+    "summary": "Chest- or back-mounted conductor nodes that let an Alchemical deliver an electric shock through virtually any physical contact — an offensive strike bonus, a retaliatory counter-shock, a clinch jolt, or even a harmless-seeming handshake.",
     "requirements": "Minimum Strength 3; Minimum Essence 2; Prerequisite Charms: Transitory Augmentation of Strength.",
     "mechanics": "Activates as few or as many conductor nodes as desired for one of several uses: (1) after a successful hand-to-hand strike, deal an extra 1L or 2B per mote spent (up to Strength motes), soaked separately using only the victim's natural soak; (2) release the same jolt as a retaliatory counter whenever a foe successfully strikes the Alchemical with a metallic weapon or unarmed attack (even for zero damage), including via a parry using the blocking limb/weapon as conductor (which halves the Essence cap, rounded up); used this way the shock is a counterattack that cannot be evaded except by a perfect defense or answered with another counterattack; (3) release the jolt against an opponent immediately after winning a clinch roll, before she can break the hold; (4) deliver the shock through any casual or nonviolent contact, whether or not the Exalt initiated it, such as a handshake.",
     "cost": "Varies (1L or 2B per mote spent, up to Strength motes); Installation Cost: 1 mote.",
@@ -857,9 +857,9 @@
     "id": "chemical-fog-generator",
     "name": "Chemical Fog Generator",
     "disposition": "selectable",
-    "summary": "A torso-mounted vent system that fills an area with obscuring, choking black smoke, upgradeable with four named toxic-gas submodules \u2014 knockout, tear, nerve, and soul gas \u2014 each with its own resistance roll and effect.",
+    "summary": "A torso-mounted vent system that fills an area with obscuring, choking black smoke, upgradeable with four named toxic-gas submodules — knockout, tear, nerve, and soul gas — each with its own resistance roll and effect.",
     "requirements": "Minimum Manipulation 3; Minimum Essence 2; Prerequisite Charms: None.",
-    "mechanics": "Fills a roughly spherical volume with a radius of (Essence) yards per mote spent (capped at Manipulation motes per turn); lingers 20 minutes indoors in still air (10 minutes with a mild breeze, 5 turns with a heavy breeze) or 5 minutes outdoors in still air (1 minute in a light breeze, 3 turns in heavy wind). Base smoke imposes murky-vision penalties out to 10 yards and total blindness beyond that (3-yard murky radius in dim light); anyone breathing it unprotected takes 1 unsoakable bashing level per minute (delayable by holding breath, or slowed to a 5-minute interval with a filter such as a wet scarf). Submodules (2 bonus points/6 xp each; only one may be deployed per use): Knockout Gas \u2014 mortals roll Stamina + Resistance (difficulty 2) or pass out for 30 minus (Stamina + Resistance) minutes; Exalted/superhuman beings resist at difficulty 1 with per-minute exposure checks; a filter provides full protection. Tear Gas \u2014 a poison-style exposure (difficulty 2, success no damage, failure 1B, duration/penalty one hour/-3) checked every turn until the victim passes out; a filter reduces the resistance difficulty by 1. Nerve Gas (requires Essence 3 to install) \u2014 uses the statistics of arrow frog venom, exposure checked every five minutes; mortals convulse and die in a number of turns equal to Stamina unless a Stamina + Resistance roll (difficulty 6) succeeds, otherwise suffering the Exalted failure effect (extras die automatically); a filter reduces the difficulty by 2. Soul Gas (requires Essence 3 to install) \u2014 victims roll Stamina + Resistance (difficulty 1 for magical beings, 4 for mortals); failure costs a temporary dot from every Virtue except Compassion and forces a Valor roll (difficulty 2), and failing that roll causes the victim to flee at best speed and suffer a one-die penalty to non-reflexive actions for an hour; a filter reduces the difficulty by 1.",
+    "mechanics": "Fills a roughly spherical volume with a radius of (Essence) yards per mote spent (capped at Manipulation motes per turn); lingers 20 minutes indoors in still air (10 minutes with a mild breeze, 5 turns with a heavy breeze) or 5 minutes outdoors in still air (1 minute in a light breeze, 3 turns in heavy wind). Base smoke imposes murky-vision penalties out to 10 yards and total blindness beyond that (3-yard murky radius in dim light); anyone breathing it unprotected takes 1 unsoakable bashing level per minute (delayable by holding breath, or slowed to a 5-minute interval with a filter such as a wet scarf). Submodules (2 bonus points/6 xp each; only one may be deployed per use): Knockout Gas — mortals roll Stamina + Resistance (difficulty 2) or pass out for 30 minus (Stamina + Resistance) minutes; Exalted/superhuman beings resist at difficulty 1 with per-minute exposure checks; a filter provides full protection. Tear Gas — a poison-style exposure (difficulty 2, success no damage, failure 1B, duration/penalty one hour/-3) checked every turn until the victim passes out; a filter reduces the resistance difficulty by 1. Nerve Gas (requires Essence 3 to install) — uses the statistics of arrow frog venom, exposure checked every five minutes; mortals convulse and die in a number of turns equal to Stamina unless a Stamina + Resistance roll (difficulty 6) succeeds, otherwise suffering the Exalted failure effect (extras die automatically); a filter reduces the difficulty by 2. Soul Gas (requires Essence 3 to install) — victims roll Stamina + Resistance (difficulty 1 for magical beings, 4 for mortals); failure costs a temporary dot from every Virtue except Compassion and forces a Valor roll (difficulty 2), and failing that roll causes the victim to flee at best speed and suffer a one-die penalty to non-reflexive actions for an hour; a filter reduces the difficulty by 1.",
     "cost": "Varies (motes spent shape the cloud's size, capped at Manipulation per turn); Installation Cost: 1 mote.",
     "compatibility": "Duration: Instant (the resulting cloud persists per the duration rules above). Type: Reflexive. Close Combat Charms tree (Manipulation-keyed).",
     "verificationState": "reviewed",
@@ -896,7 +896,7 @@
     "id": "alchemical-martial-artists",
     "name": "Alchemical Martial Artists (available Autochthonian styles)",
     "disposition": "reference-only",
-    "summary": "A short sidebar noting that Vat Complexes preserve records of numerous Terrestrial and Celestial martial arts styles \u2014 including Creation's animal styles and native Autochthonian techniques developed for Alchemicals using advanced cognitive Charms \u2014 and lists the specific published styles Alchemical characters may take via the Perfected Lotus Matrix.",
+    "summary": "A short sidebar noting that Vat Complexes preserve records of numerous Terrestrial and Celestial martial arts styles — including Creation's animal styles and native Autochthonian techniques developed for Alchemicals using advanced cognitive Charms — and lists the specific published styles Alchemical characters may take via the Perfected Lotus Matrix.",
     "mechanics": "Available styles (or indistinguishable local variants) explicitly listed: Snake, Tiger, Mantis, Ebon Shadow, Celestial Monkey, Righteous Devil, Violet Bier of Sorrows, Five Dragon, and Jade Mountain.",
     "compatibility": "All Alchemical castes with the Perfected Lotus Matrix installed.",
     "verificationState": "reviewed",
@@ -952,9 +952,9 @@
     "id": "essence-pulse-cannon",
     "name": "Essence Pulse Cannon",
     "disposition": "selectable",
-    "summary": "A built-in arm-, shoulder-, palm-, or eye-mounted energy weapon firing bolts of anima-colored plasma, with by far the deepest submodule catalog of any Alchemical Charm \u2014 ten named upgrades covering stealth, accuracy, ammo reserves, piercing fire, knockback, nonlethal fire, area blasts, Essence-draining, soul-destroying annihilation, and a devastating siege mode.",
+    "summary": "A built-in arm-, shoulder-, palm-, or eye-mounted energy weapon firing bolts of anima-colored plasma, with by far the deepest submodule catalog of any Alchemical Charm — ten named upgrades covering stealth, accuracy, ammo reserves, piercing fire, knockback, nonlethal fire, area blasts, Essence-draining, soul-destroying annihilation, and a devastating siege mode.",
     "requirements": "Minimum Strength 4; Minimum Essence 2; Prerequisite Charms: Aim-Calibrating Sensors.",
-    "mechanics": "Arming the cannon (2 motes, an automatic action like drawing any other sheathed weapon) makes it hum and glow, displaying like an anima banner at the 4-7 mote range and interfering with stealth/disguise. Active statistics: fires with Dexterity + Archery; range (Essence x 50) yards; accuracy +1; rate (Essence x number of installations); damage 2L per mote spent powering the blast (capped at Strength + Essence motes per shot); each shot counts as a supplemental Charm use; bolts have no physical component but are dodgeable/parriable normally. Ten submodules (2 bonus points/6 xp each, freely combinable unless stated otherwise): Discreet (hidden eye/palm mount, +1 difficulty to detect while inactive, displays only at the 1-3 mote range when firing); Guidance Ray (free reflexive on/off, +3 accuracy but grants the target +1 die to dodge/parry via the visible tracer beam); Internal Battery (adds an 8-mote reserve usable only to fire this Charm; refilling costs 2 motes from the main Essence pool per simple action; only one battery permitted); Precision Beam (-2 raw damage dice but the bolt becomes piercing; incompatible with detonation or shockwave); Shockwave (damage capped at one level per hit, but knocks human-sized-or-smaller targets back one yard per die of post-soak raw damage, dealing extra collision damage and forcing a knockdown check at difficulty 2); Stunning Bolt (3B per mote instead of lethal damage; excess damage past Incapacitated does not spill over); Detonation (requires Essence 3; 1L per mote to the direct target, plus a spreading blast dealing base damage at 1 yard and losing a die per further yard; combinable with shockwave for outward knockback); Essence Dampening Bolt / Energy Drain (requires Essence 3 / Essence 4 for the Energy Drain variant; deals lethal damage plus an Essence bonus but only permanent-Essence soak applies, draining 1 mote of the target's Essence per level of damage \u2014 feeding an Exalted target's own anima banner in the base version, or refilling the Alchemical's own Essence pool in the Energy Drain variant; incompatible with shockwave, stunning bolt, precision beam, or pattern disruptor); Pattern Disruptor (requires Essence 4; 1A per mote, halves other base-damage bonuses rounded down, disintegrates whatever it kills or destroys, permanently annihilates slain spirits, and obliterates mortal souls unless the victim carries an implanted soulgem; incompatible with detonation, shockwave, or stunning bolt); Siege Devastator (requires Essence 5; reflexive on/off but a full turn to ready or stow, replacing a forearm/hand entirely, dropping rate to 1, imposing a -2 mobility penalty cumulative with armor, and displaying like an anima banner at the 8-10 mote range, in exchange for +1 raw damage die per mote regardless of other modifications used, i.e. 3L per mote unmodified).",
+    "mechanics": "Arming the cannon (2 motes, an automatic action like drawing any other sheathed weapon) makes it hum and glow, displaying like an anima banner at the 4-7 mote range and interfering with stealth/disguise. Active statistics: fires with Dexterity + Archery; range (Essence x 50) yards; accuracy +1; rate (Essence x number of installations); damage 2L per mote spent powering the blast (capped at Strength + Essence motes per shot); each shot counts as a supplemental Charm use; bolts have no physical component but are dodgeable/parriable normally. Ten submodules (2 bonus points/6 xp each, freely combinable unless stated otherwise): Discreet (hidden eye/palm mount, +1 difficulty to detect while inactive, displays only at the 1-3 mote range when firing); Guidance Ray (free reflexive on/off, +3 accuracy but grants the target +1 die to dodge/parry via the visible tracer beam); Internal Battery (adds an 8-mote reserve usable only to fire this Charm; refilling costs 2 motes from the main Essence pool per simple action; only one battery permitted); Precision Beam (-2 raw damage dice but the bolt becomes piercing; incompatible with detonation or shockwave); Shockwave (damage capped at one level per hit, but knocks human-sized-or-smaller targets back one yard per die of post-soak raw damage, dealing extra collision damage and forcing a knockdown check at difficulty 2); Stunning Bolt (3B per mote instead of lethal damage; excess damage past Incapacitated does not spill over); Detonation (requires Essence 3; 1L per mote to the direct target, plus a spreading blast dealing base damage at 1 yard and losing a die per further yard; combinable with shockwave for outward knockback); Essence Dampening Bolt / Energy Drain (requires Essence 3 / Essence 4 for the Energy Drain variant; deals lethal damage plus an Essence bonus but only permanent-Essence soak applies, draining 1 mote of the target's Essence per level of damage — feeding an Exalted target's own anima banner in the base version, or refilling the Alchemical's own Essence pool in the Energy Drain variant; incompatible with shockwave, stunning bolt, precision beam, or pattern disruptor); Pattern Disruptor (requires Essence 4; 1A per mote, halves other base-damage bonuses rounded down, disintegrates whatever it kills or destroys, permanently annihilates slain spirits, and obliterates mortal souls unless the victim carries an implanted soulgem; incompatible with detonation, shockwave, or stunning bolt); Siege Devastator (requires Essence 5; reflexive on/off but a full turn to ready or stow, replacing a forearm/hand entirely, dropping rate to 1, imposing a -2 mobility penalty cumulative with armor, and displaying like an anima banner at the 8-10 mote range, in exchange for +1 raw damage die per mote regardless of other modifications used, i.e. 3L per mote unmodified).",
     "cost": "2 motes (base activation; submodule effects layer on top per shot); Installation Cost: 1 mote.",
     "compatibility": "Duration: Indefinite. Type: Supplemental. Ranged Combat Charms tree (Strength-keyed).",
     "verificationState": "reviewed",
@@ -994,7 +994,7 @@
     "disposition": "selectable",
     "summary": "An Essence Pulse Cannon upgrade that fires a compressed net of Essence instead of a bolt, trapping a target in a crystalline aura that both restrains and lightly protects them while the Alchemical maintains the field turn after turn.",
     "requirements": "Minimum Strength 5; Minimum Essence 3; Prerequisite Charms: Essence Pulse Cannon.",
-    "mechanics": "Fired with Dexterity + Archery (no default accuracy bonus, though the cannon's guidance ray or internal battery upgrades still apply; no other cannon modification may be used); range increment (Essence x 20) yards. On hitting an animate target, an opposed Strength + Essence roll decides the outcome: if the Alchemical wins, the target is paralyzed for the rest of the turn as if held in a clinch, with the committed motes locked until the aura breaks; if the victim wins, the field shatters harmlessly. Each subsequent turn, a fresh reflexive contested Strength + Essence roll (independent of either character's action, continuing even if either is unconscious) decides whether the aura holds \u2014 dealing 1 unsoakable bashing level per turn held, stopping once the victim is Incapacitated but still restraining her \u2014 or shatters, freeing the target to act if conscious. The Alchemical may voluntarily dissipate the web at any time. The aura reduces the raw damage of any attack against the trapped victim by the Alchemical's Essence rating (potentially to zero) and inflicts the Alchemical's Essence in dice of piercing bashing damage on anyone striking the entrapped victim in hand-to-hand combat.",
+    "mechanics": "Fired with Dexterity + Archery (no default accuracy bonus, though the cannon's guidance ray or internal battery upgrades still apply; no other cannon modification may be used); range increment (Essence x 20) yards. On hitting an animate target, an opposed Strength + Essence roll decides the outcome: if the Alchemical wins, the target is paralyzed for the rest of the turn as if held in a clinch, with the committed motes locked until the aura breaks; if the victim wins, the field shatters harmlessly. Each subsequent turn, a fresh reflexive contested Strength + Essence roll (independent of either character's action, continuing even if either is unconscious) decides whether the aura holds — dealing 1 unsoakable bashing level per turn held, stopping once the victim is Incapacitated but still restraining her — or shatters, freeing the target to act if conscious. The Alchemical may voluntarily dissipate the web at any time. The aura reduces the raw damage of any attack against the trapped victim by the Alchemical's Essence rating (potentially to zero) and inflicts the Alchemical's Essence in dice of piercing bashing damage on anyone striking the entrapped victim in hand-to-hand combat.",
     "cost": "6 motes, 1 Willpower; Installation Cost: 1 mote.",
     "compatibility": "Duration: Instant. Type: Simple. Ranged Combat Charms tree (Strength-keyed).",
     "verificationState": "reviewed",
@@ -1012,7 +1012,7 @@
     "id": "protosynthetic-ammunition-replicator",
     "name": "Protosynthetic Ammunition Replicator",
     "disposition": "selectable",
-    "summary": "A forearm-mounted implant that manufactures short-lived but fully solid Essence ammunition on demand \u2014 arrows of several head types, throwing daggers, batons, or chakrams \u2014 automatically feeding a carried bow as needed.",
+    "summary": "A forearm-mounted implant that manufactures short-lived but fully solid Essence ammunition on demand — arrows of several head types, throwing daggers, batons, or chakrams — automatically feeding a carried bow as needed.",
     "requirements": "Minimum Dexterity 2; Minimum Essence 2; Prerequisite Charms: Aim-Calibrating Sensors.",
     "mechanics": "Each activation creates one projectile of the Exalt's choice (target, frog crotch, fowling or broadhead arrow; throwing dagger; throwing baton; or a chakram whose interlocking blades unfold into something resembling a buzz saw); arrows are automatically fed/notched into a carried bow via an internal tendril for instant firing. Manufactured ammunition is fully solid and functions normally, but dissipates back into wisps of light after a number of turns equal to the creator's Essence. Ammunition scales to the Alchemical's build, so Essence 6+ Exalted generate warstrider-scaled missiles.",
     "cost": "1 mote; Installation Cost: 1 mote.",
@@ -1073,7 +1073,7 @@
     "id": "hundredfold-strafing-methodology",
     "name": "Hundredfold Strafing Methodology",
     "disposition": "selectable",
-    "summary": "A Repeating Pneumatic Bow upgrade that sweeps a wide arc with a continuous stream of Essence darts, striking every target \u2014 friend or foe \u2014 caught in the swath with a single attack roll.",
+    "summary": "A Repeating Pneumatic Bow upgrade that sweeps a wide arc with a continuous stream of Essence darts, striking every target — friend or foe — caught in the swath with a single attack roll.",
     "requirements": "Minimum Dexterity 5; Minimum Essence 4; Prerequisite Charms: Repeating Pneumatic Bow (must already be deployed to activate this Charm, though it generates its own ammunition independent of the Ammunition Replicator).",
     "mechanics": "The Exalt specifies an arc width up to 90 degrees and sweeps her arm across it; for the remainder of the turn, the bow fires a constant stream of darts (existing until the end of the turn) cutting through every target in the path. The player rolls Dexterity + Archery once and applies the result to every target caught in the swath. The darts have a 100-yard range increment and inflict a base lethal damage equal to Essence. Outside combat, the Charm can generally cut down large amounts of vegetation or obstacles in a single sweep.",
     "cost": "8 motes, 1 Willpower; Installation Cost: 1 mote.",
@@ -1095,7 +1095,7 @@
     "disposition": "selectable",
     "summary": "A neural-tattoo implant letting an Alchemical either bounce a single projectile through a cascading series of targets or unleash a near-simultaneous volley of separate missiles at multiple foes.",
     "requirements": "Minimum Dexterity 5; Minimum Essence 3; Prerequisite Charms: Aim-Calibrating Sensors.",
-    "mechanics": "First mode (3 motes per additional target): a single projectile is fired or thrown at an initial target, then \u2014 whether it hit or missed \u2014 the player selects a new target and rolls again at full pool for another 3 motes, repeating up to a total of (Essence + 1) attacks with no target struck twice; the Exalt may pay 1 mote at any point to recall the projectile to hand instead of leaving it lodged in the final target. All targets in a cascade must be traceable in range from the Exalt, with range penalties shifting per normal rules, and weapons with a single maximum range and no increments (such as firewands) require every target within that radius. Combining the retargeting mode with Essence Pulse Cannon in a Combo pays the Essence cost only once and carries submodule effects consistently to every target (a detonation submodule only triggers on the final hit); combining it with Repeating Pneumatic Bow requires a Combo with Protosynthetic Ammunition Replicator but only pays that Charm's cost once; it cannot be Comboed with Paramagnetic Tether Beam, Pulseweb Entanglement Burst, Subluminous Onslaught Missile, or any other Charm the Storyteller rules illogical. Second mode (same cost and rules): fires distinct missiles at superhuman speed instead of one recycled projectile, requiring separate ammunition per shot, unable to recall projectiles, and able to strike the same target multiple times; when Comboed with Essence Pulse Cannon each bolt is paid for and configured separately, and Protosynthetic Ammunition Replicator must be reactivated per shot; this volley mode may be Comboed with any Charm barred from the retargeting mode.",
+    "mechanics": "First mode (3 motes per additional target): a single projectile is fired or thrown at an initial target, then — whether it hit or missed — the player selects a new target and rolls again at full pool for another 3 motes, repeating up to a total of (Essence + 1) attacks with no target struck twice; the Exalt may pay 1 mote at any point to recall the projectile to hand instead of leaving it lodged in the final target. All targets in a cascade must be traceable in range from the Exalt, with range penalties shifting per normal rules, and weapons with a single maximum range and no increments (such as firewands) require every target within that radius. Combining the retargeting mode with Essence Pulse Cannon in a Combo pays the Essence cost only once and carries submodule effects consistently to every target (a detonation submodule only triggers on the final hit); combining it with Repeating Pneumatic Bow requires a Combo with Protosynthetic Ammunition Replicator but only pays that Charm's cost once; it cannot be Comboed with Paramagnetic Tether Beam, Pulseweb Entanglement Burst, Subluminous Onslaught Missile, or any other Charm the Storyteller rules illogical. Second mode (same cost and rules): fires distinct missiles at superhuman speed instead of one recycled projectile, requiring separate ammunition per shot, unable to recall projectiles, and able to strike the same target multiple times; when Comboed with Essence Pulse Cannon each bolt is paid for and configured separately, and Protosynthetic Ammunition Replicator must be reactivated per shot; this volley mode may be Comboed with any Charm barred from the retargeting mode.",
     "cost": "3 motes per target; Installation Cost: 2 motes.",
     "compatibility": "Duration: Instant. Type: Extra Action. Ranged Combat Charms tree (Dexterity-keyed).",
     "verificationState": "reviewed",
@@ -2798,7 +2798,7 @@
     "name": "Entropy Manipulation Protocol",
     "disposition": "selectable",
     "summary": "A Man-Machine Protocol favored by Alchemicals venturing into the gremlin-infested Far Reaches: it temporarily knocks all nearby automata offline, dealing damage and forcing them inert for the rest of the scene.",
-    "mechanics": "All gremlins, golems, zombies, and other automata within (Essence x 10) yards take the weaver's Essence in bashing damage and fall inert; at the start of the next scene they resume functioning, though they may be confused about their situation and may not necessarily resume their prior task. The protocol does not shut down warstriders or other powered armor outright, but deadens unshielded limbs: it imposes a -2 mobility penalty on Artifact \u2022\u2022\u2022 armor, reduced by 1 for each additional Artifact dot, so Artifact \u2022\u2022\u2022\u2022\u2022 armor is unaffected.",
+    "mechanics": "All gremlins, golems, zombies, and other automata within (Essence x 10) yards take the weaver's Essence in bashing damage and fall inert; at the start of the next scene they resume functioning, though they may be confused about their situation and may not necessarily resume their prior task. The protocol does not shut down warstriders or other powered armor outright, but deadens unshielded limbs: it imposes a -2 mobility penalty on Artifact ••• armor, reduced by 1 for each additional Artifact dot, so Artifact ••••• armor is unaffected.",
     "requirements": "Minimum Clarity 4.",
     "cost": "1 Willpower plus 25 motes.",
     "compatibility": "Man-Machine Protocol; usable via the Man-Machine Weaving Engine Charm.",
@@ -3354,7 +3354,7 @@
     "name": "Incarnation of Bestial Malice",
     "disposition": "selectable",
     "summary": "A God-Machine Protocol comparable to a Lunar war form: the weaver transforms into a terrifying chimeric or vegetative nightmare creature entirely unlike anything native to Autochthonia, gaining enormous natural weapons, hardness, soak, and boosted Strength/Stamina, temporarily losing her mechanical nature altogether.",
-    "mechanics": "The character becomes an enormous (a ton or more), living monstrous form - a chimera of unfamiliar beasts (yeddim, tyrant lizard, stryx, or others), a vegetative form (bark, thorns, prehensile vines), or a mix, agreed with the Storyteller beforehand; the mechanical nature disappears though some bulky Charms may show as vestigial metallic studs. The form gains an effective hardness of 10 and 10 additional soak against both bashing and lethal; Strength and Stamina each increase by 2 (even past 5). Brawl/Martial Arts/Melee attacks with claws gain +3 speed, +1 accuracy, and deal Strength + 6 lethal damage (Strength + 8 lethal in a clinch), with reach extended to (Essence) yards. Natural weapons are treated as roughly Artifact \u2022\u2022 Magical-Material weapons without the Material bonus. Armor and weapons are incompatible with the form (buried within the character's bulk for the duration). Normal movement rate is retained, and the character can grow gills to breathe underwater; for +5 motes, she also grows wings enabling flight at three times land speed.",
+    "mechanics": "The character becomes an enormous (a ton or more), living monstrous form - a chimera of unfamiliar beasts (yeddim, tyrant lizard, stryx, or others), a vegetative form (bark, thorns, prehensile vines), or a mix, agreed with the Storyteller beforehand; the mechanical nature disappears though some bulky Charms may show as vestigial metallic studs. The form gains an effective hardness of 10 and 10 additional soak against both bashing and lethal; Strength and Stamina each increase by 2 (even past 5). Brawl/Martial Arts/Melee attacks with claws gain +3 speed, +1 accuracy, and deal Strength + 6 lethal damage (Strength + 8 lethal in a clinch), with reach extended to (Essence) yards. Natural weapons are treated as roughly Artifact •• Magical-Material weapons without the Material bonus. Armor and weapons are incompatible with the form (buried within the character's bulk for the duration). Normal movement rate is retained, and the character can grow gills to breathe underwater; for +5 motes, she also grows wings enabling flight at three times land speed.",
     "requirements": "Minimum Clarity 2; Maximum Clarity 7.",
     "cost": "1 Willpower plus 30 or 35 motes (+5 more for flight).",
     "compatibility": "God-Machine Protocol; usable via the God-Machine Weaving Engine Charm.",
@@ -3551,5 +3551,575 @@
       "clarity-trait"
     ],
     "notes": "Chapter Four: God-Machine Protocols, p. 159 (PDF 160); visually cross-checked. Duration: Permanent; Target: Nearby Wyld areas. Requires Minimum Clarity 10, the highest Clarity requirement of any protocol in the catalog, matching Clarity's 0-10 scale already inventoried under clarity-effects-table. This is the last entry in the weaving-protocol catalog; the 'Autochthonian Thaumaturges' section begins immediately after it on the same page, moving into non-protocol content."
+  },
+  {
+    "id": "sweet-sleep-surrogate-syrup",
+    "name": "Sweet Sleep Surrogate Syrup",
+    "disposition": "selectable",
+    "summary": "An Autochthonian alchemical formula unique to this book: a cloyingly sweet syrup distilled from molds and fungi that lets a 30-second nap grant all the benefits of a full night's sleep, widely stockpiled by cities to squeeze extra shifts out of Populat laborers.",
+    "requirements": "Alchemy ••; Intelligence + Occult roll (difficulty 3); Minimum Backing ••.",
+    "mechanics": "A single dose grants all the benefits of a full night's rest - including feeling well-rested and a Conviction roll to regain Willpower - in a 30-second nap. It has no effect on Essence recovery, and a worker using it still needs one full night of true sleep every (Stamina x 2) nights or begins suffering sleep-deprivation penalties.",
+    "compatibility": "Any character with the Alchemy formula and appropriate Backing; in practice used mainly on mortal Populat laborers.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 161,
+      "pdfPage": 162
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Autochthonian Thaumaturges' -> 'Alchemy', p. 161 (PDF 162); visually cross-checked against the rendered page. One of only three alchemical formulae unique to Autochthonia listed in this section (the book notes several Creation formulae, e.g. ghost flower, are conversely unknown there)."
+  },
+  {
+    "id": "friction-banishing-preparation",
+    "name": "Friction Banishing Preparation",
+    "disposition": "selectable",
+    "summary": "A mineral-oil-derived Autochthonian alchemical formula that perfectly eliminates friction between two surfaces, prized industrially for silencing grinding machinery but equally usable as an improvised hazard that turns a patch of floor into a nearly unwalkable slick.",
+    "requirements": "Alchemy •••; Intelligence + Occult roll (difficulty 4); Minimum Backing •••.",
+    "mechanics": "A single vial coats a 10-by-10-foot patch of floor. The treated patch requires a successful Perception + Alertness roll (difficulty 1) to spot. Standing still on it requires a difficulty 4 Dexterity + Athletics roll; walking across it, or moving or standing up without something to hold onto, is difficulty 6. It can be neutralized with a simple Alchemy •/Backing • counter-agent, or left to degrade in open air after about a week.",
+    "compatibility": "Any character with the Alchemy formula and appropriate Backing; also used industrially to ease machinery.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 161,
+      "pdfPage": 162
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Autochthonian Thaumaturges' -> 'Alchemy', p. 161 (PDF 162); visually cross-checked against the rendered page."
+  },
+  {
+    "id": "the-makers-inertial-bile",
+    "name": "The Maker's Inertial Bile",
+    "disposition": "selectable",
+    "summary": "The most tightly restricted Autochthonian alchemical formula in the book: an acrid pale-gray fluid harvested from wild machine spirits that instantly halts and exorcises any spirit or animating force from a machine, automaton, or gremlin on contact - a substance the Tripartite polices as a serious crime for ordinary citizens to possess.",
+    "requirements": "Alchemy •••••; Intelligence + Occult roll (difficulty 8); Minimum Backing •••••.",
+    "mechanics": "A single phial, shattered against any device, instantaneously stops a machine or automaton and exorcises any spirit or animating force from it - including gremlins, zombies, golems, corpses possessed by nemissaries, and automata summoned via protocols or spells (e.g. bone lions, bronze snakes). Important Tripartite officials keep a phial or two on hand for deactivating runaway factory machinery or exorcising marauding gremlins, but mere possession of the fluid by a member of the Populat is a crime worthy of severe downward mobility or, more probably, exile.",
+    "compatibility": "Any character with the Alchemy formula and appropriate Backing; effectively restricted to senior Tripartite officials in practice.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 161,
+      "pdfPage": 162
+    },
+    "crossReferences": [
+      "plague-of-bronze-snakes",
+      "summon-autochthonian-elemental"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Autochthonian Thaumaturges' -> 'Alchemy', p. 161 (PDF 162); visually cross-checked against the rendered page. The book's own example automata immune to this bile's animating spirit only in the sense that they'd be shut down by it (bone lions, bronze snakes) point back to this book's own Plague of Bronze Snakes weaving protocol and the Summon Autochthonian Elemental protocol as the kind of summoned automata this formula can stop."
+  },
+  {
+    "id": "autochthonian-technology-overview",
+    "name": "Autochthonian Technology (chapter framing)",
+    "disposition": "reference-only",
+    "summary": "A framing note introducing the Autochthonian Technology section: Autochthonia's overall tech level is comparable to the early Dragon-Blooded Shogunate, Essence replaces electricity as a power source, clockwork and steam-driven pistons are the norm, and Alchemical Charms themselves define the practical ceiling of the setting's science, so the artifacts in this section generally echo a single Charm's function at reduced efficiency.",
+    "mechanics": "Artifacts in this section not stated as associated with a specific Magical Material may be attuned by any Essence user at standard cost, and many are explicitly intended for mortal use with no commitment requirement at all.",
+    "compatibility": "All Alchemical castes; many items are mortal-usable.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 180,
+      "pdfPage": 181
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Autochthonian Technology' introduction, p. 180 (PDF 181); visually cross-checked against the rendered page."
+  },
+  {
+    "id": "machines-in-the-machine-god-sidebar",
+    "name": "Machines in the Machine God (Efficiency and Inspiration)",
+    "disposition": "calculated",
+    "summary": "A sidebar describing two passive effects of Autochthon's own psychic presence on technology throughout most of his body: devices last 10% longer between maintenance intervals (Efficiency), and rolls to invent new devices gain a bonus (Inspiration) - both suspended in blight zones.",
+    "mechanics": "Efficiency: mechanical and magical devices last 10 percent longer before accruing wear penalties (e.g. a device normally needing service every 10 hours instead goes 11); this bonus is not already factored into any artifact statistics printed in this chapter, and does not apply in blight zones (where items function at normal or reduced efficiency at the Storyteller's discretion). Inspiration: rolls to create an all-new device gain one extra die (an automatic success instead, inside the sacred Core); this bonus does not apply when following a blueprint or copying an existing model, though it does apply to independently recreating a lost design or to two inventors who separately conceive the same device (only the project leader's player gains it on a team effort). No bonus applies in blight zones.",
+    "compatibility": "Any Craft-based invention or artifact-maintenance roll made within Autochthonia (excluding blight zones); a stronger, doubled version of Efficiency applied only prior to the Primordial's exile Elsewhere and no longer applies except at the Core itself.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 181,
+      "pdfPage": 182
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Machines in the Machine God' sidebar, p. 181 (PDF 182); visually cross-checked against the rendered page."
+  },
+  {
+    "id": "artificial-textiles",
+    "name": "Artificial Textiles",
+    "disposition": "reference-only",
+    "summary": "A survey of the alchemically produced fabrics Autochthonians use in place of organic materials: common synthetic 'leather' made from elemental oil, artificial silk favored for comfort and cut-resistance, and several rarer specialty textiles (a liquid-resistant stretch fabric, a heavy liquid-absorbing material, and a tightly woven fiber used for exceptional chain shirts and buff jackets).",
+    "mechanics": "Resources rating scales from • for common synthetic leather or artificial silk goods up to ••••• for the rarest specialty weaves; no other independent game mechanics are given beyond what the specific armor/clothing items built from them (e.g. the exceptional chain shirts and buff jackets referenced elsewhere in this chapter) state.",
+    "cost": "Resources • to ••••• depending on the specific textile.",
+    "compatibility": "Any character; foundational material for Autochthonian clothing and light armor.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 180,
+      "pdfPage": 181
+    },
+    "crossReferences": [
+      "fiber-weave-bodysuit"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Autochthonian Technology' -> 'Artificial Textiles', p. 180 (PDF 181); visually cross-checked against the rendered page. Reference-only because it describes a category of raw material rather than a single purchasable item; the Fiber-Weave Bodysuit row is the concrete armor item built from the 'tightly woven fiber' variant."
+  },
+  {
+    "id": "filter-mask",
+    "name": "Filter Mask",
+    "disposition": "selectable",
+    "summary": "A cup-shaped mask sealed over the mouth and nose that filters air through hundreds of layers of artificial cloth, blocking or muting toxic gasses and preventing all but the most virulent airborne diseases; mortal wearers are treated as Exalted for any poison or disease they do breathe.",
+    "mechanics": "Grants three extra dice to resist breathed poisons and diseases, and lets mortal wearers treat themselves as Exalted for any such poison or disease they do breathe. Each mask is good for about a month of regular use before requiring disassembly and purification with industrial solvents; after that first month, its bonus decreases by one die per month of continued use until it becomes useless.",
+    "cost": "Resources ••.",
+    "compatibility": "Any character, including mortals; standard-issue for Autochthonian infantry.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 180,
+      "pdfPage": 181
+    },
+    "crossReferences": [
+      "respirator-module"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Autochthonian Technology' -> 'Filter Mask', p. 180-182 (PDF 181-183); visually cross-checked against the rendered page."
+  },
+  {
+    "id": "photo-resonant-gel",
+    "name": "Photo-Resonant Gel",
+    "disposition": "selectable",
+    "summary": "A simple, widely used alchemical compound that exists in two forms: one that fluoresces in the presence of concentrated Essence (used as warning badges, wall glyphs, and Essence-level gauges), and one that stores and slowly releases ordinary light like foxfire (used as backup illumination on worker uniforms).",
+    "mechanics": "The Essence-sensitive form glows a chosen hue within a five-yard radius of concentrated Essence sources (spirits, power capacitors, Alchemical reservoir tanks, the Great Maker's own cables), bright enough to read by within a yard and noticeable almost as far as a torch; the Charms Essence Dormancy Mode and Essence Veil (and similar magic) can foil this detection. The light-storing form instead absorbs shined light and releases it in a dim, candle-level glow for three to five hours between recharges, needing only exposure to a strong light source to reset. Unauthorized possession is a (usually minor) crime, as the Glorious Luminors of the Brilliant Rapture jealously hoard the formulas.",
+    "cost": "Resources •• per gallon.",
+    "compatibility": "Any character; used as talismans/badges, painted warning glyphs, Essence-charge gauges on other artifacts, or illumination accents on clothing.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 182,
+      "pdfPage": 183
+    },
+    "crossReferences": [
+      "essence-dormancy-mode",
+      "essence-veil"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Autochthonian Technology' -> 'Photo-Resonant Gel', p. 182-183 (PDF 183-184); visually cross-checked against the rendered page."
+  },
+  {
+    "id": "arc-protector",
+    "name": "Arc Protector",
+    "disposition": "selectable",
+    "summary": "Black-crystal goggles that let the wearer look directly at blinding light sources - open electrical arcs, plasma furnaces, and the like - without being permanently blinded, at the cost of hampering low-light vision.",
+    "mechanics": "Wearers suffer no penalty or ill effect from staring at naked electrical arcs, open plasma furnaces, or similarly blinding sights (though the goggles offer no protection against magical effects with a visual component, such as Sidereal anima powers). In low-light conditions, they impose a one- to three-die penalty depending on how poor the light is. Issued to Autochthonians traveling to Creation as protection against the unfiltered sun; going to Creation unprotected imposes Awareness penalties for bright conditions (one die for indirect/weak sunlight up to three dice at cloudless noon) until the wearer completes a week-long gradual light-exposure weaning process.",
+    "cost": "Artifact •.",
+    "compatibility": "Any character, including mortals; standard issue for Autochthonians traveling to Creation.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 182,
+      "pdfPage": 183
+    },
+    "crossReferences": [
+      "light-amplification-visor"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Autochthonian Technology' -> 'Arc Protector', p. 182 (PDF 183); visually cross-checked against the rendered page."
+  },
+  {
+    "id": "autolabe",
+    "name": "Autolabe",
+    "disposition": "selectable",
+    "summary": "A gimbaled compass-like navigational artifact whose pointer always orients back toward a fixed beacon (usually the center of its owner's home city) rather than toward a cardinal direction, essential for finding one's way through Autochthonia's fully three-dimensional maze of passageways.",
+    "mechanics": "The beacon can be reset by leaving the autolabe in physical contact with a new beacon for 25 hours; otherwise it always points back to whichever beacon it was attuned to at creation. Exploration models come as a matched set with a portable base-unit beacon; a rarer variant lets two autolabes interchange beacons to always point back to each other. A more sophisticated Artifact •• version has a secondary mode that memorizes an individual's exact path when a button is pressed, then guides the bearer back along the remembered path (returning her to the point she deviated from if she strays).",
+    "cost": "Artifact • or ••.",
+    "compatibility": "Any character, including mortals; common among explorers of the Reaches and Far Reaches.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 182,
+      "pdfPage": 183
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Autochthonian Technology' -> 'Autolabe', p. 182-183 (PDF 183-184); visually cross-checked against the rendered page."
+  },
+  {
+    "id": "essence-capacitor",
+    "name": "Essence Capacitor",
+    "disposition": "selectable",
+    "summary": "Autochthonia's Hearthstone-equivalent: a nearly indestructible orichalcum-caged crystal that stores and emits a focused current of ambient motes to power large or advanced artifacts, distinguished from a true Hearthstone by running out of power after 25 hours unless recharged and by conveying no independent magical benefit of its own.",
+    "mechanics": "Plugs into a socket exactly as a Hearthstone would; supplies constant power at twice its rating in motes per hour to mundane devices, but only its rating in motes per hour when committed (1 mote) to replenish an Alchemical or other Essence user directly. Functions for 25 hours before automatically shutting down for lack of motes, or may be switched off earlier and later reactivated; a deactivated capacitor recharges one hour of power per two hours spent respiring Essence in Autochthonia (it cannot recharge in blight zones, and must be specially calibrated at a half-hour technician's cost before it can recharge outside Autochthonia at all). If shattered (deliberately or by accident), it releases a pulse inflicting (rating x 10) lethal damage, minus 1L per full yard of distance; a deactivated capacitor only explodes on a botched attempt. The surrounding wire lattice has a separate soak of 10L/10B and 10 health levels, repairable with Resources equal to the artifact's rating (or half, rounded up, for partial lattice damage) by a technician with Occult and Lore •• and a pertinent Craft •••. A tri-socket adapter (Resources •••) houses three same-rated capacitors and automatically switches between them for uninterrupted power.",
+    "cost": "Artifact • to •••••.",
+    "compatibility": "Any character; the standard Autochthonian power source for artifacts, vehicles, and installations lacking a Manse or Demesne to draw on.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 183,
+      "pdfPage": 184
+    },
+    "crossReferences": [
+      "manse-background-altered"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Autochthonian Technology' -> 'Essence Capacitor', p. 183 (PDF 184); visually cross-checked against the rendered page. Cross-referenced to manse-background-altered because the book explicitly frames capacitors as filling the technological niche Hearthstones/Manses serve in Creation, which Autochthonia otherwise entirely lacks."
+  },
+  {
+    "id": "flaw-scanner",
+    "name": "Flaw Scanner",
+    "disposition": "selectable",
+    "summary": "A palm-mounted amethyst amulet that projects a violet light revealing cracks, flaws, and points of unintended stress in objects, mainly a narrative diagnostic tool but also a minor aid to repair work.",
+    "mechanics": "Activated for a scene by spending 1 Willpower or 2 motes; scans up to a square yard per turn. Any Craft rolls made to repair a flaw the scanner revealed gain a one-die bonus, provided the technician studied the damage under the light for a full minute first.",
+    "cost": "Artifact •.",
+    "compatibility": "Any character, including mortals.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 183,
+      "pdfPage": 184
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Autochthonian Technology' -> 'Flaw Scanner', p. 183 (PDF 184); visually cross-checked against the rendered page."
+  },
+  {
+    "id": "light-amplification-visor",
+    "name": "Light Amplification Visor",
+    "disposition": "selectable",
+    "summary": "Goggles (or, for mortals only, surgically implanted lens replacements) that duplicate the light-intensification filters submodule of the Alchemical Optical Enhancement Charm; a superior Artifact •• version adds a powered thermal-vision mode as well.",
+    "mechanics": "Worn or implanted continuously, the base version grants the benefits and drawbacks of the light-intensification filters submodule of Optical Enhancement. The Artifact •• version additionally grants thermal vision (identical to that Charm's thermal-vision submodule) when powered - 1 Willpower point charges it for two hours, or 1 mote for one hour. Surgical implantation takes three hours and an Intelligence + Medicine roll (difficulty 5) by the surgeon; failure permanently blinds the patient. Implanted wearers gain no benefit from arc protectors worn at the same time (the two artifacts cancel out), and Alchemical Exalted specifically cannot have this artifact implanted (though they may wear it as goggles).",
+    "cost": "Artifact • or ••.",
+    "compatibility": "Any character (implantation is mortal-only; Alchemicals may only wear the goggle form).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 183,
+      "pdfPage": 184
+    },
+    "crossReferences": [
+      "optical-enhancement",
+      "arc-protector"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Autochthonian Technology' -> 'Light Amplification Visor', p. 183-184 (PDF 184-185); visually cross-checked against the rendered page."
+  },
+  {
+    "id": "light-sphere",
+    "name": "Light Sphere",
+    "disposition": "selectable",
+    "summary": "The standard portable light source of the sunless Realm of Brass and Shadow: a three-inch brass-and-glass globe that consumes a disc of low-quality jade fuel to produce a week (or longer, for higher-quality fuel) of harsh, cold torch-equivalent light without heat or smoke.",
+    "mechanics": "Each standard jade fuel disc (Resources • in Autochthonia/Yu-Shan, •• elsewhere) burns for a full week; higher-quality discs last a month (Resources •• everywhere), and rare perfectly calibrated discs last a full year (Resources ••• everywhere, not mass-produced). A switch conserves fuel by breaking/restoring the jade-catalyst connection. A rarer shuttered model (also Artifact •) has a mirrored interior and an iris shutter that can slide colored glass filters across it, projecting light only in one direction but tripling illumination distance - used for signaling, including secret optical codes among dissidents.",
+    "cost": "Artifact •.",
+    "compatibility": "Any character, including mortals; Alchemicals themselves typically see by their own animas instead.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 184,
+      "pdfPage": 185
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Autochthonian Technology' -> 'Light Sphere', p. 184 (PDF 185); visually cross-checked against the rendered page."
+  },
+  {
+    "id": "omnimodal-wardrobe-unit",
+    "name": "Omnimodal Wardrobe Unit",
+    "disposition": "selectable",
+    "summary": "A single garment-artifact that compresses an entire wardrobe into one item, woven through with moonsilver wires and swarming with microscopic spider automata that unravel and reweave its fabric into any previously seen or newly designed clothing shape on command.",
+    "mechanics": "Once attuned (1 mote committed), the wearer may reflexively spend 1 mote to change the garment's form in a single turn; the process also cleans and repairs any damage to the suit as a side effect (or can be triggered for 1 mote purely to clean/repair without changing form). Recalling a previously assumed shape uses a Wits + Awareness roll (difficulty 2); designing an unfamiliar shape from scratch uses Wits + Craft (Textiles) (difficulty 2) as a simple (non-reflexive) action, with failure producing an imperfect result. Can become any clothing item or combination, in any coloration/texture/apparent material, and in all forms grants +1L soak (not armor, stacks with worn armor) - but it can never become actual armor.",
+    "cost": "Artifact •.",
+    "compatibility": "Essence 2-5 Alchemical Exalted primarily, though usable by other characters as clothing.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 184,
+      "pdfPage": 185
+    },
+    "crossReferences": [
+      "fiber-weave-bodysuit"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Autochthonian Technology' -> 'Omnimodal Wardrobe Unit', p. 184-185 (PDF 185-186); visually cross-checked against the rendered page."
+  },
+  {
+    "id": "portable-nutriment-recycling-engine",
+    "name": "Portable Nutriment Recycling Engine (Ponre)",
+    "disposition": "selectable",
+    "summary": "A person-sized, foldable field device (nicknamed a 'ponre') that grinds and sterilizes any organic matter fed into its intake chute into imperishable, chalky nutrient pellets equivalent to a full meal - a battlefield and exploration ration-maker.",
+    "mechanics": "Collapses to a backpack-portable steel box (one minute to transform either way) despite weighing only about 30 pounds. In expanded mode, a hand-cranked spring mechanism (five minutes of winding = one hour of operation) powers grinding blades that process two pounds of organic material per minute into a single nourishing pellet; all toxins and diseases in the source material are removed. Ten pellets are a Resources •• item in Autochthonia (generally unobtainable elsewhere).",
+    "cost": "Artifact •.",
+    "compatibility": "Any character, including mortals; designed for battlefield or exploration use.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 185,
+      "pdfPage": 186
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Autochthonian Technology' -> 'Portable Nutriment Recycling Engine', p. 185 (PDF 186); visually cross-checked against the rendered page."
+  },
+  {
+    "id": "respirator-module",
+    "name": "Respirator Module",
+    "disposition": "selectable",
+    "summary": "An upgraded filter mask built around a blue jade nodule that can additionally seal completely and synthesize breathable air directly out of Essence, letting the wearer travel underwater or through vacuum without asphyxiating.",
+    "mechanics": "Functions as a filter mask with no cleaning/upkeep requirement. Flipping a tongue-operated switch seals the module and begins synthesizing air, fully protecting the wearer from harmful airborne effects and permitting underwater or vacuum travel. Requires chips of crystallized thaumaturgical reagent to operate (Resources •• per batch of 10 in Autochthonia, ••• per batch elsewhere); each chip provides an hour of air, and the module vibrates when running low. Any Essence-channeling wearer may instead reflexively spend 1 mote to power the module for an hour.",
+    "cost": "Artifact •.",
+    "compatibility": "Any character, including mortals; issued to elite military units for toxic or airless missions.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 185,
+      "pdfPage": 186
+    },
+    "crossReferences": [
+      "filter-mask"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Autochthonian Technology' -> 'Respirator Module', p. 185 (PDF 186); visually cross-checked against the rendered page."
+  },
+  {
+    "id": "courier-drone",
+    "name": "Courier Drone",
+    "disposition": "selectable",
+    "summary": "A dragonfly-sized metallic automaton, the most common means of intercity messaging in Autochthonia, capable of carrying a quarter-pound of cargo (scroll tubes, memory crystals) at up to 300 miles per hour by homing in on Essence-broadcast city signals; a rarer exploration/military variant instead shuttles between two fixed beacons.",
+    "mechanics": "Navigates by tracking metropoli Essence emissions across Autochthonia (leaving it blind and confused outside the Realm of Brass and Shadow) and follows an ancient Alchemical-broadcast neural signal to its drop site; the beacon-pair variant instead infallibly tracks two specific beacons on the same plane of reality, landing to wait if its destination beacon enters a scrying-warded area. Statistics: Intelligence 1, Perception 3, Wits 3, no Virtues (never fails Valor rolls, never succeeds at other Virtue checks); Strength 1/Dexterity 10/Stamina 1, Willpower 10, Health Levels -2/Squished, no attack, Dodge 15, Soak 1L/1B, Athletics 5, Awareness 5, Dodge 5, Stealth 5. Must respire living Essence through its wings; drops to 50 mph in a blight zone or shadowland by day, and after an hour in the Underworld goes erratic and lands until re-exposed to living Essence for an hour. Repair: an hour of work, Resources •• per health level, technician with Craft (Clockworks or similar) ••••.",
+    "cost": "Artifact ••.",
+    "compatibility": "Any character; requisitionable as an artifact or as a Familiar Background purchase.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 185,
+      "pdfPage": 186
+    },
+    "crossReferences": [
+      "familiar-background-altered"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Autochthonian Technology' -> 'Courier Drone', p. 185-186 (PDF 186-187); visually cross-checked against the rendered page (stat block visually confirmed on p. 186/PDF 187)."
+  },
+  {
+    "id": "soulgem-artifact",
+    "name": "Soulgem (mortal implant and Artifact rating)",
+    "disposition": "reference-only",
+    "summary": "The mandatory forehead-implanted artifact every Autochthonian citizen receives within a week of birth: a Hearthstone-durable jewel (color and shape coded by social caste) that absorbs and stores its bearer's soul at death for eventual recycling into a new body, with Alchemical Exalted instead receiving a flawless diamond soulgem that never returns to Autochthon and is instead reinstalled in a new Alchemical.",
+    "mechanics": "On the bearer's death, the jewel absorbs her fused higher and lower soul and stores it until it can be recycled (a Celestial Exalt's Essence cannot be captured this way). Soulgems share a Hearthstone's durability, so even severe industrial accidents cannot crack them; deliberately breaking one is a capital crime throughout Autochthonia. Soulgem color/shape denotes social caste: round polished onyx for the Populat, rectangular orange topaz for the Olgotary, square sapphire for Theomachrats, and diamond-shaped amethyst for Sodalts; outcasts' gems bear concentric tattooed rings recording their crimes. Exiles have their gems forcibly removed (a scarring procedure that, per Luminor doctrine, dooms the soul to Oblivion, though Autochthon actually still recycles it under a falsified genealogy number, secretly watched for three lifetimes). Alchemical soulgems are always flawless many-faceted diamonds that are never fed back to Autochthon at death; in extremely rare cases the Luminors transfer a mortal hero's soul into a new Alchemical gem instead (a failure-prone process that confuses genealogy tags). Players spend no Background points for an Autochthonian character to have a soulgem - it is assumed automatically.",
+    "cost": "Artifact •• (implanted at birth at no player cost; see notes).",
+    "compatibility": "Every Autochthonian citizen, mortal and Alchemical alike.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 186,
+      "pdfPage": 187
+    },
+    "crossReferences": [
+      "alchemical-life-and-death"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Autochthonian Technology' -> 'Soulgem', p. 186-187 (PDF 187-188); visually cross-checked against the rendered page. Classified reference-only rather than selectable because the book explicitly states players spend no Background points for it and every citizen is assumed to already have one - it is not a purchasable choice, unlike the other Artifact-rated items in this section. Cross-referenced to the pre-existing alchemical-life-and-death row (Chapter Two), which covers the same diamond soulgem from the post-Incapacitated-dissolution angle; this row adds the mortal-soulgem lore, caste color-coding, and the artifact's own combat/durability statistics."
+  },
+  {
+    "id": "industrial-exoskeleton",
+    "name": "Industrial Exoskeleton",
+    "disposition": "selectable",
+    "summary": "A 12-foot humanoid powered-armor frame that a mortal or low-Essence Alchemical straps into (via a painful but non-damaging neural-jack process) to massively augment Strength and gain heavy protection, at the cost of speed and constant maintenance.",
+    "mechanics": "Piloting requires five minutes to strap in and commit 8 motes (or 2 Willpower for non-Essence users) plus an installed two-dot Essence capacitor. Augmented Strength: adds 12 to the pilot's effective Strength for lifting/breaking/damage purposes; joints can lock to hold a lifted object indefinitely. Protection: armored models give soak 12L/12B (hardness 6L/6B), mobility penalty -8, fatigue value 2; unarmored low-hazard models give soak 6L/6B (no hardness), mobility penalty -3, fatigue value 1. Slow: armored models halve ground speed and cannot jump or climb; lighter models reduce ground/climbing speed to 3/4 normal and halve jump distance; neither model can swim (both sink). Upkeep: needs recalibration by a technician (Lore, Occult, and a pertinent Craft at •••) every 25 hours of use, losing 1 point of its Strength bonus per 5 hours overdue (paralyzed once the bonus hits 0); routine maintenance is an hour of work plus Resources ••• in tools, with every fifth maintenance also requiring Resources ••• (•••• outside a large Creation city) in replacement parts.",
+    "cost": "Artifact •••; requires an installed two-dot Essence capacitor.",
+    "compatibility": "Mortals or Essence 2-3 Alchemical Exalted.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 187,
+      "pdfPage": 188
+    },
+    "crossReferences": [
+      "essence-capacitor"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Autochthonian Technology' -> 'Industrial Exoskeleton', p. 187 (PDF 188); visually cross-checked against the rendered page. Its stat-table entries (Armored Industrial Exoskeleton and Industrial Exoskeleton) appear in the Autochthonian Weapons and Armor table, p. 192/PDF 193, folded into this row's mechanics rather than duplicated as a separate row."
+  },
+  {
+    "id": "autochthonian-warfare-overview",
+    "name": "Warfare (Autochthonian military technology overview)",
+    "disposition": "reference-only",
+    "summary": "A framing overview of Autochthonian military technology and doctrine: roughly comparable to the early Dragon-Blooded Shogunate or Second Age Jadeborn, emphasizing tunnel/bottleneck warfare over open-field battles, with standard infantry issue of a reinforced buff jacket, rubbery bodysuit, filter mask or respirator module, opaque goggles or arc protectors/light-amplification visors, shields, and crossbows.",
+    "mechanics": "Alchemical Exalted invariably field artifact weapons and gear early on, gradually internalizing a preferred arsenal as implanted Charms as they age; Essence 6-7 Alchemicals generally need warstrider-scaled weapons (though they can still wield smaller items via tentacle appendages). Their favored armor is an artifact buff jacket or reinforced buff jacket worn over implanted Charm-armor; those on covert missions favor fiber-weave shirts or their own Charms instead of visible artifact gear.",
+    "compatibility": "Any character; sets the baseline equipment loadout referenced by the more specific weapon/armor rows that follow.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 187,
+      "pdfPage": 188
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Warfare' section introduction, p. 187-188 (PDF 188-189); visually cross-checked against the rendered page."
+  },
+  {
+    "id": "crossbows-autochthonian",
+    "name": "Crossbows (Autochthonian varieties)",
+    "disposition": "selectable",
+    "summary": "Autochthonia's dominant ranged weapon family (conventional bows are nearly unknown there): personal crossbows, wrist-mounted assassin's models, emplacement-only siege crossbows, and the artifact-grade assault crossbow favored by Alchemicals, firing mostly armor-piercing 'target' bolts (effective against metal-skinned gremlins) alongside rarer broadhead and spring-tipped 'razor' bolts.",
+    "mechanics": "Crossbow damage does not depend on the user's Strength, letting even weak or untrained users hit as hard as a trained archer. All crossbows are slow to reload (rate 1, or 1/10 for the emplacement-only siege model) and have relatively poor range; neither Exceptional-quality crafting nor Archery Charms can improve their rate unless a Charm is specifically built for that purpose. Razor bolts (spring-loaded tips that open into a three-bladed claw in flight) use the same rules as frog-crotch arrows against flesh but are useless against hard targets. Assault Crossbow: Accuracy +3, Damage 8L, Rate 1, Range 250, Str 1 minimum, Artifact ••, 5-mote attunement, generally shares powerbow-style Magical Material bonuses (jade models add +2 speed and 30 yards range instead of a rate bonus). Base statistics from the Autochthonian Weapons and Armor table: Crossbow (Acc +0, Dmg 5L, Rate 1, Range 125, Str 1, Resources ••), Hand Crossbow (Acc +0, Dmg 3L, Rate 2, Range 75, Resources •••), Siege Crossbow (Acc +0, Dmg 8L, Rate 1/10, Range 250, emplacement only, Resources •••), Warstrider Crossbow (Acc +0**, Dmg 8L, Rate 1, Range 250, Str 12, Resources ••••), Warstrider Onslaught Crossbow (Acc +2**, Dmg 16L, Rate 1, Range 450, Str 12, Artifact •••).",
+    "cost": "Resources •• or ••• for mundane models, or Artifact •• for the assault crossbow.",
+    "compatibility": "Any character; the assault crossbow is specifically an Alchemical weapon of choice, though Alchemicals more often favor their own Charm-based ranged weapons (Essence cannons, pneumatic bows) instead.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "188-189",
+      "pdfPage": "189-190"
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Warfare' -> 'Crossbows', p. 188-189 (PDF 189-190), with statistics from the 'Autochthonian Weapons and Armor' table, p. 192 (PDF 193); visually cross-checked against both rendered pages."
+  },
+  {
+    "id": "fiber-weave-bodysuit",
+    "name": "Fiber-Weave Bodysuit",
+    "disposition": "selectable",
+    "summary": "A supple, chain-shirt-equivalent light armor woven from high-quality fiber-weave textile threaded with Magical Material nodes, thin enough to wear discreetly under ordinary clothing; an upgraded Artifact •• version additionally functions as an Omnimodal Wardrobe Unit.",
+    "mechanics": "Requires a 3-mote commitment. Grants an additional special property beyond its base soak: lethal piercing attacks based on kinetic penetration do not halve the armor's soak unless their raw damage is at least twice the armor's base lethal soak (before Magical Material bonuses). Benefits normally from its Magical Material (tempered Autochthonian adamant grants +3L soak and a -1 mobility-penalty reduction). The Artifact •• version adds every Omnimodal Wardrobe Unit property except that artifact's own soak bonus, for the same 3-mote commitment, letting an Alchemical always be armored regardless of the clothing shape currently worn - but it cannot be worn under other armor. Base statistics: soak 5L/3B, no hardness, -0 mobility penalty, 0 fatigue value.",
+    "cost": "Artifact • or ••; 3-mote commitment.",
+    "compatibility": "Any character; favored by Alchemicals on covert missions instead of visible artifact armor.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 189,
+      "pdfPage": 190
+    },
+    "crossReferences": [
+      "omnimodal-wardrobe-unit",
+      "artificial-textiles"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Warfare' -> 'Fiber-Weave Bodysuit', p. 189-190 (PDF 190-191), with base statistics from the 'Autochthonian Weapons and Armor' table, p. 192 (PDF 193); visually cross-checked against both rendered pages."
+  },
+  {
+    "id": "gyroscopic-chakram",
+    "name": "Gyroscopic Chakram",
+    "disposition": "selectable",
+    "summary": "The most widely used and feared thrown weapon of the Alchemical Exalted: a six-holed metal throwing disk that deploys spinning blades and homing clockwork in flight, banking to relentlessly pursue its target and returning to its owner's hand after each attempt, with a distinct bonus power for each of the six Magical Materials.",
+    "mechanics": "Attuned for 5 motes. Acts at initiative 20 with a 10-dice pool (accuracy included) every turn it hunts a missed target, continuing until it hits or botches (striking an unintended target and lodging on a botch, requiring manual retrieval); its owner may abort the attack as a reflexive action to recall it early. Maximum range from the owner is 90 yards; it returns instantly on a hit or on any non-dodge/non-parry miss, or at the end of the turn otherwise. Magical Material powers: Orichalcum adds 1 to the difficulty of dodges/parries against it and returns instantly rather than at turn's end; Moonsilver can fold to coin-size for concealment and its blades extend up to a foot for +1 damage; Jade adds 2 damage against inanimate objects and repeatedly strikes such targets (even after hitting) until fully destroyed or recalled; Starmetal treats botches as simple failures, adds 1 accuracy, and never strikes an unintended target even when redirected by hostile magic; Soulsteel hunts and repeatedly attacks living/animate Essence-bearing prey until recalled, botched, or its quarry dies; Adamant inflicts piercing damage but is rarely used due to its high attunement cost. May also be wielded in close combat as a saw with normal Magical Material melee bonuses (adamant inflicts piercing damage there too). A warstrider-scaled version (yard diameter, 8-mote commitment) also exists. Statistics: as a thrown weapon, Speed +1, Accuracy +1, Damage +4L, Defense +2, minimum Str 1/Dex 3, Artifact ••• (Exalted Power Combat: Rate 6).",
+    "cost": "Artifact •••; 5-mote attunement.",
+    "compatibility": "Any Alchemical caste; Alchemicals of the 'wrong' caste for a given Magical Material double the attunement cost as normal.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "189-190",
+      "pdfPage": "190-191"
+    },
+    "crossReferences": [
+      "thousand-wounds-gear-style",
+      "beam-klave"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Warfare' -> 'Gyroscopic Chakram', p. 189-190 (PDF 190-191), with statistics from the 'Autochthonian Weapons and Armor' table, p. 192 (PDF 193); visually cross-checked against all three rendered pages."
+  },
+  {
+    "id": "thousand-wounds-gear-style",
+    "name": "Thousand Wounds Gear Style",
+    "disposition": "reference-only",
+    "summary": "A Celestial-level martial art unique to the Alchemical Exalted, built entirely around paired gyroscopic chakram use; practitioners are noted for calculated efficiency at killing or maiming with the disks and for interposing them defensively as improvised shields.",
+    "compatibility": "Alchemical Exalted with Perfected Lotus Matrix installed and gyroscopic chakrams available.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 190,
+      "pdfPage": 191
+    },
+    "crossReferences": [
+      "gyroscopic-chakram",
+      "perfected-lotus-matrix"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Warfare' -> 'Gyroscopic Chakram', p. 190 (PDF 191); visually cross-checked against the rendered page. Classified reference-only, matching the existing alchemical-martial-artists row's precedent: the book names this style and its narrative flavor but gives none of its actual Charms, so there is nothing here to mark selectable beyond noting the style's existence."
+  },
+  {
+    "id": "beam-klave",
+    "name": "Beam Klave",
+    "disposition": "selectable",
+    "summary": "The signature melee weapon of the Alchemical Exalted: an unassuming crystal-tipped cylinder that extends a glowing three-foot Essence blade on command, functioning as a daiklave with the destructive bonus power of burning through whatever it strikes or parries - available as an equivalent conversion of every basic Magical Material melee weapon type.",
+    "mechanics": "Attuned for 3 motes; activating the blade for a scene costs an additional 5 motes. Blade color follows its Magical Material (orichalcum gold-white, moonsilver pale silver-blue, jade the shade of its jade type, starmetal shifting crimson-to-violet, soulsteel dried-blood red-black with a shadow contrail, adamant nearly invisible pale-blue prisms). Shares daiklave statistics and Magical Material bonuses (adamant inflicts piercing damage). Special powers: if it parries a non-magical weapon and scores any success, the parried weapon is destroyed (natural weapons like claws/fists may be severed from extras, though more significant characters instead take two soakable lethal levels); if a non-magical weapon parries it and scores a success, that weapon is likewise destroyed and all its parry successes are halved thereafter; on a successful hit against non-magical armor, the raw damage permanently reduces the armor's soak (both bashing and lethal) to a minimum of zero, destroying the armor entirely if both reach zero; against inanimate targets it works the same way (charring/gashing without full destruction until health levels are exhausted), reducing soak only in the struck area for larger structures. Magical weapons take no damage from contact with a beam klave. Other daiklave-family weapons have beam equivalents at the same rules (grimcleaver -> beam axe; dire lance -> beam lance, treated as an unpowered javelin when off; razor claws -> paired beam talons), all at Artifact rating two dots higher than their mundane equivalent with the same 3-mote attunement/5-mote activation. A warstrider-scaled beam klave also exists (Artifact •••••, 4-mote attunement plus normal warstrider-weapon commitment). Statistics: Speed +3, Accuracy +2, Damage +5L, Defense +2, minimum Str 2, Artifact •••• (Exalted Power Combat: Rate 5).",
+    "cost": "Artifact •••• (or higher for warstrider scale/other weapon-type conversions); 3-mote attunement plus 5 motes per scene to activate.",
+    "compatibility": "Any Alchemical caste.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "190-192",
+      "pdfPage": "191-193"
+    },
+    "crossReferences": [
+      "gyroscopic-chakram"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Warfare' -> 'Beam Klave', p. 190-192 (PDF 191-193), with statistics from the 'Autochthonian Weapons and Armor' table, p. 192 (PDF 193); visually cross-checked against all three rendered pages. 'The Secret of Soulsteel' sidebar sharing this page (explaining how soulsteel exists in Autochthonia without a Labyrinth) was reviewed and intentionally excluded as pure narrative/lore with no independent game mechanics."
+  },
+  {
+    "id": "autochthonian-transportation-overview",
+    "name": "Transportation (Autochthonian mass and personal transit overview)",
+    "disposition": "reference-only",
+    "summary": "A framing note on Autochthonian transit: most travel within cities is on foot, since Autochthonia's only steeds are automatons or lesser machine gods (usually requisitioned as Alchemical familiars), so the Machine God's society instead developed the exotic clockwork/Essence-driven conveyances detailed in this section.",
+    "compatibility": "Any character.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 192,
+      "pdfPage": 193
+    },
+    "crossReferences": [
+      "familiar-background-altered"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Transportation' section introduction, p. 192 (PDF 193); visually cross-checked against the rendered page."
+  },
+  {
+    "id": "pneumatic-trams",
+    "name": "Pneumatic Trams",
+    "disposition": "reference-only",
+    "summary": "Tube-shaped subway trains that provide Autochthonia's primary mass transit: vertical arrangements serve as elevators linking a city's tiers, lateral trams move passengers within a tier, and much larger cargo trams connect entire cities and nations along paramagnetic-accelerated arterial highways.",
+    "mechanics": "Intracity trams top out around 50 miles per hour; cargo trams can reach 200 miles per hour once inside airtight highway tubes. Trains lack life support (excluding unbreathing Alchemicals as passengers, as a precaution against dissident stowaways). Fixed-path trams need no skill or rolls to operate, though anyone unable to read Autochthonic pictogram instructions needs an Intelligence + Lore roll (difficulty 2) to figure out the controls. Arterial highways have many branching paths and require actual piloting (handled with the Sail Ability) to avoid disastrous crashes.",
+    "compatibility": "Any character; the standard means of intercity and intracity travel.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "192-193",
+      "pdfPage": "193-194"
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Transportation' -> 'Pneumatic Trams', p. 192-193 (PDF 193-194); visually cross-checked against both rendered pages."
+  },
+  {
+    "id": "mechanical-rickshaw",
+    "name": "Mechanical Rickshaw",
+    "disposition": "selectable",
+    "summary": "A two-passenger, Essence-driven wheeled vehicle used by Autochthonia's high-status or infirm citizens for personal transit, powered by rear-mounted Essence-gathering sails and a two-dot Essence capacitor; a rarer insectile variant trades wheels for skittering legs to cross rough terrain and shallow liquid.",
+    "mechanics": "Driven with side-mounted control levers; anyone with dots in Ride is assumed to know the controls, otherwise an Intelligence + Lore roll (difficulty 3) is needed to figure them out. A single successful Wits + Ride roll (difficulty 1) at the start of a smooth, obstacle-free journey suffices; maneuvers or combat-turn driving need new rolls each turn (Storyteller-assigned difficulty 1-5). Maximum speed 30 mph (42 yards/turn), requiring generally level ground. Statistics: 10 health levels, hardened soak 6L/10B (of which 1L/3B counts as armor), ignoring attacks whose raw damage is below its soak; treats aggravated damage as lethal; not an inanimate object for Charm purposes, so damage must be rolled rather than auto-applied. Gives 25% cover from the front, 50% from other directions. Accrues one unsoakable bashing-damage level per 10 hours of operation (8 hours for the insectile variant); at 1/3, 1/2, and 3/4 health lost it suffers cumulative speed and handling penalties, and losing its last level from bashing damage causes it to lose power and stop, while losing its last level to lethal damage causes a crash or explosive motor failure (minimum 10L to occupants). Repair: lethal damage needs Resources •• and three hours from a technician with Lore ••, Occult ••, and Craft (Clockwork or similar) ••• (less-qualified technicians may attempt it via Intelligence + Craft at a scaled difficulty penalty, risking further unsoakable damage on failure, lethal on a botch); bashing damage needs only Resources • and an hour.",
+    "cost": "Artifact ••; requires an installed two-dot Essence capacitor.",
+    "compatibility": "Any character; typically used by high-status or infirm Autochthonian citizens.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "193-194",
+      "pdfPage": "194-195"
+    },
+    "crossReferences": [
+      "essence-capacitor",
+      "light-sphere"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Transportation' -> 'Mechanical Rickshaws, Skimmercraft and Aerial Skiffs', p. 193-194 (PDF 194-195); visually cross-checked against both rendered pages."
+  },
+  {
+    "id": "skimmercraft",
+    "name": "Skimmercraft",
+    "disposition": "selectable",
+    "summary": "A rarer and more valuable ovoid hovering vehicle resembling a metal beetle's carapace, seating up to three human-sized passengers (or two Essence 4-5 Alchemicals/heavily armored mortals) and hovering up to two yards above any horizontal surface.",
+    "mechanics": "Travels up to 60 mph (84 yards/turn) using paramagnetic drives, hovering at a maximum altitude of two yards; if placed higher (e.g. driving off a cliff), it descends gently at one yard per turn until it reaches that height. Grants one extra die to all handling rolls for its inertia-defying maneuverability. Gives total cover from directly below, 25% from above, 50% from all sides; passengers at maximum altitude count as being in a howdah for attack purposes. Statistics: soak 6L/12B (1L/5B counts as armor), 12 health levels; accrues wear damage only after 50 hours since last maintenance, then one bashing level plus one more per five subsequent hours. Requires a three-dot Essence capacitor. Otherwise follows the same rules as a mechanical rickshaw.",
+    "cost": "Artifact •••; requires an installed three-dot Essence capacitor.",
+    "compatibility": "Any character; carries up to two Essence 4-5 Alchemicals or heavily armored mortals, or three ordinary human-sized passengers.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "193-194",
+      "pdfPage": "194-195"
+    },
+    "crossReferences": [
+      "mechanical-rickshaw",
+      "essence-capacitor",
+      "aerial-skiff"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Transportation' -> 'Mechanical Rickshaws, Skimmercraft and Aerial Skiffs', p. 193-194 (PDF 194-195); visually cross-checked against both rendered pages."
+  },
+  {
+    "id": "aerial-skiff",
+    "name": "Aerial Skiff",
+    "disposition": "selectable",
+    "summary": "The most powerful clockwork vehicle in Autochthonia: an elongated skimmercraft-derived flying craft with four dragonfly-like paramagnetic 'wings,' able to hover or fly without altitude restriction and carry several Alchemicals or many mortal passengers; variants include the deep-sea oil diver submersible and combat-oriented reconnaissance/transport models.",
+    "mechanics": "Can hover or fly up to 80 mph (112 yards/turn) with no altitude restriction, carrying up to five Essence 4-5 Alchemicals/heavily armored mortals, eight mortals comfortably, or up to 12 mortals if cramped. Statistics: soak 10L/15B (3L/5B counts as armor), 15 health levels; a 30-hour maintenance-free grace period, then one damage level per five hours of flight; requires a four-dot Essence capacitor; repair needs Lore •••, Occult •••, and a Craft at •••••. The oil diver variant (Artifact ••••) is a fully sealed, deep-sea-pressure-rated submersible holding an hour of air per mortal passenger (irrelevant to Alchemicals); it is neutrally buoyant with adjustable buoyancy, uses twin Essence-driven impeller jets to travel up to 40 mph (56 yards/turn) through liquid, and navigates via echolocation-generated light-projected maps (half a mile ahead/quarter mile all directions normally, dropping to 50 yards running silent); otherwise it duplicates aerial skiff rules. Combat-oriented recon and transport variants of both skimmercraft and aerial skiff exist at one Artifact rating and Essence-capacitor tier higher, adding +2L/+2B armored soak plus one further feature: reconnaissance models add a cloaking device duplicating the Dynamic Cloaking Module Charm while active (each hour cloaked counts double against maintenance intervals); transport models grow to nine-yard trilobite-like hulls with an extra +2L/+2B natural soak, five more health levels, full cover for all occupants, half speed, a one-die handling penalty (using Sail instead of Ride), and a rear cargo bay holding 15 Essence 4-5 Alchemicals or heavily armored mortals (two warstriders or Essence 6-7 Alchemicals curled up), 20 mortals comfortably, or 30 cramped, opening via petaling doors or a single ramp.",
+    "cost": "Artifact •••• (••••• for the oil diver or for combat-oriented variants); requires an installed four-dot (or higher, for combat variants) Essence capacitor.",
+    "compatibility": "Any character; the largest personal/small-group Autochthonian clockwork vehicle short of a warstrider.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "194-195",
+      "pdfPage": "195-196"
+    },
+    "crossReferences": [
+      "skimmercraft",
+      "essence-capacitor",
+      "dynamic-cloaking-module"
+    ],
+    "notes": "Chapter Four: Miracles of the Machine God, 'Transportation' -> 'Mechanical Rickshaws, Skimmercraft and Aerial Skiffs', p. 194-195 (PDF 195-196); visually cross-checked against both rendered pages. The Exalted Power Combat Statistics table sharing p. 195/PDF 196 (Alpha Custodian, Arc Tender, Cogwheel Dragon, Design Weaver, Destroyer, Fix Beetle, Gezlak, Gremlin, Lapidary, Slacstag) was reviewed and intentionally excluded as pure Storyteller-side creature/NPC combat statistics with no character-creation relevance."
   }
 ]
