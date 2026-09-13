@@ -4,17 +4,24 @@
   "catalogVersion": "0.1.0",
   "generatedFor": "Arcane Record",
   "scope": {
-    "totalRows": 38,
+    "totalRows": 60,
     "castes": 5,
     "newBackgrounds": 6,
     "alteredBackgrounds": 5,
     "coreMechanics": 6,
     "excludedNotes": 0,
     "charmFrameworkRows": 9,
-    "charmRows": 7,
-    "abilityTreesComplete": ["journeys: endurance (the mast)"],
-    "abilityTreesRemaining": 24,
-    "notes": "Inventory in progress (38 rows). Covers Exalted: The Sidereals character-creation overview (Chapter Three), the five Auspicious-Ability groups tied to the celestial constellations and their Celestial Hierarchy minimums, the universal caste-agnostic Anima Effect, all five Castes (Journeys, Serenity, Battles, Secrets, Endings) with their Anima Banners/Anima Effects/Caste Abilities/Associations/Sobriquets/Concepts, the Arcane Fate signature trait mechanic and its Sidereal Anima Banner visibility/Paradox table, the Craft (Fate) Ability specialty, the new/altered Backgrounds (Allies, Artifact, Backing, Familiar, Manse altered; Acquaintances, Celestial Manse, Connections, Salary, Savant, Sifu new), Chapter Five's general Charm framework (Manipulating Fate, Creatures Outside of Fate, Restricted Charms, Unusual Charms, Matters of Personality, Prayer Strips, Spotting Active Prayer Strips, On Memory, Presentation Format), and the complete Journeys Caste Endurance tree ('The Mast,' 7 Charms). 24 of the 25 total Ability-line Charm trees, Sidereal Martial Arts, the full Colleges/astrology system, and Resplendent Destinies (pp. 215-218) are not yet inventoried."
+    "charmRows": 29,
+    "abilityTreesComplete": [
+      "journeys: endurance (the mast)",
+      "journeys: ride (the messenger)",
+      "journeys: sail (the captain)",
+      "journeys: survival (the ship's wheel)",
+      "journeys: thrown (the gull)"
+    ],
+    "castesWithAbilityTreesComplete": ["journeys"],
+    "abilityTreesRemaining": 20,
+    "notes": "Inventory in progress (60 rows). Covers Exalted: The Sidereals character-creation overview (Chapter Three), the five Auspicious-Ability groups tied to the celestial constellations and their Celestial Hierarchy minimums, the universal caste-agnostic Anima Effect, all five Castes (Journeys, Serenity, Battles, Secrets, Endings) with their Anima Banners/Anima Effects/Caste Abilities/Associations/Sobriquets/Concepts, the Arcane Fate signature trait mechanic and its Sidereal Anima Banner visibility/Paradox table, the Craft (Fate) Ability specialty, the new/altered Backgrounds (Allies, Artifact, Backing, Familiar, Manse altered; Acquaintances, Celestial Manse, Connections, Salary, Savant, Sifu new), Chapter Five's general Charm framework (Manipulating Fate, Creatures Outside of Fate, Restricted Charms, Unusual Charms, Matters of Personality, Prayer Strips, Spotting Active Prayer Strips, On Memory, Presentation Format), and all five of the Journeys Caste's Charm trees, now complete: Endurance ('The Mast,' 7 Charms), Ride ('The Messenger,' 7 Charms), Sail ('The Captain,' 4 Charms), Survival ('The Ship's Wheel,' 6 Charms), and Thrown ('The Gull,' 5 Charms). 20 of the 25 total Ability-line Charm trees (the Serenity, Battles, Secrets, and Endings Castes), Sidereal Martial Arts, the full Colleges/astrology system, and Resplendent Destinies (pp. 215-218) are not yet inventoried."
   },
   "sources": [
     {
@@ -32,6 +39,7 @@
     "docs/references/exalted1e/dragon-blooded/source-manifest.json already cites this same book once for a single externally-sourced Dragon-Blooded spell (Open the Spirit Door, Terrestrial Circle Sorcery, PDF p. 125-126/printed p. 122-123), flagged 'external-source' because this Sidereals PDF had not been supplied at the time. That citation was not modified or duplicated here; it remains Dragon-Blooded catalog content.",
     "Confirmed the printed-page-equals-PDF-minus-3 offset continues to hold in Chapter Five (Charms and Martial Arts, starting printed p. 128/PDF 131), by cross-checking the printed folio numbers embedded in the rendered page images against the PDF page numbers used to render them.",
     "Chapter Five's Charm material is organized very differently from the other four splats reviewed so far: rather than grouping Charms by Attribute or a small number of thematic trees, it presents one Charm tree per Caste-and-Auspicious-Ability combination (5 Castes x 5 Auspicious Abilities = 25 trees total), each opened by a short poetic 'Scripture of the (Maiden)' epigraph and a named tree title (e.g. 'Endurance -- The Mast' for Journeys Caste). This inventory has so far completed one full tree (Journeys: Endurance) as a template for the remaining 24; each will need the same page-by-page treatment.",
-    "A few rows in this round have mechanics text that reads ambiguously in the source and were paraphrased as faithfully as possible rather than smoothed over: the exact numeric difficulty-by-range table for Spotting Active Prayer Strips was not transcribed row-by-row, and the healing-rate wording in One Direction Invocation's description is confusingly phrased in the book itself. Both are flagged in their own row's notes for a closer re-read before promotion."
+    "A few rows in this round have mechanics text that reads ambiguously in the source and were paraphrased as faithfully as possible rather than smoothed over: the exact numeric difficulty-by-range table for Spotting Active Prayer Strips was not transcribed row-by-row, and the healing-rate wording in One Direction Invocation's description is confusingly phrased in the book itself. Both are flagged in their own row's notes for a closer re-read before promotion.",
+    "The Journeys Caste's remaining four Charm trees (Ride 'The Messenger', Sail 'The Captain', Survival 'The Ship's Wheel', Thrown 'The Gull') are now complete, closing out the full Journeys Caste at pp. 134-142/PDF 137-145. Several Charm descriptions span a tree-diagram page break in the source (stat block on one page, prose on the next); these were transcribed as single continuous Charms with a note on the page split. Adopting the Untamed Face's row cross-references Exalted: The Lunars' ikth-ya/murr-ya Lunar social-caste terminology, which is out of scope for this inventory and not independently verified here."
   ]
 }

@@ -60,7 +60,12 @@
       "printedPage": 115,
       "pdfPage": 116
     },
-    "crossReferences": ["fair-folk-creation-overview-common", "staff-grace", "sword-grace", "noble-castes-hybrid"],
+    "crossReferences": [
+      "fair-folk-creation-overview-common",
+      "staff-grace",
+      "sword-grace",
+      "noble-castes-hybrid"
+    ],
     "notes": "Chapter Four: Traits, 'Diplomat' section, pp. 114-115 (PDF 115-116)."
   },
   {
@@ -76,7 +81,12 @@
       "printedPage": 116,
       "pdfPage": 117
     },
-    "crossReferences": ["fair-folk-creation-overview-common", "cup-grace", "staff-grace", "noble-castes-hybrid"],
+    "crossReferences": [
+      "fair-folk-creation-overview-common",
+      "cup-grace",
+      "staff-grace",
+      "noble-castes-hybrid"
+    ],
     "notes": "Chapter Four: Traits, 'Entertainer' section, pp. 116-117 (PDF 117-118)."
   },
   {
@@ -92,7 +102,12 @@
       "printedPage": 119,
       "pdfPage": 120
     },
-    "crossReferences": ["fair-folk-creation-overview-common", "sword-grace", "ring-grace", "noble-castes-hybrid"],
+    "crossReferences": [
+      "fair-folk-creation-overview-common",
+      "sword-grace",
+      "ring-grace",
+      "noble-castes-hybrid"
+    ],
     "notes": "Chapter Four: Traits, 'Warrior' section, pp. 118-119 (PDF 119-120)."
   },
   {
@@ -108,7 +123,12 @@
       "printedPage": 121,
       "pdfPage": 122
     },
-    "crossReferences": ["fair-folk-creation-overview-common", "ring-grace", "cup-grace", "noble-castes-hybrid"],
+    "crossReferences": [
+      "fair-folk-creation-overview-common",
+      "ring-grace",
+      "cup-grace",
+      "noble-castes-hybrid"
+    ],
     "notes": "Chapter Four: Traits, 'Worker' section, pp. 120-121 (PDF 121-122)."
   },
   {
@@ -124,7 +144,13 @@
       "printedPage": 122,
       "pdfPage": 123
     },
-    "crossReferences": ["diplomat-caste", "entertainer-caste", "warrior-caste", "worker-caste", "fair-folk-creation-overview-noble"],
+    "crossReferences": [
+      "diplomat-caste",
+      "entertainer-caste",
+      "warrior-caste",
+      "worker-caste",
+      "fair-folk-creation-overview-noble"
+    ],
     "notes": "Chapter Four: Traits, 'Noble Castes' section, pp. 122-125 (PDF 123-126). This is the single largest consolidated row in this pass; it packs all twelve named hybrid archetypes into one mechanics field rather than creating twelve separate rows, matching how the Abyssal inventory packed the full 1-10 Resonance Manipulation Effects table into one row (resonance-manipulation-effects) instead of ten."
   },
   {
@@ -140,7 +166,14 @@
       "printedPage": 106,
       "pdfPage": 107
     },
-    "crossReferences": ["cup-grace", "ring-grace", "staff-grace", "sword-grace", "heart-grace", "virtue-bedlam-curses"],
+    "crossReferences": [
+      "cup-grace",
+      "ring-grace",
+      "staff-grace",
+      "sword-grace",
+      "heart-grace",
+      "virtue-bedlam-curses"
+    ],
     "notes": "Chapter Four: Traits, 'Graces and Gossamer' / 'The Anatomy of a Raksha' / 'The Graces' / 'General Rules for Graces' sidebar, pp. 105-106 (PDF 106-107)."
   },
   {
@@ -156,7 +189,10 @@
       "printedPage": 106,
       "pdfPage": 107
     },
-    "crossReferences": ["graces-overview", "entertainer-caste"],
+    "crossReferences": [
+      "graces-overview",
+      "entertainer-caste"
+    ],
     "notes": "Chapter Four: Traits, 'The Cup Grace' / 'The Cup' section, pp. 106-107 (PDF 107-108); the dot table splits across the page break."
   },
   {
@@ -172,7 +208,10 @@
       "printedPage": 107,
       "pdfPage": 108
     },
-    "crossReferences": ["graces-overview", "worker-caste"],
+    "crossReferences": [
+      "graces-overview",
+      "worker-caste"
+    ],
     "notes": "Chapter Four: Traits, 'The Ring Grace' / 'The Ring' section, p. 107 (PDF 108)."
   },
   {
@@ -188,7 +227,11 @@
       "printedPage": 108,
       "pdfPage": 109
     },
-    "crossReferences": ["graces-overview", "diplomat-caste", "oaths-mechanic"],
+    "crossReferences": [
+      "graces-overview",
+      "diplomat-caste",
+      "oaths-mechanic"
+    ],
     "notes": "Chapter Four: Traits, 'The Staff Grace' / 'The Staff' section, p. 108 (PDF 109)."
   },
   {
@@ -204,7 +247,10 @@
       "printedPage": 108,
       "pdfPage": 109
     },
-    "crossReferences": ["graces-overview", "warrior-caste"],
+    "crossReferences": [
+      "graces-overview",
+      "warrior-caste"
+    ],
     "notes": "Chapter Four: Traits, 'The Sword Grace' / 'The Sword' section, p. 108 (PDF 109)."
   },
   {
@@ -220,7 +266,11 @@
       "printedPage": 108,
       "pdfPage": 109
     },
-    "crossReferences": ["graces-overview", "virtue-bedlam-curses", "shaping-combat-basics"],
+    "crossReferences": [
+      "graces-overview",
+      "virtue-bedlam-curses",
+      "shaping-combat-basics"
+    ],
     "notes": "Chapter Four: Traits, 'The Heart Grace' / 'The Heart' section, p. 108 (PDF 109)."
   },
   {
@@ -236,7 +286,9 @@
       "printedPage": 112,
       "pdfPage": 113
     },
-    "crossReferences": ["virtue-bedlam-curses"],
+    "crossReferences": [
+      "virtue-bedlam-curses"
+    ],
     "notes": "Chapter Four: Traits, 'Bedlam' / 'General Rules' section, p. 112 (PDF 113). This is the closest Fair Folk equivalent to a Limit Trait: rather than one universal gauge, each Virtue has its own channel-based bedlam trigger and its own recovery condition and Curse (see virtue-bedlam-curses)."
   },
   {
@@ -252,7 +304,14 @@
       "printedPage": 113,
       "pdfPage": 114
     },
-    "crossReferences": ["bedlam-overview", "cup-grace", "ring-grace", "staff-grace", "sword-grace", "graces-overview"],
+    "crossReferences": [
+      "bedlam-overview",
+      "cup-grace",
+      "ring-grace",
+      "staff-grace",
+      "sword-grace",
+      "graces-overview"
+    ],
     "notes": "Chapter Four: Traits, 'Compassion' / 'Conviction' / 'Temperance' / 'Valor' bedlam sections, p. 113 (PDF 114). Packed into one row, matching how the Abyssal inventory packed its 1-10 Resonance Manipulation Effects table into a single row."
   },
   {
@@ -269,7 +328,9 @@
       "printedPage": 109,
       "pdfPage": 110
     },
-    "crossReferences": ["gossamer-and-glamour-mechanic"],
+    "crossReferences": [
+      "gossamer-and-glamour-mechanic"
+    ],
     "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Birth' section, pp. 109-110 (PDF 110-111); dot table splits across the page break. The specific named Charms (Ravishing the Created Form, Banquet of Crumbs, Essence-Forging Art, Awakened Dream Manufacture, the Forging the Grace Charms, Gaping Virtue Mouth, Ecstatic Reproduction Style) belong to Chapter Five's Charm trees, which are out of scope for this pass; only the Background's dot-by-dot structure is inventoried here."
   },
   {
@@ -286,7 +347,10 @@
       "printedPage": 110,
       "pdfPage": 111
     },
-    "crossReferences": ["gossamer-background", "manse-background-fair-folk"],
+    "crossReferences": [
+      "gossamer-background",
+      "manse-background-fair-folk"
+    ],
     "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Freehold' section, p. 110 (PDF 111)."
   },
   {
@@ -303,7 +367,11 @@
       "printedPage": 110,
       "pdfPage": 111
     },
-    "crossReferences": ["freehold-background", "followers-and-resources-excluded-fair-folk", "gossamer-and-glamour-mechanic"],
+    "crossReferences": [
+      "freehold-background",
+      "followers-and-resources-excluded-fair-folk",
+      "gossamer-and-glamour-mechanic"
+    ],
     "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Gossamer' section, pp. 110-111 (PDF 111-112); the harvesting sidebar continues onto the following page."
   },
   {
@@ -320,7 +388,9 @@
       "printedPage": 111,
       "pdfPage": 112
     },
-    "crossReferences": ["followers-and-resources-excluded-fair-folk"],
+    "crossReferences": [
+      "followers-and-resources-excluded-fair-folk"
+    ],
     "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Retinue' section, pp. 111-112 (PDF 112-113); dot table splits across the page break."
   },
   {
@@ -337,7 +407,14 @@
       "printedPage": 112,
       "pdfPage": 113
     },
-    "crossReferences": ["wyld-stunts-and-bonuses", "cup-grace", "ring-grace", "staff-grace", "sword-grace", "heart-grace"],
+    "crossReferences": [
+      "wyld-stunts-and-bonuses",
+      "cup-grace",
+      "ring-grace",
+      "staff-grace",
+      "sword-grace",
+      "heart-grace"
+    ],
     "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Style' section, p. 112 (PDF 113)."
   },
   {
@@ -385,7 +462,9 @@
       "printedPage": 109,
       "pdfPage": 110
     },
-    "crossReferences": ["freehold-background"],
+    "crossReferences": [
+      "freehold-background"
+    ],
     "notes": "Chapter Four: Traits, 'Expanded Backgrounds' -> 'Manse' section, p. 109 (PDF 110)."
   },
   {
@@ -401,7 +480,10 @@
       "printedPage": 109,
       "pdfPage": 110
     },
-    "crossReferences": ["retinue-background", "gossamer-background"],
+    "crossReferences": [
+      "retinue-background",
+      "gossamer-background"
+    ],
     "notes": "Chapter Four: Traits, 'Expanded Backgrounds' -> 'Followers and Resources' section, p. 109 (PDF 110). Classified excluded rather than reference-only because it actively forecloses two standard Background options for creation-flow gating, matching how the Abyssal inventory classified 'Cult and the Abyssals' as excluded."
   },
   {
@@ -417,7 +499,9 @@
       "printedPage": 109,
       "pdfPage": 110
     },
-    "crossReferences": ["followers-and-resources-excluded-fair-folk"],
+    "crossReferences": [
+      "followers-and-resources-excluded-fair-folk"
+    ],
     "notes": "Chapter Four: Traits, 'Expanded Backgrounds' -> 'Backing, Contacts and Influence' section, p. 109 (PDF 110)."
   },
   {
@@ -433,7 +517,10 @@
       "printedPage": 94,
       "pdfPage": 95
     },
-    "crossReferences": ["shaping-actions-and-reality-shaping", "shaping-combat-basics"],
+    "crossReferences": [
+      "shaping-actions-and-reality-shaping",
+      "shaping-combat-basics"
+    ],
     "notes": "Chapter Three: Character Creation, 'Innate Powers' section, p. 94 (PDF 95), immediately following the Caste/'Casteless Raksha' sidebar discussion."
   },
   {
@@ -449,7 +536,9 @@
       "printedPage": 104,
       "pdfPage": 105
     },
-    "crossReferences": ["gossamer-and-glamour-mechanic"],
+    "crossReferences": [
+      "gossamer-and-glamour-mechanic"
+    ],
     "notes": "Chapter Four: Traits, 'Craft (Glamour)' section, p. 104 (PDF 105). Comparable in scope to the Abyssal inventory's 'Useful Crafts (Underworld)' row -- a short, self-contained Craft-specialty note rather than a full Charm or Background."
   },
   {
@@ -465,7 +554,10 @@
       "printedPage": 105,
       "pdfPage": 106
     },
-    "crossReferences": ["style-background", "shaping-actions-and-reality-shaping"],
+    "crossReferences": [
+      "style-background",
+      "shaping-actions-and-reality-shaping"
+    ],
     "notes": "Chapter Four: Traits, 'Stunting in the Wyld' -> 'Improvised Magic' / 'Wyld Bonuses' sections, pp. 104-105 (PDF 105-106)."
   },
   {
@@ -481,7 +573,11 @@
       "printedPage": 129,
       "pdfPage": 130
     },
-    "crossReferences": ["mutation-mechanic", "cold-wrought-iron", "gossamer-background"],
+    "crossReferences": [
+      "mutation-mechanic",
+      "cold-wrought-iron",
+      "gossamer-background"
+    ],
     "notes": "Chapter Five: Raksha Magic, 'General Rules' -> 'Gossamer and Glamour' / 'Works of Glamour' / 'Permanent Glamours' sections, pp. 128-130 (PDF 129-131). This is the Charm-fueling resource mechanic; the Gossamer Background (gossamer-background) is the separate wealth-measuring Trait built on the same underlying substance."
   },
   {
@@ -498,7 +594,10 @@
       "printedPage": 130,
       "pdfPage": 131
     },
-    "crossReferences": ["gossamer-and-glamour-mechanic", "cold-wrought-iron"],
+    "crossReferences": [
+      "gossamer-and-glamour-mechanic",
+      "cold-wrought-iron"
+    ],
     "notes": "Chapter Five: Raksha Magic, 'General Rules' -> 'Mutation' / 'Building Mutations from Charms' / 'Mutations and Monsters' sections, pp. 129-131 (PDF 130-132). Cross-references the Mutations point-cost table originally printed in Exalted: The Lunars, p. 210, which is not itself part of this book and is not re-verified here."
   },
   {
@@ -514,7 +613,11 @@
       "printedPage": 134,
       "pdfPage": 135
     },
-    "crossReferences": ["shaping-combat-basics", "innate-powers-wyld-immunity", "oaths-mechanic"],
+    "crossReferences": [
+      "shaping-combat-basics",
+      "innate-powers-wyld-immunity",
+      "oaths-mechanic"
+    ],
     "notes": "Chapter Five: Raksha Magic, 'Shaping Actions' / 'Unrolled Shaping Actions' / 'Shaping in Creation' / 'Effects of Reality Shaping' / 'Fantasies, Invocations and Conjurations' sections, pp. 133-136 (PDF 134-137). This row deliberately stays at the mechanical-overview level (per the Abyssal template's precedent of describing the universal Anima Effect and Resonance mechanics without inventorying the Charm trees built on top of them) and does not enumerate individual shaping Charms."
   },
   {
@@ -530,7 +633,11 @@
       "printedPage": 136,
       "pdfPage": 137
     },
-    "crossReferences": ["shaping-actions-and-reality-shaping", "heart-grace", "innate-powers-wyld-immunity"],
+    "crossReferences": [
+      "shaping-actions-and-reality-shaping",
+      "heart-grace",
+      "innate-powers-wyld-immunity"
+    ],
     "notes": "Chapter Five: Raksha Magic, 'Shaping Combat' -> 'Shaping Weapons' / 'Initiative' sections, p. 136 (PDF 137), including the worked Asira/Citraratha duel example. Stops at the mechanical-overview level per the task's Charm-tree exclusion; does not inventory individual shaping weapons (behemoths, milieu, etc.) or the per-Grace attack/defense dice-pool lists that follow on later pages."
   },
   {
@@ -546,7 +653,9 @@
       "printedPage": 133,
       "pdfPage": 134
     },
-    "crossReferences": ["staff-grace"],
+    "crossReferences": [
+      "staff-grace"
+    ],
     "notes": "Chapter Five: Raksha Magic, 'General Rules' -> 'Oaths' section, p. 133 (PDF 134)."
   },
   {
@@ -562,7 +671,10 @@
       "printedPage": 132,
       "pdfPage": 133
     },
-    "crossReferences": ["mutation-mechanic", "gossamer-and-glamour-mechanic"],
+    "crossReferences": [
+      "mutation-mechanic",
+      "gossamer-and-glamour-mechanic"
+    ],
     "notes": "Chapter Five: Raksha Magic, 'General Rules' -> 'Cold-Wrought Iron' section, pp. 131-132 (PDF 132-133); the section header appears at the foot of p. 131 with the full rule text on p. 132."
   },
   {
@@ -1150,5 +1262,1437 @@
       "oaths-mechanic"
     ],
     "notes": "Chapter Five: Raksha Magic, 'Nirvikalpa, the Staff' -> 'Society-Forging Charms' section, p. 196 (PDF 197). Last Charm of the Staff Grace tree covered this round; 'Nishkriya, the Sword' and its Sword Combat Charms begin immediately afterward on the same page and are out of scope this round."
+  },
+  {
+    "id": "heart-cutting-style",
+    "name": "Heart-Cutting Style",
+    "disposition": "selectable",
+    "summary": "One of two roots of the Cup Combat Charms tree: after a successful Cup- or Staff-shaping attack, the raksha's artistry wrings extra emotional damage from witnesses by counting her attack's extra successes twice toward damage.",
+    "requirements": "Minimum Cup: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The character practices such arts and aesthetics as to rend the witnesses' spirits and make them helpless with emotion. The raksha invokes this Charm after making a successful Cup-shaping or Staff-shaping attack. This Charm lets the raksha count extra successes twice for the purposes of determining damage.",
+    "cost": "1 mote",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 159,
+      "pdfPage": 160
+    },
+    "crossReferences": [
+      "cup-grace",
+      "shaping-combat-basics",
+      "untouchable-performer-technique",
+      "dissonance-of-principles"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Cup Combat Charms' section, p. 159 (PDF 160). One of two roots of the Cup Combat Charms tree diagram on p. 160 (PDF 161), visually confirmed: Untouchable Performer Technique and Dissonance of Principles both require this Charm directly (the diagram routes the arrow to Untouchable Performer Technique diagonally, but the dependency matches the text). The other root, Subversion and Transformation Artifice, has no prerequisite and sits in its own column of the same diagram."
+  },
+  {
+    "id": "untouchable-performer-technique",
+    "name": "Untouchable Performer Technique",
+    "disposition": "selectable",
+    "summary": "Lets the Entertainer raksha parry any single attack using her Cup Grace, rolling Conviction + Performance + shaping weapon defense with her Cup added in extra dice.",
+    "requirements": "Minimum Cup: 3; Minimum Essence: 1; Prerequisite Charms: Heart-Cutting Style.",
+    "mechanics": "In the fashion of the Entertainer raksha, the character makes herself sacrosanct. She can parry any one attack with Cup shaping. Her player rolls Conviction + Performance + shaping weapon defense and adds her Cup in extra dice. This Charm cannot generate a defense from nothing -- there must be an initial dice pool for it to add to.",
+    "cost": "1 mote",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 159,
+      "pdfPage": 160
+    },
+    "crossReferences": [
+      "cup-grace",
+      "heart-cutting-style",
+      "swift-wings-of-song"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Cup Combat Charms' section, p. 159 (PDF 160)."
+  },
+  {
+    "id": "dissonance-of-principles",
+    "name": "Dissonance of Principles",
+    "disposition": "selectable",
+    "summary": "A Cup- or Staff-shaping attack that replaces normal damage with scaling stunning damage, imposing a shaping-dice penalty on the target for three scenes.",
+    "requirements": "Minimum Cup: 3; Minimum Essence: 1; Prerequisite Charms: Heart-Cutting Style.",
+    "mechanics": "The raksha's art stuns and disorients his target, scattering patterns of cascading conceptual dissonance through the victim's mind. The raksha spends up to twice his Valor in motes and makes a Cup-shaping or Staff-shaping attack. If he hits, this Charm replaces his shaping damage with stunning damage, doing one level of stunning damage per mote spent; extra successes still add to damage as usual. Stunning damage is soaked only with Temperance. Each success on the damage roll imposes a -1 penalty to the target's shaping dice pools for the next three scenes. Stunning damage is not cumulative -- only the highest result counts, even if this would shorten the duration.",
+    "cost": "1 mote per die",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 159,
+      "pdfPage": 160
+    },
+    "crossReferences": [
+      "cup-grace",
+      "heart-cutting-style",
+      "thousand-tiny-hooks-technique"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Cup Combat Charms' section, pp. 159-160 (PDF 160-161); the cost/duration header and opening description appear on p. 159 (PDF 160), with the remainder of the mechanics text continuing onto the top of p. 160 (PDF 161)."
+  },
+  {
+    "id": "thousand-tiny-hooks-technique",
+    "name": "Thousand Tiny Hooks Technique",
+    "disposition": "selectable",
+    "summary": "Turns a Cup- or Staff-shaping entanglement attack into a scaling grip that adds the raksha's Essence to both the entanglement's control dice and its damage, and can be invoked even while already entangled.",
+    "requirements": "Minimum Cup: 4; Minimum Essence: 1; Prerequisite Charms: Dissonance of Principles.",
+    "mechanics": "Through her shaping arts, the raksha plants a thousand tiny hooks in the target's soul. The character makes a Cup-shaping or Staff-shaping entanglement attack, receiving the benefits of any readied clinch enhancers. This Charm adds her Essence in dice to the shaping dice pools to inflict, maintain, control and use the entanglement, and also adds her Essence to the damage of her entanglement-based shaping attacks. Although a simple Charm, it can be invoked while entangled; it cannot be placed in a combo with extra-action Charms.",
+    "cost": "3 motes",
+    "compatibility": "Duration: One scene. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 160,
+      "pdfPage": 161
+    },
+    "crossReferences": [
+      "cup-grace",
+      "dissonance-of-principles",
+      "beguilement"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Cup Combat Charms' section, p. 160 (PDF 161)."
+  },
+  {
+    "id": "beguilement",
+    "name": "Beguilement",
+    "disposition": "selectable",
+    "summary": "A Staff-shaping crossover finale of this branch: makes the raksha's suggestions impossible to resist, functioning as a work of glamour that can manipulate a Creation-born target into almost any request short of direct suicide.",
+    "requirements": "Minimum Staff: 3; Minimum Essence: 2; Prerequisite Charms: Thousand Tiny Hooks Technique.",
+    "mechanics": "The raksha becomes utterly charming, to the point where it is impossible to resist his suggestions. His player rolls Manipulation + Socialize as a Staff-shaping attack, adding the raksha's Charisma in dice to a successful attack's pre-soak damage. Used against creatures with no Staff Grace, this Charm functions as a work of glamour: if the attack succeeds, the target accepts any reasonably phrased suggestion or request as natural, though he will not directly kill himself (he can, however, be manipulated into lethal situations). This Charm does not work on targets whose Wits + Essence or Willpower exceed the raksha's Charisma. This is a Staff-shaping Charm.",
+    "cost": "5 motes, 3 gossamer",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 160,
+      "pdfPage": 161
+    },
+    "crossReferences": [
+      "staff-grace",
+      "cup-grace",
+      "thousand-tiny-hooks-technique",
+      "gossamer-and-glamour-mechanic"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Cup Combat Charms' section, p. 160 (PDF 161). This Charm is explicitly Staff-gated ('Minimum Staff: 3') and closes with 'This is a Staff-shaping Charm,' even though it sits as the terminal leaf of a Cup Combat Charms branch (requiring the Cup Charm Thousand Tiny Hooks Technique) -- the same cross-Grace pattern already flagged for the Bedlam-Influencing Charms in this inventory's rulesNotes. Also note: the tree diagram on p. 160 (PDF 161) labels the parallel branch's second Charm 'Swift Winds of Song,' but that Charm's own printed header on p. 161 (PDF 162) reads 'Swift Wings of Song' -- likely a typo in the hand-lettered diagram art, not a distinct Charm; this inventory uses the charm-header spelling (see swift-wings-of-song)."
+  },
+  {
+    "id": "swift-wings-of-song",
+    "name": "Swift Wings of Song",
+    "disposition": "selectable",
+    "summary": "Lets the raksha automatically win shaping initiative over a single opponent by preempting the scene with a whisper of song, a splash of color, or the hint of an idea.",
+    "requirements": "Minimum Cup: 3; Minimum Essence: 1; Prerequisite Charms: Untouchable Performer Technique.",
+    "mechanics": "Preempting initiative, the raksha sets the stage for her performance with a whisper of song, a splash of color or the hint of an idea. This Charm lets the raksha win shaping initiative automatically over a single opponent. Fair Folk cannot split their dice pool in the same turn they use this Charm. Two characters using this Charm in competition roll for initiative normally.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 161,
+      "pdfPage": 162
+    },
+    "crossReferences": [
+      "cup-grace",
+      "untouchable-performer-technique",
+      "furious-maelstrom-craft"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Cup Combat Charms' section, p. 161 (PDF 162). The Cup Combat Charms tree diagram on p. 160 (PDF 161) labels this box 'Swift Winds of Song,' a spelling that conflicts with this Charm's own printed header ('Swift Wings of Song'); flagged as a likely diagram-art typo rather than two distinct Charms (see beguilement's notes for the same discrepancy)."
+  },
+  {
+    "id": "furious-maelstrom-craft",
+    "name": "Furious Maelstrom Craft",
+    "disposition": "selectable",
+    "summary": "The capstone of the Heart-Cutting Style branch: an extra-action Cup- or Staff-shaping attack whose results apply against a number of enemies equal to twice the raksha's Essence.",
+    "requirements": "Minimum Cup: 5; Minimum Essence: 2; Prerequisite Charms: Swift Wings of Song.",
+    "mechanics": "The raksha crafts a terrible wave of madness and desire that washes out across the local weave of fate. The raksha makes a Cup-shaping or Staff-shaping attack, applying the results against a number of enemies equal to twice her Essence.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Extra Action.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 161,
+      "pdfPage": 162
+    },
+    "crossReferences": [
+      "cup-grace",
+      "swift-wings-of-song"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Cup Combat Charms' section, p. 161 (PDF 162). Capstone of the Heart-Cutting Style branch of the tree diagrammed on p. 160 (PDF 161)."
+  },
+  {
+    "id": "subversion-and-transformation-artifice",
+    "name": "Subversion and Transformation Artifice",
+    "disposition": "selectable",
+    "summary": "The second root of the Cup Combat Charms tree: crafts a permanent-glamour shaping weapon (chimera, heart thorn, or harness) from Essence and gossamer, letting the raksha divide bonus points among its statistics.",
+    "requirements": "Minimum Cup: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The raksha plans and constructs a shaping weapon for her art. This Charm crafts a chimera, a heart thorn, a harness of razored dreams or a harness of twisting words from Essence and gossamer. In addition to the weapon's base qualities, the raksha can divide a number of points equal to her Cup between its speed, accuracy, damage, defense and rate. The creation is a permanent glamour that lasts for one story.",
+    "cost": "3 motes, 1 gossamer",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 161,
+      "pdfPage": 162
+    },
+    "crossReferences": [
+      "cup-grace",
+      "gossamer-and-glamour-mechanic",
+      "overriding-construct-of-fate"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Cup Combat Charms' section, p. 161 (PDF 162). Second, independent root of the Cup Combat Charms tree diagrammed on p. 160 (PDF 161), sitting in its own column alongside Heart-Cutting Style's branch."
+  },
+  {
+    "id": "overriding-construct-of-fate",
+    "name": "Overriding Construct of Fate",
+    "disposition": "selectable",
+    "summary": "An unblockable Cup- or Staff-shaping attack that, on a hit, also knocks the opponent into an adjacent waypoint.",
+    "requirements": "Minimum Cup: 2; Minimum Essence: 1; Prerequisite Charms: Subversion and Transformation Artifice.",
+    "mechanics": "The raksha learns to craft patterns of fate seamless enough to seal an opponent out of the ongoing story. The raksha makes a Cup-shaping or Staff-shaping attack. This Charm makes the attack unblockable. In addition, if the raksha hits, this Charm knocks the opponent into an adjacent waypoint.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 161,
+      "pdfPage": 162
+    },
+    "crossReferences": [
+      "cup-grace",
+      "subversion-and-transformation-artifice"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Cup Combat Charms' section, p. 161 (PDF 162). Only Charm in the Subversion and Transformation Artifice branch of the tree diagrammed on p. 160 (PDF 161)."
+  },
+  {
+    "id": "elusive-object-of-desire",
+    "name": "Elusive Object of Desire",
+    "disposition": "selectable",
+    "summary": "The root of the named 'Spirit-Twisting Obsession Style' sub-tree: adds the raksha's Cup in automatic successes to any roll to escape, dodge, or parry an entanglement.",
+    "requirements": "Minimum Cup: 2; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "Desire is strongest for forbidden fruit, and Entertainers therefore the most elusive of the fey. This Charm adds the raksha's Cup in automatic successes to the roll to escape, dodge or parry an entanglement.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 161,
+      "pdfPage": 162
+    },
+    "crossReferences": [
+      "cup-grace",
+      "art-of-corrosion"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Cup Combat Charms' -> 'Spirit-Twisting Obsession Style' subsection, p. 161 (PDF 162). This named style is introduced in flowing prose rather than a bold all-caps section header, but is diagrammed as its own distinct tree on p. 162 (PDF 163), visually confirmed, with this Charm as its sole root."
+  },
+  {
+    "id": "art-of-corrosion",
+    "name": "Art of Corrosion",
+    "disposition": "selectable",
+    "summary": "Forces a target to channel a praised Virtue on an already-declared action, even one inappropriate to that Virtue, via a contested Cup-shaping roll against the target's Essence.",
+    "requirements": "Minimum Cup: 3; Minimum Essence: 2; Prerequisite Charms: Elusive Object of Desire.",
+    "mechanics": "The weave of shaped fate praises the target's Virtues, clothing him in an adamant armor of righteousness that gives every action a numinous glory -- yet even adamant can crumble. The raksha uses this Charm after the target's player declares a shaping or normal action but before the target's player rolls. The player rolls Conviction + Performance in a Cup-shaping attack against a difficulty equal to the target's Essence. On success, this Charm forces the target to channel the praised Virtue on the declared action, even on actions inappropriate to that Virtue. It does not function if the target has no more temporary Willpower or has used all available channels for that Virtue this story.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 161,
+      "pdfPage": 162
+    },
+    "crossReferences": [
+      "cup-grace",
+      "elusive-object-of-desire",
+      "spirit-twisting-obsession-stance"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Cup Combat Charms' -> 'Spirit-Twisting Obsession Style' subsection, pp. 161-162 (PDF 162-163); header and opening text on p. 161 (PDF 162), with the description continuing onto the top of p. 162 (PDF 163)."
+  },
+  {
+    "id": "spirit-twisting-obsession-stance",
+    "name": "Spirit-Twisting Obsession Stance",
+    "disposition": "selectable",
+    "summary": "A Stance-type Charm naming a single opponent and subtracting the raksha's permanent Essence from that opponent's shaping dice pools, including defensive pools, for as long as the Stance holds.",
+    "requirements": "Minimum Cup: 4; Minimum Essence: 2; Prerequisite Charms: Art of Corrosion.",
+    "mechanics": "The raksha pours Essence into her Cup Grace, becoming a living symbol of the corruption of self. She names a single opponent, who must be a participant in the current story. This Charm subtracts the raksha's permanent Essence from the targeted opponent's shaping dice pools, including defensive pools. This is a Stance-type Charm; characters cannot use more than one Stance-type Charm at a time.",
+    "cost": "6 motes",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 161,
+      "pdfPage": 162
+    },
+    "crossReferences": [
+      "cup-grace",
+      "art-of-corrosion",
+      "decaying-principles",
+      "subtle-breath-of-ruin",
+      "encouraging-futile-struggle"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Cup Combat Charms' -> 'Spirit-Twisting Obsession Style' subsection, pp. 161-162 (PDF 162-163). Central branch point of the tree diagrammed on p. 162 (PDF 163), visually confirmed: Decaying Principles, Subtle Breath of Ruin and Encouraging Futile Struggle all require this Charm directly, matching the three parallel lines fanning out from it in the diagram."
+  },
+  {
+    "id": "decaying-principles",
+    "name": "Decaying Principles",
+    "disposition": "selectable",
+    "summary": "A Cup-shaping attack, undodgeable unless the victim channels Temperance, that spreads the corruption of Spirit-Twisting Obsession Stance and erodes the target's held principles.",
+    "requirements": "Minimum Cup: 5; Minimum Essence: 2; Prerequisite Charms: Spirit-Twisting Obsession Stance.",
+    "mechanics": "The raksha's corruption spreads. The target finds herself losing the principles she once held dear. The raksha makes a Cup-shaping attack. This Charm makes the attack undodgeable unless the victim channels Temperance into a dodge; it can be parried normally.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 162,
+      "pdfPage": 163
+    },
+    "crossReferences": [
+      "cup-grace",
+      "spirit-twisting-obsession-stance",
+      "twisting-spiral-of-collapse"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Cup Combat Charms' -> 'Spirit-Twisting Obsession Style' subsection, p. 162 (PDF 163)."
+  },
+  {
+    "id": "twisting-spiral-of-collapse",
+    "name": "Twisting Spiral of Collapse",
+    "disposition": "selectable",
+    "summary": "Increases the rate of the raksha's chosen shaping weapon by one as the target's spirit continues to decline; stacks with multiple invocations and works on entanglement weapons.",
+    "requirements": "Minimum Cup: 5; Minimum Essence: 3; Prerequisite Charms: Decaying Principles.",
+    "mechanics": "The decline of the target's spirit hastens. This Charm increases the rate of the raksha's chosen shaping weapon by one. Multiple invocations of this Charm stack. Note that this Charm functions on entanglement weapons such as harnesses of razored dreams.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 162,
+      "pdfPage": 163
+    },
+    "crossReferences": [
+      "cup-grace",
+      "decaying-principles",
+      "eulogy-for-greatness-lost"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Cup Combat Charms' -> 'Spirit-Twisting Obsession Style' subsection, p. 162 (PDF 163). One of the three converging prerequisites (with Insidious Distraction Technique and Brilliant Glinting Lure) for the tree's capstone, Eulogy for Greatness Lost, per the diagram on p. 162 (PDF 163)."
+  },
+  {
+    "id": "subtle-breath-of-ruin",
+    "name": "Subtle Breath of Ruin",
+    "disposition": "selectable",
+    "summary": "A Cup-shaping attack via Conviction + Larceny that, on a hit, nullifies its own damage but instead raises the difficulty of all the target's shaping actions by the raksha's Essence for the scene.",
+    "requirements": "Minimum Cup: 5; Minimum Essence: 2; Prerequisite Charms: Spirit-Twisting Obsession Stance.",
+    "mechanics": "While the raksha's arts distract the target, the target's life -- within the Wyld's false weave of fate -- collapses. The raksha's player rolls Conviction + Larceny as a Cup-shaping attack. If the attack hits, this Charm nullifies the damage of the attack and, instead, increases the difficulty of all the target's shaping actions by the raksha's Essence for the remainder of the scene.",
+    "cost": "3 motes, 1 Willpower",
+    "compatibility": "Duration: One scene. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 162,
+      "pdfPage": 163
+    },
+    "crossReferences": [
+      "cup-grace",
+      "spirit-twisting-obsession-stance",
+      "insidious-distraction-technique"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Cup Combat Charms' -> 'Spirit-Twisting Obsession Style' subsection, pp. 162-163 (PDF 163-164); header and cost/duration block on p. 162 (PDF 163), with the mechanics text continuing onto p. 163 (PDF 164)."
+  },
+  {
+    "id": "insidious-distraction-technique",
+    "name": "Insidious Distraction Technique",
+    "disposition": "selectable",
+    "summary": "Caps the victim's ability to split shaping actions to her Temperance for the scene, and limits dodge/parry actions from a full dodge or parry to Temperance as well.",
+    "requirements": "Minimum Cup: 5; Minimum Essence: 3; Prerequisite Charms: Subtle Breath of Ruin.",
+    "mechanics": "The raksha's presence and practices make concentration difficult for her victim. The raksha uses this Charm at the beginning of the scene. The Charm reduces the victim's ability to split her shaping action: the victim cannot split his shaping action into more actions than his Temperance. The victim receives only his Temperance in dodge or parry actions from a full dodge or full parry.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 163,
+      "pdfPage": 164
+    },
+    "crossReferences": [
+      "cup-grace",
+      "subtle-breath-of-ruin",
+      "eulogy-for-greatness-lost"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Cup Combat Charms' -> 'Spirit-Twisting Obsession Style' subsection, p. 163 (PDF 164)."
+  },
+  {
+    "id": "encouraging-futile-struggle",
+    "name": "Encouraging Futile Struggle",
+    "disposition": "selectable",
+    "summary": "A Cup-shaping attack that, on success, reduces the target's shaping soak against that single attack by the target's own Willpower.",
+    "requirements": "Minimum Cup: 4; Minimum Essence: 3; Prerequisite Charms: Spirit-Twisting Obsession Stance.",
+    "mechanics": "The target attempts to shut out the madness or passion that the raksha invokes and, failing, sinks further into the Entertainer's web. The raksha makes a Cup-shaping attack. If it is successful, this Charm reduces the target's shaping soak against only this attack by the target's Willpower.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 163,
+      "pdfPage": 164
+    },
+    "crossReferences": [
+      "cup-grace",
+      "spirit-twisting-obsession-stance",
+      "brilliant-glinting-lure"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Cup Combat Charms' -> 'Spirit-Twisting Obsession Style' subsection, p. 163 (PDF 164)."
+  },
+  {
+    "id": "brilliant-glinting-lure",
+    "name": "Brilliant Glinting Lure",
+    "disposition": "selectable",
+    "summary": "Reshapes the raksha into the perfect object of obsession, adding her Performance in dice to her next Cup-shaping action, including reflexive actions such as Art of Corrosion.",
+    "requirements": "Minimum Cup: 4; Minimum Essence: 4; Prerequisite Charms: Encouraging Futile Struggle.",
+    "mechanics": "The raksha reshapes herself into the perfect object of obsession. This Charm adds her Performance in dice to her next Cup-shaping action, including reflexive shaping actions such as Art of Corrosion. The raksha cannot use this Charm to construct a dice pool from nothing.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 163,
+      "pdfPage": 164
+    },
+    "crossReferences": [
+      "cup-grace",
+      "encouraging-futile-struggle",
+      "eulogy-for-greatness-lost",
+      "art-of-corrosion"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Cup Combat Charms' -> 'Spirit-Twisting Obsession Style' subsection, p. 163 (PDF 164). The other of the three converging prerequisites (with Twisting Spiral of Collapse and Insidious Distraction Technique) for the tree's capstone, Eulogy for Greatness Lost, per the diagram on p. 162 (PDF 163)."
+  },
+  {
+    "id": "eulogy-for-greatness-lost",
+    "name": "Eulogy for Greatness Lost",
+    "disposition": "selectable",
+    "summary": "The capstone of the Spirit-Twisting Obsession Style tree: a Cup-shaping attack that transforms each post-soak damage die into a success, standing triumphant over the crumbled ruins of the target's life.",
+    "requirements": "Minimum Cup: 5; Minimum Essence: 4; Prerequisite Charms: Twisting Spiral of Collapse, Insidious Distraction Technique, Brilliant Glinting Lure.",
+    "mechanics": "The raksha stands triumphant over the crumbled ruins of the target's life. The raksha makes a Cup-shaping attack. This Charm transforms each post-soak damage die into a success.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 163,
+      "pdfPage": 164
+    },
+    "crossReferences": [
+      "cup-grace",
+      "twisting-spiral-of-collapse",
+      "insidious-distraction-technique",
+      "brilliant-glinting-lure"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Cup Combat Charms' -> 'Spirit-Twisting Obsession Style' subsection, p. 163 (PDF 164). Capstone of the tree diagrammed on p. 162 (PDF 163), visually confirmed: requires all three second-tier Charms simultaneously, matching the convergent diagram. Last Charm of the Cup Combat Charms section; Feeding Charms begins immediately afterward on the same page."
+  },
+  {
+    "id": "ravishing-the-created-form",
+    "name": "Ravishing the Created Form",
+    "disposition": "selectable",
+    "summary": "The root of the Feeding Charms tree: touches a consenting Creation-born target and rolls a feeding Grace as a Cup-shaping attack to permanently drain Willpower or a Virtue dot, recovering 10 motes of temporary Essence per Trait point drained.",
+    "requirements": "Minimum Cup: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "Fair Folk in Creation devour the Willpower and Virtues of mortals to live. To use this Charm, a raksha touches a consenting Creation-born target, and her player rolls a feeding Grace as a Cup-shaping attack. Instead of the normal damage, this Charm reduces the target's permanent Willpower or the target's relevant Virtue (the raksha's choice), by up to one dot per success, to a minimum of 0. This does not increase the raksha's own Traits, but lets the raksha recover 10 motes of temporary Essence for each Trait point the target loses. This Charm is a work of glamour. It cannot feed from creatures whose Willpower + Essence exceeds the raksha's Willpower. Raksha cannot drain Exalted Virtues below the minimums imposed by the Great Curse.",
+    "cost": "1 Willpower, 0 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 163,
+      "pdfPage": 164
+    },
+    "crossReferences": [
+      "cup-grace",
+      "gossamer-and-glamour-mechanic",
+      "soul-carving-artifice",
+      "heart-stealing-kiss",
+      "extruded-stomach-feeding"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Feeding Charms' section, p. 163 (PDF 164), immediately after the Cup Combat Charms section ends. Root of the Feeding Charms tree diagrammed on p. 166 (PDF 167), visually confirmed: Soul-Carving Artifice, Heart-Stealing Kiss and Extruded Stomach Feeding all require this Charm directly. See the 'THE ENCHANTED' sidebar on p. 165 (PDF 166) for what happens to Creation-born victims drained to 0 in a Trait by this family of Charms."
+  },
+  {
+    "id": "soul-carving-artifice",
+    "name": "Soul-Carving Artifice",
+    "disposition": "selectable",
+    "summary": "Extends ravishment into Creation itself, letting the raksha and a consenting target share a daydream vision that functions as a 10-waypoint Middlemarches space, with anything created inside it fading when the Charm ends.",
+    "requirements": "Minimum Cup: 2; Minimum Essence: 2; Prerequisite Charms: Ravishing the Created Form.",
+    "mechanics": "The raksha can ravish others in Creation as in the Wyld. Soul-Carving Artifice lets them shape the Virtues of mortals to their needs and allows them to contest with one another in the thin and dreamless air of the Primordials' world. This Charm creates a daydream or vision shared by the raksha and a consenting target, imposing a one-die distraction penalty on normal dice actions for both. The raksha and target can use shaping actions to change the vision as if it were a 10-waypoint space of the Middlemarches of the Wyld. Anything created in this daydream fades entirely when the Charm's effects end. This Charm is a work of glamour and does not affect characters with Wits + Essence greater than the raksha's Performance.",
+    "cost": "3 motes, 1 Willpower, 0 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 163,
+      "pdfPage": 164
+    },
+    "crossReferences": [
+      "cup-grace",
+      "ravishing-the-created-form",
+      "soul-consuming-hunger",
+      "banquet-of-crumbs"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Feeding Charms' section, pp. 163-164 (PDF 164-165); header and cost block on p. 163 (PDF 164), mechanics text continuing onto p. 164 (PDF 165)."
+  },
+  {
+    "id": "devouring-wings-of-the-wyld",
+    "name": "Devouring Wings of the Wyld",
+    "disposition": "selectable",
+    "summary": "Grants a winged raksha the Hypnotic Wings ability, which penalizes onlookers' normal actions and lets the raksha permanently devour a Virtue dot from any Creation-born character who botches a Virtue roll while interacting with her.",
+    "requirements": "Minimum Cup: 3; Minimum Essence: 2; Prerequisite Charms: Soul-Carving Artifice.",
+    "mechanics": "The shifting patterns of the raksha's wings draw in the soul of those who look upon them. This Charm grants an ability affecting normal actions rather than shaping actions. Hypnotic Wings: the raksha must have wings to use this ability. When she spreads them, every character who can see the wings suffers a +1 difficulty on all normal dice actions. If a Creation-born character's player botches a Virtue roll while interacting with a raksha with hypnotic wings spread, the raksha can permanently and reflexively devour one dot of that target's Virtue, gaining 10 motes of Essence. Raksha can purchase functional wings with Gossamer Wing Flight or an artifact; nonfunctional wings are available to any raksha who wishes them. This Charm is a work of glamour, but it affects the raksha rather than the witnesses, so seeing through it has no effect.",
+    "cost": "5 motes, 2 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 164,
+      "pdfPage": 165
+    },
+    "crossReferences": [
+      "cup-grace",
+      "soul-carving-artifice"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Feeding Charms' section, p. 164 (PDF 165). References Gossamer Wing Flight (p. 203/PDF 204), a Ring Grace tree Charm out of scope this round."
+  },
+  {
+    "id": "heart-stealing-kiss",
+    "name": "Heart-Stealing Kiss",
+    "disposition": "selectable",
+    "summary": "A touch-triggered ravishment: after landing a normal Brawl or Martial Arts touch, the raksha feeds as Ravishing the Created Form but gains 2 motes per drained point and the drained Trait heals faster (one dot per day).",
+    "requirements": "Minimum Cup: 4; Minimum Essence: 2; Prerequisite Charms: Ravishing the Created Form.",
+    "mechanics": "The raksha ravishes one of the Creation-born by touch. The raksha can only use this Charm after touching the target with a normal dice action, often requiring a Dexterity + Brawl or Dexterity + Martial Arts roll. The raksha then feeds from the target; this Charm functions as Ravishing the Created Form, save that the raksha gains 2 motes per drained Virtue or Willpower point and the drained Virtues or Willpower heal at one dot per day (rather than the normal, slower rate).",
+    "cost": "3 motes, 1 Willpower, 1 gossamer",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 164,
+      "pdfPage": 165
+    },
+    "crossReferences": [
+      "cup-grace",
+      "ravishing-the-created-form"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Feeding Charms' section, pp. 164-165 (PDF 165-166); header and cost block on p. 164 (PDF 165), mechanics text continuing onto p. 165 (PDF 166) after a full-page illustration."
+  },
+  {
+    "id": "extruded-stomach-feeding",
+    "name": "Extruded Stomach Feeding",
+    "disposition": "selectable",
+    "summary": "Lets the raksha feed as Ravishing the Created Form using any Grace rather than only a feeding Grace, inverting her Essence pattern to drink through a spiritual 'stomach' visible only to spirits, raksha, and Essence-sighted observers.",
+    "requirements": "Minimum Cup: 1; Minimum Essence: 3; Prerequisite Charms: Ravishing the Created Form.",
+    "mechanics": "The raksha inverts her Essence pattern and uses a Minor Grace to drink from her target. She typically remains elegant to mortal eyes, but spirits, raksha and characters using effects such as All-Encompassing Sorcerer's Sight can see the raksha's spiritual 'stomach' pour out her mouth and fix its fanged maw to the target's soul. This Charm functions exactly as Ravishing the Created Form, save that the raksha can feed using any Grace.",
+    "cost": "1 Willpower, 0 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 166,
+      "pdfPage": 167
+    },
+    "crossReferences": [
+      "cup-grace",
+      "ravishing-the-created-form",
+      "soul-consuming-hunger",
+      "banquet-of-crumbs"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Feeding Charms' section, p. 166 (PDF 167). This page's two columns visually confirmed to run right-column-first (Oneiromantic Conjuration, Demesne-Farming Art, Addiction Charms intro, Shiftless Untamed Beauty) then left-column (Extruded Stomach Feeding, Soul-Consuming Hunger, Banquet of Crumbs) via a rendered-page check; plain text extraction returned this reversed order, which would otherwise misattribute reading sequence."
+  },
+  {
+    "id": "soul-consuming-hunger",
+    "name": "Soul-Consuming Hunger",
+    "disposition": "selectable",
+    "summary": "A Cup-only shaping attack against the target's Essence that, on success, utterly annihilates a consenting target instead of dealing normal damage, recovering 10 motes of Essence per Virtue or Willpower point the target possessed.",
+    "requirements": "Minimum Cup: 5; Minimum Essence: 3; Prerequisite Charms: Soul-Carving Artifice, Extruded Stomach Feeding.",
+    "mechanics": "Gaping wide the four mouths of her Graces, the raksha swallows a consenting target's soul. The raksha's player rolls her character's Cup Grace (and Cup Grace only) as a Cup-shaping attack against a difficulty of the target's Essence. On a success, instead of normal damage, this Charm utterly annihilates the target. The raksha recovers 10 motes of Essence for each Virtue point or Willpower point the target possessed, to the limits of her normal Essence pool. This Charm is a work of glamour; it cannot be used to feed from creatures whose Willpower + Essence exceeds the raksha's permanent Willpower.",
+    "cost": "1 Willpower, 1 health level, 0 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 166,
+      "pdfPage": 167
+    },
+    "crossReferences": [
+      "cup-grace",
+      "soul-carving-artifice",
+      "extruded-stomach-feeding"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Feeding Charms' section, p. 166 (PDF 167)."
+  },
+  {
+    "id": "banquet-of-crumbs",
+    "name": "Banquet of Crumbs",
+    "disposition": "selectable",
+    "summary": "Lets the raksha recover 1 mote of Essence per success by rolling a feeding Grace as a Cup-shaping action after exposure to strong, appropriate emotions -- with no satiety, but at no gossamer cost.",
+    "requirements": "Minimum Cup: 1; Minimum Essence: 1; Prerequisite Charms: Soul-Carving Artifice, Extruded Stomach Feeding.",
+    "mechanics": "The raksha can sup on the ambient Virtue of Creation, though they find no satiety in it. After exposure to strong, appropriate emotions, the raksha can invoke this Charm and roll a feeding Grace as a Cup-shaping action. This Charm recovers 1 mote of the raksha's Essence per success.",
+    "cost": "0 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 166,
+      "pdfPage": 167
+    },
+    "crossReferences": [
+      "cup-grace",
+      "soul-carving-artifice",
+      "extruded-stomach-feeding",
+      "oneiromantic-conjuration"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Feeding Charms' section, p. 166 (PDF 167). Root of the tree's final two-Charm sub-branch (Oneiromantic Conjuration, then Demesne-Farming Art) per the diagram on p. 166 (PDF 167)."
+  },
+  {
+    "id": "oneiromantic-conjuration",
+    "name": "Oneiromantic Conjuration",
+    "disposition": "selectable",
+    "summary": "Transforms motes into 1 gossamer by using a dreaming mortal's dream as a crucible; requires access to a dreaming mortal to use.",
+    "requirements": "Minimum Cup: 1; Minimum Essence: 2; Prerequisite Charms: Banquet of Crumbs.",
+    "mechanics": "The raksha can use a mortal's dream as a crucible, transforming motes into gossamer. The raksha must have access to a dreaming mortal to use this Charm. This Charm creates 1 gossamer.",
+    "cost": "10 motes, 0 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 166,
+      "pdfPage": 167
+    },
+    "crossReferences": [
+      "cup-grace",
+      "gossamer-and-glamour-mechanic",
+      "banquet-of-crumbs",
+      "demesne-farming-art"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Feeding Charms' section, p. 166 (PDF 167)."
+  },
+  {
+    "id": "demesne-farming-art",
+    "name": "Demesne-Farming Art",
+    "disposition": "selectable",
+    "summary": "The capstone of the Feeding Charms tree: prunes an uncapped Demesne's wild power for gossamer equal to its rating, though a given Demesne only offers gossamer once per story this way.",
+    "requirements": "Minimum Cup: 1; Minimum Essence: 2; Prerequisite Charms: Oneiromantic Conjuration.",
+    "mechanics": "The raksha prunes the wild power of an uncapped Demesne, creating gossamer from the clippings. The raksha must visit an uncapped Demesne to use this technique. This Charm creates gossamer equal to the Demesne's rating. A given Demesne only offers gossamer once per story.",
+    "cost": "10 motes, 0 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 166,
+      "pdfPage": 167
+    },
+    "crossReferences": [
+      "cup-grace",
+      "gossamer-and-glamour-mechanic",
+      "oneiromantic-conjuration"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Feeding Charms' section, p. 166 (PDF 167). Capstone of the Feeding Charms tree diagrammed on p. 166 (PDF 167), visually confirmed. Addiction Charms begins immediately afterward on the same page."
+  },
+  {
+    "id": "shiftless-untamed-beauty",
+    "name": "Shiftless Untamed Beauty",
+    "disposition": "selectable",
+    "summary": "Makes the raksha's presence addictive to Creation-born characters who fail a Willpower + Temperance roll, granting the raksha a Social bonus success against addicts and drawing them back to her after time apart.",
+    "requirements": "Minimum Cup: 2; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The raksha invests herself with the chaotic majesty of the Wyld -- with its beauty, sometimes its nightmarish horror, but always the raw seductive power of the primordial cauldron of dream. This Charm makes the raksha's presence addictive: players of Creation-born characters who interact with her must make a successful Willpower + Temperance roll against difficulty 2 once per scene, or their characters become addicted. The raksha gets one bonus success on normal Social dice actions against those addicted to her. After each full month apart, addicts' players must succeed at a Willpower roll or their characters feel drawn to return; those drawn to return cannot regain Willpower (save through stunts and Charms) until they spend time with the raksha again. Breaking the addiction requires three consecutive successful Willpower rolls. This Charm is a work of glamour and does not affect characters with Temperance + Essence greater than the raksha's Cup.",
+    "cost": "8 motes, 1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 166,
+      "pdfPage": 167
+    },
+    "crossReferences": [
+      "cup-grace",
+      "compelling-presence"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Addiction Charms' section, pp. 166-167 (PDF 167-168). Root of the Addiction Charms tree diagrammed on p. 167 (PDF 168), visually confirmed. This page's two columns run right-column-first in raw text extraction (see extruded-stomach-feeding's notes); the mechanics text above was assembled from the visually confirmed reading order across pp. 166-167 (PDF 167-168), where the final sentence about breaking the addiction actually appears at the top of p. 167 (PDF 168) rather than immediately following on the same page."
+  },
+  {
+    "id": "compelling-presence",
+    "name": "Compelling Presence",
+    "disposition": "selectable",
+    "summary": "Instantly addicts a target unless he beats a Willpower + Temperance roll against the raksha's Essence, and thereafter forces addicted attackers to spend an extra Willpower point to take hostile action against her.",
+    "requirements": "Minimum Cup: 2; Minimum Essence: 3; Prerequisite Charms: Shiftless Untamed Beauty.",
+    "mechanics": "The raksha shapes herself to match her target's personal dreams and nightmares. This Charm instantly addicts the target, as with Shiftless Untamed Beauty, unless the target's player can successfully roll Willpower + Temperance against a difficulty of the raksha's Essence. Further, characters addicted by means of this Charm cannot attack the raksha without spending an extra Willpower point in each turn in which the addict wishes to take hostile action. The raksha can only use this power against a given target once per turn. This Charm is a work of glamour and does not affect characters with Temperance + Essence greater than the raksha's Cup.",
+    "cost": "10 motes, 1 Willpower, 1 gossamer",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 167,
+      "pdfPage": 168
+    },
+    "crossReferences": [
+      "cup-grace",
+      "shiftless-untamed-beauty",
+      "whispers-behind-the-eyes"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Addiction Charms' section, p. 167 (PDF 168)."
+  },
+  {
+    "id": "maddening-summons",
+    "name": "Maddening Summons",
+    "disposition": "selectable",
+    "summary": "Calls an addicted or formerly addicted character back to the raksha's side via a contested Cup-shaping action, inflicting a derangement on current addicts until they return or break their addiction.",
+    "requirements": "Minimum Cup: 3; Minimum Essence: 2; Prerequisite Charms: None.",
+    "mechanics": "A Fair One can call addicted or formerly addicted characters to his side. The raksha chooses a target who has spent time addicted to the raksha and invokes this Charm. The raksha's player rolls Conviction + Performance as a Cup-shaping action against a difficulty of the target's Essence. On a success, this Charm fills the dreams of the target with images of the raksha, his location and his desire for the target to return. Current addicts suffer a derangement of the raksha's choice (delusions, mood swings or obsession) until they break their addiction or return to the raksha's side; former addicts notice the dreams but can ignore them without ill effect. This Charm is a work of glamour and does not affect characters with Temperance + Essence greater than the raksha's Performance, nor characters who do not dream or whose dreams are spoken for by some other effect.",
+    "cost": "5 motes, 1 gossamer",
+    "compatibility": "Duration: One story. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 167,
+      "pdfPage": 168
+    },
+    "crossReferences": [
+      "cup-grace",
+      "whispers-behind-the-eyes"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Addiction Charms' section, p. 167 (PDF 168). This Charm has no prerequisite of its own, but the tree diagram on p. 167 (PDF 168) still positions it as a second, parallel root alongside Shiftless Untamed Beauty, since Whispers Behind the Eyes requires both this Charm and Compelling Presence together."
+  },
+  {
+    "id": "whispers-behind-the-eyes",
+    "name": "Whispers Behind the Eyes",
+    "disposition": "selectable",
+    "summary": "The capstone of the Addiction Charms tree: opens a one-way telepathic channel into an addict's mind for the rest of the story, letting the raksha speak to them directly.",
+    "requirements": "Minimum Cup: 4; Minimum Essence: 3; Prerequisite Charms: Compelling Presence, Maddening Summons.",
+    "mechanics": "Those addicted to the Fair Folk sometimes hear strange mad whispers, the patina of Wyld taint on their minds resonating with the raksha's will. The raksha can use this Charm and a Cup-shaping action to open a channel to an addict's mind, through which -- for the rest of the story -- she can speak. This Charm is a work of glamour and does not affect characters with Temperance + Essence greater than the raksha's Performance.",
+    "cost": "3 motes, 1 gossamer",
+    "compatibility": "Duration: One story. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 167,
+      "pdfPage": 168
+    },
+    "crossReferences": [
+      "cup-grace",
+      "compelling-presence",
+      "maddening-summons"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Addiction Charms' section, p. 167 (PDF 168). Capstone of the Addiction Charms tree diagrammed on p. 167 (PDF 168), visually confirmed: it converges from both Compelling Presence and Maddening Summons, shown by the horizontal connector between those two boxes in the diagram. World-Shaping Charms begins immediately afterward on the same page."
+  },
+  {
+    "id": "gladdening-visage",
+    "name": "Gladdening Visage",
+    "disposition": "selectable",
+    "summary": "One of the two roots of the World-Shaping Charms tree: makes the raksha appear human (if she looks human) or a natural, beneficent little god (if she does not) to observing creatures of Creation.",
+    "requirements": "Minimum Cup: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The raksha makes herself more appealing to the creatures of Creation. If she looks essentially human, this Charm makes others identify her as human. If she does not, they recognize her as a natural and beneficent little god. This Charm is a work of glamour and has no effect on creatures with Perception + Essence greater than the raksha's Performance.",
+    "cost": "1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 167,
+      "pdfPage": 168
+    },
+    "crossReferences": [
+      "cup-grace",
+      "gossamer-and-glamour-mechanic",
+      "adored-by-all-the-worlds",
+      "abandoned-by-all-creatures-curse",
+      "spite-summoning-malediction"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'World-Shaping Charms' section, p. 167 (PDF 168), which opens by describing these Charms as 'the core Charms for glamour sorcery' (see pp. 205-207/PDF 206-208, out of scope this round). One of the two roots of the World-Shaping Charms tree diagrammed on p. 169 (PDF 170), visually confirmed: Adored by All the Worlds, Abandoned by All Creatures Curse and Spite-Summoning Malediction all require this Charm directly."
+  },
+  {
+    "id": "adored-by-all-the-worlds",
+    "name": "Adored by All the Worlds",
+    "disposition": "selectable",
+    "summary": "Attracts temporary Allies or Followers dots (up to the raksha's Essence, divided as she chooses) via a Cup-shaping action, weaving a fate of serenity, loyalty, and pleasure.",
+    "requirements": "Minimum Cup: 2; Minimum Essence: 1; Prerequisite Charms: Gladdening Visage.",
+    "mechanics": "The raksha weaves a fate of serenity, loyalty and pleasure, thereby attracting tangible support in the form of allies and followers. The raksha's player rolls Conviction + Performance as a Cup-shaping action. This Charm gives the raksha one temporary dot of Allies or Followers per success, to a maximum of his Essence; the raksha can divide successes between Allies and Followers as he chooses. He does not choose his specific allies or followers, but they are always appropriate to his situation. This Charm is a work of glamour and cannot attract allies or followers whose Perception + Essence exceeds the raksha's Performance.",
+    "cost": "2 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 167,
+      "pdfPage": 168
+    },
+    "crossReferences": [
+      "cup-grace",
+      "gladdening-visage",
+      "followers-and-resources-excluded-fair-folk"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'World-Shaping Charms' section, p. 167 (PDF 168). Notable in that raksha PCs do not use the Followers Background themselves (see the followers-and-resources-excluded-fair-folk row), yet this Charm can grant temporary Allies/Followers dots as a shaping effect distinct from the Background purchase."
+  },
+  {
+    "id": "abandoned-by-all-creatures-curse",
+    "name": "Abandoned by All Creatures Curse",
+    "disposition": "selectable",
+    "summary": "Distances a target from his supporters, temporarily reducing his Allies, Followers, or Mentor dots (divided as the raksha chooses) by one dot per success on a contested Cup-shaping action.",
+    "requirements": "Minimum Cup: 3; Minimum Essence: 2; Prerequisite Charms: Gladdening Visage.",
+    "mechanics": "The raksha weaves fates of confusion and dissent, distancing a creature of Creation from his supporters. The raksha interacts with the target, and then her player rolls Conviction + Larceny as a Cup-shaping action. This Charm temporarily reduces the target's Allies, Followers or Mentor by one dot per success, divided among the Backgrounds as the raksha chooses; her supporters drift away -- distracted, occupied, angry, kidnapped or otherwise unable to come to the character's aid. This is a work of glamour; it cannot drive away creatures whose Wits + Essence exceeds the raksha's Stealth. If the target has Wits + Essence exceeding the raksha's Stealth, he can use stunts or Charms to hunt down lost associates and convince them their anger or preoccupation is illusory.",
+    "cost": "3 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 167,
+      "pdfPage": 168
+    },
+    "crossReferences": [
+      "cup-grace",
+      "gladdening-visage",
+      "abiding-gift",
+      "curse-of-definition"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'World-Shaping Charms' section, p. 167 (PDF 168). One of the three converging prerequisites (with Fall of Night Shadows the Truth and Prince and Pauper Approach) for the tree's twin capstones, Abiding Gift and Curse of Definition, per the diagram on p. 169 (PDF 170)."
+  },
+  {
+    "id": "spite-summoning-malediction",
+    "name": "Spite-Summoning Malediction",
+    "disposition": "selectable",
+    "summary": "A Staff-shaping crossover of the World-Shaping tree: attracts one meaningful enemy per success (or a smaller number of deadlier foes) against a target, functioning as a work of glamour treated like an Enemy Flaw or reversed Allies Background.",
+    "requirements": "Minimum Staff: 3; Minimum Essence: 2; Prerequisite Charms: Gladdening Visage.",
+    "mechanics": "The raksha wields rumors, lies and the natural human desire to blame others for their troubles against an enemy. The raksha interacts with the target, and then her player rolls Manipulation + Socialize as a Staff-shaping action. This Charm attracts the enmity of powerful forces to the target -- treat this as an Enemy Flaw or reversed Allies Background of a level equal to the number of successes rolled. This Charm is a work of glamour and cannot attract hostile action from creatures whose Wits + Essence exceed the raksha's Socialize; if the target has Wits + Essence exceeding the raksha's Socialize, he can use stunts or Charms to help his new enemies realize they have no true quarrel. This is a Staff-shaping Charm.",
+    "cost": "3 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 167,
+      "pdfPage": 168
+    },
+    "crossReferences": [
+      "staff-grace",
+      "cup-grace",
+      "gladdening-visage"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'World-Shaping Charms' section, p. 167 (PDF 168). Like Beguilement and Prince and Pauper Approach elsewhere in this round's material, this Charm is explicitly Staff-gated ('Minimum Staff: 3') and closes with 'This is a Staff-shaping Charm,' despite branching directly off the Cup Charm Gladdening Visage -- the same cross-Grace pattern flagged for the Bedlam-Influencing Charms in this inventory's rulesNotes."
+  },
+  {
+    "id": "heaven-rains-wisdom",
+    "name": "Heaven Rains Wisdom",
+    "disposition": "selectable",
+    "summary": "The second root of the World-Shaping Charms tree: removes the difficulty penalty for using Lore or Occult to understand Creation, replacing it with a bonus success (though it does not aid geomantic architecture rolls).",
+    "requirements": "Minimum Cup: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The raksha makes the mysteries of Creation apparent. This Charm removes the difficulty penalty for using Lore or Occult to understand the things of Creation, replacing it with a bonus success on Lore and Occult rolls. It does not affect the rolls to design or modify geomantic architecture.",
+    "cost": "1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 167,
+      "pdfPage": 168
+    },
+    "crossReferences": [
+      "cup-grace",
+      "gossamer-and-glamour-mechanic",
+      "the-naming-of-secrets",
+      "fall-of-night-shadows-the-truth",
+      "unlimited-resplendence",
+      "prince-and-pauper-approach"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'World-Shaping Charms' section, p. 167 (PDF 168). Second, independent root of the World-Shaping Charms tree diagrammed on p. 169 (PDF 170), visually confirmed: The Naming of Secrets, Fall of Night Shadows the Truth, Unlimited Resplendence and Prince and Pauper Approach all require this Charm directly."
+  },
+  {
+    "id": "the-naming-of-secrets",
+    "name": "The Naming of Secrets",
+    "disposition": "selectable",
+    "summary": "Grants temporary Contacts dots (up to the raksha's Essence, 1 gossamer each) as Creation speaks its truths to her via a Conviction + Investigation Cup-shaping action.",
+    "requirements": "Minimum Cup: 2; Minimum Essence: 1; Prerequisite Charms: Heaven Rains Wisdom.",
+    "mechanics": "The raksha unravels the fates of secrets, and Creation speaks its truths to her. The raksha's player rolls Conviction + Investigation as a Cup-shaping action. This Charm gives the raksha one temporary dot of Contacts per success, to a maximum of the raksha's Essence, for a cost of 1 gossamer each. The raksha does not choose the major contacts, but they are always appropriate for the situation in which she finds herself.",
+    "cost": "2 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 167,
+      "pdfPage": 168
+    },
+    "crossReferences": [
+      "cup-grace",
+      "heaven-rains-wisdom"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'World-Shaping Charms' section, pp. 167-168 (PDF 168-169); header on p. 167 (PDF 168), full mechanics text continuing onto the top of p. 168 (PDF 169)."
+  },
+  {
+    "id": "fall-of-night-shadows-the-truth",
+    "name": "Fall of Night Shadows the Truth",
+    "disposition": "selectable",
+    "summary": "Deepens mysteries around a situation or thing, raising the difficulty of Contacts/Connections rolls by one and of Investigation, Lore, Occult, and Socialize rolls by the raksha's successes, to discover more about it.",
+    "requirements": "Minimum Cup: 3; Minimum Essence: 2; Prerequisite Charms: Heaven Rains Wisdom.",
+    "mechanics": "The raksha deepens mysteries. She interacts with a situation or thing she wishes to veil in secrecy, and then her player must succeed on a Cup-shaping roll using Conviction + Stealth. This Charm adds one to the difficulty of Contacts or Connections rolls to discover more about the thing or situation veiled, and adds the raksha's successes to the difficulty of Investigation, Lore, Occult and Socialize rolls to discover more. This Charm is a work of glamour and does not affect creatures whose Intelligence + Essence exceeds the raksha's Stealth.",
+    "cost": "3 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 168,
+      "pdfPage": 169
+    },
+    "crossReferences": [
+      "cup-grace",
+      "heaven-rains-wisdom",
+      "abiding-gift",
+      "curse-of-definition"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'World-Shaping Charms' section, p. 168 (PDF 169). One of the three converging prerequisites (with Abandoned by All Creatures Curse and Prince and Pauper Approach) for the tree's twin capstones, Abiding Gift and Curse of Definition, per the diagram on p. 169 (PDF 170)."
+  },
+  {
+    "id": "unlimited-resplendence",
+    "name": "Unlimited Resplendence",
+    "disposition": "selectable",
+    "summary": "Grants temporary Influence or Backing dots (up to the raksha's Essence, divided as she chooses) by weaving power from secrets and serenity via a Conviction + Performance Cup-shaping action.",
+    "requirements": "Minimum Cup: 3; Minimum Essence: 2; Prerequisite Charms: Heaven Rains Wisdom.",
+    "mechanics": "The raksha weaves from secrets and serenity the fates of power. The raksha's player rolls Conviction + Performance as a Cup-shaping action. This Charm gives the raksha one temporary dot of Influence or Backing per success, to a maximum of the raksha's Essence; the raksha can divide successes between Influence and Backing as she chooses, and can choose general regional influence or influence within a specific organization (Storytellers familiar with the Connections Background from Exalted: The Dragon-Blooded can treat specific Influence as Connections). This Charm is a work of glamour, and the new Backgrounds give the raksha no sway over characters whose Perception + Essence exceeds the raksha's Performance.",
+    "cost": "2 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 168,
+      "pdfPage": 169
+    },
+    "crossReferences": [
+      "cup-grace",
+      "heaven-rains-wisdom",
+      "backing-contacts-influence-fair-folk"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'World-Shaping Charms' section, p. 168 (PDF 169). Cross-references the altered Backing Background already covered in this inventory (see backing-contacts-influence-fair-folk)."
+  },
+  {
+    "id": "prince-and-pauper-approach",
+    "name": "Prince and Pauper Approach",
+    "disposition": "selectable",
+    "summary": "A Staff-shaping crossover of the World-Shaping tree: makes a target's influence ring subtly false, raising by 2 the difficulty of Social rolls that rely on Influence, Backing, or Connections Backgrounds.",
+    "requirements": "Minimum Staff: 3; Minimum Essence: 2; Prerequisite Charms: Heaven Rains Wisdom.",
+    "mechanics": "The raksha shatters a mortal's influence, making the victim's power ring subtly false to all those the victim would impress. The raksha interacts with the target, and her player rolls Manipulation + Socialize as a Staff-shaping action. If she succeeds, this Charm increases the difficulty of all Social rolls by 2 when the target attempts to make use of influence-related Backgrounds such as Influence, Backing and Connections. This Charm is a work of glamour and has no effect when the target interacts with someone whose Wits + Essence exceeds the raksha's Socialize. This is a Staff-shaping Charm.",
+    "cost": "3 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 168,
+      "pdfPage": 169
+    },
+    "crossReferences": [
+      "staff-grace",
+      "cup-grace",
+      "heaven-rains-wisdom",
+      "abiding-gift",
+      "curse-of-definition"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'World-Shaping Charms' section, pp. 168-169 (PDF 169-170); header and cost block on p. 168 (PDF 169), mechanics text continuing onto p. 169 (PDF 170). Like Beguilement and Spite-Summoning Malediction elsewhere in this round's material, this Charm is explicitly Staff-gated despite branching off a Cup Charm -- the same cross-Grace pattern flagged for the Bedlam-Influencing Charms in this inventory's rulesNotes. One of the three converging prerequisites (with Abandoned by All Creatures Curse and Fall of Night Shadows the Truth) for the tree's twin capstones, Abiding Gift and Curse of Definition."
+  },
+  {
+    "id": "abiding-gift",
+    "name": "Abiding Gift",
+    "disposition": "selectable",
+    "summary": "Imposes a blessing on a chosen Attribute+Ability+specialty: automatic success on such rolls (minimum one, after difficulty/defenses) unless opposed by a Charm or stunt, in which case it instead grants two bonus successes.",
+    "requirements": "Minimum Cup: 4; Minimum Essence: 3; Prerequisite Charms: Abandoned by All Creatures Curse, Fall of Night Shadows the Truth, Prince and Pauper Approach.",
+    "mechanics": "The raksha imposes a blessing on someone -- some mundane task he will always succeed at. She chooses an Attribute, Ability and specialty when purchasing this Charm. This Charm only affects normal dice actions rolling that Attribute + Ability combination under that specialty, giving the target automatic success on such rolls (a minimum of one success, after taking difficulty and any defenses into account) unless opposed by Charms or stunts. If someone opposes the target with Charms or stunts, this Charm does not give automatic success; it gives two bonus successes on the roll instead.",
+    "cost": "10 motes, 1 Willpower, 3 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 168,
+      "pdfPage": 169
+    },
+    "crossReferences": [
+      "cup-grace",
+      "abandoned-by-all-creatures-curse",
+      "fall-of-night-shadows-the-truth",
+      "prince-and-pauper-approach",
+      "curse-of-definition"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'World-Shaping Charms' section, pp. 168-169 (PDF 169-170). One of the tree's twin capstones (with Curse of Definition), converging from all three of Abandoned by All Creatures Curse, Fall of Night Shadows the Truth and Prince and Pauper Approach per the diagram on p. 169 (PDF 170), visually confirmed."
+  },
+  {
+    "id": "curse-of-definition",
+    "name": "Curse of Definition",
+    "disposition": "selectable",
+    "summary": "The blessing's dark mirror: imposes a curse on someone -- some mundane or Ability-based task he will always fail at -- unless he uses a Charm or stunt, in which case this instead imposes a +2 difficulty penalty.",
+    "requirements": "Minimum Cup: 4; Minimum Essence: 3; Prerequisite Charms: Abandoned by All Creatures Curse, Fall of Night Shadows the Truth, Prince and Pauper Approach.",
+    "mechanics": "The raksha imposes a curse on someone -- some mundane task he will always fail at. This can include use of Abilities or have a more mundane definition such as 'waking up' or 'drinking water.' The raksha chooses an Attribute, Ability and specialty when purchasing this Charm; it only affects normal dice actions rolling that Attribute + Ability combination under that specialty. This Charm ensures the victim's player automatically fails such rolls unless the victim uses a Charm or a stunt, in which case this Charm imposes a +2 difficulty penalty instead of failure. This Charm is a work of glamour and has no effect on creatures whose Wits + Essence exceeds the raksha's Stealth.",
+    "cost": "10 motes, 1 Willpower, 5 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 169,
+      "pdfPage": 170
+    },
+    "crossReferences": [
+      "cup-grace",
+      "abandoned-by-all-creatures-curse",
+      "fall-of-night-shadows-the-truth",
+      "prince-and-pauper-approach",
+      "abiding-gift"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'World-Shaping Charms' section, pp. 169-170 (PDF 170-171). The other of the tree's twin capstones (with Abiding Gift), sharing the same three prerequisites; the tree diagram on p. 169 (PDF 170) draws them as a single combined box ('Abiding Gift/Curse of Definition'). Last Charm of the World-Shaping Charms section; Virtue-Shaping Charms begins on p. 170 (PDF 171)."
+  },
+  {
+    "id": "unsightly-rigor-approach",
+    "name": "Unsightly Rigor Approach",
+    "disposition": "selectable",
+    "summary": "The root of the Virtue-Shaping Charms tree: temporarily bolsters one of the raksha's own Virtues or Graces by one per success on a Conviction + Medicine Cup-shaping action, capped at her Essence and renewable each scene.",
+    "requirements": "Minimum Cup: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The raksha bolsters one of her Virtues or Graces with artificial rigor. Her player rolls the raksha's Conviction + Medicine in a Cup-shaping action, temporarily improving that Virtue or Grace by one for each success received. The raksha cannot add more than her Essence to a Virtue or Grace with any combination of Charms. This Charm lasts until the raksha's next shaping action, but the raksha can maintain it for additional scenes by spending 5 motes at the beginning of each scene.",
+    "cost": "5 motes per scene, 0 gossamer",
+    "compatibility": "Duration: Varies. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 170,
+      "pdfPage": 171
+    },
+    "crossReferences": [
+      "cup-grace",
+      "wyld-prince-resilience",
+      "manacles-of-virtue"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Virtue-Shaping Charms' section, p. 170 (PDF 171), which opens by noting these Charms are 'also useful for glamour sorcery.' Root of the Virtue-Shaping Charms tree diagrammed on p. 171 (PDF 172), visually confirmed: Wyld Prince Resilience and Manacles of Virtue both require this Charm directly."
+  },
+  {
+    "id": "wyld-prince-resilience",
+    "name": "Wyld Prince Resilience",
+    "disposition": "selectable",
+    "summary": "A mutation-point purchase adding two health levels to all of the raksha's shaping damage tracks per purchase, up to a number of purchases equal to her Cup.",
+    "requirements": "Minimum Cup: 2; Minimum Essence: 1; Prerequisite Charms: Unsightly Rigor Approach.",
+    "mechanics": "Raksha can shape themselves to better resist shaping damage. Each purchase of this Charm adds two health levels to all of the raksha's shaping damage tracks, and players can purchase this Charm a number of times equal to the raksha's Cup.",
+    "cost": "1 mutation point",
+    "compatibility": "Duration: Instant. Type: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 170,
+      "pdfPage": 171
+    },
+    "crossReferences": [
+      "cup-grace",
+      "mutation-mechanic",
+      "unsightly-rigor-approach",
+      "shaping-combat-basics"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Virtue-Shaping Charms' section, p. 170 (PDF 171). Referenced by name in the earlier Ox-Body Technique material (Ring Grace tree, out of scope this round) for shaping-combat health levels specifically."
+  },
+  {
+    "id": "manacles-of-virtue",
+    "name": "Manacles of Virtue",
+    "disposition": "selectable",
+    "summary": "Imposes an artificially heightened Virtue on another character interacted with this scene, adding one dot per success (capped at the target's Essence) via a Conviction + Medicine Cup-shaping action; raksha cannot feed off these artificial Virtues.",
+    "requirements": "Minimum Cup: 2; Minimum Essence: 1; Prerequisite Charms: Unsightly Rigor Approach.",
+    "mechanics": "The raksha imposes an artificially heightened Virtue on some other character. She chooses a Virtue, then chooses a target with whom she must have interacted this scene. She invokes this Charm, and her player rolls Conviction + Medicine in a Cup-shaping action; this adds one dot to the target's Virtue for each success. The Fair Folk cannot improve a target's Virtues by more than the target's Essence with any combination of effects. This Charm is a work of glamour and does not affect characters whose Wits + Essence exceeds the raksha's Medicine. Raksha cannot feed off these artificial Virtues.",
+    "cost": "1 gossamer",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 170,
+      "pdfPage": 171
+    },
+    "crossReferences": [
+      "cup-grace",
+      "gossamer-and-glamour-mechanic",
+      "unsightly-rigor-approach",
+      "chaotic-soul-sledgehammer",
+      "torn-spirit-mending-technique"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Virtue-Shaping Charms' section, p. 170 (PDF 171). Central branch point of the tree diagrammed on p. 171 (PDF 172), visually confirmed: Chaotic Soul Sledgehammer and Torn Spirit Mending Technique both require this Charm directly."
+  },
+  {
+    "id": "chaotic-soul-sledgehammer",
+    "name": "Chaotic Soul Sledgehammer",
+    "disposition": "selectable",
+    "summary": "Damages the roots of a named Virtue on a successful contested Cup-shaping attack, instantly costing the target one channel of that Virtue and imposing +1 difficulty on that Virtue's rolls for the rest of the story.",
+    "requirements": "Minimum Cup: 3; Minimum Essence: 2; Prerequisite Charms: Manacles of Virtue.",
+    "mechanics": "The raksha strikes a sledgehammer blow to another creature's Essence pattern, damaging the roots of one of the four Virtues. The raksha names a Virtue, and his player rolls a Cup-shaping attack against a difficulty of the target's Essence. If it succeeds, the target instantly loses one channel of that Virtue, and for the rest of the story, the target's rolls for that Virtue are at +1 difficulty. This Charm is a work of glamour and does not affect characters whose Wits + Essence exceeds the raksha's Medicine.",
+    "cost": "3 gossamer",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 170,
+      "pdfPage": 171
+    },
+    "crossReferences": [
+      "cup-grace",
+      "manacles-of-virtue"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Virtue-Shaping Charms' section, pp. 170-171 (PDF 171-172); header and cost block on p. 170 (PDF 171), mechanics text continuing onto p. 171 (PDF 172)."
+  },
+  {
+    "id": "torn-spirit-mending-technique",
+    "name": "Torn Spirit Mending Technique",
+    "disposition": "selectable",
+    "summary": "The capstone of the Virtue-Shaping Charms tree: restores a target's damaged Virtues/Willpower or removes a permanent ravishment, powered by consuming an owned glamour sorcery spell of Artifact level equal to or above the target's Cup.",
+    "requirements": "Minimum Cup: 4; Minimum Essence: 3; Prerequisite Charms: Manacles of Virtue.",
+    "mechanics": "Snipping and tugging at a wounded target's Essence, the raksha redresses the effects of ravishment. This Charm can restore damaged Virtues and Willpower to their previous maximum, or remove a permanent ravishment. To power its work, this Charm utterly consumes a glamour sorcery spell that the raksha owns; used to cure a character's ravishment, the spell must have Artifact level equal to or above the target's Cup. This Charm is a work of glamour and does not affect Creation-born characters whose wounded Trait + Essence exceeds the raksha's Willpower.",
+    "cost": "10 motes, 1 Willpower, 0 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 171,
+      "pdfPage": 172
+    },
+    "crossReferences": [
+      "cup-grace",
+      "manacles-of-virtue",
+      "ring-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Dharma, the Cup' -> 'Virtue-Shaping Charms' section, p. 171 (PDF 172). Capstone of the tree diagrammed on p. 171 (PDF 172), visually confirmed. Last Charm of the Cup Grace tree overall (Dharma, pp. 159-171/PDF 160-172); references glamour sorcery spells (pp. 205-207/PDF 206-208), which remain out of scope this round. 'Nirvishesha, the Ring' begins immediately afterward on the same page."
+  },
+  {
+    "id": "flesh-carved-world",
+    "name": "Flesh-Carved World",
+    "disposition": "selectable",
+    "summary": "One of two roots of the Ring Combat Charms tree: a simple mote-for-dice bonus to a Ring- or Staff-shaping attack, as the raksha unwraps her spirit and imposes its order on the world.",
+    "requirements": "Minimum Ring: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The character unwraps her spirit and imposes its order on the world; the law of the self becomes the law of the cosmos. This Charm adds one die to a Ring-shaping or Staff-shaping attack for each mote spent.",
+    "cost": "1 mote per die",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 171,
+      "pdfPage": 172
+    },
+    "crossReferences": [
+      "ring-grace",
+      "shaping-combat-basics",
+      "shuddering-wyld-inference",
+      "creators-fugue",
+      "crippling-destiny-burden"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Ring Combat Charms' section, p. 171 (PDF 172), immediately after the shinma Nirvishesha's introductory prose (which lists her killing-word aspect names: Sakshin, Savikalpa, Samavartana, Ahamkara, Parusha, Sayujya). One of two roots of the Ring Combat Charms tree diagrammed on p. 173 (PDF 174), visually confirmed: Shuddering Wyld Inference, Creator's Fugue and Crippling Destiny Burden all require this Charm directly."
+  },
+  {
+    "id": "shuddering-wyld-inference",
+    "name": "Shuddering Wyld Inference",
+    "disposition": "selectable",
+    "summary": "Lets the raksha make a blind ranged Ring- or Staff-shaping attack without penalty, useful for attacking individuals on distant waypoints as patterns of Wyld motion ripple against her Essence.",
+    "requirements": "Minimum Ring: 3; Minimum Essence: 1; Prerequisite Charms: Flesh-Carved World.",
+    "mechanics": "The self and the world are one, and patterns of motion in the Wyld are reflected in waves of change rippling and scraping against the raksha's Essence. This Charm lets the raksha make a blind ranged Ring-shaping or Staff-shaping attack without penalty. This Charm is very important for attacking individuals on distant waypoints.",
+    "cost": "1 mote",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 171,
+      "pdfPage": 172
+    },
+    "crossReferences": [
+      "ring-grace",
+      "flesh-carved-world",
+      "waypoint-knife",
+      "minds-grip-rigor"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Ring Combat Charms' section, p. 171 (PDF 172)."
+  },
+  {
+    "id": "waypoint-knife",
+    "name": "Waypoint Knife",
+    "disposition": "selectable",
+    "summary": "Forms an Essence-and-dream knife and, via a successful Intelligence + Craft (Glamour) Ring-shaping attack, swallows an unoccupied waypoint into the Wyld, compressing space so anyone entering it must immediately move on for the rest of the story.",
+    "requirements": "Minimum Ring: 3; Minimum Essence: 2; Prerequisite Charms: Shuddering Wyld Inference.",
+    "mechanics": "The raksha forms a knife of Essence and dream and, with it, cuts a waypoint out of the Wyld. The raksha spends the motes for this Charm and targets an unoccupied waypoint within the maximum range of his shaping weapon, and his player rolls Intelligence + Craft (Glamour) as a Ring-shaping attack. On a success, he swallows that waypoint in the substance of the Wyld; the fabric of space compresses, and for the rest of the story, everyone who enters that waypoint can and must immediately move on to another without spending movement.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 171,
+      "pdfPage": 172
+    },
+    "crossReferences": [
+      "ring-grace",
+      "craft-glamour-ability",
+      "shuddering-wyld-inference",
+      "sorrowful-firmament-resonance"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Ring Combat Charms' section, p. 171 (PDF 172). One of the two converging prerequisites (with Pounding Dream Harmony) for Sorrowful Firmament Resonance, per the diagram on p. 173 (PDF 174)."
+  },
+  {
+    "id": "minds-grip-rigor",
+    "name": "Mind's Grip Rigor",
+    "disposition": "selectable",
+    "summary": "Forces principle on the Wyld with an iron grip of will, granting either two guaranteed bonus successes on a noncombat Ring- or Staff-shaping action, or six bonus attack successes at half value for damage purposes.",
+    "requirements": "Minimum Ring: 5; Minimum Essence: 1; Prerequisite Charms: Shuddering Wyld Inference.",
+    "mechanics": "The raksha forces principle on the Wyld, her mind locking the bucking, wrestling tides of chaos in an iron grip of will. She can take a Ring-shaping or Staff-shaping action with complete certainty of success. This Charm gives two bonus successes on noncombat Ring-shaping or Staff-shaping actions. It adds six bonus successes to an attack, but halves extra successes for the purposes of computing damage.",
+    "cost": "4 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 171,
+      "pdfPage": 172
+    },
+    "crossReferences": [
+      "ring-grace",
+      "shuddering-wyld-inference"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Ring Combat Charms' section, pp. 171-172 (PDF 172-173); header and cost block on p. 171 (PDF 172), mechanics text continuing onto p. 172 (PDF 173)."
+  },
+  {
+    "id": "creators-fugue",
+    "name": "Creator's Fugue",
+    "disposition": "selectable",
+    "summary": "Grants one extra Ring- or Staff-shaping attack for every 3 motes spent (up to the raksha's permanent Essence in extra attacks), declared on initiative before the attack action.",
+    "requirements": "Minimum Ring: 3; Minimum Essence: 1; Prerequisite Charms: Flesh-Carved World.",
+    "mechanics": "In a mad fugue of creation, the raksha dreams principle upon principle into the shifting void. On his initiative, before taking an attack action, the raksha invokes this Charm and declares the desired number of extra attacks. This Charm gives one extra Ring-shaping or Staff-shaping attack for each 3 motes spent, up to a maximum number of extra attacks equal to the raksha's permanent Essence.",
+    "cost": "3 motes per extra attack",
+    "compatibility": "Duration: Instant. Type: Extra Action.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 172,
+      "pdfPage": 173
+    },
+    "crossReferences": [
+      "ring-grace",
+      "flesh-carved-world",
+      "impinging-web-of-dream"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Ring Combat Charms' section, pp. 172-173 (PDF 173-174); header and cost block on p. 172 (PDF 173), mechanics text continuing onto p. 173 (PDF 174)."
+  },
+  {
+    "id": "impinging-web-of-dream",
+    "name": "Impinging Web of Dream",
+    "disposition": "selectable",
+    "summary": "Weaves the target into a rigid net of shape, granting the raksha a number of extra Ring- or Staff-shaping attacks equal to her Essence, all of which must target the same victim.",
+    "requirements": "Minimum Ring: 5; Minimum Essence: 3; Prerequisite Charms: Creator's Fugue.",
+    "mechanics": "Weaving the world in an Essence and gossamer-fueled trance, the raksha binds her target in a seething web of shape; the soft and yielding substance of the Wyld becomes a rigid net. This Charm gives the raksha a number of extra Ring-shaping or Staff-shaping attacks equal to her Essence. She must make all of her attacks against the same target.",
+    "cost": "4 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Extra Action.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 173,
+      "pdfPage": 174
+    },
+    "crossReferences": [
+      "ring-grace",
+      "creators-fugue"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Ring Combat Charms' section, p. 173 (PDF 174), spelled 'Impinging Web of Dream' (singular) in its own printed header even though the Ring Combat Charms tree diagram on the same page labels the box 'Impinging Web of Dreams' (plural); treated as the same Charm, not a distinct entry (see swift-wings-of-song for the same kind of header/diagram spelling mismatch in the Cup tree)."
+  },
+  {
+    "id": "crippling-destiny-burden",
+    "name": "Crippling Destiny Burden",
+    "disposition": "selectable",
+    "summary": "A Ring- or Staff-shaping attack from up to one waypoint away that inflicts a stacking -1 environmental penalty on all the target's Sword-shaping actions (per level of damage dealt) until the end of the story.",
+    "requirements": "Minimum Ring: 3; Minimum Essence: 1; Prerequisite Charms: Flesh-Carved World.",
+    "mechanics": "To resist the raw physical power of the martial raksha, Workers and Diplomats often write destinies for the Warriors into the fabric of their created worlds. The burden of such a destiny and its expectations weighs on the target's spirit, distracting him from the victory conditions of the shaping contest. The character makes a Ring-shaping or Staff-shaping attack, from a maximum distance of one waypoint, his player rolling damage normally. For each level of damage this attack inflicts, this Charm inflicts a -1 environmental penalty on all the target's Sword-shaping actions until the end of the story.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 173,
+      "pdfPage": 174
+    },
+    "crossReferences": [
+      "ring-grace",
+      "sword-grace",
+      "flesh-carved-world"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Ring Combat Charms' section, p. 173 (PDF 174). Notable as an explicit counter aimed at the Sword Grace tree (out of scope this round), naming Workers and Diplomats (Ring/Staff castes) as its typical users against Warriors (Sword caste)."
+  },
+  {
+    "id": "wyld-curdling-attack",
+    "name": "Wyld-Curdling Attack",
+    "disposition": "selectable",
+    "summary": "The second root of the Ring Combat Charms tree: adds the raksha's Essence in dice to the damage of a successful Ring- or Staff-shaping attack by congealing the Wyld into a horrid trap of form.",
+    "requirements": "Minimum Ring: 2; Minimum Essence: 2; Prerequisite Charms: None.",
+    "mechanics": "The raksha's shaping congeals the Wyld, stiffening it into a horrid trap of form. This Charm adds dice equal to the raksha's Essence to the damage of a successful Ring-shaping or Staff-shaping attack.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 173,
+      "pdfPage": 174
+    },
+    "crossReferences": [
+      "ring-grace",
+      "endless-yawning-void",
+      "luminous-exhalation",
+      "twisting-serpent-shape",
+      "gaping-wound-lens",
+      "pounding-dream-harmony"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Ring Combat Charms' section, p. 173 (PDF 174). Second, independent root of the Ring Combat Charms tree diagrammed on p. 173 (PDF 174), visually confirmed: Endless Yawning Void, Luminous Exhalation, Twisting Serpent Shape, Gaping Wound Lens and Pounding Dream Harmony all require this Charm directly."
+  },
+  {
+    "id": "endless-yawning-void",
+    "name": "Endless Yawning Void",
+    "disposition": "selectable",
+    "summary": "Surrounds the raksha's Essence in a coruscating aura of time, adding two dice to a Ring- or Staff-shaping action's dice pool and, for attacks, two damage dice per mote spent (up to the raksha's permanent Essence in motes); every raksha within 20 waypoints senses its use.",
+    "requirements": "Minimum Ring: 3; Minimum Essence: 2; Prerequisite Charms: Wyld-Curdling Attack.",
+    "mechanics": "Fair Folk who use this Charm surround their Essence in a coruscating aura of time. Every raksha within 20 waypoints is instantly aware of this Charm's use as the cold touch of causality and rigor rasps against their Hearts. The target finds himself wrapped in layers of dream and the inevitable progression of events, the march of time escorting him inevitably toward his doom or trapping him in an eternity of repetition. This Charm adds two dice to the shaping dice pool for a Ring-shaping or Staff-shaping action. In addition, if that action is a shaping attack, this Charm adds two dice to the damage for each mote spent, and the raksha can spend up to his permanent Essence in motes. This Charm has a minimum cost of 1 mote.",
+    "cost": "1 mote per 2 health levels damage",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 173,
+      "pdfPage": 174
+    },
+    "crossReferences": [
+      "ring-grace",
+      "wyld-curdling-attack"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Ring Combat Charms' section, pp. 173-174 (PDF 174-175); header and cost block on p. 173 (PDF 174), mechanics text continuing onto p. 174 (PDF 175). The 'Cost' line's literal wording ('1 mote per 2 health levels damage') describes the damage-scaling rate, not the activation floor; the mechanics text separately sets a 1-mote minimum cost to use the Charm at all."
+  },
+  {
+    "id": "luminous-exhalation",
+    "name": "Luminous Exhalation",
+    "disposition": "selectable",
+    "summary": "Lets the raksha exhale a fine mist of Essence that Ring-shaping weapons can use as gossamer, allowing a single Ring- or Staff-shaping attack without the need for gossamer ammunition per use.",
+    "requirements": "Minimum Ring: 3; Minimum Essence: 2; Prerequisite Charms: Wyld-Curdling Attack.",
+    "mechanics": "The weakness of ranged Ring-shaping attacks is their dependence on ammunition. This Charm lets the raksha exhale a fine mist of Essence that Ring-shaping weapons can use as gossamer. Each use allows a single Ring-shaping or Staff-shaping attack without the need for gossamer ammunition.",
+    "cost": "1 mote per attack",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 174,
+      "pdfPage": 175
+    },
+    "crossReferences": [
+      "ring-grace",
+      "gossamer-and-glamour-mechanic",
+      "wyld-curdling-attack",
+      "these-dreams-are-clay"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Ring Combat Charms' section, p. 174 (PDF 175)."
+  },
+  {
+    "id": "twisting-serpent-shape",
+    "name": "Twisting Serpent Shape",
+    "disposition": "selectable",
+    "summary": "Lets the raksha make a single Ring- or Staff-shaping attack without gossamer ammunition, using her readied ranged shaping weapon's accuracy but a base damage of Perception + 10 at a fixed 10-waypoint range.",
+    "requirements": "Minimum Ring: 3; Minimum Essence: 2; Prerequisite Charms: Wyld-Curdling Attack.",
+    "mechanics": "The raksha curls the local weave of fate in on itself, building a twisting world of circular reasoning and self-justifying propositions that, with the raw writhing vitality of a living thing, shapes itself to ensure its continued existence. The Essence of the raksha's shaping weapon and the Essence of the world are mirrors of one another. This Charm allows the raksha to make a single Ring-shaping or Staff-shaping attack without gossamer ammunition. This attack uses the accuracy of his readied shaping weapon, which must have a nonzero waypoint range. The base damage of the attack is the raksha's Perception + 10, and the range of the attack is 10 waypoints' distance.",
+    "cost": "4 motes",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 174,
+      "pdfPage": 175
+    },
+    "crossReferences": [
+      "ring-grace",
+      "wyld-curdling-attack"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Ring Combat Charms' section, p. 174 (PDF 175)."
+  },
+  {
+    "id": "gaping-wound-lens",
+    "name": "Gaping Wound Lens",
+    "disposition": "selectable",
+    "summary": "Rips open the raksha's Essence pattern to form a permanent lens usable for either Ring- or Staff-shaping ranged attacks, with accuracy/rate equal to Essence, 10-waypoint range, and no Perception/Charisma damage cap.",
+    "requirements": "Minimum Ring: 4; Minimum Essence: 3; Prerequisite Charms: Wyld-Curdling Attack.",
+    "mechanics": "The raksha rips open his Essence pattern, using the bleeding hollow this forms as a lens. This lens has accuracy and rate equal to the raksha's permanent Essence and a range of 10 waypoints. The raksha can use his gaping wound lens to make either Ring-shaping or Staff-shaping attacks; these have a base damage of Perception + Essence or Charisma + Essence, respectively. This lens has no Perception or Charisma maximum.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 174,
+      "pdfPage": 175
+    },
+    "crossReferences": [
+      "ring-grace",
+      "wyld-curdling-attack"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Ring Combat Charms' section, p. 174 (PDF 175)."
+  },
+  {
+    "id": "pounding-dream-harmony",
+    "name": "Pounding Dream Harmony",
+    "disposition": "selectable",
+    "summary": "Sets forth many shaping principles in subtle harmony: on a successful Ring- or Staff-shaping attack, lets the raksha ignore up to one point of the enemy's soak per mote spent.",
+    "requirements": "Minimum Ring: 4; Minimum Essence: 3; Prerequisite Charms: Wyld-Curdling Attack.",
+    "mechanics": "The raksha speaks the law of the world not in words, but in chorus. She sets forth not one, but many principles in subtle harmony and arrangement. The raksha spends the motes for this Charm and makes a Ring-shaping or Staff-shaping attack. If this attack succeeds, this Charm lets her ignore up to one point of the enemy's soak for each mote spent.",
+    "cost": "1 mote per soak reduction",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 174,
+      "pdfPage": 175
+    },
+    "crossReferences": [
+      "ring-grace",
+      "wyld-curdling-attack",
+      "sorrowful-firmament-resonance"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Ring Combat Charms' section, p. 174 (PDF 175). One of the two converging prerequisites (with Waypoint Knife) for Sorrowful Firmament Resonance, per the diagram on p. 173 (PDF 174)."
+  },
+  {
+    "id": "sorrowful-firmament-resonance",
+    "name": "Sorrowful Firmament Resonance",
+    "disposition": "selectable",
+    "summary": "Sings Nirvishesha's Sayujya aspect to sink the raksha's will into the Wyld's substrata: an undodgeable (though parriable) Ring- or Staff-shaping attack against a target within three waypoints, its effect felt by every local waypoint and raksha's spirit within 10 waypoints.",
+    "requirements": "Minimum Ring: 5; Minimum Essence: 3; Prerequisite Charms: Waypoint Knife, Pounding Dream Harmony.",
+    "mechanics": "Singing the sonorous lament of Nirvishesha's Sayujya aspect, the raksha sinks her will into the substrata of the Wyld. She makes a Ring-shaping or Staff-shaping attack against a target no more than three waypoints away. There is no escape from this attack -- parrying is possible with stunts and Charms, but dodging is impossible. Every local waypoint and every raksha's spirit, within a 10 waypoints' distance, shivers with her song.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 174,
+      "pdfPage": 175
+    },
+    "crossReferences": [
+      "ring-grace",
+      "waypoint-knife",
+      "pounding-dream-harmony",
+      "undetectable-lie"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Ring Combat Charms' section, p. 174 (PDF 175). Converges from both Waypoint Knife and Pounding Dream Harmony per the diagram on p. 173 (PDF 174), visually confirmed, joining the tree's two separate root-branches (Flesh-Carved World's and Wyld-Curdling Attack's) into a single node for the first time."
+  },
+  {
+    "id": "undetectable-lie",
+    "name": "Undetectable Lie",
+    "disposition": "selectable",
+    "summary": "A Staff-shaping crossover finale of the Ring Combat Charms tree: defines the law of the world in such compelling terms that even Creation-born targets accept one statement as absolute truth, converting post-soak damage into automatic successes.",
+    "requirements": "Minimum Staff: 4; Minimum Essence: 3; Prerequisite Charms: Sorrowful Firmament Resonance.",
+    "mechanics": "The raksha defines the law of the world in such compelling terms that not even the Creation-born can refuse belief. Her player rolls Manipulation + Socialize as a Staff-shaping attack, converting the post-soak damage dice into automatic successes. Used against creatures with no Staff Grace, this Charm functions as a work of glamour: the target accepts any one statement of the raksha's as absolute truth. It takes one scene before the target is receptive to contradictory evidence, and even then most targets remember it as a distortion in the world rather than their senses. This power does not work on targets whose Wits + Essence is greater than the raksha's Manipulation. This is a Staff-shaping Charm.",
+    "cost": "5 motes, 1 Willpower, 3 gossamer",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 175,
+      "pdfPage": 176
+    },
+    "crossReferences": [
+      "staff-grace",
+      "ring-grace",
+      "sorrowful-firmament-resonance",
+      "gossamer-and-glamour-mechanic"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Ring Combat Charms' section, p. 175 (PDF 176). Like Beguilement, Spite-Summoning Malediction and Prince and Pauper Approach in the Cup tree, this Charm is explicitly Staff-gated ('Minimum Staff: 4') and closes with 'This is a Staff-shaping Charm,' despite terminating a Ring Combat Charms branch -- the same cross-Grace pattern flagged for the Bedlam-Influencing Charms in this inventory's rulesNotes."
+  },
+  {
+    "id": "these-dreams-are-clay",
+    "name": "These Dreams Are Clay",
+    "disposition": "selectable",
+    "summary": "The last Charm of the Ring Combat Charms tree: massages the unformed Wyld into 1 unstable gossamer that fades at the end of the next scene, usable only in the Middlemarches or deeper Wyld regions.",
+    "requirements": "Minimum Ring: 4; Minimum Essence: 2; Prerequisite Charms: Luminous Exhalation.",
+    "mechanics": "The craft of the Workers brings forth gossamer from the Wyld. Massaging the unformed shapeless world with his hands, a raksha in the Middlemarches or deeper regions of the Wyld can create 1 gossamer from Essence. Gossamer created by this Charm is unstable and fades at the end of the next scene.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 175,
+      "pdfPage": 176
+    },
+    "crossReferences": [
+      "ring-grace",
+      "gossamer-and-glamour-mechanic",
+      "luminous-exhalation"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Ring Combat Charms' section, p. 175 (PDF 176). Last Charm of the Ring Combat Charms tree diagrammed on p. 173 (PDF 174), visually confirmed as a full 16-Charm tree spanning two independent roots (Flesh-Carved World, Wyld-Curdling Attack) that converge at Sorrowful Firmament Resonance. 'All-Consuming God-Monster Style' -- a separate, clearly titled sub-tree with its own diagram -- begins immediately afterward on the same page (visually confirmed) and is the resume point for the next round; it is not part of Ring Combat Charms despite the lack of an intervening bold section header in the running prose."
   }
 ]

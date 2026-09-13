@@ -1,7 +1,7 @@
 # Exalted 1e — Abyssal source intake
 
 **Status: source intake in progress.** `Exalted: The Abyssals` has been
-supplied and 175 inventory rows are checked in under `inventory/`. See
+supplied and 265 inventory rows are checked in under `inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
@@ -10,7 +10,7 @@ the full process this directory follows.
 - `source-manifest.json` — the one source book in scope so far
   (`exalted-the-abyssals`); supplements (necromancy-heavy books like *Blood
   and Salt* or *Book of Bone and Ebony*) are not yet added.
-- `inventory/exalted-the-abyssals.json` — 175 rows covering:
+- `inventory/exalted-the-abyssals.json` — 265 rows covering:
   - The Chapter Three character-creation overview (Attributes/Abilities/
     Backgrounds/Charms/Virtues/Willpower/Essence).
   - The universal, caste-agnostic Anima Effect (Caste Mark flare, anima
@@ -27,8 +27,8 @@ the full process this directory follows.
   - The six new deathknight-only Backgrounds (Abyssal Command, Liege,
     Necromancy, Spies, Underworld Manse, Whispers) and the altered
     Backgrounds (Artifact, Backing/Mentor, Familiar, Followers, Manse).
-  - **148 Chapter Five Charm rows (pp. 157-200, PDF 158-201)**, covering
-    every Ability line for the Dusk, Midnight and Daybreak Castes:
+  - **228 Chapter Five Charm rows (pp. 157-222, PDF 158-223)**, covering
+    every Ability line for all five Castes:
     - **Dusk Caste** (pp. 157-174): Archery (11 Charms, two root lines
       converging on the capstone `piercing-ghost-barb`), two Brawl trees
       (`dead-mans-grasp` → `owl-seizes-mouse`, 4 Charms; `ravaging-strike`
@@ -65,6 +65,26 @@ the full process this directory follows.
       `labyrinth-circle-necromancy`/`void-circle-necromancy`, and five
       spirit-perception/spirit-combat Charms ending in the capstone
       `spirit-draining-ward`; 10 Charms total).
+    - **Day Caste** (pp. 200-205): Athletics (`raitons-nimble-perch` → ...
+      → `strength-stealing-technique`, 12 Charms), Awareness
+      (`fivefold-sensory-exercise` → `incomparable-sense-technique`,
+      6 Charms), Dodge (`flitting-shadow-form` → `flowing-evasion-assault`,
+      6 Charms), Larceny (two root lines, `theft-of-face` →
+      `solar-impersonation-style` and `cunning-criminal-style` →
+      `striking-snake-grab`, 9 Charms), and Stealth
+      (`concealing-distraction-discipline` → `unseen-wisp-method`,
+      7 Charms).
+    - **Moonshadow Caste** (pp. 212-223): Bureaucracy
+      (`authority-eroding-technique`/`corruption-sensing-scrutiny` →
+      `iron-tyrant-mien`, 7 Charms), Linguistics (two root lines,
+      `language-absorbing-method` → `words-beneath-a-whisper` and
+      `blood-inscription-technique` → `scathing-cynic-attitude`,
+      9 fully-verified Charms plus 1 unresolved placeholder for
+      `corpus-rending-blow`, 10 rows total), Ride (`soul-reins` → ...
+      → `foundering-foal-gesture`, 7 Charms), Sail
+      (`master-sailors-memory` → `unsinkable-derelict-preservation`,
+      9 Charms), and Socialize (`exquisite-etiquette-style` /
+      `passion-unveiling-glance` → `intimations-of-mortality`, 7 Charms).
     - **Caveat**: a handful of rows have summary text copied verbatim from
       the book's prose that labels more than one Charm as a tree
       "capstone" in the same Ability line (notably in Dusk Caste Melee
@@ -74,26 +94,35 @@ the full process this directory follows.
       individually accurate to the page but the exact tree-branch
       topology in those spots has not been fully disambiguated — flagged
       for a dedicated review pass before any of this content is promoted
-      to a production catalog.
+      to a production catalog. Two Day/Moonshadow rows
+      (`soaring-raptor-prana`, `striking-snake-grab`) are marked
+      `unreviewed` because their full rules-text paragraphs were not
+      legibly captured; their headers/costs/prerequisites are confirmed.
+  - **Chapter Six: The Arts of the Dead** — the necromancy framework
+    overview (three circles: Shadowlands, Labyrinth, Void, paralleling
+    Terrestrial/Celestial/Solar Circle Sorcery) plus all **9 Shadowlands
+    (First) Circle spells**: Hungry Creeping Shadow, Iron Countermagic,
+    Piercing the Shroud, Raise the Skeletal Horde, Rune of Sweet Passing,
+    Shade Prison Amulet, Soul Brand, Summon Ghost, and Walking War Machine
+    (pp. 222-227, PDF 223-228).
 
 ## What's still needed
 
-1. Two of the five Castes' Chapter Five Charm trees remain: **Day Caste**
-   (Athletics, Awareness, Dodge, Larceny, Stealth — starts at printed p. 200
-   / PDF 201 with the Athletics tree `raiton's-nimble-perch` → ... →
-   `soaring-raptor-prana`, confirmed by rendering PDF pages 201-208) and
-   **Moonshadow Caste** (Bureaucracy, Linguistics, Ride, Sail, Socialize —
-   not yet located/rendered). **Resume with Day Caste Athletics at printed
-   p. 200 / PDF 201.**
-2. Chapter Six: The Arts of the Dead — necromancy spells (Shadowlands and
-   Labyrinth Circles), the Craft (Necrosurgery/Jadecrafting/Soulforging)
-   rules referenced but not detailed in Chapter Four. (Chapter Five —
-   Charms — continues past printed p. 200 through at least the two
-   remaining Castes; Chapter Six's exact start page has not been located
-   yet.)
-3. Necromancy-heavy supplements (*Blood and Salt*, *Book of Bone and Ebony*)
+1. Chapter Six necromancy: the **Labyrinth (Second) Circle** and **Void
+   (Third) Circle** spell lists remain, past printed p. 227 / PDF 228.
+   **Resume with the Labyrinth Circle** (already partially visible via the
+   `Raise the Skeletal Horde` spell's cross-reference to `Call the Greater
+   Servitor` and `Exquisite Undead Aide`). The specific gating Charm named
+   per circle (e.g. "Shadowlands Circle Necromancy") was not found as its
+   own stat block in the rendered pages and needs a follow-up look.
+2. The Craft (Necrosurgery/Jadecrafting/Soulforging/Moliation/Pandemonium)
+   rules referenced but not detailed in Chapter Four.
+3. Resolve the `corpus-rending-blow` unresolved placeholder (Moonshadow
+   Linguistics) — find its actual write-up or confirm it is an errata/
+   cross-reference slip in the source book.
+4. Necromancy-heavy supplements (*Blood and Salt*, *Book of Bone and Ebony*)
    if their Abyssal-facing mechanics are in scope.
-4. Merits/Flaws specific to Abyssals, if any exist beyond the standard set —
+5. Merits/Flaws specific to Abyssals, if any exist beyond the standard set —
    not yet located; Chapters One through Four have not surfaced a distinct
    Merits/Flaws section, so it may live in Chapter Six or not exist as its
    own section in this book.

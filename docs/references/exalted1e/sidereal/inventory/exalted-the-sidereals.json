@@ -506,8 +506,8 @@
     "name": "Prayer Strips",
     "disposition": "calculated",
     "summary": "Sidereal-specific Charm-fuel items: lengths of paper inscribed with a constellation's associated scripture, which a Sidereal must craft and infuse with a Charm before she can use that Charm, and which persist as physical, destructible, detectable objects that terminate the Charm if destroyed.",
-    "requirements": "Craft cost: Resources \u25cf\u25cf, six hours, and a Dexterity + Linguistics or Dexterity + Craft (Calligraphy) roll at difficulty 2 (difficulty 4 if made in a single turn; ready-made blank strips can be purchased in Yu-Shan).",
-    "mechanics": "A long time ago, someone or something inscribed the scriptures of the Maidens on the Loom of Fate, written in a cramped and ragged hand. This is a chaotic and unruly story that the Sidereal Exalted eventually deciphered and distilled to its barest essence. Inscribed on lengths of paper to form prayer strips, these stories contain a rich power available to those who master the Charms of an associated constellation. Each strip reflects in its structure something of the fundamental patterns of the stars, fate, and the broader existence. Each constellation has an associated story. The Charms for that constellation reflect that story's essential nature. Not all of the stories and Charms match the constellation's personality in tenor. The Sidereals occasionally debate the motivations that drew each stellar god to the scripture of their choice. In general, each story has a Charm that can infuse its prayer strip with power. Creating a prayer strip requires high-quality paper and ink (Resources \u25cf\u25cf), six hours and a Dexterity + Linguistics or Dexterity + Craft (Calligraphy) roll with a difficulty of 2. This difficulty rises to 4 if the character wishes to create a prayer strip in a single turn. In Yu-Shan, one can purchase ready-made blank prayer strips. A Sidereal with her prayer strip case on her person is considered to have reflexive access to the strips -- if she can have the Charm in hand, then she can activate it as it is on the Exalt. This only counts if the prayer strips are on the Exalt. It requires a Wits + Larceny roll to conceal prayer strips on one's person and a Perception + Awareness roll to spot them. Make only one roll for all the character's prayer strips. Until a Charm infuses the prayer strip with power, smearing the ink or crumpling the paper ruins the strip. Once infused, the prayer strip has a soak of 10 and 25 health levels. It reflexively blocks or dodges all attacks, even normally unblockable attacks, with a dice pool equal to the character's Dexterity + Dodge + Essence. Attacks are blunted by flares of power from a nearby immobile prayer strip, while mobile prayer strips dodge. Destroying the prayer strip instantly terminates the Charm. The use of Charms that require prayer strips generally produces major effects. Pattern spiders under prayer-strip destiny and the effects can derail many well-planned fates. Characters who use prayer-strip Charms without cause can be audited on a Severity 2 charge for either offense (see p. 136 of Chapter One for details of censures and audits). Characters who abuse these powers are likely to be censured by their faction leaders or supervisors because Sidereals are reluctant to press charges that would allow censors within the Bureau of Heaven to pass judgment on members of the Bureau of Destiny.",
+    "requirements": "Craft cost: Resources ●●, six hours, and a Dexterity + Linguistics or Dexterity + Craft (Calligraphy) roll at difficulty 2 (difficulty 4 if made in a single turn; ready-made blank strips can be purchased in Yu-Shan).",
+    "mechanics": "A long time ago, someone or something inscribed the scriptures of the Maidens on the Loom of Fate, written in a cramped and ragged hand. This is a chaotic and unruly story that the Sidereal Exalted eventually deciphered and distilled to its barest essence. Inscribed on lengths of paper to form prayer strips, these stories contain a rich power available to those who master the Charms of an associated constellation. Each strip reflects in its structure something of the fundamental patterns of the stars, fate, and the broader existence. Each constellation has an associated story. The Charms for that constellation reflect that story's essential nature. Not all of the stories and Charms match the constellation's personality in tenor. The Sidereals occasionally debate the motivations that drew each stellar god to the scripture of their choice. In general, each story has a Charm that can infuse its prayer strip with power. Creating a prayer strip requires high-quality paper and ink (Resources ●●), six hours and a Dexterity + Linguistics or Dexterity + Craft (Calligraphy) roll with a difficulty of 2. This difficulty rises to 4 if the character wishes to create a prayer strip in a single turn. In Yu-Shan, one can purchase ready-made blank prayer strips. A Sidereal with her prayer strip case on her person is considered to have reflexive access to the strips -- if she can have the Charm in hand, then she can activate it as it is on the Exalt. This only counts if the prayer strips are on the Exalt. It requires a Wits + Larceny roll to conceal prayer strips on one's person and a Perception + Awareness roll to spot them. Make only one roll for all the character's prayer strips. Until a Charm infuses the prayer strip with power, smearing the ink or crumpling the paper ruins the strip. Once infused, the prayer strip has a soak of 10 and 25 health levels. It reflexively blocks or dodges all attacks, even normally unblockable attacks, with a dice pool equal to the character's Dexterity + Dodge + Essence. Attacks are blunted by flares of power from a nearby immobile prayer strip, while mobile prayer strips dodge. Destroying the prayer strip instantly terminates the Charm. The use of Charms that require prayer strips generally produces major effects. Pattern spiders under prayer-strip destiny and the effects can derail many well-planned fates. Characters who use prayer-strip Charms without cause can be audited on a Severity 2 charge for either offense (see p. 136 of Chapter One for details of censures and audits). Characters who abuse these powers are likely to be censured by their faction leaders or supervisors because Sidereals are reluctant to press charges that would allow censors within the Bureau of Heaven to pass judgment on members of the Bureau of Destiny.",
     "cost": "n/a (framework)",
     "compatibility": "n/a",
     "verificationState": "reviewed",
@@ -699,5 +699,1559 @@
       "heartless-maiden-trance"
     ],
     "notes": "The mechanics text on healing rates for non-aggravated vs. aggravated injury while this Charm is active reads confusingly in the source ('heals at the rate of one lethal health level of all bashing health levels per turn' / 'near-preexisting conditions at the normal rate'); paraphrased as faithfully as possible but flagged for a closer re-read before promotion."
+  },
+  {
+    "id": "ordained-bridle-of-mercury",
+    "name": "Ordained Bridle of Mercury",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Journeys Caste Ride tree ('The Messenger'); the Sidereal petitions Mercury to weave a riding-familiar bond into her destiny, either strengthening an existing familiar or guiding her to a new, suitable one.",
+    "requirements": "Minimum Ride 2; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "The character petitions Mercury to weave a bond into her destiny. Each time she invokes this Charm, she gains a dot of the Familiar Background, normally for a creature she can ride, and can use it to instantly increase her bond with an existing familiar. Alternatively, she can invoke Mercury's guidance to find a new, 'suitable' familiar; her player specifies the species, and the character must travel to find the familiar but always knows the way. The destined familiar approaches and a bridle of stardust settles about its head; the bridle fades, but the Background dot remains. If the character cannot afford to establish a bond, Mercury can lead her to that animal again with another invocation of the Charm. It costs an extra experience point to summon forth the bridle and apply it to an animal of the character's choosing rather than Mercury's; similarly, the first dot of the Familiar Background costs an extra experience point for animals unsuitable for riding, such as a hawk. Controlling a familiar mount requires a Ride roll only in the most extreme circumstances. Sidereal Exalted can purchase a total number of familiars and acquaintances no greater than their permanent Essence, unmodified by Charms such as the Soul Fire Shaper Form.",
+    "cost": "10 motes, 1 Willpower, 1 experience point",
+    "compatibility": "Duration: Until the character applies Mercury's bridle. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 134,
+      "pdfPage": 137
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "spirit-shape-companion",
+    "name": "Spirit-Shape Companion",
+    "disposition": "selectable",
+    "summary": "The Sidereal forces a metamorphosis on a bonded familiar, turning it into a small spirit with boosted Essence/Valor/Intelligence, an Essence pool, a Materialize Charm, and Yu-Shan recognition as a minor god.",
+    "requirements": "Minimum Ride 3; Minimum Essence 3; Prerequisite Charms: Ordained Bridle of Mercury.",
+    "mechanics": "Drawing on her understanding of the spirit world, the character forces a metamorphosis upon one of her familiars, which adopts several characteristics of a spirit: its Essence, Valor and Intelligence increase to a minimum of 2; it acquires an Essence pool of (Essence x 10) + (Willpower x 3) + (sum of Virtues x 2), typically around 51; its health levels become equal to Willpower + Conviction, typically 8; its natural state becomes dematerialized, though for a mote of Essence it can manifest visually; it learns the Materialize Charm, which costs half its motes to use; it learns one additional spirit Charm of the Storyteller's choice if the Familiar Background is 3 or more, and another if it is 5; the familiar develops an alternate, roughly human shape while remaining deeply reminiscent of its true nature; and it ceases to depend on ordinary nourishment. Yu-Shan registers the familiar as a small god, though its primary duty remains service to the character -- it may still be called or reassigned to other duty. The figures above assume a typical familiar of Essence 2, Willpower 5, Compassion 2, Conviction 3, Temperance 1 and Valor 2 before this Charm; non-familiar beasts typically start with lower Essence, Willpower and Compassion.",
+    "cost": "10 motes, 1 Willpower, 1 experience point",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 135,
+      "pdfPage": 138
+    },
+    "crossReferences": [
+      "ordained-bridle-of-mercury"
+    ]
+  },
+  {
+    "id": "godly-companion",
+    "name": "Godly Companion",
+    "disposition": "selectable",
+    "summary": "Promotes the Sidereal's spirit-shaped familiar further, raising its Essence/Intelligence/Virtues, granting extra spirit Charms and a shape, and saddling it with courier duties to and from Yu-Shan.",
+    "requirements": "Minimum Ride 4; Minimum Essence 4; Prerequisite Charms: Spirit-Shape Companion.",
+    "mechanics": "The character arranges a promotion for his familiar. Its Essence and Intelligence increase to a minimum of 3, and it develops additional Virtues if necessary to bring the sum of its Virtues to 12 or more. It learns two additional spirit Charms of the Storyteller's choice and one additional shape. It also acquires certain specific responsibilities: the familiar becomes responsible for safely escorting the character to Yu-Shan and back and for the character's behavior while there. As an Essence 3 spirit, it possesses the innate ability to carry itself and others between Yu-Shan and Creation. The familiar is responsible for delivering any messages Heaven has for the character and must be regularly available in Yu-Shan to collect them; though these reports pass through the Bureau of Destiny mailroom and are vulnerable to interception, they are rarely read -- all are ultimately forwarded to the august weaver Caturasya, who eats them. The familiar may receive additional miscellaneous duties in the same fashion.",
+    "cost": "20 motes, 1 Willpower, 5 experience points",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 135,
+      "pdfPage": 138
+    },
+    "crossReferences": [
+      "spirit-shape-companion"
+    ],
+    "notes": "Charm text spans the PDF 138/139 page break (printed pp. 135-136); transcribed as a single continuous description."
+  },
+  {
+    "id": "yellow-path",
+    "name": "Yellow Path",
+    "disposition": "selectable",
+    "summary": "Alternate root of the Ride tree; Mercury's glimmering light illuminates the shortest (not necessarily safest) path to the Sidereal's destination and can guarantee a timely arrival.",
+    "requirements": "Minimum Ride 3; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "The character sees the glimmering yellow light of Mercury illuminate the shortest path to his destination. This path is not necessarily safe, but the character can expect to overcome any obstacles thereupon. This Charm takes delays from such things as off-road travel, the need for food and rest, and injuries from dangerous encounters into account. Roll the character's Essence: one success indicates a substantial improvement in his speed over ordinary travel. If the character has a deadline and any chance exists of making it on time, three successes indicate his timely arrival; two or more successes indicate he will make any appointment not already missed.",
+    "cost": "2 motes",
+    "compatibility": "Duration: One journey. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 136,
+      "pdfPage": 139
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "breaking-the-wild-mortal",
+    "name": "Breaking the Wild Mortal",
+    "disposition": "selectable",
+    "summary": "Mirrors Ordained Bridle of Mercury for the Acquaintances Background instead of Familiar: the Sidereal petitions Mercury to weave a mortal companion or bystander bond into her destiny.",
+    "requirements": "Minimum Ride 2; Minimum Essence 2; Prerequisite Charms: Ordained Bridle of Mercury.",
+    "mechanics": "The character petitions Mercury to weave a mortal companion into her destiny. Each time she invokes this Charm, she gains a dot of the Acquaintances Background, bonding first with a specific mortal and then with those around him. She can use this Charm to instantly increase her connection to a specific acquaintance and his social context. Alternatively, she can invoke Mercury's guidance in finding a new, 'suitable' acquaintance; her player specifies the general occupation and personality. The character must travel to find that acquaintance but always knows the way. The destined acquaintance allows the character to approach and sets a bit of stardust in his mouth; once it sinks in, the mortal loses the memory of that embarrassing moment, but the Background dot remains. It costs an extra experience point to summon forth the bit of stardust and apply it to a person of the character's choosing rather than the Maiden's; similarly, the first dot of the Acquaintances Background costs an extra experience point for people unsuitable for riding, such as ordinary humans (some Wyld barbarians might be acceptable as mounts). Sidereal Exalted can purchase a total number of familiars and acquaintances no greater than their permanent Essence, unmodified by Charms such as the Soul Fire Shaper Form.",
+    "cost": "10 motes, 1 Willpower, 1 experience point",
+    "compatibility": "Duration: Until the character applies Mercury's bit. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 136,
+      "pdfPage": 139
+    },
+    "crossReferences": [
+      "ordained-bridle-of-mercury"
+    ]
+  },
+  {
+    "id": "glory-path",
+    "name": "Glory Path",
+    "disposition": "selectable",
+    "summary": "Branches from Yellow Path; wraps the Sidereal's mount in a nimbus of Mercury's light that adds speed and removes natural obstacles from the journey.",
+    "requirements": "Minimum Ride 3; Minimum Essence 2; Prerequisite Charms: Yellow Path.",
+    "mechanics": "A nimbus of Mercury's light wraps around the character's mount, and it develops the ability to overcome any obstacle to complete his journey. The player makes a Charisma + Ride roll; each success adds five yards to the mount's base speed. In addition, the mount is undaunted by natural obstacles of any sort -- for as many turns as necessary, it can gallop through the air across chasms, straight up a cliff face, across snow or a swamp, and weave through crowds of panicked yeddim. Only barriers built by people, such as walls of stone or sorcery, pose any obstacle. Sidereal Exalted may always use their Temperance with this Charm.",
+    "cost": "8 motes",
+    "compatibility": "Duration: Five minutes. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 136,
+      "pdfPage": 139
+    },
+    "crossReferences": [
+      "yellow-path"
+    ]
+  },
+  {
+    "id": "riding-the-dragon",
+    "name": "Riding the Dragon",
+    "disposition": "selectable",
+    "summary": "Capstone of the Ride tree; the Sidereal marks a familiar or acquaintance with a prayer strip that permanently consumes the bond and transforms the subject into a temporary elemental dragon mount of terrifying speed and combat power.",
+    "requirements": "Minimum Ride 5; Minimum Essence 4; Prerequisite Charms: Godly Companion, Breaking the Wild Mortal, Glory Path.",
+    "mechanics": "This Charm uses a prayer strip inscribed with the scripture of the Desirable Maiden. The character affixes it to the forehead of a familiar or an acquaintance, either long-established or newly acquired through Charms. An indescribable sense of shock, horror and elation immediately fills the victim for the next five turns to rip the strip free; unless the victim is restrained, this requires no roll. At the end of those five turns, the familiar or acquaintance undergoes a transformation, burning with a terrible golden celestial light: its form twists and reshapes into a lesser elemental dragon, and while the Charm runs its course nothing but a burned-out husk remains of the person or animal that accepted it. That Familiar or Acquaintances Background dot is permanently lost, but at that moment the character can choose either an air or a water dragon as her mount for a scene. The transformed dragon, its back writhing with the symbols of the scripture, has no will of its own; the Sidereal must ride it and direct its actions with her thoughts. The dragon flies at 500 mph, with effectively unlimited tactical movement, a Dodge pool of 10 and a soak of 20 against all attacks, and it attacks with 15 Speed, Accuracy and Defense for 19 lethal damage. For each successful Charisma + Ride roll the Sidereal makes in a given turn, the mount takes one action at its full dice pool; the Sidereal must split her pool across multiple Ride rolls to take multiple actions. The dragon has 10 health levels, all at -0. It can use any spirit Charm or elemental power, or any Charm that grants it extra actions or bonuses; the Sidereal pays the cost for such Charms with her own motes, Willpower and health levels. Sidereal Exalted may always use their Conviction with this Charm.",
+    "cost": "20 motes, 1 Willpower, 1 health level",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 136,
+      "pdfPage": 139
+    },
+    "crossReferences": [
+      "godly-companion",
+      "breaking-the-wild-mortal",
+      "glory-path"
+    ],
+    "notes": "Charm text spans the PDF 139/140 page break (printed pp. 136-137); transcribed as a single continuous description."
+  },
+  {
+    "id": "salt-into-ash-sleight",
+    "name": "Salt Into Ash Sleight",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Journeys Caste Sail tree ('The Captain'); insulates a ship from weather and disentangles it from ordinary fate, letting the Sidereal ignore environmental sailing penalties for a scene.",
+    "requirements": "Minimum Sail 2; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "The character exhales a puff of wind that travels beyond the world and disentangles the destiny of ship, sky and sea. No matter how fierce the weather or the waves, the ship sails smoothly, isolated from the world. For the duration of the scene, Sail checks ignore environmental penalties: he sails on a placid sea, with a good wind behind him and the favor of the local spirits. He still suffers penalties for any damage the ship has already taken, but takes no further damage, and its condition does not degenerate naturally for the remainder of the scene. Additional motes spent when invoking this Charm further reduce the target number of any Sail rolls the character makes during the scene.",
+    "cost": "2 motes + 2 motes per target number reduction",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 137,
+      "pdfPage": 140
+    },
+    "crossReferences": [],
+    "notes": "The stat block (cost, duration, type, minimums) appears on PDF p. 140, but its descriptive paragraph is printed at the top of PDF p. 141 after the tree-diagram page break; transcribed as a single continuous Charm."
+  },
+  {
+    "id": "stone-skipping-spirit",
+    "name": "Stone Skipping Spirit",
+    "disposition": "selectable",
+    "summary": "Alternate root of the Sail tree; compels a water or sea elemental/spirit to travel somewhere on invented but Mercury-guaranteed unfinished business, and makes it harder for others to drive the creature away.",
+    "requirements": "Minimum Sail 2; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "Clapping her hands, the character surrounds an elemental or spirit of water or the sea in a fiery yellow aura. Mercury calls that creature to journey; its visit to another place where important unfinished business awaits presses insistently upon its mind. Simply by using this Charm, the Exalt proves and guarantees that such business already exists in some distant place. If necessary, the creature must make a Willpower roll not to set forth immediately. For the duration of the scene, Mercury's call reduces the target number for any character's attempts to drive the creature away, physically or socially; this benefit applies to both attack and damage rolls.",
+    "cost": "5 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 137,
+      "pdfPage": 140
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "mirror-shattering-method",
+    "name": "Mirror Shattering Method",
+    "disposition": "selectable",
+    "summary": "The Sidereal casts salt into water and vanishes into a hidden, fate-obscured field of white, traveling at double speed (with ship and crew, if invoked aboard one) toward an auspicious arrival -- including, over five days, to Yu-Shan itself.",
+    "requirements": "Minimum Sail 3; Minimum Essence 2; Prerequisite Charms: Stone Skipping Spirit.",
+    "mechanics": "The character casts salt into a puddle or body of water beneath her. Its surface breaks and dissolves into foaming whitecaps, and the character vanishes. From her perspective, the whitecaps rush out in all directions, and then she stands atop a field of white that is -- at any given moment -- water, wind-blown flower petals or butterflies. The world around her fades away as she separates herself from the normal processes of fate. While this Charm remains active, she can travel at twice her normal pace, ignoring all obstacles. She remains in Creation, but her presence and location are obscured; only the slightest shimmer in the wind marks her passing, which increases the difficulty of Awareness checks to notice or track her by 2. She cannot sense the world around her at all. Nevertheless, when the Charm ends, she invariably finds herself in an auspicious location; if at all possible given the distance and general direction of her journey, she does not find herself in immediate danger, observation or in a precarious position when she arrives. The character can use this Charm on board a ship (or any construct suspended entirely above a body of water) by casting salt into the water below; the entire ship and crew then travel with her, sailing at twice normal speed across the field of white. An auspicious location for a ship's arrival includes the existence of water sufficient to keep it afloat. As an alternative to mortal travel, a character using this Charm can travel to Yu-Shan; this requires five days on foot or a day on shipboard. Travel to other unusual locations, such as Malfeas, may be possible at the Storyteller's discretion, but always requires five days.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Five days. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 138,
+      "pdfPage": 141
+    },
+    "crossReferences": [
+      "stone-skipping-spirit"
+    ]
+  },
+  {
+    "id": "five-ordeals-odyssey",
+    "name": "Five Ordeals Odyssey",
+    "disposition": "selectable",
+    "summary": "Capstone of the Sail tree; a prayer strip becomes an adversarial force that violently resolves any meaningful sea hazard the Sidereal faces on a purposeful voyage, and each such triumph permanently raises her (and her crew's) effective Essence.",
+    "requirements": "Minimum Sail 4; Minimum Essence 4; Prerequisite Charms: Salt Into Ash Sleight, Mirror Shattering Method.",
+    "mechanics": "This Charm uses a prayer strip with the scripture of the Maiden at Sea. The character casts it as an adversarial force, and it hangs in the air, wreathed in dandelion-hued lightning, until the resolution of the Charm destroys it. The character may use this Charm when faced with any meaningful hazard at sea: storms, becalming, pirates, monsters, reefs, mutiny and so forth. The character must then take action to remove the hazard as a practical threat to her life, health and progress. If she ensures that it cannot reasonably pose a threat to a safe conclusion to her journey, the Charm marks her victory by wreaking massive damage upon the force that opposed her -- it storms from the sky, breaks a pirate ship in two, splits a monster's corpse with fire, and so forth. It kills extras and shatters inanimate things. Defeated characters suffer sufficient bashing damage to reduce them instantly to Incapacitated, although fate restores their consciousness (healing them to -4) if they face an immediate threat to life and limb before waking. In general, the prayer strip accomplishes this devastation in the moment of its own destruction, casting forth fire, thunder and lightning. Each travail speeds the character toward her destiny, granting an ever-greater attunement to the Essence flows of fate and the world: each time the character invokes this Charm and permits it to run its full duration, she increases her effective permanent Essence by 1, to a maximum of 8, and the effective permanent Essence of characters working closely with her by 1, to a maximum of 6. These bonuses last until the end of the story but cannot be used as a basis for training or for gaining Charms. This Charm requires that the voyage have a purpose -- the character cannot simply sail around in circles and must have some reason to travel across the sea -- though she can freely favor sailing over other means of travel when it forms a reasonable alternative. Characters cannot learn otherwise-unavailable Charms while under the effect of the Five Ordeals Odyssey.",
+    "cost": "10 motes, 1 Willpower, 1 health level",
+    "compatibility": "Duration: One hazard. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 139,
+      "pdfPage": 142
+    },
+    "crossReferences": [
+      "salt-into-ash-sleight",
+      "mirror-shattering-method"
+    ]
+  },
+  {
+    "id": "becoming-the-wilderness",
+    "name": "Becoming the Wilderness",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Journeys Caste Survival tree ('The Ship's Wheel'); reshapes the local wilderness into a mirror of the Sidereal's soul, sheltering her from weather and reducing target numbers for Survival/Awareness checks.",
+    "requirements": "Minimum Survival 2; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "The character calls forth and spreads cat's cradle between her hands as a representation of the weave of fate for the entire local wilderness. She sets it out, remaking the land into a mirror of her soul. For the duration of this Charm, tree branches shelter her from the rain, food animals wander into her camp, wind blows lightly near her, and she rarely encounters danger. This Charm reduces the target number of Survival or Awareness checks in the wilderness. Sidereal Exalted may always use their Valor with this Charm.",
+    "cost": "1 mote per target number reduction",
+    "compatibility": "Duration: One day. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 140,
+      "pdfPage": 143
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "adopting-the-untamed-face",
+    "name": "Adopting the Untamed Face",
+    "disposition": "selectable",
+    "summary": "Deepens Becoming the Wilderness so the Sidereal's soul mirrors the land, granting automatic wilderness successes and extra social dice against Lunar Exalted.",
+    "requirements": "Minimum Survival 2; Minimum Essence 2; Prerequisite Charms: Becoming the Wilderness.",
+    "mechanics": "In turn, the character can make her soul mirror the land, imposing the pattern of its fate upon the flows of her Essence. Her player receives automatic successes equal to the Sidereal's Essence in any wilderness action. While this Charm is active, add the Sidereal's Essence in extra dice when dealing socially with Lunar Exalted. Sidereal Exalted may always use their Compassion with this Charm.",
+    "cost": "4 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 140,
+      "pdfPage": 143
+    },
+    "crossReferences": [
+      "becoming-the-wilderness"
+    ]
+  },
+  {
+    "id": "dreaming-the-wild-lands",
+    "name": "Dreaming the Wild Lands",
+    "disposition": "selectable",
+    "summary": "Bends the wild directly to the Sidereal's will, letting her make cosmetic changes to uncivilized terrain and dictate wild beasts' behavior; Lunar Exalted mistake her for one of their own (an ikth-ya or, at high Essence, a murr-ya).",
+    "requirements": "Minimum Survival 4; Minimum Essence 3; Prerequisite Charms: Adopting the Untamed Face.",
+    "mechanics": "As she mirrors herself to the land, the character bends the wild directly to her will. Under the pressure of her intention, trees shift their places and river dragons cease to hunger. She can make cosmetic changes to the scenery in uncivilized regions and dictate the behavior of any wild beast she can see. She receives all the benefits of Adopting the Untamed Face. Unless they know better, Lunar Exalted perceive her as an eminent member of their own kind -- that is, ikth-ya, as described on page 112 of Exalted: The Lunars. Sidereal characters with Essence 5 or more appear as murr-ya. Lunars do not imagine a Tell or Caste Mark or other such indicators; the Sidereal Exalted simply carries herself like an ikth-ya and, therefore, must be a Lunar. Even if a Lunar knows better, the impression is difficult to shake; mistreating the character is mechanically easy but emotionally difficult. Sidereal Exalted may always use their Valor with this Charm.",
+    "cost": "5 motes, 2 Willpower",
+    "compatibility": "Duration: Five days. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 140,
+      "pdfPage": 143
+    },
+    "crossReferences": [
+      "adopting-the-untamed-face"
+    ],
+    "notes": "Cross-references Exalted: The Lunars p. 112 for the ikth-ya/murr-ya Lunar social-caste terms; that sourcebook is out of scope for this inventory and the terms are not independently verified here."
+  },
+  {
+    "id": "sky-and-rain-mantra",
+    "name": "Sky and Rain Mantra",
+    "disposition": "selectable",
+    "summary": "Alternate root of the Survival tree; the Sidereal extends her influence into the sky to worsen or calm a region's weather, scaled by successes on a Stamina + Survival roll.",
+    "requirements": "Minimum Survival 3; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "The character extends her influence into the sky, adjusting the region's weather. Her player rolls Stamina + Survival; the number of successes determines how harsh the weather becomes. Specifically, other characters' players need at least that many successes on a Survival roll for their characters to survive the new conditions without hardship. The Sidereal can voluntarily reduce this difficulty when creating the storm. If the Sidereal wishes to calm the weather instead, she needs only one success. Generally, this Charm takes effect within either minutes or hours, depending on the magnitude of the effect.",
+    "cost": "10 motes",
+    "compatibility": "Duration: One day. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 140,
+      "pdfPage": 143
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "sky-spirit-demand",
+    "name": "Sky Spirit Demand",
+    "disposition": "selectable",
+    "summary": "Lets the Sidereal impose one of her own goals onto an air spirit or elemental as if it were the spirit's own belief, contested by a Manipulation + Survival roll against the spirit's Essence.",
+    "requirements": "Minimum Survival 4; Minimum Essence 2; Prerequisite Charms: Sky and Rain Mantra.",
+    "mechanics": "The character strives to mirror the fate of an air spirit or elemental to the flows of her own Essence, and vice versa. Her player rolls Manipulation + Survival against a difficulty equal to the spirit's Essence. If she succeeds, the Exalt imposes one of her goals upon the spirit; it appreciates the importance of that goal to the same degree and in the same fashion the Sidereal does, and can choose between that goal and its other beliefs when and if they clash dramatically. Using this Charm in a civilized region adds +2 to the difficulty, as does adapting it for use against spirits and elementals of other planes. Sidereal Exalted may always use their Compassion with this Charm.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 140,
+      "pdfPage": 143
+    },
+    "crossReferences": [
+      "sky-and-rain-mantra"
+    ]
+  },
+  {
+    "id": "wilderness-commanding-practice",
+    "name": "Wilderness-Commanding Practice",
+    "disposition": "selectable",
+    "summary": "Capstone of the Survival tree; a prayer strip lets the Sidereal grant or strip Survival success in a wild region against her enemies while hiding them from mundane trackers, and lets her mark a target as a hated enemy to a local beast or spirit.",
+    "requirements": "Minimum Survival 5; Minimum Essence 4; Prerequisite Charms: Dreaming the Wild Lands, Sky Spirit Demand.",
+    "mechanics": "This Charm uses a prayer strip marked with the scripture of the Maiden Entombed. The character casts it into the wind, where it dances and casts shapeless golden phantasms. This Charm co-opts a wild region and turns it against the Exalt's enemies: so long as the prayer strip remains within sight, he notices the presence of anyone within his Essence in miles, even those who are not able to be tracked by non-supernatural trackers. He can give anyone three automatic successes on all Survival rolls within the region, or reduce anyone's Survival pool to 0, before they benefit from any other effects. Each effect requires a further commitment of 2 motes per person affected. The Sidereal can also convey the location of someone or something to a local beast or spirit; the Charm's target then sees the indicated person or thing as a hated enemy. This requires 5 motes and a successful Manipulation + Survival roll against the beast or spirit's Essence (the 5 motes are not committed). Intelligent victims can change their minds if given reason to rethink the situation. Sidereal Exalted may always use their Valor with this Charm.",
+    "cost": "10 motes, 1 Willpower",
+    "compatibility": "Duration: Five days. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 140,
+      "pdfPage": 143
+    },
+    "crossReferences": [
+      "dreaming-the-wild-lands",
+      "sky-spirit-demand"
+    ],
+    "notes": "Charm text spans the PDF 143/144 page break (printed pp. 140-141); transcribed as a single continuous description."
+  },
+  {
+    "id": "willful-weapon-method",
+    "name": "Willful Weapon Method",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Journeys Caste Thrown tree ('The Gull'); casts a shadow duplicate of a thrown weapon that relentlessly pursues its target across multiple turns, ignoring range and weather penalties, and drains Willpower on a hit.",
+    "requirements": "Minimum Thrown 2; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "The Sidereal's eyes reflect a yellow light as she looks away from the present and toward the pattern of impending fate. She casts the shadow of her weapon from her hand, and it speeds toward her target. The player makes an attack roll normally, ignoring penalties for range and weather; the Sidereal must be able to see the target, and the attack must be within the weapon's maximum range (normally triple the listed range). Even if the character misses, the shadow inexorably approaches the target's heart; the next turn, the Sidereal can attempt the attack again with a new Thrown roll. This is a normal action that uses the shadow weapon already in the air and can be enhanced with appropriate Charms; this attack ignores range limitations on the weapon. If the shadow hits, the target loses two points of temporary Willpower as a spirit-bird screams and the house of Endings takes note. In addition, the character's weapon appears, quivering, in the target's chest, doing normal damage. If the character does not spend a Thrown action every turn on this Charm, the shadow fades away. Sidereal Exalted may always use their Temperance with this Charm.",
+    "cost": "4 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 141,
+      "pdfPage": 144
+    },
+    "crossReferences": [],
+    "notes": "Charm text spans the PDF 144/145 page break (printed pp. 141-142); transcribed as a single continuous description."
+  },
+  {
+    "id": "life-gets-worse-approach",
+    "name": "Life Gets Worse Approach",
+    "disposition": "selectable",
+    "summary": "Adds the Sidereal's Essence to a Thrown attack's raw damage and lets her reflexively redirect an embedded, glowing weapon to a fresh target whenever anyone else makes a ranged attack.",
+    "requirements": "Minimum Thrown 3; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "The character makes the Inferior Sign of the Gull over his weapon, whispers to it to seek the heart (or some other desired organ) and throws. This attack adds his Essence to the raw damage of the attack. In addition, the weapon he throws emits a soft yellow radiance that calls to things traveling through the air. Once per turn, when someone else makes a Thrown or Archery attack in range, the Exalt can reflexively spend 2 motes to summon the projectile to the wound; the player of the person responsible for the attack must immediately reroll the attack against the new target using this Charm. All Charms used on the original attack still apply, except for those inapplicable to the new target and those that allow the Charm to target multiple characters; the Charms need not be paid for again. Removing the weapon requires a simple Strength + Athletics roll and ends the effects of this Charm. If left alone long enough, the embedded weapon eventually attracts stray insects, birds and flying debris.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 142,
+      "pdfPage": 145
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "essence-thorn-practice",
+    "name": "Essence Thorn Practice",
+    "disposition": "selectable",
+    "summary": "Hurls an unblockable, self-healing blade of pure Essence that pulls the Sidereal toward her target; against shadowlands creatures it drains Willpower and inflicts hallucinatory disorientation instead of damage (Abyssals and already-drained deathlords are immune).",
+    "requirements": "Minimum Thrown 4; Minimum Essence 3; Prerequisite Charms: Life Gets Worse Approach.",
+    "mechanics": "The blade of a knife is the gate between life and death, and the target's fate is to suffer its touch. The character dispenses with the intermediate steps, hurling a blade of Essence up to (Essence x 20) yards. It moves at such speed that it cannot be blocked, only dodged, and the wind of its passage drags the character up to 20 yards in the direction of its travel. It suffers no penalties for range, has an accuracy equal to the character's Essence, and does (Strength + 6L) damage; the character chooses how far the blade pulls him toward the target. Ignoring non-perfect soaks, it inflicts the character's Essence in dice of unsoakable lethal damage; for each health level the target loses, the Sidereal heals one health level -- the harsh fate given to him has now been given to another. This is a reflexive action and does not count against the character's actions for that turn. Creatures of the shadowlands have already passed beyond death's gate, and the Essence Thorn instead drags them closer to life: hit by the blade, they suffer no damage, and instead convert damage successes one-for-one into temporary Willpower lost. Beings reduced to 0 Willpower by this attack suffer hallucinations and disorientation, taking no actions save to engage in reverie, self-defense or extended self-defense (i.e., escape) for the remainder of the scene. Abyssal Exalted are immune to the Essence Thorn's effect and take no damage; deathlords are immune unless already at 0 Willpower when it strikes.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 142,
+      "pdfPage": 145
+    },
+    "crossReferences": [
+      "life-gets-worse-approach"
+    ]
+  },
+  {
+    "id": "pain-amplification-stratagem",
+    "name": "Pain Amplification Stratagem",
+    "disposition": "selectable",
+    "summary": "The Sidereal blots her weapon with a symbolic drop of blood before a Thrown attack, applying the victim's own wound penalty to reduce both the attack and damage target numbers.",
+    "requirements": "Minimum Thrown 2; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "Before making a Thrown attack, the character touches her weapon to the skin beneath her eye. She bleeds three drops of blood onto the weapon, symbolizing the sorrow she might theoretically feel for her impending victim -- it is the way of fate that pain begets pain. Apply the victim's current wound penalty to reduce the target number for both the attack and damage rolls; for example, against a character with a -2 wound penalty, the target number for both the attack and damage rolls would be 5. Sidereal Exalted may always use their Compassion with this Charm.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 142,
+      "pdfPage": 145
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "unrelenting-torment-technique",
+    "name": "Unrelenting Torment Technique",
+    "disposition": "selectable",
+    "summary": "Capstone of the Thrown tree; a prayer strip adheres to a hostile target and, whenever the Sidereal takes damage, sends an unstoppable Essence hatchet to strike it, while an overwhelming irrational compulsion pushes the target to keep attacking the Sidereal.",
+    "requirements": "Minimum Thrown 5; Minimum Essence 4; Prerequisite Charms: Willful Weapon Method, Essence Thorn Practice, Pain Amplification Stratagem.",
+    "mechanics": "This Charm uses a prayer strip marked with the scripture of the Maiden and Shadow. The character casts it at an opponent or object as a Thrown weapon with a range of 100 yards and Accuracy +0. If it hits, it adheres to the target in an unpleasant, pulsing yellow glow; the Exalt can have only one such active strike at any given time, and it can only affix to someone with hostile intentions toward him. While this Charm is in effect, whenever the character takes damage and has at least one mobile hand, a hatchet of Essence leaps from his hand to attack the target. It passes freely through obstacles and across any distance up to a quarter mile, screaming like a bird; there is no roll, and the strike can be averted only by perfect dodges and perfect parries specifically able to block any attack. Ignoring non-perfect soaks, it inflicts the character's Essence in dice of unsoakable lethal damage; for each health level the target loses, the Sidereal heals one health level -- the harsh fate given to him has now been given to another. This is a reflexive action and does not count against the character's actions for that turn. Sometimes it is harder to stop a terrible desire to hurt the character than to embark upon one: the victim of this Charm suffers an overwhelming, irrational desire to hurt the character, and despite the unpleasant consequences of such an attack, has difficulty remembering to stop. Each turn, to avoid attacking the Sidereal with the greatest force available to her, her player must succeed at a Willpower roll. If the victim cannot see or hear the character, the effect subsides; she can also spend a temporary Willpower to free herself of the compulsion until she sees or hears the character again. Sidereal Exalted may always use their Conviction with this Charm.",
+    "cost": "10 motes, 1 Willpower, 1 health level",
+    "compatibility": "Duration: Indefinite. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 142,
+      "pdfPage": 145
+    },
+    "crossReferences": [
+      "willful-weapon-method",
+      "essence-thorn-practice",
+      "pain-amplification-stratagem"
+    ],
+    "notes": "Charm text spans the PDF 145/146 page break (printed pp. 142-143); transcribed as a single continuous description."
+  },
+  {
+    "id": "elegant-patterns-of-fate",
+    "name": "Elegant Patterns of Fate",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Serenity Caste Craft tree ('The Peacock'); adds Essence in dice to a Craft roll and lets the Sidereal use Craft to design a fate-shaping blueprint for future events.",
+    "requirements": "Minimum Craft 2; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "Sidereals can normally use an Intelligence + Craft (Fate) roll to design aesthetic weaves of events and circumstance that appeal to the various planning committees as means for untangling the snarls in the Loom of Fate. However, shaping these weaves so that they still further everyone involved sets their stamp on the project, requires a supernatural insight into the bureaucracy of Heaven. This Charm provides that insight. Elegant Patterns of Fate adds up to the character's Essence in dice to the Craft roll and allows the result to steer the course of events. This uses the normal rules for using Craft to plan projects. The character literally designs a blueprint for the future. The difficulty depends on the scale and precision of the design. The number of successes provides a rough measure of its quality and robustness. Each success represents one horrible fluke, one heroic effort to escape the web of fate or one clash with the efforts of the Yozis or Malfeans that the character's plan endures. Many such designs go into any given day's fate. A number of Sidereal Exalted have this Charm. Spirits can also compete at the Creation of Perfection Charm (see Games of Divinity, p. 127) and can also compete at the world-designing game. Treat the relevant rolls as opposed but only see what happens when two plans conflict. For example, if one plan focuses on the efforts of the Yozis or Malfeans that the character's plan endures, while another relies on Cainan's power for a joint venture with House V'neef, the opposed roll decides whether he lives or dies. However, if he lives, his power likely drifts into his son's hands. Even if he dies, House Cathak probably supports the joint venture. Members of the Eclipse and Moonshadow Castes can learn this Charm, but it does them no good unless someone submits their proposals to the Bureau of Destiny.",
+    "cost": "2 motes per die",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 143,
+      "pdfPage": 146
+    },
+    "crossReferences": [],
+    "notes": "The names 'Cainan' and 'House V'neef'/'House Cathak' are transcribed as printed; this is flavor text illustrating opposed world-shaping rolls between Sidereals and other supernatural beings, not a mechanical rule specific to this inventory's scope."
+  },
+  {
+    "id": "excellent-implementation-of-objectives",
+    "name": "Excellent Implementation of Objectives",
+    "disposition": "selectable",
+    "summary": "Ensures swift, precise construction of a planned work by setting the target number of the final crafting roll and dividing the required time by the Sidereal's Essence.",
+    "requirements": "Minimum Craft 3; Minimum Essence 2; Prerequisite Charms: Elegant Patterns of Fate.",
+    "mechanics": "Having planned out some work of mundane or magical craftsmanship, the character weaves that plan into the more general design of the world. This ensures a swift and precise implementation. The Charm can reduce the target number of the final Dexterity + Craft or Intelligence + Craft roll. Also, the Sidereal divides the required construction time by her Essence.",
+    "cost": "8 motes + 1 mote per target number reduction",
+    "compatibility": "Duration: Varies. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 144,
+      "pdfPage": 147
+    },
+    "crossReferences": [
+      "elegant-patterns-of-fate"
+    ]
+  },
+  {
+    "id": "world-shaping-artistic-vision",
+    "name": "World-Shaping Artistic Vision",
+    "disposition": "selectable",
+    "summary": "The Sidereal develops a personal fated specialty (a circumstance) that reduces target numbers for related actions and subtly alters her appearance to reflect it.",
+    "requirements": "Minimum Craft 2; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "Characters with this Charm develop skill in manipulating fate in a specific, personal fashion. Each purchase of this Charm creates a circumstance -- with the same breadth as a specialty -- during which it automatically reduces the target number of all her actions by 1. The character can purchase this Charm up to three times, applying it to the same circumstance or to a new one each time. There is no cost to use this Charm's effects -- learning this Charm simply enhances the Exalt's capabilities. A Sidereal's appearance often shifts subtly as she develops this Charm. For example, a character with a specialty in fate alteration 'In Cities' becomes more urbane. A character who specializes in using fate 'Against Demons' develops a gleam in her Maiden's color may skate down the length of a sword when a demon's presence is revealed.",
+    "cost": "None",
+    "compatibility": "Duration: Permanent. Type: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 144,
+      "pdfPage": 147
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "destiny-knitting-entanglement",
+    "name": "Destiny-Knitting Entanglement",
+    "disposition": "selectable",
+    "summary": "Lets the Sidereal bind her fate to a number of objects equal to her Craft (Fate) score, granting remote awareness of and control over their circumstances, or the ability to recall a lost item into her hands.",
+    "requirements": "Minimum Craft 3; Minimum Essence 2; Prerequisite Charms: World-Shaping Artistic Vision.",
+    "mechanics": "The character can intertwine the fate of objects with her own, binding to her a total number of objects no greater than her current Craft (Fate) score. To bind an object, she must handle it for an hour. Afterward, at any time, she can spend 2 motes of Essence to learn a general description of the object's circumstances -- information on the order of 'in a guarded vault in a rich man's house in the Scavenger Lands' or 'traveling through the Wyld in the hands of a Lunar Exalt.' Given basic knowledge of its situation, she can instead spend 2 Essence to talk it back to her, describing a reasonable method by which that object could bring itself closer to her. For example, 'one of the guards decides he must have this for his own, steals it and flees the city to avoid retribution.' This might not work, but she experiences a strong temptation. An incompetent guard might steal it but be caught. If the character tries often enough, though, she eventually succeeds. She can freely release the binding on an object that no longer interests her. In combat, the character can use this Charm and a stunt to recall a lost weapon or object into her hands. For example, a stumbling enemy might kick her daiklave back into her grasp, or a bracer fallen over a cliff might rise back up on a hybroc's head as the character dives for it.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 144,
+      "pdfPage": 147
+    },
+    "crossReferences": [
+      "world-shaping-artistic-vision"
+    ],
+    "notes": "'hybroc' is transcribed as printed; the word is unfamiliar and may be an unusual creature name or a printing artifact, flagged here rather than silently corrected."
+  },
+  {
+    "id": "elemental-vision",
+    "name": "Elemental Vision",
+    "disposition": "selectable",
+    "summary": "Grants the Sidereal an innate elemental association tied to her Caste, permanently reducing target numbers for dealings with the matching element's spirits and elementals (and, to a lesser degree, Dragon-Blooded of that aspect).",
+    "requirements": "Minimum Craft 2; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "Each Maiden has an elemental association. The character learns to manipulate that element, automatically reducing the target number for all dealings with appropriate spirits and elementals by 2 and with Chosen Dragon-Blooded by 1. For Journeys, this applies to air. For Serenity, this applies to wood. For Battles, this applies to fire. For Secrets, this applies to water; and for Endings, this applies to earth. There is no cost to use this Charm's effects -- learning this Charm simply enhances the Exalt's capabilities. Learning this Charm requires the relevant Maiden's approval.",
+    "cost": "None",
+    "compatibility": "Duration: Permanent. Type: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 144,
+      "pdfPage": 147
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "mending-warped-designs",
+    "name": "Mending Warped Designs",
+    "disposition": "selectable",
+    "summary": "Heals damage to the local pattern of fate caused by creatures of Malfeas, the Underworld, or the Wyld, scaled by successes on a Dexterity + Craft (Fate) roll, and can counter Wyld pox or minor Wyld taint.",
+    "requirements": "Minimum Craft 3; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "The character can patch damage to the local pattern of fate. The Sidereal's player rolls Dexterity + Craft (Fate). Each success heals one health level that was lost to a creature of Malfeas, the Underworld or the Wyld. Alternately, success can heal debilitating effects caused by such creatures, requiring one success for each of Essence spent on that harm. Thus, three successes can break a demon's Possession Charm, while 60 successes can heal a region wounded by a Deathlord's Rain of Doom. This Charm has a limited ability to counter the direct effects of the Wyld. Five successes can cleanse a Wyld pox (see Exalted, p. 280). Twenty successes can remove a stronger Wyld pattern or Taint. Fifty successes can cleanse a small region within Creation of Wyld influence. This Charm does not permit extended rolls, but multiple Sidereal Exalted can apply it in the same turn, adding their successes. Sidereal Exalted may always use their Compassion with this Charm.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 145,
+      "pdfPage": 148
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "implicit-construction-methodology",
+    "name": "Implicit Construction Methodology",
+    "disposition": "selectable",
+    "summary": "Capstone of the Craft tree; a prayer strip binds a plan of construction to destiny itself, letting an item build itself into existence over time without further craftsmanship rolls, though the strip-wearer suffers a hand-use penalty throughout.",
+    "requirements": "Minimum Craft 4; Minimum Essence 4; Prerequisite Charms: Excellent Implementation of Objectives, Destiny-Knitting Entanglement, Elemental Vision, Mending Warped Designs.",
+    "mechanics": "This Charm uses a long prayer strip marked with the scripture of Lover and Maiden. Having planned construction of some item and evaluated the available materials, the character twists the prayer strip and binds it around both wrists in a band of blue light, slowly twisting and slithering around her extremities. The Sidereal suffers a +2 difficulty penalty to actions using her hands for the duration of this Charm. This Charm extends the Excellent Implementation of Objectives Charm. Instead of encouraging the swift implementation of the Exalt's design through fate, destiny literally constructs the object for him as it ticks, second by second, into the world. Ignoring the normal mechanisms by which things happen, the components of the design assemble and mold themselves, needing no direct intervention. The process takes a scene for more mundane construction, a day for works involving the Magical Materials and a month for massive projects such as Manses and artifact ships. This Charm does not allow the Exalt to work with mundane materials. The character automatically receives a perfect success on his Craft pool for building the item: All dice come up successes. In addition, all extra successes from the planning phase carry over as additional successes on the Craft roll. However, this form of Craft cannot achieve any further action through additional uses of this Charm or by making further Craft rolls. Also, the Charm only shapes what is present. The character must procure the materials for what is to be fabricated.",
+    "cost": "20 motes, 1 Willpower, 1 health level",
+    "compatibility": "Duration: Varies. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 145,
+      "pdfPage": 148
+    },
+    "crossReferences": [
+      "excellent-implementation-of-objectives",
+      "destiny-knitting-entanglement",
+      "elemental-vision",
+      "mending-warped-designs"
+    ]
+  },
+  {
+    "id": "absence",
+    "name": "Absence",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Serenity Caste Dodge tree ('The Ewer'); the Sidereal reflexively arranges to be somewhere else in advance, reducing the target number of a Dexterity + Dodge roll.",
+    "requirements": "Minimum Dodge 2; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "Predicting the path of a blade or blow well in advance, the Exalt arranges to be somewhere else when it lands. He can reduce the target number of a Dexterity + Dodge roll.",
+    "cost": "1 mote per target number reduction",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 145,
+      "pdfPage": 148
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "duck-fate",
+    "name": "Duck Fate",
+    "disposition": "selectable",
+    "summary": "The Sidereal sees impending danger rippling toward her in the skein of fate and, like Absence, chooses not to meet it, contesting the attacker's Essence with a Dexterity + Dodge roll to avoid an undesirable effect entirely, including area and non-physical attacks.",
+    "requirements": "Minimum Dodge 3; Minimum Essence 2; Prerequisite Charms: Absence.",
+    "mechanics": "The character sees impending danger rippling toward her in the skein of fate and, as with Absence, chooses not to meet it. Her player rolls Dexterity + Dodge against a difficulty equal to her opponent's Essence. If the roll succeeds, the Exalt avoids any undesirable effect, including attacks she was not aware of, attacks with an area of effect, attacks with no physical component such as the Irresistible Questioning Technique, and continuous deleterious effects such as You and Yours Stance. She must duck Fate before her opponent's player rolls the attack roll or as soon as she learns about the effect, whichever is applicable. For this Charm's purposes, the first minute of a social encounter begins at the last chance the Exalt had to conveniently leave. If the character is chatting with a friend and Lilith shows up, a new social encounter has begun. The Sidereal can use this Charm, retroactively making her excuses and ducking out sometime beforehand. If the character is chatting with Lilith and a friend shows up, however, she's still in the encounter with Lilith. She need not evade a continuous deleterious effect only once.",
+    "cost": "10 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 145,
+      "pdfPage": 148
+    },
+    "crossReferences": [
+      "absence"
+    ]
+  },
+  {
+    "id": "avoidance-kata",
+    "name": "Avoidance Kata",
+    "disposition": "selectable",
+    "summary": "Lets the Sidereal reflexively 'declare' at the start of combat or a social encounter that she was never there, retroactively placing her elsewhere for the Storyteller to decide.",
+    "requirements": "Minimum Dodge 3; Minimum Essence 3; Prerequisite Charms: Duck Fate.",
+    "mechanics": "Sometimes, the best answer to trouble is not being there at all. In the first two turns of combat or the first minute of a social encounter, the Sidereal's player can declare, 'I'm not here.' It turns out -- at least as far as anyone can prove -- that the Exalt anticipated the situation prophetically and was somewhere else, of the Storyteller's choosing, all along.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 146,
+      "pdfPage": 149
+    },
+    "crossReferences": [
+      "duck-fate"
+    ]
+  },
+  {
+    "id": "trouble-reduction-strategy",
+    "name": "Trouble Reduction Strategy",
+    "disposition": "selectable",
+    "summary": "The Sidereal spots impending danger to others as well and can redirect any of her own Dodge Charms to protect a consenting target instead of herself, or lend that target the use of her own Dodge pool for their reflexive actions.",
+    "requirements": "Minimum Dodge 4; Minimum Essence 2; Prerequisite Charms: Duck Fate.",
+    "mechanics": "Generous Sidereals learn to spot impending danger to others as well. When activating this Charm, the character can use any number of targets whose total Essence does not exceed her own. While the Trouble Reduction Strategy is in force, the character can use any other Dodge Charm she knows to benefit a consenting target instead of herself. Simple and extra action Charms use the character's action and Dodge pool. Reflexive Charms use the target's Dodge pool. Supplemental Charms enhance the target's dice action. Using a Charm on someone else's behalf counts as using that Charm that turn. The Exalt can only use other Charms that turn if she declares an appropriate Combo when using her first Charm. If the Combo includes non-reflexive Charms from other Abilities, the character can use it with the Trouble Reduction Strategy. If it includes reflexive Charms from other Abilities, she could, for example, Combo Absence and Shield of Mars (see p. 163), Combo the target, she could use Absence but not Shield of Mars to protect a friend. She must take a dodge action assisted by Absence, because it is a supplemental Charm in a Combo. She can reflexively invoke the Shield of Mars to protect herself. Sidereal Exalted may always use their Compassion with this Charm.",
+    "cost": "5 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 146,
+      "pdfPage": 149
+    },
+    "crossReferences": [
+      "duck-fate"
+    ],
+    "notes": "The mechanics text describing how the Combo restriction interacts with 'Absence' and 'Shield of Mars' (an unrelated Battles Caste Resistance Charm cross-referenced by page number in the source) reads confusingly/contradictorily in the original ('she could Combo... Combo the target, she could use Absence but not Shield of Mars...'); paraphrased as faithfully as possible but flagged as a likely errata/editing issue in the source text."
+  },
+  {
+    "id": "neighborhood-relocation-scheme",
+    "name": "Neighborhood Relocation Scheme",
+    "disposition": "selectable",
+    "summary": "Capstone of the Dodge tree; a prayer strip lets the Sidereal physically relocate terrain and habitations within miles of her over the course of an hour, altering divine records so the change appears to have always been true, at the cost of accruing unsoakable bashing damage.",
+    "requirements": "Minimum Dodge 5; Minimum Essence 4; Prerequisite Charms: Avoidance Kata, Trouble Reduction Strategy.",
+    "mechanics": "This Charm uses a long prayer strip marked with the scripture of the Hunted Maiden. The character twists it and wraps it around her waist, whereupon it transforms into a band of crystalline Essence the color of the sky. Each hour the Exalted leaves this Charm in force, the band tightens, doing two levels of unsoakable bashing damage. This damage cannot be healed until the Charm ends. The character begins to walk or run. These are the only acceptable forms of motion, but she can enhance them with Charms or the Lesser Sign of Mercury. As the character travels, the weave of Creation shifts part of the world after her. Specifically, both the terrain and all habitations within her Essence in miles move with her. In the planning rooms of fate, this slowly changes the records of each transported thing's position. Thus, their fated interactions in the moments to come take place in a new location. This Charm alters divine records, which are then interpreted by those who feed fate into the world. Accordingly, the Sidereal cannot shear a mountain or city in two. If the Charm cannot logically divide such features, given the radius of effect, they do not travel at all. Further, Creation fills in the 'vacant space' with something reasonable. Finally, the Sidereal cannot 'erase' anything important by dragging land onto it. If she drags a desert onto a Manse in a forested region, the forest retreats but does not vanish. The Manse follows the forest or relocates to the desert. The new location seems correct and reasonable to all witnesses, although they remember the previous state of affairs. This Charm was first used to pull a key fortification out of the way of a Primordial assault, in the days when Exalted and Primordials warred. Using this Charm without authorization is a Severity 3 offense.",
+    "cost": "15 motes, 1 Willpower, 1 health level",
+    "compatibility": "Duration: Indefinite. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 147,
+      "pdfPage": 150
+    },
+    "crossReferences": [
+      "avoidance-kata",
+      "trouble-reduction-strategy"
+    ],
+    "notes": "Charm text spans the PDF 150/151 page break (printed pp. 147-148); transcribed as a single continuous description."
+  },
+  {
+    "id": "favorable-inflection-procedure",
+    "name": "Favorable Inflection Procedure",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Serenity Caste Linguistics tree ('The Pillar'); by inflecting a target's name correctly, the Sidereal can pleasantly disrupt or soothe their emotional state via a contested Charisma + Linguistics roll.",
+    "requirements": "Minimum Linguistics 3; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "Spoken properly, a person's name or nickname can pleasingly reflect the underlying pattern of his existence, forming a sense of completion in his heart. The character knows how to inflect a name in such a fashion. Her player rolls Charisma + Linguistics against the target's Essence. If the roll succeeds, the target experiences a momentary burst of warmth, happiness and connection to the Sidereal. If upset or violent, he loses his train of thought, forgetting what caused his unhappiness. He will not remember it naturally, but events may remind him. For example, seeing the Exalt standing over the murdered body of his bride with a bloody knife in her hand would immediately reinvoke his rage. This Charm fails before the Great Curse, and the character must know the target's name. Sidereal Exalted may always use their Compassion with this Charm.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 148,
+      "pdfPage": 151
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "blue-vervain-binding",
+    "name": "Blue Vervain Binding",
+    "disposition": "selectable",
+    "summary": "A minute-long formal blessing in the language of the Old Realm that permanently ties two creatures' fates together so each can perfectly understand and make herself understood to the other, forever.",
+    "requirements": "Minimum Linguistics 3; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "The Blue Vervain Binding is a minute-long formal blessing in the language of the Old Realm. It ties together two creatures' fates. (One creature can be the Sidereal herself.) Successfully reciting the binding requires perfect intonation, cadence and inflection throughout -- and thus an Intelligence + Linguistics roll against difficulty 5. Forever after, to the limits of their intellects, each creature can understand the other perfectly and make herself understood.",
+    "cost": "5 motes, 1 experience point",
+    "compatibility": "Duration: One minute. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 148,
+      "pdfPage": 151
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "ice-and-fire-binding",
+    "name": "Ice and Fire Binding",
+    "disposition": "selectable",
+    "summary": "A more complex, hour-long binding incantation that summons and compels service from a fire or water spirit or elemental, its difficulty reducible by other supporting Sidereals reciting alongside the caster.",
+    "requirements": "Minimum Linguistics 3; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "Reciting the Ice and Fire Binding is similarly complex and takes a full hour to complete. The player rolls Intelligence + Linguistics against a difficulty of 9. Each additional Sidereal who supports the Charm with her presence and words reduces the difficulty by 1, to a minimum of 5. Supporters need not know the Charm. This incantation summons a spirit or elemental of fire, with Essence less than the character's own, and touches it with the essence of Serenity. For one season, it binds that spirit to seek the joy, health and pleasure of those around it. Afterward, she smoothly removes all details of the characters who summoned and bound it from the spirit's memory.",
+    "cost": "10 motes",
+    "compatibility": "Duration: One hour. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 148,
+      "pdfPage": 151
+    },
+    "crossReferences": [],
+    "notes": "Charm text spans the PDF 151/152 page break (printed pp. 148-149); the described summoned spirit is explicitly 'of fire' though the Charm's title also invokes water/ice, which is not further reconciled in the source text as transcribed."
+  },
+  {
+    "id": "lovers-oath",
+    "name": "Lover's Oath",
+    "disposition": "selectable",
+    "summary": "Capstone of the Linguistics tree; a prayer strip forges a formal, mutually-invoked oath between the Sidereal and a consenting partner that shares health, Essence, and Willpower between them and doubles the Exalt's recovered Compassion after a successful Performance roll.",
+    "requirements": "Minimum Linguistics 4; Minimum Essence 3; Prerequisite Charms: Favorable Inflection Procedure, Blue Vervain Binding, Ice and Fire Binding.",
+    "mechanics": "This Charm uses a prayer strip marked with the scripture of the Bride. The Sidereal and a consenting partner invoke this Charm but must fully understand its implications. Together, they twist and wind it around one finger each, reciting an oath in the Language of the Old Realm. Both players roll Intelligence + Linguistics against difficulty 5. On a success, every detail of cant and expression is correct. The prayer strip shrivels and reshapes into two starmetal rings, one with sapphires. Neither character can ever directly or indirectly attempt to remove the rings. Others can destroy them using the standard rules for breaking a prayer strip. While the rings endure, each character can reflexively spend the others' health levels, Essence and Willpower as her own. Treat motes of Essence drawn from the character's partner as Peripheral for the purpose of affecting the drawing characters' anima banner. A character automatically and involuntarily draws on the other's smaller (pre-Charm) wound penalty than her own. When defending or helping her partner, treat all Compassion dice as automatic successes. This Charm is tantamount to a wedding ceremony, and the Maidens expect their Exalted to treat it with reverence. The feelings between the characters need not at all be romantic love -- one can make a Lover's Oath of expedience. However, the bond, once made, remains sacred, and ill fate follows should one character treat their partner poorly.",
+    "cost": "20 motes, 1 Willpower, 1 health level",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 149,
+      "pdfPage": 152
+    },
+    "crossReferences": [
+      "favorable-inflection-procedure",
+      "blue-vervain-binding",
+      "ice-and-fire-binding"
+    ]
+  },
+  {
+    "id": "compassionate-essence-replenishment",
+    "name": "Compassionate Essence Replenishment",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Serenity Caste Performance tree ('The Musician'); passively refunds double the Sidereal's Compassion in Essence whenever a successful Compassion roll or a heartwarming Performance roll occurs.",
+    "requirements": "Minimum Performance 1; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "In many ways, Sidereals are the central figures in the lives of those around them -- unrecognized, unknown, but nevertheless, the ones about whom events turn. When they call out for it, the world returns the love and service they have given it, offering its Essence to them freely. This Charm draws on the Exalt's ability to move through situations without taking overt action, encouraging spirits and the world to willingly take the actions she desires. It also draws on the sacrifices that the world should care for her too. Immediately after a successful roll using Compassion or immediately after a Performance roll that generated a surge of positive feeling toward the character, the Exalt regains twice her Compassion in motes of Essence, up to her normal maximum. There is no cost to use this Charm's effects -- learning this Charm simply enhances the Exalt's capabilities.",
+    "cost": "None",
+    "compatibility": "Duration: Permanent. Type: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 149,
+      "pdfPage": 152
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "perfection-in-life",
+    "name": "Perfection in Life",
+    "disposition": "selectable",
+    "summary": "The Sidereal manipulates events to temporarily complete the unfulfilled patterns of other people's lives, granting everyone she interacts with a bonus temporary Willpower point for the scene.",
+    "requirements": "Minimum Performance 2; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "Misery fills the world, but it is an incomplete fate. Characters with this Charm would sketch a line of sorrow as a broken pattern, full of pain, casting forth strands of effort, desire, hope and fear that reach for fulfillment. These strands blunt themselves on weakness and circumstance but implicitly define the rest of the pattern: the perfection that person's life could be. The Exalt can manipulate events to temporarily complete such patterns. This is the dance of Venus. His words and actions, though apparently mundane, purify and brighten the lives of those around him. The cadence of his movements and his speech brings joy to the world. Though not a dance by normal definitions, his actions radiate an artistic elegance and precision. The player rolls Charisma + Performance. For one scene, the character and everyone he interacts with gains 1 temporary Willpower point. This can increase Willpower past its normal maximum, but it cannot increase temporary Willpower past the number of successes rolled. Beneficiaries also feel fulfilled and happy. No character can gain Willpower from this Charm more than once per day. Sidereal Exalted may always use their Compassion with this Charm.",
+    "cost": "5 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 149,
+      "pdfPage": 152
+    },
+    "crossReferences": [],
+    "notes": "Charm text spans the PDF 152/153 page break (printed pp. 149-150); transcribed as a single continuous description."
+  },
+  {
+    "id": "defense-of-shining-joy",
+    "name": "Defense of Shining Joy",
+    "disposition": "selectable",
+    "summary": "Infuses the Sidereal with the completeness of the dance, letting her reflexively dodge any physical attack for a scene with her full Dexterity-based dice pool.",
+    "requirements": "Minimum Performance 4; Minimum Essence 3; Prerequisite Charms: Perfection in Life.",
+    "mechanics": "Infusing herself with the Essence of the dance, she sees the perfect completion to every enemy attack. Matching her efforts to their own, she avoids all harm. For the remainder of the scene, the character can reflexively dodge any physical attack with her full Dexterity + Dodge or Dexterity + Performance dice pool.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 150,
+      "pdfPage": 153
+    },
+    "crossReferences": [
+      "perfection-in-life"
+    ]
+  },
+  {
+    "id": "song-of-spirit-persuasion",
+    "name": "Song of Spirit Persuasion",
+    "disposition": "selectable",
+    "summary": "A song in the Old Realm tongue that answers a spirit's or elemental's deepest fears and questions, contested by a Manipulation + Performance roll against its Essence, potentially winning it as a lasting ally.",
+    "requirements": "Minimum Performance 3; Minimum Essence 2; Prerequisite Charms: Perfection in Life.",
+    "mechanics": "Singing in the language of the Old Realm -- which she must, of course, know -- the character answers the deepest fears and questions in a spirit or elemental's heart. As with the dance of Venus, she chooses her words and melody to complete that which is incomplete. In this fashion, she bends the spirit to her ends. The Sidereal's player makes a Manipulation + Performance roll against the spirit's Essence. It must be able to hear the song, though it need not be awake or present. On a success, the spirit becomes one of the character's allies. Spending experience points equal to the spirit's Essence makes the connection permanent. Otherwise, the spirit forgets the Exalt at the end of the story. Spirits of fire and wood, embodying life and passion, are particularly vulnerable to this technique. Add a +2 difficulty penalty when entrancing spirits of earth, water and air.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 150,
+      "pdfPage": 153
+    },
+    "crossReferences": [
+      "perfection-in-life"
+    ]
+  },
+  {
+    "id": "faultless-ceremony",
+    "name": "Faultless Ceremony",
+    "disposition": "selectable",
+    "summary": "Closes the loose ends of fate around a ceremony (betrothal, funeral, banquet, etc.) so it concludes perfectly in the eyes of fate and the gods, with the Sidereal able to bias the outcome toward matters relevant to her Caste.",
+    "requirements": "Minimum Performance 3; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "The character closes the loose ends of fate, making a ceremony she participates in perfect and complete in the eyes of fate and the gods. Betrothals, funerals, banquets and other ceremonies all qualify. Her player rolls Charisma + Performance (as with a prayer roll, see Exalted, pp. 335-336) against a difficulty of (8 - the Resources cost of the ceremony). She adds her character's Essence in dice. She may lower the target number of fate to reflect a meaningful bias, particularly in matters relevant to her caste. Thus, the Chosen of Endings can all but guarantee a dead man's affairs, and the Chosen of Serenity can all but guarantee a couple's fertility. Active intervention from antagonists in Heaven or creatures outside of fate can muddle this result.",
+    "cost": "1 mote + 1 mote per target number reduction",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 150,
+      "pdfPage": 153
+    },
+    "crossReferences": [],
+    "notes": "Charm text spans the PDF 153/154 page break (printed pp. 150-151); transcribed as a single continuous description."
+  },
+  {
+    "id": "heart-brightening-presentation-style",
+    "name": "Heart-Brightening Presentation Style",
+    "disposition": "selectable",
+    "summary": "Adds the Sidereal's Essence in dice to Presence, Performance, Bureaucracy, or Socialize rolls whenever an audience's trust threatens to falter, and is explicitly Combo-friendly with Charms of other Abilities.",
+    "requirements": "Minimum Performance 2; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "Every time an audience's trust in the character is about to falter, the Exalt adapts her approach to a better answer to their needs and desires. The player can add dice to the character's Essence to Presence, Performance and Socialize rolls. This Charm is explicitly permitted to be used in a Combo with Charms of other Abilities. Sidereal Exalted may always use their Compassion with this Charm.",
+    "cost": "2 motes per die",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 151,
+      "pdfPage": 154
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "harmonic-completion",
+    "name": "Harmonic Completion",
+    "disposition": "selectable",
+    "summary": "Capstone of the Performance tree; a prayer strip renders the Sidereal blind but grants perfect Performance success over mortals and makes anyone who does not consciously resist fall in love with her.",
+    "requirements": "Minimum Performance 5; Minimum Essence 4; Prerequisite Charms: Defense of Shining Joy, Faultless Ceremony, Heart-Brightening Presentation Style.",
+    "mechanics": "This Charm uses a long prayer strip marked with the scripture of the Dancer. The character binds it around her eyes, whereupon it transforms into a band of starmetal and blue jade. (It still abides by the normal rules for prayer strip destruction.) For the duration of this Charm, the Exalt is genuinely blind and takes a +2 difficulty penalty on appropriate rolls. The words of a character employing Harmonic Completion sound to others like the affirmations and truths their entire lives have waited their entire lives to hear. Each comes across as a measured antidote to every trouble written in their history and fate. The Exalt receives a perfect success on all Performance rolls to influence mortals. Anyone, mortal or Exalted, who does not deliberately tune her out falls in love with her. Any non-extra character can reflexively tune her out when he senses this effect. This Charm imposes a difficulty penalty on all rolls to attack, deceive or otherwise influence the Sidereal equal to her Performance.",
+    "cost": "16 motes, 1 Willpower, 1 health level",
+    "compatibility": "Duration: Five days. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 151,
+      "pdfPage": 154
+    },
+    "crossReferences": [
+      "defense-of-shining-joy",
+      "faultless-ceremony",
+      "heart-brightening-presentation-style"
+    ],
+    "notes": "Charm text spans the PDF 154/155 page break (printed pp. 151-152); transcribed as a single continuous description."
+  },
+  {
+    "id": "stern-essence-replenishment",
+    "name": "Stern Essence Replenishment",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Serenity Caste Socialize tree ('The Lovers'); passively refunds double the Sidereal's Conviction in Essence whenever a successful Conviction roll or a decisive Socialize roll occurs.",
+    "requirements": "Minimum Socialize 1; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "In taking those actions she considers necessary, whatever the personal cost, a Sidereal sets her order to the world. As she does so, she willingly yields to the world's service. This Charm draws on the Exalt's ability to play spirits and the world, manipulating Creation in Creation's service. Immediately after a successful roll using Conviction or immediately after a Socialize roll that substantially changed the local social environment in her favor, the Exalt regains twice her Conviction in motes of Essence, up to her normal maximum. There is no cost to use this Charm's effects -- learning this Charm simply enhances the Exalt's capabilities.",
+    "cost": "None",
+    "compatibility": "Duration: Permanent. Type: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 151,
+      "pdfPage": 154
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "shun-the-smiling-lady",
+    "name": "Shun the Smiling Lady",
+    "disposition": "selectable",
+    "summary": "Blots the target's name from the rolls of those destined to attract love, reducing his effective Appearance to 1 for non-magical effects and forcing anyone with lower Essence and existing romantic feelings for him to instantly lose them.",
+    "requirements": "Minimum Socialize 2; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "The character blots the target's name from the rolls of those destined to attract love. The target has an effective Appearance 1 for all non-magical effects. To invoke any form of supernatural appeal or to maintain it into a new scene, the target must spend a Willpower point, and his player must succeed at a Manipulation + Socialize roll against a difficulty of the Sidereal's Essence. He makes this roll after paying for the Charm or Ability used. If anyone with permanent Essence less than the Sidereal's own has romantic feelings for the target, those feelings are instantly severed. They do not return when the Charm ends.",
+    "cost": "7 motes",
+    "compatibility": "Duration: Indefinite. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 151,
+      "pdfPage": 154
+    },
+    "crossReferences": [],
+    "notes": "Charm text spans the PDF 154/155 page break (printed pp. 151-152); transcribed as a single continuous description."
+  },
+  {
+    "id": "cash-and-murder-games",
+    "name": "Cash and Murder Games",
+    "disposition": "selectable",
+    "summary": "The Sidereal sketches a proposed relationship into fate that grants one person coercive dominion (fear or desire) over another, contested by a Willpower spend from the target each scene until enough Willpower is spent to break free.",
+    "requirements": "Minimum Socialize 3; Minimum Essence 2; Prerequisite Charms: Shun the Smiling Lady.",
+    "mechanics": "Quickly sketching a proposed relationship in the plans for future fate, the character increases the power one person has over another. The character names the fashion in which the beneficiary acquires dominion over the target -- generally fear or desire, sexual or otherwise. The player rolls Manipulation + Socialize. To resist being intimidated, enthralled or impressed to the near-servitude, the target must spend one temporary Willpower per scene he encounters the Charm's beneficiary. When he has spent Willpower equal to the number of successes rolled, the compulsion fades. Normally, the emotional impact does not otherwise dissipate so much as mute itself to non-magical levels. The Sidereal can choose herself as the beneficiary. Sidereal Exalted may always use their Conviction with this Charm.",
+    "cost": "10 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 152,
+      "pdfPage": 155
+    },
+    "crossReferences": [
+      "shun-the-smiling-lady"
+    ]
+  },
+  {
+    "id": "life-without-compunction",
+    "name": "Life Without Compunction",
+    "disposition": "selectable",
+    "summary": "Instantly erases the social/legal onus attached to a taboo act, letting the Sidereal make it generally acceptable, spin its perpetrator as an admirable rebel, or otherwise reframe it -- though legal penalties still apply.",
+    "requirements": "Minimum Socialize 4; Minimum Essence 2; Prerequisite Charms: Cash and Murder Games.",
+    "mechanics": "As with legal crimes, the right tricks can make social crimes... disappear. The Sidereal can instantly erase the onus attached to herself or to someone else for some social blunder or taboo violation. Her player rolls Manipulation + Socialize. A single success makes people stop caring. With three successes, the character can choose instead either to make the relevant action generally acceptable or to make the person who committed it an admirable rebel (e.g., an ideologue who makes a bold, daring statement by digging up people's dead grandmothers, however disgusting that behavior would be in Creation). Socially acceptable acts retain legal penalties. (To make theft socially acceptable would require arranging a wave of theft infamous throughout Creation.) Sidereal Exalted may always use their Temperance with this Charm.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 152,
+      "pdfPage": 155
+    },
+    "crossReferences": [
+      "cash-and-murder-games"
+    ]
+  },
+  {
+    "id": "you-and-yours-stance",
+    "name": "You and Yours Stance",
+    "disposition": "selectable",
+    "summary": "Wraps the Sidereal in the tenor of fate that gives rise to lust, so that others perceive him as their greatest possession and struggle (via a Conviction or Temperance roll) to act against pleasing him; adds automatic successes to seduction rolls.",
+    "requirements": "Minimum Socialize 3; Minimum Essence 3; Prerequisite Charms: Shun the Smiling Lady.",
+    "mechanics": "The character wraps himself in the tenor of fate that gives rise to lust. He becomes impossible to recognize. Looking upon him, others perceive only a blazing sense that he is their greatest possession and that to harm or disappoint him is to risk losing their own hearts. For those actively hostile to him, it requires a Conviction roll to attack. For others, it requires a Temperance roll not to act as best they can, short of suicide, to please him. This Charm adds the character's Essence in automatic successes to any seduction roll.",
+    "cost": "10 motes, 1 Willpower",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 152,
+      "pdfPage": 155
+    },
+    "crossReferences": [
+      "shun-the-smiling-lady"
+    ],
+    "notes": "Charm text spans the PDF 155/156 page break (printed pp. 152-153); transcribed as a single continuous description."
+  },
+  {
+    "id": "hot-eyed-snake-whispering",
+    "name": "Hot-Eyed Snake Whispering",
+    "disposition": "selectable",
+    "summary": "Reduces the target number of the Sidereal's Presence, Performance, or Socialize rolls whenever an audience's trust threatens to falter, and is explicitly Combo-friendly with Charms of other Abilities.",
+    "requirements": "Minimum Socialize 3; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "Every time an audience's trust in the character is about to falter, her hands go back into the fate net which keeps their minds back onto the proper path. This Charm can reduce the target number of Presence, Performance and Socialize rolls. This Charm is explicitly permitted to be in a Combo with Charms of other Abilities. Sidereal Exalted may always use their Conviction with this Charm.",
+    "cost": "1 mote per target number reduction",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 153,
+      "pdfPage": 156
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "wanting-and-fearing-prayer",
+    "name": "Wanting and Fearing Prayer",
+    "disposition": "selectable",
+    "summary": "Capstone of the Socialize tree; two prayer strips wrap around two targets and let the Sidereal dictate a new, magically-reinforced social/emotional relationship between them, which grows into genuine feeling over the Charm's duration.",
+    "requirements": "Minimum Socialize 5; Minimum Essence 4; Prerequisite Charms: Life Without Compunction, You and Yours Stance, Hot-Eyed Snake Whispering.",
+    "mechanics": "This Charm uses two prayer strips marked with the scripture of the Whore. The character holds them up, one at a time, and names a target for each. The targets must be within 10 minutes. Each prayer strip burns lambent blue for a moment before disappearing, reappearing wrapped around one of its target's bodies. Its light shines through even the thinnest veil of cloth, but bursts forth brilliantly if that flesh is ever cut away. Extracting the strip requires 12 successes on an extended Dexterity + Medicine roll. Each attempt inflicts one level of unsoakable lethal damage. The Sidereal's player rolls Manipulation + Socialize against the Essence of each target. If she succeeds with them, she can dictate a new social and emotional relationship between the two targets. As fast and as plausible as they seem, for the duration of the Charm, events push the victims toward that social relationship. The imposed emotional relationship is imposed with a magical compulsion, which remains while the character commits Essence to the Charm. Under its influence, a target must spend a Willpower point to act significantly at odds with the imposed emotional context. The Charm also instantly creates genuine emotions, which do not depend on magic to sustain them. They fade or blossom as emotions normally do. Sidereal Exalted may always use their Conviction with this Charm.",
+    "cost": "10 motes, 1 Willpower, 1 health level",
+    "compatibility": "Duration: Indefinite. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 153,
+      "pdfPage": 156
+    },
+    "crossReferences": [
+      "life-without-compunction",
+      "you-and-yours-stance",
+      "hot-eyed-snake-whispering"
+    ]
+  },
+  {
+    "id": "generalized-ammunition-technique",
+    "name": "Generalized Ammunition Technique",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Battles Caste Archery tree ('The Quiver'); the Sidereal reflexively conjures any needed ammunition (arrow, shot, thrown dust, etc.) out of thin air, weightless until used, which inflicts an improvised weapon's damage on impact.",
+    "requirements": "Minimum Archery 2; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "The mirror of adjusting circumstances to meet one's needs is adapting to things found in one's circumstances. Both allow for the smooth progress of fate. This Charm lets an adaptable Exalt find anything to meet her needs -- be it an arrow, launching them against a reflexive Dexterity + Dodge roll with a difficulty equal to the Sidereal's Essence score. Upon impact, an improvised arrow inflicts damage as a normal arrow of any type (Exalt's choice), in addition to any unusual effects appropriate to the attack. Sidereal Exalted can only shape arrows from concrete things, although the Maiden of Battles shapes her arrows from intention and desire.",
+    "cost": "1 mote",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 153,
+      "pdfPage": 156
+    },
+    "crossReferences": [],
+    "notes": "The mechanics text's opening sentences read somewhat garbled/incomplete in the source ('adapting to things found in one's circumstances... lets an adaptable Exalt anything no heavier than her fist and no longer than her arm as if it were an arrow, or fire shorts, dragonflies, small spirits or shadows. Living things can avoid the Sidereal seizing and launching them against a reflexive Dexterity + Dodge roll...'); paraphrased as faithfully as possible while flagging the ambiguity."
+  },
+  {
+    "id": "any-direction-arrow",
+    "name": "Any Direction Arrow",
+    "disposition": "selectable",
+    "summary": "Adds the Sidereal's Essence in dice to an Archery roll and lets her fired arrow ignore up to 50 percent cover, weaving unexpectedly toward its target.",
+    "requirements": "Minimum Archery 1; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "Graced by the chance to serve those who weave fate, an arrow gleefully weaves in the air to strike its opponent from an unexpected direction. The Exalt adds up to her Essence in dice to an Archery roll. In addition, the arrow takes no penalties from up to 50 percent cover.",
+    "cost": "1 mote + 1 mote per die",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 153,
+      "pdfPage": 156
+    },
+    "crossReferences": [],
+    "notes": "Charm text spans the PDF 156/157 page break (printed pp. 153-154); transcribed as a single continuous description."
+  },
+  {
+    "id": "every-direction-arrow",
+    "name": "Every Direction Arrow",
+    "disposition": "selectable",
+    "summary": "Fires a spread of arrows (up to the Sidereal's Essence) that scatter to strike a single target from every side simultaneously, using one attack roll for the group with damage applied separately per arrow.",
+    "requirements": "Minimum Archery 4; Minimum Essence 2; Prerequisite Charms: Any Direction Arrow.",
+    "mechanics": "The character fires a number of arrows no greater than her Essence, which first scatter and then strike a single target from every side. Use one attack roll for all the arrows, and apply the damage for each of them separately.",
+    "cost": "3 motes per extra arrow",
+    "compatibility": "Duration: Instant. Type: Extra Actions.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 154,
+      "pdfPage": 157
+    },
+    "crossReferences": [
+      "any-direction-arrow"
+    ]
+  },
+  {
+    "id": "opportune-shot",
+    "name": "Opportune Shot",
+    "disposition": "selectable",
+    "summary": "Lets the Sidereal launch an Archery attack before her normal initiative, automatically winning initiative over a single target for that purpose.",
+    "requirements": "Minimum Archery 3; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "Spotting an opportunity thanks to the graces of fate, the character launches an arrow before her normal initiative. This Charm lets her automatically win initiative over a single target for purposes of making an Archery attack against him. She cannot split her dice pool on the turn she uses Opportune Shot. Characters using Opportune Shot, Thunderclap Rush Attack or similar abilities in competition roll for initiative with one another normally.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Reflexive. Type: Instant.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 154,
+      "pdfPage": 157
+    },
+    "crossReferences": [],
+    "notes": "Duration/Type fields are transcribed in the order they appear in the source stat block ('Duration: Reflexive' / 'Type: Instant'), which is reversed from the usual Duration/Type convention used elsewhere in this book; likely a printing error, flagged rather than silently corrected."
+  },
+  {
+    "id": "five-seasons-approach",
+    "name": "Five Seasons Approach",
+    "disposition": "selectable",
+    "summary": "When skill, the world's esteem, its fear, or its dreams of glory aren't enough, the Sidereal trusts to luck instead, reducing the target number of an Archery roll.",
+    "requirements": "Minimum Archery 4; Minimum Essence 3; Prerequisite Charms: Every Direction Arrow, Opportune Shot.",
+    "mechanics": "If skill does not suffice to make her shot, then a character may not trust to the world's esteem for her. If not to that, to the world's fear of what she hopes to save it from. If not to that, to the world's dreams of the glories she strives for. Even if these things fail, she may trust to luck. This is the Five Seasons Approach. The character can reduce the target number of an Archery roll. Sidereal Exalted can always use any Virtue with this Charm.",
+    "cost": "2 motes per target number reduction",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 154,
+      "pdfPage": 157
+    },
+    "crossReferences": [
+      "every-direction-arrow",
+      "opportune-shot"
+    ]
+  },
+  {
+    "id": "many-missiles-bow-technique",
+    "name": "Many Missiles Bow Technique",
+    "disposition": "selectable",
+    "summary": "Capstone of the Archery tree; a prayer strip triples the Sidereal's arrow range for a scene and, for an experience point per arrow, lets her transmute each falling arrow into an elemental effect (fire, snow, healing, unblockable boulder, or unbreakable-without-Essence glass).",
+    "requirements": "Minimum Archery 5; Minimum Essence 4; Prerequisite Charms: Generalized Ammunition Technique, Five Seasons Approach.",
+    "mechanics": "This Charm uses a prayer strip marked with the scripture of the Clay Maiden. The Exalt casts it into the sky, where it radiates a gaudy pink light, hovering 10 yards above her bow. For the duration of this Charm, the character's arrows have triple their normal range. In addition, for 1 experience point each, the Sidereal can learn transformations to apply to an arrow as it falls, reshaping it into some other aspect of Creation. Commonly known transformations include: Rain of fire -- the arrow turns into a rain of fire, attacking its normal damage and applying flammable things within five yards of the target, and ignoring armor on a successful hit. Snow -- it begins to snow around the region where the arrow fell. The character must renew this effect with at least one arrow per minute to maintain it. Life -- the target is healed for one level of lethal or bashing damage. Grain -- the arrow turns into ripe wheat, and sprouts feed one person for a day where the arrow lands. Boulder -- it becomes an unblockable boulder as it falls. It can be dodged. Double the raw damage of the attack, excluding extra successes, when used against inanimate objects. Glass -- the arrow becomes transparent as it falls. Targets must make a reflexive Perception + Awareness roll at difficulty 2 to defend against it without the use of Charms. Each such arrow costs 1 mote of Essence to the Generalized Ammunition Technique cannot suffer other 'arrows' made from the Five Magical Materials. Characters can learn transformations from other Exalted with this Charm. They can also design new transformations, with the Storyteller's approval. Effects should be simple and should not preemptively duplicate the effects of other Charms.",
+    "cost": "10 motes, 1 Willpower, 1 health level",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 154,
+      "pdfPage": 157
+    },
+    "crossReferences": [
+      "generalized-ammunition-technique",
+      "five-seasons-approach"
+    ],
+    "notes": "Charm text spans the PDF 157/158 page break (printed pp. 154-155). One sentence in the 'Glass' transformation paragraph reads confusingly/garbled in the source ('Each such arrow costs 1 mote of Essence to the Generalized Ammunition Technique cannot suffer other arrows made from the Five Magical Materials'); paraphrased as faithfully as possible but flagged for closer re-read before promotion. The prior sentence in the source ('Living or heavily worked arrows based on the Generalized Ammunition Technique cannot suffer other transformations') was legible and is reflected as the intended meaning."
+  },
+  {
+    "id": "unobstructed-blow",
+    "name": "Unobstructed Blow",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Battles Caste Brawl tree ('The Gauntlet'); writes the arc of a Brawl attack into forthcoming fate so that, if it hits, the target's armor provides no protection.",
+    "requirements": "Minimum Brawl 4; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "The character chooses the arc of her blow and writes it into forthcoming fate. One attack made using Brawl cannot be blocked. If it hits, the target's armor provides no protection.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 155,
+      "pdfPage": 158
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "tolerant-strife",
+    "name": "Tolerant Strife",
+    "disposition": "selectable",
+    "summary": "The Sidereal adapts to the battlefield's conditions, adding her Essence in dice to a Brawl attack and suffering no environmental or circumstantial penalties on it.",
+    "requirements": "Minimum Brawl 3; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "The character adapts to the conditions of the battlefield, rewriting fate so that events run smoother rather than harder for her. She makes a Brawl attack, suffering no environmental or circumstantial penalties and adding up to her Essence in dice. Sidereal Exalted may always use their Compassion with this Charm.",
+    "cost": "3 motes + 1 mote per die",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 155,
+      "pdfPage": 158
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "horrific-wreath",
+    "name": "Horrific Wreath",
+    "disposition": "selectable",
+    "summary": "Mirrors the Sidereal's personal Essence onto her enemies, wreathing her fists in starmetal light that makes her unarmed attacks deal lethal damage to demons and ordinary foes, and aggravated damage to inhabitants of Malfeas and the Underworld.",
+    "requirements": "Minimum Brawl 2; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "The character mirrors her personal Essence to that of her enemies. When she strikes a demon, this Charm wreathes her hands in a hideous red glare. When she attacks the servants of the Malfeas, her hands burn with undifferentiated white. Her unarmed attacks and attacks with starmetal brawling aids do lethal damage against ordinary foes and aggravated damage against inhabitants of Malfeas and the Underworld. This Charm can be invoked during a clinch, and its effects apply to a character's clinching damage. Its effects also apply to barehanded Martial Arts attacks.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Five turns. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 155,
+      "pdfPage": 158
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "crimson-palm-counterstrike",
+    "name": "Crimson Palm Counterstrike",
+    "disposition": "selectable",
+    "summary": "Interrupts an incoming unarmed attack an instant before it lands, using a single Dexterity + Brawl roll to both parry and, with leftover successes, launch an immediate counterattack that knocks the enemy out of position.",
+    "requirements": "Minimum Brawl 4; Minimum Essence 2; Prerequisite Charms: Horrific Wreath.",
+    "mechanics": "Coming to an accommodation with an enemy's movements, the character learns to interrupt an enemy's strike an instant before it happens. If she is aware of an incoming hand-to-hand attack, she can reflexively counterattack with a well-executed Crimson Palm Counterstrike that knocks the enemy out of position. He overreaches or stumbles and cannot complete his attack. The Sidereal's player makes a single Dexterity + Brawl roll at her full dice pool. Count the number of successes. Apply these successes first as a parry, even against a lethal attack, to resolve the initial blow. Then, apply the remainder as successes on an immediate Brawl counterattack. If the character can only use this Charm if she's able to attack and can use it in response to Crimson Palm Counterstrike or any other counterattack Charm. Otherwise, the parry and counterattack succeed or fail independently -- she can knock her opponent aside without damaging him, or vice versa.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 155,
+      "pdfPage": 158
+    },
+    "crossReferences": [
+      "horrific-wreath"
+    ],
+    "notes": "Charm text spans the PDF 158/159 page break (printed pp. 155-156). One sentence reads self-contradictorily in the source ('If the character can only use this Charm if she's able to attack and can use it in response to Crimson Palm Counterstrike or any other counterattack Charm'), likely meaning she cannot use it purely defensively and cannot chain it off another counterattack Charm; paraphrased as faithfully as possible but flagged for closer re-read before promotion."
+  },
+  {
+    "id": "easily-accepted-proposition-stance",
+    "name": "Easily Accepted Proposition Stance",
+    "disposition": "selectable",
+    "summary": "Capstone of the Brawl tree; a prayer strip lets the Sidereal dictate a single plausible battlefield event (a betrayal, a wall crumbling, an army recoiling in fear) that comes to pass unless a contested Essence-based roll defeats it, inflicting the Sidereal's Essence in dice of aggravated damage on the target of the dictum if it succeeds.",
+    "requirements": "Minimum Brawl 5; Minimum Essence 3; Prerequisite Charms: Unobstructed Blow, Tolerant Strife, Crimson Palm Counterstrike.",
+    "mechanics": "This Charm uses a prayer strip marked with the scripture of the Drowning Maiden. The character knots it into her shadow, where it shimmers with a soft scarlet. Once per invocation of this Charm, the character can strike a fate-resolving blow, sending cascading vibrations through the weave of the world. She dictates a single event or circumstance. The dictum must be a feasible occurrence, although it might be highly improbable: Reinforcements might arrive, a wall might spontaneously crumble, or an army's fallen soldiers might turn out to be bruised or unconscious rather than wounded and dead. Legions of tyrant lizards cannot fall from the sky and set upon the foe. The Exalt's player rolls Intelligence + Brawl. The difficulty is the Essence of the highest-Essence entity directly and unpleasantly affected by the dictum. If she succeeds, that enemy has a choice. Either the character's dictum comes to pass, or the tremors in the weave ground through that enemy -- inflicting dice of aggravated damage equal to the Sidereal's Essence, plus one die per extra success on the Brawl roll. This damage ignores armor. The attempted use of a defensive Charm nullifies the damage entirely; instead, the dictum takes effect. Sidereal Exalted can always use their Valor with this Charm. Using this Charm without authorization is a Severity 3 offense.",
+    "cost": "12 motes, 1 Willpower, 1 health level",
+    "compatibility": "Duration: One battle. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 156,
+      "pdfPage": 159
+    },
+    "crossReferences": [
+      "unobstructed-blow",
+      "tolerant-strife",
+      "crimson-palm-counterstrike"
+    ]
+  },
+  {
+    "id": "harmony-of-blows",
+    "name": "Harmony of Blows",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Battles Caste Melee tree ('The Spear'); lets the Sidereal take two extra attack actions in a turn using Archery, Brawl, Melee, or Thrown, and is explicitly Combo-friendly.",
+    "requirements": "Minimum Melee 2; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "The patterns and flows of a battlefield hold no mysteries for the character. She does not need to improvise last-second defenses before they appear. She notices openings well before they appear. She can choose her blows precisely, selecting multiple actions that combine harmoniously. In the turn in which she invokes this Charm, the character can take two extra attack actions, using Archery, Brawl, Melee or Thrown. Sidereal Exalted may always use their Temperance with this Charm. This Charm is explicitly permitted to be in a Combo with Charms of other Abilities. Note that the rules on Combos may limit the kinds of actions a character can take.",
+    "cost": "8 motes",
+    "compatibility": "Duration: Instant. Type: Extra Action.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 156,
+      "pdfPage": 159
+    },
+    "crossReferences": [],
+    "notes": "Charm text spans the PDF 159/160 page break (printed pp. 156-157); transcribed as a single continuous description."
+  },
+  {
+    "id": "meditation-on-war",
+    "name": "Meditation on War",
+    "disposition": "selectable",
+    "summary": "Adds calm, precise Essence-fueled dice to a Melee attack, up to a maximum that can also cancel out the Sidereal's wound-penalty dice loss.",
+    "requirements": "Minimum Melee 3; Minimum Essence 2; Prerequisite Charms: Harmony of Blows.",
+    "mechanics": "Calm and precision envelops the character as she strikes. She adds dice to a Melee attack, increasing to a maximum of its normal dice pool plus the character's Essence. For example, an Essence 3 character with a -1 wound penalty can spend up to 4 motes to enhance her attack, since this can overcome penalties that reduce the character's dice pool to 0 before this Charm's use. Sidereal Exalted may always use their Temperance with this Charm.",
+    "cost": "1 mote per die + 1 mote per dice pool penalty cancelled",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 157,
+      "pdfPage": 160
+    },
+    "crossReferences": [
+      "harmony-of-blows"
+    ]
+  },
+  {
+    "id": "orchestration-of-conflict",
+    "name": "Orchestration of Conflict",
+    "disposition": "selectable",
+    "summary": "Manipulates the local flow of a conflict through the ripple effects of the Sidereal's own actions, reducing the target number for a Melee attack or parry.",
+    "requirements": "Minimum Melee 3; Minimum Essence 2; Prerequisite Charms: Harmony of Blows.",
+    "mechanics": "Manipulating the local flow of a conflict through the ripple effects of her own actions, she reduces the target number for a Melee attack or parry.",
+    "cost": "2 motes per target number reduction",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 157,
+      "pdfPage": 160
+    },
+    "crossReferences": [
+      "harmony-of-blows"
+    ]
+  },
+  {
+    "id": "impeding-the-flow",
+    "name": "Impeding the Flow",
+    "disposition": "selectable",
+    "summary": "A wind of red stardust spins around the Sidereal, reflexively parrying any physical incoming attack she is aware of, so long as it is not specifically noted as impossible to block.",
+    "requirements": "Minimum Melee 2; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "A wind full of red stardust, visible to those who can see dematerialized spirits, spins around the character as her will. It reroutes the flows of Essence and fate that normally allow others to attack her. A casual movement of the Exalt's weapon parries any incoming attack she is aware of, so long as the attack has a physical component and is not specifically noted as impossible to block. This is not a perfect defense.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 157,
+      "pdfPage": 160
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "serenity-in-blood",
+    "name": "Serenity in Blood",
+    "disposition": "selectable",
+    "summary": "Stirs the currents of fate with the Sidereal's weapon to disrupt an incoming attack, either as a reflexive Perception + Melee roll against an unnoticed strike or, once aware, as a perfect block capable of stopping even unblockable attacks.",
+    "requirements": "Minimum Melee 4; Minimum Essence 2; Prerequisite Charms: Harmony of Blows, Impeding the Flow.",
+    "mechanics": "Stirring the currents of fate with the tip of her weapon, the character disrupts the path of any attack made against her, so long as it passes through any portion of the world bound by fate. If she is unaware of the attack, her player must make a reflexive Perception + Melee roll at difficulty 3 to divert the blow. Otherwise, this is a perfect block, capable of stopping even unblockable attacks.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 157,
+      "pdfPage": 160
+    },
+    "crossReferences": [
+      "harmony-of-blows",
+      "impeding-the-flow"
+    ],
+    "notes": "Charm text spans the PDF 160/161 page break (printed pp. 157-158); transcribed as a single continuous description."
+  },
+  {
+    "id": "smiling-at-the-damned",
+    "name": "Smiling at the Damned",
+    "disposition": "selectable",
+    "summary": "In the moment the Sidereal's weapon strikes true, its raw damage is rounded down but its type becomes aggravated and surrounding colors take on a harsh red tint.",
+    "requirements": "Minimum Melee 4; Minimum Essence 3; Prerequisite Charms: None.",
+    "mechanics": "In the moment the character's weapon strikes true, the colors around it take on a harsh red tint. Essence dissolves at the weapon's touch, rounding down, and the damage is aggravated. Sidereal Exalted may always use their Conviction with this Charm.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 158,
+      "pdfPage": 161
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "perfection-of-the-visionary-warrior",
+    "name": "Perfection of the Visionary Warrior",
+    "disposition": "selectable",
+    "summary": "Capstone of the Melee tree; a prayer strip covers the Sidereal's eyes and drips dark blood, removing all visibility penalties, blinding mental/pattern-based effects, granting a full-pool reflexive parry every turn plus one reflexive full-pool Archery/Brawl/Melee/Thrown attack per turn after her own initiative.",
+    "requirements": "Minimum Melee 5; Minimum Essence 3; Prerequisite Charms: Meditation on War, Orchestration of Conflict, Serenity in Blood.",
+    "mechanics": "This Charm uses a prayer strip marked with the scripture of the Maiden on the Shelf. The character places it across her eyes, whereupon it adheres and begins to drip with dark blood. The character suffers no visibility penalties. All opponents and attacks become apparent to him, although effects such as the Mental Invisibility Technique can force him to ignore them. He sees enemies not as bodies and faces but as patterns of fate and potential or -- for creatures outside of fate, disruptions in such patterns. The character can reflexively parry any blockable attack with his full Dexterity + Melee dice pool. Once per turn, after his initiative, he can reflexively make an Archery, Brawl, Melee or Thrown attack at his full dice pool. He cannot use the latter ability in any turn where he splits his normal dice pool.",
+    "cost": "10 motes, 1 Willpower, 1 health level",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 158,
+      "pdfPage": 161
+    },
+    "crossReferences": [
+      "meditation-on-war",
+      "orchestration-of-conflict",
+      "serenity-in-blood"
+    ]
+  },
+  {
+    "id": "heroic-essence-replenishment",
+    "name": "Heroic Essence Replenishment",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Battles Caste Presence tree ('The Banner'); passively refunds double the Sidereal's Valor in Essence whenever a successful Valor roll or a will-bending Presence roll occurs.",
+    "requirements": "Minimum Presence 1; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "In her moments of greatest accomplishment, the force of an exultant Sidereal's will allows her to siphon Essence from the world. This Charm draws on her ability to single-handedly remake the world in the shape she favors and dominate those hostile to herself and her cause. Immediately after a successful roll using Valor or immediately after a Presence roll that bent an enemy to her will, the Exalt regains twice her Valor in motes of Essence, up to her normal maximum. There is no cost to use this Charm's effects -- learning this Charm simply enhances the Exalt's capabilities.",
+    "cost": "None",
+    "compatibility": "Duration: Permanent. Type: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 158,
+      "pdfPage": 161
+    },
+    "crossReferences": [],
+    "notes": "Charm text spans the PDF 161/162 page break (printed pp. 158-159); transcribed as a single continuous description."
+  },
+  {
+    "id": "presence-in-absence-technique",
+    "name": "Presence in Absence Technique",
+    "disposition": "selectable",
+    "summary": "Impresses the fervor of the Sidereal's personality onto another person's future so that, in a later specified circumstance, that target can use the Exalt's Performance, Presence, or Socialize as though she were present.",
+    "requirements": "Minimum Presence 2; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "The character impresses the fervent force of his personality on another person's future. When next the target finds himself in a specified circumstance, the Sidereal can use Performance, Presence or Socialize as if the Exalt were there. His player makes a single Ability roll, which Charms cannot augment. This uses the target's actions as a medium but does not change those actions -- rather, it gives them an unexpected emotional resonance and unusual connotations. For example, the target could enter the court of a king of thieves and discover that his inadvertently comprise a Presence roll to convince that court that they must die. Using this Charm voids any previous Presence in Absence effects on the target. The Sidereals cannot annotate a single person's destiny with dozens of future rolls.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 159,
+      "pdfPage": 162
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "impose-nature",
+    "name": "Impose Nature",
+    "disposition": "selectable",
+    "summary": "Blesses a single creature with a ghostly imprint of the Sidereal's own Nature alongside its existing one, letting the target regain Willpower from either Nature without needing to give either precedence.",
+    "requirements": "Minimum Presence 4; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "The character blesses a single creature with her personal sign, making a ghostly imprint of the character's Caste Mark on the target's left palm. The target gains the Sidereal's Nature in addition to his own. Both Natures are equally strong, and both help the target regain Willpower. The target proceeds normally, given that he has discovered an entirely new kind of joy/self-satisfaction, and while generally inclined to follow both Natures, does not need to give either precedence.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Indefinite. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 159,
+      "pdfPage": 162
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "force-decision",
+    "name": "Force Decision",
+    "disposition": "selectable",
+    "summary": "Channels Essence into another being briefly to force them to make a specific decision the Sidereal desires, contested by a Manipulation + Presence roll against the target's Essence.",
+    "requirements": "Minimum Presence 3; Minimum Essence 2; Prerequisite Charms: Impose Nature.",
+    "mechanics": "This Charm allows the Sidereal to channel Essence into another being briefly, forcing him to make the decision the Sidereal desires. The Sidereal's player makes a Manipulation + Presence roll with a difficulty equal to the target's Essence. Success indicates that the target will make the decision the Sidereal desires.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 159,
+      "pdfPage": 162
+    },
+    "crossReferences": [
+      "impose-nature"
+    ],
+    "notes": "Charm text spans the PDF 162/163 page break (printed pp. 159-160); transcribed as a single continuous description."
+  },
+  {
+    "id": "predestined-triumph-practice",
+    "name": "Predestined Triumph Practice",
+    "disposition": "selectable",
+    "summary": "Gives the Sidereal supernatural insight when planning a battle, automatically commanding the troops she favors or, when advising an uncooperative or hostile leader, imposing a one-die dice-pool penalty on the opposing side's attack and defense rolls.",
+    "requirements": "Minimum Presence 4; Minimum Essence 3; Prerequisite Charms: None.",
+    "mechanics": "This Charm gives the character supernatural acumen and insight when planning a battle. It functions automatically when the Sidereal commands the troops she favors. Otherwise, it requires a Charisma + Presence roll to properly convey the character's ideas to the leader of the side she favors. This roll has difficulty 1 for a cooperative leader, difficulty 3 for a leader who does not trust the Sidereal and difficulty 5 for a leader who is actively unwilling to accept the character's advice. Fighting thus blessed by a Sidereal's insight is doubly hard. If the Exalt succeeds, opponents suffer a one-die penalty for their dice pools for both attacking and defending against the troops. Sidereal Exalted can always use their Compassion with this Charm.",
+    "cost": "8 motes, 1 Willpower",
+    "compatibility": "Duration: One battle. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 160,
+      "pdfPage": 163
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "essence-draining-battle-pattern",
+    "name": "Essence-Draining Battle Pattern",
+    "disposition": "selectable",
+    "summary": "A Battle Pattern Charm that, once enacted by a Sidereal or her troops, raises the mote and sorcery costs paid by any hostile Charm or sorcery originating on or directly affecting the battlefield, scaled by successes on an Intelligence + Presence roll capped at the Sidereal's permanent Essence.",
+    "requirements": "Minimum Presence 5; Minimum Essence 3; Prerequisite Charms: Predestined Triumph Practice.",
+    "mechanics": "Having applied the Predestined Triumph Practice, the character may encourage her troops to fight in the Essence-Draining Battle Pattern. Their elegant maneuvers, dams, blocks and diverts the flows of Essence that oppose her. At any time while planning an impending battle, the character can elect to use this Charm. When the battle begins, the player rolls the Sidereal's Intelligence + Presence to measure the character's efficiency in designing the pattern and the troops' ability to follow it. The maximum number of successes achievable equals the Exalt's permanent Essence. Any further successes are lost. The pattern has a Perfection rating equal to this final number of successes. One Exalt or 20 unExalted warriors can spend an action to enact part of the Sidereal's battle plan. The altered Essence flows of the battlefield pour 1 mote of temporary Essence into each character enacting the plan. In addition, they each add the pattern's Perfection to the Essence cost of Charms and sorcery used by any opponents. Any number of characters can take this further action in a given turn, each further increasing the difficulty of hostile magic. However, this cannot more than double the cost for a Charm or spell. This Charm affects any hostile Charm or sorcery that either originates upon the battlefield or directly affects the battlefield. For example, if the character has Essence 5, and his player rolls five or more successes, and six Dragon-Blooded under his command fight in the Essence-Draining Battle Pattern, Charms and sorcery used against his forces cost up to 30 motes extra. Sledgehammer Fist Punch costs 8 motes instead of 3. Rain of Doom costs 90 motes instead of 60. Once under this power of well-advised Dragon-Blooded used to constrain even the horrible power of the Primordials. An army may only enact one Battle Pattern-type Charm. Sidereal Exalted can always use their Compassion with this Charm.",
+    "cost": "8 motes",
+    "compatibility": "Duration: Until the relevant battle ends. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 160,
+      "pdfPage": 163
+    },
+    "crossReferences": [
+      "predestined-triumph-practice"
+    ],
+    "notes": "The mechanics text's closing sentences before 'An army may only enact one Battle Pattern-type Charm' read confusingly/garbled in the source ('Once under this power of well-advised Dragon-Blooded used to constrain even the horrible power of the Primordials'); paraphrased as faithfully as possible but flagged for closer re-read before promotion."
+  },
+  {
+    "id": "demon-blocking-battle-pattern",
+    "name": "Demon-Blocking Battle Pattern",
+    "disposition": "selectable",
+    "summary": "A Battle Pattern Charm that lets participating troops impose a general dice-pool penalty (capped by the pattern's Perfection rating) on inhabitants of Malfeas or the Underworld fighting on the battlefield.",
+    "requirements": "Minimum Presence 5; Minimum Essence 3; Prerequisite Charms: Predestined Triumph Practice.",
+    "mechanics": "Having applied the Predestined Triumph Practice, the character can encourage her troops to fight in the Demon-Blocking Battle Pattern. Their formations are attuned to the disruptions that the creatures of Malfeas and the Underworld embody, and by mirroring and twisting that disruption, the warriors can keep the threads of fate running straight and true. The character invokes this Charm exactly as with the Essence-Draining Battle Pattern. One Exalt or 20 unExalted warriors who spend an action to enact this pattern, imposing a general dice-pool penalty on the victim's dice pools for both attacking and defending, equal to the pattern's Perfection down to a minimum of 0 before the use of this Charm. An army may only enact one Battle Pattern-type Charm. Sidereal Exalted can always use their Compassion with this Charm.",
+    "cost": "8 motes",
+    "compatibility": "Duration: Until the relevant battle ends. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 160,
+      "pdfPage": 163
+    },
+    "crossReferences": [
+      "predestined-triumph-practice"
+    ]
+  },
+  {
+    "id": "spirit-binding-battle-pattern",
+    "name": "Spirit-Binding Battle Pattern",
+    "disposition": "selectable",
+    "summary": "Capstone of the Presence tree; a prayer strip lets the Sidereal name and reflexively call and bind a spirit or elemental once battle begins, using it as unwilling reinforcement with a pool built from Exalt/troop participation, and forcing it to grant a boon or face demeaning retribution.",
+    "requirements": "Minimum Presence 5; Minimum Essence 3; Prerequisite Charms: Presence in Absence Technique, Force Decision, Essence-Draining Battle Pattern, Demon-Blocking Battle Pattern.",
+    "mechanics": "This Charm uses a prayer strip marked with the scripture of the Maiden at War. The character first applies the Predestined Triumph Practice and then burns the prayer strip. Only the symbols on it remain, drifting on the wind as letters of blood and smoke. The Charm takes effect once the battle begins. The Sidereal names a spirit or elemental and binds it. The Sidereal's location and invocation immediately becomes obvious to the spirit, wherever it may be. If the Sidereal uses this Charm unassisted, the spirit's maximum Essence is 5. However, up to one Sidereal of her caste can support her, participating in the planning to support her. They need not have the Charm themselves. Each adds 1 to the maximum summonable Essence. The dice pool for summoning and binding the spirit starts at 0. The death of one Exalted or 20 unExalted warriors on the Sidereal's side calls to bind the spirit adds one success to this pool. Whenever the player rolls against the spirit's Essence, success binds the spirit to grant whatsoever favor the character demands and exact no retribution -- until she takes revenge it chooses. (Elder spirits often consider killing the Sidereal too crude a revenge, instead seeking to impose an equally demeaning slavery upon her.) Suicide and favors tantamount to it are outside the limits of this agreement. An army may only enact one Battle Pattern-type Charm. Sidereal Exalted can always use their Conviction with this Charm.",
+    "cost": "10 motes, 1 Willpower, 1 health level",
+    "compatibility": "Duration: Until the relevant battle ends. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 160,
+      "pdfPage": 163
+    },
+    "crossReferences": [
+      "presence-in-absence-technique",
+      "force-decision",
+      "essence-draining-battle-pattern",
+      "demon-blocking-battle-pattern"
+    ],
+    "notes": "Charm text spans the PDF 163/164 page break (printed pp. 160-161). A sentence about the binding pool reads confusingly in the source ('The death of one Exalted or 20 unExalted warriors on the Sidereal's side calls to bind the spirit adds one success to this pool'); paraphrased as faithfully as possible but flagged for closer re-read before promotion."
+  },
+  {
+    "id": "red-haze",
+    "name": "Red Haze",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Battles Caste Resistance tree ('The Shield'); crimson starlight settles over everything the Sidereal can see, penalizing rolls by inhabitants of Malfeas/the Underworld affecting blessed things and bonusing rolls made against them.",
+    "requirements": "Minimum Resistance 2; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "Motes of crimson starlight fall in a mist over all things the character can see, warping the Essence of mortals, spirits, Exalted and even inanimate objects with furious opposition to the Primordial foe. Inhabitants of Malfeas and the Underworld lose one die from all rolls to affect creatures and places thus blessed. Rolls made defending against these enemies gain one die.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: Five days. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 161,
+      "pdfPage": 164
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "someone-elses-destiny",
+    "name": "Someone Else's Destiny",
+    "disposition": "selectable",
+    "summary": "Reflexively expels the effects of a poison or drug from the Sidereal's body onto a future enemy, adding Essence in dice to the Resistance roll to avoid the substance's effects.",
+    "requirements": "Minimum Resistance 2; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "Hissing, the character expels the effects of any poison or drug affecting her, sending it onto a future enemy. Her player adds Essence in dice to a Resistance roll to avoid the substance's effects. If the roll succeeds, the substance ceases to exist, except as a memo attached to her fate. It reappears, coalescing around her enemy, a moment before the next physical attack she makes that hits, letting her player roll at least one die of lethal or aggravated damage. The full quantity of that poison or drug then enters the bloodstream of the person she hit, with its normal effects.",
+    "cost": "4 motes + 1 mote per die",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 162,
+      "pdfPage": 165
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "water-and-fire-legion",
+    "name": "Water and Fire Legion",
+    "disposition": "selectable",
+    "summary": "A reflexive sacrifice of pain binds the Sidereal to fire or water for the scene, making her immune to that element's harm and letting her extend the same protection to allies and things she cares for; can also coerce a fire or water spirit into service.",
+    "requirements": "Minimum Resistance 3; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "With a reflexive sacrifice of pain, the character binds herself to the defense of fate. If she touches a flame, flame cannot burn or suffocate her for the duration of the Charm. If she touches a body of water, she cannot freeze, boil, sicken or drown her. Her allies and the things she cares for all fall under this protection. In addition, while touching a spirit or elemental of fire or water -- which may require a Brawl or Martial Arts action -- the character can reflexively invoke this Charm. Her player rolls Charisma + Resistance against a difficulty equal to the spirit's Essence to coerce it into service. This service must take the form of protecting something reasonably concrete. The Sidereal dictates what the spirit must protect. The spirit cannot retaliate for this Charm's duration. This Charm automatically expires at Calibration, and cannot be applied during that time. Sidereal Exalted may always use their Conviction with this Charm.",
+    "cost": "5 motes, 1 Willpower, 1 health level",
+    "compatibility": "Duration: Until Calibration. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 162,
+      "pdfPage": 165
+    },
+    "crossReferences": [],
+    "notes": "Charm text spans the PDF 165/166 page break (printed pp. 162-163); transcribed as a single continuous description."
+  },
+  {
+    "id": "shield-of-mars",
+    "name": "Shield of Mars",
+    "disposition": "selectable",
+    "summary": "Reflexively transfers incoming damage from the Sidereal (or a present ally) to one of her attacker's allies, converting each two successes rolled into one level of undodgeable, unblockable, unsoakable transferred damage, though perfect defenses on the original target block the transfer.",
+    "requirements": "Minimum Resistance 3; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "Snarling fate with a twist of her hand, the character passes damage she might have suffered on to another. After damage is rolled but before it is applied, the Sidereal's player makes a reflexive Dexterity + Resistance roll. Each two successes allow the Exalt to transfer one level of undodgeable, unblockable and unsoakable damage to her attacker or one of her attacker's allies (who need not be present) rather than taking it herself. She cannot transfer more damage than she originally took. She transfers bashing damage to others as bashing damage. She transfers lethal and aggravated damage to others as lethal damage. If her target uses a perfect dodge such as Seven Shadow Evasion, a perfect block such as the Heavenly Guardian Defense or a perfect soak Charm such as the Adamant Skin Technique, neither the target nor the Sidereal suffer the transferred damage.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 162,
+      "pdfPage": 165
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "storms-eye-stance",
+    "name": "Storm's Eye Stance",
+    "disposition": "selectable",
+    "summary": "Capstone of the Resistance tree; a prayer strip's afterburn tangles a number of visible targets' fates with the Sidereal's own life, undoing all damage and deleterious effects dealt to them by re-rolling the attack after the fact against her own defenses instead.",
+    "requirements": "Minimum Resistance 4; Minimum Essence 3; Prerequisite Charms: Red Haze, Someone Else's Destiny, Water and Fire Legion, Shield of Mars.",
+    "mechanics": "This Charm uses a prayer strip marked with the scripture of the One-Handed Maiden. The character casts it into the air and night's darkness falls all around her. The prayer strip burns like a hot coal, hovering near her and casting a flickering red light over the side of her face. When any effect does her harm, the Exalt can tangle the destiny of any number of visible targets with her own. This is a reflexive action costing 3 motes per target. She invokes this effect after all damage or deleterious effects at the Exalt are rolled but before they are applied. Her targets suffer the same effects the Exalt suffers as the attack. Only perfect dodges such as Seven Shadow Evasion, perfect blocks such as the Heavenly Guardian Defense or a perfect soak Charm such as the Adamant Skin Technique protect her against this attack.",
+    "cost": "10 motes, 1 Willpower, 1 health level",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 162,
+      "pdfPage": 165
+    },
+    "crossReferences": [
+      "red-haze",
+      "someone-elses-destiny",
+      "water-and-fire-legion",
+      "shield-of-mars"
+    ],
+    "notes": "Charm text spans the PDF 165/166 page break (printed pp. 162-163). The final sentence describing which perfect defenses protect the Sidereal herself is somewhat ambiguous about whether it also blocks the redirected damage to targets; transcribed as faithfully as possible."
   }
 ]

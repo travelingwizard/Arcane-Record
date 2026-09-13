@@ -1,7 +1,7 @@
 # Exalted 1e — Sidereal source intake
 
 **Status: source intake in progress.** `Exalted: The Sidereals` has been
-supplied and 38 inventory rows are checked in under `inventory/`. See
+supplied and 60 inventory rows are checked in under `inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
@@ -9,7 +9,7 @@ the full process this directory follows.
 
 - `source-manifest.json` — the one source book in scope so far
   (`exalted-the-sidereals`); no supplements are added yet.
-- `inventory/exalted-the-sidereals.json` — 38 rows covering:
+- `inventory/exalted-the-sidereals.json` — 60 rows covering:
   - The Chapter Three character-creation overview (Attributes/Abilities/
     Backgrounds/Charms/Colleges/Virtues/Willpower/Essence), including the
     reduced-scope Ronin Sidereal variant.
@@ -47,25 +47,47 @@ the full process this directory follows.
     memory itself), and the Presentation Format note (confirms Sidereal
     Charms use the same Cost/Duration/Type/Minimum Ability/Minimum
     Essence/Prerequisite Charms format as Solar Charms).
-  - **The complete Journeys Caste Endurance tree ("The Mast," 7 Charms,
-    pp. 132-134/PDF 135-137)**: Ox-Body Technique (Sidereal), Unswerving
-    Juggernaut Principle and Optimistic Security Practice and Unwavering
-    Well-Being Meditation (three parallel roots), Forward-Thinking
-    Technique (from Unswerving Juggernaut Principle), Heartless Maiden
-    Trance (from Optimistic Security Practice + Unwavering Well-Being
-    Meditation), and the capstone One Direction Invocation (from
-    Forward-Thinking Technique + Heartless Maiden Trance).
+  - **The complete Journeys Caste (all five Charm trees, pp. 132-142/PDF
+    135-145)**:
+    - Endurance ("The Mast," 7 Charms): Ox-Body Technique (Sidereal),
+      Unswerving Juggernaut Principle and Optimistic Security Practice and
+      Unwavering Well-Being Meditation (three parallel roots),
+      Forward-Thinking Technique (from Unswerving Juggernaut Principle),
+      Heartless Maiden Trance (from Optimistic Security Practice +
+      Unwavering Well-Being Meditation), and the capstone One Direction
+      Invocation (from Forward-Thinking Technique + Heartless Maiden
+      Trance).
+    - Ride ("The Messenger," 7 Charms): Ordained Bridle of Mercury and
+      Yellow Path (two parallel roots), Spirit-Shape Companion and
+      Breaking the Wild Mortal and Glory Path (each fed by one of the
+      roots), Godly Companion (from Spirit-Shape Companion), and the
+      capstone Riding the Dragon (from Godly Companion + Breaking the
+      Wild Mortal + Glory Path).
+    - Sail ("The Captain," 4 Charms): Salt Into Ash Sleight and Stone
+      Skipping Spirit (two parallel roots), Mirror Shattering Method
+      (from Stone Skipping Spirit), and the capstone Five Ordeals Odyssey
+      (from Salt Into Ash Sleight + Mirror Shattering Method).
+    - Survival ("The Ship's Wheel," 6 Charms): Becoming the Wilderness and
+      Sky and Rain Mantra (two parallel roots), Adopting the Untamed Face
+      (from Becoming the Wilderness) and Sky Spirit Demand (from Sky and
+      Rain Mantra), Dreaming the Wild Lands (from Adopting the Untamed
+      Face), and the capstone Wilderness-Commanding Practice (from
+      Dreaming the Wild Lands + Sky Spirit Demand).
+    - Thrown ("The Gull," 5 Charms): Willful Weapon Method and Pain
+      Amplification Stratagem (two parallel roots) and Life Gets Worse
+      Approach (a third root), Essence Thorn Practice (from Life Gets
+      Worse Approach), and the capstone Unrelenting Torment Technique
+      (from Willful Weapon Method + Essence Thorn Practice + Pain
+      Amplification Stratagem).
 
 ## What's still needed
 
-1. **24 of the 25 Ability-line Charm trees** (5 Castes x 5 Auspicious
-   Abilities each, following the same per-Ability "Scripture" + tree-diagram
-   format as the completed Endurance tree above) remain uninventoried.
-   **Resume with the Journeys Caste's second tree, "Ride: The Messenger"
-   (Ordained Bridle of Mercury → Spirit-Shape Companion → Godly Companion →
-   Breaking the Wild Mortal/Riding the Dragon, also fed by side branches
-   Yellow Path and Glory Path), starting at printed p. 134/PDF 137**,
-   immediately after One Direction Invocation.
+1. **20 of the 25 Ability-line Charm trees** (the Serenity, Battles, Secrets,
+   and Endings Castes' five Charm trees each, following the same per-Ability
+   "Scripture" + tree-diagram format as the completed Journeys Caste above)
+   remain uninventoried. **Resume with the Serenity Caste's first tree**,
+   which should begin shortly after Unrelenting Torment Technique wraps up
+   at printed p. 142/PDF 145.
 2. Sidereal Martial Arts forms/Charms, referenced by the Sifu Background and
    explicitly called out in the Manipulating Fate framework as following
    Solar Charm rules instead of the restricted Sidereal rules above — not
