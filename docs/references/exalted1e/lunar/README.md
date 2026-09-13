@@ -5,7 +5,7 @@ has been supplied and partially inventoried. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
-`inventory/exalted-the-lunars.json` currently has 122 reviewed rows. Every row
+`inventory/exalted-the-lunars.json` currently has 229 reviewed rows. Every row
 was visually compared against a rendered page of the source PDF before being
 marked `reviewed` — none of this content came from OCR alone. It covers:
 
@@ -65,6 +65,84 @@ marked `reviewed` — none of this content came from OCR alone. It covers:
   Body-Pinning Style, Lightning Stroke Attack, Riding the Secret Wind,
   Deadly Assassin's Shot) — pp. 156-161 (PDF 159-164), completing the
   entire Ranged Combat Charm category (17 new rows this round).
+- The complete **Defensive I** tree (Steel Paw Style, Ground-Denying
+  Defense, Golden Tiger Block, Wary Swallow Method, Feline Guard
+  Technique, Den Mother Method, Crouching Tiger Stance), **Defensive II**
+  tree (Bowing Reed Technique, Bending Before the Storm, Wind-Dancing
+  Method, Serpent Eye Defense, Unmoving Bear Defense, Foot Trapping
+  Counter, Flowing Body Evasion, Pack-Saving Method, Running Through the
+  Herd), and **Defensive III** tree (Hide-Toughening Essence,
+  Armor-Forming Technique, Limb-Shielding Growth, Scales of the Dragon,
+  Invulnerable Moonsilver Carapace) — pp. 161-167 (PDF 164-170),
+  completing the entire Defensive Charm category (21 new rows this
+  round).
+- The complete **Survival and Healing I** tree (Beast Instinct Method,
+  Whale-Breath Technique, Gill-Breathing Technique, Sealskin Endurance,
+  Heat Adapting Method, Fire-Walking Prana), **Survival and Healing II**
+  tree (Unerring Den-Finding Sense, Food-Scenting Method,
+  Water-Providing Technique, Wolf Endurance Method, Bear Sleep
+  Technique, Fortitude of the Aurochs, Ever-Waking Method), **Survival
+  and Healing III** tree (Pain-Numbing Prana, Will of the Stoic
+  Warrior, Luna's Fortitude), and **Survival and Healing IV** tree
+  (Infection-Resisting Method, Disease Purging Essence, Bruise-Relief
+  Technique, Halting the Scarlet Flow, Lick Wound, Mother's Touch) —
+  pp. 168-174 (PDF 171-177), completing the entire Survival and Healing
+  Charm category (22 new rows this round).
+- The complete **Perception Charms** category: **Perception I**
+  (Sense-Sharpening Change, Heightened (Sense) Method, Ever-Wary Fox
+  Technique, Sense-Borrowing Method, Observed Prey Instinct,
+  Weather-Scenting Method, Unerring Earth Direction Sense,
+  Wyld-Sensing Instincts, Moonsilver-Scenting Sense, Wyld Object
+  Appraisal Method, Resisting the Lure of Madness, Harmony With
+  Reality Technique — cross-referencing the existing Wondrous Lunar
+  Transformation Shapechanging Charm as a co-prerequisite — and Ritual
+  of Lunar Stability), **Perception II** (Fish-Eye Technique, Night Is
+  Day, Perceiving the Hidden World), **Perception III** (Rabbit Ear
+  Method, Comprehending Ears Meditation, Calls of the Human Prey,
+  Feral Ears Metamorphosis, Seeing Without Looking), and **Perception
+  IV** (Blood-Kin Sense, Blood on the Wind, Emotion-Revealing Scent,
+  Truth-Scenting Method) — pp. 174-181 (PDF 177-184), completing the
+  entire Perception Charm category (25 new rows this round). Note that
+  Heightened (Sense) Method is a single three-part Charm (sight;
+  hearing and touch; smell and taste) that the Perception II/III/IV
+  tree diagrams each draw as a differently-labeled root node
+  ("Heightened Sight Method," "Heightened Hearing & Touch Method,"
+  "Heightened Smell and Taste Method"); only one inventory row was
+  created for it, with the diagram labels recorded as `aliases`.
+- The complete **Stealth Charms** tree (Stealthy Fox Method, Chameleon
+  Skin Disguise, Object-Concealing Method, Ally Concealing Method,
+  Traceless Passage Technique, Track-Sweeping Essence) — pp. 182-183
+  (PDF 185-186), completing the entire Stealth Charm category (6 new
+  rows this round).
+- The complete **Interaction and Knowledge I** tree (Tale-Spinning
+  Mastery, Lore-Speaking Method, Divining the Hidden Truth, Lion Roar
+  Method, Wind-Speaking Method, River of Words), **Interaction and
+  Knowledge II** tree (Emotion-Shaping Technique, Crowd-Inciting
+  Method, Crowd-Calming Pronouncement, Courage-Building Address,
+  Glorious Battle Presence, Foe-Taunting Utterance, Glib Tongue
+  Technique, Imposing Presence Attitude, Fearful Lunar Form,
+  Mind-Blanking Fear Technique), **Interaction and Knowledge III** tree
+  (Unspeaking Aura of Dread, Beast Calming Method, Pack-Forming
+  Presence, Attention Demanding Presence, Animal Magnetism), and
+  **Interaction and Knowledge IV** tree (Brotherhood of Lake and River,
+  Blood-Singing Instincts, Pack-Calling Cry) — pp. 183-191 (PDF
+  186-194), completing the entire Interaction and Knowledge/Presence
+  Charm category (26 new rows this round). Locating Pack-Forming
+  Presence and Brotherhood of Lake and River in this range also closed
+  out the two previously-open co-prerequisite items on Pack-Saving
+  Method and Sense-Borrowing Method — both now carry full
+  `crossReferences` entries and their `notes` were removed.
+- The complete **Spirit Charms** tree (Spirit-Scenting Technique, Pulse
+  of the Invisible, Devil-Restraining Grip, Spirit-Maiming Essence
+  Attack) and the **Sorcery-access Charms** (Terrestrial Circle
+  Sorcery, Form-Fixing Method, Tattoo-Cutting Wisdom,
+  Moonsilver-Shaping Rite, Celestial Circle Sorcery) — pp. 191-193 (PDF
+  194-196), completing the entire Spirit and Sorcery-access Charm
+  categories and the entirety of Chapter Five's Charms (9 new rows
+  this round).
+
+This completes **every Charm category** in *Exalted: The Lunars* Chapter
+Five (pp. 122-193 / PDF 125-196).
 
 A few rows carry explicit `notes` flagging spots that need a closer look
 before promotion (an illegible cost line on Cat-Falling Attitude, an
@@ -77,19 +155,49 @@ to be read off the next page before that row is considered fully
 complete). Several Melee/Ranged Combat Charms also carry `notes` flagging
 that their mechanics text spans a page break in the source (stat block on
 one page, prose continuing on the next); these were transcribed as single
-continuous Charms.
+continuous Charms. The Defensive-III tree diagram (PDF p. 169/printed
+p. 166) labels one node "Limb-Shedding Growth," but that Charm's own
+header and running text (PDF p. 170/printed p. 167) both consistently
+read "Limb-Shielding Growth" — the Charm's own text was trusted per the
+standing rule to prefer a Charm's stated name over the tree-diagram
+lettering. Pack-Saving Method's reduced-cost case references a Charm
+named "Brotherhood of Lake and River" that has not yet been located
+elsewhere in this book, so no `crossReferences` entry was added for it
+yet. Bruise-Relief Technique's rate/cost sentence in the source reads
+redundantly ("For every mote spent, the Exalt may remove one health
+level of bashing damage per point of Stamina, at a cost of 1 mote of
+Essence per health level") and is flagged in its `notes` for a second
+look before promotion. Two Perception Charms (Sense-Borrowing Method
+and Harmony With Reality Technique's tree ancestor) reference a
+co-prerequisite Charm named "Pack-Forming Presence"; that Charm was
+subsequently located in the Interaction and Knowledge III tree (printed
+p. 190/PDF 193), and both Sense-Borrowing Method's and Pack-Saving
+Method's `crossReferences` were updated accordingly, with their `notes`
+removed. Ritual of Lunar Stability's own stat block states its Duration
+in lunar months equal to permanent Essence, but its mechanics text
+states the Wyld-reduction effect lasts a number of weeks equal to
+permanent Essence — both units were transcribed faithfully as printed
+and flagged in its `notes` for a closer look before promotion. Several
+Interaction and Knowledge Charms also carry `notes` flagging illustration
+cut-offs or garbled/redundant source phrasing (Chameleon Skin Disguise,
+Lion Roar Method, Pack-Calling Cry) that were paraphrased as faithfully
+as legible but are worth a second look before promotion.
 
-Still outstanding from *Exalted: The Lunars*: **Defensive Charms**
-(starting at printed p. 161/PDF 164 — resume here), **Survival and
-Healing Charms**, **Perception Charms**, **Stealth Charms**, a further set
-of Presence/emotion/social Charms, **Spirit Charms**, and the
-**Sorcery-access Charms** (through roughly printed p. 193/PDF 196, where
-Chapter Five's Charms appear to end), all of which remain entirely
-uninventoried. Backgrounds, Merits and Flaws, caste/tribe
-character-creation options, and any Lunar-facing material in the
-cross-splat supplements listed in the top-level intent (Blood and Salt,
-Book of Bone and Ebony, Savage Seas, etc.) are also still outstanding once
-their Lunar-relevant sections are identified.
+Chapter Five's Charms are now **fully inventoried** — every Charm
+category in *Exalted: The Lunars* (Shapechanging, Body Enhancement,
+Unarmed Combat, Melee Combat, Ranged Combat, Defensive, Survival and
+Healing, Perception, Stealth, Interaction and Knowledge/Presence,
+Spirit, and Sorcery-access) has been transcribed, pp. 122-193 (PDF
+125-196).
+
+Still outstanding from *Exalted: The Lunars*: **Backgrounds, Merits and
+Flaws** (Chapter Four: Traits, pp. 94-115/PDF 97-118 — resume here;
+Expanded/Altered Backgrounds include Artifact, Backing, Followers,
+Manse, Mentor, plus new Lunar-specific Backgrounds such as Cult, Heart's
+Blood, and Renown), caste/tribe character-creation options, and any
+Lunar-facing material in the cross-splat supplements listed in the
+top-level intent (Blood and Salt, Book of Bone and Ebony, Savage Seas,
+etc.), all of which remain entirely uninventoried.
 
 Nothing here has been promoted to a production catalog yet (`promotedEntries`
 stays `0` until rows are wired into schema/rules/UI, not merely inventoried).

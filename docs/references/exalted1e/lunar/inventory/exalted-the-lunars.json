@@ -2390,5 +2390,2047 @@
     "crossReferences": [
       "body-pinning-style"
     ]
+  },
+  {
+    "id": "steel-paw-style",
+    "name": "Steel Paw Style",
+    "disposition": "selectable",
+    "summary": "Root of the Defensive I tree; briefly hardens the Lunar's hands and forearms to iron so he can parry hand-to-hand or ranged attacks unarmed, though with no bonus.",
+    "requirements": "Minimum Stamina 2; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "By means of this Charm, the Lunar focuses Essence into the skin of his hands and forearms, briefly causing them to become iron-hard. This allows the Lunar to parry hand-to-hand or ranged attacks, even if unarmed, though it confers no bonus to the parry and cannot be used as part of an offensive action.",
+    "cost": "1 mote",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 161,
+      "pdfPage": 164
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "ground-denying-defense",
+    "name": "Ground-Denying Defense",
+    "disposition": "selectable",
+    "summary": "Lets the Lunar spend Essence before initiative to reduce the maximum number of opponents who can attack him in a turn, using terrain and instinct to limit access.",
+    "requirements": "Minimum Dexterity 2; Minimum Essence 2; Prerequisite Charms: Steel Paw Style.",
+    "mechanics": "In clear terrain, up to five opponents can attack a single target in a turn. By using the Ground-Denying Defense to focus his instincts, a Lunar can use the terrain and the opponent's own actions to limit the number of attackers he faces in a given turn. For every 2 motes spent, the Lunar can reduce the maximum number of opponents able to attack him in a turn by one. Essence spent to activate this Charm must be spent before initiative is rolled for the turn. The Lunar has no control over which opponent he avoids -- those with the highest initiative values are still able to attack, while those with lower initiative scores are evaded -- nor can he reduce the maximum number of attackers by more than his Dexterity or below one. The Ground-Denying Defense can be used in any terrain, even open ground. If the terrain naturally reduces the number of potential attackers, for example a narrow passage, the Ground-Denying Defense reduces the modified maximum number of attackers for that terrain but still cannot reduce the value below one. Example: a Lunar with Dexterity 3 could reduce the maximum number of opponents he faces by three at a cost of 6 motes; facing five enemies, the two with the highest initiative totals could still attack him, and facing only three opponents, two would still be able to attack him, since the Charm reduces the maximum number of attackers, not the actual number. In a narrow tunnel that already allows a maximum of two attackers, the Lunar would only need to spend 2 motes to reduce the number of attackers to one.",
+    "cost": "2 motes per enemy denied",
+    "compatibility": "Duration: One turn. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 161,
+      "pdfPage": 164
+    },
+    "crossReferences": [
+      "steel-paw-style"
+    ]
+  },
+  {
+    "id": "golden-tiger-block",
+    "name": "Golden Tiger Block",
+    "disposition": "selectable",
+    "summary": "Lets a dexterous Lunar convert dice in a parry attempt into automatic successes, up to his Dexterity, even dealing lethal damage on the parry while unarmed.",
+    "requirements": "Minimum Dexterity 3; Minimum Essence 2; Prerequisite Charms: Steel Paw Style.",
+    "mechanics": "The preternatural speed of a Lunar Exalted gives him a substantial advantage when seeking to parry an opponent's attacks. Indeed, a sufficiently dexterous Lunar can use the Golden Tiger Block to render himself almost unassailable. When making a parry, he may spend 1 mote to convert a die into an automatic success. He may only purchase as many automatic successes as he has points of Dexterity in that pool. A Lunar using the Golden Tiger Block may deal lethal damage even if unarmed.",
+    "cost": "1 mote per success",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 162,
+      "pdfPage": 165
+    },
+    "crossReferences": [
+      "steel-paw-style"
+    ]
+  },
+  {
+    "id": "wary-swallow-method",
+    "name": "Wary Swallow Method",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar parry an attack he is not consciously aware of, such as one from the rear or from an invisible attacker, using instinct in place of full dice-pool advantage.",
+    "requirements": "Minimum Perception 3; Minimum Essence 2; Prerequisite Charms: Golden Tiger Block.",
+    "mechanics": "Using this Charm, a Lunar can attempt to parry an attack directed at him, even if he is unaware of it (for example, an attack from the rear or by an invisible character). The Exalt allows instinct to guide his actions and, thus, can respond to events that have yet to register in his conscious mind. The Lunar gains no advantage in the parry action, but he may use his full dice pool if he has not yet acted during the turn. The Lunar may postpone his action, but once he has taken it, he may not use Wary Swallow Method to gain a parry.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 162,
+      "pdfPage": 165
+    },
+    "crossReferences": [
+      "golden-tiger-block"
+    ]
+  },
+  {
+    "id": "feline-guard-technique",
+    "name": "Feline Guard Technique",
+    "disposition": "selectable",
+    "summary": "Lets the Lunar parry with his full relevant Ability pool rather than a split defense pool, at the cost of forgoing dodge and most of his movement that turn.",
+    "requirements": "Minimum Dexterity 4; Minimum Essence 2; Prerequisite Charms: Steel Paw Style.",
+    "mechanics": "Like a cat, the Lunar is always ready to respond to attacks. By means of the Feline Guard Technique, a Lunar may parry an attack with his full relevant Ability pool total (meaning Dexterity + Ability + any weapon modifiers). The character cannot activate this Charm more times in a turn than he has points of permanent Essence. A Lunar cannot dodge during a turn in which he activates the Feline Guard Technique. A Lunar may not move more than half his movement allowance. Feline Guard Technique cannot be used in any Combos that contain extra action Charms. This Charm is not effective against attacks the character is not aware of.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 162,
+      "pdfPage": 165
+    },
+    "crossReferences": [
+      "steel-paw-style"
+    ]
+  },
+  {
+    "id": "den-mother-method",
+    "name": "Den Mother Method",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar who has not yet acted abort his action to parry an attack aimed at another character within range, adding his parry successes to the ally's own defense.",
+    "requirements": "Minimum Dexterity 4; Minimum Essence 3; Prerequisite Charms: Feline Guard Technique.",
+    "mechanics": "Using his superhuman reflexes, a Lunar Exalted who has yet to act can activate this Charm and abort his action to parry an attack directed at another character. This Charm is effective as long as the Lunar is aware of the attack, it is possible to parry it, and the target is within (the Lunar's permanent Essence) yards. If the Lunar has already acted, then this Charm has no effect. The Exalt uses his entire dice pool to parry the attack, and any parry successes he gets are added to those achieved by the character he is aiding.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 162,
+      "pdfPage": 165
+    },
+    "crossReferences": [
+      "feline-guard-technique"
+    ]
+  },
+  {
+    "id": "crouching-tiger-stance",
+    "name": "Crouching Tiger Stance",
+    "disposition": "selectable",
+    "summary": "Capstone of the Defensive I tree; enhances a parry with bonus Dexterity dice and, if the block is total, grants an immediate reflexive counterattack with a full dice pool.",
+    "requirements": "Minimum Dexterity 4; Minimum Essence 2; Prerequisite Charms: Feline Guard Technique.",
+    "mechanics": "A skilled Lunar can turn his opponent's attack into a deadly counter, extending and twisting his limbs in a manner that allows him to go on the offensive in hand-to-hand attacks. He parries with his full dice pool plus 2 Dexterity bonus dice in the parry attempt enhanced with the Crouching Tiger Stance, and if he completely blocks the attack, the Lunar may immediately make a reflexive Melee, Martial Arts or Brawl counterattack with his full dice pool against his opponent. If he only partially parries the blow, he cannot counterattack. The Lunar must activate this Charm before he acts for the turn -- he may postpone his action, as normal, but if the Lunar has already acted, then this Charm cannot be used in the turn. The Crouching Tiger Stance confers no advantages against a ranged attack, nor can it be used to counter counterattacks or against attacks the Lunar is not aware of.",
+    "cost": "4 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 162,
+      "pdfPage": 165
+    },
+    "crossReferences": [
+      "feline-guard-technique"
+    ]
+  },
+  {
+    "id": "bowing-reed-technique",
+    "name": "Bowing Reed Technique",
+    "disposition": "selectable",
+    "summary": "Root of the Defensive II tree; removes the multiple-dodge dice-pool penalty for the rest of the turn once the player declares a full dodge.",
+    "requirements": "Minimum Dexterity 2; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "Mobility and agility are innate characteristics of the Lunar Exalted, who can use them to considerable effect when seeking to avoid damage. By activating this Charm when the player declares a full dodge, the Lunar does not suffer any dice-pool penalties for dodging multiple attacks for the rest of the turn. She may use her full Dexterity + Dodge pool against all attacks for the remainder of the turn, providing she is able to maneuver away from attacks. A Lunar rendered immobile by terrain, magic or other effects gains no advantage from Bowing Reed Technique and must rely on parry or soak to avoid the attack.",
+    "cost": "4 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 163,
+      "pdfPage": 166
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "bending-before-the-storm",
+    "name": "Bending Before the Storm",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar convert dice on a dodge attempt into automatic successes, up to his Dexterity per attempt, letting him guarantee successes across multiple dodges in a full-dodge turn.",
+    "requirements": "Minimum Dexterity 3; Minimum Essence 2; Prerequisite Charms: Bowing Reed Technique.",
+    "mechanics": "Using this Charm, a Lunar can use his Essence to enhance his dodging efforts, moving as gracefully as a swan and as sure-footedly as a mountain goat once activated. Before making a dodge roll, the Lunar's player may spend Essence to transform some of his dice on a dodge attempt into automatic successes at a cost of 1 mote per die converted. The player may purchase as many automatic successes as the character's Dexterity Attribute, even if circumstances -- such as making multiple dodge attempts using full dodge -- reduce the total dodge dice pool. If modifiers reduce the number of dice in the dodge pool below the character's Dexterity, then the size of the dodge pool is the maximum number of successes that may be purchased. Successes must be purchased separately for each dodge attempt, so a Lunar seeking five automatic successes on each of three dodge attempts in the same turn would spend a total of 15 motes.",
+    "cost": "1 mote per success",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 163,
+      "pdfPage": 166
+    },
+    "crossReferences": [
+      "bowing-reed-technique"
+    ],
+    "notes": "Charm's header and stat block appear at the bottom of PDF page 166 (printed p. 163), with its full mechanics text continuing onto PDF page 167 (printed p. 164); transcribed as a single continuous Charm."
+  },
+  {
+    "id": "wind-dancing-method",
+    "name": "Wind-Dancing Method",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar who succeeds at a dodge move up to eight yards away from the attacker as part of the dodge, denying follow-up attacks unless the foe can close the distance.",
+    "requirements": "Minimum Dexterity 4; Minimum Essence 2; Prerequisite Charms: Bending Before the Storm.",
+    "mechanics": "Simply dodging an attack may not be enough to save an Exalt from harm -- his opponent may have multiple actions and may keep attacking until the character's defenses fail. Using the Wind-Dancing Method, a Lunar can use his agility to both avoid an attack and make it much harder for an opponent to press her advantage. By using this Charm, when dodging, if he succeeds in dodging an attack, the Lunar can move up to eight yards from the attacker as a reflexive part of the dodge action, even if the Lunar has already moved this turn. In hand-to-hand combat, this means the opponent must move herself or use some reach-extending magic if she wishes to attack again; if the attacker cannot reach the Lunar for her next attack, she may make no further attacks against the Lunar this turn. A Lunar who is attacked repeatedly can activate this Charm after each attack and continue moving away from the attacker, hoping to exhaust her movement. This Charm does not allow the Lunar to take a dodge action if he could not normally do so -- Lunars wishing to defend themselves without splitting their dice pools or going full dodge will have to put this Charm in a Combo.",
+    "cost": "4 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 163,
+      "pdfPage": 166
+    },
+    "crossReferences": [
+      "bending-before-the-storm"
+    ],
+    "notes": "Charm's header and stat block appear at the bottom of PDF page 166 (printed p. 163), with the bulk of its mechanics text on PDF page 167 (printed p. 164); transcribed as a single continuous Charm."
+  },
+  {
+    "id": "serpent-eye-defense",
+    "name": "Serpent Eye Defense",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar lock eyes with an attacker to distract him, causing his attack to go wide and letting the Lunar add Charisma dice (not subject to the normal dodge-bonus ceiling) to his dodge pool.",
+    "requirements": "Minimum Manipulation 3; Minimum Essence 1; Prerequisite Charms: Bowing Reed Technique.",
+    "mechanics": "By locking his eyes with his attacker and activating this Charm, the Lunar can distract his opponent and cause the attack to go wide. The attacker must be within a number of yards equal to (5 x the target's Perception) for the Charm to be effective -- the opponent needs to be able to see the Lunar's eyes for them to distract him. If the attacker does not use her visual senses -- for example, if she is blind or blindfolded -- then the Charm is wasted. If the victim is deliberately avoiding the Lunar's gaze, this increases the difficulty of all actions involving the Lunar (including attack and defense rolls) by 2, and the avoidance must be declared before the Charm is activated. Once stung, the opponent may begin avoiding the Lunar's gaze, but the target cannot suddenly decide to begin when the Lunar activates this Charm. If the Charm takes effect, the attacker is momentarily confused as to the Lunar's position, and the Lunar may add a number of dice to his dodge pool equal to his Charisma. These are not Dexterity bonus dice -- they are Charisma dice, and thus they circumvent the normal ceiling on dodge bonus dice.",
+    "cost": "4 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 164,
+      "pdfPage": 167
+    },
+    "crossReferences": [
+      "bowing-reed-technique"
+    ]
+  },
+  {
+    "id": "unmoving-bear-defense",
+    "name": "Unmoving Bear Defense",
+    "disposition": "selectable",
+    "summary": "Lets an immobile Lunar still make a dodge attempt without maneuvering, twisting and deforming his body in place, adding his Essence to the dodge pool or using it as the pool if he has none.",
+    "requirements": "Minimum Dexterity 3; Minimum Essence 1; Prerequisite Charms: Bowing Reed Technique.",
+    "mechanics": "Dodges usually require the defender to maneuver and are thus impossible if the character can give no ground. Using the Unmoving Bear Defense, a Lunar Exalted can make dodge attacks without moving, instead using his protean abilities to twist and deform his body to avoid the attacks. The Lunar must be conscious and able to maneuver to use this Charm, though he does not need to actually move his feet. When dodging, he may add his Essence to his dodge pool. If the character has no dodge attempt, he may use his Essence as his dice pool in a dodge attempt. This Charm is not compatible with other Charms that add dice to the character's dodge pool but does not preclude Charms that allow dodge attempts at the character's full dice pool.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 165,
+      "pdfPage": 168
+    },
+    "crossReferences": [
+      "bowing-reed-technique"
+    ]
+  },
+  {
+    "id": "foot-trapping-counter",
+    "name": "Foot Trapping Counter",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar in hand-to-hand combat force a difficulty roll on an opponent trying to move away from him, potentially rooting her in place; can shut down movement-based escape Charms.",
+    "requirements": "Minimum Dexterity 3; Minimum Essence 2; Prerequisite Charms: Unmoving Bear Defense.",
+    "mechanics": "If, during hand-to-hand combat, an opponent seeks to move away from the Lunar, he may activate this Charm to hinder her move. The opponent's player makes a reflexive Dexterity + Athletics roll against a difficulty equal to the Lunar's Dexterity. If the opponent succeeds, she may move as intended; otherwise, she must remain in the same place. This can stop Charm-powered escapes such as the Lunar Charm Wind-Dancing Method and the Terrestrial Hopping Firecracker Escape and even high-speed flyby attacks such as the Solar Eagle-Wing Style.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 165,
+      "pdfPage": 168
+    },
+    "crossReferences": [
+      "unmoving-bear-defense"
+    ]
+  },
+  {
+    "id": "flowing-body-evasion",
+    "name": "Flowing Body Evasion",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar attempt a reflexive dodge roll against an attack that would normally be undodgeable (area effects, magically unavoidable attacks); a single success avoids the attack entirely.",
+    "requirements": "Minimum Charisma 4; Minimum Essence 3; Prerequisite Charms: Unmoving Bear Defense.",
+    "mechanics": "For a dodge to be effective, the character must be able to move away from the source of possible injury. Most attacks -- a fist, a sword, an arrow -- are concentrated on a single point and, thus, are avoidable, but not all attacks. Some attacks are so magically enhanced they are unavoidable, while others affect an area, perhaps encompassing sufficient space that a character doesn't have the speed to get clear before the blow lands. In such cases, the character would ordinarily be unable to dodge to avoid the attack. However, a Lunar who knows Flowing Body Evasion may attempt to cheat fate, using speed, agility and his shapeshifting nature to avoid the attack. The exact method will vary -- perhaps the Lunar puts on a burst of speed, dodges with godlike agility, or squeezes into a tiny hole -- but the end result is the same: a nearly impenetrable defense. When the Lunar activates this Charm, his player must make a reflexive Dexterity + Dodge roll. If the player gets at least one success, the Exalt avoids the attack totally. If the roll fails, the attack affects the Lunar normally. This is a dodge attempt, so a Lunar who fails to dodge with this Charm cannot attempt to make an 'actual' dodge roll for the turn. This Charm cannot be placed in a Combo with any Charm that would cause the Lunar's player to automatically succeed on the Dexterity + Dodge roll. A Lunar can only use this Charm before he takes his action for the turn -- he may postpone his action, as normal, but once he acts, he is unable to invoke Flowing Body Evasion.",
+    "cost": "6 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 165,
+      "pdfPage": 168
+    },
+    "crossReferences": [
+      "unmoving-bear-defense"
+    ]
+  },
+  {
+    "id": "pack-saving-method",
+    "name": "Pack-Saving Method",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar abort his action to redirect an attack aimed at a nearby ally onto himself instead, via a Dexterity + Dodge roll; cheaper if the ally is bonded via Brotherhood of Lake and River.",
+    "requirements": "Minimum Dexterity 4; Minimum Essence 3; Prerequisite Charms: Unmoving Bear Defense.",
+    "mechanics": "Using this Charm, a Lunar can use his preternatural abilities to help defend his associates. If an ally is attacked, the Lunar may abort his action and seek to wrest the friend out of harm's way. The associate must be within a number of yards equal to the Lunar's Dexterity for him to be able to use the Charm, and the Lunar must pay the Essence cost as his player declares the action. The Essence cost is usually 3 motes per attempt, but if the ally is bonded to the Lunar by the Charm Brotherhood of Lake and River, the cost is only 2 motes. The Lunar's player makes a Dexterity + Dodge roll, and if the player rolls even a single success, the original target avoids taking damage from the attack; the Lunar takes the attack instead, with the dodge roll applied as a normal defense. If the roll botches, both the Lunar and the target take the attack, and neither can make any further defense against it. Lunars may use this Charm more than once in a turn, but it must be used before they take their action for the turn -- the Lunar can postpone his action, but once he has made his dice roll, he can no longer use this Charm. The shielded character cannot decline the effects of this Charm.",
+    "cost": "2 or 3 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 165,
+      "pdfPage": 168
+    },
+    "crossReferences": [
+      "brotherhood-of-lake-and-river",
+      "unmoving-bear-defense"
+    ]
+  },
+  {
+    "id": "running-through-the-herd",
+    "name": "Running Through the Herd",
+    "disposition": "selectable",
+    "summary": "Capstone of the Defensive II tree; lets a Lunar redirect an incoming attack from himself onto a nearby target via illusion and shapeshifting, if he beats the attacker's Perception on a Dexterity + Perception roll.",
+    "requirements": "Minimum Manipulation 5; Minimum Essence 3; Prerequisite Charms: Flowing Body Evasion, Pack-Saving Method.",
+    "mechanics": "Using a mix of Dexterity, shapeshifting and illusion to confuse his opponent, a Lunar can employ this Charm to mislead an opponent into attacking the wrong person. To use this Charm, the Lunar must be in close proximity to his intended target (who must be less than the Lunar's Dexterity in yards away). When the character is attacked, the Lunar reflexively rolls the Exalt's Dexterity + Perception; for the Charm to take effect, the Lunar's player must get as many successes as the attacker's Perception. If the Lunar succeeds, the Lunar avoids the attack and the new target is subject to it instead. The new target may attempt to parry or dodge as normal if she has actions available. If the redirection attempt fails, the Lunar takes the damage normally -- he cannot use the redirection effort. This Charm cannot be used to avoid counterattacks, nor is it compatible with Charms that cause the Lunar to gain automatic dodge successes.",
+    "cost": "4 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 166,
+      "pdfPage": 169
+    },
+    "crossReferences": [
+      "flowing-body-evasion",
+      "pack-saving-method"
+    ]
+  },
+  {
+    "id": "hide-toughening-essence",
+    "name": "Hide-Toughening Essence",
+    "disposition": "selectable",
+    "summary": "Root of the Defensive III tree; lets a Lunar purchase bonus bashing soak (up to her Stamina) at any point in the scene, with only minor cosmetic changes to her hide.",
+    "requirements": "Minimum Stamina 2; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "Using this Charm, a Lunar's skin thickens and strengthens, providing the Lunar with additional soak against bashing damage. When this Charm is invoked, or as a simple action at any time later in the scene, the Lunar's player may purchase bonus points of bashing soak for her character. A player cannot purchase more points of soak than her character has dots of Stamina. The player must purchase at least one point when the Charm is activated. The Lunar's outward appearance is largely unchanged, though closer examination will show the modifications to his hide. The character can wear armor as normal while under the effects of this Charm. The Lunar's bashing soak cannot be raised above 12 by the combined effects of this Charm and Deadly Beastman Transformation's gifts and effects on the character's Stamina. Instead, the character may ignore bashing attacks that do less raw damage than the difference between 12 and what the character's soak would be without the limit. A character may never ignore attacks doing more than 12 points of raw damage, regardless of what the character's soak should be.",
+    "cost": "1 mote per 2 points",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 166,
+      "pdfPage": 169
+    },
+    "crossReferences": [
+      "deadly-beastman-transformation"
+    ]
+  },
+  {
+    "id": "armor-forming-technique",
+    "name": "Armor-Forming Technique",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar purchase bonus lethal soak (up to half her Stamina) by growing moonsilver-laced bony plates over her body, compatible with armor but visibly reducing her Appearance per point bought.",
+    "requirements": "Minimum Stamina 3; Minimum Essence 2; Prerequisite Charms: Hide-Toughening Essence.",
+    "mechanics": "The Armor-Forming Technique creates bony plates in the Exalt's body and limbs and hides vital organs behind multiple sheets of moonsilver-laced bone. These defenses allow the character to bolster his resistance to even lethal damage. The bone grows up and around the character's armor, sealing his weak points and reinforcing his armor's strength; thus, this Charm is compatible with the use of armor. When this Charm is invoked, or at any time thereafter during the scene, the player may spend motes of Essence to purchase extra soak against lethal damage for his character. The player must purchase at least one point when the Charm is activated. The maximum number of points of soak the player can purchase is equal to half (round down, minimum of 1) his character's Stamina Attribute. Unlike the Hide-Toughening Essence, the bony growths wrought by the Armor-Forming Technique are profound and immediately obvious to any observers. Furthermore, each point purchased with the Charm reduces the character's Appearance by 1 (to a minimum of 0, at which point the character is unable to be beheld). The Lunar's lethal soak cannot be raised above 12 by the combined effects of this Charm and Deadly Beastman Transformation's gifts and effects on the character's Stamina. Instead the character may ignore lethal attacks that do less raw damage than the difference between 12 and what the character's soak would be without the limit. A character may never ignore attacks doing more than 12 points of raw damage, regardless of what the character's soak should be.",
+    "cost": "1 mote per point",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 166,
+      "pdfPage": 169
+    },
+    "crossReferences": [
+      "hide-toughening-essence",
+      "deadly-beastman-transformation"
+    ],
+    "notes": "Charm's header and opening stat block appear at the bottom of PDF page 169 (printed p. 166); the bulk of the mechanics text is on PDF page 170 (printed p. 167). Transcribed as a single continuous Charm."
+  },
+  {
+    "id": "limb-shielding-growth",
+    "name": "Limb-Shielding Growth",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar grow a bony shield-like growth on one arm, automatically reducing an attacker's success dice by one against hand-to-hand and ranged attacks, at the cost of a die penalty on attacks made with that hand.",
+    "requirements": "Minimum Stamina 3; Minimum Essence 2; Prerequisite Charms: Hide-Toughening Essence.",
+    "mechanics": "Using this Charm, the Lunar can cause a large bony growth to appear on one of his arms (usually the hand). He can use this 'shield' to protect his body from hand-to-hand and ranged attacks alike, gaining the benefits of a targeted shield, automatically reducing an attacker's success dice by one. The Lunar does not suffer a mobility penalty for using Limb-Shielding Growth, nor does he need to add to his fatigue value, but any attacks made using the hand upon which the shield has grown are at -1 dice.",
+    "cost": "3 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 167,
+      "pdfPage": 170
+    },
+    "crossReferences": [
+      "hide-toughening-essence"
+    ],
+    "notes": "The Defensive III tree diagram (PDF p. 169 / printed p. 166) labels this node 'Limb-Shedding Growth,' but the Charm's own header and running text on its dedicated page (PDF p. 170 / printed p. 167) both consistently read 'Limb-Shielding Growth'; the Charm's own text was trusted per the standing instruction to prefer a Charm's stated name/prerequisites over the tree-diagram lettering."
+  },
+  {
+    "id": "scales-of-the-dragon",
+    "name": "Scales of the Dragon",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar grow moonsilver-reinforced dragon scales for a scene, granting a large soak bonus like articulated plate armor; incompatible with worn armor but stackable with Hide-Toughening Essence, Armor-Forming Technique, and a carried shield.",
+    "requirements": "Minimum Stamina 4; Minimum Essence 3; Prerequisite Charms: Armor-Forming Technique.",
+    "mechanics": "Using this Charm, a Lunar can transform his hide to resemble that of a ferocious Celestial dragon. His body is covered with overlapping moonsilver-reinforced scales that glisten coldly in the light and provide formidable protection against all forms of attack. It is as if the character is swathed in articulated plate armor, and the Lunar gains a +9L/+9B soak bonus, while incurring only a -1 mobility penalty. The armor has no fatigue value, and it is not counted as armor for the purposes of attacks that ignore armor, but it does count as armor for the purposes of stopping aggravated attacks. Unlike the other armor-enhancing Charms known to the Lunar Exalted, Scales of the Dragon is not compatible with the use of armor. However, the character's player continues to count her character's Stamina (or half Stamina against lethal damage) as she gains the benefits of a shield; the Lunar still gains the benefits of a shield if carried, and can reinforce her defense with Hide-Toughening Essence and Armor-Forming Technique. No combination of this Charm, those two Charms, and the effects of Deadly Beastman Transformation can increase either of the character's natural soaks above 12. If the character's soak would rise above 12, then the character will ignore attacks that have raw damage less than the difference between 12 and what the Lunar's soak should be, to a maximum of 12.",
+    "cost": "6 motes, 1 Willpower",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 167,
+      "pdfPage": 170
+    },
+    "crossReferences": [
+      "armor-forming-technique",
+      "hide-toughening-essence",
+      "deadly-beastman-transformation"
+    ]
+  },
+  {
+    "id": "invulnerable-moonsilver-carapace",
+    "name": "Invulnerable Moonsilver Carapace",
+    "disposition": "selectable",
+    "summary": "Capstone of the Defensive III tree; floods the Lunar's body in a fluid moonsilver carapace, adding a huge, perfect soak bonus for the turn at a crippling Essence cost and a Dexterity/Perception penalty.",
+    "requirements": "Minimum Stamina 5; Minimum Essence 4; Prerequisite Charms: Limb-Shielding Growth, Scales of the Dragon.",
+    "mechanics": "By activating this Charm, the Lunar shields herself in a carapace of moonsilver, which appears to flow out of her pores to completely cover her body in shimmering plates. There are no gaps or weak points in this armor, which glistens fluidly as the Lunar moves. Though appearing to be liquid, the Invulnerable Moonsilver Carapace is invulnerable to any form of attack. It adds 15B/15L to the Lunar's soak until the end of the turn. This soak stacks with armor and cannot be circumvented by any stratagem, Charm or sorcery (this is a perfect effect) and is not armor for the purposes of Charms that do not work with armor. Its Essence cost is, however, crippling. During turns when the Invulnerable Moonsilver Carapace is activated, the Lunar suffers a -3 penalty to her Dexterity and Perception, though these cannot reduce the Attributes below 1.",
+    "cost": "8 motes per turn, 1 Willpower",
+    "compatibility": "Duration: One turn. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 167,
+      "pdfPage": 170
+    },
+    "crossReferences": [
+      "limb-shielding-growth",
+      "scales-of-the-dragon"
+    ]
+  },
+  {
+    "id": "beast-instinct-method",
+    "name": "Beast Instinct Method",
+    "disposition": "selectable",
+    "summary": "Root of the Survival and Healing I/II trees; lets a Lunar purchase bonus dice on Survival rolls up to his unmodified Wits.",
+    "requirements": "Minimum Wits 2; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "A Lunar's ties to the wild allow him to survive in conditions where others would suffer great hardship. By using this Charm, the Lunar taps into his bestial nature, using instinct and cunning rather than rational thought to guide his actions. When attempting any form of Survival roll that involves Wits, the Lunar's player may purchase additional dice up to his character's unmodified Wits score.",
+    "cost": "2 motes per die",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 168,
+      "pdfPage": 171
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "whale-breath-technique",
+    "name": "Whale-Breath Technique",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar hold his breath for Stamina x 10 minutes and survive underwater, in poison gas, or where there is no air at all, though he cannot speak while it is active.",
+    "requirements": "Minimum Stamina 3; Minimum Essence 3; Prerequisite Charms: Beast Instinct Method.",
+    "mechanics": "Using this Charm, a Lunar replicates the breath control of a diving whale and need not breathe for a considerable period of time (Stamina x 10 minutes). The Lunar can survive underwater, in poison gas, or where there's no air at all. However, the Lunar cannot speak without compromising the Charm -- doing so requires him to expel air from his lungs. The Lunar may speak a few words, perhaps a short sentence, but if he does so, the duration of the Charm decreases to one minute. If he speaks again, the duration decreases to five turns. A third attempt at speech or any form of longer communication cancels the Charm. As part of activating the Charm, the Lunar must take a deep breath and so cannot simply reactivate it in hostile conditions.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Stamina x 10 minutes. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 168,
+      "pdfPage": 171
+    },
+    "crossReferences": [
+      "beast-instinct-method"
+    ]
+  },
+  {
+    "id": "gill-breathing-technique",
+    "name": "Gill-Breathing Technique",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar grow gills so he can breathe underwater as well as in air for the rest of the day; can be re-triggered for 5 motes to keep the gills indefinitely.",
+    "requirements": "Minimum Manipulation 4; Minimum Essence 3; Prerequisite Charms: Whale-Breath Technique.",
+    "mechanics": "By activating this Charm, the Lunar manipulates his body to form gills. This allows him to breathe as well in water as in air for the rest of the day. A character existing underwater may simply commit 5 motes to keep gills indefinitely.",
+    "cost": "5 motes",
+    "compatibility": "Duration: One day. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 168,
+      "pdfPage": 171
+    },
+    "crossReferences": [
+      "whale-breath-technique"
+    ]
+  },
+  {
+    "id": "sealskin-endurance",
+    "name": "Sealskin Endurance",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar grow a protective layer (blubber, thick fur, etc.) that lets him exist in relative comfort in the coldest conditions, immune to hypothermia, frostbite, immersion, and snow blindness.",
+    "requirements": "Minimum Stamina 3; Minimum Essence 2; Prerequisite Charms: Beast Instinct Method.",
+    "mechanics": "By activating this Charm, the Lunar protects himself from cold conditions. The exact method differs from Lunar to Lunar -- some may grow a layer of blubber, others a pelt of warm fur -- but the effects are the same. For the duration of the Charm, the Lunar can exist in relative comfort even in the coldest conditions. He does not suffer from hypothermia, frostbite or immersion, nor does he suffer the effects of snow blindness. He is not, however, protected from the harshest rigors of the Elemental Poles, nor from magically conjured cold.",
+    "cost": "4 motes",
+    "compatibility": "Duration: One day. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 168,
+      "pdfPage": 171
+    },
+    "crossReferences": [
+      "beast-instinct-method"
+    ],
+    "notes": "Charm's header and stat block are at the bottom of PDF page 171 (printed p. 168); the mechanics text continues onto PDF page 172 (printed p. 169). Transcribed as a single continuous Charm."
+  },
+  {
+    "id": "heat-adapting-method",
+    "name": "Heat Adapting Method",
+    "disposition": "selectable",
+    "summary": "The opposite of Sealskin Endurance; makes the Lunar's body lean and efficient for warm environments, immune to heatstroke, sand blindness, blistering and sunburn.",
+    "requirements": "Minimum Stamina 3; Minimum Essence 2; Prerequisite Charms: Beast Instinct Method.",
+    "mechanics": "This Charm has the opposite effect of Sealskin Endurance, resulting in a lean, sleek Lunar adapted to the rigors of warm environments. His body becomes highly efficient at conserving water and adept at radiating excess heat without the need for sweating. For the duration of the Charm, the Lunar can exist in relative comfort in even the warmest conditions. He does not suffer heatstroke or sand blindness, nor does his skin blister and burn after exposure to the sun. The Heat Adapting Method does not protect the Lunar from the effects of fire.",
+    "cost": "4 motes",
+    "compatibility": "Duration: One day. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 169,
+      "pdfPage": 172
+    },
+    "crossReferences": [
+      "beast-instinct-method"
+    ]
+  },
+  {
+    "id": "fire-walking-prana",
+    "name": "Fire-Walking Prana",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar walk through flames and across burning coals without suffering ill effects for a short time, adding his Essence to his soak against magical fire and resisting smoke inhalation and overheating.",
+    "requirements": "Minimum Stamina 3; Minimum Essence 3; Prerequisite Charms: Heat Adapting Method.",
+    "mechanics": "By means of this Charm, the Lunar can -- for a short time -- resist the effects of fire. He may walk through flames and across burning coals without suffering ill effects. He is not, however, immune to the effects of prolonged heat. The character adds his Essence to his soak against magical fire. While under the protection of this Charm, the character is also immune to the effects of smoke inhalation and to overheating caused by exposure to flames.",
+    "cost": "5 motes",
+    "compatibility": "Duration: 10 turns. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 169,
+      "pdfPage": 172
+    },
+    "crossReferences": [
+      "heat-adapting-method"
+    ]
+  },
+  {
+    "id": "unerring-den-finding-sense",
+    "name": "Unerring Den-Finding Sense",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar unerringly find shelter suited to the environment for himself and a number of associates via a Perception + Survival roll, though it only guarantees shelter, not food or firewood.",
+    "requirements": "Minimum Perception 3; Minimum Essence 1; Prerequisite Charms: Beast Instinct Method.",
+    "mechanics": "Using this Charm, a Lunar can unerringly find shelter for himself and a number of associates. The exact sort of shelter will depend on the environment -- in rocky terrain, the Lunar's senses may lead him to a cave or cleft, while, in a forest, he may divine a hollow tree of suitable size. The Lunar's player makes a Perception + Survival roll, each success indicating capacity for one person, irrespective of the environmental conditions. However, this protection merely shields the characters from the elements -- it does not guarantee there be firewood or food in the vicinity.",
+    "cost": "4 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 169,
+      "pdfPage": 172
+    },
+    "crossReferences": [
+      "beast-instinct-method"
+    ],
+    "notes": "Charm's header and stat block are at the bottom of PDF page 172 (printed p. 169); the mechanics text continues onto PDF page 173 (printed p. 170). Transcribed as a single continuous Charm. It appears as a node feeding into the Survival and Healing II tree diagram, but its own Prerequisite Charms line lists only Beast Instinct Method (not Wolf Endurance Method's other inputs)."
+  },
+  {
+    "id": "food-scenting-method",
+    "name": "Food-Scenting Method",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar never go hungry in hospitable terrain by finding food for himself and, with a Perception + Survival roll, for a number of companions equal to his successes.",
+    "requirements": "Minimum Perception 3; Minimum Essence 1; Prerequisite Charms: Beast Instinct Method.",
+    "mechanics": "By using this Charm, a Lunar will never go hungry. If he is traveling during the day in hospitable terrain, the Lunar is guaranteed to find enough nuts, berries, ants and fungi to keep him well fed. If he actively forages for food, the Lunar gathers sufficient food to feed a number of people equal to his Perception + Survival, though doing so will take approximately an hour of his time. In harsher environments, the Lunar is still able to feed himself, though the Storyteller may wish the Lunar's player to roll his character's Perception + Survival, perhaps even at an increased difficulty level, to determine how many people he can feed. In no case should the difficulty increase above 3 unless the Lunar is stranded on pack ice, in the midst of a vast loose-sand desert, or in some other wildly hostile environment.",
+    "cost": "4 motes",
+    "compatibility": "Duration: Varies. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 170,
+      "pdfPage": 173
+    },
+    "crossReferences": [
+      "beast-instinct-method"
+    ]
+  },
+  {
+    "id": "water-providing-technique",
+    "name": "Water-Providing Technique",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar find sufficient water for his own needs for a day, and, with a Perception + Survival roll, gather enough water for a number of other people even under harsh conditions.",
+    "requirements": "Minimum Perception 3; Minimum Essence 1; Prerequisite Charms: Beast Instinct Method.",
+    "mechanics": "Using this Charm, a Lunar can find sufficient water to meet his needs for a day. This moisture may be from concealed springs, condensation on leaves or the pulp of vegetation. Lunars in dire straits have gathered the film of moisture from around individual grains of sand, so sensitive are their tongues. If he may gather sufficient moisture to meet the needs of a number of people (including the Lunar), though harsh conditions may require his player to roll against a difficulty depending on the circumstances, each success indicating sufficient water for a person. Finding water takes 30 minutes per person, and as with the Food-Scenting Method above, the difficulty to find water where should never rise above 3.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Varies. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 170,
+      "pdfPage": 173
+    },
+    "crossReferences": [
+      "beast-instinct-method"
+    ]
+  },
+  {
+    "id": "wolf-endurance-method",
+    "name": "Wolf Endurance Method",
+    "disposition": "selectable",
+    "summary": "Root of the Survival and Healing II tree's upper branch; lets a Lunar's body run on Essence instead of food, drink and rest for a number of weeks equal to his Stamina, at a cost of temporary Attribute loss thereafter.",
+    "requirements": "Minimum Stamina 4; Minimum Essence 2; Prerequisite Charms: Food-Scenting Method, Water-Providing Technique.",
+    "mechanics": "Many wild beasts can go for days without nourishment, and the Wolf Endurance Method allows the Lunar Exalted to do likewise. On a day that the Charm is active, the Lunar does not need to eat or drink and does not suffer any hunger pangs. Unfortunately, while Essence can support the body for a short while, it is very inefficient at powering the metabolism of an Exalted. As a result, the Wolf Endurance Method can be used for a number of weeks equal to the character's Stamina. After that point, the Lunar may temporarily loose a point of Strength or Stamina for each additional week. Attribute points lost in this manner cannot be recovered until the Charm is discontinued and the character has had several square and nutritious meals.",
+    "cost": "6 motes",
+    "compatibility": "Duration: Until released. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 170,
+      "pdfPage": 173
+    },
+    "crossReferences": [
+      "food-scenting-method",
+      "water-providing-technique"
+    ],
+    "notes": "Charm's header and stat block are at the bottom of PDF page 173 (printed p. 170); the mechanics text continues onto PDF page 174 (printed p. 171). Transcribed as a single continuous Charm."
+  },
+  {
+    "id": "bear-sleep-technique",
+    "name": "Bear Sleep Technique",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar hibernate for up to several months, needing neither food nor drink, but risking his Stamina and eventually death if woken early or deprived of shelter.",
+    "requirements": "Minimum Stamina 4; Minimum Essence 2; Prerequisite Charms: Wolf Endurance Method.",
+    "mechanics": "By activating this Charm, the Lunar can place himself in a deep sleep, during which time he need not eat and drink. Instead, Essence and body fat reserves sustain the Lunar. The Lunar may place himself in this hibernation for a number of months up to his Stamina score, paying 3 motes of Essence and 1 point of temporary Stamina to maintain his body during this time. However long he sleeps, the Lunar will be ravenous upon waking. The Lunar must have a solid meal within 24 hours of waking, or else, he loses an additional point of Stamina each day until he does. The Wolf Endurance Method cannot offset this Stamina loss -- after hibernating, the Lunar is beyond mere hunger. If his Stamina declines to 0, the Lunar dies. Every day after waking during which he eats properly allows the character to recover one point of Stamina (including the one spent when activating the Charm).",
+    "cost": "3 motes, 1 Stamina",
+    "compatibility": "Duration: 1 month. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 171,
+      "pdfPage": 174
+    },
+    "crossReferences": [
+      "wolf-endurance-method"
+    ]
+  },
+  {
+    "id": "fortitude-of-the-aurochs",
+    "name": "Fortitude of the Aurochs",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar work for 24 hours without worry of fatigue, ignoring fatigue from Charms, sorcery, other effects, labor, and wearing armor, though not eliminating penalties already active before it was invoked.",
+    "requirements": "Minimum Stamina 4; Minimum Essence 2; Prerequisite Charms: Wolf Endurance Method.",
+    "mechanics": "Constant activity places a great strain on the body, and even Exalts become fatigued after prolonged activity. By using Fortitude of the Aurochs, a Lunar can reinvigorate his body with Essence, manipulating the muscles and blood of his body to allow him to remain active. With this Charm in use, a Lunar can work for 24 hours without worry of fatigue. He does not become fatigued as a result of Charms, sorcery or other effects. Fortitude of the Aurochs does not eliminate any penalties already in effect as a result of fatigue, nor does it negate the need for sleep, only weariness from labor. Fortitude of the Aurochs also negates the need to make fatigue rolls for wearing armor, irrespective of environmental conditions.",
+    "cost": "10 motes",
+    "compatibility": "Duration: One day. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 171,
+      "pdfPage": 174
+    },
+    "crossReferences": [
+      "wolf-endurance-method"
+    ]
+  },
+  {
+    "id": "ever-waking-method",
+    "name": "Ever-Waking Method",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar reinvigorate his limbs with Essence to go 24 hours without sleep and suffer no penalties, though the fatigue symptoms are still visible; not recommended for extended use since it costs Willpower daily and long recovery afterward.",
+    "requirements": "Minimum Stamina 3; Minimum Essence 2; Prerequisite Charms: Wolf Endurance Method.",
+    "mechanics": "By using Essence to reinvigorate his limbs, a Lunar can go for 24 hours without sleep and suffer no penalties. He remains fully alert during this time and can keep acting, though the Charm does nothing to alleviate the symptoms of fatigue. The character can activate this Charm every day, but doing so for a prolonged period of time is not recommended -- after a number of days equal to the character's Stamina, Essence alone is not sufficient to reinvigorate the Lunar. Each day thereafter, he must also spend a temporary Willpower, which he cannot recover without a prolonged period of sleep. After the Charm is discontinued, the Lunar must sleep for six hours for each day he was awake.",
+    "cost": "3 motes",
+    "compatibility": "Duration: One day. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 171,
+      "pdfPage": 174
+    },
+    "crossReferences": [
+      "wolf-endurance-method"
+    ],
+    "notes": "Charm's header and stat block are at the bottom of PDF page 174 (printed p. 171); the mechanics text continues onto PDF page 175 (printed p. 172). Transcribed as a single continuous Charm."
+  },
+  {
+    "id": "pain-numbing-prana",
+    "name": "Pain-Numbing Prana",
+    "disposition": "selectable",
+    "summary": "Root of the Survival and Healing III tree; lets a Lunar suppress bashing wound penalties for a number of turns equal to twice his Stamina + Endurance, though lethal/aggravated penalties and incapacitation from injury still apply.",
+    "requirements": "Minimum Stamina 3; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "By utilizing this Charm, a Lunar can suppress superficial feelings of pain for a short period of time, overriding his nervous system. The duration of this Charm is equal in turns to twice the Lunar's Stamina + Endurance, during which time he may ignore any wound penalties imposed by bashing damage. However, he still suffers the effects of lethal and aggravated damage and is still rendered unconscious if his wounds (of any type) reach incapacitated.",
+    "cost": "1 mote",
+    "compatibility": "Duration: Varies. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 172,
+      "pdfPage": 175
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "will-of-the-stoic-warrior",
+    "name": "Will of the Stoic Warrior",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar ignore wound penalties from moderate to severe pain (including bashing, lethal, and severe trauma), though aggravated-damage penalties still apply and incapacitation from any wound type still knocks him out.",
+    "requirements": "Minimum Stamina 4; Minimum Essence 2; Prerequisite Charms: Pain-Numbing Prana.",
+    "mechanics": "Will of the Stoic Warrior allows the Lunar to suppress moderate to severe pain, such as the result of severe trauma, allowing him to ignore the dice pool penalties imposed by bashing or lethal damage. However, he still suffers the penalties imposed by aggravated damage and is still rendered unconscious if his wounds (of any type) reach incapacitated. The effects of this Charm last for a number of turns equal to the Exalt's Stamina + Endurance.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Varies. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 172,
+      "pdfPage": 175
+    },
+    "crossReferences": [
+      "pain-numbing-prana"
+    ],
+    "notes": "Charm's header and stat block are at the bottom of PDF page 175 (printed p. 172); the mechanics text continues onto PDF page 176 (printed p. 173). Transcribed as a single continuous Charm."
+  },
+  {
+    "id": "lunas-fortitude",
+    "name": "Luna's Fortitude",
+    "disposition": "selectable",
+    "summary": "Capstone of the Survival and Healing III tree; lets a Lunar ignore all wound penalties entirely for as long as he sustains the Charm each turn, but all deferred wound effects hit at once (potentially fatally) when it ends.",
+    "requirements": "Minimum Stamina 5; Minimum Essence 3; Prerequisite Charms: Will of the Stoic Warrior.",
+    "mechanics": "By calling on Luna's Fortitude, a Lunar ignores all wounds, period. Any wounds already present remain, and he may sustain new ones, but he suffers no action penalties while the Charm is in effect and is not rendered unconscious (or killed) no matter how far past incapacitated his injuries would take him. A character may sustain use of this Charm for a number of turns equal to his Stamina but must pay for the Charm in each turn. When the Charm ends, all wound effects immediately come into play; if the Lunar has suffered more points of lethal damage than he has health levels (including the health levels below Incapacitated provided by his Stamina), he dies immediately.",
+    "cost": "4 motes",
+    "compatibility": "Duration: One turn. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 172,
+      "pdfPage": 175
+    },
+    "crossReferences": [
+      "will-of-the-stoic-warrior"
+    ]
+  },
+  {
+    "id": "infection-resisting-method",
+    "name": "Infection-Resisting Method",
+    "disposition": "selectable",
+    "summary": "Root of the Survival and Healing IV tree; lets a Lunar convert Stamina dice into automatic successes when resisting disease or infection, though it does nothing to cure an existing infection.",
+    "requirements": "Minimum Stamina 2; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "Though diseases and infections are rarely a problem for the Exalted, the harsh lifestyles of the Lunar Exalted expose them to a wide range of contagions, and so, they have learned to use Essence to fortify their metabolisms. When making a roll to resist disease or infection, the Lunar's player may activate this Charm to convert the Lunar's Stamina dice into automatic successes. He may convert as many successes as he has points as the Lunar has of Stamina. The Infection-Resisting Method only helps to avoid disease; it does not resist or to cure disease once the Lunar has become infected.",
+    "cost": "1 mote per die",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 173,
+      "pdfPage": 176
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "disease-purging-essence",
+    "name": "Disease Purging Essence",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar purge his own body of even the foulest plagues and infections by converting Stamina dice into automatic successes on a Stamina + Endurance roll to overcome an infected wound or disease.",
+    "requirements": "Minimum Stamina 3; Minimum Essence 2; Prerequisite Charms: Infection-Resisting Method.",
+    "mechanics": "Using this Charm, a Lunar Exalted can purge his body of even the foulest plagues and infections. When rolling Stamina + Endurance to determine if the Lunar can overcome an infected wound or a disease, the Lunar's player can purchase automatic dice up to the value of the character's Stamina Attribute.",
+    "cost": "1 mote per die",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 173,
+      "pdfPage": 176
+    },
+    "crossReferences": [
+      "infection-resisting-method"
+    ]
+  },
+  {
+    "id": "bruise-relief-technique",
+    "name": "Bruise-Relief Technique",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar spend Essence to heal his own bashing damage on the spot, 1 mote per health level per point of Stamina, leaving no scars and usable even while unconscious.",
+    "requirements": "Minimum Stamina 3; Minimum Essence 1; Prerequisite Charms: Infection-Resisting Method.",
+    "mechanics": "The minor contusions represented by bashing damage are of almost negligible concern to a Lunar Exalted, who, by exploiting his shapechanging abilities, can quickly repair bruises, sprains and related injuries. By expending Essence to repair this damage, the Exalt can cause his malleable flesh to repair damage. For every mote spent, the Exalt may remove one health level of bashing damage per point of Stamina, at a cost of 1 mote of Essence per health level. The Lunar does not have to repair all of his lethal damage with this Charm -- he may leave some to heal naturally. To an observer, bruises and other superficial injuries simply fade away to leave unblemished skin. Characters may activate this Charm even if unconscious.",
+    "cost": "1 mote per health level",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 173,
+      "pdfPage": 176
+    },
+    "crossReferences": [
+      "infection-resisting-method"
+    ],
+    "notes": "The rate/cost sentence in the source ('For every mote spent, the Exalt may remove one health level of bashing damage per point of Stamina, at a cost of 1 mote of Essence per health level') reads redundantly; paraphrased faithfully as written, but flagged here as possibly reflecting an OCR-adjacent print/layout artifact rather than a genuine rules ambiguity -- worth a second look before promotion."
+  },
+  {
+    "id": "halting-the-scarlet-flow",
+    "name": "Halting the Scarlet Flow",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar reflexively heal his own lethal damage into bashing damage, 2 motes per health level converted, and automatically close bleeding wounds; works even while unconscious or dying.",
+    "requirements": "Minimum Stamina 3; Minimum Essence 2; Prerequisite Charms: Bruise-Relief Technique.",
+    "mechanics": "By exploiting his shapeshifting abilities, a Lunar Exalted is quickly able to deal with cuts and other wounds, causing the flesh around gashes to flow together and broken bones to magically reknit. The Exalt may spend 2 motes to transform a level of lethal damage into bashing damage. In addition, if even one health level is healed, any bleeding wounds automatically close, preventing the loss of further health levels. The Lunar does not have to repair all of his lethal damage with this Charm -- he may leave some to heal naturally. Observers will see the blood flow cease, wounds knit together and swelling subside. Wounds healed with this Charm do not scar. Characters may activate this Charm even if unconscious and dying of mortal injury but cannot activate it if they are actually dead.",
+    "cost": "2 motes per health level",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 173,
+      "pdfPage": 176
+    },
+    "crossReferences": [
+      "bruise-relief-technique"
+    ]
+  },
+  {
+    "id": "lick-wound",
+    "name": "Lick Wound",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar lick or breathe on an ally's wounds to lend the ally his own Essence and Stamina, boosting the ally's rolls or purchased dice against disease or infection.",
+    "requirements": "Minimum Wits 2; Minimum Essence 2; Prerequisite Charms: Infection-Resisting Method.",
+    "mechanics": "Using this Charm while licking a subject's wounds or breathing vapors into her face, allows the Lunar to use his own Essence to fortify an ally's resistance to infection. The player may purchase dice up to his character's Stamina and add them to the subject's efforts to resist infection or disease, or her player's rolls to overcome illness or sickness.",
+    "cost": "2 motes per die",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 173,
+      "pdfPage": 176
+    },
+    "crossReferences": [
+      "infection-resisting-method"
+    ]
+  },
+  {
+    "id": "mothers-touch",
+    "name": "Mother's Touch",
+    "disposition": "selectable",
+    "summary": "Capstone of the Survival and Healing IV tree; lets a Lunar heal an ally's bashing and lethal wounds by touch, downgrade lethal to bashing, close bleeding, and even downgrade aggravated damage to lethal at a Willpower cost, up to his Stamina in levels per use.",
+    "requirements": "Minimum Perception 4; Minimum Essence 3; Prerequisite Charms: Halting the Scarlet Flow, Lick Wound.",
+    "mechanics": "By infusing his hands with Essence and touching a subject's wounds, a Lunar is able to heal or alleviate those wounds. These healing hands can remove bashing damage and transform lethal wounds into bashing. Mother's Touch also closes bleeding wounds, preventing the loss of additional health levels healed costs 2 motes of Essence, while each level of lethal transformed costs 3 motes. Mother's Touch can be used to transform aggravated damage (into lethal), but each health level removed costs 3 motes and a temporary Willpower point. With each use of Mother's Touch, the Lunar may transform/cure as many levels of damage as he has points of Stamina.",
+    "cost": "2 or 3 motes per health level, or 3 motes plus 1 Willpower per health level",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 173,
+      "pdfPage": 176
+    },
+    "crossReferences": [
+      "halting-the-scarlet-flow",
+      "lick-wound"
+    ],
+    "notes": "Charm's header and opening stat block are on PDF page 176 (printed p. 173); its mechanics text continues onto PDF page 177 (printed p. 174), where the per-health-level cost breakdown is completed. Transcribed as a single continuous Charm."
+  },
+  {
+    "id": "sense-sharpening-change",
+    "name": "Sense-Sharpening Change",
+    "disposition": "selectable",
+    "summary": "Root of the Perception I tree; heightens all of the Lunar's senses beyond normal humans for a scene, adding bonus dice to Perception rolls up to his Perception dots, though it only enhances mortal senses.",
+    "requirements": "Minimum Perception 2; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "Using this Charm, the Lunar can heighten all of his senses beyond those of normal humans. His ears grow to better hear sound, his nostrils flare to enhance his ability to smell, and his eyes grow and dilate to enhance his sight -- he can even taste individual ingredients in a meal and feel the slightest wind on his skin. For the duration of the Charm, the Lunar's player adds bonus dice equal to the amount of Essence spent to Perception rolls. He may not increase the character's pool by more dice through this Charm than the Lunar has dots of Perception. This enhancement, though powered by Essence, does not grant the character supernatural powers -- it merely enhances his mortal senses.",
+    "cost": "1 mote per die",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 174,
+      "pdfPage": 177
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "heightened-sense-method",
+    "name": "Heightened (Sense) Method",
+    "disposition": "selectable",
+    "aliases": [
+      "Heightened Sight Method",
+      "Heightened Hearing and Touch Method",
+      "Heightened Smell and Taste Method"
+    ],
+    "summary": "Actually three separate Charms (sight; hearing and touch; smell and taste) that automatically succeed the Lunar's Perception dice on rolls using the honed sense, purchased and capped separately per sense group.",
+    "requirements": "Minimum Perception 3; Minimum Essence 1; Prerequisite Charms: Sense-Sharpening Change.",
+    "mechanics": "This Charm is actually three different Charms, one each for sight, for scent and for hearing and touch. Through it, the Lunar can hone his senses far beyond those of most animals. When making a Perception test with the heightened sense, the Lunar's Perception dice are automatically successes, and the Lunar's player need only roll the character's Ability dice (usually Awareness or Survival). Charms that reduce successes in Perception tests affect these automatic successes normally. The Charm must be purchased separately for each of the three sense groups and only provides a bonus when used in conjunction with that sense group. A Lunar may use a maximum of two Heightened (Sense) Charms at any time. If he wishes to enhance a third, he must cease using the Charm on one of the already-heightened senses. Heightened (Sense) Method Charms may not be used at the same time as the Sense-Sharpening Change or any other Charm that boosts the Lunar's Perception, though they may be used in conjunction with sense-enhancing Charms that do not directly enhance the Perception Trait, such as Night Is Day.",
+    "cost": "5 motes",
+    "compatibility": "Duration: 10 turns. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 174,
+      "pdfPage": 177
+    },
+    "crossReferences": [
+      "sense-sharpening-change"
+    ],
+    "notes": "The Perception II and III tree diagrams (PDF pp. 180-181 / printed pp. 177-178) draw this same Charm as two separate root nodes, 'Heightened Sight Method' and 'Heightened Hearing & Touch Method,' and page 184's Blood-Kin Sense/Perception IV tree references a third label, 'Heightened Smell and Taste Method.' All three are the same underlying three-part Charm described here (one purchase per sense group); no separate rows were created for the aliased tree-diagram labels."
+  },
+  {
+    "id": "ever-wary-fox-technique",
+    "name": "Ever-Wary Fox Technique",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar automatically gain a reflexive Perception + Awareness roll to avoid being ambushed if he has sufficient Essence, with bonus dice equal to his Perception.",
+    "requirements": "Minimum Perception 2; Minimum Essence 1; Prerequisite Charms: Sense-Sharpening Change.",
+    "mechanics": "Lunars are ever aware of their environments and, thus, are very difficult to ambush. When the character is attacked from surprise, the Lunar may choose to activate this Charm automatically if the character has sufficient Essence to power it. When it does activate, the Lunar's player's reflexive Perception + Awareness roll to avoid being ambushed gains a number of bonus dice equal to the Lunar's Perception.",
+    "cost": "1 mote",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 175,
+      "pdfPage": 178
+    },
+    "crossReferences": [
+      "sense-sharpening-change"
+    ]
+  },
+  {
+    "id": "sense-borrowing-method",
+    "name": "Sense-Borrowing Method",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar attach his senses to another human or animal within a mile per point of Essence, seeing entirely through the subject's senses at a +2 difficulty to his own reflexive actions.",
+    "requirements": "Minimum Perception 3; Minimum Essence 2; Prerequisite Charms: Sense-Sharpening Change, Pack-Forming Presence.",
+    "mechanics": "Using this Charm, a Lunar can attach his senses to those of another human or an animal. The Lunar must touch the target when activating the Charm, but once it is functioning, the target may travel up to a mile from the Lunar per point of the Exalt's permanent Essence and still be a source of sensory information. If the subject is willing, no roll is required to activate the Charm. Otherwise, the Lunar's player must make a Wits + Awareness roll, with a difficulty equal to the target's Essence. Animals of the Lunar's totem species are automatically willing, while others are not unless charmed or befriended. To succeed, the Lunar's player must roll a number of successes equal to or exceeding the target's Essence. Otherwise, the Charm fails, and if the target is a magically aware creature, he knows the Lunar or other supernatural beasts attempted to use a Charm on him. While the Charm is active, the Lunar senses everything his subject does. For all intents and purposes, the subject becomes the Lunar's eyes and ears. The Lunar has some semblance of his own senses, but borrowed senses dominate his perceptions. Any actions taken by the Lunar while the Sense-Borrowing Method is being used -- including reflexive actions -- are at +2 difficulty. As a consequence, most Lunars simply meditate while using the Charm. If either the Lunar or his subject sustain an injury (at least one health level of damage), the Charm ends. This Charm gives the Lunar no control over the creature, he simply shares its senses.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Sustained. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 175,
+      "pdfPage": 178
+    },
+    "crossReferences": [
+      "pack-forming-presence",
+      "sense-sharpening-change"
+    ]
+  },
+  {
+    "id": "observed-prey-instinct",
+    "name": "Observed Prey Instinct",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar automatically know when he is being watched by normal senses or magic, with a reflexive Perception + Awareness roll to learn how many observers and where they are.",
+    "requirements": "Minimum Perception 3; Minimum Essence 1; Prerequisite Charms: Ever-Wary Fox Technique.",
+    "mechanics": "This reflexive Charm allows a Lunar to know if he is being watched, either by normal senses or magic. It activates automatically if the Lunar comes under sustained observation -- a casual glance or a flirtatious look are not enough to trigger it. The Charm guides his perceptions to gather further information, allowing a reflexive Perception + Awareness roll. The number of successes determines the information gathered. A single success merely confirms that the Lunar is being observed, while additional successes will pinpoint the number and direction of observers (one per success). A Lunar observed by magical means will know the viewpoint from which he is being watched but not the actual location of the observer.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 175,
+      "pdfPage": 178
+    },
+    "crossReferences": [
+      "ever-wary-fox-technique"
+    ]
+  },
+  {
+    "id": "weather-scenting-method",
+    "name": "Weather-Scenting Method",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar track and predict local weather using Wits + Survival, purchasing knowledge of conditions within a 10-mile radius or of future conditions up to several days out.",
+    "requirements": "Minimum Wits 2; Minimum Essence 1; Prerequisite Charms: Ever-Wary Fox Technique.",
+    "mechanics": "Lunars with this Charm can track and predict the weather, using Essence to build on and extend their natural perceptions. The number of successes from a Wits + Survival roll determines the scope of information a Lunar can divine. Each success garners him either knowledge of conditions within a 10-mile radius or for the next day (cumulative). A Lunar may purchase information on both area and time, but he must do so in as even a manner as possible. For example, a Lunar who gets 4 successes cannot purchase information on a 40-mile radius for 4 days in advance, but rather learns about a 20-mile radius for two days in advance. If there are an odd number of successes, the Lunar's player may choose which aspect has the additional die. The Weather-Scenting Method may not be used to predict future conditions under the influence of magic, though it may be used to gather information on the prevailing conditions when the Charm is activated.",
+    "cost": "1 mote",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 175,
+      "pdfPage": 178
+    },
+    "crossReferences": [
+      "ever-wary-fox-technique"
+    ],
+    "notes": "Charm's header and stat block are at the bottom of PDF page 178 (printed p. 175); the mechanics text continues onto PDF page 179 (printed p. 176). Transcribed as a single continuous Charm."
+  },
+  {
+    "id": "unerring-earth-direction-sense",
+    "name": "Unerring Earth Direction Sense",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar instinctively know the direction of the Imperial Mountain from anywhere, and, with a Wits + Awareness roll, pinpoint his own location with increasing precision.",
+    "requirements": "Minimum Wits 2; Minimum Essence 1; Prerequisite Charms: Ever-Wary Fox Technique.",
+    "mechanics": "After activating this Charm, the Lunar instinctively knows the direction of the Imperial Mountain. This works irrespective of the Lunar's situation -- it is as effective inside a building or underground as it is in plains or forest -- and works as well in darkness as in daylight. If the Lunar simply desires to know the direction of the Imperial Mountain, no roll is required. However, he may also use this Charm to identify his location, though this requires a Wits + Awareness roll, the number of successes indicating the precision of the information. One success gives him little more than what he already knows, three successes allows him to narrow his location down to the city or district, and five or more let him know precisely where he stands.",
+    "cost": "1 mote",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 176,
+      "pdfPage": 179
+    },
+    "crossReferences": [
+      "ever-wary-fox-technique"
+    ]
+  },
+  {
+    "id": "wyld-sensing-instincts",
+    "name": "Wyld-Sensing Instincts",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar reflexively sense encroaching Wyld warping before it takes hold, giving him and his associates minutes to escape or take shelter depending on how many successes he rolls.",
+    "requirements": "Minimum Perception 3; Minimum Essence 1; Prerequisite Charms: Ever-Wary Fox Technique.",
+    "mechanics": "Having existed on the edge of the world, Lunar Exalted are ever watchful for the warping effects of the Wyld. Though their nature and their tattoos protect them from its deforming effects, their associates and non-Lunar kin are less fortunate, and their gear is often vulnerable as well. Provided the Lunar has sufficient motes available, Wyld-Sensing Instincts activates reflexively to alert the Lunar when this malign change occurs. Immediately after it does, the Lunar's player must make a (non-reflexive) Perception + Survival roll. The number of successes indicates the amount of time the Lunar has to act before changes occur. One success gives the Lunar a few turns to escape the transformations, while three successes indicates he has several minutes to reach safety. Five or more successes indicates that, while the chaos is not yet approaching dangerous levels, the Lunar has as much as 30 minutes to seek refuge -- or to otherwise protect -- his associates.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 176,
+      "pdfPage": 179
+    },
+    "crossReferences": [
+      "ever-wary-fox-technique"
+    ]
+  },
+  {
+    "id": "moonsilver-scenting-sense",
+    "name": "Moonsilver-Scenting Sense",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar scent moonsilver deposits or unattuned moonsilver weapons in the region via a Wits + Awareness roll, with more successes revealing distance, quality, and concealment attempts.",
+    "requirements": "Minimum Perception 3; Minimum Essence 3; Prerequisite Charms: Unerring Earth Direction Sense.",
+    "mechanics": "The Moonsilver-Scenting Sense hones the Lunar's olfactory nerves, allowing her to scent deposits of moonsilver or moonsilver weapons not attuned to a Lunar in the surrounding lands. The Lunar's player must make a Wits + Awareness roll, the number of successes determining what -- if anything -- the character learns of the region. One success allows the Lunar to ascertain whether there is any moonsilver within a number of miles equal to the Lunar's Perception + Essence. Three successes also provide direction and approximate distance. Five or more successes allow the Lunar to judge the quality and condition (e.g., concealed by Dragon-Blooded machinations) of the deposits or items. The Lunar's player may make one roll for every 10 minutes that the Charm is active.",
+    "cost": "3 motes",
+    "compatibility": "Duration: One hour. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 176,
+      "pdfPage": 179
+    },
+    "crossReferences": [
+      "unerring-earth-direction-sense"
+    ]
+  },
+  {
+    "id": "wyld-object-appraisal-method",
+    "name": "Wyld Object Appraisal Method",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar inspect an item touched by the Wyld and determine its original, uncorrupted form and whether it will retain its present form if returned to Creation.",
+    "requirements": "Minimum Perception 3; Minimum Essence 2; Prerequisite Charms: Wyld-Sensing Instincts.",
+    "mechanics": "Although all Exalted can attempt to discern if something is safe to remove from the Wyld and will retain its form if removed, this ability is far from certain. With the use of this Charm, a Lunar can absolutely tell what the original form of a creation of the Wyld was, whether it will be safe to remove it from Creation and whether or not it will retain its present form when removed. The Lunar can usually inspect only a single item through the use of this Charm, although a number of similar small items could be checked at the same time.",
+    "cost": "1 mote",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 177,
+      "pdfPage": 180
+    },
+    "crossReferences": [
+      "wyld-sensing-instincts"
+    ]
+  },
+  {
+    "id": "resisting-the-lure-of-madness",
+    "name": "Resisting the Lure of Madness",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar become immune to Wyld addiction for a lunar month; addicted characters do not need to worry about addictive behavior or relapse while it persists but are not cured.",
+    "requirements": "Minimum Perception 3; Minimum Essence 2; Prerequisite Charms: Wyld-Sensing Instincts.",
+    "mechanics": "A character who activates this Charm is immune to Wyld addiction while the Charm's effects persist. Characters addicted to the Wyld do not have to worry about addictive behavior or relapse while the Charm continues, but those not addicted will not become so while under the magic's sway.",
+    "cost": "3 motes, 1 Willpower",
+    "compatibility": "Duration: One lunar month. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 177,
+      "pdfPage": 180
+    },
+    "crossReferences": [
+      "wyld-sensing-instincts"
+    ]
+  },
+  {
+    "id": "harmony-with-reality-technique",
+    "name": "Harmony With Reality Technique",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar force a piece of Wyld-touched material (up to 50 pounds per point of Essence) to permanently become part of Creation, forcing it to whatever improbable or weird form results, unlike a Solar's ability to shape it as desired.",
+    "requirements": "Minimum Intelligence 4; Minimum Essence 3; Prerequisite Charms: Wyld Object Appraisal Method, Wondrous Lunar Transformation.",
+    "mechanics": "A Lunar skilled in the ways of the Wyld can force his will upon it, causing it to accede to his whims. While he cannot create exactly what is desired, as a Solar can, he can force the things he touches to retain their form and function when returned to Creation, no matter how improbable or weird, in essence, he forces that part of the Wyld to become part of Creation. This Charm cannot affect more than 50 pounds of material per point of the character's permanent Essence.",
+    "cost": "10 motes plus 1 additional mote per pound of material, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 177,
+      "pdfPage": 180
+    },
+    "crossReferences": [
+      "wyld-object-appraisal-method",
+      "wondrous-lunar-transformation"
+    ]
+  },
+  {
+    "id": "ritual-of-lunar-stability",
+    "name": "Ritual of Lunar Stability",
+    "disposition": "selectable",
+    "summary": "Capstone of the Perception I tree; lets a Lunar mark out a protected area around himself with his scent and presence, reducing local Wyld intensity by a level per three successes for months equal to his permanent Essence.",
+    "requirements": "Minimum Intelligence 5; Minimum Essence 4; Prerequisite Charms: Harmony With Reality Technique.",
+    "mechanics": "There are many places on the edges of Creation that are kept safe only through the use of ancient rituals, secret pacts or powerful sorceries. While this Charm cannot replace these powers, it can provide sanctuary from the effects of the Wyld for a time. The use of this Charm requires that the Lunar first pace out the area he wishes to protect, encircling it with her scent and presence; this area can be no larger than a number of square miles equal to her permanent Essence. Once this is done, she sees the Charm, and her player rolls Wits + Lore. For every three successes scored, the level of the Wyld in the protected area is reduced by one (so if she scored six successes, she would reduce an area of Deep Wyld down in intensity to be equivalent to Bordermarches). This effect lasts a number of weeks equal to her permanent Essence.",
+    "cost": "10 motes, 1 Willpower",
+    "compatibility": "Duration: A number of lunar months equal to permanent Essence. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 177,
+      "pdfPage": 180
+    },
+    "crossReferences": [
+      "harmony-with-reality-technique"
+    ],
+    "notes": "The stat block lists Duration as 'a number of lunar months equal to permanent Essence,' but the mechanics text states the area-of-effect reduction 'lasts a number of weeks equal to her permanent Essence' -- transcribed both units faithfully as printed rather than reconciling the discrepancy; worth a second look before promotion."
+  },
+  {
+    "id": "fish-eye-technique",
+    "name": "Fish-Eye Technique",
+    "disposition": "selectable",
+    "summary": "Root of the Perception II tree (aliased under the Heightened Sight Method); gives the Lunar 360-degree vision, immune to being caught unawares by visible attacks, at the cost of +1 difficulty to spot fine details.",
+    "requirements": "Minimum Manipulation 3; Minimum Essence 2; Prerequisite Charms: Heightened (Sense) Method (sight aspect, shown in the tree diagram as 'Heightened Sight Method').",
+    "mechanics": "By means of this Charm, a Lunar modifies the shape and the nature of his eyes. He gains 360-degree vision and, as a result, is aware of actions all around him and does not suffer penalties for being caught unawares by visible attacks. However, comprehending such a vista forces the Lunar to focus on the 'big picture' rather than the details and, as a result, increases by 1 the difficulty of any Perception rolls involving spotting details.",
+    "cost": "2 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 178,
+      "pdfPage": 181
+    },
+    "crossReferences": [
+      "heightened-sense-method"
+    ]
+  },
+  {
+    "id": "night-is-day",
+    "name": "Night Is Day",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar see perfectly in low-light conditions as though it were daylight, giving up a bit of color vision as a partial trade-off, manifesting as flashing, cat-like eyes.",
+    "requirements": "Minimum Perception 3; Minimum Essence 1; Prerequisite Charms: Heightened (Sense) Method (sight aspect, shown in the tree diagram as 'Heightened Sight Method').",
+    "mechanics": "Using this Charm, a Lunar alters his eyes to allow him to see perfectly in low-light conditions, though he treats nighttime conditions as daylight, he is partially colorblind (+1 difficulty to Perception rolls in normally lit conditions) for the duration of the Charm. Night Is Day does not allow the Lunar to see in absolute darkness -- there must be some light, even if just a twinkle, for the Lunar's eyes to exploit. The Charm manifests by giving the Lunar flashing, cat-like eyes while it is active.",
+    "cost": "1 mote",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 178,
+      "pdfPage": 181
+    },
+    "crossReferences": [
+      "heightened-sense-method"
+    ]
+  },
+  {
+    "id": "perceiving-the-hidden-world",
+    "name": "Perceiving the Hidden World",
+    "disposition": "selectable",
+    "summary": "Capstone of the Perception II tree; lets a Lunar see in perfect darkness by perceiving heat and other light forms invisible to humans, at the cost of +2 difficulty to fine-detail Perception rolls.",
+    "requirements": "Minimum Manipulation 3; Minimum Essence 2; Prerequisite Charms: Night Is Day.",
+    "mechanics": "Some animals can see light incomprehensible to humans, most often the spectral glows of heat and cold. Using this Charm, a Lunar can do likewise, allowing him to perceive radiated heat and other forms of light normally beyond his experience. This allows him to see in perfect darkness, though his ability to distinguish detail is greatly impaired (+2 difficulty to all Perception rolls involving fine detail).",
+    "cost": "3 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 178,
+      "pdfPage": 181
+    },
+    "crossReferences": [
+      "night-is-day"
+    ]
+  },
+  {
+    "id": "rabbit-ear-method",
+    "name": "Rabbit Ear Method",
+    "disposition": "selectable",
+    "summary": "Root branch of the Perception III tree (aliased under Heightened Hearing & Touch Method); enlarges the Lunar's ears to track others in his vicinity via a Perception + Awareness roll, with more successes revealing direction, range, and activity.",
+    "requirements": "Minimum Perception 3; Minimum Essence 2; Prerequisite Charms: Heightened (Sense) Method (hearing/touch aspect, shown in the tree diagram as 'Heightened Hearing & Touch Method').",
+    "mechanics": "Using this Charm -- which, in any form, causes his ears to enlarge and resemble those of a rabbit or stiff-eared dog -- a Lunar can use his enhanced hearing to keep track of others in his immediate vicinity without needing to have them in sight. He is dimly aware of others' presence and may reach with his senses to pinpoint them and gather extra information. Doing so requires a Perception + Awareness roll, difficulty 1 in wilderness conditions, 2 in the streets of a town and 3 inside a structure. One success indicates that the Lunar is aware of those around him, but only in a general sense, while three successes provide him with an approximate direction and range to each. Five or more successes allow provide information on their activities, equipment carried and identities. The Lunar may use this Charm to track a number of others equal to (his Essence x 5) and perceive them out to (his Perception x 100) yards. Unless concealed by Charms, those closest to the Lunar are revealed first, and those furthest from him last. A Storyteller may, at his discretion, identify more distant targets first if they are somehow 'broadcasting' their presence by making lots of noise.",
+    "cost": "3 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 179,
+      "pdfPage": 182
+    },
+    "crossReferences": [
+      "heightened-sense-method"
+    ]
+  },
+  {
+    "id": "comprehending-ears-meditation",
+    "name": "Comprehending Ears Meditation",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar understand any spoken human language or dialect (with increasing fluency at more successes) via a Wits + Linguistics roll, though it grants no ability to speak the tongue or understand nonverbal communication.",
+    "requirements": "Minimum Wits 2; Minimum Essence 1; Prerequisite Charms: Heightened (Sense) Method (hearing/touch aspect, shown in the tree diagram as 'Heightened Hearing & Touch Method').",
+    "mechanics": "This Charm allows a Lunar to understand -- in general terms if not the exact meaning of words -- any language spoken in his presence. The Lunar's player must roll Wits + Linguistics, with the number of successes indicating the level of comprehension. One success indicates he can get the general gist of what's being said, while three successes afford solid comprehension. Five or more successes allow the Lunar to discern nuances of what has been said, be they insults or flattery. Comprehending Ears Meditation does not allow the Lunar to speak a foreign tongue. Comprehending Ears Meditation does not allow the Lunar to understand nonverbal communication.",
+    "cost": "4 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 179,
+      "pdfPage": 182
+    },
+    "crossReferences": [
+      "heightened-sense-method"
+    ]
+  },
+  {
+    "id": "calls-of-the-human-prey",
+    "name": "Calls of the Human Prey",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar who has eaten a victim's Heart's Blood understand and speak any language or dialect known by that person via a Wits + Linguistics roll, with fluency scaling with successes, though it carries a distinct accent.",
+    "requirements": "Minimum Wits 3; Minimum Essence 2; Prerequisite Charms: Comprehending Ears Meditation.",
+    "mechanics": "By activating this Charm, a Lunar can attempt to both understand and speak any language or dialect known by people he has consumed. The Lunar's player makes a Wits + Linguistics roll when the Charm activates. The difficulty is 5 - (the number of people who spoke the language the Lunar has eaten the heart's blood of). The number of successes on the roll determines the Lunar's level of comprehension and fluency. One success indicates linguistic capabilities comparable with a young child, while three successes denote average adult abilities. Five or more successes grant the skills of a poet. Calls of the Human Prey does not allow the Lunar to read or write the language, nor does it make her a perfect mimic. If the Lunar has eaten only a few victims fluent in a single language, his voice may possess a distinct accent that damages his ability to socialize with those who dislike his dialect.",
+    "cost": "6 motes, 1 Willpower",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 179,
+      "pdfPage": 182
+    },
+    "crossReferences": [
+      "comprehending-ears-meditation"
+    ]
+  },
+  {
+    "id": "feral-ears-metamorphosis",
+    "name": "Feral Ears Metamorphosis",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar understand and communicate in general terms with any animal in his presence via a Wits + Linguistics roll, using the same comprehension scale as Comprehending Ears Meditation but for beasts instead of people.",
+    "requirements": "Minimum Wits 2; Minimum Essence 1; Prerequisite Charms: Comprehending Ears Meditation.",
+    "mechanics": "This Charm allows a Lunar to understand and communicate with -- in general if not in precise terms -- any animals in his presence. It functions as per the Comprehending Ears Meditation, save with regard to its subjects. The Lunar's player makes a Wits + Linguistics roll when the Lunar activates the Charm, with a difficulty of 5 - (the number of beasts of that species the Lunar has eaten the heart's blood of). The Lunar need only get one success in most cases, as valid animals are not generally articulate. However, if the animal is a complex thinker normally unable to communicate, then more successes may be relevant. A Lunar using this Charm can automatically understand the language of his totem animal form (no roll needed).",
+    "cost": "4 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 179,
+      "pdfPage": 182
+    },
+    "crossReferences": [
+      "comprehending-ears-meditation"
+    ]
+  },
+  {
+    "id": "seeing-without-looking",
+    "name": "Seeing Without Looking",
+    "disposition": "selectable",
+    "summary": "Capstone of the Perception III tree; lets a Lunar build a detailed mental picture of his surroundings by echoic hearing alone over five turns, letting him fight and identify hidden things while functionally blind.",
+    "requirements": "Minimum Perception 4; Minimum Essence 2; Prerequisite Charms: Rabbit Ear Method.",
+    "mechanics": "By focusing his hearing, a Lunar can build a mental picture of the surrounding area. Unlike the Rabbit Ear Method, which only tracks individuals, Seeing Without Looking also allows the Lunar to build up an idea of the objects and materials that make up the environs by analyzing subtle alterations in the sound of echoes. Analyzing the sounds he hears takes the Lunar five turns, during which time he may move about at a walking pace but cannot take any other actions. If he does, the Charm fails. After five turns have elapsed, the Exalt's player makes a Perception + Awareness roll. The number of successes on this roll determines the quality and the range to which the sense applies. One success indicates that the Lunar has a general picture of the surroundings, including the position of people, beasts and major obstacles. However, he knows little about their composition and size and cannot tell the difference between two small objects placed close together. Three successes let the Lunar refine his search, allowing him to identify the materials and giving him a finer 'resolution' in his sense. Five or more successes allow the Lunar to identify most details in his immediate area, save those that can only be gleaned by sight (such as color). With five successes, the Lunar can also identify hidden people and items in the vicinity, even if Charms were used as part of the concealment process. The Lunar's mental picture extends a number of yards equal to (the number of successes on the Perception roll x 5). Provided he maintains the Charm and carries out no actions other than walking, the mental image remains constant. However, as soon as he carries out any action or ceases to spend Essence, the picture 'locks' though the Lunar may still act on the details for the remainder of the scene. Thus, a Lunar who wishes to fight blind will need to use this Charm to build up a picture of his surroundings and Rabbit Ear Method to sense his foes. However, such a Lunar might be deceived by sliding walls, silently opening pits or other changes that make the static picture of his environment obsolete.",
+    "cost": "4 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 180,
+      "pdfPage": 183
+    },
+    "crossReferences": [
+      "rabbit-ear-method"
+    ]
+  },
+  {
+    "id": "blood-kin-sense",
+    "name": "Blood-Kin Sense",
+    "disposition": "selectable",
+    "summary": "Root branch of the Perception IV tree (aliased under Heightened Smell and Taste Method); lets a Lunar sense blood ties between individuals via a Perception + Awareness roll, with more successes revealing lineage details, especially potent if the Lunar tastes the target's blood.",
+    "requirements": "Minimum Perception 3; Minimum Essence 2; Prerequisite Charms: Heightened (Sense) Method (smell/taste aspect, shown in the tree diagram as 'Heightened Smell and Taste Method').",
+    "mechanics": "Using this Charm, a Lunar can immediately sense the blood ties between other individuals. A Lunar's player may make a Perception + Awareness roll when the character targets the Blood-Kin Sense on an individual. If the player gets at least one success, the Lunar knows if the person is related to someone else the Lunar is familiar with, while three successes give some indication of the relationship. Five or more allow the Lunar to sense firm details of the subject's lineage, including a capsule history of the being's ancestor's physical abilities for a number of generations back equal to the Lunar's Essence. The Blood-Kin Sense assumes the Lunar is using scent to study his subject. If the Lunar tastes the target's blood, his player gains three bonus dice for the roll.",
+    "cost": "1 mote",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 180,
+      "pdfPage": 183
+    },
+    "crossReferences": [
+      "heightened-sense-method"
+    ],
+    "notes": "Charm's header and stat block are at the bottom of PDF page 183 (printed p. 180); the mechanics text continues onto PDF page 184 (printed p. 181). Transcribed as a single continuous Charm."
+  },
+  {
+    "id": "blood-on-the-wind",
+    "name": "Blood on the Wind",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar track a person or animal across almost any terrain by scent via a Perception + Survival roll, needing only one success to follow mundane prey and gaining automatic tracking successes against other supernatural trackers while in beastman form.",
+    "requirements": "Minimum Perception 3; Minimum Essence 2; Prerequisite Charms: Heightened (Sense) Method (smell/taste aspect, shown in the tree diagram as 'Heightened Smell and Taste Method').",
+    "mechanics": "By means of the Charm, a Lunar can track an opponent (or opponents) through almost any terrain. To the Lunar, the trail is as clear on solid stone as it is in the woodlands or on soft ground. When making a tracking roll (Perception + Survival) for the character, her player need roll only a single success for the character to follow his mundane prey. Furthermore, if the Lunar is in beastman form when using this Charm, he is considered to be a supernatural tracker and has a number of automatic successes in the tracking contest against other supernatural trackers equal to his Essence.",
+    "cost": "5 motes",
+    "compatibility": "Duration: One day. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 181,
+      "pdfPage": 184
+    },
+    "crossReferences": [
+      "heightened-sense-method"
+    ]
+  },
+  {
+    "id": "emotion-revealing-scent",
+    "name": "Emotion-Revealing Scent",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar sense a target's true emotional state by scent even through a calm facade, requiring no roll for a basic impression but a Perception + Investigation roll for deeper insight into the cause.",
+    "requirements": "Minimum Perception 3; Minimum Essence 2; Prerequisite Charms: Heightened (Sense) Method (smell/taste aspect, shown in the tree diagram as 'Heightened Smell and Taste Method').",
+    "mechanics": "Using this Charm, a Lunar can sense the emotional state of her subject, even if there are no outward signs. Even if the target appears perfectly calm, his body scent will betray him, allowing the Lunar to clearly scent strong emotions such as fear, anger, hate and love. Doing this does not require a dice roll, though it does count as a dice action. The Charm does not, automatically divine the cause of this emotion or its focus. To divine a deeper understanding of the target, the Lunar's player must roll Perception + Investigation, the number of successes indicating the degree of information gathered. One success merely confirms the initial impression, while three successes denote the source, target or object causing the emotions. Five or more successes allow the Lunar to deduce the reason for the emotion.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 181,
+      "pdfPage": 184
+    },
+    "crossReferences": [
+      "heightened-sense-method"
+    ]
+  },
+  {
+    "id": "truth-scenting-method",
+    "name": "Truth-Scenting Method",
+    "disposition": "selectable",
+    "summary": "Capstone of the Perception IV tree; lets a Lunar detect lies by scent, targeted or ambient, though it only detects outright falsehoods (not evasions) and judges truth by the speaker's own belief, not objective fact.",
+    "requirements": "Minimum Perception 4; Minimum Essence 2; Prerequisite Charms: Emotion-Revealing Scent.",
+    "mechanics": "By observing subtle physical and chemical responses in his subject, a Lunar can determine whether a person in his presence is speaking the truth -- in which case, he may target the Charm at an individual -- in which case it works more automatically -- or he may use it more generally on a body of people. In this latter case, the Lunar's player must roll Perception + Investigation, the number of successes being the number of people the Exalt can successfully observe. The Truth-Scenting Method does not detect evasions or statements that twist the truth without actually being falsehoods. Furthermore, some 'truths' are subjective, and it is the target's view, not that of the perceiving Lunar, which determines this. For Example: if a subject says, 'I saw him do it,' when he saw no such thing, the Lunar can detect the lie. However, the Charm will not detect a lie if the subject states, 'No, Janek didn't pay me anything' (because Marcos did), as it is an evasion, not an outright lie.",
+    "cost": "3 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 181,
+      "pdfPage": 184
+    },
+    "crossReferences": [
+      "emotion-revealing-scent"
+    ]
+  },
+  {
+    "id": "stealthy-fox-method",
+    "name": "Stealthy Fox Method",
+    "disposition": "selectable",
+    "summary": "Root of the Stealth tree; lets a Lunar call on feral instincts to add bonus dice, up to his Dexterity, to any Stealth roll for the rest of the scene.",
+    "requirements": "Minimum Dexterity 3; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "Using this Charm, a Lunar can call on his feral instincts to enhance any attempts to hide or use stealth. By honing both his senses and his agility, the Lunar exploits all cover to the maximum possible extent, avoiding obstacles that might alert others to his presence, and moves in such a graceful manner as to avoid catching the attention of unwary observers. For the rest of the scene, when making a roll to move stealthily or to hide, the Lunar's player may add bonus dice up to the character's dots of Dexterity, at a cost of 2 motes per die.",
+    "cost": "2 motes per die",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 182,
+      "pdfPage": 185
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "chameleon-skin-disguise",
+    "name": "Chameleon Skin Disguise",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar mimic chameleon skin to convert dice up to his Dexterity into automatic successes on Stealth rolls while holding still, paying upkeep motes to re-adapt his camouflage whenever he moves.",
+    "requirements": "Minimum Charisma 3; Minimum Essence 3; Prerequisite Charms: Stealthy Fox Method.",
+    "mechanics": "Using this Charm, a Lunar can mimic the skin of the chameleon and becomes able to adjust the texture and color of his hide to better aid in concealment. For the rest of the scene, as long as the character stays still, he may convert a number of dice up to his Dexterity Attribute into automatic successes on a Stealth roll, at a cost of 2 motes per dot of Dexterity converted. If the character moves any distance, the Lunar must reflexively spend 2 motes at the end of the movement to adapt the camouflage to his new background; the Charm's benefits are negated until the character pays these 2 motes. The Chameleon Skin Disguise provides the Lunar with no advantage if he is clothed or armored.",
+    "cost": "2 motes per die",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 182,
+      "pdfPage": 185
+    },
+    "crossReferences": [
+      "stealthy-fox-method"
+    ],
+    "notes": "The mechanics text opens with a sentence that reads almost identically to the following sentence describing the dice-to-successes conversion, which may be a printing redundancy in the original; paraphrased here as a single coherent rule rather than duplicated. Worth a second look before promotion."
+  },
+  {
+    "id": "object-concealing-method",
+    "name": "Object-Concealing Method",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar find or create a hiding place for an item via Wits + Survival, with the roll's successes setting the difficulty for anyone deliberately searching for it afterward.",
+    "requirements": "Minimum Wits 3; Minimum Essence 3; Prerequisite Charms: Chameleon Skin Disguise.",
+    "mechanics": "The Object-Concealing Method allows a Lunar both to find a suitable place of concealment for an item and to enhance its protection against a deliberate search. The Lunar's player rolls Wits + Survival, difficulty 1 (higher in terrain that offers few hiding places), searching an area out to (his Wits x 10) yards. If he succeeds, the Lunar has found a place of concealment for the item, and the number of successes becomes the difficulty for others' Perception + Investigation rolls to find the object in a deliberate search; the object cannot be discovered by accident. It takes (10 minus the Lunar's Essence) turns to hide the item.",
+    "cost": "3 motes",
+    "compatibility": "Duration: One day. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 182,
+      "pdfPage": 185
+    },
+    "crossReferences": [
+      "chameleon-skin-disguise"
+    ],
+    "notes": "Charm's header and stat block are at the bottom of PDF page 185 (printed p. 182); the mechanics text continues onto PDF page 186 (printed p. 183). Transcribed as a single continuous Charm."
+  },
+  {
+    "id": "ally-concealing-method",
+    "name": "Ally Concealing Method",
+    "disposition": "selectable",
+    "summary": "Extends the Object-Concealing Method to hide other characters instead of items, at a cost per person concealed, though the Lunar cannot use it to hide himself and it breaks if the hidden ally attacks.",
+    "requirements": "Minimum Wits 4; Minimum Essence 3; Prerequisite Charms: Object-Concealing Method.",
+    "mechanics": "This Charm functions as per the Object-Concealing Method, save that the thing being hidden is another character rather than an item. The concealing effect remains active so long as the affected character stays calm and relatively still; attacking will disrupt the camouflage. A Lunar may conceal as many people at once as his Essence Trait, at a cost of 5 motes each. A Lunar cannot use Ally Concealing Method to hide himself. It takes (10 minus the Lunar's Essence) turns to find a place of concealment for each individual.",
+    "cost": "5 motes per person",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 183,
+      "pdfPage": 186
+    },
+    "crossReferences": [
+      "object-concealing-method"
+    ]
+  },
+  {
+    "id": "traceless-passage-technique",
+    "name": "Traceless Passage Technique",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar erase all signs of his passage and resting places for a day, blocking mundane trackers entirely and imposing a difficulty penalty equal to his Essence on magically aided trackers (except other Lunars).",
+    "requirements": "Minimum Manipulation 3; Minimum Essence 2; Prerequisite Charms: Stealthy Fox Method.",
+    "mechanics": "Lunars are crafty in the ways of the wild, adept at following -- or hiding -- signs of passage. There are times, however, when a Lunar wishes to truly disappear, throwing even the craftiest pursuers off the scent. Traceless Passage Technique allows him to do so, concealing evidence of his passage and disguising anywhere he rested. Trackers without magical enhancements are unable to follow his trail while the Charm is active, and those with Charms or sorcery to aid their tracking suffer a difficulty modifier equal to the Lunar's Essence. Traceless Passage Technique does not provide any automatic successes against other Lunars attempting to track him.",
+    "cost": "4 motes, 1 Willpower",
+    "compatibility": "Duration: One day. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 183,
+      "pdfPage": 186
+    },
+    "crossReferences": [
+      "stealthy-fox-method"
+    ]
+  },
+  {
+    "id": "track-sweeping-essence",
+    "name": "Track-Sweeping Essence",
+    "disposition": "selectable",
+    "summary": "Capstone of the Stealth tree; extends the Traceless Passage Technique's trail-concealing benefits to the Lunar's companions, at a mote cost per person covered (including the Lunar himself, if desired).",
+    "requirements": "Minimum Charisma 3; Minimum Essence 3; Prerequisite Charms: Traceless Passage Technique.",
+    "mechanics": "Using this Charm, the Lunar can extend the benefits of Traceless Passage Technique to his companions, and his instincts help to guide their actions as well as his own. Enacting the Charm costs 4 motes, and each person encompassed in Track-Sweeping Essence costs an additional 2 motes; if the Lunar wants to conceal his own passage as well, he must pay for himself. The Lunar can conceal the passage of as many people as he has points of Essence.",
+    "cost": "4 motes plus 2 motes per person",
+    "compatibility": "Duration: One day. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 183,
+      "pdfPage": 186
+    },
+    "crossReferences": [
+      "traceless-passage-technique"
+    ]
+  },
+  {
+    "id": "tale-spinning-mastery",
+    "name": "Tale-Spinning Mastery",
+    "disposition": "selectable",
+    "summary": "Root of the Interaction and Knowledge I tree; lets a Lunar storyteller add bonus dice (up to his Charisma) to any storytelling roll while addressing an audience of five or more people per extra mote spent.",
+    "requirements": "Minimum Charisma 3; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "Lunar society has little in the way of a written tradition, instead preferring to pass information down orally, often through stories. A master storyteller knows how to use Essence and his shapeshifting powers to enhance the tale, adjusting his voice and actions to suit the audience. Normally the Charm affects five subjects, but for each additional mote spent the speaker can increase his audience by five more people (a Lunar with sufficient Essence can address a crowd this way, though it is an inefficient method). While the Charm is in effect, the Lunar's player can add bonus dice to any test involving storytelling, though the bonus may not exceed the character's Charisma. The Storyteller may increase the difficulty of the roll if the audience is hostile, disinclined to listen, or otherwise distracted, and the audience must be able to comprehend the Lunar's speech for the Charm to work.",
+    "cost": "1 mote per die",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 183,
+      "pdfPage": 186
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "lore-speaking-method",
+    "name": "Lore-Speaking Method",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar enter a meditative trance to search his memories for lore or historical knowledge via Intelligence + Wits, extending the trance's duration to dig deeper into recollection.",
+    "requirements": "Minimum Intelligence 3; Minimum Essence 2; Prerequisite Charms: Tale-Spinning Mastery.",
+    "mechanics": "Most Moons do not believe in writing; their history, traditions and knowledge are conveyed orally. By using Lore-Speaking Method, a Lunar can enter a meditative trance and search his memories for relevant information. The trance lasts a minimum of 30 minutes, though it may be extended if he wishes, providing the Lunar's player with additional time to search: at the end of the meditation, the Lunar's player makes an Intelligence + Wits roll, adding a bonus die for each additional 10 minutes the character spent in meditation, to a maximum bonus of his Intelligence. The difficulty depends on the nature of the information sought -- 1 for routine matters, 3 for more obscure lore, and 5 for esoteric knowledge the No Moons may have mentioned only in passing -- and the net successes determine the strength and clarity of the recollection. The Storyteller may keep the exact difficulty secret, instead telling the Lunar how sure he is of the memory. If the Lunar's player rolls no successes, or if the Exalt is interrupted before 30 minutes have elapsed, the Charm fails.",
+    "cost": "3 motes",
+    "compatibility": "Duration: 30 minutes plus 10 minutes per die. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 184,
+      "pdfPage": 187
+    },
+    "crossReferences": [
+      "tale-spinning-mastery"
+    ]
+  },
+  {
+    "id": "divining-the-hidden-truth",
+    "name": "Divining the Hidden Truth",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar undertake a Wyld-touched vision quest to seek knowledge beyond his ken via Perception + Lore, risking disorientation, bashing damage, or worse on a poor or botched roll.",
+    "requirements": "Minimum Perception 4; Minimum Essence 3; Prerequisite Charms: Lore-Speaking Method.",
+    "mechanics": "Sometimes a Lunar has need of information he does not know. In routine matters, he can turn to the No Moons, who may be able to provide what he needs in return for a boon, but some information can only be acquired from outside sources. A civilized Lunar might trek into the Threshold or even the Realm proper in his quest for knowledge; those with closer ties to the Wyld instead seek knowledge from their ancestors and friendly spirits by means of a vision quest, entering a deep trance and letting his mind and spirit wander free -- perhaps aided by psychotropic fungi or the crushed essence of certain beetles -- with no guarantee of success, and no easy way to distinguish real insight from mere imagination. At the end of the quest, which lasts a number of hours equal to the Lunar's Essence, his player may ask a single question and roll Perception + Lore, at a difficulty depending on the nature of the information sought -- routine information requires only a single success, hidden knowledge obscured deliberately or otherwise requires at least three successes, and even five successes may not suffice for the deepest secrets. The Lunar may not count more successes than his permanent Essence Trait and must discard any extras. Failing the roll can have devastating effects: if the Lunar gets at least one success but not enough to succeed, he simply wakes none the wiser, but failure leaves the Lunar disoriented and forced to soak a number of dice of bashing damage equal to his Essence, while a botch leaves him catatonic for a number of days equal to his Essence and may also result in a derangement.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: 1 hour or more. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 184,
+      "pdfPage": 187
+    },
+    "crossReferences": [
+      "lore-speaking-method"
+    ]
+  },
+  {
+    "id": "lion-roar-method",
+    "name": "Lion Roar Method",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar transform his voice into a deafening roar audible for a long distance, usable as a pseudo-weapon against a nearby target that costs the target a point of Perception on a failed resistance roll.",
+    "requirements": "Minimum Charisma 3; Minimum Essence 3; Prerequisite Charms: Tale-Spinning Mastery.",
+    "mechanics": "Using this Charm to expand his lungs and vocal cords, a Lunar can transform his normal voice into a formidable roar. Anything the Lunar says while the Charm is in effect is clearly audible to anyone within a number of yards equal to (the Lunar's Essence x 100) and to those with acute hearing for twice that distance. A Lunar can also use the Lion Roar Method as a pseudo-weapon by roaring at an individual within 10 yards; that individual must make a reflexive Stamina + Endurance roll at a difficulty equal to the Lunar's Perception. If the target fails, he temporarily loses a point of Perception and must attempt to resist further exposure at a worsened difficulty for the remainder of the scene.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Indefinite. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 185,
+      "pdfPage": 188
+    },
+    "crossReferences": [
+      "tale-spinning-mastery"
+    ],
+    "notes": "The mechanics text describing the exact consequence of a failed resistance roll is cut off mid-sentence at the bottom of PDF page 188 (printed p. 185) by a full-width illustration, and the following page continues a different Charm (Wind-Speaking Method) rather than resuming this sentence; the ending clause here is a faithful best-effort paraphrase of the visible fragment ('he temporarily loses a point of Perception and must attempt...'), not a verified complete rule. Worth a second look if the exact resolution matters before promotion."
+  },
+  {
+    "id": "wind-speaking-method",
+    "name": "Wind-Speaking Method",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar whisper a short message on the wind to a known recipient at range, with more successes on a Wits + Linguistics roll reducing delivery time and extending range.",
+    "requirements": "Minimum Wits 3; Minimum Essence 3; Prerequisite Charms: Lion Roar Method.",
+    "mechanics": "Winds circulate around the world, and while not as skilled as the Dragon-Blooded at manipulating the elements, some Lunars do know how to call upon the wind and use it to convey messages to their allies. Upon activating this Charm, the Lunar whispers a few words (his Essence score x 5 in words maximum) and names a recipient. The Exalt's player then rolls Wits + Linguistics; the difficulty of the roll depends on the range to the intended recipient -- difficulty 1 if within 1,000 yards, two successes required for up to a mile, and three or more successes to reach up to five miles. The recipient must be known to the Lunar and must have spoken to him at some point in the past. The target is the only person to hear the message -- sending messages to multiple recipients requires multiple invocations of the Charm. There may be a delay in delivery depending on the range; it takes one hour for the message to cross 600 miles. The Storyteller may require a Wits + Performance roll to determine the clarity of the message at its destination.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 185,
+      "pdfPage": 188
+    },
+    "crossReferences": [
+      "lion-roar-method"
+    ]
+  },
+  {
+    "id": "river-of-words",
+    "name": "River of Words",
+    "disposition": "selectable",
+    "summary": "Capstone of the Interaction and Knowledge I tree; a more powerful Wind-Speaking Method with no range limit, longer and multi-recipient messages, and a much larger maximum audience.",
+    "requirements": "Minimum Wits 4; Minimum Essence 3; Prerequisite Charms: Wind-Speaking Method.",
+    "mechanics": "A more powerful version of the Wind-Speaking Method, River of Words allows messages that are more complex, longer distance and multiple recipients. There is no range limitation to the message transmission, though there may be a delay in delivery dependent on the range; it takes one hour for the message to travel up to 600 miles. The maximum number of recipients for a River of Words communiqu\u00e9 is equal to the Lunar's Essence, and the maximum number of words each message may contain is (the Lunar's Essence x 10).",
+    "cost": "4 motes per 10 words/person, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 186,
+      "pdfPage": 189
+    },
+    "crossReferences": [
+      "wind-speaking-method"
+    ]
+  },
+  {
+    "id": "emotion-shaping-technique",
+    "name": "Emotion-Shaping Technique",
+    "disposition": "selectable",
+    "summary": "Root of the Interaction and Knowledge II tree; lets a Lunar subtly raise or lower one of a target's Virtues (never above 5 or below 1, and never past a 2-dot swing) via successes on a Manipulation + Presence roll.",
+    "requirements": "Minimum Manipulation 3; Minimum Essence 2; Prerequisite Charms: Tale-Spinning Mastery.",
+    "mechanics": "The Emotion Shaping Technique enhances a Lunar's already considerable presence, using a combination of charisma, insight and timing to allow the Exalt to manipulate the emotional responses of his audience. The target must be capable of understanding the Exalt for the Charm to function correctly but need not be paying full attention to what is being said; the Lunar's words and the Charm work on the subconscious mind as much as on the conscious mind. The Lunar's player rolls Manipulation + Presence, and each success allows the Lunar to temporarily increase or decrease one of the target's Virtues by a point. This may not raise the Virtue above 5, nor lower it below 1 (even under the influence of this Charm, a paragon of valor will not become a sniveling coward), and a Virtue may not be altered by more than two -- even across two uses of the Charm. Two successes could be applied one each to two Virtues or two to one Virtue of one character and one to one Virtue of another. However, other Charms such as the Crowd-Inciting Method and Courage-Building Address are better able to manipulate the Virtues of large numbers of people; this Charm does not work on spirits of any sort.",
+    "cost": "4 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 186,
+      "pdfPage": 189
+    },
+    "crossReferences": [
+      "tale-spinning-mastery"
+    ]
+  },
+  {
+    "id": "crowd-inciting-method",
+    "name": "Crowd-Inciting Method",
+    "disposition": "selectable",
+    "summary": "Extends the Emotion-Shaping Technique to lower the Temperance or Compassion of a whole crowd via Manipulation + Performance, at a difficulty that scales with crowd size.",
+    "requirements": "Minimum Charisma 4; Minimum Essence 3; Prerequisite Charms: Emotion-Shaping Technique.",
+    "mechanics": "In broad terms, the Crowd-Inciting Method follows the same principles as the Emotion-Shaping Technique but is better suited to influence large numbers of people, albeit in a restricted manner. The Lunar must be heard by the crowd, and his player rolls Manipulation + Performance against a difficulty dependent on the size of the crowd (+1 per 50 people or fraction thereof). If the roll succeeds, the player may spend Essence to temporarily reduce the Temperance or Compassion Virtue of the crowd to a maximum of 2 dots and not below 0 (meaning that if the Exalt has more than four successes, some are wasted, perhaps making it more amenable to suggestions). A failed roll has no effect, but a botch may result in the crowd turning on the speaker.",
+    "cost": "3 motes plus 1 per 10 people, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 187,
+      "pdfPage": 190
+    },
+    "crossReferences": [
+      "emotion-shaping-technique"
+    ]
+  },
+  {
+    "id": "crowd-calming-pronouncement",
+    "name": "Crowd-Calming Pronouncement",
+    "disposition": "selectable",
+    "summary": "Mirror-image of the Crowd-Inciting Method that instead temporarily raises a crowd's Compassion or Temperance (up to 5), at a higher base cost and difficulty.",
+    "requirements": "Minimum Charisma 4; Minimum Essence 3; Prerequisite Charms: Crowd-Inciting Method.",
+    "mechanics": "The Crowd-Calming Pronouncement functions in the same manner as the Crowd-Inciting Method, save that it allows the Lunar to temporarily increase the Compassion or Temperance of the crowd by up to 2 dots (but not above 5). The base Essence cost is higher than the Crowd-Inciting Method, and the difficulty is +1 per 30 people in the crowd -- it is harder for the Lunar to calm a mob than to stir one into action. A failed roll has no effect, but a botch may result in the Lunar turning on the speaker.",
+    "cost": "6 motes plus 1 per 10 people, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 187,
+      "pdfPage": 190
+    },
+    "crossReferences": [
+      "crowd-inciting-method"
+    ]
+  },
+  {
+    "id": "courage-building-address",
+    "name": "Courage-Building Address",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar deliver an inspirational pre-battle speech that temporarily raises troops' Valor via a Manipulation + Performance roll, scaling with the size of the addressed force.",
+    "requirements": "Minimum Manipulation 4; Minimum Essence 3; Prerequisite Charms: Crowd-Calming Pronouncement.",
+    "mechanics": "In battle, numbers are rarely the deciding factor. Instead, troop quality is often the key, and courage is the cornerstone of that quality. By means of the Courage-Building Address, a Lunar can instill a sense of bravery in his troops, increasing their Valor Virtue for the duration of the battle (requiring at least four minutes) by means of an inspirational speech. While the Lunar makes the speech, his player must make a Manipulation + Performance roll (difficulty 2 if the target is the unit commander or another notable individual, 3 otherwise). For every two successes gained, the troops' Valor temporarily increases by a dot for the duration of the battle. A failed roll has no effect, but a botch may harm the resolve of the troops. The Courage-Building Address cannot be recast during a battle.",
+    "cost": "6 motes plus 1 per 25 people, 1 Willpower",
+    "compatibility": "Duration: One battle. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 187,
+      "pdfPage": 190
+    },
+    "crossReferences": [
+      "crowd-calming-pronouncement"
+    ]
+  },
+  {
+    "id": "glorious-battle-presence",
+    "name": "Glorious Battle Presence",
+    "disposition": "selectable",
+    "summary": "Capstone of the Compassion/social branch; lets a Lunar's battlefield commands carry clearly over a wide radius, grants bonus dice to leadership rolls, and immunizes his own troops to fear and intimidation effects.",
+    "requirements": "Minimum Charisma 5; Minimum Essence 3; Prerequisite Charms: Courage-Building Address.",
+    "mechanics": "Lunars are adept at combat, and they excel on the battlefield -- they are a fearsome sight and inspirational to an enemy and to their own allies. By means of this Charm, a Lunar can influence the performance of his troops in a battle. His commands are clearly audible to troops within (his Essence x 100) yards, and his player gains a bonus die equal to the character's Charisma when attempting any rolls involving leadership. Furthermore, any friendly troops within (the Lunar's Essence x 10) yards are immune to any effects that would reduce their Willpower or Valor and cannot fail Valor checks. Any enemy troops within the same radius are subject to an increase of 1 to the difficulty of resisting intimidation or demoralization.",
+    "cost": "8 motes, 1 Willpower",
+    "compatibility": "Duration: 3 turns. Type: Supplemental/Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 187,
+      "pdfPage": 190
+    },
+    "crossReferences": [
+      "courage-building-address"
+    ]
+  },
+  {
+    "id": "foe-taunting-utterance",
+    "name": "Foe-Taunting Utterance",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar deride an opponent's skill via a Manipulation + Presence roll, imposing stacking action and combat penalties on the target that scale with successes, resistible only by spending Willpower.",
+    "requirements": "Minimum Manipulation 3; Minimum Essence 2; Prerequisite Charms: Emotion-Shaping Technique.",
+    "mechanics": "Insults are part of Lunar combat ritual -- deriding an opponent's reputation is almost as effective as a wound caused by a blade. However, most Lunars are inured to the taunts, ignoring them as part of the formalities. By means of this Charm, the Lunar gains insight into an opponent's skin and makes barbs that get under an opponent's skin and make her react. The Lunar's player makes a Manipulation + Presence roll against a difficulty equal to the opponent's Temperance. If the roll succeeds, the target is distracted and subtracts one success from all attacks, dodges and parries until the end of the next turn. Two or three successes indicate the comments have really gotten under the opponent's skin, penalizing the target's next initiative roll by 3. Five or more successes indicate the target goes wild -- she may not parry or dodge attacks, nor may she attack anyone other than the Lunar who taunted her for the remainder of the battle. However, the target is not subject to any initiative or attack roll penalties. This Charm may only be used on a single foe. The target may spend Willpower to offset its effects, each point allowing her to offset the taunt-induced penalties for the turn. The target must be within (the Lunar's Essence x 10) yards.",
+    "cost": "3 motes",
+    "compatibility": "Duration: One turn. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 187,
+      "pdfPage": 190
+    },
+    "crossReferences": [
+      "emotion-shaping-technique"
+    ]
+  },
+  {
+    "id": "glib-tongue-technique",
+    "name": "Glib Tongue Technique",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar magically persuade a target to act (or not act) as he sees fit via a Manipulation + Presence roll against the target's permanent Essence, with success scaling from mere susceptibility to compulsion.",
+    "requirements": "Minimum Manipulation 4; Minimum Essence 3; Prerequisite Charms: Foe-Taunting Utterance.",
+    "mechanics": "The Glib Tongue Technique builds on a Lunar's presence, allowing him to persuade an individual to act (or not act) as he sees fit. The Lunar's player rolls a Manipulation + Presence roll with a difficulty equal to the target's permanent Essence. The net successes determine whether the Lunar's manipulation succeeds or not: if the Lunar's player rolled one success, the subject is predisposed to the Exalt's suggestion and will likely do as the Lunar desires provided no influences (Charms, other persuasion attempts) come into play; three successes guarantee the subject's compliance with the suggestion, but she is still open to magical manipulations that convince her to do otherwise than what the Lunar says; five or more successes mean the subject will do as desired and cannot be swayed, and she will do so as soon as possible, even at great risk to herself.",
+    "cost": "5 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 188,
+      "pdfPage": 191
+    },
+    "crossReferences": [
+      "foe-taunting-utterance"
+    ]
+  },
+  {
+    "id": "imposing-presence-attitude",
+    "name": "Imposing Presence Attitude",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar magnify his physical presence to intimidate, using Essence to appear larger or subtly terrifying and buying additional automatic dice for his Manipulation score on an intimidation attempt.",
+    "requirements": "Minimum Charisma 4; Minimum Essence 2; Prerequisite Charms: Emotion-Shaping Technique.",
+    "mechanics": "Using this Charm, a Lunar can overwhelm someone he is speaking to with his physical presence. Some use Essence to modify their size, making themselves appear larger, while others take on a more terrifying visage. A few are less obvious, subtly exuding menace and using barely controlled fury to scare the person they are facing. When the Lunar makes an intimidation attempt (see Exalted, p. 242), his player may purchase additional dice up to the Exalt's unmodified Manipulation score.",
+    "cost": "2 motes per die",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 188,
+      "pdfPage": 191
+    },
+    "crossReferences": [
+      "emotion-shaping-technique"
+    ]
+  },
+  {
+    "id": "fearful-lunar-form",
+    "name": "Fearful Lunar Form",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar's battle-form guarantee a successful intimidation attempt against a group or an individual by converting dice up to his Manipulation into automatic successes.",
+    "requirements": "Minimum Charisma 4; Minimum Essence 2; Prerequisite Charms: Imposing Presence Attitude.",
+    "mechanics": "The battle-form of a Lunar is a fearsome sight and more-or-less guarantees the success of an intimidation effort. When making an intimidation roll, the Lunar's player may convert a number of dice up to his character's Manipulation Attribute into automatic successes. Fearful Lunar Form is as effective against groups as it is against individuals; make one roll, and apply it to all who behold the Exalt's deadly glory.",
+    "cost": "3 motes per die",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 188,
+      "pdfPage": 191
+    },
+    "crossReferences": [
+      "imposing-presence-attitude"
+    ]
+  },
+  {
+    "id": "mind-blanking-fear-technique",
+    "name": "Mind-Blanking Fear Technique",
+    "disposition": "selectable",
+    "summary": "Capstone of the Imposing Presence branch; lets a Lunar in beastman form induce short-term amnesia in a terrified target via Manipulation + Presence against the target's Essence.",
+    "requirements": "Minimum Manipulation 4; Minimum Essence 3; Prerequisite Charms: Fearful Lunar Form.",
+    "mechanics": "A Lunar may focus his intimidation efforts on a single individual, seeking not only to force him into submission, but also to shatter his mind. If successful, the target's mind may be overwhelmed, perhaps rendering him unconscious or causing a derangement, but certainly damaging his short-term memory. The Lunar's player rolls Manipulation + Presence against a difficulty equal to the target's Essence. One success indicates that the target has forgotten what happened in the last minute, and each additional success increases this mind-blanking period by a minute. Mind-Blanking Fear Technique may only be targeted on an individual, and the Lunar employing it must be in beastman form.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 188,
+      "pdfPage": 191
+    },
+    "crossReferences": [
+      "fearful-lunar-form"
+    ]
+  },
+  {
+    "id": "unspeaking-aura-of-dread",
+    "name": "Unspeaking Aura of Dread",
+    "disposition": "selectable",
+    "summary": "Root of the Interaction and Knowledge III tree; lets a Lunar spend Essence to add bonus dice to his Charisma for Social rolls against targets within range, even those who cannot understand his language.",
+    "requirements": "Minimum Charisma 2; Minimum Essence 1; Prerequisite Charms: None.",
+    "mechanics": "Speech is only one method of manipulating others. Scent and body language can also play a part, particularly in more feral circumstances. A Lunar may attempt to use his protean nature to manipulate others by such nonverbal means, altering his posture, scent and a host of other factors to better influence others. When making a Social roll, the Lunar's player may purchase additional dice to his character's Charisma at a cost of 3 motes each. Such manipulation only works on targets within a number of yards equal to the Lunar's Essence, though the target need not understand his language (or even be able to hear him) to be affected.",
+    "cost": "3 motes per die",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 189,
+      "pdfPage": 192
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "beast-calming-method",
+    "name": "Beast Calming Method",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar soothe or pacify one or more animals via a Manipulation + Survival roll, with the required successes scaling by the beasts' disposition and ferocity.",
+    "requirements": "Minimum Manipulation 3; Minimum Essence 3; Prerequisite Charms: Unspeaking Aura of Dread.",
+    "mechanics": "Using this Charm, a Lunar can modify the mental state of a beast or a group of animals. This may be to pacify, or it may be to calm a skittish pachyderm he wants to calm. The difficulty of the Manipulation + Survival roll depends on the nature and number of the animals he seeks to influence. One success would allow the Lunar to walk past a rabbit without causing it to bolt, while three successes would hold a ravening pack of wolves in check. Five or more successes would cause even the mighty tyrant lizard to stand in abeyance. Animals need not understand the words of an Exalt seeking to calm them to be affected by the Charm.",
+    "cost": "3 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 189,
+      "pdfPage": 192
+    },
+    "crossReferences": [
+      "unspeaking-aura-of-dread"
+    ]
+  },
+  {
+    "id": "pack-forming-presence",
+    "name": "Pack-Forming Presence",
+    "disposition": "selectable",
+    "summary": "Capstone of the Beast Calming Method branch; lets a Lunar command a following of beasts loyal for months at a time by accumulating successes on repeated Manipulation + Survival rolls over several days.",
+    "requirements": "Minimum Manipulation 3; Minimum Essence 3; Prerequisite Charms: Beast Calming Method.",
+    "mechanics": "Using this Charm, a Lunar can seek to command beasts to do his bidding. To do so, his player must make a series of Manipulation + Survival rolls over a period of several days, during which time the Essence must remain committed. If the beasts are already friendly to the Lunar, he must accumulate one success for each beast he seeks to command, whereas, if they are neutral, three successes are needed for each. Hostile or fearful beasts cannot be easily commanded and must generally be convinced to give the Lunar a chance, usually by means of the Beast Calming Method. However, if the Lunar gets five successes with this Charm, even the most hostile beasts will acknowledge the Lunar as their pack-leader. Beasts commanded in this way remain loyal to the Lunar for a number of months equal to his Essence. After that time, he must either rework the Charm or trust to natural friendship. The Lunar may command a total number of beasts equal to (Charisma + Survival) x 10 via this Charm, though he may command more through natural loyalty. The cost of this Charm is paid per group of beasts (if social animals) or against individuals (if lone animals). If the Lunar spends 1 experience point when he enacts the Charm and uses it only on a single creature, he may spend an experience point to raise that beast's Familiar rating by 1. A character cannot get a new familiar unless his old one has died and cannot have more than one Familiar tied at a time. See the Solar Charm Spirit Tied Pet on page 179 of Exalted and the Familiar Background on page 143 for details.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: Special. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 189,
+      "pdfPage": 192
+    },
+    "crossReferences": [
+      "beast-calming-method"
+    ]
+  },
+  {
+    "id": "attention-demanding-presence",
+    "name": "Attention Demanding Presence",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar silently draw the focused attention of everyone nearby via a Charisma + Presence roll, as though he had shouted 'look at me,' resistible with a point of temporary Willpower.",
+    "requirements": "Minimum Charisma 3; Minimum Essence 2; Prerequisite Charms: Unspeaking Aura of Dread.",
+    "mechanics": "Using this Charm, a Lunar can focus the attention of those in the immediate vicinity upon himself without speaking. Doing so requires a Charisma + Presence roll; each success indicates that a number of individuals equal to the Exalt's Essence have received the Essence-driven equivalent of a shouted 'look at me.' These subjects find their attention focused on the Lunar and instinctively look into his eyes. A target may spend a point of temporary Willpower to resist the Charm's effect.",
+    "cost": "4 motes",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 190,
+      "pdfPage": 193
+    },
+    "crossReferences": [
+      "unspeaking-aura-of-dread"
+    ]
+  },
+  {
+    "id": "animal-magnetism",
+    "name": "Animal Magnetism",
+    "disposition": "selectable",
+    "summary": "Capstone of the Attention Demanding Presence branch; lets a Lunar attempting seduction convert bonus dice up to his Essence, exploiting near-irresistible feral magnetism to determine the outcome.",
+    "requirements": "Minimum Manipulation 4; Minimum Essence 2; Prerequisite Charms: Attention Demanding Presence.",
+    "mechanics": "A Lunar may use this Charm when seeking to seduce another character, exploiting his animal magnetism and feral nature with almost -- metaphorically -- deadly results; few can resist the focused attentions of a Lunar for long. When the Lunar makes the seduction attempt, his player may add bonus dice up to a number equal to the character's Essence. The number of successes determines the outcome of the seduction.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 190,
+      "pdfPage": 193
+    },
+    "crossReferences": [
+      "attention-demanding-presence"
+    ]
+  },
+  {
+    "id": "brotherhood-of-lake-and-river",
+    "name": "Brotherhood of Lake and River",
+    "disposition": "selectable",
+    "summary": "Root of the Interaction and Knowledge IV tree; forges a permanent blood-and-Essence sibling bond ('wolf-sibling') between a Lunar and another character, granting mutual awareness of direction, distance, and serious injury.",
+    "requirements": "Minimum Wits 2; Minimum Essence 3; Prerequisite Charms: None.",
+    "mechanics": "Though Lunars often live and act alone, they can form strong friendships and associations, similar to Solar Circles, they call 'packs.' That camaraderie is not the ultimate expression of a Lunar's loyalty; that ultimate expression is the Brotherhood of Lake and River, a bond of blood and Essence forged between the Lunar and his sibling-to-be brother. To partake in the Brotherhood of Lake and River, the Lunar and his sibling-to-be must cut the palm of their fellow's hand and bind the wounds together while the Charm is activated for at least 10 minutes. From that point on, the Lunar is always aware of his wolf-sibling's direction and distance and will know if the sibling sustains any serious injury -- or is killed. When in close proximity -- within 100 yards or so -- the Lunar may even read his wolf-sibling's surface thoughts. If the two have used the Charm reciprocally, they may even exchange words without being within 100 yards of one another. The effects are permanent and can only be broken by death. The maximum number of wolf-siblings a Lunar may have is equal to twice his Essence, though only one bond is formed with each use of the Charm. If such a packmate dies, another may take his place in the Lunar's heart. This Charm's effects are not automatically reciprocal; to establish a reciprocal link, two Lunars must use the Charm on one another.",
+    "cost": "5 motes and 1 Willpower per person",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 190,
+      "pdfPage": 193
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "blood-singing-instincts",
+    "name": "Blood-Singing Instincts",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar hunting with wolf-siblings present spend Essence to add to his initiative, tapping their blood ties and battlefield knowledge, with multiple linked Lunars able to share the same boosted initiative.",
+    "requirements": "Minimum Dexterity 3; Minimum Essence 2; Prerequisite Charms: Brotherhood of Lake and River.",
+    "mechanics": "A Lunar hunting alone is a fearsome sight. Hunting with his associates is a nightmare for his enemies. She can exploit the blood and Essence ties to her allies, tapping into their senses and battlefield knowledge to gain a decisive edge. Before rolling initiative each turn, the Lunar may activate Blood-Singing Instincts, paying motes of Essence up to the number of allies present who are wolf-siblings of the Lunar through the Charm Brotherhood of Lake and River. Each mote of Essence spent in this manner adds 1 to the Lunar's player's initiative roll for the turn. Multiple Lunars can use one another to increase their initiative, making Lunars who hunt as a pack into the deadliest of foes.",
+    "cost": "1 mote per wolf-sibling drawn from",
+    "compatibility": "Duration: One turn. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 191,
+      "pdfPage": 194
+    },
+    "crossReferences": [
+      "brotherhood-of-lake-and-river"
+    ]
+  },
+  {
+    "id": "pack-calling-cry",
+    "name": "Pack-Calling Cry",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar summon any of his wolf-siblings from any distance via a magical call they feel compelled to obey, at a cost per sibling summoned, with resistance possible through Willpower.",
+    "requirements": "Minimum Charisma 3; Minimum Essence 3; Prerequisite Charms: Brotherhood of Lake and River.",
+    "mechanics": "By crying into the wind and sounding the Pack-Calling Cry, a Lunar uses the blood ties to his wolf-siblings in the Brotherhood of Lake and River to summon them into his presence. The Lunar may attempt to summon any number of those bound to him by the Brotherhood of Lake and River, each costing 1 mote of Essence. If summoning less than his full pack, the Lunar can select which of his packmates receive the summons. The call can be heard over any distance, implanting the desire to return to the Lunar's presence as soon as possible. The wolf-sibling has some leeway in deciding how quickly he heeds the call (a few minutes if nearby, perhaps hours if miles away, or thousands of days if hundreds or thousands of miles distant), but if he seeks to delay beyond this time, his player must make a Willpower roll against a difficulty equal to the calling Lunar's Charisma. Success allows the target to resist the call for the same time period again (which failure means he must break off what he is doing and set out toward the caller, though she may attempt to resist away for the same number of consecutive times equal to the calling Lunar's Essence.",
+    "cost": "1 mote per sibling called",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 191,
+      "pdfPage": 194
+    },
+    "crossReferences": [
+      "brotherhood-of-lake-and-river"
+    ],
+    "notes": "The final paragraph describing resistance to the call (Willpower roll difficulty, number of times resistable, and consequences of failure) reads as somewhat garbled/redundant in the source text; paraphrased here as faithfully as legible, but worth a second look before promotion."
+  },
+  {
+    "id": "spirit-scenting-technique",
+    "name": "Spirit-Scenting Technique",
+    "disposition": "selectable",
+    "summary": "Root of the Spirit Charms tree; lets a Lunar see spirits in his vicinity and undetectably discern a materialized spirit's true form, provided he does not use further Charms to aid the spirit.",
+    "requirements": "Minimum Perception 3; Minimum Essence 2; Prerequisite Charms: None.",
+    "mechanics": "By means of this Charm, a Lunar can 'see' spirits in his immediate vicinity, gaining an approximate idea of their forms and actions. Provided he is circumspect, and no Charms aid the spirit, this observation is undetectable. Furthermore, this Charm allows the Lunar to sense the true form of a materialized spirit -- a Lunar will know that a spirit masquerading as or possessing a human is not what it seems. The Charm does not allow the Lunar to communicate with or clearly comprehend the spirit. A Lunar who wishes to speak with gods, demons and elementals should learn Old Realm.",
+    "cost": "2 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 191,
+      "pdfPage": 194
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "pulse-of-the-invisible",
+    "name": "Pulse of the Invisible",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar sense the flows and patterns of Essence around him, including the location and power of Manses and Demesnes, with a Perception + Occult roll revealing progressively deeper detail.",
+    "requirements": "Minimum Perception 4; Minimum Essence 3; Prerequisite Charms: Spirit-Scenting Technique.",
+    "mechanics": "Using this Charm, a Lunar can adapt his senses to detect the flows and patterns of Essence in the world around him, as well as any dematerialized spirits present. The Exalt can instinctively sense the direction and strength of flows, as well as the locations and power of loci such as Manses and Demesnes. Ascertaining more detailed information requires a Perception + Occult roll. A single success grants the Lunar basic information about the examined location, such as identifying the nature of a sorcery or the general geomancy of a region, while additional successes provide more depth and specific detail. For example, three successes might allow the Lunar to judge the age and other specific details of the sorcery, while, with five successes, he might identify the sorcerer's 'signature' traits. Likewise, three successes provide the sort of detailed survey information necessary to construct a Manse, while five allow a near-perfect comprehension of an area's geomancy.",
+    "cost": "8 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 192,
+      "pdfPage": 195
+    },
+    "crossReferences": [
+      "spirit-scenting-technique"
+    ]
+  },
+  {
+    "id": "devil-restraining-grip",
+    "name": "Devil-Restraining Grip",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar bind a spirit within range via a Manipulation + Occult roll, preventing it from dematerializing and, if it lacks the Essence to remain manifest, forcing it to draw the deficit from the Lunar's own reserves.",
+    "requirements": "Minimum Wits 4; Minimum Essence 3; Prerequisite Charms: Spirit-Scenting Technique.",
+    "mechanics": "Using the Devil-Restraining Grip Charm, a Lunar can immobilize a spirit with a snare of Essence, binding it to her as if on a leash. If the spirit is dematerialized, she can drive it into the material world, and once it is in physical form, it is prevented from dematerializing. To use this Charm, the Exalt's player makes a Manipulation + Occult roll against a difficulty equal to the spirit's Essence. If it succeeds, the spirit cannot move more than the Exalt has Essence Trait in yards and must materialize. If it does not have the Essence to materialize, then the additional Essence required is drained from the Lunar's reserves. If both the spirit and the Lunar cannot pay for the spirit's materialization, then the Essence is wasted, and the spirit remains immaterial.",
+    "cost": "6 motes, 1 Willpower",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 192,
+      "pdfPage": 195
+    },
+    "crossReferences": [
+      "spirit-scenting-technique"
+    ]
+  },
+  {
+    "id": "spirit-maiming-essence-attack",
+    "name": "Spirit-Maiming Essence Attack",
+    "disposition": "selectable",
+    "summary": "Capstone of the Spirit Charms tree; supplements a physical attack against a bound, hostile spirit to bolster its material-world efficacy, adding an Essence-based dice bonus to the aggravated damage caused.",
+    "requirements": "Minimum Intelligence 4; Minimum Essence 4; Prerequisite Charms: Devil-Restraining Grip.",
+    "mechanics": "If an encounter with a spirit goes wrong or the being is intrinsically hostile, then the Lunar may have to fight it, a difficult proposition against a possibly incorporeal foe. The Spirit-Maiming Essence Attack is one of the Lunar's most potent weapons in such a conflict, allowing him to use his strength of will to bolster his material attacks. The Lunar must activate this Charm before he attacks. If the attack is successful, the damage caused by the attack is aggravated, and, in addition, the Lunar's player reflexively rolls a number of dice equal to his Manipulation + Essence and adds a bonus equal to the number of successes to the base damage of the attack. Spirits destroyed with this Charm are gone forever, and the Lunar can sense those who know it and threaten them with the same wary respect reserved for those who can slay gods. Attacks enhanced with this Charm may explicitly be part of Combos with Charms of other Attributes.",
+    "cost": "10 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 192,
+      "pdfPage": 195
+    },
+    "crossReferences": [
+      "devil-restraining-grip"
+    ]
+  },
+  {
+    "id": "terrestrial-circle-sorcery",
+    "name": "Terrestrial Circle Sorcery",
+    "disposition": "selectable",
+    "summary": "Root sorcery-access Charm; enables a No Moon Lunar to learn and cast a single Terrestrial Circle spell, whose own Essence cost must be paid separately whenever it is cast; cannot be used in a Combo.",
+    "requirements": "Minimum Intelligence 3; Minimum Essence 3; Prerequisite Charms: None.",
+    "mechanics": "Terrestrial sorcery is the simplest magic wielded by Lunars, and the No Moons will initiate members of any caste as sorcerers provided an Exalt shows the appropriate intelligence and aptitude. Note that invoking this Charm only enables the character to cast a single Terrestrial Circle sorcery spell. The actual spell itself has an Essence cost, often very high, that the character must pay to actualize the spell; this cost is listed in the spell's description. Terrestrial Circle Sorcery can never be part of a Combo.",
+    "cost": "1 Willpower",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 192,
+      "pdfPage": 195
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "form-fixing-method",
+    "name": "Form-Fixing Method",
+    "disposition": "selectable",
+    "summary": "Separate root of the Sorcery tree; lets a No Moon Lunar mystically fix a newly Exalted Lunar's caste and grant resistance to the Wyld's physical (not mental) warping, permanently spending experience points in the process.",
+    "requirements": "Minimum Intelligence 3; Minimum Essence 3; Prerequisite Charms: None.",
+    "mechanics": "Knowledge of this Charm allows a Lunar to tattoo a newly Exalted Lunar, fixing his caste and allowing him to resist the physical (but not mental) warping properties of the Wyld. The tattooing Lunar fixes the newly tattooed Exalt's caste as whichever he chooses; the tests of initiation are used only to determine the caste the tattooing Lunar assigns. This Charm is generally practiced only by Lunars of the No Moon Caste, though other Lunars may also know it; it is nonetheless considered inappropriate for Lunars of castes other than No Moon to tattoo young Lunars. Enacting this Charm requires a ceremony of several hours, during which occult instruments are used to draw the moonsilver tattoos into the Lunar's skin.",
+    "cost": "5 motes, 1 Willpower, 3 experience points",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 193,
+      "pdfPage": 196
+    },
+    "crossReferences": []
+  },
+  {
+    "id": "tattoo-cutting-wisdom",
+    "name": "Tattoo-Cutting Wisdom",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar engrave an item so that it becomes immune to Wyld warping effects, protecting it as though it were tattooed like a Lunar's own hide.",
+    "requirements": "Minimum Intelligence 3; Minimum Essence 3; Prerequisite Charms: Form-Fixing Method.",
+    "mechanics": "Using this Charm, a Lunar can engrave or otherwise mark an item so that it is immune to the chaotic effects of the Wyld, an untattooed Demesne or another source of shapechanging.",
+    "cost": "3 motes, 1 experience point",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 193,
+      "pdfPage": 196
+    },
+    "crossReferences": [
+      "form-fixing-method"
+    ]
+  },
+  {
+    "id": "moonsilver-shaping-rite",
+    "name": "Moonsilver-Shaping Rite",
+    "disposition": "selectable",
+    "summary": "Lets a Lunar forge items from moonsilver, the only Exalt type with the spiritual connection to work the Magical Material effectively, at double the item's normal Essence cost, committed for the entire crafting process.",
+    "requirements": "Minimum Intelligence 3; Minimum Essence 3; Prerequisite Charms: Tattoo-Cutting Wisdom.",
+    "mechanics": "Though others may attempt to forge moonsilver, only a Lunar Exalted has the knowledge and spiritual connection to shape it effectively. Enacting this Charm forges a bond between the Lunar and the moonsilver being worked. Moonsilver is essentially impossible to work without the use of this Charm, and the technique is a jealously guarded secret of the Lunars. This bond must be maintained -- for the duration of the item-crafting effort, even when the object is not in the Lunar's immediate presence. Failing to maintain the Charm results in the immediate failure of the creation effort, though the moonsilver can be reused in a later project. The Essence cost of the Charm is twice the rating of the artifact the Lunar seeks to create; this is in addition to the basic Essence cost for creating the item (see Chapter Five of The Book of Three Circles for the specifics and rules of item creation).",
+    "cost": "Special (twice the item's rating, committed)",
+    "compatibility": "Duration: Indefinite. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 193,
+      "pdfPage": 196
+    },
+    "crossReferences": [
+      "tattoo-cutting-wisdom"
+    ]
+  },
+  {
+    "id": "celestial-circle-sorcery",
+    "name": "Celestial Circle Sorcery",
+    "disposition": "selectable",
+    "summary": "Advanced sorcery-access Charm restricted to No Moon Lunars who undergo rigorous training; enables the caster to learn and cast a single Celestial Circle spell, whose own Essence cost must be paid separately; cannot be used in a Combo.",
+    "requirements": "Minimum Intelligence 4; Minimum Essence 4; Prerequisite Charms: Terrestrial Circle Sorcery, Moonsilver-Shaping Rite.",
+    "mechanics": "Celestial sorcery is much harder to learn and master than Terrestrial magics, and its practice among the No Moon Exalted is restricted to members of the No Moon Caste, who must undergo a rigorous (and often deadly) training regime before they are entrusted with its secrets. Note that invoking this Charm only enables the character to cast a single Celestial Circle sorcery spell. The actual spell itself has an Essence cost, often very high, that the character must pay to actualize the spell; this cost is listed in the spell's description. Celestial Circle Sorcery can never be part of a Combo.",
+    "cost": "2 Willpower",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 193,
+      "pdfPage": 196
+    },
+    "crossReferences": [
+      "terrestrial-circle-sorcery",
+      "moonsilver-shaping-rite"
+    ]
   }
 ]
