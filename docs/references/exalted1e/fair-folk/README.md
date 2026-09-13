@@ -1,7 +1,7 @@
 # Exalted 1e — Fair Folk source intake
 
 **Status: source intake in progress.** `Exalted: The Fair Folk` has been
-supplied and 152 inventory rows are checked in under `inventory/`. See
+supplied and 233 inventory rows are checked in under `inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
@@ -9,7 +9,7 @@ the full process this directory follows.
 
 - `source-manifest.json` — the one source book in scope so far
   (`exalted-the-fair-folk`); supplements are not yet added.
-- `inventory/exalted-the-fair-folk.json` — 152 rows covering:
+- `inventory/exalted-the-fair-folk.json` — 233 rows covering:
   - The Chapter Three character-creation overview, split into two rows
     because common and noble raksha use materially different baselines:
     `fair-folk-creation-overview-common` (0-dot starting Attributes, 0 free
@@ -181,63 +181,175 @@ the full process this directory follows.
       also requires the existing `undetectable-lie` Ring Combat Charm)
       and `burden-ghost-glamour`; plus the standalone, diagrammatically
       unconnected pair `workers-gift` → `style-improving-spirit`.
+    - **Greater Arts of Glamour** (pp. 185-192, PDF 186-193; 18 Charms),
+      which finishes the entire Ring Grace tree: `forging-the-heart-grace`
+      (root, off `shape-forged-servant`) branches to the four
+      "Forging the (Grace) Grace" Charms (`forging-the-cup-grace`,
+      `forging-the-ring-grace`, `forging-the-staff-grace`,
+      `forging-the-sword-grace`, each letting a raksha grant a
+      Creation-born character one Grace as an artifact, with a matching
+      Curse if that Grace is later stripped or destroyed) and to
+      `forging-the-arcane-redoubt` (which anchors a Freehold's eternal
+      "bonefire" and in turn branches to the four parallel Freehold-anchor
+      Charms `forging-the-stronghold`/`forging-the-glory`/
+      `forging-the-fountainhead`/`forging-the-throne-room`, each pairing
+      one of the four Grace-granting Charms with the Redoubt). All four
+      Grace-granting Charms together also feed `gaping-virtue-mouth` (→
+      `iron-nightmare-muzzle`, `ecstatic-reproduction-style`, and the
+      Staff-shaping crossover `akshata-sexual-methodology`).
+      `forging-the-heart-grace` additionally feeds the consolidated
+      `great-works-of-the-grace` row (Great Works of the Cup/Ring/
+      Staff/Sword, packed into one row the way `bastion-of-the-self`
+      packs its four Grace variants) → the consolidated
+      `unshaped-grace-transformation` row (its four Cup/Ring/Staff/Sword
+      variants) → the Sword-crossover `behemoth-forging-meditation` (also
+      requiring `shape-forged-servant`) and the self-annihilating
+      capstone `extinction-of-desire`.
+  - **The Sword Grace tree, in full** (shinma Nishkriya; pp. 196-205, PDF
+    197-206; 42 Charms), the fifth and final per-Grace Charm tree — **all
+    five of Chapter Five's per-Grace Charm trees (Heart, Staff, Cup, Ring,
+    Sword) are now completely inventoried**:
+    - Two independent roots, `god-humbling-victory-sword` (→
+      `scourging-wind-raid` → `dream-sacrificing-method`;
+      `unparalleled-terror-technique`; `pincer-of-transcendent-time-and-fate`
+      → `endless-armies-of-the-storm`) and
+      `host-summoning-glory-of-command` (→ `sundering-the-gates-of-death`;
+      `transient-work-of-flesh-and-bone`).
+    - A third root, `scattering-the-foe`, feeding two further lines:
+      `radiance-of-the-invincible-warrior` (→ `waypoint-sealing-technique`;
+      `unconquerable-truth`), with `sundering-the-gates-of-death` +
+      `radiance-of-the-invincible-warrior` converging on
+      `rarefied-air-of-inevitable-victory`, and `unconquerable-truth` +
+      `rarefied-air-of-inevitable-victory` converging on the capstone
+      `defining-the-parameters-of-battle`; and
+      `all-inclusive-nightmare-defense` → `tension-building-warriors-advance`
+      → `fearsome-mien`.
+    - The named sub-style "**World-Devouring Warlord Style**" (9 Charms):
+      `aegis-of-a-martial-destiny` (root) → two branches
+      (`antagonist-naming-technique`; `thematic-stunting-methodology`)
+      converging on `world-devouring-warlord-stance` (a Stance-type
+      Charm), which in turn feeds `gathering-the-crows` (a cross-tree
+      convergence with `transient-work-of-flesh-and-bone`),
+      `army-supporting-behemoth-invocation`, and
+      `harmony-of-fortune-and-hate`; `gathering-the-crows` +
+      `army-supporting-behemoth-invocation` converge on `avatar-of-war`,
+      which together with `harmony-of-fortune-and-hate` feeds the
+      capstone `preemptive-declaration-of-victory`.
+    - One diagram/header naming mismatch flagged in `notes`: the "Sword
+      Combat Charms 2" tree diagram labels one box "Waypoint Sealing
+      Stance," but the Charm's own header and stat block both read
+      "Waypoint-Sealing Technique" with Type: Reflexive
+      (`waypoint-sealing-technique`).
+    - **Mutation Charms** (pp. 202-205, PDF 203-206; 15 Charms): a set of
+      individually purchasable Charms of Shape rather than a branching
+      combat tree — nearly all `Prerequisite Charms: None`
+      (`pox-charm`, `affliction-charm`, `blight-charm`,
+      `long-arm-technique`, `gossamer-wing-flight`,
+      `hiding-the-wylds-touch`, and the mutation-point-cost permanent
+      afflictions `armament-of-flesh`, `surpassing-excellence`,
+      `glorious-hero-form`, `racing-dragon-speed`,
+      `root-of-the-perfected-lotus`), except the one linear sub-line
+      `hundred-hand-style` → `millipede-mind` → two branches
+      (`grace-of-the-infinite-revolving-spheres`;
+      `harmonious-primordial-spirit`), which explicitly stack with their
+      own prerequisites rather than superseding them. `racing-dragon-speed`
+      is flagged in `notes` as an outlier: it is repurchasable up to once
+      per dot of the raksha's **Compassion**, not her Sword or Valor like
+      every other repurchasable Charm in this Sword-Grace section.
+- **The universal, non-Grace-gated Assumption-type Charm tree, in full**
+  (shinma Nirakara, "the Mask"; pp. 149-155, PDF 150-156; 21 Charms) — the
+  Charms every raksha uses to take shape and exist within Creation at all,
+  with no minimum Grace requirement of their own:
+  - Two independent gateway roots, `assumption-of-elemental-shape`
+    (consolidated 5-variant row for Air/Earth/Fire/Water/Wood, matching
+    `bastion-of-the-self`'s precedent) and
+    `assumption-of-cerements-and-bone` (lets a raksha exist within the
+    Underworld, treated as dead for all effects).
+    `assumption-of-elemental-shape` branches to
+    `assumption-of-the-persons-heart` (tainting a single visible creature)
+    and `assumption-of-the-lands-heart` (tainting a hamlet-sized region by
+    sinking the raksha's Heart Grace into the land), which in turn
+    branches to `assumption-of-the-citys-heart` and
+    `assumption-of-the-living-kingdom` (larger regions), with
+    `assumption-of-the-citys-heart` further feeding
+    `assumption-of-the-wyld-tainted-land` (claiming a fading Bordermarches
+    region). `mad-god-mien` (a permanent, universally-gated "Any
+    Assumption-type Charm" prerequisite rather than one specific Charm)
+    makes the raksha wholly alien to Creation and is cross-referenced by
+    the Ring Grace tree's `extinction-of-desire`, resolving a forward
+    reference from an earlier round.
+  - The **Elemental Influence** sub-tree (3 further branches off
+    `assumption-of-elemental-shape`): `sovereign-elemental-shape` →
+    `element-weaving-style` → `elemental-invocation`;
+    `world-angering-elemental-mastery` → `teeth-of-the-world` (five
+    elemental attack abilities, one per element); and
+    `elemental-transformation` (a repeatable Charm building alternate
+    animal/elemental forms directly out of already-inventoried Sword Grace
+    Mutation Charms like Gossamer Wing Flight and Armament of Flesh), with
+    `sovereign-elemental-shape` + `elemental-transformation` converging on
+    `mercurial-shape`.
+  - The **Emotional Influence** sub-tree (explicitly framed in the book as
+    "an example of the type" of personalized non-elemental Assumption-type
+    Charm tree a raksha can build): `assumption-of-dreams-and-passion`
+    (root) → `elegant-muse-attitude` → `emotion-weaving-style` →
+    `emotional-invocation`; and `unwanted-obsession-provocation-technique`
+    → `essence-disrobing-passion`, direct emotional-Essence parallels of
+    the Elemental Influence Charms above.
+  - One naming-slip flagged in `notes`: `assumption-of-the-wyld-tainted-land`'s
+    own text says it "functions as Assumption of the Kingdom's Heart," but
+    no Charm of that exact name exists anywhere in the book; its stated
+    Prerequisite Charms line and the tree diagram both confirm it actually
+    branches off `assumption-of-the-citys-heart`, so the reference is
+    treated as a naming slip rather than corrected or reinterpreted.
+  - The "Vexing" rules (claiming waypoints, vexing the unshaped, vexing
+    Creation-born creatures without a Sword Grace) and the "Questing"
+    sidebar (raksha ritually dueling the unshaped for artifacts/spells/
+    servants) both sit on pp. 147-148/PDF 148-149, immediately before this
+    tree — neither has been inventoried yet; see "What's still needed."
 
 ## What's still needed
 
-1. **Two of Chapter Five's five per-Grace Charm trees remain, plus the last
-   section of the Ring Grace tree**: the Ring Grace tree (shinma
-   Nirvishesha, pp. 172-192 / PDF 173-193 — by far the largest of the five)
-   now has Ring Combat Charms, All-Consuming God-Monster Style,
-   Body-Strengthening Charms, Creation-Based Crafting, and the first
-   Glamour Charms tree inventoried. Still needed: the "**Greater Arts of
-   Glamour**" sub-section (pp. 185-192 / PDF 186-193 — three further
-   diagrammed trees covering `forging-the-heart-grace`, the four "Forging
-   the (Grace) Grace" Charms that let raksha grant Grace Traits to
-   Creation-born characters, the Freehold-anchoring Forging the
-   Stronghold/Glory/Fountainhead/Throne Room Charms, and capstone
-   artifact/behemoth-creation Charms). After the Ring tree finishes, the
-   Sword Grace tree remains entirely (shinma Nishkriya, pp. 196-203 / PDF
-   197-204 — Sword Combat Charms plus a "Mutation Charms" section of sample
-   mutations). **Resume with the Greater Arts of Glamour sub-section at
-   printed p. 185 / PDF 186** (immediately after `burden-ghost-glamour` and
-   `monstrous-conceit`, the last Charms of the first Glamour tree
-   inventoried this round), in that page order (rest of Ring, then Sword).
-2. The universal, non-Grace-gated Assumption-type Charm tree (shinma
-   Nirakara, "the Mask"; pp. 148-155 / PDF 149-156) that lets any raksha
-   take shape and exist within Creation at all — not yet inventoried.
-   Referenced by several existing rows (e.g. `birth-background`,
-   `innate-powers-wyld-immunity`) but not itself covered.
-3. Glamour Sorcery, Wyld Artifacts, and Adjurations (pp. 205-210 / PDF
+1. The "Vexing" rules (claiming waypoints with a 3-mote commitment, vexing
+   the unshaped to rip a three-dot behemoth from their Sword Grace, and
+   vexing Creation-born creatures who lack a Sword Grace via a
+   Willpower + Essence resistance roll) and the "Questing" sidebar (raksha
+   ritually dueling the unshaped in the Deep Wyld for artifacts, spells or
+   servants) — both sit on pp. 147-148 / PDF 148-149, immediately before
+   the Assumption-type Charm tree, and are Sword-shaping-combat-adjacent
+   material rather than part of that tree itself. Not yet inventoried;
+   **resume here at printed p. 147 / PDF 148** if picking this up next, or
+   skip ahead to item 2 below.
+2. Glamour Sorcery, Wyld Artifacts, and Adjurations (pp. 205-210 / PDF
    206-211) and Behemoths (pp. 210-212 / PDF 211-213) — not yet
-   inventoried.
-4. A short, apparently sixth Grace called "the Way" (shinma Nirupadhika)
+   inventoried. `great-works-of-the-grace` and
+   `unshaped-grace-transformation` both reference these product types by
+   page number without cross-referencing them, since no rows exist yet.
+3. A short, apparently sixth Grace called "the Way" (shinma Nirupadhika)
    surfaces on p. 212 (PDF 213), just before Chapter Six, with a "Forging
    the Way Grace" Charm and a "Perfect Reckoning Technique" Charm. It sits
    outside the five-Grace model (Cup/Ring/Staff/Sword/Heart) used
    throughout the rest of this inventory and has not been reviewed or
    reconciled with that model yet — flagged for dedicated review in a
-   future pass, likely alongside item 3 above.
-5. The Storyteller-only "unshaped" Charm-suggestion sidebar in Chapter
+   future pass, likely alongside item 2 above.
+4. The Storyteller-only "unshaped" Charm-suggestion sidebar in Chapter
    Three (pp. 96-97 / PDF 97-98) — full of specific named Charms for
    building unshaped NPCs, and explicitly GM-facing, not a player-facing
    creation rule. Deliberately **excluded from scope**, not merely
    deferred.
-6. Chapter One: Rakshastan (setting/geography — Freeholds, the
+5. Chapter One: Rakshastan (setting/geography — Freeholds, the
    Middlemarches, the Five Courts, the Church of Balor as story-hook
    flavor) and Chapter Two: The Raksha (broader lore) — not yet
    inventoried; only the character-creation-relevant mechanical content
-   from Chapters Three and Four (plus the general-rules content, two full
-   per-Grace Charm trees, and one Ring Grace sub-section now covered from
-   Chapter Five) is covered so far.
-7. Chapter Six: The Mountain Folk (a separate non-raksha playable-adjacent
+   from Chapters Three and Four (plus the general-rules content and all
+   five full per-Grace Charm trees from Chapter Five) is covered so far.
+6. Chapter Six: The Mountain Folk (a separate non-raksha playable-adjacent
    race) and Chapter Seven: Storytelling — not yet inventoried, and not
    necessarily in scope for the Fair Folk sheet family at all.
-8. Merits/Flaws specific to Fair Folk — checked again this round (the
+7. Merits/Flaws specific to Fair Folk — checked again this round (the
    edges of Chapters Three and Four where Backgrounds live, and the
    general-rules portion of Chapter Five); still not found anywhere in the
    chapters reviewed so far. May not exist as a distinct section in this
-   book at all; keep checking as the remaining Charm trees and chapters
-   are reviewed.
+   book at all; keep checking as the remaining chapters are reviewed.
 
 ## Do not add yet
 

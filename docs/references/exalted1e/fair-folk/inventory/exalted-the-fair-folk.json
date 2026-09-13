@@ -525,7 +525,7 @@
   },
   {
     "id": "craft-glamour-ability",
-    "name": "Craft (Glamour) \u2014 the paramount creator's Craft specialty",
+    "name": "Craft (Glamour) — the paramount creator's Craft specialty",
     "disposition": "calculated",
     "summary": "Craft (Glamour) is the single most important Craft specialty for raksha: the art of shaping Essence and dream itself, superseding metalwork, woodwork, stonework and every other mundane Craft specialty for a Fair Folk character.",
     "mechanics": "Craft (Glamour) is described as 'the paramount creator's skill in the Wyld.' In Creation, a raksha player can roll Perception + Craft (Glamour) for her character to identify the glamour-forged works of her peers.",
@@ -3293,5 +3293,1692 @@
       "style-background"
     ],
     "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Glamour Charms' section, p. 181 (PDF 182). Second and last Charm of the small standalone pair rooted at Worker's Gift."
+  },
+  {
+    "id": "forging-the-heart-grace",
+    "name": "Forging the Heart Grace",
+    "disposition": "selectable",
+    "summary": "The root Charm of the 'Greater Arts of Glamour' -- many noble raksha perform it at the moment of their own birth, literally shaping themselves from the substance of the Wyld and simultaneously creating their own unbreakable Heart Grace, the artifact that houses a creature's Willpower, Nature and volition.",
+    "requirements": "Minimum Ring: 0; Minimum Essence: 1; Prerequisite Charms: Shape-Forged Servant.",
+    "mechanics": "This Charm functions as Shape-Forged Servant, but in addition to crafting a creature, it creates an artifact inextricably bound to that creature -- to own one is to own the other. The artifact is the Heart Grace: it is unbreakable, it cannot be stolen except through shaping combat, and it contains a miniature reflection that mimics the creature's activities, letting others observe the creature through it (and, if the Heart Grace is something that opens and closes, use Charms and effects on the creature via the reflection). It also contains the creature's Willpower, giving the creature a Willpower Trait, a Nature, volition and a Heart Trait of 1. Since the Heart Grace cannot be stolen, attuning to it requires first creating, purchasing or winning one; attunement itself takes six scenes of handling and a 1-mote commitment, erasing any previous raksha's attunement, and buys the utter and absolute loyalty and service of the creature associated with that Heart. This loyalty fades if someone else attunes the Heart or if it goes unattuned for a year and a day. Raksha without this Charm were created as property, finding freedom only at the sufferance of their masters or upon their owners' deaths.",
+    "cost": "20 motes, 1 gossamer, plus 1 gossamer per mutation point",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 185,
+      "pdfPage": 186
+    },
+    "crossReferences": [
+      "shape-forged-servant",
+      "heart-grace",
+      "mutation-mechanic"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 185 (PDF 186). Root of the diagrammed 'Greater Arts of Glamour 1' tree (p. 186/PDF 187), which fans out to the four 'Forging the (Grace) Grace' Charms below, to Great Works of the (Grace), and (via further prerequisites elsewhere in this tree) to Behemoth-Forging Meditation and Extinction of Desire. This is the last named sub-section of the Ring Grace tree (shinma Nirvishesha); its completion finishes the entire Ring Grace tree."
+  },
+  {
+    "id": "forging-the-cup-grace",
+    "name": "Forging the Cup Grace",
+    "disposition": "selectable",
+    "summary": "Teaches a consenting creature to please others in the manner of the Fair Folk, consuming gossamer to craft it a Cup Grace artifact; anyone attuned to that Cup Grace can reflexively strip it away, reducing the creature's Cup to 0 and inflicting the Curse of Alienation.",
+    "requirements": "Minimum Ring: 0; Minimum Essence: 1; Prerequisite Charms: Forging the Heart Grace.",
+    "mechanics": "This Charm consumes a supply of gossamer and creates an artifact with the normal qualities of a finely crafted weapon, suit of armor or tool, in addition to the standard Grace qualities. Raksha and other Essence users can attune to a creature's Cup Grace with six scenes of handling and a 1-mote commitment, erasing any previous raksha's attunement. A character attuned to a creature's Cup Grace can reflexively strip away the creature's comprehensible facade, lowering its Cup to 0 and imposing the Curse of Alienation; breaking or destroying the Cup Grace also inflicts these effects. The raksha who creates a Cup Grace is its initial owner.",
+    "cost": "10 motes, 1 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 185,
+      "pdfPage": 186
+    },
+    "crossReferences": [
+      "forging-the-heart-grace",
+      "cup-grace",
+      "virtue-bedlam-curses"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 185 (PDF 186, spanning the column/page break into PDF 187). First of the four 'Forging the (Grace) Grace' Charms; each grants a Creation-born or other consenting character one of the raksha's own five Grace Traits as an artifact, and each corresponding Curse-on-strip pairs with the matching virtue-bedlam-curses entry (Cup -> Alienation)."
+  },
+  {
+    "id": "forging-the-ring-grace",
+    "name": "Forging the Ring Grace",
+    "disposition": "selectable",
+    "summary": "Teaches a consenting creature to see itself as the Fair Folk do, consuming gossamer to craft it a Ring Grace artifact; anyone attuned to that Ring Grace can reflexively strip away the creature's sense of self, reducing its Ring to 0 and inflicting the Curse of Meekness.",
+    "requirements": "Minimum Ring: 0; Minimum Essence: 1; Prerequisite Charms: Forging the Heart Grace.",
+    "mechanics": "This Charm consumes a supply of gossamer and creates an artifact with the normal qualities of a finely crafted weapon, suit of armor or tool, in addition to the standard Grace qualities. Raksha and other Essence users can attune to a creature's Ring Grace with six scenes of handling and a 1-mote commitment, erasing any previous raksha's attunement. A character attuned to a creature's Ring Grace can reflexively strip away the creature's sense of self, lowering its Ring to 0 and imposing the Curse of Meekness; breaking or destroying the Ring Grace also inflicts these effects. The raksha who creates a Ring Grace is its initial owner.",
+    "cost": "10 motes, 1 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 186,
+      "pdfPage": 187
+    },
+    "crossReferences": [
+      "forging-the-heart-grace",
+      "ring-grace",
+      "virtue-bedlam-curses"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 186 (PDF 187). Second of the four 'Forging the (Grace) Grace' Charms (Ring -> Curse of Meekness)."
+  },
+  {
+    "id": "forging-the-staff-grace",
+    "name": "Forging the Staff Grace",
+    "disposition": "selectable",
+    "summary": "Teaches a consenting creature the ways of Fair Folk diplomacy, consuming gossamer to craft it a Staff Grace artifact; anyone attuned to that Staff Grace can reflexively strip away the creature's understanding of others, reducing its Staff to 0 and inflicting the Curse of Hubris.",
+    "requirements": "Minimum Ring: 0; Minimum Essence: 1; Prerequisite Charms: Forging the Heart Grace.",
+    "mechanics": "This Charm consumes a supply of gossamer and creates an artifact with the normal qualities of a finely crafted weapon, suit of armor or tool, in addition to the standard Grace qualities. Raksha and other Essence users can attune to a creature's Staff Grace with six scenes of handling and a 1-mote commitment, erasing any previous raksha's attunement. A character attuned to a creature's Staff Grace can reflexively strip away the creature's understanding of others, lowering its Staff to 0 and imposing the Curse of Hubris; breaking or destroying the Staff Grace also inflicts these effects. The raksha who creates a Staff Grace is its initial owner.",
+    "cost": "10 motes, 1 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 186,
+      "pdfPage": 187
+    },
+    "crossReferences": [
+      "forging-the-heart-grace",
+      "staff-grace",
+      "virtue-bedlam-curses"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 186 (PDF 187). Third of the four 'Forging the (Grace) Grace' Charms (Staff -> Curse of Hubris)."
+  },
+  {
+    "id": "forging-the-sword-grace",
+    "name": "Forging the Sword Grace",
+    "disposition": "selectable",
+    "summary": "Makes a consenting creature as terrifying as the raksha herself, consuming gossamer to craft it a Sword Grace artifact that also shields the creature's own Heart Grace from theft by anyone who does not hold the Sword; anyone attuned to the Sword Grace can reflexively strip the creature of its epic mien, reducing its Sword to 0 and inflicting the Curse of Namelessness.",
+    "requirements": "Minimum Ring: 0; Minimum Essence: 1; Prerequisite Charms: Forging the Heart Grace.",
+    "mechanics": "This Charm consumes a supply of gossamer and creates an artifact with the normal qualities of a finely crafted weapon, suit of armor or tool, in addition to the standard Grace qualities. Raksha and other Essence users can attune to a creature's Sword Grace with six scenes of handling and a 1-mote commitment, erasing any previous raksha's attunement. A character attuned to a creature's Sword Grace can reflexively strip the creature of its epic mien, lowering its Sword to 0 and imposing the Curse of Namelessness; breaking or destroying the Sword Grace also inflicts these effects. While a Sword Grace exists, its creature's Heart Grace cannot be broken or stolen (whether by shaping combat or mortal theft) by anyone who does not also own the creature's Sword Grace -- raksha sometimes give their Sword Grace to others to safeguard for exactly this reason, though most hesitate to grant such power. The raksha who creates a Sword Grace is its initial owner.",
+    "cost": "10 motes, 1 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 186,
+      "pdfPage": 187
+    },
+    "crossReferences": [
+      "forging-the-heart-grace",
+      "sword-grace",
+      "virtue-bedlam-curses"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 186 (PDF 187, with the Prerequisite Charms line and mechanics text pushed to PDF 188 in the raw text-extraction order because the 'Greater Arts of Glamour 1' tree diagram is embedded mid-page; confirmed against the rendered page image that this is one continuous Charm, not two). Fourth and last of the four 'Forging the (Grace) Grace' Charms (Sword -> Curse of Namelessness)."
+  },
+  {
+    "id": "gaping-virtue-mouth",
+    "name": "Gaping Virtue Mouth",
+    "disposition": "selectable",
+    "summary": "Pries open one of a character's Graces, transforming it into an abstract fanged feeding maw keyed to that Grace's Virtue, granting the character access to the Cup's feeding Charms and natural Essence regeneration in the Wyld or a Freehold, at the cost of treating that Grace as a Major Grace for Charm experience purposes.",
+    "requirements": "Minimum Ring: 1; Minimum Essence: 1; Prerequisite Charms: Forging the Cup Grace, Forging the Ring Grace, Forging the Staff Grace, Forging the Sword Grace.",
+    "mechanics": "The raksha interacts with a character and pries open one of that character's Graces, transforming it into a fanged feeding maw that hungers for the emanations of its Virtue. The mouth and teeth exist only in an abstract sense, typically visible only to effects such as All-Encompassing Sorcerer's Sight and in the anima banner of Exalted who acquire a feeding Grace. Characters with a feeding Grace gain access to the feeding Charms of the Cup and can regain Essence naturally in the Wyld or a Freehold; feeding Graces are also treated as Major Graces for the purposes of Charm experience costs. The maximum number of feeding Graces a character can possess equals her Heart rating minus one.",
+    "cost": "20 motes, 1 gossamer, 1 experience point",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 187,
+      "pdfPage": 188
+    },
+    "crossReferences": [
+      "forging-the-cup-grace",
+      "forging-the-ring-grace",
+      "forging-the-staff-grace",
+      "forging-the-sword-grace",
+      "heart-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 187 (PDF 188). Root of the diagrammed 'Greater Arts of Glamour 2' tree, requiring all four 'Forging the (Grace) Grace' Charms simultaneously (labeled 'Forging the Graces (all)' in the diagram) rather than branching off any single one."
+  },
+  {
+    "id": "iron-nightmare-muzzle",
+    "name": "Iron Nightmare Muzzle",
+    "disposition": "selectable",
+    "summary": "A Ring-shaping attack that seals shut an enemy's Virtue mouth instead of dealing normal damage, doubling that Grace's Charm costs until the target can reopen it.",
+    "requirements": "Minimum Ring: 5; Minimum Essence: 4; Prerequisite Charms: Gaping Virtue Mouth.",
+    "mechanics": "The raksha seals over a Grace, closing an enemy's Virtue mouth. The raksha's player makes a Ring-shaping attack against a target no more than one waypoint away. On a success, instead of the normal damage, this Charm seals one of the target's Major Graces so that he can no longer feed from it, doubling the mote cost for all Charms of that Grace until the target can reopen the Virtue maw (for example, with Gaping Virtue Mouth). The Grace remains a feeding Grace -- it is simply not usable.",
+    "cost": "5 motes, 1 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 187,
+      "pdfPage": 188
+    },
+    "crossReferences": [
+      "gaping-virtue-mouth",
+      "ring-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 187 (PDF 188). First of three Charms branching from Gaping Virtue Mouth in the 'Greater Arts of Glamour 2' diagram."
+  },
+  {
+    "id": "ecstatic-reproduction-style",
+    "name": "Ecstatic Reproduction Style",
+    "disposition": "selectable",
+    "summary": "A ritual act of communion with the Wyld's mad, amorphous desires that creates a new raksha child, born into servitude with its Heart Grace already in the Charm-user's hand.",
+    "requirements": "Minimum Ring: 1; Minimum Essence: 4; Prerequisite Charms: Gaping Virtue Mouth.",
+    "mechanics": "The raksha performs an act of communion with the mad, amorphous desires and substance of the Wyld. From the delicate shaping of the raksha and the blind primordial urges of chaos, a child is made -- a raksha, prince or servant of the Wyld, born into servitude with the child's Heart Grace in the Charm-user's hand. To use this Charm, the raksha's player rolls Intelligence + Craft (Glamour) as a non-extended action; creating a common raksha is difficulty 5, a heroic commoner difficulty 7, and a noble difficulty 9. On a success, this Charm creates the desired raksha with all five Graces, an appropriate number of them feeding Graces, and the Charm user owns and is attuned to all of them. Botching produces a deformed or suboptimal child -- often an enemy raksha or monster who owns his own Graces.",
+    "cost": "20 motes, 5 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 187,
+      "pdfPage": 188
+    },
+    "crossReferences": [
+      "gaping-virtue-mouth",
+      "heart-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 187 (PDF 188, with the mechanics description continuing onto PDF 189). Second of three Charms branching from Gaping Virtue Mouth."
+  },
+  {
+    "id": "akshata-sexual-methodology",
+    "name": "Akshata Sexual Methodology",
+    "disposition": "selectable",
+    "summary": "A Staff-shaping crossover Charm evoking the Staff shinma Nirvikalpa: draws the Essence of two consenting Fair Folk into the raksha and manipulates it to create an oath-bound child, with each parent holding one of the child's Graces.",
+    "requirements": "Minimum Staff: 2; Minimum Essence: 4; Prerequisite Charms: Gaping Virtue Mouth.",
+    "mechanics": "This Charm evokes the aspect of the Staff shinma, Nirvikalpa, letting the raksha draw the Essence of two consenting Fair Folk into himself and manipulate it to create a child. Each parent makes an oath to the other, and the Akshata (the raksha performing the Charm) makes a third oath in the child's name; the child is bound by the Akshata's oath, and the parents' oaths remain sacrosanct only as long as the child exists -- many Wyld treaties are sealed by such oath-children. The parents can contribute motes, gossamer and experience points to the Charm's cost. Each parent holds one of the child's Graces, and the child possesses its own Heart, Ring and Sword. If either parent is raksha, the child is raksha; if either is noble, the child is noble. The children of the unshaped are often prodigies. This is a Staff-shaping Charm.",
+    "cost": "40 motes, 5 gossamer, 2 experience points",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 188,
+      "pdfPage": 189
+    },
+    "crossReferences": [
+      "gaping-virtue-mouth",
+      "staff-grace",
+      "ring-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 188 (PDF 189). Third of three Charms branching from Gaping Virtue Mouth. Explicitly gated on Staff ('Minimum Staff: 2') and self-declared 'a Staff-shaping Charm' despite branching off a Ring-tree Charm -- the same cross-Grace pattern flagged throughout this inventory (Beguilement, Spite-Summoning Malediction, Prince and Pauper Approach, Undetectable Lie, Monstrous Conceit, Tainted Creature Command)."
+  },
+  {
+    "id": "forging-the-arcane-redoubt",
+    "name": "Forging the Arcane Redoubt",
+    "disposition": "selectable",
+    "summary": "Embeds a consenting creature's Heart Grace in an uncapped Demesne, immolating the creature into dormancy and converting the Demesne into a Freehold anchored by an eternal 'bonefire' that others can attune to for reflexive Freehold-wide awareness and automatic shaping successes.",
+    "requirements": "Minimum Ring: 2; Minimum Essence: 2; Prerequisite Charms: Forging the Heart Grace.",
+    "mechanics": "The raksha embeds a consenting creature's Heart Grace in the center of an uncapped Demesne. Over the course of a story, it begins to burn until the Heart immolates and becomes a pillar of silver, heatless bonefire; the creature associated with that Heart turns to dust and ash, ceasing to exist until the bonefire dies, at which point the creature returns to life. Building the bonefire turns the Demesne into a Freehold, creating a Cyst or a set of pennants; the Freehold fills with Wyld taint and the Demesne becomes part of the Middlemarches of Rakshastan. The bonefire must be fed dross (a mix of Essence and gossamer) -- 20 motes and 1 gossamer per story -- or it dies and all its effects fail. To attune to a bonefire, a character casts her own Heart into the fire (with the owner's consent if she does not own it herself); for the next six scenes the Heart is vulnerable to theft by normal dice actions or vexation, though reaching into the fire to claim it inflicts one level of aggravated damage. Once the Heart has spent six scenes in the fire, the character is attuned, gaining three benefits: she can 'enflesh' herself within the Freehold as a whole, becoming reflexively aware of everything that transpires there and able to use shaping actions as if present at any waypoint; she receives her Essence in automatic successes on all shaping rolls within the Freehold; and she can reflexively spy on any creature carrying a pennant or Cyst for the Freehold, and can wither or regrow any pennant or Cyst over the course of a story. Raksha outside the Freehold must hold a pennant or Cyst to realize these benefits. Multiple raksha can place their Hearts in the bonefire, dividing the benefits among them and holding power in turn for a duration the bonefire's creator sets (a day, week, month, season, year or story).",
+    "cost": "25 motes, 3 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 188,
+      "pdfPage": 189
+    },
+    "crossReferences": [
+      "forging-the-heart-grace",
+      "freehold-background"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 188 (PDF 189). Root of the diagrammed 'Greater Arts of Glamour 3' tree (p. 190/PDF 191), the second major branch off Forging the Heart Grace; feeds into Forging the Stronghold/Glory/Fountainhead/Throne Room. The sidebar 'ENFLESHED' on this page (PDF 189-190) clarifies that enfleshed characters keep their physical body and gain only reflexive, transient awareness of the controlled area -- summarized in this row's mechanics rather than given a separate row, since it has no mechanical effect independent of the Charms that grant enfleshment."
+  },
+  {
+    "id": "forging-the-stronghold",
+    "name": "Forging the Stronghold",
+    "disposition": "selectable",
+    "summary": "Embeds a Sword Grace in a Freehold waypoint, turning it into the Freehold's masculine/martial 'Stronghold' anchor -- protecting against physical invasion, letting the Freehold claim additional waypoints, and granting the attuned character territorial control over the Freehold's physical structure.",
+    "requirements": "Minimum Ring: 2; Minimum Essence: 2; Prerequisite Charms: Forging the Sword Grace, Forging the Arcane Redoubt.",
+    "mechanics": "The raksha embeds a Sword Grace in the spiritual structure of a Freehold waypoint; that Sword Grace and waypoint transform into a 'Stronghold' -- the center and focus of the Freehold's active, aggressive strength, always with masculine or martial symbolism (a fortress, marshalling yard, maypole or mountain peak). Its existence protects the Freehold against physical invasion, and the Freehold gains a Sword Trait (Stronghold Trait) equal to the creature's Sword. A Freehold with a Stronghold can claim possession of additional waypoints, directly controlling a number equal to 10 times its Stronghold Trait. Attuning to a Stronghold requires six scenes of effort and a 1-mote commitment (erasing any previous attunement); the attuning character must have undisputed physical control over the territory, driving out anyone who might object. The attuned character controls the Freehold's physical territory: he can rearrange journeys between waypoints with a difficulty 3 Sword-shaping action (though he cannot isolate a waypoint or reduce the total number of journeys), can enflesh himself in the Freehold's physical structure (gaining awareness of all Sword shaping there, applicable Sword defenses against shaping attacks on the Freehold's waypoints, and the ability to make Sword-shaping actions as if present anywhere in the Freehold). The Stronghold remains the creature's own Sword Grace, and the attuned character can reflexively inflict the Curse of Namelessness on that creature.",
+    "cost": "20 motes, 2 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 189,
+      "pdfPage": 190
+    },
+    "crossReferences": [
+      "forging-the-sword-grace",
+      "forging-the-arcane-redoubt",
+      "freehold-background",
+      "virtue-bedlam-curses"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 189 (PDF 190). First of four parallel Freehold-anchor Charms branching off Forging the Arcane Redoubt (paired here with Forging the Sword Grace)."
+  },
+  {
+    "id": "forging-the-glory",
+    "name": "Forging the Glory",
+    "disposition": "selectable",
+    "summary": "Embeds a Cup Grace in a Freehold waypoint, turning it into the Freehold's radiant 'Glory' anchor -- suffusing the Freehold with beguiling beauty that can compel visitors to linger and submit, and granting the attuned character control over the Freehold's emotional ambience.",
+    "requirements": "Minimum Ring: 2; Minimum Essence: 2; Prerequisite Charms: Forging the Cup Grace, Forging the Arcane Redoubt.",
+    "mechanics": "The raksha embeds a Cup Grace in the spiritual structure of a Freehold waypoint; that Cup Grace and waypoint transform into a 'Glory' -- the center and focus of the Freehold's majesty, radiating a subtle beauty that makes the place magical and wondrous even for mortals tortured within it. The Freehold gains a Cup Trait (Glory Trait) equal to the creature's Cup. A Freehold with a Glory radiates beguilement: characters who relax their mental defenses and accept the Freehold's hospitality must make a Willpower roll (difficulty 1 for raksha, 2 for Creation-born, 3 for Creation-born prisoners) or suffer a beguilement effect compelling them to linger, show no resistance to the raksha, and consent to the raksha's Charms; this effect is a work of glamour with no effect on characters of Wits + Essence 7 or higher. Attuning to a Glory requires an uninterrupted six-scene performance and a 1-mote commitment (erasing any previous attunement); the process fails if the attuning character is driven away or the performance is interrupted. The attuned character controls the Freehold's emotional ambience: she can prevent raksha from regaining Essence naturally there with a difficulty 3 Cup-shaping action, and can enflesh herself in its spiritual structure (gaining awareness of all Cup shaping there, applicable Cup defenses against shaping attacks on the Freehold's waypoints, and the ability to make Cup-shaping actions as if present anywhere in the Freehold). The Glory remains the creature's own Cup Grace, and the attuned character can reflexively inflict the Curse of Alienation on that creature.",
+    "cost": "20 motes, 2 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 189,
+      "pdfPage": 190
+    },
+    "crossReferences": [
+      "forging-the-cup-grace",
+      "forging-the-arcane-redoubt",
+      "freehold-background",
+      "virtue-bedlam-curses"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 189 (PDF 190, with the mechanics description continuing onto PDF 191). Second of four parallel Freehold-anchor Charms branching off Forging the Arcane Redoubt (paired here with Forging the Cup Grace)."
+  },
+  {
+    "id": "forging-the-fountainhead",
+    "name": "Forging the Fountainhead",
+    "disposition": "selectable",
+    "summary": "Embeds a Ring Grace in a Freehold waypoint, turning it into the Freehold's self-aware 'Fountainhead' anchor -- a living creature witnessing everything within the Freehold -- and granting the attuned character reflexive perception of the whole Freehold.",
+    "requirements": "Minimum Ring: 2; Minimum Essence: 2; Prerequisite Charms: Forging the Ring Grace, Forging the Arcane Redoubt.",
+    "mechanics": "The raksha embeds a Ring Grace in the spiritual structure of a Freehold waypoint; that Ring Grace and waypoint transform into a 'Fountainhead' -- the center and focus of the Freehold's definition, with feminine or passive symbolism (a well, lake, garden, grotto, mosaic, room-sized mirror or hollow). Its existence gives the Freehold self-awareness and identity, and the Freehold gains a Ring Trait (Fountainhead Trait) equal to the creature's Ring; a Freehold with a Fountainhead is itself a living creature, abstractly and distantly conscious but able to witness everything within it. Attuning to a Fountainhead requires six scenes of effort and a 1-mote commitment (erasing any previous attunement); a majority of the Freehold's Worker raksha must participate, giving their strength to the project. The attuned character defines the Freehold and commands its awareness: she can reflexively sense everything happening anywhere in the Freehold or near any of its pennants or Cysts, can use applicable Ring defenses against shaping attacks on the Freehold's waypoints, and can make Ring-shaping actions as if present anywhere in the Freehold. The Fountainhead remains the creature's own Ring Grace, and the attuned character can reflexively inflict the Curse of Meekness on that creature.",
+    "cost": "20 motes, 2 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 190,
+      "pdfPage": 191
+    },
+    "crossReferences": [
+      "forging-the-ring-grace",
+      "forging-the-arcane-redoubt",
+      "freehold-background",
+      "virtue-bedlam-curses"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 190 (PDF 191). Third of four parallel Freehold-anchor Charms branching off Forging the Arcane Redoubt (paired here with Forging the Ring Grace). Unlike the other three anchors, attunement here requires participation from a majority of the Freehold's Worker raksha rather than solitary effort."
+  },
+  {
+    "id": "forging-the-throne-room",
+    "name": "Forging the Throne Room",
+    "disposition": "selectable",
+    "summary": "Embeds a Staff Grace in a Freehold waypoint, turning it into the Freehold's 'Throne Room' anchor for court and society -- letting nobles bind themselves in fealty to the Freehold and its lord -- and granting the attuned character control over the Freehold's social fabric.",
+    "requirements": "Minimum Ring: 2; Minimum Essence: 2; Prerequisite Charms: Forging the Staff Grace, Forging the Arcane Redoubt.",
+    "mechanics": "The raksha embeds a Staff Grace in the spiritual structure of a Freehold waypoint; that Staff Grace and waypoint transform into a 'Throne Room' -- a place of court and deliberations, the central focus for the Freehold's society, able to marshal and shape the convictions of others. The Freehold gains a Staff Trait (Throne Room Trait) equal to the creature's Staff. A Freehold's Throne Room allows raksha to bind themselves in fealty to the Freehold and its lord, with the oaths binding the Freehold applying to all such characters until they or the current lord rejects that fealty. Attuning to a Throne Room requires six scenes of effort and a 1-mote commitment (erasing any previous attunement); during the attuning story, the character must meaningfully interact with every noble sworn to the Freehold (gift exchanges, sexual liaisons and plotting together all count, but casual conversation or strictly hostile encounters do not). The attuned character controls the Freehold's social fabric: she can take one oath or adjuration per story on the Freehold's behalf, and can enflesh herself in its social structure (gaining awareness of all Staff shaping there, applicable Staff defenses against shaping attacks on the Freehold's territory, and the ability to make Staff-shaping actions as if present anywhere in the Freehold). The Throne Room remains the creature's own Staff Grace, and the attuned character can reflexively inflict the Curse of Hubris on that creature.",
+    "cost": "20 motes, 2 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 190,
+      "pdfPage": 191
+    },
+    "crossReferences": [
+      "forging-the-staff-grace",
+      "forging-the-arcane-redoubt",
+      "freehold-background",
+      "virtue-bedlam-curses",
+      "oaths-mechanic"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 190 (PDF 191, with the Prerequisite Charms line and mechanics text pushed to PDF 192 in the raw text-extraction order because the 'Greater Arts of Glamour 3' tree diagram is embedded mid-page; confirmed against the rendered page image that this is one continuous Charm). Fourth and last of four parallel Freehold-anchor Charms branching off Forging the Arcane Redoubt (paired here with Forging the Staff Grace); this and the other three anchor Charms complete the 'Greater Arts of Glamour 3' diagram."
+  },
+  {
+    "id": "great-works-of-the-grace",
+    "name": "Great Works of the (Grace)",
+    "disposition": "selectable",
+    "summary": "The Ring's mightiest art of artifact creation: an extended crafting Charm, actually four separate Charms, that forges a fellow raksha's Grace into a permanent artifact of a type keyed to that Grace -- a glamour sorcery spell from a Cup Grace, a Wyld artifact from a Ring Grace, an adjuration from a Staff Grace, or a behemoth from a Sword Grace.",
+    "requirements": "Minimum Ring: 4; Minimum Essence: 3; Prerequisite Charms: Forging the Heart Grace.",
+    "mechanics": "This is actually four separate Charms, each forging a specific type of artifact from a specific Grace: Great Works of the Cup forges a glamour sorcery spell from a Cup Grace; Great Works of the Ring forges a Wyld artifact from a Ring Grace; Great Works of the Staff forges an adjuration from a Staff Grace; Great Works of the Sword forges a behemoth from a Sword Grace. A common raksha's Grace becomes a one-dot artifact; noble Graces can become two- or three-dot artifacts. The artifact remains the raksha's own Grace, simply gaining new potence, and characters attuned to it can still reflexively exert the appropriate Curse on the creature. The raksha chooses the artifact's nature, power level and properties, acquires a suitable Grace, and rolls Intelligence + Craft (Glamour) as an extended Ring-shaping action (difficulty 3 for an Artifact 1, 4 for an Artifact 2, 5 for an Artifact 3), leaving the motes committed for a full story per roll. Accumulating 10 successes (Artifact 1), 30 successes (Artifact 2) or 60 successes (Artifact 3) transforms the Grace into the desired artifact as a work of permanent glamour.",
+    "cost": "20 motes, 3 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 191,
+      "pdfPage": 192
+    },
+    "crossReferences": [
+      "forging-the-heart-grace",
+      "cup-grace",
+      "ring-grace",
+      "staff-grace",
+      "sword-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 191 (PDF 192). Packed the four named variants (Great Works of the Cup/Ring/Staff/Sword) into one consolidated row, matching how this inventory already packs multi-variant single-header Charms into one row (e.g. bastion-of-the-self's four Grace variants); the diagrammed 'Greater Arts of Glamour 1' tree likewise labels this a single '(4)' node. Glamour sorcery, Wyld artifacts, adjurations and behemoths (pp. 205-211/PDF 206-212) are the products this Charm creates but have not yet been separately inventoried in this pass -- flagged for a future pass rather than cross-referenced here, since no corresponding rows exist yet."
+  },
+  {
+    "id": "unshaped-grace-transformation",
+    "name": "Unshaped (Grace) Transformation",
+    "disposition": "selectable",
+    "summary": "Reshapes an existing artifact born of a Great Works of the (Grace) Charm into a different Storyteller-authorized design of the raksha's choosing -- actually four separate Charms, one per Grace-derived artifact type -- and can also repair damaged artifacts or slain behemoths at reduced difficulty.",
+    "requirements": "Minimum Ring: 5; Minimum Essence: 3; Prerequisite Charms: Great Works of the (Matching Grace).",
+    "mechanics": "Molding the Essence and gossamer of an artifact as if it were fine clay, the raksha reshapes existing artifacts to her whims. This is actually four Charms: Unshaped Cup Transformation changes the nature of a glamour sorcery spell; Unshaped Ring Transformation changes the nature of a Wyld artifact; Unshaped Staff Transformation changes the nature of an inactive adjuration; Unshaped Sword Transformation redefines a behemoth. The raksha chooses the artifact's nature, power level and properties, acquires a suitable artifact of the same level, and rolls Intelligence + Craft (Glamour) as an extended Ring-shaping action, with difficulty equal to the artifact's dot rating (this Charm can manipulate Wyld-forged artifacts up to level 5), leaving the motes committed for a full story per roll. Accumulating 3 successes (Artifact 1), 5 (Artifact 2), 10 (Artifact 3), 30 (Artifact 4) or 60 (Artifact 5) reshapes the artifact into a Storyteller-authorized artifact of the raksha's own design. This Charm can also repair damaged artifacts or slain behemoths; if only repairing damage, each roll's difficulty is reduced by one.",
+    "cost": "20 motes, 3 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 191,
+      "pdfPage": 192
+    },
+    "crossReferences": [
+      "great-works-of-the-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 191 (PDF 192, with the mechanics description continuing onto PDF 193). Packed the four named variants into one consolidated row, matching great-works-of-the-grace and bastion-of-the-self."
+  },
+  {
+    "id": "behemoth-forging-meditation",
+    "name": "Behemoth-Forging Meditation",
+    "disposition": "selectable",
+    "summary": "A Sword-crossover capstone that twists a visiting Creation-born creature's nature with mutation points, potentially turning it into a minor behemoth a raksha can attune to and wield as a Sword-shaping weapon.",
+    "requirements": "Minimum Ring: 5; Minimum Essence: 4; Prerequisite Charms: Shape-Forged Servant, Unshaped Sword Transformation.",
+    "mechanics": "Twisting the nature of a visiting Creation-born creature, the raksha imposes one or more mutations. The raksha's player rolls Intelligence + Craft (Glamour); this Charm changes the target's cosmetic appearance and adds 1 mutation point to the target for every two successes rolled. Essence 1 targets affected by this Charm become minor behemoths -- raksha can attune to them and control them as Sword-shaping weapons. Most have the weapon qualities of basic non-artifact weapons (horrors, mutant warleaders and similar), requiring only a 1-mote attunement to command; mutants with 10 or more points of mutation qualify as one-dot fey beasts. This Charm is a work of glamour and does not affect creatures whose Stamina + Essence exceeds the raksha's Intelligence. Tattooed Lunar Exalted are also immune.",
+    "cost": "20 motes, 3 gossamer",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 192,
+      "pdfPage": 193
+    },
+    "crossReferences": [
+      "shape-forged-servant",
+      "unshaped-grace-transformation",
+      "sword-grace",
+      "mutation-mechanic"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 192 (PDF 193). Diagrammed in 'Greater Arts of Glamour 1' as a Sword-crossover leaf off Shape-Forged Servant, but its stated Prerequisite Charms line names Unshaped Sword Transformation (one variant of unshaped-grace-transformation) rather than any single named Sword Charm; cross-referenced to the consolidated row accordingly."
+  },
+  {
+    "id": "extinction-of-desire",
+    "name": "Extinction of Desire",
+    "disposition": "selectable",
+    "summary": "The raksha achieves the enlightenment of Nirvishesha by remaking herself as an unbreakable artifact, extinguishing her own volition and self-awareness and delivering her absolute loyalty into the hands of the first raksha to attune to her.",
+    "requirements": "Minimum Ring: 5; Minimum Essence: 3; Prerequisite Charms: Unshaped Ring Transformation.",
+    "mechanics": "The raksha achieves the enlightenment of Nirvishesha and remakes herself as an artifact. Her Heart and Ring Graces turn to dust, and her reflection in her Heart screams in endless agony before fading into foul smoke. This Charm extinguishes the raksha's volition and awareness of self; she can no longer spend Willpower or use the Charms of the Ring. She does not suffer the Curse of Meekness and does not cease to exist -- instead she delivers her will utterly into the hands of the first raksha to attune to her (a 1-mote commitment and six scenes of interaction, functioning only if no other character is attuned). The attuned character can command her as if in possession of her Heart Grace, with absolute loyalty. Raksha affected by this Charm ignore the effects of shaping damage, gain an additional 6L/6B soak against mortal attacks, become unbreakable (automatically converting lethal damage to bashing before soak, unless the attack could damage one of the Five Magical Materials), can be repaired as a damaged three-dot artifact if killed in Creation, and gain the benefits of Mad God Mien.",
+    "cost": "1 mutation point",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 192,
+      "pdfPage": 193
+    },
+    "crossReferences": [
+      "unshaped-grace-transformation",
+      "ring-grace",
+      "heart-grace",
+      "virtue-bedlam-curses",
+      "mutation-mechanic"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 192 (PDF 193). Final capstone of the diagrammed 'Greater Arts of Glamour 1' tree and the last Charm of the entire Ring Grace tree (shinma Nirvishesha), which is now complete across Ring Combat Charms, All-Consuming God-Monster Style, Body-Strengthening Charms, Creation-Based Crafting, the first Glamour Charms tree, and this Greater Arts of Glamour sub-section. 'Mad God Mien' (pp. 150-151/PDF 151-152) is referenced by name but not yet its own inventory row; flagged for a future pass through the Assumption-type (Nirakara, the Mask) Charm-tree material that pp. 150-151 sit within."
+  },
+  {
+    "id": "god-humbling-victory-sword",
+    "name": "God-Humbling Victory Sword",
+    "disposition": "selectable",
+    "summary": "The root Sword Combat Charm: calls Nishkriya into the aspect of the raksha's Sword and fills the world with portents of victory, adding bonus dice to a single Sword- or Staff-shaping attack.",
+    "requirements": "Minimum Sword: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The raksha calls Nishkriya into the aspect of her Sword and fills the world with portents of her victory. This Charm adds one or more dice to a single Sword-shaping or Staff-shaping attack.",
+    "cost": "1 mote per die",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 196,
+      "pdfPage": 197
+    },
+    "crossReferences": [
+      "sword-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' section, p. 196 (PDF 197). First of two independent roots of the diagrammed 'Sword Combat Charms 1' tree (the other is Host-Summoning Glory of Command). Nishkriya, the Sword tree's opening prose (immediately preceding this Charm) has not been separately inventoried; it introduces the shinma's aspects (Kala, Dharma, Shikhari, Raghava, Caturbhuja) referenced by name in several Charms below."
+  },
+  {
+    "id": "scourging-wind-raid",
+    "name": "Scourging Wind Raid",
+    "disposition": "selectable",
+    "summary": "A lightning raid that lets the raksha steal a named possession from a target as part of a Sword- or Staff-shaping attack, at increased difficulty.",
+    "requirements": "Minimum Sword: 2; Minimum Essence: 1; Prerequisite Charms: God-Humbling Victory Sword.",
+    "mechanics": "In a lightning raid, the raksha steals the wealth of her foe. The raksha spends the motes for this Charm, names one of the target's possessions, and makes a Sword-shaping or Staff-shaping attack at +2 difficulty. If successful, this Charm co-opts ownership of that possession in addition to inflicting normal damage. The Charm cannot steal Graces, artifacts or Hearthstones, but it can steal shaping weapons, including readied weapons.",
+    "cost": "3 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 196,
+      "pdfPage": 197
+    },
+    "crossReferences": [
+      "god-humbling-victory-sword"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' section, p. 196 (PDF 197)."
+  },
+  {
+    "id": "dream-sacrificing-method",
+    "name": "Dream Sacrificing Method",
+    "disposition": "selectable",
+    "summary": "Lets the raksha negate incoming Sword-shaping attack damage by sacrificing gossamer equal to the damage successes, transferring that gossamer to the attacker.",
+    "requirements": "Minimum Sword: 3; Minimum Essence: 2; Prerequisite Charms: Scourging Wind Raid.",
+    "mechanics": "Even the living deities of battle must choose their sacrifices. The raksha invokes this Charm after an enemy rolls damage for a Sword-shaping attack. The raksha can negate this damage by sacrificing gossamer equal to the damage successes; this Charm negates the damage but transfers the gossamer into the attacker's hands.",
+    "cost": "3 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 196,
+      "pdfPage": 197
+    },
+    "crossReferences": [
+      "scourging-wind-raid"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' section, p. 196 (PDF 197). Note this Charm negates damage even though it is the raksha invoking it against an attack aimed at herself (the raksha named in the mechanics is the target, sacrificing her own gossamer to the attacker)."
+  },
+  {
+    "id": "unparalleled-terror-technique",
+    "name": "Unparalleled Terror Technique",
+    "disposition": "selectable",
+    "summary": "Englamours an ordinary Sword- or Staff-shaping attack with the touch of nightmare, doubling extra successes for damage purposes if the attack succeeds.",
+    "requirements": "Minimum Sword: 2; Minimum Essence: 1; Prerequisite Charms: God-Humbling Victory Sword.",
+    "mechanics": "The raksha's Sword hungers for the fear of her foe. Her shaping englamours an ordinary blow with the touch of nightmare. This Charm augments a single Sword-shaping or Staff-shaping attack; if the attack succeeds, the raksha counts extra successes twice for purposes of dealing damage.",
+    "cost": "1 mote",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 196,
+      "pdfPage": 197
+    },
+    "crossReferences": [
+      "god-humbling-victory-sword"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' section, p. 196 (PDF 197, with the mechanics description continuing onto PDF 198). Second of three branches off God-Humbling Victory Sword."
+  },
+  {
+    "id": "pincer-of-transcendent-time-and-fate",
+    "name": "Pincer of Transcendent Time and Fate",
+    "disposition": "selectable",
+    "summary": "Takes on the aspect of Kala and Dharma, the paired weapons of Nishkriya that strike as one, letting the raksha launch two Sword- or Staff-shaping attacks at full dice pool using a single shaping action.",
+    "requirements": "Minimum Sword: 2; Minimum Essence: 1; Prerequisite Charms: God-Humbling Victory Sword.",
+    "mechanics": "The raksha's Sword takes on the aspect of Kala and Dharma, the paired weapons of Nishkriya that strike as one. This Charm uses the raksha's shaping action to launch two Sword-shaping or two Staff-shaping attacks at her full dice pool.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Instant. Type: Extra Action.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 197,
+      "pdfPage": 198
+    },
+    "crossReferences": [
+      "god-humbling-victory-sword"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' section, p. 197 (PDF 198). Third branch off God-Humbling Victory Sword."
+  },
+  {
+    "id": "endless-armies-of-the-storm",
+    "name": "Endless Armies of the Storm",
+    "disposition": "selectable",
+    "summary": "Calls an endless host driven forth by flute and drum, letting the raksha make additional Sword- or Staff-shaping attacks (one per 3 motes spent, up to her permanent Essence) alongside her normal shaping action.",
+    "requirements": "Minimum Sword: 3; Minimum Essence: 2; Prerequisite Charms: Pincer of Transcendent Time and Fate.",
+    "mechanics": "The raksha opens her spirit with Nishkriya, the Sword, and calls an endless host. Driven forth by the sound of flute and drum, the limitless armies of the Wyld march. In addition to the raksha's normal shaping action, this Charm lets her make one Sword-shaping or Staff-shaping attack for each 3 motes of Essence spent, up to a limit of her permanent Essence.",
+    "cost": "3 motes per attack, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Extra Action.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 197,
+      "pdfPage": 198
+    },
+    "crossReferences": [
+      "pincer-of-transcendent-time-and-fate"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' section, p. 197 (PDF 198). Capstone of the God-Humbling Victory Sword / Pincer of Transcendent Time and Fate line."
+  },
+  {
+    "id": "host-summoning-glory-of-command",
+    "name": "Host-Summoning Glory of Command",
+    "disposition": "selectable",
+    "summary": "The second independent root of the Sword Combat Charms tree: the raksha wears a visible mantle of martial greatness, letting her draw armies, monsters and champions into an ongoing story and instantly ready a Sword- or Staff-shaping weapon before her initiative.",
+    "requirements": "Minimum Sword: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The raksha wears the mantle of greatness, visibly displaying her terrible aptitude for war. She can draw her armies, monsters and champions into an ongoing story without further explanation of their presence. This Charm instantly readies a Sword-shaping or Staff-shaping weapon; the raksha can use this Charm before her initiative.",
+    "cost": "1 mote",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 197,
+      "pdfPage": 198
+    },
+    "crossReferences": [
+      "sword-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' section, p. 197 (PDF 198). Second of two independent roots of the diagrammed 'Sword Combat Charms 1' tree."
+  },
+  {
+    "id": "sundering-the-gates-of-death",
+    "name": "Sundering the Gates of Death",
+    "disposition": "selectable",
+    "summary": "Lets the raksha instantly re-ready a slain or scattered Sword- or Staff-shaping weapon (army, behemoth or even her own body) before her initiative, though it cannot restore the permanently slain.",
+    "requirements": "Minimum Sword: 2; Minimum Essence: 1; Prerequisite Charms: Host-Summoning Glory of Command.",
+    "mechanics": "The raksha commands death, and it is not her master. If her army is slain or scattered, she can call it back; if her behemoth is slain or driven away, she can restore it; even should an enemy shatter her bones and leave her bloody and broken on the field, she can restore herself and continue the fight. This Charm instantly readies a Sword-shaping or Staff-shaping weapon, even if that weapon has been slain or otherwise driven from the battle; the raksha can use it before her initiative. This Charm cannot restore the permanently slain.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 197,
+      "pdfPage": 198
+    },
+    "crossReferences": [
+      "host-summoning-glory-of-command"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' section, p. 197 (PDF 198). Also feeds forward as a co-prerequisite (alongside Radiance of the Invincible Warrior) of Rarefied Air of Inevitable Victory in the 'Sword Combat Charms 2' tree below -- a cross-tree convergence confirmed in the rendered diagram, where this Charm's box reappears in both trees."
+  },
+  {
+    "id": "transient-work-of-flesh-and-bone",
+    "name": "Transient Work of Flesh and Bone",
+    "disposition": "selectable",
+    "summary": "Shapes a behemoth or a host of warriors out of gossamer as a Sword-shaping weapon, built from the raksha's own Sword Grace and Willpower, though the work of glamour cannot affect Creation-born residents above a Wits + Essence threshold.",
+    "requirements": "Minimum Sword: 3; Minimum Essence: 2; Prerequisite Charms: Host-Summoning Glory of Command.",
+    "mechanics": "The raksha shapes a behemoth or a host of warriors from gossamer. This Charm forms a shaping weapon of the Sword; the player divides twice the raksha's Sword Grace between the weapon's speed, accuracy, damage and defense, and its rate equals the raksha's permanent Willpower. The weapon formed is a monster (a fey beast) or a small army (a unit of 500 extras using the elite troop Traits from Exalted core, p. 278). Either way the result is a work of glamour: it cannot attack, defend or soak against residents of Creation whose Wits + Essence exceeds the raksha's Valor.",
+    "cost": "6 motes, 1 gossamer",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 197,
+      "pdfPage": 198
+    },
+    "crossReferences": [
+      "host-summoning-glory-of-command",
+      "sword-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' section, p. 197 (PDF 198, with the mechanics description continuing onto PDF 199). Also feeds forward as a co-prerequisite (alongside World-Devouring Warlord Stance) of Gathering the Crows in the 'World-Devouring Warlord Style' sub-tree below -- another cross-tree convergence confirmed in the rendered diagram."
+  },
+  {
+    "id": "scattering-the-foe",
+    "name": "Scattering the Foe",
+    "disposition": "selectable",
+    "summary": "The root of two further Sword Combat Charm branches: takes on the aspect of Shikhari, the hammer that scatters armies, letting the raksha buy dice to block a Sword- or Staff-shaping attack even from nothing, provided she is aware of it.",
+    "requirements": "Minimum Sword: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The raksha's sword takes on the aspect of Shikhari, the hammer that scatters armies. An enemy attack shatters against the raksha's battle prowess. This Charm allows the raksha to buy dice for blocking Sword or Staff attacks -- she can improve a normal shaping parry or build a shaping dice pool from nothing. She must be aware of the attack.",
+    "cost": "1 mote per 2 dice",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 197,
+      "pdfPage": 198
+    },
+    "crossReferences": [
+      "sword-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' section, p. 197 (PDF 198). Root of both the diagrammed 'Sword Combat Charms 2' tree (via Radiance of the Invincible Warrior) and 'Sword Combat Charms 3' tree (via All-Inclusive Nightmare Defense); its box reappears in both diagrams."
+  },
+  {
+    "id": "radiance-of-the-invincible-warrior",
+    "name": "Radiance of the Invincible Warrior",
+    "disposition": "selectable",
+    "summary": "Binds back fear and death from the raksha's assembled forces, letting her parry any one Sword or Staff attack with her full dice pool provided she is aware of it.",
+    "requirements": "Minimum Sword: 2; Minimum Essence: 1; Prerequisite Charms: Scattering the Foe.",
+    "mechanics": "The raksha's Sword Grace binds back fear and death, so that they come only grudgingly to her assembled forces. This Charm lets the raksha parry any one Sword or Staff attack with her full dice pool. She must be aware of the attack.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 197,
+      "pdfPage": 198
+    },
+    "crossReferences": [
+      "scattering-the-foe"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' section, p. 197 (PDF 198, with the mechanics description continuing onto PDF 199). Root of the diagrammed 'Sword Combat Charms 2' tree."
+  },
+  {
+    "id": "waypoint-sealing-technique",
+    "name": "Waypoint-Sealing Technique",
+    "disposition": "selectable",
+    "summary": "Takes up the Raghava aspect of the Sword's defensive posture, letting the raksha seal an opponent out of a waypoint she occupies or controls with an undodgeable Sword-shaping attack.",
+    "requirements": "Minimum Sword: 3; Minimum Essence: 1; Prerequisite Charms: Radiance of the Invincible Warrior.",
+    "mechanics": "Taking up the powerful defensive position typified by the Raghava aspect of the Sword, the raksha seals an opponent out of a waypoint. The raksha uses this Charm as an opponent enters a waypoint she occupies or controls, and her player rolls Dexterity + Melee as an undodgeable Sword-shaping attack. If she achieves even one success, the opponent cannot enter the waypoint this scene and loses that portion of her movement.",
+    "cost": "3 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 198,
+      "pdfPage": 199
+    },
+    "crossReferences": [
+      "radiance-of-the-invincible-warrior"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' section, p. 198 (PDF 199). The diagrammed 'Sword Combat Charms 2' tree box labels this Charm 'Waypoint Sealing Stance,' but its own header and stat block both read 'Waypoint-Sealing Technique' with Type: Reflexive (not a Stance-type Charm); flagged as a diagram/header naming mismatch following this inventory's established precedent (e.g. swift-wings-of-song, impinging-web-of-dream)."
+  },
+  {
+    "id": "unconquerable-truth",
+    "name": "Unconquerable Truth",
+    "disposition": "selectable",
+    "summary": "Invokes truths of the raksha that no weaving of fate can master, letting her parry any one Sword- or Staff-shaping attack with her full dice pool plus six bonus successes, even against a normally unblockable attack.",
+    "requirements": "Minimum Sword: 4; Minimum Essence: 2; Prerequisite Charms: Radiance of the Invincible Warrior.",
+    "mechanics": "There are some warriors who cannot be defeated; there are some generals whom no mind can outmaneuver; there are truths of the raksha that no paltry weaving of fate and story can master. This Charm lets the raksha parry any one Sword- or Staff-shaping attack with her full dice pool, adding six bonus successes, even if that attack is normally unblockable.",
+    "cost": "3 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 198,
+      "pdfPage": 199
+    },
+    "crossReferences": [
+      "radiance-of-the-invincible-warrior"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' section, p. 198 (PDF 199)."
+  },
+  {
+    "id": "rarefied-air-of-inevitable-victory",
+    "name": "Rarefied Air of Inevitable Victory",
+    "disposition": "selectable",
+    "summary": "The raksha masters the destiny of war for a full story, reflexively parrying any Sword or Staff attack against her with her full dice pool even without being aware of it.",
+    "requirements": "Minimum Sword: 5; Minimum Essence: 3; Prerequisite Charms: Sundering the Gates of Death, Radiance of the Invincible Warrior.",
+    "mechanics": "The raksha masters the destiny of war. Cast itself at her though it might, the enemy cannot keep her forces down -- they endure the most horrific assaults, they regroup after the most terrible of blows, and not all the greatest nightmares of the Wyld can keep the raksha from her appointed goal. This Charm allows the raksha to reflexively parry any Sword or Staff attack against her with her full dice pool; she need not be aware of the attack. This paramount skill lasts until the end of the story.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 198,
+      "pdfPage": 199
+    },
+    "crossReferences": [
+      "sundering-the-gates-of-death",
+      "radiance-of-the-invincible-warrior"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' section, p. 198 (PDF 199). Cross-tree convergence Charm: combines the 'Sword Combat Charms 1' tree's Sundering the Gates of Death with the 'Sword Combat Charms 2' tree's own root line (Radiance of the Invincible Warrior), confirmed in the rendered diagram."
+  },
+  {
+    "id": "defining-the-parameters-of-battle",
+    "name": "Defining the Parameters of Battle",
+    "disposition": "selectable",
+    "summary": "Writes the raksha's own invincibility into the pattern of the world for a full story, letting her spend gossamer to parry any Sword-, Staff-, or even mortal attack with her full dice pool plus six bonus successes.",
+    "requirements": "Minimum Sword: 5; Minimum Essence: 4; Prerequisite Charms: Unconquerable Truth, Rarefied Air of Inevitable Victory.",
+    "mechanics": "The raksha writes her own invincibility into the pattern of the world. While this glamour endures, no Sword shaping can defy the essential truths of her nature: she can spend 1 gossamer to parry any one Sword- or Staff-shaping attack with her full dice pool plus six bonus successes, even if that attack is normally unblockable. In addition, she can spend 1 gossamer to parry any mortal attack with her full Dexterity + Melee pool plus six bonus successes, even if normally unblockable; this defense is a work of glamour and does not function against mortals with Wits + Essence greater than the raksha's Stamina.",
+    "cost": "5 motes, 1 Willpower, 1 gossamer",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 198,
+      "pdfPage": 199
+    },
+    "crossReferences": [
+      "unconquerable-truth",
+      "rarefied-air-of-inevitable-victory"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' section, p. 198 (PDF 199, with the mechanics description continuing onto PDF 200). Capstone of the diagrammed 'Sword Combat Charms 2' tree."
+  },
+  {
+    "id": "all-inclusive-nightmare-defense",
+    "name": "All-Inclusive Nightmare Defense",
+    "disposition": "selectable",
+    "summary": "Unleashes fear and doubt on the raksha's enemies after a successful parry, disarming the attacker's Sword- or Staff-shaping weapon from readiness by routing or killing the forces behind it.",
+    "requirements": "Minimum Sword: 2; Minimum Essence: 2; Prerequisite Charms: Scattering the Foe.",
+    "mechanics": "The raksha unleashes fear and doubt upon her enemies, dispersing and driving back the weapons of the Sword. To use this Charm, she must successfully parry a Sword attack and receive extra successes equal to or exceeding the attacker's permanent Essence. This Charm removes the enemy's Sword-shaping or Staff-shaping weapon from readiness, normally by routing or killing the enemy's forces.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 199,
+      "pdfPage": 200
+    },
+    "crossReferences": [
+      "scattering-the-foe"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' section, p. 199 (PDF 200). Root of the diagrammed 'Sword Combat Charms 3' tree, the second branch off Scattering the Foe."
+  },
+  {
+    "id": "tension-building-warriors-advance",
+    "name": "Tension-Building Warrior's Advance",
+    "disposition": "selectable",
+    "summary": "Takes on the aspect of the supreme divine emissary of death, supplementing a Sword or Staff attack by raising the difficulty of all shaping parries against it and, on success, stripping the enemy's shaping weapon from readiness; cannot be used for surprise attacks.",
+    "requirements": "Minimum Sword: 2; Minimum Essence: 2; Prerequisite Charms: All-Inclusive Nightmare Defense.",
+    "mechanics": "The footsteps of the raksha ring loudly in the air. He takes on the aspect of the supreme divine emissary of death; as nothing can stand against him, nothing will. This Charm supplements a Sword or Staff attack, adding the raksha's Essence to the difficulty of all shaping parries against it. If the attack succeeds, the Charm also removes the enemy's shaping weapon from readiness. This Charm cannot be used for surprise attacks.",
+    "cost": "3 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 199,
+      "pdfPage": 200
+    },
+    "crossReferences": [
+      "all-inclusive-nightmare-defense"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' section, p. 199 (PDF 200, with the mechanics description continuing onto PDF 201)."
+  },
+  {
+    "id": "fearsome-mien",
+    "name": "Fearsome Mien",
+    "disposition": "selectable",
+    "summary": "A work of glamour that weaves a terrifying aura after a successful Sword attack, imposing a two-die dice-pool penalty on all Creation-born enemies interacting with the raksha for a scene.",
+    "requirements": "Minimum Sword: 3; Minimum Essence: 2; Prerequisite Charms: Tension-Building Warrior's Advance.",
+    "mechanics": "The raksha can weave a glamour that terrifies creatures of Creation. This requires a successful Sword attack. This Charm imposes a two-die penalty to the dice pools of all Creation-born enemies interacting with the character. This is a work of glamour, and it has no effect on creatures with Valor + Essence greater than the raksha's highest Sword Ability (Archery, Athletics, Brawl, Melee or Presence).",
+    "cost": "5 motes, 1 Willpower, 2 gossamer",
+    "compatibility": "Duration: One scene. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 199,
+      "pdfPage": 200
+    },
+    "crossReferences": [
+      "tension-building-warriors-advance"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' section, p. 199 (PDF 200, with the mechanics description continuing onto PDF 201). Capstone of the diagrammed 'Sword Combat Charms 3' tree."
+  },
+  {
+    "id": "aegis-of-a-martial-destiny",
+    "name": "Aegis of a Martial Destiny",
+    "disposition": "selectable",
+    "summary": "The root Charm of World-Devouring Warlord Style, a named sub-tree of Sword Combat Charms telling the story of an emissary of death and fear who rises to cast the world into his shadow: establishes the raksha's motivation for battle early in the story, augmenting a shaping Dodge action with automatic successes equal to her Sword.",
+    "requirements": "Minimum Sword: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "Early in the story, the raksha establishes her motivation for battle. She cannot use this Charm if she has taken an aggressive shaping action this story. The raksha uses this Charm to augment a shaping Dodge action; this Charm adds her Sword in automatic successes to her Dodge roll.",
+    "cost": "1 mote",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 200,
+      "pdfPage": 201
+    },
+    "crossReferences": [
+      "sword-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' -> 'World-Devouring Warlord Style' sub-tree, p. 200 (PDF 201). Root of this named style's own diagram, distinct from (but following the same 'named sub-style within a Charm section' pattern as) Laughing Monster Style in the Staff Grace tree and Spirit-Twisting Obsession Style in the Cup Grace tree."
+  },
+  {
+    "id": "antagonist-naming-technique",
+    "name": "Antagonist-Naming Technique",
+    "disposition": "selectable",
+    "summary": "Defines the raksha and a chosen (existing) antagonist as the principal characters of the story, preventing shaping actions that would remove either of them as active characters -- for example, killing the raksha would have to somehow also bring her back to life.",
+    "requirements": "Minimum Sword: 2; Minimum Essence: 1; Prerequisite Charms: Aegis of a Martial Destiny.",
+    "mechanics": "The raksha defines herself and an antagonist of her choice as the principal characters of the story; the antagonist must exist. This Charm prevents the use of shaping actions that remove the raksha or her named antagonist as active characters in the story. For example, no one can use a shaping action to kill the raksha without also in some fashion bringing her back to life.",
+    "cost": "2 motes",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 200,
+      "pdfPage": 201
+    },
+    "crossReferences": [
+      "aegis-of-a-martial-destiny"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' -> 'World-Devouring Warlord Style' sub-tree, p. 200 (PDF 201)."
+  },
+  {
+    "id": "thematic-stunting-methodology",
+    "name": "Thematic Stunting Methodology",
+    "disposition": "selectable",
+    "summary": "Defines desirable premises of the story and genre for a full story, adding five extra dice to the raksha's stunt pool.",
+    "requirements": "Minimum Sword: 2; Minimum Essence: 1; Prerequisite Charms: Aegis of a Martial Destiny.",
+    "mechanics": "The raksha defines desirable premises of the story and genre. This adds five extra dice to her stunt pool.",
+    "cost": "5 motes",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 200,
+      "pdfPage": 201
+    },
+    "crossReferences": [
+      "aegis-of-a-martial-destiny"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' -> 'World-Devouring Warlord Style' sub-tree, p. 200 (PDF 201). Second branch off Aegis of a Martial Destiny, parallel to Antagonist-Naming Technique."
+  },
+  {
+    "id": "world-devouring-warlord-stance",
+    "name": "World-Devouring Warlord Stance",
+    "disposition": "selectable",
+    "summary": "A Stance-type Charm pouring Essence into the raksha's Sword Grace, adding her permanent Essence to initiative, Sword attack pools, Sword defense pools, and the raw pre-soak damage of Sword attacks; only one Stance-type Charm can be active at a time.",
+    "requirements": "Minimum Sword: 3; Minimum Essence: 2; Prerequisite Charms: Antagonist-Naming Technique, Thematic Stunting Methodology.",
+    "mechanics": "The raksha pours Essence into her Sword Grace. Flush with the power of the Sword, she becomes a devotee of battle and assumes the stance of an all-devouring warlord. This Charm adds the raksha's permanent Essence to her initiative, her Sword attack pools, her Sword defense pools, and the raw (pre-soak) damage of Sword attacks. This is a Stance-type Charm; characters cannot use more than one Stance-type Charm at a time.",
+    "cost": "6 motes",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 200,
+      "pdfPage": 201
+    },
+    "crossReferences": [
+      "antagonist-naming-technique",
+      "thematic-stunting-methodology"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' -> 'World-Devouring Warlord Style' sub-tree, p. 200 (PDF 201). Central convergence node of the style's diagram, feeding Gathering the Crows, Army-Supporting Behemoth Invocation and Harmony of Fortune and Hate below."
+  },
+  {
+    "id": "gathering-the-crows",
+    "name": "Gathering the Crows",
+    "disposition": "selectable",
+    "summary": "Summons a greater host of literal-extra troops to swell the raksha's army, cumulatively increasing the defense quality of her chosen shaping weapon by one per invocation.",
+    "requirements": "Minimum Sword: 4; Minimum Essence: 2; Prerequisite Charms: Transient Work of Flesh and Bone, World-Devouring Warlord Stance.",
+    "mechanics": "The raksha summons servants and minions. Each invocation of this Charm calls forth a greater host to support her in war. Most of the troops are literal extras -- they don't ever interact with enemies directly, but they swell the raksha's army ominously. This Charm increases the defense quality of her chosen shaping weapon by one, and multiple invocations of this Charm are cumulative.",
+    "cost": "3 motes",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 200,
+      "pdfPage": 201
+    },
+    "crossReferences": [
+      "transient-work-of-flesh-and-bone",
+      "world-devouring-warlord-stance"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' -> 'World-Devouring Warlord Style' sub-tree, p. 200 (PDF 201, with the Prerequisite Charms line and mechanics text continuing onto PDF 202). Cross-tree convergence Charm: combines this style's own World-Devouring Warlord Stance with the earlier 'Sword Combat Charms 1' tree's Transient Work of Flesh and Bone, confirmed in the rendered diagram."
+  },
+  {
+    "id": "army-supporting-behemoth-invocation",
+    "name": "Army-Supporting Behemoth Invocation",
+    "disposition": "selectable",
+    "summary": "Summons monsters, horrors and war machines to support the raksha's army, cumulatively increasing the damage of her chosen shaping weapon by one per invocation.",
+    "requirements": "Minimum Sword: 4; Minimum Essence: 2; Prerequisite Charms: World-Devouring Warlord Stance.",
+    "mechanics": "The raksha summons monsters, horrors and war machines to serve with his army. Each use of this Charm supports his forces with another great monster or a handful of smaller beasts. This Charm increases the damage of her chosen shaping weapon by one, and multiple invocations of this Charm are cumulative.",
+    "cost": "5 motes",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 201,
+      "pdfPage": 202
+    },
+    "crossReferences": [
+      "world-devouring-warlord-stance"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' -> 'World-Devouring Warlord Style' sub-tree, p. 201 (PDF 202). Parallel to Gathering the Crows, both branching off World-Devouring Warlord Stance and converging on Avatar of War."
+  },
+  {
+    "id": "avatar-of-war",
+    "name": "Avatar of War",
+    "disposition": "selectable",
+    "summary": "Closing her ears to screams and blandishments alike, the raksha marches to war: an immediate full-dice-pool Sword counterattack against any character attacking her with a shaping action, resolved before the original attack's damage is determined.",
+    "requirements": "Minimum Sword: 4; Minimum Essence: 2; Prerequisite Charms: Gathering the Crows, Army-Supporting Behemoth Invocation.",
+    "mechanics": "Closing her ears to screams and blandishments alike, the raksha marches to war. This Charm lets her immediately execute a Sword attack at her full dice pool against any character attacking her with a shaping action. This counterattack is resolved after the original attack is rolled but before its damage is determined.",
+    "cost": "3 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 201,
+      "pdfPage": 202
+    },
+    "crossReferences": [
+      "gathering-the-crows",
+      "army-supporting-behemoth-invocation"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' -> 'World-Devouring Warlord Style' sub-tree, p. 201 (PDF 202). Converges Gathering the Crows and Army-Supporting Behemoth Invocation; feeds forward into Preemptive Declaration of Victory alongside Harmony of Fortune and Hate."
+  },
+  {
+    "id": "harmony-of-fortune-and-hate",
+    "name": "Harmony of Fortune and Hate",
+    "disposition": "selectable",
+    "summary": "Bends hostile weather, ill fortune and unpleasant terrain against the enemy's will to fight, cumulatively increasing the difficulty of defending against the raksha's Sword attacks (up to a maximum equal to her Essence).",
+    "requirements": "Minimum Sword: 4; Minimum Essence: 3; Prerequisite Charms: World-Devouring Warlord Stance.",
+    "mechanics": "The pattern of events develops inexorably in the raksha's favor. Hostile weather, strokes of ill fortune and unpleasant terrain eat away at the enemy's will and power to fight. Each use of this Charm increases the difficulty of defense against the raksha's Sword attacks by one; multiple invocations of this Charm stack, up to a maximum increased difficulty equal to the raksha's Essence.",
+    "cost": "5 motes",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 201,
+      "pdfPage": 202
+    },
+    "crossReferences": [
+      "world-devouring-warlord-stance"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' -> 'World-Devouring Warlord Style' sub-tree, p. 201 (PDF 202, with the mechanics description continuing onto PDF 203). Third branch off World-Devouring Warlord Stance, alongside Gathering the Crows and Army-Supporting Behemoth Invocation; feeds forward into Preemptive Declaration of Victory alongside Avatar of War."
+  },
+  {
+    "id": "preemptive-declaration-of-victory",
+    "name": "Preemptive Declaration of Victory",
+    "disposition": "selectable",
+    "summary": "The capstone of World-Devouring Warlord Style: a Sword attack that converts damage dice directly into successes and, on success, forces all shaped creatures in combat with the raksha to succeed at a Valor roll or surrender in a five-die-penalized rout for the rest of the scene.",
+    "requirements": "Minimum Sword: 5; Minimum Essence: 3; Prerequisite Charms: Avatar of War, Harmony of Fortune and Hate.",
+    "mechanics": "Crushing her enemy underfoot, the raksha declares victory. The raksha makes a Sword attack; if she succeeds, this Charm converts the damage dice directly into successes. The damage of this attack can affect the creatures of Creation: if the Sword attack succeeds, all shaped creatures directly or indirectly in combat with the character realize themselves defeated, and their players must succeed at a Valor roll or the characters lay down their arms in resigned surrender. For the rest of the scene, the defeated suffer a five-die penalty on all combat actions. This Charm is a work of glamour and has no effect on creatures with Valor + Essence greater than the raksha's highest Sword Ability (Archery, Athletics, Brawl, Melee or Presence).",
+    "cost": "5 motes, 1 gossamer",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 202,
+      "pdfPage": 203
+    },
+    "crossReferences": [
+      "avatar-of-war",
+      "harmony-of-fortune-and-hate"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Sword Combat Charms' -> 'World-Devouring Warlord Style' sub-tree, p. 202 (PDF 203). Capstone of the diagrammed World-Devouring Warlord Style tree and the last Charm of the entire Sword Combat Charms section. Its own header appears immediately before the 'MUTATION CHARMS' section header on the same page, marking the section boundary."
+  },
+  {
+    "id": "pox-charm",
+    "name": "Pox",
+    "disposition": "selectable",
+    "summary": "A repeatable Charm of Shape that manifests a Wyld pox of the player's choice (per the pox lists in Exalted core or Exalted: The Lunars), useful in the design of behemoths.",
+    "requirements": "Minimum Sword: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The raksha manifests a Wyld pox (see Exalted core, p. 280, or Exalted: The Lunars, p. 212) chosen at the time of the Charm's purchase. Players can purchase this Charm more than once, choosing a new pox each time.",
+    "cost": "2 motes, 1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 202,
+      "pdfPage": 203
+    },
+    "crossReferences": [
+      "sword-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Mutation Charms' section, p. 202 (PDF 203). This section's Charms are individually purchasable Charms of Shape (nearly all 'Prerequisite Charms: None') rather than a branching combat tree, unlike every other named Charm section in this Grace tree. Named after the mutation categories (pox/affliction/blight) rather than describing the mechanical effect, which is a fixed table entry chosen by the player at purchase and defined elsewhere in the core book / Exalted: The Lunars rather than in this book -- flagged here rather than transcribed, since this inventory covers Exalted: The Fair Folk only. `id` distinguished from a generic 'pox' to avoid collision with any future cross-splat mutation-table row."
+  },
+  {
+    "id": "affliction-charm",
+    "name": "Affliction",
+    "disposition": "selectable",
+    "summary": "A repeatable Charm of Shape that manifests a Wyld affliction of the player's choice (per the affliction lists in Exalted core or Exalted: The Lunars).",
+    "requirements": "Minimum Sword: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The raksha manifests a Wyld affliction (see Exalted core, p. 280, or Exalted: The Lunars, pp. 212-215) chosen at the time of the Charm's purchase. Players can purchase this Charm more than once, choosing a new affliction each time.",
+    "cost": "4 motes, 2 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 202,
+      "pdfPage": 203
+    },
+    "crossReferences": [
+      "sword-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Mutation Charms' section, p. 202 (PDF 203, with the mechanics description continuing onto PDF 204). `id` distinguished from a generic 'affliction' to avoid collision with any future cross-splat mutation-table row."
+  },
+  {
+    "id": "blight-charm",
+    "name": "Blight",
+    "disposition": "selectable",
+    "summary": "A repeatable Charm of Shape that manifests a Wyld blight of the player's choice (per the blight lists in Exalted core or Exalted: The Lunars).",
+    "requirements": "Minimum Sword: 2; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The raksha manifests a Wyld blight (see Exalted core, pp. 280-281, or Exalted: The Lunars, pp. 215-218) chosen at the time of the Charm's purchase. Players can purchase this Charm more than once, choosing a new blight each time.",
+    "cost": "10 motes, 4 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 203,
+      "pdfPage": 204
+    },
+    "crossReferences": [
+      "sword-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Mutation Charms' section, p. 203 (PDF 204). `id` distinguished from a generic 'blight' to avoid collision with any future cross-splat mutation-table row."
+  },
+  {
+    "id": "hundred-hand-style",
+    "name": "Hundred-Hand Style",
+    "disposition": "selectable",
+    "summary": "Attunes the raksha's shape to the harmony of principles so mind and body function as many rather than one, reducing multiple-action penalties by 1 (to a minimum of 0).",
+    "requirements": "Minimum Sword: 1; Minimum Essence: 2; Prerequisite Charms: None.",
+    "mechanics": "The raksha attunes her shape to the harmony of principles, so that her mind and body function as many rather than one. This Charm is favored by raksha with extra arms, heads or personalities, but these things are not necessary to receive the Charm's primary benefit. Activating this Charm reduces multiple action penalties by 1, to a minimum of 0.",
+    "cost": "4 motes, 2 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 203,
+      "pdfPage": 204
+    },
+    "crossReferences": [
+      "sword-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Mutation Charms' section, p. 203 (PDF 204). Root of the small linear line Hundred-Hand Style -> Millipede Mind -> Grace of the Infinite Revolving Spheres / Harmonious Primordial Spirit, the only Charms in this section with a stated prerequisite other than None."
+  },
+  {
+    "id": "millipede-mind",
+    "name": "Millipede Mind",
+    "disposition": "selectable",
+    "summary": "Divides control of the raksha's mind and body among her five Graces, reducing multiple-action penalties by 2 (to a minimum of 0); stacks with its own prerequisite, Hundred-Hand Style.",
+    "requirements": "Minimum Sword: 2; Minimum Essence: 2; Prerequisite Charms: Hundred-Hand Style.",
+    "mechanics": "The raksha divides control of her mind and body among her Graces, so that five distinct principles guide her every action. Activating this Charm reduces multiple action penalties by 2, to a minimum of 0. The raksha can benefit from this Charm and its prerequisite simultaneously.",
+    "cost": "8 motes, 4 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 203,
+      "pdfPage": 204
+    },
+    "crossReferences": [
+      "hundred-hand-style"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Mutation Charms' section, p. 203 (PDF 204). Stacks explicitly with Hundred-Hand Style rather than superseding it, an unusual stated exception to the game's normal non-stacking assumption."
+  },
+  {
+    "id": "grace-of-the-infinite-revolving-spheres",
+    "name": "Grace of the Infinite Revolving Spheres",
+    "disposition": "selectable",
+    "summary": "Lets the raksha flow through the interwoven desires of her five component Graces so that, when splitting her dice pool, her first five actions suffer no multiple-action penalties; stacks with its prerequisites.",
+    "requirements": "Minimum Sword: 2; Minimum Essence: 3; Prerequisite Charms: Millipede Mind.",
+    "mechanics": "The raksha flows smoothly through the interwoven desires of his five component Graces. If he splits his dice pool, the first five actions suffer no multiple-action penalties. The raksha can benefit from this Charm and its prerequisites simultaneously.",
+    "cost": "10 motes, 1 Willpower, 4 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 203,
+      "pdfPage": 204
+    },
+    "crossReferences": [
+      "millipede-mind",
+      "hundred-hand-style"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Mutation Charms' section, p. 203 (PDF 204). Capstone of the Hundred-Hand Style -> Millipede Mind line; stacks explicitly with both prerequisites."
+  },
+  {
+    "id": "harmonious-primordial-spirit",
+    "name": "Harmonious Primordial Spirit",
+    "disposition": "selectable",
+    "summary": "Embeds one of the raksha's own Graces in a consenting common raksha, turning it into a bound spiritual-extension servant with heroic-commoner qualities that shares use of the embedded Grace with the original owner.",
+    "requirements": "Minimum Sword: 4; Minimum Essence: 3; Prerequisite Charms: Millipede Mind.",
+    "mechanics": "The raksha embeds one of her Graces in a consenting common raksha, replacing his own version of that Grace. The creature becomes a bound subsidiary entity, a spiritual extension of the raksha's body, with the qualities and abilities of a heroic commoner. The servant serves the raksha loyally and at all times knows her will. The activating raksha still has access to the Grace while this Charm is in effect, and the subsidiary raksha also uses this Grace for Charms and damage.",
+    "cost": "4 motes, 1 gossamer, 1 experience point",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 203,
+      "pdfPage": 204
+    },
+    "crossReferences": [
+      "millipede-mind"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Mutation Charms' section, p. 203 (PDF 204, with the mechanics description on PDF 204/printed 203's second column). Second branch off Millipede Mind, parallel to Grace of the Infinite Revolving Spheres."
+  },
+  {
+    "id": "long-arm-technique",
+    "name": "Long-Arm Technique",
+    "disposition": "selectable",
+    "summary": "Lets the raksha's limbs unfold like flowing geysers of flesh on attack, extending her reach by two yards per gossamer spent and letting her strike mounted opponents without penalty.",
+    "requirements": "Minimum Sword: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "Raksha with this Charm are never quite so far from their victims as they might appear. Fair Folk under this Charm's influence look normal until they attack, when their limbs stretch and unfold like flowing geysers of flesh. For each gossamer spent, this Charm adds two yards to the raksha's reach. Raksha with this Charm active can strike opponents on horseback without penalty.",
+    "cost": "1 mote, 1 gossamer per 2 yards",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 203,
+      "pdfPage": 204
+    },
+    "crossReferences": [
+      "sword-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Mutation Charms' section, p. 203 (PDF 204)."
+  },
+  {
+    "id": "gossamer-wing-flight",
+    "name": "Gossamer Wing Flight",
+    "disposition": "selectable",
+    "summary": "Shapes wings from mixed Wyld and Creation substance, letting the raksha fly at normal speed (half speed to ascend, double to dive), though the wings impose a Dexterity penalty while airborne unless the Charm is purchased a second time.",
+    "requirements": "Minimum Sword: 1; Minimum Essence: 2; Prerequisite Charms: None.",
+    "mechanics": "The raksha forms wings for himself, shaping them from the mixed substances of the Wyld and Creation. Nobles often build their wings from the appropriate element; commoners base theirs on the wings of birds or insects. The raksha's wingspan is at least equal to his height, and he cannot fly if he cannot spread his wings; he can fly at normal speed, ascend at half speed, or dive at twice his normal speed. Gossamer wings are clumsy, and the character suffers a +2 difficulty penalty on all Dexterity-based normal dice actions while airborne; the player can eliminate this penalty by purchasing this Charm a second time. Raksha using either version of this Charm may make fly-by attacks (see the Exalted Players Guide, p. 201).",
+    "cost": "4 motes, 1 Willpower, 2 gossamer",
+    "compatibility": "Duration: One story. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 203,
+      "pdfPage": 204
+    },
+    "crossReferences": [
+      "sword-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Mutation Charms' section, p. 203 (PDF 204, with the mechanics description continuing onto PDF 205). Purchasable a second time to remove its own penalty, similar in structure to other doubly-purchasable Charms elsewhere in this inventory."
+  },
+  {
+    "id": "hiding-the-wylds-touch",
+    "name": "Hiding the Wyld's Touch",
+    "disposition": "selectable",
+    "summary": "Makes the raksha's body language and manner unnaturally human and familiar, granting two automatic successes on normal Social dice actions, though it does not hide an inhuman appearance -- it only makes others notice the 'person within.'",
+    "requirements": "Minimum Sword: 2; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The raksha's body language and manner of expression are unnaturally human and familiar -- the monster moves and speaks like an amalgam of old friends, family and lovers. This Charm gives two automatic successes on normal Social dice actions. If the raksha is also hideously inhuman in appearance or behavior, this Charm does not force others to disregard this fact -- they simply find themselves noticing the 'person within.'",
+    "cost": "10 motes, 1 Willpower, 4 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 204,
+      "pdfPage": 205
+    },
+    "crossReferences": [
+      "sword-grace"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Mutation Charms' section, p. 204 (PDF 205)."
+  },
+  {
+    "id": "armament-of-flesh",
+    "name": "Armament of Flesh",
+    "disposition": "selectable",
+    "summary": "A permanent mutation granting understated but potent natural weaponry (fangs, nails or horns) sharp enough to puncture steel, usable with the raksha's normal Brawl or Martial Arts dice pools.",
+    "requirements": "Minimum Sword: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The raksha develops understated but potent natural weaponry. Her small fangs, pointed nails or thin elegant horns are sharp enough to puncture steel. This affliction gives the raksha a natural attack with Speed -3, Accuracy +1, Defense -1, Damage +4L and Rate 4; she can use this attack with her normal Brawl or Martial Arts attack dice pools. The raksha can shape more blatant and obvious weaponry if desired -- subtlety is simply the standard.",
+    "cost": "2 mutation points",
+    "compatibility": "Duration: Permanent. Type: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 204,
+      "pdfPage": 205
+    },
+    "crossReferences": [
+      "sword-grace",
+      "mutation-mechanic"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Mutation Charms' section, p. 204 (PDF 205). Unlike most of this section's Charms, this and the remaining entries (Surpassing Excellence, Glorious Hero Form, Racing Dragon Speed, Root of the Perfected Lotus) are purchased with mutation points rather than motes, and are Type: Special / Duration: Permanent rather than the section's usual Reflexive/One-story pattern."
+  },
+  {
+    "id": "surpassing-excellence",
+    "name": "Surpassing Excellence",
+    "disposition": "selectable",
+    "summary": "A permanent mutation adding a two-die specialty (not counted against the raksha's specialty limit) to any one Ability, purchasable up to once per dot of the raksha's Sword.",
+    "requirements": "Minimum Sword: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "In a place between worlds, the raksha forges herself like a weapon, using the elemental Essence of Creation to empower one of her Abilities. This pox adds a permanent two-die specialty to any one Ability, which does not count against her specialty limit. Raksha can use this Charm to purchase inhumanly keen senses -- for example, a two-die Keen Eyesight specialty on Awareness gives benefits commensurate with the Eye Color pox (see Exalted core, p. 280, or Exalted: The Lunars, p. 212). Players can purchase this Charm up to once per dot of the raksha's Sword.",
+    "cost": "1 mutation point",
+    "compatibility": "Duration: Permanent. Type: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 204,
+      "pdfPage": 205
+    },
+    "crossReferences": [
+      "sword-grace",
+      "mutation-mechanic"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Mutation Charms' section, p. 204 (PDF 205)."
+  },
+  {
+    "id": "glorious-hero-form",
+    "name": "Glorious Hero Form",
+    "disposition": "selectable",
+    "summary": "A permanent mutation binding the raksha to Caturbhuja, the shinma that breaks the borders of the possible and impossible, permanently raising a chosen pair (or single) of Attributes; purchasable up to once per dot of the raksha's Sword.",
+    "requirements": "Minimum Sword: 2; Minimum Essence: 2; Prerequisite Charms: None.",
+    "mechanics": "The raksha binds herself to the principle Caturbhuja, the shinma that breaks the borders of the possible and impossible; she transcends even the perfection of the raksha. This affliction permanently increases her Attributes in one of the following ways (chosen at purchase): one dot of Strength and one dot of Stamina; one dot of Intelligence and one dot of Perception; one dot of Charisma and one dot of Appearance; one dot of Dexterity; one dot of Wits; or one dot of Manipulation. Players can purchase this Charm up to once per dot of the raksha's Sword.",
+    "cost": "2 mutation points",
+    "compatibility": "Duration: Permanent. Type: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 205,
+      "pdfPage": 206
+    },
+    "crossReferences": [
+      "sword-grace",
+      "mutation-mechanic"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Mutation Charms' section, p. 205 (PDF 206). This is the highest-value permanent Attribute-boosting mutation in the book relative to the earlier note on Attribute caps requiring Charm-granted mutations (e.g. Huge, Glorious Hero Form itself) to exceed 7 dots in a single Attribute."
+  },
+  {
+    "id": "racing-dragon-speed",
+    "name": "Racing Dragon Speed",
+    "disposition": "selectable",
+    "summary": "A permanent mutation imbuing the raksha's body with the speed of wind, fire or waves, adding five yards to running speed; unusually purchasable up to once per dot of the raksha's Compassion rather than her Sword.",
+    "requirements": "Minimum Sword: 1; Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "The raksha imbues her body with the speed of the wind, the fire or the waves. This Charm permanently adds five yards to the raksha's running speed. Players can purchase this Charm up to once per dot of the raksha's Compassion.",
+    "cost": "1 mutation point",
+    "compatibility": "Duration: Permanent. Type: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 205,
+      "pdfPage": 206
+    },
+    "crossReferences": [
+      "sword-grace",
+      "mutation-mechanic"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Mutation Charms' section, p. 205 (PDF 206). Confirmed against the rendered page image that the repurchase cap really is keyed to Compassion, not Sword or Valor as every other repurchasable Charm in this section is -- flagged here since it is otherwise an outlier in a Sword-Grace Charm list."
+  },
+  {
+    "id": "root-of-the-perfected-lotus",
+    "name": "Root of the Perfected Lotus",
+    "disposition": "selectable",
+    "summary": "A permanent mutation that sinks the raksha into the flows of Creation's Essence, granting her the destiny, spirit and attitude to learn Martial Arts Charms as a Dragon-Blooded.",
+    "requirements": "Minimum Sword: 2; Minimum Essence: 2; Prerequisite Charms: None.",
+    "mechanics": "The raksha sinks into the flows of the Essence of Creation, shaping in herself the destiny, spirit and attitude necessary to practice supernatural martial arts. This allows her to learn Martial Arts Charms as a Dragon-Blooded.",
+    "cost": "4 mutation points",
+    "compatibility": "Duration: Permanent. Type: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 205,
+      "pdfPage": 206
+    },
+    "crossReferences": [
+      "sword-grace",
+      "mutation-mechanic"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nishkriya, the Sword' -> 'Mutation Charms' section, p. 205 (PDF 206). Last Charm of the Mutation Charms section and of the entire Sword Grace tree (shinma Nishkriya); the 'GLAMOUR SORCERY' section header begins immediately afterward on the same page, marking both the section and the Chapter Five per-Grace-Charm-tree system's boundary -- with this Charm's completion, all five of Chapter Five's per-Grace Charm trees (Heart, Staff, Cup, Ring, Sword) are now fully inventoried."
+  },
+  {
+    "id": "assumption-of-elemental-shape",
+    "name": "Assumption of Elemental Shape",
+    "disposition": "selectable",
+    "summary": "The most common gateway Assumption-type Charm: lets a raksha pass through the shinma Nirakara and exist as a shaped creature within Creation, in one of five elemental variants (Air/Earth/Fire/Water/Wood) each granting a distinct minor elemental resistance or sense.",
+    "requirements": "Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "This Charm allows a raksha to pass through the gateway Nirakara and exist as a shaped creature within Creation. This Charm is actually five different Charms, each offering a different benefit: Assumption of Elemental Shape (Air) -- the raksha suffers no ill effects from cold and may walk on snow or ice as if it were solid, stable ground; (Earth) -- the raksha can see clearly in the deepest darkness; (Fire) -- the raksha suffers no ill effects from heat or non-magical flame; (Water) -- the raksha can swim at normal movement rates, breathe water as well as air, and otherwise exist comfortably in an aquatic environment; (Wood) -- the raksha can balance on even the thinnest branch and entirely ignores any natural poison with a single success on a Stamina + Resistance roll. This is an Assumption-type Charm.",
+    "cost": "10 motes, 1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 149,
+      "pdfPage": 150
+    },
+    "crossReferences": [
+      "gossamer-background"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Assumption-Type Charms' section, p. 149 (PDF 150). Root of the diagrammed 'Assumption Charms 1' and 'Assumption Charms 2' trees. Nirakara is the gateway shinma governing shape itself, distinct from and prerequisite-free relative to the five Grace shinma (Dharma/Nirvishesha/Nirvikalpa/Nishkriya/Nirguna); per the book's framing text (immediately preceding this section, p. 148/PDF 149), any Charm with a mutation-point cost belongs in a sense to Nirakara, but only the Charms in this section and the two sibling trees below (Elemental Influence, Emotional Influence) are formally 'Assumption-type Charms' with no minimum Grace requirement (their Combo experience cost is twice their minimum Essence requirement instead). Consolidated the five elemental variants into one row, matching this inventory's established precedent for multi-variant single-header Charms (e.g. bastion-of-the-self, great-works-of-the-grace)."
+  },
+  {
+    "id": "assumption-of-cerements-and-bone",
+    "name": "Assumption of Cerements and Bone",
+    "disposition": "selectable",
+    "summary": "A second independent gateway Assumption-type Charm: lets the raksha pass through Nirakara and exist as a shaped creature within the Underworld, treated as dead for all effects while still materially present.",
+    "requirements": "Minimum Essence: 1; Prerequisite Charms: None.",
+    "mechanics": "This Charm allows a raksha to pass through the gateway Nirakara and exist as a shaped creature within the Underworld. Raksha with this Charm active are material in Creation but, otherwise, are treated as dead for all effects -- they can receive Essence from burnt offerings, Deathlords can feed on them for power, and so forth. This is an Assumption-type Charm.",
+    "cost": "10 motes, 1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 149,
+      "pdfPage": 150
+    },
+    "crossReferences": [
+      "gossamer-background"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Assumption-Type Charms' section, p. 149 (PDF 150). Second independent root of the diagrammed 'Assumption Charms 1' tree, alongside Assumption of Elemental Shape."
+  },
+  {
+    "id": "assumption-of-the-persons-heart",
+    "name": "Assumption of the Person's Heart",
+    "disposition": "selectable",
+    "summary": "Lets the raksha pass through Nirakara and exist as a minor Wyld taint on a single visible creature of Creation, optionally sharing the benefits of her mutations and active Charms with that creature (for gossamer) if it consents.",
+    "requirements": "Minimum Essence: 1; Prerequisite Charms: Assumption of Elemental Shape (Any).",
+    "mechanics": "This Charm allows a raksha to pass through the gateway Nirakara and exist as a minor Wyld taint on a creature of Creation. The creature must be visible when she uses this Charm. If this is her only active Assumption-type Charm, the raksha exists in Creation as an extension of that creature -- she cannot exist outside its presence, and she involuntarily becomes a dematerialized but manifest spirit when the creature becomes unconscious or someone attempts to forcibly separate her from it. If she has another Assumption-type Charm active, she can leave its presence and does not dematerialize (voluntarily or otherwise) in either circumstance. If the creature consents, this Charm allows the raksha to share the benefits of her mutations and active Charms with it, costing 1 gossamer for each mutation point or gossamer point of Charms shared (for example, spending 1 gossamer to extend Assumption of Elemental Shape (Water) to a shipwrecked sailor); she can withdraw these gifts at any time. This Charm is a work of glamour and cannot taint creatures whose Stamina + Essence exceeds the raksha's Charisma. This is an Assumption-type Charm.",
+    "cost": "10 motes, 2 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 149,
+      "pdfPage": 150
+    },
+    "crossReferences": [
+      "assumption-of-elemental-shape"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Assumption-Type Charms' section, p. 149 (PDF 150, with the mechanics description continuing onto PDF 151)."
+  },
+  {
+    "id": "assumption-of-the-lands-heart",
+    "name": "Assumption of the Land's Heart",
+    "disposition": "selectable",
+    "summary": "Lets the raksha pass through Nirakara and exist as a subliminal Wyld taint on a hamlet-sized region, sinking her Heart Grace into the land and 'programming' it to trigger works of glamour on specified conditions -- at the cost of losing her own volition and ability to spend Willpower while the Charm lasts.",
+    "requirements": "Minimum Essence: 1; Prerequisite Charms: Assumption of Elemental Shape (Any).",
+    "mechanics": "This Charm allows the raksha to pass through the gateway Nirakara and exist as a subliminal Wyld taint on a region of Creation sized to house and feed up to 25 people. The raksha sinks her Heart Grace into the region; mystically separated from her Heart Grace, she cannot spend Willpower and exists without volition, though she can respond to events, defend herself, answer questions and perform repetitive tasks without initiating new courses of action. This Charm lets the raksha 'program' her Heart Grace to trigger works of glamour (such as Fearsome Mien or Beguilement) based on conditions she specifies against any appropriate target within the region; she can access this information consciously with a successful difficulty 5 Intelligence + Lore roll. Discovering the nature of the taint requires a successful difficulty 3 Perception + Occult roll, and tracking it back to the raksha requires a successful difficulty 5 Perception + Occult roll (Charms such as All-Encompassing Sorcerer's Sight allow automatic success). This is an Assumption-type Charm.",
+    "cost": "10 motes, 2 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 150,
+      "pdfPage": 151
+    },
+    "crossReferences": [
+      "assumption-of-elemental-shape",
+      "heart-grace",
+      "fearsome-mien"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Assumption-Type Charms' section, p. 150 (PDF 151). Root of the Land's Heart line in the diagrammed 'Assumption Charms 1' tree, feeding Assumption of the City's Heart and Assumption of the Living Kingdom. Its own text cross-references Fearsome Mien and Beguilement (both already inventoried) by page number as examples of works of glamour this Charm can trigger."
+  },
+  {
+    "id": "assumption-of-the-citys-heart",
+    "name": "Assumption of the City's Heart",
+    "disposition": "selectable",
+    "summary": "Functions as Assumption of the Land's Heart but blankets a city-sized region (up to 1,000 people); if invoked together with Assumption of the Land's Heart, the overlapping central region becomes a place of power where the raksha's Heart can invoke permanent glamours.",
+    "requirements": "Minimum Essence: 2; Prerequisite Charms: Assumption of the Land's Heart.",
+    "mechanics": "This Charm functions as Assumption of the Land's Heart, but blankets a larger region -- a place sized to support up to 1,000 people. Fair Folk can invoke this Charm together with Assumption of the Land's Heart; the central region where both overlap becomes a place of power, where the raksha's Heart can invoke permanent glamours as well as works of glamour. This is an Assumption-type Charm.",
+    "cost": "10 motes, 1 Willpower, 4 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 150,
+      "pdfPage": 151
+    },
+    "crossReferences": [
+      "assumption-of-the-lands-heart"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Assumption-Type Charms' section, p. 150 (PDF 151)."
+  },
+  {
+    "id": "assumption-of-the-living-kingdom",
+    "name": "Assumption of the Living Kingdom",
+    "disposition": "selectable",
+    "summary": "Functions as Assumption of the Land's Heart but blankets a small-kingdom-sized region (up to 100,000 people); if invoked together with Assumption of the Land's Heart, the raksha regains the ability to commune with her Heart and take self-directed actions (though still not spend Willpower) while inside the overlapping central region.",
+    "requirements": "Minimum Essence: 2; Prerequisite Charms: Assumption of the Land's Heart.",
+    "mechanics": "This Charm functions as Assumption of the Land's Heart, but blankets a much larger region -- a small kingdom, able to support 100,000 people. Fair Folk can invoke this Charm together with Assumption of the Land's Heart; the central region where both overlap becomes a place of power. So long as she remains within that central region, the raksha can commune with her Heart and make decisions; she cannot spend Willpower (although the Heart can), but she can take self-directed actions. This is an Assumption-type Charm.",
+    "cost": "15 motes, 1 Willpower, 6 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 150,
+      "pdfPage": 151
+    },
+    "crossReferences": [
+      "assumption-of-the-lands-heart"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Assumption-Type Charms' section, p. 150 (PDF 151). Second branch off Assumption of the Land's Heart, parallel to Assumption of the City's Heart."
+  },
+  {
+    "id": "assumption-of-the-wyld-tainted-land",
+    "name": "Assumption of the Wyld-Tainted Land",
+    "disposition": "selectable",
+    "summary": "As the Wyld recedes from a region, lets the raksha take a fading Bordermarches area with her through Nirakara, functioning as the larger Assumption-of-the-Land's-Heart-line Charms but additionally infusing the region with enough ambient Wyld energy for the raksha to shape it, at +5 difficulty.",
+    "requirements": "Minimum Essence: 2; Prerequisite Charms: Assumption of the City's Heart.",
+    "mechanics": "As the Wyld recedes from a region, a raksha can take the land with her through the gateway Nirakara. This Charm functions as Assumption of the City's Heart (the book's text names 'Assumption of the Kingdom's Heart,' evidently referring to this same line), except the region chosen must be a section of Bordermarches fading into Creation. In addition to the other effects, this Charm creates a powerful tainted land, infused with sufficient ambient Wyld energy for the raksha to shape it, albeit at +5 difficulty. This is an Assumption-type Charm.",
+    "cost": "15 motes, 1 Willpower, 6 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 150,
+      "pdfPage": 151
+    },
+    "crossReferences": [
+      "assumption-of-the-citys-heart"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Assumption-Type Charms' section, p. 150 (PDF 151). Its own text says this Charm 'functions as Assumption of the Kingdom's Heart,' but no Charm of that exact name appears anywhere in this book -- its stated Prerequisite Charms line (Assumption of the City's Heart) and the diagram both confirm it branches off Assumption of the City's Heart, so this is treated as a naming slip for that Charm rather than a reference to Assumption of the Living Kingdom; flagged here rather than silently corrected."
+  },
+  {
+    "id": "mad-god-mien",
+    "name": "Mad God Mien",
+    "disposition": "selectable",
+    "summary": "A permanent Charm layered onto any active Assumption-type Charm that makes the raksha wholly alien to Creation: raises the cost of all her Assumption-type Charms, hardens her against Charms that twist her body, and makes Creation-born powers treat her as an automaton immune to most direct mental influence -- undoable only by specific fate-binding powers.",
+    "requirements": "Minimum Essence: 2; Prerequisite Charms: Any Assumption-type Charm.",
+    "mechanics": "Some raksha learn to adopt shape while remaining wholly alien to Creation. As they pass through Nirakara and fill themselves with Creation's Essence, they twist it into the raw, mad structures of the Wyld. Learning this Charm permanently increases the cost of all Assumption-type Charms by 2 gossamer or 2 mutation points. This Charm adds 1 to the difficulty of Charms that twist or reshape the raksha's body. It also makes the Charms and powers of the Creation-born treat the raksha as an automaton and a creature outside of fate, immune to most direct mental influence effects; glamour sorcery cast with the permanent version of this Charm is immune to normal sorcerous countermagic. The effects of this Charm are a matter of structure rather than power -- it can be undone by powers that bind the raksha (or spell) into Creation, such as the Greater Sign of Jupiter (Exalted: The Sidereals) or Harmony with Reality Technique (Exalted: The Lunars).",
+    "cost": "None",
+    "compatibility": "Duration: Permanent. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 150,
+      "pdfPage": 151
+    },
+    "crossReferences": [
+      "assumption-of-elemental-shape",
+      "extinction-of-desire"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Assumption-Type Charms' section, p. 150 (PDF 151, with the mechanics description continuing onto PDF 152). Its Prerequisite Charms line reads 'Any Assumption-type Charm' rather than a specific named Charm -- this row's crossReferences point to assumption-of-elemental-shape as a representative example (the most common gateway Charm) rather than an exhaustive or exclusive list, since any of the Assumption-type Charms in this section (or the Emotional Influence sub-tree below) satisfies the prerequisite. extinction-of-desire (in the Ring Grace tree) already references this Charm by name ('gains the benefits of Mad God Mien') without a resolvable cross-reference at the time it was written; that reference now resolves to this row."
+  },
+  {
+    "id": "sovereign-elemental-shape",
+    "name": "Sovereign Elemental Shape",
+    "disposition": "selectable",
+    "summary": "The root of the Elemental Influence Charms: lets the raksha reflexively grant a one-die Wyld bonus to a witnessed normal action when the target is defined as drawing on the element the raksha has assumed.",
+    "requirements": "Minimum Essence: 1; Prerequisite Charms: Assumption of Elemental Shape (Any).",
+    "mechanics": "The raksha can use the elements of Creation to assist others. This ability affects normal actions rather than shaping actions: Elemental Assistance -- for 1 mote, the raksha can reflexively grant a one-die Wyld bonus to a single witnessed action. The player of the raksha or his target must define how the target uses one of the five elements to assist him, and the raksha must have the Assumption of Elemental Shape for that element active. For example, an archer might gain the assistance of a raksha who has assumed elemental Earth by taking a firm stance and 'rooting herself in the ground.'",
+    "cost": "1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 151,
+      "pdfPage": 152
+    },
+    "crossReferences": [
+      "assumption-of-elemental-shape"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Elemental Influence' sub-tree, p. 151 (PDF 152). Root of the diagrammed 'Assumption Charms 2' tree, alongside World-Angering Elemental Mastery and Elemental Transformation, all three branching off Assumption of Elemental Shape."
+  },
+  {
+    "id": "element-weaving-style",
+    "name": "Element-Weaving Style",
+    "disposition": "selectable",
+    "summary": "Lets the raksha shape an assumed element by touch into complex, intricate forms without tools, via three Craft-based normal-action abilities for air/fire/water, wood, and earth/metal.",
+    "requirements": "Minimum Essence: 1; Prerequisite Charms: Sovereign Elemental Shape.",
+    "mechanics": "The raksha can shape the element by touch, rapidly molding it into complex and intricate shapes without tools. These are normal actions rather than shaping actions: Compliant Element Shaping -- for 5 motes, a single Craft roll shapes air, fire or water; sculptures last a single lunar cycle; requires the matching Assumption of Elemental Shape (Air/Fire/Water) active. Compliant Woodland Shaping -- for 5 motes, a single Craft roll shapes wood as if with First Age tools (a -1 difficulty reduction replacing any tool penalty or benefit); requires Assumption of Elemental Shape (Wood) active. Compliant Mountain Shaping -- for 5 motes, a single Craft roll shapes earth and metal as if with First Age tools (same -1 difficulty reduction); requires Assumption of Elemental Shape (Earth) active.",
+    "cost": "1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 151,
+      "pdfPage": 152
+    },
+    "crossReferences": [
+      "sovereign-elemental-shape",
+      "assumption-of-elemental-shape"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Elemental Influence' sub-tree, p. 151 (PDF 152, with the mechanics description continuing onto PDF 153)."
+  },
+  {
+    "id": "elemental-invocation",
+    "name": "Elemental Invocation",
+    "disposition": "selectable",
+    "summary": "The capstone of the Sovereign Elemental Shape line: manifests a treasure of the Wyld in Creation, given shape and form appropriate to the raksha's assumed element, fading away at the end of the story.",
+    "requirements": "Minimum Essence: 2; Prerequisite Charms: Element-Weaving Style.",
+    "mechanics": "The raksha manifests in Creation one of the treasures of the Wyld. This Charm lets the raksha invoke a possession in Creation, giving it shape and form appropriate to an element whose Essence the raksha has absorbed through Assumption of Elemental Shape. For example, a raksha of air might summon a lethal hazard as a storm, and a raksha of water might call forth a servant in the shape of a siaka. It fades away again at the end of the story. This Charm can call forth even possessions and servants that cannot normally exist in Creation.",
+    "cost": "10 motes, 1 gossamer",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 152,
+      "pdfPage": 153
+    },
+    "crossReferences": [
+      "element-weaving-style"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Elemental Influence' sub-tree, p. 152 (PDF 153). 'Possession' here is a Fair Folk Background/wealth concept described elsewhere in the book (pp. 131-132) but not yet its own inventory row; flagged for a future pass alongside the Backgrounds already covered."
+  },
+  {
+    "id": "world-angering-elemental-mastery",
+    "name": "World-Angering Elemental Mastery",
+    "disposition": "selectable",
+    "summary": "The hostile counterpart to Sovereign Elemental Shape: lets the raksha reflexively impose an environmental penalty equal to her Essence on a witnessed normal action of which she disapproves, using her assumed element.",
+    "requirements": "Minimum Essence: 2; Prerequisite Charms: Assumption of Elemental Shape (Any).",
+    "mechanics": "The raksha can use the elements of Creation to hinder others. This ability affects normal actions rather than shaping actions: Elemental Hindrance -- for 5 motes, the raksha can reflexively impose an environmental penalty equal to his Essence on a single witnessed action of which he disapproves. The raksha's player must define how his character uses one of the five elements to impose this penalty, and he must have the Assumption of Elemental Shape appropriate to that element active.",
+    "cost": "1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 152,
+      "pdfPage": 153
+    },
+    "crossReferences": [
+      "assumption-of-elemental-shape"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Elemental Influence' sub-tree, p. 152 (PDF 153). Second branch off Assumption of Elemental Shape in the diagrammed 'Assumption Charms 2' tree, parallel to Sovereign Elemental Shape and Elemental Transformation."
+  },
+  {
+    "id": "teeth-of-the-world",
+    "name": "Teeth of the World",
+    "disposition": "selectable",
+    "summary": "The capstone of the World-Angering Elemental Mastery line: grants five elemental attack abilities (one per Assumption of Elemental Shape variant) that use normal Dexterity-based dice pools rather than shaping actions, each requiring the matching elemental assumption active.",
+    "requirements": "Minimum Essence: 2; Prerequisite Charms: World-Angering Elemental Mastery.",
+    "mechanics": "The raksha attacks others with the elements of Creation. These abilities affect normal actions rather than shaping actions: Wind Knives (Air) -- for 5 motes, an undodgeable hail/lightning/wind attack with base lethal damage of twice the raksha's Essence and a normal Dexterity + Archery pool, requiring the target within 1,000 yards and visible. Inciting the Ocean's Hunger (Water) -- for 5 motes, an unblockable attack turning a nearby water source against an enemy within five yards of it, base lethal damage twice the raksha's Essence, Dexterity + Brawl pool, target within 100 yards. Thrashing Dragon Fire Dance (Fire) -- for 5 motes, a normal Dexterity + Archery attack against an enemy within five yards of a significant blaze, base damage twice the raksha's Essence (or, without a blaze, a weaker 2L conjured-flame version for 5 motes), range 100 yards. Leaping Forest (Wood) -- for 5 motes, a normal Dexterity + Brawl attack (trees initiate clinches, small wooden objects leap) against an enemy within five yards of a tree or 30 yards of a small wooden object, base lethal damage twice the raksha's Essence, range 100 yards. World-Shaking Heart (Earth) -- for 5 motes, a normal Dexterity + Brawl attack with base damage twice the raksha's Essence and range 500 yards (does not affect targets more than five yards from the ground); alternately, with one success on a normal Dexterity + Brawl action, the raksha can shake the ground within 30 yards, forcing standers to roll Dexterity + Athletics or fall and dealing the raksha's Essence in dice of lethal damage to structures.",
+    "cost": "1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 152,
+      "pdfPage": 153
+    },
+    "crossReferences": [
+      "world-angering-elemental-mastery",
+      "assumption-of-elemental-shape"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Elemental Influence' sub-tree, p. 152 (PDF 153, with the mechanics description continuing onto PDF 154). Each of the five named abilities requires its own matching Assumption of Elemental Shape variant active, mirroring the pattern already established by Sovereign Elemental Shape and Element-Weaving Style."
+  },
+  {
+    "id": "elemental-transformation",
+    "name": "Elemental Transformation",
+    "disposition": "selectable",
+    "summary": "A repeatable Charm letting the raksha adopt an alternate animal or elemental shape (designed with 3 mutation points, chosen at purchase), speaking to animals of that type and shapeshifting into it as a work of glamour with a two-die penalty on physical and social actions while transformed.",
+    "requirements": "Minimum Essence: 2; Prerequisite Charms: Assumption of Elemental Shape (Any).",
+    "mechanics": "The raksha masters the art of transformation, learning to adopt an alternate shape suited to her elemental Essence. The raksha can purchase this Charm more than once, learning an additional shape each time; if an animal shape is chosen, the raksha can speak to animals of that type whenever this Charm is active. This ability affects normal actions rather than shaping actions: Shapeshift -- for 10 motes and 1 Willpower, the raksha changes to the alternate form chosen at purchase (an animal or elemental body whose special abilities are designed with 3 mutation points -- for example, an eagle form built from Gossamer Wing Flight and keen vision via Surpassing Excellence, or a bear form with Armament of Flesh and the Large pox). This change is a work of glamour; it imposes a two-die penalty on the raksha's physical and social actions and grants the benefits of the mutations without spending actual mutation points. The raksha can still talk in the animal form.",
+    "cost": "1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 153,
+      "pdfPage": 154
+    },
+    "crossReferences": [
+      "assumption-of-elemental-shape",
+      "gossamer-wing-flight",
+      "surpassing-excellence",
+      "armament-of-flesh",
+      "mutation-mechanic"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Elemental Influence' sub-tree, p. 153 (PDF 154). Third branch off Assumption of Elemental Shape in the diagrammed 'Assumption Charms 2' tree; its own text example builds sample alternate forms directly out of Sword Grace tree Mutation Charms already inventoried (Gossamer Wing Flight, Surpassing Excellence, Armament of Flesh), demonstrating the cross-tree design intent between Nirakara's Assumption Charms and Nishkriya's Mutation Charms."
+  },
+  {
+    "id": "mercurial-shape",
+    "name": "Mercurial Shape",
+    "disposition": "selectable",
+    "summary": "Makes the raksha's shape a thing of quicksilver and change, letting her reflexively grant herself a two-die Wyld bonus on a normal action by defining how a mutable form achieves it.",
+    "requirements": "Minimum Essence: 2; Prerequisite Charms: Sovereign Elemental Shape, Elemental Transformation.",
+    "mechanics": "The raksha makes his shape a thing of quicksilver and change. This ability affects normal actions rather than shaping actions: Mutable Form -- for 5 motes, the raksha can reflexively give himself a two-die Wyld bonus. The raksha must define how he uses a mutable form to achieve this bonus -- for example, arms that lengthen and retract for a Larceny roll to steal an Exalt's sword, an ever-changing shape for a Survival roll to avoid pursuit, or a light effort of shapeshifting for a Larceny roll to create a disguise.",
+    "cost": "1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 153,
+      "pdfPage": 154
+    },
+    "crossReferences": [
+      "sovereign-elemental-shape",
+      "elemental-transformation"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Elemental Influence' sub-tree, p. 153 (PDF 154, with the mechanics description continuing onto PDF 155). Converges Sovereign Elemental Shape and Elemental Transformation in the diagrammed 'Assumption Charms 2' tree, confirmed against the rendered page image. Closes out the Elemental Influence sub-tree."
+  },
+  {
+    "id": "assumption-of-dreams-and-passion",
+    "name": "Assumption of Dreams and Passion",
+    "disposition": "selectable",
+    "summary": "A worked example of a personalized, non-elemental Assumption-type Charm tree: lets the raksha pass through Nirakara and exist as a shaped creature by filling his spirit with dream-derived emotional Essence, adding his highest feeding Grace in dice to Social rolls that provoke a chosen emotion.",
+    "requirements": "Minimum Essence: 2; Prerequisite Charms: None.",
+    "mechanics": "This Charm allows a raksha to pass through the gateway Nirakara and exist as a shaped creature within Creation. The raksha fills his spirit with the raw dream-derived Essence of an emotion or passion. This Charm adds the raksha's highest feeding Grace in dice to Social rolls where provoking that emotion is useful. The raksha chooses the emotion in question when invoking this Charm. This is an Assumption-type Charm.",
+    "cost": "10 motes, 1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 154,
+      "pdfPage": 155
+    },
+    "crossReferences": [
+      "graces-overview"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Emotional Influence' sub-tree, p. 154 (PDF 155). The book explicitly frames this whole sub-tree as 'an example of the type' of personalized non-elemental Assumption-type Charm tree a raksha can develop -- i.e. Emotional Influence is not the only possible non-elemental Assumption line, just the one worked example the text provides. Root of the diagrammed 'Assumption Charms 3' tree."
+  },
+  {
+    "id": "elegant-muse-attitude",
+    "name": "Elegant Muse Attitude",
+    "disposition": "selectable",
+    "summary": "Lets the raksha reflexively grant a one-die Wyld bonus to a witnessed normal action by defining how the target draws on raksha-inspired passion.",
+    "requirements": "Minimum Essence: 2; Prerequisite Charms: Assumption of Dreams and Passion.",
+    "mechanics": "The raksha can use emotion to assist others. This ability affects normal actions rather than shaping actions: Emotional Assistance -- for 1 mote, the raksha can reflexively grant a one-die Wyld bonus to a single witnessed action. The player of the raksha or his target must define how the target uses raksha-inspired passion to assist himself. The raksha must have Assumption of Dreams and Passion active.",
+    "cost": "1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 154,
+      "pdfPage": 155
+    },
+    "crossReferences": [
+      "assumption-of-dreams-and-passion"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Emotional Influence' sub-tree, p. 154 (PDF 155). Direct emotional-Essence analog of Sovereign Elemental Shape."
+  },
+  {
+    "id": "emotion-weaving-style",
+    "name": "Emotion-Weaving Style",
+    "disposition": "selectable",
+    "summary": "Lets the raksha reshape a target's Nature for a story by carving their mind with embedded emotional Essence, an artificial change the target can consciously ignore but finds uncomfortable to resist.",
+    "requirements": "Minimum Essence: 3; Prerequisite Charms: Elegant Muse Attitude.",
+    "mechanics": "The raksha uses the emotional Essence embedded in his alien soul to shape, mold and carve the minds of others. This ability affects normal actions rather than shaping actions: Great Craft of Minds -- the raksha spends 5 motes, and his player rolls Conviction + Performance as a normal action against a difficulty equal to the target's Essence. On a success, the raksha can change the target's Nature to a Nature of the raksha's choice; this change lasts for one story. The change is an artificial and artistic twisting of the target's spirit driven by emotional blocks set up within the target's mind -- targets can ignore its non-mechanical impact but find it uncomfortable to do so.",
+    "cost": "1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 154,
+      "pdfPage": 155
+    },
+    "crossReferences": [
+      "elegant-muse-attitude"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Emotional Influence' sub-tree, p. 154 (PDF 155). Direct emotional-Essence analog of Element-Weaving Style."
+  },
+  {
+    "id": "emotional-invocation",
+    "name": "Emotional Invocation",
+    "disposition": "selectable",
+    "summary": "The capstone of the Elegant Muse Attitude line: manifests a treasure of the Wyld in Creation, its shape and Essence filled with the emotion the raksha has assumed, giving it an odd and appealing character to onlookers.",
+    "requirements": "Minimum Essence: 3; Prerequisite Charms: Emotion-Weaving Style.",
+    "mechanics": "The raksha manifests in Creation one of the treasures of the Wyld. This Charm lets the raksha invoke a possession into Creation, filling the gaps in its shape and Essence with the emotion the raksha has assumed via Assumption of Dreams and Passion. For example, a raksha enshrouded in lust could summon a cabinet or a mutated siaka, but both would have an odd and sensual appeal for those who looked upon them.",
+    "cost": "10 motes, 1 gossamer",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 155,
+      "pdfPage": 156
+    },
+    "crossReferences": [
+      "emotion-weaving-style",
+      "assumption-of-dreams-and-passion"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Emotional Influence' sub-tree, p. 155 (PDF 156). Direct emotional-Essence analog of Elemental Invocation."
+  },
+  {
+    "id": "unwanted-obsession-provocation-technique",
+    "name": "Unwanted Obsession Provocation Technique",
+    "disposition": "selectable",
+    "summary": "The hostile counterpart to Elegant Muse Attitude: lets the raksha reflexively impose an environmental penalty equal to her Essence on a witnessed normal action of which she disapproves, using her assumed emotional mien.",
+    "requirements": "Minimum Essence: 2; Prerequisite Charms: Assumption of Dreams and Passion.",
+    "mechanics": "The raksha can use the emotional Essence flooding him to drive others to distraction. This ability affects normal actions rather than shaping actions: Emotional Hindrance -- for 5 motes, the raksha can reflexively impose an environmental penalty equal to his Essence on a single witnessed action of which he disapproves. The raksha's player must define how his character uses the emotional mien imposed by Assumption of Dreams and Passion to inflict this penalty.",
+    "cost": "1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 155,
+      "pdfPage": 156
+    },
+    "crossReferences": [
+      "assumption-of-dreams-and-passion"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Emotional Influence' sub-tree, p. 155 (PDF 156). Second branch off Assumption of Dreams and Passion in the diagrammed 'Assumption Charms 3' tree, parallel to Elegant Muse Attitude; direct emotional-Essence analog of World-Angering Elemental Mastery."
+  },
+  {
+    "id": "essence-disrobing-passion",
+    "name": "Essence-Disrobing Passion",
+    "disposition": "selectable",
+    "summary": "The capstone of the Unwanted Obsession Provocation Technique line: an unparryable emotional attack that strips motes from a witnessed target and inflicts a stacking one-die penalty on their normal actions for the rest of the scene.",
+    "requirements": "Minimum Essence: 3; Prerequisite Charms: Unwanted Obsession Provocation Technique.",
+    "mechanics": "The raksha attacks the Essence patterns of others with madly surging dreams. This ability affects normal actions rather than shaping actions: Mote-Scattering Storm -- for 5 motes, the raksha can overwhelm the thoughts and Essence of a witnessed target with unruly emotion. This is a normal action with a Conviction + Performance dice pool and a base difficulty equal to the target's permanent Essence; this attack is intangible and cannot be parried without Charms or stunts capable of deflecting such attacks. If the raksha succeeds, the target loses motes equal to the raksha's Essence and suffers a one-die environmental penalty on normal actions for the rest of the scene. This penalty is cumulative with the penalty for Emotional Hindrance but not with itself.",
+    "cost": "1 gossamer",
+    "compatibility": "Duration: One story. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 155,
+      "pdfPage": 156
+    },
+    "crossReferences": [
+      "unwanted-obsession-provocation-technique"
+    ],
+    "notes": "Chapter Five: Raksha Magic, 'Nirakara, the Mask' -> 'Emotional Influence' sub-tree, p. 155 (PDF 156). Closes out both the Emotional Influence sub-tree and the entire Assumption-type/Nirakara Charm section; 'NIRGUNA, THE HEART' (the already-inventoried Heart Grace tree's opening) begins immediately afterward on the same page."
   }
 ]
