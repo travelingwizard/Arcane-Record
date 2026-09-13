@@ -4432,5 +4432,460 @@
       "terrestrial-circle-sorcery",
       "moonsilver-shaping-rite"
     ]
+  },
+  {
+    "id": "artifact-background-altered",
+    "name": "Artifact (altered for Lunars)",
+    "disposition": "calculated",
+    "summary": "The Artifact Background works largely as in core Exalted, but the vast majority of Lunar-owned artifacts are forged from moonsilver, whose protean nature lets armor and weapons shapeshift along with the Lunar Exalted attuned to them; the Silver Pact is also fiercely possessive of moonsilver items, especially among its younger members.",
+    "mechanics": "In addition to the properties of moonsilver described in Chapter Nine of Exalted, the metal's protean nature allows artifacts crafted from it to shapeshift along with the Lunar Exalted they are attuned to: armor expands and contracts to match inhuman forms, while weapons can meld to reform as bracers, gauntlets or other accessories if the owner's current form lacks the hands to properly wield them. Culturally, the Silver Pact is incredibly possessive of moonsilver artifacts, considering the metal sacred to both the Lunar Society and Luna, and looks poorly on non-Lunars owning what it sees as a rightful part of its heritage. This possessiveness extends toward younger Silver Pact members: if a Lunar owns an artifact, especially a high-ranking or rare one, other Lunars generally assume he worked hard to earn the right to it, and players/Storytellers should consider what the character did to deserve it.",
+    "compatibility": "All Lunar castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 96,
+      "pdfPage": 99
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Traits, 'Expanded Backgrounds' -> 'Altered Backgrounds' -> 'Artifact' section, p. 96 (PDF 99)."
+  },
+  {
+    "id": "backing-background-altered",
+    "name": "Backing (altered for Lunars)",
+    "disposition": "calculated",
+    "summary": "Backing is uncommon for Lunars: outside her own pack, the only groups a Lunar typically cares about are her tribe and the Silver Pact, and a character's rank within the Pact itself is covered by the Renown Background rather than by Backing; some Lunars (most often Casteless) hold outside Backing with organizations such as the Guild or mercenary companies.",
+    "mechanics": "While Lunars can possess Backing, it is uncommon. Outside of her pack, the only groups a Lunar typically cares about are her tribe and the Silver Pact. A character's rank in the Pact is covered by the Renown Background, not by Backing. Still, there are Lunars -- most often Casteless -- within the Threshold who join mercenary companies, the Guild, or other organizations. If a character holds allegiance to some organization outside the Silver Pact, the player should work out how and why she joined that group and with whom her primary loyalties lie.",
+    "compatibility": "All Lunar castes; a character's standing within the Silver Pact itself is tracked by Renown, not Backing.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 97,
+      "pdfPage": 100
+    },
+    "crossReferences": [
+      "renown-background"
+    ],
+    "notes": "Chapter Four: Traits, 'Altered Backgrounds' -> 'Backing' section, p. 97 (PDF 100)."
+  },
+  {
+    "id": "followers-background-altered",
+    "name": "Followers (altered for Lunars)",
+    "disposition": "calculated",
+    "summary": "Lunar Followers typically come from barbarian tribes or beastman societies who regard Lunars as living gods rather than demonic monsters; Followers reflect only those who directly follow the character's orders, while individuals who merely revere the character without being answerable to her belong under the new Cult Background instead.",
+    "mechanics": "Lunar followers typically come from one of two sources: barbarians and beastmen. Both groups live within tribal societies among the wilderness and wastelands of Creation, and both look upon the Lunars as living gods rather than demonic monsters, seeing them as partly divine and partly of flesh -- dangerous and inhuman, but respected and honored as their station deserves. As a result, members of barbarian tribes -- sometimes entire tribes -- are willing to pledge their direct service to Lunars. Beastmen, born from the union of Lunar and beast, typically follow the Lunar who birthed or sired the original members of their tribe, though some beastman societies will adopt a new patron deity if a powerful Lunar proves herself worthy of their reverence. Followers reflect only those who directly follow the character's orders; characters with individuals who revere them but who are not directly answerable to the character should take the new Cult Background instead.",
+    "compatibility": "All Lunar castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 97,
+      "pdfPage": 100
+    },
+    "crossReferences": [
+      "cult-background"
+    ],
+    "notes": "Chapter Four: Traits, 'Altered Backgrounds' -> 'Followers' section, p. 97 (PDF 100)."
+  },
+  {
+    "id": "manse-background-altered",
+    "name": "Manse (altered for Lunars)",
+    "disposition": "calculated",
+    "summary": "Almost every Manse in Lunar-held lands has long been claimed by the Silver Pact and converted into a Celestial Manse; a young Lunar seeking Manse dots must either seize a Manse or Demesne from a god, demon, or outcaste Terrestrial, or undertake a dangerous quest to convince an elder Lunar to let her attune to his existing Manse.",
+    "mechanics": "Almost all of the Manses that lie in lands the Lunars call home have long been claimed by the Silver Pact and converted into Celestial Manses. Younger Lunars have two choices when it comes to Manse. One is to seize a Manse or Demesne from a god, demon, or outcaste Terrestrial and take control of it. The other is to find a Manse already in the control of an elder Lunar and convince the owner that he is worthy of being attuned to the elder's Manse. This typically involves a quest -- usually a very dangerous one -- on the part of the young Lunar, and it is not at all uncommon for an elder to demand increasingly difficult and dangerous quests to keep proving the younger Lunar's worth. Such quests commonly involve collecting ritual components for powerful sorceries or the forging of artifacts, negotiating pacts with spirit courts or barbarian tribes, or killing powerful Fair Folk or Dragon-Blooded warriors.",
+    "compatibility": "All Lunar castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 97,
+      "pdfPage": 100
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Traits, 'Altered Backgrounds' -> 'Manse' section, pp. 97-98 (PDF 100-101); text continues across the page break."
+  },
+  {
+    "id": "mentor-background-altered",
+    "name": "Mentor (altered for Lunars)",
+    "disposition": "calculated",
+    "summary": "Because every member of the Silver Pact has an elder of the society as his mentor by the nature of the culture, the Mentor Background represents the mentor's level of involvement in the character's life rather than the mentor's personal power or influence; a Lunar who cannot stand on his own two feet is no Lunar at all, even if mentor and student are close.",
+    "mechanics": "Dot table (level of contact with the mentor): no dots = you no longer have any contact with your mentor, whether because of a personal falling out, death, or some other reason; 1 dot = you and your mentor are distant, seeing each other only once or twice a year, usually at the Pact's larger gatherings; 2 dots = you and your mentor see each other infrequently, perhaps half a dozen times a year; 3 dots = you and your mentor see each other occasionally, perhaps once a month; 4 dots = you live less than a week's travel from your mentor and see him often; 5 dots = you live near your mentor (less than a day's travel), perhaps even sharing territory or a Manse with him.",
+    "compatibility": "All Lunar castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 98,
+      "pdfPage": 101
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Traits, 'Altered Backgrounds' -> 'Mentor' section, p. 98 (PDF 101)."
+  },
+  {
+    "id": "cult-background",
+    "name": "Cult (new Background)",
+    "disposition": "selectable",
+    "summary": "New Background: some Lunars gather Essence from the prayers and burnt offerings of worshipers who venerate them as protectors; unlike a Manse, a cult that loves or fears the character will keep worshiping even if that worship becomes illegal, and it grants regular temporary Willpower and bonus Essence-per-hour income scaling with the cult's size and reach.",
+    "mechanics": "There is Essence in worship: prayers and burnt offerings provide power to those who receive them, and the Essence of prayer lures gods to demand the worship of men. A Lunar's cult will attempt to continue worshiping her even if that worship becomes illegal, regardless of whether the character likes it or not; cults that hate or fear the character are less likely to persist if local politics turn against them. Dot table: no dots = the character is without worshipers or godly responsibilities; 1 dot = a small but devoted cult of perhaps a half-dozen full-time ascetics or acolytes, plus several hundred people offering daily prayers and small offerings across feasts and sacred days -- the character gains a point of temporary Willpower every morning and regains 2 additional motes of Essence per hour from worship; 2 dots = the character is venerated in a region by several thousand daily worshipers (the level of a single city's god-king), regains a point of temporary Willpower once every 24 hours as a reflexive action, and gains 3 additional Essence motes per hour from the cult; 3 dots = the character's worship is the faith of a nation, tens of thousands hold her in reverence as a primary deity with regional festivals in her name, she may rule symbolically or in truth, regains a point of temporary Willpower every 12 hours, and gains 4 additional Essence motes per hour; 4 dots = the character's worship is the faith of a region and she is seen as arbiter of some major sphere of life (hunting, war, procreation), with seasonal festivals and many children named for her, facing competition from rival gods and honors, regaining a point of temporary Willpower every 6 hours and 6 additional Essence motes per hour.",
+    "cost": "Background dots (0-4+), as with any Background.",
+    "compatibility": "All Lunar castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 98,
+      "pdfPage": 101
+    },
+    "crossReferences": [
+      "followers-background-altered"
+    ],
+    "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Cult' section, pp. 98-99 (PDF 101-102); the dot table continues across the page break. Only dot levels 0 through 4 are given legible text in the rendered pages reviewed; no 5-dot entry was found (the book may cap Cult at 4 dots, or a 5-dot line was missed -- worth a second look before promotion)."
+  },
+  {
+    "id": "hearts-blood-background",
+    "name": "Heart's Blood (new Background)",
+    "disposition": "selectable",
+    "summary": "New Background: represents the number of animal (or human) forms a Lunar has access to at the start of play, gained by killing a creature and drinking its heart's blood immediately as it dies; the knowledge of that form stays with the Lunar for life, and size/species limits still apply unless the character has the relevant Charms.",
+    "mechanics": "To drink an animal's heart's blood, the animal must die at the Lunar's hand and the blood must be drunk immediately from the animal's heart or throat as it dies; once drunk, the knowledge of that creature's form stays with the Lunar until she dies. Eating another Lunar's heart's blood grants only that Lunar's human and beast shapes, not her personal (hybrid) shape. This Background reflects only the shapes a character has at the start of play -- a character may add further forms during play regardless of this Background's rating. Unless a character has the Humble Mouse Shape and Towering Beast Form Charms, she is limited to the size of the animal shape taken; a character who lacks Towering Beast Form may still select a tyrant lizard or mammoth as a known heart's blood but cannot assume that form until she learns the Charm. It is recommended that animals selected at character creation be limited to the character's homeland region (see the accompanying Regions sidebar), though a Storyteller may allow taking this Background more than once to cover additional regions; creatures of the Wyld and sorcerous constructs cannot be hunted for their heart's blood. Humans may be hunted for their heart's blood, but the character cannot assume human form without the Prey's Skin Disguise Charm, and Heart's Blood (Human) must be taken as a separate Background with its own dot scale. Dot table (non-human animals): no dots = the character has yet to drink the heart's blood of any animal; 1 dot = a single animal; 2 dots = five animals; 3 dots = a dozen animals; 4 dots = two dozen animals; 5 dots = three dozen animals. Dot table (Heart's Blood (Human), a separate purchase): no dots = none; 1 dot = a single human; 2 dots = two humans; 3 dots = four humans; 4 dots = seven humans; 5 dots = a dozen humans.",
+    "cost": "Background dots (0-5) purchased separately for animal forms and for Heart's Blood (Human).",
+    "compatibility": "All Lunar castes; assuming a drunk human's shape additionally requires the Prey's Skin Disguise Charm, and forms above the default size range require Humble Mouse Shape or Towering Beast Form.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 99,
+      "pdfPage": 102
+    },
+    "crossReferences": [
+      "humble-mouse-shape",
+      "towering-beast-form",
+      "preys-skin-disguise",
+      "lunar-regions-guide"
+    ],
+    "notes": "Chapter Four: Traits, 'New Backgrounds' -> \"Heart's Blood\" section, pp. 99-100 (PDF 102-103); the dot table continues across the page break."
+  },
+  {
+    "id": "renown-background",
+    "name": "Renown (new Background)",
+    "disposition": "selectable",
+    "summary": "New Background: represents legendary deeds performed during a Lunar's Rite of Passage and beyond, granting bonus starting points in the separate Renown Trait (the social-standing system tracked via Succor/Mettle/Cunning/Glory); Casteless characters may not take this Background.",
+    "mechanics": "The Silver Pact is a society where rank and respect are earned through great and mighty deeds; the higher a Lunar's Renown Trait, the higher her rank within the Silver Pact. Players and Storytellers should work together to detail what a character did to earn any additional Renown points from this Background, since those details determine which Renown categories the extra points go toward (e.g., a fear-inspiring butcher gains Cunning, while a duelist renowned for honor gains Glory). High starting Renown obligates the character to live up to the same standard for the rest of her life. Casteless characters may not take this Background. Dot table: no dots = no additional Renown points; 1 dot = an impressive Rite of Passage performance, +5 additional Renown points; 2 dots = beginning to make a name among certain Pact factions, +10 additional Renown points; 3 dots = many society elders have heard the character's name, +15 additional Renown points; 4 dots = tales have spread throughout the Silver Pact and are feared within the Threshold, +25 additional Renown points; 5 dots = the Silver Pact's elders know the character's name and expect her to help reshape the world, feared as a figure of dread in civilized lands, +40 additional Renown points.",
+    "cost": "Background dots (0-5), granting a lump bonus of additional starting Renown points as noted per dot.",
+    "compatibility": "All Lunar castes except Casteless, who may not take this Background.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 100,
+      "pdfPage": 103
+    },
+    "crossReferences": [
+      "lunar-renown-trait",
+      "lunar-face-trait",
+      "casteless-lunars"
+    ],
+    "notes": "Chapter Four: Traits, 'New Backgrounds' -> 'Renown' section, p. 100 (PDF 103). Distinct from the Renown Trait itself (see lunar-renown-trait), which this Background merely provides bonus starting points toward."
+  },
+  {
+    "id": "lunar-regions-guide",
+    "name": "Regions (Heart's Blood animal guide)",
+    "disposition": "reference-only",
+    "summary": "Sidebar listing representative animal life by region of Creation (North, Northeast, East, Southeast, South, Southwest, West, Northwest, the Cities, and the Blessed Isle), intended as a guideline for which animals a character may plausibly have taken the Heart's Blood Background for based on her homeland.",
+    "mechanics": "The North: mountain/tundra animals such as elk, mammoths, owls, hares, foxes, polar bears, saber-toothed cats. The Northeast: coniferous-forest/taiga animals such as elk, wild horses, wolves, large bears, eagles, falcons. The East: temperate forest and swamp animals such as weasels, tyrant lizards, horses, deer, alligators, large turtles, rodents, snakes. The Southeast: savanna/rain forest animals such as aurochs, antelope, hairless elephants, big cats, wild dogs, vipers, insects, arachnids, snakes, wild boar. The South: desert animals such as camels, vipers, large lizards. The Southwest: coyotes, hares, desert rats, birds of prey, and (nearer the coast) crocodiles, wild dogs, aurochs. The West: near-exclusively marine, with sharks, dolphins, giant squid, whales, sea birds, snakes, large rodents, occasional wild boar. The Northwest: arctic sea life such as whales, seals, walruses, plus inland wild goats, elk, polar bears. The Cities: vermin such as wild cats, dogs, large rats, birds of prey, vipers, monkeys, insects, humans. The Blessed Isle: largely tamed, with domesticated farm animals plus birds of prey, mountain goats, foxes, weasels, and large rodents in its sparser regions.",
+    "compatibility": "Guidance for selecting Heart's Blood Background animals during character creation; the Storyteller may permit a character to purchase Heart's Blood a second time to cover a different region.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 101,
+      "pdfPage": 104
+    },
+    "crossReferences": [
+      "hearts-blood-background"
+    ],
+    "notes": "Chapter Four: Traits, 'Regions' sidebar, p. 101 (PDF 104), referenced directly by the Heart's Blood Background write-up on the preceding page."
+  },
+  {
+    "id": "full-moon-caste",
+    "name": "Full Moon Caste",
+    "disposition": "selectable",
+    "summary": "Full Moon Lunars (Children of the Burning Moon) are the Silver Pact's greatest warriors, direct and straightforward, surviving trials through raw physical prowess; their Caste Attributes are Strength, Dexterity, and Stamina.",
+    "mechanics": "Trials: survived through direct action -- beating or carving down monsters and wild beasts with bare hands or blades, outlasting uninhabitable wastelands through sheer endurance, running down prey in ritual hunts. Totem Animals: favor animals known for great strength/endurance or speed/agility -- bears, great cats, deer, mammoths, aurochs, serpents, large birds of prey. Anima Banner: a steady glow of soft white or silver light that grows in strength and intensity as more Essence is spent; iconic banners depict abstract or realistic images of the Lunar's totem form. Anima Effects: for 5 motes, a Full Moon Lunar can attune her anima to double her running and leaping distances for the rest of the scene; this stacks with Charm-based movement bonuses (applied separately, not in sequence -- doubling movement twice yields triple, not quadruple, speed). Caste Attributes: Strength, Dexterity, Stamina. Associations: the season and element of fire, the color white. Sobriquets: Children of the Burning Moon, The Silver Blades, Luna's Warriors, Nightfangs. Concepts: former pitfighter, barbarian warrior queen, urban gang leader, shipwrecked sailor, farm boy orphaned by Imperial soldiers, the greatest hunter who ever lived, relentless guerilla soldier.",
+    "compatibility": "One of the three Lunar Castes chosen after the Rite of Passage (this edition of the Lunars has three Castes -- No Moon, Full Moon, Changing Moon -- plus the uninitiated Casteless state; it does not include the Waxing/Waning Moon Castes introduced in later editions).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 102,
+      "pdfPage": 105
+    },
+    "crossReferences": [
+      "lunar-universal-anima-effects",
+      "the-great-curse",
+      "casteless-lunars"
+    ],
+    "notes": "Chapter Four: Traits, 'Full Moon' section, pp. 102-103 (PDF 105-106)."
+  },
+  {
+    "id": "changing-moon-caste",
+    "name": "Changing Moon Caste",
+    "disposition": "selectable",
+    "summary": "Changing Moon Lunars (Children of the Shifting Moon) are the Silver Pact's premier spies, assassins, and leaders, surviving through misdirection, charm, and cunning; their Caste Attributes are Charisma, Manipulation, and Appearance.",
+    "mechanics": "Trials: survived through cunning or guile -- defeating foes with underhanded trickery, bringing down beasts with stealth and skill, impressing fickle spirits with grace and charm. Totem Animals: favor animals famed for beauty or grace, or hunted for fur/skin -- great cats, birds of prey, serpents. Anima Banner: shifting prisms of bright silver light and dark-blue or purple shadow that intensify and shift faster as more Essence is spent; iconic banners depict abstract or realistic images of the Lunar's totem form. Anima Effects: for 10 motes, a Changing Moon Lunar can transform her anima into a veil of illusion, appearing as anyone she is familiar with for the rest of the scene; this ends if her anima banner activates at any level or if she has significant physical interaction (combat or sex) with another intelligent creature, and it does not change her scent or voice. The Fair Folk, as creatures of deception, are immune to this illusion. Caste Attributes: Charisma, Manipulation, Appearance. Associations: the season of wood, the element of air, the color purple. Sobriquets: Children of the Shifting Moon, The Silver Mirrors, Luna's Courtiers, Night-thieves. Concepts: escaped slave, bandit lord, former prostitute, ambassador to the Fair Folk, seductive assassin, king of thieves, charismatic warband leader.",
+    "compatibility": "One of the three Lunar Castes chosen after the Rite of Passage.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 104,
+      "pdfPage": 107
+    },
+    "crossReferences": [
+      "lunar-universal-anima-effects",
+      "the-great-curse",
+      "casteless-lunars"
+    ],
+    "notes": "Chapter Four: Traits, 'Changing Moon' section, pp. 104-105 (PDF 107-108)."
+  },
+  {
+    "id": "no-moon-caste",
+    "name": "No Moon Caste",
+    "disposition": "selectable",
+    "summary": "No Moon Lunars (Children of the Hidden Moon) are the Silver Pact's master sorcerers and keepers of its history and lore, surviving through mystical insight and intellect; their Caste Attributes are Perception, Intelligence, and Wits.",
+    "mechanics": "Trials: survived through mystical insight -- defeating foes with tactical brilliance, reacting quickly to changing threats, binding restless ghosts and vengeful gods with powerful magics. Totem Animals: favor animals of mystical significance, especially those sacred to Luna -- black or white cats, bears, owls, serpents, creatures of the deep ocean. Anima Banner: dreamlike veils of dark-blue and purple light with a slight silver tint at the edges, deepening and flowing more as Essence is spent; iconic banners depict abstract or realistic images of the Lunar's totem form. Anima Effects: a No Moon Lunar may attune her anima to the Essence used for sorcery, spending up to twice her permanent Essence in motes during a scene (outside of casting) to lower the Essence cost of all spells cast that scene by 1 per mote spent, to a minimum of half the spell's normal cost (rounded down); this attunement does not count as a Charm use for the turn-limit on Charms, but cannot be done while casting a spell. Caste Attributes: Perception, Intelligence, Wits. Associations: the season and element of water, the color blue. Sobriquets: Children of the Hidden Moon, The Silver Shadows, Luna's Chamberlains, Nightwitches. Concepts: tribal storyteller, spirit medium, shaman of the Wyld, master archer, keeper of forbidden lore, cryptic riddlemaster, child who is too clever for her own good. No Moons are also expected to demonstrate intellectual prowess (storytelling, riddles) when their Caste gathers in council, and to balance thought with action through hunting, mock combat, and target shooting.",
+    "compatibility": "One of the three Lunar Castes chosen after the Rite of Passage.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 106,
+      "pdfPage": 109
+    },
+    "crossReferences": [
+      "lunar-universal-anima-effects",
+      "the-great-curse",
+      "casteless-lunars",
+      "terrestrial-circle-sorcery"
+    ],
+    "notes": "Chapter Four: Traits, 'No Moon' section, pp. 106-107 (PDF 109-110)."
+  },
+  {
+    "id": "casteless-lunars",
+    "name": "Casteless",
+    "disposition": "selectable",
+    "summary": "A newly Exalted Lunar who is not found by the Silver Pact cannot undergo the trials that fix her destiny into one of the three Castes; her chaotic, unfocused essence leaves her without a Caste's natural Attribute affinity or anima power, cycling instead through all three Castes' anima effects with the phases of the moon.",
+    "mechanics": "Trials: none -- Casteless characters have not been initiated into the Silver Pact. Totem Animal: any; Casteless come in all shapes and sizes. Anima Banner: a chaotic swirl of purples, blues, and silver, frequently dull and muted except during large Essence expenditures; iconic banners depict hazy, sometimes distorted images of the Lunar's totem animal. Anima Effects: a Casteless Lunar has the anima power matching the moon's current face -- the Full Moon power for 3 days a month, the No Moon power for 3 days, and the Changing Moon power for the remaining 22 days. Caste Attributes: none; Casteless Lunars have no natural Attribute affinity. Associations: the time of Calibration (Casteless are considered somewhat unlucky by Silver Pact members). Sobriquets: The Forsaken, Luna's Bastards, The Moon-Mad. Concepts: Guild assassin, mercenary, drifter searching for his destiny, orphaned child, Sidereal cat's-paw. Casteless Lunars may not take the Renown Background. If later found and initiated by the Silver Pact, a Casteless Lunar undergoes the Rite of Passage and is fixed into one of the three true Castes.",
+    "compatibility": "Applies to any Lunar who has not undergone the Rite of Passage/caste-fixing tattoo ritual; distinct from lunar-without-a-caste, which covers the further Wyld-taint consequences of remaining permanently untattooed.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 108,
+      "pdfPage": 111
+    },
+    "crossReferences": [
+      "full-moon-caste",
+      "changing-moon-caste",
+      "no-moon-caste",
+      "lunar-without-a-caste",
+      "renown-background"
+    ],
+    "notes": "Chapter Four: Traits, 'Casteless' section, p. 108 (PDF 111)."
+  },
+  {
+    "id": "lunar-universal-anima-effects",
+    "name": "Lunar Universal Anima Effects",
+    "disposition": "calculated",
+    "summary": "Every Lunar, regardless of Caste, can spend a single mote of Essence for one of several reflexive anima tricks: forcing her Caste Mark tattoos or Tell to become as visible as if she had spent far more Peripheral Essence, sensing the exact lunar phase/time of day, or making her anima glow bright enough to read by.",
+    "mechanics": "All Castes of Lunar Exalted can channel Essence directly through their animas to generate magical effects; this is inefficient compared to a Charm, but reflexive and available without special training. In addition to Caste-specific anima powers, every Lunar can spend a single mote of Essence to: cause her Caste Mark tattoos to glow brightly for a scene (as if she had spent 4-7 motes of Peripheral Essence); cause her Caste Mark to glow a bright, cold silver-blue-white while her anima glows the color suited to her Caste; cause her Tell to become unmistakable and impossible to miss; know the precise time of the lunar month, the phase of the moon, and the time of day for the rest of the scene; or cause her anima to glow brightly enough to read by for a scene (as if she had spent 8-10 motes of Peripheral Essence).",
+    "compatibility": "All Lunar castes, including Casteless.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 109,
+      "pdfPage": 112
+    },
+    "crossReferences": [
+      "fixing-the-caste-tattoos",
+      "lunar-anima-banners"
+    ],
+    "notes": "Chapter Four: Traits, 'Caste' -> 'Anima Effects' section, p. 109 (PDF 112). The same page's 'Caste' framing paragraph restates, in prose, that Lunar Caste is fixed via ritual tattooing into one of three Castes (confirming this edition of Exalted: The Lunars has three player Castes -- No Moon, Full Moon, Changing Moon -- rather than the five-Caste structure of later editions)."
+  },
+  {
+    "id": "the-great-curse",
+    "name": "The Great Curse",
+    "disposition": "calculated",
+    "summary": "The Lunar analog of the Limit Trait: born from their shapeshifting ability, the Great Curse floods a Lunar's mind with animal instinct whenever she acts against her primary Virtue or fails a Willpower roll against the full moon's light, tracked as Limit (0-10) that culminates in a scene-long Limit Break dictated by her primary Virtue.",
+    "mechanics": "Whenever a Lunar acts against her primary Virtue, that suppression of human instinct gives power to her inner beast and adds one point to her Limit. In addition, the player of a Lunar must make a Willpower roll whenever her character is first struck by the light of the full moon; on a failure, add one point to Limit, and on a botch, the Lunar automatically suffers Limit Break, overcome by her animal nature for the rest of the night (returning to normal only at daybreak). On a success, the character resists the Great Curse's effects for one hour per success rolled. When a character's Limit reaches 10, she suffers Limit Break: Limit automatically drops to zero, but for the remainder of the scene her inner beast is loosed upon the world and her human nature is suppressed. A character's primary Virtue dictates the nature of her inner beast; while in the Curse's thrall, a Lunar acts without thinking, heeding her instincts utterly.",
+    "compatibility": "All Lunar castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 109,
+      "pdfPage": 112
+    },
+    "crossReferences": [
+      "curse-of-the-whipped-dog",
+      "curse-of-the-heartless-weasel",
+      "curse-of-the-drunken-monkey",
+      "curse-of-the-raging-bull"
+    ],
+    "notes": "Chapter Four: Traits, 'The Great Curse' section, p. 109 (PDF 112)."
+  },
+  {
+    "id": "curse-of-the-whipped-dog",
+    "name": "Curse of the Whipped Dog",
+    "disposition": "calculated",
+    "summary": "The Great Curse's Compassion-linked inner beast: a Lunar in its thrall is stricken with indecision, cannot resist authority, refuses leadership responsibility, and can only defend herself rather than take risky or difficult action on her own.",
+    "mechanics": "A Lunar Exalted in the thrall of the Whipped Dog is stricken with indecision and doubt. He capitulates in the face of adversity and cannot resist authority. The Whipped Dog refuses to take any sort of leadership responsibility, instead following the rest of the pack; with no confidence in his own abilities, he shies away from any potentially difficult undertaking. While under the Whipped Dog's control, the character can make no difficult decision nor take any risky action on his own -- he becomes a follower, not a leader. Others may order the character to perform tasks, but the Whipped Dog will quickly abandon a task if confronted with hardship. The character will defend himself if attacked, but will try to remove himself from the confrontation as quickly as possible.",
+    "compatibility": "Lunars whose primary Virtue is Compassion, while suffering Limit Break from the Great Curse.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 109,
+      "pdfPage": 112
+    },
+    "crossReferences": [
+      "the-great-curse"
+    ],
+    "notes": "Chapter Four: Traits, 'The Great Curse' -> 'Compassion' section, p. 109 (PDF 112)."
+  },
+  {
+    "id": "curse-of-the-heartless-weasel",
+    "name": "Curse of the Heartless Weasel",
+    "disposition": "calculated",
+    "summary": "The Great Curse's Conviction-linked inner beast: a Lunar in its thrall is a creature of pure selfishness, deaf to others' suffering, unforgiving toward any who challenge her, and unable to expend effort or incur risk to help anyone but herself.",
+    "mechanics": "A Lunar Exalted in the thrall of the Heartless Weasel is a creature of pure selfishness. He is deaf to the cries of others, and consideration for how his actions may impact those around him never enters his mind. He will slaughter innocents who fall in his path as easily as his most bitter foe. Forgiveness is alien to the character, and any who dare challenge him will die. While under the beast's thrall, the character can incur no risk and expend no effort to aid others; if an action he takes for his own benefit also happens to benefit others, so be it, but their needs or wants simply do not occur to him.",
+    "compatibility": "Lunars whose primary Virtue is Conviction, while suffering Limit Break from the Great Curse.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 109,
+      "pdfPage": 112
+    },
+    "crossReferences": [
+      "the-great-curse"
+    ],
+    "notes": "Chapter Four: Traits, 'The Great Curse' -> 'Conviction' section, p. 109 (PDF 112)."
+  },
+  {
+    "id": "curse-of-the-drunken-monkey",
+    "name": "Curse of the Drunken Monkey",
+    "disposition": "calculated",
+    "summary": "The Great Curse's Temperance-linked inner beast: a Lunar in its thrall is a creature of impulse and ignorance, a slave to her desires who acts without thinking and gorges her appetites without restraint or regard for consequence.",
+    "mechanics": "A Lunar Exalted in the thrall of the Drunken Monkey is a creature of impulse and ignorance. He is a slave to his desires, unable to control himself or resist temptation. The Drunken Monkey acts without thinking and never considers the consequences of his actions -- he gorges his appetites without restraint and throws himself into the most dangerous of situations without pause. The very idea of self-control is alien to the character while under this thrall.",
+    "compatibility": "Lunars whose primary Virtue is Temperance, while suffering Limit Break from the Great Curse.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 110,
+      "pdfPage": 113
+    },
+    "crossReferences": [
+      "the-great-curse"
+    ],
+    "notes": "Chapter Four: Traits, 'The Great Curse' -> 'Temperance' section, p. 110 (PDF 113)."
+  },
+  {
+    "id": "curse-of-the-raging-bull",
+    "name": "Curse of the Raging Bull",
+    "disposition": "calculated",
+    "summary": "The Great Curse's Valor-linked inner beast: a Lunar in its thrall is an immensely quick-tempered fighting animal who cannot fail Valor checks (even by spending Willpower), attacks anything that startles or inconveniences her, loses most capacity for speech, and must resist an urge to stop and feast on a slain foe's heart's blood.",
+    "mechanics": "A Lunar Exalted in the thrall of the Raging Bull is a fighting animal. He is immensely quick-tempered, willing to fight anyone for any reason and unwilling to back down from any fight. While this thrall is active, the character cannot fail Valor checks, even by expending Willpower. He will also, like an angry bull, attempt to fight anything that inconveniences or even startles him. A character under the Raging Bull's thrall is almost autistic in his inability to communicate and will rarely say more than single words. When a Lunar in the Raging Bull's thrall kills a foe, his player must make a Willpower roll at difficulty 1 for him to avoid immediately stopping to feast on the foe's heart's blood, taking at least one full turn to do so if the roll fails.",
+    "compatibility": "Lunars whose primary Virtue is Valor, while suffering Limit Break from the Great Curse.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 110,
+      "pdfPage": 113
+    },
+    "crossReferences": [
+      "the-great-curse"
+    ],
+    "notes": "Chapter Four: Traits, 'The Great Curse' -> 'Valor' section, p. 110 (PDF 113); the mechanics text continues onto the following column after the section header."
+  },
+  {
+    "id": "lunar-anima-banners",
+    "name": "Lunar Anima Banners (visibility table)",
+    "disposition": "calculated",
+    "summary": "A table of Lunar Tell/anima visibility bands keyed to Peripheral Essence spent in a scene, from a faintly glittering Caste Mark at 1-3 motes up to being fully locked into true form and surrounded by a coldly burning lunar totem image at 16+ motes.",
+    "mechanics": "1-3 motes: the character's Caste Mark glitters and is visible from certain angles, and the Tell becomes prominent; a Perception + Awareness roll at standard difficulty lets an observer notice the Caste Mark and Tell (if suppressed by Charms, they remain invisible). 4-7 motes: the Caste Mark and tattoos burn and shine through anything placed over them; the Tell is impossible to miss and the character's nature is on display; the character is not yet locked into her true shapes, but any Charms suppressing the Tell or tattoos automatically fail, and Stealth Charms/other impression-muting magic and the Stealth Ability itself suffer +2 difficulty in natural cover (all such attempts still at +2 difficulty otherwise). 8-10 motes: the character is surrounded by a coruscant blue-silver aura bright enough to read by, and her Caste Mark is a shining silver brand on her forehead; Stealth is impossible, and if she shapeshifts she is forced to return to her true form. 11-15 motes: the character is locked in her true forms and engulfed in a brilliant bonfire of Essence burning from her feet to at least a foot above her head; objects in contact with the aura may be left damp and warped as if exposed to the night air and elements for many days; the light is visible for miles, illuminates the surroundings to a spearcast's distance as if in moonlight, and is bright enough to read by; the character's Caste Mark remains etched in the vision of anyone who sees it for minutes afterward. At this anima level, only true shapes may be worn. 16+ motes: the character is surrounded by a coldly burning lunar totem image (e.g. a great silver wolf, a hood-headed snake, a shimmering intaglio of silver runes), locked into her true shapes; this effect fades on any turn the character does not spend Essence but leaps back into existence the instant she again burns Peripheral Essence.",
+    "compatibility": "All Lunar castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 110,
+      "pdfPage": 113
+    },
+    "crossReferences": [
+      "lunar-universal-anima-effects",
+      "fixing-the-caste-tattoos"
+    ],
+    "notes": "Chapter Four: Traits, 'Lunar Anima Banners' table, p. 110 (PDF 113)."
+  },
+  {
+    "id": "lunar-face-trait",
+    "name": "Face Trait (Lunar social rank)",
+    "disposition": "calculated",
+    "summary": "A Lunar's social standing among the Silver Way, ranked 0-9+ across six named tiers (Urrach-ya the nonperson, Nain-ya the kin, Uf-ya the honored, Ikth-ya the respected, Murr-ya the revered, Shahan-ya the greatest); Face must be earned through deeds and cannot be granted by birth, favor, or love.",
+    "mechanics": "Face Requirements table (Face rank : minimum total Renown : other requirements): 1 : 20 : must have undergone the Lunar initiation; 2 : 50 : must have defeated a foe at least the Lunar's equal in single combat; 3 : 75 : none listed beyond Renown; 4 : 100 : must have no Attribute below 3; 5 : 150 : none listed beyond Renown; 6 : 200 : must be at least 100 years of age; 7 : 240 : must have no Attribute below 4; 8 : 280 : must have claimed 100 blood-debts from defeated Lunars; 9 : 320 : must have been praised by Luna before an assembly of Lunar elders; 10 : 360 : (implied continuation of the highest tier). Rank names and descriptions: Urrach-ya (Face 0, 'the Nonperson') -- a Lunar who has abandoned her people's virtues or never lived by them; shown no kindness or respect, and risks her life entering Lunar territory; redemption is technically possible but very difficult since witnesses distrust an urrach-ya's claims. Nain-ya (Face 1-2, 'the Kin') -- newly Exalted or minimally-serving Lunars, treated with leniency but little respect; expected to eventually grow into more responsibility. Uf-ya (Face 3-4, 'the Honored') -- a Lunar trusted not to shame Luna; most Lunars aspire to at least this rank once established. Ikth-ya (Face 5-6, 'the Respected') -- war-chiefs and heroes who command fellow Lunars but defer to true elders; roughly a quarter of the Lunar population holds this rank at any time. Murr-ya (Face 7-8, 'the Revered') -- rare Lunars proven dedicated to the Silver Way even at great personal cost, often chosen to train newly Exalted Lunars through their trials. Shahan-ya (Face 9+, 'the Greatest') -- the noblest and most courageous Lunars, revered as living prophets or emperors; only a handful exist at any time, and their elevation is cause for celebration regardless of whether the new shahan-ya proves to be a wise sorcerer or a bloodthirsty general.",
+    "compatibility": "All initiated Lunar castes; Casteless Lunars, by definition uninitiated, do not hold a Face rank within Silver Pact society.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 111,
+      "pdfPage": 114
+    },
+    "crossReferences": [
+      "lunar-renown-trait",
+      "gaining-and-losing-face",
+      "renown-background"
+    ],
+    "notes": "Chapter Four: Traits, 'Status and Face' section and named-rank write-ups, pp. 111-113 (PDF 114-116); the Face Requirements table appears on p. 113 (PDF 116)."
+  },
+  {
+    "id": "lunar-renown-trait",
+    "name": "Renown Trait (Succor, Mettle, Cunning, Glory)",
+    "disposition": "calculated",
+    "summary": "The Trait that measures a Lunar's fame within Silver Way society, split into four 0-100 categories each linked to one Virtue (Succor/Compassion, Mettle/Conviction, Cunning/Temperance, Glory/Valor); a newly Exalted Lunar starts with 20 points divided among the categories, and successes on triggered Virtue checks raise or lower the relevant category.",
+    "mechanics": "Renown is divided into four categories, each corresponding to one Virtue; each runs 0-100 points, and a newly Exalted Lunar begins with 20 points divided among them (representing her initiation performance). When a Lunar achieves an impressive deed in pursuit of a Virtue, the Storyteller calls for a Virtue check; each success grants a point of Renown in the matching category (exceptionally noteworthy feats may earn an extra unbotchable die). Renown is lost the same way: a significant transgression against a Virtue triggers a Virtue check, and each success removes a point of Renown in that category (particularly atrocious transgressions may earn the roll extra dice). Virtue checks for potential Renown loss cannot be botched. Higher Renown in a category makes it easier both to gain and lose Renown there, since a Lunar's reputation precedes her both for triumphs and failures. Succor (tied to Compassion): the Lunar ideals of generosity, hospitality, and benevolent leadership; increased by acts of compassion/generosity beyond what the Silver Way demands (risking one's life for a tribesman, hosting guests, defending a rival Lunar); lost through cruelty without cause, torturing unworthy enemies, raping civilians, or betraying guests. Mettle (tied to Conviction): resilience, confidence, and self-reliance; increased by endurance, internal fortitude, and personal sacrifice, doing what must be done however unpleasant; lost by proving dangerously weak, refusing necessary sacrifices, showing mercy to a dangerous enemy, or submitting to torture. Cunning (tied to Temperance): wisdom, self-control, and cleverness; increased by seeing through deception, out-scheming enemies, and successfully negotiating with spirits; lost by succumbing to decadent temptations (narcotics, pleasure-houses), losing one's temper, challenging a clearly superior foe, or breaking one's word. Glory (tied to Valor): bravery, battle prowess, and honor; increased chiefly on the battlefield by testing oneself against strong opponents (defeating another Exalted, especially a Solar, almost always calls for a check; humiliating a foe without killing them can be just as impressive as physical victory); overwhelming a trivial foe alone earns little Glory.",
+    "compatibility": "All initiated Lunar castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 112,
+      "pdfPage": 115
+    },
+    "crossReferences": [
+      "lunar-face-trait",
+      "renown-background"
+    ],
+    "notes": "Chapter Four: Traits, 'Renown' framework and 'Succor'/'Mettle'/'Cunning'/'Glory' subsections, pp. 112-114 (PDF 115-117)."
+  },
+  {
+    "id": "gaining-and-losing-face",
+    "name": "Gaining, Losing, and Respecting Face",
+    "disposition": "reference-only",
+    "summary": "The social procedure for advancing in Face: once a Lunar has enough Renown, she hosts a tlak (a gathering with feasting and gifts) and boasts of her deeds to her assembled peers, who confirm her new rank informally by simply spreading word of it; Face is lost automatically if Renown drops below the current rank's minimum, or at Storyteller discretion for disloyalty, cowardice, or crimes against Luna or the Silver Way.",
+    "mechanics": "Once a Lunar has enough Renown to qualify for a higher Face, she may call a tlak -- a gathering of her peers -- and boast of her deeds. As host, she must provide a feast, gifts, and news-sharing sufficient to make attendance worth her guests' while; running short of food is a bad start. At the tlak's conclusion the host addresses the gathering and boasts of her deeds (poetic license is tolerated as long as the underlying facts aren't too badly abused; another Lunar's testimony can substitute for a self-boast but most hosts prefer to tell their own tales). If the assembled Lunars are impressed or amused, they simply voice approval and disperse; as long as Renown is sufficient, the host's Face rises by one dot with no further ritual confirmation needed -- word simply spreads that she has done well in Luna's eyes. Losing Face: if a Lunar's Renown drops below the minimum for her current Face, her Face falls to whatever level her Renown supports, with no formal censure needed -- word simply spreads. A Storyteller may also impose a Face loss even without a Renown drop for disobeying or ignoring the Silver Way, cowardice, abusing/slaying one's own tribe, or crimes against Luna or the Silver Way (forgiving a badly-offending enemy costs Mettle rather than Face directly, but is otherwise never a path to Renown gain); simple prolonged inaction/avoidance of conflict can also erode Face over time. Respecting Face: when two Lunars who know each other meet, the lower-ranked one gives some sign of submission (even a brief bow); equals owe each other no specific deference beyond a mutual nod. Lunars who don't know each other size each other up via Tell and regional cues, and word of a notable Lunar's rank tends to travel with her reputation.",
+    "compatibility": "All initiated Lunar castes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 114,
+      "pdfPage": 117
+    },
+    "crossReferences": [
+      "lunar-face-trait",
+      "lunar-renown-trait"
+    ],
+    "notes": "Chapter Four: Traits, 'Gaining Face', 'Losing Face', and 'Respecting Face' sections, pp. 114-115 (PDF 117-118)."
+  },
+  {
+    "id": "lunars-and-regeneration",
+    "name": "Lunars and Regeneration",
+    "disposition": "reference-only",
+    "summary": "Sidebar clarifying that Lunar health-level regeneration (whether from beastman-form gifts or Charms such as Halting the Scarlet Flow) continues even while a character is dying of a mortal wound, so a Lunar regenerating one health level per turn will not lose a health level per turn while mortally wounded -- making such a Lunar unusually hard to actually kill.",
+    "mechanics": "Many Lunars can quickly heal lethal damage, either by regenerating one health level per turn as a gift of their beastman form or through Charms such as Halting the Scarlet Flow. These effects continue to work even if the Lunar is dying of a mortal wound (see 'Death and Dying,' p. 233 of Exalted), so Lunars who regenerate one health level per turn due to their Deadly Beastman Transformation will not lose one health level per turn while mortally wounded, but will instead be regaining one. Actually killing such a Lunar can be quite difficult as a result.",
+    "compatibility": "Lunars with a regenerating beastman/hybrid form (via Deadly Beastman Transformation) or with Halting the Scarlet Flow or similar regenerative Charms.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 115,
+      "pdfPage": 118
+    },
+    "crossReferences": [
+      "deadly-beastman-transformation",
+      "halting-the-scarlet-flow"
+    ],
+    "notes": "Chapter Four: Traits, 'Lunars and Regeneration' sidebar, p. 115 (PDF 118); this is the final page of Chapter Four before Chapter Five's Charms begin."
   }
 ]

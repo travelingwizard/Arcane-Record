@@ -1,7 +1,7 @@
 {
   "family": "lunar",
   "catalog": {
-    "totalInventoryRows": 229,
+    "totalInventoryRows": 253,
     "promotedEntries": 0,
     "unresolvedEntries": 0,
     "checksum": ""
@@ -11,5 +11,5 @@
   "migrationTests": "not-run",
   "browserTests": "not-run",
   "certifiedAt": null,
-  "notes": "Exalted: The Lunars supplied and intake in progress. 229 rows reviewed and inventoried under docs/references/exalted1e/lunar/inventory/: the core innate powers, and now **every Charm category in Chapter Five** (pp. 122-193/PDF 125-196): Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat I-V, Melee Combat I/II, Ranged Combat I/II, Defensive I/II/III, Survival and Healing I/II/III/IV, Perception I/II/III/IV, Stealth, Interaction and Knowledge/Presence I/II/III/IV, Spirit, and Sorcery-access Charms. Nothing promoted to a production catalog yet. Backgrounds, Merits/Flaws, and caste/tribe creation options (Chapter Four: Traits, pp. 94-115/PDF 97-118) remain outstanding, plus any Lunar-facing supplement material. Locked pending the remaining inventory, schema/rules/creator/editor implementation, and passing tests across all five planned families."
+  "notes": "Exalted: The Lunars supplied and inventoried cover-to-cover. 253 rows reviewed and inventoried under docs/references/exalted1e/lunar/inventory/: the core innate powers, every Charm category in Chapter Five (pp. 122-193/PDF 125-196: Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat I-V, Melee Combat I/II, Ranged Combat I/II, Defensive I/II/III, Survival and Healing I/II/III/IV, Perception I/II/III/IV, Stealth, Interaction and Knowledge/Presence I/II/III/IV, Spirit, and Sorcery-access Charms), and now all of Chapter Four: Traits (pp. 94-115/PDF 97-118): the altered Backgrounds (Artifact, Backing, Followers, Manse, Mentor), the new Backgrounds (Cult, Heart's Blood, Renown) plus a Regions sidebar, all three player Castes (Full Moon, Changing Moon, No Moon) and the Casteless state (this edition has three Castes, not the five-Caste structure from later editions), the universal Caste anima effects and Lunar Anima Banners table, the Great Curse (this splat's Limit-Trait analog) and its four Virtue-linked thralls, and the Face/Renown social-rank system. No dedicated Lunar-specific Merits/Flaws subsection or Tribe write-up exists in this book -- confirmed absent, not merely unreviewed. Nothing promoted to a production catalog yet. Only the untriaged cross-splat supplements remain. Locked pending schema/rules/creator/editor implementation and passing tests across all five planned families."
 }

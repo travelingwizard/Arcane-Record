@@ -1,11 +1,12 @@
 # Exalted 1e — Lunar source intake
 
-**Status: intake in progress.** *Exalted: The Lunars* (PDF, image-scan)
-has been supplied and partially inventoried. See
-[docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
-the full process this directory follows.
+**Status: primary sourcebook fully inventoried; cross-splat supplements
+outstanding.** *Exalted: The Lunars* (PDF, image-scan) has been supplied and
+is now inventoried cover-to-cover for character-creation-relevant material.
+See [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md)
+for the full process this directory follows.
 
-`inventory/exalted-the-lunars.json` currently has 229 reviewed rows. Every row
+`inventory/exalted-the-lunars.json` currently has 253 reviewed rows. Every row
 was visually compared against a rendered page of the source PDF before being
 marked `reviewed` — none of this content came from OCR alone. It covers:
 
@@ -144,6 +145,69 @@ marked `reviewed` — none of this content came from OCR alone. It covers:
 This completes **every Charm category** in *Exalted: The Lunars* Chapter
 Five (pp. 122-193 / PDF 125-196).
 
+Chapter Four: Traits (pp. 94-115 / PDF 97-118) is now also **fully
+inventoried** (24 new rows):
+
+- **Expanded Backgrounds.** Five altered Backgrounds carried over from core
+  Exalted with Lunar-specific flavor text only (no new dot table): Artifact
+  (moonsilver's shapeshifting properties and the Silver Pact's possessiveness
+  over it), Backing (rare for Lunars; Pact rank itself is tracked by Renown,
+  not Backing), Followers (drawn from barbarian tribes or beastman societies
+  who see Lunars as living gods), Manse (young Lunars must seize a Manse from
+  a god/demon/outcaste or quest to earn an elder's), and Mentor (a re-flavored
+  0-5 dot table measuring closeness to the character's Silver Pact elder
+  rather than the mentor's personal power) — pp. 96-98 (PDF 99-101).
+- **New Backgrounds.** Three Lunar-exclusive Backgrounds with their own dot
+  tables: Cult (Essence and temporary Willpower income from worshipers; the
+  legible dot table only runs 0-4 — no 5-dot line was found and this is
+  flagged for a second look before promotion), Heart's Blood (the number of
+  animal/human forms a Lunar knows at the start of play, with separate 0-5
+  dot scales for animals and for Heart's Blood (Human)), and Renown (bonus
+  starting points toward the separate Renown Trait; Casteless may not take
+  it) — pp. 98-100 (PDF 101-103) — plus the supporting Regions sidebar
+  (p. 101/PDF 104) that guides which animals a Heart's Blood purchase may
+  represent by the character's homeland.
+- **Castes.** This edition of *Exalted: The Lunars* has only **three**
+  player Castes — Full Moon (pp. 102-103/PDF 105-106), Changing Moon
+  (pp. 104-105/PDF 107-108), and No Moon (pp. 106-107/PDF 109-110) — plus the
+  uninitiated Casteless state (p. 108/PDF 111), *not* the five-Caste
+  structure (adding Waxing/Waning Moon) introduced in later editions; the
+  chapter's own "Caste" framing text (p. 109/PDF 112) explicitly says a
+  Lunar's essence is fixed into "one of the three castes." Each Caste row
+  covers Trials, Totem Animals, Anima Banner, Anima Effects, Caste
+  Attributes, Associations, Sobriquets, and Concepts. The anima-effect grant
+  every Lunar gets regardless of Caste (five minor 1-mote Tell/Caste-Mark/
+  anima tricks) was inventoried separately as Lunar Universal Anima Effects,
+  and the Peripheral-Essence-spend visibility table was inventoried as Lunar
+  Anima Banners — both p. 109-110 (PDF 112-113).
+- **The Great Curse.** This splat's Limit-Trait analog (p. 109/PDF 112),
+  triggered by acting against a Lunar's primary Virtue or failing a
+  Willpower roll against full moonlight, plus its four Virtue-linked
+  inner-beast thralls — Curse of the Whipped Dog (Compassion), Curse of the
+  Heartless Weasel (Conviction), Curse of the Drunken Monkey (Temperance),
+  and Curse of the Raging Bull (Valor) — pp. 109-110 (PDF 112-113), each
+  inventoried as its own row.
+- **Face and Renown.** The Lunar social-rank system (pp. 111-115/PDF
+  114-118), inventoried as three rows: the Face Trait itself (six named
+  ranks, Urrach-ya "the Nonperson" through Shahan-ya "the Greatest," plus the
+  Face Requirements table of minimum Renown and other prerequisites per
+  rank), the four-category Renown Trait (Succor/Compassion,
+  Mettle/Conviction, Cunning/Temperance, Glory/Valor — distinct from the
+  Renown *Background*, which merely grants bonus starting points toward it),
+  and the tlak ceremony/losing-face/respecting-face social procedures.
+- A short **Lunars and Regeneration** sidebar (p. 115/PDF 118) closes out
+  the chapter, cross-referenced to the existing Deadly Beastman
+  Transformation and Halting the Scarlet Flow Charm rows.
+
+No dedicated Lunar-specific **Merits/Flaws** subsection was found anywhere in
+Chapter Four; the chapter moves directly from New Backgrounds into
+Castes/Great Curse/Face without one. This is confirmed absent, not merely
+unreviewed — the chapter's opening statement says Merits/Flaws otherwise work
+identically to core Exalted. Likewise, no dedicated **Tribe** write-up or
+Tribe-as-Background section exists; Lunar tribes are addressed only through
+the altered Backing/Followers text and general chapter flavor, not as a
+discrete character-creation mechanic.
+
 A few rows carry explicit `notes` flagging spots that need a closer look
 before promotion (an illegible cost line on Cat-Falling Attitude, an
 awkward cap-formula sentence on Hydra Head Attack that may be OCR/print
@@ -190,14 +254,14 @@ Healing, Perception, Stealth, Interaction and Knowledge/Presence,
 Spirit, and Sorcery-access) has been transcribed, pp. 122-193 (PDF
 125-196).
 
-Still outstanding from *Exalted: The Lunars*: **Backgrounds, Merits and
-Flaws** (Chapter Four: Traits, pp. 94-115/PDF 97-118 — resume here;
-Expanded/Altered Backgrounds include Artifact, Backing, Followers,
-Manse, Mentor, plus new Lunar-specific Backgrounds such as Cult, Heart's
-Blood, and Renown), caste/tribe character-creation options, and any
-Lunar-facing material in the cross-splat supplements listed in the
-top-level intent (Blood and Salt, Book of Bone and Ebony, Savage Seas,
-etc.), all of which remain entirely uninventoried.
+*Exalted: The Lunars* is now **fully inventoried cover-to-cover** for its
+character-creation-relevant material: the core innate powers, every Charm
+category in Chapter Five, and all of Chapter Four: Traits (Backgrounds,
+Castes, the Great Curse, and the Face/Renown social-rank system — Merits/
+Flaws and a dedicated Tribe write-up were confirmed absent from the chapter,
+not merely unreviewed). Still outstanding: any Lunar-facing material in the
+cross-splat supplements listed in the top-level intent (Blood and Salt, Book
+of Bone and Ebony, Savage Seas, etc.), which remain entirely uninventoried.
 
 Nothing here has been promoted to a production catalog yet (`promotedEntries`
 stays `0` until rows are wired into schema/rules/UI, not merely inventoried).

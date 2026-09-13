@@ -192,22 +192,29 @@ real, creatable sheet.
 
 | Family     | Source manifest                       | Inventory rows | Promoted | Certification                    |
 | ---------- | ------------------------------------- | -------------- | -------- | -------------------------------- |
-| Lunar      | Created (Exalted: The Lunars)         | 229            | 0        | Locked, all dimensions `not-run` |
+| Lunar      | Created (Exalted: The Lunars)         | 253            | 0        | Locked, all dimensions `not-run` |
 | Abyssal    | Created (Exalted: The Abyssals)       | 265            | 0        | Locked, all dimensions `not-run` |
 | Sidereal   | Created (Exalted: The Sidereals)      | 184            | 0        | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians) | 207            | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Created (Exalted: The Fair Folk)      | 233            | 0        | Locked, all dimensions `not-run` |
 
-Lunar's 229 rows cover the core innate powers and now **every Charm
-category in Chapter Five** (Shapechanging I/II/III, Body Enhancement I/II,
-Unarmed Combat I-V, Melee Combat I/II, Ranged Combat I/II, Defensive
-I/II/III, Survival and Healing I/II/III/IV, Perception I/II/III/IV, Stealth,
-Interaction and Knowledge/Presence I/II/III/IV, Spirit, and Sorcery-access
-Charms), all visually reviewed against rendered pages of the supplied PDF
-(confirmed printed page = PDF page − 3). This is the third of the five
-planned families to reach full Charm-category parity. Backgrounds,
-Merits/Flaws, and caste/tribe creation options (Chapter Four: Traits) remain
-outstanding; see `docs/references/exalted1e/lunar/README.md`.
+Lunar's 253 rows cover the core innate powers, every Charm category in
+Chapter Five (Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat
+I-V, Melee Combat I/II, Ranged Combat I/II, Defensive I/II/III, Survival and
+Healing I/II/III/IV, Perception I/II/III/IV, Stealth, Interaction and
+Knowledge/Presence I/II/III/IV, Spirit, and Sorcery-access Charms), and now
+**all of Chapter Four: Traits** — the altered/new Backgrounds (Artifact,
+Backing, Followers, Manse, Mentor, Cult, Heart's Blood, Renown), all three
+player Castes (Full Moon, Changing Moon, No Moon) plus Casteless (this
+edition has three Castes, not the five from later editions), the Great
+Curse (this splat's Limit-Trait analog) and its four Virtue-linked thralls,
+and the Face/Renown social-rank system — all visually reviewed against
+rendered pages of the supplied PDF (confirmed printed page = PDF page − 3).
+No dedicated Lunar-specific Merits/Flaws subsection or Tribe write-up exists
+in this book (confirmed absent). **Exalted: The Lunars is now inventoried
+cover-to-cover** — the second of the five planned families to reach full
+primary-sourcebook parity; only the untriaged cross-splat supplements
+remain. See `docs/references/exalted1e/lunar/README.md`.
 
 Abyssal's 265 rows cover the Chapter Three character-creation overview, the
 universal Anima Effect, all five Castes, the Abyssal Curse, the Virtues of
