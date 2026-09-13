@@ -1134,5 +1134,1448 @@
       "transmodal-rapid-targeting-system"
     ],
     "notes": "Chapter Three: Charms, 'Ranged Combat Charms' tree, p. 107 (PDF 108); visually cross-checked against the Ranged Combat Charms tree diagram."
+  },
+  {
+    "id": "strain-resistant-chassis-modification",
+    "name": "Strain Resistant Chassis Modification",
+    "disposition": "selectable",
+    "summary": "A permanent reinforcement Charm that lets an Alchemical trade installation slots for extra health levels by adding armored plates, struts, and redundant parts to her frame.",
+    "mechanics": "On installation the player chooses either two -1 health levels or three -2 health levels; the choice is locked until the Charm is reinstalled. It may be installed as many times as the Exalt's permanent Essence. Essence 6-7 Alchemicals may instead choose three -1 or four -2 health levels per installation, and Essence 8+ Alchemicals may choose four -1 or five -2 health levels per installation. Eclipse and Moonshadow Caste Exalted may not install this Charm.",
+    "requirements": "Minimum Stamina 2; Minimum Essence 2; Prerequisite Charms: None.",
+    "cost": "None; Installation Cost: 1 mote.",
+    "compatibility": "Duration: N/A. Type: Permanent. Might and Mobility Charms tree (Stamina-keyed); root of the Stamina branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 107,
+      "pdfPage": 108
+    },
+    "crossReferences": [],
+    "notes": "Chapter Three: Charms, 'Might and Mobility Charms' tree, p. 107 (PDF 108); visually cross-checked against the Might and Mobility Charms I tree diagram on p. 108. Eclipse/Moonshadow exclusion is stated explicitly in the text."
+  },
+  {
+    "id": "pain-suppression-nodes",
+    "name": "Pain Suppression Nodes",
+    "disposition": "selectable",
+    "summary": "Crystalline amulets implanted in major nerve clusters that mute an Alchemical's wound penalties while leaving her fully aware of her injuries.",
+    "mechanics": "While active, this Charm reduces all wound penalties by half the character's Stamina, rounded up. Alchemicals with Essence 6-7 may install a superior variant that subtracts full Stamina from all wound penalties. Essence 8+ Alchemicals need only a single installation to become completely immune to all penalties from physical pain or discomfort.",
+    "requirements": "Minimum Stamina 3; Minimum Essence 2; Prerequisite Charms: Sustained Augmentation of Stamina.",
+    "cost": "1 mote; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Indefinite. Type: Simple. Might and Mobility Charms tree (Stamina-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 107,
+      "pdfPage": 108
+    },
+    "crossReferences": [
+      "sustained-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Might and Mobility Charms' tree, p. 107 (PDF 108); visually cross-checked against the Might and Mobility Charms I tree diagram on p. 108."
+  },
+  {
+    "id": "subcutaneous-exoskeletal-armor-plating",
+    "name": "Subcutaneous/Exoskeletal Armor Plating",
+    "disposition": "selectable",
+    "summary": "A permanent installation of dense metal plating, either hidden under the skin or riveted on as a visible carapace, that adds natural or armor-type soak stacking with any worn armor.",
+    "mechanics": "Each subcutaneous installation adds +2L/+3B to natural soak and remains hidden from notice; each exoskeletal installation instead adds +3L/+4B, counts as armor, and is immediately obvious. The two modes stack with each other and with worn armor (which must be custom-fitted to the added bulk). An Alchemical may install this Charm a number of times up to her Essence, in any mix of modes. Essence 6-7 Alchemicals add +3L/+4B (subcutaneous) or +4L/+5B (exoskeletal) per installation; Essence 8+ Alchemicals add +5L/+6B/+5A per installation. Under Exalted Power Combat, Essence 6+ versions add Hardness +1L/+2B (subdermal) or +2L/+3B (exoskeletal) per installation, and Essence 8+ bulkheads have Hardness +3L/+4B/+2A per installation.",
+    "requirements": "Minimum Stamina 3; Minimum Essence 2; Prerequisite Charms: Sustained Augmentation of Stamina.",
+    "cost": "None; Installation Cost: 1 mote.",
+    "compatibility": "Duration: N/A. Type: Permanent. Might and Mobility Charms tree (Stamina-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 108,
+      "pdfPage": 109
+    },
+    "crossReferences": [
+      "sustained-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Might and Mobility Charms' tree, p. 108 (PDF 109); visually cross-checked against the Might and Mobility Charms I tree diagram."
+  },
+  {
+    "id": "aegis-integration-system",
+    "name": "Aegis Integration System",
+    "disposition": "selectable",
+    "summary": "Subdermal ports beside every major joint that mechanically lock an Alchemical's worn armor into place like a second skin, easing its mobility penalty and fatigue cost.",
+    "mechanics": "Activating the Charm while wearing armor extends screws from the ports over a five-minute process, after which the armor's mobility penalty and fatigue value are each reduced by 3. Removing the armor requires reactivating the Charm and another five-minute retraction period.",
+    "requirements": "Minimum Stamina 3; Minimum Essence 2; Prerequisite Charms: Sustained Augmentation of Stamina.",
+    "cost": "5 motes, 1 Willpower; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Five minutes. Type: Simple. Might and Mobility Charms tree (Stamina-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 108,
+      "pdfPage": 109
+    },
+    "crossReferences": [
+      "sustained-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Might and Mobility Charms' tree, p. 108 (PDF 109); visually cross-checked against the Might and Mobility Charms I tree diagram."
+  },
+  {
+    "id": "essence-shield-projector",
+    "name": "Essence Shield Projector",
+    "disposition": "selectable",
+    "summary": "A skin-mounted crystal lattice that emits a glowing force field for a scene, functioning either as cumulative body armor or as a hand-mounted force disk that raises attackers' difficulty.",
+    "mechanics": "Charging the field costs motes freely at 1B/1L soak per mote spent (like Essence Pulse Cannon's arming display, it negates stealth at the 8-10 mote anima level); this protection is armor-type but stacks cumulatively with any physical or Charm-granted armor the Exalt wears, up to a maximum of Stamina + Essence motes committed at once, and costs 1 Willpower the first time it is raised in a scene. Alternatively (or simultaneously), the Exalt can conjure a disk of force over the back of her hand: every 2 motes spent adds +1 to the difficulty of attacks against her, capped at +Essence total, also costing 1 Willpower the first time it is raised in a scene.",
+    "requirements": "Minimum Stamina 3; Minimum Essence 2; Prerequisite Charms: None.",
+    "cost": "Varies (1 mote per point of soak or per 2 difficulty points, plus 1 Willpower the first activation each scene); Installation Cost: 1 mote.",
+    "compatibility": "Duration: One scene. Type: Simple. Might and Mobility Charms tree (Stamina-keyed); root of a Stamina branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 108,
+      "pdfPage": 109
+    },
+    "crossReferences": [],
+    "notes": "Chapter Three: Charms, 'Might and Mobility Charms' tree, pp. 108-109 (PDF 109-110); visually cross-checked against the Might and Mobility Charms I tree diagram."
+  },
+  {
+    "id": "element-inured-frame",
+    "name": "(Element-)Inured Frame",
+    "disposition": "selectable",
+    "summary": "A set of five separate Charms (one per element: Crystal, Lightning, Oil, Metal, Steam) that render an Alchemical's body highly resistant or immune to one of Autochthonia's native hazards, and each projects a small bubble that locally stabilizes reality against the Wyld.",
+    "mechanics": "Each element-specific version is purchased and installed as a distinct Charm sharing the same statistics. In most cases the Exalt becomes completely immune to the named hostile condition unless it is magically empowered: Crystal-Inured Frame converts injurious contact with crystal/stone to bashing damage (ignoring hits below her natural bashing soak); Metal-Inured Frame does the same versus metal; Lightning-Inured Frame grants immunity to fire, lightning, and other energy discharges; Oil-Inured Frame grants immunity to acid and chemicals; Steam-Inured Frame grants immunity to temperature and pressure extremes. All five variants specifically defend against the magical environmental extremes at Autochthonia's poles, and each projects a two-yard radius bubble of stable reality immune to the Wyld's effects.",
+    "requirements": "Minimum Stamina 4; Minimum Essence 3; Prerequisite Charms: Sustained Augmentation of Stamina. Purchased and installed separately for each of the five elements.",
+    "cost": "5 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: One day. Type: Simple. Might and Mobility Charms tree (Stamina-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 109,
+      "pdfPage": 110
+    },
+    "crossReferences": [
+      "sustained-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Might and Mobility Charms' tree, p. 109 (PDF 110); visually cross-checked against the Might and Mobility Charms I tree diagram, where it appears as a single '(Element-)Inured Frame' node representing the family of five per-element Charms, matching how this inventory treats the two General Augmentation-of-Attribute Charms as single rows covering nine per-Attribute variants."
+  },
+  {
+    "id": "insectile-locomotion-upgrade",
+    "name": "Insectile Locomotion Upgrade",
+    "disposition": "selectable",
+    "summary": "A radical surgical replacement of an Alchemical's legs with a spider-like thorax and metallic multi-leg arrangement, granting climbing/balance bonuses, claw attacks, feats-of-strength assistance, free pivoting, and faster ground speed at the cost of a point of permanent Clarity.",
+    "mechanics": "The Exalt's organic legs are removed and replaced with (Essence x 2) metallic legs that must be Essence-powered to move and can be restored via Vat grafting if the Charm is removed; installing it grants 1 dot of permanent Clarity, and it cannot be hidden with an Integrated Artifact Transmogrifier. Benefits: one automatic success on climbing/balance/anti-knockback rolls; claws usable with Brawl, Martial Arts, or Melee while at least three legs stay grounded (speed +3, accuracy +1, damage +4L, defense +0; rate 3 under Exalted Power Combat) that can also clinch-pin but cannot grasp; +2 to Strength + Athletics for feats of strength using the legs; free-spinning waist for facing changes; and +25% ground speed. The legs remain dexterous enough to scuttle through passages as narrow as a humanoid lower body could use.",
+    "requirements": "Minimum Dexterity 3; Minimum Essence 3; Prerequisite Charms: Sustained Augmentation of Dexterity.",
+    "cost": "2 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Indefinite. Type: Simple. Might and Mobility Charms tree (Dexterity-keyed); root of the Dexterity branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 109,
+      "pdfPage": 110
+    },
+    "crossReferences": [
+      "sustained-augmentation-of-attribute",
+      "clarity-trait"
+    ],
+    "notes": "Chapter Three: Charms, 'Might and Mobility Charms' tree, p. 109 (PDF 110); visually cross-checked against the Might and Mobility Charms II tree diagram on p. 110. Cross-references the Integrated Artifact Transmogrifier at pp. 120-121 (PDF 121-122), not yet inventoried at the time this row was written but added in this same pass."
+  },
+  {
+    "id": "alloyed-reinforcement-of-flesh",
+    "name": "Alloyed Reinforcement of Flesh",
+    "disposition": "selectable",
+    "summary": "A permanent metal-and-wire reinforcement of an Alchemical's skeleton and muscles that adds natural soak and doubles bonus dice/dots from temporary Strength boosts used on feats of strength.",
+    "mechanics": "Installing the Charm adds +1L/+1B to natural soak. Whenever the character uses an anima power or Charm to temporarily raise her Strength and then performs a feat of strength, all bonus dice or dots from that temporary boost are doubled.",
+    "requirements": "Minimum Strength 3; Minimum Essence 2; Prerequisite Charms: Sustained or Transitory Augmentation of Strength.",
+    "cost": "None; Installation Cost: 1 mote.",
+    "compatibility": "Duration: N/A. Type: Permanent. Might and Mobility Charms tree (Strength-keyed); root of a Strength branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 109,
+      "pdfPage": 110
+    },
+    "crossReferences": [
+      "sustained-augmentation-of-attribute",
+      "transitory-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Might and Mobility Charms' tree, pp. 109-110 (PDF 110-111); visually cross-checked against the Might and Mobility Charms II tree diagram."
+  },
+  {
+    "id": "personal-gravity-manipulation-apparatus",
+    "name": "Personal Gravity Manipulation Apparatus",
+    "disposition": "selectable",
+    "summary": "Leg-mounted components that let an Alchemical redefine 'down' relative to herself (to walk on walls/ceilings) or reduce her own weight to run faster, with each mode activated and paid for separately.",
+    "mechanics": "Primary mode: the Exalt controls her personal gravitational 'down,' letting her walk or run along any slope, wall, or ceiling capable of bearing her weight; the reorientation only extends a number of feet equal to her Essence from her feet, and jumping too high or being pulled away from a surface reverts her orientation to the ambient default (risking falls). Secondary mode: reduces the Exalt's weight to as low as 15% of normal; between 50-75% of normal weight movement speed rises by half, and at 50% or below speed doubles; the speed multiplier also applies to knockback distance.",
+    "requirements": "Minimum Strength 2; Minimum Essence 2; Prerequisite Charms: None.",
+    "cost": "2 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: One scene. Type: Simple. Might and Mobility Charms tree (Strength-keyed); root of a Strength branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 110,
+      "pdfPage": 111
+    },
+    "crossReferences": [],
+    "notes": "Chapter Three: Charms, 'Might and Mobility Charms' tree, pp. 110-111 (PDF 111-112); visually cross-checked against the Might and Mobility Charms II tree diagram."
+  },
+  {
+    "id": "parabolic-leap-overcharger-device",
+    "name": "Parabolic Leap Overcharger Device",
+    "disposition": "selectable",
+    "summary": "An upgrade to the Personal Gravity Manipulation Apparatus, mounted behind the knees, that lets an Alchemical either levitate under sustained control or catapult herself in a single spectacular leap.",
+    "mechanics": "Levitation mode (2 motes per turn of effect, purchased in advance): the character moves up to her Strength in yards vertically and (Strength x 2) yards horizontally per turn while ignoring gravity, may act normally in midair, and falls if she fails to renew the effect before it lapses; the Charm can also be activated immediately before impact to safely arrest a fall from any height. Leap mode (1 mote, instant, once per turn): a crouch-and-spring leap covering up to (Strength x Essence) yards vertically and five times that horizontally, allowing an attack in the same turn with no special bonus beyond surprise. A common combo is leaping with the secondary mode, then activating the primary mode mid-jump to begin hovering.",
+    "requirements": "Minimum Strength 3; Minimum Essence 2; Prerequisite Charms: Personal Gravity Manipulation Apparatus.",
+    "cost": "2 motes per turn or 1 mote; Installation Cost: None.",
+    "compatibility": "Duration: Varies. Type: Reflexive. Might and Mobility Charms tree (Strength-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 111,
+      "pdfPage": 112
+    },
+    "crossReferences": [
+      "personal-gravity-manipulation-apparatus"
+    ],
+    "notes": "Chapter Three: Charms, 'Might and Mobility Charms' tree, p. 111 (PDF 112); visually cross-checked against the Might and Mobility Charms II tree diagram."
+  },
+  {
+    "id": "plasma-thruster-assembly",
+    "name": "Plasma Thruster Assembly",
+    "disposition": "selectable",
+    "summary": "Shielded foot- or back-mounted nozzles that propel an Alchemical on jets of glowing force, usable for a rapid burst of movement, a thruster-assisted melee strike, or sustained long-distance flight.",
+    "mechanics": "Basic burst (2 motes, once per turn): travel up to (Strength x 50) yards in a straight line as a single movement. Combat thrust (4 motes, 1 Willpower): aim a burst to reach and strike a target up to (Strength x 30) yards away in melee, doubling the raw damage of a single Brawl/Martial Arts/Melee attack and forcing knockdown/knockback unless the victim succeeds at a reflexive Dexterity + Athletics roll (difficulty 2) on a hit. Sustained flight (10 motes/hour): travel at (Strength x 15) mph, as slow as (Strength x 10) mph, requiring Dexterity + Athletics rolls for maneuvers (a botch causes a crash inflicting at least 15L and stalls the Charm for an hour); the character cannot fight or take other complex actions while flying without crashing. Any mode also burns everything one yard beneath/behind the Exalt for 5L and can ignite flammables; it functions underwater but leaves a trackable steam/pressure wake for miles.",
+    "requirements": "Minimum Strength 4; Minimum Essence 3; Prerequisite Charms: Parabolic Leap Overcharger Device.",
+    "cost": "2 motes, or 4 motes plus 1 Willpower, or 10 motes/hour; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant or one hour. Type: Reflexive. Might and Mobility Charms tree (Strength-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "111-112",
+      "pdfPage": "112-113"
+    },
+    "crossReferences": [
+      "parabolic-leap-overcharger-device"
+    ],
+    "notes": "Chapter Three: Charms, 'Might and Mobility Charms' tree, pp. 111-112 (PDF 112-113); visually cross-checked against the Might and Mobility Charms II tree diagram."
+  },
+  {
+    "id": "fluidic-impeller-drive",
+    "name": "Fluidic Impeller Drive",
+    "disposition": "selectable",
+    "summary": "Retractable jet modules that give an Alchemical neutral buoyancy and normal running-speed swimming, letting her act without penalty underwater or in fluids as viscous as heavy oil.",
+    "mechanics": "While active, the Exalt has neutral buoyancy regardless of actual weight or fluid density, can swim at her normal running speed, and suffers no penalty for acting underwater or in fluids up to the viscosity of heavy oil.",
+    "requirements": "Minimum Strength 2; Minimum Essence 2; Prerequisite Charms: None.",
+    "cost": "2 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: One day. Type: Simple. Might and Mobility Charms tree (Strength-keyed); root of a Strength branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 112,
+      "pdfPage": 113
+    },
+    "crossReferences": [],
+    "notes": "Chapter Three: Charms, 'Might and Mobility Charms' tree, p. 112 (PDF 113); visually cross-checked against the Might and Mobility Charms II tree diagram."
+  },
+  {
+    "id": "electroneural-control-spurs",
+    "name": "Electroneural Control Spurs",
+    "disposition": "selectable",
+    "summary": "Retractable forearm/calf tendrils that plug into a mount, vehicle, or warstrider the Exalt could otherwise direct with Ride or Sail, taming living steeds, tightening piloting bonds, and resisting forcible dismount.",
+    "mechanics": "Bonding with a living creature costs it one unsoakable bashing level and reduces its control rating by the Exalt's Charisma (to zero, no rolls are needed to control it under stress); the Exalt adds her permanent Essence to Ride, cannot be forcibly dismounted short of killing the steed, and must actively withdraw the spurs (or risk being crushed/dragged) if the steed rolls or founders. Bonding with an artificial mount plugs in through ports/cracks instead of wounding it; most artificial steeds lack a control rating, though any that do reduce as above; the same Ride bonus and unbreakable tether apply, removing the need for straps/harnesses on small vehicles. Bonding to fit inside a warstrider lets a small-enough Alchemical strap in and attune with one turn of concentration instead of five minutes, reduces attunement cost by 5 motes, and reduces the armor's mobility penalty and fatigue value by the Exalt's Essence.",
+    "requirements": "Minimum Charisma 3; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Charisma.",
+    "cost": "6 motes, 1 Willpower; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Indefinite. Type: Simple. Might and Mobility Charms tree (Charisma-keyed); root of the Charisma branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "112-113",
+      "pdfPage": "113-114"
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Might and Mobility Charms' tree, pp. 112-113 (PDF 113-114); visually cross-checked against the Might and Mobility Charms II tree diagram. Text notes living mounts are not native to Autochthonia but that this Charm's technology still integrates with Creation's beasts; also cross-references warstrider rules to the Savant and Sorcerer sourcebook, out of scope."
+  },
+  {
+    "id": "universal-pilot-key",
+    "name": "Universal Pilot Key",
+    "disposition": "selectable",
+    "summary": "An upgrade to Electroneural Control Spurs letting an Alchemical plug directly into a large Essence-powered vessel (requiring the Sail Ability) and pilot it telepathically as an extension of her own body, sensing through its hull.",
+    "mechanics": "Only works on Essence-driven craft (not purely mechanical Second Age Creation ships). While bonded, the Exalt's body falls nearly catatonic (still able to perceive/speak with difficulty) while she telepathically operates doors, lighting, speakers, and similar minor systems (up to Wits actions per turn without spending dice actions), reduces the vessel's Essence-commitment requirement by 10 motes, adds her Essence to all Sail rolls, and can see from any single vantage point within or facing out of the hull (only one viewpoint at a time). Cannot bond with vessels wider than (Charisma x 20) yards on their widest dimension; oversized craft (e.g., long pneumatic trains) can be split among a crew of bonded Alchemicals with one designated captain who holds primary interface and can reflexively veto other crew commands.",
+    "requirements": "Minimum Charisma 4; Minimum Essence 3; Prerequisite Charms: Electroneural Control Spurs.",
+    "cost": "14 motes, 1 Willpower; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Indefinite. Type: Simple. Might and Mobility Charms tree (Charisma-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 113,
+      "pdfPage": 114
+    },
+    "crossReferences": [
+      "electroneural-control-spurs"
+    ],
+    "notes": "Chapter Three: Charms, 'Might and Mobility Charms' tree, p. 113 (PDF 114); visually cross-checked against the Might and Mobility Charms II tree diagram. This Charm completes the Might and Mobility tree (14 Charms across both diagrams, treating the five (Element-)Inured Frame variants as one row)."
+  },
+  {
+    "id": "pattern-facilitation-module",
+    "name": "Pattern Facilitation Module",
+    "disposition": "selectable",
+    "summary": "An implanted brain gland that releases a probability-distorting Essence pulse to sway an entire organization toward a policy it is already considering, working best on the least resolute members first.",
+    "mechanics": "The Exalt must designate a policy an existing organization is currently considering (even if opposed by most members), with at least one member present (or the Exalt herself a member) when the Charm activates. Members with permanent Willpower less than the Exalt's Essence immediately favor and vocally promote the agenda; those with Willpower up to twice the Exalt's Essence feel predisposed but persuadable either way; those above that are unswayed but will still consider it fairly. Beings with Essence 2+ are immune. If more valid targets exist than (Charisma x 20), the Charm affects that many, starting from the lowest Willpower upward. Repeated use extends the effect to new targets. The enchantment lasts until the organization's leadership formally endorses or rejects the policy or the Exalt withdraws committed Essence; a later rejection is possible if the agenda proves harmful. Works best targeted at as narrow a subset of a group as possible.",
+    "requirements": "Minimum Charisma 4; Minimum Essence 3; Prerequisite Charms: Both Transitory and Sustained Augmentation of Charisma.",
+    "cost": "8 motes, 1 Willpower; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Indefinite. Type: Simple. Social Charms tree (Charisma-keyed); root of a Charisma branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "113-114",
+      "pdfPage": "114-115"
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute",
+      "conceptual-entropy-module"
+    ],
+    "notes": "Chapter Three: Charms, 'Social Charms' tree, pp. 113-114 (PDF 114-115); visually cross-checked against the Social Charms I tree diagram on p. 114."
+  },
+  {
+    "id": "synergy-promoting-upgrade",
+    "name": "Synergy-Promoting Upgrade",
+    "disposition": "selectable",
+    "summary": "An orichalcum-and-jade chest implant that lets an Alchemical spur any number of aware targets (including herself) toward a single defined task, granting each a bonus specialty die on a relevant roll that turn.",
+    "mechanics": "The Exalt specifies a single task achievable by the end of the turn and pays 1 mote per target she is aware of (herself included). Each targeted player may add one die, as a natural-specialty-style bonus subject to the usual specialty maximums, to one roll that furthers the task during the turn. The Storyteller is the final arbiter of whether a task is short/defined enough and whether a given roll sufficiently furthers it.",
+    "requirements": "Minimum Charisma 2; Minimum Essence 2; Prerequisite Charms: None.",
+    "cost": "1 mote per target; Installation Cost: 1 mote.",
+    "compatibility": "Duration: One turn. Type: Reflexive. Social Charms tree (Charisma-keyed); root of a Charisma branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 114,
+      "pdfPage": 115
+    },
+    "crossReferences": [
+      "perfection-of-assembly"
+    ],
+    "notes": "Chapter Three: Charms, 'Social Charms' tree, p. 114 (PDF 115); visually cross-checked against the Social Charms I tree diagram."
+  },
+  {
+    "id": "perfection-of-assembly",
+    "name": "Perfection of Assembly",
+    "disposition": "selectable",
+    "summary": "An expansion of the Synergy-Promoting Upgrade letting multiple Alchemicals form a telepathic hive-mind 'Assembly,' sensing each other's direction/distance/health and communicating projectively over range.",
+    "mechanics": "Forming an Assembly requires at least two Alchemicals with this Charm to activate it in each other's presence; further members may join if all current members are present and willing. A character may belong to no more Assemblies than her permanent Essence, and no cluster may exceed the highest Charisma + Essence total among its members. Benefits: constant awareness of fellow members' direction and distance; a simple action to check a member's remaining health levels; reflexive telepathic communication within (Essence x 10) yards, relayable through a mutually-in-range third member to reach an out-of-range member (both relay and final target hear the message); broadcasts may be selectively targeted. The telepathy is projective only (no mind-reading), and anti-scrying wards block it like any other scrying.",
+    "requirements": "Minimum Charisma 3; Minimum Essence 2; Prerequisite Charms: Synergy-Promoting Upgrade.",
+    "cost": "3 motes, 1 Willpower; Installation Cost: None.",
+    "compatibility": "Duration: Indefinite. Type: Simple. Social Charms tree (Charisma-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 115,
+      "pdfPage": 116
+    },
+    "crossReferences": [
+      "synergy-promoting-upgrade"
+    ],
+    "notes": "Chapter Three: Charms, 'Social Charms' tree, p. 115 (PDF 116); visually cross-checked against the Social Charms I tree diagram."
+  },
+  {
+    "id": "thousandfold-courtesan-calculations",
+    "name": "Thousandfold Courtesan Calculations",
+    "disposition": "selectable",
+    "summary": "A stored database of seduction and sensual technique that makes an Alchemical an object of overwhelming desire for a scene, boosting seduction rolls and, if consummated, leaving lower-Essence partners suggestible and mortals dangerously addicted.",
+    "mechanics": "For the scene, all seduction rolls add automatic successes equal to (the Alchemical's Essence minus the target's Essence); targets of equal/greater Essence are unaffected. During consummation, roll Appearance + Performance (standard difficulty, plus the same automatic successes); if successes exceed the partner's Willpower, he becomes highly suggestible, adding the Exalt's Essence to the difficulty of Social/Wits/Willpower/Virtue rolls made to resist her, decreasing by one every full hour. Mortal partners must roll Temperance (difficulty 2): failure creates a compulsion to obtain another encounter by any non-harmful means, a botch removes even that restraint, and success leaves the mortal unaddicted (if addled for hours). If Performance successes exceed the partner's Temperance instead of Willpower, the difficulty increase starts at half Essence (rounded up) with no addiction risk; successes at or below Temperance produce only a pleasurable experience with no further effect.",
+    "requirements": "Minimum Appearance 3; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Appearance.",
+    "cost": "5 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: One scene. Type: Simple. Social Charms tree (Appearance-keyed); root of an Appearance branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 115,
+      "pdfPage": 116
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Social Charms' tree, p. 115 (PDF 116); visually cross-checked against the Social Charms I tree diagram."
+  },
+  {
+    "id": "emotive-aesthetics-of-the-body-electric",
+    "name": "Emotive Aesthetics of the Body Electric",
+    "disposition": "selectable",
+    "summary": "A permanent full-body calibration letting an Alchemical apply Social rolls (seduction, intimidation, drawing attention, making friends, or 'poisoning the waters' against a rival) without speaking or otherwise acting, provided the target can perceive her.",
+    "mechanics": "Cannot communicate complex thoughts or make an eloquent argument, but can seduce, intimidate, attract attention, befriend, or convey overwhelming disdain toward a present rival purely through calibrated body language. Rolls cannot use more Social Attribute dice than the character's permanent Appearance rating. Effects are extremely subtle, requiring an observer's reflexive Perception + Socialize roll (difficulty equal to the Exalt's Essence) to even notice the manipulation; a target of the feat gets this roll immediately, and bystanders only get it if they were directly and deliberately observing the Exalt at the time.",
+    "requirements": "Minimum Appearance 4; Minimum Essence 2; Prerequisite Charms: Sustained Augmentation of Appearance.",
+    "cost": "None; Installation Cost: 2 motes.",
+    "compatibility": "Duration: N/A. Type: Permanent. Social Charms tree (Appearance-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "115-116",
+      "pdfPage": "116-117"
+    },
+    "crossReferences": [
+      "sustained-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Social Charms' tree, pp. 115-116 (PDF 116-117); visually cross-checked against the Social Charms I tree diagram. This Charm completes the eight-Charm Social Charms I sub-tree."
+  },
+  {
+    "id": "empathy-simulation-engine",
+    "name": "Empathy Simulation Engine",
+    "disposition": "selectable",
+    "summary": "A painfully-installed neck-and-skull implant that temporarily masks an Alchemical's Clarity for social purposes, easing interaction with mortals at the cost of a point of gained Clarity for faking emotion instead of embracing humanity.",
+    "mechanics": "For the rest of the scene after activation, the character reduces her effective Clarity by her Manipulation rating for determining Social penalties, but forfeits any Compassion roll to reduce Clarity from interacting with mortals during that scene. When the duration lapses, full Clarity penalties return, and the Exalt gains 1 point of (temporary, per-use) Clarity for simulating rather than embracing empathy.",
+    "requirements": "Minimum Manipulation 3; Minimum Essence 2; Prerequisite Charms: None.",
+    "cost": "1 mote; Installation Cost: 1 mote.",
+    "compatibility": "Duration: One scene. Type: Simple. Social Charms tree (Manipulation-keyed); root of the Manipulation branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 116,
+      "pdfPage": 117
+    },
+    "crossReferences": [
+      "clarity-trait",
+      "transcendent-brutality-programming"
+    ],
+    "notes": "Chapter Three: Charms, 'Social Charms' tree, p. 116 (PDF 117); visually cross-checked against the Social Charms II tree diagram on p. 117."
+  },
+  {
+    "id": "transcendent-brutality-programming",
+    "name": "Transcendent Brutality Programming",
+    "disposition": "selectable",
+    "summary": "The inverse of the Empathy Simulation Engine: a permanent Charm that channels an Alchemical's cold Clarity-driven detachment into a bonus for intimidation and interrogation, at the cost of a point of permanent Clarity.",
+    "mechanics": "Adds bonus dice equal to (Clarity divided by 2, rounded up) to all intimidation or interrogation-based Social rolls, treated as a specialty cumulative with other specialties. The bonus is temporarily forfeited whenever the character masks her Clarity via Empathy Simulation Engine. Installing this Charm grants 1 dot of permanent Clarity.",
+    "requirements": "Minimum Manipulation 4; Minimum Essence 2; Prerequisite Charms: Empathy Simulation Engine.",
+    "cost": "None; Installation Cost: 1 mote.",
+    "compatibility": "Duration: N/A. Type: Permanent. Social Charms tree (Manipulation-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 116,
+      "pdfPage": 117
+    },
+    "crossReferences": [
+      "empathy-simulation-engine",
+      "clarity-trait"
+    ],
+    "notes": "Chapter Three: Charms, 'Social Charms' tree, p. 116 (PDF 117); visually cross-checked against the Social Charms II tree diagram."
+  },
+  {
+    "id": "conceptual-entropy-module",
+    "name": "Conceptual Entropy Module",
+    "disposition": "selectable",
+    "summary": "The adversarial mirror of Pattern Facilitation Module: a brain implant that turns an organization against a plan it is considering rather than promoting one, with the two Charms canceling each other when used against the same agenda.",
+    "mechanics": "Uses the same target/range/duration rules as Pattern Facilitation Module, but the Exalt can only attack an existing plan under consideration, never endorse an alternative. Members fully swept up (Willpower less than the Exalt's Essence) come to hate the agenda and will use force or violence to oppose it; those with Willpower up to (Essence + 2) dislike it but can be argued into it with sufficient evidence; those above that find it distasteful but will pursue it if clearly in their interest. If used to oppose an agenda already boosted by an activation of Pattern Facilitation Module, the Exalt with the higher Essence wins outright (a tie cancels both, leaving no change).",
+    "requirements": "Minimum Manipulation 3; Minimum Essence 3; Prerequisite Charms: Transitory or Sustained Augmentation of Manipulation.",
+    "cost": "6 motes, 1 Willpower; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Indefinite. Type: Simple. Social Charms tree (Manipulation-keyed); root of a Manipulation branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 117,
+      "pdfPage": 118
+    },
+    "crossReferences": [
+      "pattern-facilitation-module",
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Social Charms' tree, p. 117 (PDF 118); visually cross-checked against the Social Charms II tree diagram."
+  },
+  {
+    "id": "motivational-vocoder",
+    "name": "Motivational Vocoder",
+    "disposition": "selectable",
+    "summary": "A throat-anchored half-torc that lets an Alchemical impel a present group toward a single assigned task for a day, at the cost of accumulating Willpower-recovery penalties on anyone who benefits from the bonus.",
+    "mechanics": "All addressed targets must be present and have permanent Essence below 2; the Exalt cannot affect more targets in one activation than (Manipulation x 10). For the rest of the day, every target adds one artificial-specialty bonus die to any action directly furthering the assigned task. At day's end, each character who used the bonus loses 1 point of Willpower and adds 1 to the difficulty of his next Conviction roll to regain Willpower, cumulative on further days up to a cap of the target's Conviction rating (at which point rest cannot restore Willpower); the penalty decreases by one die for every full day the target goes unenchanted. Targets reduced to zero temporary Willpower become listless, losing one die from all non-reflexive actions unless acting in accordance with a standing directive.",
+    "requirements": "Minimum Manipulation 3; Minimum Essence 3; Prerequisite Charms: Transitory or Sustained Augmentation of Manipulation.",
+    "cost": "10 motes, 1 Willpower; Installation Cost: 1 mote.",
+    "compatibility": "Duration: One day. Type: Simple. Social Charms tree (Manipulation-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "116-117",
+      "pdfPage": "117-118"
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute",
+      "personality-override-spike"
+    ],
+    "notes": "Chapter Three: Charms, 'Social Charms' tree, pp. 116-117 (PDF 117-118); visually cross-checked against the Social Charms II tree diagram."
+  },
+  {
+    "id": "personality-override-spike",
+    "name": "Personality Override Spike",
+    "disposition": "selectable",
+    "summary": "A retractable foot-long stiletto-like spike that, on breaking a pierced victim's will through a nightly-repeated Essence contest, lets the Alchemical rewrite the victim's Virtues, Nature, Willpower, or memories, or knock her out or kill her outright.",
+    "mechanics": "The spike is a reflexively deployable weapon (piercing damage, short-sword statistics) but its main use is mind control: piercing a sentient being of equal or lower permanent Essence and dealing any damage (or inserting it carefully with no damage if unresisting) lets the Exalt spend 8 motes and 1 Willpower to activate the Charm, paralyzing both parties for the rest of the turn. Starting the next turn, an opposed Essence + Willpower roll repeats every turn until the victim wins (both wake, spike slides free) or the Exalt accrues 3 net successes and conquers the victim's mind (no roll needed if the victim doesn't resist). Once conquered, each full turn maintaining the link lets the Exalt inflict one simple-action effect per turn: raise/lower a Virtue by a dot; change Nature; raise/lower permanent Willpower by a dot; erase a contiguous memory span (up to 5 years per turn, without the Exalt knowing what was erased); render the victim unconscious for the scene; or, for Essence-1 mortals/non-magical beings only, kill her outright. Mortal changes are permanent barring further magic or major life events (gained dots fade at one per week); Exalted and other magical beings heal one dot of a diminished Trait per day and restore Nature after another day, with memories requiring prompting and a Willpower roll (difficulty 1-5) to resurface once remembered thereafter automatically. Forcibly separating the pair (Strength + Athletics, difficulty 2) tears the filaments free, dealing the victim 3 unsoakable-except-by-natural-soak lethal levels.",
+    "requirements": "Minimum Manipulation 5; Minimum Essence 3; Prerequisite Charms: Motivational Vocoder.",
+    "cost": "8 motes, 1 Willpower; Installation Cost: 2 motes.",
+    "compatibility": "Duration: Instant. Type: Reflexive. Social Charms tree (Manipulation-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "117-119",
+      "pdfPage": "118-120"
+    },
+    "crossReferences": [
+      "motivational-vocoder",
+      "mind-ripping-probe",
+      "memory-implantation-surge"
+    ],
+    "notes": "Chapter Three: Charms, 'Social Charms' tree, pp. 117-119 (PDF 118-120); visually cross-checked against the Social Charms II tree diagram. Victims reduced to 0 permanent Willpower are noted as used for slave labor in Autochthonia."
+  },
+  {
+    "id": "mind-ripping-probe",
+    "name": "Mind-Ripping Probe",
+    "disposition": "selectable",
+    "summary": "A permanent upgrade letting a Personality Override Spike also read a broken victim's memories, either answering a specific question through involuntary vignettes or scanning for falsified/deleted memories.",
+    "mechanics": "Requires the victim's will to already be broken per Personality Override Spike. As a simple action, the Exalt may either: ask one question about the victim's past, which the victim involuntarily answers via memory vignettes selected by her own player (with the Storyteller able to demand more detail for vague answers to straightforward questions); or roll Wits + Awareness (standard difficulty, ignoring successes beyond the Exalt's own Essence) to detect all falsehoods/deletions created by beings of permanent Essence equal to or less than the successes rolled, without learning the underlying truth unless later reversed via Memory Implantation Surge.",
+    "requirements": "Minimum Manipulation 5; Minimum Essence 4; Prerequisite Charms: Personality Override Spike.",
+    "cost": "None; Installation Cost: 1 mote.",
+    "compatibility": "Duration: N/A. Type: Permanent. Social Charms tree (Manipulation-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 119,
+      "pdfPage": 120
+    },
+    "crossReferences": [
+      "personality-override-spike",
+      "memory-implantation-surge"
+    ],
+    "notes": "Chapter Three: Charms, 'Social Charms' tree, p. 119 (PDF 120); visually cross-checked against the Social Charms II tree diagram."
+  },
+  {
+    "id": "memory-implantation-surge",
+    "name": "Memory Implantation Surge",
+    "disposition": "selectable",
+    "summary": "A further Personality Override Spike upgrade that inserts false memories into a mind-broken victim, scaled from a small lie to a total life rewrite, and can also excise a prior falsehood or deletion once its presence is known.",
+    "mechanics": "As a simple action against a will-broken victim, roll Manipulation + (Performance, Presence, or Lore, whichever is highest) against a difficulty equal to the target's Essence. Successes determine scope: one success permits a superficial change; two allow gross changes that may not mesh with memory continuity (contradictory evidence lets the victim reconstruct the truth while still recalling the false version); three permit one sweeping change that always feels real even if evidence disproves it; four allow a full rewrite of up to five years with arbitrary detail; five allow rewriting a victim's entire life in full detail. Mortals do not naturally recover true memories (though very strong-willed ones, Willpower 7+, may have confusing dreams); magical beings can challenge a known-false memory with a Willpower roll (difficulty = the Exalt's Essence), reinforcing the falsehood on a botch or restoring the truth on success. The Charm can also remove a known-damaged (programmed-false or erased) memory segment, restoring the truth completely, once the Alchemical is certain the area is damaged (via Mind-Ripping Probe or independent evidence).",
+    "requirements": "Minimum Manipulation 5; Minimum Essence 4; Prerequisite Charms: Mind-Ripping Probe.",
+    "cost": "None; Installation Cost: 1 mote.",
+    "compatibility": "Duration: N/A. Type: Permanent. Social Charms tree (Manipulation-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 119,
+      "pdfPage": 120
+    },
+    "crossReferences": [
+      "mind-ripping-probe",
+      "personality-override-spike"
+    ],
+    "notes": "Chapter Three: Charms, 'Social Charms' tree, p. 119 (PDF 120); visually cross-checked against the Social Charms II tree diagram. This Charm completes the seven-Charm Social Charms II sub-tree."
+  },
+  {
+    "id": "identifying-charms",
+    "name": "Identifying Charms (sidebar rule)",
+    "disposition": "calculated",
+    "summary": "A general Chapter Three sidebar rule (not a Charm) explaining how observers can visually or magically deduce what an installed Alchemical Charm does, scaled by successes on an Intelligence + Occult roll.",
+    "mechanics": "An observer rolls Intelligence + Occult at a difficulty equal to the scrutinized Charm's minimum Essence rating. One success reveals whether the device is offensive, defensive, or neither; three successes reveal a general idea of its primary function; five successes reveal its exact workings. Alchemicals automatically recognize any Charm they have personally had installed, without a roll. Observers unfamiliar with Autochthonian technology (such as most people in Creation) add 1 to the difficulty until they gain enough exposure to Alchemicals to begin recognizing Charm designs.",
+    "compatibility": "Applies to any physically visible, installed Alchemical Charm being scrutinized by an observer.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 119,
+      "pdfPage": 120
+    },
+    "crossReferences": [
+      "alchemical-charm-format-and-limitations"
+    ],
+    "notes": "Chapter Three: Charms, 'Identifying Charms' sidebar, p. 119 (PDF 120), positioned between the Social Charms and Stealth and Disguise Charms trees."
+  },
+  {
+    "id": "integrated-artifact-transmogrifier",
+    "name": "Integrated Artifact Transmogrifier",
+    "disposition": "selectable",
+    "summary": "A flesh-and-mechanism system that physically retracts and hides an Alchemical's other visible Charms, and can also let Essence 2-5 Alchemicals disguise themselves as fully human for a Willpower-fueled day.",
+    "mechanics": "Costs 1 mote per Charm hidden or 5 motes to hide as many as desired at once; suppressing a Charm normally deactivates it (only permanent-type Charms may keep functioning while hidden, Storyteller discretion), frees any activation-cost Essence but not installation Essence, and reactivating any hidden Charm (a reflexive, non-Charm-activation action for dormant permanents) reveals it and, if hidden via the 5-mote option, reveals every concurrently hidden Charm at once. Hidden Charms resist Essence sight/detection unless the observer's permanent Essence exceeds the Alchemical's by two or more dots; Charms with no visible outward form need not be hidden unless concealing them from Essence sight specifically. Essence 2-5 Alchemicals may additionally suppress all visible Charms and spend 1 Willpower to vivify their flesh into a fully convincing human semblance (Essence 4-5 remain oversized, drawing attention regardless; Essence 6+ cannot pass as human at all); this disguise makes the Exalt bleed like a mortal, lasts one day before requiring renewal, allows retracting or reconfiguring the visible soulgem, and is broken (until re-suppressed) by using any hidden Charm. This Charm may be placed in a Combo despite its non-instant duration.",
+    "requirements": "Minimum Appearance 1; Minimum Essence 2; Prerequisite Charms: None.",
+    "cost": "1 mote per Charm or 5 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Indefinite. Type: Reflexive. Stealth and Disguise Charms tree (Appearance-keyed); root of the tree.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "120-121",
+      "pdfPage": "121-122"
+    },
+    "crossReferences": [
+      "insectile-locomotion-upgrade",
+      "essence-dormancy-mode",
+      "husk-sculpting-apparatus"
+    ],
+    "notes": "Chapter Three: Charms, 'Stealth and Disguise Charms' tree, pp. 120-121 (PDF 121-122); visually cross-checked against the Stealth and Disguise Charms tree diagram on p. 120."
+  },
+  {
+    "id": "essence-dormancy-mode",
+    "name": "Essence Dormancy Mode",
+    "disposition": "selectable",
+    "summary": "An upgrade to the Integrated Artifact Transmogrifier that shields an Alchemical's true nature from Essence sight by voluntarily dampening her own permanent Essence rating, shutting down inaccessible or active Charms in the process.",
+    "mechanics": "On activation, the Exalt lowers her permanent Essence by as many dots as desired (minimum 1) for as long as the Charm remains committed; this does not reduce her size. She cannot access or activate Charms requiring a higher minimum Essence than her dampened rating, and active Charm effects (including permanent-type ones) shut down, though committed Essence sustaining them remains committed. Only disguise-based Charms (Integrated Artifact Transmogrifier, Voice Distortion Field), a Biofunction Inhibitor, a Biostasis Field Projector, and/or this Charm itself are exempt, allowing the character to still masquerade as human or as a dead human. Reducing to Essence 1 fully shuts down Essence pools/anima and hides the character from magic that detects latent Essence. Reflexively ending commitment restores everything, including the anima's prior level before it resumes fading normally. May be placed in a Combo despite its non-instant duration.",
+    "requirements": "Minimum Appearance 2; Minimum Essence 3; Prerequisite Charms: Integrated Artifact Transmogrifier.",
+    "cost": "3 motes; Installation Cost: None.",
+    "compatibility": "Duration: Indefinite. Type: Reflexive. Stealth and Disguise Charms tree (Appearance-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 121,
+      "pdfPage": 122
+    },
+    "crossReferences": [
+      "integrated-artifact-transmogrifier",
+      "biofunction-inhibitor",
+      "biostasis-field-projector"
+    ],
+    "notes": "Chapter Three: Charms, 'Stealth and Disguise Charms' tree, p. 121 (PDF 122); visually cross-checked against the Stealth and Disguise Charms tree diagram. Cross-references Biofunction Inhibitor (p. 130/PDF 131) and Biostasis Field Projector (p. 134/PDF 135), both inventoried in this same pass under Medical Charms."
+  },
+  {
+    "id": "husk-sculpting-apparatus",
+    "name": "Husk-Sculpting Apparatus",
+    "disposition": "selectable",
+    "summary": "Wire-hook-and-pigment-injector implants that let an Alchemical reshape her own cosmetic appearance in real detail (height, build, coloration, scars/tattoos, and even gender) with changes that persist until deliberately altered again.",
+    "mechanics": "Cannot exactly duplicate a specific person, but can approximate someone's build/coloration for +3 dice on mundane impersonation. Roll Appearance + Craft (Body) at standard difficulty each activation; successes determine how many separate cosmetic changes (Storyteller's call on what counts as separate) may be made, including height shifts up to six inches, full pigmentation/texture changes, added or removed scars/tattoos, altered musculature, and (Essence 3+) a full gender swap or genderless/hermaphroditic body (genderless bodies are immune to seduction; sterility already applies to all Alchemicals). Temporary Appearance from a recalibrated visage can range from 0 (freakish/terrifying, +2 dice to intimidation) to the character's permanent rating, though Charm prerequisites always use permanent Appearance. A botch shifts the character to Appearance 0 for a day and locks out reuse during that time. Changes are permanent until altered again; the character cannot change fundamental shape, add/remove limbs, hide implanted Charms, or otherwise leave the humanoid template. Can be paired with Integrated Artifact Transmogrifier to fake convincing (even bleeding) wounds.",
+    "requirements": "Minimum Appearance 3; Minimum Essence 2; Prerequisite Charms: Integrated Artifact Transmogrifier.",
+    "cost": "10 motes, 1 Willpower; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Simple. Stealth and Disguise Charms tree (Appearance-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "121-122",
+      "pdfPage": "122-123"
+    },
+    "crossReferences": [
+      "integrated-artifact-transmogrifier"
+    ],
+    "notes": "Chapter Three: Charms, 'Stealth and Disguise Charms' tree, pp. 121-122 (PDF 122-123); visually cross-checked against the Stealth and Disguise Charms tree diagram."
+  },
+  {
+    "id": "voice-distortion-field",
+    "name": "Voice Distortion Field",
+    "disposition": "selectable",
+    "summary": "A throat rivet and voicebox wiring that lets an Alchemical mimic voices/sounds, layer subliminal emotional tones into her speech, or dramatically amplify her volume.",
+    "mechanics": "Impersonation: Manipulation + Performance roll (difficulty 2 for a regular associate's voice, 4 if only heard in passing) makes the Exalt's voice indistinguishable from the target's for as long as Essence is committed (no roll needed for a generic anonymous voice); the same roll difficulty scheme lets her mimic any heard sound, even ones no human voice could naturally produce, with entire auditory memories replayable after a Wits + Awareness recall roll (difficulty 1-5) plus the Manipulation + Performance roll; mimicry/playback costs 1 mote per sound cluster and may be replayed indefinitely once paid for. Emotional tone: 1 mote to layer one chosen emotion (overt or subliminal) into her voice, granting +1 die (as a specialty) whenever a Social roll evoking that voiced emotion is made, lasting as long as Essence is committed; only one emotion may be set at a time. Volume: 1 mote lets her be clearly heard out to (Manipulation x 100) yards for a turn, uncomfortably loud up close but not deafening; combinable with the other two modes to broadcast tones or recordings to a crowd.",
+    "requirements": "Minimum Manipulation 3; Minimum Essence 2; Prerequisite Charms: None.",
+    "cost": "1 mote; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Varies. Type: Reflexive. Stealth and Disguise Charms tree (Manipulation-keyed); root of a Manipulation branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 122,
+      "pdfPage": 123
+    },
+    "crossReferences": [
+      "essence-dormancy-mode"
+    ],
+    "notes": "Chapter Three: Charms, 'Stealth and Disguise Charms' tree, p. 122 (PDF 123); visually cross-checked against the Stealth and Disguise Charms tree diagram."
+  },
+  {
+    "id": "pheromone-regulation-systems",
+    "name": "Pheromone Regulation Systems",
+    "disposition": "selectable",
+    "summary": "Subdermal micro-pumps and glands that let an Alchemical either exude a psychoactive fragrance boosting a targeted emotional Social roll or mask all scent to defeat tracking.",
+    "mechanics": "Emotional mode: adds one specialty-style die to Social rolls that resonate with the projected emotion (e.g. a lust scent aiding seduction) against targets within the Exalt's Charisma in yards; only the most wary observers can detect the chemical (Perception + Awareness, difficulty 6) without superhuman senses. Masking mode: makes the character untrackable by mundane scent and raises the difficulty of supernatural scent-tracking by her permanent Essence. Only one mode (a single pheromone cocktail, or masking) may run at a time, never both.",
+    "requirements": "Minimum Charisma 2; Minimum Essence 2; Prerequisite Charms: None.",
+    "cost": "1 mote; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Indefinite. Type: Simple. Stealth and Disguise Charms tree (Charisma-keyed); root of the tree.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "122-123",
+      "pdfPage": "123-124"
+    },
+    "crossReferences": [],
+    "notes": "Chapter Three: Charms, 'Stealth and Disguise Charms' tree, pp. 122-123 (PDF 123-124); visually cross-checked against the Stealth and Disguise Charms tree diagram."
+  },
+  {
+    "id": "optical-shroud",
+    "name": "Optical Shroud",
+    "disposition": "selectable",
+    "summary": "A skin-embedded crystal lattice that renders an Alchemical invisible while she stays still, betrayed only by a faint air distortion, though it cannot fool direct Essence sight and any real movement shatters it.",
+    "mechanics": "Spotting the mirage requires Perception + Awareness (standard difficulty if the observer saw the character vanish, 4 if alert/suspicious, 5 otherwise). Concealment persists as long as the Exalt stays still (minor actions like drawing a weapon or turning to look are fine, but moving location or making quick movements such as most attacks breaks it). Anyone attacking or defending against an invisible character still subtracts two successes as normal, even if the attack itself breaks the camouflage. Provides no concealment from direct Essence sight, but does block Measure the Wind and similar location-pinpointing spirit magic (such Charms only reveal a nearby Essence source, maskable amid other visible sources).",
+    "requirements": "Minimum Appearance 2; Minimum Essence 2; Prerequisite Charms: None.",
+    "cost": "2 motes; Installation Cost: 2 motes.",
+    "compatibility": "Duration: Indefinite. Type: Reflexive. Stealth and Disguise Charms tree (Appearance-keyed); root of an Appearance branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 123,
+      "pdfPage": 124
+    },
+    "crossReferences": [
+      "aura-dampening-component",
+      "dynamic-cloaking-module"
+    ],
+    "notes": "Chapter Three: Charms, 'Stealth and Disguise Charms' tree, p. 123 (PDF 124); visually cross-checked against the Stealth and Disguise Charms tree diagram."
+  },
+  {
+    "id": "aura-dampening-component",
+    "name": "Aura-Dampening Component",
+    "disposition": "selectable",
+    "summary": "A permanent Optical Shroud upgrade using white-jade baffles to let an Alchemical spend Peripheral Essence on disguise/anima effects without it registering as Peripheral, easing her limited Personal Essence budget.",
+    "mechanics": "With this Charm installed, the character may spend an additional mote when using any Transitory Augmentation of (Attribute) Charm, an anima power, or a disguise/concealment Charm; all Peripheral Essence spent powering such an effect is thereafter treated as Personal Essence, preventing the expenditure from revealing the Exalt's nature.",
+    "requirements": "Minimum Appearance 2; Minimum Essence 2; Prerequisite Charms: Optical Shroud.",
+    "cost": "None; Installation Cost: 1 mote.",
+    "compatibility": "Duration: N/A. Type: Permanent. Stealth and Disguise Charms tree (Appearance-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 123,
+      "pdfPage": 124
+    },
+    "crossReferences": [
+      "optical-shroud",
+      "transitory-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Stealth and Disguise Charms' tree, p. 123 (PDF 124); visually cross-checked against the Stealth and Disguise Charms tree diagram."
+  },
+  {
+    "id": "dynamic-cloaking-module",
+    "name": "Dynamic Cloaking Module",
+    "disposition": "selectable",
+    "summary": "An adaptive-camouflage upgrade to Optical Shroud that lets an Alchemical stay concealed while moving, appearing only as a faint heat-wave-like distortion.",
+    "mechanics": "Spotting the Exalt requires Perception + Awareness at a difficulty equal to her permanent Essence if she moved significantly on the current or prior turn (also the difficulty on the activation turn), rising by 2 if she instead holds nearly motionless for a full turn. Attackers/defenders against the invisible character still subtract two successes as normal; ranged attackers additionally subtract the Exalt's Essence in successes, and opponents with only normal human senses cannot even target her beyond 100 yards without an appropriate Charm or an exceptional (three-die) stunt. As with Optical Shroud, this provides no protection from direct Essence sight and blocks only location-pinpointing magic like Measure the Wind, not detection of a nearby Essence source in general.",
+    "requirements": "Minimum Appearance 2; Minimum Essence 3; Prerequisite Charms: Optical Shroud.",
+    "cost": "5 motes, 1 Willpower; Installation Cost: 1 mote.",
+    "compatibility": "Duration: One hour. Type: Simple. Stealth and Disguise Charms tree (Appearance-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 123,
+      "pdfPage": 124
+    },
+    "crossReferences": [
+      "optical-shroud",
+      "essence-veil"
+    ],
+    "notes": "Chapter Three: Charms, 'Stealth and Disguise Charms' tree, p. 123 (PDF 124); visually cross-checked against the Stealth and Disguise Charms tree diagram."
+  },
+  {
+    "id": "essence-veil",
+    "name": "Essence Veil",
+    "disposition": "selectable",
+    "summary": "A permanent capstone upgrade making an Alchemical's Optical Shroud and Dynamic Cloaking Module equally effective against Essence sight/magical detection as against normal vision, while also muffling sound.",
+    "mechanics": "When using either the Optical Shroud or the Dynamic Cloaking Module, the Exalt becomes just as difficult to detect via Essence sight and other magical detection as she is visually. As an added benefit, the dampening field also quiets sound while either Charm is engaged, increasing the difficulty to notice the Exalt by auditory means by her Essence rating.",
+    "requirements": "Minimum Appearance 2; Minimum Essence 4; Prerequisite Charms: Dynamic Cloaking Module.",
+    "cost": "None; Installation Cost: 1 mote.",
+    "compatibility": "Duration: N/A. Type: Permanent. Stealth and Disguise Charms tree (Appearance-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "123-124",
+      "pdfPage": "124-125"
+    },
+    "crossReferences": [
+      "dynamic-cloaking-module",
+      "optical-shroud"
+    ],
+    "notes": "Chapter Three: Charms, 'Stealth and Disguise Charms' tree, pp. 123-124 (PDF 124-125); visually cross-checked against the Stealth and Disguise Charms tree diagram. This Charm completes the nine-Charm Stealth and Disguise Charms tree."
+  },
+  {
+    "id": "optical-enhancement",
+    "name": "Optical Enhancement",
+    "disposition": "selectable",
+    "summary": "A base eye-implant Charm awarding two of seven ocular submodules on installation, with further ones purchasable individually: Flash Shutters, Light-Intensification Filters, Microscopic Lens, Telescopic Lens, Ultraperipheral Awareness, Thermal Vision, and Mass-Penetrating Scan.",
+    "mechanics": "On purchase, the player selects two of the seven listed modifications; each additional one costs 3 bonus points or 6 experience points and an hour of Vat refit (new modifications may be designed with Storyteller approval). Flash Shutters: semiopaque lids auto-block visual overstimulation (including close heat sources if Thermal Vision is also installed). Light-Intensification Filters: negate all penalties short of absolute darkness, but inflict bright-light penalties (as murky vision, plus -1 to wound penalties from pain) unless Flash Shutters is also installed; the reflective sheen can be spotted in dim light (Perception + Awareness, difficulty 4). Microscopic Lens: diceless magnification up to (Perception x 10), narratively resolved. Telescopic Lens: diceless magnification up to (Perception x 25) with a matching reduction in peripheral vision; cannot be used simultaneously with the microscopic lens. Ultraperipheral Awareness: 360-degree vision via head-ringed receptors, granting a reflexive Perception + Awareness roll (standard difficulty) to notice rear/ambush attacks the field of vision could see (not invisible/hidden attackers), though a shield still needs time to reposition to protect the rear. Thermal Vision: reflexive switch (3 motes, no separate Charm activation) trading color/detail vision for heat-sight, gauging temperature (Perception + Awareness) and navigating in darkness at (Perception x 10) yards clear / (Perception x 20) yards murky vision, spotting flames for Essence miles with line of sight, highlighting warm bodies (+1 die as a specialty to notice/attack them), suffering murky-vision penalties near intense heat and blindness within two yards of it; requires Essence 3. Mass-Penetrating Scan: reflexive 3-mote activation (counts as a Charm use) letting the Exalt see through solid matter for a turn within a one-yard-wide tunnel of vision (no peripheral awareness), panning via Perception + Awareness rolls to find things of note; requires Essence 4.",
+    "requirements": "Minimum Perception 3; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Perception.",
+    "cost": "None; Installation Cost: 2 motes.",
+    "compatibility": "Duration: N/A. Type: Permanent. Sensory and Spiritual Charms tree (Perception-keyed); root of a Perception branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "124-125",
+      "pdfPage": "125-126"
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute",
+      "deception-recognition-module"
+    ],
+    "notes": "Chapter Three: Charms, 'Sensory and Spiritual Charms' tree, pp. 124-125 (PDF 125-126); visually cross-checked against the Sensory and Spiritual Charms I tree diagram on p. 124. The seven submodules are summarized rather than reproduced in full narrative color, matching how this inventory summarizes the largest multi-submodule Charms (e.g. Essence Pulse Cannon)."
+  },
+  {
+    "id": "chemical-analysis-system",
+    "name": "Chemical Analysis System",
+    "disposition": "selectable",
+    "summary": "Nostril and tongue implants extending an Alchemical's taste and smell to superhuman range and sensitivity, resolved mostly through Storyteller narration.",
+    "mechanics": "For the duration, the character is assumed to detect trace chemicals (acid, iron, poison in food, faint pheromones, etc.) that others cannot; sensitivity is roughly (Perception x 10) times normal for detection range/concentration. The text explicitly frames this as a narrative rather than exact-science Charm, with Storytellers generally assuming the character smells/tastes everything present absent a compelling reason otherwise.",
+    "requirements": "Minimum Perception 3; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Perception.",
+    "cost": "1 mote; Installation Cost: 1 mote.",
+    "compatibility": "Duration: One hour. Type: Simple. Sensory and Spiritual Charms tree (Perception-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 127,
+      "pdfPage": 128
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute",
+      "deception-recognition-module"
+    ],
+    "notes": "Chapter Three: Charms, 'Sensory and Spiritual Charms' tree, p. 127 (PDF 128); visually cross-checked against the Sensory and Spiritual Charms I tree diagram."
+  },
+  {
+    "id": "tympanal-receptor-upgrade",
+    "name": "Tympanal Receptor Upgrade",
+    "disposition": "selectable",
+    "summary": "Cochlear implants extending an Alchemical's hearing to ultrasonic/subsonic ranges and adding a large sound-based Perception bonus, while also protecting against deafness.",
+    "mechanics": "Mostly a narrative sensory enhancement (detecting ultrasound/subsound, fine pitch discrimination), but mechanically the character adds her permanent Essence to all sound-based Perception rolls (including most ambush checks) as an artificial specialty that may exceed +3 but does not stack with other applicable specialties. Grants the low-light-vision-only penalty while blind (rather than full blindness penalties) due to heightened spatial hearing, without granting any actual visual/color capability. The Charm's filters prevent deafness from heightened sensitivity but cannot counter deliberate hyperstimulation effects.",
+    "requirements": "Minimum Perception 3; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Perception.",
+    "cost": "3 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: One hour. Type: Simple. Sensory and Spiritual Charms tree (Perception-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "127-128",
+      "pdfPage": "128-129"
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute",
+      "deception-recognition-module"
+    ],
+    "notes": "Chapter Three: Charms, 'Sensory and Spiritual Charms' tree, pp. 127-128 (PDF 128-129); visually cross-checked against the Sensory and Spiritual Charms I tree diagram."
+  },
+  {
+    "id": "deception-recognition-module",
+    "name": "Deception Recognition Module",
+    "disposition": "selectable",
+    "summary": "A jaw-mounted lie-detector Charm built atop either the Chemical Analysis System or the Tympanal Receptor Upgrade, letting an Alchemical hear vocal tells or scent biochemical signs of deliberate falsehood in speech (or, with an added Optical Enhancement submodule, in written text).",
+    "mechanics": "Roll Perception + (Awareness or Investigation, whichever is higher) against a difficulty equal to the target's Essence. Success reveals whether the target believes a given statement is true or false; a deliberately misleading half-truth (omitting details a listener would draw wrong conclusions from) reads as false, and a multi-point statement with any false point reads entirely false. With the Microscopic Lens submodule of Optical Enhancement, the same roll can scrutinize written text for deception (difficulty equal to the author's Manipulation rating at time of writing), limited to languages the Exalt understands.",
+    "requirements": "Minimum Perception 4; Minimum Essence 2; Prerequisite Charms: Chemical Analysis System or Tympanal Receptor Upgrade.",
+    "cost": "2 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Reflexive. Sensory and Spiritual Charms tree (Perception-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 128,
+      "pdfPage": 129
+    },
+    "crossReferences": [
+      "chemical-analysis-system",
+      "tympanal-receptor-upgrade",
+      "optical-enhancement"
+    ],
+    "notes": "Chapter Three: Charms, 'Sensory and Spiritual Charms' tree, p. 128 (PDF 129); visually cross-checked against the Sensory and Spiritual Charms I tree diagram, where this Charm is drawn twice (once under each valid prerequisite) as a single node with an either/or prerequisite, per the printed tree layout."
+  },
+  {
+    "id": "mobile-sensory-drone",
+    "name": "Mobile Sensory Drone",
+    "disposition": "selectable",
+    "summary": "A replaced eye that detaches into a tendril-legged automaton sharing all the Exalt's senses and Abilities, telepathically relaying everything it perceives back to her, with seven optional submodules (Autonomous, Communication, Hovering, Injection Needle, Playback, Stealth, Flesh-Burrowing).",
+    "mechanics": "The drone has Dexterity = Exalt's Dexterity + Essence; Perception and all Abilities equal the Exalt's own (opponents suffer +2 difficulty to hit it, and it fits through any inch-wide opening); Strength 1 (feats of strength capped at the Exalt's Essence regardless of Athletics); Stamina/soak(L/B)/health levels equal to the Exalt's Essence, losing 1 Perception dot per health level lost and dissolving if destroyed or if commitment is withdrawn (the socket regrows a replacement in a day); tentacle-leg attacks (speed +0, accuracy +0, damage 1L, defense -2; rate 3 under Exalted Power Combat); double the Exalt's running speed with insect-like surface adhesion; and a range cap of the Exalt's Essence in miles for control/transmission, auto-retreating toward the Exalt's last known position if blocked or out of range (the link counts as an arcane link, and anti-scrying wards block it). Multiple drones may be installed (installations beyond the first skip the installation cost and are mounted as inconspicuous rivets elsewhere on the body). Submodules (2 bonus points/6 experience points each): Autonomous (Intelligence 1 plus one Ability dot the Exalt has, acting independently, fleeing if attacked unless ordered otherwise); Communication (relays/transmits the Exalt's voice, audibly distorted); Hovering (flight at running speed instead of scuttling); Injection Needle (requires Multifunction Hypodermic Apparatus; delivers one stored drug dose via the drone's Dexterity + the Exalt's Medicine); Playback (records experiences to a memory crystal, downloaded on return to the socket); Stealth (gains Optical Shroud-equivalent concealment while motionless a full turn, lost on any movement unless passively anchored to a moving perch); Flesh-Burrowing (Essence 3+; a Dexterity + Medicine attack, difficulty 2, lets the drone burrow into a wounded target and ride its senses until it exits via the same attack or is surgically removed, difficulty 3, dealing 1L either way).",
+    "requirements": "Minimum Perception 4; Minimum Essence 3; Prerequisite Charms: Transitory or Sustained Augmentation of Perception.",
+    "cost": "5 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Indefinite. Type: Simple. Sensory and Spiritual Charms tree (Perception-keyed); root of a Perception branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "125-127",
+      "pdfPage": "126-128"
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute",
+      "multifunction-hypodermic-apparatus",
+      "optical-shroud"
+    ],
+    "notes": "Chapter Three: Charms, 'Sensory and Spiritual Charms' tree, pp. 125-127 (PDF 126-128); visually cross-checked against the Sensory and Spiritual Charms I tree diagram. This Charm completes the five-Charm Sensory and Spiritual Charms I sub-tree. The Injection Needle submodule forward-references Multifunction Hypodermic Apparatus (pp. 134-136/PDF 135-137), inventoried later in this same pass under Medical Charms."
+  },
+  {
+    "id": "interpolative-situational-analysis-processor",
+    "name": "Interpolative Situational Analysis Processor",
+    "disposition": "selectable",
+    "summary": "A cognitive-cluster implant that gathers and filters all of an Alchemical's sensory data into pertinent investigative details and speculative connections, functioning as a Storyteller-guided detective aid.",
+    "mechanics": "Roll Wits + (Awareness or Investigation, whichever is higher) at standard difficulty. Each success reveals or recalls one detail most relevant to a single line of inquiry (including details from earlier scenes), which the Storyteller combines with speculative hints connecting them (e.g. reconstructing a murder scene's blood spatter, body position, and wound nature, plus an inference about the killer's skill and relationship to the victim). The Storyteller should offer a mix of plausible truths and red herrings without answering the question outright; if the true answer is wholly unexpected or actively concealed by misdirection, the Charm may produce false suppositions.",
+    "requirements": "Minimum Wits 4; Minimum Essence 3; Prerequisite Charms: Both Transitory and Sustained Augmentation of Wits.",
+    "cost": "4 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Simple. Sensory and Spiritual Charms tree (Wits-keyed); root of the Wits branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 128,
+      "pdfPage": 129
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Sensory and Spiritual Charms' tree, p. 128 (PDF 129); visually cross-checked against the Sensory and Spiritual Charms II tree diagram on p. 129."
+  },
+  {
+    "id": "soulgem-detector",
+    "name": "Soulgem Detector",
+    "disposition": "selectable",
+    "summary": "A forehead-mounted stud wired to an Alchemical's own soulgem that detects every soulgem within range, distinguishing whether each holds a soul and whether it is set into a mortal, an Exalt, or no one, with more powerful long-range variants at higher Essence.",
+    "mechanics": "Detects every soulgem within (Perception x 10) yards, automatically knowing whether a gem holds a soul and its implantation status, though only one gem's Essence pattern can be diceless-focused on at a time; a soulgem capped in lead becomes invisible to this Charm (a highly illegal procedure). A more powerful variant (Perception 3, Essence 5) extends range to (Perception x 100) yards, and a greater variant (Perception 6, Essence 8) extends it to (Perception) miles.",
+    "requirements": "Minimum Perception 2; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Perception.",
+    "cost": "3 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: One scene. Type: Simple. Sensory and Spiritual Charms tree (Perception-keyed); root of a Perception branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "128-129",
+      "pdfPage": "129-130"
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Sensory and Spiritual Charms' tree, pp. 128-129 (PDF 129-130); visually cross-checked against the Sensory and Spiritual Charms II tree diagram. The higher-Essence range variants are described as upgraded versions of the same Charm rather than separate purchases."
+  },
+  {
+    "id": "cross-phase-scanner",
+    "name": "Cross-Phase Scanner",
+    "disposition": "selectable",
+    "summary": "Facial receptor nodules attuning an Alchemical's senses to immaterial energies, letting her perceive spirits and other incorporeal phenomena as if solid, one sense at a time.",
+    "mechanics": "For every 2 motes spent, the Exalt may perceive spirits, sanctum entrances, and other incorporeal beings/effects as if they were solid, through one designated sense; such phenomena carry a faint but distinctive tone, color, or other tell that identifies them, and the Exalt never confuses immaterial for material or vice versa.",
+    "requirements": "Minimum Perception 3; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Perception.",
+    "cost": "2 motes per sense; Installation Cost: 1 mote.",
+    "compatibility": "Duration: One scene. Type: Simple. Sensory and Spiritual Charms tree (Perception-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 129,
+      "pdfPage": 130
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute",
+      "transphase-engine",
+      "god-ward-projector"
+    ],
+    "notes": "Chapter Three: Charms, 'Sensory and Spiritual Charms' tree, p. 129 (PDF 130); visually cross-checked against the Sensory and Spiritual Charms II tree diagram."
+  },
+  {
+    "id": "transphase-engine",
+    "name": "Transphase Engine",
+    "disposition": "selectable",
+    "summary": "A starmetal-sphere implant letting an Alchemical briefly dematerialize into a translucent phantom state in conjunction with an instant action such as an attack, dodge, parry, or Athletics maneuver.",
+    "mechanics": "Activated for 4 motes alongside a dice action of instant duration: an attack (letting her strike a dematerialized being), a dodge (becoming a limited 'perfect' defense against a material attack that cannot affect dematerialized beings), a parry (only useful against immaterial beings), an Athletics maneuver (phasing through a door or floor), or another Storyteller-approved use. Integrated mass sensors prevent activation if the character would end the split-second phase still partway through a heavy obstruction (wall, floor, ceiling), so a running dash into a thick wall while relying on this Charm fails embarrassingly or painfully.",
+    "requirements": "Minimum Wits 3; Minimum Essence 3; Prerequisite Charms: Cross-Phase Scanner.",
+    "cost": "4 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Supplemental. Sensory and Spiritual Charms tree (Wits-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "129-130",
+      "pdfPage": "130-131"
+    },
+    "crossReferences": [
+      "cross-phase-scanner"
+    ],
+    "notes": "Chapter Three: Charms, 'Sensory and Spiritual Charms' tree, pp. 129-130 (PDF 130-131); visually cross-checked against the Sensory and Spiritual Charms II tree diagram."
+  },
+  {
+    "id": "god-ward-projector",
+    "name": "God-Ward Projector",
+    "disposition": "selectable",
+    "summary": "A spine-mounted mechanism that emits an expanding, then-fixed spherical barrier of glowing Essence blocking spirit passage and most spirit Charms from crossing in either direction.",
+    "mechanics": "Expands to a maximum radius of (Charisma x 5) yards before crystallizing invisibly (though translucent to dematerialized beings) and barring passage to any spirit regardless of power; it also blocks spirits outside from affecting anyone/anything inside with their Charms unless their permanent Essence exceeds the Alchemical's Charisma. Spirits already inside when it hardens may act and remain freely; leaving causes a tingling sensation and bars reentry. Materialized spirits (or any spirit possessing a host) cross freely. The ward persists fixed in place until the Alchemical dies or moves outside it, at which point it immediately collapses.",
+    "requirements": "Minimum Charisma 5; Minimum Essence 3; Prerequisite Charms: Cross-Phase Scanner.",
+    "cost": "30 motes, 2 Willpower; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Simple. Sensory and Spiritual Charms tree (Charisma-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 130,
+      "pdfPage": 131
+    },
+    "crossReferences": [
+      "cross-phase-scanner"
+    ],
+    "notes": "Chapter Three: Charms, 'Sensory and Spiritual Charms' tree, p. 130 (PDF 131); visually cross-checked against the Sensory and Spiritual Charms II tree diagram. This Charm completes the five-Charm Sensory and Spiritual Charms II sub-tree."
+  },
+  {
+    "id": "sustenance-replication-engine",
+    "name": "Sustenance Replication Engine",
+    "disposition": "selectable",
+    "summary": "A stomach-linked reactor and digestive recycler that lets an Alchemical divide her food requirement by her Essence (or eliminate it at Essence 5+ for an upkeep cost), and can also bleed out an edible nutrient paste for feeding mortals.",
+    "mechanics": "The Exalt produces no waste and divides the food needed to stay healthy by her permanent Essence. Essence 5+ Alchemicals may forgo nourishment entirely, synthesizing nutrients directly from Essence for an uncommitted upkeep of 5 motes per day; failing to pay it (or failing to eat if not using that option) leads to ordinary starvation penalties. Secondary function: bleeding a bland, chalky but nutritionally complete gray paste from a forearm vein port, enough to feed one mortal one meal for 5 motes and one minute of bleeding; such meals contain negligible Essence and give Alchemicals no benefit.",
+    "requirements": "Minimum Stamina 3; Minimum Essence 2; Prerequisite Charms: Sustained Augmentation of Stamina.",
+    "cost": "None, or 5 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Permanent, or one minute. Type: Upgrade or Simple. Medical Charms tree (Stamina-keyed); root of the tree.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 130,
+      "pdfPage": 131
+    },
+    "crossReferences": [
+      "sustained-augmentation-of-attribute",
+      "alchemical-artificial-metabolism"
+    ],
+    "notes": "Chapter Three: Charms, 'Medical Charms' tree, p. 130 (PDF 131); visually cross-checked against the small standalone 'Medical Charms I' tree diagram on p. 131, which contains only Sustained Augmentation of Stamina and this Charm -- the remaining Medical Charms described nearby in extraction order actually belong to the larger 'Medical Charms II' diagram on p. 133, an extraction-order-vs-layout mismatch caught by the required visual page check."
+  },
+  {
+    "id": "toxicity-filtration-subsystems",
+    "name": "Toxicity Filtration Subsystems",
+    "disposition": "selectable",
+    "summary": "A body-wide filtration network that gives an Alchemical automatic bonus successes against poison and expunges alcohol/drugs from her system, at the cost of never being able to get drunk or high even when desired.",
+    "mechanics": "When activated by exposure to a toxin, the Exalt adds her Essence in automatic successes to Stamina rolls and soak against the poison, and expunges alcohol/recreational drugs from her body; if her player rolls more than double the successes needed to reduce a poisoning's severity, the chemical has no effect at all. The Charm activates itself automatically whenever exposed to a dangerous toxin (conscious characters may deliberately suppress it), which as a side effect prevents the Alchemical from ever becoming drunk or high without deliberate suppression.",
+    "requirements": "Minimum Stamina 3; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Stamina.",
+    "cost": "2 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: One hour. Type: Reflexive. Medical Charms tree (Stamina-keyed); root of a Stamina branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "130-131",
+      "pdfPage": "131-132"
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Medical Charms' tree, pp. 130-131 (PDF 131-132); visually cross-checked against the Medical Charms II tree diagram on p. 133."
+  },
+  {
+    "id": "biofunction-inhibitor",
+    "name": "Biofunction Inhibitor",
+    "disposition": "selectable",
+    "summary": "A control-valve implant letting an Alchemical enter deathlike regenerative torpor to rest far faster than sleep, accelerating both Essence recovery and Willpower recovery.",
+    "mechanics": "Over about a minute, all biological processes and Charms slow to a stop until the Exalt appears dead (anyone who knows Alchemical biology recognizes this isn't true death since the body would otherwise dissolve; a trained medic can detect faint life signs with Perception + Medicine, difficulty 4). The Exalt must specify the intended torpor duration when activating and remains fully unaware of her surroundings, only waking early if something could have damaged her (regardless of whether damage is actually applied). Time in torpor is more restful than sleep by a factor of the Exalt's permanent Essence (e.g. an Essence 4 Alchemical compresses a full night's rest into two hours). Torpor also speeds Willpower recovery, but only one Conviction roll is allowed per 25-hour period, and Essence respiration during torpor is no faster than normal sleep.",
+    "requirements": "Minimum Stamina 3; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Stamina.",
+    "cost": "5 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Indefinite. Type: Simple. Medical Charms tree (Stamina-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "130-131",
+      "pdfPage": "131-132"
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute",
+      "restorative-fusion-transponder",
+      "essence-dormancy-mode"
+    ],
+    "notes": "Chapter Three: Charms, 'Medical Charms' tree, pp. 130-131 (PDF 131-132); visually cross-checked against the Medical Charms II tree diagram."
+  },
+  {
+    "id": "restorative-fusion-transponder",
+    "name": "Restorative Fusion Transponder",
+    "disposition": "selectable",
+    "summary": "A spinal port letting an Alchemical, while resting on a natural Autochthonian surface, cocoon herself in Primordial cables and heal/recover Essence as if resting in a Vat Complex.",
+    "mechanics": "Activating on a natural surface causes cables and Primordial capillaries to rise and cocoon the Exalt, culminating in a spike docking into the spinal port and rendering her unconscious while her body heals and regains Essence at Vat Complex rates; even starving characters can respire Essence and heal within a cocoon, albeit only at their usual rates. Cocoons have soak 10L/15B and 10 levels of durability before breaking (which wakes the Exalt); otherwise they remain until the Exalt voluntarily dismisses them (even while unconscious, she can track her recovery progress and order withdrawal), after which the ground seals without a trace.",
+    "requirements": "Minimum Stamina 3; Minimum Essence 2; Prerequisite Charms: Biofunction Inhibitor.",
+    "cost": "5 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Simple. Medical Charms tree (Stamina-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 131,
+      "pdfPage": 132
+    },
+    "crossReferences": [
+      "biofunction-inhibitor",
+      "body-reweaving-matrix"
+    ],
+    "notes": "Chapter Three: Charms, 'Medical Charms' tree, p. 131 (PDF 132); visually cross-checked against the Medical Charms II tree diagram. Cross-references the Vat Complex rest rate to p. 68 (PDF 69), covered by the existing vats-background row."
+  },
+  {
+    "id": "body-reweaving-matrix",
+    "name": "Body-Reweaving Matrix",
+    "disposition": "selectable",
+    "summary": "Hidden colonies of thumbnail-sized spider-automata that swarm across an Alchemical's body to accelerate healing dramatically, regrowing amputated limbs, organs, and even destroyed Charms installed at the time of injury.",
+    "mechanics": "While active, the Alchemical regenerates a number of bashing levels per turn equal to her permanent Essence; lethal damage heals at one level per turn; aggravated damage heals at one level per 10 hours. Amputated/destroyed organs heal as aggravated damage: whole limbs count as three levels, partial limbs (forearm+hand, or leg from the knee down) as two levels, and hands/eyes/a mouthful of teeth as one level. Any Charms located in an amputated area regrow too, but only those installed as of the time of injury; the amputated originals disintegrate as the Matrix replaces them.",
+    "requirements": "Minimum Stamina 4; Minimum Essence 3; Prerequisite Charms: Restorative Fusion Transponder.",
+    "cost": "12 motes, 1 Willpower; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Indefinite. Type: Reflexive. Medical Charms tree (Stamina-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "131-132",
+      "pdfPage": "132-133"
+    },
+    "crossReferences": [
+      "restorative-fusion-transponder"
+    ],
+    "notes": "Chapter Three: Charms, 'Medical Charms' tree, pp. 131-132 (PDF 132-133); visually cross-checked against the Medical Charms II tree diagram, which shows this Charm at the end of the Stamina branch."
+  },
+  {
+    "id": "diagnostic-sensor-apparatus",
+    "name": "Diagnostic Sensor Apparatus",
+    "disposition": "selectable",
+    "summary": "Fingertip sensors that scan a nearby living target's vital signs into an Alchemical's memory for later medical analysis, revealing progressively more diagnostic detail with more time spent interpreting the scan.",
+    "mechanics": "Scanning costs 1 mote and a turn, targeting a living being within the Exalt's Essence in yards; results remain stored in memory as long as Essence is committed to remembering them. Interpreting the scan requires Intelligence + Medicine at standard difficulty, five minutes per roll, poolable as an extended action; a character knows everything at or below her rolled successes: one success (alive/dead, well or diseased/infected), two (number of ailments), three (physical location of all ailments), four (progression and names of known ailments, plus recovery variables like Stamina/Endurance/Resistance), five (full profiling including vectors, symptoms, and whether an ailment is magical). Once the character stops analyzing, the raw scan data and its Essence commitment fade, leaving only the diagnosis reached so far.",
+    "requirements": "Minimum Perception 2; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Perception.",
+    "cost": "1 mote; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Until analysis completed. Type: Simple. Medical Charms tree (Perception-keyed); root of the Perception branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 132,
+      "pdfPage": 133
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute",
+      "biosight-reticle"
+    ],
+    "notes": "Chapter Three: Charms, 'Medical Charms' tree, p. 132 (PDF 133); visually cross-checked against the Medical Charms II tree diagram."
+  },
+  {
+    "id": "biosight-reticle",
+    "name": "Biosight Reticle",
+    "disposition": "selectable",
+    "summary": "Diagnostic eye-lenses that render Essence-bearing beings visible through obstructions and darkness by their inner glow, can pierce many concealment Charms, and let the Alchemical read a detailed vital-signs profile of a studied target.",
+    "mechanics": "Grants bonus dice equal to a hidden target's own permanent Essence to spot them with Perception rolls; negates visual penalties from darkness/fog/smoke/etc. for spotting or attacking animate targets, and can scan through a cumulative yard or more of solid matter before being blocked. Automatically dulls the Great Maker's ambient Essence glow in Autochthonia to background flicker (unfiltered in Creation, letting it reveal Demesnes, Manses, and dragon tracks). Can pierce concealment Charms of equal-or-lesser-Essence characters unless the magic specifically cloaks Essence emanations or relies on mental misdirection, via an opposed roll of (Perception + Awareness + the target's Essence) versus (the target's Dexterity + Stealth); winning spots the target, losing lets their Charm function normally. Once aware of a target, a simple action plus a Perception + Medicine roll reveals one piece of chosen vital information per success: current/maximum health levels, current wound/fatigue penalties, permanent Essence, current Essence pool, Stamina/Endurance/Resistance ratings, injury locations, pregnancy, parasites, disease, or infected-wound locations; further turns of scanning can reveal more (a botch always yields erroneous results).",
+    "requirements": "Minimum Perception 4; Minimum Essence 3; Prerequisite Charms: Diagnostic Sensor Apparatus.",
+    "cost": "6 motes, 1 Willpower; Installation Cost: 1 mote.",
+    "compatibility": "Duration: One hour. Type: Simple. Medical Charms tree (Perception-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "132-134",
+      "pdfPage": "133-135"
+    },
+    "crossReferences": [
+      "diagnostic-sensor-apparatus"
+    ],
+    "notes": "Chapter Three: Charms, 'Medical Charms' tree, pp. 132-134 (PDF 133-135); visually cross-checked against the Medical Charms II tree diagram."
+  },
+  {
+    "id": "biostasis-field-projector",
+    "name": "Biostasis Field Projector",
+    "disposition": "selectable",
+    "summary": "A palm-mounted capacitor that induces a coma-like stasis in a touched patient, halting bleeding/infection/poison progression, and can be used reflexively on the Alchemical herself to survive damage that would otherwise be lethal.",
+    "mechanics": "Touch-activated (3 motes); the patient convulses and falls into an apparently-dead stasis detectable as alive only via Perception + Medicine (difficulty 4) or diagnostic magic/Essence sight. Requires several seconds of contact, so it cannot be paired with an unarmed strike to incapacitate an unwilling target, but may substitute for damage after winning control of a clinch; an unwilling patient may resist with Stamina + Resistance (difficulty = the Exalt's Essence). While stabilized, infections/poisons halt spreading, bleeding stops, and mortally wounded patients do not deteriorate past Incapacitated; stasis lasts a day (or until Essence commitment is withdrawn) and is renewable, with 'unfreezing' returning the patient to their exact condition at administration (any new injuries in the interim remain). Used for battlefield first aid, surgical anesthesia, and prisoner transport. Alchemicals may use it on themselves for any specified duration but remain helplessly unconscious until it runs its course; they may also activate it reflexively (3 motes and a recoverable dot of Stamina) when lethal damage would drop them below Incapacitated, entering a deathlike coma of at least one hour instead of dying, with further lethal damage ignorable via reapplication until Stamina drops to 1 or Essence runs out.",
+    "requirements": "Minimum Intelligence 3; Minimum Essence 2; Prerequisite Charms: Biofunction Inhibitor, Diagnostic Sensor Apparatus.",
+    "cost": "3 motes.",
+    "compatibility": "Duration: One day or indefinite. Type: Simple or Reflexive. Medical Charms tree (Intelligence-keyed); a joint Stamina/Perception/Intelligence branch link.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "133-134",
+      "pdfPage": "134-135"
+    },
+    "crossReferences": [
+      "biofunction-inhibitor",
+      "diagnostic-sensor-apparatus"
+    ],
+    "notes": "Chapter Three: Charms, 'Medical Charms' tree, pp. 133-134 (PDF 134-135); visually cross-checked against the Medical Charms II tree diagram, where this Charm bridges both the Biofunction Inhibitor (Stamina) and Diagnostic Sensor Apparatus (Perception) branches under an Intelligence-adjacent node."
+  },
+  {
+    "id": "multifunction-hypodermic-apparatus",
+    "name": "Multifunction Hypodermic Apparatus",
+    "disposition": "selectable",
+    "summary": "A retractable torso-mounted needle-tendril that injects synthesized drugs from internal storage, starting with any two of a large catalog of formulas (Paralytic Toxin, Lethal Toxin, Acid, Antivenin, Anesthetic, Immune Booster, Antiseptic, Healing Agent, Coagulant, Hallucinogen, Stimulant, Time Release Drug, Memory Eraser, Triggered Activation Drug), with more purchasable individually.",
+    "mechanics": "The tendril extends up to two yards to target veins/vital clusters; injecting an unwilling patient requires a Dexterity + Medicine attack roll (against soft targets a hit injects with no damage; against hard targets it deals piercing '1L + successes' damage but records no actual injury, only delivering the drug), while willing patients need no roll and self-injection is allowed. Harmful drugs allow the patient a reflexive Stamina + Resistance roll (difficulty = the Exalt's Essence) unless a special formula states otherwise; beneficial drugs normally bypass this resistance. Installation grants any two starting formulas; each additional costs 4 experience points/2 bonus points (or the Exalt may design new formulas of comparable power via Intelligence + (Medicine or Lore), difficulty 3, with Storyteller approval, for the same 4-experience-point cost). Formula summary: Paralytic/Lethal Toxin (bashing or lethal damage plus an action-die penalty scaled by Intelligence/Essence, reduced on a successful resistance roll; Stamina-exceeds-Intelligence targets are immune); Acid (flat 6L unsoakable-but-for-natural-soak damage, no resistance roll, permanently scarring Appearance -1 on 3+ damage); Antivenin (cures one active poison per dose, cleanses alcohol/drugs, can be pre-administered to intercept one future poison, and can neutralize an inert time-release/triggered dose but not memory eraser); Anesthetic (subtracts Essence from wound penalties, fading at one die/hour, resettable rather than stacking on reinjection); Immune Booster (+1 die vs. disease for Intelligence-many days); Antiseptic (prevents/nullifies wound infection); Healing Agent (heals 2 bashing levels after an hour of rest); Coagulant (instantly stops bleeding); Hallucinogen (synesthesia/pleasure with an Intelligence+Essence action penalty on failure, addictive per a monthly Temperance roll, difficulty 2, decaying an hour at a time; a lesser non-addictive version on success); Stimulant (reduces fatigue penalty by Essence for Intelligence-many hours, but repeated doses without rest inflict 2 unsoakable bashing levels each); Time Release Drug (delays any other injected drug's onset to a specified time, cleansable in advance by Antivenin); Memory Eraser (Essence 3+, 6 xp/3 bp; erases the past hour/scene on a failed Wits-based resistance, or scrambles recent memory recoverable turn-by-turn on success; cannot be a starting formula); Triggered Activation Drug (Essence 3+, 6 xp/3 bp; delays any injected drug's activation for up to a month via 1 additional committed mote until the Exalt disarms or triggers it; cannot be a starting formula).",
+    "requirements": "Minimum Intelligence 4; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Intelligence, Diagnostic Sensor Apparatus.",
+    "cost": "4 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Simple. Medical Charms tree (Intelligence-keyed); root of the Intelligence branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "134-136",
+      "pdfPage": "135-137"
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute",
+      "diagnostic-sensor-apparatus",
+      "mobile-sensory-drone",
+      "regenerative-essence-transfusion",
+      "metabolic-augmentation-injection"
+    ],
+    "notes": "Chapter Three: Charms, 'Medical Charms' tree, pp. 134-136 (PDF 135-137); visually cross-checked against the Medical Charms II tree diagram. The 14-formula drug catalog is summarized rather than reproduced verbatim, matching how this inventory summarizes other large submodule catalogs (e.g. Essence Pulse Cannon, Optical Enhancement). Flagged for a future re-verification pass on exact resistance-roll wording per formula given the length and density of this write-up."
+  },
+  {
+    "id": "regenerative-essence-transfusion",
+    "name": "Regenerative Essence Transfusion",
+    "disposition": "selectable",
+    "summary": "A Multifunction Hypodermic Apparatus upgrade that either injects mortals with an Exalt-grade healing drug or lets the Alchemical directly transfer Essence to (or drain it from) a patient through the same needle.",
+    "mechanics": "Healing mode (10 motes, indefinite): injects a glowing healing fluid (using the Apparatus's injection rules) that lets mortal patients heal and resist poison/disease as if they were Exalted for as long as the Exalt commits 10 motes; it cannot speed up beings that already regenerate at Exalt speed or better. Transfer mode: after a successful injection, spend 3 motes to activate a transfer and then donate up to (Stamina + Essence) motes from her own pool to the patient, visibly flowing through the tendril; alternately she may siphon Essence as an attack for 2 motes, rolling Intelligence + Medicine (difficulty 1 if willing, or the target's Essence if unwilling), draining 2 motes into her own pool per success (draining Peripheral before Personal from Exalted victims).",
+    "requirements": "Minimum Intelligence 4; Minimum Essence 3; Prerequisite Charms: Biostasis Field Projector, Multifunction Hypodermic Apparatus.",
+    "cost": "10 motes, or varies; Installation Cost: None.",
+    "compatibility": "Duration: Indefinite or instant. Type: Simple. Medical Charms tree (Intelligence-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 136,
+      "pdfPage": 137
+    },
+    "crossReferences": [
+      "multifunction-hypodermic-apparatus",
+      "biostasis-field-projector"
+    ],
+    "notes": "Chapter Three: Charms, 'Medical Charms' tree, p. 136 (PDF 137); visually cross-checked against the Medical Charms II tree diagram."
+  },
+  {
+    "id": "metabolic-augmentation-injection",
+    "name": "Metabolic Augmentation Injection",
+    "disposition": "selectable",
+    "summary": "A Multifunction Hypodermic Apparatus upgrade that injects a highly addictive drug temporarily boosting a living patient's Physical Attributes, Appearance, Perception, Wits, and select Abilities, with prolonged use able to mutate the gains into permanent Traits.",
+    "mechanics": "Uses the Apparatus's injection rules (no resistance roll possible). For every 3 motes spent, raises one of the patient's Physical Attributes, Appearance, Perception, or Wits by one dot (extra Stamina also reduces wound penalties and grants Exalt-style soak/healing); for 1 mote per dot, raises Athletics, Awareness, Endurance, or Resistance. No Trait may be raised by more dots than (the Exalt's Essence minus the patient's permanent Essence), no Attribute may exceed double its original rating, and no Ability may exceed 5 dots after augmentation. Bonuses last as long as Essence is committed; patients carrying the drug a week or more may 'mutate,' letting players later pay experience points to make an augmented rating permanent up to its normal maximum or the augmented value, bypassing training time (Storytellers may instead require future-experience credit). Alchemicals themselves never mutate from carrying the drug, though other Exalted may. The drug is highly addictive to mortals: given a chance to reinject within a month, a mortal's player must roll Temperance (difficulty 2), doing anything short of endangering himself/loved ones on a failure, or anything at all on a botch.",
+    "requirements": "Minimum Intelligence 4; Minimum Essence 3; Prerequisite Charms: Biostasis Field Projector, Multifunction Hypodermic Apparatus.",
+    "cost": "Varies; Installation Cost: None.",
+    "compatibility": "Duration: Indefinite. Type: Simple. Medical Charms tree (Intelligence-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "136-137",
+      "pdfPage": "137-138"
+    },
+    "crossReferences": [
+      "multifunction-hypodermic-apparatus",
+      "biostasis-field-projector"
+    ],
+    "notes": "Chapter Three: Charms, 'Medical Charms' tree, pp. 136-137 (PDF 137-138); visually cross-checked against the Medical Charms II tree diagram. This Charm completes the Medical Charms tree (11 Charms total across the small Medical Charms I diagram and the larger Medical Charms II diagram)."
+  },
+  {
+    "id": "imprinted-data-cluster",
+    "name": "Imprinted Data Cluster",
+    "disposition": "selectable",
+    "summary": "Adamant memory-crystal brain implants that let an Alchemical download Ability specialties from a Vats Complex database one mote at a time, storing as many different specialties as desired at the cost of continuous Essence commitment.",
+    "mechanics": "For every mote spent (only while resting in a Vats Complex), the character downloads one Ability specialty from the facility's databases. Downloaded specialties count as natural specialties for dice-boosting-limit purposes (max three copies of the same specialty per Ability, max three natural specialty dice per roll), but unlike experience-bought specialties they vanish immediately and irrevocably if the Exalt ever withdraws the committed mote, requiring a fresh Vats download to reacquire. A character may store as many distinct specialties as desired simultaneously. Players may spend 3 experience points as an instantaneous reflexive action to release a downloaded specialty's Essence commitment and make it permanent.",
+    "requirements": "Minimum Intelligence 3; Minimum Essence 2; Prerequisite Charms: Sustained Augmentation of Intelligence.",
+    "cost": "1 mote per dot (specialty); Installation Cost: 2 motes.",
+    "compatibility": "Duration: Indefinite. Type: Reflexive. Cognitive Charms tree (Intelligence-keyed); root of the tree.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "137-138",
+      "pdfPage": "138-139"
+    },
+    "crossReferences": [
+      "sustained-augmentation-of-attribute",
+      "vats-background"
+    ],
+    "notes": "Chapter Three: Charms, 'Cognitive Charms' tree, pp. 137-138 (PDF 138-139); visually cross-checked against the Cognitive Charms tree diagram on p. 137."
+  },
+  {
+    "id": "clarified-data-assimilator",
+    "name": "Clarified Data Assimilator",
+    "disposition": "selectable",
+    "summary": "A swarm of microscopic automata woven through an Alchemical's nervous system that substitutes her total Clarity rating for any single Ability's rating on one roll, at an escalating mote cost and a cumulative Clarity toll for repeated use.",
+    "mechanics": "Each activation replaces the rating of any single chosen Ability with the Exalt's total Clarity for the purposes of one roll (pertinent specialties for the replaced Ability still apply); the base cost is 3 motes, but each subsequent activation adds a cumulative mote to the cost, decreasing by 1 mote for every full day since the character last used the Charm. Characters may not channel a Virtue to aid a roll boosted by this Charm. Installing it grants 1 dot of permanent Clarity, and each use adds 1 point of temporary Clarity.",
+    "requirements": "Minimum Intelligence 3; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Intelligence.",
+    "cost": "3 motes (rising cumulatively with repeated same-day use); Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Supplemental. Cognitive Charms tree (Intelligence-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 138,
+      "pdfPage": 139
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute",
+      "clarity-trait"
+    ],
+    "notes": "Chapter Three: Charms, 'Cognitive Charms' tree, p. 138 (PDF 139); visually cross-checked against the Cognitive Charms tree diagram."
+  },
+  {
+    "id": "abstract-abacus-implant",
+    "name": "Abstract Abacus Implant",
+    "disposition": "selectable",
+    "summary": "Artificial synapse webs that let an Alchemical reduce the difficulty of (and add automatic successes to) logic-based Mental Attribute rolls, act as a perfect free mental clock, and, via a submodule, rapidly learn spoken/written languages.",
+    "mechanics": "For every 2 motes spent, reduce the difficulty of a logic/deduction-based Mental Attribute roll (math, navigation/cartography, solving enigmas, etc.) by 1; once difficulty hits 1, further 2-mote increments instead add automatic successes, capped at the Exalt's permanent Essence. Also functions as a free, costless perfect mental clock/timer. Interpolative Syntax Emulator submodule (2 bonus points/4 experience points, Essence 3+): after an hour studying a text or listening to an unfamiliar language (or a turn studying a Mind-Ripping Probe victim's linguistic knowledge), the Exalt may spend 3 motes and 3 experience points (or 1 experience point for a tribal language) to instantly learn that tongue, without raising her Linguistics rating or needing separate expenditure for the written vs. spoken form.",
+    "requirements": "Minimum Intelligence 3; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Intelligence.",
+    "cost": "2 motes per success/difficulty point; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Supplemental. Cognitive Charms tree (Intelligence-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "138-139",
+      "pdfPage": "139-140"
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute",
+      "technological-analysis-engrams",
+      "logic-engineering-lobe",
+      "mind-ripping-probe"
+    ],
+    "notes": "Chapter Three: Charms, 'Cognitive Charms' tree, pp. 138-139 (PDF 139-140); visually cross-checked against the Cognitive Charms tree diagram."
+  },
+  {
+    "id": "technological-analysis-engrams",
+    "name": "Technological Analysis Engrams",
+    "disposition": "selectable",
+    "summary": "A metallic brain sub-lobe giving an Alchemical an intuitive engineering database, letting her study any machine or artifact for a turn to learn its function, condition, and (with enough successes) repair/sabotage bonuses.",
+    "mechanics": "Requires only visual scrutiny for devices with visible components, or a turn of handling/running hands over hidden-mechanism devices. Roll Perception + Lore at the end of the turn: difficulty 1-2 for non-magical devices (2 for the most complex/strange), or the item's artifact rating for artifacts (difficulty 6 for N/A-rated artifacts). One success gives a general functional understanding; two also reveal damage/maintenance needs and degree; three give a precise understanding of all capabilities and condition details. A failure gives nothing; a botch gives Storyteller-supplied erroneous details. Repeated study of the same object doesn't stack results. Two or more successes bank one automatic success toward the character's next repair roll on that item that scene, or (alternative use) double the raw damage of her next attack meant to destroy it; only one such banked bonus can be held at a time regardless of reuse.",
+    "requirements": "Minimum Perception 3; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Perception, Abstract Abacus Implant.",
+    "cost": "3 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Simple. Cognitive Charms tree (Perception-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "138-139",
+      "pdfPage": "139-140"
+    },
+    "crossReferences": [
+      "abstract-abacus-implant",
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Cognitive Charms' tree, pp. 138-139 (PDF 139-140); visually cross-checked against the Cognitive Charms tree diagram."
+  },
+  {
+    "id": "omnitool-implant",
+    "name": "Omnitool Implant",
+    "disposition": "selectable",
+    "summary": "A hand implant letting an Alchemical extrude any simple tool she has the relevant dotted Ability to use, from screwdrivers to welding torches, for narrative and constructive (not combat) purposes.",
+    "mechanics": "Fingers unfold into tools, or a wrist-mounted stalk extends one if all fingers are occupied; the Exalt can generate any tool needed for an Ability she has at least one dot in (e.g. Craft (Culinary) cutlery, Craft (Locksmithing) lockpicks). One activation supplies as many exchangeable tools as needed for the rest of the scene; the Storyteller vetoes abuse. Tools are high quality, adding one specialty-style die to any roll using them. Blunt/sharp tools can serve as crude improvised weapons (-1 accuracy from normal) but this is the Charm's combat ceiling; interrogators can misuse tools given time and a restrained victim, but this has no bearing on combat. Purely cosmetic, no-real-benefit uses (lighting a pipe, buffing nails) may be allowed by the Storyteller for free.",
+    "requirements": "Minimum Wits 3; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Wits.",
+    "cost": "4 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: One hour. Type: Simple. Cognitive Charms tree (Wits-keyed); root of the Wits branch.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 139,
+      "pdfPage": 140
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute"
+    ],
+    "notes": "Chapter Three: Charms, 'Cognitive Charms' tree, p. 139 (PDF 140); visually cross-checked against the Cognitive Charms tree diagram."
+  },
+  {
+    "id": "synaptic-acceleration-node",
+    "name": "Synaptic Acceleration Node",
+    "disposition": "selectable",
+    "summary": "Nervous-system relay crystals that multiply an Alchemical's mental processing speed by her permanent Essence for a paid number of hours, useful for planning agendas or drafting blueprints.",
+    "mechanics": "For a number of hours equal to motes spent (2 motes per hour), the Exalt's cognition rate multiplies by her permanent Essence: divide the time required for Mental Attribute-based actions (or the interval between rolls in extended actions) by her Essence. For quick mental tasks of a turn or less, she may perform up to her Wits rating of them per turn, with the usual multiple-action penalty reduced by her permanent Essence.",
+    "requirements": "Minimum Wits 3; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Wits.",
+    "cost": "2 motes per hour; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Varies. Type: Reflexive. Cognitive Charms tree (Wits-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 139,
+      "pdfPage": 140
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute",
+      "incomparable-efficiency-upgrade",
+      "logic-engineering-lobe"
+    ],
+    "notes": "Chapter Three: Charms, 'Cognitive Charms' tree, p. 139 (PDF 140); visually cross-checked against the Cognitive Charms tree diagram."
+  },
+  {
+    "id": "incomparable-efficiency-upgrade",
+    "name": "Incomparable Efficiency Upgrade",
+    "disposition": "selectable",
+    "summary": "A Synaptic Acceleration Node upgrade letting an Alchemical multiply the speed at which she performs a declared, predominantly physical extended task (e.g. digging a ditch, crafting an artifact) by her permanent Essence, though it cannot speed up learning.",
+    "mechanics": "On activation, the player declares a non-combat extended action lasting more than a turn; while the Exalt commits the required Essence and works without interruptions longer than five cumulative minutes per hour, her working speed on that task multiplies by her permanent Essence. It cannot shorten Ability training or Trait advancement time (speed-reading a manual teaches the content but not practiced skill). The character's movements become clipped and mechanical while under the effect. The Storyteller is the final arbiter of which tasks qualify.",
+    "requirements": "Minimum Wits 5; Minimum Essence 3; Prerequisite Charms: Synaptic Acceleration Node.",
+    "cost": "6 motes; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Indefinite. Type: Simple. Cognitive Charms tree (Wits-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "139-140",
+      "pdfPage": "140-141"
+    },
+    "crossReferences": [
+      "synaptic-acceleration-node"
+    ],
+    "notes": "Chapter Three: Charms, 'Cognitive Charms' tree, pp. 139-140 (PDF 140-141); visually cross-checked against the Cognitive Charms tree diagram."
+  },
+  {
+    "id": "logic-engineering-lobe",
+    "name": "Logic Engineering Lobe",
+    "disposition": "selectable",
+    "summary": "A planning Charm letting an Alchemical precompute a declared future action, reducing its eventual difficulty at 3 motes per point, provided she actually follows through with the plan on the next turn.",
+    "mechanics": "The player declares an action the Exalt intends to take next turn; the Storyteller states the most likely difficulty given known information. For every 3 motes spent, the final difficulty drops by 1 (usable once per turn). If the character deviates from the declared plan on the following turn, the spent Essence is wasted; if she follows through, the difficulty decreases as purchased (spending more than needed to hit difficulty 1 wastes the excess). Storytellers are encouraged to award stunt dice for players who declare intentions aloud to incredulous opponents in play.",
+    "requirements": "Minimum Wits 5; Minimum Essence 3; Prerequisite Charms: Abstract Abacus Implant, Synaptic Acceleration Node.",
+    "cost": "3 motes per difficulty point; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Reflexive. Cognitive Charms tree (Wits-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 140,
+      "pdfPage": 141
+    },
+    "crossReferences": [
+      "abstract-abacus-implant",
+      "synaptic-acceleration-node"
+    ],
+    "notes": "Chapter Three: Charms, 'Cognitive Charms' tree, p. 140 (PDF 141); visually cross-checked against the Cognitive Charms tree diagram."
+  },
+  {
+    "id": "eidetic-processing-core",
+    "name": "Eidetic Processing Core",
+    "disposition": "selectable",
+    "summary": "A permanent brain implant of memory-indexing microscopic automata granting an Alchemical perfect recall of anything experienced since installation, and resistance to memory tampering.",
+    "mechanics": "The Exalt perfectly remembers anything experienced while the Charm was installed with no roll required. Recalling pre-installation memories requires a reflexive Wits + Awareness roll (difficulty 1, once per turn per specific memory); failure means the automata have trouble locating an imperfectly filed memory, while a botch relocates it into an inaccessible synaptic cluster for the rest of the scene. Against memory-tampering or memory-erasing effects, an opposed roll of the Alchemical's Wits + Awareness versus the aggressor's Manipulation + Performance decides whether the Eidetic Processing Core sees through the change (Alchemical wins) or is fooled, reporting erasures as blank patches and false memories as real (aggressor wins).",
+    "requirements": "Minimum Wits 3; Minimum Essence 2; Prerequisite Charms: Transitory or Sustained Augmentation of Wits.",
+    "cost": "None; Installation Cost: 1 mote.",
+    "compatibility": "Duration: N/A. Type: Permanent. Cognitive Charms tree (Wits-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": "140-141",
+      "pdfPage": "141-142"
+    },
+    "crossReferences": [
+      "transitory-augmentation-of-attribute",
+      "sustained-augmentation-of-attribute",
+      "memory-implantation-surge"
+    ],
+    "notes": "Chapter Three: Charms, 'Cognitive Charms' tree, pp. 140-141 (PDF 141-142); visually cross-checked against the Cognitive Charms tree diagram. This Charm completes the nine-Charm Cognitive Charms tree."
+  },
+  {
+    "id": "auxiliary-essence-storage-unit",
+    "name": "Auxiliary Essence Storage Unit",
+    "disposition": "selectable",
+    "summary": "A permanent Charm that expands an Alchemical's Peripheral Essence reservoir by 10 motes per installation, capped by permanent Essence (or Essence x 5 at Essence 8+), and barred from Arrays.",
+    "mechanics": "Each installation adds 10 additional motes of Peripheral Essence capacity. Exalted cannot install more copies than their permanent Essence (or permanent Essence x 5 for Alchemicals of Essence 8+). This Charm can never be placed in an Array.",
+    "requirements": "Minimum Stamina 1; Minimum Essence 2; Prerequisite Charms: None.",
+    "cost": "None; Installation Cost: 1 mote.",
+    "compatibility": "Duration: N/A. Type: Permanent. Essence and Weaving Charms tree; root of the tree (not Attribute-keyed).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 141,
+      "pdfPage": 142
+    },
+    "crossReferences": [
+      "god-machine-weaving-engine"
+    ],
+    "notes": "Chapter Three: Charms, 'Essence and Weaving Charms' tree (the chapter's final Charm tree), p. 141 (PDF 142); visually cross-checked against the Essence and Weaving Charms tree diagram."
+  },
+  {
+    "id": "man-machine-weaving-engine",
+    "name": "Man-Machine Weaving Engine",
+    "disposition": "selectable",
+    "summary": "An adamant ring implanted around an Alchemical's soulgem that lets her initiate a single Man-Machine protocol of Alchemical weaving she has separately learned, at the cost of a permanent dot of Clarity and never being removable or Array-eligible.",
+    "mechanics": "Activating for 1 Willpower spins the ring and lights runes; the character then spends the required Essence to initiate a single known Man-Machine weaving protocol, taking effect after a shaping period comparable to Emerald Circle Sorcery, with a bright soulgem flash marking the effect. Installing this Charm grants 1 dot of permanent Clarity; it can never be removed and can never be placed in an Array. The full catalog of Man-Machine protocols and their effects is explicitly cross-referenced in-book to pp. 145-159 (PDF 146-160), which falls in Chapter Four (Miracles of the Machine God), not this chapter.",
+    "requirements": "Minimum Intelligence 4; Minimum Essence 4; Prerequisite Charms: None.",
+    "cost": "1 Willpower; Installation Cost: 1 mote.",
+    "compatibility": "Duration: Instant. Type: Simple. Essence and Weaving Charms tree; root of the tree (Intelligence-keyed, but not gated behind an Augmentation-of-Attribute prerequisite).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 141,
+      "pdfPage": 142
+    },
+    "crossReferences": [
+      "god-machine-weaving-engine",
+      "clarity-trait"
+    ],
+    "notes": "Chapter Three: Charms, 'Essence and Weaving Charms' tree, p. 141 (PDF 142); visually cross-checked against the Essence and Weaving Charms tree diagram. The weaving-protocol catalog itself remains out of scope for this pass; see the README's 'What's still needed' list."
+  },
+  {
+    "id": "god-machine-weaving-engine",
+    "name": "God-Machine Weaving Engine",
+    "disposition": "selectable",
+    "summary": "A larger concentric adamant ring surrounding the Man-Machine Weaving Engine, letting an Alchemical initiate a far more powerful God-Machine weaving protocol over two turns of shaping, again at the cost of a permanent dot of Clarity and non-removability.",
+    "mechanics": "Activating for 2 Willpower spins both rings in opposite directions with a storm of sparks; the character designates a single known God-Machine protocol and spends its Essence cost, and after two turns of shaping (comparable to Sapphire Circle Sorcery) the protocol takes effect with a display rivaling the noonday sun. Installing this Charm grants 1 dot of permanent Clarity; it can never be removed and can never be placed in an Array. As with the Man-Machine Weaving Engine, the full catalog of God-Machine protocols is cross-referenced in-book to pp. 145-159 (PDF 146-160) in Chapter Four, not this chapter.",
+    "requirements": "Minimum Intelligence 6; Minimum Essence 5; Prerequisite Charms: Auxiliary Essence Storage Unit, Man-Machine Weaving Engine.",
+    "cost": "2 Willpower; Installation Cost: 2 motes.",
+    "compatibility": "Duration: Instant. Type: Simple. Essence and Weaving Charms tree (Intelligence-keyed, but not gated behind an Augmentation-of-Attribute prerequisite).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-autochthonians",
+      "printedPage": 141,
+      "pdfPage": 142
+    },
+    "crossReferences": [
+      "man-machine-weaving-engine",
+      "auxiliary-essence-storage-unit",
+      "clarity-trait"
+    ],
+    "notes": "Chapter Three: Charms, 'Essence and Weaving Charms' tree, p. 141 (PDF 142); visually cross-checked against the Essence and Weaving Charms tree diagram. This Charm completes both the three-Charm Essence and Weaving Charms tree and the entirety of Chapter Three (pp. 87-141/PDF 88-142); Chapter Four begins at printed p. 142 (PDF 143), confirmed via direct extraction of that page's near-empty title-page text."
   }
 ]
