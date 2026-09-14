@@ -1,12 +1,18 @@
 # Exalted 1e — Lunar source intake
 
-**Status: primary sourcebook fully inventoried; cross-splat supplements
-outstanding.** *Exalted: The Lunars* (PDF, image-scan) has been supplied and
-is now inventoried cover-to-cover for character-creation-relevant material.
-See [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md)
+**Status: primary sourcebook fully inventoried; one cross-splat sorcery/
+artifice pass complete; further cross-splat supplements outstanding.**
+*Exalted: The Lunars* (PDF, image-scan) has been supplied and is now
+inventoried cover-to-cover for character-creation-relevant material, and a
+further pass has added the *Savant and Sorcerer* / *Book of Three Circles*
+Terrestrial/Celestial Circle spell catalog, Hearthstone catalog, artifact
+catalog, and Warstriders appendix. See
+[docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md)
 for the full process this directory follows.
 
-`inventory/exalted-the-lunars.json` currently has 341 reviewed rows. Every row
+`inventory/exalted-the-lunars.json` currently has 561 reviewed rows (341 from
+*Exalted: The Lunars*/the *Exalted Players Guide*, plus 220 from the later
+*Savant and Sorcerer*/*Book of Three Circles* pass described below). Every row
 was visually compared against a rendered page of the source PDF before being
 marked `reviewed` — none of this content came from OCR alone. It covers:
 
@@ -283,9 +289,74 @@ not merely unreviewed). The **Exalted Players Guide**'s universal Merits and
 Flaws chapter (Chapter One) is also now fully transcribed, filling that gap
 with 88 rows (44 merits + 44 flaws) that apply across all five planned
 Exalted families, with Lunar-specific eligibility/cost caveats captured in
-each row's notes. Still outstanding: any Lunar-facing material in the other
-cross-splat supplements listed in the top-level intent (Blood and Salt, Book
-of Bone and Ebony, Savage Seas, etc.), which remain entirely uninventoried.
+each row's notes.
+
+### Savant and Sorcerer / Book of Three Circles (220 rows)
+
+A later pass added the two cross-splat sorcery/artifice supplements that
+this project's Abyssal and Sidereal inventories had already triaged, using
+Lunar's own `terrestrial-circle-sorcery`/`celestial-circle-sorcery` Charms
+(Chapter Five, Spirit and Sorcery-access Charms) as the enabling
+prerequisites. Per this project's Solar Circle Sorcery eligibility rule
+(Lunars do not have Solar Circle Sorcery access), no Circle of Adamant
+content was inventoried. Most of this pass's rows were adapted from this
+project's already-verified Exalted: The Sidereals transcription of the
+identical sourcebook prose (same citation, mechanics, and cost; only each
+row's `compatibility` text and cross-references were updated for Lunar), with
+two wholly new Lunar-specific rows read directly from the source PDF where
+neither the Abyssal nor Sidereal inventory had transcribed the equivalent
+splat-specific section:
+
+- **The complete Chapter Five Terrestrial and Celestial Circle spell
+  catalog** (84 selectable spells, printed pp. 101-138/PDF 102-139,
+  `spell-terrestrial-*`/`spell-celestial-*` ids), cross-referenced to
+  `terrestrial-circle-sorcery`/`celestial-circle-sorcery`.
+- A **102-entry Hearthstone catalog**, all selectable and cross-referenced
+  to the Manse (altered for Lunars) Background: 15 Sample Hearthstones from
+  Savant and Sorcerer Chapter Three (printed pp. 66-71/PDF 67-72) plus 87
+  more from *Book of Three Circles* Chapter Six's 'long roll'
+  (`hearthstone-botc-*` ids), reused from the Sidereal inventory's own
+  page-by-page render of that image-based chapter.
+- A **13-row Artifice and Enchantment catalog** from Savant and Sorcerer
+  Chapter Two (printed pp. 23-41/PDF 24-42): the Artifact rating framework,
+  the Drawback-subtype/alternate-power-source rules, the five-step creation
+  process, two named Merits (Starting Workshop; **Moonsilver Initiate**,
+  whose cost the book itself reduces to 2 points for Lunar Exalted), the
+  Magical Materials catalog (moonsilver's forging ritual and its tie to the
+  Silver Pact), Exotic Ingredients examples, and five selectable Sample
+  Artifacts (Collar of Dawn's Cleansing Light, Mask, Ring of Being, Wings of
+  the Raptor, Soul Mirror) — plus a wholly new **"In-Game Creation: the
+  Lunar Exalted"** row (`artifact-creation-lunar-notes`) transcribed
+  directly from the source PDF (printed pp. 35-36/PDF 36-37), covering how
+  First Age Lunars crafted at remote forges under Luna's blessing and modern
+  Lunars work in secret, isolated locations near the Wyld.
+- A **13-row Warstriders appendix** (printed pp. 144-160/PDF 145-161): the
+  overview/operation/benefits-limitations/maintenance framework rows, all
+  five basic warstrider design classes as selectable Artifact-rated
+  equipment (Scout, Common, Noble, **Royal** — explicitly attested to a
+  "scant handful" of First Age Lunar pilots in the book's own text, one of
+  the few classes with documented Lunar use — and Juggernaut), the
+  weaponry-mounting/mundane-weapons/artifact-weapons reference catalogs, and
+  the moonsilver-forged **Proteus Gauntlet** (which already grants Lunars
+  its full Magical-Material bonus without the double-Essence surcharge
+  non-Lunars pay).
+- An **8-row skim of Chapter One (Magical Theory) and Chapter Four
+  (Practical Summonings)**: the Limits of Sorcery, the Black and White
+  Treatises acquisition mechanic, the Five Unavoidable Challenges initiation
+  framework, and the demon/elemental summoning-procedure overview,
+  social/political/licensing context, mass summoning project rules, and the
+  Bound Spirit Limit Profile system — plus a wholly new **"Lunar Sorcery
+  Initiation: the No Moon Monopoly"** row (`sorcery-lunar-initiation-notes`)
+  transcribing Chapter One's "No Moons" sidebar (printed p. 15/PDF 16)
+  directly from the source PDF: No Moons alone teach Celestial Circle magic
+  (and only to other No Moons), every No Moon is expected to master it as
+  quickly as possible, and any other Lunar caste must plead for Terrestrial
+  Circle tutelage and keep secret any higher-circle knowledge it somehow
+  acquires.
+
+Still outstanding: any Lunar-facing material in the other cross-splat
+supplements listed in the top-level intent (Blood and Salt, Book of Bone and
+Ebony, Savage Seas, etc.), which remain entirely uninventoried.
 
 Nothing here has been promoted to a production catalog yet (`promotedEntries`
 stays `0` until rows are wired into schema/rules/UI, not merely inventoried).

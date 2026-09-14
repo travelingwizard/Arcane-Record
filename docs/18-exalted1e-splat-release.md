@@ -192,13 +192,13 @@ real, creatable sheet.
 
 | Family     | Source manifest                                                                | Inventory rows | Promoted | Certification                    |
 | ---------- | ------------------------------------------------------------------------------ | -------------- | -------- | -------------------------------- |
-| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide)                          | 341            | 0        | Locked, all dimensions `not-run` |
+| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles) | 561            | 0        | Locked, all dimensions `not-run` |
 | Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide) | 645            | 0        | Locked, all dimensions `not-run` |
 | Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles) | 472            | 0        | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide)                  | 277            | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide)                       | 336            | 0        | Locked, all dimensions `not-run` |
 
-Lunar's 341 rows cover the core innate powers, every Charm category in
+Lunar's 561 rows cover the core innate powers, every Charm category in
 Chapter Five (Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat
 I-V, Melee Combat I/II, Ranged Combat I/II, Defensive I/II/III, Survival and
 Healing I/II/III/IV, Perception I/II/III/IV, Stealth, Interaction and
@@ -221,9 +221,42 @@ Greater Curse, and Throwback Flaws; the Abyssals-and-Ghosts-only Death-Taint
 Flaw, not applicable to Lunars) captured verbatim in each row's notes.
 **Exalted: The Lunars is inventoried cover-to-cover**, and its universal
 Merits/Flaws gap is closed via the Players Guide — the second of the five
-planned families to reach full primary-sourcebook parity; only the
-untriaged cross-splat supplements remain. See
-`docs/references/exalted1e/lunar/README.md`.
+planned families to reach full primary-sourcebook parity. A later pass then
+triaged the two cross-splat sorcery/artifice supplements this project's
+Abyssal and Sidereal inventories had already covered, **Savant and
+Sorcerer** and **Book of Three Circles**, and added them as third/fourth
+source books (220 more rows), using Lunar's own `terrestrial-circle-sorcery`
+and `celestial-circle-sorcery` Charms as the enabling prerequisites: the
+complete Chapter Five Terrestrial and Celestial Circle spell catalog (84
+selectable spells), a 102-entry Hearthstone catalog (15 Sample Hearthstones
+from Savant and Sorcerer's Chapter Three plus 87 more from Book of Three
+Circles' Chapter Six image-based "long roll"), a 13-row Artifice and
+Enchantment catalog from Savant and Sorcerer Chapter Two (the
+Artifact-rating framework, Drawback/creation-process rules, two named
+Merits including the Moonsilver Initiate Merit whose cost the book itself
+halves for Lunars, a Magical Materials reference, and 5 selectable Sample
+Artifacts), a 13-row Warstriders appendix (the
+overview/operation/benefits-limitations/maintenance framework, all five
+warstrider design classes as selectable Artifact-rated equipment — Royal is
+explicitly attested to a "scant handful" of First Age Lunar pilots in the
+book's own text — weapon-catalog references, and the moonsilver-native
+Proteus Gauntlet artifact), and an 8-row skim of Chapter One (Magical
+Theory) and Chapter Four (Practical Summonings). Most of this pass's rows
+were adapted from this project's already-verified Exalted: The Sidereals
+transcription of the identical sourcebook prose (same citation, mechanics,
+and cost; only compatibility text and cross-references were updated for
+Lunar), with two wholly new Lunar-specific rows — "In-Game Creation: the
+Lunar Exalted" (Savant and Sorcerer, Chapter Two) and "Lunar Sorcery
+Initiation: the No Moon Monopoly" (Savant and Sorcerer, Chapter One's "No
+Moons" sidebar) — read directly from the source PDF, since neither the
+Abyssal nor Sidereal inventory had transcribed those splat-specific
+sections. Per this project's Solar Circle Sorcery eligibility rule, Book of
+Three Circles' Chapter Four (Solar Circle Sorcery) remains explicitly out
+of scope, since Lunars do not have Solar Circle Sorcery access. **Exalted:
+The Lunars' full four-source-book inventory (core book, Exalted Players
+Guide, Savant and Sorcerer, and Book of Three Circles) is now complete**
+for this pass; only the untriaged cross-splat supplements beyond these four
+remain. See `docs/references/exalted1e/lunar/README.md`.
 
 Abyssal's 645 rows cover the Chapter Three character-creation overview, the
 universal Anima Effect, all five Castes, the Abyssal Curse, the Virtues of
