@@ -36,7 +36,6 @@ export const arsSections = [
   ['records', 'Records'],
 ].map(([id, label]) => ({ id, label, group: id }));
 
-/** Internal manual-sheet checkpoint. Not registered as a completed game module. */
 export function ArsMagicaEditor(props: GameCharacterEditorProps<ArsCharacter>) {
   const {
     draft: c,
@@ -92,7 +91,7 @@ export function ArsMagicaEditor(props: GameCharacterEditorProps<ArsCharacter>) {
           inferred. Start a new guided character to use creator validation.
         </SheetNotice>
       ) : (
-        <CreatorPanel character={c} onChange={update} certified={false} />
+        <CreatorPanel character={c} onChange={update} />
       ),
     characteristics: (
       <SheetFieldGrid columns={3}>

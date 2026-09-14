@@ -59,7 +59,7 @@ export function createArsCharacter(
       : []),
   ];
   return arsCharacterSchema.parse({
-    schemaVersion: 1,
+    schemaVersion: 2,
     name: '',
     mode: 'build',
     definition: {
@@ -94,6 +94,10 @@ export function createArsCharacter(
       approvals: [],
       baseline: null,
       draft: null,
+      method: status === 'manual' ? 'manual' : 'guided',
+      wealth: 'normal',
+      experienceAllocations: [],
+      spellAllocations: [],
     },
     play: {
       fatigue: 0,

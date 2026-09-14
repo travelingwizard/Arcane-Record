@@ -37,5 +37,6 @@ export function createFromMechanicalTemplate(
     ] = rating;
   character.definition.houseId = template.houseId;
   character.creation.templateId = template.id;
+  character.creation.method = 'template';
   return character;
 }

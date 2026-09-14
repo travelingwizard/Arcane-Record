@@ -3,6 +3,7 @@ import { ArsMagicaEditor, arsSections } from './ArsMagicaEditor';
 import { CovenantEditor, covenantSections } from './CovenantEditor';
 import { createArsCharacter } from './create-character';
 import { createCovenant } from './create-covenant';
+import { createFromMechanicalTemplate } from './templates';
 import {
   arsCharacterSchema,
   covenantSchema,
@@ -21,11 +22,53 @@ export const arsMagicaDefinition: GameSystemDefinition<ArsCharacter> = {
   shortName: 'Ars Magica',
   sheetChoiceLabel: 'Character',
   description:
-    'Manual Magus, Companion, and Grog records using the Definitive Edition sheet hierarchy.',
-  currentSchemaVersion: 1,
+    'Guided and manual Magus, Companion, and Grog records using the Definitive Edition rules and sheet hierarchy.',
+  currentSchemaVersion: 2,
   characterSchema: arsCharacterSchema,
   createInitialCharacter: () => createArsCharacter('magus', 'manual'),
   creationActions: [
+    {
+      id: 'build-magus',
+      name: 'Build Magus',
+      description: 'Create a Hermetic magus with the guided ten-stage creator.',
+      createInitialCharacter: () => createArsCharacter('magus', 'draft'),
+    },
+    {
+      id: 'build-companion',
+      name: 'Build Companion',
+      description:
+        'Create a central non-magus character with guided validation.',
+      createInitialCharacter: () => createArsCharacter('companion', 'draft'),
+    },
+    {
+      id: 'build-grog',
+      name: 'Build Grog',
+      description: 'Create a supporting character with the Grog restrictions.',
+      createInitialCharacter: () => createArsCharacter('grog', 'draft'),
+    },
+    {
+      id: 'template-magus',
+      name: 'Use Magus Template',
+      description:
+        'Start from an editable generalist magus mechanical template.',
+      createInitialCharacter: () =>
+        createFromMechanicalTemplate('ars.template.magus-generalist'),
+    },
+    {
+      id: 'template-companion',
+      name: 'Use Companion Template',
+      description:
+        'Start from an editable companion envoy mechanical template.',
+      createInitialCharacter: () =>
+        createFromMechanicalTemplate('ars.template.companion-envoy'),
+    },
+    {
+      id: 'template-grog',
+      name: 'Use Grog Template',
+      description: 'Start from an editable covenant guard mechanical template.',
+      createInitialCharacter: () =>
+        createFromMechanicalTemplate('ars.template.grog-guard'),
+    },
     {
       id: 'blank-magus',
       name: 'Open Blank Magus',

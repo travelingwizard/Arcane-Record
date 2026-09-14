@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
-"""Generate names and citations from the Definitive Edition spell index.
-
-This deliberately does not extract spell prose. Generated rows stay
-reference-only until a curated mechanic is reviewed against the spell page.
+"""Generate selectable names, Arts, levels, and citations from the reviewed
+Definitive Edition spell index. Spell prose is deliberately not copied.
 """
 import argparse, json, re, unicodedata
 from pathlib import Path
@@ -32,7 +30,9 @@ for name, technique_form, level, page in pattern.findall(text):
         "form": technique_form[2:], "level": None if level == "General" else int(level),
         "general": level == "General", "sourceId": "ars.definitive",
         "printedPage": int(page), "pdfPage": int(page) + 8,
-        "verification": "reference-only", "summary": "Core formulaic or ritual spell; review its cited page before selection.",
+        "verification": "verified",
+        "mechanics": {"technique": technique_form[:2], "form": technique_form[2:], "level": None if level == "General" else int(level), "general": level == "General"},
+        "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites.",
     }
     if key in rows and rows[key] != row:
         raise SystemExit(f"conflicting spell ID: {key}")
@@ -41,4 +41,4 @@ result = sorted(rows.values(), key=lambda row: row["id"])
 if len(result) < 300:
     raise SystemExit(f"unexpectedly short spell index: {len(result)}")
 args.output.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n")
-print(f"Generated {len(result)} reference-only spell rows")
+print(f"Generated {len(result)} selectable spell-index rows")

@@ -35,6 +35,7 @@ describe('Ars Magica records and Exposure', () => {
     for (const role of ['magus', 'companion', 'grog'] as const) {
       const c = createArsCharacter(role);
       expect(c.creation.baseline).toBeNull();
+      expect(c.schemaVersion).toBe(2);
       expect(c.seasons).toEqual([]);
       expect(c.play.confidencePoints).toBe(role === 'grog' ? 0 : 3);
       expect(arsCharacterSchema.parse(JSON.parse(JSON.stringify(c)))).toEqual(
@@ -46,10 +47,10 @@ describe('Ars Magica records and Exposure', () => {
     const c = fixture();
     c.definition.traits[0].definitionId = 'future.unknown';
     c.definition.traits[0].status = 'unresolved';
-    expect(migrateArsCharacter(c, 1)).toEqual(c);
-    expect(() => migrateArsCharacter(c, 2)).toThrow('Unsupported');
+    expect(migrateArsCharacter(c, 2)).toEqual(c);
+    expect(() => migrateArsCharacter(c, 3)).toThrow('Unsupported');
     expect(() =>
-      arsCharacterSchema.parse({ ...c, schemaVersion: 2 }),
+      arsCharacterSchema.parse({ ...c, schemaVersion: 3 }),
     ).toThrow();
   });
   it('adds sheet-reference fields to older schema-one records without guessing values', () => {
@@ -57,6 +58,12 @@ describe('Ars Magica records and Exposure', () => {
       string,
       unknown
     >;
+    legacy.schemaVersion = 1;
+    const creation = legacy.creation as Record<string, unknown>;
+    delete creation.method;
+    delete creation.wealth;
+    delete creation.experienceAllocations;
+    delete creation.spellAllocations;
     const definition = legacy.definition as Record<string, unknown>;
     const play = legacy.play as Record<string, unknown>;
     delete definition.reputations;

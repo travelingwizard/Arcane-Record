@@ -10,8 +10,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 370,
     "pdfPage": 378,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.agony-of-the-beast",
@@ -24,8 +30,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 318,
     "pdfPage": 326,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "An",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.air-s-ghostly-form",
@@ -38,8 +50,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 325,
     "pdfPage": 333,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.arc-of-fiery-ribbons",
@@ -52,8 +70,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 344,
     "pdfPage": 352,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.arm-of-the-infant",
@@ -66,8 +90,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 334,
     "pdfPage": 342,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.aura-of-ennobled-presence",
@@ -80,8 +110,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 350,
     "pdfPage": 358,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Im",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.aura-of-rightful-authority",
@@ -94,8 +130,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 357,
     "pdfPage": 365,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.awaken-the-slumbering-corpse",
@@ -108,8 +150,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 338,
     "pdfPage": 346,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.ball-of-abysmal-flame",
@@ -122,8 +170,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 344,
     "pdfPage": 352,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.bane-of-the-decrepit-body",
@@ -136,8 +190,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 336,
     "pdfPage": 344,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.beast-of-minuscule-proportions",
@@ -150,8 +210,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 318,
     "pdfPage": 326,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "An",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.beast-of-outlandish-size",
@@ -164,8 +230,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 317,
     "pdfPage": 325,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "An",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.beast-remade-the",
@@ -178,8 +250,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 318,
     "pdfPage": 326,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "An",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.bind-wound",
@@ -192,8 +270,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 332,
     "pdfPage": 340,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Co",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.black-whisper",
@@ -206,8 +290,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 356,
     "pdfPage": 364,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Me",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.blade-of-the-virulent-flame",
@@ -220,8 +310,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 344,
     "pdfPage": 352,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.blessing-of-childlike-bliss",
@@ -234,8 +330,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 356,
     "pdfPage": 364,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Me",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.blunt-the-viper-s-fangs",
@@ -248,8 +350,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 319,
     "pdfPage": 327,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "An",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.bountiful-feast-the",
@@ -262,8 +370,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 339,
     "pdfPage": 347,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "He",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.break-the-oncoming-wave",
@@ -276,8 +390,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 324,
     "pdfPage": 332,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.breath-of-the-open-sky",
@@ -290,8 +410,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 327,
     "pdfPage": 335,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.breath-of-winter",
@@ -304,8 +430,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 324,
     "pdfPage": 332,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.bridge-of-frost",
@@ -318,8 +450,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 324,
     "pdfPage": 332,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.bridge-of-wood",
@@ -332,8 +470,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 339,
     "pdfPage": 347,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "He",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.broom-of-the-winds",
@@ -346,8 +490,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 326,
     "pdfPage": 334,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.burst-of-the-sweeping-flames",
@@ -360,8 +510,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 347,
     "pdfPage": 355,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Ig",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.call-of-the-rushing-waters",
@@ -374,8 +530,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 322,
     "pdfPage": 330,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Aq",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.call-to-slumber-the",
@@ -388,8 +550,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 357,
     "pdfPage": 365,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.calling-the-council-of-the-trees",
@@ -402,8 +570,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 343,
     "pdfPage": 351,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": 45,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.calling-the-odious-drought",
@@ -416,8 +590,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 323,
     "pdfPage": 331,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Aq",
+      "level": 50,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.calm-the-motion-of-the-heart",
@@ -430,8 +610,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 356,
     "pdfPage": 364,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Me",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.captive-voice-the",
@@ -444,8 +630,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 352,
     "pdfPage": 360,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Im",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.cascade-of-rocks",
@@ -458,8 +650,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 362,
     "pdfPage": 370,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Te",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.chamber-of-invisibility",
@@ -472,8 +670,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 351,
     "pdfPage": 359,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Im",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.chamber-of-spring-breezes",
@@ -486,8 +690,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 325,
     "pdfPage": 333,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.chaos-of-the-angry-waves",
@@ -500,8 +710,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 324,
     "pdfPage": 332,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.charge-of-the-angry-winds",
@@ -514,8 +730,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 326,
     "pdfPage": 334,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.charm-against-putrefaction",
@@ -528,8 +750,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 332,
     "pdfPage": 340,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Co",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.cheating-the-reaper",
@@ -542,8 +770,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 332,
     "pdfPage": 340,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Co",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.chirurgeon-s-healing-touch-the",
@@ -556,8 +790,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 332,
     "pdfPage": 340,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Co",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.circle-of-beast-warding",
@@ -570,8 +810,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 319,
     "pdfPage": 327,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "An",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.circle-of-encompassing-flames",
@@ -584,8 +830,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 344,
     "pdfPage": 352,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.circling-winds-of-protection",
@@ -598,8 +850,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 326,
     "pdfPage": 334,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.circular-ward-against-demons",
@@ -612,8 +870,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 371,
     "pdfPage": 379,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.clear-sight-of-the-naiad",
@@ -626,8 +890,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 321,
     "pdfPage": 329,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Aq",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.clenching-grasp-of-the-crushed-heart",
@@ -640,8 +910,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 336,
     "pdfPage": 344,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.cloak-of-black-feathers",
@@ -654,8 +930,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 334,
     "pdfPage": 342,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.cloak-of-mist",
@@ -668,8 +950,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 335,
     "pdfPage": 343,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.cloak-of-the-duck-s-feathers",
@@ -682,8 +970,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 323,
     "pdfPage": 331,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.closing-the-earth-s-gate",
@@ -696,8 +990,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 323,
     "pdfPage": 331,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Aq",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.cloudless-sky-returned-the",
@@ -710,8 +1010,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 329,
     "pdfPage": 337,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Au",
+      "level": 45,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.clouds-of-rain-and-thunder",
@@ -724,8 +1030,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 326,
     "pdfPage": 334,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.clouds-of-summer-snow",
@@ -738,8 +1050,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 326,
     "pdfPage": 334,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.clouds-of-thunderous-might",
@@ -752,8 +1070,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 330,
     "pdfPage": 338,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Au",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.coat-of-flame",
@@ -766,8 +1090,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 344,
     "pdfPage": 352,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.coerce-the-spirits-of-the-night",
@@ -780,8 +1110,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 357,
     "pdfPage": 365,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.coils-of-the-entangling-plants",
@@ -794,8 +1130,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 342,
     "pdfPage": 350,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.comfort-of-the-drenched-traveler",
@@ -808,8 +1150,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 323,
     "pdfPage": 331,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Aq",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.commanding-the-harnessed-beast",
@@ -822,8 +1170,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 320,
     "pdfPage": 328,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "An",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.confusion-of-the-insane-vibrations",
@@ -836,8 +1190,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 352,
     "pdfPage": 360,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Im",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.confusion-of-the-numbed-will",
@@ -850,8 +1210,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 357,
     "pdfPage": 365,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.conjuration-of-the-indubitable-cold",
@@ -864,8 +1230,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 346,
     "pdfPage": 354,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Ig",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.conjure-the-sturdy-vine",
@@ -878,8 +1250,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 339,
     "pdfPage": 347,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "He",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.conjuring-the-mystic-tower",
@@ -892,8 +1270,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 359,
     "pdfPage": 367,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Te",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.converse-with-plant-and-tree",
@@ -906,8 +1290,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 340,
     "pdfPage": 348,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "He",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.creeping-chasm",
@@ -920,8 +1310,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 363,
     "pdfPage": 371,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.creeping-oil",
@@ -934,8 +1330,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 321,
     "pdfPage": 329,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Aq",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.crest-of-the-earth-wave",
@@ -948,8 +1350,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 363,
     "pdfPage": 371,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.cripple-the-howling-wolf",
@@ -962,8 +1370,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 319,
     "pdfPage": 327,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "An",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.crystal-dart-the",
@@ -976,8 +1390,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 360,
     "pdfPage": 368,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Te",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.curse-of-circe",
@@ -990,8 +1410,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 334,
     "pdfPage": 342,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.curse-of-the-desert",
@@ -1004,8 +1430,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 323,
     "pdfPage": 331,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Aq",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.curse-of-the-haunted-forest",
@@ -1018,8 +1450,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 341,
     "pdfPage": 349,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "He",
+      "level": 60,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.curse-of-the-leprous-flesh",
@@ -1032,8 +1470,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 336,
     "pdfPage": 344,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.curse-of-the-ravenous-swarm",
@@ -1046,8 +1490,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 316,
     "pdfPage": 324,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "An",
+      "level": 50,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.curse-of-the-rotted-wood",
@@ -1060,8 +1510,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 341,
     "pdfPage": 349,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "He",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.curse-of-the-unportended-plague",
@@ -1074,8 +1530,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 337,
     "pdfPage": 345,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 55,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.curse-of-the-unruly-tongue",
@@ -1088,8 +1550,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 337,
     "pdfPage": 345,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.dance-of-the-staves",
@@ -1102,8 +1570,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 342,
     "pdfPage": 350,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.decay-fur-and-hide",
@@ -1116,8 +1590,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 318,
     "pdfPage": 326,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "An",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.deluge-of-rushing-and-dashing",
@@ -1130,8 +1610,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 321,
     "pdfPage": 329,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Aq",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.demon-s-eternal-oblivion",
@@ -1144,8 +1630,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 370,
     "pdfPage": 378,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.despair-of-the-quivering-manacles",
@@ -1158,8 +1650,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 337,
     "pdfPage": 345,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.discern-own-illusions",
@@ -1172,8 +1670,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 349,
     "pdfPage": 357,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Im",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.discern-the-images-of-truth-and-falsehood",
@@ -1186,8 +1690,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 349,
     "pdfPage": 357,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Im",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.disenchant",
@@ -1200,8 +1710,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 370,
     "pdfPage": 378,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.disguise-of-the-new-visage",
@@ -1214,8 +1730,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 333,
     "pdfPage": 341,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.disguise-of-the-putrid-aroma",
@@ -1228,8 +1750,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 319,
     "pdfPage": 327,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "An",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.disguise-of-the-transformed-image",
@@ -1242,8 +1770,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 350,
     "pdfPage": 358,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Im",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.dispel-the-phantom-image",
@@ -1256,8 +1790,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 351,
     "pdfPage": 359,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Im",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.doublet-of-impenetrable-silk",
@@ -1270,8 +1810,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 318,
     "pdfPage": 326,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "An",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.dream-of-the-mind-that-sits",
@@ -1284,8 +1830,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 360,
     "pdfPage": 368,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Te",
+      "level": 50,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.dust-to-dust",
@@ -1298,8 +1850,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 335,
     "pdfPage": 343,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.ear-for-distant-voices-the",
@@ -1312,8 +1870,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 349,
     "pdfPage": 357,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Im",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.earth-s-carbuncle-the",
@@ -1326,8 +1890,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 363,
     "pdfPage": 371,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.earth-shock",
@@ -1340,8 +1910,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 363,
     "pdfPage": 371,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.earth-split-asunder-the",
@@ -1354,8 +1930,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 364,
     "pdfPage": 372,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.earth-that-breaks-no-more",
@@ -1368,8 +1950,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 361,
     "pdfPage": 369,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Te",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.edge-of-the-razor",
@@ -1382,8 +1970,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 361,
     "pdfPage": 369,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Te",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.enchantment-of-detachment",
@@ -1396,8 +1990,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 356,
     "pdfPage": 364,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Me",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.enchantment-of-the-scrying-pool",
@@ -1410,8 +2010,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 322,
     "pdfPage": 330,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Aq",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.end-of-the-mighty-castle",
@@ -1424,8 +2030,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 362,
     "pdfPage": 370,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Te",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.endurance-of-the-berserkers",
@@ -1438,8 +2050,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 338,
     "pdfPage": 346,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.enigma-s-gift-the",
@@ -1452,8 +2070,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 365,
     "pdfPage": 373,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Vim",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.enslave-the-mortal-mind",
@@ -1466,8 +2090,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 358,
     "pdfPage": 366,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.exchange-of-the-two-minds",
@@ -1480,8 +2110,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 358,
     "pdfPage": 366,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 55,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.eye-of-the-sage-the",
@@ -1494,8 +2130,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 333,
     "pdfPage": 341,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Co",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.eyes-of-the-bat",
@@ -1508,8 +2150,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 327,
     "pdfPage": 335,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Au",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.eyes-of-the-cat",
@@ -1522,8 +2170,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 333,
     "pdfPage": 341,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.eyes-of-the-eagle",
@@ -1536,8 +2190,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 349,
     "pdfPage": 357,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Im",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.eyes-of-the-eons",
@@ -1550,8 +2210,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 359,
     "pdfPage": 367,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Te",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.eyes-of-the-flame",
@@ -1564,8 +2230,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 345,
     "pdfPage": 353,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Ig",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.eyes-of-the-treacherous-terrain",
@@ -1578,8 +2250,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 359,
     "pdfPage": 367,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Te",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.falcon-s-hood-the",
@@ -1592,8 +2270,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 319,
     "pdfPage": 327,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "An",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.fist-of-shattering",
@@ -1606,8 +2290,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 361,
     "pdfPage": 369,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Te",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.flames-of-sculpted-ice",
@@ -1620,8 +2310,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 346,
     "pdfPage": 354,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Ig",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.flash-of-the-scarlet-flames",
@@ -1634,8 +2330,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 344,
     "pdfPage": 352,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.fog-of-confusion",
@@ -1648,8 +2350,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 328,
     "pdfPage": 336,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Au",
+      "level": 45,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.footsteps-of-slippery-oil",
@@ -1662,8 +2370,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 320,
     "pdfPage": 328,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Aq",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.forgiving-earth-the",
@@ -1676,8 +2390,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 363,
     "pdfPage": 371,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.freeing-the-striding-tree",
@@ -1690,8 +2410,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 343,
     "pdfPage": 351,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.frosty-breath-of-the-spoken-lie",
@@ -1704,8 +2430,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 354,
     "pdfPage": 362,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Me",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.gather-the-essence-of-the-beast",
@@ -1718,8 +2450,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 372,
     "pdfPage": 380,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Vim",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.gathering-of-the-stormy-might",
@@ -1732,8 +2470,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 330,
     "pdfPage": 338,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Au",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.gentle-beast-the",
@@ -1746,8 +2490,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 320,
     "pdfPage": 328,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "An",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.gentle-touch-of-the-purified-body",
@@ -1760,8 +2510,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 332,
     "pdfPage": 340,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Co",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.gift-of-reason",
@@ -1774,8 +2530,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 354,
     "pdfPage": 362,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Me",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.gift-of-the-bear-s-fortitude",
@@ -1788,8 +2550,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 334,
     "pdfPage": 342,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.gift-of-the-frog-s-legs",
@@ -1802,8 +2570,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 338,
     "pdfPage": 346,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.gift-of-vigor-the",
@@ -1816,8 +2590,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 338,
     "pdfPage": 346,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.gloom-of-evening",
@@ -1830,8 +2610,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 346,
     "pdfPage": 354,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Ig",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.great-rot-the",
@@ -1844,8 +2630,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 341,
     "pdfPage": 349,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "He",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.grip-of-the-choking-hand",
@@ -1858,8 +2650,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 336,
     "pdfPage": 344,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.growth-of-the-creeping-things",
@@ -1872,8 +2670,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 318,
     "pdfPage": 326,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "An",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.hands-of-the-grasping-earth",
@@ -1886,8 +2690,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 363,
     "pdfPage": 371,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.haunt-of-the-living-ghost",
@@ -1900,8 +2710,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 348,
     "pdfPage": 356,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Im",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.heat-of-the-searing-forge",
@@ -1914,8 +2730,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 343,
     "pdfPage": 351,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.hermes-portal",
@@ -1928,8 +2750,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 364,
     "pdfPage": 372,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 75,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.hornet-fire",
@@ -1942,8 +2770,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 345,
     "pdfPage": 353,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Ig",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.hunt-for-the-wild-herb",
@@ -1956,8 +2790,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 340,
     "pdfPage": 348,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "He",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.hunter-s-sense",
@@ -1970,8 +2810,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 317,
     "pdfPage": 325,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "An",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.ice-of-drowning",
@@ -1984,8 +2830,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 324,
     "pdfPage": 332,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.illusion-of-cool-flames",
@@ -1998,8 +2850,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 351,
     "pdfPage": 359,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Im",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.illusion-of-the-misplaced-castle",
@@ -2012,8 +2870,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 352,
     "pdfPage": 360,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Im",
+      "level": 50,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.illusion-of-the-shifted-image",
@@ -2026,8 +2890,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 352,
     "pdfPage": 360,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Im",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.image-from-the-wizard-torn",
@@ -2040,8 +2910,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 352,
     "pdfPage": 360,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Im",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.image-of-the-beast",
@@ -2054,8 +2930,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 316,
     "pdfPage": 324,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "An",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.image-phantom",
@@ -2068,8 +2950,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 350,
     "pdfPage": 358,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Im",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.incantation-of-lightning-the",
@@ -2082,8 +2970,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 327,
     "pdfPage": 335,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.incantation-of-putrid-wine",
@@ -2096,8 +2990,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 322,
     "pdfPage": 330,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Aq",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.incantation-of-summoning-the-dead",
@@ -2110,8 +3010,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 358,
     "pdfPage": 366,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.incantation-of-the-body-made-whole",
@@ -2124,8 +3030,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 332,
     "pdfPage": 340,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Co",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.incantation-of-the-milky-eyes",
@@ -2138,8 +3050,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 336,
     "pdfPage": 344,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.inexorable-search-the",
@@ -2152,8 +3070,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 333,
     "pdfPage": 341,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Co",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.infernal-smoke-of-death",
@@ -2166,8 +3090,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 328,
     "pdfPage": 336,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Au",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.inmost-companion",
@@ -2180,8 +3110,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 355,
     "pdfPage": 363,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Me",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.intuition-of-the-forest",
@@ -2194,8 +3130,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 340,
     "pdfPage": 348,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "He",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.invisibility-of-the-standing-wizard",
@@ -2208,8 +3150,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 351,
     "pdfPage": 359,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Im",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.invisible-eye-revealed-the",
@@ -2222,8 +3170,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 366,
     "pdfPage": 374,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.invisible-sling-of-vilano",
@@ -2236,8 +3190,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 363,
     "pdfPage": 371,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.invocation-of-weariness",
@@ -2250,8 +3210,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 336,
     "pdfPage": 344,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.jupiter-s-resounding-blow",
@@ -2264,8 +3230,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 326,
     "pdfPage": 334,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.kiss-of-death-the",
@@ -2278,8 +3250,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 336,
     "pdfPage": 344,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 45,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.lamp-without-flame",
@@ -2292,8 +3270,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 344,
     "pdfPage": 352,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.lay-to-rest-the-haunting-spirit",
@@ -2306,8 +3290,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 355,
     "pdfPage": 363,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Me",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.leap-of-homecoming-the",
@@ -2320,8 +3310,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 338,
     "pdfPage": 346,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.leap-of-the-fire",
@@ -2334,8 +3330,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 347,
     "pdfPage": 355,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Ig",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.lifting-the-dangling-puppet",
@@ -2348,8 +3350,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 338,
     "pdfPage": 346,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.light-shaft-of-the-night",
@@ -2362,8 +3370,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 347,
     "pdfPage": 355,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Ig",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.lord-of-the-trees",
@@ -2376,8 +3390,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 343,
     "pdfPage": 351,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.loss-of-but-a-moment-s-memory",
@@ -2390,8 +3410,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 356,
     "pdfPage": 364,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Me",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.lungs-of-the-fish",
@@ -2404,8 +3430,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 323,
     "pdfPage": 331,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Aq",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.maintaining-the-demanding-spell",
@@ -2418,8 +3450,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 372,
     "pdfPage": 380,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.many-hued-conflagration-the",
@@ -2432,8 +3470,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 345,
     "pdfPage": 353,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Ig",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.masking-the-odor-of-magic",
@@ -2446,8 +3490,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 369,
     "pdfPage": 377,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.mastering-the-unruly-beast",
@@ -2460,8 +3510,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 320,
     "pdfPage": 328,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "An",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.memory-of-the-distant-dream",
@@ -2474,8 +3530,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 353,
     "pdfPage": 361,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Me",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.mighty-torrent-of-water",
@@ -2488,8 +3550,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 321,
     "pdfPage": 329,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Aq",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.mind-of-the-beast",
@@ -2502,8 +3570,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 355,
     "pdfPage": 363,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Me",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.miner-s-keen-eye-the",
@@ -2516,8 +3590,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 359,
     "pdfPage": 367,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Te",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.mists-of-change",
@@ -2530,8 +3610,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 335,
     "pdfPage": 343,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 60,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.moonbeam",
@@ -2544,8 +3630,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 343,
     "pdfPage": 351,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 3,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.neptune-s-wrath",
@@ -2558,8 +3650,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 325,
     "pdfPage": 333,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.notes-of-a-delightful-sound",
@@ -2572,8 +3670,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 350,
     "pdfPage": 358,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Im",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.object-of-increased-size",
@@ -2586,8 +3690,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 361,
     "pdfPage": 369,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Te",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.obliteration-of-the-metallic-barrier",
@@ -2600,8 +3710,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 361,
     "pdfPage": 369,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Te",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.opening-the-intangible-tunnel",
@@ -2614,8 +3730,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 372,
     "pdfPage": 380,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.opening-the-tome-of-the-animal-s-mind",
@@ -2628,8 +3750,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 317,
     "pdfPage": 325,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "An",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.pains-of-the-perpetual-worry",
@@ -2642,8 +3770,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 353,
     "pdfPage": 361,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Me",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.palm-of-flame",
@@ -2656,8 +3790,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 343,
     "pdfPage": 351,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.panic-of-the-elephant-s-mouse",
@@ -2670,8 +3810,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 319,
     "pdfPage": 327,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "An",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.panic-of-the-trembling-heart",
@@ -2684,8 +3830,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 353,
     "pdfPage": 361,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Me",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.parching-wind",
@@ -2698,8 +3850,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 323,
     "pdfPage": 331,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Aq",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.parting-the-waves",
@@ -2712,8 +3870,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 324,
     "pdfPage": 332,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.pass-the-unyielding-portal",
@@ -2726,8 +3890,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 340,
     "pdfPage": 348,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "He",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.passion-s-lost-feeling",
@@ -2740,8 +3910,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 356,
     "pdfPage": 364,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Me",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.past-of-another",
@@ -2754,8 +3930,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 355,
     "pdfPage": 363,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Me",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.peering-into-the-mortal-mind",
@@ -2768,8 +3950,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 354,
     "pdfPage": 362,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Me",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.perception-of-the-conflicting-motives",
@@ -2782,8 +3970,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 354,
     "pdfPage": 362,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Me",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.phantasm-of-the-human-form",
@@ -2796,8 +3990,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 348,
     "pdfPage": 356,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Im",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.phantasm-of-the-talking-head",
@@ -2810,8 +4010,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 348,
     "pdfPage": 356,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Im",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.phantasmal-animal",
@@ -2824,8 +4030,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 348,
     "pdfPage": 356,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Im",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.phantasmal-fire",
@@ -2838,8 +4050,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 348,
     "pdfPage": 356,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Im",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.phantom-gift-the",
@@ -2852,8 +4070,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 365,
     "pdfPage": 373,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Vim",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.physician-s-eye",
@@ -2866,8 +4090,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 333,
     "pdfPage": 341,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Co",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.piercing-shaft-of-wood",
@@ -2880,8 +4110,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 341,
     "pdfPage": 349,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "He",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.piercing-the-faerie-veil",
@@ -2894,8 +4130,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 367,
     "pdfPage": 375,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Vim",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.pilum-of-fire",
@@ -2908,8 +4150,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 344,
     "pdfPage": 352,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.pit-of-the-gaping-earth",
@@ -2922,8 +4170,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 361,
     "pdfPage": 369,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Te",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.plant-s-withering-bane",
@@ -2936,8 +4190,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 341,
     "pdfPage": 349,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "He",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.poisoning-the-will",
@@ -2950,8 +4210,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 356,
     "pdfPage": 364,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Me",
+      "level": 65,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.posing-the-silent-question",
@@ -2964,8 +4230,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 354,
     "pdfPage": 362,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Me",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.preternatural-growth-and-shrinking",
@@ -2978,8 +4250,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 333,
     "pdfPage": 341,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.prison-of-flames",
@@ -2992,8 +4270,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 345,
     "pdfPage": 353,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Ig",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.probe-for-pure-silver",
@@ -3006,8 +4290,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 359,
     "pdfPage": 367,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Te",
+      "level": 4,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.probe-nature-s-hidden-lore",
@@ -3020,8 +4310,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 340,
     "pdfPage": 348,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "He",
+      "level": 4,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.prying-eyes",
@@ -3034,8 +4330,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 349,
     "pdfPage": 357,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Im",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.pull-of-the-skybound-winds",
@@ -3048,8 +4350,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 326,
     "pdfPage": 334,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.pull-of-the-watery-grave",
@@ -3062,8 +4370,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 325,
     "pdfPage": 333,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.purification-of-the-festering-wounds",
@@ -3076,8 +4390,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 332,
     "pdfPage": 340,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Co",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.push-of-the-gentle-wave",
@@ -3090,8 +4410,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 324,
     "pdfPage": 332,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.quiet-the-raging-winds",
@@ -3104,8 +4430,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 329,
     "pdfPage": 337,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Au",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.rain-of-oil",
@@ -3118,8 +4450,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 329,
     "pdfPage": 337,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Au",
+      "level": 50,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.rain-of-stones",
@@ -3132,8 +4470,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 328,
     "pdfPage": 336,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Au",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.recollection-of-memories-never-quite-lived",
@@ -3146,8 +4490,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 355,
     "pdfPage": 363,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Me",
+      "level": 4,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.removal-of-the-conspicuous-sigil",
@@ -3160,8 +4510,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 351,
     "pdfPage": 359,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Im",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.repel-the-wooden-shafts",
@@ -3174,8 +4530,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 342,
     "pdfPage": 350,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.restoration-of-the-defiled-body",
@@ -3188,8 +4550,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 332,
     "pdfPage": 340,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Co",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.restore-the-faded-threads",
@@ -3202,8 +4570,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 365,
     "pdfPage": 373,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.restore-the-moved-image",
@@ -3216,8 +4590,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 352,
     "pdfPage": 360,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Im",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.revealed-flaws-of-mortal-flesh",
@@ -3230,8 +4610,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 333,
     "pdfPage": 341,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Co",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.ring-of-warding-against-spirits",
@@ -3244,8 +4630,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 357,
     "pdfPage": 365,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.rise-of-the-feathery-body",
@@ -3258,8 +4650,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 337,
     "pdfPage": 345,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.rising-ire",
@@ -3272,8 +4670,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 353,
     "pdfPage": 361,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Me",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.rock-of-viscid-clay",
@@ -3286,8 +4690,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 361,
     "pdfPage": 369,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Te",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.room-of-stale-air",
@@ -3300,8 +4710,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 329,
     "pdfPage": 337,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Au",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.rope-of-bronze",
@@ -3314,8 +4730,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 341,
     "pdfPage": 349,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "He",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.rusted-decay-of-ten-score-years",
@@ -3328,8 +4750,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 361,
     "pdfPage": 369,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Te",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.sailor-s-foretaste-of-the-morrow",
@@ -3342,8 +4770,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 327,
     "pdfPage": 335,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Au",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.scales-of-the-magical-weight",
@@ -3356,8 +4790,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 366,
     "pdfPage": 374,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Vim",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.scent-of-peaceful-slumber",
@@ -3370,8 +4810,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 357,
     "pdfPage": 365,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.seal-the-earth",
@@ -3384,8 +4830,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 359,
     "pdfPage": 367,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Te",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.sense-of-magical-power",
@@ -3398,8 +4850,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 366,
     "pdfPage": 374,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Vim",
+      "level": 2,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.sense-of-the-lingering-magic",
@@ -3412,8 +4870,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 367,
     "pdfPage": 375,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Vim",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.sense-the-feet-that-tread-the-earth",
@@ -3426,8 +4890,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 360,
     "pdfPage": 368,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Te",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.sense-the-nature-of-vis",
@@ -3440,8 +4910,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 367,
     "pdfPage": 375,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Vim",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.seven-league-stride",
@@ -3454,8 +4930,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 338,
     "pdfPage": 346,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.severed-limb-made-whole-the",
@@ -3468,8 +4950,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 332,
     "pdfPage": 340,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Co",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.shadow-of-human-life-the",
@@ -3482,8 +4970,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 349,
     "pdfPage": 357,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Im",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.shadow-of-life-renewed-the",
@@ -3496,8 +4990,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 332,
     "pdfPage": 340,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Co",
+      "level": 75,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.shadows-of-the-fires-past",
@@ -3510,8 +5010,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 345,
     "pdfPage": 353,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Ig",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.shape-of-the-woodland-prowler",
@@ -3524,8 +5030,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 334,
     "pdfPage": 342,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.shell-of-false-determinations",
@@ -3538,8 +5050,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 365,
     "pdfPage": 373,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.shell-of-opaque-mysteries",
@@ -3552,8 +5070,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 365,
     "pdfPage": 373,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.shiver-of-the-lycanthrope",
@@ -3566,8 +5090,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 317,
     "pdfPage": 325,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "An",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.show-of-the-flames-and-smoke",
@@ -3580,8 +5110,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 345,
     "pdfPage": 353,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Ig",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.shriek-of-the-impending-shafts",
@@ -3594,8 +5130,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 340,
     "pdfPage": 348,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "He",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.shroud-magic",
@@ -3608,8 +5150,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 368,
     "pdfPage": 376,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.shrouded-glen-the",
@@ -3622,8 +5170,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 358,
     "pdfPage": 366,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.sight-of-the-active-magics",
@@ -3636,8 +5190,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 367,
     "pdfPage": 375,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Vim",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.sight-of-the-transparent-motive",
@@ -3650,8 +5210,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 354,
     "pdfPage": 362,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Me",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.sight-of-the-true-form",
@@ -3664,8 +5230,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 333,
     "pdfPage": 341,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Co",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.silence-of-the-smothered-sound",
@@ -3678,8 +5250,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 351,
     "pdfPage": 359,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Im",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.silent-vigil-the",
@@ -3692,8 +5270,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 335,
     "pdfPage": 343,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 45,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.snap-of-awakening",
@@ -3706,8 +5290,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 357,
     "pdfPage": 365,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.soothe-pains-of-the-beast",
@@ -3720,8 +5310,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 316,
     "pdfPage": 324,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "An",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.soothe-the-ferocious-bear",
@@ -3734,8 +5330,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 319,
     "pdfPage": 327,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "An",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.soothe-the-raging-flames",
@@ -3748,8 +5350,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 346,
     "pdfPage": 354,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Ig",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.sorcerer-s-fork-the",
@@ -3762,8 +5370,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 368,
     "pdfPage": 376,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.spasms-of-the-uncontrolled-hand",
@@ -3776,8 +5390,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 337,
     "pdfPage": 345,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.stance-of-the-patient-tree",
@@ -3790,8 +5410,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 335,
     "pdfPage": 343,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.steed-of-vengeance",
@@ -3804,8 +5430,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 318,
     "pdfPage": 326,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "An",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.stench-of-the-twenty-corpses",
@@ -3818,8 +5450,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 326,
     "pdfPage": 334,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.stir-the-slumbering-tree",
@@ -3832,8 +5470,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 341,
     "pdfPage": 349,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "He",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.stone-tell-of-the-mind-that-sits",
@@ -3846,8 +5490,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 360,
     "pdfPage": 368,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Te",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.stone-to-falling-dust",
@@ -3860,8 +5510,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 362,
     "pdfPage": 370,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Te",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.strike-of-the-angered-branch",
@@ -3874,8 +5530,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 342,
     "pdfPage": 350,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.strings-of-the-unwilling-marionette",
@@ -3888,8 +5550,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 338,
     "pdfPage": 346,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.subtle-taste-of-poison-and-purity",
@@ -3902,8 +5570,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 321,
     "pdfPage": 329,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Aq",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.summoning-the-distant-image",
@@ -3916,8 +5590,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 350,
     "pdfPage": 358,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Im",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.supple-iron-and-rigid-rope",
@@ -3930,8 +5610,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 361,
     "pdfPage": 369,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Te",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.suppressing-the-wizard-s-handiwork",
@@ -3944,8 +5630,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 372,
     "pdfPage": 380,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.tales-of-the-ashes",
@@ -3958,8 +5650,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 345,
     "pdfPage": 353,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Ig",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.talons-of-the-winds",
@@ -3972,8 +5670,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 328,
     "pdfPage": 336,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Au",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.tangle-of-wood-and-thorns",
@@ -3986,8 +5690,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 342,
     "pdfPage": 350,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.taste-of-the-dulled-tongue",
@@ -4000,8 +5710,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 351,
     "pdfPage": 359,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Im",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.taste-of-the-spices-and-herbs",
@@ -4014,8 +5730,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 350,
     "pdfPage": 358,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Im",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.teeth-of-the-earth-mother",
@@ -4028,8 +5750,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 361,
     "pdfPage": 369,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Te",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.thaumaturgical-transformation-of-plants-to-iron",
@@ -4042,8 +5770,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 341,
     "pdfPage": 349,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "He",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.thoughts-within-babble",
@@ -4056,8 +5790,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 354,
     "pdfPage": 362,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Me",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.tip-of-the-tongue",
@@ -4070,8 +5810,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 355,
     "pdfPage": 363,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Me",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.touch-of-midas",
@@ -4084,8 +5830,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 359,
     "pdfPage": 367,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Te",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.touch-of-the-goose-feather",
@@ -4098,8 +5850,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 335,
     "pdfPage": 343,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.touch-of-the-pearls",
@@ -4112,8 +5870,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 322,
     "pdfPage": 330,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Aq",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.tower-of-whirling-water",
@@ -4126,8 +5890,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 325,
     "pdfPage": 333,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.trackless-step",
@@ -4140,8 +5910,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 363,
     "pdfPage": 371,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.tracks-of-the-faerie-glow",
@@ -4154,8 +5930,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 359,
     "pdfPage": 367,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Te",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.transform-to-water",
@@ -4168,8 +5950,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 335,
     "pdfPage": 343,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.transformation-of-the-ravenous-beast-to-the-torpid-toad",
@@ -4182,8 +5970,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 318,
     "pdfPage": 326,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "An",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.transformation-of-the-thorny-staff",
@@ -4196,8 +5990,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 341,
     "pdfPage": 349,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "He",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.trap-of-the-entwining-vines",
@@ -4210,8 +6010,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 339,
     "pdfPage": 347,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "He",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.trapping-the-fire",
@@ -4224,8 +6030,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 346,
     "pdfPage": 354,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Ig",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.treacherous-spear-the",
@@ -4238,8 +6050,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 343,
     "pdfPage": 351,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.treading-the-ashen-path",
@@ -4252,8 +6070,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 342,
     "pdfPage": 350,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "He",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.tremulous-vault-of-the-torch-s-flame",
@@ -4266,8 +6090,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 347,
     "pdfPage": 355,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Ig",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.true-rest-of-the-injured-brute",
@@ -4280,8 +6110,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 316,
     "pdfPage": 324,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "An",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.true-sight-of-the-air",
@@ -4294,8 +6130,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 327,
     "pdfPage": 335,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Au",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.trust-of-childlike-faith",
@@ -4308,8 +6150,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 356,
     "pdfPage": 364,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Me",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.twist-of-the-tongue",
@@ -4322,8 +6170,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 336,
     "pdfPage": 344,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.twist-the-living-tree",
@@ -4336,8 +6190,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 343,
     "pdfPage": 351,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.unseen-arm",
@@ -4350,8 +6210,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 362,
     "pdfPage": 370,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.unseen-porter-the",
@@ -4364,8 +6230,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 363,
     "pdfPage": 371,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.unyielding-earth",
@@ -4378,8 +6250,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 363,
     "pdfPage": 371,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.veil-of-invisibility",
@@ -4392,8 +6270,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 351,
     "pdfPage": 359,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Im",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.vile-water-of-sterility",
@@ -4406,8 +6290,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 323,
     "pdfPage": 331,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Aq",
+      "level": 45,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.viper-s-gaze",
@@ -4420,8 +6310,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 320,
     "pdfPage": 328,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "An",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.vision-of-heat-s-light",
@@ -4434,8 +6330,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 345,
     "pdfPage": 353,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Ig",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.vision-of-the-haunting-spirits",
@@ -4448,8 +6350,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 355,
     "pdfPage": 363,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Me",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.visions-of-the-infernal-terrors",
@@ -4462,8 +6370,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 357,
     "pdfPage": 365,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.voice-of-the-lake",
@@ -4476,8 +6390,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 322,
     "pdfPage": 330,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Aq",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.walking-corpse-the",
@@ -4490,8 +6410,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 339,
     "pdfPage": 347,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.wall-of-living-wood",
@@ -4504,8 +6430,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 339,
     "pdfPage": 347,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "He",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.wall-of-protecting-stone",
@@ -4518,8 +6450,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 359,
     "pdfPage": 367,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Te",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.wall-of-thorns",
@@ -4532,8 +6470,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 339,
     "pdfPage": 347,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "He",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.ward-against-faeries-of-the-air",
@@ -4546,8 +6490,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 329,
     "pdfPage": 337,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Au",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.ward-against-faeries-of-the-mountain",
@@ -4560,8 +6510,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 362,
     "pdfPage": 370,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.ward-against-faeries-of-the-waters",
@@ -4574,8 +6530,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 323,
     "pdfPage": 331,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.ward-against-faeries-of-the-wood",
@@ -4588,8 +6550,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 342,
     "pdfPage": 350,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.ward-against-heat-and-flames",
@@ -4602,8 +6570,14 @@
     "sourceId": "ars.definitive",
     "printedPage": 347,
     "pdfPage": 355,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Ig",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   },
   {
     "id": "ars.spell.ward-against-rain",
@@ -4616,7 +6590,13 @@
     "sourceId": "ars.definitive",
     "printedPage": 330,
     "pdfPage": 338,
-    "verification": "reference-only",
-    "summary": "Core formulaic or ritual spell; review its cited page before selection."
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Au",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
   }
 ]

@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "sourceId": "ars.definitive",
+  "reviewed": true,
+  "evidence": {
+    "houses": 12,
+    "abilities": 79,
+    "arts": 15,
+    "spells": 330,
+    "virtuesFlaws": 632,
+    "rulesFixture": "tests/unit/ars-magica-rules.test.ts",
+    "creatorFixture": "tests/unit/ars-magica-validation.test.ts",
+    "migrationFixture": "tests/unit/ars-magica-records.test.ts",
+    "browserFixture": "tests/e2e/ars-magica.spec.ts"
+  }
+}

@@ -1,4 +1,5 @@
 import spellRows from './generated-spells.json';
+import virtueFlawRows from './generated-virtues-flaws.json';
 
 export type CatalogStatus =
   'verified' | 'reference-only' | 'unresolved' | 'excluded';
@@ -11,6 +12,7 @@ export interface CatalogEntry {
   printedPage: number | null;
   pdfPage: number | null;
   verification: CatalogStatus;
+  mechanics?: Readonly<Record<string, unknown>>;
 }
 const entry = (
   id: string,
@@ -96,64 +98,161 @@ export const forms = [
 );
 export const artCatalog = [...techniques, ...forms];
 
-const abilities: [string, string, number][] = [
-  ['area-lore', 'Area Lore', 159],
-  ['artes-liberales', 'Artes Liberales', 160],
-  ['athletics', 'Athletics', 161],
-  ['awareness', 'Awareness', 161],
-  ['bargain', 'Bargain', 161],
-  ['brawl', 'Brawl', 161],
-  ['carouse', 'Carouse', 161],
-  ['charm', 'Charm', 161],
-  ['chirurgy', 'Chirurgy', 162],
-  ['civil-canon-law', 'Civil and Canon Law', 162],
-  ['concentration', 'Concentration', 162],
-  ['craft', 'Craft', 163],
-  ['dead-language', 'Dead Language', 164],
-  ['dominion-lore', 'Dominion Lore', 164],
-  ['etiquette', 'Etiquette', 165],
-  ['faerie-lore', 'Faerie Lore', 165],
-  ['finesse', 'Finesse', 165],
-  ['folk-ken', 'Folk Ken', 165],
-  ['guile', 'Guile', 166],
-  ['hunt', 'Hunt', 166],
-  ['infernal-lore', 'Infernal Lore', 167],
-  ['intrigue', 'Intrigue', 167],
-  ['leadership', 'Leadership', 167],
-  ['living-language', 'Living Language', 167],
-  ['magic-lore', 'Magic Lore', 168],
-  ['magic-theory', 'Magic Theory', 168],
-  ['latin', 'Latin', 164],
-  ['medicine', 'Medicine', 168],
-  ['music', 'Music', 168],
-  ['organization-lore', 'Organization Lore', 169],
-  ['parma-magica', 'Parma Magica', 169],
-  ['penetration', 'Penetration', 169],
-  ['philosophiae', 'Philosophiae', 169],
-  ['profession', 'Profession', 170],
-  ['single-weapon', 'Single Weapon', 171],
-  ['stealth', 'Stealth', 171],
-  ['survival', 'Survival', 171],
-  ['swim', 'Swim', 171],
-  ['teaching', 'Teaching', 171],
-  ['theology', 'Theology', 172],
-  ['thrown-weapon', 'Thrown Weapon', 172],
+const artCodes: Readonly<Record<string, string>> = {
+  Cr: 'creo',
+  In: 'intellego',
+  Mu: 'muto',
+  Pe: 'perdo',
+  Re: 'rego',
+  An: 'animal',
+  Aq: 'aquam',
+  Au: 'auram',
+  Co: 'corpus',
+  He: 'herbam',
+  Ig: 'ignem',
+  Im: 'imaginem',
+  Me: 'mentem',
+  Te: 'terram',
+  Vi: 'vim',
+};
+
+export function artIdForCode(code: string) {
+  const name = artCodes[code];
+  if (!name) throw new Error(`Unknown Hermetic Art code: ${code}`);
+  return `ars.art.${name}`;
+}
+
+export type AbilityCategory =
+  'general' | 'academic' | 'arcane' | 'martial' | 'supernatural';
+
+const abilities: [string, string, AbilityCategory, number][] = [
+  ['animal-handling', 'Animal Handling', 'general', 159],
+  ['area-lore', 'Area Lore', 'general', 159],
+  ['athletics', 'Athletics', 'general', 161],
+  ['awareness', 'Awareness', 'general', 161],
+  ['bargain', 'Bargain', 'general', 161],
+  ['brawl', 'Brawl', 'general', 161],
+  ['carouse', 'Carouse', 'general', 161],
+  ['charm', 'Charm', 'general', 161],
+  ['chirurgy', 'Chirurgy', 'general', 162],
+  ['concentration', 'Concentration', 'general', 162],
+  ['craft', 'Craft', 'general', 163],
+  ['etiquette', 'Etiquette', 'general', 165],
+  ['folk-ken', 'Folk Ken', 'general', 165],
+  ['guile', 'Guile', 'general', 166],
+  ['hunt', 'Hunt', 'general', 166],
+  ['intrigue', 'Intrigue', 'general', 167],
+  ['judaic-lore', 'Judaic Lore', 'general', 167],
+  ['leadership', 'Leadership', 'general', 167],
+  ['legerdemain', 'Legerdemain', 'general', 167],
+  ['living-language', 'Living Language', 'general', 167],
+  ['music', 'Music', 'general', 168],
+  ['mystery-cult-lore', 'Mystery Cult Lore', 'general', 168],
+  ['organization-lore', 'Organization Lore', 'general', 169],
+  ['profession', 'Profession', 'general', 170],
+  ['ride', 'Ride', 'general', 170],
+  ['stealth', 'Stealth', 'general', 171],
+  ['survival', 'Survival', 'general', 171],
+  ['swim', 'Swim', 'general', 171],
+  ['teaching', 'Teaching', 'general', 171],
+  ['art-of-memory', 'Art of Memory', 'academic', 159],
+  ['artes-liberales', 'Artes Liberales', 'academic', 160],
+  ['civil-canon-law', 'Civil and Canon Law', 'academic', 162],
+  ['common-law', 'Common Law', 'academic', 163],
+  ['dead-language', 'Dead Language', 'academic', 164],
+  // Retained as a stable convenience definition for existing records. Rules
+  // treat this as Dead Language with the Latin specialization.
+  ['latin', 'Latin', 'academic', 164],
+  ['islamic-law', 'Islamic Law', 'academic', 167],
+  ['medicine', 'Medicine', 'academic', 168],
+  ['philosophiae', 'Philosophiae', 'academic', 169],
+  ['rabbinic-law', 'Rabbinic Law', 'academic', 170],
+  ['theology-christian', 'Theology: Christianity', 'academic', 172],
+  ['theology-islam', 'Theology: Islam', 'academic', 172],
+  ['theology-judaism', 'Theology: Judaism', 'academic', 172],
+  ['code-of-hermes', 'Code of Hermes', 'arcane', 162],
+  ['dominion-lore', 'Dominion Lore', 'arcane', 164],
+  ['enigmatic-wisdom', 'Enigmatic Wisdom', 'arcane', 165],
+  ['faerie-lore', 'Faerie Lore', 'arcane', 165],
+  ['faerie-magic', 'Faerie Magic', 'arcane', 165],
+  ['finesse', 'Finesse', 'arcane', 165],
+  ['heartbeast', 'Heartbeast', 'arcane', 166],
+  ['infernal-lore', 'Infernal Lore', 'arcane', 167],
+  ['magic-lore', 'Magic Lore', 'arcane', 168],
+  ['magic-theory', 'Magic Theory', 'arcane', 168],
+  ['parma-magica', 'Parma Magica', 'arcane', 169],
+  ['penetration', 'Penetration', 'arcane', 169],
+  ['bows', 'Bows', 'martial', 161],
+  ['great-weapon', 'Great Weapon', 'martial', 166],
+  ['single-weapon', 'Single Weapon', 'martial', 171],
+  ['thrown-weapon', 'Thrown Weapon', 'martial', 172],
+  ['animal-ken', 'Animal Ken', 'supernatural', 159],
+  ['corpse-magic', 'Corpse Magic', 'supernatural', 163],
+  ['crafters-healing', "Crafter's Healing", 'supernatural', 163],
+  ['curse-throwing', 'Curse-Throwing', 'supernatural', 164],
+  ['dowsing', 'Dowsing', 'supernatural', 164],
+  ['embitterment', 'Embitterment', 'supernatural', 164],
+  ['enchanting-ability', 'Enchanting Ability', 'supernatural', 165],
+  ['entrancement', 'Entrancement', 'supernatural', 165],
+  ['font-of-knowledge', 'Font of Knowledge', 'supernatural', 165],
+  ['hex', 'Hex', 'supernatural', 166],
+  ['induction', 'Induction', 'supernatural', 167],
+  ['magic-sensitivity', 'Magic Sensitivity', 'supernatural', 168],
+  ['persona', 'Persona', 'supernatural', 169],
+  ['premonitions', 'Premonitions', 'supernatural', 170],
+  ['second-sight', 'Second Sight', 'supernatural', 170],
+  [
+    'sense-holiness-unholiness',
+    'Sense Holiness and Unholiness',
+    'supernatural',
+    170,
+  ],
+  ['sense-passions', 'Sense Passions', 'supernatural', 170],
+  ['shapeshifter', 'Shapeshifter', 'supernatural', 171],
+  ['summon-animals', 'Summon Animals', 'supernatural', 171],
+  ['whistle-up-the-wind', 'Whistle Up The Wind', 'supernatural', 172],
+  ['wilderness-sense', 'Wilderness Sense', 'supernatural', 172],
 ];
-export const abilityCatalog = abilities.map(([id, name, page]) =>
-  entry(
+export const abilityCatalog = abilities.map(([id, name, category, page]) => ({
+  ...entry(
     `ars.ability.${id}`,
     name,
     page,
-    'Core Ability; choose a specialty and record earned experience separately from effective bonuses.',
+    `${category[0].toUpperCase()}${category.slice(1)} Ability; choose a specialty and record earned experience separately from effective bonuses.`,
   ),
-);
+  category,
+  mechanics: { category },
+}));
 
 export const spellCatalog = spellRows as readonly (CatalogEntry & {
   technique: string;
   form: string;
   level: number | null;
   general: boolean;
+  mechanics: {
+    technique: string;
+    form: string;
+    level: number | null;
+    general: boolean;
+  };
 })[];
+
+export interface VirtueFlawCatalogEntry extends CatalogEntry {
+  kind: 'virtue' | 'flaw';
+  magnitude: 'free' | 'minor' | 'major' | 'variable';
+  category:
+    | 'general'
+    | 'hermetic'
+    | 'mythic-companion'
+    | 'personality'
+    | 'social-status'
+    | 'story'
+    | 'supernatural';
+  points: number;
+}
+
+export const virtueFlawCatalog =
+  virtueFlawRows as readonly VirtueFlawCatalogEntry[];
 export const masteryOptions = [
   'Acute Sense',
   'Adaptive Casting',
@@ -210,4 +309,5 @@ export const catalog = [
   ...masteryOptions,
   ...seasonalSources,
   ...spellCatalog,
+  ...virtueFlawCatalog,
 ];

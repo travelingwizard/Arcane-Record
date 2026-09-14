@@ -153,8 +153,30 @@ export const seasonEventSchema = z.object({
   ),
   citation: citationSchema,
 });
+const creationExperienceAllocationSchema = z.object({
+  id: z.string().uuid(),
+  phase: z.enum([
+    'native-language',
+    'childhood',
+    'later-life',
+    'apprenticeship',
+    'post-apprenticeship',
+  ]),
+  traitId: id,
+  experience: natural,
+  year: z.number().int().nullable().default(null),
+});
+
+const creationSpellAllocationSchema = z.object({
+  id: z.string().uuid(),
+  spellId: z.string().uuid(),
+  phase: z.enum(['apprenticeship', 'post-apprenticeship']),
+  levels: natural,
+  year: z.number().int().nullable().default(null),
+});
+
 export const arsCharacterSchema = z.object({
-  schemaVersion: z.literal(1),
+  schemaVersion: z.literal(2),
   name: z.string(),
   mode: z.enum(['build', 'play']),
   definition: characterDefinitionSchema,
@@ -166,6 +188,12 @@ export const arsCharacterSchema = z.object({
     draft: characterDefinitionSchema.nullable(),
     finalizedAt: z.string().datetime().nullable().default(null),
     templateId: z.string().nullable().default(null),
+    method: z.enum(['guided', 'template', 'manual']).default('guided'),
+    wealth: z.enum(['normal', 'wealthy', 'poor']).default('normal'),
+    experienceAllocations: z
+      .array(creationExperienceAllocationSchema)
+      .default([]),
+    spellAllocations: z.array(creationSpellAllocationSchema).default([]),
     allocations: z
       .object({
         nativeLanguageSpent: natural,
@@ -484,7 +512,23 @@ export const covenantSchema = z.object({
 export type ArsCovenant = z.infer<typeof covenantSchema>;
 
 export function migrateArsCharacter(data: unknown, fromVersion: number) {
-  if (fromVersion !== 1)
+  if (fromVersion === 1 && data && typeof data === 'object') {
+    const migrated = structuredClone(data) as Record<string, unknown>;
+    migrated.schemaVersion = 2;
+    const creation = (migrated.creation ?? {}) as Record<string, unknown>;
+    creation.method =
+      creation.status === 'manual'
+        ? 'manual'
+        : creation.templateId
+          ? 'template'
+          : 'guided';
+    creation.wealth = 'normal';
+    creation.experienceAllocations = [];
+    creation.spellAllocations = [];
+    migrated.creation = creation;
+    return arsCharacterSchema.parse(migrated);
+  }
+  if (fromVersion !== 2)
     throw new Error(
       'Unsupported Ars Magica version. Keep the original file; no conversion was attempted.',
     );
