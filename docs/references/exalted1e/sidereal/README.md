@@ -1,7 +1,7 @@
 # Exalted 1e — Sidereal source intake
 
 **Status: source intake in progress.** `Exalted: The Sidereals` has been
-supplied and 205 inventory rows are checked in under `inventory/`. See
+supplied and 242 inventory rows are checked in under `inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
@@ -9,7 +9,7 @@ the full process this directory follows.
 
 - `source-manifest.json` — the one source book in scope so far
   (`exalted-the-sidereals`); no supplements are added yet.
-- `inventory/exalted-the-sidereals.json` — 205 rows covering:
+- `inventory/exalted-the-sidereals.json` — 242 rows covering:
   - The Chapter Three character-creation overview (Attributes/Abilities/
     Backgrounds/Charms/Colleges/Virtues/Willpower/Essence), including the
     reduced-scope Ronin Sidereal variant.
@@ -197,28 +197,59 @@ the full process this directory follows.
     Technique on Jumping Spider Strike, which spreads to Thumbnail Spider
     March and Water Spider Bite and the capstone Grandmother Spider
     Mastery via Pattern Spider Touch.
-  - **The first five rows of Prismatic Arrangement of Creation Style**
-    (pp. 190-191/PDF 193-194): its tree-overview row (a 16-Charm tree
-    built around the Five Magical Materials and Charm-countering magic),
-    its four root Charms (Deadly Starmetal Offensive, Orichalcum Sheathing
-    Stance, Flickering Moonsilver Approach, Five Jade Fury), and its first
-    Form Charm (Four Magical Materials Form, converging all four roots).
+  - **The complete Prismatic Arrangement of Creation Style** (pp. 190-194/
+    PDF 193-197; 16 Charms plus its tree-overview row): four roots (Deadly
+    Starmetal Offensive, Orichalcum Sheathing Stance, Flickering Moonsilver
+    Approach, Five Jade Fury) converge on Four Magical Materials Form,
+    which feeds two branches — Charm Redirection Technique leading to
+    Sequential Charm Disruption and Spell-Shattering Palm, and Astrology
+    Interruption Method leading to Soul Fire Shaper Form — both branches
+    converge on God Ways/(Type) Exalt Ways, which feeds Games of Divinity
+    Form, Demesne Emulation Practice, and Demesne and Manse Form, all
+    converging on the capstone Prismatic Arrangement of Creation Form.
+  - **The complete Citrine Poxes of Contagion Style** (pp. 195-201/PDF
+    198-204; 13 Charms across two linked tree diagrams, plus its
+    tree-overview row and a separate Infectious Martial Arts/Spiritual
+    Diseases framework row) — the book's third and final named secret
+    Sidereal Martial Arts style, closing out all three (Charcoal March of
+    Spiders, Prismatic Arrangement of Creation, Citrine Poxes of
+    Contagion): first diagram — three infectious-atemi roots (Feverish
+    Essence Discharge Atemi, Disjointed Essence Infectious Atemi,
+    Convulsive Displacement Infectious Atemi) converge on
+    Essence-Disrupting Infectious Atemi, while two curative roots (Perfect
+    Reconstruction Method, Spirit and Body Purification Touch) converge on
+    Flare of Invulnerability Method, with Spirit and Body Purification
+    Touch also feeding Inner Dragon Unbinding, all three branches
+    converging on the Form Charm Citrine Poxes of Contagion Form; second
+    diagram — that Form feeds Spiritual Perfection, which feeds both
+    Gentle Touch of the Wicked Hand and Glorious Sidereal Protection,
+    converging on the capstone Essence-Shattering Typhoon.
+  - **The Sidereal Astrology (Colleges/constellations) rules framework**
+    (pp. 204-218/PDF 207-221): the section overview, Petitions (the
+    paperwork/calligraphy/co-and-countersignature procedure for casting an
+    astrology effect), the Effect Roll (Determining, Formulating, and
+    Activating Effects), the Blessing/Curse Effect Types split, the Effect
+    Scope/Duration/Power tables, Multiple Effects and Canceling Effects,
+    Censure (the penalty for illicit/unauthorized use), Paradox
+    (astrology's equivalent to sorcerous backlash), and Pattern Bite (a
+    lingering-consequence mechanic).
+  - **Resplendent Destinies** (p. 215/PDF 218) — the full system by which a
+    Sidereal can bypass her own Arcane Fate and don a memorable identity,
+    as a single calculated row.
+  - The opening of the **Procedure for Sidereal Astrology and Catalog of
+    Colleges** section (p. 218/PDF 221) — the book's lead-in to the actual
+    named-College catalog, which has not yet been transcribed.
 
 ## What's still needed
 
-1. **The rest of Prismatic Arrangement of Creation Style** (11 Charms
-   remain in its 16-Charm tree) and **Citrine Pox of Contagion Style**
-   (not yet located/rendered), the book's third secret Martial Arts style.
-   **Resume at printed p. 191/PDF 194**, continuing past Four Magical
-   Materials Form.
-2. The Colleges / astrology system in full (the Charm-tree equivalent for
-   Sidereal sorcery-adjacent magic); only the character-creation point-buy
-   rule (7 dots, at least 4 in the character's own Maiden's Colleges) is
-   captured so far.
-3. Resplendent Destinies (pp. 215-218) — referenced repeatedly from the
-   Arcane Fate mechanic as the means by which a Sidereal can bypass her own
-   Arcane Fate, but not yet rendered or inventoried in its own right.
-4. Merits/Flaws specific to Sidereals, if any exist beyond the standard set
+1. **The specific Colleges/constellations catalog** — the individual named
+   Colleges within the Sidereal Astrology system (the Charm-tree
+   equivalent for Sidereal sorcery-adjacent magic) have not yet been
+   transcribed; only the rules framework and character-creation point-buy
+   rule (7 dots, at least 4 in the character's own Maiden's Colleges) are
+   captured so far. **Resume at printed p. 218/PDF 221** (or the following
+   page, if p. 218 is entirely introductory text).
+2. Merits/Flaws specific to Sidereals, if any exist beyond the standard set
    — not yet checked.
 
 Note: the Sidereal Curse (this splat's expression of the Great Curse) is

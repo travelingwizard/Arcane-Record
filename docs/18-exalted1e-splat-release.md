@@ -194,7 +194,7 @@ real, creatable sheet.
 | ---------- | ------------------------------------- | -------------- | -------- | -------------------------------- |
 | Lunar      | Created (Exalted: The Lunars)         | 253            | 0        | Locked, all dimensions `not-run` |
 | Abyssal    | Created (Exalted: The Abyssals)       | 283            | 0        | Locked, all dimensions `not-run` |
-| Sidereal   | Created (Exalted: The Sidereals)      | 205            | 0        | Locked, all dimensions `not-run` |
+| Sidereal   | Created (Exalted: The Sidereals)      | 242            | 0        | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians) | 207            | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Created (Exalted: The Fair Folk)      | 263            | 0        | Locked, all dimensions `not-run` |
 
@@ -230,7 +230,7 @@ far), all visually reviewed against rendered pages of the supplied
 (Necrosurgery/etc.) rules, and Abyssal-specific Merits/Flaws are not yet
 inventoried; see `docs/references/exalted1e/abyssal/README.md`.
 
-Sidereal's 205 rows cover the Chapter Three character-creation overview, the
+Sidereal's 242 rows cover the Chapter Three character-creation overview, the
 five Auspicious Ability groups, the universal anima effect, all five Castes
 (Chosen of Journeys/Serenity/Battles/Secrets/Endings), the Arcane Fate
 mechanic (the Limit-Trait analog — a passive forgetting/disguise effect
@@ -241,14 +241,17 @@ of Chapter Five's Caste-and-Ability Charm trees in full** across all five
 Castes (Journeys, Serenity, Battles, Secrets, Endings — 152 Charms total,
 including the Endings Caste's dedicated Violet Bier of Sorrows Martial Arts
 style), reviewed against the supplied PDF (confirmed printed page = PDF page
-− 3, including through Chapter Five), plus the general secret Martial Arts
-framework, the complete Charcoal March of Spiders Style (12 Charms), and the
-first five rows (tree overview, four roots, and first Form Charm) of
-Prismatic Arrangement of Creation Style. This is the first of the five
-planned families to reach full Chapter-Five Charm-tree parity. The rest of
-Prismatic Arrangement of Creation Style, Citrine Pox of Contagion Style, the
-full Colleges/astrology Charm-tree equivalent, and Resplendent Destinies are
-not yet inventoried; see `docs/references/exalted1e/sidereal/README.md`.
+− 3, including through Chapter Five), the general secret Martial Arts
+framework, and all three of the book's named secret Martial Arts styles in
+full (Charcoal March of Spiders, 12 Charms; Prismatic Arrangement of
+Creation, 16 Charms; Citrine Poxes of Contagion, 13 Charms), plus the
+Sidereal Astrology (Colleges/constellations) rules framework (Petitions, the
+Effect Roll, Blessing/Curse types, Scope/Duration/Power, Censure, Paradox,
+Pattern Bite) and Resplendent Destinies. This is the first of the five
+planned families to reach full Chapter-Five Charm-tree parity. The specific
+Colleges/constellations catalog itself (the individual named Colleges) and a
+check for Sidereal-specific Merits/Flaws are not yet inventoried; see
+`docs/references/exalted1e/sidereal/README.md`.
 
 Alchemical's 207 rows cover the character-creation overview, the universal
 Anima Banner effect, Artificial Metabolism, Life/Death/the Soulgem,

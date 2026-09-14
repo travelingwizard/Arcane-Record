@@ -3867,5 +3867,704 @@
       "five-jade-fury"
     ],
     "notes": "Epigraph names this Charm's character as 'HOU TUI'."
+  },
+  {
+    "id": "charm-redirection-technique",
+    "name": "Charm Redirection Technique",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Prismatic Arrangement of Creation tree's right branch (epigraph name 'AN'); a Martial Arts parry action that lets the character catch a Charm used against her or near her and either redirect it to a new target or annul it entirely.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: None.",
+    "mechanics": "The character learns to catch, tangle and throw the Essence flows of Charms as if they were the flailing limbs of her hapless foes. This is a Martial Arts parry action: before the character's initiative, she can abort to the Charm Redirection Technique, and afterward she can use her parry actions (obtained through a pre-split dice pool or a Combo with a Charm allowing a reflexive Martial Arts parry) for it. When someone uses a Charm against her, or when someone within three yards of her uses a Charm, the Sidereal's player rolls her character's Dexterity + Martial Arts against a difficulty equal to the Charm user's Essence; she must invoke the Charm Redirection Technique before her opponent's player rolls the Charm's effect, if applicable. On success, the Sidereal learns a one-sentence summary of the chosen Charm's effects and can then choose a new target for it (if possible) or annul it entirely. Rules for annulling: the target must have had the option not to use the Charm (self-invoking Charms such as Surprise Anticipation Method are immune); the target still pays for the Charm normally but nothing happens (for simple/extra-action Charms this also costs him his action that turn; for supplemental Charms he must take the original dice action unassisted); annulling a reflexive Charm lets the target immediately reinvoke it before the original action resolves. Rules for redirecting: a redirection is only valid if the original user could legally use the Charm against the new target, and it must make narrative sense (a Solar's impassioned words can accidentally seduce the wrong target, but Eye-Deceiving Camouflage cannot accidentally hide the wrong person); redirecting does not change the Charm's variable effects, which are still based on the original user's Traits and mote expenditure (a redirected Blazing Solar Bolt still uses the Solar's Dexterity + Melee pool); the victim whose Charm was redirected still pays for it normally, and it still represents his action for simple Charms; redirecting a supplemental Charm also redirects the associated dice action, using the original user's pool; reflexive Charms cannot be redirected; redirecting an extra-action Charm redirects all possible associated dice actions to the new target, and if not every roll can legally be applied to a single new target (as with Arrow Storm Technique) the character redirects as many actions as possible while the rest proceed normally. This Charm does not work against Charms established in previous turns, against Combos as a whole (see Sequential Charm Disruption), or against Martial Arts Form-type Charms or sorcery, which can never be redirected or annulled.",
+    "cost": "7 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 191,
+      "pdfPage": 194
+    },
+    "crossReferences": ["prismatic-arrangement-of-creation-style", "sequential-charm-disruption"],
+    "notes": "Charm text spans the printed p. 191/192 (PDF 194/195) page break; transcribed as a single continuous description. Epigraph names this Charm's character as 'AN'."
+  },
+  {
+    "id": "sequential-charm-disruption",
+    "name": "Sequential Charm Disruption",
+    "disposition": "selectable",
+    "summary": "Extension of Charm Redirection Technique (epigraph name 'CAI') that lets the character annul the effects of already-established Charms, or annul or redirect an entire Combo in one invocation.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: Charm Redirection Technique.",
+    "mechanics": "This Charm extends the Charm Redirection Technique, allowing the character to: annul the effects of established Charms (for example, she can cancel an ongoing Flow Like Blood Charm); and annul or redirect an entire Combo. Combos follow simple rules: if the Exalt can legally redirect all of a Combo's simple, supplemental, and extra-action Charms, she can do so as a single invocation of Sequential Charm Disruption; if she can legally annul all of them, she can likewise do so as a single invocation; she chooses whether to annul or redirect any reflexive Charms in the Combo individually, as they are used. To use Sequential Charm Disruption, the character must be a target of or near the Charm or effect, or the Charm user must come within three yards of the Charm's original target; she then uses a Martial Arts parry action against the Charm itself, her player rolling Dexterity + Martial Arts against the Charm user's Essence. Like Charm Redirection Technique, this Charm does not affect Form-type Charms or sorcery. When disrupting Combos, the character must invoke Sequential Charm Disruption before her opponent's player begins rolling the Combo's Charms' effects. A worked example in the text applies this against a Combo of Striking Serpent Speed, Crippling Pressure-Point Strike, Serpentine Evasion and Thunderbolt Attack Prana (as described on Exalted core p. 215): the defending Sidereal cannot annul or redirect the reflexively-invoked Serpentine Evasion once it is declared, and cannot redirect the extra-action Thunderbolt Attack Prana's follow-up strikes to a wholly new target because of the extra-action-Charm redirection rule, but can redirect the attacks the Combo's initial Striking Serpent Speed makes possible onto a nearby ally of the original attacker instead of herself.",
+    "cost": "5 motes + mote cost of Charms affected, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 192,
+      "pdfPage": 195
+    },
+    "crossReferences": ["charm-redirection-technique", "prismatic-arrangement-of-creation-style"],
+    "notes": "Epigraph names this Charm's character as 'CAI'. The worked example (Exalted core p. 215's Swan/Nerys/Imri combat) is condensed here rather than transcribed narratively verbatim."
+  },
+  {
+    "id": "spell-shattering-palm",
+    "name": "Spell-Shattering Palm",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Prismatic Arrangement of Creation tree's right branch (epigraph name 'LI'); a reflexive unarmed Martial Arts attack against the structure of a sorcery spell that shatters it like countermagic, and can unravel an in-progress casting even more severely.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: None.",
+    "mechanics": "The character uses martial arts to yank the threads of a delicate construct of sorcery out of place. Upon contact with the effects of sorcery, she activates this reflexive unarmed Martial Arts attack against the structure of the spell. The difficulty equals the sorcerer's Essence plus the spell's Circle. If she succeeds, the spell shatters, as if dispelled by countermagic of its own circle. The Exalt can work even greater mischief if someone actually casts a spell within her reach: her player can use an unarmed Martial Arts attack roll as described above, and if she succeeds the Sidereal can cause the entire structure to unravel as if the sorcerer had botched a distraction roll (see Exalted core, pp. 216-217). This Charm functions against necromancy as well as sorcery, but only if the Sidereal Exalted has had extensive opportunity to study the dark magics of the Abyssal Exalted.",
+    "cost": "12 motes",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 192,
+      "pdfPage": 195
+    },
+    "crossReferences": ["prismatic-arrangement-of-creation-style"],
+    "notes": "Epigraph names this Charm's character as 'LI'."
+  },
+  {
+    "id": "astrology-interruption-method",
+    "name": "Astrology Interruption Method",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Prismatic Arrangement of Creation tree's right branch (epigraph name 'HUA JI'); a reflexive unarmed Martial Arts attack against the threads of destiny that can tear apart an active Sidereal astrological effect, including a resplendent destiny.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: None.",
+    "mechanics": "The character uses her education in the nature of fate in conjunction with her martial skill to disjoint, snarl and otherwise tangle the fates the spiders weave. By lightly striking the target in the five points where the threads of the Loom of Fate attach, the Sidereal can negate the effects of Sidereal astrology. Upon contact with a Sidereal astrological effect, she may activate this Charm and make a reflexive unarmed Martial Arts attack against the threads of destiny. The difficulty equals the Essence + College of the Sidereal who created the effect. If she succeeds, the effect is dangerously torn or frayed, and the pattern spiders abandon it. This causes one Paradox to both the astrologer who created the effect and the Sidereal who disrupted it, and may trigger an inquiry by the bureau. This Charm can target resplendent destinies, even ones lurking in the target's background. If the target has multiple effects active at once, the martial artist must attack each separately, rolling first against any active resplendent destiny, then against any other effects, highest Essence + College first.",
+    "cost": "10 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 192,
+      "pdfPage": 195
+    },
+    "crossReferences": ["prismatic-arrangement-of-creation-style"],
+    "notes": "Epigraph names this Charm's character as 'HUA JI'; text spans the printed p. 192/193 (PDF 195/196) page break, transcribed as a single continuous description. The source prints a small bullet/dot glyph immediately before 'Paradox' in 'This causes \u2022 Paradox to both...'; transcribed here as 'one Paradox' on the working assumption the glyph denotes a quantity of one, but the exact meaning of the glyph (a dingbat vs. a specific named game term) is not fully certain from the rendered image and should be re-checked against a cleaner scan if this Charm is promoted."
+  },
+  {
+    "id": "soul-fire-shaper-form",
+    "name": "Soul Fire Shaper Form",
+    "disposition": "selectable",
+    "summary": "Form Charm (epigraph name 'QIAN JING') converging Sequential Charm Disruption, Spell-Shattering Palm, and Astrology Interruption Method; raises the character's effective permanent Essence to 10 for all purposes and grants one free use per turn of any of its three converging Charms plus Charm Redirection Technique.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 5; Prerequisite Charms: One complete martial art (all Charms), Sequential Charm Disruption, Spell-Shattering Palm, Astrology Interruption Method.",
+    "mechanics": "The character balances her actions so perfectly to the local flow of Essence that the world around her -- whether Creation, the Wyld, the Underworld or Malfeas itself -- cannot help but support her victory. While using the Soul Fire Shaper Form, the character increases her effective permanent Essence score to 10. This does not give her additional temporary Essence, although it does increase her maximum temporary Essence. It does not allow her to purchase Charms, familiars or acquaintances she would otherwise be unable to possess. Otherwise, treat her Essence as 10 for all effects. In addition, the character can make one free use of Charm Redirection Technique, Sequential Charm Disruption, Astrology Interruption Method or Spell-Shattering Palm in each turn; this is part of the Form's effect and does not count as the character's action or Charm for that turn. Characters cannot normally use more than one Martial Arts Form-type Charm at a time.",
+    "cost": "15 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 193,
+      "pdfPage": 196
+    },
+    "crossReferences": [
+      "sequential-charm-disruption",
+      "spell-shattering-palm",
+      "astrology-interruption-method",
+      "charm-redirection-technique"
+    ],
+    "notes": "Epigraph names this Charm's character as 'QIAN JING'."
+  },
+  {
+    "id": "god-ways",
+    "name": "God Ways",
+    "disposition": "selectable",
+    "summary": "Charm (epigraph name 'ZUO GU') letting the character step into and possess a person, god, or least god, displacing its natural spirit while her own body dematerializes, taking Martial Arts actions through the stolen flesh.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: None.",
+    "mechanics": "The character steps into an object or person, displacing its natural spirit with his Essence manipulations as easily as a master of legerdemain might steal a mortal's coat. The Sidereal's player rolls Charisma + Martial Arts against a difficulty equal to the Essence of the Exalt's target -- the body he wants to steal or the god or least god whose form he wishes to possess. The target's player can make a simple Willpower roll against difficulty 2 each turn to regain control over her body. In the meantime, the Exalt's body dematerializes. He can move and take Martial Arts actions through the stolen flesh, using the body's Strength, Dexterity or Stamina if they exceed his own. This Charm imbues the stolen body with supernatural flexibility and mobility: thus, possessed trees can attack and unattended ox-carts can charge. The character cannot possess soulsteel. He can only possess objects made of other Magical Materials if he knows the style's Charm for emulating that Magical Material (see pp. 189-191).",
+    "cost": "6 motes",
+    "compatibility": "Duration: Indefinite. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 193,
+      "pdfPage": 196
+    },
+    "crossReferences": ["prismatic-arrangement-of-creation-style"],
+    "notes": "Epigraph names this Charm's character as 'ZUO GU'. Printed stat block lists Prerequisite Charms as 'None', despite this Charm's position in the tree diagram on printed p. 190/PDF 193 (which draws a line from a 'Games of Divinity Form' box down to this Charm, implying it should be gated behind that Form). The actual Charm text later in the chapter (see games-of-divinity-form) instead makes Games of Divinity Form require God Ways and (Type) Exalt Ways as prerequisites -- the reverse of what the diagram shows. This is flagged as an apparent diagram/text inconsistency in the sourcebook rather than resolved by guesswork; both Charms are transcribed exactly as their own printed stat blocks read."
+  },
+  {
+    "id": "type-exalt-ways",
+    "name": "(Type) Exalt Ways",
+    "disposition": "selectable",
+    "summary": "Charm (epigraph name 'YOU PAN') letting the character temporarily mimic the anima banner, anima effects, and one favored Attribute or Ability of one other Exalt type and caste, without changing his own Caste Mark or blocking his Maiden's Lesser Sign.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: None.",
+    "mechanics": "The character strikes his throat, abdomen, spine, brow and crown chakras, forcibly reshaping his Essence and altering how his anima interacts with the world. This Charm allows the character, for five turns, to mimic the anima banner and anima effects of one other type and caste of Exalted. Most Sidereals on this path choose No Moon or Changing Moon Lunar Ways, Zenith or Night Solar Ways, or Dragon-Blooded Aspect of Air Ways; however, even Alchemical, Abyssal and alternate Sidereal castes are viable choices. This Charm temporarily replaces the Exalt's anima banner. It does not change his Caste Mark or suppress his ability to make his Maiden's Lesser Sign. The character also adds one of the relevant caste's favored Attributes or Abilities while this Charm operates; he can choose a new Attribute or Ability each time he invokes this Charm. Knowing Exalt Ways, even Eclipse Caste Solar Ways or Moonshadow Caste Abyssal Ways, gives no special ability to purchase normally forbidden Charms.",
+    "cost": "10 motes, 1 health level",
+    "compatibility": "Duration: Five turns. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 193,
+      "pdfPage": 196
+    },
+    "crossReferences": ["prismatic-arrangement-of-creation-style"],
+    "notes": "Epigraph names this Charm's character as 'YOU PAN'; text spans the printed p. 193/194 (PDF 196/197) page break. The Charm's own name is literally printed as '(Type) Exalt Ways,' with the parenthetical instructing the player to substitute the mimicked Exalt type's name (e.g., 'Solar Exalt Ways'). Prerequisite Charms is printed as 'None,' matching god-ways -- see that row's notes on the diagram/text prerequisite discrepancy for this branch of the tree."
+  },
+  {
+    "id": "games-of-divinity-form",
+    "name": "Games of Divinity Form",
+    "disposition": "selectable",
+    "summary": "Form Charm (epigraph name 'WU JI') converging God Ways and (Type) Exalt Ways; forces enemies to pass a Compassion roll to willingly harm the character and can addict witnesses to craving the sight of the Form again.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 5; Prerequisite Charms: One complete martial art (all Charms), God Ways, one Exalt Ways Charm.",
+    "mechanics": "The character adopts the attitude and posture of the spirit courts, moving with the infinite baroque complexity necessary to the management of Creation, directed by the four powers of her Essence -- aspiration, effort, intention and analysis -- where all her Essence flows as one; simultaneously she uses the smallest mote of her being to directly manage its own affairs. Though no imperfect creature can truly master it, while the character uses this Form, enemies must fail a Compassion roll if they wish to willingly harm her (subduing her or manipulating her remains acceptable); enemies can spend Willpower for the roll to deliberately fail. Those who witness the Games of Divinity Form become addicted: so long as they remember the Sidereal or the Form, they crave to see it again, and their players must succeed at Temperance rolls for their characters to refuse any reasonable opportunity to behold it once more. Dreamstones (see Exalted core, p. 18) provide a more intense experience than this Form; dreamstone addiction both wipes away and prevents addiction to the Form, though witnessing or performing the Games of Divinity Form is an unpleasant but palatable dreamstone alternative for even the most desperate addicts. Characters cannot normally use more than one Martial Arts Form-type Charm at a time.",
+    "cost": "7 motes, 1 Willpower",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 194,
+      "pdfPage": 197
+    },
+    "crossReferences": ["god-ways", "type-exalt-ways"],
+    "notes": "Epigraph names this Charm's character as 'WU JI'. This Charm's real printed prerequisites (God Ways, one Exalt Ways Charm) place it after both in the tree, and its text appears in print after (Type) Exalt Ways's text -- the reverse of the tree diagram on printed p. 190/PDF 193, which shows a 'Games of Divinity Form' box feeding into God Ways and (Type) Exalt Ways rather than following them. See god-ways' notes for the full flag on this diagram/text discrepancy."
+  },
+  {
+    "id": "demesne-emulation-practice",
+    "name": "Demesne Emulation Practice",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Prismatic Arrangement of Creation tree's left branch (epigraph name 'KAO'); makes the character's unarmed attacks deal bonus aggravated damage equal to a separate Dexterity + Martial Arts roll for the rest of the scene.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: None.",
+    "mechanics": "Tugging gently on the flows of Essence around him, the character forms himself into a nexus, a convergence point through which power pours. The Sidereal's player rolls Dexterity + Martial Arts, unmodified by any other Charms. For the remainder of the scene, each of the Exalt's successful unarmed attacks also does aggravated damage equal to the number of successes rolled for the Demesne Emulation Practice Charm; this damage is soaked separately. The Sidereal's hand upon an enemy's chest burns her with raw Essence, his elbow in her ear fills her head with Essence lightning, and his foot against her knee is as terribly cold as the Essence of a saltwater siren's heart.",
+    "cost": "20 motes, 1 Willpower, 1 health level",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 194,
+      "pdfPage": 197
+    },
+    "crossReferences": ["prismatic-arrangement-of-creation-style"],
+    "notes": "Epigraph names this Charm's character as 'KAO'. The flavor text switches pronoun gender mid-description ('her'/'his') exactly as printed; transcribed verbatim rather than normalized."
+  },
+  {
+    "id": "demesne-and-manse-form",
+    "name": "Demesne and Manse Form",
+    "disposition": "selectable",
+    "summary": "Form Charm (epigraph name 'CHUNG TING') built on Demesne Emulation Practice; grants the character the benefits of a 4- or 5-dot Hearthstone (developed jointly with the Storyteller to reflect the character's personality) manifesting from a temporary Caste-Mark Hearthstone.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 5; Prerequisite Charms: One complete martial art (all Charms), Demesne Emulation Practice.",
+    "mechanics": "The character adopts the stately grandeur of a temple and radiates the ancient power of a Manse. She can now properly channel and constrain the raw Essence flow that the Demesne Emulation Practice feeds into her, coalescing it around her Caste Mark into a Hearthstone set in her brow. This Hearthstone only exists while the character is using Demesne and Manse Form; when the Sidereal terminates the Form, the Hearthstone fades. When using the Form, the character receives the Hearthstone's benefits as if it were properly set in a starmetal circlet. The player and the Storyteller should work together to determine its effects, developing a 4- or 5-dot Hearthstone that reflects the character's personality; treat major changes to the character's nature as architectural alterations to a Manse, adjusting the Hearthstone's abilities appropriately. Characters cannot normally use more than one Martial Arts Form-type Charm at a time.",
+    "cost": "12 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 194,
+      "pdfPage": 197
+    },
+    "crossReferences": ["demesne-emulation-practice"],
+    "notes": "Epigraph names this Charm's character as 'CHUNG TING'."
+  },
+  {
+    "id": "prismatic-arrangement-of-creation-form",
+    "name": "Prismatic Arrangement of Creation Form",
+    "disposition": "selectable",
+    "summary": "The style's capstone Form Charm (epigraph name 'TAO'), converging Four Magical Materials Form, Soul Fire Shaper Form, Games of Divinity Form, and Demesne and Manse Form; doubles base initiative, grants perfect sensory awareness within a wide radius, lets the character run all four converging Forms plus up to two other Martial Arts Forms simultaneously, and lets weapon substitutions from any active Form's style apply across all of the character's Martial Arts Charms.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 5; Prerequisite Charms: Four Magical Materials Form, Soul Fire Shaper Form, Games of Divinity Form, Demesne and Manse Form.",
+    "mechanics": "As she assumes this Form, the character vanishes into the flows of Essence around her. For a long moment, she is nowhere and everywhere, embodied in the dance of all things. Then she manifests again, in every movement consummately aware of everything around her, reacting to intentions before they are formed, actions before they are taken, and to the battle as a whole as easily as to a single blow. This Charm doubles the character's base initiative (Dexterity + Wits). Charms such as Opportune Shot and Thunderclap Rush Attack do not automatically win initiative over her. The Exalt is aware of every attack against her and is immune to sensory deceptions -- this is a perfect effect. She can sense every effect, object and creature within (her Essence x 10) yards. Noticing something hidden requires a reflexive Perception + Awareness roll, adding the Sidereal's Essence in automatic successes. While using the Prismatic Arrangement of Creation Form, the character can also invoke any or all of its subsidiary Forms, paying the normal Essence cost; as long as the Prismatic Arrangement of Creation Form is active, Four Magical Materials Form, Soul Fire Shaper Form, Games of Divinity Form, and Demesne and Manse Form can coexist with it and with one another. The character can also invoke other Form-type Charms, but this limits her to a total of two other Forms; for example, she could invoke Prismatic Arrangement of Creation Form followed by either Earth Dragon Form and Games of Divinity Form, Tiger Form and Ebon Shadow Form, or Snake Form and Charcoal March of Spiders Form. The Prismatic Arrangement of Creation Form is transcendent and embraces other Forms as lesser parts of itself. While this Form is active, the character may have access to unexpected weaponry: any weapon treated as an unarmed attack by a style whose Form-type Charm she has active is treated as an unarmed attack for the purpose of all Martial Arts Charms; this is a specific benefit of the Prismatic Arrangement of Creation Form and not a general rule. For example, Tiger Form allows the use of tiger claws as unarmed attacks; if she has both Prismatic Arrangement of Creation Form and Tiger Form active, the Sidereal can use tiger claws to inflict the Water Spider Bite -- whether or not she also has Charcoal March of Spiders Form active. This effect does not extend to armor. The Prismatic Arrangement of Creation Form is complete and perfect in every respect, but to perform it correctly requires a deep understanding of the other styles that it subsumes. Sidereal masters estimate that a complete understanding of roughly 40 styles would allow an essentially accurate adoption of this Form, possibly increasing the power of this Charm.",
+    "cost": "10 motes, 1 Willpower",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 194,
+      "pdfPage": 197
+    },
+    "crossReferences": [
+      "four-magical-materials-form",
+      "soul-fire-shaper-form",
+      "games-of-divinity-form",
+      "demesne-and-manse-form"
+    ],
+    "notes": "Epigraph names this Charm's character as 'TAO'; text spans the printed p. 194/195 (PDF 197/198) page break. This is the tree's true capstone; the Prismatic Arrangement of Creation Style's own 16-Charm tree is now complete: Deadly Starmetal Offensive, Orichalcum Sheathing Stance, Flickering Moonsilver Approach, Five Jade Fury, Four Magical Materials Form, Demesne Emulation Practice, Demesne and Manse Form, Charm Redirection Technique, Sequential Charm Disruption, Spell-Shattering Palm, Astrology Interruption Method, Soul Fire Shaper Form, God Ways, (Type) Exalt Ways, Games of Divinity Form, and Prismatic Arrangement of Creation Form."
+  },
+  {
+    "id": "citrine-poxes-of-contagion-style",
+    "name": "Citrine Poxes of Contagion Style (tree overview)",
+    "disposition": "reference-only",
+    "summary": "Section header and pair of linked Charm-tree diagrams for the Citrine Poxes of Contagion secret martial-arts style, a 13-Charm tree built around inflicting and manipulating spiritual diseases, plus its Weapons and Armor rule restricting the style to bashing-damage improvised unarmed attacks and forbidding armor.",
+    "requirements": null,
+    "mechanics": "Tree structure (13 Charms across two linked diagrams). Diagram 1 ('Citrine Poxes of Contagion Style 1'): three roots -- Feverish Essence Discharge Atemi, Disjointed Essence Infectious Atemi, and Convulsive Displacement Infectious Atemi -- converge on Essence-Disrupting Infectious Atemi; two more roots, Perfect Reconstruction Method and Spirit and Body Purification Touch, converge on Flare of Invulnerability Method, while Spirit and Body Purification Touch alone also feeds Inner Dragon Unbinding; Essence-Disrupting Infectious Atemi, Flare of Invulnerability Method, and Inner Dragon Unbinding all converge on the Form Charm Citrine Poxes of Contagion Form. Diagram 2 ('Citrine Poxes of Contagion Style 2'): Citrine Poxes of Contagion Form feeds Spiritual Perfection, which feeds both Gentle Touch of the Wicked Hand and Glorious Sidereal Protection, which in turn converge on the capstone Essence-Shattering Typhoon. Weapons and Armor sidebar: this style's Charms treat attacks made with a staff, seven-section staff, serpent-sting staff, hammer, or goremaul as unarmed attacks, but only if the character inflicts bashing damage with them (usually a +1 difficulty penalty to 'pull one's blows'), because the style's attacks work by affecting the target's Essence flows through key pressure points rather than by crushing bone; characters cannot use this style while wearing armor. Infectious Martial Arts framework and the Spiritual Diseases/Circles of Spiritual Diseases rules this style's Charms depend on are captured in a separate reference row (citrine-poxes-of-contagion-infectious-martial-arts).",
+    "cost": "None",
+    "compatibility": "Reference text and tree diagrams; not a Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 195,
+      "pdfPage": 198
+    },
+    "crossReferences": [
+      "sidereal-martial-arts",
+      "sidereal-martial-arts-sutras",
+      "citrine-poxes-of-contagion-infectious-martial-arts"
+    ],
+    "notes": "Section header ('Decay: The Citrine Poxes of Contagion') and Weapons and Armor sidebar print at the top of printed p. 195/PDF 198, immediately after Prismatic Arrangement of Creation Form's text closes out the prior style; the first tree diagram prints atop printed p. 196/PDF 199, and the second atop printed p. 197/PDF 200. This style's running epigraph verse is split across each Charm's opening line and is presented as two consecutive sutras rather than named characters: the first tree's Charms carry lines from 'The Student's Sutra of Decay' ('Once, there was a disease -- but before that, there was a maiden...'), and the second tree's Charms carry lines from 'The Elder Sutra of Decay' ('Once, there was a crippled maiden...'); each Charm's own row preserves its epigraph fragment in its notes. Book text spells the style 'Citrine Poxes of Contagion' (plural 'Poxes'), matching every stat block and both diagram titles; this inventory adopts that exact spelling in preference to the singular 'Citrine Pox' used in some external summaries."
+  },
+  {
+    "id": "citrine-poxes-of-contagion-infectious-martial-arts",
+    "name": "Infectious Martial Arts and Spiritual Diseases (Citrine Poxes of Contagion framework)",
+    "disposition": "reference-only",
+    "summary": "Shared framework underlying every Citrine Poxes of Contagion Charm: how an infectious Martial Arts attack inflicts a spiritual disease, and the Mundane/Magical Treatment Difficulty and three-Circle severity system used to define and cure such diseases.",
+    "requirements": null,
+    "mechanics": "Infectious Martial Arts: the character must first hit the target with an unarmed Martial Arts attack (she can choose whether it also deals its normal damage). After resolving damage, the victim's player reflexively rolls Stamina + Resistance against a difficulty equal to the attacker's Essence; on a failure, the victim immediately succumbs to the disease the Charm inflicts. Infectious martial arts affect materialized and dematerialized spirits equally; if the attack cannot normally damage a spirit, the blow still does no damage but its passage corrupts the spirit's Essence flow and inflicts the disease. Spiritual Diseases: an Intelligence + Medicine roll can cure most spiritual diseases; its difficulty (the Mundane Treatment Difficulty, printed per disease) ranges from 3 to 10 depending on the disease's virulence and how far it differs from a mundane infection. Each disease also has a Magical Treatment Difficulty, the number of successes a curing Charm (such as Contagion-Curing Touch or the Ailment-Rectifying Method) needs to cure it. Absent other instructions, a victim can make an extended Stamina + Resistance roll to recover unaided, at a difficulty twice the Magical Treatment Difficulty; spirits and the Exalted may roll once per week, mortals once per season. Spiritual diseases are rarely contagious, and even the few that can spread are very difficult to catch. The Circles of Spiritual Diseases: spiritual diseases come in three Circles of increasing severity. The First (Deadened) Circle, ruled by the god Kel-Aina, weakens minor aspects of the victim's Essence (Magical Treatment Difficulty 1-2). The Second (Frenzied) Circle, ruled by Sylvi the Crone of Fire, both weakens Essence and forces some aspect of it to an unhealthy strength, substantially hindering or crippling mortals (Magical Treatment Difficulty 3-4); the sample diseases inflicted by this style's roots (Drunken Moth Sickness, White Sun Sickness, Jigsaw Organ Condition) are all Second Circle. The Third (Changing) Circle, ruled by the nameless god of the utter West, is the worst class of Essence affliction, potent enough to infect Manses, Demesnes, Exalt shards, and artifacts as well as living victims (Magical Treatment Difficulty 4-5); these illnesses do not spread, and the text further specifies that Stamina- or Resistance-boosting Charms cannot add their dice bonus toward resisting a Third Circle illness, though even a Third Circle illness can never permanently or fatally harm an Exalted victim -- even the lowliest Dragon-Blooded is guaranteed to eventually recover.",
+    "cost": "None",
+    "compatibility": "Reference text; not a Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 195,
+      "pdfPage": 198
+    },
+    "crossReferences": ["citrine-poxes-of-contagion-style"],
+    "notes": "Infectious Martial Arts prints on printed p. 195/PDF 198; Spiritual Diseases and The Circles of Spiritual Diseases span the printed p. 195/196 (PDF 198/199) page break, continuing beneath the first tree diagram. The sentence describing Third Circle resistance ('Reduce the dice pool to 0 from these Third Circle illnesses to the effects of Stamina or Resistance Charms') reads ambiguously in the source; transcribed above per its most plausible sense (such Charms' dice bonuses are voided against Third Circle illnesses) and flagged here for a closer re-read before promotion."
+  },
+  {
+    "id": "feverish-essence-discharge-atemi",
+    "name": "Feverish Essence Discharge Atemi",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Citrine Poxes of Contagion tree's first diagram; an infectious unarmed Martial Arts attack that seeds the victim with the escalating, reality-detaching White Sun Sickness.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: None.",
+    "mechanics": "Tormenting the enemy like the bites of a hundred mosquitoes, the character delivers a spark of poisoned Essence into the core of his enemy's soul. This is an infectious Martial Arts attack that carries the White Sun Sickness. A victim of White Sun Sickness suffers from a fever of the soul. Each time she spends motes of Essence on a Charm, the disease increases the Charm's cost by 1 mote. This effect is cumulative: the second expenditure costs 2 extra motes, the third costs three, and so forth. Reduce the accumulated total by five motes for each day the victim spends no motes. The victim also hallucinates. In stressful situations, this reduces all of her dice pools by her own permanent Essence. Without external stressors, she may decay entirely from reality. Finally, the victim gains Limit at twice the normal rate. This is a coincidental interaction with the Great Curse and not a direct effect of the Charm. White Sun Sickness occurs in nature, though very rarely, in those who spend too long meditating on the ways of the Fair Folk, the ever-changing spirit of Luna, the power of the Elemental Dragons, or the inspiring greatness of the Unconquered Sun. Mundane Treatment Difficulty: 6. Magical Treatment Difficulty: 3.",
+    "cost": "7 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 196,
+      "pdfPage": 199
+    },
+    "crossReferences": ["citrine-poxes-of-contagion-style", "citrine-poxes-of-contagion-infectious-martial-arts"],
+    "notes": "Epigraph fragment (Student's Sutra of Decay): '...whose lover's practices displeased the sun. The all-seeing sun no longer could sustain...'. This Charm's full description, including White Sun Sickness's Mundane/Magical Treatment Difficulty numbers, spans the printed p. 196/197 (PDF 199/200) page break; transcribed as one continuous entry."
+  },
+  {
+    "id": "disjointed-essence-infectious-atemi",
+    "name": "Disjointed Essence Infectious Atemi",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Citrine Poxes of Contagion tree's first diagram; an infectious unarmed Martial Arts attack that inflicts the Jigsaw Organ Condition, disconnecting the victim's organs and limbs from full bodily coherence.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: None.",
+    "mechanics": "Her fingers brushing past the victim's defenses like contaminated water seeping into a pool, the character infects a victim's Essence with the spastic, divisive Drunken Moth Sickness. This is an infectious Martial Arts attack. A victim of Drunken Moth Sickness no longer controls his behavior. The disease comes with a general purpose specified by the Sidereal -- something like 'embarrass yourself,' 'protect me' or 'beat up your friends.' In each turn, the character has three choices: use a simple Charm, use a Combo, or spend at least half his non-reflexive actions serving the illness's purpose. (Splitting his dice pool or buying extra actions is recommended -- if he only takes one action, then it goes to the illness.) The disease only forces him to take action when an obvious way of fulfilling its purpose exists, either using Charms or using Charms already active. Otherwise, the actions that go to the Drunken Moth Sickness are wasted -- the character does nothing. This disease occasionally occurs in nature, generally when someone eats something into which a spirit has been bound. Mundane Treatment Difficulty: 6. Magical Treatment Difficulty: 4.",
+    "cost": "12 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 196,
+      "pdfPage": 199
+    },
+    "crossReferences": ["citrine-poxes-of-contagion-style", "citrine-poxes-of-contagion-infectious-martial-arts", "feverish-essence-discharge-atemi"],
+    "notes": "Epigraph fragment (Student's Sutra of Decay): 'These practices, but with enraged disdain, darts forth such pestilent malignant beams,'. This Charm's full description, including Drunken Moth Sickness's Mundane/Magical Treatment Difficulty numbers, spans the printed p. 196/197 (PDF 199/200) page break; transcribed as one continuous entry."
+  },
+  {
+    "id": "convulsive-displacement-infectious-atemi",
+    "name": "Convulsive Displacement Infectious Atemi",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Citrine Poxes of Contagion tree's first diagram; an infectious unarmed Martial Arts attack that disrupts the victim's entire bodily coherence with the Jigsaw Organ Condition, letting limbs and organs detach and reattach at will.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: None.",
+    "mechanics": "As shed infection on air, earth and streams, one precise punch or kick disrupts the entire functioning of the victim's body and soul, shattering his Essence into the jagged pattern characteristic of the Jigsaw Organ Condition. This is an infectious Martial Arts attack. A victim of the Jigsaw Organ Condition lacks the physical coherence of his peers. Struck in combat, he loses limbs or extremities with abnormal ease, simply falling apart. Fortunately, when he does lose a limb or organ, he can spend a turn simply swallowing it, and it slides back into place. Individual organs remain connected, and under individual control, even when separated from the body. The victim still takes damage normally, due to the sheer physical trauma of it. Whenever a victim suffers damage, roll his Stamina against a difficulty equal to the number of health levels lost. On a failure, a limb falls off, he coughs out a lung, or some similar event transpires. If the Sidereal successfully infects someone with this disease, the target automatically loses a limb of the Sidereal's choice. The Exalt can attempt to catch it with a reflexive Dexterity + Athletics action at her full dice pool. For example, she might once infect her victim with a measured blow to the back, cartwheeling past him to catch his heart as he coughs it into her hands. She can again catch a lost limb of her choice, and, if she tries to catch it, any time she does damage to the afflicted target -- the target cannot defend himself with a Stamina roll. Defensive Charms only protect such organs or limbs as they are naturally applicable to. By default, limited leverage reduces the dice pool for a severed limb's actions to 0 before the influence of Charms. Further, most Charms simply do not function when employed by a severed organ. However, appropriate stunts or the help of a friend can give a victim's limb access to his full dice pool. The Sidereal Exalted are only aware of 40 naturally contracted cases of Jigsaw Organ Condition this Age. The vector for this malady is unknown. Mundane Treatment Difficulty: 10. Magical Treatment Difficulty: 4.",
+    "cost": "12 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 197,
+      "pdfPage": 200
+    },
+    "crossReferences": ["citrine-poxes-of-contagion-style", "citrine-poxes-of-contagion-infectious-martial-arts"],
+    "notes": "Epigraph fragment (Student's Sutra of Decay): 'As shed infection on air, earth and streams;'. This Charm's full description, including Jigsaw Organ Condition's Mundane/Magical Treatment Difficulty numbers, spans the printed p. 197/198 (PDF 200/201) page break; transcribed as one continuous entry."
+  },
+  {
+    "id": "essence-disrupting-infectious-atemi",
+    "name": "Essence-Disrupting Infectious Atemi",
+    "disposition": "selectable",
+    "summary": "Charm converging all three infectious-atemi roots; lets the character learn the 25 underlying principles of infection and combine them to design and inflict arbitrary custom First or Second Circle spiritual illnesses on demand.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: Feverish Essence Discharge Atemi, Disjointed Essence Infectious Atemi, Convulsive Displacement Infectious Atemi.",
+    "mechanics": "From whence this malady its birth received. The character's understanding of the art of infectious martial arts increases. She learns the 25 underlying principles of infection and may apply them in combination to inflict arbitrary First or Second Circle illnesses upon her opponent. This requires an infectious Martial Arts attack supplemented by this Charm. Characters develop their own First or Second Circle infections for use with Essence-Disrupting Infectious Atemi. Creating a sickness requires an Intelligence + Medicine roll. The player decides upon the disease desired, and the Storyteller sets the treatment difficulties. The difficulty of the Medicine roll equals the Magical Treatment Difficulty for the sickness. Reduce this difficulty by one point if another Sidereal Exalted teaches the character how to inflict the disease. The Sidereal can attempt to realize a general infection concept, her player making the appropriate roll, no more than once per story. Normally, characters practice the infliction of new spiritual infections before testing them in battle. Developing diseases on the fly imposes a +2 difficulty penalty. It also requires the Storyteller's permission and requires a separate action from the blow that inflicts the disease.",
+    "cost": "12 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 198,
+      "pdfPage": 201
+    },
+    "crossReferences": [
+      "citrine-poxes-of-contagion-style",
+      "citrine-poxes-of-contagion-infectious-martial-arts",
+      "feverish-essence-discharge-atemi",
+      "disjointed-essence-infectious-atemi",
+      "convulsive-displacement-infectious-atemi"
+    ],
+    "notes": "Epigraph fragment (Student's Sutra of Decay): 'From whence this malady its birth received.' -- completing the four-line verse split across the three roots and this Charm."
+  },
+  {
+    "id": "perfect-reconstruction-method",
+    "name": "Perfect Reconstruction Method",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Citrine Poxes of Contagion tree's first diagram; a curative Martial Arts attack that batters a willing or helpless target back into a perfect, idealized version of his own body and Essence.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: None.",
+    "mechanics": "On him the dreadful lot did fall, who now was placed before the altar bound. With precise blows, the character batters the target into the perfect shape written into the core of the target's Essence. Violent as the Exalt's attacks may be, they do no damage; the target's bones and flesh, when struck, slide perfectly into their most appropriate place. The Sidereal's player rolls Dexterity + Martial Arts against a difficulty equal to the target's Essence. Add the character's Medicine score in automatic successes. The target can dodge or parry normally. If the Sidereal hits, the target experiences the following beneficial effects: The target heals all bashing damage. The target heals a number of lethal damage levels equal to the character's Martial Arts score. Treat any aggravated damage levels as two lethal damage levels, and heal them first. The Sidereal Exalted can immediately spend one experience point to heal one point of permanent Trait loss. (This cannot raise a Trait above the highest level previously purchased. In other words, the target cannot lose a point of Willpower, but he can get it back between stories and take advantage of this Charm to raise it further.) Any effect that has locked the target into an undesired shape is instantly ended. After a successful application of this method, the target's player must succeed at a Temperance roll against difficulty 2, or the target falls unconscious in a moment of transcendent ecstasy. The character can use this method on herself. This Charm does not affect tattooed Lunar Exalted, who treat it as an external attempt to modify their shape (see Exalted: The Lunars, p. 121).",
+    "cost": "8 motes, 1 Willpower, 1 experience point",
+    "compatibility": "Duration: Simple. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 198,
+      "pdfPage": 201
+    },
+    "crossReferences": ["citrine-poxes-of-contagion-style"],
+    "notes": "Epigraph (Student's Sutra of Decay): this Charm's own epigraph line is 'On him the dreadful lot did fall, who now was placed before the altar bound.'; the epigraph line 'His head with sacrificial garlands crowned.' belongs to the following Charm (Spirit and Body Purification Touch). Text spans the printed p. 198/199 (PDF 201/202) page break; transcribed as one continuous entry. Duration prints as 'Simple' rather than a time value, matching an established pattern of apparently inconsistent Duration entries elsewhere in this book (e.g. Terrestrial Circle Sorcery); transcribed as printed."
+  },
+  {
+    "id": "spirit-and-body-purification-touch",
+    "name": "Spirit and Body Purification Touch",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Citrine Poxes of Contagion tree's first diagram; a curative Martial Arts attack that cleanses the target of disease, poison, drugs, addiction, and Possession-Charm effects.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: None.",
+    "mechanics": "His head with sacrificial garlands crowned. Like the rain that comes after a battle to wash the blood and tears, the gentle fall of the Sidereal's hands or feet upon the target cleanses the target of disease and ill effects. The Sidereal's player rolls Dexterity + Martial Arts against a difficulty equal to the target's Essence. Add the character's Medicine score in automatic successes. The target can dodge or parry normally. If the Sidereal hits, the target experiences the following beneficial effects: Spiritual and physical diseases instantly leave her system, and she fully recovers from their effects. The Exalt's player must roll Intelligence + Medicine against the Magical Treatment Difficulty to cure a Third Circle illness or the Great Contagion (difficulty 5) with this Charm. All poison and drugs leave her system, and addictions end. Any Possession Charm affecting the target is broken, and all lingering effects disappear. The Sidereal Exalted can transfer as many motes of his Essence to the target as desired. The Sidereal Exalted can transfer as many points of his temporary Willpower to the target as desired. Curses upon the target are broken, although permanently lost Attributes are not recovered; this includes most debilitating effects imposed through non-physical means. The character can erase painful memories that he is aware of which afflict the target; in the future, the target must spend a Willpower point to recall these memories for a scene, and even then they return only dimly. The target has even greater difficulty remembering the events leading to the use of this Charm -- specifically, the scene in which this Charm was used; remembering those events later requires not simply a Willpower point but a successful Conviction roll against difficulty 2, and again the memory only lasts for a scene. The character can use this method on herself.",
+    "cost": "8 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 199,
+      "pdfPage": 202
+    },
+    "crossReferences": ["citrine-poxes-of-contagion-style"],
+    "notes": "Epigraph (Student's Sutra of Decay, closing line): 'His head with sacrificial garlands crowned.'. This Charm's full bullet-point effects list is split across the left and right columns of printed p. 199/PDF 202; transcribed as one continuous entry."
+  },
+  {
+    "id": "inner-dragon-unbinding",
+    "name": "Inner Dragon Unbinding",
+    "disposition": "selectable",
+    "summary": "Extension of Spirit and Body Purification Touch; a reflexive Charm that instantly breaks debilitating magical effects on the character and grants her a turn of resistance against further Charm/spell-assisted attacks.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: Spirit and Body Purification Touch.",
+    "mechanics": "His throat laid open to the lifted knife, but interceding Gaia spared his life. The character guides her actions to overcome restraints upon the heart, body, mind and soul. This instantly breaks any debilitating magical effects upon her, save for those imposed by the limits of her own Essence. In addition, for the remainder of the turn, the players of others must succeed at an Essence roll with a difficulty equal to the character's permanent Essence for their characters to affect the Sidereal with a Charm, spell or Charm-assisted attack. The Exalt can invoke this Charm reflexively to impede a magical attack against her.",
+    "cost": "12 motes, 1 Willpower",
+    "compatibility": "Duration: One turn. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 199,
+      "pdfPage": 202
+    },
+    "crossReferences": ["citrine-poxes-of-contagion-style", "spirit-and-body-purification-touch"],
+    "notes": "Epigraph (Student's Sutra of Decay): 'His throat laid open to the lifted knife, but interceding Gaia spared his life.'"
+  },
+  {
+    "id": "flare-of-invulnerability-method",
+    "name": "Flare of Invulnerability Method",
+    "disposition": "selectable",
+    "summary": "Converges Perfect Reconstruction Method and Spirit and Body Purification Touch; a scene-long Charm that burns Essence to add temporary Essence to the character's bashing and lethal soak.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: Perfect Reconstruction Method, Spirit and Body Purification Touch.",
+    "mechanics": "...commands them in his stead a heifer slay, for the sun's rage was now removed away. The character stirs the Essence within her into a furious conflagration of pure life and energy. For the remainder of the scene, she adds her temporary Essence to her bashing and lethal soak. However, she must burn through at least 10 motes of Essence each turn (losing any she does not spend). Further, no combination of effects can allow her to regain more than 5 Essence in a given turn.",
+    "cost": "10 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 199,
+      "pdfPage": 202
+    },
+    "crossReferences": ["citrine-poxes-of-contagion-style", "perfect-reconstruction-method", "spirit-and-body-purification-touch"],
+    "notes": "Epigraph (Student's Sutra of Decay): '...commands them in his stead a heifer slay, for the sun's rage was now removed away.'. Text spans the printed p. 199/200 (PDF 202/203) page break; transcribed as one continuous entry."
+  },
+  {
+    "id": "citrine-poxes-of-contagion-form",
+    "name": "Citrine Poxes of Contagion Form",
+    "disposition": "selectable",
+    "summary": "The first diagram's capstone Form Charm, converging one complete martial art plus Essence-Disrupting Infectious Atemi, Inner Dragon Unbinding, and Flare of Invulnerability Method; an infectious Martial Arts attack inflicting the Third Circle Revel Outside the Sealing of the Gates illness (Iphimedeia), while granting the character herself immunity to disease and poison.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 5; Prerequisite Charms: One complete martial art (all Charms), Essence-Disrupting Infectious Atemi, Inner Dragon Unbinding, Flare of Invulnerability Method.",
+    "mechanics": "...From him the malady received its name. The character moves in a sinuous pattern that makes the flows of Essence about her weep. An anima banner-like effect rises above her, displaying a lattice-work of dripping wet Essence with sea water and blood. This is the symbol of the sickness named Iphimedeia, the Revel Outside the Sealing of the Gates. The air out to (her Essence x 10) yards from the character becomes redolent with contagion. Starting the next turn, all those within that distance of the Exalt risk infection. The Exalt can protect a number of allies up to her permanent Essence from this effect. This is an infectious Martial Arts attack. It does not require that the character strike her targets, but perfect blocks and perfect dodges still protect against the outpouring of disease. A victim of Iphimedeia finds the flesh of his body twisting and flowing, melting while remaining yet alive. This does one level of unsoakable aggravated damage per turn but stops when aggravated damage hits the -0 and -1 wound tracks. Characters protected against the influence of the Wyld do not suffer from this effect. The infected also find their legs twitching with the desire to dance. In any given turn, a victim can choose to succumb, devoting a dice action to dancing, adding his Essence in automatic successes to the Performance roll and losing control over his movement; he normally dances around any object or person chosen by the Storyteller at a distance of 10 yards. Alternately, he can resist: struggling with his own body reduces his effective Dexterity to 0. The greater a victim's self-control, the more Iphimedeia impedes him: in each turn, he must fail a Temperance roll, spend a Willpower point, or lose his action as patches of the air become as hard as iron to him; choosing to dance does not protect him from this effect. If appropriate to the game style, female Dragon-Blooded Aspects of Water find themselves pregnant after catching and recovering from Iphimedeia; if so, the child always Exalts. The Revel Outside the Sealing of the Gates is a Third Circle illness. Characters whose players roll against the Sidereal's Essence to resist lose all dice from their Stamina + Resistance pool bonuses granted by Charms before the application of those Charms. Characters using this Form are immune to any disease and poison, as if employing the Immunity to Everything Technique. Mundane Treatment Difficulty: 10. Magical Treatment Difficulty: 4.",
+    "cost": "15 motes, 1 Willpower",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 200,
+      "pdfPage": 203
+    },
+    "crossReferences": [
+      "citrine-poxes-of-contagion-style",
+      "citrine-poxes-of-contagion-infectious-martial-arts",
+      "essence-disrupting-infectious-atemi",
+      "inner-dragon-unbinding",
+      "flare-of-invulnerability-method"
+    ],
+    "notes": "Epigraph (Student's Sutra of Decay, closing line): '...From him the malady received its name.' -- closing the sutra begun with Flare of Invulnerability Method's line. This is the first diagram's capstone, converging Essence-Disrupting Infectious Atemi, Inner Dragon Unbinding, and Flare of Invulnerability Method with a fourth prerequisite of mastering one complete martial art (all of its Charms), per the printed stat block; text spans the printed p. 200/PDF 203 column break within the page. Immunity to Everything Technique is an external cross-reference (a Solar/general Charm from Exalted core) not independently inventoried here."
+  },
+  {
+    "id": "spiritual-perfection",
+    "name": "Spiritual Perfection",
+    "disposition": "selectable",
+    "summary": "First Charm of the second Citrine Poxes of Contagion diagram, extending Citrine Poxes of Contagion Form; a cheap reflexive Charm that grants permanent immunity to an exposed poison/disease and lets the character halve or negate the damage/disabling effects of specific attacks.",
+    "requirements": "Minimum Martial Arts 6; Minimum Essence 5; Prerequisite Charms: Citrine Poxes of Contagion Form.",
+    "mechanics": "The Elder Sutra of Decay: Once, there was a crippled maiden... The character's understanding of the processes by which one balances or unbalances the flow of a person's Essence helps him shield himself from his own disability. For a single mote of Essence, he can render himself permanently immune to any poison or disease to which he has been exposed. He can also spend a mote of Essence to halve the damage from a disabling effect after damage is rolled, or to reflexively protect himself from a disabling effect upon his body. He must invoke the Charm once for each attack or effect. For example, hit by a Lightning Torrent Hatchet, the Sidereal could spend 1 mote to halve the damage taken and 1 mote to block its painful, disabling effect. The character cannot remove disabilities originating outside his body, such as shackles binding his wrists. All of these effects are perfect. The character is the master of his own body and mind.",
+    "cost": "1 mote",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 200,
+      "pdfPage": 203
+    },
+    "crossReferences": ["citrine-poxes-of-contagion-style", "citrine-poxes-of-contagion-form"],
+    "notes": "Opens the style's second sutra, 'The Elder Sutra of Decay,' distinct from the first diagram's 'Student's Sutra of Decay'. The source text momentarily lapses into 'her disability' mid-paragraph despite using 'him/his' throughout the rest of the Charm; normalized to 'his' here and flagged as a probable pronoun inconsistency in the original rather than a deliberate distinction. Lightning Torrent Hatchet is an external cross-reference (an Abyssal Charm) not independently inventoried in this Sidereal file."
+  },
+  {
+    "id": "gentle-touch-of-the-wicked-hand",
+    "name": "Gentle Touch of the Wicked Hand",
+    "disposition": "selectable",
+    "summary": "Extension of Spiritual Perfection; an infectious Martial Arts attack that lets the character design and inflict arbitrary custom Third Circle spiritual illnesses, mirroring Essence-Disrupting Infectious Atemi's First/Second Circle version.",
+    "requirements": "Minimum Martial Arts 6; Minimum Essence 7; Prerequisite Charms: Spiritual Perfection.",
+    "mechanics": "...who told me this: 'You shall know your enemies when they teach you to fear'. One who approaches mastery of Decay-style martial arts learns ten thousand subtle principles of infection, each of which she can employ ten thousand different ways. Applying them in combination, she can wreak the greatest forms of havoc upon the Essence flows of her enemies. The character can use this Charm as an infectious Martial Arts attack to contaminate others with arbitrary Third Circle illnesses. Characters develop their own Third Circle illnesses for use with Gentle Touch of the Wicked Hand. Infection follows the ordinary rules for infectious Martial Arts, save that it is intrinsically more difficult -- as noted above -- to resist Third Circle illnesses. Creating a Third Circle infection requires an Intelligence + Medicine roll. The Storyteller sets the difficulty between 5 and 10, based on the disease's effects. Reduce this difficulty by one point if another Sidereal Exalted teaches the character this disease. The Sidereal can attempt to realize a general infection concept, her player making the appropriate roll, no more than once in every year. Normally, characters practice the infliction of new spiritual infections before testing them in battle. Developing diseases on the fly imposes a +2 difficulty penalty. It also requires the Storyteller's permission and requires a separate action from the blow that inflicts the disease.",
+    "cost": "15 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 200,
+      "pdfPage": 203
+    },
+    "crossReferences": ["citrine-poxes-of-contagion-style", "spiritual-perfection", "essence-disrupting-infectious-atemi"],
+    "notes": "Epigraph (Elder Sutra of Decay): '...who told me this: \"You shall know your enemies when they teach you to fear\"'. Text spans the printed p. 200/201 (PDF 203/204) page break; transcribed as one continuous entry. This Charm is the Third Circle counterpart to Essence-Disrupting Infectious Atemi's First/Second Circle custom-disease design rules, following the same Intelligence + Medicine creation procedure at a higher (5-10) difficulty band."
+  },
+  {
+    "id": "glorious-sidereal-protection",
+    "name": "Glorious Sidereal Protection",
+    "disposition": "selectable",
+    "summary": "Second extension of Spiritual Perfection; a scene-long protective Charm that converts a target's aggravated damage to lethal damage before soak, stacking with lethal-to-bashing conversion Charms.",
+    "requirements": "Minimum Martial Arts 6; Minimum Essence 7; Prerequisite Charms: Spiritual Perfection.",
+    "mechanics": "...what is whole. The character learns to guard himself and others from even the most terrible attacks. This Charm manipulates one target's Essence. Under its effects, she automatically converts any aggravated damage she receives to lethal damage, before soak. This stacks with Charms that convert lethal to bashing damage; characters under both effects convert all damage directly to bashing. The character can use this Charm on himself.",
+    "cost": "15 motes, 1 Willpower",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 201,
+      "pdfPage": 204
+    },
+    "crossReferences": ["citrine-poxes-of-contagion-style", "spiritual-perfection"],
+    "notes": "Epigraph (Elder Sutra of Decay): '...what is whole'. Text mixes pronoun gender within the same short paragraph ('guard himself'... 'she automatically converts'... 'use this Charm on himself'), transcribed as printed rather than normalized."
+  },
+  {
+    "id": "essence-shattering-typhoon",
+    "name": "Essence-Shattering Typhoon",
+    "disposition": "selectable",
+    "summary": "The Citrine Poxes of Contagion Style's true capstone, converging Gentle Touch of the Wicked Hand and Glorious Sidereal Protection; an unblockable, undodgeable expanding wave of aggravated damage or Third Circle illness that grows further outward each turn it is sustained.",
+    "requirements": "Minimum Martial Arts 7; Minimum Essence 7; Prerequisite Charms: Gentle Touch of the Wicked Hand, Glorious Sidereal Protection.",
+    "mechanics": "...and what is diseased. The character's fists blur as she pounds them against the air, shattering the currents of the world and casting a storm of broken and tainted Essence toward her foes. In the first turn, the effects extend three yards from her fists. Anyone and anything immediately in front of her suffers either 15 dice of aggravated damage or a Third Circle illness she has learned to inflict (targets can resist the disease normally). This is an unblockable, undodgeable effect. For each turn that the Exalt continuously performs this Charm, the effects stretch one mile further forward and a tenth of a mile further to each side. This Charm is a semi-physical effect, and does not reach through unbroken walls, earth, trees, etc. until the turn it either destroys them or has a route around them. It does not extend behind the character or to her sides.",
+    "cost": "6 motes, 1 Willpower",
+    "compatibility": "Duration: One turn. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 201,
+      "pdfPage": 204
+    },
+    "crossReferences": ["citrine-poxes-of-contagion-style", "gentle-touch-of-the-wicked-hand", "glorious-sidereal-protection"],
+    "notes": "Epigraph (Elder Sutra of Decay, closing line): '...and what is diseased.' -- closing the couplet begun with Glorious Sidereal Protection's 'what is whole' line. This Charm closes out the Citrine Poxes of Contagion Style's full 13-Charm tree (across both linked diagrams): Feverish Essence Discharge Atemi, Disjointed Essence Infectious Atemi, Convulsive Displacement Infectious Atemi, Essence-Disrupting Infectious Atemi, Perfect Reconstruction Method, Spirit and Body Purification Touch, Inner Dragon Unbinding, Flare of Invulnerability Method, Citrine Poxes of Contagion Form, Spiritual Perfection, Gentle Touch of the Wicked Hand, Glorious Sidereal Protection, and Essence-Shattering Typhoon. Immediately after this Charm's text, printed p. 202/PDF 205 is a full-page illustration with no further Charm content, confirming the style's tree ends here."
+  },
+  {
+    "id": "sidereal-astrology-overview",
+    "name": "Sidereal Astrology (Colleges and Constellations overview)",
+    "disposition": "reference-only",
+    "summary": "Opens Chapter Six by explaining that Sidereal astrology is the mechanism by which the Exalt of Fate actually operates the Loom of Fate: rather than weaving destiny herself, a Sidereal petitions one of the 25 constellations' pattern spiders (organized into colleges under the five Maidens' astrological houses) to alter a target's fate on her behalf, and the basic act of doing so is a prayer roll to the college in question.",
+    "mechanics": "Before the Sidereal Exalted were created, the Maidens operated the Loom of Fate directly; Autochthon later built the pattern spiders and devised the college system so the Sidereals' authority to manipulate the Tapestry could be executed through the spiders instead. Colleges and Constellations: this ability is part of every Sidereal Exaltation and is fundamental to the pattern spiders' design; the current basis for Sidereal magic is the colleges, predispositions among the pattern spiders corresponding to the 25 constellations of the Exalted horoscope, grouped into five colleges-of-spider per Maiden's astrological house. A given house or college takes each destiny placed in their charge and subjects it to certain general kinds of fate until its time has elapsed, then passes it on to the next scheduled superintendent; this shifting is generally resolved by the spiders, who use internal metrics to determine the fate of their threads. Sidereal Power: the power of Sidereal astrology is to make pronouncements and have those pronouncements come true, by praying to the pattern spiders of a college and asking them to act on a target in some fashion the Sidereal requests; the spiders can perform one of eight functions on a target, and if they agree to the petition, the Exalt merely need touch her target to set new destiny in motion. This power is not limited to a single individual, but can impel families, cities, and even whole nations in new directions through history; even the Exalted can be steered by the masters of destiny. The limit on this power is the degree of authority and trust the colleges of the pattern spiders place in the Exalt: passing certification exams and training in a college's particular twists increases a Sidereal's initiation and degree of influence, and the spiders also become more trusting with Sidereal Essence as it increases. Using Sidereal Astrology: the basic act of altering the Tapestry is for the Sidereal to contact the college by making a prayer roll to its spiders (a standard prayer roll per the core Exalted book, pp. 335-336); Sidereals are automatically priests of any constellation they have initiation in (making the base difficulty of the Charisma + Performance roll to contact the spiders 5), and may not invoke constellations they have no initiation in, since the spiders listen only to their priests. Contacting the spiders through means other than prayer (such as Infallible Messenger) does not work, since the spiders are only listening for prayers on technical grounds and are disinterested in most subjects; there is no difficulty reduction for sacrifices of mortal or even Resources, but specific means exist (Petitions) to ease the difficulty of communication.",
+    "compatibility": "All Sidereal castes; requires initiation in the constellation/college being invoked (see the character-creation Colleges point-buy in sidereal-character-creation-overview).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 204,
+      "pdfPage": 207
+    },
+    "crossReferences": [
+      "sidereal-character-creation-overview",
+      "arcane-fate"
+    ],
+    "notes": "Chapter Six: Sidereal Astrology opener, 'Colleges and Constellations' and 'Sidereal Power' and 'Using Sidereal Astrology' sections, printed pp. 204-205 (PDF 207-208). The 'Checks and Balances' sidebar (PDF 205) recapping that Autochthon built the pattern spiders' automation and that Sidereal astrology cannot fundamentally reorder the Tapestry the way the Maidens' original direct control could is folded into these notes rather than given its own row, as pure setting color with no discrete mechanic of its own."
+  },
+  {
+    "id": "sidereal-astrology-petitions",
+    "name": "Sidereal Astrology Petitions (paperwork, calligraphy, co/countersignatures)",
+    "disposition": "calculated",
+    "summary": "Heaven runs on bureaucracy: a Sidereal who wants prompt, low-difficulty action from the pattern spiders should file written paperwork (a divine petition, prepared like a Charm prayer strip) rather than relying on an unbuffered prayer roll, and can further improve the roll with fine calligraphy, other Sidereals' cosignatures, a god's countersignature, extended/lengthy prayer, or ordinary stunts.",
+    "requirements": "The Sidereal must have initiation in the constellation/college being petitioned; a divine petition costs Resources •• to prepare as paperwork (in addition to any prayer-strip cost).",
+    "mechanics": "Divine Petition: a written petition prepared like a Charm prayer strip; the Sidereal's player rolls Wits + Linguistics or Wits + Craft (Calligraphy) at difficulty 2 to execute the strip properly (difficulty 4 if written in a single turn). Calligraphy: if the player attains four or more successes on the Linguistics/Craft (Calligraphy) roll, the difficulty of the prayer roll decreases by 1; six or more successes decreases it by 3 (no further benefit past that, though there is no difficulty penalty for prayers made without a petition at all -- only a +2 difficulty penalty if the character writes out the calligraphic strip that turn without adequate preparation time). Cosignatories: other Sidereals can sign a character's documents as an expression of bureaucratic/legal support, provided they are of the four other Sidereal castes, are initiates in the petitioned college, and have Essence equal to or lower than the petitioning character; each legal cosignatory adds one die to the prayer roll (each cosignatory rolls Wits + Linguistics or Wits + Craft (Calligraphy) at difficulty 1 to sign correctly; a botched signature ruins the petition and that signatory cannot sign again for that character in that capacity). There is no hard cap on cosignatories stated beyond the caste/Essence eligibility rule. Countersignatories: the god heading the college's division of the Bureau of Destiny may also sign off on a petition; a god's countersignature adds three dice to the prayer roll, but requires a separate prayer and sacrifice, made as a Charisma + Performance roll at difficulty 3 (reduced by 1 if the god is also head of that division). Seeking a countersignature from a god other than the character's direct supervisor generally requires a minimum Resources ••• sacrifice, subtract 3 from the value offered as the price of going around normal channels; most gods outside a character's division will decline to countersign without serious consideration or established favors (see Chapter Four's special petition-related trait guidance, printed pp. 123-125). Extended Prayers: Sidereals may repeat their prayer as many times as needed for clarity by adding one die to the prayer roll per three hours of ritual, to a maximum of three dice. Preferred Sacrifices: five named divinities (Ruvia/Golden Barque, Yaogin/Cerulean Lute, Hu Dai Liang/Crimson Panoply, Nara-O/Forbidding Manse, Wayang/Violet Bier) have listed favorite offering types; a sacrifice that is not of the divinity's preferred type has its Resources value decreased by one dot before being applied to the prayer roll. Stunts: well-described rolls (ritual behavior in preparing the petition, evocative prayer language, well-described stunt materials for the sacrifice) can add one to three dice as normal ritual-behavior stunts, per the 'Where Do the Stunts Go?' sidebar.",
+    "cost": "Divine petition: Resources •• (paperwork) plus the underlying prayer-strip cost; countersignature sacrifice: Resources ••• minimum if going outside the character's own division.",
+    "compatibility": "All Sidereal castes; cosignatories must be Sidereals of a different caste from the petitioner, initiated in the college in question, with Essence no higher than the petitioner's.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 206,
+      "pdfPage": 209
+    },
+    "crossReferences": ["sidereal-astrology-overview", "sidereal-astrology-effect-roll"],
+    "notes": "'Petitions' section, printed pp. 206-207 (PDF 209-210), plus the 'Create Petition'/'Cosignatures'/'Countersignatures'/'Lengthy Prayers'/'Stunts' Prayer Roll Modifiers recap folded in from the condensed 'Procedure for Sidereal Astrology' reference on printed p. 218/PDF 221 (the book restates the same petition mechanics there in quick-reference form; both passages are merged into this one row rather than duplicated as a separate row). Other Exalted (Lunars, Solars) are noted as also able to cosign a Sidereal's petition per printed p. 207/PDF 210, but that detail is peripheral to Sidereal mechanics and not separately modeled here."
+  },
+  {
+    "id": "sidereal-astrology-effect-roll",
+    "name": "Sidereal Astrology Effect Roll (Determining, Formulating and Activating Effects)",
+    "disposition": "calculated",
+    "summary": "Once a prayer roll succeeds, the Sidereal spends a point of temporary Willpower and rolls Essence + College rating to generate 'effect dice,' whose successes are spent to buy the target Scope, Duration and Power of an ascending (positive) or descending (negative) astrological effect; the player then formulates the effect in words, and it clings to the target ('goes contagious') until the Exalt's next touch or attack activates it.",
+    "requirements": "A successful prayer roll to the college (see sidereal-astrology-petitions); one point of temporary Willpower per effect roll.",
+    "mechanics": "Effect Roll: spend a point of temporary Willpower and roll Essence + the Sidereal's rating in the college being invoked; this is a relatively small dice pool, boosted by the modifiers below. The roll is reflexive and occurs immediately after a successful prayer roll. Players must state in advance what the goal of the prayer is and whether it is ascending, descending, or resplendent mode before rolling; ascending and descending invocations are generally positive/negative respectively but are targeted at others, while resplendent effects are unique Traits achievable by Exalted who place their own destinies in the precincts of a given constellation (covered separately under Resplendent Destinies). Determining Effect: Sidereal astrology petitions are written and interpreted like bureaucratic paperwork -- Sidereals request more than they expect to get, and even a cut request still lands as much as it reasonably could. The mechanical result is that the Sidereal chooses the target and effect type ahead of time, then the Essence + College roll's successes are 'spent' to buy how long the effect lasts (Duration) and how many/what kind of effects it has (Scope); the specific effects available are chosen from the Catalog of Colleges, while Duration and Scope are bought from the tables in the Effect Scope/Duration/Power system. Formulating the Effect: after the effect dice are rolled and successes spent, the Sidereal formulates the effect aloud as a pronouncement in a standard format ('I pronounce that [the subjects] taken into the College of [the constellation invoked] and there be subjected to [the effect] with effect frequency until the Duration elapses'); the player should write this down since a lack of written record leaves interpretation of ambiguous effects to Storyteller mercy. Activating Effects: after the prayer and effect rolls, ascending/descending effects are 'contagious' -- they hang on the target waiting for the Sidereal's touch or attack to set them in motion; the target never need know the Exalt was involved. A Sidereal can bear only a single contagious destiny at a time for another, but may hold a contagious effect intended for herself and a resplendent effect at the same time. Resplendent effects cannot be attached to others -- they only work on the Sidereal's own resplendent destiny (see Resplendent Destinies); their effect successes are reflexively available to the destiny immediately after the effect roll and access to them cannot be preempted. Effect Modifiers (adders to the Essence + College roll): Artificial Specialties -- Sidereals can develop specialties on the roll itself (not tied to any Ability) via Charms such as World-Shaping Artistic Vision, Systematic Understanding of Everything, or Methodology of Secrets. Destiny Planning -- a Sidereal may roll Intelligence + Craft (Fate) to preplan aspects of an astrological effect; the difficulty equals the target's permanent Essence (minimum 8 successes for planning against high-Essence targets), each planning attempt takes one day, and for every three successes on the planning roll the character receives an additional die on the effect roll. Precomputed Horoscopes -- Sidereals can pay the spiders to precompute horoscopes by observing the sky and doing arcane math for a full day and night; requires access to astrological devices (Resources •••, generally unavailable outside a major city), and the Intelligence + Occult roll for precomputing has difficulty 1 but the roll cannot generate more successes than were rolled on the destiny-planning roll (if one was made); every three successes on the Occult roll adds one die to the effect roll. Excellent Petition -- as covered in sidereal-astrology-petitions, well-prepared petitions (calligraphy, cosignatures, countersignatures) improve the base prayer roll and, by extension, the effects that follow from succeeding at it. Ritual Behavior -- add one die if the effect bears at least three of the college's listed trappings for three days before invoking it; add three dice if the character dons the resplendent destiny in question during that time; add one additional die if the effect target already resides in the precincts of the college. Multiple Sidereals -- add each participating Sidereal's Essence to the effect roll if all are legal cosignatories of the petition (see sidereal-astrology-petitions); when multiple Exalted work together, the one with the highest Essence rating in the college leads and, in case of a tie, the group chooses (or rolls off) who leads. Choose Effect -- the Sidereal must choose the target and the type of effect ahead of time, consulting the Catalog of Colleges for the specific effect and the Effect Scope/Duration/Power tables to buy its extent; add one Paradox die if the effect has a simple trigger, three Paradox dice if it has an intelligent trigger (see sidereal-astrology-scope-duration-power). Paradox Roll -- roll one die for invoking Sidereal astrology at all, plus one additional die per point of Paradox already accumulated; each 10 rolled adds a further point of Paradox, and characters who reach 10 Paradox suffer pattern bite.",
+    "cost": "One point of temporary Willpower per effect roll; see sidereal-astrology-paradox for the Paradox dice generated by invoking the effect.",
+    "compatibility": "All Sidereal castes; contagious (ascending/descending) effects can be attached to any target with a Scope-eligible Essence, but resplendent effects only ever target the Sidereal's own resplendent destiny.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 208,
+      "pdfPage": 211
+    },
+    "crossReferences": [
+      "sidereal-astrology-overview",
+      "sidereal-astrology-petitions",
+      "sidereal-astrology-scope-duration-power",
+      "sidereal-astrology-paradox",
+      "resplendent-destinies"
+    ],
+    "notes": "'Effect Roll', 'Determining Effect', 'Formulating the Effect', 'Activating Effects' and 'Effect Modifiers' sections, printed pp. 208-209 (PDF 211-212), merged with the condensed 'Effect Roll' quick-reference step (Excellent Petition/Preplanned Fate/Precomputed Horoscopes/Ritual Behavior/Multiple Sidereals/Choose Effect/Paradox Roll adders) from printed p. 219/PDF 222, since both passages describe the same underlying roll and its modifiers -- the second is the book's own condensed restatement rather than a distinct mechanic. The 'Where Do the Stunts Go?' sidebar (printed p. 210/PDF 213), which clarifies that ordinary stunts on the prayer/effect rolls or on preparing petitions and destinies can add 1-3 dice like any other Exalted stunt, is folded into these notes as flavor/GM guidance rather than given its own row."
+  },
+  {
+    "id": "sidereal-astrology-blessings-and-curses",
+    "name": "Sidereal Astrology Blessing/Curse Effect Types",
+    "disposition": "calculated",
+    "summary": "The eight generic ascending (blessing) and descending (curse) effect types Sidereals can lay on the subjects of the 25 constellations, ranging from mild dice bonuses and Willpower gains to Virtue-draining or lethal-in-the-long-run afflictions; the Sidereal cannot choose which of these effects a college offers, since each college is predisposed toward specific ones (see the Catalog of Colleges).",
+    "requirements": "A successful prayer and effect roll targeting a subject of the relevant constellation (see sidereal-astrology-effect-roll); each effect type is only available from certain colleges.",
+    "mechanics": "Artless Prodigy Blessing: -1 to target number for a roll. Blissful Idiot Blessing: the target regains 1 point of temporary Willpower from accomplishing a task related to the blessing; may be +1 success in an opposed test. Hound-Chases-Rabbit Blessing: the target gains +1 to a roll involving the blessing (may be +1 success in an opposed test). Fortified Spirit Blessing: the target gains +1 to (a Virtue determined when the blessing is laid) in a roll related to the blessing. Sloped Floor Curse: +1 difficulty to a roll involving the curse. Ruin Without Failure Curse: +1 difficulty to the target's roll involving the curse; may be 1 success in an opposed test. Heart-Piercing Curse: any failure on an Ability roll relating to the curse causes the character to lose a point of temporary Willpower. Name-Destroying Curse: the target loses -1 to (a Virtue determined when the curse is pronounced) in a roll related to the curse. These bonuses/penalties are a separate sort of bonus from anything else in Creation and stack with the effects of various forms of Essence manipulation; the only exception is that target numbers for a roll cannot be reduced below 4 or above 9. Sidereal Exalted can freely discard extra successes required to overdo a petition, so there is never a requirement to spend more successes than are needed on a Sidereal astrology effect roll.",
+    "cost": "Paid for in effect-roll successes spent on Scope/Duration/Power per sidereal-astrology-scope-duration-power; no separate cost of its own.",
+    "compatibility": "All Sidereal castes; the specific blessing/curse types available are fixed per college (see the Catalog of Colleges rows).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 210,
+      "pdfPage": 213
+    },
+    "crossReferences": ["sidereal-astrology-effect-roll", "sidereal-astrology-scope-duration-power"],
+    "notes": "'Effects' section's list of the eight named blessing/curse types, printed p. 210/PDF 213, immediately preceding 'Buying Effect Scope.' The Catalog of Colleges rows (House of Journeys/Serenity/Battles/Secrets/Endings) name each college's specific Resplendent Effects by their own unique names (e.g. 'Weak-Spine Sense'), which are distinct named powers layered on top of -- not identical to -- these eight generic ascending/descending effect types; the two systems are cross-referenced rather than merged."
+  },
+  {
+    "id": "sidereal-astrology-scope-duration-power",
+    "name": "Sidereal Astrology Effect Scope, Duration and Power Tables",
+    "disposition": "calculated",
+    "summary": "The three tables that convert an Effect Roll's successes into how many/large a population an ascending or descending effect covers (Scope), how long it lasts (Duration), and how strong or frequent it manifests (Power); high-Essence individual targets require spending successes differently than mass-Scope targets, and some Scope/Duration bands impose extra Paradox or a censure risk.",
+    "requirements": "Successes generated on the Essence + College effect roll (see sidereal-astrology-effect-roll).",
+    "mechanics": "Effect Scope (Affecting Masses of Men) -- successes spent to buy the number of Essence 1 (mortal-tier) individuals affected: 0 successes = an individual alone, no significant effect on the world around him; 1 = individual alone, but effects will noticeably alter the world around him (a private paradise or hell); 2 = small group/clique (up to 10); 3 = extended family/hamlet (up to 25); 4 = clan/village (up to 100) *; 5 = town/neighborhoods (up to 1,000) *; 6 = city (up to 10,000); 7 = principality/prefecture (up to 100,000) **; 8 = kingdom/dominion (up to 1,000,000); 9 = local region (about 10,000,000); 10 = astrological direction (about 100,000,000). One additional Paradox die is added if the effect has a simple trigger, three additional Paradox dice if it has an intelligent trigger. Effect Scope (Affecting High-Essence Beings) -- targets of Essence greater than 1 require one point of permanent Essence spent per target to affect (not successes); to affect a large population of high-Essence beings, the Sidereal must affect all of the high-Essence members of that population or the effect fails outright; Sidereals affecting themselves with Sidereal astrology must always spend two successes to do so, regardless of their Essence; no successes need to be spent to affect obedient local gods, but Sidereal sorcery cannot discriminate between mortals and Exalted within an affected population. Effect Duration -- successes spent to buy how long the effect lasts: 0 = one month; 1 = one season; 2 = one year *; 3 = 10 years; 4 = 20 years; 5 = 60 years (unto the third generation) ***; 6 = 140 years (unto the seventh generation) *; 7 = 260 years (unto the 13th generation); 8 = 600 years (unto the 30th generation); 9 = 1,000 years (unto the 50th generation); 10 = 2,000 years (unto the 100th generation). Effect Power (Frequency of Effect) -- successes spent to buy how strong/often the effect manifests: 1 = moderate, manifests about once per week; 2 = strong, manifests about once per day *; 3 = very strong, manifests about once per scene *; 4 = overpowering, manifests every chance it gets ***. Sidereals do not spend successes on Power when using resplendent effects on themselves, since resplendent effects consume successes when invoked rather than being bought for Power. Table Key (applies to all three tables): a plain asterisk (*) means the Sidereal invites the censure of his peers for choosing that band; a bullet (•) means the Sidereal rolls one additional Paradox die; three bullets (•••) means the Sidereal rolls three additional Paradox dice.",
+    "cost": "Paid entirely in effect-roll successes (or permanent Essence points for high-Essence individual targets); certain bands additionally cost Paradox dice or invite censure per the Table Key.",
+    "compatibility": "All Sidereal castes; the High-Essence Beings scope rule applies to any target of Essence 2 or higher, Exalted or otherwise.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 210,
+      "pdfPage": 213
+    },
+    "crossReferences": ["sidereal-astrology-effect-roll", "sidereal-astrology-censure", "sidereal-astrology-paradox"],
+    "notes": "'Buying Effect Scope,' 'Buying Effect Duration' and 'Buying Effect Power' discursive sections, printed pp. 210-212 (PDF 213-215), merged with the actual numbered Effect Scope/Effect Duration/Effect Power tables and Table Key printed on p. 219/PDF 222 (the tables themselves are physically printed several pages later than their discursive explanations, immediately before the Catalog of Colleges begins). The 'This Breaks the Game!' sidebar (printed p. 212/PDF 215), which is Storyteller guidance about not letting Sidereal astrology overshadow Solar/Lunar player characters, is folded into these notes as GM advice rather than a discrete mechanic."
+  },
+  {
+    "id": "sidereal-astrology-multiple-and-canceling-effects",
+    "name": "Sidereal Astrology Multiple Effects and Canceling Effects",
+    "disposition": "calculated",
+    "summary": "No individual can carry more Sidereal-astrology effects than points of permanent Essence at once (excess low-rolling effects simply dissipate, with resplendent destinies always treated as the lowest-priority/first-to-drop); a Sidereal can cancel her own astrology effects through official channels, but cannot cancel another Sidereal's, and effects a Sidereal's own next incarnation didn't bother to cancel run their full course.",
+    "requirements": "Canceling an effect requires drawing up a petition for the cancellation (as with creating one) and, if the effect had cosignatories or a countersignature, notifying them (informally is sufficient) and, while the original character is alive, having any co/countersignatories physically present to give their permission for cancellation.",
+    "mechanics": "Multiple Effects: an individual can be the target of no more than his points of permanent Essence in Sidereal astrology effects at once. If too many effects are placed on a given individual, the ones with the lowest Essence + College rating achieved on their effect roll dissipate; if a tie, the higher-rolling effect persists. Resplendent destinies are always treated as the same as other resplendent effects of that college -- i.e., always the lowest-priority tiebreak candidates for being knocked off when a new effect is rolled and replaces the current one. Canceling Effects: Sidereals cannot simply 'call off' an astrology effect informally, since it is the pattern spiders performing it, not the Sidereal directly; the Sidereal must submit an official petition for cancellation through bureau channels, which the spiders will honor. The difficulty to draw up the cancellation petition is the usual 2, but the difficulty of the prayer roll to cancel is 3. Fine calligraphy counts as usual toward reducing that difficulty. Sidereals can only cancel their own astrology, not that of other Sidereals; if a Sidereal dies, her next incarnation cannot terminate the effect -- another reason the elders urge young Sidereals to keep the Duration of their effects short. If a character cancels an effect with cosignatories or a countersigning god, all individuals involved must be made aware that the effect was canceled (even unofficial cosignees must be notified). If the character had other Sidereals present in the ritual to add to the effect roll, they must give their permission for cancellation and be physically present when the character sends the petition of cancellation to the pattern spiders; if they are deceased, then their next incarnation must attend to the matter instead.",
+    "cost": "A cancellation petition (difficulty 2 to prepare) and prayer roll (difficulty 3); requires physical presence/permission of any surviving co/countersignatories.",
+    "compatibility": "Only the originating Sidereal may cancel her own effects; another Sidereal's astrology, or effects left uncanceled after the originator's death, run their full Duration.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 212,
+      "pdfPage": 215
+    },
+    "crossReferences": ["sidereal-astrology-effect-roll", "resplendent-destinies"],
+    "notes": "'Multiple Effects' and 'Canceling Effects' sections, printed p. 212/PDF 215, positioned between the Scope/Duration/Power discussion and 'The Cost' (censure/Paradox) header."
+  },
+  {
+    "id": "sidereal-astrology-censure",
+    "name": "Sidereal Astrology Censure",
+    "disposition": "calculated",
+    "summary": "Censure is the formal, social/professional disapproval a Sidereal incurs from peers and superiors in the Bureau of Destiny for careless or self-serving use of astrology (flagged by the asterisk entries in the Scope/Duration/Power tables); it has no direct mechanical penalty of its own but accumulates as a reputational black mark that supervisors track and that can affect career advancement, scheduling, and how much scrutiny a Sidereal's future petitions receive.",
+    "requirements": "Triggered automatically by choosing certain flagged Scope/Duration/Power bands (see sidereal-astrology-scope-duration-power's Table Key), or by using astrology in ways the Bureau considers wasteful, self-serving, disproportionate, or damaging to Heaven's professional image.",
+    "mechanics": "There are no direct mechanical effects for censure, but there are many indirect ones: Storytellers should keep track of the different characters' faux pas and abuses of fate, and ask whether the Exalt had to modify the difficulty of rolls to socialize with anyone in the bureau, or has had one of those problems become common knowledge. No supervisor wants to spend time with an Exalt who keeps her away from her Manse and the office at least three nights a week. Considerations that increase censure risk: proportionality (using a ridiculous amount of work to plan and police the edges of a minor concern, or using Scope abusively for petty or grandiose ends -- turning a wrong against the 30th generation, or plunging whole regions of Creation into prosperity or ruin, for example); professional image (making the Bureau of Destiny look stupid or ineffectual damages the department's reputation, and Sidereals are expected to uphold the mystery and enigmatic power of the bureau by keeping miracles subtle -- 'no miracle at all' is often the goal); secrecy (astrological magic is not a supernatural martial-arts technique and its use should stay hidden; overuse makes everyone in the Bureau of Destiny work harder, since elder Sidereals must clean up any visible mess in the Tapestry). Senior members of the Dynasty are not typically subjected to astrology at all (and if they are, it is usually already an Essence + College effect of long Duration -- 13 generations or higher); Sidereals are expected to refrain from any Sidereal astrology on the Blessed Isle without written permission from Chejop Kejak or a member of the Inner Circle, gods of Essence 5 or higher and their mortal lovers are off-limits for political reasons, and using Sidereal astrology on a Celestial deity of any sort requires approval from a censor (usually given only to permit the Sidereal to exact punishment for a crime, or when the character is guilty of violating the rights of the deity).",
+    "cost": "n/a (reputational, not a dice-pool or Paradox cost); tracked informally by the Storyteller/Bureau rather than a numeric Trait.",
+    "compatibility": "All Sidereal castes; particularly relevant to any effect flagged with an asterisk in the Scope/Duration/Power tables.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 212,
+      "pdfPage": 215
+    },
+    "crossReferences": ["sidereal-astrology-scope-duration-power", "sidereal-astrology-paradox"],
+    "notes": "'The Cost' intro and 'Censure' section, printed pp. 212-213 (PDF 215-216). The 'Mortal Astrology and Sidereal Effects' sidebar (printed p. 213/PDF 216), which explains that mortal astrologers and even other Sidereals not using the Treasure Trove college cannot detect what Sidereal effects a target is under (destinies read amiss but the underlying mechanism stays hidden), is folded into these notes as clarifying color rather than a discrete mechanic."
+  },
+  {
+    "id": "sidereal-astrology-paradox",
+    "name": "Sidereal Astrology Paradox",
+    "disposition": "calculated",
+    "summary": "Paradox tracks the pattern spiders' own displeasure at having their weaving diverted from its natural course; every invocation of Sidereal astrology risks generating it (regardless of how carefully or kindly it's used), certain resplendent-destiny events generate more of it per the Paradox Gain table, and accumulating 10 points triggers pattern bite.",
+    "requirements": "Any use of Sidereal astrology (an effect roll) risks Paradox gain; resplendent destinies generate Paradox from a separate list of triggering events (see the Paradox Gain table under resplendent-destinies).",
+    "mechanics": "The pattern spiders resent constant orders to veer from their normal weaving; their discontent when a given Sidereal is called Paradox, a measure of how much the spiders feel the Exalt's actions run directly against the natural course of destiny. There are two ways Sidereals gain Paradox: by using Sidereal astrology at all, and by using it in ways that displease the pattern spiders. The first is simple: as far as the spiders are concerned, the best amount of use for Sidereal astrology is 'none,' and so they penalize all Sidereals merely for invoking it. Every time the Sidereal invokes an astrological effect, her player must roll a die. For every success rolled, the Sidereal gains a single point of Paradox. 10s count as two successes on this roll, and so Sidereals may get more Paradox than they expect from a given effect. In addition, there are certain well-known criteria that affect the pattern spiders' feelings toward a character; these are included in the Paradox Table and the Duration and Scope tables (see the Table Key entries flagged with bullets, printed p. 219/PDF 222). Certain resplendent-destiny events also generate Paradox when invoked (see resplendent-destinies' Paradox Gain table). In general, the longer the Sidereal astrology effect and the more individuals it affects, the less the spiders like it. For each point of disfavor a character incurs, the die must roll for invoking the effect at all, 10s add two points of Paradox, so Sidereals may incur more Paradox than they expect at their own risk.",
+    "cost": "1 die per invocation of Sidereal astrology, gaining 1 Paradox per success (10s count double); additional Paradox from flagged Scope/Duration/Power bands and from Resplendent Destiny triggers.",
+    "compatibility": "All Sidereal castes; Paradox accumulates on the individual Sidereal, not shared across cosignatories.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 214,
+      "pdfPage": 217
+    },
+    "crossReferences": ["sidereal-astrology-effect-roll", "sidereal-astrology-pattern-bite", "resplendent-destinies"],
+    "notes": "'Paradox' section, printed p. 214/PDF 217, between 'Censure' and 'Pattern Bite.'"
+  },
+  {
+    "id": "sidereal-astrology-pattern-bite",
+    "name": "Sidereal Astrology Pattern Bite",
+    "disposition": "calculated",
+    "summary": "The instant a Sidereal accumulates 10 or more points of Paradox, the pattern spiders lash out with a venomous 'pattern bite' (rolled on a 1-10 table of ten distinct debilitating effects, from Essence/Willpower drains to death for the character's loved one), then immediately reduce her Paradox to 0; Paradox otherwise decays on its own by one point every three months, faster through a costly ritual called the Wrapped Fly Ritual.",
+    "requirements": "Triggers automatically the instant a Sidereal's Paradox reaches 10 or more points.",
+    "mechanics": "Paradox is more than just a tally of displeasure -- when the pattern spiders have been sufficiently displeased, they make their consternation known in more concrete ways, called pattern bite. The instant a Sidereal accumulates 10 or more points of Paradox, the furious spiders call out to their brothers, who jab at the Exalt's thread with their fangs. The venom causes a variety of negative effects, with the intent of persuading her toward greater discretion in her manipulations of destiny. Roll 1d10 and consult the table: 1. Power-Neutralizing Venom -- the Sidereal loses all her temporary Essence as her player makes the effect roll and cannot regain Essence for 1-10 days. 2. Blunted Mind Venom -- the Sidereal loses all her Willpower as her player makes the effect roll and cannot regain Willpower for 1-10 days afterward. 3. Burning Muscle Venom -- -3 wound penalty for 1-10 weeks; cannot be neutralized or modified. 4. Divine Anaesthetic Venom -- -1 to permanent Essence for 1-10 weeks; cannot raise Essence during this period. 5. Resolve-Decaying Venom -- the character loses all remaining temporary Virtue points for the remainder of the story. 6. Essence-Weeping Venom -- +1 mote to the cost of all Charms for 1-10 days, and the penalty cannot activate on each use of every Charm; the penalty must be paid on each activation of Combos or sorcery. 7. Visage-Twisting Venom -- the character is reduced to Appearance 0 for 1-10 months. 8. Black Voyage Venom -- the character sleeps for 1-10 days, dreaming terrible nightmares of the Loom of Fate. Nothing can awaken him until then. 9. Essence Venom -- take 1-10 dice of aggravated damage. 10. Dead Wife Venom -- some living person or creature the character loves dies horribly. The victim must have Essence 1; if the character does not have anyone of Essence 1, the venom lies in wait until the moment the character does love such a thing, and then slays it instantly. This is the only pattern-spider venom that one can become immune to through repeated exposure. Dissipating Paradox: the pattern spiders have deliberately finite memories for offenses -- every season (three months), a Sidereal's Paradox naturally forgets one point of offense. This means that even a Sidereal literally on the verge of pattern bite can dissipate her Paradox by going just a year and four seasons without invoking any Sidereal astrology effects. When a Sidereal suffers pattern bite, its collective anger is spent and her Paradox immediately decreases to 0. All Sidereals who have been initiated into a college have knowledge of the Wrapped Fly Ritual, a more advanced form (the Wrapped Diamond Ritual) also exists: the Wrapped Fly Ritual requires 25 hours of her life to perform, must be accompanied by a written apology and verse describing the succulent nature of the offering, and only pleases the spiders if genuinely well-crafted (a Charisma + Performance roll at difficulty 3, including the value of the sacrificed verse and the petition); success removes a point of Paradox and costs a point of Willpower (Conviction is not regained when the character next wakes). The Wrapped Diamond Ritual instead spends a day of enforced lassitude (Temperance, difficulty 2); if the character's player also makes successful calligraphy and prayer rolls, she loses a point of experience and reduces her Paradox to 0 -- it doesn't matter if the character doesn't have enough experience to pay, allow her to go into arrears for it, fate will collect due out of the next experience point award.",
+    "cost": "Automatic at 10+ Paradox, resetting Paradox to 0; the Wrapped Fly Ritual costs 25 hours and 1 Willpower to remove 1 Paradox point, the Wrapped Diamond Ritual costs a day and 1 experience point to reduce Paradox fully to 0.",
+    "compatibility": "All Sidereal castes; only Sidereals initiated into a college know the Wrapped Fly/Diamond Rituals.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 214,
+      "pdfPage": 217
+    },
+    "crossReferences": ["sidereal-astrology-paradox"],
+    "notes": "'Pattern Bite' section and its 1-10 venom table (printed pp. 214-215/PDF 217-218), plus 'Dissipating Paradox' (printed p. 215/PDF 218) covering the natural Paradox decay rate and the Wrapped Fly/Diamond Rituals."
+  },
+  {
+    "id": "resplendent-destinies",
+    "name": "Resplendent Destinies",
+    "disposition": "calculated",
+    "summary": "A resplendent destiny is a self-targeted Sidereal astrology effect that lets the Exalt assume a simplified, constellation-flavored alternate identity ('in character' as her college's archetype) at will, avoiding the visibility/Paradox costs of her Arcane Fate anima banner and gaining access to that college's resplendent powers; maintaining the ruse convincingly (and the Paradox it generates from suspicious or out-of-character behavior) is the central balancing cost.",
+    "requirements": "The Sidereal must have initiation in the college whose resplendent destiny she wants to assume; invoking or ending a specific identity costs one point of temporary Willpower and takes a turn.",
+    "mechanics": "Originally an amplifier for astrology granting an assortment of interesting powers tied to the ascending/descending precincts of the colleges, resplendent destinies became far more important after the Sidereals damaged the Mask trying to conceal themselves during the Solar Purge -- Sidereals can no longer use the ascending/descending effects of that college on themselves, only resplendent effects, and resplendent destinies became the easiest way for Sidereal Exalted to take on false identities strong enough to withstand scrutiny over stretches of time longer than a few moments. By assuming the generic identity outlined by a constellation, the Sidereal can maintain a lasting sort of identity so long as she 'stays in character' as the constellation; Sidereals don't act as part of the pattern spiders and attract Paradox if this seems too harsh, since the character is acting inappropriately while wearing a metaphysical archetype like a cloak. The destinies are temporary, meant to fulfill the needs of the moment; when a destiny's effect points are used up, its specific life and history are never revived, and Arcane Fate quickly forgets it ever existed. This is excellent for intervention operations, but hard on Sidereals who want to build meaningful relationships. Other Sidereal Exalted see the character normally and can tell she's wearing a resplendent destiny, but don't know anything about it other than what the Sidereal's trappings suggest. Changing What You Are: normally the Sidereal is 'herself,' concealed behind the Arcane Fate. However, by spending a Willpower and taking no action for a turn, she can don one of her resplendent destinies active on the character; people will now recognize her as a person of that college's 'type,' and she can give her name and have it remembered. The persona assumed for a given identity always remains the same for a given resplendency (that is, the same for every resplendent astrology effect created for the character by the college), but the identity establishes it remains even after it is sent into the background. Being What You Aren't: the Arcane Fate means observers have to masquerade as their resplendent destiny is at +3 dice, and the difficulty is 1, even if the Sidereal is disguising himself as someone of a different build or gender. However, the downside is that a character must to some extent live the existence of her resplendent identity; creative reinterpretations of the constellations are something of an art form in Yu-Shan, but the character must be fundamentally true to the college's description and trappings -- someone who is resplendent as the Gauntlet cannot dress and act as a brutal policeman today and a wicked stepmother the next day through use of the same resplendent destiny. A character must choose a single identity and maintain it out of character for a single die for Paradox. In terms of how strict the Storyteller should use this simple rule of common sense: if you saw the kind of person the Exalt would be imitating performing the act, would you think it was uncharacteristic? Not good or bad, positive or negative, but out of expectation from a person like that? If so, it's an out-of-character act and causes the Sidereal's player to roll a die for Paradox. Unwitnessed out-of-character acts are still out of character, and unrealized desired actions through the lens of their resplendent destiny or else put aside for a moment and risk confusing anyone happening to be watching. Resplendency Paradox: Sidereals who don a resplendent fate act against its fundamental assumptions and attract the ire of the pattern spiders, as they're forcing the spiders to perform work outside the general flow of Creation. Whenever a Sidereal acts as a resplendent destiny, its powers never generate Paradox for the Exalt (even if used in front of large crowds), and are out of fate for the destiny -- they may cause many questions and difficulties but the pattern spiders will not strike the character down for it. Unlike ascending and descending effects, the powers of resplendent destinies work on creatures outside fate. Paradox Gain table -- Event: Paradox Dice: every out-of-character act = 1 die; every month you live in a location where you've had a dozen or more known resplendent destinies during the last 10 years = 1 die; character wearing a resplendent destiny causes her anima banner to activate at the 4-7 level = 1 die; ...at the 8-10 level or above = 2 dice; confusing meeting as her Exalted self with someone she's had contact with while wearing a resplendent destiny = 1 die; confusing meeting as another resplendent destiny with someone she's had contact with as a resplendent destiny = 1 die; ...and they conclude she's one resplendent destiny imitating another = 2 dice; ...and they conclude she's a supernatural being = 3 dice. Using Resplendent Powers: Sidereal characters have access to the powers of all their resplendent destinies at all times, even if they are simply being 'themselves' or actively masquerading behind a different resplendent destiny; invoking resplendent powers is generally reflexive unless they allow attacks, in which case they're simple actions. Resplendent powers never generate Paradox for the Exalt even if used in front of large crowds and are out of fate for the destiny -- but they may cause many questions and difficulties -- the pattern spiders will not strike the character down for it. Unlike ascending and descending effects, the powers of resplendent destinies work on creatures outside fate. Note that the character cannot exercise a power in a destiny if she wishes to maintain an identity; if the destiny's effect points are expended or it ends, the identity will dissolve in the Arcane Fate, and a character cannot have two of the same destiny on herself. Wanting, Ceasing and Walking Outside Fate (sidebar): certain Charm effects (Ceasing to Exist Approach, Wanting and Fearing Prayer, Walking Outside Fate) can alter a character's fate dramatically at the same time as a resplendent destiny; where these Charms are in effect at the same time as a resplendent destiny, the Charms' effects take precedence over the Sidereal astrological effect, but do not supersede it. Characters with resplendent destinies are subject to Wanting and Fearing Prayer adopting new station and identity with their resplendent destiny; Sidereals using Ceasing to Exist Approach must choose new identities for their resplendent destinies as well, but don't bother to do so unless the character actually plans to don them. Characters who are Walking Outside Fate cannot invoke any resplendent destiny powers while they are, for that time, walking outside of fate; while they have no destiny, the resplendent destinies do not disappear, they are merely inaccessible.",
+    "cost": "1 Willpower and a turn to don/end a resplendent identity; Paradox risk per the Paradox Gain table (out-of-character acts, anima banner triggers at 4-7/8-10+, confused identity meetings).",
+    "compatibility": "All Sidereal castes; requires initiation in the college whose destiny is assumed; interacts with (but does not supersede) Ceasing to Exist Approach, Wanting and Fearing Prayer, and Walking Outside Fate.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 215,
+      "pdfPage": 218
+    },
+    "crossReferences": ["sidereal-astrology-effect-roll", "sidereal-astrology-paradox", "arcane-fate", "arcane-fate-anima-banner-visibility-table"],
+    "notes": "'Resplendent Destinies' section in full: intro, 'Changing What You Are,' 'Being What You Aren't,' 'Resplendency Paradox' (with its Paradox Gain table), and 'Using Resplendent Powers,' printed pp. 215-217 (PDF 218-220). The 'Wanting, Ceasing and Walking Outside Fate' sidebar (printed p. 216/PDF 219) is folded into this row's mechanics rather than split out, since it is a short cross-reference note about specific Charms' interaction with this same system rather than a separate mechanic. This closes out the resplendent-destinies system flagged as out-of-scope in arcane-fate-anima-banner-visibility-table's notes."
+  },
+  {
+    "id": "sidereal-astrology-procedure-and-catalog-overview",
+    "name": "Procedure for Sidereal Astrology and Catalog of Colleges (overview)",
+    "disposition": "reference-only",
+    "summary": "A condensed, quick-reference restatement of the full astrology procedure (optional pre-rolls, then the Prayer Roll and Effect Roll with all their modifiers) immediately precedes the Catalog of Colleges, which then lists the 25 constellations of the Exalted horoscope grouped into five houses (one per Maiden), each controlled by a college of pattern spiders with its own trappings, correlations and three named resplendent effects; mortals can learn a college's trappings/effects through Occult study but cannot work the astrology themselves, since the spiders answer only to Sidereal priests.",
+    "requirements": "n/a (reference/overview row); the underlying rolls are covered by sidereal-astrology-petitions and sidereal-astrology-effect-roll.",
+    "mechanics": "Procedure for Sidereal Astrology (condensed steps): (Optional) Plan Destinies -- roll Intelligence + Craft (Fate) with difficulty equal to the highest Essence of anyone to be directly affected by the invocation; Charms may apply to this roll, to a maximum of the character's Essence; requires one day of planning. (Optional) Compute Horoscopes -- roll Intelligence + Occult, difficulty 1, but the character cannot apply more successes than his destiny planning; requires one day of observation. (Optional) Ritual Behavior -- by bearing the trappings of the constellation for three full days before invoking the effect, the character can add one die to the effect test; a character who instead dons the resplendent destiny for the constellation gains three dice. Prayer Roll -- the Sidereal's player rolls Charisma + Performance, difficulty 6 (5 if it is one of the five colleges of his Maiden's astrological house). If the prayer fails, add destinies and horoscopes produced for it are ruined. Add 2 difficulty to the prayer roll if the character doesn't have a petition. Prayer Roll Modifiers: Create Petition -- roll Wits + Linguistics or Wits + Craft (Calligraphy) at difficulty 2; add 2 difficulty for drawing up the petition in a single turn; four or more additional successes subtract 2 from the difficulty of the prayer roll, four or more additional successes subtract 4 (see sidereal-astrology-petitions for the full breakdown). Cosignatures -- other Sidereals can sign the petition if authorized (see sidereal-astrology-petitions); each cosignatory's player must succeed at a difficulty 1 Wits + Linguistics or Wits + Craft (Calligraphy) roll; each cosignatory adds one die to the prayer roll. Countersignatures -- the god controlling the division of the college may also sign off; this requires a separate prayer and sacrifice, and characters praying for countersignatures are considered priests if they are praying to the head of their division; the signature adds three dice to the prayer roll. Lengthy Prayers -- add one die per three full hours of ritual, to a maximum of +3 dice. Stunts -- well-described rolls add one to three dice as normal; these stunts also often qualify as ritual behavior. Effect Roll -- the character spends a temporary Willpower, and his player rolls the Sidereal's Essence + College, plus any bonuses accumulated from planning, drawing horoscope, and ritual behavior. All effect adders stack with all other effect adders. Excellent Petition -- +1 effect die per additional three successes on the prayer roll. Preplanned Fate -- +1 effect die per additional three successes on the Craft (Fate) roll. Precomputed Horoscopes -- +1 effect die per additional three successes on the Occult roll. Ritual Behavior -- add one effect die if the effect bears at least three trappings for three days; add three dice if the character dons the resplendent destiny in question during that time; add one additional die if the target already resides in the precincts of the college. Multiple Sidereals -- add each Sidereal's Essence to the effect roll; all additional Sidereal participants must be legal cosignatories of the petition. Choose Effect -- must touch the target to activate it. Consult the Catalog of Colleges and the tables in this section for the effect. Sidereals must affect each being with Essence greater than 1 individually. Remember the effect doesn't work on other Sidereals and beings outside fate. Paradox Roll -- roll one die for invoking Sidereal astrology at all, plus one additional die per point of Paradox already accumulated (see sidereal-astrology-paradox). Catalog of Colleges (overview): the following are the 25 constellations of the Exalted horoscope. Each is controlled by a college of pattern spiders, and each is predisposed toward sorts of fates and destinies. These predispositions are not merely mythology or speculation in a book of horoscope, but details of the actual division of responsibilities among heavenly bureaus. At the same time, keep in mind that responsibilities among pattern spiders have more to do with the texture and tone of the Tapestry than any single objective measure. While the spiders are actual creatures, they are strange and difficult for human logic to understand. This is a guide, not an exhaustive reference; characters may justify unlikely effects through esoteric logic, or find that intuitive solutions are more difficult to justify than they appear. 'What Do Mortals Know?' sidebar: mortals know the names of the constellations and the images and astrological houses associated with them; those with Occult 1 know the trappings associated with them and may use them to attempt astrological magic, though this is ineffectual since the spiders only listen to Sidereal prayers; mortals know a fair amount about the constellations' purviews and effects but nothing at all about the Loom of Fate, the Bureau of Destiny, or the Sidereal Exalted.",
+    "cost": "n/a (procedural summary; see the individual rolls it recaps for their own costs).",
+    "compatibility": "All Sidereal castes; the base prayer difficulty of 5 (rather than 6) applies only to colleges within the Sidereal's own patron Maiden's house.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 218,
+      "pdfPage": 221
+    },
+    "crossReferences": ["sidereal-astrology-petitions", "sidereal-astrology-effect-roll", "sidereal-astrology-scope-duration-power", "sidereal-astrology-paradox"],
+    "notes": "'Procedure for Sidereal Astrology' (printed pp. 218-219/PDF 221-222) is a condensed quick-reference version of the same rolls already detailed discursively in sidereal-astrology-petitions and sidereal-astrology-effect-roll; it is captured here as a single overview row (rather than re-split into the earlier rows) so the Catalog of Colleges' own immediate lead-in ('Catalog of Colleges' header and 'What Do Mortals Know?' sidebar, printed pp. 219-220/PDF 222-223) stays attached to its context. The 25 individual colleges themselves are inventoried in five per-house rows (sidereal-astrology-house-of-journeys/serenity/battles/secrets/endings)."
   }
 ]
