@@ -506,8 +506,8 @@
     "name": "Prayer Strips",
     "disposition": "calculated",
     "summary": "Sidereal-specific Charm-fuel items: lengths of paper inscribed with a constellation's associated scripture, which a Sidereal must craft and infuse with a Charm before she can use that Charm, and which persist as physical, destructible, detectable objects that terminate the Charm if destroyed.",
-    "requirements": "Craft cost: Resources \u25cf\u25cf, six hours, and a Dexterity + Linguistics or Dexterity + Craft (Calligraphy) roll at difficulty 2 (difficulty 4 if made in a single turn; ready-made blank strips can be purchased in Yu-Shan).",
-    "mechanics": "A long time ago, someone or something inscribed the scriptures of the Maidens on the Loom of Fate, written in a cramped and ragged hand. This is a chaotic and unruly story that the Sidereal Exalted eventually deciphered and distilled to its barest essence. Inscribed on lengths of paper to form prayer strips, these stories contain a rich power available to those who master the Charms of an associated constellation. Each strip reflects in its structure something of the fundamental patterns of the stars, fate, and the broader existence. Each constellation has an associated story. The Charms for that constellation reflect that story's essential nature. Not all of the stories and Charms match the constellation's personality in tenor. The Sidereals occasionally debate the motivations that drew each stellar god to the scripture of their choice. In general, each story has a Charm that can infuse its prayer strip with power. Creating a prayer strip requires high-quality paper and ink (Resources \u25cf\u25cf), six hours and a Dexterity + Linguistics or Dexterity + Craft (Calligraphy) roll with a difficulty of 2. This difficulty rises to 4 if the character wishes to create a prayer strip in a single turn. In Yu-Shan, one can purchase ready-made blank prayer strips. A Sidereal with her prayer strip case on her person is considered to have reflexive access to the strips -- if she can have the Charm in hand, then she can activate it as it is on the Exalt. This only counts if the prayer strips are on the Exalt. It requires a Wits + Larceny roll to conceal prayer strips on one's person and a Perception + Awareness roll to spot them. Make only one roll for all the character's prayer strips. Until a Charm infuses the prayer strip with power, smearing the ink or crumpling the paper ruins the strip. Once infused, the prayer strip has a soak of 10 and 25 health levels. It reflexively blocks or dodges all attacks, even normally unblockable attacks, with a dice pool equal to the character's Dexterity + Dodge + Essence. Attacks are blunted by flares of power from a nearby immobile prayer strip, while mobile prayer strips dodge. Destroying the prayer strip instantly terminates the Charm. The use of Charms that require prayer strips generally produces major effects. Pattern spiders under prayer-strip destiny and the effects can derail many well-planned fates. Characters who use prayer-strip Charms without cause can be audited on a Severity 2 charge for either offense (see p. 136 of Chapter One for details of censures and audits). Characters who abuse these powers are likely to be censured by their faction leaders or supervisors because Sidereals are reluctant to press charges that would allow censors within the Bureau of Heaven to pass judgment on members of the Bureau of Destiny.",
+    "requirements": "Craft cost: Resources ●●, six hours, and a Dexterity + Linguistics or Dexterity + Craft (Calligraphy) roll at difficulty 2 (difficulty 4 if made in a single turn; ready-made blank strips can be purchased in Yu-Shan).",
+    "mechanics": "A long time ago, someone or something inscribed the scriptures of the Maidens on the Loom of Fate, written in a cramped and ragged hand. This is a chaotic and unruly story that the Sidereal Exalted eventually deciphered and distilled to its barest essence. Inscribed on lengths of paper to form prayer strips, these stories contain a rich power available to those who master the Charms of an associated constellation. Each strip reflects in its structure something of the fundamental patterns of the stars, fate, and the broader existence. Each constellation has an associated story. The Charms for that constellation reflect that story's essential nature. Not all of the stories and Charms match the constellation's personality in tenor. The Sidereals occasionally debate the motivations that drew each stellar god to the scripture of their choice. In general, each story has a Charm that can infuse its prayer strip with power. Creating a prayer strip requires high-quality paper and ink (Resources ●●), six hours and a Dexterity + Linguistics or Dexterity + Craft (Calligraphy) roll with a difficulty of 2. This difficulty rises to 4 if the character wishes to create a prayer strip in a single turn. In Yu-Shan, one can purchase ready-made blank prayer strips. A Sidereal with her prayer strip case on her person is considered to have reflexive access to the strips -- if she can have the Charm in hand, then she can activate it as it is on the Exalt. This only counts if the prayer strips are on the Exalt. It requires a Wits + Larceny roll to conceal prayer strips on one's person and a Perception + Awareness roll to spot them. Make only one roll for all the character's prayer strips. Until a Charm infuses the prayer strip with power, smearing the ink or crumpling the paper ruins the strip. Once infused, the prayer strip has a soak of 10 and 25 health levels. It reflexively blocks or dodges all attacks, even normally unblockable attacks, with a dice pool equal to the character's Dexterity + Dodge + Essence. Attacks are blunted by flares of power from a nearby immobile prayer strip, while mobile prayer strips dodge. Destroying the prayer strip instantly terminates the Charm. The use of Charms that require prayer strips generally produces major effects. Pattern spiders under prayer-strip destiny and the effects can derail many well-planned fates. Characters who use prayer-strip Charms without cause can be audited on a Severity 2 charge for either offense (see p. 136 of Chapter One for details of censures and audits). Characters who abuse these powers are likely to be censured by their faction leaders or supervisors because Sidereals are reluctant to press charges that would allow censors within the Bureau of Heaven to pass judgment on members of the Bureau of Destiny.",
     "cost": "n/a (framework)",
     "compatibility": "n/a",
     "verificationState": "reviewed",
@@ -3115,7 +3115,7 @@
     "disposition": "selectable",
     "summary": "Root Charm of the Bureaucracy tree; renders the Sidereal invisible to anyone who looks down on the Chosen or considers themselves the character's superior.",
     "requirements": "Minimum Bureaucracy 3; Minimum Essence 2; Prerequisite Charms: None.",
-    "mechanics": "By the will of the Maiden of Endings, who marks the end to every destiny, those who consider themselves above the process of fate find themselves most vulnerable to it. With this Charm, the character conceals his presence effectively from those who foolishly consider themselves his superiors: anyone who knows of the Sidereal Exalted and looks down upon them, or who considers himself superior to all others, simply cannot detect the Sidereal. The character instead registers on such an entity's senses only as a brief impression tied to his caste (a sense of somewhere to be for Journeys, peace and happiness for Serenity, intangible tension for Battles, d\u00e9j\u00e0 vu for Secrets, or a vague air of danger for Endings). Victims can still derive secondhand information from reports of the character's direct visual impression, and can even target the Sidereal based on that faint impression, but their dice pools for detecting or defending against the Sidereal start at 0 before Charms apply. A perfect counter to invisibility overcomes this effect, and it conceals the Sidereal's tracks for only the last few seconds of travel. This Charm has no effect on other Sidereal Exalted; the Storyteller decides whether a Storyteller character falls victim to it, though players of non-Sidereals may decide their own characters' opinions of the Sidereal Exalted explicitly. Learning this Charm requires the Maiden of Endings' approval.",
+    "mechanics": "By the will of the Maiden of Endings, who marks the end to every destiny, those who consider themselves above the process of fate find themselves most vulnerable to it. With this Charm, the character conceals his presence effectively from those who foolishly consider themselves his superiors: anyone who knows of the Sidereal Exalted and looks down upon them, or who considers himself superior to all others, simply cannot detect the Sidereal. The character instead registers on such an entity's senses only as a brief impression tied to his caste (a sense of somewhere to be for Journeys, peace and happiness for Serenity, intangible tension for Battles, déjà vu for Secrets, or a vague air of danger for Endings). Victims can still derive secondhand information from reports of the character's direct visual impression, and can even target the Sidereal based on that faint impression, but their dice pools for detecting or defending against the Sidereal start at 0 before Charms apply. A perfect counter to invisibility overcomes this effect, and it conceals the Sidereal's tracks for only the last few seconds of travel. This Charm has no effect on other Sidereal Exalted; the Storyteller decides whether a Storyteller character falls victim to it, though players of non-Sidereals may decide their own characters' opinions of the Sidereal Exalted explicitly. Learning this Charm requires the Maiden of Endings' approval.",
     "cost": "4 motes",
     "compatibility": "Duration: Indefinite. Type: Simple.",
     "verificationState": "reviewed",
@@ -3436,5 +3436,436 @@
       "terminate-illness"
     ],
     "notes": "Charm text spans the printed p. 183/184 (PDF 186/187) page break, ending immediately before the book's general Sidereal Martial Arts section begins; transcribed as a single continuous description."
+  },
+  {
+    "id": "sidereal-martial-arts",
+    "name": "Sidereal Martial Arts (general framework)",
+    "disposition": "calculated",
+    "summary": "Introduces the secret martial-arts styles developed by Sidereal Exalted specifically; unlike ordinary Sidereal Charms, these follow Solar-style Charm rules and require a character to first master a lesser martial art before learning a secret style's Form.",
+    "requirements": "A character must first fully master a lesser martial-arts style (most commonly Violet Bier of Sorrows, though any complete tree such as Snake Style qualifies) before learning a secret style's Form Charm.",
+    "mechanics": "Sidereal martial arts do not share the limitations of ordinary Sidereal Charms (see Manipulating Fate): they offer large combat dice pools, more efficient Charms, new Charms, and high-Essence Charms, following Solar-style Charm rules instead. Creatures outside of Fate have no special resistance to Sidereal Martial Arts. Long ago, older Sidereal Exalted found the discipline and principles of martial arts interesting enough to devote significant attention to developing further styles; this section covers a few of the secret styles developed over millennia by Sidereal masters (with sufficient discipline and effort, a Sidereal can create a style of her own, as many others exist, some exceeding these in raw power even with their first Charms requiring Essence 6 or more). Each secret style demands a qualitative increase in focus and dedication over other supernatural martial arts and rewards it with a qualitative increase in power; to acquire basic competence -- that is, a style's Form -- a character must first master a lesser martial art entirely. Most Sidereal Exalted learn Violet Bier of Sorrows first, but mastering any complete martial-arts tree (such as Snake Style) opens the way to a secret style's higher Charms. Charcoal March of Spiders Style is a standard advanced martial art with a variety of applications for younger students, a potent Form, and a fair number of applications requiring higher-level Essence. Prismatic Arrangement of Creation Style is less typical and often recommended for young, fresh Sidereal Exalted; its Charm tree develops into four different Forms and a greater Form, all available at Essence 5, and learning its Form helps a student take better advantage of lesser martial-arts styles while developing the breadth and depth of skill needed to reach the high-Essence Charms. Citrine Pox of Contagion Style focuses on disrupting the natural Essence flow of its targets, inflicting or curing a variety of debilitating spiritual conditions; it is geared more toward younger Exalted, with relatively few applications requiring high Essence to master.",
+    "cost": "n/a (framework)",
+    "compatibility": "n/a",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 184,
+      "pdfPage": 187
+    },
+    "crossReferences": [
+      "sidereal-charms-manipulating-fate",
+      "violet-bier-of-sorrows-form"
+    ],
+    "notes": "Opens the book's general 'Sidereal Martial Arts' section (printed p. 184/PDF 187), immediately after the Endings Caste's Medicine tree ends. Only Charcoal March of Spiders Style's own Charm tree is rendered/inventoried in this pass; Prismatic Arrangement of Creation and Citrine Pox of Contagion are named and described here only in this overview, with their own Charm trees not yet located/rendered."
+  },
+  {
+    "id": "sidereal-martial-arts-sutras",
+    "name": "Sutras (secret-style resonance mechanic)",
+    "disposition": "calculated",
+    "summary": "A universal mechanic for all Sidereal secret martial-arts styles: learning a style's Form Charm grants access to that style's named 'student's sutra,' and mastering the style's capstone grants its 'elder sutra,' both of which reduce the Essence/Willpower cost of using Charms from that style for the rest of the scene when activated via a prayer strip.",
+    "requirements": "Student's sutra: requires knowledge of the secret style's Form-type Charm (or, for Prismatic Arrangement of Creation, any of its Form-type Charms). Elder sutra: requires the style's capstone Charm.",
+    "mechanics": "The Sidereal Exalted deliberately developed their martial-arts styles' sutras to benefit from their innate connection to the Maidens. Like the scriptures of Sidereal Charms, a style's sutras bring together the power of the Charms and the patterns of the stars, allowing synergistic effects. A Sidereal who learns the Form-type Charm for any secret style (or any Form-type Charm for Prismatic Arrangement of Creation Style) understands the secrets of that style's own student's sutra. If she has a prayer strip inscribed with this sutra, she can reflexively spend a Willpower point to activate it. For the rest of the scene, the prayer strip shines with the style's characteristic color and floats in the air beside her; each turn, it reduces the combined cost for using Charms from that style by 5 motes. It cannot reduce the cost of using Charms from that style below 1 mote per turn, and it does not apply if the character uses no Charms from that style that turn. Sidereals who learn every Charm in a secret style also understand that style's elder sutra. Activating a prayer strip marked with the elder sutra uses the same rules, except that it reduces the combined cost for using Charms from that style by 10 motes and 1 Willpower point per turn; it cannot reduce the Essence cost to reduce the Essence cost below 0, nor can it reduce the Willpower cost below 0. One cannot combine the benefits of a student's sutra and an elder sutra for the same style, but the character can simultaneously use sutras for two or more different styles.",
+    "cost": "1 Willpower to activate a student's or elder's sutra prayer strip (reflexive); the sutra itself then reduces per-turn Charm costs from its style for the rest of the scene.",
+    "compatibility": "Duration: One scene (per activation). Type: Reflexive (activation).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 184,
+      "pdfPage": 187
+    },
+    "crossReferences": [
+      "sidereal-martial-arts",
+      "sidereal-prayer-strips"
+    ],
+    "notes": "Charcoal March of Spiders Style's own student's sutra is named the 'Sutra of Consumption' (section header 'Consumption: The Charcoal March of Spiders,' printed p. 184/PDF 187, epigraph 'The Student's Sutra of Consumption: Once, there was a small maiden...'); the style's elder sutra (unlocked by the capstone, Grandmother Spider Mastery) was not located by name in the rendered pages and may use a different epigraph further into the style's Charm list."
+  },
+  {
+    "id": "charcoal-march-of-spiders-style",
+    "name": "Charcoal March of Spiders Style (tree overview)",
+    "disposition": "reference-only",
+    "summary": "Section header and Charm-tree diagram for the Charcoal March of Spiders secret martial-arts style, plus its Weapons and Armor sidebar specifying which attacks its Charms treat as unarmed and that the style cannot be used while wearing armor.",
+    "requirements": null,
+    "mechanics": "Tree structure (12 Charms): three parallel roots -- Unnatural Many-Step Stride, Maw of Dripping Venom, and Rain of Unseen Threads -- feed, respectively/jointly, into Dance of the Hungry Spider, Charcoal March of Spiders Form, and Nest of Living Strands (each fed by its neighboring root(s) per the diagram's connecting lines), all three of which converge on Cannibalistic Heritage Technique. Cannibalistic Heritage Technique feeds Jumping Spider Strike, which spreads to Thumbnail Spider March and Water Spider Bite; those two, together with Jumping Spider Strike, converge on Pattern Spider Touch, which finally feeds the capstone, Grandmother Spider Mastery. Weapons and Armor sidebar: Charms in this style treat attacks the Sidereal makes with knives or with seven-section staves, as well as serpent-sting staves, as unarmed attacks (a stave represents the nimble leg of a spider, while the knife represents its fang); the style also treats the wires/threads generated by certain of its Charms as unarmed attacks. If a Charm allows the character to choose between issuing bashing or lethal damage, this choice applies only to handheld, staff-based, and thread-based attacks -- a knife inflicts only lethal damage. Characters cannot use this style while wearing armor.",
+    "cost": "None",
+    "compatibility": "Reference text and tree diagram; not a Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 185,
+      "pdfPage": 188
+    },
+    "crossReferences": [
+      "sidereal-martial-arts",
+      "sidereal-martial-arts-sutras"
+    ],
+    "notes": "The style's opening epigraph ('...whose skill was great enough to climb a whirlwind over water.') and section header ('Consumption: The Charcoal March of Spiders,' naming the style's student's sutra) print at the bottom of the prior page (printed p. 184/PDF 187); the tree diagram and Weapons and Armor sidebar print at the top of printed p. 185/PDF 188."
+  },
+  {
+    "id": "unnatural-many-step-stride",
+    "name": "Unnatural Many-Step Stride",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Charcoal March of Spiders tree; lets the character scuttle across the threads of fate itself, running or standing on empty air, and reflexively dematerialize between initiative ticks.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: None.",
+    "mechanics": "The character scuttles on the threads of fate like a pattern spider. He can run or stand upon the air as easily as on the ground. He can reflexively spend a mote of Essence to dematerialize from the beginning of his initiative to the beginning of his next initiative, allowing him to become as invisible and intangible as those who weave fate. This does not count against his actions for the turn. When he is under this Charm's influence, the Sidereal's gait both disturbs and horrifies those who see it. Except for the Sidereal's allies, the player of a witness who does not have this Charm must succeed at a difficulty 1 Valor roll each turn, or her character loses her action.",
+    "cost": "6 motes, 1 Willpower",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 184,
+      "pdfPage": 187
+    },
+    "crossReferences": [
+      "charcoal-march-of-spiders-style"
+    ],
+    "notes": "Cost/Duration/Type stat block prints at the bottom of printed p. 184/PDF 187, immediately under the 'Consumption: The Charcoal March of Spiders' section header; the Charm's prose description continues onto printed p. 185/PDF 188, after the tree diagram."
+  },
+  {
+    "id": "dance-of-the-hungry-spider",
+    "name": "Dance of the Hungry Spider",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Charcoal March of Spiders tree; a reflexive evasive kata that lets the character glide away from or through attackers, penalizing their attempts to hit, parry, or dodge her.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: Unnatural Many-Step Stride.",
+    "mechanics": "This Charm emulates a spider's motion, balanced on six legs and striking with two, never lacking the leverage for a lightning retreat or advance. The character begins a shuffling, sliding, shifting kata, her feet constantly in motion and nearly impossible for mortal eyes to track. Only the third of three separate, successful attempts can sweep her, knock her down, clinch or hold her, or make a targeted attack against her lower body. When the character uses this kata, she can shift herself almost instantaneously out of the path of a blow. Becoming aware of a physical attack allows her to glide away, moving up to twice her Dexterity in yards. If the attack can hit her at this range (as with archery or the Lightning Strike Style, see Exalted: the Dragon-Blooded, p. 246), this Charm increases any associated range penalties. Attacks that must hit her before she moves away (such as hand-to-hand attacks, if she puts more than three yards between herself and her attacker) suffer a dice pool penalty equal to half her initiative for that turn, rounded up. After the first attack, the attacker must move again to hit her at all. Similarly, the character can glide forward up to twice her unarmed Martial Arts dice to make any unarmed Martial Arts attacks. Attempts to parry her attack suffer a dice pool penalty equal to half her initiative for the turn, rounded up. Dodging requires less awareness of the angle of approach; dodge attempts only suffer a penalty equal to her permanent Essence. When a character uses this Charm to dart through her enemies, splitting the extra movement derived from this Charm, she is sometimes called the Dance of the Pouncing Spider. When she uses it to skate away from a barrage of arrows, quickly exceeding her maximum range, it is the Dance of the Spider in the Rain.",
+    "cost": "8 motes",
+    "compatibility": "Duration: Five turns. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 185,
+      "pdfPage": 188
+    },
+    "crossReferences": [
+      "unnatural-many-step-stride"
+    ],
+    "notes": "Charm text spans the printed p. 185/186 (PDF 188/189) page break; transcribed as a single continuous description."
+  },
+  {
+    "id": "maw-of-dripping-venom",
+    "name": "Maw of Dripping Venom",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Charcoal March of Spiders tree; a poisoned unarmed attack that drains the target's Essence over time, causing coma and eventual death unless the character devours the victim's soul first.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: None.",
+    "mechanics": "The character's fingers rake across her opponent like a thousand poisoned fangs, tainting the target's Essence so that his soul begins to dissolve from the inside. The character makes a normal unarmed Dexterity + Martial Arts attack, which does normal damage. In addition, the target begins to hemorrhage Essence: he loses 5 motes every turn, exactly as if he had spent them. This lasts one turn for each damage die rolled. Multiple applications of this effect are cumulative. When the target runs out of motes, he collapses, comatose, for a number of days equal to the character's Martial Arts. Storyteller characters die outright. Given three turns of physical contact with a comatose target, a character with this Charm can suck out and devour the target's soul. This restores the devourer's temporary Essence to its normal maximum. The target does not move on to the afterlife. If the character consumes a Celestial Exalt, she will grow sick sometime within the next three days and spit out the indigestible Celestial Essence, suffering six dice of lethal damage in the process, which ignores armor and soak.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 185,
+      "pdfPage": 188
+    },
+    "crossReferences": [],
+    "notes": null
+  },
+  {
+    "id": "rain-of-unseen-threads",
+    "name": "Rain of Unseen Threads",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Charcoal March of Spiders tree; casts near-invisible Essence threads that can attack, disarm, or trip opponents at range, or hold an opponent in an inescapable grapple.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: None.",
+    "mechanics": "The character casts forth a number of hair-fine threads equal to her permanent Essence. Each can attempt one of the following maneuvers, at a range of (the Sidereal's Essence x 10) yards: pick up a single unattended weapon or object; attack or parry with a weapon held by a thread as a normal Martial Arts action; pierce an opponent's skin, as a normal unarmed Martial Arts attack that deals lethal damage; or disarm, sweep or hold an opponent (see Exalted, pp. 238-240). This attack uses the character's full Dexterity + Martial Arts pool and does not count against the character's actions. Further, the character can maintain a hold with his full Strength + Martial Arts pool, without losing or splitting his action, so long as he invokes this Charm every turn. However, each thread can hold only a single limb; held character can take actions with her other limbs. If the character devotes multiple threads to holding an opponent, resolve the attack with a single roll. Make reflexive Perception + Awareness or Perception + Martial Arts checks as difficulty 4 for other characters to see the threads. Otherwise, except for attacks with a visible weapon, targets are unaware of the attack and can only use defenses that specifically state they work on attacks the character is not aware of, and opponents can use stunts to make them easier to spot or predict.",
+    "cost": "8 motes",
+    "compatibility": "Duration: Instant. Type: Extra Action.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 186,
+      "pdfPage": 189
+    },
+    "crossReferences": [],
+    "notes": "The source text's pronouns shift between 'he' and 'she' mid-description (referring to the same character); transcribed as printed."
+  },
+  {
+    "id": "nest-of-living-strands",
+    "name": "Nest of Living Strands",
+    "disposition": "selectable",
+    "summary": "Mid-tree Charm fed by Rain of Unseen Threads; blankets an area in near-invisible filaments that snare and slow opponents, thickening into an impassible wall of webbing around the character if left undisturbed.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: Rain of Unseen Threads.",
+    "mechanics": "Hundreds of near-invisible filaments spun from the character's Essence launch from her hands, whipping around physical and spiritual leverage points and weaving amongst themselves to snare and tangle all opponents within (the Sidereal's Essence x 10) yards. Each turn, the Sidereal's player reflexively rolls Dexterity + Martial Arts. Enemies inside the Charm's area of effect, or who enter that area before the character's next turn, suffer a cumulative penalty to their dice pools for all physical actions equal to half the number of successes. They receive the same penalty to their natural movement rate in yards. This penalty fades by one die and one yard per turn that the victim spends outside the radius, as the threads reluctantly disentangle themselves. The weave of thread moves with the character, easily catching new opponents brought into the radius and twitching out of the way of those she wishes to give unhampered passage. If the character does not weave through, the threads thicken toward the point of visibility, first as glints of reflected light in the air, then (after five minutes of stillness) an opaque forest of webbing around the character, as impassible -- for those she does not offer passage to -- as stone (use the statistics for Stone Wall on page 239 of Exalted for each one-yard cube attackers wish to clear).",
+    "cost": "15 motes, 1 Willpower",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 186,
+      "pdfPage": 189
+    },
+    "crossReferences": [
+      "rain-of-unseen-threads"
+    ],
+    "notes": "Charm text spans the printed p. 186/187 (PDF 189/190) page break; transcribed as a single continuous description."
+  },
+  {
+    "id": "charcoal-march-of-spiders-form",
+    "name": "Charcoal March of Spiders Form",
+    "disposition": "selectable",
+    "summary": "The style's Form Charm; grants three fully independent physical actions per turn (each following ordinary multi-turn action rules but consuming only one turn) so long as none use non-reflexive Social or Mental rolls, and grants the automatic benefits of Unnatural Many-Step Stride and Dance of the Hungry Spider every turn.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 5; Prerequisite Charms: One complete martial art (all Charms), Dance of the Hungry Spider, Maw of Dripping Venom, Nest of Living Strands.",
+    "mechanics": "The character moves in the fashion of an arachnid sufi, her hands weaving lazily through three sets of interwoven kata. Such is her grace and coordination, in Essence in body, that she may take three fully independent physical actions in each turn. For example, she might invoke a full dodge when attacked, then invoke Flight of Mercury while making an ordinary Martial Arts attack, and finally, split her dice pool to use Maw of Dripping Venom against two nearby opponents. Fully independent actions follow exactly the same rules as taking single actions on multiple successive turns, except that: only one turn actually passes, which matters for some Charm effects and durations and means the sutra discount applies only once; characters who have split dice pools can interweave their actions -- for example, they can split one action's dice pool between an attack and a parry, taking another action in between; the character only moves once; and characters cannot also use extra action Charms or Combos containing those Charms when taking more than one independent action. In addition, if the character chooses to use this ability in a given turn, she cannot take any non-reflexive dice actions depending on Social or Mental Attributes. (This final limit is not intrinsic to fully independent actions, but a feature of this Form.) The character does not have to use this ability in a given turn if she would prefer to use an extra action Charm, use a Combo or take a Social or Mental action. Characters using the Charcoal March of Spiders Form automatically receive the benefits of the Unnatural Many-Step Stride and Dance of the Hungry Spider in every turn. Characters cannot use more than one Martial Arts Form-type Charm at a time.",
+    "cost": "12 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 186,
+      "pdfPage": 189
+    },
+    "crossReferences": [
+      "dance-of-the-hungry-spider",
+      "maw-of-dripping-venom",
+      "nest-of-living-strands",
+      "unnatural-many-step-stride"
+    ],
+    "notes": "Opening epigraph reads only '...to climb the waterspout again' (a continuation of a longer quote not fully captured on this page); transcribed as printed. The prerequisite line names three prior Charms (Dance of the Hungry Spider, Maw of Dripping Venom, Nest of Living Strands) plus mastery of a complete lesser martial art, matching the tree diagram's three-root convergence."
+  },
+  {
+    "id": "cannibalistic-heritage-technique",
+    "name": "Cannibalistic Heritage Technique",
+    "disposition": "selectable",
+    "summary": "Mid-tree convergence Charm; a reflexive counterattack that draws in and disrupts an incoming blow, inflicting unblockable, undodgeable lethal damage on an unarmed attacker (or destroying an armed attacker's weapon) and allowing a burst of doubled-damage unarmed counterattacks.",
+    "requirements": "Minimum Martial Arts 6; Minimum Essence 6; Prerequisite Charms: Charcoal March of Spiders Form.",
+    "mechanics": "Just as the widow spider devours her mate to feed a thousand children, the character consumes the force of one blow to give rise to a wind of vengeance. She may use this Charm immediately after someone successfully attacks her. The swirling pattern of her hands forms a raw vortex to draw in and disrupt the Essence and physical substance of the attack. She immediately inflicts her Dexterity + Martial Arts in dice of unblockable, undodgeable lethal damage against an unarmed attacker or shatters any mortal weapon used against her. If this kills an unarmed attacker or destroys an armed attacker's weapon, she takes no damage from the vortex damage. Her opponent can use a perfect block or a perfect dodge to avoid the vortex damage -- however, this requires aborting the original attack, and again, the Sidereal takes no damage. Either way, from the heart of the vortex, the Exalt may issue a number of unarmed counterattacks equal to her Martial Arts score, doubling her raw damage. She can use this Charm in response to a counterattack Charm such as Crimson Palm Counterstrike but does not receive counterattacks against any counterattack Charm.",
+    "cost": "20 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 187,
+      "pdfPage": 190
+    },
+    "crossReferences": [
+      "charcoal-march-of-spiders-form"
+    ],
+    "notes": "Learning this Charm also grants the style's elder sutra ('The Elder Sutra of Consumption'), per the epigraph printed under this Charm's stat block. The tree diagram shows Dance of the Hungry Spider, Charcoal March of Spiders Form, and Nest of Living Strands all converging on this Charm, but the printed Prerequisite Charms line names only Charcoal March of Spiders Form; flagged here rather than silently reconciled, since the Form Charm itself already lists all three as its own prerequisites."
+  },
+  {
+    "id": "thumbnail-spider-march",
+    "name": "Thumbnail Spider March",
+    "disposition": "selectable",
+    "summary": "Extra-action Charm fed by Cannibalistic Heritage Technique; a swarming rush that lets the character move a great distance and land three full-pool Martial Arts attacks against every foe near his path, immune to counterattacks.",
+    "requirements": "Minimum Martial Arts 6; Minimum Essence 6; Prerequisite Charms: Cannibalistic Heritage Technique.",
+    "mechanics": "In the jungles of the East, one sometimes finds nests of thumbnail spiders: thousands or millions of tiny spiders sharing a funnel-shaped web. They normally wait for prey to fall into their home and are more than happy to swarm over anyone or anything that arouses their ire. When something destroys their web, such spiders migrate for miles, devouring everything they pass, until they decide upon a new home. A character using this Charm is every bit as destructive. He moves up to (his Essence x 10) yards and makes three Martial Arts attacks at his full dice pool. Every opponent within five yards of his path suffers the effects of each attack. Each dodges or blocks individually. If the targets have defensive effects that hurt attackers -- such as counterattacks, spines or an angry invocation of the Shield of Mars -- the character is immune to the effect. The blur of his passing fist or foot fades away into nothingness as the counterattack triggers, for the death of a single spider does not hurt the swarm. The Exalt's attacks affect both material and spiritual targets with equal facility, and the character can launch these attacks while dematerialized. Characters using Thumbnail Spider March do not receive offensive benefits from reflexive movement Charms such as the Dance of the Hungry Spider, although they can still receive defensive benefits.",
+    "cost": "12 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Extra Action.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 187,
+      "pdfPage": 190
+    },
+    "crossReferences": [
+      "cannibalistic-heritage-technique"
+    ],
+    "notes": "Stat block prints at the bottom of printed p. 187/PDF 190; the epigraph and prose continue onto printed p. 188/PDF 191."
+  },
+  {
+    "id": "jumping-spider-strike",
+    "name": "Jumping Spider Strike",
+    "disposition": "selectable",
+    "summary": "Convergence Charm fed by Cannibalistic Heritage Technique; a leaping unarmed strike that adds automatic successes to damage and can reduce a struck target to one turn left to live unless magically stabilized (at the cost of a Stamina dot), and doubles as a feat-of-strength blow against objects.",
+    "requirements": "Minimum Martial Arts 6; Minimum Essence 6; Prerequisite Charms: Cannibalistic Heritage Technique.",
+    "mechanics": "In the South, surrounded by the sands, stands the great idol Ma-Un-Enle, and there are spiders that come before it. Sometimes, a spider hears Ma-Un-Enle speak a name, and it bows with all its legs, and it walks out into the world. It buries itself under the sands, growing ever larger with age, for hundreds or thousands of years. Then, when the person whose name it has heard comes within 10 miles, it strikes in one smooth bound. A character using this Charm can spring at any visible target, issuing an unarmed attack at the completion of that leap. Against a person, this attack does normal damage, adding the character's Essence in automatic successes to the damage roll. In addition, the target's player must make a reflexive opposed roll of Stamina + Resistance against a difficulty equal to the Sidereal's Essence; on failure, the force of the attack reduces the point of impact (such as the target's head or chest) to a cloud of blood and dust. The target has one turn left to live, or rather, one turn before her Essence realizes that she should be dead. No mortal medicine can help. The application of a magical effect that heals one or more health levels makes her Incapacitated but stable, but with one less dot of permanent Stamina. Treat attacks against inanimate objects as feats of strength used to break them; the character's total on the Feats of Strength table (see Exalted, p. 252) is (her Essence x 5). This does mean a minimum total of 30 -- the character automatically shatters cliff faces, but a powerful Manse might only lose its gate.",
+    "cost": "20 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 188,
+      "pdfPage": 191
+    },
+    "crossReferences": [
+      "cannibalistic-heritage-technique"
+    ],
+    "notes": null
+  },
+  {
+    "id": "water-spider-bite",
+    "name": "Water Spider Bite",
+    "disposition": "selectable",
+    "summary": "Convergence Charm fed by Cannibalistic Heritage Technique; a paralyzing unarmed strike that lets the character siphon a helpless victim's Essence turn by turn until the victim breaks free, or share it consensually as 'Seven-Leg Walking.'",
+    "requirements": "Minimum Martial Arts 6; Minimum Essence 6; Prerequisite Charms: Cannibalistic Heritage Technique.",
+    "mechanics": "In the oceans of the West live green hunting spiders, bulbous and hand-sized, scurrying along the underside of the surface as easily as if it were a web. They kill fish -- sometimes, even great sharks or whales -- for their meat, paralyzing them with a pinprick bite and burrowing into their flesh, floating to the surface years later, sated, when they have eaten it all. A character with this Charm possesses a touch every bit as deadly. With one swift blow, she can render an enemy helpless and begin to devour him for his Essence. To use this Charm, she makes a normal unarmed attack. If she succeeds and does even one health level of damage, she also paralyzes the Essence of her opponent. Paralysis means that the target cannot spend motes, cannot regain Willpower or Essence and receives the benefits of the Heartless Maiden Trance (see p. 133). He can overcome this effect for one turn by spending a Willpower point and having his player succeed at a reflexive Stamina + Occult roll against a difficulty equal to the character's Essence. He must do this successfully a number of times equal to the character's Martial Arts score to completely free himself of the effects. Meanwhile, until the victim is completely free, the martial artist can spend his motes of Essence as if they were her own. This can invoke the target's anima banner but does not increase the Sidereal's. When a character uses this Charm on a consenting subject, allowing her to draw on that subject's Essence, it is known instead as Seven-Leg Walking.",
+    "cost": "20 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 188,
+      "pdfPage": 191
+    },
+    "crossReferences": [
+      "cannibalistic-heritage-technique",
+      "heartless-maiden-trance"
+    ],
+    "notes": null
+  },
+  {
+    "id": "pattern-spider-touch",
+    "name": "Pattern Spider Touch",
+    "disposition": "selectable",
+    "summary": "Penultimate Charm converging Thumbnail Spider March, Jumping Spider Strike, and Water Spider Bite; a single unarmed attack that transmutes, elementally transforms, reincarnates, or utterly unmakes the target, with Primordial targets instantly becoming Malfeans on a failed perfect defense.",
+    "requirements": "Minimum Martial Arts 6; Minimum Essence 6; Prerequisite Charms: Thumbnail Spider March, Jumping Spider Strike, Water Spider Bite.",
+    "mechanics": "The master of this Charm learns the eight secret aterni practiced by the firstmate of the pattern spiders, Asna, who dwells surrounded by her teeming young in a sanctuary web larger than the Realm. With a successful unarmed attack, the character can change the target's existence, reweaving the structure of the target's existence from the Essence outward. This causes one of the following effects, chosen by the character: transforms the target into a beast, stripping him of his mind and shape; transforms the target's flesh into one of the five elements (a gust of wind, a gout of fire that fades into ash, a statue, a watery haze or a living oak) -- the target is still alive, unless he is an elemental of the relevant type, in which case he can take no actions; grants the target a new life and identity (this uses the same rules as the Ceasing to Exist Approach, see p. 173, save that the effects are permanent and the target forgets his original identity); or unmakes the target utterly. In the unlikely event a Primordial fails to use a perfect defense, the Primordial instantly ceases to exist, in life and afterlife, as the strands of his Essence come violently apart at the corners of Creation. This replaces the normal damage of the attack. The reapplication of this Charm, extremely potent benedictions such as the Endowment spirit Charm (see the Exalted Storyteller's Companion, p. 53) and specific transformative agents such as the Wondrous Lunar Transformation (see Exalted: The Lunars, p. 130) can return transformed targets to normalcy. Gathering the pieces of elementally transformed targets before returning them to normalcy is advisable. Normally, these methods provide adequate restoration. However, targets transformed into other people and back may have difficulty relinquishing their new memories and recovering the old ones. Nothing can remake the unmade. This Charm does not affect tattooed Lunar Exalted, whose bodies reject external transformation. This applies even to the final version of the Charm.",
+    "cost": "20 motes, 1 Willpower",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 189,
+      "pdfPage": 192
+    },
+    "crossReferences": [
+      "thumbnail-spider-march",
+      "jumping-spider-strike",
+      "water-spider-bite"
+    ],
+    "notes": "Cross-references the Ceasing to Exist Approach's re-identity rules (this book, p. 173) and two other Exalted-line sourcebooks (the Exalted Storyteller's Companion and Exalted: The Lunars) for un-transformation methods; those external cross-references are not independently verified here."
+  },
+  {
+    "id": "grandmother-spider-mastery",
+    "name": "Grandmother Spider Mastery",
+    "disposition": "selectable",
+    "summary": "Capstone of the Charcoal March of Spiders tree; a simple Charm that lets the character strike all visible opponents at once with an unarmed Martial Arts attack twice, regardless of distance, embodying the style's master weaving countless invisible war-filaments simultaneously.",
+    "requirements": "Minimum Martial Arts 6; Minimum Essence 7; Prerequisite Charms: Pattern Spider Touch.",
+    "mechanics": "To master this style is to approach the grandeur of Asna Firstborn herself. When the character strikes, she does not seem to move so much as to divide into many warriors at once. She may cast forth endless invisible filaments of web, as with Rain of Unseen Threads, or simply strike so quickly as to occupy many positions simultaneously. In either case, fighting her does not resemble opposing the master herself so much as challenging an army of her young: the attacks rain down from every side, skittering inward in the unsettling many-stepped strides of the form to surround and bewilder her foes. The character applies each unarmed Martial Arts attack she makes this turn against all visible opponents, twice each, regardless of distance. Grandmother Spider Mastery, as a simple Charm that cannot be in a Combo, gives no benefit to characters without access to fully independent actions. (That is, characters not using Charcoal March of Spiders Form.)",
+    "cost": "20 motes, 1 Willpower",
+    "compatibility": "Duration: One turn. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 189,
+      "pdfPage": 192
+    },
+    "crossReferences": [
+      "pattern-spider-touch",
+      "charcoal-march-of-spiders-form",
+      "rain-of-unseen-threads"
+    ],
+    "notes": "This is the tree's capstone; the Charcoal March of Spiders Style's own tree (12 Charms) is now complete: Unnatural Many-Step Stride, Maw of Dripping Venom, Rain of Unseen Threads, Dance of the Hungry Spider, Charcoal March of Spiders Form, Nest of Living Strands, Cannibalistic Heritage Technique, Thumbnail Spider March, Jumping Spider Strike, Water Spider Bite, Pattern Spider Touch, Grandmother Spider Mastery."
+  },
+  {
+    "id": "prismatic-arrangement-of-creation-style",
+    "name": "Prismatic Arrangement of Creation Style (tree overview)",
+    "disposition": "reference-only",
+    "summary": "Section header and Charm-tree diagram for the Prismatic Arrangement of Creation secret martial-arts style, a large 16-Charm tree built around the Five Magical Materials and Charm-countering magic, plus its Weapons and Armor rule that this style cannot be used while wearing armor.",
+    "requirements": null,
+    "mechanics": "Tree structure (16 Charms): the left branch's four roots -- Deadly Starmetal Offensive, Orichalcum Sheathing Stance, Flickering Moonsilver Approach, and Five Jade Fury -- converge on Four Magical Materials Form, while a fifth root, Demesne Emulation Practice, feeds Demesne and Manse Form; both Forms feed the central Prismatic Arrangement of Creation Form. The right branch's Charm Redirection Technique feeds Sequential Charm Disruption, which (with Spell-Shattering Palm) feeds Soul Fire Shaper Form; Astrology Interruption Method feeds Games of Divinity Form (alongside Soul Fire Shaper Form); Games of Divinity Form feeds God Ways, which feeds the capstone (Type) Exalt Ways; Soul Fire Shaper Form and Games of Divinity Form also connect into the central Prismatic Arrangement of Creation Form per the diagram's lines. Weapons and Armor sidebar: characters cannot use this style while wearing armor (no other weapon/attack notes are given for this style, unlike Charcoal March of Spiders).",
+    "cost": "None",
+    "compatibility": "Reference text and tree diagram; not a Charm.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 189,
+      "pdfPage": 192
+    },
+    "crossReferences": [
+      "sidereal-martial-arts",
+      "sidereal-martial-arts-sutras"
+    ],
+    "notes": "Section header ('Essence: The Prismatic Arrangement of Creation') and the Weapons and Armor sidebar print at the bottom of printed p. 189/PDF 192, immediately after Grandmother Spider Mastery closes the Charcoal March of Spiders tree; the tree diagram itself prints at the top of printed p. 190/PDF 193. The style's student's sutra epigraph reads 'The Student's Sutra of Essence: Once, there were maidens...'; its name (e.g. 'Sutra of Essence' by analogy with Charcoal March of Spiders' 'Sutra of Consumption') is inferred from the epigraph label and not spelled out as a standalone phrase the way Consumption was. This style's Charms are each individually named in-fiction after apparent characters (JI, PENG, LU, ZHOU, HOU TUI, AN, CAI, LI, HUA JI, etc.) via a running epigraph split across every Charm's opening line; these bracketed names are preserved in each Charm's own row name where legible."
+  },
+  {
+    "id": "deadly-starmetal-offensive",
+    "name": "Deadly Starmetal Offensive",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Prismatic Arrangement of Creation tree (epigraph name 'JI'); hardens the character's fingernails into starmetal claw-weapons with strong damage, Speed, Accuracy, Defense, and parrying properties.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: None.",
+    "mechanics": "The character infuses her fingernails with Essence, hardening them, sharpening them, lengthening them into weapons -- and, most importantly, causing them to bend, influence and predict the path of fate in the manner of starmetal. They inflict Strength + 7L damage, with +2 to Speed, Accuracy and Defense, and can parry both lethal and ranged attacks. Treat attacks and parries enhanced with this Charm as unarmed; they are legal weapons for any martial arts style.",
+    "cost": "5 motes",
+    "compatibility": "Duration: Five turns. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 189,
+      "pdfPage": 192
+    },
+    "crossReferences": [
+      "prismatic-arrangement-of-creation-style"
+    ],
+    "notes": "Charm text spans the printed p. 189/190 (PDF 192/193) page break; transcribed as a single continuous description. Epigraph names this Charm's character as 'JI' ('...and their names were JI and PENG and LU and ZHOU')."
+  },
+  {
+    "id": "orichalcum-sheathing-stance",
+    "name": "Orichalcum Sheathing Stance",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Prismatic Arrangement of Creation tree (epigraph name 'PENG'); wraps the character in an Essence sheath that adds heavy soak without interfering with Martial Arts Charm use, unlike ordinary armor.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: None.",
+    "mechanics": "The character wraps her body in a sheath of Essence, mirroring in its interaction with her own anima the link between Solar Exalted and orichalcum. She adds (12L/12B) to her soak. This bonus acts as armor in all respects save one: it does not interfere with the use of any Martial Arts Charm. Thus, attacks that ignore armor ignore this soak, while aggravated damage does not. The character can invoke this Charm on her initiative. She can also invoke it when attacked but must declare the use of the Charm before her opponent's player makes his attack roll.",
+    "cost": "5 motes, 1 Willpower",
+    "compatibility": "Duration: Five turns. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 190,
+      "pdfPage": 193
+    },
+    "crossReferences": [
+      "prismatic-arrangement-of-creation-style"
+    ],
+    "notes": "Epigraph names this Charm's character as 'PENG'."
+  },
+  {
+    "id": "flickering-moonsilver-approach",
+    "name": "Flickering Moonsilver Approach",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Prismatic Arrangement of Creation tree (epigraph name 'LU'); makes the character's location impossible to precisely determine, letting him strike distant foes unarmed while they lose their Martial Arts dice defending.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: None.",
+    "mechanics": "The character traces patterns through the air that echo the slippery, mutable ways in which moonsilver twists the flows of Essence around him. Opponents cannot precisely determine the Sidereal's location: he can make an unarmed Martial Arts attack against anyone within (his Essence x 5) yards, and the target subtracts his Martial Arts from her dice pools to defend against him.",
+    "cost": "10 motes",
+    "compatibility": "Duration: Five turns. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 190,
+      "pdfPage": 193
+    },
+    "crossReferences": [
+      "prismatic-arrangement-of-creation-style"
+    ],
+    "notes": "Epigraph names this Charm's character as 'LU'."
+  },
+  {
+    "id": "five-jade-fury",
+    "name": "Five Jade Fury",
+    "disposition": "selectable",
+    "summary": "Root Charm of the Prismatic Arrangement of Creation tree (epigraph name 'ZHOU'); grants unarmed Martial Arts attacks the combined gifts of all five jade colors -- damage-type choice, bonus successes on attack and damage, knockback, and an initiative bonus.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 4; Prerequisite Charms: None.",
+    "mechanics": "The character binds the substance of Creation to her Essence, shifting into a pattern of attacks that radiates the elemental authority of jade. Each gives a gift, which applies only to unarmed Martial Arts attacks. Her blows can be bashing or lethal, as she chooses, reflecting the compassion and conviction of green jade. The grace of black jade steers her attacks well: she supplements attack rolls with one extra automatic success for every three dice rolled, rounded up. The reliability of white jade ensures reasonable damage: she supplements damage rolls with one extra automatic success for every three dice rolled, again rounding up. The force of blue jade knocks opponents back one yard for each level of damage inflicted. Finally, the swiftness of red jade adds +3 to her initiative.",
+    "cost": "10 motes",
+    "compatibility": "Duration: Five turns. Type: Reflexive.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 191,
+      "pdfPage": 194
+    },
+    "crossReferences": [
+      "prismatic-arrangement-of-creation-style"
+    ],
+    "notes": "Epigraph names this Charm's character as 'ZHOU'."
+  },
+  {
+    "id": "four-magical-materials-form",
+    "name": "Four Magical Materials Form",
+    "disposition": "selectable",
+    "summary": "The style's first Form Charm (epigraph name 'HOU TUI'), converging Deadly Starmetal Offensive, Orichalcum Sheathing Stance, Flickering Moonsilver Approach, and Five Jade Fury; grants their continuous benefits and converts incoming lethal damage to bashing before soak unless the attacker also uses one of the Four Magical Materials.",
+    "requirements": "Minimum Martial Arts 5; Minimum Essence 5; Prerequisite Charms: One complete martial art (all Charms), Deadly Starmetal Offensive, Orichalcum Sheathing Stance, Flickering Moonsilver Approach, Five Jade Fury.",
+    "mechanics": "The character attunes herself to the Essence of the world, drawing on the flows of interwoven fates, raw power, progressive change and elemental stability that play out all around her. In this fashion, while she maintains the Form, she becomes a living artifact. This Form does not mimic the Essence of soulsteel. When using this Form, the character continuously receives the benefits of the four stances from which she draws. In addition, she becomes unbreakable: she automatically converts any lethal damage she receives to bashing damage, before soak, unless the attack used one of the Four Magical Materials. Characters cannot normally use more than one Martial Arts Form-type Charm at a time.",
+    "cost": "15 motes",
+    "compatibility": "Duration: One scene. Type: Simple.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 191,
+      "pdfPage": 194
+    },
+    "crossReferences": [
+      "deadly-starmetal-offensive",
+      "orichalcum-sheathing-stance",
+      "flickering-moonsilver-approach",
+      "five-jade-fury"
+    ],
+    "notes": "Epigraph names this Charm's character as 'HOU TUI'."
   }
 ]

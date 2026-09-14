@@ -1,7 +1,7 @@
 # Exalted 1e — Sidereal source intake
 
 **Status: source intake in progress.** `Exalted: The Sidereals` has been
-supplied and 184 inventory rows are checked in under `inventory/`. See
+supplied and 205 inventory rows are checked in under `inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
@@ -9,7 +9,7 @@ the full process this directory follows.
 
 - `source-manifest.json` — the one source book in scope so far
   (`exalted-the-sidereals`); no supplements are added yet.
-- `inventory/exalted-the-sidereals.json` — 184 rows covering:
+- `inventory/exalted-the-sidereals.json` — 205 rows covering:
   - The Chapter Three character-creation overview (Attributes/Abilities/
     Backgrounds/Charms/Colleges/Virtues/Willpower/Essence), including the
     reduced-scope Ronin Sidereal variant.
@@ -185,27 +185,32 @@ the full process this directory follows.
       Conclusion and Invocation of the Storm-Following Silence, all three
       (Peaceable Conclusion, Invocation of the Storm-Following Silence,
       Terminate Illness) converging on the capstone Earth and Sky Bargain.
+  - **The general "Sidereal Martial Arts" secret-style framework** (pp.
+    184-185/PDF 187-188): the section overview plus the Sutras resonance
+    mechanic (how a Sidereal's own secret-style Charms interact with the
+    Maidens' domains).
+  - **The complete Charcoal March of Spiders Style** (pp. 185-190/PDF
+    188-193; 12 Charms plus its tree-overview row): three roots (Unnatural
+    Many-Step Stride, Maw of Dripping Venom, Rain of Unseen Threads)
+    feeding Dance of the Hungry Spider, Charcoal March of Spiders Form,
+    and Nest of Living Strands, converging through Cannibalistic Heritage
+    Technique on Jumping Spider Strike, which spreads to Thumbnail Spider
+    March and Water Spider Bite and the capstone Grandmother Spider
+    Mastery via Pattern Spider Touch.
+  - **The first five rows of Prismatic Arrangement of Creation Style**
+    (pp. 190-191/PDF 193-194): its tree-overview row (a 16-Charm tree
+    built around the Five Magical Materials and Charm-countering magic),
+    its four root Charms (Deadly Starmetal Offensive, Orichalcum Sheathing
+    Stance, Flickering Moonsilver Approach, Five Jade Fury), and its first
+    Form Charm (Four Magical Materials Form, converging all four roots).
 
 ## What's still needed
 
-1. **Sidereal Martial Arts secret styles** beyond the Endings Caste's own
-   Violet Bier of Sorrows Style above: the book's general "Sidereal Martial
-   Arts" section (printed p. 184/PDF 187 onward) introduces further advanced
-   styles developed by Sidereal Exalted specifically — Charcoal March of
-   Spiders Style (identified in full via its tree diagram: Unnatural
-   Many-Step Stride, Maw of Dripping Venom, and Rain of Unseen Threads as
-   roots feeding Dance of the Hungry Spider / Charcoal March of Spiders Form
-   / Nest of Living Strands, converging through Cannibalistic Heritage
-   Technique on Jumping Spider Strike, which spreads to Thumbnail Spider
-   March and Water Spider Bite and the capstone Grandmother Spider Mastery
-   via Pattern Spider Touch — mechanics text not yet transcribed), plus
-   Prismatic Arrangement of Creation Style and Citrine Pox of Contagion
-   Style (named and described only in overview so far, with no tree diagram
-   or Charms rendered yet). **Resume at printed p. 185/PDF 188**, at the
-   start of Charcoal March of Spiders Style's own Charm-by-Charm
-   descriptions (the tree diagram and framework text — Weapons and Armor,
-   and the "Unnatural Many-Step Stride" stat block/opening description —
-   are already rendered).
+1. **The rest of Prismatic Arrangement of Creation Style** (11 Charms
+   remain in its 16-Charm tree) and **Citrine Pox of Contagion Style**
+   (not yet located/rendered), the book's third secret Martial Arts style.
+   **Resume at printed p. 191/PDF 194**, continuing past Four Magical
+   Materials Form.
 2. The Colleges / astrology system in full (the Charm-tree equivalent for
    Sidereal sorcery-adjacent magic); only the character-creation point-buy
    rule (7 dots, at least 4 in the character's own Maiden's Colleges) is
