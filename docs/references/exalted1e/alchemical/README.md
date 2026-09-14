@@ -1,7 +1,9 @@
 # Exalted 1e — Alchemical source intake
 
 **Status: source intake in progress.** `Exalted: The Autochthonians` has been
-supplied and 207 inventory rows are checked in under `inventory/`. See
+supplied and reviewed cover-to-cover, and the `Exalted Players Guide`'s
+universal Merits & Flaws chapter has been derived on top of it. 277 inventory
+rows are checked in under `inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
@@ -12,9 +14,10 @@ title, matching this project's prior naming correction.
 
 ## What's inventoried so far
 
-- `source-manifest.json` — the one source book in scope so far
-  (`exalted-the-autochthonians`); supplements are not yet added.
-- `inventory/exalted-the-autochthonians.json` — 207 rows covering:
+- `source-manifest.json` — two source books in scope: the primary
+  `exalted-the-autochthonians`, plus `exalted-players-guide` for the
+  universal Merits & Flaws chapter.
+- `inventory/exalted-the-autochthonians.json` — 277 rows covering:
   - The Chapter Two character-creation overview (Concept/Caste/Nature,
     Caste-linked Attributes, the flat 23-dot Ability pool with no Caste or
     Favored discount, Charm Slots and Advantages, Virtues, and Willpower/
@@ -201,6 +204,43 @@ title, matching this project's prior naming correction.
     Aerial Skiff. **All seven chapters of Exalted: The Autochthonians (the
     entire book) have now been reviewed** for Alchemical
     character-creation-relevant material.
+
+- **The Exalted Players Guide's universal Chapter One, "Merits and Flaws"**
+  (70 rows: 35 merits + 35 flaws, `pg-merit-*`/`pg-flaw-*` ids). *Exalted:
+  The Autochthonians* itself has no dedicated Merits/Flaws chapter beyond
+  the Alchemical-exclusive Gremlin Syndrome/Dissonance Flaw (see above); the
+  universal Players Guide chapter fills that gap. These 70 rows were
+  **derived from Lunar's already-verified transcription** of all 88
+  `pg-merit-*`/`pg-flaw-*` rows
+  (`docs/references/exalted1e/lunar/inventory/exalted-the-lunars.json`)
+  rather than independently re-read from the source PDF, per the project
+  owner's instructions: that chapter is explicitly universal across all
+  five planned Exalted families, and each Lunar row's own `notes` field
+  already documents any splat-specific eligibility/cost caveats verbatim.
+  Each of the 88 rows was evaluated against those caveats plus Alchemical's
+  own core-book rules to decide inclusion, exclusion, or adaptation. 18 of
+  the 88 were skipped as wholly inapplicable to a soulless, vat-built
+  construct Exalt: 9 merits (Selective Conception, Mutation, Prodigy,
+  Terrestrial Bloodline, Past Lives, Taint's Warning, Legendary Breeding,
+  Eternal Vow, Brigid's Heir) and 9 flaws (Sterile, Limited Forms, Known
+  Anathema, Child, Chimera, Permanent Caste Mark, Greater Curse,
+  Death-Taint, Throwback) — either explicitly restricted to other splats by
+  the source's own header text, or ruled out by Alchemical's construct
+  nature (no blood/breeding lineage, no reincarnation cycle, no Sorcery
+  access, already-baseline sterility, no childhood growth phase). Several
+  included rows required adaptation, each flagged verbatim in that row's
+  own `notes` field: Large Size/Small reframed against Alchemical's own
+  Essence-linked size growth instead of Lunar shapechanging; Disfigured/
+  Unusual Appearance reframed around chassis damage/material finish instead
+  of flesh; Dying reframed as a fatal structural/Essence-flow failure
+  instead of biological illness; Sun-Seared flagged as only directly
+  relevant once a story reaches Creation, since Autochthonia has no natural
+  sun; Cache/Debt adapted to use the Class Background instead of Resources
+  (which Alchemicals do not have); Heir Apparent adapted to a
+  patron/benefactor instead of parents; Vice/Derangement cross-referenced
+  to Clarity instead of the Great Curse; and Hidden Manse kept selectable
+  but flagged as conditional on the Manse Background's own
+  post-Locust-Crusade availability (see `manse-background-altered`).
 
 ## What's still needed
 
