@@ -190,13 +190,13 @@ real, creatable sheet.
 
 ## Status per family
 
-| Family     | Source manifest                       | Inventory rows | Promoted | Certification                    |
-| ---------- | ------------------------------------- | -------------- | -------- | -------------------------------- |
-| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide) | 341 | 0        | Locked, all dimensions `not-run` |
-| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony) | 440 | 0        | Locked, all dimensions `not-run` |
-| Sidereal   | Created (Exalted: The Sidereals)      | 252            | 0        | Locked, all dimensions `not-run` |
-| Alchemical | Created (Exalted: The Autochthonians) | 207            | 0        | Locked, all dimensions `not-run` |
-| Fair Folk  | Created (Exalted: The Fair Folk)      | 263            | 0        | Locked, all dimensions `not-run` |
+| Family     | Source manifest                                               | Inventory rows | Promoted | Certification                    |
+| ---------- | ------------------------------------------------------------- | -------------- | -------- | -------------------------------- |
+| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide)         | 341            | 0        | Locked, all dimensions `not-run` |
+| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony)      | 440            | 0        | Locked, all dimensions `not-run` |
+| Sidereal   | Created (Exalted: The Sidereals)                              | 252            | 0        | Locked, all dimensions `not-run` |
+| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide) | 277            | 0        | Locked, all dimensions `not-run` |
+| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide)      | 336            | 0        | Locked, all dimensions `not-run` |
 
 Lunar's 341 rows cover the core innate powers, every Charm category in
 Chapter Five (Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat
@@ -211,8 +211,8 @@ Curse (this splat's Limit-Trait analog) and its four Virtue-linked thralls,
 and the Face/Renown social-rank system — all visually reviewed against
 rendered pages of the supplied PDF (confirmed printed page = PDF page − 3).
 No dedicated Lunar-specific Merits/Flaws subsection or Tribe write-up exists
-in *Exalted: The Lunars* itself (confirmed absent). That gap is filled by a
-second source book: the *Exalted Players Guide*'s universal Chapter One,
+in _Exalted: The Lunars_ itself (confirmed absent). That gap is filled by a
+second source book: the _Exalted Players Guide_'s universal Chapter One,
 "Merits and Flaws" (pp. 18-41/PDF 21-44), now fully transcribed as 88 rows
 (44 merits + 44 flaws) applying across all five planned Exalted families,
 with splat-specific eligibility/cost caveats (e.g. the Lunars-only Chimera
@@ -278,7 +278,7 @@ planned families to reach full primary-sourcebook parity (Chapter Seven
 onward is Storytelling/setting material and out of scope); see
 `docs/references/exalted1e/sidereal/README.md`.
 
-Alchemical's 207 rows cover the character-creation overview, the universal
+Alchemical's 277 rows cover the character-creation overview, the universal
 Anima Banner effect, Artificial Metabolism, Life/Death/the Soulgem,
 Refitting/Essence advancement, all five material-named Castes (Orichalcum,
 Moonsilver, Jade, Starmetal, Soulsteel) plus the apocryphal sixth "Adamant"
@@ -290,41 +290,86 @@ of Chapter Three's Charm trees in full (Close Combat, Ranged Combat, Might
 and Mobility, Social, Stealth and Disguise, Sensory and Spiritual, Medical,
 Cognitive, and Essence and Weaving — completing Chapter Three), the complete
 Chapter Four weaving-protocol catalog (49 rows) that the Man-Machine and
-God-Machine Weaving Engine Charms run through, and now **the rest of
-Chapter Four's character-facing material** (31 more rows): the three
-Autochthonian-only alchemy formulae, the full Autochthonian Technology
-artifact catalog (15 items), and the full Warfare and Transportation
-sections — completing all of Chapter Four (Chapter Four's Storyteller-side
-lore, NPC stat blocks, and setting flavor were reviewed and intentionally
-excluded), reviewed against the supplied PDF's real text layer (printed page
-= PDF page − 1) with spot-checked renders, plus a full triage of the
-adventure-seed Chapters Five through Seven, which yielded exactly one more
-player-facing item (the Steamcar, Refurbished expedition vehicle) and were
-otherwise confirmed to be GM/NPC/plot content. **Alchemical is now reviewed
-cover-to-cover** — the first of the five planned families to reach full
-primary-sourcebook parity; see
-`docs/references/exalted1e/alchemical/README.md`.
+God-Machine Weaving Engine Charms run through, the rest of Chapter Four's
+character-facing material (31 more rows): the three Autochthonian-only
+alchemy formulae, the full Autochthonian Technology artifact catalog (15
+items), and the full Warfare and Transportation sections — completing all of
+Chapter Four (Chapter Four's Storyteller-side lore, NPC stat blocks, and
+setting flavor were reviewed and intentionally excluded), reviewed against
+the supplied PDF's real text layer (printed page = PDF page − 1) with
+spot-checked renders, and a full triage of the adventure-seed Chapters Five
+through Seven, which yielded exactly one more player-facing item (the
+Steamcar, Refurbished expedition vehicle) and were otherwise confirmed to be
+GM/NPC/plot content — completing a cover-to-cover review of _Exalted: The
+Autochthonians_ itself, the first of the five planned families to reach that
+milestone. No dedicated Alchemical Merits/Flaws chapter exists in that book
+beyond the Alchemical-exclusive Gremlin Syndrome/Dissonance Flaw (confirmed
+absent, not merely unreviewed). That universal gap is now filled by a second
+source book, the _Exalted Players Guide_'s Chapter One, "Merits and Flaws"
+(pp. 18-41/PDF 19-42) — **70 more rows (35 merits + 35 flaws)**, derived
+from Lunar's already-verified transcription of that chapter's full 88
+`pg-merit-*`/`pg-flaw-*` rows rather than an independent re-read, since the
+chapter is explicitly universal across all five planned families and each
+Lunar row's own notes already capture splat-specific eligibility/cost
+caveats verbatim. 18 of the 88 were skipped as inapplicable to a soulless,
+vat-built construct Exalt with no blood lineage, no reincarnation cycle, and
+no Sorcery access (e.g. the Dragon-Blooded-only Legendary Breeding, the
+Celestial-Exalted-only Known Anathema/Permanent Caste Mark/Greater
+Curse/Throwback, the Abyssals-and-Ghosts-only Death-Taint, and Alchemicals'
+own explicit exclusion from Prodigy); several included rows were adapted for
+Alchemical's construct nature and setting (Large Size/Small reframed around
+Essence-linked size growth instead of Lunar shapechanging, Cache/Debt
+reframed around the Class Background instead of Resources, Vice/Derangement
+cross-referenced to Clarity instead of the Great Curse, and Sun-Seared/
+Hidden Manse flagged as only fully relevant once a story reaches Creation),
+each judgment call flagged verbatim in that row's own notes. **Alchemical is
+now reviewed cover-to-cover, including the universal Merits/Flaws gap** —
+the first of the five planned families to reach full primary-sourcebook
+parity; see `docs/references/exalted1e/alchemical/README.md`.
 
-Fair Folk's 263 rows cover both character-creation tracks (common and noble
-raksha), the four Castes (Diplomat/Entertainer/Warrior/Worker) and their
-twelve noble hybrid archetypes, the five Grace traits that Charms key off
-instead of Attributes/Abilities, the Bedlam mechanic (this splat's
+Fair Folk's 263 core-book rows cover both character-creation tracks (common
+and noble raksha), the four Castes (Diplomat/Entertainer/Warrior/Worker) and
+their twelve noble hybrid archetypes, the five Grace traits that Charms key
+off instead of Attributes/Abilities, the Bedlam mechanic (this splat's
 Limit-Trait analog, split into four per-Virtue Curses rather than a single
 universal trait), nine new/altered Backgrounds, all of Chapter Five:
 Raksha Magic end to end (all five per-Grace Charm trees — 194 Charms — the
 universal Assumption-type Charm tree, the Vexing/Questing rules, and
 Glamour Sorcery/Wyld Artifacts/Adjurations/Behemoths plus the
-narrowly-scoped sixth shinma Nirupadhika), and now a triage pass across
+narrowly-scoped sixth shinma Nirupadhika), and a triage pass across
 Chapters One, Two, Six, and Seven that added the two remaining
 genuinely player-facing items (the Gossamer Manta vehicle and the
 post-creation Experience and Training Time table) and definitively
-confirmed, via an exhaustive book-wide text search, that Fair Folk has no
-Merits/Flaws section anywhere in the book. **Exalted: The Fair Folk is now
-reviewed cover to cover** — the third of the five planned families to
-reach full primary-sourcebook parity (Chapter Six's Mountain Folk, a
-wholly separate playable-adjacent race, was deliberately not inventoried
-as out of Fair Folk/raksha scope); see
-`docs/references/exalted1e/fair-folk/README.md`.
+confirmed, via an exhaustive book-wide text search, that _Exalted: The Fair
+Folk_ has no Merits/Flaws section of its own anywhere in the book. That
+universal gap is now filled by a second source book, the _Exalted Players
+Guide_'s Chapter One, "Merits and Flaws" (pp. 18-41/PDF 19-42) — **73 more
+rows (37 merits + 36 flaws)**, derived from Lunar's already-verified
+transcription of that chapter's full 88 `pg-merit-*`/`pg-flaw-*` rows
+rather than an independent re-read, since the chapter is explicitly
+universal across all five planned families and each Lunar row's own notes
+already capture splat-specific eligibility/cost caveats verbatim. 15 of the
+88 were skipped as inapplicable to a raksha — a being of pure Wyld/chaos
+that is not Exalted at all, has no Essence-reincarnation cycle, no anima or
+Caste Mark, and no access to core Exalted Sorcery (e.g. the
+Dragon-Blooded-only Legendary Breeding, the Celestial-Exalted-only Known
+Anathema/Permanent Caste Mark/Greater Curse/Throwback, the
+Abyssals-and-Ghosts-only Death-Taint, the Lunars-only Chimera/Limited Forms,
+and the Exalted-only Sworn Brotherhood/Beacon of Power); several included
+rows were reinterpreted for the raksha's own framework (Large Size/Small
+reframed around a raksha's Assumption-type shapeshifting Charms instead of
+Lunar forms; Cache/Debt reframed around the Gossamer Background instead of
+Resources, using Gossamer's own documented "effective Resources" dot table;
+Vice/Callous cross-referenced to Bedlam instead of the Great Curse; and
+Mutation and Weak Essence flagged as unusually strong fits, since raksha are
+Wyld-stuff given shape and every raksha starts with Essence 2 exactly as
+the Weak Essence Flaw's own "other magical beings" clause requires), each
+judgment call flagged verbatim in that row's own notes. **Exalted: The Fair
+Folk is now reviewed cover to cover, including the universal Merits/Flaws
+gap** — the third of the five planned families to reach full
+primary-sourcebook parity (Chapter Six's Mountain Folk, a wholly separate
+playable-adjacent race, was deliberately not inventoried as out of Fair
+Folk/raksha scope); see `docs/references/exalted1e/fair-folk/README.md`.
 
 All five families have now been reviewed cover-to-cover against their
 primary source books for player-facing mechanics — Alchemical, Lunar, Fair

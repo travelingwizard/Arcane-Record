@@ -1,19 +1,24 @@
 # Exalted 1e — Fair Folk source intake
 
 **Status: source intake in progress.** `Exalted: The Fair Folk` has been
-supplied and 263 inventory rows are checked in under `inventory/`. The book
+supplied and 336 inventory rows are checked in under `inventory/`. The book
 has now been reviewed cover to cover — every one of its seven chapters has
 either been fully inventoried (Three, Four, Five) or triaged (One, Two, Six,
 Seven) — and Fair Folk Merits/Flaws are definitively confirmed absent
-anywhere in the book. See
+anywhere in the book. That universal gap is now filled from a second source
+book, the **Exalted Players Guide**'s Chapter One, "Merits and Flaws" — 73
+rows (37 merits + 36 flaws) derived for Fair Folk from Lunar's
+already-verified transcription of that chapter. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
 ## What's inventoried so far
 
-- `source-manifest.json` — the one source book in scope so far
-  (`exalted-the-fair-folk`); supplements are not yet added.
-- `inventory/exalted-the-fair-folk.json` — 263 rows covering:
+- `source-manifest.json` — two source books in scope: `exalted-the-fair-folk`
+  (the primary sourcebook) and `exalted-players-guide` (the universal
+  Merits/Flaws chapter, derived rather than independently transcribed; see
+  below).
+- `inventory/exalted-the-fair-folk.json` — 336 rows covering:
   - The Chapter Three character-creation overview, split into two rows
     because common and noble raksha use materially different baselines:
     `fair-folk-creation-overview-common` (0-dot starting Attributes, 0 free
@@ -416,6 +421,35 @@ the full process this directory follows.
     physiology, not a raksha-selectable mechanic, and was not inventoried.
     See `source-manifest.json`'s `rulesNotes` for the complete writeup.
 
+That Merits/Flaws gap is now filled from a second source book: the
+**Exalted Players Guide**, Chapter One, "Merits and Flaws" (printed pp.
+18-41, PDF pp. 19-42). Rather than an independent re-read, 73 of its 88
+`pg-merit-*`/`pg-flaw-*` rows (37 merits + 36 flaws) were **derived for
+Fair Folk from Lunar's already-verified transcription** of the same
+universal chapter (`inventory/exalted-the-lunars.json`), since the chapter
+applies across all five planned Exalted families and each Lunar row's own
+`notes` field already captures splat-specific eligibility/cost caveats
+verbatim. 15 of the 88 were skipped as inapplicable to a raksha — a being
+of pure Wyld/chaos that is **not Exalted at all**, has no
+Essence-reincarnation cycle, no anima or Caste Mark, no blood-lineage
+concept, and no access to core Exalted Sorcery: **Terrestrial Bloodline**,
+**Past Lives**, **Sworn Brotherhood**, **Taint's Warning**, **Legendary
+Breeding**, **Eternal Vow**, and **Brigid's Heir** among the merits;
+**Limited Forms**, **Known Anathema**, **Chimera**, **Permanent Caste
+Mark**, **Greater Curse**, **Beacon of Power**, **Death-Taint**, and
+**Throwback** among the flaws. Several included rows were reinterpreted for
+the raksha's own framework: **Large Size**/**Small** now key off a raksha's
+Assumption-type shapeshifting Charms instead of Lunar forms; **Cache**/
+**Debt** now key off the Gossamer Background instead of Resources (which
+raksha exclude entirely); **Vice**/**Callous** now cross-reference Bedlam
+instead of the Great Curse; and **Unskilled** now keys off Caste Abilities
+instead of Favored Abilities. **Mutation** and **Weak Essence** were flagged
+as unusually strong fits rather than adaptations, since raksha are
+literally Wyld-stuff given shape and every raksha starts with Essence 2
+exactly as Weak Essence's own "other magical beings" clause requires. Every
+judgment call is flagged verbatim in the affected row's own `notes` field;
+see `source-manifest.json`'s `rulesNotes` for the full accounting.
+
 ## What's still needed
 
 **Nothing further from this primary sourcebook.** `Exalted: The Fair Folk`
@@ -436,21 +470,27 @@ above for details). What remains is deliberate, not deferred:
    inventoried. Deliberately **excluded from this family's scope**; if the
    Mountain Folk are ever added as a playable option, that is a separate
    family/module decision, not a Fair Folk (raksha) one.
-3. **Merits/Flaws specific to Fair Folk: definitively confirmed absent.**
-   A full-text search of all 331 pages of the PDF (not just the chapters
-   reviewed this round) found the word "Merit" exactly twice and "Flaw"
-   exactly twice book-wide, and every one of those four incidental
-   mentions points to an *externally*-defined Merit/Flaw from the Exalted
-   Players Guide, or to Chapter Five's Behemoths passage noting that a
-   behemoth's borrowed Traits exclude "most Merits and Flaws" (already
-   inventoried) — never to a Fair-Folk-specific Merits/Flaws list. No such
-   list exists anywhere in this book, in any of its seven chapters. Like
-   Lunar (see `docs/references/exalted1e/lunar/README.md`), Fair Folk has
-   no dedicated Merits/Flaws subsection in its core sourcebook.
+3. **Merits/Flaws specific to Fair Folk: definitively confirmed absent** from
+   *Exalted: The Fair Folk* itself. A full-text search of all 331 pages of
+   the PDF (not just the chapters reviewed this round) found the word
+   "Merit" exactly twice and "Flaw" exactly twice book-wide, and every one
+   of those four incidental mentions points to an *externally*-defined
+   Merit/Flaw from the Exalted Players Guide, or to Chapter Five's
+   Behemoths passage noting that a behemoth's borrowed Traits exclude "most
+   Merits and Flaws" (already inventoried) — never to a Fair-Folk-specific
+   Merits/Flaws list. No such list exists anywhere in this book, in any of
+   its seven chapters. Like Lunar (see
+   `docs/references/exalted1e/lunar/README.md`), Fair Folk has no dedicated
+   Merits/Flaws subsection in its core sourcebook. **That gap is now filled**
+   from the Exalted Players Guide's universal Chapter One, derived from
+   Lunar's already-verified transcription (see above) — 73 of 88 rows apply
+   to Fair Folk.
 4. The project owner's remaining cross-splat supplements (Blood and Salt,
    Book of Bone and Ebony, Book of Three Circles, Savage Seas, Savant and
-   Sorcerer, the Players Guide, and the Storyteller's Companion) are still
-   untriaged for any further Fair Folk-relevant material.
+   Sorcerer, and the Storyteller's Companion) are still untriaged for any
+   further Fair Folk-relevant material. The Players Guide's own remaining
+   chapters (beyond the universal Chapter One now covered above) are also
+   still untriaged.
 
 ## Do not add yet
 

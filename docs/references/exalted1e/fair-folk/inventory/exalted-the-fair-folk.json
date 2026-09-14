@@ -525,7 +525,7 @@
   },
   {
     "id": "craft-glamour-ability",
-    "name": "Craft (Glamour) — the paramount creator's Craft specialty",
+    "name": "Craft (Glamour) \u2014 the paramount creator's Craft specialty",
     "disposition": "calculated",
     "summary": "Craft (Glamour) is the single most important Craft specialty for raksha: the art of shaping Essence and dream itself, superseding metalwork, woodwork, stonework and every other mundane Craft specialty for a Fair Folk character.",
     "mechanics": "Craft (Glamour) is described as 'the paramount creator's skill in the Wyld.' In Creation, a raksha player can roll Perception + Craft (Glamour) for her character to identify the glamour-forged works of her peers.",
@@ -5080,7 +5080,7 @@
       "hateful-coin-curse",
       "artifact-background-fair-folk"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Glamour Sorcery' -> 'Waking Circle Spell (Artifact •)', p. 205 (PDF 206)."
+    "notes": "Chapter Five: Raksha Magic, 'Glamour Sorcery' -> 'Waking Circle Spell (Artifact \u2022)', p. 205 (PDF 206)."
   },
   {
     "id": "dreaming-circle-spell",
@@ -5104,7 +5104,7 @@
       "fall-of-night-shadows-the-truth",
       "artifact-background-fair-folk"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Dreaming Circle Spell (Artifact ••)', p. 206 (PDF 207), between the Glamour Sorcery and Countermagic sidebar and the Desire Circle Spell entry."
+    "notes": "Chapter Five: Raksha Magic, 'Dreaming Circle Spell (Artifact \u2022\u2022)', p. 206 (PDF 207), between the Glamour Sorcery and Countermagic sidebar and the Desire Circle Spell entry."
   },
   {
     "id": "desire-circle-spell",
@@ -5129,7 +5129,7 @@
       "undetectable-lie",
       "artifact-background-fair-folk"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Desire Circle Spell (Artifact •••)', p. 206 (PDF 207), continuing onto p. 207/PDF 208."
+    "notes": "Chapter Five: Raksha Magic, 'Desire Circle Spell (Artifact \u2022\u2022\u2022)', p. 206 (PDF 207), continuing onto p. 207/PDF 208."
   },
   {
     "id": "samadhi-circle-spell",
@@ -5156,7 +5156,7 @@
       "artifact-background-fair-folk",
       "heart-grace"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Samadhi Circle Spell (Artifact ••••)', p. 207 (PDF 208), immediately following the tail end of Desire Circle Spell and the 'Magistrate Eyes' cross-reference to core Exalted."
+    "notes": "Chapter Five: Raksha Magic, 'Samadhi Circle Spell (Artifact \u2022\u2022\u2022\u2022)', p. 207 (PDF 208), immediately following the tail end of Desire Circle Spell and the 'Magistrate Eyes' cross-reference to core Exalted."
   },
   {
     "id": "shinma-circle-spell",
@@ -5177,7 +5177,7 @@
       "glamour-sorcery-overview",
       "artifact-background-fair-folk"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Shinma Circle Spell (Artifact •••••)', p. 207 (PDF 208), immediately preceding the 'Wyld Artifacts' section."
+    "notes": "Chapter Five: Raksha Magic, 'Shinma Circle Spell (Artifact \u2022\u2022\u2022\u2022\u2022)', p. 207 (PDF 208), immediately preceding the 'Wyld Artifacts' section."
   },
   {
     "id": "wyld-artifacts-overview",
@@ -5219,7 +5219,7 @@
       "wyld-artifacts-overview",
       "artifact-background-fair-folk"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Resonant Chorus Bow (Artifact •)', p. 207 (PDF 208)."
+    "notes": "Chapter Five: Raksha Magic, 'Resonant Chorus Bow (Artifact \u2022)', p. 207 (PDF 208)."
   },
   {
     "id": "hundred-color-shaping-lens",
@@ -5240,7 +5240,7 @@
       "wyld-artifacts-overview",
       "artifact-background-fair-folk"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Hundred Color Shaping Lens (Artifact ••)', p. 207 (PDF 208)."
+    "notes": "Chapter Five: Raksha Magic, 'Hundred Color Shaping Lens (Artifact \u2022\u2022)', p. 207 (PDF 208)."
   },
   {
     "id": "artifact-waypoint",
@@ -5261,7 +5261,7 @@
       "wyld-artifacts-overview",
       "artifact-background-fair-folk"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Artifact Waypoint (Artifact •••+)', p. 208 (PDF 209), continuing onto p. 209/PDF 210. This is the last named Wyld Artifact example before the 'Adjurations' section begins."
+    "notes": "Chapter Five: Raksha Magic, 'Artifact Waypoint (Artifact \u2022\u2022\u2022+)', p. 208 (PDF 209), continuing onto p. 209/PDF 210. This is the last named Wyld Artifact example before the 'Adjurations' section begins."
   },
   {
     "id": "adjurations-overview",
@@ -5324,7 +5324,7 @@
       "sword-grace",
       "gossamer-wing-flight"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Samhara Oath (Artifact •)', p. 208 (PDF 209), continuing onto p. 209/PDF 210."
+    "notes": "Chapter Five: Raksha Magic, 'Samhara Oath (Artifact \u2022)', p. 208 (PDF 209), continuing onto p. 209/PDF 210."
   },
   {
     "id": "sthiti-oath",
@@ -5347,7 +5347,7 @@
       "ring-grace",
       "ordinary-object-conjuration"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Sthiti Oath (Artifact ••)', spanning the bottom of p. 208 (PDF 209) and top of p. 209 (PDF 210)."
+    "notes": "Chapter Five: Raksha Magic, 'Sthiti Oath (Artifact \u2022\u2022)', spanning the bottom of p. 208 (PDF 209) and top of p. 209 (PDF 210)."
   },
   {
     "id": "anugraha-oath",
@@ -5370,7 +5370,7 @@
       "cup-grace",
       "oath-gossamer"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Anugraha Oath (Artifact •••)', p. 209 (PDF 210)."
+    "notes": "Chapter Five: Raksha Magic, 'Anugraha Oath (Artifact \u2022\u2022\u2022)', p. 209 (PDF 210)."
   },
   {
     "id": "tirobhava-oath",
@@ -5394,7 +5394,7 @@
       "assumption-of-the-living-kingdom",
       "assumption-of-the-lands-heart"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Tirobhava Oath (Artifact ••••)', p. 209 (PDF 210), continuing onto p. 210/PDF 211."
+    "notes": "Chapter Five: Raksha Magic, 'Tirobhava Oath (Artifact \u2022\u2022\u2022\u2022)', p. 209 (PDF 210), continuing onto p. 210/PDF 211."
   },
   {
     "id": "srishti-oath",
@@ -5417,7 +5417,7 @@
       "heart-grace",
       "bastion-of-the-self"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Srishti Oath (Artifact •••••)', p. 210 (PDF 211), the last of the five oath tiers and immediately preceding the 'Behemoths' section."
+    "notes": "Chapter Five: Raksha Magic, 'Srishti Oath (Artifact \u2022\u2022\u2022\u2022\u2022)', p. 210 (PDF 211), the last of the five oath tiers and immediately preceding the 'Behemoths' section."
   },
   {
     "id": "behemoths-overview",
@@ -5463,7 +5463,7 @@
       "gossamer-wing-flight",
       "glorious-hero-form"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Fey Beasts (Artifact • or ••)', p. 211 (PDF 212), the first named behemoth tier."
+    "notes": "Chapter Five: Raksha Magic, 'Fey Beasts (Artifact \u2022 or \u2022\u2022)', p. 211 (PDF 212), the first named behemoth tier."
   },
   {
     "id": "daikaiju",
@@ -5487,7 +5487,7 @@
       "bastion-of-the-self",
       "gossamer-wing-flight"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Daikaiju (Artifact •••)', p. 211 (PDF 212), continuing onto p. 212/PDF 213, illustrated with a full daikaiju artwork on p. 211/PDF 212."
+    "notes": "Chapter Five: Raksha Magic, 'Daikaiju (Artifact \u2022\u2022\u2022)', p. 211 (PDF 212), continuing onto p. 212/PDF 213, illustrated with a full daikaiju artwork on p. 211/PDF 212."
   },
   {
     "id": "deep-wyld-horror",
@@ -5510,7 +5510,7 @@
       "imposition-of-law",
       "glorious-hero-form"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Deep Wyld Horror (Artifact •••• or •••••)', p. 212 (PDF 213). Note: this printed-page/PDF-page pair reflects the folio number printed on the physical page image, which reads 211 for the page bearing the 'Deep Wyld Horror,' 'Ishiika,' and 'Nirupadhika, the Way' material (PDF page 212); the source-manifest's earlier estimate of pp. 210-212/PDF 211-213 for Behemoths and p. 212/PDF 213 for Nirupadhika was off by one page and is corrected here after direct visual confirmation against the rendered page images."
+    "notes": "Chapter Five: Raksha Magic, 'Deep Wyld Horror (Artifact \u2022\u2022\u2022\u2022 or \u2022\u2022\u2022\u2022\u2022)', p. 212 (PDF 213). Note: this printed-page/PDF-page pair reflects the folio number printed on the physical page image, which reads 211 for the page bearing the 'Deep Wyld Horror,' 'Ishiika,' and 'Nirupadhika, the Way' material (PDF page 212); the source-manifest's earlier estimate of pp. 210-212/PDF 211-213 for Behemoths and p. 212/PDF 213 for Nirupadhika was off by one page and is corrected here after direct visual confirmation against the rendered page images."
   },
   {
     "id": "ishiika",
@@ -5634,5 +5634,1329 @@
       "heart-grace"
     ],
     "notes": "Chapter Seven: Storytelling, the 'Fair Folk Experience' and 'Fair Folk Training Time' boxed sidebar, p. 321 (PDF 322), sitting between 'The Fair Folk and the Deathlords' and 'Others: God-Bloods and Outcastes.' This is the only genuinely player-facing, character-advancement-relevant mechanic found anywhere in Chapters One, Two, Six, or Seven during this triage pass, and it fills a real gap: every other Fair Folk row inventoried so far covers character creation or Charms, not this post-creation experience-cost/training-time framework."
+  },
+  {
+    "id": "pg-merit-selective-conception",
+    "name": "Selective Conception",
+    "disposition": "selectable",
+    "summary": "Full conscious control of fertility: a female raksha can choose to conceive (or not) at will, and always knows if she has conceived. A purely physical, splat-agnostic Merit with no Exalted-specific language to adapt.",
+    "mechanics": "Characters with this Merit have full conscious control of their fertility. They may be as sexually active as desired and yet as fertile as always when they decide. Females with this Merit can automatically conceive as a result of a given union for a cost of one Willpower point, and such characters automatically know if they become pregnant. Males cannot assure conception and do not know if they sire offspring, but they may withhold their fertility as desired.",
+    "cost": "1-pt. Merit",
+    "compatibility": "Any raksha wearing a Mote capable of procreation, common or noble; unmodified from the Players Guide text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 18,
+      "pdfPage": 19
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-selective-conception (Exalted Players Guide, Chapter One: Merits and Flaws). Lunar's own notes found no splat-specific eligibility language in this entry, so it applies to Fair Folk exactly as written -- a raksha's Mote is a stable body for as long as she wears it, and nothing about this Merit depends on being Exalted, having Essence, or any other trait raksha lack."
+  },
+  {
+    "id": "pg-merit-ambidextrous",
+    "name": "Ambidextrous",
+    "disposition": "selectable",
+    "summary": "For one point, negates offhand penalties; the two-point (\"omniambidextrous\") version also lets the character hold weapons/tools with their feet as readily as their hands. Raksha pay the ordinary, non-Exalted cost for either version, since the book's discount is named for Lunars specifically.",
+    "mechanics": "For one point, the character can use both hands equally well and never suffers an offhand penalty for any task. Characters with the two-point version of this Merit can also hold weapons and tools with their feet as readily as their hands, an adaptation highly useful for characters who have lost the use of both hands. Matters of balance and common sense still apply, so omniambidextrous characters will not be able to walk around carrying objects with every hand and foot simultaneously.",
+    "cost": "1- or 2-pt. Merit",
+    "compatibility": "Any raksha, common or noble; pays the full 2-pt. cost for the omniambidextrous version, since the discounted 1-pt. price is named for Lunar Exalted specifically and raksha are not Exalted.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 18,
+      "pdfPage": 19
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-ambidextrous. Lunar's row documents a Lunar-specific discount (\"Lunars pay only one point to be omniambidextrous\") that does not extend to any other splat, including Fair Folk; the underlying Merit itself carries no eligibility restriction, so raksha may purchase either version at the ordinary, undiscounted cost."
+  },
+  {
+    "id": "pg-merit-acute-sense",
+    "name": "Acute Sense",
+    "disposition": "selectable",
+    "summary": "One or more senses heightened to superhuman sensitivity; the 1-pt. version adds dice to Perception/Awareness rolls involving that sense but risks sensory overload, while the 3-pt. version grants preternatural acuity. A raksha's Mote-shape can carry either tier exactly as written.",
+    "mechanics": "The character has one or more senses heightened to superhuman sensitivity, for a cost of one bonus point each. The character adds two dice to any Perception and/or Awareness dice pool involving a heightened sense, but his player must make a reflexive Wits + Awareness roll at standard difficulty whenever that sense experiences extremely intense stimuli; failure inflicts a one-die penalty to all actions requiring concentration until the stimulus abates. If a character instead pays three bonus points per sense, the sense is heightened to preternatural acuity. Bonus points awarded by a heightened sense do not aid in resisting sensory-overload rolls.",
+    "cost": "1- or 3-pt. Merit per sense",
+    "compatibility": "Any raksha, common or noble; stacks with, and its overload rolls are unaffected by, the Special Sense Merit below.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 18,
+      "pdfPage": 19
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-acute-sense. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written, since a raksha's Mote possesses ordinary senses that can be heightened like anyone else's."
+  },
+  {
+    "id": "pg-merit-double-jointed",
+    "name": "Double-Jointed",
+    "disposition": "selectable",
+    "summary": "Contortionist flexibility: the 1-pt. version adds a die to grappling/Athletics/Larceny rolls benefiting from flexibility; the 3-pt. version adds two dice and grants near-impossible feats of contortion. Raksha pay the full, non-Exalted cost for the greater version.",
+    "mechanics": "For a cost of one point, the character is unusually supple and capable of remarkable feats of contortion, adding one die to grappling rolls and to Athletics or Larceny rolls where flexibility proves advantageous. Characters with the three-point version are uncanny contortionists, adding two dice to all rolls benefiting from flexibility and able to bend every finger to the wrist, lock their legs straight up, maintain indefinite splits, dislocate and reset joints painlessly and slip free of most conventional restraints with a Dexterity + Athletics roll.",
+    "cost": "1- or 3-pt. Merit",
+    "compatibility": "Any raksha, common or noble; pays the full 3-pt. cost for the greater version, since the discounted 2-pt. price is named for Lunar Exalted specifically.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 19,
+      "pdfPage": 20
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-double-jointed. Lunar's row documents a Lunar-specific 2-pt. discount for the greater version that does not extend to any other splat; the base Merit carries no eligibility restriction, so raksha purchase it at the ordinary, undiscounted cost."
+  },
+  {
+    "id": "pg-merit-pain-tolerance",
+    "name": "Pain Tolerance",
+    "disposition": "selectable",
+    "summary": "Characters with this Merit can shrug off injuries that would leave most individuals unconscious or writhing in agony, at increasing tiers of pain-immunity and Awareness-roll cost. A purely physical Merit with no eligibility restriction to adapt.",
+    "mechanics": "Characters with this Merit can shrug off injuries that would leave most individuals unconscious or writhing in agony. For three points, the difficulty of touch-based Awareness rolls increases by one. Five points allow the character to ignore two dice of wound penalties, at the same touch-Awareness cost; the character feels nothing and may continue acting without penalty for injuries short of actual maiming. The downside to seven-point resilience is that the character automatically fails rolls requiring a sense of touch and must visually inspect his body for injuries needing treatment. The effects of Pain Tolerance are not cumulative with Charms and other magic that negate wound penalties; only the most powerful effect applies.",
+    "cost": "3-, 5- or 7-pt. Merit",
+    "compatibility": "Any raksha, common or noble; not cumulative with any Charm or shaping-combat effect that already negates wound penalties.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 19,
+      "pdfPage": 20
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-pain-tolerance. Lunar's own notes found no eligibility restriction here -- only flavor text noting the Merit is common among ghosts and Abyssal deathknights -- so it applies to Fair Folk exactly as written."
+  },
+  {
+    "id": "pg-merit-large-size",
+    "name": "Large Size",
+    "disposition": "selectable",
+    "summary": "Characters are roughly 25 percent (4-pt.) or nearly twice (6-pt.) larger than average, gaining bonus health levels but suffering a Dexterity penalty for fine manipulation at the higher tier. A raksha with this Merit keeps her extra bulk and bonus health level(s) across any shape she assumes with her Assumption-type Charms, since her Mote is a chosen form rather than a fixed body.",
+    "mechanics": "Characters with the four-point version of this Merit are roughly 25 percent larger than average, standing over seven feet tall and usually weighing in at 300 or more pounds; such bulk grants one additional -0 health level. For six points, the character is almost impossibly huge, standing eight to nine feet tall and weighing 500 or more pounds, receiving one -0 level and one -1 level but losing one die from Dexterity rolls to use small weapons, writing instruments, or other tools not built for such massive hands. The added toughness is immediately evident to everyone, and the character may have to stoop through doorways built for smaller folk. A raksha with this Merit is proportionally larger in every shape she assumes and keeps the extra health level(s) in each, since a raksha's true self has no fixed body at all -- only whatever Mote or elemental shape she is currently wearing (see assumption-of-elemental-shape).",
+    "cost": "4- or 6-pt. Merit",
+    "compatibility": "Any raksha, common or noble; the size and its bonus health level(s) persist across any shape assumed via Assumption-type Charms.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 19,
+      "pdfPage": 20
+    },
+    "crossReferences": [
+      "assumption-of-elemental-shape"
+    ],
+    "notes": "Derived from Lunar's pg-merit-large-size, which documents this Merit's bonus health level(s) carrying into every Lunar shapechanged form (cross-referencing Prey's Skin Disguise for the one Lunar exception). Fair Folk have no Prey's Skin Disguise equivalent, but the underlying logic transfers directly: a raksha has no true form of her own, only Motes and elemental shapes assumed through the universal Assumption-type Charm tree (see assumption-of-elemental-shape), so this Merit's size and bonus health level(s) are reinterpreted here as persisting across whatever shape she is currently wearing rather than across Lunar 'forms.'"
+  },
+  {
+    "id": "pg-merit-legendary-attribute",
+    "name": "Legendary Attribute",
+    "disposition": "selectable",
+    "summary": "Grants the potential to raise a Physical (or, in other versions, Social or Mental) Attribute one dot higher than the normal cap; raksha pay the full mortal 5-pt. cost rather than the 3-pt. Exalted discount, since Fair Folk are not Exalted, but the underlying mechanic maps directly onto a raksha's own Attribute ceiling.",
+    "mechanics": "Characters with this Merit have the potential to attain a rating one dot higher than the normal limit their power imposes. This may be done during character creation or after. Other versions of this Merit exist to accommodate Social and Mental Attributes, following the same rules apart from category. For a raksha, the 'normal limit' this Merit raises is her own Attribute ceiling: a noble raksha may not normally exceed 7 dots (4 added dots) in an Attribute, and a common raksha may not exceed 4 dots, without a Charm-granted mutation (see fair-folk-creation-overview-noble / fair-folk-creation-overview-common); this Merit raises that ceiling by one further dot in the chosen Attribute, exactly as the Exalted version raises an Essence-tied cap by one dot.",
+    "cost": "5-pt. Merit",
+    "compatibility": "Any raksha, common or noble; pays the full mortal 5-pt. cost, since the reduced 3-pt. price is stated 'for Exalted' generically and raksha are not Exalted.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 19,
+      "pdfPage": 20
+    },
+    "crossReferences": [
+      "fair-folk-creation-overview-noble",
+      "fair-folk-creation-overview-common"
+    ],
+    "notes": "Derived from Lunar's pg-merit-legendary-attribute. The book's discount applies 'for Exalted' generically, which does not extend to Fair Folk; raksha pay the full mortal cost. The underlying mechanic (raising a hard Attribute cap by one dot) was reinterpreted against the raksha-specific Attribute ceilings documented in fair-folk-creation-overview-noble and -common (7 dots for nobles, 4 for commoners, both without a Charm-granted mutation) rather than the Exalted Essence-tied cap, since raksha do not use that formula."
+  },
+  {
+    "id": "pg-merit-special-resistance",
+    "name": "Special Resistance",
+    "disposition": "selectable",
+    "summary": "For every point invested, adds one die to Resistance/Endurance rolls versus poison or disease, or buys immunity to a specific poison/disease. A purely physical Merit with no eligibility restriction to adapt.",
+    "mechanics": "For every point invested in this Merit, the character adds one die on applicable Resistance and Endurance rolls versus poison or disease, to a maximum of five additional dice of either form of injury. Alternately, the character may have total immunity to a specific poison or disease for a cost of one point, suffering no ill effects from that toxin or malady; it is not possible to purchase immunity to infected wounds this way. All forms of this Merit assume the character has built her resistance through repeated exposure to the appropriate danger, intentionally or otherwise.",
+    "cost": "Variable Cost Merit",
+    "compatibility": "Any raksha, common or noble; unmodified from the Players Guide text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 19,
+      "pdfPage": 20
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-special-resistance. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written."
+  },
+  {
+    "id": "pg-merit-special-sense",
+    "name": "Special Sense",
+    "disposition": "selectable",
+    "summary": "One or more senses that process stimuli beyond the normal ranges for the character's species (e.g. heat vision, ultrasonic hearing); no fixed mechanical effect, at Storyteller discretion, and stacks with Acute Sense.",
+    "mechanics": "Characters with this Merit have one or more senses that process stimuli beyond the normal ranges for their species -- detecting heat as well as visible light, hearing high-frequency pitches, or the like. There is no fixed mechanical effect for this broader sensitivity, but Storytellers should accommodate the character's gift when narrating sensory details. If taken alongside the matching Acute Sense Merit, the character's heightened awareness also applies to the unusual range of that sense. Every significant expansion of a single sense's range costs two bonus points.",
+    "cost": "Variable Cost Merit",
+    "compatibility": "Any raksha, common or noble; explicitly stacks with the Acute Sense Merit.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 20,
+      "pdfPage": 21
+    },
+    "crossReferences": [
+      "pg-merit-acute-sense"
+    ],
+    "notes": "Derived from Lunar's pg-merit-special-sense. Lunar's own notes found only flavor examples ('an uncapped Demesne,' 'an especially pronounced Lunar Tell') in this entry, not an eligibility restriction; it applies to Fair Folk exactly as written, and a raksha's own Wyld-touched nature is at least as fitting a flavor source as either example."
+  },
+  {
+    "id": "pg-merit-flaw-mutation",
+    "name": "Mutation",
+    "disposition": "selectable",
+    "summary": "Unusual, unnatural physical features from supernatural parentage, exposure to the Wyld, or an uncapped Demesne; useful mutations are purchased as Merits, harmful ones as Flaws, and characters with an Essence pool may fuel activation costs with motes instead of Willpower. Arguably an even more natural fit for the Fair Folk than for any Creation-born splat, since raksha are literally beings of Wyld-stuff wearing a chosen shape.",
+    "mechanics": "Characters with this Merit display unusual or unnatural features, typically as a result of supernatural parentage or direct or ancestral exposure to the Wyld or an uncapped Demesne. Aberrations purchased with this Trait take the form of Wyld mutations (see Exalted, pp. 280-281, or this book's own Sword Grace Mutation Charms, such as armament-of-flesh and surpassing-excellence, for a raksha-appropriate framework). Useful mutations require bonus points equal to their mutation-point rating + 2; harmful mutations taken as Flaws grant bonus points equal to their mutation-point rating + 1. Characters with an Essence pool may spend 2 motes of Essence to fuel any activation costs required by mutations but may not purchase Feats of Willpower under any circumstances; a character with a superior natural healing rate cannot purchase the Regeneration affliction. The Storyteller may veto or modify the cost of any mutation deemed unfair, particularly if the feature is already covered by another Trait. Features obtained from this Merit do not count as actual Wyld mutations for determining whether a creature can safely endure Creation.",
+    "cost": "Variable Cost Merit or Flaw",
+    "compatibility": "Any raksha, common or noble; a raksha's single Essence pool (permanent Essence x 10, no Personal/Peripheral split) qualifies for the mote-fueled activation-cost option exactly as written.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 20,
+      "pdfPage": 21
+    },
+    "crossReferences": [
+      "armament-of-flesh",
+      "surpassing-excellence"
+    ],
+    "notes": "Derived from Lunar's pg-merit-flaw-mutation, which names 'an especially pronounced Lunar Tell' as one flavor source and cross-references Exalted: The Lunars' own mutation-point tables. Fair Folk have no Tell, but they have a far more direct thematic claim to Wyld mutation than any Creation-born splat -- raksha are quite literally Wyld-stuff given shape -- so the cross-reference was redirected to this book's own Sword Grace Mutation Charms (armament-of-flesh, surpassing-excellence, and the rest of that section) as the in-family framework, alongside the core Exalted mutation tables the entry also cites. The mote-fueled activation-cost clause applies directly, since raksha have an Essence pool."
+  },
+  {
+    "id": "pg-merit-common-sense",
+    "name": "Common Sense",
+    "disposition": "selectable",
+    "summary": "A decent grasp of what constitutes a good idea, a bad idea and a very bad idea; won't rush into calamity without recognizing her folly. A purely mental Merit with no eligibility restriction to adapt.",
+    "mechanics": "A character with this Merit has a decent grasp of what constitutes a good idea, a bad idea and a very bad idea. She won't rush into calamity without recognizing her folly, though nothing prevents her from ignoring her better judgment. This Merit chiefly exists to warn inexperienced players about obvious dangers implicit in a course of action; the Storyteller should give fair warning in such cases without belaboring the point.",
+    "cost": "1-pt. Merit",
+    "compatibility": "Any raksha, common or noble; unmodified from the Players Guide text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 20,
+      "pdfPage": 21
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-common-sense. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written."
+  },
+  {
+    "id": "pg-merit-internal-compass",
+    "name": "Internal Compass",
+    "disposition": "selectable",
+    "summary": "Uncanny sense of direction; gains one extra die to all rolls to navigate a ship or find her way through a maze. A purely mental Merit with no eligibility restriction to adapt.",
+    "mechanics": "The character has an uncanny sense of direction and gains one extra die to all rolls to navigate a ship or find her way through a maze. She can orient herself with regard to the cardinal directions of Creation or the Underworld with a Wits + Awareness roll at standard difficulty.",
+    "cost": "1-pt. Merit",
+    "compatibility": "Any raksha, common or noble; unmodified from the Players Guide text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 20,
+      "pdfPage": 21
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-internal-compass. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written -- a raksha operating in Rakshastan or the Deep Wyld can orient by 'the cardinal directions of Creation' just as easily as any Exalt visiting the Wyld's borders."
+  },
+  {
+    "id": "pg-merit-eidetic-recall",
+    "name": "Eidetic Recall",
+    "disposition": "selectable",
+    "summary": "Nearly perfect memory of everything witnessed, at a cost of one bonus point per sense the character can infallibly recall. Raksha pay the ordinary per-sense cost, since the flat discounted price is named for Alchemical Exalted specifically.",
+    "mechanics": "Characters with this Merit have a nearly perfect memory of everything they have witnessed, at a cost of one bonus point for every sense the character can infallibly recall. It is assumed this record is always functioning, though the Storyteller may require a Wits + Awareness roll to memorize and remember details observed in moments of intense stress (such as combat).",
+    "cost": "1- to 5-pt. Merit",
+    "compatibility": "Any raksha, common or noble; pays the ordinary per-sense cost, since the flat 3-pt. discount for full (all five senses) recall is named for Alchemical Exalted specifically and does not extend to Fair Folk.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 20,
+      "pdfPage": 21
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-eidetic-recall, which documents an Alchemical Exalted-specific flat discount. That discount is named for a different splat entirely and has no bearing on Fair Folk eligibility; raksha purchase this Merit at the ordinary, undiscounted per-sense cost, since the base Merit carries no eligibility restriction."
+  },
+  {
+    "id": "pg-merit-prodigy",
+    "name": "Prodigy",
+    "disposition": "selectable",
+    "summary": "Grants one additional Favored Ability each time purchased. The book's explicit exclusion names only Solar, Abyssal and Lunar Exalted (whose own Exalted status already imposes this cap) and Alchemical Exalted (who favor Attributes, not Abilities); Dragon-Blooded and Sidereal Exalted, whose Caste/Favored Ability structure closely parallels a raksha's own, are left eligible. Included here on that same parallel, since Fair Folk are not named in either exclusion and their Caste/Favored Ability caps work the same way as a Dragon-Blooded's or Sidereal's.",
+    "mechanics": "The character excels at a particular skill or knowledge, gaining one additional Favored Ability every time this Merit is purchased. Characters may not have more than five Favored Abilities in total. For a raksha, this reinterprets as one additional Caste or Favored Ability beyond the normal limits set at character creation (5 Caste + 3 Favored for a noble, 5 Caste + 1 Favored for a commoner; see fair-folk-creation-overview-noble / -common), capped at five total Favored Abilities as in the original text. The increased aptitude lowers the experience cost to raise the Ability by 2 and adds one die to all rolls involving it; this bonus does not adjust the Trait's rating for experience-cost purposes, but it does grant superhuman mastery for characters who purchase their fifth dot.",
+    "cost": "3-pt. Merit",
+    "compatibility": "Any raksha, common or noble; a judgment call, since the book neither names nor excludes Fair Folk, but the exclusion's own stated reasoning (a fixed Exalted-status ability cap) applies to Solar/Abyssal/Lunar specifically, while Dragon-Blooded and Sidereal Exalted -- whose Caste/Favored Ability caps closely resemble a raksha's own -- remain eligible.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 20,
+      "pdfPage": 21
+    },
+    "crossReferences": [
+      "fair-folk-creation-overview-noble",
+      "fair-folk-creation-overview-common"
+    ],
+    "notes": "JUDGMENT CALL: Lunar's own row (pg-merit-prodigy) is disposition 'excluded' for Lunars specifically, since the book names Solars, Abyssals and Lunars by name as ineligible ('who already have these limits as part of their Exalted status'). Fair Folk are named in neither that exclusion nor the separate Alchemical exclusion (Alchemicals favor Attributes over Abilities; raksha favor Abilities via Caste/Favored Abilities, like Dragon-Blooded and Sidereals, both of whom the text leaves eligible). Since raksha use a directly analogous Caste Ability (5) / Favored Ability (1 or 3) / total-5-Favored-cap structure to Dragon-Blooded and Sidereal Exalted rather than to the excluded three, this Merit is included here as selectable by analogy rather than excluded by silence. Flagged clearly as a judgment call in case a future pass disagrees."
+  },
+  {
+    "id": "pg-merit-virtue-specialty",
+    "name": "Virtue Specialty",
+    "disposition": "selectable",
+    "summary": "Moral fortitude strengthened under specific conditions, adding dice to Virtue rolls equal to half the points invested when a specialty circumstance is invoked. Raksha have the same four Virtues (Compassion, Conviction, Temperance, Valor) as any Exalt, so this Merit applies directly.",
+    "mechanics": "A character with this Merit finds his moral resolve strengthened under certain conditions -- a meek villager standing as a lion in defense of family, a celibate ascetic better resisting temptation. The character receives additional dice to applicable Virtue rolls equal to half the points invested in this Merit, though this also increases the difficulty where the Storyteller wishes to test against his moral judgment. A character may not have more than one specialty die for a given Virtue, mirroring the restriction on Ability specialties.",
+    "cost": "2- to 6-pt. Merit",
+    "compatibility": "Any raksha, common or noble; applies to any of the four Virtues -- Compassion, Conviction, Temperance, Valor -- exactly as it would for an Exalt.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 21,
+      "pdfPage": 22
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-virtue-specialty. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written, since raksha use the same four Virtue Traits as every other character type in this game line."
+  },
+  {
+    "id": "pg-merit-driving-passion",
+    "name": "Driving Passion",
+    "disposition": "selectable",
+    "summary": "A Nature-tied all-consuming goal that grants a bonus die whenever the character takes action directly furthering it; resolving or betraying it changes the character's Traits. Raksha choose a Nature at character creation exactly as any Exalt does, so this Merit applies unmodified.",
+    "mechanics": "Characters with a Driving Passion live for a cause directly tied to their Nature (most commonly Architect or Visionary), of any scope, from liberating a nation to avenging a loved one's murder to becoming a peerless master of a craft. Whenever the character takes action directly furthering this goal, her player adds one additional die to the roll involved, with the Storyteller as final arbiter of which situations merit the bonus. If a character actually resolves or fulfills her Driving Passion, she immediately loses this Merit and gains six experience points.",
+    "cost": "3-pt. Merit",
+    "compatibility": "Any raksha, common or noble; unmodified from the Players Guide text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 21,
+      "pdfPage": 22
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-driving-passion. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written, since Step One of raksha character creation (see fair-folk-creation-overview-noble / -common) includes choosing a Nature exactly as core Exalted does."
+  },
+  {
+    "id": "pg-merit-tactical-instincts",
+    "name": "Tactical Instincts",
+    "disposition": "selectable",
+    "summary": "Intuitive grasp of tactics: with a Wits + Lore roll, instantly discerns weaknesses/distribution of forces in a battle or game board, building a bonus pool usable to aid Wits/Presence rolls to command forces. A purely mental Merit with no eligibility restriction to adapt.",
+    "mechanics": "The character has an intuitive understanding of tactics. With a Wits + Lore roll at standard difficulty, upon glancing at any contested forces or the arrangement of a game board, the character immediately discerns all weaknesses and distribution of strength. Successes accumulate as a pool of extra dice the player may subsequently apply to Lore rolls to devise a winning strategy or Presence rolls to command forces pursuing that victory (no more than three dice per roll, unused dice lost at scene's end). Characters may not reevaluate the tactical scenario to refresh their bonus pool until they use it again.",
+    "cost": "3-pt. Merit",
+    "compatibility": "Any raksha, common or noble; unmodified from the Players Guide text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 21,
+      "pdfPage": 22
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-tactical-instincts. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written, and fits Warrior-caste raksha (see warrior-caste) especially well."
+  },
+  {
+    "id": "pg-merit-true-love",
+    "name": "True Love",
+    "disposition": "selectable",
+    "summary": "A deep and abiding romance with a partner who reciprocates; adds one die to rolls in defense of or aid of that loved one, and if the lover perishes the character may substitute this bond for Conviction to regain Willpower. Raksha have the same Conviction Virtue and Willpower Trait as any Exalt, so this Merit applies unmodified.",
+    "mechanics": "A character with this Merit shares a deep and abiding romance with a partner who reciprocates that affection. This commitment adds one die to all rolls in defense or aid of that loved one. The player may also roll (Compassion + 1) in place of Conviction for her character to regain Willpower each morning, if so desired. If the character's lover perishes, she immediately loses this Merit, but may subsume her feelings into an appropriate Driving Passion, with Storyteller approval.",
+    "cost": "3-pt. Merit",
+    "compatibility": "Any raksha, common or noble; unmodified from the Players Guide text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 21,
+      "pdfPage": 22
+    },
+    "crossReferences": [
+      "pg-merit-driving-passion"
+    ],
+    "notes": "Derived from Lunar's pg-merit-true-love. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written, since raksha use the same Compassion/Conviction Virtue pair and daily Willpower-regain roll as any other character type in this game line."
+  },
+  {
+    "id": "pg-merit-true-paragon",
+    "name": "True Paragon",
+    "disposition": "selectable",
+    "summary": "The character exudes formal-code honor and nobility; may spend bonus points/experience to raise Virtues above the normal 5 maximum (up to 6), and may roll her highest Virtue in place of Conviction to regain Willpower while asleep. Restricted by its own text to characters with the Paragon Nature, which raksha choose from the same Nature list as any Exalt.",
+    "mechanics": "The character exudes honor and nobility, either from a formal code or an instinctive fulfillment of what she believes is right. She may spend bonus and experience points to raise any Virtue to a rating of 6 (or one point above her permitted maximum if it is otherwise raised past 5 for other reasons); this does not allow permanent Willpower to exceed 10. The player of a character with this Merit may also roll her highest Virtue in place of the standard Conviction roll to regain Willpower after sleeping. Only characters with the Paragon Nature may purchase or retain this Merit; characters who betray their code lose it without compensation.",
+    "cost": "3-pt. Merit",
+    "compatibility": "Any raksha with the Paragon Nature, common or noble; unmodified from the Players Guide text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 21,
+      "pdfPage": 22
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-true-paragon. The restriction here is by Nature (Paragon), not by Exalt type, and raksha choose a Nature during Step One of character creation (see fair-folk-creation-overview-noble / -common) exactly as core Exalted does, so this Merit applies to Fair Folk unmodified."
+  },
+  {
+    "id": "pg-merit-jack-of-all-trades",
+    "name": "Jack of All Trades",
+    "disposition": "selectable",
+    "summary": "Broad basis of knowledge and skill, with an almost preternatural ability to adapt understanding to new purposes; suffers no penalty to Attribute rolls lacking the required Ability for a dice pool. A purely mental Merit with no eligibility restriction to adapt.",
+    "mechanics": "Characters with this Merit have a broad basis of knowledge and skill to draw upon and an almost preternatural ability to adapt their understanding to new purposes and situations. They suffer no penalty to Attribute rolls lacking the required Ability for a dice pool.",
+    "cost": "4-pt. Merit",
+    "compatibility": "Any raksha, common or noble; unmodified from the Players Guide text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 21,
+      "pdfPage": 23
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-jack-of-all-trades. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written."
+  },
+  {
+    "id": "pg-merit-born-to-rule",
+    "name": "Born to Rule",
+    "disposition": "selectable",
+    "summary": "Conveys authority in every gesture and inflection; adds one die to all Social rolls when interacting with an acknowledged inferior. A purely social Merit that fits noble raksha and their Freeholds especially well.",
+    "mechanics": "Characters with this Merit convey authority in every gesture and inflection, most likely as a result of aristocratic upbringing or the practice of leadership. This Merit adds one die to all Social rolls when interacting with an acknowledged inferior, as determined by the Storyteller.",
+    "cost": "2-pt. Merit",
+    "compatibility": "Any raksha, common or noble; especially fitting for a noble raksha's court retinue or a Freehold's ruling caste (see freehold-background, birth-background).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 22,
+      "pdfPage": 23
+    },
+    "crossReferences": [
+      "freehold-background",
+      "birth-background"
+    ],
+    "notes": "Derived from Lunar's pg-merit-born-to-rule. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written, and pairs naturally with the noble-raksha court/Freehold framing already documented in this family's Birth and Freehold Backgrounds."
+  },
+  {
+    "id": "pg-merit-enchanting-feature",
+    "name": "Enchanting Feature",
+    "disposition": "selectable",
+    "summary": "A striking, attractive feature or strong presence the character can exploit to add one die to pertinent Social rolls, as decided by the Storyteller. A purely social Merit with no eligibility restriction to adapt.",
+    "mechanics": "Something about the character is striking and attractive or at least conveys a strong presence -- deep eyes that seem to hold the secrets of the universe, or a voice like the basso rumble of a lion. Whenever the character can exploit this feature, he adds one die to all pertinent Social rolls, as decided by the Storyteller.",
+    "cost": "2-pt. Merit",
+    "compatibility": "Any raksha, common or noble; unmodified from the Players Guide text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 22,
+      "pdfPage": 23
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-enchanting-feature. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written."
+  },
+  {
+    "id": "pg-merit-innocuous",
+    "name": "Innocuous",
+    "disposition": "selectable",
+    "summary": "The two-point version makes the character forgettable and hard to pick out of a crowd; the four-point (Supernatural) version cloaks the character's identity from memory almost entirely. The book bars only Sidereal Exalted, whose innate Arcane Fate already supersedes it; Fair Folk are not named and remain fully eligible for either version.",
+    "mechanics": "Characters with the two-point version have an eerily unremarkable visage; no one is apt to pick them from a crowd unless their coloring is dramatically different from the locals'. This anonymity adds one die to pertinent Larceny and Stealth rolls and adds one to the difficulty of any casual pursuit or investigation, though it grants no bonus if the character does something memorable (such as displaying any level of an anima banner, if applicable). Characters must have Appearance 2+ to purchase this version. The four-point version is a Supernatural Merit: witnesses' memories of the character blur even during direct interaction, requiring a Wits + Essence roll (base difficulty 6, reduced by 1 per significant event in the previous week) to recall more than superficial details; magical beings (Essence 2+) indefinitely ignore the aura once they pierce it, but only against a hidden character of lower permanent Essence. Veiled characters may not have Followers, Henchmen, a Cult, or similar fame-dependent Backgrounds, and are capped at two Contacts, Mentor, or similarly socially dependent Backgrounds.",
+    "cost": "2- or 4-pt. Merit",
+    "compatibility": "Any raksha, common or noble; the 4-pt. version's Essence-based memory-piercing mechanic applies directly, since raksha have a permanent Essence rating and a single Essence pool.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 22,
+      "pdfPage": 23
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-innocuous, disposition 'excluded' there only because Sidereals (a different target family) are explicitly barred by the book's own text. Fair Folk are named in no restriction here and are fully eligible for both versions; the 4-pt. version's Essence-based mechanics apply cleanly since raksha have their own permanent Essence rating and single Essence pool (see fair-folk-creation-overview-noble / -common)."
+  },
+  {
+    "id": "pg-merit-flaw-favor",
+    "name": "Favor",
+    "disposition": "selectable",
+    "summary": "As a Merit, someone of roughly equal or greater power owes the character a favor, scaled 1-4 points by the severity/danger of the service that would repay it (2/4/6 points for minor/moderate/major favors owed by Yu-Shan's Celestial courts); as a Flaw, the character owes such a favor to someone else. A purely social Trait with no eligibility restriction to adapt.",
+    "mechanics": "As a Merit, someone of roughly equal or greater power owes the character a favor. One point requires a task of a few days with no foreseen danger; two points, a service with considerable inconvenience but little danger; three points, substantial risk of injury or misfortune; four points, saving the favor holder's life or fulfilling any single demand whenever demanded. In the politics of Yu-Shan and the great spirit courts, a minor Celestial favor is worth two points, a moderate favor four, and a major favor six. Taken as a Flaw, the character instead owes such a favor to someone powerful and well-connected enough to call it in. Either way, a Favor lasts until called due, after which the Trait becomes null without further compensation. Favor debts may be transferred between parties as social currency without the original debtor's consent.",
+    "cost": "Variable Cost Merit or Flaw",
+    "compatibility": "Any raksha, common or noble; unmodified from the Players Guide text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 23,
+      "pdfPage": 24
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-flaw-favor. No splat-specific language exists anywhere in this entry beyond a Yu-Shan setting flourish for the highest tier; it applies to Fair Folk exactly as written, and fits a raksha's court intrigue and Freehold politics well."
+  },
+  {
+    "id": "pg-merit-heirloom",
+    "name": "Heirloom",
+    "disposition": "selectable",
+    "summary": "The character owns a piece of property more valuable than her means and lifestyle can afford, for only one bonus point regardless of the item's Resource value. A purely property Merit with no eligibility restriction to adapt.",
+    "mechanics": "The character owns a piece of property more valuable than her means and lifestyle can afford -- an actual heirloom, spoils of a heist, a gift, or something more exotic still. Such an item costs only one bonus point regardless of its Resource value, though most weapons and armor purchased this way will be of exceptional quality. Because this Merit is easy to abuse, the Storyteller should probably require purchase of Resources at that level if the item is sold, and assume its wealth is concentrated in narrow holdings.",
+    "cost": "1-pt. Merit",
+    "compatibility": "Any raksha, common or noble; unmodified from the Players Guide text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 23,
+      "pdfPage": 24
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-heirloom. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written, though a raksha's own instinct would be to value the item's Artifact rating (see artifact-background-fair-folk) more than a mortal Resources rating."
+  },
+  {
+    "id": "pg-merit-hidden-manse",
+    "name": "Hidden Manse",
+    "disposition": "selectable",
+    "summary": "The character controls a Manse forgotten to history/geomantic maps, or one shrouded by a mysterious property of its arcane nature; requires the Manse Background. Raksha cannot construct Manses but can own and attune to existing ones exactly as core Exalted can, so this Merit applies unmodified to a raksha's altered Manse Background.",
+    "requirements": "Manse Background (manse-background-fair-folk).",
+    "mechanics": "The character controls a Manse forgotten to history and geomantic maps, or a Manse in a public area shrouded by some mysterious property of its arcane nature. Such a hidden place of power makes an excellent base of operations or secret lair, provided the character and any trusted confidants don't compromise the location. This Merit costs one point for a hidden Demesne or two points for an actual Manse.",
+    "cost": "1- or 2-pt. Merit",
+    "compatibility": "Any raksha with the Manse Background; per manse-background-fair-folk, raksha can own and attune to Manses and Demesnes in Creation exactly as the standard Background allows, even though they cannot construct new ones.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 23,
+      "pdfPage": 24
+    },
+    "crossReferences": [
+      "manse-background-fair-folk"
+    ],
+    "notes": "Derived from Lunar's pg-merit-hidden-manse. No splat-specific language exists in the entry text itself, and Fair Folk's own manse-background-fair-folk row confirms raksha can own and attune to existing Manses/Demesnes in Creation (recovering Essence there as though in the Wyld) even though they cannot build new ones; this Merit's 'hidden' variant applies cleanly to such an owned Manse."
+  },
+  {
+    "id": "pg-merit-heir-apparent",
+    "name": "Heir Apparent",
+    "disposition": "selectable",
+    "summary": "Characters with this Merit will receive an inheritance left by their parents or another benefactor once the current owner dies (or is otherwise removed); each point invested grants two dots of Backgrounds ultimately gained, cumulative with existing Backgrounds. A purely property Merit with no eligibility restriction to adapt.",
+    "mechanics": "Characters with this Merit will receive an inheritance left by a parent or other benefactor once the current owner dies or is removed. Every point invested grants two dots of Backgrounds the character will ultimately gain, though no single Background may exceed five points this way; the Storyteller may add conditions (marriage, years of service, etc.) and a die of difficulty per major condition. Background dots obtained are cumulative with existing Backgrounds and may raise a Background above four dots. Typically used for Resources-adjacent, artifact, or follower-type Backgrounds, but may include business partners, contacts, or allies with Storyteller approval.",
+    "cost": "1- to 5-pt. Merit",
+    "compatibility": "Any raksha, common or noble; the granted dots would most naturally land in Gossamer, Retinue, Artifact, or Style (see gossamer-background, retinue-background, artifact-background-fair-folk, style-background) rather than in Resources or Followers, which raksha do not use.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 24,
+      "pdfPage": 25
+    },
+    "crossReferences": [
+      "gossamer-background",
+      "retinue-background",
+      "artifact-background-fair-folk",
+      "style-background"
+    ],
+    "notes": "Derived from Lunar's pg-merit-heir-apparent. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written, but the specific Background dots it grants should be drawn from raksha's own Background list (Gossamer, Retinue, Artifact, Style, Freehold, Birth) since raksha do not use Resources or Followers at all (see followers-and-resources-excluded-fair-folk)."
+  },
+  {
+    "id": "pg-merit-legendary-artifact",
+    "name": "Legendary Artifact",
+    "disposition": "selectable",
+    "summary": "A character with this Merit has gotten hold of an artifact of world-shaking power; the book explicitly discourages Storytellers from ever allowing it, calling such artifacts \"innately and grossly unfair plot devices.\" A purely Storyteller-discretion property Merit with no eligibility restriction to adapt.",
+    "mechanics": "A character with this Merit has gotten hold of an artifact of world-shaking power, a relic on par with the Mantle of Brigid or the Eye of Autochthon. These rare and often unwisely coveted devices invariably reshape the lives of all who come into contact with them, and attract the worst ambitions of gods, demons, and Exalted (or, for a raksha, other raksha courts and Deep Wyld horrors) hungry for their power. Storytellers do not need to allow this Merit ever, as legendary artifacts are innately and grossly unfair plot devices that will likely dominate any series they occupy.",
+    "cost": "10-pt. Merit",
+    "compatibility": "Any raksha, common or noble, at Storyteller discretion (heavily discouraged by the book's own text); for a raksha this would most plausibly be a unique, story-specific Wyld Artifact, Adjuration, or Behemoth on the scale of the gm-only ishiika row rather than an ordinary purchase from the raksha's own dot-tiered options.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 24,
+      "pdfPage": 25
+    },
+    "crossReferences": [
+      "ishiika"
+    ],
+    "notes": "Derived from Lunar's pg-merit-legendary-artifact. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written. Cross-referenced against ishiika, this family's own existing example of a one-off, story-specific artifact-tier treasure vastly beyond the normal purchasable options, as the closest raksha-appropriate parallel to the Merit's own Mantle of Brigid / Eye of Autochthon examples."
+  },
+  {
+    "id": "pg-merit-cache",
+    "name": "Cache",
+    "disposition": "selectable",
+    "summary": "The character has wealth hidden or legally stored across many locations, for one bonus point per city beyond the character's home; requires a high enough wealth rating to draw on. Reinterpreted for raksha as requiring Gossamer 2+ (which grants an effective Resources 4 in Creation), since Fair Folk do not use the Resources Background at all.",
+    "requirements": "Gossamer 2+ (gossamer-background), which grants an effective Resources 4 in Creation and therefore satisfies this Merit's prerequisite.",
+    "mechanics": "The character has wealth hidden or legally stored in many locations, for a cost of one bonus point per city beyond the character's home. The character has full access to the value of her full wealth at any of these locations and their surrounding regions; five points of Cache grant access in any settlement town-sized or larger in a selected direction of Creation (money may take up to a week to arrive from another direction), and every point beyond five extends the domain by another direction.",
+    "cost": "Variable Cost Merit",
+    "compatibility": "Any raksha with Gossamer 2+; reinterpreted from the original Resources 4+/Salary 2+ prerequisite, since raksha exclude the Resources Background entirely and use Gossamer as their wealth-and-influence Background instead (see gossamer-background, followers-and-resources-excluded-fair-folk).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 24,
+      "pdfPage": 25
+    },
+    "crossReferences": [
+      "gossamer-background",
+      "followers-and-resources-excluded-fair-folk"
+    ],
+    "notes": "JUDGMENT CALL / REINTERPRETATION: this Merit's prerequisite (Resources 4+ or Salary 2+) does not exist verbatim for Fair Folk, since raksha exclude the Resources Background entirely (see followers-and-resources-excluded-fair-folk) in favor of Gossamer. Gossamer's own dot table (gossamer-background) explicitly equates 2 dots of Gossamer to 'effective Resources 4' in Creation, which was used here as the direct, well-grounded substitute prerequisite rather than excluding the Merit outright."
+  },
+  {
+    "id": "pg-merit-alternative-divination",
+    "name": "Alternative Divination",
+    "disposition": "selectable",
+    "summary": "Crude divination through methods other than astrology (tea leaves, entrails, palm-reading, crystal-gazing, etc.); each purchase grants knowledge of one ritual, capped by the character's Occult rating. Raksha with an Occult rating (a Caste Ability for Diplomats, and purchasable by any raksha) may take this exactly as written.",
+    "requirements": "An Occult rating; may not be purchased more times than the character's Occult rating.",
+    "mechanics": "Characters with this Merit can crudely divine the workings of fate through methods other than astrology -- tea leaves, entrails, palm-reading, crystal-gazing, drug-induced trance verses, and the like. Rolls and effectiveness match conventional astrology (see Exalted, p. 251); any divination ritual takes at least one scene, with quicker or less complicated methods suffering an increased difficulty and elaborate, well-described rituals benefiting from a stunt bonus. Each purchase grants knowledge of one effective ritual.",
+    "cost": "1-pt. Merit",
+    "compatibility": "Any raksha with an Occult rating, common or noble; the Sidereal-specific two-rituals-per-purchase upgrade does not extend to Fair Folk.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 24,
+      "pdfPage": 25
+    },
+    "crossReferences": [
+      "diplomat-caste"
+    ],
+    "notes": "Derived from Lunar's pg-merit-alternative-divination, which documents a Sidereal-specific two-rituals-per-purchase upgrade. That upgrade is named for a different splat and does not extend to Fair Folk, but the base Merit carries no eligibility restriction, and Occult is a Diplomat Caste Ability (see diplomat-caste), so it applies to Fair Folk at the ordinary cost."
+  },
+  {
+    "id": "pg-merit-priest",
+    "name": "Priest",
+    "disposition": "selectable",
+    "summary": "Recognized priest of a deity/religion; the 1-pt. version is automatically and freely granted to a handful of specific Exalted castes as an innate part of their Exaltation. Raksha have no such innate free grant, since no Fair Folk caste is tied to any deity's priesthood, but any raksha may purchase either version normally -- most plausibly as a cleric of the Church of Balor, the raksha nobility's own faith, already noted as a character-creation concept prompt.",
+    "mechanics": "The character is a recognized priest of a particular deity or religion. Apart from lowering the difficulty of prayers directed at the appropriate spirit (see Exalted, p. 335), the one-point version has no defined rules effects, though Storytellers may award symbolic dream messages or omens. The seven-point high-priest version signifies far greater favor, granting portentous dreams and the ability to petition the patron for miracles via a standard prayer roll (spending a Willpower point for an automatic success, or channeling an appropriate Virtue); successes may restore Essence or spent Willpower, exorcise a possessing spirit, or heal a dying character, at the Storyteller's discretion. Spirits can perceive a distinctive mark on characters with this Merit, its design and placement dependent on the patron.",
+    "cost": "1- or 7-pt. Merit",
+    "compatibility": "Any raksha, common or noble, at the full, undiscounted cost -- no Fair Folk caste receives an innate free version the way certain Exalted castes do, since Diplomat/Entertainer/Warrior/Worker are not religious castes. A raksha priest of the Church of Balor (see fair-folk-creation-overview-noble) is the most thematically direct fit.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 25,
+      "pdfPage": 26
+    },
+    "crossReferences": [
+      "fair-folk-creation-overview-noble"
+    ],
+    "notes": "Derived from Lunar's pg-merit-priest, which documents an innate free grant for specific Exalted castes (including No Moon Caste Lunars). Fair Folk's four base castes (Diplomat/Entertainer/Warrior/Worker) are not religious castes, so no innate grant transfers; instead, this row leans on fair-folk-creation-overview-noble's own mention of the Church of Balor as an in-fiction faith a raksha noble might already belong to, making the ordinary purchased version of this Merit a natural fit for Fair Folk at full cost."
+  },
+  {
+    "id": "pg-merit-destiny",
+    "name": "Destiny",
+    "disposition": "selectable",
+    "summary": "Represents an auspicious fate written in the stars, scaling from a lifetime of good health (1 pt.) up to founding a lasting noble dynasty or transforming an era (5 pts.). The book's cap only restricts Celestial and Abyssal/Infernal Exalted, whose free will overrides most of their pre-Exaltation Destiny; raksha are not Exalted at all and were never assigned any Destiny by the Loom of Fate in the first place, so they take the uncapped, mortal-facing 1-5 pt. range, flagged here as a genuine conceptual tension worth a Storyteller's attention.",
+    "mechanics": "A character with Destiny lives most auspiciously, his fate written large in the stars. A one-point destiny may be a long and uneventful life of good health; two points, financial prosperity or many offspring; three points, the destinies of merchant princes or kings of small nations; four points, a hero whose deeds live on for generations, or the founder of a lasting dynasty; five points, the mightiest sorcerers and emperors whose exploits transform their era. Destiny need not be kind to those who bear it -- greatness may be rooted in tyranny or culminate in tragedy. Storytellers should ensure coincidence protects those with a powerful fate until it finds fruition. Players may request a particular destiny or leave the specifics to the Storyteller.",
+    "cost": "1- to 5-pt. Merit",
+    "compatibility": "Any raksha, common or noble, at the full 1-5 pt. range; the book's cap on retained Destiny applies only to Celestial and Abyssal/Infernal Exalted whose Exaltation overrides a pre-existing mortal fate, a process raksha never undergo.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 25,
+      "pdfPage": 26
+    },
+    "crossReferences": [],
+    "notes": "JUDGMENT CALL: the book's companion 'Destiny and Exaltation' sidebar caps Celestial/Abyssal/Infernal Exalted at 1-2 points of retained Destiny because their free will at Exaltation overrides a pre-existing mortal Destiny rating. Raksha are not Exalted and are not born as mortals whose Destiny gets consumed by an Exaltation event, so that specific cap does not textually apply; this row takes the full 1-5 pt. mortal-facing range. Flagged as a genuine conceptual tension worth Storyteller attention: raksha are beings of the Wyld, canonically outside the Loom of Fate that this Merit represents, so a Storyteller may reasonably rule that Destiny (and, likewise, pg-flaw-dark-fate and pg-flaw-unbidden-oracle below) apply only to a raksha who has spent significant time settled within Creation, if at all -- the Players Guide text itself gives no such restriction, so this row is included as selectable rather than excluded by inference."
+  },
+  {
+    "id": "pg-merit-lucky",
+    "name": "Lucky",
+    "disposition": "selectable",
+    "summary": "Grants a luck pool the player may spend to reroll dice or shift random events. Raksha use the base 1-5 pt. formula, since the alternate luck-pool formula and price cap are named for Sidereal Exalted specifically.",
+    "mechanics": "A character with this Merit is blessed with an unlikely preponderance of fortune. Lucky characters receive a luck pool equal to the points invested; players may spend points of luck to repeat any roll (even a botch, barring certain curse-based exceptions) at the same difficulty and target number, or to shift a game of chance or other random event (each point spent increases the character's chance of success by 10 percent, per a Storyteller die roll). Characters regain one luck point after a full week without spending any, and refresh the pool fully at the end of each story.",
+    "cost": "1- to 5-pt. Merit",
+    "compatibility": "Any raksha, common or noble; the Sidereal-specific luck-pool formula and 3-pt. price cap do not extend to Fair Folk.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 26,
+      "pdfPage": 27
+    },
+    "crossReferences": [
+      "pg-merit-destiny"
+    ],
+    "notes": "Derived from Lunar's pg-merit-lucky, which documents a Sidereal-specific luck-pool formula and price cap. That variant is named for a different splat and does not extend to Fair Folk; raksha use the ordinary 1-5 pt. formula, since the base Merit carries no eligibility restriction. Cross-referenced against pg-merit-destiny, a related but mechanically distinct Trait, per the source text."
+  },
+  {
+    "id": "pg-merit-signature-style",
+    "name": "Signature Style",
+    "disposition": "selectable",
+    "summary": "Combines movement and attitude into a distinctive flair defining the character's legend; functions like an Ability specialty for stunts, granting an extra die that stacks with the stunt-rating die. A purely narrative Merit with no eligibility restriction to adapt.",
+    "mechanics": "Characters with this Merit combine movement and attitude into a distinctive flair that defines their legend, functioning like an Ability specialty for stunts and providing one extra die in appropriate circumstances; this extra die stacks with the stunt rating but does not alter motes or Willpower returned on success. Characters may purchase this Merit up to three times, but only one Signature Style can benefit the same stunt.",
+    "cost": "2-pt. Merit",
+    "compatibility": "Any raksha, common or noble; unmodified from the Players Guide text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 27,
+      "pdfPage": 28
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-signature-style. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written, and complements this family's own Wyld Stunts and Wyld Bonuses mechanic well."
+  },
+  {
+    "id": "pg-merit-prescient-dreamer",
+    "name": "Prescient Dreamer",
+    "disposition": "selectable",
+    "summary": "Regular prophetic dreams of possible futures, deciphered with Intelligence + Occult. Raksha pay the ordinary cost, since the discounted price is named for Sidereal Exalted specifically.",
+    "mechanics": "A character with this Merit regularly dreams of what may be, recognizing them as visions even without knowing their meaning. Deriving meaning requires an Intelligence + Occult roll at a difficulty reflecting the event's significance; more successes reveal more clarity. Such dreams come unbidden and follow the whims of fate and the Storyteller. Revealing the dream's content or acting on it interferes with that destiny and decreases its overall probability.",
+    "cost": "3-pt. Merit",
+    "compatibility": "Any raksha with an Occult rating, common or noble; the discounted 2-pt. cost is named for Sidereal Exalted specifically and does not extend to Fair Folk.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 28,
+      "pdfPage": 29
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-prescient-dreamer, which documents a Sidereal-specific discount tied to Sidereals' fate-based Exaltation. That reasoning does not apply to raksha, who neither Exalt nor administer Fate; raksha purchase this Merit at the ordinary, undiscounted cost."
+  },
+  {
+    "id": "pg-merit-daredevil",
+    "name": "Daredevil",
+    "disposition": "selectable",
+    "summary": "Fortune smiles on the recklessly brave: may reflexively spend one Willpower point to double the rating of a stunt awarded for a Physical action, with a difficulty of 3 or higher. A purely mechanical Merit with no eligibility restriction to adapt.",
+    "mechanics": "A character with this Merit may reflexively spend one Willpower point to double the rating of stunt dice awarded to a Physical action with a difficulty of 3 or higher, after the Storyteller determines the stunt rating; this does not prevent simultaneous Willpower use for automatic success or checking a Virtue, and does not increase the motes or Willpower returned by a successful stunt. Characters with the Signature Style Merit do not double the extra die awarded by that Trait when both apply.",
+    "cost": "4-pt. Merit",
+    "compatibility": "Any raksha, common or noble; unmodified from the Players Guide text (the heroic-mortal discount does not apply to raksha).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 29,
+      "pdfPage": 30
+    },
+    "crossReferences": [
+      "pg-merit-signature-style"
+    ],
+    "notes": "Derived from Lunar's pg-merit-daredevil. No splat-specific language exists anywhere in this entry beyond a heroic-mortal discount, which does not apply to raksha; it applies to Fair Folk at the ordinary 4-pt. cost."
+  },
+  {
+    "id": "pg-merit-mute",
+    "name": "Mute",
+    "disposition": "selectable",
+    "summary": "Cannot speak or make vocal utterance of any sort; players describe actions without speech, using sign language, magic, or shared understanding. Higher tiers add physical/vocal-cord damage. Raksha pay the ordinary cost, since the 1-point discount is named for Exalted generically and Fair Folk are not Exalted.",
+    "mechanics": "Mute characters may not speak or make vocal utterance of any sort; their players describe actions without verbal communication, relying on writing, magic, or a shared sign language. For three points, this limitation has no physiological basis (the character may have forsaken speech as a taboo or vow, and must buy off the Flaw at normal cost if she breaks her silence). The four-point version involves actual damage to the vocal cords. Characters incapable of speaking above a faint whisper may purchase this Flaw for one point, regardless of cause.",
+    "cost": "1-, 3- or 4-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; pays the full, undiscounted cost at every tier, since the 1-point-less discount is stated 'for Exalted' generically and raksha are not Exalted.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 29,
+      "pdfPage": 30
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-merit-mute (transcribed as a Merit-column id in the Lunar inventory despite being a Physical Flaw, per that book's own layout at the Merits/Flaws chapter boundary). The Exalted discount named in the source text does not extend to Fair Folk; raksha take this Flaw at the ordinary, undiscounted cost."
+  },
+  {
+    "id": "pg-flaw-sterile",
+    "name": "Sterile",
+    "disposition": "selectable",
+    "summary": "Physically incapable of siring or bearing children, whether from accident, illness, or a cruel jest of fate; only worth points for characters who can otherwise enjoy the act of procreation, with a wider point range for the impotent/eunuchs. Raksha take the base 1-2 pt. range, since the higher 3-pt. tier is tied to Realm Dynastic social stigma specifically.",
+    "mechanics": "The character is physically incapable of siring or bearing children, whether from accident, illness, or a cruel jest of fate. This Flaw is only worth one point for characters who can still engage in and enjoy the act of procreation; characters who are also impotent or eunuchs gain two points from the Flaw.",
+    "cost": "1- or 2-pt. Flaw",
+    "compatibility": "Any raksha, common or noble, at the base 1-2 pt. range; the higher 3-pt. tier is tied to Realm Dynastic social stigma specifically and would only extend to a Fair Folk-appropriate status-conscious court at Storyteller discretion.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 29,
+      "pdfPage": 30
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-flaw-sterile, which documents a higher 3-pt. tier tied to Realm Dragon-Blooded/Dynast social expectations. That specific social context does not exist for raksha, so this row takes the base 1-2 pt. range, noting the higher tier could still apply at Storyteller discretion for a raksha whose noble court places similar weight on heirs and succession (see birth-background)."
+  },
+  {
+    "id": "pg-flaw-unusual-appearance",
+    "name": "Unusual Appearance",
+    "disposition": "selectable",
+    "summary": "Hair/eyes of a striking, unnatural color at 1 point, or fully piebald/colorless (albino) skin and hairlessness at 2 points; the appearance must deviate notably from the local norm to qualify. A purely physical Flaw with no eligibility restriction to adapt.",
+    "mechanics": "For one point, the character has hair and/or eyes of a striking, unnatural color; for two points, the character's skin also exhibits remarkable pigmentation or the colorless white of an albino, or the character has no body hair at all. The appearance must deviate notably from the expected local norm to warrant the Flaw. Those marked by striking colors have a harder time hiding or impersonating others and may suffer discrimination (losing one die from pertinent Stealth, Larceny and Social rolls).",
+    "cost": "1- or 2-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; applies to whatever Mote-shape or elemental form the character currently wears.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 30,
+      "pdfPage": 31
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-flaw-unusual-appearance. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written."
+  },
+  {
+    "id": "pg-flaw-one-eye",
+    "name": "One Eye",
+    "disposition": "selectable",
+    "summary": "Only a single eye remaining (injury or congenital defect): one-die penalty to Awareness rolls involving distance vision or peripheral vision on the blind side, and increases the difficulty of ranged attacks against the character by one. A purely physical Flaw with no eligibility restriction to adapt.",
+    "mechanics": "Whether resulting from injury or congenital defect, characters with this Flaw have only a single eye remaining, imposing a one-die penalty to Awareness rolls involving distance vision or peripheral vision on the blind side, and increasing the difficulty of ranged attacks against the character by one.",
+    "cost": "2-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; unmodified from the Players Guide text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 30,
+      "pdfPage": 31
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-flaw-one-eye. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written."
+  },
+  {
+    "id": "pg-flaw-sun-seared",
+    "name": "Sun-Seared",
+    "disposition": "selectable",
+    "summary": "Uncomfortable in sunlight, suffering horrible sunburns from relatively mild exposure. A purely physical Flaw with no eligibility restriction to adapt; the ghost/Abyssal flavor example for the most extreme tier is setting color, not a mechanical requirement.",
+    "mechanics": "The character finds sunlight uncomfortable and suffers horrible sunburns from relatively mild exposure. The two-point version imposes -1 on all dice pools in direct sunlight and one die of unsoakable bashing damage per hour of direct exposure; the three-point version increases the penalty to -2 and the damage interval to every 30 minutes; the rare six-point version imposes -3 and damages every minute. Heavy clothing or indirect exposure (overcast skies, shadow-to-shadow movement) doubles the relevant interval.",
+    "cost": "2-, 3- or 6-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; the source text's ghost/Abyssal flavor example for the six-point tier is setting color, not an eligibility restriction, so any raksha may take this Flaw at any tier if narratively appropriate.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 30,
+      "pdfPage": 31
+    },
+    "crossReferences": [
+      "pg-flaw-unusual-appearance"
+    ],
+    "notes": "Derived from Lunar's pg-flaw-sun-seared. Lunar's own notes found the ghost/Abyssal mention to be flavor about typical severity, not an eligibility restriction; it applies to Fair Folk exactly as written."
+  },
+  {
+    "id": "pg-flaw-climate-sensitive",
+    "name": "Climate Sensitive",
+    "disposition": "selectable",
+    "summary": "Discomfort and penalties outside the character's accustomed environmental conditions; the point value scales with how common the undesired conditions are to encounter. A purely physical Flaw with no eligibility restriction to adapt.",
+    "mechanics": "Characters with this Flaw experience discomfort and take ill outside conditions they are accustomed to. For two points, the character responds poorly to one temperature/humidity extreme; for three points, to any environment lacking those conditions; for four points, the defining condition of the character's home region cannot be replicated or transplanted without considerable difficulty. Whenever in an uncomfortable environment, the character adds 1 to the difficulty of all Survival, Endurance and Resistance rolls related to the conditions.",
+    "cost": "2- to 4-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; may be taken to represent discomfort in Creation's climates versus the Wyld's, or vice versa, at Storyteller discretion.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 31,
+      "pdfPage": 32
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-flaw-climate-sensitive. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written."
+  },
+  {
+    "id": "pg-flaw-amputee",
+    "name": "Amputee",
+    "disposition": "selectable",
+    "summary": "Missing one or more limbs from congenital defect or later injury; scaled by number/type of limbs lost. Raksha take the full mortal-tier cost range, since the reduced range is stated \"for Exalted\" generically and Fair Folk are not Exalted.",
+    "mechanics": "The character lacks an arm or a leg (or both), either congenitally or from later injury, or retains the limb only as a useless, paralyzed husk. Characters missing a hand cannot perform two-handed tasks; missing both hands makes fine-dexterity tasks impossible without magic or prosthetics (at a -1 die penalty). Characters missing a leg move at half rate and suffer a -3 penalty to Athletics rolls involving footwork; those missing both legs, or otherwise quadriplegic, may not attempt most physical tasks. The value of this Flaw is two points for a single arm, three for a single arm-and-both-hands combination or similar, five points for the loss of any two limbs, and higher still for quadriplegia.",
+    "cost": "2- to 8-pt. Flaw",
+    "compatibility": "Any raksha, common or noble, at the full mortal-tier cost; the reduced cost named 'for Exalted' generically does not extend to Fair Folk. A raksha could alternatively represent this via a permanent, Storyteller-approved missing-limb mutation on her Mote if preferred.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 31,
+      "pdfPage": 32
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-flaw-amputee, which documents an Exalted-wide cost reduction. That discount does not extend to Fair Folk; raksha take the full, undiscounted cost range. Lunar's own notes flag this entry's cost text as unusually garbled in the source print; that caveat is preserved here for a future closer read against the rendered page."
+  },
+  {
+    "id": "pg-flaw-dying",
+    "name": "Dying",
+    "disposition": "selectable",
+    "summary": "A curse, terminal illness, or other fatal condition that will assuredly kill the character without powerful curative magic; loses a dot of Stamina per interval, dying at Stamina 0. A purely physical Flaw with no eligibility restriction to adapt, though Storytellers are advised to be cautious allowing it for powerful supernatural characters.",
+    "mechanics": "A character with this Flaw suffers a curse, terminal illness, or other fatal condition and will assuredly perish without powerful curative magic. The character loses one dot of Stamina per interval (the length determined by the Flaw's value, shortening from years down to days as the value rises); at Stamina 0, the character dies. This process can always be averted before returning to full heroic effort, but not without truly heroic effort.",
+    "cost": "2- to 10-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; the Storyteller is advised to be more cautious allowing this Flaw for powerful supernatural characters (including noble raksha) absent a strong story reason, exactly as for Exalted.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 31,
+      "pdfPage": 32
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-flaw-dying. The book's caution about allowing this Flaw for powerful characters is advisory rather than a hard exclusion, and applies equally well to a powerful noble raksha as to a Solar or Lunar Exalt."
+  },
+  {
+    "id": "pg-flaw-small",
+    "name": "Small",
+    "disposition": "selectable",
+    "summary": "Stands only four and a half feet tall or less, with a reduced effective Strength for weapon/tool size requirements and one fewer -1 health level. A raksha with this Flaw appears proportionally smaller in every shape she assumes via her Assumption-type Charms, since her Mote is a chosen form rather than a fixed body.",
+    "mechanics": "A character with this Flaw stands only four and a half feet tall or less, reducing her effective Strength by one dot for meeting the minimum requirements of weapons and large tools, and costing her one -1 health level. In addition to representing children, short adults, or pygmy races, this Flaw can portray extremely gaunt and frail characters of normal height, especially alongside low Stamina.",
+    "cost": "3-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; the size reduction persists across any shape assumed via Assumption-type Charms.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 32,
+      "pdfPage": 33
+    },
+    "crossReferences": [
+      "assumption-of-elemental-shape"
+    ],
+    "notes": "Derived from Lunar's pg-flaw-small, which documents this Flaw's size reduction carrying into every Lunar shapechanged form (mirroring the Large Size Merit's Lunar clause). Fair Folk have no Prey's Skin Disguise equivalent, but the underlying logic transfers exactly as it did for pg-merit-large-size: a raksha has no true form, only Motes and elemental shapes assumed through the universal Assumption-type Charm tree (see assumption-of-elemental-shape), so this Flaw's size reduction is reinterpreted as persisting across whatever shape she currently wears."
+  },
+  {
+    "id": "pg-flaw-disfigured",
+    "name": "Disfigured",
+    "disposition": "selectable",
+    "summary": "Wretched physical deformity, from concealable scarring/pockmarks (3-pt., Appearance capped at 1) to monstrous full-body horror (4-pt., Appearance 0, automatic social revulsion). The source text's Lunar-Tell flavor example was reinterpreted for a raksha whose Mote never quite settles into a stable, attractive shape -- a fittingly Wyld-flavored justification in its own right.",
+    "mechanics": "For three points, the character bears pitted pockmarks, gross birth defects, heavy scarring, useless protrusions of Wyld-warped flesh, or something stranger still, capping Appearance at 1 and losing one die from other Social pools where the deformity could prove a hindrance; heavy clothing or masks can conceal it. The four-point version is truly monstrous -- full-body scarring, gaping abscesses, hideous Wyld-mutation, or worse -- fixing Appearance at 0 (unimprovable) and automatically failing Appearance-based rolls; all but the most tolerant (Compassion 4+) respond with a two-die Social penalty from utter revulsion.",
+    "cost": "3- or 4-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; a raksha's own Wyld-warped, imperfectly stabilized Mote is at least as fitting a source for this Flaw as any Creation-born character's mutation or curse.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 32,
+      "pdfPage": 33
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-flaw-disfigured, whose own worked example is 'a Lunar with a hideous Tell' (a mechanic Fair Folk lack) and a separate Abyssal rotted-visage cross-reference (not relevant to Fair Folk). Both flavor examples were dropped in favor of noting that a raksha's own unstable, Wyld-warped Mote-shape is a natural in-fiction source for this Flaw without needing either borrowed mechanic."
+  },
+  {
+    "id": "pg-flaw-slow-healing",
+    "name": "Slow Healing",
+    "disposition": "selectable",
+    "summary": "Recovers from injury at half the normal (mortal) rate. Raksha take the base mortal-tier effect rather than the milder Exalted variant, since Fair Folk's own core book grants no superior baseline healing rate to offset against -- their sub-real Wyld-damage immunity (innate-powers-wyld-immunity) is an unrelated mechanic.",
+    "mechanics": "Characters with this Flaw recover from injury at half their normal rate. Most such characters do not live long in the brutal Age of Sorrows.",
+    "cost": "4-pt. Flaw",
+    "compatibility": "Any raksha, common or noble, at the base mortal-tier effect; the milder version described 'for Exalted' (normal mortal healing rate rather than half-mortal) does not extend to Fair Folk, since raksha have no stated baseline healing rate faster than a mortal's to begin with.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 33,
+      "pdfPage": 34
+    },
+    "crossReferences": [
+      "innate-powers-wyld-immunity"
+    ],
+    "notes": "JUDGMENT CALL: Lunar's row documents a distinct, milder Exalted variant (mortal rate instead of half-mortal rate) rather than a cost discount. Fair Folk's core book grants raksha no faster-than-mortal baseline healing rate to soften in the first place -- innate-powers-wyld-immunity only protects against sub-real Wyld damage, an unrelated mechanic -- so this Flaw was left at its full, unmodified mortal-tier severity for Fair Folk rather than importing the Exalted variant."
+  },
+  {
+    "id": "pg-flaw-weak-immune-system",
+    "name": "Weak Immune System",
+    "disposition": "selectable",
+    "summary": "Harder time fighting off illness. Raksha take the base mortal-tier cost and effect, since the milder Exalted variant and reduced cost are stated \"for Exalted\" generically and Fair Folk are not Exalted.",
+    "mechanics": "Characters with this Flaw have a harder time fighting off illness, adding 2 to the difficulty of all Endurance and Resistance rolls to resist disease and infection.",
+    "cost": "4-pt. Flaw",
+    "compatibility": "Any raksha, common or noble, at the base mortal-tier cost and effect; the reduced 3-pt. cost and milder halved-dice-pool variant are stated 'for Exalted' generically and do not extend to Fair Folk.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 33,
+      "pdfPage": 34
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-flaw-weak-immune-system, which documents an Exalted-wide discount and milder mechanical variant. That variant does not extend to Fair Folk; raksha take the full mortal-tier cost and severity."
+  },
+  {
+    "id": "pg-flaw-diminished-attributes",
+    "name": "Diminished Attributes",
+    "disposition": "selectable",
+    "summary": "Weaker, slower, less healthy (or, in the Mental/Social variants, less bright/uncouth) bodies than normal adults; grants three points per Physical Attribute dot forfeited during character creation. A purely physical/mental/social Flaw with no eligibility restriction to adapt.",
+    "mechanics": "Characters with this Flaw have weaker, slower, or less healthy bodies than normal adults, receiving three points for every Physical Attribute dot forfeited during character creation. Characters cannot forfeit the free dot received in each Attribute, and may not spend bonus points to purchase Physical Attributes if taking this Flaw. Alternate versions apply to Mental and Social Attributes.",
+    "cost": "Variable Point Flaw",
+    "compatibility": "Any raksha, common or noble; a noble raksha forfeits from her starting 3-dot-per-Attribute baseline, a common raksha from her 0-dot baseline (see fair-folk-creation-overview-noble / -common).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 33,
+      "pdfPage": 34
+    },
+    "crossReferences": [
+      "fair-folk-creation-overview-noble",
+      "fair-folk-creation-overview-common"
+    ],
+    "notes": "Derived from Lunar's pg-flaw-diminished-attributes. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written, forfeiting from whichever starting Attribute baseline (noble or common) the character uses."
+  },
+  {
+    "id": "pg-flaw-diminished-sense",
+    "name": "Diminished Sense",
+    "disposition": "selectable",
+    "summary": "Partial or total loss of a sense. Raksha take the base mortal-tier value, since the reduced point value and one-sense-loss cap are stated \"for Exalted\" generically and Fair Folk are not Exalted.",
+    "mechanics": "The character suffers partial or total loss of a sense, adding 1 to the difficulty of Awareness rolls (and other Storyteller-determined rolls) based on the dulled sense for partial loss. Total loss of a sense causes automatic failure of any roll exclusively dependent on it, and adds 1 to 3 to rolls requiring a conjunction of the missing sense with others. Partial loss is normally worth two or three bonus points depending on the sense; total loss ranges from three points (smell/taste) to six points (blindness).",
+    "cost": "Variable Point Flaw",
+    "compatibility": "Any raksha, common or noble, at the base mortal-tier value; the reduced per-sense value and one-Diminished-Sense-total cap are stated 'for Exalted' generically and do not extend to Fair Folk.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 33,
+      "pdfPage": 34
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-flaw-diminished-sense, which documents an Exalted-wide point reduction and a one-sense-loss cap. Neither extends to Fair Folk; raksha take this Flaw at its full mortal-tier value with no stacking cap beyond ordinary Storyteller discretion."
+  },
+  {
+    "id": "pg-flaw-derangement",
+    "name": "Derangement",
+    "disposition": "selectable",
+    "summary": "The curse of madness, drawing from the Exalted core rulebook's derangement list or the book's own suggested forms (Depression, Glossolalia, Hysteria, Sadism); suppressible for a scene with a Willpower point but only curable by magic or lengthy counseling. A purely mental Flaw with no eligibility restriction to adapt.",
+    "mechanics": "A character with this Flaw suffers the curse of madness, drawn from the derangement list on page 281 of Exalted or the book's own suggested forms (Depression, Glossolalia, Hysteria, Sadism, each mirroring a specific Virtue Flaw). The worst effects can be suppressed for a scene for one Willpower point, but only magic or lengthy counseling can actually cure a derangement; the character loses at least two dice from most Social pools with characters who do not share the madness. Characters receive three points for their first derangement and one point for each subsequent form.",
+    "cost": "1- or 3-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; a raksha's derangement could plausibly stem from a Bedlam episode gone especially poorly, at Storyteller discretion, though the Flaw itself is independent of Bedlam.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 33,
+      "pdfPage": 34
+    },
+    "crossReferences": [
+      "bedlam-overview"
+    ],
+    "notes": "Derived from Lunar's pg-flaw-derangement. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written. Cross-referenced against bedlam-overview only as an optional in-fiction origin story, since a raksha's Bedlam is otherwise a distinct, separately-tracked mechanic from this Flaw."
+  },
+  {
+    "id": "pg-flaw-amnesia",
+    "name": "Amnesia",
+    "disposition": "selectable",
+    "summary": "Large gaps in the character's memory, from a single missing life event (1 pt.) up to recurring amnesia that prevents remembering anything prior to the last sleep (5 pts.). Raksha take the general mortal-facing 1/2/5-pt. scale only; the Celestial-Exalted-specific 1-pt. variant tied to remembering nothing of prior incarnations does not apply, since raksha do not reincarnate the way Solar/Lunar/Sidereal Essence does.",
+    "mechanics": "Characters with this Flaw suffer large gaps in memory. For one point, the character is missing a notable section of life or a crucial event; for two points, everything before a major turning point; for five points, the amnesia is recurring, preventing the character from remembering anything prior to waking from her last sleep (though her Traits and capabilities remain intact, unremembered). Recurring amnesia also prevents learning or advancing Abilities unless the character can stay awake or keep a thorough journal.",
+    "cost": "1-, 2- or 5-pt. Flaw",
+    "compatibility": "Any raksha, common or noble, at the general 1/2/5-pt. scale; the additional Celestial-Exalted-specific 1-pt. use case (remembering nothing of past incarnations) does not apply, since Fair Folk have no reincarnating-Essence mechanic for it to key off of.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 34,
+      "pdfPage": 35
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-flaw-amnesia, which adds a Celestial-Exalted-specific 1-pt. option (complementing the excluded Past Lives Merit, pg-merit-past-lives, which was not derived for Fair Folk). That specific option was dropped here since raksha have no equivalent reincarnation mechanic, but the general mortal-facing 1/2/5-pt. amnesia scale applies to Fair Folk unmodified."
+  },
+  {
+    "id": "pg-flaw-superstition",
+    "name": "Superstition",
+    "disposition": "selectable",
+    "summary": "A wrong or fanatical idea about something important, treated by the character as sincere fact; scales from a simple personal inconvenience (1 pt.) to a belief that seriously harms others if acted upon (3 pts.). A purely mental Flaw with no eligibility restriction to adapt.",
+    "mechanics": "Characters with this Flaw hold a wrong or fanatical idea about something important, once perhaps rooted in fact but no longer. For one point, the custom is simply inconvenient; for two points, it is dangerous to the character or believers; for three points, it involves harm to others. Characters who discover and accept the falsehood of their superstitions must buy off this Flaw with experience; characters receive one less point if the game takes place mostly where the belief is commonly held.",
+    "cost": "1- to 3-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; unmodified from the Players Guide text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 34,
+      "pdfPage": 35
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-flaw-superstition. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written, and could equally represent a raksha's mistaken belief about Creation, cold-wrought iron, or another raksha court's customs."
+  },
+  {
+    "id": "pg-flaw-vice",
+    "name": "Vice",
+    "disposition": "selectable",
+    "summary": "A moral weakness, sin, or failing that tempts the character above all others; when relevant, the character loses two dice from the affected Virtue for every point invested and may indulge in it over better judgment. Reinterpreted for raksha as interacting with Bedlam (this splat's Limit-Trait analog) rather than the Lunar-specific Great Curse, since raksha have no Great Curse at all.",
+    "mechanics": "A character with this Flaw suffers a particular sin or failing that tempts him above all others -- a warrior of great Valor harboring a secret fear, an ascetic of great Temperance falling to carnal desire, deep Compassion masking cruelty or bigotry. In situations relevant to the sinful condition, the character loses two dice from the affected Virtue for every point invested, potentially reducing the pool to zero and forcing automatic indulgence over better judgment. Characters may not have more than one Vice; those with deeper moral deficiencies are Callous instead (see pg-flaw-callous). This Flaw may not alter or ameliorate a raksha's Bedlam, and Storytellers should ban any Vice that obviously attempts to circumvent that restriction.",
+    "cost": "1- to 3-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; may not alter or ameliorate Bedlam (see bedlam-overview, virtue-bedlam-curses), this splat's Limit-Trait analog, exactly as the original text bars it from altering the Great Curse for Solars/Lunars.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 34,
+      "pdfPage": 35
+    },
+    "crossReferences": [
+      "bedlam-overview",
+      "virtue-bedlam-curses"
+    ],
+    "notes": "REINTERPRETATION: Lunar's row cross-references 'the-great-curse,' Lunars' own Limit-Trait analog, which this Flaw may not alter or ameliorate. Fair Folk have no Great Curse; their structurally closest equivalent is Bedlam (see bedlam-overview, virtue-bedlam-curses), a Virtue-channel-based break mechanic. The restriction was redirected there rather than dropped, preserving the original entry's intent (a Vice cannot be used to weaken or bypass a character's core psychological-break mechanic)."
+  },
+  {
+    "id": "pg-flaw-addiction",
+    "name": "Addiction",
+    "disposition": "selectable",
+    "summary": "An addiction to some substance, scaling 1-3 points by legality/danger/expense, plus modifiers for how the habit strains the character's finances or consumes her life. Raksha take the base rating (no Exalted discount, since Fair Folk are not Exalted); the source's Wyld-addiction cross-reference to Lunars' own book was redirected to this family's own Cup Grace Addiction Charms, a closer thematic fit for a being of the Wyld.",
+    "mechanics": "Characters with this Flaw suffer an addiction to some substance, without which they suffer withdrawal. One point covers a relatively easy, legal, inexpensive and reasonably safe substance (alcohol, qat, marijuana); two points, a rarer or more debilitating substance (opium, rasp spider venom); three points, an expensive and/or dangerous substance (rock cocaine, heroin, bright morning). Add one to the value if the character's wealth cannot support regular use, or two if she cannot afford a single dose or the addiction controls her entire life. Actual withdrawal effects depend on the substance and Storyteller discretion.",
+    "cost": "1- to 5-pt. Flaw",
+    "compatibility": "Any raksha, common or noble, at the base (non-Exalted) rating; a raksha's addiction could as easily be to feeding itself as to any mortal substance -- see this family's own Cup Grace Addiction Charms (shiftless-untamed-beauty, maddening-summons, whispers-behind-the-eyes) for a raksha-appropriate framing of compulsive craving.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 35,
+      "pdfPage": 36
+    },
+    "crossReferences": [
+      "shiftless-untamed-beauty",
+      "maddening-summons",
+      "whispers-behind-the-eyes"
+    ],
+    "notes": "REINTERPRETATION: Lunar's row documents both an Exalted-wide -1 rating discount (not extended to Fair Folk, since raksha are not Exalted) and a direct cross-reference to Exalted: The Lunars p. 205 for Wyld-addiction rules. A raksha being 'addicted to the Wyld' makes little sense for a being who is Wyld-stuff herself; instead, this row cross-references this family's own Cup Grace Addiction Charms (already inventoried), which model raksha-appropriate compulsive craving and were judged the closer thematic fit."
+  },
+  {
+    "id": "pg-flaw-callous",
+    "name": "Callous",
+    "disposition": "selectable",
+    "summary": "Selfish pragmatism over scruples and integrity; gains two bonus points per point of Virtue forfeited during character creation, cannot start with a Willpower rating more than one point higher than the sum of the two highest Virtues, and cannot have the Paragon Nature. Reinterpreted for raksha as interacting with Bedlam's per-Virtue Curses rather than the Exalted Virtue Flaw system, since that is the closest raksha equivalent.",
+    "mechanics": "A character with this Flaw believes in selfish pragmatism over scruples and integrity, gaining two bonus points for every dot of Virtues forfeited during character creation. Callous characters cannot forfeit their last dot of a Virtue and may not begin play with a Willpower rating more than one point higher than the sum of their two highest Virtues, until reaching 9 total Virtue dots, at which point the Flaw is lost at no cost. Characters with this Flaw may not have the Paragon Nature (see pg-merit-true-paragon).",
+    "cost": "2- to 10-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; a raksha with this Flaw already faces the ordinary Bedlam Curse tied to whichever Virtue's channels run out (see virtue-bedlam-curses), the closest raksha equivalent to the Exalted Virtue Flaw the original text cross-references.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 35,
+      "pdfPage": 36
+    },
+    "crossReferences": [
+      "pg-merit-true-paragon",
+      "virtue-bedlam-curses"
+    ],
+    "notes": "REINTERPRETATION: Lunar's row notes that Exalted with this Flaw suffer the standard Exalted Virtue Flaw tied to their highest Virtue. Fair Folk have no separate Virtue Flaw system; a raksha's Virtues already trigger Bedlam and its matching Curse (see virtue-bedlam-curses) whenever a Virtue's channels are exhausted, so this Flaw's practical effect on a raksha is simply that she is more likely to burn through her Virtue channels quickly given her forfeited dots -- no additional mechanic needed to be invented."
+  },
+  {
+    "id": "pg-flaw-nightmares",
+    "name": "Nightmares",
+    "disposition": "selectable",
+    "summary": "Horrific dreams whenever the character sleeps, adding 1 to the difficulty of regaining Willpower via Conviction after sleep, and inflicting lingering one-die penalties and unsoakable bashing damage on a botched Conviction roll. A purely mental Flaw with no eligibility restriction to adapt.",
+    "mechanics": "A character with this Flaw experiences horrific dreams whenever she sleeps, adding 1 to the difficulty to regain Willpower with Conviction after sleep. If the roll botches, the character loses one point of temporary Willpower and suffers a one-die penalty to all non-reflexive actions for the rest of the day.",
+    "cost": "3-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; unmodified from the Players Guide text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 35,
+      "pdfPage": 36
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-flaw-nightmares. Lunar's own notes found only a ghost-specific mechanical variant (not relevant to Fair Folk); the base Flaw carries no eligibility restriction and applies to Fair Folk exactly as written."
+  },
+  {
+    "id": "pg-flaw-pacifist",
+    "name": "Pacifist",
+    "disposition": "selectable",
+    "summary": "Cannot bring himself to fight, adding 1 to the difficulty of attacks (3-pt.), or cannot attack anyone at all without spending a Willpower point to overcome his aversion for a scene (5-pt.). A purely mental Flaw with no eligibility restriction to adapt.",
+    "mechanics": "For three points, a pacifist adds 1 to the difficulty of her attacks, even in self-defense. Characters with the five-point version may not attack anyone without spending a Willpower point to overcome her aversion to violence for a scene, and add 1 to the difficulty of their attacks even then.",
+    "cost": "3- or 5-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; unmodified from the Players Guide text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 36,
+      "pdfPage": 37
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-flaw-pacifist. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written."
+  },
+  {
+    "id": "pg-flaw-unskilled",
+    "name": "Unskilled",
+    "disposition": "selectable",
+    "summary": "Less education and training than most adults; grants one bonus point per Ability dot forfeited during character creation, though known Favored Abilities must still meet minimum statistical requirements. Reinterpreted for raksha's own Caste Ability terminology.",
+    "mechanics": "Characters with this Flaw have less education and training to draw upon than most adults, receiving one bonus point for every dot of Abilities forfeited during character creation. Characters with this Flaw must still meet the statistic requirements of all known Caste Abilities (one dot minimum, mirroring the Exalted Favored-Ability floor) and obviously cannot purchase Ability dots with bonus points.",
+    "cost": "Variable Point Flaw",
+    "compatibility": "Any raksha, common or noble; must still keep at least one dot in any known Caste Ability, the direct raksha equivalent of a Favored Ability floor.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 36,
+      "pdfPage": 37
+    },
+    "crossReferences": [],
+    "notes": "REINTERPRETATION: Lunar's row requires Exalted to keep at least one dot in any known Favored Ability despite this Flaw. Raksha use Caste Abilities (and, for nobles, Favored Abilities) rather than Exalted Favored Abilities alone; the one-dot floor was applied to a raksha's Caste Abilities here as the closest structural equivalent."
+  },
+  {
+    "id": "pg-flaw-weak-willed",
+    "name": "Weak-Willed",
+    "disposition": "selectable",
+    "summary": "Gnawing self-doubt and lack of drive; grants one bonus point per dot of permanent Willpower forfeited during character creation. Raksha take the base (non-Exalted) version, with no Willpower-4 floor, since that floor and its story-justification requirement are stated for Exalted specifically.",
+    "mechanics": "A character with this Flaw suffers gnawing self-doubt and lack of drive, gaining one bonus point for every dot of permanent Willpower her player forfeits during character creation.",
+    "cost": "Variable Point Flaw",
+    "compatibility": "Any raksha, common or noble; may have a Willpower score as low as 2, since the Willpower-4 floor (and 2-if-also-Callous exception) is written specifically for Exalted, whom the Celestines do not Exalt as spiritual weaklings -- a framing that does not describe raksha, who are not Exalted at all.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 36,
+      "pdfPage": 37
+    },
+    "crossReferences": [
+      "pg-flaw-callous"
+    ],
+    "notes": "REINTERPRETATION: Lunar's row applies an Exalted-specific Willpower-4 floor (or 2 if also Callous) and a note that this Flaw is extremely rare among the Chosen. That floor's justification ('the Celestines do not Exalt spiritual weaklings') does not describe Fair Folk, who never Exalt in the first place; this row therefore uses the plain, unrestricted version of the Flaw, letting a raksha's Willpower fall as low as 2 like any non-Exalted character."
+  },
+  {
+    "id": "pg-flaw-barbarian",
+    "name": "Barbarian",
+    "disposition": "selectable",
+    "summary": "Grew up outside the bounds of civilization and does not know the ways of soft city-dwellers; loses one die from all Social dice pools related to understanding or expressing civilized etiquette, and is not assumed literate unless Lore 2+. A purely social Flaw with no eligibility restriction to adapt.",
+    "mechanics": "Characters with this Flaw grew up outside civilization and do not know the ways of city-dwellers, losing one die from all Social dice pools related to civilized etiquette and lacking assumed literacy unless Lore 2+.",
+    "cost": "1-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; especially fitting for a common raksha or a chaotic Fair Folk newly settled in Creation, unfamiliar with mortal custom rather than specifically 'barbarian' custom.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 37,
+      "pdfPage": 38
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-flaw-barbarian. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written, and fits a raksha unfamiliar with Creation's civilized customs generally, not only literal 'barbarian' upbringing."
+  },
+  {
+    "id": "pg-flaw-secrets",
+    "name": "Secrets",
+    "disposition": "selectable",
+    "summary": "The character harbors a secret that could prove embarrassing or dangerous if others learn of it, scaling from mild embarrassment (1 pt.) up to deadly, death-penalty-worthy crimes/heresies (3 pts.). A purely social Flaw with no eligibility restriction to adapt.",
+    "mechanics": "The character harbors a secret that could prove embarrassing or dangerous if discovered. For one point, it is merely inconvenient or humiliating; for two points, serious enough to invite reprisal; for three points, deadly serious, inviting death or a comparably unpleasant fate if the authorities find out.",
+    "cost": "1- to 3-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; a raksha secretly walking Creation in a stable Mote, or a courtier plotting against her own Freehold, are natural Fair Folk-appropriate examples at the two- and three-point tiers respectively.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 37,
+      "pdfPage": 38
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-flaw-secrets, whose own two-point flavor example ('Anathema living in the Imperial City') is Exalted-specific setting color. That example was replaced with raksha-appropriate equivalents (a hidden Mote-shape identity; court intrigue against one's own Freehold), since the underlying Flaw carries no eligibility restriction."
+  },
+  {
+    "id": "pg-flaw-disciple",
+    "name": "Disciple",
+    "disposition": "selectable",
+    "summary": "The character's superiors have entrusted her with a student she must train and look after, unable to abandon the relationship without permission from a higher-ranking authority; scales 1-5 points by the disciple's demands on the character's time and the consequences of the disciple's misbehavior. A purely social Flaw with no eligibility restriction to adapt.",
+    "mechanics": "The character's superiors have entrusted her with a student she must train and look after, unable to abandon the relationship without permission from higher authority. The value depends on the disciple's cooperativeness and the time/consequences involved: one point for a cooperative, low-attention student; five points for an insipid, willfully malicious terror. Failure in teaching duties brings unpleasant consequences from the character's own superiors.",
+    "cost": "1- to 5-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; fits a noble's court apprentice or a common raksha's own protege at Storyteller discretion.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 37,
+      "pdfPage": 38
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-flaw-disciple, whose own flavor names Sidereals and Immaculates as most commonly having this Flaw. That framing is not relevant to Fair Folk, but the underlying Flaw carries no eligibility restriction, so it applies to Fair Folk exactly as written."
+  },
+  {
+    "id": "pg-flaw-enemy-rival",
+    "name": "Enemy/Rival",
+    "disposition": "selectable",
+    "summary": "The character has earned the enmity of an individual or group; functions as a reverse Allies Background, with a point value matching the power of the character's foes. A purely social Flaw with no eligibility restriction to adapt.",
+    "mechanics": "The character has earned the enmity of an individual or group, functioning as a reverse of the Allies Background with a matching point value. At five points, the character might contend with the wrath of a powerful god, a rival raksha court, or a similarly potent being. A rival differs from an enemy only in belonging to the character's own organization, where open action against each other invites professional reprisal.",
+    "cost": "1- to 5-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; the five-point tier's flavor is best drawn from raksha-appropriate menaces -- a rival Freehold's ruling caste, a deep-Wyld horror, or an organized Wyld Hunt cadre -- rather than the source's Creation-specific Deathlord example.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 37,
+      "pdfPage": 38
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-flaw-enemy-rival, whose five-point flavor examples (a Deathlord, a First Age survivor) are Exalted-setting color, not eligibility restrictions. This row substitutes raksha-appropriate top-tier examples while leaving the mechanic unmodified."
+  },
+  {
+    "id": "pg-flaw-wanted",
+    "name": "Wanted",
+    "disposition": "selectable",
+    "summary": "The character is a known criminal or has otherwise incurred the wrath of authorities willing to send hunters after her, regardless of actual guilt. A purely social Flaw with no eligibility restriction to adapt.",
+    "mechanics": "The character is a known criminal, or her actions have incurred the wrath of authorities willing to send hunters after her, regardless of actual guilt. One point covers a minor crime (escaped slave, defaulted loan); three points, a violent crime with certain pursuit; five points, an act of inherent treason.",
+    "cost": "1- to 5-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; the five-point tier's flavor is best drawn from raksha-appropriate treasons -- betraying one's Freehold, consorting with the Church of Balor's enemies, or the like -- rather than the source's Creation-specific Deathlord example.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 37,
+      "pdfPage": 38
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-flaw-wanted, whose five-point flavor example ('consorting with the Deathlords') is Exalted-setting color, not an eligibility restriction. This row substitutes a raksha-appropriate top-tier example while leaving the mechanic unmodified."
+  },
+  {
+    "id": "pg-flaw-disturbing",
+    "name": "Disturbing",
+    "disposition": "selectable",
+    "summary": "The character makes others uncomfortable through an indefinable aura of menace (not necessarily ugliness or rudeness), adding 1 or 2 to the difficulty of all Social rolls not based on intimidation. A purely social Flaw that fits a raksha's inherently uncanny nature especially well.",
+    "mechanics": "Characters with this Flaw make others uncomfortable, exuding an indefinable aura of menace. For two points, this adds 1 to the difficulty of all Social rolls not based on intimidation; for three points, the penalty increases to 2. Most people give the character a wide berth and minimize contact even when no Social roll is at stake.",
+    "cost": "2- or 3-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; unmodified from the Players Guide text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 38,
+      "pdfPage": 39
+    },
+    "crossReferences": [],
+    "notes": "Derived from Lunar's pg-flaw-disturbing. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written, and suits a raksha's fundamentally alien nature especially well even while wearing a stable Mote."
+  },
+  {
+    "id": "pg-flaw-child",
+    "name": "Child",
+    "disposition": "selectable",
+    "summary": "The character has not yet reached full maturity; most adults treat him with patronizing amusement or disdain and generally ignore his opinions. A purely social Flaw that fits a raksha wearing a child-shaped Mote.",
+    "mechanics": "The character has not yet reached full maturity, and most adults treat him with patronizing amusement or disdain, generally ignoring his opinions. The character loses one to three dice from all Social rolls involving interactions with adults, depending on the adult's tolerance. Most children also have the Small Flaw and a measure of Unskilled.",
+    "cost": "3-pt. Flaw",
+    "compatibility": "Any raksha, common or noble, wearing a child-shaped Mote or genuinely newly coalesced from the Wyld; pairs naturally with pg-flaw-small and pg-flaw-unskilled as the source text notes.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 38,
+      "pdfPage": 39
+    },
+    "crossReferences": [
+      "pg-flaw-small",
+      "pg-flaw-unskilled"
+    ],
+    "notes": "Derived from Lunar's pg-flaw-child. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written, whether representing a raksha whose chosen Mote is a child's body or one genuinely newly formed and inexperienced."
+  },
+  {
+    "id": "pg-flaw-damaged-artifact",
+    "name": "Damaged Artifact",
+    "disposition": "selectable",
+    "summary": "An Artifact owned through the Artifact Background has suffered damage that impairs its function, scaling from minor damage (1 pt.) up to near-total damage (3 pts., presently useless but repairable). Points gained cannot exceed the Background/bonus points spent obtaining the artifact, minus at least one remaining point of Artifact rating. Applies directly to raksha, whose own Artifact Background purchases glamour spells, behemoths, adjurations and Wyld artifacts rather than Five-Magical-Materials items.",
+    "mechanics": "One of the mystical wonders owned by the character through the Artifact Background has suffered damage, either in the past or since falling into her possession. One point indicates minor damage (a weapon loses a point of damage or accuracy, armor loses soak, or a complicated device functions with reduced reliability); two points, major damage (five points from weapons/armor, or half effectiveness for complicated devices); three points, near-total damage (the artifact is presently useless, though repairable through a proportionally complex and expensive process). Players may not gain more points from this Flaw than the Background/bonus points spent obtaining the artifact, whichever is less, and must retain at least one more point of Artifact than the points obtained here.",
+    "cost": "1- to 3-pt. Flaw",
+    "compatibility": "Any raksha with the Artifact Background, common or noble; per artifact-background-fair-folk's own dot table, the maximum Flaw-point cap is set by however many Artifact Background dots the raksha actually spent on the specific glamour spell, behemoth, adjuration or Wyld artifact being damaged, exactly as the original worked example compares Solar and Abyssal Artifact costs against each other.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 38,
+      "pdfPage": 39
+    },
+    "crossReferences": [
+      "artifact-background-fair-folk"
+    ],
+    "notes": "Derived from Lunar's pg-flaw-damaged-artifact, whose worked example compares Solar and Abyssal Artifact Background point costs for the same item. Raksha use their own, structurally different Artifact Background (artifact-background-fair-folk, purchasing glamour spells, behemoths, adjurations and Wyld artifacts rather than Five-Magical-Materials items), so the same cross-splat cost-comparison principle -- the Flaw's cap is set by whatever the raksha herself spent to obtain the specific item -- was preserved without importing the Solar/Abyssal worked example verbatim."
+  },
+  {
+    "id": "pg-flaw-debt",
+    "name": "Debt",
+    "disposition": "selectable",
+    "summary": "The character owes money or goods to an individual or organization of substantial power, functioning as an inverse Resources Background with an identical rating system. Reinterpreted for raksha as an inverse Gossamer Background, since Fair Folk do not use the Resources Background at all.",
+    "requirements": "None beyond the ordinary Gossamer Background rating scale (0-5) this Flaw inverts.",
+    "mechanics": "The character owes wealth to an individual or organization of substantial power -- for a raksha, most plausibly another raksha court, a Freehold's ruling caste, or a powerful gossamer-broker. She must either pay regular installments with interest or promise a full repayment by an agreed date; failure brings hunters or worse. This Flaw functions as an inverse of the character's wealth Background with an identical rating system, so a character with four points of Debt owes a sum equal to Gossamer 4. Characters may hold both Debt and their wealth Background simultaneously, provided Debt exceeds it; buying off Debt with wealth accumulated in play costs no experience.",
+    "cost": "1- to 5-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; reinterpreted from the original inverse-Resources mechanic to an inverse-Gossamer mechanic (see gossamer-background), since raksha exclude the Resources Background entirely (see followers-and-resources-excluded-fair-folk) in favor of Gossamer.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 38,
+      "pdfPage": 39
+    },
+    "crossReferences": [
+      "gossamer-background",
+      "followers-and-resources-excluded-fair-folk"
+    ],
+    "notes": "JUDGMENT CALL / REINTERPRETATION: this Flaw is explicitly defined as an inverse of the Resources Background, which raksha do not have (see followers-and-resources-excluded-fair-folk). Rather than excluding the Flaw outright, it was reinterpreted against Gossamer -- raksha's own wealth-and-influence Background (gossamer-background) -- using the identical 1-5 rating mechanic the original text describes, since Gossamer plays the same structural role for raksha that Resources plays for Creation-born characters."
+  },
+  {
+    "id": "pg-flaw-unbidden-oracle",
+    "name": "Unbidden Oracle",
+    "disposition": "selectable",
+    "summary": "At least once per story but no more than once per scene, the character unintentionally speaks prophetic words of ill omen, invariably at the most inopportune moment; such prophecies almost always come true. Included for Fair Folk with a flagged conceptual tension, since the mechanism is framed as a Bureau of Destiny phenomenon correcting Creation-bound Essence disruption -- a Loom-of-Fate process raksha stand outside of.",
+    "mechanics": "At least once per story, but no more than once per scene, a character with this Flaw speaks prophetic words of ill omen without meaning to, invariably at the most inopportune moment. Such prophecies almost always come true, or would if the warning hadn't prompted countermeasures. A point of Willpower can prevent an outburst, but prophecies of real importance eventually find their way out regardless.",
+    "cost": "1-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; included as selectable since no eligibility restriction is stated, though the mechanism's own Bureau of Destiny framing sits oddly for a being of the Wyld -- see pg-merit-destiny's notes for the fuller Fate/Loom conceptual discussion applying here too.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 39,
+      "pdfPage": 40
+    },
+    "crossReferences": [
+      "pg-merit-destiny"
+    ],
+    "notes": "JUDGMENT CALL: like pg-merit-destiny above, this Flaw's underlying mechanism (the Bureau of Destiny correcting dooms from ambient Essence disruption within Creation's Loom of Fate) is a Creation-bound cosmic process that sits oddly for a raksha, who is native to the Wyld outside that Loom. The Players Guide text names no eligibility restriction, so this row is included as selectable rather than excluded by inference, but the tension is flagged here for Storyteller awareness -- a raksha oracle would most plausibly be one who has spent significant time settled within Creation."
+  },
+  {
+    "id": "pg-flaw-dark-fate",
+    "name": "Dark Fate",
+    "disposition": "selectable",
+    "summary": "No matter how heroic her deeds, the character will ultimately suffer or bring about some great tragedy at its appointed time, defying even the Maidens' intervention; severity scales from a lifetime of petty miseries or a painful demise (1 pt.) to epic, empire-crumbling catastrophe (5 pts.). No splat is excluded except Sidereals (normally exempt via their Bureau of Destiny role), so Fair Folk are fully eligible, though the same Loom-of-Fate conceptual tension flagged for Destiny applies here too.",
+    "mechanics": "No happy ending awaits a character with Dark Fate. No matter how heroic her deeds, she shall ultimately suffer or bring about some great tragedy at its appointed time, defying the most potent sorcery, astrology and divine intervention short of the Maidens themselves. Severity scales from a one-point doom (a violent demise or a lifetime of petty miseries) to a five-point doom (epic, empire-crumbling catastrophe). Those fated for ruin seldom know the curse they bear, though ill portents typically accompany their birth; astrologers can sense the presence of doom with a single success, though identifying its specifics is much harder. Cursed characters receive the same coincidental protection as those with positive Destiny (see pg-merit-destiny) until their doom's appointed time.",
+    "cost": "1- to 5-pt. Flaw",
+    "compatibility": "Any raksha, common or noble, at the full 1-5 pt. range; the only named exclusion (Sidereals, normally exempt via their Bureau of Destiny role) does not apply to Fair Folk, though a raksha's Dark Fate sits within the same Loom-of-Fate conceptual tension flagged in pg-merit-destiny's notes. The Celestial-Exalted-specific 'passes to the next incarnation' clause does not apply, since raksha have no reincarnating-Essence mechanic.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 39,
+      "pdfPage": 40
+    },
+    "crossReferences": [
+      "pg-merit-destiny"
+    ],
+    "notes": "JUDGMENT CALL: only Sidereals are explicitly excluded from this Flaw (they are normally exempt via their Bureau of Destiny role); no restriction is stated against Fair Folk. This row drops the Celestial-Exalted-specific clause about passing the doom to a next incarnation, since raksha have no such mechanic, but otherwise applies the Flaw unmodified. See pg-merit-destiny's notes for the same Fate/Loom conceptual tension that applies here."
+  },
+  {
+    "id": "pg-flaw-unlucky",
+    "name": "Unlucky",
+    "disposition": "selectable",
+    "summary": "The character suffers an endless stream of purposeless misfortune (unlike Dark Fate, this has no ultimate destiny behind it). The Storyteller gets a negative luck pool spendable to force rerolls of the character's rolls or to negatively bias games of chance. A purely mechanical Flaw with no eligibility restriction to adapt.",
+    "mechanics": "A character with this Flaw suffers an endless stream of purposeless misfortune. The Storyteller receives a negative luck pool equal to the points invested, spendable to force a reroll of the character's own roll (keeping the worse result) or to negatively bias a game of chance. Characters may be simultaneously Lucky (see pg-merit-lucky) and Unlucky, since the Storyteller and player spend their respective pools independently. The negative pool refreshes at the end of every story.",
+    "cost": "1- to 5-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; unmodified from the Players Guide text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 40,
+      "pdfPage": 41
+    },
+    "crossReferences": [
+      "pg-merit-lucky"
+    ],
+    "notes": "Derived from Lunar's pg-flaw-unlucky. No splat-specific language exists anywhere in this entry; it applies to Fair Folk exactly as written, and can stack with pg-merit-lucky exactly as documented."
+  },
+  {
+    "id": "pg-flaw-weak-essence",
+    "name": "Weak Essence",
+    "disposition": "selectable",
+    "summary": "The character suffers stunted magical development (or is newly coalesced), reducing starting Essence rating to 1 and severely limiting Charm selection. A near-perfect fit for Fair Folk: the book explicitly extends this Flaw to any 'other magical being whose baseline starting Essence is 2,' and every raksha -- common or noble -- starts with Essence 2.",
+    "mechanics": "Individuals with this Flaw suffer stunted magical development, or perhaps recently came into being. This reduces the character's starting Essence rating to 1, severely limiting Grace Charm selection (since a raksha's single Essence pool equals permanent Essence x 10, an Essence-1 raksha has only 10 motes to work with). The player may withhold up to five Charms in reserve, typically until Essence can be raised in play; withheld Charms waive their experience cost but still require the same training time (though Fair Folk have no training-time delay at all -- see fair-folk-experience-and-training-time).",
+    "cost": "6-pt. Flaw",
+    "compatibility": "Any raksha, common or noble; the book's own text extends this Flaw to 'other magical beings' with a normal starting Essence of 2, which describes every raksha exactly, per fair-folk-creation-overview-noble / -common.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-players-guide",
+      "printedPage": 41,
+      "pdfPage": 42
+    },
+    "crossReferences": [
+      "fair-folk-creation-overview-noble",
+      "fair-folk-creation-overview-common",
+      "fair-folk-experience-and-training-time"
+    ],
+    "notes": "STRONG FIT: unlike most of this chapter's Exalted-specific language, this Flaw's own text explicitly and by design extends beyond Exalted to 'other magical beings,' provided their normal starting Essence is 2 (excepting Dragon Kings). Fair Folk's own creation rules (fair-folk-creation-overview-noble / -common) state 'Essence starts at 2' for every raksha, common or noble alike, making this one of the cleanest, least-reinterpreted fits in the entire derived set. The 'newly-Exalted' framing was softened to 'newly coalesced' to fit a being who never Exalts, and the training-time clause was cross-referenced against this family's own rule that raksha have no training-time delay at all."
   }
 ]
