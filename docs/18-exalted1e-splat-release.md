@@ -193,7 +193,7 @@ real, creatable sheet.
 | Family     | Source manifest                       | Inventory rows | Promoted | Certification                    |
 | ---------- | ------------------------------------- | -------------- | -------- | -------------------------------- |
 | Lunar      | Created (Exalted: The Lunars)         | 253            | 0        | Locked, all dimensions `not-run` |
-| Abyssal    | Created (Exalted: The Abyssals)       | 287            | 0        | Locked, all dimensions `not-run` |
+| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony) | 440 | 0        | Locked, all dimensions `not-run` |
 | Sidereal   | Created (Exalted: The Sidereals)      | 252            | 0        | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians) | 207            | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Created (Exalted: The Fair Folk)      | 263            | 0        | Locked, all dimensions `not-run` |
@@ -216,7 +216,7 @@ cover-to-cover** — the second of the five planned families to reach full
 primary-sourcebook parity; only the untriaged cross-splat supplements
 remain. See `docs/references/exalted1e/lunar/README.md`.
 
-Abyssal's 287 rows cover the Chapter Three character-creation overview, the
+Abyssal's 440 rows cover the Chapter Three character-creation overview, the
 universal Anima Effect, all five Castes, the Abyssal Curse, the Virtues of
 Death, the full Resonance mechanic (the Limit-Trait analog, including gain,
 loss, and the 1-10 manifestation table), the-title, Useful Crafts, the
@@ -234,8 +234,14 @@ an existing Occult Charm), unblocking `ghost-warding-glyph`.
 mechanics (Chapters One through Six)** — the fifth and final of the five
 planned families to reach full primary-sourcebook parity (Chapter Six's
 ghost/NPC Arcanoi trees and Chapter Seven's Storytelling material are
-GM-facing and intentionally out of scope); see
-`docs/references/exalted1e/abyssal/README.md`.
+GM-facing and intentionally out of scope). The supplement **The Book of
+Bone and Ebony** has now also been triaged and added as a second source
+book (153 rows): 77 new necromancy spells, a 69-entry small-artifact
+catalog (Wonders of the Dead), 5 named artifacts plus 1 embedded spell from
+Creations of Bone, and an excluded finding for its Arts of the Dead chapter
+(ghost Arcanoi, not player Charms). That supplement's Chapter Four
+nemissary/war-machine construction subsystem remains an open resume point;
+see `docs/references/exalted1e/abyssal/README.md`.
 
 Sidereal's 252 rows cover the Chapter Three character-creation overview, the
 five Auspicious Ability groups, the universal anima effect, all five Castes

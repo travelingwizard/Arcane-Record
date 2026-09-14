@@ -1,16 +1,17 @@
 # Exalted 1e — Abyssal source intake
 
-**Status: source intake in progress.** `Exalted: The Abyssals` has been
-supplied and 287 inventory rows are checked in under `inventory/`. See
+**Status: source intake in progress.** `Exalted: The Abyssals` and its
+supplement *The Book of Bone and Ebony* have both been supplied, and 440
+inventory rows are checked in under `inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
 ## What's inventoried so far
 
-- `source-manifest.json` — the one source book in scope so far
-  (`exalted-the-abyssals`); supplements (necromancy-heavy books like *Blood
-  and Salt* or *Book of Bone and Ebony*) are not yet added.
-- `inventory/exalted-the-abyssals.json` — 287 rows covering:
+- `source-manifest.json` — two source books in scope
+  (`exalted-the-abyssals` and `book-of-bone-and-ebony`); the remaining
+  necromancy-heavy supplement (*Blood and Salt*) is not yet added.
+- `inventory/exalted-the-abyssals.json` — 440 rows covering:
   - The Chapter Three character-creation overview (Attributes/Abilities/
     Backgrounds/Charms/Virtues/Willpower/Essence).
   - The universal, caste-agnostic Anima Effect (Caste Mark flare, anima
@@ -162,22 +163,101 @@ the full process this directory follows.
     `ghost-warding-glyph`) was corrected. `ghost-warding-glyph` is no
     longer blocked by an unresolved prerequisite.
 
+- **The Book of Bone and Ebony** (`book-of-bone-and-ebony`) — a
+  necromancy/Abyssal-focused supplement, now added as a second source
+  book. 153 new rows:
+  - **Chapter Two: The Arts of the Dead — excluded (1 row).** Despite its
+    "Charms for the dead" framing, this entire chapter (printed pp. 34-53,
+    PDF 35-54) turned out to be ghost Arcanoi — Common and Uncommon
+    Arcanoi chains (including the Lintha-originated `Evoke the Ancient
+    Clay` chain) gated by Minimum Virtue + Essence, never by Minimum
+    Ability + Essence like a real player-facing Abyssal Charm. Documented
+    as a single chapter-level excluded row
+    (`book-of-bone-and-ebony-chapter-two-arcanoi-excluded`) rather than
+    transcribed Arcanos-by-Arcanos, matching the precedent already set for
+    the core book's own Chapter Six Arcanoi trees.
+  - **Chapter Five: Necromancy — 77 new spells (pp. 116-145, PDF
+    117-146), fully inventoried.** Every spell was cross-checked by id
+    against the core book's existing 26 spells to confirm no duplication.
+    Covers the Shadowlands, Labyrinth, and Void Circles, including named
+    variant spells presented inline within a "parent" spell's own prose
+    (e.g. `white-shard`/`the-barless-gate` under `blood-mirror-speech`,
+    `black-vial`/`empty-night-future` under `silent-masters-pollen`,
+    `walking-gore-titan`/`void-cocoon-warrior` under
+    `rattled-bones-of-war`) — each given its own row per this project's
+    one-row-per-named-heading convention. Two spells
+    (`brick-by-brick-solitude`, the Labyrinth upgrade of Ringing Hun
+    Rebuke; and `barred-tomb`, the Void upgrade of Denying the Call) never
+    restate an explicit mote cost in their source prose and are marked
+    `unresolved` with an in-text `[FLAG]` rather than a guessed number.
+    Mortal Thaumaturgy rituals and a Solar Circle Sorcery counterpart
+    spell found in this chapter were intentionally excluded as out of
+    scope for an Abyssal-specific inventory. The chapter's closing
+    GM-facing content (a sample hekatonkhire NPC stat block and an Exalted
+    Power Combat weapon table) was likewise excluded, though the
+    player-facing casting/duel mechanics for `summon-hekatonkhire` itself
+    are captured as a normal selectable spell row.
+  - **Chapter Three: The Wonders of the Dead — 69 artifacts, fully
+    inventoried at summary granularity (pp. 58-79, PDF 59-80).** Every
+    catalog entry (Artifact ratings one through four, plus one
+    Resources-rated item, `stomach-weighting-powder`) is captured as name,
+    rating, a one-paragraph mechanical summary, and its full Artifact
+    Traits line, rather than exhaustive verbatim text — matching how this
+    project handles other large procedural artifact catalogs. Extraction
+    relied on this PDF's confirmed-accurate text layer (unlike the
+    image-based core `Exalted: The Abyssals` PDF); several entries were
+    additionally spot-checked against rendered page images with no
+    discrepancies found.
+  - **Chapter Four: Creations of Bone — partially covered (5 named
+    artifacts + 1 embedded spell; the larger war-machine subsystem is
+    NOT yet transcribed).** This chapter turned out to be a full
+    nemissary-crafting and war-machine-construction rules subsystem, not
+    a simple catalog — see "What's still needed" below for its scope.
+    What *is* covered: `sarcophagus-of-restoration`,
+    `loathsome-osseous-shell`, `bonestrider`, `the-insidious-ebon-xoanon`,
+    and `manifestation-engine` (pp. 93-113, PDF 94-114), plus one Void
+    Circle necromancy spell found embedded in the chapter's "War Machines
+    of the Dead" section, `oblivions-avatar` (p. 102, PDF 103) — filed
+    alongside the Chapter Five spells for consistency even though it
+    physically appears in Chapter Four.
+
 ## What's still needed
 
-All four scope items from the most recent inventory pass (finishing the
+All four scope items from the previous inventory pass (finishing the
 Void Circle, locating the Craft rules, resolving `corpus-rending-blow`, and
-checking for Abyssal-specific Merits/Flaws) are now complete. What remains
-is out-of-core-scope or optional:
+checking for Abyssal-specific Merits/Flaws) are complete, and the Book of
+Bone and Ebony supplement pass above closed out this family's two
+highest-priority remaining items (its new Charms/Arcanoi chapter and its
+new necromancy spells). What remains is either out-of-core-scope, optional,
+or a smaller resume item:
 
-1. Necromancy-heavy supplements (*Blood and Salt*, *Book of Bone and
-   Ebony*) if their Abyssal-facing mechanics are in scope.
-2. Optional/out-of-core-scope: Chapter Six's Arcanoi (ghost-power) trees
+1. **Book of Bone and Ebony, Chapter Four's nemissary/war-machine
+   subsystem (resume point).** Roughly printed pp. 87-115 (PDF 88-116) is
+   a full rules subsystem covering armies-of-the-dead troop types
+   (zombies, ghosts, hungry ghosts, moliated ghosts), "Custom Corpses"
+   nemissary-crafting rules (repair/augmentation/options packages), a
+   "Nemissary Arcanoi and Wonders" section, and a complete war-machine
+   construction toolkit (frame/size-class/weapon-mount/passenger/
+   animation rules, Deathlord-specific "Oblivion's Warstriders" templates,
+   and sample necro-drones/airships). Only the chapter's self-contained
+   named artifacts and one embedded spell were transcribed this pass (see
+   above); the subsystem itself still needs its own inventory pass,
+   likely at the same "reasonable summary granularity" used for Chapter
+   Three, given its size.
+2. Two Book of Bone and Ebony necromancy-spell rows
+   (`brick-by-brick-solitude`, `barred-tomb`) are marked `unresolved`
+   because their source prose never restates an explicit mote cost;
+   resolving these would require locating an official errata/FAQ source,
+   since the printed book itself simply omits the number.
+3. The necromancy-heavy supplement *Blood and Salt*, if its Abyssal-facing
+   mechanics are in scope.
+4. Optional/out-of-core-scope: Chapter Six's Arcanoi (ghost-power) trees
    (pp. 235-263, PDF 236-264 — e.g. Shifting Ghost-Clay Path,
    Mortal-Shadowing Technique, Puppeteer's Masterful Hand, Six Demon Bag)
    are ghost/NPC powers, not player-facing Abyssal Charms, and likely fall
    outside this family's core scope, but are flagged in case a future pass
    wants ghost-antagonist stat support.
-3. Optional/out-of-core-scope: Chapter Seven's Storytelling content
+5. Optional/out-of-core-scope: Chapter Seven's Storytelling content
    (Deathlords, sample series, pp. 264-287, PDF 265-288) is GM-facing
    narrative material, not character-mechanical content.
 
