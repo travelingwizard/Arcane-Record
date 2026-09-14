@@ -1,21 +1,22 @@
 # Exalted 1e — Abyssal source intake
 
-**Status: source intake in progress.** `Exalted: The Abyssals` and its two
-supplements, *The Book of Bone and Ebony* and *Savant and Sorcerer*, have
-all been supplied, and 565 inventory rows are checked in under
-`inventory/`. See
+**Status: source intake in progress.** `Exalted: The Abyssals` and its
+supplements, *The Book of Bone and Ebony* and *Savant and Sorcerer*, plus
+the cross-splat *Exalted Players Guide* (for its universal Merits/Flaws
+chapter), have all been supplied, and 645 inventory rows are checked in
+under `inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
 ## What's inventoried so far
 
-- `source-manifest.json` — three source books in scope
-  (`exalted-the-abyssals`, `book-of-bone-and-ebony`, and
-  `savant-and-sorcerer`); the remaining necromancy-heavy supplement
+- `source-manifest.json` — four source books in scope
+  (`exalted-the-abyssals`, `book-of-bone-and-ebony`, `savant-and-sorcerer`,
+  and `exalted-players-guide`); the remaining necromancy-heavy supplement
   (*Blood and Salt*) is not yet added. *The Book of Three Circles* was
   consulted (not added as its own source) solely to resolve the Abyssal
   Solar Circle Sorcery access question -- see below.
-- `inventory/exalted-the-abyssals.json` — 565 rows covering:
+- `inventory/exalted-the-abyssals.json` — 645 rows covering:
   - The Chapter Three character-creation overview (Attributes/Abilities/
     Backgrounds/Charms/Virtues/Willpower/Essence).
   - The universal, caste-agnostic Anima Effect (Caste Mark flare, anima
@@ -306,13 +307,82 @@ the full process this directory follows.
     sorcery, though it is unknown who taught them — perhaps the
     Deathlords or perhaps some demonic patron." Neither that book nor
     *Savant and Sorcerer* contains an enabling Charm or explicit rule
-    granting player-facing Solar Circle Sorcery access to Abyssal
+    granting player-facing     Solar Circle Sorcery access to Abyssal
     characters anywhere in either text (both books were checked). The 9
     Solar Circle/Circle of Adamant spell rows above are therefore
     catalogued `reference-only` rather than `selectable`, each with a note
     explaining this finding; no `solar-circle-sorcery` enabling Charm row
     exists in this inventory because none is confirmed to exist for this
     splat.
+
+- **The Exalted Players Guide's universal Chapter One, "Merits and Flaws"**
+  (80 rows: 40 merits + 40 flaws, `pg-merit-*`/`pg-flaw-*` ids). *Exalted:
+  The Abyssals* itself has no dedicated Merits/Flaws section of its own
+  (confirmed absent above, `abyssal-specific-merits-and-flaws-absent`); the
+  universal Players Guide chapter fills that gap. These 80 rows were
+  **derived from Lunar's already-verified transcription** of all 88
+  `pg-merit-*`/`pg-flaw-*` rows
+  (`docs/references/exalted1e/lunar/inventory/exalted-the-lunars.json`)
+  rather than independently re-read from the source PDF, per the project
+  owner's instructions: that chapter is explicitly universal across all
+  five planned Exalted families, and each Lunar row's own `notes` field
+  already documents any splat-specific eligibility/cost caveats verbatim.
+  Each of the 88 rows was evaluated against those caveats plus Abyssal's
+  own core-book framing (Resonance/the Abyssal Curse, the Virtues of
+  Death, the Liege/Necromancy/Whispers Backgrounds, and this splat's
+  deathknight nature) to decide inclusion, exclusion, or adaptation. 8 of
+  the 88 were skipped as wholly inapplicable to Abyssal: 4 merits (Prodigy
+  — explicitly excludes Solars, Abyssals and Lunars by name; Terrestrial
+  Bloodline and Past Lives — both scoped to "Celestial Exalted," which
+  this splat is explicitly not, with no Abyssal-specific carve-out in
+  either entry's body text; Legendary Breeding — Dragon-Blooded only) and
+  4 flaws (Limited Forms and Chimera — Lunars-only shapechanging/totem
+  Flaws; Known Anathema — "Celestial Exalted only," no Abyssal
+  carve-out; Greater Curse — "Celestial Exalted only" and mechanically
+  tied to the Limit Trait, which this splat replaces with Resonance, a
+  gap this chapter's own Death-Taint Flaw already fills instead). Several
+  rows carried genuinely Abyssal-specific text straight from the Players
+  Guide and were included as central, not merely adapted, entries: **Taint's
+  Warning** (its own header splits it "Solars only"/"Abyssals only," each
+  half with a distinct, opposite mechanic); **Eternal Vow** (restricted by
+  its own header to "Solars, Lunars and Abyssals only," with a dedicated
+  1-pt.-Flaw-by-default/3-pt.-Merit-for-renegades variant for a deathknight
+  who was formerly a Solar spouse of a Lunar); **Death-Taint** (its own
+  header restricts it to "Abyssals and Ghosts only" — the single most
+  Abyssal-specific entry in the whole chapter, directly modifying the
+  Resonance mechanic); **Priest** (Midnight Caste gets the 1-pt. version
+  free and a discounted high-priest upgrade, named explicitly alongside
+  Solar Zenith and Lunar No Moon); **Destiny** (its companion sidebar
+  explicitly caps "Abyssal/Infernal Exaltation" at 1-2 points of Destiny,
+  same as Celestial Exalted); **Dark Fate** (explicitly states the dead
+  and Abyssals have their fate written in the Underworld's own stars,
+  beyond even the Maidens' reach); **Sun-Seared** and **Pain Tolerance**
+  (both name "deathknights" outright as a typical example — undead
+  corpse-flesh and light-aversion are core Abyssal themes); **Disfigured**
+  (offers an explicit Abyssal rotted-visage variant, cross-referencing
+  *Exalted: The Abyssals* p. 131 by abbreviation); **Permanent Caste Mark**
+  and **Throwback** (both headered "Celestial Exalted only," but each
+  body text separately and explicitly defines an Abyssal variant — a
+  charred-black-brand Caste Mark, and a redemption-pulling
+  echo-of-Solar-glory Throwback capped at 3 points for loyal deathknights
+  — so both were included despite the narrower header, per the project
+  owner's instruction to trust the row's own body text over a
+  header-vs-body inconsistency); and **Damaged Artifact** (the source
+  text's own worked example uses an Abyssal tomb robber and cross-references
+  this splat's altered Artifact Background costs directly). Several other
+  included rows were lightly adapted, each flagged verbatim in that row's
+  own `notes` field: Vice/Callous cross-referenced to Resonance/the
+  Abyssal Curse and the Virtues of Death instead of the Great Curse;
+  Large Size/Small stripped of Lunar's shapechanging-carryover clause
+  (Abyssals have one fixed body); Amnesia's Celestial-Exalted-only 1-pt.
+  clause dropped (kept the base 1/2/5-pt. scale) and cross-referenced to
+  The Title; Beacon of Power's caste exclusion confirmed to mean the
+  Abyssal Day Caste specifically; Hidden Manse and Damaged Artifact
+  cross-referenced to this splat's own altered Manse/Underworld Manse/
+  Artifact Backgrounds instead of the core-Exalted versions; and several
+  Merits (Selective Conception, True Love, Sterile) cross-referenced to
+  the `gaining-resonance` row, since siring/bearing a child or taking a
+  living lover are both documented Litany of Sins triggers.
 
 ## What's still needed
 

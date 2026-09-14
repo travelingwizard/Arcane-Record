@@ -190,13 +190,13 @@ real, creatable sheet.
 
 ## Status per family
 
-| Family     | Source manifest                                               | Inventory rows | Promoted | Certification                    |
-| ---------- | ------------------------------------------------------------- | -------------- | -------- | -------------------------------- |
-| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide)         | 341            | 0        | Locked, all dimensions `not-run` |
-| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer) | 565            | 0        | Locked, all dimensions `not-run` |
-| Sidereal   | Created (Exalted: The Sidereals)                              | 252            | 0        | Locked, all dimensions `not-run` |
-| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide) | 277            | 0        | Locked, all dimensions `not-run` |
-| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide)      | 336            | 0        | Locked, all dimensions `not-run` |
+| Family     | Source manifest                                                                | Inventory rows | Promoted | Certification                    |
+| ---------- | ------------------------------------------------------------------------------ | -------------- | -------- | -------------------------------- |
+| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide)                          | 341            | 0        | Locked, all dimensions `not-run` |
+| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide) | 645            | 0        | Locked, all dimensions `not-run` |
+| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles) | 472            | 0        | Locked, all dimensions `not-run` |
+| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide)                  | 277            | 0        | Locked, all dimensions `not-run` |
+| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide)                       | 336            | 0        | Locked, all dimensions `not-run` |
 
 Lunar's 341 rows cover the core innate powers, every Charm category in
 Chapter Five (Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat
@@ -225,7 +225,7 @@ planned families to reach full primary-sourcebook parity; only the
 untriaged cross-splat supplements remain. See
 `docs/references/exalted1e/lunar/README.md`.
 
-Abyssal's 565 rows cover the Chapter Three character-creation overview, the
+Abyssal's 645 rows cover the Chapter Three character-creation overview, the
 universal Anima Effect, all five Castes, the Abyssal Curse, the Virtues of
 Death, the full Resonance mechanic (the Limit-Trait analog, including gain,
 loss, and the 1-10 manifestation table), the-title, Useful Crafts, the
@@ -235,7 +235,9 @@ Chapter Five Charm rows covering every Ability line for all five Castes
 necromancy system across all three circles (Shadowlands 9, Labyrinth 9, Void
 8), 4 of 5 Crafts of the Dead (Necrosurgery confirmed to have no dedicated
 framework block anywhere in the book), and a confirmed absence of
-Abyssal-specific Merits/Flaws, all visually reviewed against rendered pages
+Abyssal-specific Merits/Flaws in the core book itself (that gap is now
+closed via a fourth source book, the Exalted Players Guide — see below),
+all visually reviewed against rendered pages
 of the supplied (image-based) PDF. The long-standing `corpus-rending-blow`
 prerequisite gap was also resolved (it was a mistranscription duplicate of
 an existing Occult Charm), unblocking `ghost-warding-glyph`.
@@ -277,34 +279,89 @@ book contains an enabling Charm or rule that actually grants player-facing
 Solar Circle Sorcery access to Abyssal characters, so its spells are
 catalogued as reference-only rather than selectable. **Exalted: The
 Abyssals' full three-source-book inventory (core book, Book of Bone and
-Ebony, and Savant and Sorcerer) is now complete** for this pass; see
+Ebony, and Savant and Sorcerer) is now complete** for this pass. A fourth
+source book, the cross-splat **Exalted Players Guide**, has now also been
+triaged and added to close the confirmed Merits/Flaws gap noted above (80
+rows: 40 merits + 40 flaws). Since that chapter is explicitly universal
+across all five planned Exalted families and Lunar's own inventory already
+transcribed and verified all 88 `pg-merit-*`/`pg-flaw-*` rows (see Lunar's
+paragraph above), this pass derived Abyssal's rows directly from that
+verified transcription rather than independently re-reading the source
+PDF, evaluating each row's own eligibility/cost notes plus Abyssal's
+core-book framing (Resonance/the Abyssal Curse, the Virtues of Death, and
+this splat's deathknight nature) to decide inclusion, exclusion, or
+adaptation. 8 of the 88 were skipped as inapplicable (Prodigy, Terrestrial
+Bloodline, Past Lives, and Legendary Breeding — scoped to other splats with
+no Abyssal carve-out; Limited Forms and Chimera — Lunars-only; Known
+Anathema and Greater Curse — "Celestial Exalted only," the latter also tied
+to the Limit Trait this splat replaces with Resonance). Several rows carry
+genuinely Abyssal-specific text straight from the source: Taint's Warning
+(Solars/Abyssals only, opposite mechanics per splat), Eternal Vow
+(Solars/Lunars/Abyssals only), the Abyssals-and-Ghosts-only Death-Taint
+Flaw (directly modifying Resonance), Priest (a free grant for the Midnight
+Caste), Destiny (Abyssal/Infernal Exaltation explicitly capped at 1-2
+points), Dark Fate (the dead and Abyssals named explicitly), Sun-Seared
+and Pain Tolerance (both name deathknights outright), Disfigured (an
+explicit Abyssal rotted-visage variant), and Permanent Caste Mark and
+Throwback (each headered "Celestial Exalted only" but with a separate
+Abyssal variant defined in its own body text, included per the project
+owner's instruction to trust body text over a header/body inconsistency).
+**Exalted: The Abyssals' full four-source-book inventory (core book, Book
+of Bone and Ebony, Savant and Sorcerer, and Exalted Players Guide) is now
+complete** for this pass — the fourth (of the four families needing this
+chapter; Sidereal's own Merits/Flaws are confirmed genuinely absent with no
+Players-Guide-filled gap) to close its universal Merits/Flaws gap via the
+Players Guide, and the last of the five planned families overall to reach
+full primary-sourcebook parity; see
 `docs/references/exalted1e/abyssal/README.md`.
 
-Sidereal's 252 rows cover the Chapter Three character-creation overview, the
-five Auspicious Ability groups, the universal anima effect, all five Castes
-(Chosen of Journeys/Serenity/Battles/Secrets/Endings), the Arcane Fate
-mechanic (the Limit-Trait analog — a passive forgetting/disguise effect
-rather than a rated trait — plus its Paradox/visibility table), ten
-new/altered Backgrounds, Chapter Five's general Charm framework (Manipulating
-Fate, Restricted/Unusual Charms, Prayer Strips, and more), and now **all 25
-of Chapter Five's Caste-and-Ability Charm trees in full** across all five
-Castes (Journeys, Serenity, Battles, Secrets, Endings — 152 Charms total,
-including the Endings Caste's dedicated Violet Bier of Sorrows Martial Arts
-style), reviewed against the supplied PDF (confirmed printed page = PDF page
-− 3, including through Chapter Five), the general secret Martial Arts
-framework, and all three of the book's named secret Martial Arts styles in
-full (Charcoal March of Spiders, 12 Charms; Prismatic Arrangement of
-Creation, 16 Charms; Citrine Poxes of Contagion, 13 Charms), plus the full
-Sidereal Astrology system closing Chapter Six (the rules framework,
-Resplendent Destinies, and the complete named-College catalog: the Houses of
-Journeys, Leisure, War, Secrets, and Endings plus the five Greater Signs of
-the Maidens), and cross-referenced sorcery spells/a Specialized Prayer.
-Merits/Flaws are confirmed genuinely absent from this book (re-verified via
-its full alphabetical index). **Exalted: The Sidereals is now reviewed
-cover-to-cover for Chapters One through Six** — the fourth of the five
-planned families to reach full primary-sourcebook parity (Chapter Seven
-onward is Storytelling/setting material and out of scope); see
-`docs/references/exalted1e/sidereal/README.md`.
+Sidereal's core book contributes 252 rows covering the Chapter Three
+character-creation overview, the five Auspicious Ability groups, the
+universal anima effect, all five Castes (Chosen of
+Journeys/Serenity/Battles/Secrets/Endings), the Arcane Fate mechanic (the
+Limit-Trait analog — a passive forgetting/disguise effect rather than a
+rated trait — plus its Paradox/visibility table), ten new/altered
+Backgrounds, Chapter Five's general Charm framework (Manipulating Fate,
+Restricted/Unusual Charms, Prayer Strips, and more), all 25 of Chapter
+Five's Caste-and-Ability Charm trees in full across all five Castes
+(Journeys, Serenity, Battles, Secrets, Endings — 152 Charms total, including
+the Endings Caste's dedicated Violet Bier of Sorrows Martial Arts style),
+reviewed against the supplied PDF (confirmed printed page = PDF page − 3,
+including through Chapter Five), the general secret Martial Arts framework,
+all three of the book's named secret Martial Arts styles in full (Charcoal
+March of Spiders, 12 Charms; Prismatic Arrangement of Creation, 16 Charms;
+Citrine Poxes of Contagion, 13 Charms), the full Sidereal Astrology system
+closing Chapter Six (the rules framework, Resplendent Destinies, and the
+complete named-College catalog: the Houses of Journeys, Leisure, War,
+Secrets, and Endings plus the five Greater Signs of the Maidens), and
+cross-referenced sorcery spells/a Specialized Prayer. Merits/Flaws are
+confirmed genuinely absent from this book (re-verified via its full
+alphabetical index). Two cross-splat sorcery/artifice supplements, **Savant
+and Sorcerer** and **Book of Three Circles**, have now also been triaged and
+added as second/third source books (220 more rows): the complete Chapter
+Five Terrestrial and Celestial Circle spell catalog (84 selectable spells,
+cross-checked against the chapter's own page-by-page spell-header count), a
+102-entry Hearthstone catalog (15 Sample Hearthstones from Savant and
+Sorcerer's Chapter Three plus 87 more from Book of Three Circles' Chapter
+Six image-based 'long roll,' since Savant and Sorcerer's own intro sidebar
+states it does not reprint that catalog), a 13-row Artifice and Enchantment
+catalog from Savant and Sorcerer Chapter Two (the Artifact-rating framework,
+Drawback/creation-process rules, Sidereal-specific creation notes, two named
+Merits, a Magical Materials reference, and 5 selectable Sample Artifacts
+including Soul Mirror), a 13-row Warstriders appendix (the
+overview/operation/benefits-limitations/maintenance framework, all five
+warstrider design classes as selectable Artifact-rated equipment, weapon-
+catalog references, and the Proteus Gauntlet artifact), and an 8-row skim of
+Chapter One (Magical Theory) and Chapter Four (Practical Summonings) that
+surfaced only Storyteller-facing or setting-flavor content, bundled into
+gm-only/reference-only rows rather than dozens of granular entries. Book of
+Three Circles' Chapter Four (Solar Circle Sorcery) remains explicitly out of
+scope, since Sidereals do not have Solar Circle Sorcery access. **Exalted:
+The Sidereals' full three-source-book inventory (core book, Savant and
+Sorcerer, and Book of Three Circles) is now complete** for this pass — the
+fourth of the five planned families to reach full primary-sourcebook parity
+(Chapter Seven onward is Storytelling/setting material and out of scope);
+see `docs/references/exalted1e/sidereal/README.md`.
 
 Alchemical's 277 rows cover the character-creation overview, the universal
 Anima Banner effect, Artificial Metabolism, Life/Death/the Soulgem,
@@ -401,9 +458,15 @@ Folk/raksha scope); see `docs/references/exalted1e/fair-folk/README.md`.
 
 All five families have now been reviewed cover-to-cover against their
 primary source books for player-facing mechanics — Alchemical, Lunar, Fair
-Folk, Sidereal, and Abyssal, in that order. The project owner's remaining
-cross-splat supplements (Blood and Salt, Book of Bone and Ebony, Book of
-Three Circles, Savage Seas, Savant and Sorcerer, the Players Guide, and the
+Folk, Sidereal, and Abyssal, in that order. Since then, several cross-splat
+supplements have also been triaged for the families that need them: the
+_Exalted Players Guide_'s universal Merits/Flaws chapter (Alchemical,
+Lunar, Fair Folk, and Abyssal — every family except Sidereal, whose own
+Merits/Flaws are confirmed genuinely absent with no gap to fill), _Savant
+and Sorcerer_ (Sidereal and Abyssal), _Book of Three Circles_ (Sidereal,
+consulted for Abyssal only to resolve the Solar Circle Sorcery access
+question), and _Book of Bone and Ebony_ (Abyssal). The project owner's
+remaining cross-splat supplements (Blood and Salt, Savage Seas, and the
 Storyteller's Companion) are still untriaged, and no family has anything
 promoted to a production catalog yet.
 
