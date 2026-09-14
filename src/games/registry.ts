@@ -48,6 +48,10 @@ import {
   sandvDefinition,
   sandvShipDefinition,
 } from './scum-and-villainy/definition';
+import {
+  ditvDefinition,
+  ditvTownDefinition,
+} from './dogs-in-the-vineyard/definition';
 
 export const gameSystemRegistry = new GameSystemRegistry()
   .registerFamily({
@@ -92,4 +96,6 @@ export const gameSystemRegistry = new GameSystemRegistry()
   .register(rootCampaignDefinition)
   .register(dragonbaneDefinition)
   .register(sandvDefinition)
-  .register(sandvShipDefinition);
+  .register(sandvShipDefinition)
+  .register(ditvDefinition)
+  .register(ditvTownDefinition);
