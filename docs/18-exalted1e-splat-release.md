@@ -193,7 +193,7 @@ real, creatable sheet.
 | Family     | Source manifest                       | Inventory rows | Promoted | Certification                    |
 | ---------- | ------------------------------------- | -------------- | -------- | -------------------------------- |
 | Lunar      | Created (Exalted: The Lunars)         | 253            | 0        | Locked, all dimensions `not-run` |
-| Abyssal    | Created (Exalted: The Abyssals)       | 283            | 0        | Locked, all dimensions `not-run` |
+| Abyssal    | Created (Exalted: The Abyssals)       | 287            | 0        | Locked, all dimensions `not-run` |
 | Sidereal   | Created (Exalted: The Sidereals)      | 252            | 0        | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians) | 207            | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Created (Exalted: The Fair Folk)      | 263            | 0        | Locked, all dimensions `not-run` |
@@ -216,19 +216,26 @@ cover-to-cover** — the second of the five planned families to reach full
 primary-sourcebook parity; only the untriaged cross-splat supplements
 remain. See `docs/references/exalted1e/lunar/README.md`.
 
-Abyssal's 283 rows cover the Chapter Three character-creation overview, the
+Abyssal's 287 rows cover the Chapter Three character-creation overview, the
 universal Anima Effect, all five Castes, the Abyssal Curse, the Virtues of
 Death, the full Resonance mechanic (the Limit-Trait analog, including gain,
 loss, and the 1-10 manifestation table), the-title, Useful Crafts, the
 Cult-and-Abyssals exclusion, all eleven altered/new Backgrounds, all 228
 Chapter Five Charm rows covering every Ability line for all five Castes
-(Dusk, Midnight, Daybreak, Day, Moonshadow), and Chapter Six's necromancy
-system through the Shadowlands (First, 9 spells) and Labyrinth (Second,
-10 spells) Circles plus the start of the Void (Third) Circle (7 spells so
-far), all visually reviewed against rendered pages of the supplied
-(image-based) PDF. The rest of the Void Circle spell list, the Craft
-(Necrosurgery/etc.) rules, and Abyssal-specific Merits/Flaws are not yet
-inventoried; see `docs/references/exalted1e/abyssal/README.md`.
+(Dusk, Midnight, Daybreak, Day, Moonshadow), Chapter Six's complete 26-spell
+necromancy system across all three circles (Shadowlands 9, Labyrinth 9, Void
+8), 4 of 5 Crafts of the Dead (Necrosurgery confirmed to have no dedicated
+framework block anywhere in the book), and a confirmed absence of
+Abyssal-specific Merits/Flaws, all visually reviewed against rendered pages
+of the supplied (image-based) PDF. The long-standing `corpus-rending-blow`
+prerequisite gap was also resolved (it was a mistranscription duplicate of
+an existing Occult Charm), unblocking `ghost-warding-glyph`.
+**Exalted: The Abyssals is now reviewed cover-to-cover for player-facing
+mechanics (Chapters One through Six)** — the fifth and final of the five
+planned families to reach full primary-sourcebook parity (Chapter Six's
+ghost/NPC Arcanoi trees and Chapter Seven's Storytelling material are
+GM-facing and intentionally out of scope); see
+`docs/references/exalted1e/abyssal/README.md`.
 
 Sidereal's 252 rows cover the Chapter Three character-creation overview, the
 five Auspicious Ability groups, the universal anima effect, all five Castes
@@ -279,7 +286,9 @@ excluded), reviewed against the supplied PDF's real text layer (printed page
 adventure-seed Chapters Five through Seven, which yielded exactly one more
 player-facing item (the Steamcar, Refurbished expedition vehicle) and were
 otherwise confirmed to be GM/NPC/plot content. **Alchemical is now reviewed
-cover-to-cover**; see `docs/references/exalted1e/alchemical/README.md`.
+cover-to-cover** — the first of the five planned families to reach full
+primary-sourcebook parity; see
+`docs/references/exalted1e/alchemical/README.md`.
 
 Fair Folk's 263 rows cover both character-creation tracks (common and noble
 raksha), the four Castes (Diplomat/Entertainer/Warrior/Worker) and their
@@ -302,11 +311,13 @@ wholly separate playable-adjacent race, was deliberately not inventoried
 as out of Fair Folk/raksha scope); see
 `docs/references/exalted1e/fair-folk/README.md`.
 
-All five families now have real inventory rows drawn from their primary
-source books; the project owner's remaining cross-splat supplements (Blood
-and Salt, Book of Bone and Ebony, Book of Three Circles, Savage Seas, Savant
-and Sorcerer, the Players Guide, and the Storyteller's Companion) are still
-untriaged, and no family has anything promoted to a production catalog yet.
+All five families have now been reviewed cover-to-cover against their
+primary source books for player-facing mechanics — Alchemical, Lunar, Fair
+Folk, Sidereal, and Abyssal, in that order. The project owner's remaining
+cross-splat supplements (Blood and Salt, Book of Bone and Ebony, Book of
+Three Circles, Savage Seas, Savant and Sorcerer, the Players Guide, and the
+Storyteller's Companion) are still untriaged, and no family has anything
+promoted to a production catalog yet.
 
 ## Next steps (require source material per book)
 

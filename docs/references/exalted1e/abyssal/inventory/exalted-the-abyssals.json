@@ -185,8 +185,13 @@
       "printedPage": 130,
       "pdfPage": 131
     },
-    "crossReferences": [],
-    "notes": "Chapter Four: Traits, 'Useful Crafts' section, p. 130 (PDF 131). Full crafting rules referenced as being detailed on pp. 232-234 of Chapter Six: The Arts of the Dead, which is not yet inventoried."
+    "crossReferences": [
+      "craft-moliation",
+      "craft-pandemonium",
+      "craft-soulforging",
+      "craft-jadecrafting"
+    ],
+    "notes": "Chapter Four: Traits, 'Useful Crafts' section, p. 130 (PDF 131). Full crafting rules (specialties, Standard/Challenging/Legendary use examples) for four of the five named Crafts -- Moliation, Pandemonium, Soulforging, Jadecrafting -- are detailed on pp. 232-234 of Chapter Six: The Arts of the Dead and are now inventoried as their own rows (see cross-references). Craft (Necrosurgery) is not given its own framework block in that chapter (it is a living-Abyssal-only Craft per this row's mechanics text, not a ghost Craft), and no separate write-up for it was found elsewhere; its only mechanical detail remains via the Walking War Machine spell and the Bone Graft Technique Charm."
   },
   {
     "id": "cult-and-the-abyssals",
@@ -3493,7 +3498,7 @@
     },
     "crossReferences": [
       "through-dead-eyes",
-      "corpse-rending-blow"
+      "corpus-rending-blow"
     ],
     "notes": "Chapter Five: Charms, Daybreak Caste Occult tree ('Occult 3'), pp. 198-199 (PDF 199-200). The mechanics text repeats/garbles the description of necrotic Essence in the Underworld and living-Essence objects appearing shadowed or empty (the sentence appears twice with variation); flagged for re-verification against a cleaner render before promotion."
   },
@@ -3503,7 +3508,7 @@
     "disposition": "selectable",
     "summary": "Even in the most verdant forests, the necrotic Essence of the Underworld leaks through Creation in wisps and places an Abyssal can perceive these energies directly, spotting shadowlands boundaries and identifying other deathknights at a glance.",
     "requirements": "Minimum Occult 5; Minimum Essence 2; Prerequisite Charms: Spirit Sensing Technique.",
-    "mechanics": "Even in the most verdant forests, the necrotic Essence of the Underworld leaks through Creation in wisps and places. With this potent Charm, an Abyssal can perceive these energies directly and places infused with death glow with their own baleful radiance. In addition to perceiving dematerialized Abyssal ghosts, objects imbued with living Essence appear shadowed or empty. Beings fused with this Charm confers no ability to perceive incorporeal spirits, so characters attacking without this magic (such as Spirit Sensing Technique) suffer the usual penalty for blind fighting. This Charm has no effect on materialized spirits. Corpse-Rending Blow is explicitly permitted to be part of a Combo with Charms of other Abilities.",
+    "mechanics": "Even in the most verdant forests, the necrotic Essence of the Underworld leaks through Creation in wisps and places. With this potent Charm, an Abyssal can perceive these energies directly and places infused with death glow with their own baleful radiance. In addition to perceiving dematerialized Abyssal ghosts, objects imbued with living Essence appear shadowed or empty. Beings fused with this Charm confers no ability to perceive incorporeal spirits, so characters attacking without this magic (such as Spirit Sensing Technique) suffer the usual penalty for blind fighting. This Charm has no effect on materialized spirits. Corpus-Rending Blow is explicitly permitted to be part of a Combo with Charms of other Abilities.",
     "cost": "6 motes",
     "compatibility": "Duration: One scene. Type: Simple.",
     "verificationState": "reviewed",
@@ -3513,38 +3518,18 @@
       "pdfPage": 200
     },
     "crossReferences": [
-      "spirit-sensing-technique"
-    ],
-    "notes": "Chapter Five: Charms, Daybreak Caste Occult tree ('Occult 3'), p. 199 (PDF 200). The source text for this entry appears to duplicate/bleed together with the adjacent Corpse-Rending Blow entry in the render (the last two sentences describing 'no ability to perceive incorporeal spirits' and Combo permission read as Corpse-Rending Blow's own text); flagged for re-verification against a cleaner render to separate the two Charms' mechanics precisely."
-  },
-  {
-    "id": "corpse-rending-blow",
-    "name": "Corpse-Rending Blow",
-    "disposition": "selectable",
-    "summary": "Charging his hand or weapon with spectral energy, the character can make one strike against an immaterial spirit; a successful hit inflicts aggravated damage and drains Essence at the Abyssal's discretion.",
-    "requirements": "Minimum Occult 3; Minimum Essence 2; Prerequisite Charms: Spirit Sensing Technique.",
-    "mechanics": "Charging his hand or weapon with spectral energy, the character can make one strike against an immaterial spirit. The character's player must still roll to hit the creature normally, although the deathknight may elect to attack the spirit's Essence in lieu of inflicting damage. This decision must be made before activating the Charm, before rolling the attack. If the Abyssal chooses to drain Essence, roll her Conviction + Occult using the spirit's Valor as its soak total. Each level of damage inflicted in this fashion drains 2 motes of Essence from the spirit's pool and adds it to the character's own. Drained motes that would take a character above her normal maximum are still drained but dissipate without benefit to the Exalt. If the character uses this Charm to cause actual damage, the attack is resolved normally.",
-    "cost": "2 motes",
-    "compatibility": "Duration: Instant. Type: Supplemental.",
-    "verificationState": "reviewed",
-    "citation": {
-      "bookId": "exalted-the-abyssals",
-      "printedPage": 199,
-      "pdfPage": 200
-    },
-    "crossReferences": [
       "spirit-sensing-technique",
-      "soul-eating-strike"
+      "corpus-rending-blow"
     ],
-    "notes": "Chapter Five: Charms, Daybreak Caste Occult tree ('Occult 3'), p. 199 (PDF 200)."
+    "notes": "Chapter Five: Charms, Daybreak Caste Occult tree ('Occult 3'), p. 199 (PDF 200). The source text for this entry appears to duplicate/bleed together with the adjacent Corpus-Rending Blow entry in the render (the last two sentences describing 'no ability to perceive incorporeal spirits' and Combo permission read as Corpus-Rending Blow's own text); flagged for re-verification against a cleaner render to separate the two Charms' mechanics precisely. Name corrected from a prior mistranscription ('Corpse-Rending Blow' -> 'Corpus-Rending Blow'); see the corpus-rending-blow row's notes for the full resolution."
   },
   {
     "id": "soul-eating-strike",
     "name": "Soul-Eating Strike",
     "disposition": "selectable",
     "summary": "This Charm allows an Abyssal to infuse a single attack with the chill of the Void, inflicting aggravated damage and draining Essence from a spirit that is explicitly permitted to be part of a Combo with Charms of other Abilities.",
-    "requirements": "Minimum Occult 5; Minimum Essence 3; Prerequisite Charms: Corpse-Rending Blow.",
-    "mechanics": "This Charm allows an Abyssal to infuse a single attack with the chill of the Void. The character's blow can strike incorporeal spirits. A successful hit inflicts aggravated damage and drains Essence as Corpse-Rending Blow (roll separately for each form of damage). Spirits slain by such attacks are irrevocably destroyed. Against materialized spirits, this Charm allows the Abyssal to drain Essence as above, but the attack does not inflict aggravated damage. Materialized spirits killed via Soul-Eating Strike eventually regenerate. This Charm is explicitly permitted to be part of a Combo with Charms of other Abilities. Spirits can sense Exalts who know this Charm and hate them for it.",
+    "requirements": "Minimum Occult 5; Minimum Essence 3; Prerequisite Charms: Corpus-Rending Blow.",
+    "mechanics": "This Charm allows an Abyssal to infuse a single attack with the chill of the Void. The character's blow can strike incorporeal spirits. A successful hit inflicts aggravated damage and drains Essence as Corpus-Rending Blow (roll separately for each form of damage). Spirits slain by such attacks are irrevocably destroyed. Against materialized spirits, this Charm allows the Abyssal to drain Essence as above, but the attack does not inflict aggravated damage. Materialized spirits killed via Soul-Eating Strike eventually regenerate. This Charm is explicitly permitted to be part of a Combo with Charms of other Abilities. Spirits can sense Exalts who know this Charm and hate them for it.",
     "cost": "5 motes",
     "compatibility": "Duration: Instant. Type: Supplemental.",
     "verificationState": "reviewed",
@@ -3554,10 +3539,10 @@
       "pdfPage": 200
     },
     "crossReferences": [
-      "corpse-rending-blow",
+      "corpus-rending-blow",
       "spirit-draining-ward"
     ],
-    "notes": "Chapter Five: Charms, Daybreak Caste Occult tree ('Occult 3'), pp. 199-200 (PDF 200-201)."
+    "notes": "Chapter Five: Charms, Daybreak Caste Occult tree ('Occult 3'), pp. 199-200 (PDF 200-201). Prerequisite name corrected from a prior mistranscription ('Corpse-Rending Blow' -> 'Corpus-Rending Blow'); see the corpus-rending-blow row's notes for the full resolution."
   },
   {
     "id": "spirit-draining-ward",
@@ -4685,7 +4670,7 @@
     "name": "Ghost-Warding Glyph",
     "disposition": "selectable",
     "summary": "By tracing a mystical rune on a target's forehead, an Abyssal with this Charm may protect an individual from hungry ghosts and walking dead; the mark washes off after a day, and the Abyssal may use the Glyph on himself.",
-    "requirements": "Minimum Linguistics 2; Minimum Essence 2; Prerequisite Charms: Corpus-Rending Blow, Blood Inscription Technique.",
+    "requirements": "Minimum Linguistics 2; Minimum Occult 4; Minimum Essence 2; Prerequisite Charms: Corpus-Rending Blow, Blood Inscription Technique.",
     "mechanics": "By tracing a mystical rune on a target's forehead, an Abyssal with this Charm may protect an individual from hungry ghosts and walking dead. The mark washes off and retains a slick appearance until after it dries. For the duration of the Charm, no zombie or bestial ghost will attack the target unless compelled to do so by a necromancer, an Abyssal, or some other supernatural compulsion. Sentient ghosts generally leave the character alone out of fear of the Deathlords but are not compelled to. This Charm has no effect on Exalted, but any display of an anima banner or Caste Mark burns off the rune and revokes the protection. The Abyssal may use the Ghost-Warding Glyph on himself.",
     "cost": "8 motes",
     "compatibility": "Duration: One day. Type: Simple.",
@@ -4696,29 +4681,32 @@
       "pdfPage": 217
     },
     "crossReferences": [
-      "blood-inscription-technique"
+      "blood-inscription-technique",
+      "corpus-rending-blow"
     ],
-    "notes": "Chapter Five: Charms, Moonshadow Caste Linguistics tree, p. 216 (PDF 217). Its listed prerequisite 'Corpus-Rending Blow' was not found with its own Charm write-up anywhere in the rendered Chapter Five or Chapter Six pages; likely either an errata/cross-reference slip in the source book or a Charm printed under a section not captured in this pass. Flagged as an unresolved cross-reference pending further review; see 'corpus-rending-blow' placeholder row and source-manifest rulesNotes."
+    "notes": "Chapter Five: Charms, Moonshadow Caste Linguistics tree, p. 216 (PDF 217). Re-verified against a fresh render of printed p. 216 (PDF 217): the stat block reads 'Minimum Linguistics: 2 / Minimum Occult: 4 / Minimum Essence: 2 / Prerequisite Charms: Corpus-Rending Blow, Blood Inscription Technique' -- the 'Minimum Occult: 4' line was missed in the original transcription and has now been added above. RESOLVED: the prerequisite 'Corpus-Rending Blow' is the Daybreak Caste Occult-tree Charm now correctly catalogued under id corpus-rending-blow (p. 199/PDF 200) -- an earlier pass had mistranscribed that Charm's own name as 'Corpse-Rending Blow' and treated the two spellings as distinct, unresolved Charms. Both rows have been reconciled; see the corpus-rending-blow row's notes for the full resolution. This Charm is no longer blocked pending an unresolved prerequisite."
   },
   {
     "id": "corpus-rending-blow",
     "name": "Corpus-Rending Blow",
-    "disposition": "unresolved",
-    "summary": "Referenced as a prerequisite Charm for Ghost-Warding Glyph in the printed Moonshadow Caste Linguistics tree, but no matching Charm write-up (cost/duration/type/rules text) was located in the rendered Chapter Five or Chapter Six pages surrounding it.",
-    "requirements": "Unknown -- not located in the rendered source pages.",
-    "mechanics": "Not located in the rendered source pages; likely either an errata/cross-reference slip in the original book, a Charm printed on a page not covered by this extraction pass, or a variant name for an already-catalogued Charm. Do not promote until the actual write-up is found and visually verified.",
-    "cost": "Unknown",
-    "compatibility": "Unknown",
-    "verificationState": "unreviewed",
+    "disposition": "selectable",
+    "summary": "Charging his hand or weapon with spectral energy, the character can make one strike against an immaterial spirit; a successful hit inflicts aggravated damage and drains Essence at the Abyssal's discretion.",
+    "requirements": "Minimum Occult 3; Minimum Essence 2; Prerequisite Charms: Spirit Sensing Technique.",
+    "mechanics": "Charging his hand or weapon with spectral energy, the character can make one strike against an immaterial spirit. The character's player must still roll to hit the creature normally, although the deathknight may elect to attack the spirit's Essence in lieu of inflicting damage. This decision must be made before activating the Charm, before rolling the attack. If the Abyssal chooses to drain Essence, roll her Conviction + Occult using the spirit's Valor as its soak total. Each level of damage inflicted in this fashion drains 2 motes of Essence from the spirit's pool and adds it to the character's own. Drained motes that would take a character above her normal maximum are still drained but dissipate without benefit to the Exalt. If the character uses this Charm to cause actual damage, the attack is resolved normally. This Charm has no ability to perceive incorporeal spirits, so characters attacking without other magic (such as Spirit Sensing Technique) suffer the usual penalty for blind fighting. This Charm has no effect on materialized spirits. Corpus-Rending Blow is explicitly permitted to be part of a Combo with Charms of other Abilities.",
+    "cost": "2 motes",
+    "compatibility": "Duration: Instant. Type: Supplemental.",
+    "verificationState": "reviewed",
     "citation": {
       "bookId": "exalted-the-abyssals",
-      "printedPage": 216,
-      "pdfPage": 217
+      "printedPage": 199,
+      "pdfPage": 200
     },
     "crossReferences": [
+      "spirit-sensing-technique",
+      "soul-eating-strike",
       "ghost-warding-glyph"
     ],
-    "notes": "Chapter Five: Charms, Moonshadow Caste Linguistics tree -- placeholder for an inventory gap. Cross-referenced by Ghost-Warding Glyph's prerequisite line (p. 216 / PDF 217) but never given its own stat block in the surrounding pages. Kept as an explicit unresolved row (rather than silently omitted) so the audit script and certification gate surface the gap."
+    "notes": "Chapter Five: Charms, Daybreak Caste Occult tree ('Occult 3'), p. 199 (PDF 200). RESOLVED: this row was previously an unresolved placeholder because the Moonshadow Caste Linguistics Charm 'Ghost-Warding Glyph' (p. 216/PDF 217) lists 'Corpus-Rending Blow' as a prerequisite, while an earlier inventory pass had separately mistranscribed this Occult-tree Charm's own name as 'Corpse-Rending Blow' (visually similar lettering in the rendered page), creating an apparent naming mismatch between two rows for what is actually the same Charm. This pass re-checked a zoomed crop of the rendered printed p. 199/PDF 200 header and cross-checked the book's own Index (printed p. 285/PDF 286, Daybreak Caste > Occult column), both of which confirm the Charm's correct name is 'Corpus-Rending Blow' -- the Index lists exactly one entry, 'Corpus-Rending Blow, 198', not two. The mistranscribed duplicate row (former id corpse-rending-blow) has been removed, and every cross-reference and in-text mention throughout this file has been corrected to 'Corpus-Rending Blow' / id corpus-rending-blow (see spirit-sensing-technique, soul-eating-strike, through-dead-eyes, ghost-warding-glyph). Ghost-Warding Glyph is no longer blocked by an unresolved prerequisite."
   },
   {
     "id": "glyph-unveiling-meditation",
@@ -5773,7 +5761,7 @@
     "crossReferences": [
       "necromancy-framework-and-circles"
     ],
-    "notes": "Chapter Six: Necromancy, The Void Circle, pp. 229-230 (PDF 230-231). A couple of the source sentences read slightly garbled in the render (e.g. 'After one full breath level held the dripped into the dark' and 'jutting fingers of black stone inlaid with the meaningless mark marks of the Labyrinth'); flagged for re-verification against a cleaner render, though the overall mechanic (mass mortal sacrifice into a pit raises an obsidian citadel) is clear."
+    "notes": "Chapter Six: Necromancy, The Void Circle, p. 229 (PDF 230). A couple of the source sentences read slightly garbled in the render (e.g. 'After one full breath level held the dripped into the dark' and 'jutting fingers of black stone inlaid with the meaningless mark marks of the Labyrinth'); flagged for re-verification against a cleaner render, though the overall mechanic (mass mortal sacrifice into a pit raises an obsidian citadel) is clear."
   },
   {
     "id": "lord-of-the-dead",
@@ -5787,13 +5775,13 @@
     "verificationState": "reviewed",
     "citation": {
       "bookId": "exalted-the-abyssals",
-      "printedPage": 230,
-      "pdfPage": 231
+      "printedPage": 229,
+      "pdfPage": 230
     },
     "crossReferences": [
       "necromancy-framework-and-circles"
     ],
-    "notes": "Chapter Six: Necromancy, The Void Circle, p. 230 (PDF 231)."
+    "notes": "Chapter Six: Necromancy, The Void Circle, p. 229 (PDF 230)."
   },
   {
     "id": "poisoning-the-well",
@@ -5807,12 +5795,118 @@
     "verificationState": "reviewed",
     "citation": {
       "bookId": "exalted-the-abyssals",
-      "printedPage": 230,
-      "pdfPage": 231
+      "printedPage": 229,
+      "pdfPage": 230
     },
     "crossReferences": [
       "necromancy-framework-and-circles"
     ],
-    "notes": "Chapter Six: Necromancy, The Void Circle, p. 230 (PDF 231)."
+    "notes": "Chapter Six: Necromancy, The Void Circle, p. 229 (PDF 230). Closes out the Void (Third) Circle spell list (Abyssal Aegis, Blood from the Slaughter [see Reaping the Fallen], Anguished Shade Harvest, Blood Monsoon, Dimming of the Light, Inauspicious Citadel, Lord of the Dead, Poisoning the Well -- 8 spells total) and, with it, the entire necromancy spell-list section of Chapter Six. Confirmed by the printed folio '229' visible at the bottom of the rendered PDF page 230; the next PDF pages (231 full-page illustration, 232 short-fiction interlude) precede the real 'CHAPTER SIX: THE ARTS OF THE DEAD' title page at printed p. 232 (PDF 233), which covers the Crafts of the Dead (Necrosurgery/Jadecrafting/Soulforging/Moliation/Pandemonium) rather than any further necromancy spells."
+  },
+  {
+    "id": "craft-moliation",
+    "name": "Craft (Moliation)",
+    "disposition": "reference-only",
+    "summary": "One of the Crafts of the Dead: by developing this Ability, a ghost learns the subtle techniques of working the wraithly corpus, shaping and modifying the stuff of his own ghostly form from gossamer-delicate feathers to gleaming armor; used only by the dead, not by living Abyssals.",
+    "requirements": "Craft Ability framework/specialty rules; not itself a selectable Charm.",
+    "mechanics": "By developing this Ability, the ghost learns the subtle techniques of working the wraithly corpus. This knowledge allows the ghost to shape, mold and modify the stuff that makes up his form, to, from gossamer-delicate feathers to gleaming armor. The natural laws of living Creation have no sway in the Underworld, and the substance of a ghost can take form a skilled master of Moliation wishes it to, from gossamer-delicate feathers to gleaming armor. Moliation does not grant the ability to reshape ghostly ectoplasm. Rather, it provides the knowledge that a ghost with these powers needs to use them to good effect. Ghosts who are familiar with Moliation can detect its use on others, and they can guide others in its use (-1 difficulty on rolls involving Moliation for ghosts being advised by another with a higher level of the Ability). Moliation does not grant knowledge of soul-forging. Specialties: Masks, Monstrous Forms, Weaponry, Armor, Disguise. Standard: Detect the use of Moliation on others, add or remove a feature crudely, create a lifelike mask. Challenging: Create a mask that inspires fear, create useful weaponry, craft a ghost into a new shape. Legendary: Reshape a ghost into an armored killing machine. Create masks so lifelike that none may recognize the ghost's true appearance.",
+    "cost": "N/A",
+    "compatibility": "N/A",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 232,
+      "pdfPage": 233
+    },
+    "crossReferences": [
+      "useful-crafts-underworld",
+      "craft-pandemonium"
+    ],
+    "notes": "Chapter Six: The Arts of the Dead, 'The Crafts of the Dead' section, first of the four ghost-usable Crafts detailed, p. 232 (PDF 233). Per the source, only ghosts (not living Abyssal Exalted) can learn Moliation."
+  },
+  {
+    "id": "craft-pandemonium",
+    "name": "Craft (Pandemonium)",
+    "disposition": "reference-only",
+    "summary": "One of the Crafts of the Dead: the art of crafting horrors, illusions and nightmares, and also of making dreams and fantasies, rendering it one of the most versatile ghostly crafts; used only by the dead, not by living Abyssals.",
+    "requirements": "Craft Ability framework/specialty rules; not itself a selectable Charm.",
+    "mechanics": "Pandemonium is the art of crafting horrors, illusions and nightmares. It is also the art of making dreams and fantasies, rendering it one of the most versatile of the ghostly crafts. Improving one's knowledge of Pandemonium improves one's ability to craft illusions of all sorts, from the magnificent to the soul-rending. The best exemplars of the craft, of course, are able to do both, but most of its practitioners have their own specialties. Pandemonium does not grant the ability to shape dreams, illusions and so forth. Instead, it is merely the knowledge of how to do so. A ghost with innate talent but no knowledge of Pandemonium can still summon forth horrors, but a master of Craft (Pandemonium) with no innate Arcanoi is left commenting on the works of others. Specialties: Insects, Ichors, Scuttling Things, Shapeless Horrors, Fantasies, Phantom Epics. Standard: Detect another's use of Pandemonium, create a simple illusion, affect the living world. Challenging: Create a complex illusion involving more than one sense, manifest a horror of some sort, engage in strenuous poltergeist activity. Legendary: A flood of devouring beetles and locusts, reaching into the Mouth of Oblivion.",
+    "cost": "N/A",
+    "compatibility": "N/A",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 233,
+      "pdfPage": 234
+    },
+    "crossReferences": [
+      "useful-crafts-underworld",
+      "craft-moliation",
+      "craft-soulforging"
+    ],
+    "notes": "Chapter Six: The Arts of the Dead, 'The Crafts of the Dead' section, second of the four ghost-usable Crafts detailed, p. 233 (PDF 234). Per the source, only ghosts (not living Abyssal Exalted) can learn Pandemonium."
+  },
+  {
+    "id": "craft-soulforging",
+    "name": "Craft (Soulforging)",
+    "disposition": "reference-only",
+    "summary": "One of the Crafts of the Dead: the art of hammering the ghostly flesh of the dead into the useful implements of the Underworld, also allowing the creation of soulsteel by combining ectoplasm with the ores of the Labyrinth; usable by both ghosts and living Abyssal Exalted.",
+    "requirements": "Craft Ability framework/specialty rules; not itself a selectable Charm.",
+    "mechanics": "Soulforging is the art of hammering the ghostly flesh of the dead into the useful implements of the Underworld. It is also the art that allows the creation of soulsteel that combines ectoplasm with the ores of the Labyrinth. While superficially soulforging resembles mortal smithing, it has demands and requirements that living blacksmiths never dreamed of. For one thing, the material of the smith does not scream while it is under the hammer. For another, the dangers of working with flames of pure Essence are far, far greater than any perils a mere mortal forge can pose. Without the proper equipment, soulforging is mostly useless. While it does grant any ghost who possesses the analytical eye to identify soulforged work and an understanding of the process by which souls are transformed into commodities, it is primarily an active skill. Full usage of Craft (Soulforging) requires a smith's setup -- an anvil, a hammer, an Essence forge and, most importantly, a supply of souls. Soulforgers prefer equipment made of soulsteel or jade when they can get it -- the relentless heat and pounding tends to reduce lesser equipment to rubble in short order. However, in a pinch they'll take whatever they can get, so long as they have the raw materials they need. Specialties: Objets d'Art, Weaponry, Armor, Construction. Standard: Identify soulforged objects, render a soul into raw materials, make a basic sword or other simple item, create sturdy items for use in construction in the Underworld. Challenging: Create a unique weapon, build a device with multiple moving parts out of soulforged elements, create a flexible chain, create a soulforged item that can use Essence. Legendary: Construct a soulforged automaton, make a unique weapon, do jewelry filigree work, create and work with soulsteel.",
+    "cost": "N/A",
+    "compatibility": "Usable by both ghosts and living Abyssal Exalted, per the Useful Crafts summary (unlike Moliation and Pandemonium, which are ghost-only).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 233,
+      "pdfPage": 234
+    },
+    "crossReferences": [
+      "useful-crafts-underworld",
+      "craft-pandemonium",
+      "craft-jadecrafting"
+    ],
+    "notes": "Chapter Six: The Arts of the Dead, 'The Crafts of the Dead' section, third of the four Crafts detailed, pp. 233-234 (PDF 234-235)."
+  },
+  {
+    "id": "craft-jadecrafting",
+    "name": "Craft (Jadecrafting)",
+    "disposition": "reference-only",
+    "summary": "One of the Crafts of the Dead: the last of the materials the artisans of the dead work with is jade, potent in the living but even more special in the lands of the dead, though too fragile to be Moliated; usable by both ghosts and living Abyssal Exalted.",
+    "requirements": "Craft Ability framework/specialty rules; not itself a selectable Charm.",
+    "mechanics": "The last of the materials the artisans of the dead work with is jade. Potent in the lands of the living, it becomes even more special in the lands of the dead. Too fragile to be Moliated, jade is nevertheless extraordinarily valuable to the Restless Dead, and those who can work it are highly regarded. Specialties: Grave Goods, Jewelry, Ornamental Weaponry, Magical Artifacts. Standard: Take a grave good and render it useful in the Underworld, carve raw jade into a useful shape, evaluate the worth of a jade item. Challenging: Create useful jade implements, devices and chains, incorporate jade into a device created in the Underworld. Legendary: Craft jade jewelry pleasing to one of the Deathlords, infuse a jade item with Essence.",
+    "cost": "N/A",
+    "compatibility": "Usable by both ghosts and living Abyssal Exalted, per the Useful Crafts summary (unlike Moliation and Pandemonium, which are ghost-only).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 234,
+      "pdfPage": 235
+    },
+    "crossReferences": [
+      "useful-crafts-underworld",
+      "craft-soulforging"
+    ],
+    "notes": "Chapter Six: The Arts of the Dead, 'The Crafts of the Dead' section, last of the four Crafts detailed, p. 234 (PDF 235). Immediately followed by a 'Soulforging and Jadecrafting' sidebar noting both crafts follow The Book of Three Circles pp. 88-89 rules, substituting Dexterity + Craft (Soulforging) or Craft (Jadecrafting) for Intelligence + Occult on Step Three: Creation rolls, and that forging artifacts requires exotic ingredients often found only within the Labyrinth. Craft (Necrosurgery) -- the fifth Craft named in the Chapter Four 'Useful Crafts' summary -- is NOT detailed in this section: per that summary it is used only by living Abyssal Exalted, not by ghosts, and this ghost-focused 'Arts of the Dead' chapter does not give it its own specialties/Standard/Challenging/Legendary write-up. Its only mechanical detail found in this book remains via the Walking War Machine necromancy spell and the Medicine Charm Bone Graft Technique (both already inventoried); no separate Necrosurgery framework block was located after checking pp. 232-235."
+  },
+  {
+    "id": "abyssal-specific-merits-and-flaws-absent",
+    "name": "Abyssal-Specific Merits/Flaws (confirmed absent)",
+    "disposition": "excluded",
+    "summary": "This book does not contain a distinct Merits/Flaws section or any Abyssal-specific Merits or Flaws beyond the standard Exalted core-book set; confirmed by a chapter-by-chapter check and by the printed character sheet, which has no Merits/Flaws fields at all.",
+    "requirements": "N/A -- documents a negative finding, not a selectable power.",
+    "mechanics": "No chapter of this book (One through Seven) contains a section titled 'Merits' or 'Flaws' or any equivalent framework of Abyssal-specific advantages/disadvantages purchased with bonus points, distinct from the standard Virtue Flaw/Abyssal Curse system (already inventoried) and the standard Exalted core-book Merits and Flaws list. Chapter Four (Traits) covers Attributes, Abilities, Backgrounds (including the new/altered Abyssal-specific ones, already inventoried), Charms, Virtues, Willpower, and Essence, with no Merits/Flaws subsection. Chapter Five is entirely Charms. Chapter Six covers necromancy spells and the ghost-only Crafts/Arcanoi framework (Six Demon Bag, Mortal-Shadowing Technique, Puppeteer's Masterful Hand, etc. -- all ghost powers, not player-facing Merits/Flaws). Chapter Seven ('Storytelling', beginning p. 264/PDF 265) is Storyteller-facing advice about Deathlords and sample series, not character-creation mechanics. Most decisively, the book's own printed character sheet (pp. 288 and 291, PDF 289 and 292) lists Attributes, Abilities, Backgrounds, Charms, Weapons, Willpower, Virtues, Anima, Health, Resonance, Resonance Effects, and Essence -- but has no Merits or Flaws fields whatsoever, confirming the designers did not intend a distinct Abyssal Merits/Flaws framework for this book.",
+    "cost": "N/A",
+    "compatibility": "Standard Exalted core-book Merits and Flaws remain available to Abyssal characters at Storyteller discretion, as for any Exalted splat; this book adds none of its own.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 288,
+      "pdfPage": 289
+    },
+    "crossReferences": [
+      "abyssal-curse"
+    ],
+    "notes": "Checked across Chapters One through Seven and the printed character sheet (pp. 288, 291 / PDF 289, 292); no Abyssal-specific Merits/Flaws section exists in this book. This closes out scope item 4 from this inventory pass as a confirmed-absent finding rather than a further gap."
   }
 ]
