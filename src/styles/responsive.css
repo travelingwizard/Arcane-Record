@@ -798,3 +798,43 @@
     background: var(--paper);
   }
 }
+
+@media (max-width: 48rem) {
+  .dragonbane-attribute-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .dragonbane-derived-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dragonbane-skill-ledger {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 30rem) {
+  .dragonbane-identity-grid .sheet-field:nth-child(1) {
+    grid-column: 1;
+  }
+
+  .dragonbane-attribute-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dragonbane-derived-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .dragonbane-skill-ledger {
+    padding: 0.45rem;
+  }
+
+  .dragonbane-skill-column .sheet-toolbar {
+    grid-template-columns: minmax(0, 1fr) 4.5rem;
+  }
+
+  .dragonbane-advancement-mark {
+    grid-column: 1 / -1;
+  }
+}

@@ -145,6 +145,8 @@ export function LocalSheet({
   onBack,
   onSave,
   settings,
+  className,
+  sheetClassName,
 }: {
   title: string;
   name: string;
@@ -159,6 +161,8 @@ export function LocalSheet({
   onBack: () => void;
   onSave: () => void;
   settings?: ReactNode;
+  className?: string;
+  sheetClassName?: string;
 }) {
   const [closed, setClosed] = useState<Set<string>>(new Set());
   const { activeSection, setActiveSection } = useActiveSheetSection(
@@ -212,7 +216,9 @@ export function LocalSheet({
         title={name || `Untitled ${title}`}
         saveStatus={status}
         onBack={onBack}
-        className="local-sheet-editor-shell"
+        className={['local-sheet-editor-shell', className]
+          .filter(Boolean)
+          .join(' ')}
         headerClassName="local-sheet-editor-header"
         errorMessage={
           status === 'error'
@@ -240,7 +246,13 @@ export function LocalSheet({
           <CharacterSectionNav />
           <OrderedSheetSections
             groupOrder={order}
-            className="character-sheet local-character-sheet"
+            className={[
+              'character-sheet',
+              'local-character-sheet',
+              sheetClassName,
+            ]
+              .filter(Boolean)
+              .join(' ')}
           >
             {sections.map((s) => (
               <SheetSection

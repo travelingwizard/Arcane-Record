@@ -74,6 +74,28 @@ function Num({
     </SheetField>
   );
 }
+
+const conditionLabels = {
+  str: 'Exhausted',
+  con: 'Sickly',
+  agl: 'Dazed',
+  int: 'Angry',
+  wil: 'Scared',
+  cha: 'Disheartened',
+} as const;
+
+const weaponSkillNames = new Set([
+  'Axes',
+  'Bows',
+  'Brawling',
+  'Crossbows',
+  'Hammers',
+  'Knives',
+  'Slings',
+  'Spears',
+  'Staves',
+  'Swords',
+]);
 function Creator({
   c,
   u,
@@ -667,7 +689,10 @@ export function DragonbaneEditor(
   const content: Record<string, React.ReactNode> = {
     character: (
       <>
-        <SheetFieldGrid columns={3}>
+        <SheetFieldGrid
+          columns={3}
+          className="identity-grid dragonbane-identity-grid"
+        >
           <TextField
             label="Name"
             value={c.name}
@@ -713,68 +738,155 @@ export function DragonbaneEditor(
     ),
     attributes: (
       <>
-        <SheetFieldGrid columns={3}>
+        <div className="dragonbane-attribute-grid">
           {(Object.keys(c.attributes) as AttributeKey[]).map((key) => (
-            <Num
-              key={key}
-              label={`${key.toUpperCase()} · base ${baseChance(c.attributes[key])}`}
-              value={c.attributes[key]}
-              max={18}
-              locked={locked}
-              onChange={(n) =>
-                u({ ...c, attributes: { ...c.attributes, [key]: n } })
-              }
-            />
+            <div className="dragonbane-attribute" key={key}>
+              <Num
+                label={`${key.toUpperCase()} · base ${baseChance(c.attributes[key])}`}
+                value={c.attributes[key]}
+                max={18}
+                locked={locked}
+                onChange={(n) =>
+                  u({ ...c, attributes: { ...c.attributes, [key]: n } })
+                }
+              />
+              <label className="dragonbane-condition-chip">
+                <input
+                  type="checkbox"
+                  checked={c.conditions.includes(
+                    conditionLabels[
+                      key
+                    ].toLowerCase() as DragonbaneCharacter['conditions'][number],
+                  )}
+                  onChange={(event) => {
+                    const condition = conditionLabels[
+                      key
+                    ].toLowerCase() as DragonbaneCharacter['conditions'][number];
+                    u({
+                      ...c,
+                      conditions: event.target.checked
+                        ? [...c.conditions, condition]
+                        : c.conditions.filter((entry) => entry !== condition),
+                    });
+                  }}
+                />
+                <span>{conditionLabels[key]}</span>
+              </label>
+            </div>
           ))}
-        </SheetFieldGrid>
-        <SheetNotice>
-          Movement {d.movement} · STR damage {d.strDamage} · AGL damage{' '}
-          {d.aglDamage} · Carry {d.inventoryWeight}/{d.encumbrance}
-        </SheetNotice>
+        </div>
+        <div className="dragonbane-derived-strip" aria-label="Derived ratings">
+          <span>
+            <strong>Damage bonus STR</strong>
+            {d.strDamage}
+          </span>
+          <span>
+            <strong>Damage bonus AGL</strong>
+            {d.aglDamage}
+          </span>
+          <span>
+            <strong>Movement</strong>
+            {d.movement}
+          </span>
+          <span>
+            <strong>Encumbrance</strong>
+            {d.inventoryWeight} / {d.encumbrance}
+          </span>
+        </div>
       </>
     ),
     skills: (
-      <div className="sheet-choice-grid">
-        {c.skills.map((s) => (
-          <SheetCard density="compact" key={s.id}>
-            <SheetToolbar>
-              <strong>
-                {s.name} ({s.attribute.toUpperCase()})
-              </strong>
-              <Num
-                label="Rating"
-                value={s.rating}
-                max={18}
-                locked={locked}
-                onChange={(rating) =>
-                  u({
-                    ...c,
-                    skills: c.skills.map((x) =>
-                      x.id === s.id ? { ...x, rating } : x,
-                    ),
-                  })
-                }
-              />
-              <label>
-                <input
-                  type="checkbox"
-                  checked={s.advancementMarked}
-                  onChange={(e) =>
-                    u({
-                      ...c,
-                      skills: c.skills.map((x) =>
-                        x.id === s.id
-                          ? { ...x, advancementMarked: e.target.checked }
-                          : x,
-                      ),
-                    })
-                  }
-                />{' '}
-                Advancement
-              </label>
-            </SheetToolbar>
-          </SheetCard>
-        ))}
+      <div className="dragonbane-skill-ledger">
+        <div className="dragonbane-skill-column">
+          <h3>General skills</h3>
+          {c.skills
+            .filter((skill) => !weaponSkillNames.has(skill.name))
+            .map((s) => (
+              <SheetCard density="compact" key={s.id}>
+                <SheetToolbar>
+                  <strong>
+                    {s.name} ({s.attribute.toUpperCase()})
+                  </strong>
+                  <Num
+                    label="Rating"
+                    value={s.rating}
+                    max={18}
+                    locked={locked}
+                    onChange={(rating) =>
+                      u({
+                        ...c,
+                        skills: c.skills.map((x) =>
+                          x.id === s.id ? { ...x, rating } : x,
+                        ),
+                      })
+                    }
+                  />
+                  <label className="dragonbane-advancement-mark">
+                    <input
+                      type="checkbox"
+                      checked={s.advancementMarked}
+                      onChange={(e) =>
+                        u({
+                          ...c,
+                          skills: c.skills.map((x) =>
+                            x.id === s.id
+                              ? { ...x, advancementMarked: e.target.checked }
+                              : x,
+                          ),
+                        })
+                      }
+                    />{' '}
+                    Advancement
+                  </label>
+                </SheetToolbar>
+              </SheetCard>
+            ))}
+        </div>
+        <div className="dragonbane-skill-column">
+          <h3>Weapon skills</h3>
+          {c.skills
+            .filter((skill) => weaponSkillNames.has(skill.name))
+            .map((s) => (
+              <SheetCard density="compact" key={s.id}>
+                <SheetToolbar>
+                  <strong>
+                    {s.name} ({s.attribute.toUpperCase()})
+                  </strong>
+                  <Num
+                    label="Rating"
+                    value={s.rating}
+                    max={18}
+                    locked={locked}
+                    onChange={(rating) =>
+                      u({
+                        ...c,
+                        skills: c.skills.map((x) =>
+                          x.id === s.id ? { ...x, rating } : x,
+                        ),
+                      })
+                    }
+                  />
+                  <label className="dragonbane-advancement-mark">
+                    <input
+                      type="checkbox"
+                      checked={s.advancementMarked}
+                      onChange={(e) =>
+                        u({
+                          ...c,
+                          skills: c.skills.map((x) =>
+                            x.id === s.id
+                              ? { ...x, advancementMarked: e.target.checked }
+                              : x,
+                          ),
+                        })
+                      }
+                    />
+                    Advancement
+                  </label>
+                </SheetToolbar>
+              </SheetCard>
+            ))}
+        </div>
       </div>
     ),
     abilities: (
@@ -1082,7 +1194,7 @@ export function DragonbaneEditor(
       </>
     ),
     health: (
-      <SheetFieldGrid columns={4}>
+      <SheetFieldGrid columns={2} className="dragonbane-resource-grid">
         <Num
           label="Current HP"
           value={c.resources.hpCurrent}
@@ -1297,6 +1409,8 @@ export function DragonbaneEditor(
           )}
         </>
       }
+      className="dragonbane-editor-shell"
+      sheetClassName="dragonbane-character-sheet"
     />
   );
 }
