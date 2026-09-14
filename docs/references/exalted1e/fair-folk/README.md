@@ -1,8 +1,11 @@
 # Exalted 1e — Fair Folk source intake
 
 **Status: source intake in progress.** `Exalted: The Fair Folk` has been
-supplied and 261 inventory rows are checked in under `inventory/`. Chapter
-Five: Raksha Magic is now fully inventoried end to end. See
+supplied and 263 inventory rows are checked in under `inventory/`. The book
+has now been reviewed cover to cover — every one of its seven chapters has
+either been fully inventoried (Three, Four, Five) or triaged (One, Two, Six,
+Seven) — and Fair Folk Merits/Flaws are definitively confirmed absent
+anywhere in the book. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
@@ -10,7 +13,7 @@ the full process this directory follows.
 
 - `source-manifest.json` — the one source book in scope so far
   (`exalted-the-fair-folk`); supplements are not yet added.
-- `inventory/exalted-the-fair-folk.json` — 261 rows covering:
+- `inventory/exalted-the-fair-folk.json` — 263 rows covering:
   - The Chapter Three character-creation overview, split into two rows
     because common and noble raksha use materially different baselines:
     `fair-folk-creation-overview-common` (0-dot starting Attributes, 0 free
@@ -374,30 +377,80 @@ the full process this directory follows.
       actually sit on printed p. 211/PDF 212, one page earlier than
       previously estimated, with printed p. 212/PDF 213 being a full-page
       illustration with no chapter text — the true end of Chapter Five.
+  - **A full triage of Chapters One, Two, Six and Seven** (2 new rows),
+    completing a review of the entire book. Merits/Flaws specific to Fair
+    Folk are **definitively confirmed absent everywhere in this book** — a
+    full-text search of all 331 PDF pages found the word "Merit" exactly
+    twice and "Flaw" exactly twice, all four incidental references to
+    *other* books' Merits/Flaws (the Players Guide's Wyldwalk Merit and
+    Enemy Flaw) or to Behemoths borrowing Traits "excluding ... most Merits
+    and Flaws" (already inventoried), never to a Fair-Folk-specific
+    Merits/Flaws list. Two other genuinely player-facing items surfaced and
+    were inventoried: `gossamer-manta` (a purchasable Artifact ••• vehicle
+    and Ring-shaping weapon boxed into Chapter One's Rakshastan geography,
+    p. 38/PDF 39 — the same Wyld Artifacts category as Chapter Five's named
+    examples) and `fair-folk-experience-and-training-time` (Chapter Seven's
+    post-creation experience-cost table and no-training-time-delay rule,
+    p. 321/PDF 322 — filling a real gap, since no prior pass had covered
+    post-creation advancement costs at all). Chapter Two (The Raksha) was
+    confirmed to contain zero mechanical content of any kind — pure
+    worldbuilding/lore. Chapter One is otherwise entirely Storyteller-facing
+    "Hazard Rating" bestiary/environment stat blocks (Flame Gryphon, Lion
+    Warrior, Sand Shark, Abacasteri, Gargoyle, Poppet, Homunculus, Stone
+    Lion, Wood Wife, Doppelganger, Siaka-Man, the Glittering Desert, the
+    Waters of Chaos, Unicorn, etc.), deliberately excluded as GM/encounter
+    content. Chapter Seven is otherwise entirely Storytelling advice with no
+    further discrete mechanic. Chapter Six: The Mountain Folk was confirmed
+    to be exactly what it appeared to be — a separate, non-raksha
+    playable-adjacent race (the Jadeborn) with its own extensive,
+    wholly self-contained character creation (Enlightened/Unenlightened,
+    three castes, its own Attributes/Abilities/Backgrounds/experience-cost
+    table), a full Charm section, and its own equipment/artifact catalog,
+    followed by a Storyteller-facing "Nameless Hordes" bestiary and
+    Storytelling advice. Per this task's scope, none of Chapter Six's
+    Mountain Folk material is inventoried in this file — it would be its
+    own separate family/module decision, not part of Fair Folk (raksha)
+    scope. The one raksha/Mountain-Folk interaction found (p. 237/PDF 238:
+    "any attempt by chaotic Fair Folk to feed on Mountain Folk souls
+    automatically fails") is a passive setting fact about Jadeborn
+    physiology, not a raksha-selectable mechanic, and was not inventoried.
+    See `source-manifest.json`'s `rulesNotes` for the complete writeup.
 
 ## What's still needed
 
-1. Chapter One: Rakshastan (setting/geography — Freeholds, the
-   Middlemarches, the Five Courts, the Church of Balor as story-hook
-   flavor) and Chapter Two: The Raksha (broader lore) — not yet
-   inventoried; only the character-creation-relevant mechanical content
-   from Chapters Three, Four, and now the entirety of Chapter Five is
-   covered so far. **Resume here at printed p. 1 / PDF 2 (or wherever
-   Chapter One's geography material actually begins — not yet located).**
-2. The Storyteller-only "unshaped" Charm-suggestion sidebar in Chapter
+**Nothing further from this primary sourcebook.** `Exalted: The Fair Folk`
+has now been reviewed cover to cover: Chapters Three, Four and Five are
+fully inventoried, and Chapters One, Two, Six and Seven have all been
+triaged (see the "full triage of Chapters One, Two, Six and Seven" bullet
+above for details). What remains is deliberate, not deferred:
+
+1. The Storyteller-only "unshaped" Charm-suggestion sidebar in Chapter
    Three (pp. 96-97 / PDF 97-98) — full of specific named Charms for
    building unshaped NPCs, and explicitly GM-facing, not a player-facing
    creation rule. Deliberately **excluded from scope**, not merely
    deferred.
-3. Chapter Six: The Mountain Folk (a separate non-raksha playable-adjacent
-   race) and Chapter Seven: Storytelling — not yet inventoried, and not
-   necessarily in scope for the Fair Folk sheet family at all.
-4. Merits/Flaws specific to Fair Folk — checked again this round (all of
-   Chapter Five, in addition to the Chapters Three/Four Background
-   material checked in prior rounds); still not found anywhere in the
-   chapters reviewed so far. May not exist as a distinct section in this
-   book at all; the only chapters left where it could plausibly appear are
-   One, Two, Six, and Seven.
+2. Chapter Six: The Mountain Folk (a separate non-raksha playable-adjacent
+   race, the Jadeborn, with its own complete character creation, Charm
+   section, and equipment/artifact catalog) — confirmed to have no
+   raksha-specific player-facing mechanics beyond what has already been
+   inventoried. Deliberately **excluded from this family's scope**; if the
+   Mountain Folk are ever added as a playable option, that is a separate
+   family/module decision, not a Fair Folk (raksha) one.
+3. **Merits/Flaws specific to Fair Folk: definitively confirmed absent.**
+   A full-text search of all 331 pages of the PDF (not just the chapters
+   reviewed this round) found the word "Merit" exactly twice and "Flaw"
+   exactly twice book-wide, and every one of those four incidental
+   mentions points to an *externally*-defined Merit/Flaw from the Exalted
+   Players Guide, or to Chapter Five's Behemoths passage noting that a
+   behemoth's borrowed Traits exclude "most Merits and Flaws" (already
+   inventoried) — never to a Fair-Folk-specific Merits/Flaws list. No such
+   list exists anywhere in this book, in any of its seven chapters. Like
+   Lunar (see `docs/references/exalted1e/lunar/README.md`), Fair Folk has
+   no dedicated Merits/Flaws subsection in its core sourcebook.
+4. The project owner's remaining cross-splat supplements (Blood and Salt,
+   Book of Bone and Ebony, Book of Three Circles, Savage Seas, Savant and
+   Sorcerer, the Players Guide, and the Storyteller's Companion) are still
+   untriaged for any further Fair Folk-relevant material.
 
 ## Do not add yet
 

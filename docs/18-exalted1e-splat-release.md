@@ -196,7 +196,7 @@ real, creatable sheet.
 | Abyssal    | Created (Exalted: The Abyssals)       | 265            | 0        | Locked, all dimensions `not-run` |
 | Sidereal   | Created (Exalted: The Sidereals)      | 184            | 0        | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians) | 207            | 0        | Locked, all dimensions `not-run` |
-| Fair Folk  | Created (Exalted: The Fair Folk)      | 261            | 0        | Locked, all dimensions `not-run` |
+| Fair Folk  | Created (Exalted: The Fair Folk)      | 263            | 0        | Locked, all dimensions `not-run` |
 
 Lunar's 253 rows cover the core innate powers, every Charm category in
 Chapter Five (Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat
@@ -273,23 +273,25 @@ player-facing item (the Steamcar, Refurbished expedition vehicle) and were
 otherwise confirmed to be GM/NPC/plot content. **Alchemical is now reviewed
 cover-to-cover**; see `docs/references/exalted1e/alchemical/README.md`.
 
-Fair Folk's 261 rows cover both character-creation tracks (common and noble
+Fair Folk's 263 rows cover both character-creation tracks (common and noble
 raksha), the four Castes (Diplomat/Entertainer/Warrior/Worker) and their
 twelve noble hybrid archetypes, the five Grace traits that Charms key off
 instead of Attributes/Abilities, the Bedlam mechanic (this splat's
 Limit-Trait analog, split into four per-Virtue Curses rather than a single
-universal trait), nine new/altered Backgrounds, and now **all of Chapter
-Five: Raksha Magic, inventoried end to end**: all five per-Grace Charm
-trees (Heart, Staff, Cup, Ring, Sword — 194 Charms), the universal,
-non-Grace-gated Assumption-type Charm tree ("the Mask," 21 Charms), the
-Vexing/Questing rules, and Glamour Sorcery/Wyld Artifacts/Adjurations/
-Behemoths (each with a framework plus named purchasable tiers) plus the
-narrowly-scoped sixth shinma Nirupadhika ("the Way," determined to be real
-player-facing content rather than a standard sixth Grace or GM lore),
-reviewed against the supplied PDF's real text layer (printed page = PDF
-page − 1) with spot-checked renders. Still not inventoried: Chapter One/
-Two's setting/lore, Chapter Six's Mountain Folk, and Merits/Flaws specific
-to Fair Folk (not found anywhere in the book so far); see
+universal trait), nine new/altered Backgrounds, all of Chapter Five:
+Raksha Magic end to end (all five per-Grace Charm trees — 194 Charms — the
+universal Assumption-type Charm tree, the Vexing/Questing rules, and
+Glamour Sorcery/Wyld Artifacts/Adjurations/Behemoths plus the
+narrowly-scoped sixth shinma Nirupadhika), and now a triage pass across
+Chapters One, Two, Six, and Seven that added the two remaining
+genuinely player-facing items (the Gossamer Manta vehicle and the
+post-creation Experience and Training Time table) and definitively
+confirmed, via an exhaustive book-wide text search, that Fair Folk has no
+Merits/Flaws section anywhere in the book. **Exalted: The Fair Folk is now
+reviewed cover to cover** — the third of the five planned families to
+reach full primary-sourcebook parity (Chapter Six's Mountain Folk, a
+wholly separate playable-adjacent race, was deliberately not inventoried
+as out of Fair Folk/raksha scope); see
 `docs/references/exalted1e/fair-folk/README.md`.
 
 All five families now have real inventory rows drawn from their primary

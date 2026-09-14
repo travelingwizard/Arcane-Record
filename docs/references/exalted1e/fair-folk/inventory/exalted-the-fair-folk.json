@@ -5592,5 +5592,47 @@
       "forging-the-way-grace"
     ],
     "notes": "Chapter Five: Raksha Magic, 'Nirupadhika, the Way' -> 'Perfect Reckoning Technique', p. 211 (PDF 212), the last Charm in Chapter Five before Chapter Six: The Mountain Folk begins. Printed p. 212/PDF 213, the page immediately after this one, is a full-page illustration with no chapter text (confirmed by direct render), marking the true end of Chapter Five."
+  },
+  {
+    "id": "gossamer-manta",
+    "name": "Gossamer Manta",
+    "disposition": "selectable",
+    "summary": "A large, stained-glass-manta-ray-shaped raksha vehicle that floats a yard above the ground and can skim over any relatively flat surface -- including prairie, tundra, water, liquid gemstone or molten lava -- and travels fastest of all across Rakshastan's silver fire.",
+    "requirements": "Artifact Background 3; to pilot, Sail 2 and at least a one-dot specialty in Gossamer Manta.",
+    "mechanics": "An oval-bodied craft 25 feet long and 15 feet wide, seating up to seven raksha (one pilot forward, three rows of passenger seats behind); its wings flap slowly as it moves. Waves of Essence push against the surface beneath it, propelling it forward at up to 40 mph over ordinary ground or liquid, or up to two waypoints per scene (80 mph) when traveling over silver fire, whose properties enhance those Essence waves. It is immune to the heat of lava and to destruction by all types of Rakshastan's liquid fire, and its raised sides count as 50% cover for occupants in combat. The pilot must commit 7 motes of Essence to fly it. As a Ring-shaping weapon it has Accuracy -2, Damage -2, Defense +4, Rate 1, Cost Artifact 3, Range 0 (a hand-to-hand Ring weapon affecting only targets in the same waypoint), Max Perception 3, and the Piercing quality (halving the target's Willpower for computing soak).",
+    "cost": "Artifact Background 3; 7 motes of Essence to commit/pilot.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a three-dot Wyld artifact vehicle; requires Sail 2 and a Gossamer Manta specialty to actually pilot it.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 38,
+      "pdfPage": 39
+    },
+    "crossReferences": [
+      "artifact-background-fair-folk",
+      "wyld-artifacts-overview"
+    ],
+    "notes": "Chapter One: Rakshastan, a boxed sidebar sitting between the 'The Deep Wyld' and 'Hazards of the South' section headers, p. 38 (PDF 39). This is the only genuinely player-facing, purchasable Artifact-Background item stat block found anywhere in Chapters One, Two, Six, or Seven during this triage pass; it is functionally the same Ring-forged-treasure category as Chapter Five's Wyld Artifacts (see wyld-artifacts-overview, resonant-chorus-bow, hundred-color-shaping-lens, artifact-waypoint), just presented alongside Chapter One's regional geography instead. Everything else nearby in Chapter One's Southern Marches material (Flame Gryphon, Lion Warrior, Sand Shark, Abacasteri, the Glittering Desert, Rookery, etc.) are Storyteller-facing 'Hazard Rating' creature/environment stat blocks, not player character options, and were deliberately excluded from this inventory as gm-only setting/encounter content."
+  },
+  {
+    "id": "fair-folk-experience-and-training-time",
+    "name": "Fair Folk Experience and Training Time",
+    "disposition": "calculated",
+    "summary": "Raksha use their own post-creation experience-cost table for Abilities, Graces, Charms and Specialties (distinct from core Exalted's, and different again for common versus noble raksha), and unlike ordinary Exalted, they have no 'training time' delay at all: any raksha may raise a Trait or learn something new at the start of each story, purely gated on having the experience to pay for it.",
+    "mechanics": "Fair Folk Experience table: Caste or Common Ability increase costs (current rating x 2); other Ability increase costs (current rating x 3); Major Grace increase costs (current rating x 3); Minor Grace increase costs (current rating x 6); raising the Heart Grace to 4 costs a flat 20 points, and only once the raksha is eligible (has spent over 200 experience points total). New Trait costs: a new Charm costs 6; a new Specialty costs 2 for a common raksha or 5 for a noble raksha. All other costs (Attributes, Virtues, Willpower, Essence, Backgrounds, etc.) follow the ordinary Exalted core-rules experience table (p. 270). Fair Folk Training Time: raksha do not need to actively practice or study to advance -- there is no 'training time' requirement of any kind. Instead, any raksha may increase an existing Trait or gain a new one at the start of each story, provided she has the experience to afford it; Storytellers should still apply discretion when a player wants her raksha to suddenly manifest knowledge or skills she was never plausibly exposed to.",
+    "compatibility": "All raksha, common and noble alike; the Heart Grace's 20-point increase to 4 additionally requires the raksha to have already spent more than 200 experience points before it becomes purchasable at all.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 321,
+      "pdfPage": 322
+    },
+    "crossReferences": [
+      "fair-folk-creation-overview-common",
+      "fair-folk-creation-overview-noble",
+      "graces-overview",
+      "heart-grace"
+    ],
+    "notes": "Chapter Seven: Storytelling, the 'Fair Folk Experience' and 'Fair Folk Training Time' boxed sidebar, p. 321 (PDF 322), sitting between 'The Fair Folk and the Deathlords' and 'Others: God-Bloods and Outcastes.' This is the only genuinely player-facing, character-advancement-relevant mechanic found anywhere in Chapters One, Two, Six, or Seven during this triage pass, and it fills a real gap: every other Fair Folk row inventoried so far covers character creation or Charms, not this post-creation experience-cost/training-time framework."
   }
 ]
