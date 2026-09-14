@@ -1,7 +1,7 @@
 {
   "family": "sidereal",
   "catalog": {
-    "totalInventoryRows": 242,
+    "totalInventoryRows": 252,
     "promotedEntries": 0,
     "unresolvedEntries": 0,
     "checksum": ""
@@ -11,5 +11,5 @@
   "migrationTests": "not-run",
   "browserTests": "not-run",
   "certifiedAt": null,
-  "notes": "Exalted: The Sidereals supplied and intake in progress. 242 rows reviewed and inventoried under docs/references/exalted1e/sidereal/inventory/: the character-creation overview (including the Ronin variant), the five Auspicious-Ability groups and Celestial Hierarchy minimums, the universal Anima Effect, all five Castes, the Arcane Fate signature trait mechanic and its Sidereal Anima Banner visibility/Paradox table, the Craft (Fate) Ability specialty, the altered/new Backgrounds, Chapter Five's general Charm framework (Manipulating Fate, Restricted/Unusual Charms, Prayer Strips, and more), all 25 of Chapter Five's Caste-and-Ability Charm trees in full across all five Castes (Journeys, Serenity, Battles, Secrets, Endings; 152 Charms total), and all three of the book's named secret Martial Arts styles (Charcoal March of Spiders, Prismatic Arrangement of Creation, Citrine Poxes of Contagion), plus the Sidereal Astrology (Colleges/constellations) rules framework and Resplendent Destinies. Nothing promoted to a production catalog yet. The specific Colleges/constellations catalog itself (the individual named Colleges) and a check for Sidereal-specific Merits/Flaws are not yet inventoried. Locked pending the remaining inventory, schema/rules/creator/editor implementation, and passing tests across all five planned families."
+  "notes": "Exalted: The Sidereals reviewed cover-to-cover for Chapters One through Six. 252 rows reviewed and inventoried under docs/references/exalted1e/sidereal/inventory/: the character-creation overview (including the Ronin variant), the five Auspicious-Ability groups and Celestial Hierarchy minimums, the universal Anima Effect, all five Castes, the Arcane Fate signature trait mechanic and its Sidereal Anima Banner visibility/Paradox table, the Craft (Fate) Ability specialty, the altered/new Backgrounds, Chapter Five's general Charm framework, all 25 of Chapter Five's Caste-and-Ability Charm trees in full across all five Castes (152 Charms total), all three of the book's named secret Martial Arts styles (Charcoal March of Spiders, Prismatic Arrangement of Creation, Citrine Poxes of Contagion), the full Sidereal Astrology system (rules framework, Resplendent Destinies, and the complete named-College catalog closing Chapter Six: the Houses of Journeys/Leisure/War/Secrets/Endings and the five Greater Signs), and cross-referenced sorcery spells/a Specialized Prayer. Nothing promoted to a production catalog yet. Merits/Flaws confirmed genuinely absent from this book (re-verified via the full alphabetical index). Chapter Seven onward (Storytelling/setting material) is out of scope. Locked pending schema/rules/creator/editor implementation and passing tests across all five planned families."
 }

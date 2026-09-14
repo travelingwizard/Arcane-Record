@@ -1,7 +1,7 @@
 # Exalted 1e — Sidereal source intake
 
 **Status: source intake in progress.** `Exalted: The Sidereals` has been
-supplied and 242 inventory rows are checked in under `inventory/`. See
+supplied and 252 inventory rows are checked in under `inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
@@ -9,7 +9,7 @@ the full process this directory follows.
 
 - `source-manifest.json` — the one source book in scope so far
   (`exalted-the-sidereals`); no supplements are added yet.
-- `inventory/exalted-the-sidereals.json` — 242 rows covering:
+- `inventory/exalted-the-sidereals.json` — 252 rows covering:
   - The Chapter Three character-creation overview (Attributes/Abilities/
     Backgrounds/Charms/Colleges/Virtues/Willpower/Essence), including the
     reduced-scope Ronin Sidereal variant.
@@ -236,21 +236,45 @@ the full process this directory follows.
   - **Resplendent Destinies** (p. 215/PDF 218) — the full system by which a
     Sidereal can bypass her own Arcane Fate and don a memorable identity,
     as a single calculated row.
-  - The opening of the **Procedure for Sidereal Astrology and Catalog of
-    Colleges** section (p. 218/PDF 221) — the book's lead-in to the actual
-    named-College catalog, which has not yet been transcribed.
+  - The **Procedure for Sidereal Astrology and Catalog of Colleges**
+    lead-in (p. 218/PDF 221) plus the **full named-College catalog** that
+    closes Chapter Six (pp. 220-235/PDF 223-238): the House of Journeys
+    (The Captain, The Gull, The Mast, The Messenger, The Ship's Wheel —
+    Journeys Caste), the House of Leisure (The Ewer, The Lovers, The
+    Musician, The Peacock, The Pillar — Serenity Caste; the book names
+    this house "Leisure," not "Serenity"), the House of War (The Banner,
+    The Gauntlet, The Quiver, The Shield, The Spear — Battles Caste; named
+    "War," not "Battles"), the House of Secrets (The Guardians, The Key,
+    The Mask, The Sorcerer, The Treasure Trove — Secrets Caste; the Mask
+    is the college damaged by Arcane Fate, so Sidereals can't self-target
+    its ascending/descending effects), and the House of Endings (The
+    Corpse, The Crow, The Haywain, The Rising Smoke, The Sword — Endings
+    Caste), plus the five **Greater Signs** of the Maidens (Mercury/
+    Travel, Venus/Serenity, Mars/War, Jupiter/Secrets, Saturn/Endings, p.
+    235/PDF 238). Each house is one reference-only row (matching a
+    tree-overview template) rather than one row per college, given the
+    volume of near-identical Trappings/Correlations/Resplendent-Effect
+    prose; write-ups are paraphrased rather than verbatim.
+  - Three Terrestrial/Celestial Circle sorcery **spells** cross-referenced
+    from the Chapter Five Charm framework and Occult tree (Open the Spirit
+    Door, Gift of Knowledge, Summoning the Heavenly Portal) and one
+    **Specialized Prayer** (Prayer of the Chosen, automatically known by
+    any Sidereal with two or more combined dots in Occult and Savant),
+    printed pp. 122-124/PDF 125-127.
 
 ## What's still needed
 
-1. **The specific Colleges/constellations catalog** — the individual named
-   Colleges within the Sidereal Astrology system (the Charm-tree
-   equivalent for Sidereal sorcery-adjacent magic) have not yet been
-   transcribed; only the rules framework and character-creation point-buy
-   rule (7 dots, at least 4 in the character's own Maiden's Colleges) are
-   captured so far. **Resume at printed p. 218/PDF 221** (or the following
-   page, if p. 218 is entirely introductory text).
-2. Merits/Flaws specific to Sidereals, if any exist beyond the standard set
-   — not yet checked.
+Nothing outstanding within Chapters One through Six (character creation,
+Traits, Charms/Martial Arts, and Sidereal Astrology are all fully
+inventoried). Chapter Seven onward (Storytelling/setting material) has not
+been reviewed, since it is out of scope for a Charm/mechanics inventory.
+
+**Merits/Flaws:** checked and confirmed absent. A dedicated search of
+Chapter Three (Character Creation, printed pp. 94-101/PDF 97-104) and
+Chapter Four (Traits, printed pp. 102-125/PDF 105-128) found no
+Sidereal-specific — or generic — Merits & Flaws system in this book.
+Exalted 1st Edition does not have a Merits & Flaws chapter comparable to
+later editions, so no rows were created for this and none are missing.
 
 Note: the Sidereal Curse (this splat's expression of the Great Curse) is
 confirmed to have no discrete mechanical trigger of its own — the book states
