@@ -1,17 +1,21 @@
 # Exalted 1e — Abyssal source intake
 
-**Status: source intake in progress.** `Exalted: The Abyssals` and its
-supplement *The Book of Bone and Ebony* have both been supplied, and 440
-inventory rows are checked in under `inventory/`. See
+**Status: source intake in progress.** `Exalted: The Abyssals` and its two
+supplements, *The Book of Bone and Ebony* and *Savant and Sorcerer*, have
+all been supplied, and 565 inventory rows are checked in under
+`inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
 ## What's inventoried so far
 
-- `source-manifest.json` — two source books in scope
-  (`exalted-the-abyssals` and `book-of-bone-and-ebony`); the remaining
-  necromancy-heavy supplement (*Blood and Salt*) is not yet added.
-- `inventory/exalted-the-abyssals.json` — 440 rows covering:
+- `source-manifest.json` — three source books in scope
+  (`exalted-the-abyssals`, `book-of-bone-and-ebony`, and
+  `savant-and-sorcerer`); the remaining necromancy-heavy supplement
+  (*Blood and Salt*) is not yet added. *The Book of Three Circles* was
+  consulted (not added as its own source) solely to resolve the Abyssal
+  Solar Circle Sorcery access question -- see below.
+- `inventory/exalted-the-abyssals.json` — 565 rows covering:
   - The Chapter Three character-creation overview (Attributes/Abilities/
     Backgrounds/Charms/Virtues/Willpower/Essence).
   - The universal, caste-agnostic Anima Effect (Caste Mark flare, anima
@@ -221,14 +225,105 @@ the full process this directory follows.
     alongside the Chapter Five spells for consistency even though it
     physically appears in Chapter Four.
 
+- **Savant and Sorcerer** (`savant-and-sorcerer`) — the cross-splat sorcery
+  supplement that explicitly replaces *The Book of Three Circles* as the
+  official magic book (per its own intro sidebar); *The Book of Three
+  Circles* was consulted only as a gap-filler/verification source, not
+  added as its own `source-manifest.json` entry. 125 new rows:
+  - **Chapter Five: Spells — the full Terrestrial and Celestial Circle
+    catalog, complete (84 selectable spells, pp. 101-138/PDF 102-139).**
+    Verified complete by extracting every spell-header-plus-"Cost:" pattern
+    across the whole chapter (pp. 101-143/PDF 102-144) and confirming the
+    count and page order match this inventory's rows exactly, once three
+    false positives were excluded (`Invasion of Darkness`, `Swallow the
+    Breath`, and `Traverse the Depths of Night` are inherent Charms of the
+    summoned automaton in `the-spy-who-walks-in-darkness`'s own stat block,
+    not additional sorcery spells).
+  - **Chapter Five: Spells — the Solar Circle (Circle of Adamant), 9
+    spells, catalogued reference-only (pp. 139-143/PDF 140-144).**
+    Benediction of Archgenesis, Chariot of the Blazing Sun, Curse of
+    Unyielding Mist, Essence Inversion, Gaia's Rebuke, Incantation of the
+    Invincible Army, Total Annihilation, Wrath of the Five Elements, and
+    Abjuration of the Maidens. See "Abyssal Solar Circle Sorcery access"
+    below for why these are reference-only rather than selectable.
+  - **Chapter Three: Demesne and Manse — the 15-entry Sample Hearthstones
+    catalog, complete (pp. 67-70/PDF 68-71), plus its formation/Theme/
+    Expression framework (`hearthstone-formation-and-theme-rules`).** Three
+    Hearthstones per level, Levels One through Five: Glance of the
+    Unconquered Sun, The Labyrinthine Eye, Stone of Circulation (Level 1);
+    Gemstone of Surface Thoughts, Snakeskin Stone, Sphere of Balance
+    (Level 2); The Ever-Open Eye, Gemstone of Perfect Passage, Hearth's
+    Fire (Level 3); The Ice Gem (explicitly Abyssal-typed), Stone of Easy
+    Breath, Wilderness Gem (Level 4); The Gem of Day's Light, Gem of Life,
+    Home's Hearth (Level 5). This closes out the task's Hearthstone-catalog
+    gap-filler question: *Savant and Sorcerer* turned out to already
+    contain its own sample Hearthstone catalog, so *The Book of Three
+    Circles* Chapter Six was not needed for this content after all.
+  - **Chapter Two: Artifice and Enchantment — 5 Sample Artifacts, complete
+    (pp. 40-44/PDF 41-45), plus the artifact-creation framework
+    (`artifact-creation-framework-savant-and-sorcerer`).** Collar of Dawn's
+    Cleansing Light (•), Mask (••), Ring of Being (••••), Wings of the
+    Raptor (••••), and Soul Mirror (•••••) — the last a soulsteel grand
+    daiklave whose own text explicitly calls out Abyssals (alongside
+    Solars) as facing the lowest fear-roll difficulty when it is wielded
+    against them. A single generic, non-Abyssal-specific Merit in this
+    chapter (`Moonsilver Initiate`) was noted in the framework row's notes
+    rather than given its own row, consistent with this book's confirmed
+    absence of Abyssal-specific Merits/Flaws.
+  - **Appendix: Warstriders — framework, all five classes, and the Proteus
+    Gauntlet artifact, complete (pp. 145-160/PDF 146-161).** The general
+    piloting/benefits/limitations/maintenance framework
+    (`warstrider-framework-and-rules`, which preserves the explicit rule
+    that "the dead may only control warstriders" while materialized or
+    inhabiting a corpse, at double Essence-commitment cost unless the
+    warstrider is soulsteel); all five warstrider classes (Scout, Common,
+    Noble, Royal, Juggernaut) as their own selectable rows — Royal is
+    explicitly the Abyssal/Deathlord-flavored class ("grim apparitions of
+    soulsteel and Abyssal iron... in the hands of the Deathlord's
+    servants" for any built since the Contagion), and Juggernaut is
+    explicitly favored by "a number of Abyssal deathknights"; the named
+    Proteus Gauntlet artifact (••••, a shapeshifting warstrider-scale
+    weapon); and a summary row for the hand-to-hand/ranged/artifact-grade
+    weapon tables at this project's usual "reasonable summary granularity"
+    for large procedural tables.
+  - **Chapters One and Four — skimmed and confirmed GM/lore-only, each
+    documented as a single chapter-level row.** Chapter One (Magical
+    Theory, pp. 9-19/PDF 10-20) is pure narrative/setting lore about
+    sorcerous initiation and schools of magic, with no new Charms,
+    Backgrounds or Merits (`savant-and-sorcerer-chapter-one-magical-
+    theory-excluded`). Chapter Four (Practical Summonings, pp. 71-99/PDF
+    72-100) is the Storyteller-facing demon/elemental summoning
+    procedure and bound-creature Limit-Profile framework (Courtesan,
+    Ecstatic, Functionary, Horror, Hunter, Killer, Slave, Vizier, Warden,
+    Sufferer, etc.) rather than player-facing mechanics — the actual
+    summoning spells a sorcerer casts are the Chapter Five spells already
+    catalogued above (`savant-and-sorcerer-chapter-four-practical-
+    summonings-gm-only`).
+  - **Abyssal Solar Circle Sorcery access — investigated and resolved:
+    NOT granted.** *The Book of Three Circles* Chapter Four's own intro
+    sidebar (printed p. 69/PDF 70) claims, as flavor/lore text only, that
+    "the Abyssal Exalted have also been observed to use Solar Circle
+    sorcery, though it is unknown who taught them — perhaps the
+    Deathlords or perhaps some demonic patron." Neither that book nor
+    *Savant and Sorcerer* contains an enabling Charm or explicit rule
+    granting player-facing Solar Circle Sorcery access to Abyssal
+    characters anywhere in either text (both books were checked). The 9
+    Solar Circle/Circle of Adamant spell rows above are therefore
+    catalogued `reference-only` rather than `selectable`, each with a note
+    explaining this finding; no `solar-circle-sorcery` enabling Charm row
+    exists in this inventory because none is confirmed to exist for this
+    splat.
+
 ## What's still needed
 
 All four scope items from the previous inventory pass (finishing the
 Void Circle, locating the Craft rules, resolving `corpus-rending-blow`, and
 checking for Abyssal-specific Merits/Flaws) are complete, and the Book of
-Bone and Ebony supplement pass above closed out this family's two
-highest-priority remaining items (its new Charms/Arcanoi chapter and its
-new necromancy spells). What remains is either out-of-core-scope, optional,
+Bone and Ebony and Savant and Sorcerer supplement passes above closed out
+this family's remaining high-priority items (new Charms/Arcanoi, new
+necromancy spells, the full Terrestrial/Celestial/Solar Circle Sorcery
+catalog, the Hearthstone catalog, a Sample Artifacts catalog, and the
+Warstriders appendix). What remains is either out-of-core-scope, optional,
 or a smaller resume item:
 
 1. **Book of Bone and Ebony, Chapter Four's nemissary/war-machine

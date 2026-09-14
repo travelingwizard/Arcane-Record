@@ -193,7 +193,7 @@ real, creatable sheet.
 | Family     | Source manifest                                               | Inventory rows | Promoted | Certification                    |
 | ---------- | ------------------------------------------------------------- | -------------- | -------- | -------------------------------- |
 | Lunar      | Created (Exalted: The Lunars + Exalted Players Guide)         | 341            | 0        | Locked, all dimensions `not-run` |
-| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony)      | 440            | 0        | Locked, all dimensions `not-run` |
+| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer) | 565            | 0        | Locked, all dimensions `not-run` |
 | Sidereal   | Created (Exalted: The Sidereals)                              | 252            | 0        | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide) | 277            | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide)      | 336            | 0        | Locked, all dimensions `not-run` |
@@ -225,7 +225,7 @@ planned families to reach full primary-sourcebook parity; only the
 untriaged cross-splat supplements remain. See
 `docs/references/exalted1e/lunar/README.md`.
 
-Abyssal's 440 rows cover the Chapter Three character-creation overview, the
+Abyssal's 565 rows cover the Chapter Three character-creation overview, the
 universal Anima Effect, all five Castes, the Abyssal Curse, the Virtues of
 Death, the full Resonance mechanic (the Limit-Trait analog, including gain,
 loss, and the 1-10 manifestation table), the-title, Useful Crafts, the
@@ -249,8 +249,36 @@ book (153 rows): 77 new necromancy spells, a 69-entry small-artifact
 catalog (Wonders of the Dead), 5 named artifacts plus 1 embedded spell from
 Creations of Bone, and an excluded finding for its Arts of the Dead chapter
 (ghost Arcanoi, not player Charms). That supplement's Chapter Four
-nemissary/war-machine construction subsystem remains an open resume point;
-see `docs/references/exalted1e/abyssal/README.md`.
+nemissary/war-machine construction subsystem remains an open resume point.
+A cross-splat supplement, **Savant and Sorcerer** — which explicitly
+supersedes the older _Book of Three Circles_ as this edition's official
+magic book — has now also been triaged and added as a third source book
+(125 rows): the complete Chapter Five Terrestrial and Celestial Circle
+spell catalog (84 selectable spells, cross-checked against the chapter's
+own page-by-page spell-header count), that same chapter's Solar Circle
+(Circle of Adamant) spells (9 rows, marked reference-only rather than
+selectable — see below), the 15-entry Sample Hearthstones catalog (three
+per level, Levels One through Five, including an Abyssal-themed Level Four
+stone, The Ice Gem) plus its Hearthstone formation/Theme/Expression
+framework, 5 Sample Artifacts (including Soul Mirror, a soulsteel grand
+daiklave explicitly written to call out Abyssals) plus the artifact-creation
+framework, and the Appendix: Warstriders (the general piloting/benefits/
+limitations framework, all five warstrider classes — including the
+explicitly Abyssal/Deathlord-flavored Royal-class soulsteel-and-Abyssal-iron
+variant and the Juggernaut class favored by Abyssal deathknights — the
+Proteus Gauntlet artifact, and a weapon-table summary), plus excluded/gm-only
+findings for Chapter One (Magical Theory, pure lore) and Chapter Four
+(Practical Summonings, a Storyteller-facing demon/elemental summoning
+framework). This pass also resolved the open question of Abyssal Solar
+Circle Sorcery access: _Book of Three Circles_ Chapter Four's intro sidebar
+claims only, as flavor text, that "the Abyssal Exalted have recently
+demonstrated the ability to practice this form of sorcery," but neither
+book contains an enabling Charm or rule that actually grants player-facing
+Solar Circle Sorcery access to Abyssal characters, so its spells are
+catalogued as reference-only rather than selectable. **Exalted: The
+Abyssals' full three-source-book inventory (core book, Book of Bone and
+Ebony, and Savant and Sorcerer) is now complete** for this pass; see
+`docs/references/exalted1e/abyssal/README.md`.
 
 Sidereal's 252 rows cover the Chapter Three character-creation overview, the
 five Auspicious Ability groups, the universal anima effect, all five Castes

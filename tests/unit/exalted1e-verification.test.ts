@@ -156,8 +156,8 @@ describe('exalted1e verification gate', () => {
   it('describes Abyssal as locked with its inventory-in-progress promotion count', () => {
     const status = getFamilyCertificationStatus('abyssal');
     expect(status.available).toBe(false);
-    expect(status.blockReason).toContain('0/440 promoted');
-    expect(status.blockReason).toContain('0 unresolved');
+    expect(status.blockReason).toContain('0/565 promoted');
+    expect(status.blockReason).toContain('2 unresolved');
     expect(status.blockReason).toContain('rules tests not-run');
   });
 
