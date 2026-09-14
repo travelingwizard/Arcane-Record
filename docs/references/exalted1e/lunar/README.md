@@ -6,7 +6,7 @@ is now inventoried cover-to-cover for character-creation-relevant material.
 See [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md)
 for the full process this directory follows.
 
-`inventory/exalted-the-lunars.json` currently has 253 reviewed rows. Every row
+`inventory/exalted-the-lunars.json` currently has 341 reviewed rows. Every row
 was visually compared against a rendered page of the source PDF before being
 marked `reviewed` — none of this content came from OCR alone. It covers:
 
@@ -208,6 +208,26 @@ Tribe-as-Background section exists; Lunar tribes are addressed only through
 the altered Backing/Followers text and general chapter flavor, not as a
 discrete character-creation mechanic.
 
+That Merits/Flaws gap is now filled from a second source book: the
+**Exalted Players Guide**, Chapter One, "Merits and Flaws" (printed pp.
+18-41, PDF pp. 21-44), has been transcribed in full — 88 rows (44 merits +
+44 flaws) in `inventory/exalted-the-lunars.json` with the `pg-merit-*` /
+`pg-flaw-*` id prefix. This chapter is **universal**, applying across all
+five planned Exalted families (Lunar, Abyssal, Sidereal, Alchemical, Fair
+Folk), so every row's `notes` field captures any splat-specific eligibility
+or cost caveats verbatim rather than assuming universality. Highlights
+relevant to Lunars: **Chimera** is a Lunars-only Flaw (a Lunar who has
+swapped totem animals, gaining a hybrid Deadly Beastman appearance and
+losing access to the Renown Background if truly Wyld-touched); **Known
+Anathema**, **Permanent Caste Mark** (the Lunar tattoo is silver),
+**Greater Curse** (reduces the Lunar's maximum Limit pool), and
+**Throwback** are all Celestial-Exalted-only (Solar/Lunar/Sidereal) and
+apply to Lunars; **Death-Taint** is Abyssals-and-Ghosts-only and does *not*
+apply to Lunars; **Dark Fate** normally excludes only Sidereals (not
+Lunars). The chapter closes with a full-page illustration (printed p.
+42/PDF 43) and a short fiction piece (printed p. 43/PDF 44) before Chapter
+Two, "The God-Blooded," begins on printed p. 44/PDF 45.
+
 A few rows carry explicit `notes` flagging spots that need a closer look
 before promotion (an illegible cost line on Cat-Falling Attitude, an
 awkward cap-formula sentence on Hydra Head Attack that may be OCR/print
@@ -254,12 +274,16 @@ Healing, Perception, Stealth, Interaction and Knowledge/Presence,
 Spirit, and Sorcery-access) has been transcribed, pp. 122-193 (PDF
 125-196).
 
-*Exalted: The Lunars* is now **fully inventoried cover-to-cover** for its
+*Exalted: The Lunars* is **fully inventoried cover-to-cover** for its
 character-creation-relevant material: the core innate powers, every Charm
 category in Chapter Five, and all of Chapter Four: Traits (Backgrounds,
 Castes, the Great Curse, and the Face/Renown social-rank system — Merits/
 Flaws and a dedicated Tribe write-up were confirmed absent from the chapter,
-not merely unreviewed). Still outstanding: any Lunar-facing material in the
+not merely unreviewed). The **Exalted Players Guide**'s universal Merits and
+Flaws chapter (Chapter One) is also now fully transcribed, filling that gap
+with 88 rows (44 merits + 44 flaws) that apply across all five planned
+Exalted families, with Lunar-specific eligibility/cost caveats captured in
+each row's notes. Still outstanding: any Lunar-facing material in the other
 cross-splat supplements listed in the top-level intent (Blood and Salt, Book
 of Bone and Ebony, Savage Seas, etc.), which remain entirely uninventoried.
 

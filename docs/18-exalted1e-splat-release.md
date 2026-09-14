@@ -192,17 +192,17 @@ real, creatable sheet.
 
 | Family     | Source manifest                       | Inventory rows | Promoted | Certification                    |
 | ---------- | ------------------------------------- | -------------- | -------- | -------------------------------- |
-| Lunar      | Created (Exalted: The Lunars)         | 253            | 0        | Locked, all dimensions `not-run` |
+| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide) | 341 | 0        | Locked, all dimensions `not-run` |
 | Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony) | 440 | 0        | Locked, all dimensions `not-run` |
 | Sidereal   | Created (Exalted: The Sidereals)      | 252            | 0        | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians) | 207            | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Created (Exalted: The Fair Folk)      | 263            | 0        | Locked, all dimensions `not-run` |
 
-Lunar's 253 rows cover the core innate powers, every Charm category in
+Lunar's 341 rows cover the core innate powers, every Charm category in
 Chapter Five (Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat
 I-V, Melee Combat I/II, Ranged Combat I/II, Defensive I/II/III, Survival and
 Healing I/II/III/IV, Perception I/II/III/IV, Stealth, Interaction and
-Knowledge/Presence I/II/III/IV, Spirit, and Sorcery-access Charms), and now
+Knowledge/Presence I/II/III/IV, Spirit, and Sorcery-access Charms), and
 **all of Chapter Four: Traits** — the altered/new Backgrounds (Artifact,
 Backing, Followers, Manse, Mentor, Cult, Heart's Blood, Renown), all three
 player Castes (Full Moon, Changing Moon, No Moon) plus Casteless (this
@@ -211,10 +211,19 @@ Curse (this splat's Limit-Trait analog) and its four Virtue-linked thralls,
 and the Face/Renown social-rank system — all visually reviewed against
 rendered pages of the supplied PDF (confirmed printed page = PDF page − 3).
 No dedicated Lunar-specific Merits/Flaws subsection or Tribe write-up exists
-in this book (confirmed absent). **Exalted: The Lunars is now inventoried
-cover-to-cover** — the second of the five planned families to reach full
-primary-sourcebook parity; only the untriaged cross-splat supplements
-remain. See `docs/references/exalted1e/lunar/README.md`.
+in *Exalted: The Lunars* itself (confirmed absent). That gap is filled by a
+second source book: the *Exalted Players Guide*'s universal Chapter One,
+"Merits and Flaws" (pp. 18-41/PDF 21-44), now fully transcribed as 88 rows
+(44 merits + 44 flaws) applying across all five planned Exalted families,
+with splat-specific eligibility/cost caveats (e.g. the Lunars-only Chimera
+Flaw; the Celestial-Exalted-only Known Anathema, Permanent Caste Mark,
+Greater Curse, and Throwback Flaws; the Abyssals-and-Ghosts-only Death-Taint
+Flaw, not applicable to Lunars) captured verbatim in each row's notes.
+**Exalted: The Lunars is inventoried cover-to-cover**, and its universal
+Merits/Flaws gap is closed via the Players Guide — the second of the five
+planned families to reach full primary-sourcebook parity; only the
+untriaged cross-splat supplements remain. See
+`docs/references/exalted1e/lunar/README.md`.
 
 Abyssal's 440 rows cover the Chapter Three character-creation overview, the
 universal Anima Effect, all five Castes, the Abyssal Curse, the Virtues of
