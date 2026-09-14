@@ -193,8 +193,8 @@ real, creatable sheet.
 | Family     | Source manifest                       | Inventory rows | Promoted | Certification                    |
 | ---------- | ------------------------------------- | -------------- | -------- | -------------------------------- |
 | Lunar      | Created (Exalted: The Lunars)         | 253            | 0        | Locked, all dimensions `not-run` |
-| Abyssal    | Created (Exalted: The Abyssals)       | 265            | 0        | Locked, all dimensions `not-run` |
-| Sidereal   | Created (Exalted: The Sidereals)      | 184            | 0        | Locked, all dimensions `not-run` |
+| Abyssal    | Created (Exalted: The Abyssals)       | 283            | 0        | Locked, all dimensions `not-run` |
+| Sidereal   | Created (Exalted: The Sidereals)      | 205            | 0        | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians) | 207            | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Created (Exalted: The Fair Folk)      | 263            | 0        | Locked, all dimensions `not-run` |
 
@@ -216,21 +216,21 @@ cover-to-cover** — the second of the five planned families to reach full
 primary-sourcebook parity; only the untriaged cross-splat supplements
 remain. See `docs/references/exalted1e/lunar/README.md`.
 
-Abyssal's 265 rows cover the Chapter Three character-creation overview, the
+Abyssal's 283 rows cover the Chapter Three character-creation overview, the
 universal Anima Effect, all five Castes, the Abyssal Curse, the Virtues of
 Death, the full Resonance mechanic (the Limit-Trait analog, including gain,
 loss, and the 1-10 manifestation table), the-title, Useful Crafts, the
 Cult-and-Abyssals exclusion, all eleven altered/new Backgrounds, all 228
 Chapter Five Charm rows covering every Ability line for all five Castes
-(Dusk, Midnight, Daybreak, Day, Moonshadow), and the start of Chapter Six's
-necromancy system (the framework overview plus all 9 Shadowlands Circle
-spells), all visually reviewed against rendered pages of the supplied
-(image-based) PDF. Chapter Six's Labyrinth and Void Circle necromancy
-spells, the Craft (Necrosurgery/etc.) rules, and Abyssal-specific Merits/
-Flaws are not yet inventoried; see
-`docs/references/exalted1e/abyssal/README.md`.
+(Dusk, Midnight, Daybreak, Day, Moonshadow), and Chapter Six's necromancy
+system through the Shadowlands (First, 9 spells) and Labyrinth (Second,
+10 spells) Circles plus the start of the Void (Third) Circle (7 spells so
+far), all visually reviewed against rendered pages of the supplied
+(image-based) PDF. The rest of the Void Circle spell list, the Craft
+(Necrosurgery/etc.) rules, and Abyssal-specific Merits/Flaws are not yet
+inventoried; see `docs/references/exalted1e/abyssal/README.md`.
 
-Sidereal's 184 rows cover the Chapter Three character-creation overview, the
+Sidereal's 205 rows cover the Chapter Three character-creation overview, the
 five Auspicious Ability groups, the universal anima effect, all five Castes
 (Chosen of Journeys/Serenity/Battles/Secrets/Endings), the Arcane Fate
 mechanic (the Limit-Trait analog — a passive forgetting/disguise effect
@@ -241,12 +241,14 @@ of Chapter Five's Caste-and-Ability Charm trees in full** across all five
 Castes (Journeys, Serenity, Battles, Secrets, Endings — 152 Charms total,
 including the Endings Caste's dedicated Violet Bier of Sorrows Martial Arts
 style), reviewed against the supplied PDF (confirmed printed page = PDF page
-− 3, including through Chapter Five). This is the first of the five planned
-families to reach full Charm-tree parity. The book's further secret Martial
-Arts styles taught to Sidereals generally (Charcoal March of Spiders,
-Prismatic Arrangement of Creation, Citrine Pox of Contagion), the full
-Colleges/astrology Charm-tree equivalent, and Resplendent Destinies are not
-yet inventoried; see `docs/references/exalted1e/sidereal/README.md`.
+− 3, including through Chapter Five), plus the general secret Martial Arts
+framework, the complete Charcoal March of Spiders Style (12 Charms), and the
+first five rows (tree overview, four roots, and first Form Charm) of
+Prismatic Arrangement of Creation Style. This is the first of the five
+planned families to reach full Chapter-Five Charm-tree parity. The rest of
+Prismatic Arrangement of Creation Style, Citrine Pox of Contagion Style, the
+full Colleges/astrology Charm-tree equivalent, and Resplendent Destinies are
+not yet inventoried; see `docs/references/exalted1e/sidereal/README.md`.
 
 Alchemical's 207 rows cover the character-creation overview, the universal
 Anima Banner effect, Artificial Metabolism, Life/Death/the Soulgem,

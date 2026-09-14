@@ -5336,11 +5336,58 @@
       "pdfPage": 226
     },
     "crossReferences": [
-      "necromancy-framework-and-circles"
+      "necromancy-framework-and-circles",
+      "arisen-legion",
+      "call-the-greater-servitor"
     ],
-    "notes": "Chapter Six: Necromancy, The Shadowlands Circle, p. 225 (PDF 226)."
+    "notes": "Chapter Six: Necromancy, The Shadowlands Circle, p. 225 (PDF 226). Its own entry is immediately followed on the same page by two named Labyrinth Circle variants, Arisen Legion and Call the Greater Servitor (see those rows), presented as modified versions of this spell rather than fully independent write-ups."
   },
   {
+    "id": "arisen-legion",
+    "name": "Arisen Legion",
+    "disposition": "selectable",
+    "summary": "Labyrinth Circle variant of Raise the Skeletal Horde; duplicates that spell's effect but reduces the Essence cost to 3 motes per permanent zombie or 1 mote per temporary zombie.",
+    "requirements": "Necromancy: Labyrinth Circle (see Necromancy Framework and Circles).",
+    "mechanics": "Arisen Legion duplicates the effect of Raise the Skeletal Horde but reduces the Essence cost to 3 motes for a permanent zombie or 1 mote for a temporary zombie.",
+    "cost": "3 motes per permanent zombie or 1 mote per temporary zombie",
+    "compatibility": "Duration: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 225,
+      "pdfPage": 226
+    },
+    "crossReferences": [
+      "raise-the-skeletal-horde",
+      "call-the-greater-servitor",
+      "necromancy-framework-and-circles"
+    ],
+    "notes": "Chapter Six: Necromancy, The Labyrinth Circle, p. 225 (PDF 226). Presented in the source as a named Labyrinth Circle variant appended directly to the Raise the Skeletal Horde entry rather than as a separately headed spell block; given its own row here per this pass's 'every spell gets its own row' scope."
+  },
+  {
+    "id": "call-the-greater-servitor",
+    "name": "Call the Greater Servitor",
+    "disposition": "selectable",
+    "summary": "Labyrinth Circle variant of Raise the Skeletal Horde; costs 6 motes per minion, cannot create temporary zombies or more corpses in a single casting than the necromancer's Occult score, but its zombies are never extras and have Intelligence and Melee 2, letting them use weapons, wear armor, and follow more complex instructions.",
+    "requirements": "Necromancy: Labyrinth Circle (see Necromancy Framework and Circles).",
+    "mechanics": "The second variant, Call the Greater Servitor, costs 6 motes for each minion, but the character cannot create temporary zombies or raise more corpses in a single casting than his Occult score. Zombies raised with Call the Greater Servitor are never extras and have an Intelligence and Melee of 2, allowing them to use weapons or wear armor and to follow more complicated instructions.",
+    "cost": "6 motes per minion",
+    "compatibility": "Duration: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 225,
+      "pdfPage": 226
+    },
+    "crossReferences": [
+      "raise-the-skeletal-horde",
+      "arisen-legion",
+      "necromancy-framework-and-circles"
+    ],
+    "notes": "Chapter Six: Necromancy, The Labyrinth Circle, p. 225 (PDF 226). Presented in the source as a named Labyrinth Circle variant appended directly to the Raise the Skeletal Horde entry rather than as a separately headed spell block; given its own row here per this pass's 'every spell gets its own row' scope."
+  },
+  {
+    "id": "rune-of-sweet-passing",
     "id": "rune-of-sweet-passing",
     "name": "Rune of Sweet Passing",
     "disposition": "selectable",
@@ -5440,5 +5487,332 @@
       "necromancy-framework-and-circles"
     ],
     "notes": "Chapter Six: Necromancy, The Shadowlands Circle, pp. 226-227 (PDF 227-228). Closes out the Shadowlands (First) Circle spell list (9 spells)."
+  },
+  {
+    "id": "exquisite-undead-aide",
+    "name": "Exquisite Undead Aide",
+    "disposition": "selectable",
+    "summary": "Labyrinth Circle spell; instead of raising a mindless shambling horde, a necromancer with this spell can create a single powerful zombie servant to act as a lieutenant or majordomo, one who never decays further and can speak in clipped rasping phrases.",
+    "requirements": "Necromancy: Labyrinth Circle (see Necromancy Framework and Circles).",
+    "mechanics": "Instead of raising a mindless shambling horde, a necromancer with this spell can create a single powerful servant to act as a lieutenant or majordomo. The creature begins with the same statistics as a zombie (see Exalted p. 299), with the following modifications: all Attributes have a minimum rating of 2, the creature gains an Appearance of dots equal to its creator's Intelligence + Occult, and it knows all Abilities, though none can exceed the necromancer's own rating. The creature never decays any further, although it exudes a distinctive musty reek that clearly marks it as one of the undead. The creature may speak in clipped, rasping phrases, although it only speaks in response to questions from its master or in fulfillment of her orders. It is not considered an extra and has a full complement of health levels.",
+    "cost": "20 motes",
+    "compatibility": "Duration: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 226,
+      "pdfPage": 227
+    },
+    "crossReferences": [
+      "necromancy-framework-and-circles",
+      "raise-the-skeletal-horde",
+      "labyrinth-circle-necromancy"
+    ],
+    "notes": "Chapter Six: Necromancy, The Labyrinth Circle, p. 226 (PDF 227). Opens the Labyrinth (Second) Circle spell list, immediately following the 'The Labyrinth Circle' section-intro prose on the same page."
+  },
+  {
+    "id": "hundred-shade-breath",
+    "name": "Hundred Shade Breath",
+    "disposition": "selectable",
+    "summary": "Labyrinth Circle spell; the necromancer exhales a glowing blue fog of curling tendrils that coalesce into a swarm of hungry ghosts, one for every 2 motes of Essence spent, though the spell is useless by day since sunlight would burn the horde to ash.",
+    "requirements": "Necromancy: Labyrinth Circle (see Necromancy Framework and Circles).",
+    "mechanics": "The necromancer inhales and concentrates, building the spell inside her lungs. When the magic is ready, she opens her mouth and a glowing blue fog rushes out in dozens of curling tendrils as she exhales. Over the next turn, these wisps coalesce into hungry ghosts -- one for every 2 motes of Essence spent. These ghosts have normal statistics (see Exalted p. 300) and are all extras. Obviously, this spell is of no use during the day, as sunlight would instantly burn the assembled horde to ash. At the end of the scene in which they were summoned, any 'surviving' ghosts dissolve to mist and flow back into the necromancer's mouth. Motes spent on this spell remain committed so long as the ghosts remain, but the character frees 2 motes from the committed total every time one perishes.",
+    "cost": "Varies",
+    "compatibility": "Duration: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 226,
+      "pdfPage": 227
+    },
+    "crossReferences": [
+      "necromancy-framework-and-circles",
+      "exquisite-undead-aide"
+    ],
+    "notes": "Chapter Six: Necromancy, The Labyrinth Circle, pp. 226-227 (PDF 227-228)."
+  },
+  {
+    "id": "ivory-razor-forest",
+    "name": "Ivory Razor Forest",
+    "disposition": "selectable",
+    "summary": "Labyrinth Circle spell; the necromancer gestures toward her enemies and an invisible shockwave skims the earth, causing dozens or hundreds of razor-edged bone spines to tear up from the ground at great speed, inflicting 8L damage to anything in their path.",
+    "requirements": "Necromancy: Labyrinth Circle (see Necromancy Framework and Circles).",
+    "mechanics": "The necromancer gestures in the direction of her enemies, and a shockwave of Essence skims the earth toward them. The wave is invisible and causes no injury. However, in its wake, dozens or even hundreds of great spines of gleaming bone tear up through the earth at great speed, to a maximum height of the caster's permanent Essence in yards. The razor-edged blades cut through everything in their path, inflicting 8L damage to anything that cannot be blocked, only dodged. The spikes affect a total area of (the necromancer's Charisma + Occult x 10) square yards, although this area can be divided into any shape or configuration as the caster sees fit. Some prefer to break apart troop formations while others grow the bones into impassable fences or ramparts. The blades shatter into dust after a number of days equal to their creator's Essence, but have the durability of a brick wall until that time (see Exalted, p. 239). The blades are densely packed enough that nothing larger than a rabbit can slip through the cracks, and being thrown against them also inflicts 8L.",
+    "cost": "25 motes",
+    "compatibility": "Duration: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 227,
+      "pdfPage": 228
+    },
+    "crossReferences": [
+      "necromancy-framework-and-circles"
+    ],
+    "notes": "Chapter Six: Necromancy, The Labyrinth Circle, p. 227 (PDF 228)."
+  },
+  {
+    "id": "reaping-the-fallen",
+    "name": "Reaping the Fallen",
+    "disposition": "selectable",
+    "summary": "Labyrinth Circle spell; the necromancer opens her anima to draw power from death, gaining 1 mote for every sentient being that dies within a league of her, up to her usual maximum, making it most useful during mass carnage such as a massacre or military battle.",
+    "requirements": "Necromancy: Labyrinth Circle (see Necromancy Framework and Circles).",
+    "mechanics": "With this spell, a necromancer opens her soul to draw power from death. Her anima erupts to its full iconic glory regardless of whether she spent Personal or Peripheral Essence, while her face contorts into a mask of inhuman rage and hunger. For the rest of the scene, the character gains 1 mote for every sentient being dying within a league of her, up to her usual maximum. Obviously, this spell is only useful in the presence of mass carnage, such as a massacre or a military battle. In such settings, the Storyteller should assign how many motes the character gains each turn instead of awarding Essence on a per death basis.",
+    "cost": "25 motes",
+    "compatibility": "Duration: One scene.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 227,
+      "pdfPage": 228
+    },
+    "crossReferences": [
+      "necromancy-framework-and-circles",
+      "blood-from-the-slaughter"
+    ],
+    "notes": "Chapter Six: Necromancy, The Labyrinth Circle, p. 227 (PDF 228). Immediately followed in the source by a named Void Circle variant, Blood from the Slaughter (see that row)."
+  },
+  {
+    "id": "blood-from-the-slaughter",
+    "name": "Blood from the Slaughter",
+    "disposition": "selectable",
+    "summary": "Void Circle variant of Reaping the Fallen; instead of gaining Essence, the necromancer regenerates one level of bashing or lethal damage for every sentient being killed within a league each turn, though never more levels per turn than her permanent Essence.",
+    "requirements": "Necromancy: Void Circle (see Necromancy Framework and Circles).",
+    "mechanics": "A Void Circle version of this spell, Blood from the Slaughter, instead allows the necromancer to supplant her own life force with the energy released by carnage. At the end of each turn, the character regenerates one level of bashing or lethal damage for every living sentient killed within one league, but the character cannot regenerate more levels per turn than her permanent Essence.",
+    "cost": "35 motes",
+    "compatibility": "Duration: One scene.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 227,
+      "pdfPage": 228
+    },
+    "crossReferences": [
+      "reaping-the-fallen",
+      "necromancy-framework-and-circles"
+    ],
+    "notes": "Chapter Six: Necromancy, The Void Circle, p. 227 (PDF 228). Presented in the source as a named Void Circle variant appended directly to the Reaping the Fallen entry rather than as a separately headed spell block; given its own row here per this pass's 'every spell gets its own row' scope. First Void Circle spell to appear in the book, though it precedes the formal 'THE VOID CIRCLE' section heading that opens with Abyssal Aegis."
+  },
+  {
+    "id": "spiteful-passing",
+    "name": "Spiteful Passing",
+    "disposition": "selectable",
+    "summary": "Labyrinth Circle spell; facing the bitterness of his own demise, a necromancer with this spell unleashes his hate in a final blast of power as he dies, dealing lethal damage to all living beings and Fair Folk in range and bypassing armor.",
+    "requirements": "Necromancy: Labyrinth Circle (see Necromancy Framework and Circles).",
+    "mechanics": "Faced with the bitterness of his own demise, a necromancer with this spell may unleash his hate in a final blast of power. Although he must still spend a turn concentrating, the character need only speak one word to cast this spell. He may scream in defiance or weakly cough his last syllable from blood-flecked lips, but the effects remain the same. His body arches in pain and expires as searing light erupts from his opened mouth, eyes, and wounds. All living beings and Fair Folk within a number of yards equal to the necromancer's permanent Essence suffer his permanent Essence in dice of lethal damage, plus one additional die for every point remaining in his pool. This damage bypasses armor. It is soaked only with the victim's own natural soak, and it inflicts no physical trauma -- victims killed by the spell simply drop where they stand, and survivors feel a terrible cold grip them. All plants in range wither and die. The necromancer's corpse rots to dust within moments of the blast.",
+    "cost": "Special",
+    "compatibility": "Duration: Instant.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 227,
+      "pdfPage": 228
+    },
+    "crossReferences": [
+      "necromancy-framework-and-circles"
+    ],
+    "notes": "Chapter Six: Necromancy, The Labyrinth Circle, pp. 227-228 (PDF 228-229). This spell can only be cast at the moment of the necromancer's own death; the source text does not give a mote cost since it consumes the caster's remaining Essence pool as its cost basis, hence 'Special'."
+  },
+  {
+    "id": "stealing-the-gathered-breath",
+    "name": "Stealing the Gathered Breath",
+    "disposition": "selectable",
+    "summary": "Labyrinth Circle spell; the necromancer opens her mouth and inhales, drawing Essence from every living being within her permanent Essence x 5 yards, soaked only with Stamina, restoring 1 mote to the necromancer per level of damage inflicted and visible to onlookers as pale light rushing into her maw.",
+    "requirements": "Necromancy: Labyrinth Circle (see Necromancy Framework and Circles).",
+    "mechanics": "The necromancer opens her mouth and inhales, drawing energy from every sentient living being within the character's permanent Essence x 5 yards. All victims within range suffer one die of lethal damage, soaked only with Stamina. Each level of damage actually inflicted by this spell restores 1 mote of Essence to the necromancer. Energy harvested with this spell can be seen by all onlookers as streams of pale light rushing from the victims to the necromancer's maw.",
+    "cost": "15 motes",
+    "compatibility": "Duration: Instant.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 228,
+      "pdfPage": 229
+    },
+    "crossReferences": [
+      "necromancy-framework-and-circles"
+    ],
+    "notes": "Chapter Six: Necromancy, The Labyrinth Circle, p. 228 (PDF 229)."
+  },
+  {
+    "id": "striking-spectre-lash",
+    "name": "Striking Spectre Lash",
+    "disposition": "selectable",
+    "summary": "Labyrinth Circle spell; a long tendril of solidified darkness grows from the necromancer's wrist or palm, striking like a dart or octopus tentacle and inflicting normal or crippling grappling attacks; motes spent before an attack roll add automatic successes to hit or Essence damage.",
+    "requirements": "Necromancy: Labyrinth Circle (see Necromancy Framework and Circles).",
+    "mechanics": "Upon casting this spell, a long tendril of solidified darkness grows from the necromancer's wrist or palm. This serpentine appendage undulates and coils of its own volition, striking more like a darting snake or an octopus tentacle than any mundane whip. The lash has a Speed, Accuracy, and Defense rating equal to its master's Essence and a score and a length in yards of five times this value. Its base damage equals its creator's Strength + Essence. In addition to inflicting normal damage and permitting grappling attacks, the whip can kill unwary mortals and animals outright. If the necromancer reflexively spends 2 motes before making his attack roll and successfully hits, the victim's player must make a reflexive Essence roll. If this roll fails, the victim falls dead with a look of horror frozen in her face. Exalts, spirits, Fair Folk, and other magical beings are notably larger than humans are immune to this effect so long as their Stamina exceeds the necromancer's Essence rating.",
+    "cost": "15 motes + 2 motes per attack",
+    "compatibility": "Duration: One scene.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 228,
+      "pdfPage": 229
+    },
+    "crossReferences": [
+      "necromancy-framework-and-circles"
+    ],
+    "notes": "Chapter Six: Necromancy, The Labyrinth Circle, p. 228 (PDF 229). Closes out the Labyrinth (Second) Circle spell list (9 spells: Exquisite Undead Aide, Hundred Shade Breath, Arisen Legion, Call the Greater Servitor, Ivory Razor Forest, Reaping the Fallen, Spiteful Passing, Stealing the Gathered Breath, Striking Spectre Lash)."
+  },
+  {
+    "id": "the-void-circle",
+    "name": "The Void Circle",
+    "disposition": "reference-only",
+    "summary": "Section-intro prose opening the Void (Third) Circle of necromancy: though it is generally believed that no Exalted apart from the Abyssals can practice necromancy at this level, Solar Exalted once probed the powers of the Labyrinth Circle and could do so again with the proper tutelage, but none save the deathknights and their Deathlord masters can invoke magic of the Void itself.",
+    "requirements": "Chapter Six framework overview; not itself a selectable power.",
+    "mechanics": "Though it is generally believed by savants that no Exalted apart from the Abyssals can practice the discipline of necromancy, such is not the case. Solar Exalted once probed the powers of the Labyrinth Circle and could do so again with the proper tutelage. Still, none save the deathknights and their Deathlord masters can invoke magic of the Void itself. Indeed, no scholar of the First Age ever suspected such terrible magic was possible. Yet, it is with magic of this circle that the Deathlords created and unleashed the Great Contagion, and it is with this circle that the sorcerer-kings of the Underworld now seduce and corrupt nascent Solar Exalted to the service of Oblivion.",
+    "cost": "N/A",
+    "compatibility": "N/A",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 228,
+      "pdfPage": 229
+    },
+    "crossReferences": [
+      "necromancy-framework-and-circles",
+      "abyssal-aegis"
+    ],
+    "notes": "Chapter Six: Necromancy, section-intro prose for The Void Circle, p. 228 (PDF 229), immediately preceding Abyssal Aegis. Note that Blood from the Slaughter (a Void Circle spell) is presented earlier on the page as a variant of the Labyrinth Circle's Reaping the Fallen, ahead of this formal section heading; see that row."
+  },
+  {
+    "id": "abyssal-aegis",
+    "name": "Abyssal Aegis",
+    "disposition": "selectable",
+    "summary": "Void Circle spell; until the next sunrise, the necromancer gains extra bashing and lethal soak against all magic specifically designed to cause extra damage or trauma to Abyssal Exalted, Deathlords, or denizens of the Underworld, though it does not make the Exalt immune to an attack simply because it was augmented with such damage.",
+    "requirements": "Necromancy: Void Circle (see Necromancy Framework and Circles).",
+    "mechanics": "Until the next sunrise, the necromancer gains extra bashing and lethal soak equal to his permanent Essence. In addition, the character is completely immune to all magic specifically designed to cause extra damage or trauma to Abyssal Exalted, Deathlords, or denizens of the Underworld. This protection does not make the Exalt immune to an attack augmented with such magic, although the extra effect is negated. Thus, blasts from the Zenith Caste anima power vanish in a swirl of shadow before they touch the necromancer, but Blazing Solar Bolt still hits, albeit for lethal damage only.",
+    "cost": "20 motes",
+    "compatibility": "Duration: One day.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 228,
+      "pdfPage": 229
+    },
+    "crossReferences": [
+      "necromancy-framework-and-circles",
+      "the-void-circle"
+    ],
+    "notes": "Chapter Six: Necromancy, The Void Circle, p. 228 (PDF 229). Opens the formal 'THE VOID CIRCLE' section (Blood from the Slaughter, catalogued earlier as a Reaping the Fallen variant, is chronologically the first Void Circle spell to appear on the page but precedes this section heading)."
+  },
+  {
+    "id": "anguished-shade-harvest",
+    "name": "Anguished Shade Harvest",
+    "disposition": "selectable",
+    "summary": "Void Circle spell; this potent spell consecrates a stretch of land so that all who suffer violent death within its borders become hungry ghosts, requiring the necromancer to journey there physically as quickly as possible, pacing the intended boundary of the effect.",
+    "requirements": "Necromancy: Void Circle (see Necromancy Framework and Circles).",
+    "mechanics": "This potent spell consecrates a stretch of land so that all who suffer violent death within its borders become hungry ghosts. The necromancer must begin this spell as the sun dips beneath the horizon and spend the required Essence. He then journeys as quickly as possible, physically pacing the intended boundary of the effect. He cannot fly or transport himself magically, although he may use a mount to aid his travel. If he keeps moving without reversing his path and arrives at his original location before midnight, the spell takes effect. Malignant black clouds grow in the sky to cover the entire area, casting the earth into murky gloom even after daybreak. Any mortal who suffers a violent or painful demise in the afflicted area before the last rays of sunlight leave the sky arises as a hungry ghost when the last rays of sunlight leave the sky. These ghosts will not attack the necromancer, but they are not under his control in any way. Hungry ghosts created with this spell have normal statistics (see Exalted, p. 301) but are always considered extras.",
+    "cost": "60 motes",
+    "compatibility": "Duration: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 228,
+      "pdfPage": 229
+    },
+    "crossReferences": [
+      "necromancy-framework-and-circles"
+    ],
+    "notes": "Chapter Six: Necromancy, The Void Circle, p. 228 (PDF 229). The source text's middle sentences describing the sunset/sunlight timing read as slightly redundant/looping in the render ('before the last rays of sunlight leave the sky arises... when the last rays of sunlight leave the sky'); flagged for re-verification against a cleaner render, though the overall mechanic (violent deaths in the consecrated area become hungry ghosts at nightfall) is clear."
+  },
+  {
+    "id": "blood-monsoon",
+    "name": "Blood Monsoon",
+    "disposition": "selectable",
+    "summary": "Void Circle spell; the necromancer cuts her palm and flings a spray of blood into the air, forming a mile-wide disk-shaped cloud that eventually covers a radius in miles equal to her permanent Essence, after which a torrential downpour of blood drenches the earth below, harming plants, animals, and unprotected humans and attracting hungry ghosts.",
+    "requirements": "Necromancy: Void Circle (see Necromancy Framework and Circles).",
+    "mechanics": "The necromancer cuts her palm and flings a spray of blood into the air. Instead, these droplets never fall to the earth. Instead, the rise and multiply until a column of bedded crimson ascends in an obscene geyser into the sky. This pillar reaches a height of one mile, it blossoms outward, growing into a disk-shaped cloud that eventually covers a radius in miles equal to its creator's permanent Essence. This entire process takes one hour. Although the necromancer can take other actions during this time, the Essence powering the spell remains committed until it completely runs its course. After the cloud reaches its full size, a torrential downpour of blood drenches the earth below in gore for a number of hours equal to its creator's Stamina. Ghosts and other creatures of the Underworld can glut themselves on this rain, although they gain no Essence from it. Blood summoned with this spell rapidly mixes with dirt and clots into a stinking, sticky morass of polluted gore, wreaking havoc on the local environment. Most plants and smaller animals in the area affected die outright, while humans and other larger creatures must succeed in an hourly Stamina + Endurance check to avoid becoming violently ill and suffering a 1 die penalty to all actions. This spell -- and its concomitant scent of death -- also attracts hungry ghosts and other malevolent creatures for dozens of miles.",
+    "cost": "50 motes (committed) + one lethal health level",
+    "compatibility": "Duration: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 228,
+      "pdfPage": 229
+    },
+    "crossReferences": [
+      "necromancy-framework-and-circles"
+    ],
+    "notes": "Chapter Six: Necromancy, The Void Circle, pp. 228-229 (PDF 229-230). The source text's opening sentences about the blood droplets ('These droplets never fall to the earth. Instead, the rise and multiply...') read slightly garbled/grammatically inconsistent in the render; flagged for re-verification against a cleaner render, though the overall mechanic (blood ascends into a huge cloud, then falls as a corrosive/harmful downpour) is clear."
+  },
+  {
+    "id": "dimming-of-the-light",
+    "name": "Dimming of the Light",
+    "disposition": "selectable",
+    "summary": "Void Circle spell; with this terrible spell, a necromancer can taint the divine Essence of a willing Solar, transforming him into the semblance of an Abyssal Exalt, requiring a ritual lasting from sunset to midnight and only performed in a shadowland or the Underworld.",
+    "requirements": "Necromancy: Void Circle (see Necromancy Framework and Circles).",
+    "mechanics": "With this terrible spell, a necromancer can taint the divine Essence of a willing Solar, transforming him into the semblance of an Abyssal Exalt. This spell requires a ritual lasting from sunset to midnight and may only be cast within a shadowland or the Underworld. The Solar must willingly enter a Monstrance of Celestial Portion and only renounce his god and defile her Caste Mark by painting it with the blood of a murdered innocent. She then renounces her powers by one, cursing and foreswearing each Charm she knows. Lastly, she renounces her very name. Powerless, nameless, and empty, the broken Solar kneels and pledges her life and soul to the Malfeans and the Void. The necromancer stands by through this litany, silently praying for the dead Primordials to hear and affirm each renunciation in turn. At the final moment, on the stroke of midnight, the necromancer lays one hand on the forehead of the kneeling Solar and spends the required Essence. The animas of both characters immediately burst into full iconic splendor, shadow and light pressing fiercely against one another. Then, the Solar's anima begins to darken like a guttering candle, and at last dying as shadow swallow it for all time. When the necromancer withdraws his hand, her palm is slick with blood from the new Abyssal's Caste Mark. A Solar Exalted transformed in this manner gains a number of Abyssal Charms equal to the number of Solar Charms she knew before the change. She remembers all her spells, if any, though she can never again call on the magic of the Solar Circle. All magical items attuned to her former self follow her original caste, but they may be subsequently reattuned. Her new caste follows her original caste -- Dawn to Dusk, Zenith to Midnight, etc. Her Virtue Flaw vanishes, replaced with the Abyssal Curse. She is thereafter in all ways a deathknight and must contend with the advantages and disadvantages of her new state.",
+    "cost": "80 motes",
+    "compatibility": "Duration: Permanent.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 229,
+      "pdfPage": 230
+    },
+    "crossReferences": [
+      "necromancy-framework-and-circles"
+    ],
+    "notes": "Chapter Six: Necromancy, The Void Circle, p. 229 (PDF 230). This is the spell used by Deathlords to corrupt captured Solars into Abyssals; the source text's 'only renounce his god' phrasing reads slightly garbled, most likely intending 'must renounce his god'."
+  },
+  {
+    "id": "inauspicious-citadel",
+    "name": "Inauspicious Citadel",
+    "disposition": "selectable",
+    "summary": "Void Circle spell; a necromancer can raise a fortress of gleaming obsidian and black basalt from the earth by first overseeing the excavation of a deep pit in the heart of a shadowland, then sacrificing at least 100 mortals down its depths before the ground shakes and the citadel rises fully formed and defensible.",
+    "requirements": "Necromancy: Void Circle (see Necromancy Framework and Circles).",
+    "mechanics": "Through this spell, a necromancer can raise a fortress of gleaming obsidian and black basalt from the earth. Prior to casting the spell, the Exalt must oversee the excavation of a deep pit in the heart of a shadowland. This pit must be as wide as a man can reach with both arms outstretched and deep enough that a man holding a torch could not see the bottom if he peered into its depths. The Exalt then must sacrifice at least 100 mortals down its depths. Great care must be taken so that not even a single drop of blood falls anywhere but in the pit. After all the corpses have been thrown into the lightless shaft, the necromancer leans over the rim, spends the required Essence and cuts his hand. After one full breath level held the dripped into the dark, the ground shakes as the earth beneath the pit falls away to the depths of the Labyrinth and the dead gods reach slowly upward for the sacrifice. The necromancer and any bystanders have only a few minutes to flee the area before a castle of stone grinds up from beneath the pit. Although each citadel is unique, all emerge hollowed and defensible, with polished towers like jutting fingers of black stone inlaid with the meaningless mark marks of the Labyrinth. At the bottommost room of every citadel, lower than all its dungeons, a gleaming sanctuary of jet serves as a chapel to the Malfeans. In its center of its floor yawns an open shaft that extends down to the ultimate darkness and the whispering, dreaming gods that dwell there.",
+    "cost": "60 motes",
+    "compatibility": "Duration: Permanent.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 229,
+      "pdfPage": 230
+    },
+    "crossReferences": [
+      "necromancy-framework-and-circles"
+    ],
+    "notes": "Chapter Six: Necromancy, The Void Circle, pp. 229-230 (PDF 230-231). A couple of the source sentences read slightly garbled in the render (e.g. 'After one full breath level held the dripped into the dark' and 'jutting fingers of black stone inlaid with the meaningless mark marks of the Labyrinth'); flagged for re-verification against a cleaner render, though the overall mechanic (mass mortal sacrifice into a pit raises an obsidian citadel) is clear."
+  },
+  {
+    "id": "lord-of-the-dead",
+    "name": "Lord of the Dead",
+    "disposition": "selectable",
+    "summary": "Void Circle spell; upon casting, the necromancer's Caste Mark emerges glowing a baleful vivid red for the next full day, letting the character command any ghost, wraith, or undead creature of lower permanent Essence, though the spell cannot command or protect against other Abyssal Exalted or Deathlords.",
+    "requirements": "Necromancy: Void Circle (see Necromancy Framework and Circles).",
+    "mechanics": "Upon casting this spell, the necromancer's Caste Mark emerges and glows a baleful vivid red for the next full day. While this light persists, the character may command any ghost, wraith, or undead creature that has lower permanent Essence than her own, and affected creatures must obey to the best of their abilities and intelligence. Commands can be as simple or complicated as desired, although zombies have difficulty comprehending anything more involved than a simple sentence. As a final benefit, no creature of death can attack the Exalt. This spell cannot command or protect against Abyssal Exalted or Deathlords.",
+    "cost": "25 motes",
+    "compatibility": "Duration: One day.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 230,
+      "pdfPage": 231
+    },
+    "crossReferences": [
+      "necromancy-framework-and-circles"
+    ],
+    "notes": "Chapter Six: Necromancy, The Void Circle, p. 230 (PDF 231)."
+  },
+  {
+    "id": "poisoning-the-well",
+    "name": "Poisoning the Well",
+    "disposition": "selectable",
+    "summary": "Void Circle spell; through this spell, a necromancer can vastly speed the rate at which a Demesne changes its aspect to Abyssal, remaining at the heart of the Demesne, fasting and praying to the Malfeans for a number of days equal to its rating while the Essence powering the spell stays committed for the full duration.",
+    "requirements": "Necromancy: Void Circle (see Necromancy Framework and Circles).",
+    "mechanics": "Through this spell, a necromancer can vastly speed the rate at which a Demesne changes its aspect to Abyssal. The Exalt must remain at the heart of the Demesne, fasting and praying to the Malfeans for a number of days equal to its rating. The Essence powering this spell must be spent at the beginning of this period and remains committed for the full duration. A Demesne polluted with this spell loses one point from its rating each month as the Underworld consumes its Essence. When the Demesne reaches a rating of zero, it shifts to an Abyssal aspect and begins to regain lost points until it returns to its original strength. A sorcerer who knows the spell Adamant Countermagic may arrest this decay by spending double the usual number of motes, but barring sorcerous or necromantic countermagic, no power short of an Incarna can halt the process. Should the corrosion be averted before it runs its course, lost points of strength return at the rate of one each year.",
+    "cost": "50 motes (committed)",
+    "compatibility": "Duration: Special.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-abyssals",
+      "printedPage": 230,
+      "pdfPage": 231
+    },
+    "crossReferences": [
+      "necromancy-framework-and-circles"
+    ],
+    "notes": "Chapter Six: Necromancy, The Void Circle, p. 230 (PDF 231)."
   }
 ]

@@ -1,7 +1,7 @@
 # Exalted 1e — Abyssal source intake
 
 **Status: source intake in progress.** `Exalted: The Abyssals` has been
-supplied and 265 inventory rows are checked in under `inventory/`. See
+supplied and 283 inventory rows are checked in under `inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
@@ -10,7 +10,7 @@ the full process this directory follows.
 - `source-manifest.json` — the one source book in scope so far
   (`exalted-the-abyssals`); supplements (necromancy-heavy books like *Blood
   and Salt* or *Book of Bone and Ebony*) are not yet added.
-- `inventory/exalted-the-abyssals.json` — 265 rows covering:
+- `inventory/exalted-the-abyssals.json` — 283 rows covering:
   - The Chapter Three character-creation overview (Attributes/Abilities/
     Backgrounds/Charms/Virtues/Willpower/Essence).
   - The universal, caste-agnostic Anima Effect (Caste Mark flare, anima
@@ -104,17 +104,26 @@ the full process this directory follows.
     (First) Circle spells**: Hungry Creeping Shadow, Iron Countermagic,
     Piercing the Shroud, Raise the Skeletal Horde, Rune of Sweet Passing,
     Shade Prison Amulet, Soul Brand, Summon Ghost, and Walking War Machine
-    (pp. 222-227, PDF 223-228).
+    (pp. 222-227, PDF 223-228), and now all **10 Labyrinth (Second) Circle
+    spells**: Arisen Legion, Call the Greater Servitor (two named variants
+    of a Labyrinth-level Raise the Skeletal Horde upgrade), a
+    Labyrinth-Circle continuation of Rune of Sweet Passing, Exquisite
+    Undead Aide, Hundred Shade Breath, Ivory Razor Forest, Reaping the
+    Fallen, Blood from the Slaughter, Spiteful Passing, Stealing the
+    Gathered Breath, and Striking Spectre Lash (pp. 224-228, PDF 225-229),
+    plus the start of the **Void (Third) Circle**: its section-heading row
+    and 7 spells so far — Abyssal Aegis, Anguished Shade Harvest, Blood
+    Monsoon, Dimming of the Light, Inauspicious Citadel, Lord of the Dead,
+    and Poisoning the Well (pp. 228-230, PDF 229-231). The per-circle
+    gating Charms (`shadowlands-circle-necromancy`,
+    `labyrinth-circle-necromancy`, `void-circle-necromancy`) were already
+    inventoried in an earlier pass as part of the Daybreak Caste's Occult
+    tree above.
 
 ## What's still needed
 
-1. Chapter Six necromancy: the **Labyrinth (Second) Circle** and **Void
-   (Third) Circle** spell lists remain, past printed p. 227 / PDF 228.
-   **Resume with the Labyrinth Circle** (already partially visible via the
-   `Raise the Skeletal Horde` spell's cross-reference to `Call the Greater
-   Servitor` and `Exquisite Undead Aide`). The specific gating Charm named
-   per circle (e.g. "Shadowlands Circle Necromancy") was not found as its
-   own stat block in the rendered pages and needs a follow-up look.
+1. **Finish the Void (Third) Circle** spell list. **Resume at printed
+   p. 230 / PDF 231**, continuing past Poisoning the Well.
 2. The Craft (Necrosurgery/Jadecrafting/Soulforging/Moliation/Pandemonium)
    rules referenced but not detailed in Chapter Four.
 3. Resolve the `corpus-rending-blow` unresolved placeholder (Moonshadow
