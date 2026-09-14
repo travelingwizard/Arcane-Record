@@ -1,15 +1,20 @@
 # Exalted 1e — Sidereal source intake
 
-**Status: source intake in progress.** `Exalted: The Sidereals` has been
-supplied and 252 inventory rows are checked in under `inventory/`. See
+**Status: source intake in progress.** `Exalted: The Sidereals` plus the
+cross-splat supplements `Savant and Sorcerer` and `Book of Three Circles`
+have been supplied and 472 inventory rows are checked in under `inventory/`.
+See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
 ## What's inventoried so far
 
-- `source-manifest.json` — the one source book in scope so far
-  (`exalted-the-sidereals`); no supplements are added yet.
-- `inventory/exalted-the-sidereals.json` — 252 rows covering:
+- `source-manifest.json` — three source books in scope: `exalted-the-sidereals`
+  (primary), `savant-and-sorcerer` (cross-splat sorcery/artifice supplement),
+  and `book-of-three-circles` (superseded cross-splat supplement, used only
+  as the primary Hearthstone-catalog source since Savant and Sorcerer's own
+  intro sidebar states it does not reprint that catalog).
+- `inventory/exalted-the-sidereals.json` — 472 rows covering:
   - The Chapter Three character-creation overview (Attributes/Abilities/
     Backgrounds/Charms/Colleges/Virtues/Willpower/Essence), including the
     reduced-scope Ronin Sidereal variant.
@@ -262,12 +267,63 @@ the full process this directory follows.
     any Sidereal with two or more combined dots in Occult and Savant),
     printed pp. 122-124/PDF 125-127.
 
+The remaining 220 rows come from the two cross-splat sorcery/artifice
+supplements:
+
+- **Savant and Sorcerer's complete Chapter Five Terrestrial and Celestial
+  Circle spell catalog** (84 selectable spells, printed pp. 100-143/PDF
+  101-144) — this book explicitly supersedes _Book of Three Circles_ as the
+  edition's official magic book, and no gaps were found against the
+  chapter's own page-by-page spell-header count.
+- A **102-entry Hearthstone catalog**, all selectable and cross-referenced
+  to the Manse Background: 15 Sample Hearthstones from Savant and Sorcerer
+  Chapter Three (printed pp. 46-49/PDF 47-50, three per level across Levels
+  One through Five) plus 87 more from _Book of Three Circles_ Chapter Six's
+  image-based 'long roll' (rendered page-by-page), since Savant and
+  Sorcerer's own intro sidebar states it does not reprint the Hearthstone
+  catalog. Near-duplicate names/effects between the two books are
+  disambiguated with a `hearthstone-botc-*` id prefix and a cross-reference
+  note; exact reprints (e.g. the Snakeskin Stone) were skipped in favor of
+  a note on the original entry.
+- A **13-row Artifice and Enchantment catalog** from Savant and Sorcerer
+  Chapter Two (printed pp. 23-44/PDF 24-45): the Artifact rating framework
+  (Power/Usefulness/Game Impact/Script Immunity/Drawback), the Drawback-
+  subtype and alternate-power-source rules, the five-step creation process,
+  Sidereal-specific creation notes (starmetal scarcity, Bronze Faction/
+  Yu-Shan workshop access), two selectable named Merits (Starting Workshop,
+  Moonsilver Initiate), a reference-only Magical Materials catalog (the
+  Sidereal-specific starmetal-origin lore included), an Exotic Ingredients
+  examples row, and five selectable Sample Artifacts (Collar of Dawn's
+  Cleansing Light, Mask, Ring of Being, Wings of the Raptor, Soul Mirror).
+- A **13-row Warstriders appendix** (Savant and Sorcerer's version, printed
+  pp. 144-160/PDF 145-161): the overview/design-classes, operation/Essence-
+  cost, benefits/limitations, and maintenance rules; all five basic
+  warstrider design classes as selectable Artifact-rated equipment (Scout,
+  Common, Noble, Royal, Juggernaut); reference-only weapon-mounting/mundane-
+  weapon/artifact-weapon catalogs; and the Proteus Gauntlet as a selectable
+  named artifact.
+- An **8-row skim of Chapter One (Magical Theory) and Chapter Four
+  (Practical Summonings)**, both bundled as gm-only or reference-only given
+  their non-selectable, Storyteller-procedural nature: the Limits of
+  Sorcery, the Black and White Treatises acquisition mechanic, the Five
+  Unavoidable Challenges initiation framework, and Sidereal-specific
+  initiation notes (Chapter One); the demon/elemental summoning-procedure
+  overview, social/political/licensing context, mass summoning project
+  rules, and the Bound Spirit Limit Profile system (Chapter Four).
+
 ## What's still needed
 
-Nothing outstanding within Chapters One through Six (character creation,
-Traits, Charms/Martial Arts, and Sidereal Astrology are all fully
-inventoried). Chapter Seven onward (Storytelling/setting material) has not
-been reviewed, since it is out of scope for a Charm/mechanics inventory.
+Nothing outstanding within Chapters One through Six of the core book
+(character creation, Traits, Charms/Martial Arts, and Sidereal Astrology are
+all fully inventoried). Chapter Seven onward (Storytelling/setting material)
+has not been reviewed, since it is out of scope for a Charm/mechanics
+inventory.
+
+Savant and Sorcerer and Book of Three Circles are also now fully triaged for
+Sidereal scope: no outstanding resume point remains. _Book of Three
+Circles_' Chapter Four (Solar Circle Sorcery) is explicitly out of scope and
+was skipped entirely, since Sidereals do not have Solar Circle Sorcery
+access.
 
 **Merits/Flaws:** checked and confirmed absent. A dedicated search of
 Chapter Three (Character Creation, printed pp. 94-101/PDF 97-104) and
