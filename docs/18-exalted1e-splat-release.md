@@ -194,7 +194,7 @@ real, creatable sheet.
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | -------- | -------------------------------- |
 | Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas)    | 582            | 0        | Locked, all dimensions `not-run` |
 | Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas) | 684            | 0        | Locked, all dimensions `not-run` |
-| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas)                         | 487            | 0        | Locked, all dimensions `not-run` |
+| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide) | 567            | 0        | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas)                                          | 291            | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas)                                               | 351            | 0        | Locked, all dimensions `not-run` |
 
@@ -378,11 +378,10 @@ Abyssal variant defined in its own body text, included per the project
 owner's instruction to trust body text over a header/body inconsistency).
 **Exalted: The Abyssals' full four-source-book inventory (core book, Book
 of Bone and Ebony, Savant and Sorcerer, and Exalted Players Guide) is now
-complete** for this pass — the fourth (of the four families needing this
-chapter; Sidereal's own Merits/Flaws are confirmed genuinely absent with no
-Players-Guide-filled gap) to close its universal Merits/Flaws gap via the
-Players Guide, and the last of the five planned families overall to reach
-full primary-sourcebook parity. A later pass added two small sets of
+complete** for this pass — the fourth of the five planned families to close
+its universal Merits/Flaws gap via the Players Guide (Sidereal's own
+Players-Guide-filled gap is described further below), and the last of the
+five planned families overall to reach full primary-sourcebook parity. A later pass added two small sets of
 universal (non-splat-restricted) artifact catalog rows, bringing the total
 to 684: 6 rows (`artifact-ghost-cestus`, `artifact-sling-bow-of-ice`,
 `artifact-the-golden-viper`, `artifact-land-ship`, `artifact-singing-staff`,
@@ -481,7 +480,49 @@ catalog in that book's Chapter Four (printed pp. 123-127/PDF 124-128, ending
 at the last content page before the back cover). Savage Seas' earlier
 "Magics of the Sea" Charms section (printed pp. 114-122/PDF 115-123) is
 explicitly Solar/Dragon-Blooded-only per the book's own text and remains out
-of scope for Sidereal. See
+of scope for Sidereal. A sixth pass then closed Sidereal's own universal
+Merits/Flaws gap (confirmed genuinely absent from the core book itself, as
+noted above) the same way it was already closed for Abyssal, Alchemical,
+and Fair Folk: 80 of the **Exalted Players Guide**'s 88 universal
+`pg-merit-*`/`pg-flaw-*` rows (Chapter One, "Merits and Flaws," printed
+pp. 18-41/PDF 21-44) were derived from Lunar's already-verified
+transcription of that chapter rather than an independent re-read, bringing
+Sidereal's own source-book count to six and its inventory from 487 to 567
+rows. 8 rows were excluded as inapplicable to a Sidereal Exalted: Chimera
+and Limited Forms (Lunar Shapechanging-specific, and Sidereal has no
+analogous shapeshifting power), Death Taint (Abyssals-and-Ghosts-only per
+its own header), Legendary Breeding, Taint's Warning, Innocuous, and
+Eternal Vow (each keyed to a Lunar-specific breeding/Tell/mate-bonding
+mechanic with no Sidereal equivalent), and Past Lives (its header names
+only Solar and Dragon-Blooded, unlike the textually broader Prescient
+Dreamer Merit, which does name Sidereal explicitly and was kept in). Of the
+remaining 80 rows, 57 transferred verbatim (unchanged id/name/mechanics/
+cost/citation, using the shared `pg-merit-*`/`pg-flaw-*` id scheme already
+used for Abyssal, Alchemical, and Fair Folk) and 23 needed a Sidereal-
+specific reinterpretation flagged in that row's own `notes`: dropped
+Lunar-shapeshifting-specific carve-outs for Ambidextrous, Double-Jointed,
+Large Size, Small, and Disfigured; a textual-inclusion judgment call
+including Prodigy (Sidereal is not among the header's named exclusions,
+consistent with how Fair Folk's own derivation treated the same row);
+genuinely Sidereal-central rows for Priest (all Sidereal Exalted are
+automatic, free 1-pt. priests of their initiating astrological college),
+Destiny (a Sidereal-specific Destiny 4+ pre-Exaltation threshold, one point
+higher than Solar/Lunar's 3+, with a four-point post-Exaltation reduction
+instead of three), Lucky (a bespoke Sidereal luck-pool formula and price
+cap), Prescient Dreamer (a reduced 2-pt. cost tied to Sidereal's own
+fate-based Exaltation), Alternative Divination (a doubled-rituals-per-
+purchase benefit naming Sidereal explicitly), Disciple, and Greater Curse
+(Sidereal's own Paradox-pool mechanic, cross-referenced to this family's
+`sidereal-astrology-paradox` row in place of the Limit-pool version used by
+Solar/Lunar); reinterpreted cross-references swapping in Sidereal's own
+mechanics for Terrestrial Bloodline, Sworn Brotherhood, Brigid's Heir, and
+Amnesia (whose dropped Past-Lives cross-reference was replaced with
+Sidereal's own Savant Background as its thematic analog for recovering
+First Age memory); and one especially notable eligibility caveat, Dark
+Fate, kept selectable but flagged as normally **exempt** for ordinary
+Sidereals, who serve the Bureau of Destiny — purchasable only by a renegade
+Sidereal who has betrayed that role. No new Sidereal-specific Background or
+mechanic needed to be invented from scratch. See
 `docs/references/exalted1e/sidereal/README.md`.
 
 Alchemical's 291 rows cover the character-creation overview, the universal
@@ -635,8 +676,10 @@ primary source books for player-facing mechanics — Alchemical, Lunar, Fair
 Folk, Sidereal, and Abyssal, in that order. Since then, several cross-splat
 supplements have also been triaged for the families that need them: the
 _Exalted Players Guide_'s universal Merits/Flaws chapter (Alchemical,
-Lunar, Fair Folk, and Abyssal — every family except Sidereal, whose own
-Merits/Flaws are confirmed genuinely absent with no gap to fill), _Savant
+Lunar, Fair Folk, Abyssal, and — since each of those core books has no
+Merits/Flaws system of its own comparable to later editions — Sidereal too,
+each family's own core book confirmed to have no comparable system before
+deriving its share from Lunar's master transcription), _Savant
 and Sorcerer_ (Sidereal and Abyssal), _Book of Three Circles_ (Sidereal,
 consulted for Abyssal only to resolve the Solar Circle Sorcery access
 question), _Book of Bone and Ebony_ (Abyssal), the _Exalted Storyteller's

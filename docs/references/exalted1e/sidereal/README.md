@@ -3,13 +3,18 @@
 **Status: source intake in progress.** `Exalted: The Sidereals` plus the
 cross-splat supplements `Savant and Sorcerer`, `Book of Three Circles`,
 `Exalted Storyteller's Companion`, and `Exalted: Savage Seas` have been
-supplied and 487 inventory rows are checked in under `inventory/`. See
+supplied and 567 inventory rows are checked in under `inventory/`. The core
+book was confirmed to have no Merits/Flaws section of its own; that
+universal gap is now filled from a sixth source book, the **Exalted Players
+Guide**'s Chapter One, "Merits and Flaws" — 80 rows derived for Sidereal
+from Lunar's already-verified transcription of that chapter (487 → 567 rows
+total). See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
 ## What's inventoried so far
 
-- `source-manifest.json` — five source books in scope: `exalted-the-sidereals`
+- `source-manifest.json` — six source books in scope: `exalted-the-sidereals`
   (primary), `savant-and-sorcerer` (cross-splat sorcery/artifice supplement),
   `book-of-three-circles` (superseded cross-splat supplement, used only
   as the primary Hearthstone-catalog source since Savant and Sorcerer's own
@@ -19,10 +24,11 @@ the full process this directory follows.
   verbatim reprints of Charms already inventoried from Chapter Five, so that
   citation contributed zero new rows on its own — but its Chapter Four
   universal artifact catalog was later derived into six new rows, see
-  below), and `savage-seas` (cross-splat naval/nautical sourcebook; its
+  below), `savage-seas` (cross-splat naval/nautical sourcebook; its
   universal "Artifacts of the Waves" catalog was transcribed in full, see
-  below).
-- `inventory/exalted-the-sidereals.json` — 487 rows covering:
+  below), and `exalted-players-guide` (the universal Merits/Flaws chapter,
+  derived rather than independently transcribed; see below).
+- `inventory/exalted-the-sidereals.json` — 567 rows covering:
   - The Chapter Three character-creation overview (Attributes/Abilities/
     Backgrounds/Charms/Colleges/Virtues/Willpower/Essence), including the
     reduced-scope Ronin Sidereal variant.
@@ -370,12 +376,50 @@ access. The Exalted Storyteller's Companion and Exalted: Savage Seas are
 likewise now fully triaged for Sidereal scope: no outstanding resume point
 remains for either book.
 
-**Merits/Flaws:** checked and confirmed absent. A dedicated search of
-Chapter Three (Character Creation, printed pp. 94-101/PDF 97-104) and
-Chapter Four (Traits, printed pp. 102-125/PDF 105-128) found no
-Sidereal-specific — or generic — Merits & Flaws system in this book.
-Exalted 1st Edition does not have a Merits & Flaws chapter comparable to
-later editions, so no rows were created for this and none are missing.
+**Merits/Flaws:** checked and confirmed absent from this core book. A
+dedicated search of Chapter Three (Character Creation, printed pp. 94-101/
+PDF 97-104) and Chapter Four (Traits, printed pp. 102-125/PDF 105-128) found
+no Sidereal-specific — or generic — Merits & Flaws system in _Exalted: The
+Sidereals_ itself; Exalted 1st Edition does not have a Merits & Flaws
+chapter comparable to later editions, so no rows were created for it from
+this book.
+
+That universal gap is now filled from a second source book: the
+**Exalted Players Guide**, Chapter One, "Merits and Flaws" (printed pp.
+18-41, PDF pp. 21-44). Rather than an independent re-read, 80 of its 88
+`pg-merit-*`/`pg-flaw-*` rows were **derived for Sidereal from Lunar's
+already-verified transcription** of the same universal chapter
+(`inventory/exalted-the-lunars.json`), since the chapter applies across all
+five planned Exalted families and each Lunar row's own `notes` field
+already captures splat-specific eligibility/cost caveats verbatim. 8 of the
+88 were skipped as inapplicable to Sidereal: **Chimera** and **Limited
+Forms** (Lunar Shapechanging-specific, and Sidereal has no analogous
+shapeshifting power), **Death Taint** (Abyssals-and-Ghosts-only per its own
+header), **Legendary Breeding**, **Taint's Warning**, **Innocuous**, and
+**Eternal Vow** (each keyed to Lunar-specific breeding/Tell/mate-bonding
+mechanics with no Sidereal analog), and **Past Lives** (its header names
+only Solar and Dragon-Blooded, unlike the textually broader Prescient
+Dreamer Merit, which does name Sidereal explicitly and was kept). The
+remaining 80 rows split into 57 rows transferred verbatim (unchanged
+id/name/mechanics/cost/citation, using this project's `pg-merit-*`/
+`pg-flaw-*` id scheme shared with Abyssal/Alchemical/Fair Folk) and 23 rows
+carrying a Sidereal-specific reinterpretation flagged in that row's own
+`notes` — most notably **Priest** (all Sidereal Exalted are automatic,
+free 1-pt. priests of their initiating astrological college), **Destiny**
+(Sidereal's own Destiny 4+ pre-Exaltation threshold, one point higher than
+Solar/Lunar's 3+, and a four-point post-Exaltation reduction instead of
+three), **Lucky** (a bespoke Sidereal luck-pool formula/price cap),
+**Greater Curse** (Sidereal's own Paradox-pool mechanic, cross-referenced
+to `sidereal-astrology-paradox`, replacing the Limit-pool version used by
+Solar/Lunar), and **Dark Fate** (kept selectable but flagged as normally
+**exempt** for ordinary Sidereals, who serve the Bureau of Destiny —
+purchasable only by a renegade Sidereal who has betrayed that role). No new
+Sidereal-specific Background or mechanic needed to be invented; every
+reinterpretation substitutes an already-inventoried Sidereal row (e.g.
+`sidereal-astrology-paradox`, `terrestrial-circle-sorcery`/
+`celestial-circle-sorcery`, `savant-background`) for a Lunar-specific one
+that was dropped. See `source-manifest.json`'s `notes` field for the full
+inclusion/exclusion/reinterpretation writeup.
 
 Note: the Sidereal Curse (this splat's expression of the Great Curse) is
 confirmed to have no discrete mechanical trigger of its own — the book states
