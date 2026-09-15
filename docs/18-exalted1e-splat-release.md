@@ -190,13 +190,13 @@ real, creatable sheet.
 
 ## Status per family
 
-| Family     | Source manifest                                                                                        | Inventory rows | Promoted | Certification                    |
-| ---------- | ------------------------------------------------------------------------------------------------------ | -------------- | -------- | -------------------------------- |
-| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion) | 573            | 0        | Locked, all dimensions `not-run` |
-| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide) | 669            | 0        | Locked, all dimensions `not-run` |
-| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion) | 472            | 0        | Locked, all dimensions `not-run` |
-| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide)                                          | 277            | 0        | Locked, all dimensions `not-run` |
-| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide)                                               | 336            | 0        | Locked, all dimensions `not-run` |
+| Family     | Source manifest                                                                                                                                        | Inventory rows | Promoted | Certification                    |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | -------- | -------------------------------- |
+| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion)                  | 573            | 0        | Locked, all dimensions `not-run` |
+| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas) | 684            | 0        | Locked, all dimensions `not-run` |
+| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas)                         | 487            | 0        | Locked, all dimensions `not-run` |
+| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas)                                          | 291            | 0        | Locked, all dimensions `not-run` |
+| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas)                                               | 351            | 0        | Locked, all dimensions `not-run` |
 
 Lunar's 573 rows cover the core innate powers, every Charm category in
 Chapter Five (Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat
@@ -269,7 +269,7 @@ copy for later derivation into the other four families; the rest of the
 book's Chapters One and Three were skimmed and confirmed to hold only
 GM/NPC/setting material. See `docs/references/exalted1e/lunar/README.md`.
 
-Abyssal's 669 rows cover the Chapter Three character-creation overview, the
+Abyssal's 684 rows cover the Chapter Three character-creation overview, the
 universal Anima Effect, all five Castes, the Abyssal Curse, the Virtues of
 Death, the full Resonance mechanic (the Limit-Trait analog, including gain,
 loss, and the 1-10 manifestation table), the-title, Useful Crafts, the
@@ -360,7 +360,28 @@ complete** for this pass — the fourth (of the four families needing this
 chapter; Sidereal's own Merits/Flaws are confirmed genuinely absent with no
 Players-Guide-filled gap) to close its universal Merits/Flaws gap via the
 Players Guide, and the last of the five planned families overall to reach
-full primary-sourcebook parity; see
+full primary-sourcebook parity. A later pass added two small sets of
+universal (non-splat-restricted) artifact catalog rows, bringing the total
+to 684: 6 rows (`artifact-ghost-cestus`, `artifact-sling-bow-of-ice`,
+`artifact-the-golden-viper`, `artifact-land-ship`, `artifact-singing-staff`,
+`artifact-eye-of-autochthon`) derived from Lunar's already-verified
+transcription of the **Exalted Storyteller's Companion**'s universal
+"Further Wonders" artifact catalog — a fifth source book added to this
+family's manifest — re-cited to the same pages with no independent
+re-read, since none of the 6 rows carries splat-restricting text that would
+exclude Abyssal; and 9 rows freshly transcribed from a sixth source book,
+**Savage Seas**, whose "Artifacts of the Waves" section (Chapter Four,
+printed pp. 123-127) is likewise a universal ship-artifact catalog, unlike
+that chapter's earlier Solar/Dragon-Blooded-only "Magics of the Sea" Charms
+section, which remains correctly out of scope. Those 9 rows — Cargo
+Preservation Spindles, Armor of Aquatic Puissance, Steelsilk Sails, Storm
+Sapphire, Cord of Winds, Wavecleaver Daiklaive, Light Implosion Bow,
+Lightning Ballista, and a reference-only Artifact Ship Weapons summary
+table — are 8 selectable and 1 reference-only: **Armor of Aquatic
+Puissance** is marked reference-only specifically for Abyssal because the
+source text states verbatim that "No Abyssal is known to own a suit of
+this armor (unsurprisingly)," so it is catalogued in full for reference but
+not offered as a normal selectable acquisition. See
 `docs/references/exalted1e/abyssal/README.md`.
 
 Sidereal's core book contributes 252 rows covering the Chapter Three
@@ -409,22 +430,39 @@ The Sidereals' full three-source-book inventory (core book, Savant and
 Sorcerer, and Book of Three Circles) is now complete** for this pass — the
 fourth of the five planned families to reach full primary-sourcebook parity
 (Chapter Seven onward is Storytelling/setting material and out of scope). A
-final pass then read the entire Sidereal portion of the **Exalted
+further pass then read the entire Sidereal portion of the **Exalted
 Storyteller's Companion**'s Chapter Two ("The Celestial Exalted," printed
 pp. 34-41/PDF 35-42) — mostly narrative on post-Usurpation Sidereal society
 (Castes, the Immaculate Order relationship, Loom of Fate culture) — and
 confirmed its only mechanical content, four "Sample Charms" (Force
 Decision, Absence, Wise Choice, Prior Warning), are exact verbatim reprints
 of Charms already inventoried from Chapter Five of the core book, so no new
-rows were added; each existing row's `notes` field was updated to cite the
-reprint. This book was added to Sidereal's source list for that citation
-trail even though it contributed no new rows. A quick skim of Chapter One
-("The Scarlet Empire") and Chapter Three ("Spirits and Spirit Courts") found
-only Dragon-Blooded sample Charms and Spirit/NPC stat blocks — no
-player-facing Sidereal or Lunar exceptions. See
+rows were added for that citation; each existing row's `notes` field was
+updated to cite the reprint. This book was added to Sidereal's source list
+for that citation trail. A quick skim of Chapter One ("The Scarlet Empire")
+and Chapter Three ("Spirits and Spirit Courts") found only Dragon-Blooded
+sample Charms and Spirit/NPC stat blocks — no player-facing Sidereal or
+Lunar exceptions. A final pass then added 15 more rows (472 → 487): six rows
+derived from Lunar's already-verified transcription of the **Exalted
+Storyteller's Companion**'s universal, cross-splat Chapter Four artifact
+catalog ("Further Wonders," printed pp. 77-80/PDF 78-81 — Ghost Cestus,
+Sling Bow of Ice, The Golden Viper, Land Ship, Singing Staff, Eye of
+Autochthon), each keeping the same id/name/mechanics/cost/citation as the
+Lunar master row since no splat-specific restriction excludes Sidereal; and
+eight named-artifact rows plus one reference-only summary table, freshly
+transcribed from a new fifth source book, **Exalted: Savage Seas** (Cargo
+Preservation Spindles, Armor of Aquatic Puissance, Steelsilk Sails, Storm
+Sapphire, Cord of Winds, Wavecleaver Daiklaive, Light Implosion Bow,
+Lightning Ballista, and the Artifact Ship Weapons summary table), covering
+the entire universal, non-splat-restricted "Artifacts of the Waves" naval
+catalog in that book's Chapter Four (printed pp. 123-127/PDF 124-128, ending
+at the last content page before the back cover). Savage Seas' earlier
+"Magics of the Sea" Charms section (printed pp. 114-122/PDF 115-123) is
+explicitly Solar/Dragon-Blooded-only per the book's own text and remains out
+of scope for Sidereal. See
 `docs/references/exalted1e/sidereal/README.md`.
 
-Alchemical's 277 rows cover the character-creation overview, the universal
+Alchemical's 291 rows cover the character-creation overview, the universal
 Anima Banner effect, Artificial Metabolism, Life/Death/the Soulgem,
 Refitting/Essence advancement, all five material-named Castes (Orichalcum,
 Moonsilver, Jade, Starmetal, Soulsteel) plus the apocryphal sixth "Adamant"
@@ -471,7 +509,30 @@ Hidden Manse flagged as only fully relevant once a story reaches Creation),
 each judgment call flagged verbatim in that row's own notes. **Alchemical is
 now reviewed cover-to-cover, including the universal Merits/Flaws gap** —
 the first of the five planned families to reach full primary-sourcebook
-parity; see `docs/references/exalted1e/alchemical/README.md`.
+parity. Two more small universal artifact catalogs were layered on after
+that milestone: **six rows derived from the Exalted Storyteller's
+Companion's universal Chapter Four, "Further Wonders"** (Ghost Cestus, Sling
+Bow of Ice, The Golden Viper, Land Ship, Singing Staff, Eye of Autochthon),
+copied unchanged (id/name/mechanics/cost/citation) from Lunar's
+already-verified master transcription of that cross-splat chapter, since
+none of it required independent re-reading; all six transfer essentially
+cleanly to a construct body, with two flagged judgment calls (The Golden
+Viper's flesh-to-gold bite is ambiguous for a vat-built frame that already
+incorporates the Five Magical Materials; the Eye of Autochthon, despite
+being literally created by Autochthon himself, is written in Creation-native
+terms with no Autochthonian equivalent, so it is kept selectable but flagged
+as only meaningful once a story reaches Creation). And **eight rows freshly
+transcribed from Savage Seas' "Artifacts of the Waves" naval catalog**
+(Cargo Preservation Spindles, Armor of Aquatic Puissance, Steelsilk Sails,
+Storm Sapphire, Cord of Winds, Wavecleaver Daiklaive, Light Implosion Bow,
+Lightning Ballista), read from rendered page images since that PDF has no
+text layer, covering the catalog's full printed pp. 123-127 (PDF 124-128)
+run to the end of the book's content; all eight are kept selectable but
+flagged with an Autochthonia-has-no-Creation-style-oceans caveat mirroring
+the Sun-Seared/Hidden Manse precedent above, since naval equipment has no
+mechanical dependency on a biological body but is only obtainable once a
+story reaches Creation's seas; see
+`docs/references/exalted1e/alchemical/README.md`.
 
 Fair Folk's 263 core-book rows cover both character-creation tracks (common
 and noble raksha), the four Castes (Diplomat/Entertainer/Warrior/Worker) and
@@ -515,7 +576,37 @@ Folk is now reviewed cover to cover, including the universal Merits/Flaws
 gap** — the third of the five planned families to reach full
 primary-sourcebook parity (Chapter Six's Mountain Folk, a wholly separate
 playable-adjacent race, was deliberately not inventoried as out of Fair
-Folk/raksha scope); see `docs/references/exalted1e/fair-folk/README.md`.
+Folk/raksha scope). A later pass added two small sets of universal
+(non-splat-restricted) artifact catalog rows, bringing the total from 336 to
+351: 6 rows (`artifact-ghost-cestus`, `artifact-sling-bow-of-ice`,
+`artifact-the-golden-viper`, `artifact-land-ship`, `artifact-singing-staff`,
+`artifact-eye-of-autochthon`) derived from Lunar's already-verified
+transcription of the _Exalted Storyteller's Companion_'s universal "Further
+Wonders" artifact catalog — a fifth source book added to this family's
+manifest — re-cited to the same pages with no independent re-read, since a
+raksha's own Essence rating and mote pool (Essence 2, pool Essence x 10, per
+`fair-folk-creation-overview-common` / `-noble`) satisfy every
+"Essence-manipulating wielder" requirement exactly as any Exalt's would; and
+9 rows freshly transcribed from a sixth source book, _Savage Seas_, whose
+"Artifacts of the Waves" section (Chapter Four, printed pp. 123-127) is
+likewise a universal ship-artifact catalog, unlike that chapter's earlier
+Solar/Dragon-Blooded-only "Magics of the Sea" Charms section, which remains
+correctly out of scope. Those 9 rows — Cargo Preservation Spindles, Armor of
+Aquatic Puissance, Steelsilk Sails, Storm Sapphire, Cord of Winds,
+Wavecleaver Daiklaive, Light Implosion Bow, Lightning Ballista, and a
+reference-only Artifact Ship Weapons summary table — are 8 selectable and 1
+reference-only. **Light Implosion Bow** is the strongest fit in the batch:
+its own text explicitly names "any Exalted type and also Fair Folk and
+possibly others" as capable of channeling Essence into it. **Lightning
+Ballista** carries the one flagged judgment call: the source calls it
+"powerless in the hands of the unExalted," but its actual mechanical
+requirement is only that "the firer must be able to manipulate Essence,"
+which a raksha satisfies — interpreting the binding requirement rather than
+the more pointed word choice. Two low-zoom transcription errors (the Storm
+Sapphire Effect Table's Black Sapphire column, and the Lightning Ballista's
+hearthstone-variant Artifact rating) were caught and corrected via high-zoom
+re-renders before this pass was considered complete; see
+`docs/references/exalted1e/fair-folk/README.md`.
 
 All five families have now been reviewed cover-to-cover against their
 primary source books for player-facing mechanics — Alchemical, Lunar, Fair
@@ -526,10 +617,16 @@ Lunar, Fair Folk, and Abyssal — every family except Sidereal, whose own
 Merits/Flaws are confirmed genuinely absent with no gap to fill), _Savant
 and Sorcerer_ (Sidereal and Abyssal), _Book of Three Circles_ (Sidereal,
 consulted for Abyssal only to resolve the Solar Circle Sorcery access
-question), and _Book of Bone and Ebony_ (Abyssal). The project owner's
-remaining cross-splat supplements (Blood and Salt, Savage Seas, and the
-Storyteller's Companion) are still untriaged, and no family has anything
-promoted to a production catalog yet.
+question), _Book of Bone and Ebony_ (Abyssal), the _Exalted Storyteller's
+Companion_'s universal "Further Wonders" artifact catalog (Lunar as the
+master transcription, then derived for Abyssal, Sidereal, Alchemical, and
+Fair Folk), and _Savage Seas_'s universal "Artifacts of the Waves" naval
+catalog (freshly transcribed for Abyssal, Sidereal, Alchemical, and Fair
+Folk; not yet done for Lunar). The project owner's remaining cross-splat
+supplements (Blood and Salt and Book of Three Circles' own remaining
+material beyond Sidereal) are still untriaged for the families that
+haven't reviewed them, and no family has anything promoted to a production
+catalog yet.
 
 ## Next steps (require source material per book)
 

@@ -1,25 +1,28 @@
 # Exalted 1e — Sidereal source intake
 
 **Status: source intake in progress.** `Exalted: The Sidereals` plus the
-cross-splat supplements `Savant and Sorcerer`, `Book of Three Circles`, and
-`Exalted Storyteller's Companion` have been supplied and 472 inventory rows
-are checked in under `inventory/`. See
+cross-splat supplements `Savant and Sorcerer`, `Book of Three Circles`,
+`Exalted Storyteller's Companion`, and `Exalted: Savage Seas` have been
+supplied and 487 inventory rows are checked in under `inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
 ## What's inventoried so far
 
-- `source-manifest.json` — four source books in scope: `exalted-the-sidereals`
+- `source-manifest.json` — five source books in scope: `exalted-the-sidereals`
   (primary), `savant-and-sorcerer` (cross-splat sorcery/artifice supplement),
   `book-of-three-circles` (superseded cross-splat supplement, used only
   as the primary Hearthstone-catalog source since Savant and Sorcerer's own
   intro sidebar states it does not reprint that catalog), and
   `exalted-storytellers-companion` (cross-splat sourcebook; its Sidereal
   section's only mechanical content, four "Sample Charms," turned out to be
-  verbatim reprints of Charms already inventoried from Chapter Five, so this
-  source contributed zero new rows and is included only for the citation
-  trail).
-- `inventory/exalted-the-sidereals.json` — 472 rows covering:
+  verbatim reprints of Charms already inventoried from Chapter Five, so that
+  citation contributed zero new rows on its own — but its Chapter Four
+  universal artifact catalog was later derived into six new rows, see
+  below), and `savage-seas` (cross-splat naval/nautical sourcebook; its
+  universal "Artifacts of the Waves" catalog was transcribed in full, see
+  below).
+- `inventory/exalted-the-sidereals.json` — 487 rows covering:
   - The Chapter Three character-creation overview (Attributes/Abilities/
     Backgrounds/Charms/Colleges/Virtues/Willpower/Essence), including the
     reduced-scope Ronin Sidereal variant.
@@ -324,12 +327,32 @@ supplements:
   with no new Charms of its own; its only mechanical content, a "Sample
   Charms" sidebar (Force Decision, Absence, Wise Choice, Prior Warning, all
   on printed p. 41/PDF 42), is a set of exact verbatim reprints of Charms
-  already inventoried from Chapter Five, so no new rows were added — each
-  existing row's `notes` field was updated to cite the reprint instead. A
-  quick skim of Chapter One ("The Scarlet Empire") and Chapter Three
-  ("Spirits and Spirit Courts") found only Dragon-Blooded sample Charms and
-  Spirit/NPC stat blocks respectively — no player-facing Sidereal (or
-  Lunar) exceptions in either chapter.
+  already inventoried from Chapter Five, so no new rows were added for that
+  citation — each existing row's `notes` field was updated to cite the
+  reprint instead. A quick skim of Chapter One ("The Scarlet Empire") and
+  Chapter Three ("Spirits and Spirit Courts") found only Dragon-Blooded
+  sample Charms and Spirit/NPC stat blocks respectively — no player-facing
+  Sidereal (or Lunar) exceptions in either chapter. Separately, this book's
+  Chapter Four universal, cross-splat artifact catalog ("Further Wonders,"
+  printed pp. 77-80/PDF 78-81) was derived into six new rows (`artifact-`
+  prefixed: Ghost Cestus, Sling Bow of Ice, The Golden Viper, Land Ship,
+  Singing Staff, Eye of Autochthon) directly from Lunar's own already-
+  verified transcription of the same universal chapter — same id, name,
+  mechanics, cost, and citation, with a note flagging each as derived. No
+  splat-specific restriction excludes Sidereal from any of the six.
+- **Exalted: Savage Seas** — the naval/nautical "Artifacts of the Waves"
+  catalog in Chapter Four ("Creatures, Gods, Charms and Artifacts," printed
+  pp. 123-127/PDF 124-128, ending at the last content page before the back
+  cover on PDF p. 129) was rendered page-by-page (this PDF has no text
+  layer) and transcribed in full: Cargo Preservation Spindles, Armor of
+  Aquatic Puissance, Steelsilk Sails, Storm Sapphire, Cord of Winds,
+  Wavecleaver Daiklaive, Light Implosion Bow, and Lightning Ballista (eight
+  selectable named artifacts), plus a reference-only "Artifact Ship
+  Weapons" summary table cross-referenced from the two ship-weapon rows.
+  None carry any splat-specific restriction excluding Sidereal. This
+  book's earlier "Magics of the Sea" Charms section (printed pp. 114-122/
+  PDF 115-123) is explicitly Solar/Dragon-Blooded-only per the book's own
+  text and was confirmed out of scope for Sidereal without being rendered.
 
 ## What's still needed
 
@@ -343,7 +366,9 @@ Savant and Sorcerer and Book of Three Circles are also now fully triaged for
 Sidereal scope: no outstanding resume point remains. _Book of Three
 Circles_' Chapter Four (Solar Circle Sorcery) is explicitly out of scope and
 was skipped entirely, since Sidereals do not have Solar Circle Sorcery
-access.
+access. The Exalted Storyteller's Companion and Exalted: Savage Seas are
+likewise now fully triaged for Sidereal scope: no outstanding resume point
+remains for either book.
 
 **Merits/Flaws:** checked and confirmed absent. A dedicated search of
 Chapter Three (Character Creation, printed pp. 94-101/PDF 97-104) and

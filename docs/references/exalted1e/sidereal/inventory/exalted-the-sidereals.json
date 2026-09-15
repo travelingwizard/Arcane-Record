@@ -9124,5 +9124,275 @@
     },
     "crossReferences": [],
     "notes": "Chapter Four: Practical Summonings, 'Limit Profiles' -> 'Limit Rules'/'Limit Conditions'/'Limit Break'/'Reducing Limit' framework intro, followed by 'The Courtesan' through 'The Warden' and the 'Minor Profiles' (including 'The Sufferer'), printed pp. 86-99 (PDF 87-100), running to the end of the chapter just before Chapter Five's spell catalog begins."
+  },
+  {
+    "id": "artifact-ghost-cestus",
+    "name": "Ghost Cestus (Artifact •••)",
+    "disposition": "selectable",
+    "summary": "Universal cross-splat artifact: an armored fighting glove (cestus) enchanted with orichalcum, moonsilver, starstone, or (most commonly) jade so its punches and grapples can strike and subdue spirits, ghosts, and gods who are normally untouchable to mortal fists.",
+    "requirements": "None (usable by mortals, magicians, sorcerers, or any Exalt without special training).",
+    "mechanics": "Ghost cesti work against umbrood and ghosts just as well as against normal humans, requiring no special training to use. When a character fights using ghost cesti, the player makes all the normal dice rolls for unarmed combat and inflicts the normal, Strength-based damage of the combat maneuver, but instead of health levels, the character inflicts points of temporary Willpower loss on the spirit target (see Exalted core rulebook p. 147 for the total effects of Willpower loss on spirits/humans). The victim can soak this attack using her own Willpower. Spirits reduced to 0 Willpower this way become totally obedient to whoever subdued them. Spirits and mortals both recover lost Willpower from this effect as if it were bashing damage. Ghost cesti cannot outright kill a spirit -- that requires more dreadful and powerful magic -- but a cestus-wielding warrior or wizard can pummel even a powerful spirit into submission, since spirits are unused to taking uppercuts from 'mere mortals.'",
+    "cost": null,
+    "compatibility": "Any wielder (mortal, magician, sorcerer, or Exalt of any splat); a local spirit challenged the Empress's authority once and she sent a champion armed with ghost cesti to subdue it, and non-Exalted priests of the Immaculate Order also carry ghost cesti.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-storytellers-companion",
+      "printedPage": 77,
+      "pdfPage": 78
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Further Wonders, 'Ghost Cestus (Artifact •••)', printed pp. 77-78 (PDF 78-79). Universal/cross-splat catalog entry (not Sidereal-specific); derived from Lunar's already-verified transcription of this same universal, cross-splat chapter (docs/references/exalted1e/lunar/inventory/exalted-the-lunars.json, id artifact-ghost-cestus) -- identical id, name, mechanics, cost, and citation. No splat-specific restriction excluding Sidereal is noted in the source (compatibility text explicitly says 'any Exalt of any splat'), so this is copied here as a second master-copy row for Sidereal's own selectable catalog."
+  },
+  {
+    "id": "artifact-sling-bow-of-ice",
+    "name": "Sling Bow of Ice (Artifact •••)",
+    "disposition": "selectable",
+    "summary": "Universal cross-splat artifact: a bow-and-sling hybrid weapon common in the First Age, made of mingled black and blue jade, that fires bullets or bolts which explode on impact into a cloud of snow and shivering, uncontrollable cold, freezing the ground and everyone nearby.",
+    "requirements": "An Essence-manipulating wielder (the weapon itself is inert in the hands of a mortal with no Essence to fuel it).",
+    "mechanics": "A sling bow resembles a normal bow, but instead of arrows it fires bullets of stone or metal, or a sling. These particular sling bows are fashioned of mingled black and blue jade carved with a fine tracery of frost ferns. A bolt of black or blue jade fired from the weapon explodes on impact into a cloud of snow and ice that sets everyone within 20 feet shivering uncontrollably, no matter how warmly they are dressed, unless they carry a bit of orichalcum or are protected by magic that shields them from cold. It also coats the ground with a thin layer of slippery ice, making it hard to remain upright. The Sling Bow requires a single mote of Essence to fuel its magic; the wielder rolls Essence + Archery. For each success, everyone within 10 feet of the impact loses one dot of Dexterity from frostbitten numbness and slipping on the icy ground; a character reduced to 0 Dexterity can do nothing but huddle in misery. A character's Essence is subtracted from the number of successes rolled. The supernatural cold lasts one turn per success rolled in mild weather, and five minutes per success if the weather is already chill. Anyone who enters the zone regains Dexterity per turn; anyone who leaves it regains Dexterity per turn. A character may soak the cold using her Essence rating; the weapon does not affect Undead at all. A person who carries a bit of orichalcum, or characters with charms or spells that protect them from extreme cold, become immune to the effect. In the First Age, soldiers operating alongside Sling Bow-armed Exalted wore orichalcum rings to protect themselves from the weapon's effect; since the art of forging orichalcum was lost centuries ago, latter-day warriors must exercise care when employing the Bow.",
+    "cost": "1 mote per shot",
+    "compatibility": "Any Essence-manipulating wielder (any Exalt, sorcerer, or Essence-wielding magician); historically used by General Tepet Hala in the Great Eastern War, where it drove the Eastern Army across a river and let him take the enemy army by surprise.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-storytellers-companion",
+      "printedPage": 78,
+      "pdfPage": 79
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Further Wonders, 'Sling Bow of Ice (Artifact •••)', printed p. 78 (PDF 79). Universal/cross-splat catalog entry; derived from Lunar's already-verified transcription of this same universal, cross-splat chapter (docs/references/exalted1e/lunar/inventory/exalted-the-lunars.json, id artifact-sling-bow-of-ice) -- identical id, name, mechanics, cost, and citation. No splat-specific restriction excluding Sidereal is noted in the source (compatibility text explicitly says 'any Exalt'), so this is copied here as a second master-copy row for Sidereal's own selectable catalog."
+  },
+  {
+    "id": "artifact-the-golden-viper",
+    "name": "The Golden Viper (Artifact •••••)",
+    "disposition": "selectable",
+    "summary": "Universal cross-splat artifact: a First Age automaton shaped like a six-foot orichalcum-and-jewel serpent, intelligent enough to speak and advise its owner, that serves whoever possesses it and can transmute a bite victim's flesh into gold.",
+    "requirements": "Ownership of the Viper following the death of its previous owner (it serves anyone who possesses it once its prior master has died).",
+    "mechanics": "The Golden Viper is the most intelligent automaton known, and even First Age texts speak of it as a notable relic. This lifelike serpent, fashioned of orichalcum and jewels in a framework of starstone, stretches six feet long and is about four inches thick at its thickest. The Viper serves anyone who possesses it once its previous owner is dead. The Viper is a formidable assassin: it can move through small openings and strikes like a real serpent, coiling and lashing out. In a matter of seconds, a person bitten by the Viper turns to gold (ordinary gold, not orichalcum). Magicians and Exalted have somewhat greater resistance to the Viper's bite than do more mortal folk, but even they can be slain and transmuted. The automaton knows whatever any of its clients knew; it advises its owner on the basis of this truly awesome base of stolen knowledge and experience. The Golden Viper knows no mercy or compassion; it advises the most ruthlessly practical course whatever goal its master seeks. If the Viper's master is not already a complete cynic by human nature, she will after a few years of the Viper's callous insight into human foibles. System: Attributes: Strength 3, Stamina 5, Perception 5, Intelligence 7, Wits 5, Charisma 3, Manipulation 5, Appearance 3, Willpower 10. It lacks Virtues since these have no meaning for its cold, inhuman intellect. Instead of a list of specific Abilities, the Storyteller may assume that it has a rating of 4 in any Ability it needs, with one exception: it remembers nothing about the First Age -- or claims not to. It speaks all known languages, and rapidly learns any new one it is exposed to. Its bite inflicts a base of 6L special damage; only armor can soak this damage, though Exalted can add their Essence to their soak rating. Each health level inflicted also strips away one point of Dexterity, as the victim stiffens, and it has a soak of 7L/10B. Its health levels are -0x3/-1x2/-2x2/-4x2/Incap x3. Restoring a health level lost to the Golden Viper is a difficulty 2 task on an Intelligence + Crafts roll.",
+    "cost": null,
+    "compatibility": "Any owner who acquires it after its previous owner's death; functions as an autonomous intelligent servant/assassin rather than a wielded or attuned item.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-storytellers-companion",
+      "printedPage": 78,
+      "pdfPage": 79
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Further Wonders, 'The Golden Viper (Artifact •••••)', printed p. 78 (PDF 79). Universal/cross-splat catalog entry; derived from Lunar's already-verified transcription of this same universal, cross-splat chapter (docs/references/exalted1e/lunar/inventory/exalted-the-lunars.json, id artifact-the-golden-viper) -- identical id, name, mechanics, cost, and citation. Statted as an intelligent construct/NPC-style artifact (Attributes, health levels, bite damage) rather than a worn/wielded item with a mote cost. No splat-specific restriction excluding Sidereal is noted in the source (compatibility text says 'any owner'), so this is copied here as a second master-copy row for Sidereal's own selectable catalog."
+  },
+  {
+    "id": "artifact-land-ship",
+    "name": "Land Ship (Artifact •••••)",
+    "disposition": "selectable",
+    "summary": "Universal cross-splat artifact: an extremely rare First Age vessel with a keel of interleaved yellow and black jade that lets it sail across dry land as if it were water, powered by an Essence-manipulating captain and crew.",
+    "requirements": "An Essence-manipulating captain to sail it (First Age devices existed that stored Essence so a land ship could sail without an Exalted crew, but these devices have all been lost or destroyed).",
+    "mechanics": "In the First Age, land ships were common. Very few of them remain -- masters of earth and water magic, working together, could craft new land ships, but this has not happened in centuries. Although land ships were once rare, war or accident has destroyed most of them; two Dragon-Blooded nobles own land ships, so does one Deathlord, and perhaps a few more await discovery. All the magic of a land ship rests in its keel -- a long, curving strip of yellow jade sandwiched between strips of black jade. The rest of the ship is ordinary wood and metal, built however the shipwright pleased, and subject to normal wear and aging. The two land ships in mortal hands are both single-masted forty-footers with high prows, one square-rigged and the other lateen-rigged; the Deathlord's ship is a 60-foot sloop. System: A land ship requires someone who can manipulate Essence to start it sailing on land, though in the First Age there were devices that contained Essence that could be used so that the vessels did not need Exalted crews. To start the vessel sailing requires one mote of Essence per hour and a simple success on an Essence + Sailing roll. With a good wind and a skilled crew, a land ship can sail 10 miles per hour, +1 mph for each success on the captain's Intelligence + Sailing roll -- wind permitting. Bad weather or obstacles such as trees or boulders result in increased difficulty. A land ship's magic has its limits: a land ship cannot sail up or down cliffs, any more than a mundane ship can sail up or down a waterfall. The one time someone tried using a land ship to breach castle walls, the ship's high prow went into the wall -- and the liquefied stone pushed the ship down into the earth. The land ship sank into the earth.",
+    "cost": "1 mote per hour of sailing (plus an Essence + Sailing roll to begin)",
+    "compatibility": "Any Essence-manipulating captain (any Exalt, sorcerer, or Essence-wielding pilot); currently known to be owned by two Dragon-Blooded noble houses and one Deathlord.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-storytellers-companion",
+      "printedPage": 79,
+      "pdfPage": 80
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Further Wonders, 'Land Ship (Artifact •••••)', printed p. 79 (PDF 80). Universal/cross-splat catalog entry; derived from Lunar's already-verified transcription of this same universal, cross-splat chapter (docs/references/exalted1e/lunar/inventory/exalted-the-lunars.json, id artifact-land-ship) -- identical id, name, mechanics, cost, and citation. No splat-specific restriction excluding Sidereal is noted in the source (compatibility text explicitly says 'any Exalt'), so this is copied here as a second master-copy row for Sidereal's own selectable catalog."
+  },
+  {
+    "id": "artifact-singing-staff",
+    "name": "Singing Staff (Artifact ••••)",
+    "disposition": "selectable",
+    "summary": "Universal cross-splat artifact: a man-high staff of white jade, played with a rosined bow like a musical saw, that reshapes earth, sand, clay, or stone into whatever form its music evokes -- as useful for digging canals as for toppling castle walls.",
+    "requirements": "An Essence-manipulating player skilled in Performance (even in the First Age, a Singing Staff required an Exalted wielder).",
+    "mechanics": "The Singing Staff demonstrates the odd approach to magic taken by some First Age magicians. This man-high staff of white jade is carved in an irregular series of waves and swellings, with a knob at each end. When rubbed with a rosined bow, the Singing Staff emits a tone, like a musical saw; different parts of the staff play different pitches and timbres. If one plants the end of the Staff on the ground and plays it correctly, the land responds to the music, rising and falling like waves or shaping itself like clay molded by unseen hands. This makes the Singing Staff precious as both a tool and a weapon: the Staff's uses are limited only by the skill of its player. Singing Staves are immensely sophisticated devices, despite their simple appearance. They were never easy to make, and in the modern era are vastly more difficult -- only three are known to exist: one is in the hands of the Empress and stored among her personal effects, one is held by the Immaculates of Paisep for study, and one was lost in battle with the Tepet legions and now lies on the bottom of the Inner Sea. Although the effects of the Staves are functionally identical, each has its own musical 'tuning.' System: Wielding the Staff's magic costs one mote of Essence per turn, and even in the First Age required an Exalted wielder. Each turn of use, the Staff can reshape 100 cubic feet of earth, sand, or clay, or 20 cubic feet of stone. To use the Staff, the character's player must succeed on an Essence + Performance roll (difficulty set by the detail or magnitude of the task). The Storyteller may demand multiple rolls to succeed at lengthy tasks, or additional Ability rolls for tasks that demand specialized training. For instance, constructing an ornamental stone pavilion might require three Essence + Ability rolls to use the Staff correctly, plus another Craft roll to get the ornamental carving right.",
+    "cost": "1 mote per turn",
+    "compatibility": "Any Essence-manipulating wielder with Performance skill; the three known Staves are held by the Empress, the Immaculate Order (for study), and one was lost when the Tepet legions were defeated and now rests at the bottom of the Inner Sea.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-storytellers-companion",
+      "printedPage": 79,
+      "pdfPage": 80
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Further Wonders, 'Singing Staff (Artifact ••••)', printed pp. 79-80 (PDF 80-81). Universal/cross-splat catalog entry; derived from Lunar's already-verified transcription of this same universal, cross-splat chapter (docs/references/exalted1e/lunar/inventory/exalted-the-lunars.json, id artifact-singing-staff) -- identical id, name, mechanics, cost, and citation. 'Paisep' transcribed as printed, matching Lunar's flagged best-effort reading of a hard-to-make-out scanned place name. No splat-specific restriction excluding Sidereal is noted in the source (compatibility text says 'any Exalt'), so this is copied here as a second master-copy row for Sidereal's own selectable catalog."
+  },
+  {
+    "id": "artifact-eye-of-autochthon",
+    "name": "Eye of Autochthon (Artifact N/A)",
+    "disposition": "selectable",
+    "summary": "Universal cross-splat artifact: an immense black pearl created by the Primordial Autochthon that suppresses all physical and magical turbulence for miles around and grants its wielder god-like, Storyteller-adjudicated reality-editing power over Manses, Demesnes, and the stable lands of Creation.",
+    "requirements": "None stated beyond possession; using it to perform any specific effect requires an Essence + Occult roll (see mechanics).",
+    "mechanics": "The Eye of Autochthon surpasses all other magic items known, having been itself created by the Primordial Autochthon. Through the Eye, mortals can tap a tiny fraction of a power older than the world or gods or time itself -- if they dare. The Eye looks like an immense black pearl, so large that a hero might strain to wrap his arms around it. Its ebon luster draws the eye into limitless depths of dark surface, a void that could birth worlds. No force, whether natural or divine, could so much as scratch the Eye's surface, but in the First Age some unknown agency clamped the great globe into a tight-fitting nest of gimbaled rings so that the Eye could turn freely in all directions, with no need to hand-push it; nevertheless it spins by itself. System: The Eye's active powers can be summarized as a 'plot device': it can do whatever the Storyteller wants it to; in general, its history shows it can create, destroy, or usurp control of Manses and Demesnes, and can transform the stable lands of the Realm and Threshold, though it cannot transform the looser, more Essence-soaked reality of the Wyld or the shadowlands. Its passive power to suppress all disturbances of land, sea, air, and magical turbulence for a league around it operates automatically and needs no roll: no wind blows above a mild, steady breeze, no one in the area suffers Wyld contamination, charms and sorcery have normal immediate effects but any continuing effect has its duration cut in half as the Eye reorders local Essence, and magical storms, waves, and earthquakes fail or stabilize. The Eye demands great expenditure of Essence: usurping control of a Manse, for instance, might require the player to expend 15 motes for every dot of the Manse's power (how an un-Exalted prophet once used it remains a mystery). The Eye also demands great skill to use: the player must succeed at an Essence + Occult roll at +2 difficulty to discover a new use for the Eye, and roll a simple success to perform that same feat thereafter. Any botch means the character suffers some bizarre and very permanent doom -- possibly affecting everyone within a mile or so, depending on the Storyteller's mood. The Eye does not function as an instant enemy-killer: the Primordial's power does not operate on so focused a scale, and any target smaller than a castle is too puny for the Eye to affect directly.",
+    "cost": "Variable (e.g. 15 motes per dot of a Manse's power to usurp it); Essence + Occult roll at +2 difficulty to learn a new use, simple success thereafter",
+    "compatibility": "Any possessor, Exalted or not (an un-Exalted prophet, Ikerre, once wielded it); a Storyteller-adjudicated 'plot device' artifact rather than a routinely player-purchasable Background item -- best used as a rare, campaign-defining relic rather than a starting-character purchase.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-storytellers-companion",
+      "printedPage": 80,
+      "pdfPage": 81
+    },
+    "crossReferences": [],
+    "notes": "Chapter Four: Further Wonders, 'Eye of Autochthon (Artifact N/A)', printed p. 80 (PDF 81), the last entry in the chapter and the last mechanical content in the book (PDF p. 82 is the inside/outside back cover). Universal/cross-splat catalog entry; derived from Lunar's already-verified transcription of this same universal, cross-splat chapter (docs/references/exalted1e/lunar/inventory/exalted-the-lunars.json, id artifact-eye-of-autochthon) -- identical id, name, mechanics, cost, and citation. Rated 'N/A' in the source rather than a numeric Artifact dot rating, reflecting its explicit framing as a Storyteller plot device; recorded as a 'selectable' catalog row here matching Lunar's own best-judgment call (since it is nonetheless a genuine named artifact a character could conceivably acquire), rather than 'gm-only'. No splat-specific restriction excluding Sidereal is noted in the source (compatibility text says 'any possessor, Exalted or not'), so this is copied here as a second master-copy row for Sidereal's own selectable catalog."
+  },
+  {
+    "id": "artifact-cargo-preservation-spindles",
+    "name": "Cargo Preservation Spindles (Artifact • to •••, depending on size)",
+    "disposition": "selectable",
+    "summary": "Universal naval artifact: a set of four jade-and-orichalcum spindles placed in the corners of a hold or room that protects any cargo introduced within their bounds from theft, fire, rot, vermin, and water damage for as long as it stays inside their perimeter.",
+    "requirements": "None beyond ownership; the cargo to be protected must first be formally 'introduced' to the set of four spindles (see mechanics) before the protection takes effect.",
+    "mechanics": "Cargo preservation spindles come in sets of four, ranging in size from slender spires a handbreadth high to slender pillars that stand nearly as tall as a man does. Despite their length and proportions, they are all the same basic form: a five-sided spindle, coming to a sharp point at either end. The shorter end of the spindle is normally set into a socket carved into the decking or a specially placed holder like a candlestick for smaller spindles. One is placed in each corner of a room to be protected. How large a spindle is determines how much area it can protect; small spindles will cover only a small room the size of a typical passenger's cabin, while the tallest will protect a large cargo hold. To use the spindles, the owner must first introduce the cargo to be protected. The long end of each spindle must be forced into the corresponding corner of the room to be protected (far enough to make a mark, not far enough to damage the crate or contents). As this is done, the contents are described in general detail, but radically different materials from those described won't be protected. A smuggler can easily find the firedust he had secreted in the cargo totally ruined, surrounded by otherwise dry and intact goods. Once this is done, the cargo is protected from almost all manner of damage that could affect it. Food will neither rot nor be infected or eaten by vermin of any kind (although food taken from its container will age and decay normally). Water, even the thickest of brines, will be unable to affect the goods in any way. Crates will stay in place under all but the heaviest seas, and even if toppled, their contents will be undamaged. The spindles will not prevent theft, but anyone touching the crates or packages protected will know immediately if anything has been taken from them. Fire will not take hold on any box or crate under the protection of the spindles. This protection is only effective as long as the cargo remains in the hold or room where the spindles are placed. A container that leaves the confines of the area bounded by the four spindles is no longer protected until it is returned, although there are no other effects (food removed from their protection does not suddenly spoil, for example).",
+    "cost": null,
+    "compatibility": "Any owner; a passive, always-on effect once cargo has been introduced to a set of four spindles, requiring no Essence use or splat-specific ability -- no restriction limiting it to any particular Exalt type is noted in the source.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 123,
+      "pdfPage": 124
+    },
+    "crossReferences": ["artifact-background-altered"],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Artifacts of the Waves' section intro followed by 'Cargo Preservation Spindles (Artifact • to •••, Depending on Size)', printed pp. 123-124 (PDF 124-125). Rated by physical size (spindle height) rather than by a single fixed dot value; the source does not give an exact size-to-dot-rating breakdown beyond the header's '• to •••' range, so the exact size thresholds are not further specified here. Not as powerful as some weapons, the spindles are carefully faceted prisms of each of the five types of jade bound together with bands of orichalcum and pins of moonsilver; no longer in general production today due to moonsilver/orichalcum scarcity, though many surviving sets remain in circulation, particularly aboard Realm ships. First named artifact transcribed fresh from this book's image-based PDF for this pass; no splat-specific restriction is noted in the source, so this is 'selectable' for Sidereal per this pass's brief."
+  },
+  {
+    "id": "artifact-armor-of-aquatic-puissance",
+    "name": "Armor of Aquatic Puissance (Artifact ••••)",
+    "disposition": "selectable",
+    "summary": "Naval artifact armor: a suit of articulated plate carved (not forged) from a rare sparkling black jade, whose Exalted wearer can breathe, swim at double speed, and see clearly underwater for hours at a time while remaining fully protected.",
+    "requirements": "An Exalted wielder (the armor's underwater breathing/swimming benefits are described specifically for an Exalted wearer; commitment is required to activate its properties).",
+    "mechanics": "These curious suits of articulated plate armor appear not so much to be forged as carved. Regardless of what type of metal the armor is made out of, it will be heavily inlaid with a rare form of sparkling black jade that glistens as if wet, even in the sun. The armor is built to tolerances and stresses that cannot be duplicated today; all of the suits known to exist date from the time preceding the Contagion. The armor's helm is a massive casque, a single piece of blue jade that locks under the shoulder yoke with a twist. The whole of the armor, excepting the faceplate, is carved in an ornate pattern of scales and fins to resemble the face of a fierce warrior, bearded and angry. Although not as strong as other forms of enchanted articulated plate, this armor has a number of advantages that make it extremely useful to an Exalted that spends much time upon the waves. First and most importantly, when the helm is locked in place, the wearer can breathe normally in even the deepest waters. The armor does not deal with other needs (water, food, etc.), so the practical limit is that this effect can be used for Stamina + Endurance hours in a row before it must be removed. The wearer can alter the buoyancy of the armor at will, allowing him to quickly surface or sink without penalty. The armor doubles the wearer's normal swimming rate underwater and the wearer suffers no mobility penalties underwater (although ranged combat is just as difficult as it would be for someone not wearing it). He can see underwater just as if he were in air (clouds of silt, squid ink and other materials can block vision, just as fog or smoke would above water, however). This armor also has sockets for two Hearthstones.",
+    "cost": "Commitment: 8 (plus Stamina + Endurance hours in a row of continuous underwater-breathing use before the helm must be removed)",
+    "compatibility": "Any Exalted wearer; not as common as more kinetic types of armor, but the imperial navy and the forces of Lookshy each have several suits, the more aquatically inclined Dynastic houses each have at least a couple, and the Guild and Lintha pirates are each rumored to have at least two; no Abyssal is known to own a suit, though deathknights have comparable suits of their own design and manufacture.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 124,
+      "pdfPage": 125
+    },
+    "crossReferences": ["artifact-background-altered"],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Armor of Aquatic Puissance (Artifact ••••)', printed p. 124 (PDF 125). Stat block: Soak 10L/12B, Mobility Penalty -2/0, Fatigue Value 1, Commitment 8. No splat-specific restriction is noted in the source, so this is 'selectable' for Sidereal per this pass's brief."
+  },
+  {
+    "id": "artifact-steelsilk-sails",
+    "name": "Steelsilk Sails (Artifact ••)",
+    "disposition": "selectable",
+    "summary": "Naval artifact rigging: rare sails woven from wood-spider silk that add to a ship's handling and speed while being nearly impervious to storms, fire, and mundane weapons.",
+    "requirements": "None beyond ownership; a lost art (steelsilk sails can no longer be manufactured) and requires a Charm such as Crack-Mending Technique to repair once damaged.",
+    "mechanics": "Highly sought after by those who favor speed and agility in the wind and durability in battle, these rare sails are supposedly made out of the silk of wood spiders or other spider spirits. Gossamer fine and light but strong as metal, steelsilk is nonetheless very stiff and makes poor armor. The art of manufacturing steelsilk sails has been lost, and those who possess sails currently have them mended carefully, often keeping them locked up except when the ship needs to be sailed lest all else fail. Steelsilk sails are most renowned for their ability to withstand punishment: storms that will leave silk sails in tatters, fires that will turn wet canvas sails into ash and weapons that would cut even reinforced canvas into ribbons will all fail to damage steelsilk sails. Steelsilk sails add +1 to all Sail rolls for control of a ship in a storm or for gaining or losing speed, and they allow a ship to sail two points closer to the wind and are all but impenetrable by mundane weapons; a ballista might punch a hole in a steelsilk sail, but only barely. Sails made of steelsilk have 15B/10L soak, take 20 health levels to damage and 40 to destroy. They take only half damage from wind, waves and fire. Repairing steelsilk sails requires a Charm such as Crack-Mending Technique; no other way is known to mend steelsilk once it's damaged.",
+    "cost": null,
+    "compatibility": "Any ship owner; no Exalt-type or splat-specific restriction is noted in the source.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 124,
+      "pdfPage": 125
+    },
+    "crossReferences": ["artifact-background-altered"],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Steelsilk Sails (Artifact ••)', printed p. 124 (PDF 125). No splat-specific restriction is noted in the source, so this is 'selectable' for Sidereal per this pass's brief."
+  },
+  {
+    "id": "artifact-storm-sapphire",
+    "name": "Storm Sapphire (Artifact ••• for lesser stones or •••• for the black stones)",
+    "disposition": "selectable",
+    "summary": "Naval artifact gemstone: a giant sapphire (green through blue-green for lesser stones, black for the most powerful) that an Exalted can power with her own Essence, Willpower, and health levels to quell a storm at sea, from an ordinary squall up to (for black stones only) a legendary island-killer tempest.",
+    "requirements": "An Exalted wielder able to power the stone with Essence, Willpower, and health levels; a Perception + Occult roll (difficulty 2-5, reduced by 2 for magically summoned/influenced storms, minimum 2) can be made beforehand to judge a storm's strength.",
+    "mechanics": "Storm sapphires are giant sapphires, most the size of a man's fist or larger. The most powerful storm sapphires are black, but they come in all colors, with green sapphires (the least powerful) being the most common. Storm sapphires have the power to quell storms, calming the sea and sky even under the most savage conditions. This power does not come without a cost, however. To stop a storm, an Exalted must power the sapphire with her own life force. Each use of a sapphire costs the user motes of Essence, Willpower and health levels as shown on the Storm Sapphire Effect Table. These health levels can be soaked or reduced if the stone is to work properly, although they can only be healed normally. The user of a storm sapphire can attempt to judge how strong the storm is going to be (a Perception + Occult roll) before trying to stop it; the difficulty of this task depends on how quickly it springs up and whether or not the storm has any magical foundations (difficulty starts at 2, ranges up to as high as 5 for an extremely fast moving, powerful storm that comes upon the unaware). Magically summoned or influenced storms are also easier to predict and control with the sapphire; reduce the severity of how much it will cost to dissipate the storm one level for purposes of determining how much of the storm's power a stone can affect, and reduce the difficulty of judging the storm by 2 (minimum difficulty of 2). Lesser stones (green through light blue) can disperse most storms but can do nothing against the strongest storms; the power of a storm sapphire either works or does not. The darkest blue stones and black stones can disperse the largest storms, but because the cost in life force is dependent on the storm, the Exalted using the sapphire will not know how much of her existence she will have to devote before choosing to battle the storm. Storm Sapphire Effect Table (Storm Strength: cost for Blue or Green Sapphire / cost for Black Sapphire): Storm: 20 motes, 2 Willpower, 2 health levels / 20 motes, 2 Willpower, 2 health levels. Greater storm: 25 motes, 2 Willpower, 3 health levels / 25 motes, 2 Willpower, 3 health levels. Gale: 25 motes, 3 Willpower, 3 health levels / 25 motes, 3 Willpower, 2 health levels. Greater gale: 30 motes, 4 Willpower, 3 health levels / 25 motes, 3 Willpower, 3 health levels. Hurricane: cannot be quelled by a Blue or Green Sapphire / 30 motes, 4 Willpower, 3 health levels. Greater hurricane: cannot be quelled by a Blue or Green Sapphire / 35 motes, 4 Willpower, 4 health levels. Tsunami: cannot be quelled by a Blue or Green Sapphire / 40 motes, 5 Willpower, 4 health levels. Greater tsunami: cannot be quelled by a Blue or Green Sapphire / 45 motes, 5 Willpower, 5 health levels. Island killer: cannot be quelled by a Blue or Green Sapphire / 50 motes, 6 Willpower, 6 health levels. A character who lacks sufficient motes or Willpower can, for the purposes of powering the storm sapphire only, convert health levels into motes or Willpower (one health level = 10 motes of Essence or 1 Willpower). This can only be done if the user lacks resources otherwise; he cannot choose to bolster his resources in order to leave himself with some motes of Essence after the storm dissipates.",
+    "cost": "Variable, per the Storm Sapphire Effect Table (20-50 motes, 2-6 Willpower, and 2-6 health levels depending on storm strength and stone color; lesser blue/green stones cap out at Greater gale, black stones can reach Island killer)",
+    "compatibility": "Any Exalted wielder; Storytellers are encouraged not to use this artifact to slay out of hand any player character who tries to stop a major storm unless there is compelling reason, since only the greatest storms are sufficient to kill a Terrestrial Exalted, and even those cannot outright kill a Solar wielding a storm sapphire (draining Essence/Willpower plus four to six health levels is the recommended, non-lethal outcome for a PC). No splat-specific restriction is noted in the source.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 124,
+      "pdfPage": 125
+    },
+    "crossReferences": ["artifact-background-altered"],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Storm Sapphire (Artifact ••• for Lesser Stones or •••• for the Black Stones)', printed pp. 124-125 (PDF 125-126), including the boxed 'Storm Sapphire Effect Table' at the top of printed p. 125 (PDF 126). Source also tells two illustrative in-setting stories (Kae Jen Windkiller, an outcaste Black Storm Sapphire wielder who quelled a hurricane threatening the Wavecrest Archipelago three centuries ago; and Buyer of Lapis, a water spirit who used one to save a mortal lover from a storm at the cost of her own immortal nature), summarized here rather than quoted verbatim since they are flavor rather than mechanics. No splat-specific restriction is noted in the source, so this is 'selectable' for Sidereal per this pass's brief."
+  },
+  {
+    "id": "artifact-cord-of-winds",
+    "name": "Cord of Winds (Artifact •)",
+    "disposition": "selectable",
+    "summary": "Naval artifact: a relatively common silken cord tied with up to 20 knots, each binding a minor air elemental that can be released to serve for a day and a night raising wind on command.",
+    "requirements": "None beyond ownership; releasing a bound elemental means untying (or cutting) its knot.",
+    "mechanics": "A relatively common artifact, produced by even mortal sorcerers. Partially discharged cords can be found on many ships, since relatively small ones, as they have been created in large numbers over the centuries. The cord of winds is normally a silken cord, usually light blue but possibly of any color, adorned with a number of knots. Each knot holds a minor air elemental bound up in it; if released, an elemental will serve for a day and a night, raising wind when asked. After its service is up, the elemental is free to depart. Any attempt to detain the elemental will be poorly received and may well bring retribution down upon the offending party, at some point. Most cords will have 20 knots in them when first created, of different sizes and complexities. The smaller, simpler knots hold elementals that are little more than breezes; the elementals bound in the larger, more complex knots are more powerful. Unraveling a knot in a hurry is an extended Wits + Sail task; the difficulty of the task depends on the power of the air elemental bound up in the knot. A simple breeze's knot has a difficulty of 4, while the knot securing a powerful zephyr or gale might have a difficulty of 10, although such powerful elementals and spirits are only rarely bound up in a cord of winds; most elementals or spirits bound will have a permanent Essence less than 4. Any knot can be untied given time, if one is patient enough not to cut it in half.",
+    "cost": null,
+    "compatibility": "Any owner, including mortal sorcerers (the artifact is explicitly produced by even mortal sorcerers, not solely by Exalted craftsmen); no Exalt-type or splat-specific restriction is noted in the source.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 125,
+      "pdfPage": 126
+    },
+    "crossReferences": ["artifact-background-altered"],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Cord of Winds (Artifact •)', printed pp. 125-126 (PDF 126-127). No splat-specific restriction is noted in the source, so this is 'selectable' for Sidereal per this pass's brief."
+  },
+  {
+    "id": "artifact-wavecleaver-daiklaive",
+    "name": "Wavecleaver Daiklaive (Artifact ••)",
+    "disposition": "selectable",
+    "summary": "An unusually short daiklaive, rarely exceeding three feet of blade, purpose-built for fighting in the cramped, low-ceilinged quarters belowdecks, with a thick curved edge that doubles as a tool capable of hacking through steel cables or chains in a single stroke.",
+    "requirements": "Minimum Strength ••.",
+    "mechanics": "Speed +3, Accuracy +2, Damage +5L, Defense +1, Minimum Strength: ••. Wavecleavers are uncommon weapons, wielded mostly by Terrestrials of House V'neef and House Peleps, although most houses have a small number of them. Perhaps the shortest of daiklaives, rarely exceeding three feet of blade length, wavecleavers are perfect for work belowdecks, where cramped quarters and low ceilings are the norm. Their thick blades and strong edges make them useful as well as tools as weapons; even steel cables or chains will rarely withstand more than a single hack from the curved blade of a wavecleaver. Wavecleavers typically have sockets for two Hearthstones, as Exalted on the water are more likely to rely on the gem-like talismans for survival.",
+    "cost": null,
+    "compatibility": "Any wielder meeting the Minimum Strength •• requirement; most current owners are Terrestrials of House V'neef and House Peleps, but this is a setting/ownership note rather than a mechanical restriction. No splat-specific restriction is noted in the source.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 126,
+      "pdfPage": 127
+    },
+    "crossReferences": ["artifact-background-altered"],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Wavecleaver Daiklaive (Artifact ••)', printed p. 126 (PDF 127). No commitment/attunement mote cost is stated in the source, so cost is recorded as null. No splat-specific restriction is noted, so this is 'selectable' for Sidereal per this pass's brief."
+  },
+  {
+    "id": "artifact-light-implosion-bow",
+    "name": "Light Implosion Bow (Artifact ••, ••• if Hearthstone or Reagent Powered)",
+    "disposition": "selectable",
+    "summary": "A First Age naval siege weapon resembling a ballista mounted on a heavy gimbaled pedestal, built of dark wine-red wood inlaid with the Five Magical Materials and adamant, that launches projectiles of pure Essence.",
+    "requirements": "A character capable of channeling Essence (any Exalted type; characters unable to channel Essence cannot operate these artifacts); an unfamiliar operator must succeed at an Intelligence + Lore roll at difficulty 3 to decipher the controls.",
+    "mechanics": "These fearsome weapons are First Age relics whose workings remain beyond the full understanding of any savant or engineer of the present day, though their use is simple once the operator becomes familiar with their functioning. The player of a character with these devices must make an Intelligence + Lore check at difficulty 3 for his character to decipher the controls. Resembling a ballista mounted atop a heavy gimbaled pedestal, these mechanisms appear to be made of a dark, glossy, wine-red wood, with elaborate inlays and fittings of the Five Magical Materials and adamant (an incredibly strong, glossy glass-like material used during the First Age). When properly used by a character capable of channeling Essence (any Exalted type and also Fair Folk and possibly others), these weapons launch projectiles of pure Essence. (Characters unable to channel Essence cannot operate these artifacts.) They are fired using Archery and have +3 accuracy, a rate of 1 and a range of 500. Before firing, the user may select the type of damage to be done, and the amount is dependent on how many motes of Essence the user channels into the weapon. For 1 mote, the projectile inflicts either 7B or 5L damage (depending on the control settings) on everything within a 10-foot radius of its target. In naval combat, these settings allow for attacks against rigging with the weapon, and it can also be used against units or troops. For 2 motes, the range and area of effect remain the same, but the damage settings increase to 15B or 12L. The weapon's pedestal must be mounted securely to a solid surface for it to fire; the bow has an arc of fire extending 360 degrees horizontally and 90 degrees vertically (30 degrees below and 60 above horizontal). Some versions are powered by hearthstones, and some by alchemical reagents. Typically, however, they are manned by one of the Dragon-Blooded, who powers it with his own Essence. Light implosion bows must be maintained, though they are less demanding than the more powerful lightning ballistae. An implosion bow must be overhauled every 100 shots by a character with Lore ••• and Occult ••. The overhaul includes the replacement and repair of all internal mechanisms and other components made with rare components. It costs Resources ••••, and the components are unlikely to be available outside the Realm and the largest Threshold cities. Artifact Ship Weapons table entry: Accuracy +3, Damage 7B/5L (1 mote) or 15B/12L (2 motes), Rate 1, Range 500, Naval Range Long, Naval Rate 3/turn, Minimum None, Artifact rating •• or ••• (depending on power source).",
+    "cost": "1 mote per shot for 7B/5L damage, or 2 motes per shot for 15B/12L damage",
+    "compatibility": "Any Exalted type, plus the source explicitly names Fair Folk and 'possibly others' as capable Essence-channeling operators; characters unable to channel Essence cannot operate it at all. No restriction excluding Sidereal is noted in the source.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 126,
+      "pdfPage": 127
+    },
+    "crossReferences": ["artifact-background-altered", "artifact-ship-weapons-table"],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Light Implosion Bow (Artifact ••, ••• if Hearthstone or Reagent Powered)', printed pp. 126-127 (PDF 127-128, plus its Artifact Ship Weapons table row on printed p. 127/PDF 128). Note that this row's header dot rating ('••, ••• if Hearthstone or Reagent Powered') is transcribed exactly as printed in the source and confirmed by the stat table; the task brief's own paraphrase ('••• for a common version, •••• for a hearthstone or elemental powered version') does not match what the rendered page actually shows. No splat-specific restriction excluding Sidereal is noted in the source, so this is 'selectable' for Sidereal per this pass's brief."
+  },
+  {
+    "id": "artifact-ship-weapons-table",
+    "name": "Artifact Ship Weapons (Summary Table)",
+    "disposition": "reference-only",
+    "summary": "A summary stat table for the Artifacts of the Waves chapter's ship-mounted weapons -- Light Implosion Bow and the three Lightning Ballista variants -- giving each weapon's Accuracy, Damage, Rate, Range, Naval Range, Naval Rate, minimum Ability requirements, and Artifact rating in one place.",
+    "requirements": "N/A -- a reference stat table summarizing weapons already catalogued individually above, not a purchasable item of its own.",
+    "mechanics": "Artifact Ship Weapons (Name / Acc. / Dmg. / Rate / Range / Naval Range / Naval Rate / Min. / Artifact): Light Implosion Bow / +3 / 7B/5L or 15B/12L / 1 / 500 / Long / 3/turn / None / •• or •••. Lightning Ballista (common) / +2 / 20L / 1 / 1,000 / Very Long / 3/turn / Occult ••, Archery • / •••. Lightning Ballista (elemental) / +2 / 20L / 1 / 1,000 / Very Long / 3/turn / Occult •••, Archery • / ••••. Lightning Ballista (hearthstone) / +2 / 25L / -- / 1,000 / Very Long / 2/turn / Occult ••, Archery • / ••••.",
+    "cost": "N/A (see the individual weapon rows above for their own Artifact ratings and per-shot Essence costs).",
+    "compatibility": "Applies to whichever of the two named weapons a character has already acquired (artifact-light-implosion-bow or artifact-lightning-ballista); see those rows for wielder requirements.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 127,
+      "pdfPage": 128
+    },
+    "crossReferences": ["artifact-light-implosion-bow", "artifact-lightning-ballista"],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Artifacts of the Waves', 'Artifact Ship Weapons' table, printed p. 127 (PDF 128) -- the last piece of mechanical content in the book before the back cover (PDF 129). The hearthstone-powered Lightning Ballista row's Rate cell prints as a dash ('--') rather than a number in the source, confirmed by a high-zoom re-render of this exact cell; transcribed as printed rather than guessed. Catalogued as its own reference-only summary row rather than folded silently into the two weapon rows above, matching the precedent already independently established for this same table by the Abyssal and Fair Folk inventories' own derivations of this Savage Seas chapter."
+  },
+  {
+    "id": "artifact-lightning-ballista",
+    "name": "Lightning Ballista (Artifact ••• for a Common Version, •••• for a Hearthstone or Elemental Powered Version)",
+    "disposition": "selectable",
+    "summary": "The primary heavy armament of larger First Age warships: a swivel-mounted siege weapon of brass and silver that fires a blast of lightning capable of burning flesh and wood to ash and melting steel or stone, powered by the firer's own Essence, a bound air elemental, or a Hearthstone of Fire or Air.",
+    "requirements": "A character able to manipulate Essence to activate it (powerless in the hands of the unExalted); Lore •••• and Occult •••• to keep it properly charged and maintained; Archery Charms cannot enhance its operation.",
+    "mechanics": "Lightning ballistae made up the primary heavy armament of larger First Age warships, with implosion bows and other weapons acting as secondary devices. Powerful, although shorter ranged than some other devices known to have existed, lightning ballistae are capable of damaging even the heaviest First Age hulls, and the few still seen in service are carefully guarded. When fired, the lightning ballista releases a powerful blast of lightning that sears and scorches whatever it hits, instantly burning wood and flesh to ash, and melting steel or stone. Lightning ballistae are heavy and complex affairs, built largely of brass and silver, and require complex fuels and reagents in addition to the investiture of Essence to fire. Typically, a lightning ballista can be fueled for up to twenty firings at a time before requiring servicing and maintenance. Maintaining a lightning ballista is not for the unlettered; a character must have Lore •••• and Occult ••• in order to keep the weapon properly tuned and charged. Normally, parts for maintenance cost Resources •••• every 100 firings, and the fuels and reagents used cost Resources ••• for 20 shots. These materials would be difficult, but not impossible, to find outside of a large city. Lightning ballistae are commonly mounted centerline on the hull, just aft of the prow, on a swivel mount that allowed the muzzle to fire on a 270 degree arc, a traverse of 45 degrees (15 down, 30 up). Only a small number of ships carried more than one lightning ballista, and few have survived to the current day. The most common were powered by the Exalted crew, but examples are known to have existed that were powered by captured (or willing) air elementals or through the use of a Hearthstone of Fire and a Hearthstone of Air to function. Either sort of stone must be above Manse •• to provide sufficient power. All lightning ballistae are designed so that the firer must be able to manipulate Essence to activate them; they are powerless in the hands of the unExalted. Although fired using the Archery Ability, Archery Charms cannot be used to enhance the operation of a lightning ballista. Artifact Ship Weapons table entries (see also artifact-ship-weapons-table): Lightning Ballista (common) -- Accuracy +2, Damage 20L, Rate 1, Range 1,000, Naval Range Very Long, Naval Rate 3/turn, Minimum Occult ••/Archery •, Artifact •••. Lightning Ballista (elemental) -- Accuracy +2, Damage 20L, Rate 1, Range 1,000, Naval Range Very Long, Naval Rate 3/turn, Minimum Occult •••/Archery •, Artifact ••••. Lightning Ballista (hearthstone) -- Accuracy +2, Damage 25L, Rate --, Range 1,000, Naval Range Very Long, Naval Rate 2/turn, Minimum Occult ••/Archery •, Artifact •••• (the table confirms both hearthstone- and elemental-powered variants sit at ••••, matching the header's own grouping of 'hearthstone or elemental powered version' together).",
+    "cost": "3 motes per shot (Essence-powered); 1 mote from the firer plus 1 mote from a bound elemental (elemental-powered); a Hearthstone of Fire or Air above Manse •• (hearthstone-powered)",
+    "compatibility": "Any Exalted firer able to manipulate Essence; the source's own shorthand states it is 'powerless in the hands of the unExalted.' No restriction singling out Sidereal specifically is noted in the source.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 127,
+      "pdfPage": 128
+    },
+    "crossReferences": ["artifact-background-altered", "artifact-light-implosion-bow", "artifact-ship-weapons-table"],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Lightning Ballista (Artifact ••• for a Common Version, •••• for a Hearthstone or Elemental Powered Version)', printed p. 127 (PDF 128) -- the last named artifact in the book before the back cover (PDF 129). All three power variants (common/elemental/hearthstone) are folded into this single row rather than split into three rows, matching the task brief's own grouping of them as variants of one named artifact. This closes out the 'Artifacts of the Waves' section and the entire Savage Seas Chapter Four artifact catalog for this pass (printed pp. 123-127/PDF 124-128); the preceding 'Magics of the Sea' Charms section (printed pp. 114-122/PDF 115-123) is explicitly Solar/Dragon-Blooded-only per the book's own text and was not transcribed, per this pass's brief. No splat-specific restriction excluding Sidereal is noted for this artifact, so it is 'selectable' per this pass's brief."
   }
 ]

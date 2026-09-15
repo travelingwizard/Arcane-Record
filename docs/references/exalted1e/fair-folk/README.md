@@ -1,24 +1,30 @@
 # Exalted 1e — Fair Folk source intake
 
 **Status: source intake in progress.** `Exalted: The Fair Folk` has been
-supplied and 336 inventory rows are checked in under `inventory/`. The book
+supplied and 351 inventory rows are checked in under `inventory/`. The book
 has now been reviewed cover to cover — every one of its seven chapters has
 either been fully inventoried (Three, Four, Five) or triaged (One, Two, Six,
 Seven) — and Fair Folk Merits/Flaws are definitively confirmed absent
 anywhere in the book. That universal gap is now filled from a second source
 book, the **Exalted Players Guide**'s Chapter One, "Merits and Flaws" — 73
 rows (37 merits + 36 flaws) derived for Fair Folk from Lunar's
-already-verified transcription of that chapter. See
+already-verified transcription of that chapter. A later pass added two more
+small, universal artifact catalogs: 6 rows derived from Lunar's
+already-verified transcription of the **Exalted Storyteller's Companion**'s
+"Further Wonders" chapter, and 9 rows freshly transcribed from **Savage
+Seas**'s "Artifacts of the Waves" section (336 → 351 rows total). See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
 ## What's inventoried so far
 
-- `source-manifest.json` — two source books in scope: `exalted-the-fair-folk`
-  (the primary sourcebook) and `exalted-players-guide` (the universal
+- `source-manifest.json` — four source books in scope: `exalted-the-fair-folk`
+  (the primary sourcebook), `exalted-players-guide` (the universal
   Merits/Flaws chapter, derived rather than independently transcribed; see
-  below).
-- `inventory/exalted-the-fair-folk.json` — 336 rows covering:
+  below), `exalted-storytellers-companion` (a universal artifact catalog,
+  also derived from Lunar's transcription), and `savage-seas` (a universal
+  naval-artifact catalog, freshly transcribed).
+- `inventory/exalted-the-fair-folk.json` — 351 rows covering:
   - The Chapter Three character-creation overview, split into two rows
     because common and noble raksha use materially different baselines:
     `fair-folk-creation-overview-common` (0-dot starting Attributes, 0 free
@@ -450,6 +456,59 @@ exactly as Weak Essence's own "other magical beings" clause requires. Every
 judgment call is flagged verbatim in the affected row's own `notes` field;
 see `source-manifest.json`'s `rulesNotes` for the full accounting.
 
+## Two small universal artifact catalogs (336 → 351 rows)
+
+An eleventh pass added two more small, universal (non-splat-restricted)
+artifact catalogs, neither requiring a full cover-to-cover re-read of a new
+book:
+
+- **6 rows derived from Lunar's transcription** (no independent re-read):
+  `artifact-ghost-cestus`, `artifact-sling-bow-of-ice`,
+  `artifact-the-golden-viper`, `artifact-land-ship`, `artifact-singing-staff`,
+  and `artifact-eye-of-autochthon`, copied with identical id/name/mechanics/
+  cost/citation from Lunar's already-verified transcription of the
+  **Exalted Storyteller's Companion**'s Chapter Four, "Further Wonders"
+  (printed pp. 77-80/PDF 78-81) — a universal artifact catalog explicitly
+  usable by "normal humans," not restricted to any splat. Each row's
+  `compatibility`/`notes` fields were individually rewritten to check the
+  source's "Essence-manipulating wielder" language against a raksha's own
+  Essence rating and mote pool (`fair-folk-creation-overview-common` /
+  `-noble` both confirm every raksha starts at Essence 2 with a pool of
+  Essence x 10, exactly like the Creation-born Exalted), since raksha are
+  not Exalted, wear a physical **Mote** (capitalized) as their body in
+  Creation, and use Glamour Sorcery rather than core Exalted Sorcery. All
+  six transfer cleanly; `artifact-eye-of-autochthon` carries one flagged,
+  non-blocking open question about its passive Wyld-turbulence-suppression
+  effect possibly interacting with a raksha's own innate Wyld immunity.
+- **9 rows freshly transcribed from Savage Seas** (a sixth source book, no
+  text layer — rendered via PyMuPDF at 2.2x zoom and read directly):
+  `artifact-cargo-preservation-spindles`, `artifact-armor-of-aquatic-puissance`,
+  `artifact-steelsilk-sails`, `artifact-storm-sapphire`,
+  `artifact-cord-of-winds`, `artifact-wavecleaver-daiklaive`,
+  `artifact-light-implosion-bow`, `artifact-lightning-ballista`, and a
+  reference-only `artifact-ship-weapons-table` summary row — all from
+  Chapter Four's "Artifacts of the Waves" section (printed pp. 123-127/PDF
+  124-128, the book's final mechanical content), explicitly **not**
+  including that chapter's earlier "Magics of the Sea" Charms section
+  (printed pp. 114-122), which the book restricts to Solar/Dragon-Blooded
+  Exalted and remains correctly out of scope. `artifact-light-implosion-bow`
+  is the strongest fit found: its own text explicitly names "any Exalted
+  type and also Fair Folk and possibly others" as capable users.
+  `artifact-lightning-ballista` carries the one flagged judgment call in
+  this batch — the source calls it "powerless in the hands of the
+  unExalted," but its actual mechanical requirement is only that "the
+  firer must be able to manipulate Essence," which a raksha satisfies; a
+  future reviewer could reasonably read the more pointed "unExalted"
+  phrasing as a deliberate exclusion instead. Two low-zoom transcription
+  errors (the Storm Sapphire Effect Table's Black Sapphire column, and the
+  Lightning Ballista's hearthstone-variant Artifact rating) were caught and
+  corrected via high-zoom re-renders before this pass was considered
+  complete; both affected rows carry a `CORRECTION` note.
+
+See `source-manifest.json`'s `rulesNotes` for the full accounting of both
+parts, including every judgment call and the two corrected transcription
+errors.
+
 ## What's still needed
 
 **Nothing further from this primary sourcebook.** `Exalted: The Fair Folk`
@@ -486,11 +545,17 @@ above for details). What remains is deliberate, not deferred:
    Lunar's already-verified transcription (see above) — 73 of 88 rows apply
    to Fair Folk.
 4. The project owner's remaining cross-splat supplements (Blood and Salt,
-   Book of Bone and Ebony, Book of Three Circles, Savage Seas, Savant and
-   Sorcerer, and the Storyteller's Companion) are still untriaged for any
-   further Fair Folk-relevant material. The Players Guide's own remaining
-   chapters (beyond the universal Chapter One now covered above) are also
-   still untriaged.
+   Book of Bone and Ebony, and Book of Three Circles) are still untriaged
+   for any further Fair Folk-relevant material. Two of the previously-listed
+   supplements have since been triaged for Fair Folk specifically: the
+   **Exalted Storyteller's Companion**'s universal "Further Wonders" artifact
+   catalog (6 rows derived from Lunar's transcription) and **Savage Seas**'s
+   universal "Artifacts of the Waves" section (9 rows freshly transcribed) —
+   see the "Two small universal artifact catalogs" section above. Both
+   books' remaining chapters (beyond the sections already mined for
+   universal, non-splat-restricted material) are still untriaged for Fair
+   Folk. The Players Guide's own remaining chapters (beyond the universal
+   Chapter One now covered above) are also still untriaged.
 
 ## Do not add yet
 

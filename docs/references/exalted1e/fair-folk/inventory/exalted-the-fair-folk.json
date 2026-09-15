@@ -525,7 +525,7 @@
   },
   {
     "id": "craft-glamour-ability",
-    "name": "Craft (Glamour) \u2014 the paramount creator's Craft specialty",
+    "name": "Craft (Glamour) — the paramount creator's Craft specialty",
     "disposition": "calculated",
     "summary": "Craft (Glamour) is the single most important Craft specialty for raksha: the art of shaping Essence and dream itself, superseding metalwork, woodwork, stonework and every other mundane Craft specialty for a Fair Folk character.",
     "mechanics": "Craft (Glamour) is described as 'the paramount creator's skill in the Wyld.' In Creation, a raksha player can roll Perception + Craft (Glamour) for her character to identify the glamour-forged works of her peers.",
@@ -5080,7 +5080,7 @@
       "hateful-coin-curse",
       "artifact-background-fair-folk"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Glamour Sorcery' -> 'Waking Circle Spell (Artifact \u2022)', p. 205 (PDF 206)."
+    "notes": "Chapter Five: Raksha Magic, 'Glamour Sorcery' -> 'Waking Circle Spell (Artifact •)', p. 205 (PDF 206)."
   },
   {
     "id": "dreaming-circle-spell",
@@ -5104,7 +5104,7 @@
       "fall-of-night-shadows-the-truth",
       "artifact-background-fair-folk"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Dreaming Circle Spell (Artifact \u2022\u2022)', p. 206 (PDF 207), between the Glamour Sorcery and Countermagic sidebar and the Desire Circle Spell entry."
+    "notes": "Chapter Five: Raksha Magic, 'Dreaming Circle Spell (Artifact ••)', p. 206 (PDF 207), between the Glamour Sorcery and Countermagic sidebar and the Desire Circle Spell entry."
   },
   {
     "id": "desire-circle-spell",
@@ -5129,7 +5129,7 @@
       "undetectable-lie",
       "artifact-background-fair-folk"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Desire Circle Spell (Artifact \u2022\u2022\u2022)', p. 206 (PDF 207), continuing onto p. 207/PDF 208."
+    "notes": "Chapter Five: Raksha Magic, 'Desire Circle Spell (Artifact •••)', p. 206 (PDF 207), continuing onto p. 207/PDF 208."
   },
   {
     "id": "samadhi-circle-spell",
@@ -5156,7 +5156,7 @@
       "artifact-background-fair-folk",
       "heart-grace"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Samadhi Circle Spell (Artifact \u2022\u2022\u2022\u2022)', p. 207 (PDF 208), immediately following the tail end of Desire Circle Spell and the 'Magistrate Eyes' cross-reference to core Exalted."
+    "notes": "Chapter Five: Raksha Magic, 'Samadhi Circle Spell (Artifact ••••)', p. 207 (PDF 208), immediately following the tail end of Desire Circle Spell and the 'Magistrate Eyes' cross-reference to core Exalted."
   },
   {
     "id": "shinma-circle-spell",
@@ -5177,7 +5177,7 @@
       "glamour-sorcery-overview",
       "artifact-background-fair-folk"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Shinma Circle Spell (Artifact \u2022\u2022\u2022\u2022\u2022)', p. 207 (PDF 208), immediately preceding the 'Wyld Artifacts' section."
+    "notes": "Chapter Five: Raksha Magic, 'Shinma Circle Spell (Artifact •••••)', p. 207 (PDF 208), immediately preceding the 'Wyld Artifacts' section."
   },
   {
     "id": "wyld-artifacts-overview",
@@ -5219,7 +5219,7 @@
       "wyld-artifacts-overview",
       "artifact-background-fair-folk"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Resonant Chorus Bow (Artifact \u2022)', p. 207 (PDF 208)."
+    "notes": "Chapter Five: Raksha Magic, 'Resonant Chorus Bow (Artifact •)', p. 207 (PDF 208)."
   },
   {
     "id": "hundred-color-shaping-lens",
@@ -5240,7 +5240,7 @@
       "wyld-artifacts-overview",
       "artifact-background-fair-folk"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Hundred Color Shaping Lens (Artifact \u2022\u2022)', p. 207 (PDF 208)."
+    "notes": "Chapter Five: Raksha Magic, 'Hundred Color Shaping Lens (Artifact ••)', p. 207 (PDF 208)."
   },
   {
     "id": "artifact-waypoint",
@@ -5261,7 +5261,7 @@
       "wyld-artifacts-overview",
       "artifact-background-fair-folk"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Artifact Waypoint (Artifact \u2022\u2022\u2022+)', p. 208 (PDF 209), continuing onto p. 209/PDF 210. This is the last named Wyld Artifact example before the 'Adjurations' section begins."
+    "notes": "Chapter Five: Raksha Magic, 'Artifact Waypoint (Artifact •••+)', p. 208 (PDF 209), continuing onto p. 209/PDF 210. This is the last named Wyld Artifact example before the 'Adjurations' section begins."
   },
   {
     "id": "adjurations-overview",
@@ -5324,7 +5324,7 @@
       "sword-grace",
       "gossamer-wing-flight"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Samhara Oath (Artifact \u2022)', p. 208 (PDF 209), continuing onto p. 209/PDF 210."
+    "notes": "Chapter Five: Raksha Magic, 'Samhara Oath (Artifact •)', p. 208 (PDF 209), continuing onto p. 209/PDF 210."
   },
   {
     "id": "sthiti-oath",
@@ -5347,7 +5347,7 @@
       "ring-grace",
       "ordinary-object-conjuration"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Sthiti Oath (Artifact \u2022\u2022)', spanning the bottom of p. 208 (PDF 209) and top of p. 209 (PDF 210)."
+    "notes": "Chapter Five: Raksha Magic, 'Sthiti Oath (Artifact ••)', spanning the bottom of p. 208 (PDF 209) and top of p. 209 (PDF 210)."
   },
   {
     "id": "anugraha-oath",
@@ -5370,7 +5370,7 @@
       "cup-grace",
       "oath-gossamer"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Anugraha Oath (Artifact \u2022\u2022\u2022)', p. 209 (PDF 210)."
+    "notes": "Chapter Five: Raksha Magic, 'Anugraha Oath (Artifact •••)', p. 209 (PDF 210)."
   },
   {
     "id": "tirobhava-oath",
@@ -5394,7 +5394,7 @@
       "assumption-of-the-living-kingdom",
       "assumption-of-the-lands-heart"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Tirobhava Oath (Artifact \u2022\u2022\u2022\u2022)', p. 209 (PDF 210), continuing onto p. 210/PDF 211."
+    "notes": "Chapter Five: Raksha Magic, 'Tirobhava Oath (Artifact ••••)', p. 209 (PDF 210), continuing onto p. 210/PDF 211."
   },
   {
     "id": "srishti-oath",
@@ -5417,7 +5417,7 @@
       "heart-grace",
       "bastion-of-the-self"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Srishti Oath (Artifact \u2022\u2022\u2022\u2022\u2022)', p. 210 (PDF 211), the last of the five oath tiers and immediately preceding the 'Behemoths' section."
+    "notes": "Chapter Five: Raksha Magic, 'Srishti Oath (Artifact •••••)', p. 210 (PDF 211), the last of the five oath tiers and immediately preceding the 'Behemoths' section."
   },
   {
     "id": "behemoths-overview",
@@ -5463,7 +5463,7 @@
       "gossamer-wing-flight",
       "glorious-hero-form"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Fey Beasts (Artifact \u2022 or \u2022\u2022)', p. 211 (PDF 212), the first named behemoth tier."
+    "notes": "Chapter Five: Raksha Magic, 'Fey Beasts (Artifact • or ••)', p. 211 (PDF 212), the first named behemoth tier."
   },
   {
     "id": "daikaiju",
@@ -5487,7 +5487,7 @@
       "bastion-of-the-self",
       "gossamer-wing-flight"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Daikaiju (Artifact \u2022\u2022\u2022)', p. 211 (PDF 212), continuing onto p. 212/PDF 213, illustrated with a full daikaiju artwork on p. 211/PDF 212."
+    "notes": "Chapter Five: Raksha Magic, 'Daikaiju (Artifact •••)', p. 211 (PDF 212), continuing onto p. 212/PDF 213, illustrated with a full daikaiju artwork on p. 211/PDF 212."
   },
   {
     "id": "deep-wyld-horror",
@@ -5510,7 +5510,7 @@
       "imposition-of-law",
       "glorious-hero-form"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Deep Wyld Horror (Artifact \u2022\u2022\u2022\u2022 or \u2022\u2022\u2022\u2022\u2022)', p. 212 (PDF 213). Note: this printed-page/PDF-page pair reflects the folio number printed on the physical page image, which reads 211 for the page bearing the 'Deep Wyld Horror,' 'Ishiika,' and 'Nirupadhika, the Way' material (PDF page 212); the source-manifest's earlier estimate of pp. 210-212/PDF 211-213 for Behemoths and p. 212/PDF 213 for Nirupadhika was off by one page and is corrected here after direct visual confirmation against the rendered page images."
+    "notes": "Chapter Five: Raksha Magic, 'Deep Wyld Horror (Artifact •••• or •••••)', p. 212 (PDF 213). Note: this printed-page/PDF-page pair reflects the folio number printed on the physical page image, which reads 211 for the page bearing the 'Deep Wyld Horror,' 'Ishiika,' and 'Nirupadhika, the Way' material (PDF page 212); the source-manifest's earlier estimate of pp. 210-212/PDF 211-213 for Behemoths and p. 212/PDF 213 for Nirupadhika was off by one page and is corrected here after direct visual confirmation against the rendered page images."
   },
   {
     "id": "ishiika",
@@ -6958,5 +6958,311 @@
       "fair-folk-experience-and-training-time"
     ],
     "notes": "STRONG FIT: unlike most of this chapter's Exalted-specific language, this Flaw's own text explicitly and by design extends beyond Exalted to 'other magical beings,' provided their normal starting Essence is 2 (excepting Dragon Kings). Fair Folk's own creation rules (fair-folk-creation-overview-noble / -common) state 'Essence starts at 2' for every raksha, common or noble alike, making this one of the cleanest, least-reinterpreted fits in the entire derived set. The 'newly-Exalted' framing was softened to 'newly coalesced' to fit a being who never Exalts, and the training-time clause was cross-referenced against this family's own rule that raksha have no training-time delay at all."
+  },
+  {
+    "id": "artifact-ghost-cestus",
+    "name": "Ghost Cestus (Artifact •••)",
+    "disposition": "selectable",
+    "summary": "Universal cross-splat artifact: an armored fighting glove (cestus) enchanted with orichalcum, moonsilver, starstone, or (most commonly) jade so its punches and grapples can strike and subdue spirits, ghosts, and gods who are normally untouchable to mortal fists.",
+    "requirements": "None (usable by mortals, magicians, sorcerers, or any Exalt without special training).",
+    "mechanics": "Ghost cesti work against umbrood and ghosts just as well as against normal humans, requiring no special training to use. When a character fights using ghost cesti, the player makes all the normal dice rolls for unarmed combat and inflicts the normal, Strength-based damage of the combat maneuver, but instead of health levels, the character inflicts points of temporary Willpower loss on the spirit target (see Exalted core rulebook p. 147 for the total effects of Willpower loss on spirits/humans). The victim can soak this attack using her own Willpower. Spirits reduced to 0 Willpower this way become totally obedient to whoever subdued them. Spirits and mortals both recover lost Willpower from this effect as if it were bashing damage. Ghost cesti cannot outright kill a spirit -- that requires more dreadful and powerful magic -- but a cestus-wielding warrior or wizard can pummel even a powerful spirit into submission, since spirits are unused to taking uppercuts from 'mere mortals.'",
+    "cost": null,
+    "compatibility": "Any wielder, worn on a physical hand -- mortal, magician, sorcerer, or Exalt of any splat, or a raksha wearing a Mote shaped with the requisite fingers and knuckles; a local spirit challenged the Empress's authority once and she sent a champion armed with ghost cesti to subdue it, and non-Exalted priests of the Immaculate Order also carry ghost cesti.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-storytellers-companion",
+      "printedPage": 77,
+      "pdfPage": 78
+    },
+    "crossReferences": [
+      "artifact-background-fair-folk"
+    ],
+    "notes": "Chapter Four: Further Wonders, 'Ghost Cestus (Artifact •••)', printed pp. 77-78 (PDF 78-79). Universal/cross-splat catalog entry; derived from Lunar's already-verified transcription of this same universal chapter (docs/references/exalted1e/lunar/inventory/exalted-the-lunars.json, id artifact-ghost-cestus) -- identical id, name, mechanics, cost, and citation, per this pass's brief. This is purely a worn physical item requiring no Essence, Charm, or Exaltation to operate, so it transfers to Fair Folk without reinterpretation: a raksha would purchase it through the Artifact Background (see artifact-background-fair-folk) exactly as she would any other three-dot artifact, and could wear/wield it on whichever Mote she currently inhabits like any other physical glove. No genuine incompatibility found; raksha are explicitly capable of owning Five-Magical-Materials artifacts per artifact-background-fair-folk's own dot table, just rarely in practice."
+  },
+  {
+    "id": "artifact-sling-bow-of-ice",
+    "name": "Sling Bow of Ice (Artifact •••)",
+    "disposition": "selectable",
+    "summary": "Universal cross-splat artifact: a bow-and-sling hybrid weapon common in the First Age, made of mingled black and blue jade, that fires bullets or bolts which explode on impact into a cloud of snow and shivering, uncontrollable cold, freezing the ground and everyone nearby.",
+    "requirements": "An Essence-manipulating wielder (the weapon itself is inert in the hands of a mortal with no Essence to fuel it).",
+    "mechanics": "A sling bow resembles a normal bow, but instead of arrows it fires bullets of stone or metal, or a sling. These particular sling bows are fashioned of mingled black and blue jade carved with a fine tracery of frost ferns. A bolt of black or blue jade fired from the weapon explodes on impact into a cloud of snow and ice that sets everyone within 20 feet shivering uncontrollably, no matter how warmly they are dressed, unless they carry a bit of orichalcum or are protected by magic that shields them from cold. It also coats the ground with a thin layer of slippery ice, making it hard to remain upright. The Sling Bow requires a single mote of Essence to fuel its magic; the wielder rolls Essence + Archery. For each success, everyone within 10 feet of the impact loses one dot of Dexterity from frostbitten numbness and slipping on the icy ground; a character reduced to 0 Dexterity can do nothing but huddle in misery. A character's Essence is subtracted from the number of successes rolled. The supernatural cold lasts one turn per success rolled in mild weather, and five minutes per success if the weather is already chill. Anyone who enters the zone regains Dexterity per turn; anyone who leaves it regains Dexterity per turn. A character may soak the cold using her Essence rating; the weapon does not affect Undead at all. A person who carries a bit of orichalcum, or characters with charms or spells that protect them from extreme cold, become immune to the effect. In the First Age, soldiers operating alongside Sling Bow-armed Exalted wore orichalcum rings to protect themselves from the weapon's effect; since the art of forging orichalcum was lost centuries ago, latter-day warriors must exercise care when employing the Bow.",
+    "cost": "1 mote per shot",
+    "compatibility": "Any Essence-manipulating wielder, raksha included -- every raksha has an Essence rating (starting at 2) and a mote pool (Essence x 10) exactly like the Creation-born Exalted (see fair-folk-creation-overview-common / -noble), so a raksha wearing a Mote with hands to draw a bow qualifies without reinterpretation; historically used by General Tepet Hala in the Great Eastern War, where it drove the Eastern Army across a river and let him take the enemy army by surprise.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-storytellers-companion",
+      "printedPage": 78,
+      "pdfPage": 79
+    },
+    "crossReferences": [
+      "artifact-background-fair-folk"
+    ],
+    "notes": "Chapter Four: Further Wonders, 'Sling Bow of Ice (Artifact •••)', printed p. 78 (PDF 79). Universal/cross-splat catalog entry; derived from Lunar's already-verified transcription of this same universal chapter (docs/references/exalted1e/lunar/inventory/exalted-the-lunars.json, id artifact-sling-bow-of-ice) -- identical id, name, mechanics, cost, and citation, per this pass's brief. No genuine incompatibility found: the weapon's 'Essence-manipulating wielder' requirement is satisfied by any raksha's own Essence rating and mote pool, and 'a single mote of Essence' spent to fire it is the same lowercase-mote currency raksha already spend on Grace Charms -- not to be confused with a raksha's Mote (capitalized), the physical body/shell she wears in Creation, which is simply what holds and draws the bow."
+  },
+  {
+    "id": "artifact-the-golden-viper",
+    "name": "The Golden Viper (Artifact •••••)",
+    "disposition": "selectable",
+    "summary": "Universal cross-splat artifact: a First Age automaton shaped like a six-foot orichalcum-and-jewel serpent, intelligent enough to speak and advise its owner, that serves whoever possesses it and can transmute a bite victim's flesh into gold.",
+    "requirements": "Ownership of the Viper following the death of its previous owner (it serves anyone who possesses it once its prior master has died).",
+    "mechanics": "The Golden Viper is the most intelligent automaton known, and even First Age texts speak of it as a notable relic. This lifelike serpent, fashioned of orichalcum and jewels in a framework of starstone, stretches six feet long and is about four inches thick at its thickest. The Viper serves anyone who possesses it once its previous owner is dead. The Viper is a formidable assassin: it can move through small openings and strikes like a real serpent, coiling and lashing out. In a matter of seconds, a person bitten by the Viper turns to gold (ordinary gold, not orichalcum). Magicians and Exalted have somewhat greater resistance to the Viper's bite than do more mortal folk, but even they can be slain and transmuted. The automaton knows whatever any of its clients knew; it advises its owner on the basis of this truly awesome base of stolen knowledge and experience. The Golden Viper knows no mercy or compassion; it advises the most ruthlessly practical course whatever goal its master seeks. If the Viper's master is not already a complete cynic by human nature, she will after a few years of the Viper's callous insight into human foibles. System: Attributes: Strength 3, Stamina 5, Perception 5, Intelligence 7, Wits 5, Charisma 3, Manipulation 5, Appearance 3, Willpower 10. It lacks Virtues since these have no meaning for its cold, inhuman intellect. Instead of a list of specific Abilities, the Storyteller may assume that it has a rating of 4 in any Ability it needs, with one exception: it remembers nothing about the First Age -- or claims not to. It speaks all known languages, and rapidly learns any new one it is exposed to. Its bite inflicts a base of 6L special damage; only armor can soak this damage, though Exalted can add their Essence to their soak rating. Each health level inflicted also strips away one point of Dexterity, as the victim stiffens, and it has a soak of 7L/10B. Its health levels are -0x3/-1x2/-2x2/-4x2/Incap x3. Restoring a health level lost to the Golden Viper is a difficulty 2 task on an Intelligence + Crafts roll.",
+    "cost": null,
+    "compatibility": "Any owner who acquires it after its previous owner's death, raksha included -- a raksha wearing a Mote is a genuine possessor in exactly the same sense as any mortal or Exalted owner; functions as an autonomous intelligent servant/assassin rather than a wielded or attuned item, and the text's own carve-out that 'Exalted can add their Essence to their soak rating' extends equally to a raksha's Essence rating.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-storytellers-companion",
+      "printedPage": 78,
+      "pdfPage": 79
+    },
+    "crossReferences": [
+      "artifact-background-fair-folk"
+    ],
+    "notes": "Chapter Four: Further Wonders, 'The Golden Viper (Artifact •••••)', printed p. 78 (PDF 79). Universal/cross-splat catalog entry; derived from Lunar's already-verified transcription of this same universal chapter (docs/references/exalted1e/lunar/inventory/exalted-the-lunars.json, id artifact-the-golden-viper) -- identical id, name, mechanics, cost, and citation, per this pass's brief. Statted as an intelligent construct/NPC-style artifact (Attributes, health levels, bite damage) rather than a worn/wielded item with a mote cost. No genuine incompatibility found: 'any owner...once its previous owner is dead' places no restriction on species or Exaltation status, and a raksha's Essence rating (see fair-folk-creation-overview-common / -noble) fills the same 'Exalted can add their Essence to their soak rating' clause the source text carves out for Exalted victims."
+  },
+  {
+    "id": "artifact-land-ship",
+    "name": "Land Ship (Artifact •••••)",
+    "disposition": "selectable",
+    "summary": "Universal cross-splat artifact: an extremely rare First Age vessel with a keel of interleaved yellow and black jade that lets it sail across dry land as if it were water, powered by an Essence-manipulating captain and crew.",
+    "requirements": "An Essence-manipulating captain to sail it (First Age devices existed that stored Essence so a land ship could sail without an Exalted crew, but these devices have all been lost or destroyed).",
+    "mechanics": "In the First Age, land ships were common. Very few of them remain -- masters of earth and water magic, working together, could craft new land ships, but this has not happened in centuries. Although land ships were once rare, war or accident has destroyed most of them; two Dragon-Blooded nobles own land ships, so does one Deathlord, and perhaps a few more await discovery. All the magic of a land ship rests in its keel -- a long, curving strip of yellow jade sandwiched between strips of black jade. The rest of the ship is ordinary wood and metal, built however the shipwright pleased, and subject to normal wear and aging. The two land ships in mortal hands are both single-masted forty-footers with high prows, one square-rigged and the other lateen-rigged; the Deathlord's ship is a 60-foot sloop. System: A land ship requires someone who can manipulate Essence to start it sailing on land, though in the First Age there were devices that contained Essence that could be used so that the vessels did not need Exalted crews. To start the vessel sailing requires one mote of Essence per hour and a simple success on an Essence + Sailing roll. With a good wind and a skilled crew, a land ship can sail 10 miles per hour, +1 mph for each success on the captain's Intelligence + Sailing roll -- wind permitting. Bad weather or obstacles such as trees or boulders result in increased difficulty. A land ship's magic has its limits: a land ship cannot sail up or down cliffs, any more than a mundane ship can sail up or down a waterfall. The one time someone tried using a land ship to breach castle walls, the ship's high prow went into the wall -- and the liquefied stone pushed the ship down into the earth. The land ship sank into the earth.",
+    "cost": "1 mote per hour of sailing (plus an Essence + Sailing roll to begin)",
+    "compatibility": "Any Essence-manipulating captain, raksha included -- a raksha's Essence rating and mote pool (see fair-folk-creation-overview-common / -noble) satisfy the requirement exactly as any Exalt, sorcerer, or other Essence-wielding pilot would; currently known to be owned by two Dragon-Blooded noble houses and one Deathlord.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-storytellers-companion",
+      "printedPage": 79,
+      "pdfPage": 80
+    },
+    "crossReferences": [
+      "artifact-background-fair-folk"
+    ],
+    "notes": "Chapter Four: Further Wonders, 'Land Ship (Artifact •••••)', printed p. 79 (PDF 80). Universal/cross-splat catalog entry; derived from Lunar's already-verified transcription of this same universal chapter (docs/references/exalted1e/lunar/inventory/exalted-the-lunars.json, id artifact-land-ship) -- identical id, name, mechanics, cost, and citation, per this pass's brief. No genuine incompatibility found; a raksha wearing a seaworthy (or land-worthy) Mote could crew and captain this ship exactly as any other Essence-manipulating pilot, and would purchase it through the Artifact Background like any other five-dot artifact (see artifact-background-fair-folk), rare as that is for a raksha in practice."
+  },
+  {
+    "id": "artifact-singing-staff",
+    "name": "Singing Staff (Artifact ••••)",
+    "disposition": "selectable",
+    "summary": "Universal cross-splat artifact: a man-high staff of white jade, played with a rosined bow like a musical saw, that reshapes earth, sand, clay, or stone into whatever form its music evokes -- as useful for digging canals as for toppling castle walls.",
+    "requirements": "An Essence-manipulating player skilled in Performance (even in the First Age, a Singing Staff required an Exalted wielder).",
+    "mechanics": "The Singing Staff demonstrates the odd approach to magic taken by some First Age magicians. This man-high staff of white jade is carved in an irregular series of waves and swellings, with a knob at each end. When rubbed with a rosined bow, the Singing Staff emits a tone, like a musical saw; different parts of the staff play different pitches and timbres. If one plants the end of the Staff on the ground and plays it correctly, the land responds to the music, rising and falling like waves or shaping itself like clay molded by unseen hands. This makes the Singing Staff precious as both a tool and a weapon: the Staff's uses are limited only by the skill of its player. Singing Staves are immensely sophisticated devices, despite their simple appearance. They were never easy to make, and in the modern era are vastly more difficult -- only three are known to exist: one is in the hands of the Empress and stored among her personal effects, one is held by the Immaculates of Paisep for study, and one was lost in battle with the Tepet legions and now lies on the bottom of the Inner Sea. Although the effects of the Staves are functionally identical, each has its own musical 'tuning.' System: Wielding the Staff's magic costs one mote of Essence per turn, and even in the First Age required an Exalted wielder. Each turn of use, the Staff can reshape 100 cubic feet of earth, sand, or clay, or 20 cubic feet of stone. To use the Staff, the character's player must succeed on an Essence + Performance roll (difficulty set by the detail or magnitude of the task). The Storyteller may demand multiple rolls to succeed at lengthy tasks, or additional Ability rolls for tasks that demand specialized training. For instance, constructing an ornamental stone pavilion might require three Essence + Ability rolls to use the Staff correctly, plus another Craft roll to get the ornamental carving right.",
+    "cost": "1 mote per turn",
+    "compatibility": "Any Essence-manipulating wielder with Performance skill, raksha included -- a raksha's Essence rating and mote pool (see fair-folk-creation-overview-common / -noble) satisfy the 'even in the First Age required an Exalted wielder' requirement in the same way as any Exalt or Essence-wielding magician, so long as she has Performance to bring to the Essence + Performance roll; the three known Staves are held by the Empress, the Immaculate Order (for study), and one was lost when the Tepet legions were defeated and now rests at the bottom of the Inner Sea.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-storytellers-companion",
+      "printedPage": 79,
+      "pdfPage": 80
+    },
+    "crossReferences": [
+      "artifact-background-fair-folk"
+    ],
+    "notes": "Chapter Four: Further Wonders, 'Singing Staff (Artifact ••••)', printed pp. 79-80 (PDF 80-81). Universal/cross-splat catalog entry; derived from Lunar's already-verified transcription of this same universal chapter (docs/references/exalted1e/lunar/inventory/exalted-the-lunars.json, id artifact-singing-staff) -- identical id, name, mechanics, cost, and citation, per this pass's brief. 'Paisep' transcribed as printed, matching Lunar's flagged best-effort reading of a hard-to-make-out scanned place name (see Lunar's own notes field for this row). No genuine incompatibility found; the source text's 'required an Exalted wielder' language is satisfied by a raksha's own Essence rating exactly as it is for Sidereal's derived copy of this same row."
+  },
+  {
+    "id": "artifact-eye-of-autochthon",
+    "name": "Eye of Autochthon (Artifact N/A)",
+    "disposition": "selectable",
+    "summary": "Universal cross-splat artifact: an immense black pearl created by the Primordial Autochthon that suppresses all physical and magical turbulence for miles around and grants its wielder god-like, Storyteller-adjudicated reality-editing power over Manses, Demesnes, and the stable lands of Creation.",
+    "requirements": "None stated beyond possession; using it to perform any specific effect requires an Essence + Occult roll (see mechanics).",
+    "mechanics": "The Eye of Autochthon surpasses all other magic items known, having been itself created by the Primordial Autochthon. Through the Eye, mortals can tap a tiny fraction of a power older than the world or gods or time itself -- if they dare. The Eye looks like an immense black pearl, so large that a hero might strain to wrap his arms around it. Its ebon luster draws the eye into limitless depths of dark surface, a void that could birth worlds. No force, whether natural or divine, could so much as scratch the Eye's surface, but in the First Age some unknown agency clamped the great globe into a tight-fitting nest of gimbaled rings so that the Eye could turn freely in all directions, with no need to hand-push it; nevertheless it spins by itself. System: The Eye's active powers can be summarized as a 'plot device': it can do whatever the Storyteller wants it to; in general, its history shows it can create, destroy, or usurp control of Manses and Demesnes, and can transform the stable lands of the Realm and Threshold, though it cannot transform the looser, more Essence-soaked reality of the Wyld or the shadowlands. Its passive power to suppress all disturbances of land, sea, air, and magical turbulence for a league around it operates automatically and needs no roll: no wind blows above a mild, steady breeze, no one in the area suffers Wyld contamination, charms and sorcery have normal immediate effects but any continuing effect has its duration cut in half as the Eye reorders local Essence, and magical storms, waves, and earthquakes fail or stabilize. The Eye demands great expenditure of Essence: usurping control of a Manse, for instance, might require the player to expend 15 motes for every dot of the Manse's power (how an un-Exalted prophet once used it remains a mystery). The Eye also demands great skill to use: the player must succeed at an Essence + Occult roll at +2 difficulty to discover a new use for the Eye, and roll a simple success to perform that same feat thereafter. Any botch means the character suffers some bizarre and very permanent doom -- possibly affecting everyone within a mile or so, depending on the Storyteller's mood. The Eye does not function as an instant enemy-killer: the Primordial's power does not operate on so focused a scale, and any target smaller than a castle is too puny for the Eye to affect directly.",
+    "cost": "Variable (e.g. 15 motes per dot of a Manse's power to usurp it); Essence + Occult roll at +2 difficulty to learn a new use, simple success thereafter",
+    "compatibility": "Any possessor, Exalted or not (an un-Exalted prophet, Ikerre, once wielded it) -- this explicit 'not' carve-out covers a raksha wearing a Mote at least as well as it covers an ordinary mortal, and the Eye's passive suppression of magical turbulence would blunt a raksha's own Wyld-native powers exactly as it blunts anyone else's within a league of it, a genuinely notable interaction worth flagging even though it does not bar ownership; a Storyteller-adjudicated 'plot device' artifact rather than a routinely player-purchasable Background item -- best used as a rare, campaign-defining relic rather than a starting-character purchase.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-storytellers-companion",
+      "printedPage": 80,
+      "pdfPage": 81
+    },
+    "crossReferences": [
+      "artifact-background-fair-folk",
+      "innate-powers-wyld-immunity"
+    ],
+    "notes": "Chapter Four: Further Wonders, 'Eye of Autochthon (Artifact N/A)', printed p. 80 (PDF 81), the last entry in the chapter and the last mechanical content in the book (PDF p. 82 is the inside/outside back cover). Universal/cross-splat catalog entry; derived from Lunar's already-verified transcription of this same universal chapter (docs/references/exalted1e/lunar/inventory/exalted-the-lunars.json, id artifact-eye-of-autochthon) -- identical id, name, mechanics, cost, and citation, per this pass's brief. Rated 'N/A' in the source rather than a numeric Artifact dot rating, reflecting its explicit framing as a Storyteller plot device; recorded as a 'selectable' catalog row here matching Lunar's and Sidereal's own best-judgment call (since it is nonetheless a genuine named artifact a character could conceivably acquire), rather than 'gm-only'. FLAGGED INTERACTION (not a blocking incompatibility): the Eye's passive league-wide suppression of 'magical turbulence' plausibly overlaps with a raksha's own Wyld-derived nature (see innate-powers-wyld-immunity) in ways the source text never anticipated for a non-Exalted, non-mortal owner or bystander; this is noted as an open interpretive question for a future Storyteller to resolve, not resolved here, since the source book gives no guidance either way and raksha are outside its scope entirely."
+  },
+  {
+    "id": "artifact-cargo-preservation-spindles",
+    "name": "Cargo Preservation Spindles (Artifact • to •••, Depending on Size)",
+    "disposition": "selectable",
+    "summary": "A set of four five-sided jade spindles, planted in the corners of a hold or cabin, that magically preserves any cargo placed within their protected area from rot, vermin, water damage, and shifting in heavy seas -- larger spindle sets protect larger spaces.",
+    "requirements": "None beyond ownership; using them requires no Essence, Charm, or roll, only physically planting the four spindles and 'introducing' the cargo to be protected.",
+    "mechanics": "Cargo preservation spindles come in a set of four, ranging in size from slender spires a handbreadth high to slender pillars nearly as tall as a man; despite the size difference, all are the same basic five-sided form, coming to a sharp point at either end. The shorter end of each spindle is set into a socket carved into the decking, or a specially placed holder (like a candlestick) for the smaller sizes; one spindle is placed in each corner of the room or hold to be protected. The size of the spindles determines how much area they protect: small spindles cover only a room the size of a typical passenger's cabin, while the tallest sets protect a large cargo hold. To use the spindles, the owner first 'introduces' the cargo to be protected by pressing the long end of each spindle into the corresponding corner of the room (far enough to leave a mark, not far enough to damage the crate or contents); the contents are described to the spindles in general detail, and the magic allows some variation, but radically different materials from those described will not be protected -- a smuggler who tries to hide contraband among a legitimate cargo will find the hidden freight ruined while the rest stays intact. Once introduced, the cargo is protected from nearly all forms of damage: food will not rot, spoil, or be eaten by vermin (though food removed from its container ages normally); water, even heavy brine, cannot affect the goods; crates stay in place under all but the heaviest seas and, even if toppled, their contents remain undamaged; and fire cannot take hold within the protected area. The spindles do not prevent theft outright, but anyone touching a protected crate or package immediately knows if anything has been taken from it. Protection lasts only as long as the cargo remains within the spindles' warded hold or room; goods removed from that protection are once again subject to normal spoilage. The spindles themselves are not easy to make: carefully prized shards of all five types of jade are bound together with bands of orichalcum and pins of moonsilver, each facet carved with the symbol of the Elemental Dragon whose aspect watches over and protects the warded contents.",
+    "cost": null,
+    "compatibility": "Any owner, with no splat restriction stated in the source; a purely passive, physical artifact requiring no Essence, Charm, or Exaltation to use, so it transfers to Fair Folk without reinterpretation -- a raksha would purchase a set through the Artifact Background exactly as any other one-to-three-dot artifact and could plant/use the spindles with ordinary Mote hands like any mortal crew member.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 123,
+      "pdfPage": 124
+    },
+    "crossReferences": [
+      "artifact-background-fair-folk"
+    ],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Artifacts of the Waves' section opener, printed pp. 123-124 (PDF 124-125), transcribed directly from the rendered PDF pages (this book has no text layer). This entry precedes the task brief's own list of 'already-confirmed' artifacts on this page and was found during the required cover-to-cover read of pp. 123-128; it carries no splat restriction of any kind in the source text (unlike several of this section's later, Essence-costed artifacts), making it one of the cleanest fits for Fair Folk in this batch. Not to be confused with the mundane, non-Artifact-rated Heavy/Superheavy/Shore Fire Cannon entries on the facing column of printed p. 123 (PDF 124), which are Resources-purchased ship weapons rather than Artifacts and were deliberately left out of scope per the task's Artifact-only brief."
+  },
+  {
+    "id": "artifact-armor-of-aquatic-puissance",
+    "name": "Armor of Aquatic Puissance (Artifact ••••)",
+    "disposition": "selectable",
+    "summary": "A suit of articulated plate armor heavily inlaid with sparkling blue jade, dating to before the Contagion, that lets its wearer breathe underwater, freely adjust buoyancy, swim at double speed with no penalty, and see clearly underwater, while keeping its full soak against attacks made beneath the waves.",
+    "requirements": "None stated beyond ownership and wearing the armor (the breathing effect draws on the wearer's own Stamina + Endurance, not Essence).",
+    "mechanics": "Soak: 10L/12B. Mobility Penalty: -2/0. Fatigue Value 1. Commitment: 8. These curious suits of articulated plate armor appear not so much to be forged as carved. Regardless of what type of metal the armor is made of, it is heavily inlaid with a rare form of sparkling blue jade that shifts as it wears, even in the sun; the armor is built to tolerances and stresses that cannot be duplicated today, and all known suits date from before the Contagion. The helm is a single piece of blue jade that locks under the shoulder yoke with a twist; the whole armor, excepting the faceplate, is carved in an ornate pattern of scales and fins to resemble the face of a fierce, bearded, angry warrior. Although not as strong as other enchanted articulated plate, it has advantages that make it extremely useful to anyone who spends much time on the water. Most importantly, with the helm locked in place the wearer can breathe normally even in the deepest waters; the armor does not address other needs (food, water, etc.), so this effect can only be sustained for Stamina + Endurance hours in a row before the helm must be removed. The wearer can alter the armor's buoyancy at will, surfacing or sinking without penalty; the armor doubles the wearer's normal underwater swimming rate and the wearer suffers no mobility penalties underwater, and can swim on the surface as fast as he moves on land (although ranged combat remains just as difficult as it would be without the armor). The wearer sees underwater just as if in open air (clouds of silt, squid ink, and similar materials still block vision, as fog or smoke would above water). The armor has sockets for two hearthstones. Although not as common as some other enchanted armors, a fair number of suits survive: both the Imperial navy and the forces of Lookshy are known to have several, more aquatically inclined Dynastic houses each have at least a couple, several more are rumored to be held by the Guild, and the Lintha pirates are known to have at least two. Outcastes working as pirates or merchants may own others but are quiet about it if so; no Abyssal is known to own a suit (unsurprisingly), though deathknights have comparable suits of their own design and manufacture.",
+    "cost": null,
+    "compatibility": "Any wearer, with no splat restriction stated beyond the passing note that no Abyssal is known to own one (a social/setting fact about who currently holds surviving suits, not a mechanical exclusion); a raksha wearing a Mote shaped to fit articulated plate could wear and benefit from this armor exactly as any mortal or Exalted owner, drawing on her own Stamina + Endurance for the breathing effect rather than Essence.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 124,
+      "pdfPage": 125
+    },
+    "crossReferences": [
+      "artifact-background-fair-folk"
+    ],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Artifacts of the Waves' section, 'Armor of Aquatic Puissance (Artifact ••••)', printed p. 124 (PDF 125), transcribed directly from the rendered PDF page (this book has no text layer). This matches the task brief's 'already-confirmed' listing for this page. No genuine incompatibility found: the armor's key effects (breathing, buoyancy, swim speed, underwater vision, soak) are all passive properties of the armor itself keyed to the wearer's own physical Attributes (Stamina + Endurance), not to Essence, Charms, or Exaltation, so a raksha's Mote wears it exactly like a mortal or Exalted body would."
+  },
+  {
+    "id": "artifact-steelsilk-sails",
+    "name": "Steelsilk Sails (Artifact ••)",
+    "disposition": "selectable",
+    "summary": "Rare sails woven from spider silk and gossamer moonsilver, prized for speed and agility in the wind and near-total durability in battle, since steel weapons, fire, arrows, and other mundane attacks all fail to damage them.",
+    "requirements": "None beyond ownership and rigging the sails to a ship; purely passive, no Essence or roll needed to benefit from their properties.",
+    "mechanics": "Highly sought after by those who favor speed and agility in the wind and durability in battle, these rare sails are supposedly made out of the silk of wood spiders or other spider spirits. Gossamer fine and light but strong as metal, steelsilk is nonetheless very stiff and makes poor armor. Steelsilk sails add +1 to all Sail rolls for keeping control of the ship in a storm or for gaining or losing speed, and they allow a ship to sail two points closer to the wind and are all but impenetrable by mundane weapons: a ballista might punch a hole in a steelsilk sail, but swords, arrows, javelins, and other weapons are useless against them. Sails made of steelsilk have 15B/10L soak, take 20 health levels to damage, and 40 to destroy; they take only half damage from wind, waves, and fire. Repairing steelsilk sails requires a Charm or the Crack-Mending Technique; no other way is known today to mend steelsilk once it is damaged.",
+    "cost": null,
+    "compatibility": "Any owner, with no splat restriction stated in the source; a purely passive property of the sail cloth itself, unrelated to who commands or crews the ship, so it transfers to Fair Folk without reinterpretation -- a raksha-owned or raksha-crewed vessel could be rigged with steelsilk sails exactly like any other ship.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 124,
+      "pdfPage": 125
+    },
+    "crossReferences": [
+      "artifact-background-fair-folk"
+    ],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Artifacts of the Waves' section, 'Steelsilk Sails (Artifact ••)', printed p. 124 (PDF 125), transcribed directly from the rendered PDF page (this book has no text layer). Matches the task brief's 'already-confirmed' listing for this page. No genuine incompatibility found: this is a ship-fitting property, not a worn or wielded item requiring a particular kind of bearer, so it applies identically regardless of who owns or crews the vessel."
+  },
+  {
+    "id": "artifact-storm-sapphire",
+    "name": "Storm Sapphire (Artifact ••• for Lesser Stones or •••• for the Black Stones)",
+    "disposition": "selectable",
+    "summary": "A giant sapphire (green and light blue being the weakest, black the most powerful) that can quell a storm at sea, at the cost of the user's own motes, Willpower, and health levels -- the darkest stones can dispel any storm, but the wielder never knows in advance how much of herself the storm will demand.",
+    "requirements": "An Essence-manipulating wielder (Exalted, spirit, or god-blooded) able to power the stone with motes, Willpower, and unsoakable health levels.",
+    "mechanics": "Storm sapphires are giant sapphires, most the size of a man's fist or larger. The most powerful are black, but they come in all colors, with green (the least powerful) being the most common. Storm sapphires have the power to quell storms, calming the sea and sky even under the most savage conditions, but this power does not come without a cost: to stop a storm, the wielder must power the sapphire with her own life force, paying motes of Essence, Willpower, and health levels as shown on the Storm Sapphire Effect Table below (cost rises with storm strength, from a plain 'Storm' up to the catastrophic 'Island Killer'). These health levels cannot be soaked or reduced for the stone to work properly, though they heal normally afterward. Storm Sapphire Effect Table (cost to quell storm; Blue/Green Sapphire vs. Black Sapphire): Storm -- 20 motes/2 Willpower/2 health levels vs. 20/2/2; Greater Storm -- 25/2/3 vs. 25/2/2; Gale -- 25/3/3 vs. 25/3/2; Greater Gale -- 30/4/3 vs. 25/3/3; Hurricane -- cannot vs. 30/4/3; Greater Hurricane -- cannot vs. 35/4/4; Tsunami -- cannot vs. 40/5/4; Greater Tsunami -- cannot vs. 45/5/5; Island Killer -- cannot vs. 50/6/6. A wielder who lacks sufficient motes or Willpower can convert health levels into motes or Willpower (one health level = 10 motes of Essence or 1 Willpower) for the purposes of paying the cost, but only if she also lacks resources to power the stone otherwise -- she cannot choose to prefer health levels just to leave herself with more motes afterward. The wielder can attempt to judge how strong an incoming storm will be with a Perception + Occult roll before trying to stop it; difficulty depends on the storm's intensity, how quickly it sprang up, and whether it has magical foundations (difficulty 2 to 5 for an extremely fast, powerful, unforeseen storm). A magically summoned or influenced storm is easier to predict and control: treat it as one severity level lower for cost purposes and reduce the judgment roll's difficulty by 2 (minimum 2). Lesser stones (green or light blue) can disperse most storms but do nothing against the strongest; a storm sapphire's power either works outright or fails outright, it does not partially succeed. Only the darkest blue and black stones can disperse any storm, at a life-force cost the wielder cannot know in advance. Creating a storm sapphire requires a flawless sapphire, the blood of a Storm Mother, and a wind spirit that has never before seen a mortal, captured alive; the enchantment takes a year and a day and must be performed on a ship floating in the clear waters of the uttermost West, out of sight of any land, which is why so few exist.",
+    "cost": "Variable per the Storm Sapphire Effect Table (20-50 motes, 2-6 Willpower, and 2-6 unsoakable health levels, depending on storm severity and stone color)",
+    "compatibility": "Any Essence-manipulating wielder able to pay the sapphire's cost in motes, Willpower, and health levels -- the source text names 'the Exalted, spirit or god-blooded' as those who wield it, and a raksha has all three currencies (Essence/mote pool, Willpower, and health levels) exactly as described (see fair-folk-creation-overview-common / -noble), so she qualifies without reinterpretation even though the text does not use the word 'raksha' by name.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 124,
+      "pdfPage": 125
+    },
+    "crossReferences": [
+      "artifact-background-fair-folk"
+    ],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Artifacts of the Waves' section, 'Storm Sapphire (Artifact ••• for Lesser Stones or •••• for the Black Stones)', printed pp. 124-125 (PDF 125-126, including the Storm Sapphire Effect Table on PDF 126), transcribed directly from the rendered PDF pages (this book has no text layer). Matches the task brief's 'already-confirmed' listing for this page. CORRECTION: an initial low-zoom reading of the Storm Sapphire Effect Table's Black Sapphire column contained several row-shift errors; a follow-up high-zoom re-render of the table (PDF page 126, clip region around the table) was used to re-verify every cell, and the table above reflects the corrected, double-checked reading. JUDGMENT CALL: the source text's own examples name only 'the Exalted, spirit or god-blooded' as wielders, never mentioning Fair Folk/raksha by name (unlike the Light Implosion Bow later in this same chapter, which explicitly does name Fair Folk); this is treated as an incidental gap in the prose's illustrative examples rather than a deliberate exclusion, since the mechanic's actual requirement (paying motes/Willpower/health levels) is satisfied by any raksha exactly as it would be by an Exalt, and nothing in the text singles out non-Exalted Essence users for exclusion."
+  },
+  {
+    "id": "artifact-cord-of-winds",
+    "name": "Cord of Winds (Artifact •)",
+    "disposition": "selectable",
+    "summary": "A relatively common silken cord tied with knots, each binding a minor air elemental that will raise wind and serve for a day and a night if released -- notably producible by mortal sorcerers, not just the Exalted.",
+    "requirements": "None stated beyond untying a knot to release its bound elemental (a knot-severing shortcut requires an extended Wits + Sail roll).",
+    "mechanics": "A relatively common artifact, produced even by mortal sorcerers; partially depleted examples can be found on many ships, even relatively small ones, since they have been created in large numbers over the centuries. The cord of winds is normally a silken cord, usually light blue but possibly any color, adorned with a number of knots. Each knot holds a minor air elemental bound within it; if released, the elemental serves for a day and a night, raising wind when asked, and is free to depart once its service is up. Any attempt to detain the elemental past its term is poorly received and may bring retribution down on the offending party at some point. Most cords have 20 knots when first created, of differing sizes and complexities: the smaller, simpler knots hold elementals that are little more than breezes, while the larger, more complex knots hold more powerful elementals. Untying a knot in a hurry (rather than simply asking its elemental for service) is an extended Wits + Sail task whose difficulty depends on the power of the air elemental bound within -- a simple breeze's knot has difficulty 4, while securing a powerful zephyr or gale might be difficulty 10, though such potent knots are rarely bound into a cord of winds; most elementals or spirits bound this way have a permanent Essence of less than 4. Any knot can be untied given enough time, or simply cut in half if one is willing to destroy it.",
+    "cost": null,
+    "compatibility": "Any owner; the source text explicitly notes this artifact is 'produced by even mortal sorcerers,' making it one of the least Exalt-restricted items in this section -- a raksha (who has her own Glamour Sorcery framework, see glamour-sorcery-overview) or an ordinary mortal sorcerer-in-service-to-a-raksha could equally plausibly own or have made one, and simply untying a knot to call on its bound elemental requires no Essence or Charm at all.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 125,
+      "pdfPage": 126
+    },
+    "crossReferences": [
+      "artifact-background-fair-folk",
+      "glamour-sorcery-overview"
+    ],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Artifacts of the Waves' section, 'Cord of Winds (Artifact •)', printed pp. 125-126 (PDF 126-127), transcribed directly from the rendered PDF pages (this book has no text layer). Found during the required cover-to-cover read of pp. 123-128, not in the task brief's own 'already-confirmed' list. No genuine incompatibility found; this is the single most permissively-worded artifact in the entire section, explicitly extending past the Exalted to mortal sorcerers, which if anything strengthens the case for raksha eligibility."
+  },
+  {
+    "id": "artifact-wavecleaver-daiklaive",
+    "name": "Wavecleaver Daiklaive (Artifact ••)",
+    "disposition": "selectable",
+    "summary": "An unusually short daiklaive, rarely exceeding three feet of blade, purpose-built for fighting in the cramped, low-ceilinged quarters belowdecks, with a thick curved edge that doubles as a tool capable of hacking through steel cables or chains in a single stroke.",
+    "requirements": "Minimum Strength ••.",
+    "mechanics": "Speed +3, Accuracy +2, Damage +5L, Defense +1, Minimum Strength ••. Wavecleavers are uncommon weapons, wielded mostly by Terrestrials of House V'neef and House Peleps, though most Dynastic houses have a small number of them. Perhaps the shortest of daiklaives, rarely exceeding three feet in blade length, wavecleavers are perfectly suited for work belowdecks, where cramped quarters and low ceilings are the norm. Their thick blades and strong edges make them as useful as tools as they are weapons; even steel cables or chains will rarely withstand more than a single hack from a wavecleaver's curved blade. Wavecleavers typically have sockets for two Hearthstones; Exalted who use a wavecleaver on the water are more likely to rely on those gem-like talismans for survival than on the blade alone.",
+    "cost": null,
+    "compatibility": "Any wielder able to meet the weapon's Minimum Strength •• requirement; the note that most current owners are Terrestrials of House V'neef and House Peleps is a setting/ownership fact about who currently holds them, not a mechanical restriction on who could wield one -- a raksha wearing a Mote with sufficient Strength could wield a wavecleaver exactly as any mortal or Exalted swordsman, purchased through the Artifact Background like any other two-dot weapon.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 126,
+      "pdfPage": 127
+    },
+    "crossReferences": [
+      "artifact-background-fair-folk"
+    ],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Artifacts of the Waves' section, 'Wavecleaver Daiklaive (Artifact ••)', printed p. 126 (PDF 127), transcribed directly from the rendered PDF page (this book has no text layer). Found during the required cover-to-cover read of pp. 123-128, not in the task brief's own 'already-confirmed' list. No commitment/attunement mote cost is stated in this entry's text (unlike some other artifacts in this section), so cost is recorded as null rather than inferring the standard core-rulebook daiklaive commitment figure; a raksha would still need to meet the stated Minimum Strength •• to wield it, exactly as any other character would."
+  },
+  {
+    "id": "artifact-light-implosion-bow",
+    "name": "Light Implosion Bow (Artifact ••, ••• if Hearthstone or Reagent Powered)",
+    "disposition": "selectable",
+    "summary": "A First Age naval siege weapon resembling a ballista mounted on a heavy gimbaled pedestal, built of dark wine-red wood inlaid with the Five Magical Materials and adamant, that fires projectiles of pure Essence -- explicitly usable by any Exalted type, Fair Folk, and possibly others who can channel Essence.",
+    "requirements": "A character capable of channeling Essence (characters unable to channel Essence cannot operate these artifacts); an unfamiliar operator's player must succeed at an Intelligence + Lore roll at difficulty 3 to decipher the controls before first use.",
+    "mechanics": "These fearsome weapons are First Age relics whose workings remain beyond the full understanding of any savant or engineer of the present day, though their use is simple once the operator becomes familiar with their functioning. Resembling a ballista mounted atop a heavy gimbaled pedestal, the mechanism appears to be made of a dark, glossy, wine-red wood, with elaborate inlays and fittings of the Five Magical Materials and adamant (an incredibly strong, glossy material used during the First Age). When properly used by a character capable of channeling Essence -- any Exalted type, and also Fair Folk and possibly others -- the weapon launches projectiles of pure Essence; characters unable to channel Essence cannot operate it at all. It is fired using Archery, with +3 Accuracy, a rate of 1, and a range of 500. Before firing, the user selects the type of damage to inflict, and the amount depends on how many motes of Essence are channeled into the weapon: for 1 mote, the projectile inflicts either 7B or 5L damage (per the control settings) on everything within a 10-foot radius of its target -- in naval combat, this setting can be used against rigging, units, or troops. For 2 motes, range and area of effect stay the same but the damage settings increase to 15B or 12L. The weapon's pedestal must be secured to a solid surface to fire; it has an arc of fire covering 360 degrees horizontally and 90 degrees vertically (30 degrees below to 60 degrees above horizontal). Some versions are powered by hearthstones and some by alchemical reagents; typically, however, one of the Dragon-Blooded mans it and powers it with his own Essence. The weapon is not for the unlettered: a character must have Lore •••• and Occult •• to keep it properly tuned and charged. Maintenance normally costs Resources •••• every 100 firings, and fuel/reagents cost Resources ••• for 20 shots; these materials are difficult, though not impossible, to find outside the Realm and the largest Threshold cities. Artifact Ship Weapons table entry: Accuracy +3, Damage 7B/5L (1 mote) or 15B/12L (2 motes), Rate 1, Range 500, Naval Range Long, Naval Rate 3/turn, Minimum None, Artifact rating •• or ••• (depending on power source).",
+    "cost": "1 mote per shot for 7B/5L damage, or 2 motes per shot for 15B/12L damage",
+    "compatibility": "Explicitly stated to include Fair Folk: the source text names 'any Exalted type and also Fair Folk and possibly others' as capable of channeling Essence into this weapon, making it the single most directly, explicitly Fair-Folk-compatible artifact transcribed in this pass -- no reinterpretation or judgment call is needed, since raksha are named in the source text itself. A raksha would still need the stated Lore •••• and Occult •• to maintain and charge it, exactly as any other operator.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 126,
+      "pdfPage": 127
+    },
+    "crossReferences": [
+      "artifact-background-fair-folk",
+      "artifact-ship-weapons-table"
+    ],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Artifacts of the Waves' section, 'Light Implosion Bow (Artifact ••, ••• if Hearthstone or Reagent Powered)', printed pp. 126-127 (PDF 127-128, plus its Artifact Ship Weapons table row on printed p. 127/PDF 128). The task brief's own paraphrase of this entry's dot rating ('Artifact ••• for a common version, •••• for a hearthstone or elemental powered version') does not match the header actually printed in the source ('Artifact ••, ••• if Hearthstone or Reagent Powered'); this row uses the rating and wording directly confirmed by visual reading of the rendered PDF page, not the task brief's paraphrase, and the stat table on printed p. 127 independently confirms 'Artifact •• or •••' for this weapon. STRONG FIT: this is the one artifact in the entire Fair Folk-relevant Savage Seas section whose own text explicitly names Fair Folk as eligible users, alongside 'any Exalted type ... and possibly others.'"
+  },
+  {
+    "id": "artifact-lightning-ballista",
+    "name": "Lightning Ballista (Artifact ••• for a Common Version, •••• for a Hearthstone or Elemental Powered Version)",
+    "disposition": "selectable",
+    "summary": "The primary heavy armament of larger First Age warships: a swivel-mounted siege weapon of brass and silver that fires a blast of lightning capable of burning flesh and wood to ash and melting steel or stone, powered by the firer's own Essence, a bound air elemental, or a Hearthstone of Fire or Air.",
+    "requirements": "A character able to manipulate Essence to activate it (the weapon is powerless without an Essence-manipulating firer, whatever the power source); Lore •••• and Occult •••• to keep it properly charged and maintained; Archery Charms cannot enhance its operation.",
+    "mechanics": "Lightning ballistae make up the primary heavy armament of larger First Age warships, with implosion bows and other weapons acting as secondary devices. Powerful, though shorter-ranged than some other First Age devices, lightning ballistae can damage even the heaviest First Age hulls, and the few still in service are carefully guarded. When fired, a lightning ballista releases a blast of lightning that sears and scorches whatever it hits, instantly burning wood and flesh to ash and melting steel or stone. They are heavy and complex, built largely of brass and silver, and require complex fuels and reagents in addition to an investiture of Essence to fire; a lightning ballista is typically fueled for up to 20 firings before requiring servicing and maintenance. Maintaining one is not for the unlettered: a character must have Lore •••• and Occult •••• to keep the weapon properly charged and maintained; maintenance normally costs Resources •••• every 100 firings, and fuel/reagents cost Resources ••• for 20 shots (difficult but not impossible to find outside the Realm and the largest Threshold cities). Lightning ballistae are commonly mounted centerline on the hull just aft of the prow, on a swivel mount allowing the muzzle to fire on a 270-degree arc, with 45 degrees of traverse (15 degrees down, 30 up). Only a small number of ships carried more than one, and few survive to the current day. Most were powered by the Exalted crew, but some were powered by captured (or willing) air elementals, or by a Hearthstone. A lightning ballista powered purely by Essence requires 3 motes per shot; one that binds an elemental uses 1 mote from the firer and 1 mote from the elemental; one powered by a Hearthstone requires a Hearthstone of Fire or Air rated above Manse •• to provide sufficient power. All lightning ballistae are designed so the firer must be able to manipulate Essence to activate them; the source text describes them as 'powerless in the hands of the unExalted.' Fired using the Archery Ability, though Archery Charms cannot be used to enhance its operation. Artifact Ship Weapons table entries (see also artifact-ship-weapons-table): Lightning Ballista (common) -- Accuracy +2, Damage 20L, Rate 1, Range 1,000, Naval Range Very Long, Naval Rate 3/turn, Minimum Occult ••/Archery •, Artifact •••. Lightning Ballista (elemental) -- Accuracy +2, Damage 20L, Rate 1, Range 1,000, Naval Range Very Long, Naval Rate 3/turn, Minimum Occult •••/Archery •, Artifact ••••. Lightning Ballista (hearthstone) -- Accuracy +2, Damage 25L, Rate --, Range 1,000, Naval Range Very Long, Naval Rate 2/turn, Minimum Occult ••/Archery •, Artifact •••• (the table confirms both hearthstone- and elemental-powered variants sit at ••••, matching the header's own grouping of 'hearthstone or elemental powered version' together).",
+    "cost": "3 motes per shot (Essence-powered); 1 mote from the firer plus 1 mote from a bound elemental (elemental-powered); Hearthstone of Fire or Air above Manse •• (hearthstone-powered)",
+    "compatibility": "JUDGMENT CALL: the source text's own shorthand for this requirement is that the weapon is 'powerless in the hands of the unExalted,' but the actual mechanical requirement it states just before that line is only that 'the firer must be able to manipulate Essence to activate them' -- and a raksha manipulates Essence exactly as an Exalt does (her own Essence rating and mote pool, see fair-folk-creation-overview-common / -noble). Interpreting the binding mechanical requirement (Essence manipulation) rather than the illustrative word choice ('unExalted') -- the same principle already applied throughout this inventory's derived Storyteller's Companion and Players Guide rows -- a raksha firer qualifies to activate a lightning ballista. This is flagged explicitly rather than treated as a clean fit, since 'unExalted' is a more pointed phrase than the 'any Exalt' language used elsewhere in this section, and a future reviewer with a different reading of authorial intent could reasonably exclude raksha here.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 127,
+      "pdfPage": 128
+    },
+    "crossReferences": [
+      "artifact-background-fair-folk",
+      "artifact-light-implosion-bow",
+      "artifact-ship-weapons-table"
+    ],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Artifacts of the Waves' section, 'Lightning Ballista (Artifact ••• for a Common Version, •••• for a Hearthstone or Elemental Powered Version)', printed p. 127 (PDF 128), transcribed directly from the rendered PDF page (this book has no text layer, and this is the last mechanical content in the book before the back cover on printed 'p. 128'/PDF 129). Matches the task brief's 'already-confirmed' listing for this page. CORRECTION: an earlier reading of this row misread the Artifact Ship Weapons table's 'Lightning Ballista (hearthstone)' entry as •••; a follow-up high-zoom re-render of the table (PDF page 128, clip region around the table) confirmed it is actually ••••, matching the entry's own header grouping ('hearthstone or elemental powered version' together at ••••) with no inconsistency after all. All three power variants (common/elemental/hearthstone) are folded into this single row rather than split into three rows, matching the task brief's own grouping of them as 'variants' of one named artifact and this family's existing precedent for consolidating same-named variants (e.g. Assumption of Elemental Shape) into one row. The Artifact Ship Weapons table is also given its own separate reference-only row (artifact-ship-weapons-table) rather than folded in silently, matching the precedent already set by Abyssal's derivation of this same Savage Seas material."
+  },
+  {
+    "id": "artifact-ship-weapons-table",
+    "name": "Artifact Ship Weapons (Summary Table)",
+    "disposition": "reference-only",
+    "summary": "A summary stat table for the Artifacts of the Waves chapter's ship-mounted weapons -- Light Implosion Bow and the three Lightning Ballista variants -- giving each weapon's Accuracy, Damage, Rate, Range, Naval Range, Naval Rate, minimum Ability requirements, and Artifact rating in one place.",
+    "requirements": "N/A -- a reference stat table summarizing weapons already catalogued individually above, not a purchasable item of its own.",
+    "mechanics": "Artifact Ship Weapons (Name / Acc. / Dmg. / Rate / Range / Naval Range / Naval Rate / Min. / Artifact): Light Implosion Bow / +3 / 7B/5L or 15B/12L / 1 / 500 / Long / 3/turn / None / •• or •••. Lightning Ballista (common) / +2 / 20L / 1 / 1,000 / Very Long / 3/turn / Occult ••, Archery • / •••. Lightning Ballista (elemental) / +2 / 20L / 1 / 1,000 / Very Long / 3/turn / Occult •••, Archery • / ••••. Lightning Ballista (hearthstone) / +2 / 25L / -- / 1,000 / Very Long / 2/turn / Occult ••, Archery • / ••••.",
+    "cost": "N/A (see the individual weapon rows above for their own Artifact ratings and per-shot Essence costs).",
+    "compatibility": "Applies to whichever of the two named weapons a character has already acquired (artifact-light-implosion-bow or artifact-lightning-ballista); see those rows for wielder requirements, including the explicit Fair Folk mention on the Light Implosion Bow and the flagged 'unExalted' judgment call on the Lightning Ballista.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 127,
+      "pdfPage": 128
+    },
+    "crossReferences": [
+      "artifact-light-implosion-bow",
+      "artifact-lightning-ballista"
+    ],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Artifacts of the Waves', 'Artifact Ship Weapons' table, printed p. 127 (PDF 128), Savage Seas -- the last piece of mechanical content in the book; the following PDF page (129) is the back cover. A high-zoom re-render of this table's clipped region was used to double-check the Lightning Ballista (hearthstone) row's Artifact rating after an initial misreading; it is ••••, matching the elemental variant and the entry's own header grouping. Catalogued as its own reference-only summary row, matching the precedent set by Abyssal's derivation of this same Savage Seas material (id artifact-ship-weapons-table in docs/references/exalted1e/abyssal/inventory/exalted-the-abyssals.json, there named without the leading zero-padding difference) rather than only folding the numbers silently into the two weapon rows above."
   }
 ]
