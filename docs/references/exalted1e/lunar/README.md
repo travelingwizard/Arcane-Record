@@ -1,22 +1,24 @@
 # Exalted 1e — Lunar source intake
 
-**Status: primary sourcebook fully inventoried; two cross-splat passes
-complete (sorcery/artifice, and the Storyteller's Companion); further
-cross-splat supplements outstanding.**
+**Status: primary sourcebook fully inventoried; three cross-splat passes
+complete (sorcery/artifice, the Storyteller's Companion, and Savage Seas);
+further cross-splat supplements outstanding.**
 *Exalted: The Lunars* (PDF, image-scan) has been supplied and is now
 inventoried cover-to-cover for character-creation-relevant material, a
 further pass has added the *Savant and Sorcerer* / *Book of Three Circles*
 Terrestrial/Celestial Circle spell catalog, Hearthstone catalog, artifact
-catalog, and Warstriders appendix, and a final pass added the *Exalted
+catalog, and Warstriders appendix, a further pass added the *Exalted
 Storyteller's Companion*'s embedded Lunar Charms and universal artifact
-catalog. See
+catalog, and a final pass added *Exalted: Savage Seas*'s universal
+"Artifacts of the Waves" naval-artifact catalog. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md)
 for the full process this directory follows.
 
-`inventory/exalted-the-lunars.json` currently has 573 reviewed rows (341 from
+`inventory/exalted-the-lunars.json` currently has 582 reviewed rows (341 from
 *Exalted: The Lunars*/the *Exalted Players Guide*, 220 from the
-*Savant and Sorcerer*/*Book of Three Circles* pass, plus 12 from the
-*Exalted Storyteller's Companion* pass, both described below). Every row
+*Savant and Sorcerer*/*Book of Three Circles* pass, 12 from the
+*Exalted Storyteller's Companion* pass, and 9 from the *Savage Seas* pass,
+all described below). Every row
 was visually compared against a rendered page of the source PDF before being
 marked `reviewed` — none of this content came from OCR alone. It covers:
 
@@ -383,9 +385,65 @@ The remainder of Chapters One through Three of the Storyteller's Companion
 was skimmed and confirmed to be pure narrative/GM/NPC material with no
 further Lunar-facing exceptions.
 
+### Exalted: Savage Seas (9 rows)
+
+A final pass rendered and read this cross-splat naval sourcebook's Chapter
+Four ("Creatures, Gods, Charms and Artifacts"), specifically its "Artifacts
+of the Waves" section (printed pp. 123-127/PDF 124-128), adding 9 rows as a
+sixth source book:
+
+- **Eight named Artifacts plus one reference-only summary table**, all
+  universal and non-splat-restricted: Cargo Preservation Spindles (Artifact
+  • to •••, depending on size), Armor of Aquatic Puissance (Artifact ••••),
+  Steelsilk Sails (Artifact ••), Storm Sapphire (Artifact ••• for lesser
+  stones or •••• for the black stones, including its Storm Sapphire Effect
+  Table), Cord of Winds (Artifact •), Wavecleaver Daiklaive (Artifact ••),
+  Light Implosion Bow (Artifact ••, ••• if Hearthstone or reagent powered),
+  and Lightning Ballista (Artifact ••• for a common version, •••• for a
+  Hearthstone or elemental powered version), plus a reference-only Artifact
+  Ship Weapons summary table restating the two ship-mounted weapons' stat
+  lines in one place.
+- This catalog had already been fully transcribed into four other
+  families' inventories (Abyssal, Sidereal, Alchemical, Fair Folk), all
+  landing on the same 8 artifacts + 1 table, confirming it is universal and
+  non-splat-restricted; Lunar's 9 rows were adapted from the
+  already-verified Abyssal and Sidereal transcriptions (same citations,
+  mechanics, and cost text; only each row's `compatibility` text was
+  updated for Lunar) rather than requiring an independent full re-read. Per
+  the task brief, at least three pages were freshly rendered and visually
+  spot-checked directly against the source PDF for this pass regardless: the
+  Storm Sapphire Effect Table page (confirming its figures, including the
+  Greater storm/Black Sapphire cell that an earlier Abyssal-only reading had
+  misread) and the Light Implosion Bow / Lightning Ballista pages (see next
+  paragraph).
+- **Two page/rating discrepancies were specifically cross-checked against
+  the rendered images**: Light Implosion Bow's header rating is printed as
+  "Artifact ••, ••• if Hearthstone or Reagent Powered" — confirmed by a
+  fresh render of PDF pages 127-128, matching the Sidereal/Fair Folk
+  reading and *not* an earlier alternate paraphrase ("••• for a common
+  version, •••• for a hearthstone or elemental powered version") that does
+  not match the printed page. Lightning Ballista's header rating ("Artifact
+  ••• for a common version, •••• for a Hearthstone or elemental powered
+  version") was also freshly re-rendered and confirmed accurate as
+  originally given, with no discrepancy found there.
+- No Autochthonia-style setting-restriction caveat applies to any of these
+  9 rows for Lunar, since Lunars are native Creation-dwellers (unlike
+  Alchemical, whose Autochthonia setting has no Creation-style oceans);
+  Lunar's own existing Survival Charms (Whale-Breath Technique,
+  Gill-Breathing Technique, Sealskin Endurance) and the No Moon caste's
+  favored Totem Animals ("creatures of the deep ocean," per this splat's
+  own Castes material, already inventoried above) establish a genuine
+  thematic tie to the sea, so this catalog carries the least-caveated
+  `compatibility` text of any family's copy — no invented flavor beyond
+  what this book's own text and Lunar's existing inventory already support.
+- The book's earlier "Magics of the Sea" Charms section (printed
+  pp. 114-122/PDF 115-123) is explicitly Solar/Dragon-Blooded-only per the
+  book's own text and was confirmed out of scope for Lunar, consistent with
+  the other four families that have already triaged this book.
+
 Still outstanding: any Lunar-facing material in the other cross-splat
 supplements listed in the top-level intent (Blood and Salt, Book of Bone and
-Ebony, Savage Seas, etc.), which remain entirely uninventoried.
+Ebony, etc.), which remain entirely uninventoried.
 
 Nothing here has been promoted to a production catalog yet (`promotedEntries`
 stays `0` until rows are wired into schema/rules/UI, not merely inventoried).

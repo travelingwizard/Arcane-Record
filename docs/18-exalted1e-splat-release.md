@@ -192,13 +192,13 @@ real, creatable sheet.
 
 | Family     | Source manifest                                                                                                                                        | Inventory rows | Promoted | Certification                    |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | -------- | -------------------------------- |
-| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion)                  | 573            | 0        | Locked, all dimensions `not-run` |
+| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas)    | 582            | 0        | Locked, all dimensions `not-run` |
 | Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas) | 684            | 0        | Locked, all dimensions `not-run` |
 | Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas)                         | 487            | 0        | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas)                                          | 291            | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas)                                               | 351            | 0        | Locked, all dimensions `not-run` |
 
-Lunar's 573 rows cover the core innate powers, every Charm category in
+Lunar's 582 rows cover the core innate powers, every Charm category in
 Chapter Five (Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat
 I-V, Melee Combat I/II, Ranged Combat I/II, Defensive I/II/III, Survival and
 Healing I/II/III/IV, Perception I/II/III/IV, Stealth, Interaction and
@@ -267,7 +267,29 @@ Cestus, Sling Bow of Ice, The Golden Viper, Land Ship, Singing Staff, and
 the Eye of Autochthon), transcribed into Lunar's inventory as the master
 copy for later derivation into the other four families; the rest of the
 book's Chapters One and Three were skimmed and confirmed to hold only
-GM/NPC/setting material. See `docs/references/exalted1e/lunar/README.md`.
+GM/NPC/setting material. A final pass then added 9 more rows (573 → 582)
+freshly transcribed from a sixth source book, **Savage Seas**, whose
+"Artifacts of the Waves" section (Chapter Four, printed pp. 123-127/PDF
+124-128) is likewise a universal, non-splat-restricted naval-artifact
+catalog, unlike that chapter's earlier Solar/Dragon-Blooded-only "Magics of
+the Sea" Charms section, which remains correctly out of scope. Those 9
+rows — Cargo Preservation Spindles, Armor of Aquatic Puissance, Steelsilk
+Sails, Storm Sapphire, Cord of Winds, Wavecleaver Daiklaive, Light
+Implosion Bow, Lightning Ballista, and a reference-only Artifact Ship
+Weapons summary table — were adapted from this project's already-verified
+Abyssal and Sidereal transcriptions of the identical sourcebook prose (same
+citations, mechanics, and cost; only each row's `compatibility` text was
+updated for Lunar), with the Storm Sapphire Effect Table and the Light
+Implosion Bow/Lightning Ballista dot ratings specifically re-rendered and
+re-read directly from the source PDF to confirm accuracy, matching the
+brief's own flagged discrepancy check. No Autochthonia-style
+setting-restriction caveat applies for Lunar, since Lunars are native
+Creation-dwellers; Lunar's own existing Survival Charms (Whale-Breath
+Technique, Gill-Breathing Technique, Sealskin Endurance) and the No Moon
+caste's favored Totem Animals ("creatures of the deep ocean") already
+establish a genuine thematic tie to the sea, so this catalog carries the
+least-caveated `compatibility` text of any family's copy. See
+`docs/references/exalted1e/lunar/README.md`.
 
 Abyssal's 684 rows cover the Chapter Three character-creation overview, the
 universal Anima Effect, all five Castes, the Abyssal Curse, the Virtues of
@@ -622,7 +644,7 @@ Companion_'s universal "Further Wonders" artifact catalog (Lunar as the
 master transcription, then derived for Abyssal, Sidereal, Alchemical, and
 Fair Folk), and _Savage Seas_'s universal "Artifacts of the Waves" naval
 catalog (freshly transcribed for Abyssal, Sidereal, Alchemical, and Fair
-Folk; not yet done for Lunar). The project owner's remaining cross-splat
+Folk, then derived for Lunar). The project owner's remaining cross-splat
 supplements (Blood and Salt and Book of Three Circles' own remaining
 material beyond Sidereal) are still untriaged for the families that
 haven't reviewed them, and no family has anything promoted to a production

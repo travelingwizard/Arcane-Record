@@ -10988,5 +10988,189 @@
     },
     "crossReferences": [],
     "notes": "Chapter Four: Further Wonders, 'Eye of Autochthon (Artifact N/A)', printed p. 80 (PDF 81), the last entry in the chapter and the last mechanical content in the book (PDF p. 82 is the inside/outside back cover). Universal/cross-splat catalog entry; transcribed here as the master copy per this pass's brief. Rated 'N/A' in the source rather than a numeric Artifact dot rating, reflecting its explicit framing as a Storyteller plot device rather than a normal ownable Background item; flagged as a best-judgment call to still record it as a 'selectable' catalog row (since it is nonetheless a genuine named artifact a character could conceivably acquire) rather than 'gm-only', while preserving its N/A rating and plot-device framing in the name/notes so downstream UI does not imply it is a routine Background purchase."
+  },
+  {
+    "id": "artifact-cargo-preservation-spindles",
+    "name": "Cargo Preservation Spindles (Artifact • to •••, depending on size)",
+    "disposition": "selectable",
+    "summary": "A set of four five-sided jade-and-orichalcum spindles, planted in the corners of a hold or cabin, that protects any cargo formally introduced within their bounds from rot, vermin, water damage, fire, and shifting in heavy seas for as long as it remains inside their perimeter.",
+    "requirements": "None beyond ownership; the cargo to be protected must first be formally 'introduced' to the set of four spindles (see mechanics) before the protection takes effect.",
+    "mechanics": "Cargo preservation spindles come in sets of four, ranging in size from slender spires a handbreadth high to slender pillars nearly as tall as a man; despite the size range they share the same basic form, a five-sided spindle coming to a sharp point at either end, with the shorter end normally set into a socket carved into the decking or a specially placed holder (like a candlestick for smaller sizes). One is placed in each corner of the room or hold to be protected; how large a spindle is determines how much area it protects, from a small passenger cabin up to a full cargo hold. To use the spindles, the owner must first introduce them to the cargo: the long end of each spindle is forced into the corresponding corner of the crate or room to be protected (far enough to leave a mark, not far enough to damage the crate or contents), and as this is done the contents are described in general detail -- radically different materials from those described will not be protected (a smuggler's hidden firedust can be totally ruined even while the rest of the cargo stays dry and intact). Once done, the cargo is protected from almost all manner of damage: food will neither rot, spoil, nor be infected or eaten by vermin (though food removed from its container ages and decays normally); water, even the thickest brine, cannot affect the goods; crates stay in place under all but the heaviest seas and, even if toppled, their contents remain undamaged; and fire cannot take hold within the protected area. The spindles do not prevent theft, but anyone touching a warded crate or package will immediately know if anything has been taken from it. Protection holds as long as the cargo remains within the confines of the area bounded by the four spindles; a container removed from that area is no longer protected until it is returned (though nothing suddenly spoils the moment it leaves, e.g. previously-protected food does not instantly rot). Spindles are carefully faceted prisms of each of the five types of jade bound together with bands of orichalcum and pins of moonsilver, each facet carved with the symbol of the aligned Elemental Dragon plus requests for protection and a description of the warded contents.",
+    "cost": null,
+    "compatibility": "Any owner, Exalted or not, of any splat including Lunars; still in general production today, though the difficulty of getting quantities of moonsilver or orichalcum limits new manufacture. Large numbers survive from the First Age, and many ships -- particularly those of the Realm -- carry one or more sets to protect belongings and cargo. A purely passive artifact requiring no Essence, Charm, or Exaltation to use, so no Lunar-specific caveat applies.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 123,
+      "pdfPage": 124
+    },
+    "crossReferences": [
+      "artifact-background-altered"
+    ],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Artifacts of the Waves' section header, 'Cargo Preservation Spindles (Artifact • to •••, depending on size)', printed p. 123 (PDF 124), Savage Seas. Visually re-verified against a freshly rendered image of this page for this Lunar pass (this book has no text layer). Adapted from this project's already-verified Abyssal/Sidereal transcriptions of the same universal catalog (identical prose, same citation) since none of these 9 rows carries any splat-restricting text that would exclude Lunar; a universal item with no splat restriction of any kind, so recorded as selectable for Lunar without qualification -- the first entry in the Artifacts of the Waves catalog, immediately preceding Armor of Aquatic Puissance."
+  },
+  {
+    "id": "artifact-armor-of-aquatic-puissance",
+    "name": "Armor of Aquatic Puissance (Artifact ••••)",
+    "disposition": "selectable",
+    "summary": "A First Age suit of articulated plate carved (not forged) from rare sparkling black jade, whose locking helm lets the wearer breathe and see normally underwater, freely adjust buoyancy, and swim at double speed with no mobility penalty.",
+    "requirements": "None to wear beyond ownership; the helm must be locked in place to gain the breathing/sight/swimming benefits.",
+    "mechanics": "Soak: 10L/12B. Mobility Penalty: -2/0. Fatigue Value: 1. Commitment: 8. These curious suits of articulated plate armor appear not so much forged as carved. Regardless of what metal the armor is made of, it is heavily inlaid with a rare form of sparkling black jade that glistens even in the sun; the armor is built to tolerances and stresses that cannot be duplicated today, and all known suits date from before the Contagion. The helm is a massive casque, a single piece of blue jade that locks under the shoulder yoke with a twist; the rest of the armor, excepting the faceplate, is carved in an ornate scale-and-fin pattern resembling the face of a fierce, bearded, angry warrior. Although not as strong as other enchanted articulated plate, it has advantages that make it extremely useful to an Exalted who spends much time on the waves: when the helm is locked in place, the wearer breathes normally even in the deepest waters (limited only by Stamina + Endurance hours in a row before it must be removed, since the armor does not address other needs such as food and water); the wearer can alter the armor's buoyancy at will to surface or sink without penalty; the armor doubles the wearer's normal underwater swimming rate with no mobility penalty (though ranged combat underwater remains as difficult as it would be for someone not wearing it); and the wearer sees underwater as clearly as in open air (clouds of silt, squid ink, and similar materials still block vision, just as fog or smoke would above water). The armor has sockets for two Hearthstones.",
+    "cost": null,
+    "compatibility": "Any Exalted wearer, of any splat including Lunars; not as common as more kinetic types of armor, but the Imperial Navy and the forces of Lookshy each have several suits, the more aquatically inclined Dynastic houses each have at least a couple, a number are rumored to be in the hands of the Guild, and the Lintha pirates are known to have at least two. THE SOURCE TEXT STATES VERBATIM: 'No Abyssal is known to own a suit of this armor (unsurprisingly), but the deathknights each have comparable suits of their own design and manufacture' -- this passing ownership note names only Abyssals, so it carries no restriction against Lunars, who are recorded here as selectable without qualification.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 124,
+      "pdfPage": 125
+    },
+    "crossReferences": [
+      "artifact-background-altered"
+    ],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Artifacts of the Waves', 'Armor of Aquatic Puissance (Artifact ••••)', printed p. 124 (PDF 125), Savage Seas. Visually re-verified against a freshly rendered image of this page for this Lunar pass. Unlike the Abyssal inventory's own copy of this row (marked reference-only per an explicit project-owner instruction specific to that splat, since the source text singles out Abyssals as not owning a suit), no comparable exclusion touches Lunars anywhere in the source, so this row is recorded selectable here, matching the Sidereal and Fair Folk inventories' own reading of the same passage. Thematically apt for a splat with several Survival Charms built around aquatic endurance (Whale-Breath Technique, Gill-Breathing Technique, Sealskin Endurance) and a No Moon caste whose favored Totem Animals include 'creatures of the deep ocean' per this book's own Chapter Four Castes material -- no invented flavor beyond what the existing Lunar inventory already documents."
+  },
+  {
+    "id": "artifact-steelsilk-sails",
+    "name": "Steelsilk Sails (Artifact ••)",
+    "disposition": "selectable",
+    "summary": "Rare, near-indestructible sails supposedly woven from the silk of wood spiders or spider spirits, prized for the speed and agility they grant a ship in the wind and their near-total resistance to storms, fire, and mundane weapons.",
+    "requirements": "A ship with sails to replace; the art of manufacturing steelsilk sails has been lost, so only pre-existing sets can be acquired.",
+    "mechanics": "Highly sought after by those who favor speed and agility in the wind and durability in battle, these rare sails are supposedly made out of the silk of wood spiders or other spider spirits. Gossamer fine and light but strong as metal, steelsilk is nonetheless very stiff and makes poor armor. The art of manufacturing steelsilk sails has been lost, though those who possess them guard them jealously, often keeping them locked up except when the ship needs speed above all else. Steelsilk sails are most renowned for their ability to withstand punishment: storms that would leave silk sails in tatters, fires that would turn wet canvas sails to ash, and weapons that would cut ordinary reinforced canvas into ribbons all fail to damage steelsilk. Steelsilk adds +1 to all Sail rolls for control during a storm or for gaining or losing speed, and lets a ship sail two points closer to the wind; the sails are all but impenetrable by mundane weapons (a ballista might punch a hole in one, but sails made of steelsilk have 15B/10L soak, take 20 health levels to damage and 40 to destroy) and take only half damage from wind, waves, and fire. Repairing steelsilk sails requires a Charm or Crack-Mending Technique; no other way is known today to mend steelsilk once it is damaged.",
+    "cost": null,
+    "compatibility": "Any ship owner or captain, of any splat including Lunars; no splat restriction stated in the source text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 124,
+      "pdfPage": 125
+    },
+    "crossReferences": [
+      "artifact-background-altered"
+    ],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Artifacts of the Waves', 'Steelsilk Sails (Artifact ••)', printed p. 124 (PDF 125), Savage Seas. Visually re-verified against a freshly rendered image of this page for this Lunar pass. Universal item, no splat-restricting text; selectable for Lunar without qualification, matching all four other families' own reading of this row."
+  },
+  {
+    "id": "artifact-storm-sapphire",
+    "name": "Storm Sapphire (Artifact ••• for lesser stones or •••• for the black stones)",
+    "disposition": "selectable",
+    "summary": "Giant enchanted sapphires, most the size of a man's fist or larger, that let an Exalted quell a storm by feeding it motes of Essence, Willpower, and health levels drawn from her own life force; power and cost scale with the color of the stone and the storm's ferocity.",
+    "requirements": "An Essence-manipulating wielder (Exalted, spirit, or god-blooded) able to power the sapphire with Essence, Willpower, and health levels.",
+    "mechanics": "Storm sapphires are giant sapphires, most the size of a man's fist or larger. The most powerful storm sapphires are black, but they come in all colors, with green sapphires (the least powerful) being the most common. Common storm sapphires have the power to quell storms, calming the sea and sky even under the most savage conditions, but this power does not come without a cost: to stop a storm, an Exalted must power the sapphire with her own life force, paying motes of Essence, Willpower, and health levels per the Storm Sapphire Effect Table (below); these health levels cannot be soaked or reduced if the stone is to work properly, though they heal normally afterward. The user can attempt to judge how strong an incoming storm will be with a Perception + Occult roll (difficulty starts at 2, ranging up to 5 for an extremely fast-moving, powerful, unforeseen storm) before trying to stop it. Magically summoned or influenced storms are easier to predict and control: reduce the storm's severity by one level for purposes of determining dissipation cost, and reduce the judging difficulty by 2 (minimum difficulty 2). Lesser stones (green through light blue) can disperse most storms but can do nothing against the strongest ones -- a storm sapphire's power either works outright or does not; the darkest blue and black stones can disperse any storm, but the cost in life force scales with the storm's ferocity, and the wielder will not know in advance how much of her existence she must devote before choosing to battle it. STORM SAPPHIRE EFFECT TABLE (Storm Strength / Cost for Blue or Green Sapphire / Cost for Black Sapphire): Storm: 20 motes, 2 Willpower, 2 health levels / 20 motes, 2 Willpower, 2 health levels. Greater storm: 25 motes, 2 Willpower, 3 health levels / 25 motes, 2 Willpower, 3 health levels. Gale: 25 motes, 3 Willpower, 3 health levels / 25 motes, 3 Willpower, 2 health levels. Greater gale: 30 motes, 4 Willpower, 3 health levels / 25 motes, 3 Willpower, 3 health levels. Hurricane: cannot be quelled / 30 motes, 4 Willpower, 3 health levels. Greater hurricane: cannot be quelled / 35 motes, 4 Willpower, 4 health levels. Tsunami: cannot be quelled / 40 motes, 5 Willpower, 4 health levels. Greater tsunami: cannot be quelled / 45 motes, 5 Willpower, 5 health levels. Island killer: cannot be quelled / 50 motes, 6 Willpower, 6 health levels. A character who lacks sufficient motes or Willpower can, for the sapphire's purposes only, convert health levels into motes or Willpower (one health level = 10 motes of Essence or 1 Willpower); this may only be done if the user lacks sufficient resources otherwise, and cannot be used to leave himself with no motes after the storm dissipates. Creating a storm sapphire involves the sapphire itself (utterly without flaw), the blood of a Storm Mother, and a wind spirit that has never seen a mortal before being captured; the enchantment takes a year and a day and must be performed on a ship floating in the clear waters of the uttermost West, out of sight of any land, which is why so few exist. Storytellers are encouraged NOT to use this artifact to slay out of hand any player character who tries to stop a major storm without compelling reason; only the greatest storms (the ones of legend) are sufficient to kill a Terrestrial Exalted, and even those cannot withstand the might of a Solar focused through a storm sapphire -- draining the Exalted of six motes of Essence or Willpower plus six health levels is more appropriate than killing the character in general, though Storyteller characters sacrificing themselves to save the player characters are a separate, valid dramatic option.",
+    "cost": "See the Storm Sapphire Effect Table in mechanics: 20-50 motes plus 2-6 Willpower plus 2-6 health levels, scaled to storm strength and stone color; black stones can quell any storm, lesser (green through light blue) stones cannot affect the strongest storms at any cost.",
+    "compatibility": "Any Essence-manipulating wielder (Exalted, spirit, or god-blooded), of any splat including Lunars; prized and sought after by Exalted sea captains and fleet admirals, few exist due to the difficulty and rarity of their creation ritual.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 124,
+      "pdfPage": 125
+    },
+    "crossReferences": [
+      "artifact-background-altered"
+    ],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Artifacts of the Waves', 'Storm Sapphire (Artifact ••• for lesser stones or •••• for the black stones)', printed pp. 124-125 (PDF 125-126), including the 'Storm Sapphire Effect Table' (printed p. 125/PDF 126). Freshly re-rendered and re-read (PDF page 126) for this Lunar pass to double-check every cell of the Effect Table directly rather than trusting a single other family's transcription verbatim; the table above matches the Sidereal and Fair Folk inventories' corrected reading (both of which independently caught and fixed a Greater storm/Black Sapphire row-shift error in the same table) rather than the Abyssal inventory's uncorrected first-pass figure for that cell (25 motes, 2 Willpower, 2 health levels), which the rendered image does not support. Universal item, no splat-restricting text; selectable for Lunar without qualification."
+  },
+  {
+    "id": "artifact-cord-of-winds",
+    "name": "Cord of Winds (Artifact •)",
+    "disposition": "selectable",
+    "summary": "A relatively common silken cord tied with a number of knots, each binding a minor air elemental that will serve for a day and a night raising wind when released and asked; larger, more complex knots bind more powerful elementals.",
+    "requirements": "None to use; any character may release a bound elemental by untying its knot, though unraveling a knot in a hurry requires an extended Wits + Sail roll.",
+    "mechanics": "A relatively common artifact, produced by even mortal sorcerers. Partially discharged examples can be found on many ships, even relatively small ones, as they have been created in large numbers over the centuries. The cord of winds is normally a silken cord, usually light blue but possibly of any color, adorned with a number of knots. Each knot holds a minor air elemental bound in it; if released, an elemental will serve for a day and a night, raising wind when asked. After its service is up, the elemental is free to depart. Any attempt to detain the elemental will be poorly received and may well bring retribution down upon the offending party at some point. Most cords will have 20 knots in them when first created, of different sizes and complexities; the smaller, simpler knots hold elementals that are little more than breezes, while the elementals bound in the larger, more complex knots are more powerful. Unraveling a knot in a hurry is an extended Wits + Sail task; the difficulty depends on the power of the air elemental bound up in the knot -- a simple breeze's knot has a difficulty of 4, while the knot securing a powerful zephyr or gale might have a difficulty of 10, though such powerful elementals or spirits are only rarely bound in a cord of winds (most elementals or spirits bound will have a permanent Essence less than 4). Any knot can be untied given enough time, if one is patient enough, or cut in half.",
+    "cost": null,
+    "compatibility": "Any user, mortal or Exalted, of any splat including Lunars; produced even by mortal sorcerers, no splat restriction stated in the source text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 125,
+      "pdfPage": 126
+    },
+    "crossReferences": [
+      "artifact-background-altered"
+    ],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Artifacts of the Waves', 'Cord of Winds (Artifact •)', printed pp. 125-126 (PDF 126-127), Savage Seas. Visually re-verified against a freshly rendered image of this page for this Lunar pass. Universal item, no splat-restricting text; selectable for Lunar without qualification -- the single most permissively-worded artifact in this section, explicitly extending past the Exalted to mortal sorcerers."
+  },
+  {
+    "id": "artifact-wavecleaver-daiklaive",
+    "name": "Wavecleaver Daiklaive (Artifact ••)",
+    "disposition": "selectable",
+    "summary": "An uncommon, unusually short daiklave (rarely exceeding three feet of blade) built for fighting belowdecks in cramped quarters and low ceilings, wielded mostly by House V'neef and House Peleps Terrestrials but found in small numbers among most houses.",
+    "requirements": "Minimum Strength •• to wield effectively.",
+    "mechanics": "Speed +3, Accuracy +2, Damage +5L, Defense +1, Minimum Strength ••. Wavecleavers are uncommon weapons, wielded mostly by Terrestrials of House V'neef and House Peleps, although most houses have a small number of them. Perhaps the shortest of daiklaives, rarely exceeding three feet in blade length, wavecleavers are perfect for work belowdecks, where cramped quarters and low ceilings are the norm. Their thick blades and strong edges make them useful as tools as well as weapons; even steel cables or chains will rarely withstand more than a single hack from the curved blade of a wavecleaver. Wavecleavers typically have sockets for two Hearthstones, as Exalted on the water are more likely to rely on the gem-like talismans for survival.",
+    "cost": null,
+    "compatibility": "Any daiklave-capable wielder meeting the Minimum Strength requirement, of any splat including Lunars; most common among House V'neef and House Peleps Dragon-Blooded, but most Great Houses keep a small number, with no splat restriction stated in the source text.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 126,
+      "pdfPage": 127
+    },
+    "crossReferences": [
+      "artifact-background-altered"
+    ],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Artifacts of the Waves', 'Wavecleaver Daiklaive (Artifact ••)', printed p. 126 (PDF 127), Savage Seas. Visually re-verified against a freshly rendered image of this page for this Lunar pass. No commitment/attunement mote cost is stated in the source, so cost is recorded as null, matching all four other families' own reading of this row. Universal item, no splat-restricting text; selectable for Lunar without qualification."
+  },
+  {
+    "id": "artifact-light-implosion-bow",
+    "name": "Light Implosion Bow (Artifact ••, ••• if Hearthstone or Reagent Powered)",
+    "disposition": "selectable",
+    "summary": "A First Age naval siege weapon resembling a ballista mounted on a heavy gimbaled pedestal, built of dark wine-red wood inlaid with the Five Magical Materials and adamant, that any Essence-channeling wielder can fire to launch adjustable-damage bolts of pure Essence, useful against rigging, troops, or units alike.",
+    "requirements": "A character capable of channeling Essence (any Exalted type, Fair Folk, and possibly others; characters unable to channel Essence cannot operate these artifacts); an unfamiliar operator's player must succeed at an Intelligence + Lore roll at difficulty 3 to decipher the controls before first use.",
+    "mechanics": "These fearsome weapons are First Age relics whose full workings remain beyond the understanding of any savant or engineer of the present day, though their use is simple once the operator becomes familiar with their functioning. Resembling a ballista mounted atop a heavy gimbaled pedestal, these mechanisms appear to be made of a dark, glossy, wine-red wood, with elaborate inlays and fittings of the Five Magical Materials and adamant (an incredibly strong, glossy, glass-like material used during the First Age). When properly used by a character capable of channeling Essence (any Exalted type and also Fair Folk and possibly others), these weapons launch projectiles of pure Essence, fired using Archery. Before firing, the user selects the type of damage to be done, and the amount depends on how many motes of Essence the user channels into the weapon: for 1 mote, the projectile inflicts either 7B or 5L damage (depending on control settings) on everything within a 10-foot radius of its target -- in naval combat, these settings allow attacks against rigging with the weapon, and it can also be used against units or troops; for 2 motes, the range and area of effect remain the same, but the damage settings increase to 15B or 12L. The weapon's pedestal must be mounted securely to a solid surface to fire; the bow has an arc of fire extending 360 degrees horizontally and 90 degrees vertically (30 degrees below and 60 above horizontal). Some versions are powered by Hearthstones, and some by alchemical reagents; typically, however, they are manned by one of the Dragon-Blooded, who powers it with his own Essence. Light implosion bows are less demanding to maintain than the more powerful lightning ballista, but an implosion bow must still be serviced every 100 shots by a character with Lore ••• and Occult ••; the overhaul includes replacement/repair of small mechanism parts made of exotic and rare components, and costs Resources ••••, components unlikely to be found outside the Realm and the largest Threshold cities.",
+    "cost": "1 mote per shot (7B/5L damage, 10-foot radius) or 2 motes per shot (15B/12L damage, same radius); Resources •••• plus Lore ••• and Occult •• every 100 shots for servicing.",
+    "compatibility": "Any Essence-channeling wielder (any Exalted type, Fair Folk, and possibly others, including Lunars); characters unable to channel Essence cannot operate these artifacts. Commonly mounted on First Age warships and manned by a Dragon-Blooded crewmember, but no splat restriction is stated for who may fire one.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 126,
+      "pdfPage": 127
+    },
+    "crossReferences": [
+      "artifact-background-altered",
+      "artifact-ship-weapons-table"
+    ],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Artifacts of the Waves', 'Light Implosion Bow (Artifact ••, ••• if Hearthstone or Reagent Powered)', printed pp. 126-127 (PDF 127-128), Savage Seas. This row was one of the two the task brief flagged for a direct cross-check: freshly rendered PDF pages 127 and 128 were read for this Lunar pass, and both confirm the header rating is 'Artifact ••, ••• if Hearthstone or Reagent Powered' and the Artifact Ship Weapons table entry on PDF 128 independently confirms 'Artifact rating •• or •••' for this weapon -- matching the Sidereal and Fair Folk inventories' reading, not the task brief's own paraphrase ('••• for a common version, •••• for a hearthstone or elemental powered version', which does not match what the rendered page actually shows and which the Abyssal inventory's row also flags as a mismatched brief). Universal item, no splat-restricting text; selectable for Lunar without qualification."
+  },
+  {
+    "id": "artifact-lightning-ballista",
+    "name": "Lightning Ballista (Artifact ••• for a common version, •••• for a Hearthstone or elemental powered version)",
+    "disposition": "selectable",
+    "summary": "The primary heavy armament of larger First Age warships: a complex brass-and-silver ship-mounted weapon that releases a scorching blast of lightning capable of damaging even the heaviest hulls, powered by the crew's own Essence, a bound air elemental, or a Hearthstone of Fire or Air.",
+    "requirements": "Only an Exalted (or otherwise Essence-manipulating) firer can activate one; lightning ballistae are powerless in the hands of the unExalted. Archery Charms cannot be used to enhance its operation.",
+    "mechanics": "Lightning ballistae made up the primary heavy armament of larger First Age warships, with implosion bows and other weapons acting as secondary devices. Powerful, although shorter ranged than some other devices known to have existed, lightning ballistae are capable of damaging even the heaviest First Age hulls, and the few still in service are carefully guarded. When fired, the lightning ballista releases a powerful blast of lightning that sears and scorches whatever it hits, instantly burning wood and flesh to ash and melting steel or stone. Lightning ballistae are heavy and complex affairs, built largely of brass and silver, and require complex fuels and reagents in the institution of Essence to fire; typically, a lightning ballista must be fueled by up to twenty shots before servicing and maintenance. Maintaining a lightning ballista requires a character with Lore •••• and Occult •••• to keep the weapon properly tuned and charged; parts for maintenance normally cost Resources •••• every 100 firings, and the fuels/reagents used cost Resources ••• for 20 shots -- materials difficult but not impossible to find outside a large city. Lightning ballistae are commonly mounted centerline on the hull just aft of the prow, on a swivel mount allowing the muzzle to fire on a 270-degree arc, with a traverse of 45 degrees (15 down, 30 up). Only a small number of ships carried more than one, and few have survived to the current day. The most common were powered by the Exalted crew, though examples exist that were powered by captured (or willing) air elementals or through the use of an Essence stone. Lightning ballistae powered purely by Essence require 3 motes per shot; those that bind elementals use 1 of the elemental's motes and 1 of the firer's motes; those powered by Hearthstones require a Hearthstone of Fire or a Hearthstone of Air (Manse •• or above) to function. All lightning ballistae are designed so the firer must be able to manipulate Essence to activate them. Although fired using the Archery Ability, Archery Charms cannot be used to enhance the operation of a lightning ballista. ARTIFACT SHIP WEAPONS TABLE stat line for the three variants (Acc./Dmg./Rate/Range/Naval Range/Naval Rate/Min./Artifact): Lightning Ballista (common) +2/20L/1/1,000/Very Long/3 per turn/Occult ••, Archery •/•••. Lightning Ballista (elemental) +2/20L/1/1,000/Very Long/3 per turn/Occult •••, Archery •/••••. Lightning Ballista (Hearthstone) +2/25L/--/1,000/Very Long/2 per turn/Occult ••, Archery •/••••.",
+    "cost": "3 motes per shot (purely Essence-powered); 1 of the firer's motes plus 1 of a bound elemental's motes (elemental-powered); a Hearthstone of Fire or Air rated Manse •• or above (Hearthstone-powered, no per-shot mote cost); plus Resources •••• per 100 firings and Resources ••• per 20 shots of fuel/reagents for upkeep.",
+    "compatibility": "Any Exalted or otherwise Essence-manipulating firer, of any splat including Lunars; the weapon itself is powerless in unExalted hands. Mounted on larger First Age warships, carefully guarded by whoever still holds a surviving example.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 127,
+      "pdfPage": 128
+    },
+    "crossReferences": [
+      "artifact-background-altered",
+      "artifact-ship-weapons-table",
+      "artifact-light-implosion-bow"
+    ],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Artifacts of the Waves', 'Lightning Ballista (Artifact ••• for a common version, •••• for a Hearthstone or elemental powered version)', printed p. 127 (PDF 128), Savage Seas, including its stat-table entries from the 'Artifact Ship Weapons' table (also printed p. 127/PDF 128). This row was the second of the two the task brief flagged for a direct cross-check: a freshly rendered image of PDF page 128 was read for this Lunar pass and confirms the header rating exactly as given here ('Artifact ••• for a common version, •••• for a Hearthstone or elemental powered version'), matching the task brief and every other family's transcription of this row -- unlike the neighboring Light Implosion Bow row, no discrepancy was found here between the brief and the rendered page. The rendered Artifact Ship Weapons table image also confirms the hearthstone-powered variant's Rate cell prints as a dash ('--') rather than a number, matching the Sidereal inventory's own high-zoom re-check of that cell. Universal item, no splat-restricting text; selectable for Lunar without qualification."
+  },
+  {
+    "id": "artifact-ship-weapons-table",
+    "name": "Artifact Ship Weapons (Summary Table)",
+    "disposition": "reference-only",
+    "summary": "A summary stat table for the Artifacts of the Waves chapter's ship-mounted weapons -- Light Implosion Bow and the three Lightning Ballista variants -- giving each weapon's Accuracy, Damage, Rate, Range, Naval Range, Naval Rate, minimum Ability requirements, and Artifact rating in one place.",
+    "requirements": "N/A -- a reference stat table summarizing weapons already catalogued individually above, not a purchasable item of its own.",
+    "mechanics": "ARTIFACT SHIP WEAPONS (Name / Acc. / Dmg. / Rate / Range / Naval Range / Naval Rate / Min. / Artifact): Light Implosion Bow / +3 / 7B/5L or 15B/12L / 1 / 500 / Long / 3 per turn / None / •• or •••. Lightning Ballista (common) / +2 / 20L / 1 / 1,000 / Very Long / 3 per turn / Occult ••, Archery • / •••. Lightning Ballista (elemental) / +2 / 20L / 1 / 1,000 / Very Long / 3 per turn / Occult •••, Archery • / ••••. Lightning Ballista (Hearthstone) / +2 / 25L / -- / 1,000 / Very Long / 2 per turn / Occult ••, Archery • / ••••.",
+    "cost": "N/A (see the individual weapon rows above for their own Artifact ratings and per-shot Essence costs).",
+    "compatibility": "Applies to whichever of the two named weapons a character has already acquired (artifact-light-implosion-bow or artifact-lightning-ballista); see those rows for wielder requirements.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "savage-seas",
+      "printedPage": 127,
+      "pdfPage": 128
+    },
+    "crossReferences": [
+      "artifact-light-implosion-bow",
+      "artifact-lightning-ballista"
+    ],
+    "notes": "Chapter Four: Creatures, Gods, Charms and Artifacts, 'Artifacts of the Waves', 'Artifact Ship Weapons' table, printed p. 127 (PDF 128), Savage Seas -- the last piece of mechanical content in the book; the following PDF page (129) is the back cover. Visually re-verified against a freshly rendered image of this page for this Lunar pass, confirming every cell of the table (including the hearthstone-powered Lightning Ballista's dash Rate cell) exactly as transcribed. Catalogued as a single reference-only summary row at this project's usual 'reasonable summary granularity' for stat tables that restate weapons already given their own full narrative rows above, matching the precedent already set by the Abyssal, Sidereal, and Fair Folk inventories' own derivations of this same Savage Seas material, and by the warstrider-weapon-tables elsewhere in this Lunar inventory, rather than duplicating the same numbers a third time as independent rows. This closes out the entire 'Artifacts of the Waves' catalog (printed pp. 123-127/PDF 124-128) for Lunar; the preceding 'Magics of the Sea' Charms section (printed pp. 114-122/PDF 115-123) remains explicitly Solar/Dragon-Blooded-only per the book's own text and is out of scope, matching the other four families' own scoping of this book."
   }
 ]
