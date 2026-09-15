@@ -1,22 +1,25 @@
 # Exalted 1e — Abyssal source intake
 
 **Status: source intake in progress.** `Exalted: The Abyssals` and its
-supplements, *The Book of Bone and Ebony* and *Savant and Sorcerer*, plus
-the cross-splat *Exalted Players Guide* (for its universal Merits/Flaws
-chapter), have all been supplied, and 669 inventory rows are checked in
+supplements, *The Book of Bone and Ebony* and *Savant and Sorcerer*, the
+cross-splat *Exalted Players Guide* (for its universal Merits/Flaws
+chapter), the *Exalted Storyteller's Companion* (for its universal
+artifact catalog), and *Savage Seas* (for its universal ship-artifact
+catalog) have all been supplied, and 684 inventory rows are checked in
 under `inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
 ## What's inventoried so far
 
-- `source-manifest.json` — four source books in scope
+- `source-manifest.json` — six source books in scope
   (`exalted-the-abyssals`, `book-of-bone-and-ebony`, `savant-and-sorcerer`,
-  and `exalted-players-guide`); the remaining necromancy-heavy supplement
-  (*Blood and Salt*) is not yet added. *The Book of Three Circles* was
-  consulted (not added as its own source) solely to resolve the Abyssal
-  Solar Circle Sorcery access question -- see below.
-- `inventory/exalted-the-abyssals.json` — 669 rows covering:
+  `exalted-players-guide`, `exalted-storytellers-companion`, and
+  `savage-seas`); the remaining necromancy-heavy supplement (*Blood and
+  Salt*) is not yet added. *The Book of Three Circles* was consulted (not
+  added as its own source) solely to resolve the Abyssal Solar Circle
+  Sorcery access question -- see below.
+- `inventory/exalted-the-abyssals.json` — 684 rows covering:
   - The Chapter Three character-creation overview (Attributes/Abilities/
     Backgrounds/Charms/Virtues/Willpower/Essence).
   - The universal, caste-agnostic Anima Effect (Caste Mark flare, anima
@@ -432,6 +435,66 @@ the full process this directory follows.
   Merits (Selective Conception, True Love, Sterile) cross-referenced to
   the `gaining-resonance` row, since siring/bearing a child or taking a
   living lover are both documented Litany of Sins triggers.
+
+- **The Exalted Storyteller's Companion** (`exalted-storytellers-companion`)
+  and **Savage Seas** (`savage-seas`) — two small sets of universal
+  (non-splat-restricted) artifact catalog rows, 15 rows total, bringing the
+  inventory to 684:
+  - **Exalted Storyteller's Companion, Chapter Four ("Further Wonders") —
+    6 rows, derived from Lunar's verified transcription.** This chapter is
+    a universal artifact catalog, not restricted to any splat. Rather than
+    independently re-reading the source PDF, these 6 rows were derived
+    directly from Lunar's already-verified transcription
+    (`docs/references/exalted1e/lunar/inventory/exalted-the-lunars.json`),
+    reusing the same `artifact-*` ids, mechanics, cost, and citation
+    verbatim (printed pp. 77-80/PDF 78-81) — matching the same derivation
+    precedent this family's Players Guide Merits/Flaws pass already
+    established. All 6 (`artifact-ghost-cestus`, `artifact-sling-bow-of-ice`,
+    `artifact-the-golden-viper`, `artifact-land-ship`,
+    `artifact-singing-staff`, `artifact-eye-of-autochthon`) carry no
+    splat-restricting compatibility or notes text that would exclude
+    Abyssal, so all 6 were included as `selectable` with no exclusions —
+    exactly as expected for a universal catalog.
+  - **Savage Seas, Chapter Four ("Creatures, Gods, Charms and Artifacts"),
+    "Artifacts of the Waves" — 9 rows, freshly transcribed (printed pp.
+    123-127, PDF 124-128).** *Savage Seas* is a new source book added to
+    this family's manifest in this pass; its PDF is image-based (no
+    selectable text layer), so pages were rendered to PNG and read
+    directly. The "Artifacts of the Waves" section is a universal
+    ship-artifact catalog running to the end of the book (PDF 129 is
+    confirmed to be the back cover). This is distinct from the same
+    chapter's earlier "Magics of the Sea" Charms section (printed pp.
+    114-122), which the book's own text restricts to Solar/Dragon-Blooded
+    Exalted and was correctly left out of scope for Abyssal. The 9 rows:
+    `cargo-preservation-spindles` (Artifact • to •••), an anti-spoilage/
+    anti-theft cargo ward; `armor-of-aquatic-puissance` (Artifact ••••),
+    First Age underwater-breathing plate; `steelsilk-sails` (Artifact ••),
+    near-indestructible spider-silk sails; `storm-sapphire` (Artifact •••
+    or •••• for black stones), a storm-quelling gem that costs its user
+    Essence, Willpower, and health levels (including its Storm Sapphire
+    Effect Table — an initial read misaligned the table's rows by one, so
+    the exact per-row figures were reconfirmed via a zoomed, upscaled
+    re-crop of the source image before this row was saved);
+    `cord-of-winds` (Artifact •), a knotted cord binding minor air
+    elementals; `wavecleaver-daiklaive` (Artifact ••), a short daiklave
+    built for belowdecks fighting; `light-implosion-bow` (Artifact ••,
+    ••• if Hearthstone or reagent powered) and `lightning-ballista`
+    (Artifact ••• common, •••• Hearthstone/elemental powered), First Age
+    ship-mounted Essence weapons; and `artifact-ship-weapons-table`, a
+    `reference-only` summary row for the "Artifact Ship Weapons" stat
+    table (matching the `warstrider-weapon-tables` summary-row precedent
+    for tables that restate weapons already given their own narrative
+    rows). **8 of these 9 rows are `selectable`.**
+    `armor-of-aquatic-puissance` is the sole exception, marked
+    `reference-only` specifically for Abyssal: the source text states
+    verbatim, "No Abyssal is known to own a suit of this armor
+    (unsurprisingly), but the deathknights each have comparable suits of
+    their own design and manufacture." Per explicit project-owner
+    instruction, the row is still catalogued in full (complete stat block
+    preserved for reference, e.g. for a GM adjudicating an unusual
+    in-fiction exception) but is not offered as a normal selectable
+    acquisition, since doing so would contradict the source's own
+    explicit in-setting fact about this splat.
 
 ## What's still needed
 
