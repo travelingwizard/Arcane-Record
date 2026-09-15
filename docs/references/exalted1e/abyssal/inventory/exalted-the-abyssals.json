@@ -12824,5 +12824,539 @@
       "resonance"
     ],
     "notes": "DERIVED FROM LUNAR'S VERIFIED PG TRANSCRIPTION (pg-flaw-throwback): re-cited to the Players Guide directly. INCLUDED DESPITE THE \"CELESTIAL EXALTED ONLY\" HEADER because the body text explicitly and separately defines two distinct Abyssal variants (loyal deathknight's redemption-pulling echo of Solar glory, capped 3 points; renegade's wicked-personality Throwback, full 1-5 points but no reward for a heroic one) -- Lunar's own transcription flagged this exact header-vs-body inconsistency as directly relevant for this Abyssal follow-up pass. Cross-referenced to this splat's own resonance row since the loyal-deathknight variant explicitly drives the character \"to Resonance and punishment.\""
+  },
+  {
+    "id": "custom-corpses-nemissary-vessel-framework",
+    "name": "Custom Corpses: Transcendent Revenant Vessel Framework",
+    "disposition": "reference-only",
+    "summary": "Chapter Four's core nemissary-crafting framework: how a nemissary (a ghost who has learned the Nemissary's Ride Arcanos) upgrades a possessed corpse into a custom-built \"transcendent revenant vessel\" rated Artifact one through five, obtained via the Artifact Background (owned outright) or the Backing Background (on loan from a Deathlord), with base stats, decay/repair rules, and a bonus-point pool for the augmentation packages catalogued in the sibling nemissary-vessel-package-* rows.",
+    "requirements": "For nemissary (ghost) characters only, not the Abyssal deathknight sheet this module covers; the ghost takes the Artifact Background (owned vessel) or the Backing Background (vessel on loan from a Deathlord, revocable at the Deathlord's whim).",
+    "mechanics": "Any nemissary can possess a common cadaver via the core book's Nemissary's Ride Arcanos, but ghosts favored by an Abyssal Exalt or a Deathlord instead receive a \"transcendent revenant vessel\": a corpse custom-augmented through necrosurgery, alchemy and necromantic enchantment, ranging from Artifact 1 to 5, never an extra. All versions share Decay Resistance (undamaged while possessed, but every three days of neglect while uninhabited imposes a cumulative -1 die penalty to the nemissary's physical actions, capping at a ten-die penalty that renders the vessel useless) and Enhanced Physique (Strength/Stamina 3, Dexterity/Appearance 2, seven standard mortal health levels, natural soak equal to Stamina; the nemissary may substitute her own higher Attributes but must use the vessel's Appearance and health levels). Vessels do not heal on their own: repairs require a Dexterity + Necrosurgery roll (one success fixes one lethal or two bashing health levels, plus Resources •• in components and one hour per accumulated success), the advanced Instauration of the Fleshly Vessel Arcanos, or the Abyssal Charm Form-Restoring Touch. Modifying a vessel after purchase costs Resources equal to half the augmentation's point value (rounded down), payable to a necrosurgeon or performed by the ghost herself if she knows the Craft. Each vessel receives a bonus-point pool of ([Artifact rating - 1] x 10) points to spend on General Augmentations -- Attributes (4 points/dot, stacking on the base Enhanced Physique numbers, capped at 6 dots), Decay Immunity (5 points, no decay even while uninhabited), Dedicated Attunement (4 points, the vessel resists displacement/exorcism and possession by rival ghosts once bonded via Nemissary's Ride, the Embalmer's Art or later Arcanoi), Hidden Enhancements (6 points, all augmentations function invisibly) -- plus the themed options-package augmentations catalogued in the nemissary-vessel-package-* rows below (The Warm and Pleasing Cadaver, The Corpse Made Stealthy, A Body Built for War).",
+    "cost": "N/A (framework); individual vessels cost Artifact 1-5, and augmentations cost Resources equal to half their point value, rounded down, on top of the Artifact purchase.",
+    "compatibility": "Framework/system text supporting the nemissary-vessel-package-* rows below; not itself a directly selectable item on an Abyssal deathknight's sheet.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 87,
+      "pdfPage": 88
+    },
+    "crossReferences": [
+      "nemissary-vessel-package-warm-and-pleasing-cadaver",
+      "nemissary-vessel-package-corpse-made-stealthy",
+      "nemissary-vessel-package-body-built-for-war",
+      "followers-background-altered"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'Nemissaries' and 'Custom Corpses' sections, pp. 87-90 (PDF 88-91), Book of Bone and Ebony. Marked reference-only rather than selectable: although the book explicitly gates vessel acquisition through the standard Artifact/Backing Background purchase mechanism (the same mechanism used for the already-selectable warstrider-class-* rows elsewhere in this inventory), the purchaser here is explicitly \"the ghost\" (a nemissary), not an Abyssal deathknight -- this Exalted 1e module's Abyssal sheet represents deathknights, who cannot take Nemissary's Ride (it is a ghost-only Arcanos gated by Compassion + Essence, not a Charm gated by Ability + Essence). This mirrors the precedent already set by book-of-bone-and-ebony-chapter-two-arcanoi-excluded for the same reason. The one confirmed player-facing hook is that the altered Followers Background explicitly allows an Abyssal PC to recruit nemissaries as Followers (see followers-background-altered), so this framework remains valuable GM/player reference for statting up a nemissary follower or ally, even though it is not a Background/Artifact purchase the PC's own sheet tracks directly. Flagged for a dedicated review pass on whether a future 'ghost PC' character type would want this promoted to selectable."
+  },
+  {
+    "id": "nemissary-vessel-package-warm-and-pleasing-cadaver",
+    "name": "Nemissary Vessel Package: The Warm and Pleasing Cadaver",
+    "disposition": "reference-only",
+    "summary": "One of three themed options packages spendable from a transcendent revenant vessel's bonus-point pool: augmentations for infiltration/diplomacy nemissaries who need to pass convincingly among the living, letting the vessel eat/drink, mimic life signs, or be sculpted to resemble a specific individual.",
+    "requirements": "Purchased from a transcendent revenant vessel's ([Artifact rating - 1] x 10) bonus-point pool; see custom-corpses-nemissary-vessel-framework.",
+    "mechanics": "Eat/Drink (5 points): grants a vessel that otherwise cannot hold food or drink enough control to avoid immediately regurgitating two large meals or three small ones before needing to empty its stomach (does not grant digestion). Essence Parasite (10 points): bone-etched enchantments let the ghost drain 1 mote of Essence from any Essence channeler within 10 feet for every two hours of close contact (stacks per channeler present; stacks with Essence-Measuring Thief Arts); usable on mortals instead, at a cost of one unsoakable bashing health level per hour to the mortal. Lifelike (10 points): the vessel shows no outward sign of undeath beyond an ashen or pallid complexion; spending 5 motes for one scene simulates breath, pulse, warmth and basic sexual response well enough that three successes on Perception + Investigation are needed to expose the corpse (any true test of life still succeeds instantly). Sculpted Physiognomy (10 points; buying up Appearance separately is required if the target face exceeds Appearance 3): the vessel's face is surgically remade to resemble a specific individual, foiled only by two successes on a Perception + Investigation roll from someone who knows that individual well.",
+    "cost": "5-10 bonus points per augmentation, drawn from the vessel's bonus-point pool; see individual entries above.",
+    "compatibility": "Requires the custom-corpses-nemissary-vessel-framework's base vessel purchase; stacks freely with the other two options packages and the General Augmentations list.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 89,
+      "pdfPage": 90
+    },
+    "crossReferences": [
+      "custom-corpses-nemissary-vessel-framework"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'Options Packages' -> 'The Warm and Pleasing Cadaver' section, p. 89 (PDF 90), Book of Bone and Ebony. Reference-only for the same reason as custom-corpses-nemissary-vessel-framework: this is an a-la-carte menu for building a nemissary (ghost) character or follower, not a purchase an Abyssal deathknight's own sheet makes directly."
+  },
+  {
+    "id": "nemissary-vessel-package-corpse-made-stealthy",
+    "name": "Nemissary Vessel Package: The Corpse Made Stealthy",
+    "disposition": "reference-only",
+    "summary": "One of three themed options packages spendable from a transcendent revenant vessel's bonus-point pool: augmentations for reconnaissance/scout nemissaries, covering speed, evasion of animals and hostile perception, navigation toward the nearest shadowland, and remote sensory transmission back to the Underworld.",
+    "requirements": "Purchased from a transcendent revenant vessel's ([Artifact rating - 1] x 10) bonus-point pool; see custom-corpses-nemissary-vessel-framework.",
+    "mechanics": "Built for Speed (5 points): modified leg/pelvic bones let the vessel run at triple its normal running speed indefinitely; spending 5 motes of Essence lets it sprint at full speed for a full day. Repellent to Animals (3 points): a rotten raiton's head sewn into the chest cavity makes ordinary animals avoid the vessel entirely (four/five-dot familiars will approach only if their master's player scores three-plus successes on Manipulation + Presence); costs 2 dice from all the nemissary's Social pools. Repugnant to the Mind's Eye (10 points): ritual scarification and subdermal soulsteel nodules make the vessel psychologically repellent to perceive -- witnesses out of direct, undeniable view suffer -3 successes on Perception rolls to recognize it, and even those looking straight at it in good light suffer a flat -2 dice, their minds reflexively refusing to register what they see. Shadowland Sense (2 points): spending 1 mote and rolling Intelligence + Survival (even a single success suffices) reveals the direction and distance to the nearest shadowland. Transmitting Sense (4 points, purchased separately per sense): for 5 motes, the nemissary streams one sense to a partner in the Underworld carrying a paired amulet, who must also spend 5 motes to receive it (raw sensation only, no narration); the amulet-holder can instead force the link open any time by paying the full 10 motes. Warded against scrying; blocked by anti-scrying wards.",
+    "cost": "2-10 bonus points per augmentation, drawn from the vessel's bonus-point pool; see individual entries above.",
+    "compatibility": "Requires the custom-corpses-nemissary-vessel-framework's base vessel purchase; stacks freely with the other two options packages and the General Augmentations list.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 89,
+      "pdfPage": 90
+    },
+    "crossReferences": [
+      "custom-corpses-nemissary-vessel-framework"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'Options Packages' -> 'The Corpse Made Stealthy' section, pp. 89-90 (PDF 90-91), Book of Bone and Ebony. Reference-only for the same reason as custom-corpses-nemissary-vessel-framework."
+  },
+  {
+    "id": "nemissary-vessel-package-body-built-for-war",
+    "name": "Nemissary Vessel Package: A Body Built for War",
+    "disposition": "reference-only",
+    "summary": "One of three themed options packages spendable from a transcendent revenant vessel's bonus-point pool: augmentations for the most common transcendent revenant vessel type, war bodies -- the elite shock-troop officers nemissaries use to direct zombies and hungry ghosts in the Deathlords' assaults on Creation.",
+    "requirements": "Purchased from a transcendent revenant vessel's ([Artifact rating - 1] x 10) bonus-point pool; see custom-corpses-nemissary-vessel-framework.",
+    "mechanics": "Armor (2 points per 1L/1B, counts as natural soak rather than worn armor, capped at the vessel's Stamina rating): riveted metal-and-bone plating that caps Appearance at ••; the vessel may only wear armor cut to its own bulky frame. Claws/Blades (4 or 6 points): for 4 points, bone or metal talons grant a Speed +1/Accuracy +1/Damage +1L/Defense +1 (Rate 4 under Exalted Power Combat) slashing attack; for 6 points, forearm-mounted scythe blades instead match the stats of a chosen one-handed sword. Paralytic Touch (4 points): plant-toxin saturation forces a Stamina + Resistance roll (difficulty 2, or 4 if the attack draws blood via claws/fangs) on anyone touched bare-skinned, or be paralyzed for the rest of the scene. Spikes (5 points, caps Appearance at ••): riveted bone/metal spikes add +1L to the vessel's controlled clinch damage while dealing 3L per turn to anyone clinching or crushing it. Stench of Rotting Offal (3 points per purchase, stacking): a revolting brew forces a Stamina + Resistance roll on anyone within 10 feet or they vomit and flee the smell; those who succeed still lose one attack die per purchase of this augmentation from watering eyes. Toughness (4 points per extra -2 health level, 6 points per -1, 8 points per -0): partial mummification, metal reinforcement or grafted extra tissue adds bonus health levels at the chosen severity tier.",
+    "cost": "2-8 bonus points per augmentation (per health level/point of soak for Toughness/Armor), drawn from the vessel's bonus-point pool; see individual entries above.",
+    "compatibility": "Requires the custom-corpses-nemissary-vessel-framework's base vessel purchase; stacks freely with the other two options packages and the General Augmentations list.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 90,
+      "pdfPage": 91
+    },
+    "crossReferences": [
+      "custom-corpses-nemissary-vessel-framework"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'Options Packages' -> 'A Body Built for War' section, pp. 90-91 (PDF 91-92), Book of Bone and Ebony. Reference-only for the same reason as custom-corpses-nemissary-vessel-framework; the book itself calls war bodies 'by far the most common type of transcendent revenant vessel,' making this the most frequently used of the three packages when statting nemissary followers or foes."
+  },
+  {
+    "id": "book-of-bone-and-ebony-nemissary-arcanoi-excluded",
+    "name": "Nemissary Arcanoi and Wonders -- excluded (ghost powers, not Abyssal Charms)",
+    "disposition": "excluded",
+    "summary": "Chapter Four's 'Nemissary Arcanoi and Wonders' section presents four ghost Arcanoi used by nemissaries to maintain and empower their possessed vessels -- Intangible Guardian Presence, The Embalmer's Art (plus its upgrade, the Embalmer's Enduring Triumph), Instauration of the Fleshly Vessel, and Drive the Necrotic Colossus -- all gated by Minimum Compassion + Minimum Essence like every other ghost Arcanos in this book, never by Minimum Ability + Essence like a real player-facing Abyssal Charm.",
+    "requirements": "N/A -- documents a scope-exclusion finding, not a selectable power.",
+    "mechanics": "Intangible Guardian Presence (Cost: None; Minimum Compassion 2, Minimum Essence 3; prerequisite Mortal-Shadowing Technique) is an Ox-Body-Charm analog that fortifies only a vessel the ghost is currently riding, purchasable up to the ghost's Compassion rating. The Embalmer's Art (15 motes committed, 2 Willpower; Minimum Compassion 2, Minimum Essence 3; prerequisite Nemissary's Ride) grants automatic, rollless possession via Nemissary's Ride, halts the vessel's decay for the duration, and lets the ghost spend 4 motes per -2 health level (up to her Compassion) to fortify it; its upgrade, the Embalmer's Enduring Triumph (Minimum Compassion 3, Minimum Essence 4, prerequisite the Embalmer's Art), does the same for 10 motes/1 Willpower plus 2 motes per -1 health level, waiving the Willpower cost in a shadowland. Instauration of the Fleshly Vessel (Cost varies; Minimum Compassion 3, Minimum Essence 4; prerequisite the Embalmer's Art) repairs rot (4 motes undoes one day's accumulated rot damage) or heals combat damage to the vessel at the cost of the ghost's own corpus (1 mote per health level healed, at 1 unsoakable level of matching damage to the ghost per level restored); it cannot mend fire, aggravated, or anti-undead-specific damage. Drive the Necrotic Colossus (10 motes, 1 Willpower, 1 experience point; Minimum Compassion 2, Minimum Essence 4; prerequisite Nemissary's Ride) lets a ghost animate/pilot shells larger than a very large human, up to temple-sized war machines, with multiple nemissaries needed in concert for anything bigger; spending the experience point removes the ongoing Essence commitment. This is the Charm the 30 nemissaries piloting the Mask of Winters' Juggernaut use.",
+    "compatibility": "Ghost (nemissary) character powers only; not available to Abyssal deathknights.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 91,
+      "pdfPage": 92
+    },
+    "crossReferences": [
+      "custom-corpses-nemissary-vessel-framework",
+      "book-of-bone-and-ebony-chapter-two-arcanoi-excluded"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'Nemissary Arcanoi and Wonders' section, pp. 91-92 (PDF 92-93), Book of Bone and Ebony. Excluded per the exact precedent already set by book-of-bone-and-ebony-chapter-two-arcanoi-excluded: every Charm-like ability here is a ghost Arcanos gated by Minimum Virtue (Compassion) + Essence, not a Minimum Ability + Essence Abyssal Charm, so none of it is selectable on a deathknight's sheet. Documented as one chapter-section-level excluded row rather than four separate Arcanos rows, matching that same precedent's granularity. Drive the Necrotic Colossus is cross-referenced from the war-machine-construction-framework row's Animation Options (Nemissaries) subsection, since it is the mechanism nemissary-piloted war machines actually use."
+  },
+  {
+    "id": "bindings-of-eternal-preservation",
+    "name": "Bindings of Eternal Preservation (Resources •• or •••)",
+    "disposition": "selectable",
+    "summary": "Linen or leather wrappings soaked in mummification chemicals that halt (but do not reverse) a corpse's decay for as long as they stay wrapped, sold at two tiers of durability and available to any character with the Resources rating to buy them -- including for use on a size class 3 or 4 war machine, at extra cost.",
+    "requirements": "Resources •• (cloth) or Resources ••• (leather).",
+    "mechanics": "The wrappings must cover the corpse with no more than an inch of exposed tissue between bindings to be effective; they halt further decay but do not reverse decay already present. Cloth bindings (Resources ••) are cheaper but last only one year, are unsuited to combat use, and sever in two places per level of lethal damage taken (requiring two turns to retie each time, or the wrappings fall off after 10 cumulative lethal levels, ruining them). Leather bindings (Resources •••) require a much longer preparation soak but last up to a century, add 2L/1B to the wearer's soak, and only need retying if the wearer suffers aggravated damage. Zombies tend to shred either kind within hours. Applying bindings to a war machine is possible but costly: the Resources cost increases by • for a size class 3 war machine and by •• for a size class 4 war machine.",
+    "cost": "Resources •• (cloth, lasts one year) or Resources ••• (leather, lasts up to a century); +• Resources for a size class 3 war machine, +•• for size class 4.",
+    "compatibility": "Usable on any corpse, nemissary vessel, or war machine frame; does not reverse existing decay, only halts further decay.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 92,
+      "pdfPage": 93
+    },
+    "crossReferences": [
+      "custom-corpses-nemissary-vessel-framework"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'Bindings of Eternal Preservation' section, pp. 92-93 (PDF 93-94), Book of Bone and Ebony. Marked selectable (unlike the ghost-only Arcanoi/vessel rows above) because this is a plain Resources-rated purchasable item, matching the precedent set by stomach-weighting-powder and other Resources-rated catalog entries elsewhere in this inventory -- any character (Abyssal, mortal ally, or nemissary) with the requisite Resources dots can buy it."
+  },
+  {
+    "id": "war-machine-construction-framework",
+    "name": "War Machine Construction Framework (Frame, Size Class, Weapon Mounts, Passengers, Animation, Defense and Offense)",
+    "disposition": "reference-only",
+    "summary": "The 'Engines of Annihilation' system that 'allows characters and Storytellers to generate their own necromantic war machines from the ground up': choosing a frame material, a size class (1-4), optional weapon mounts and passenger capacity, an animation method (necromancy or nemissary piloting), defensive fortification, and offensive armaments, each step with its own Resources/Craft (Necrosurgery)/Essence costs.",
+    "requirements": "Craft (Necrosurgery) at the tier matching the desired animation spell (•• for Walking War Machine, •••• for Spurring the Beast of War, ••••• for Incomparable Destruction Engine), the corresponding necromancy spell or the Nemissary's Ride/Drive the Necrotic Colossus Arcanoi, and the Resources costs listed per component below. Explicitly framed as usable by Abyssal Exalted directly: 'Those Abyssals who have mastered necrosurgery and Bone Graft Technique can use those abilities to assemble horrible necrotic concatenations... With enough time and resources, an Abyssal Exalt could use necrosurgery combined with Bone Graft Technique (and possibly Walking War Machine or its more powerful versions) to do any of the following...'",
+    "mechanics": "FRAME: Humanoid (Resources: none) fuses/grafts human corpses; Animal (Resources: usually none, or the cost of a hunting party for exotic/Wyld-mutant/Dragon-Blooded specimens -- a war machine using Dragon-Blooded flesh for at least half its mass gains a bonus -1 health level) uses large animal or behemoth corpses; Bone (Resources none to ••• depending on rarity) anchors necromantic glyphs better than flesh; Metal (embellishments cost Resources per the Metal-by-Size-Class table below, doubled if metal forms the core structure) is fused in via the Abyssal Charm Bone Graft Technique; Necrotic Propulsion (Resources none to •) uses corpses or even single joints purely as motive power (rowers, cranks). SIZE CLASS: Class 1, Less Than Human (small drone-scale devices, cheapest and easiest to animate); Class 2, On a Human Scale (up to a large horse -- includes spine chains and the weapon of mephitic desolation); Class 3, Big and Dead (wagon to moderate-building scale, requires at least Spurring the Beast of War to animate); Class 4, Colossal (larger than a moderate building -- includes the thousand-corpse war frame, Juggernaut, and the web is the spider -- requires the Void Circle spell Incomparable Destruction Engine to animate). Metal-armor Resources cost by size class and metal (Iron •/••/••/•••; Jade or Soulsteel ••/•••/•••••/•••••; Brass/Steel •/••/•••/••• for Classes 1-4 respectively). WEAPON MOUNTS: Class 4-5 machines can mount First Age or Oblivion-based weapons for +• Resources. PASSENGERS: larger machines carry passengers/cargo (undead passengers pack far more densely than living ones). ANIMATION: Iron Reanimation (the necromancy spell Walking War Machine, already inventoried) needs Craft (Necrosurgery) ••, (8 - Essence) motes per necrosurgery success, one success per 100 lbs of flesh, animates up to a ton (Str 4/Dex 2/Sta 3/Per 2/Int 1/Wits 3, two -0/-1/-2 health levels per success); Onyx Reanimation (the Labyrinth Circle spell Spurring the Beast of War, see its own row) needs Craft (Necrosurgery) ••••, two days per roll (Str 6/Dex 2/Sta 5/Per 3/Int 1/Wits 4, two -0/-1, three -2 health levels per success); Obsidian Reanimation (the Void Circle spell Incomparable Destruction Engine, see its own row) needs Craft (Necrosurgery) •••••, three days per roll, minimum Essence cost equal to successes needed, doubled by the Storyteller for truly colossal machines (Str 8/Dex 3/Sta 7/Per 4/Int 2/Wits 4, three -0/-1, four -2 health levels per success). All three spell variants give the machine no functioning Virtues (auto-succeeds Valor, auto-fails everything else) and a base Initiative of 5/7/8 respectively. Nemissaries can animate a war machine instead of necromancy (via Nemissary's Ride or Drive the Necrotic Colossus), using the nemissary's own Mental/Social Attributes except Appearance, but many Deathlords distrust the technique since a nemissary retains her own free will. DEFENSE: a Vanguard of escorting zombies/war-body nemissaries protects slower machines; base health levels scale with size class and animating spell, and every 2 additional motes spent on toughness at creation grants (size class) -1 and (size class x 2) -2 health levels; armor plating grants Hardness/Soak by material (Bone 3/5L-6B/free; Iron 4/8L-8B/Resources = size class; Jade 7/14L-14B/size class x3; Soulsteel 9/18L-18B/size class x3); the ultra-rare Oblivion's Panoply plating (see its own row) is the strongest option. Repair requires an Intelligence + Craft (Necrosurgery) roll (three successes per health level lost to weekly wear-and-tear, at a rate of [size class] health levels lost per unrepaired week), the Abyssal Charm Form-Restoring Touch (doubled/tripled cost for size class 3/4 machines), or a nemissary's Instauration of the Fleshly Vessel. OFFENSE: Mechanical (built-in blades/hooks/crushing drums), Artifact (rare retrofitted First Age weapons, mostly unique to the First and Forsaken Lion), and Necromantic (weapons empowered by the Void Circle spell Oblivion's Avatar, see the necromantic-weaponry-oblivions-avatar-effects-menu row) are the three offensive categories.",
+    "cost": "Highly variable by frame material, size class, animation spell, armor material and weapon mounts; see the Resources/Craft/Essence figures itemized in mechanics above.",
+    "compatibility": "Framework/system text supporting the named war-machine catalog rows below (battle-snake, dread-brachial-sapping-array, thousand-corpse-war-frame, web-is-the-spider, weapon-of-mephitic-desolation, bone-spider-lotus, necro-drones-sample-catalog) plus the already-selectable bonestrider and the-insidious-ebon-xoanon rows.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 94,
+      "pdfPage": 95
+    },
+    "crossReferences": [
+      "walking-war-machine",
+      "spurring-the-beast-of-war",
+      "incomparable-destruction-engine",
+      "book-of-bone-and-ebony-nemissary-arcanoi-excluded",
+      "oblivions-avatar",
+      "necromantic-weaponry-oblivions-avatar-effects-menu",
+      "bindings-of-eternal-preservation",
+      "oblivions-panoply",
+      "battle-snake",
+      "dread-brachial-sapping-array",
+      "thousand-corpse-war-frame",
+      "web-is-the-spider",
+      "weapon-of-mephitic-desolation",
+      "bone-spider-lotus",
+      "necro-drones-sample-catalog",
+      "sky-eater",
+      "maelstrom-barge",
+      "final-maelstrom"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'Engines of Annihilation' through 'War Machines of the Dead' sections (Necrosurgery, Frame and Components, Size, Weapon Mounts, Passengers, Animation Options, Defense, Offense, Things Fall Apart), pp. 94-103 (PDF 95-104), Book of Bone and Ebony. Marked reference-only, matching this project's firm precedent for multi-step build-your-own systems (necromancy-framework-and-circles, hearthstone-formation-and-theme-rules, artifact-creation-framework-savant-and-sorcerer, warstrider-framework-and-rules) even though the source text explicitly frames this system as something 'characters' (not just Storytellers) use directly with concrete Craft/Resources/Essence costs -- 'selectable' in this project's schema is reserved for a single atomic, pick-able sheet item, not a combinatorial procedural system with dozens of interacting choices. The concrete named outputs of this framework (the two new necromancy spells, the Oblivion's Panoply material, and the individually named sample war machines below) are each broken out as their own rows with dispositions judged independently. Consolidated at framework granularity spanning multiple book subsections, matching the granularity already used for warstrider-framework-and-rules."
+  },
+  {
+    "id": "oblivions-panoply",
+    "name": "Oblivion's Panoply (Artifact •••••, scaling with Liege)",
+    "disposition": "selectable",
+    "summary": "The rarest and most effective war-machine armor plating: soulsteel soulforged personally by a Deathlord from a hekatonkhire's substance, lacquered to an obsidian sheen and sealed under a hair's-breadth layer of pure Oblivion that chills attackers, drains Essence on every hit, and nullifies physical force outright on its face (though its unarmored back has almost none of that protection).",
+    "requirements": "Artifact •••••, plus one additional point of the Liege Background per five-foot-by-five-foot panel gained beyond the first, pending the character's Deathlord's (i.e. the Storyteller's) approval.",
+    "mechanics": "Only characters with access to Void Circle Necromancy can even attempt to create Oblivion's Panoply, and it requires soulsteel forged from a hekatonkhire's own plasm -- extraordinarily rare even among the Deathlords' own hoards -- plus Resources ••••• in alchemical binding agents and 1 committed mote of Essence per five square feet created. No panel smaller than 25 square feet or thinner than two feet has ever been successfully made; smaller or irregular surfaces cannot hold the layer of Oblivion at all. Effects: Chill -- any attacker who successfully hits a panel must roll Stamina + Resistance (difficulty 2) or lose a point of Dexterity to numbness (orichalcum weapons insulate against this). Energy Drain -- every successful hit against the panoply with bare hands or non-orichalcum weapons drains the attacker of 5 motes of Essence (mortals instead age two years per hit); flames touching it are instantly extinguished, and water freezes and slides off. Force Nullification -- the face has an effective soak of 15L/20B, treated as hardened soak (ignoring all attacks whose raw damage is below that hardness); the unprotected back has only 2L/4B soak, so panels are always mounted with their backs shielded inside a soulsteel frame.",
+    "cost": "Artifact ••••• (base access) plus one point of Liege per five-foot-by-five-foot panel beyond the first, subject to the character's Deathlord's approval; Resources ••••• in materials and 1 committed mote of Essence per five square feet to actually forge a panel.",
+    "compatibility": "Used as war-machine armor plating; see war-machine-construction-framework's Defense/Armor subsection for how it compares to Bone/Iron/Jade/Soulsteel plating.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 101,
+      "pdfPage": 102
+    },
+    "crossReferences": [
+      "war-machine-construction-framework",
+      "liege-background"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'Oblivion's Panoply' sidebar, pp. 101-102 (PDF 102-103), Book of Bone and Ebony. Marked selectable rather than folded into the reference-only war-machine-construction-framework row: unlike that combinatorial system, this is a single named, discretely Artifact-and-Liege-gated material with its own fixed cost formula ('A character wishing to obtain panels of Oblivion's Panoply must have Artifact •••••. For every point of Liege he has on top of that, he may gain access to one five foot by five foot panel...'), directly analogous to how this project already treats other named Artifact-rated catalog items as selectable. The Deathlord-approval clause is preserved verbatim in requirements/cost since it is an explicit, concrete gating mechanic (GM sign-off keyed to an existing Background a PC already tracks), not an open-ended Storyteller-arbitrated process."
+  },
+  {
+    "id": "spurring-the-beast-of-war",
+    "name": "Spurring the Beast of War (aka Onyx Reanimation)",
+    "disposition": "selectable",
+    "summary": "Labyrinth Circle necromancy spell; the mid-tier war-machine animation spell, required to bring size class 3 (\"Big and Dead\") war machines to life, granting them stronger baseline Attributes/Abilities and more health levels per necrosurgery success than the entry-level Walking War Machine.",
+    "requirements": "Necromancy: Labyrinth Circle (see Necromancy Framework and Circles); Craft (Necrosurgery) ••••.",
+    "mechanics": "Also known among necromancers as Onyx Reanimation, this spell is the Labyrinth Circle's more powerful successor to Walking War Machine (Iron Reanimation), required to animate size class 3 war machines and usable for smaller ones as well. Each necrosurgery roll (an extended Intelligence + Craft [Necrosurgery] action) represents two full days of work, and casting the spell costs (8 - the necromancer's permanent Essence rating) motes per success rolled on that necrosurgery check. A war machine animated this way has: Strength 6, Dexterity 2, Stamina 5, Charisma 0, Manipulation 0, Appearance 0, Perception 3, Intelligence 1, Wits 4; no functioning Virtues (automatically succeeds on Valor rolls, automatically fails all others); Athletics 3, Awareness 2, Brawl 4, Dodge 4, Endurance 3, Melee 3, Resistance 3, Stealth 1; Base Initiative 7; soak highly variable by armor but never less than 4L/8B; and, per success on the initial necrosurgery roll, two -0, two -1 and three -2 health levels.",
+    "cost": "(8 - the necromancer's permanent Essence rating) motes per success on the animating Craft (Necrosurgery) roll.",
+    "compatibility": "Target: one war machine of size class 1-3 built via the war-machine-construction-framework; a nemissary may substitute Nemissary's Ride or Drive the Necrotic Colossus instead of this spell.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 98,
+      "pdfPage": 99
+    },
+    "crossReferences": [
+      "war-machine-construction-framework",
+      "walking-war-machine",
+      "incomparable-destruction-engine",
+      "necromancy-framework-and-circles",
+      "labyrinth-circle-necromancy"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'Animation Options' -> 'Necromancy' -> 'Onyx Reanimation' subsection, pp. 98-99 (PDF 99-100), Book of Bone and Ebony. Like oblivions-avatar, this spell appears inside Chapter Four's war-machine construction rules rather than Chapter Five's necromancy spell list, but it is mechanically a standard Labyrinth Circle Necromancy spell (the book's own 'By Way of Clarification' sidebar confirms 'Spurring the Beast of War is Labyrinth Circle Necromancy and is also known as Onyx Reanimation') and is filed here alongside this book's other necromancy spells for consistency."
+  },
+  {
+    "id": "incomparable-destruction-engine",
+    "name": "Incomparable Destruction Engine (aka Obsidian Reanimation)",
+    "disposition": "selectable",
+    "summary": "Void Circle necromancy spell; the most powerful war-machine animation spell, required to bring size class 4 (colossal) war machines such as Juggernaut and the web is the spider to life, with the strongest baseline Attributes/Abilities and most health levels per necrosurgery success of the three animation spells.",
+    "requirements": "Necromancy: Void Circle (see Necromancy Framework and Circles); Craft (Necrosurgery) •••••.",
+    "mechanics": "Also known among necromancers as Obsidian Reanimation, this is the most powerful of the three war-machine animation spells and the only one capable of animating size class 4 (colossal) war machines. No necromancer can even attempt to cast it without Craft (Necrosurgery) •••••, and each necrosurgery roll represents three full days of work. The spell's minimum Essence cost equals the number of successes needed on the necrosurgery roll, which the Storyteller may double for truly colossal machines such as Juggernaut. A war machine animated this way has: Strength 8, Dexterity 3, Stamina 7, Charisma 0, Manipulation 0, Appearance 0, Perception 4, Intelligence 2, Wits 4; no functioning Virtues (automatically succeeds on Valor rolls, automatically fails all others); Athletics 4, Awareness 3, Brawl 6, Dodge 2, Endurance 4, Melee 4, Resistance 5, Stealth 1; Base Initiative 8; and, per success on the initial necrosurgery roll, three -0, three -1 and four -2 health levels.",
+    "cost": "Minimum Essence equal to the number of successes needed on the animating Craft (Necrosurgery) roll (doubled at Storyteller discretion for colossal machines).",
+    "compatibility": "Target: one war machine of size class 4 built via the war-machine-construction-framework.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 99,
+      "pdfPage": 100
+    },
+    "crossReferences": [
+      "war-machine-construction-framework",
+      "spurring-the-beast-of-war",
+      "walking-war-machine",
+      "necromancy-framework-and-circles",
+      "void-circle-necromancy"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'Animation Options' -> 'Necromancy' -> 'Obsidian Reanimation' subsection, p. 99 (PDF 100), Book of Bone and Ebony. Like oblivions-avatar and spurring-the-beast-of-war, this spell appears inside Chapter Four's war-machine construction rules rather than Chapter Five's necromancy spell list, but it is mechanically a standard Void Circle Necromancy spell (the book's own 'By Way of Clarification' sidebar confirms 'Incomparable Destruction Engine is necromancy of the Void Circle and is also known as Obsidian Reanimation') and is filed here alongside this book's other necromancy spells for consistency."
+  },
+  {
+    "id": "necromantic-weaponry-oblivions-avatar-effects-menu",
+    "name": "Necromantic Weaponry: Sample Oblivion's Avatar Effects Menu",
+    "disposition": "reference-only",
+    "summary": "A sidebar menu of 10 named necromantic-weapon effects a war machine can be granted by investing it with the Void Circle spell Oblivion's Avatar, ranging from cold/entropy damage auras to disease, bad luck, Strength drain, morale-breaking terror and Hearthstone-severing fields; these are not artifacts, and become inert if removed from the war machine they are bound into.",
+    "requirements": "Requires the war machine to already be animated and then invested with the Void Circle spell Oblivion's Avatar (10 committed motes per power, or 40 motes and 5 experience points per power to make it permanent).",
+    "mechanics": "Named sample effects: Chill of the Abyss (10-yard radius supernatural-ice-storm environmental damage, ongoing while Essence is invested); The Dread Black Beacon (50-yard radius black unlight reduces living visibility to foggy-night levels while granting the dead/Abyssals +1 die to attacks and materializing hungry ghosts regardless of time of day); Fortune's Inauspicious Nadir (100-yard radius bad-luck field raising the target number from 7 to 8, tens count as a single success); The Puissance-Arresting Eye (a 10-dice green-light beam attack that reduces a hit target's Strength to •, recovering one dot every two turns; Dodge-able, parry-able only with orichalcum, and negated entirely by Immunity to Everything Technique); The Rallying Chime of the Invincible Dead (Resources ••• add-on; a struck bell heals zombies, nemissary-possessed corpses, materialized ghosts and Abyssal Exalted within 20 yards one lethal health level per turn, but breaks permanently if removed from the war machine); Revealing the Well-Hidden Devils (30-yard black-fog field halves the Essence cost and waives the Willpower cost of Weighted With the Anchor of Flesh); Severing the Bond With Home (10-yard field disconnects Creation-based Hearthstones from their Manses for as long as a character remains inside it); The Softening Rains (once/day, 100-yard radius rust-rain instantly halves the soak of all non-Magical-Material armor); The Touch That Calls Them Home (100-yard radius forces a Stamina + Resistance roll at difficulty 5 or every wound the target has becomes infected); The Wailing Engine of Fear (50-yard radius Valor check at a two-die penalty, fleeing to the edge of the effect on failure or off the battlefield entirely on a botch). The weapon of mephitic desolation's disease/prayer-blocking effects are themselves cited as two applications of Oblivion's Avatar layered onto one war machine.",
+    "cost": "N/A (menu of effects granted by casting oblivions-avatar on a war machine); The Rallying Chime of the Invincible Dead additionally costs Resources ••• to add to the war machine.",
+    "compatibility": "Any war machine already animated via the war-machine-construction-framework; effects are lost if the necromantic weapon component is removed from its host war machine.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 109,
+      "pdfPage": 110
+    },
+    "crossReferences": [
+      "oblivions-avatar",
+      "war-machine-construction-framework",
+      "weapon-of-mephitic-desolation"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'Necromantic Weaponry' sidebar, p. 109 (PDF 110), Book of Bone and Ebony. Catalogued as a single reference-only summary row at 'reasonable summary granularity,' matching the precedent set by warstrider-weapon-tables for large procedural weapon/effect menus, rather than 10 separate rows -- the source text itself frames these as flexible illustrative examples ('Storytellers are encouraged to come up with others as well') rather than a fixed catalog of discrete acquirable items."
+  },
+  {
+    "id": "battle-snake",
+    "name": "Battle Snake (war-machine troop transport)",
+    "disposition": "reference-only",
+    "summary": "A troop-transport war machine built from the mummified rib-segments of Seshasa, the two-mile-long Primal Basilisc slain in the First Age (or, in later builds, from cachalot/sea-dragon/behemoth ribs), each segment rigged with soulsteel hook-bands to carry the folded-up walking dead; a fully assembled 50-yard battle snake can transport 1,500 soldiers.",
+    "requirements": "Deathlord-scale project: requires a source of enormous mummified ribs (Seshasa's remains, cachalot/sea-dragon/behemoth ribs, or Wyld-spawned monster remains) and necrosurgery to combine segments from different creatures.",
+    "mechanics": "Each rib bears five soulsteel bands, each with three hooks holding a folded-fetal zombie or nemissary war body; a single rib carries up to 15 of the walking dead, a full segment (multiple ribs) 30, and a complete 50-yard, 50-segment battle snake up to 1,500 soldiers. Ghosts or deathknights can freely combine segments from different source creatures using necrosurgery, so a battle snake's length is limited only by available materials. Movement is a hybrid gliding/millipede motion that lets it cross terrain from Southern deserts to Northern ice equally well. Per the size-class stat table: Physical Attributes Strength 6/Dexterity 3/Stamina 5, no Willpower rating, Attack Speed 5/Accuracy 5/Damage 6B, Dodge/Soak 5, Abilities Athletics 3, Awareness 2, Brawl 4, Dodge 2, Endurance 3, Resistance 10, Stealth 1; each of the multiple body-segments has its own -0x2/-1x2/-2x3 health-level track.",
+    "cost": "Resources/Craft costs per the war-machine-construction-framework's Frame (Animal/Bone) and Size Class rules; no separate Artifact rating is given.",
+    "compatibility": "Size class 3 troop-transport war machine; carries walking-dead passengers per the war-machine-construction-framework's Passengers rule.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 107,
+      "pdfPage": 108
+    },
+    "crossReferences": [
+      "war-machine-construction-framework"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'Battle Snakes' section and its stat-table entry, p. 107 (PDF 108, prose) and p. 111 (PDF 112, stat table), Book of Bone and Ebony. Marked reference-only, not selectable or gm-only: it is a generic, replicable transport-class template usable by 'ghosts or deathknights' with the right necrosurgery skill (not tied to one single Deathlord's unique property), but it is army-logistics infrastructure sized for hundreds-to-thousands of troops rather than a personal Artifact-rated item a single PC's sheet would track -- matching how the generic size-class stat table itself is presented as Storyteller/GM reference for running mass warfare, not a character-sheet purchase."
+  },
+  {
+    "id": "dread-brachial-sapping-array",
+    "name": "Dread Brachial Sapping Array (siege-tunneling war machine)",
+    "disposition": "reference-only",
+    "summary": "A specialized siege engine of 50-100 severed arms joined at the shoulder, each finger tipped with an iron chisel via Bone Graft Technique, that claws slowly but relentlessly through earth or stone to tunnel beneath fortifications.",
+    "requirements": "Bone Graft Technique (Abyssal Charm); the severed arms of 25-50 individuals; one success per five arms on the animating necrosurgery roll (via Walking War Machine).",
+    "mechanics": "Digs through one yard of earth or one foot of stone per hour -- slow, but capable of tunneling through anything short of metal or the hardest basalt. Not effective in direct combat, though it can tear apart an unarmored mortal without much difficulty. Per the size-class stat table, health levels and soak depend on how many arms comprise the array (5-10 successes to create, granting 5-10 health levels); unarmored arrays have 1L/3B soak, armored (bracer-equivalent) arrays 3L/6B; Attack (Claw) Speed 4/Accuracy 5/Damage 4L, Defense 4, Abilities Athletics 1, Awareness 2, Brawl 2, Dodge 2, Endurance 1, Melee 2, Resistance 2, Stealth 1; the War Machine Exalted Power Combat table gives its claw a Dread Array Claw stat line of Speed 4/Accuracy 5/Damage 4Lp/Defense 5/Rate 1.",
+    "cost": "Resources/Craft costs per the war-machine-construction-framework's Frame (Humanoid) and Size Class 2 rules; requires 25-50 severed arms as raw material.",
+    "compatibility": "Size class 2 siege/tunneling war machine; animated by Walking War Machine.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 107,
+      "pdfPage": 108
+    },
+    "crossReferences": [
+      "war-machine-construction-framework",
+      "walking-war-machine"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'Dread Brachial Sapping Array' section and its stat-table entry, p. 107 (PDF 108, prose) and p. 111 (PDF 112, stat table plus Exalted Power Combat claw stats), Book of Bone and Ebony. Marked reference-only for the same reasoning as battle-snake: a generic siege-engine template built via the standard construction framework, not an individually Artifact-rated personal possession."
+  },
+  {
+    "id": "thousand-corpse-war-frame",
+    "name": "The Thousand-Corpse War Frame (colossal troop-transport war machine)",
+    "disposition": "reference-only",
+    "summary": "A colossal size class 4 troop transport and war machine: a bare 40-foot soulsteel skeleton that becomes a functioning giant only once over a thousand zombies swarm up its handholds and become its living (dead) musculature, straining in unison to flex each joint and take each 20-foot stride, crushing anything beneath its 10-foot disk feet for 30 bashing damage.",
+    "requirements": "Built via the war-machine-construction-framework's Colossal (Size Class 4) rules; requires the Void Circle spell Incomparable Destruction Engine to animate the base frame, then roughly 1,000 zombies (100 at minimum for a slow non-combat walk) to crew it, directed by a nemissary stationed in its chest or head compartment.",
+    "mechanics": "Loading takes a full hour; once mobile it walks with 20-foot strides. Its fist impacts can breach a stout castle wall, and its disk feet crush a 10-foot-diameter area for 30 levels of bashing damage. The lowest 10 feet of the frame is a layer of outward-facing zombies (often metal-plated for extra soak) that can attack anyone who approaches. Climbing it requires four successes on Strength + Athletics, imposes a -10 initiative penalty, and exposes the climber to five zombie attacks per turn at +2 dice; two or more successful Brawl attacks in a turn instead try to pull the climber into the writhing mass (-4 dice, -10 initiative, 10 zombie attacks per turn while trapped). A fall while climbing the front risks both falling damage and being trampled. As the war frame takes damage its Strength drops by 1 per 10 health levels lost; at Strength 0 it can no longer move and its remaining zombies scatter to fight individually. It may fight as a gestalt like a giant warstrider, or disperse its component zombies to attack separately once it reaches its destination.",
+    "cost": "Resources/Craft costs per the war-machine-construction-framework's Size Class 4/Incomparable Destruction Engine rules, plus roughly 1,000 zombie crew (100 minimum).",
+    "compatibility": "Size class 4 colossal war machine; the Mask of Winters' signature Juggernaut is explicitly a larger example of this same category of construction.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 104,
+      "pdfPage": 105
+    },
+    "crossReferences": [
+      "war-machine-construction-framework",
+      "incomparable-destruction-engine",
+      "book-of-bone-and-ebony-nemissary-arcanoi-excluded"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'The Thousand-Corpse War Frame' section, pp. 104-106 (PDF 105-107), Book of Bone and Ebony. Marked reference-only: this is presented as a specific, singular named example (the Mask of Winters' Juggernaut is called out as a related but distinct, even larger construction) with a full monster-manual-style stat block and climbing/combat sub-rules, functioning as GM/setting reference for running Deathlord-scale siege warfare rather than a discretely Artifact-rated item a PC's own sheet would list."
+  },
+  {
+    "id": "web-is-the-spider",
+    "name": "The Web Is the Spider (colossal Essence-harvesting war machine)",
+    "disposition": "reference-only",
+    "summary": "A colossal size class 4 war machine shaped like a vast 120-foot spider web of soulsteel and undead sinew, walking on eight 60-foot spoke-legs, that serves as portable bridge, siege ladder and living net while also draining blood from the wounded and dead through hollow soulsteel barbs to bank Essence for its ghost or Abyssal operators.",
+    "requirements": "Built via the war-machine-construction-framework's Colossal (Size Class 4) rules; requires a soulsteel frame, sufficient Artifact rating for its eight Essence-containing gems, muscle and sinew from at least 60 corpses, and two successes per corpse used on an Intelligence + Craft (Necrosurgery) roll to assemble.",
+    "mechanics": "Eight main 60-foot spokes radiate from a central hub and serve as legs; extending or contracting its component rods lets it double or halve its normal 120-foot diameter. Every intersection has a hollow soulsteel barb that exsanguinates the wounded or recently dead; for every two health levels of blood consumed, it banks 1 point of Essence in one of eight 60-mote Essence batteries at its hub. Ghosts or Abyssal Exalted may drain the stored Essence at a rate of 1 turn per 2 motes, except when a Deathlord personally rides into Creation, in which case the stored Essence is reserved solely for the Deathlord's use and poachers are severely punished.",
+    "cost": "Resources for the soulsteel frame plus sufficient Artifact rating for the eight Essence-containing gems, per the war-machine-construction-framework's Size Class 4 rules; muscle/sinew from at least 60 corpses.",
+    "compatibility": "Size class 4 colossal war machine; doubles as portable bridge, siege ladder, living net, and Essence-banking infrastructure for ghosts/Abyssals operating in Creation.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 107,
+      "pdfPage": 108
+    },
+    "crossReferences": [
+      "war-machine-construction-framework",
+      "incomparable-destruction-engine"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'The Web Is the Spider' section and its stat-table entry, p. 107 (PDF 108, prose) and p. 111 (PDF 112, stat table -- Strength 8/Dexterity 3/Stamina 7, Attack [Leg Strike] Speed 5/Accuracy 9/Damage 12L, Defense 5/Soak 8L-10B, Dodge 2, gets two jabbing leg attacks per turn, and impaling for 5+ health levels forces a Stamina + Resistance roll or paralysis followed by ongoing Essence/blood drain), Book of Bone and Ebony. Marked reference-only: a labor-intensive, singular-scale Deathlord asset ('easily the equivalent of most First Age engines of war') presented as GM/setting reference rather than a personal Artifact purchase."
+  },
+  {
+    "id": "weapon-of-mephitic-desolation",
+    "name": "Weapon of Mephitic Desolation (atrocity-ritual war machine)",
+    "disposition": "gm-only",
+    "summary": "A size class 2 war machine built by ritually murdering five children under age 10, stitching their harvested lungs into a bellows and their bodies into a singing circle animated by necromancy and Oblivion's Avatar, whose song spreads smallpox for half a mile and blocks all prayer in the area, risking divine retribution if played near a Gateway to Yu-Shan.",
+    "requirements": "Necromancy (Walking War Machine or a stronger animation spell) plus the Void Circle spell Oblivion's Avatar (two applications, one for disease and one for prayer-blocking); five ritually slain children under age 10; five ghostly musicians (nemissaries will not do -- necromancy is specifically required for this construction) to possess the bodies and play them.",
+    "mechanics": "Creation requires 10 successes on an extended Intelligence + Craft (Necrosurgery) roll (one roll per eight hours), then [(8 - the necromancer's Essence rating) x 10] motes to animate via Walking War Machine, plus the Essence cost of investing it with Oblivion's Avatar. Once played, its song exposes everyone within a half-mile radius to smallpox and raises the difficulty of all prayers (including prayer strips) in the area by three; all living spirits with Essence 3+ in the area suffer -5 dice to Perception. Playing it within 10 miles of a Gateway to Yu-Shan puts the Bureau of Humanity and the Division of Endings on immediate alert, with divine retribution a near certainty.",
+    "cost": "Five ritually murdered children under age 10; 10 successes on an extended Craft (Necrosurgery) roll; [(8 - Essence) x 10] motes to animate; additional Essence to invest with Oblivion's Avatar (two applications).",
+    "compatibility": "Size class 2 war machine; requires necromancy specifically (nemissary animation will not do).",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 108,
+      "pdfPage": 109
+    },
+    "crossReferences": [
+      "war-machine-construction-framework",
+      "walking-war-machine",
+      "oblivions-avatar",
+      "necromantic-weaponry-oblivions-avatar-effects-menu"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'Weapon of Mephitic Desolation' section and its stat-table entry, p. 108 (PDF 109, prose) and p. 111 (PDF 112, stat table -- Attack Speed -0/Accuracy -1/Damage -2, Soak 3L-6B, Abilities Performance 4; once it has taken half its health levels it can no longer sing), Book of Bone and Ebony. Marked gm-only rather than reference-only or selectable: this is an atrocity-ritual superweapon explicitly created by the Malfeans' own design intent, requiring the ritual murder of five children as a hard prerequisite with no player-facing acquisition path or Artifact/Background cost structure -- it is a Storyteller-side plot device/set piece (a weapon of mass destruction with in-fiction divine consequences attached), not something a player character commissions or builds as a normal crafting project even though it nominally has concrete Craft/Essence costs."
+  },
+  {
+    "id": "bone-spider-lotus",
+    "name": "Bone Spider Lotus (armored troop-carrier war machine)",
+    "disposition": "reference-only",
+    "summary": "A spider-shaped armored personnel carrier: a crude soulsteel disk mounted on eight rib-legs (or smaller segmented legs), capable of 70 mph for up to two weeks, with a toxic necrotic-jelly underbelly that shields and carries up to 20 zombies or nemissary war bodies (or half that as strike-platform weapon mounts, or twice as many necro-drones).",
+    "requirements": "Built via the war-machine-construction-framework's Frame (Bone/Metal) and Size Class rules; five successes on a necrosurgery roll to build the standard version; animated by Walking War Machine.",
+    "mechanics": "The necrotic-jelly underbelly grants 4L/10B soak to itself and its passengers in addition to their own soak. Fully loaded it carries 20 zombies or war-body nemissaries curled fetal, or 20 zombies' worth as up to twice that many necro-drones; configured as a strike platform/mobile weapon mount instead, it carries only 5 passengers but can mount First Age or necromantic weapons, whose effects stack if multiple weapons or platforms operate near one another. Per the stat table: Strength 6/Dexterity 3/Stamina 5, Attack Speed 7/Accuracy 5/Damage 6B or by mounted weapon type, Defense/Soak 4, Dodge 4, Abilities Athletics 3, Awareness 2, Brawl 4, Endurance 3, Resistance 10, Stealth 1.",
+    "cost": "Resources/Craft costs per the war-machine-construction-framework's Frame and Size Class rules; five successes on the animating necrosurgery roll for a standard unit.",
+    "compatibility": "Size class 3 troop-carrier war machine; carries zombies, nemissary war bodies, or necro-drones per the Passengers rule.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 111,
+      "pdfPage": 112
+    },
+    "crossReferences": [
+      "war-machine-construction-framework",
+      "walking-war-machine",
+      "necro-drones-sample-catalog"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'War Machines of the Dead' -> 'Bone Spider Lotus' section, pp. 111-112 (PDF 112-113), Book of Bone and Ebony. Marked reference-only for the same reasoning as battle-snake: a generic, replicable troop-carrier template presented as GM/setting reference for mass warfare, not a personal Artifact purchase."
+  },
+  {
+    "id": "necro-drones-sample-catalog",
+    "name": "Necro-Drones (sample size class 1-2 drone catalog)",
+    "disposition": "reference-only",
+    "summary": "Small (size class 1, rarely 2) scavenger-built war machines assembled from a necrosurgeon's spare parts, used for reconnaissance, sabotage, and citadel guard/cleaning duty; five illustrative named samples are given, and Walking War Machine (or stronger spells) can animate them in swarms of 10-40 at once.",
+    "requirements": "Built via the war-machine-construction-framework's Frame and Size Class 1 (rarely 2) rules; one to two successes on the animating necrosurgery roll (never more than five); alternatively piloted by a nemissary (via Nemissary's Ride), though that forgoes the higher Attributes/Abilities/health levels granted by the stronger necromancy spells.",
+    "mechanics": "Sample named necro-drones given as illustrative examples: an animated dog's corpse with iron jaws (attack); a child's corpse with extra metal limbs sticking out of its back (attack); a head on a metal spider's body, animated by dead limbs (recon); a head with three sets of wings sutured to it (recon); blade burrowers, headless torsos augmented with extra flesh and metal limbs that burrow into the ground and leap out to attack approaching targets (attack); and two forearms fused together to form manacles (restraint). Necro-drones animated by Walking War Machine or nemissaries use the stats of a two- to four-segment spine chain; those raised with Spurring the Beast of War or Incomparable Destruction Engine use that spell's higher stats instead. Walking War Machine animates up to 10 drones at once, Spurring the Beast of War up to 20, and Incomparable Destruction Engine up to 40. A bone spider lotus can carry twice as many necro-drones as it carries zombies. Deathknights have been known to keep the least capable necro-drones as citadel guards and cleaning devices; under some circumstances they may be treated as extras.",
+    "cost": "Resources/Craft costs per the war-machine-construction-framework's Size Class 1-2 rules; one to five successes on the animating necrosurgery roll.",
+    "compatibility": "Size class 1 (rarely 2) drones, deployable from any troop carrier including bone-spider-lotus.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 110,
+      "pdfPage": 111
+    },
+    "crossReferences": [
+      "war-machine-construction-framework",
+      "walking-war-machine",
+      "spurring-the-beast-of-war",
+      "incomparable-destruction-engine",
+      "bone-spider-lotus"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'War Machines of the Dead' -> 'Necro-Drones' section, p. 110 (PDF 111), Book of Bone and Ebony. Catalogued as a single reference-only summary row at this project's usual 'reasonable summary granularity' rather than six separate rows, since the source text itself frames the six examples as flavor-only illustrations of an open-ended category ('Sample Necro-Drones') rather than a fixed, individually named catalog like the Warstrider classes."
+  },
+  {
+    "id": "sky-eater",
+    "name": "Sky Eater (First and Forsaken Lion's transport airship)",
+    "disposition": "gm-only",
+    "summary": "A shuriken-shaped flying troop transport, unique to the First and Forsaken Lion's Legion Sanguinary, formed by soulforging, Moliation and necrosurgery into a squat living hull whose dozens of screaming mouths inhale/exhale air for lift, carry up to 12 passengers at 80-120 mph, and can switch to a silent light-devouring stealth mode or a bone-grinding sonic attack mode.",
+    "requirements": "Exclusive to the First and Forsaken Lion's forces; requires hundreds of ghosts painstakingly Moliated and soulforged together, plus (for operation in Creation) a manifestation engine.",
+    "mechanics": "In flight mode, dozens of toothless mouths across the hull's top inhale the sky while mouths on the bottom exhale it, their tuned voices resonating like a choral drone; the vehicle carries up to 12 passengers (6 without crowding) at 80-120 mph. In stealth mode, the top mouths instead consume ambient light, rendering the ship silent and the sky above it pitch black while the bottom mouths exhale a faint black mist. In attack mode, hovering no more than 20 feet above a target, the bottom voices grow louder and shriller, grinding apart bones (and non-magical ceramic, stoneware and glass) beneath the ship. The First and Forsaken Lion has fitted some Sky Eaters with manifestation engines to let them operate in Creation.",
+    "cost": "N/A -- a unique, hand-built Deathlord asset, not purchased via any standard Background.",
+    "compatibility": "Deathlord-scale troop transport/attack airship, size class 4; requires a manifestation engine to function in Creation.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 112,
+      "pdfPage": 113
+    },
+    "crossReferences": [
+      "war-machine-construction-framework",
+      "manifestation-engine"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'Airships' -> 'Sky Eater' section, pp. 112-113 (PDF 113-114), Book of Bone and Ebony. Marked gm-only, not reference-only: the text explicitly ties Sky Eaters to one specific Deathlord's forces ('the high-mobility transporters of the First and Forsaken Lion's army'), with no generic construction-cost breakdown given (unlike Battle Snake/Bone Spider Lotus/Dread Brachial Sapping Array, which are framed as generic templates any sufficiently skilled necrosurgeon could build) -- this is Storyteller-side setting/plot content for running that Deathlord's specific forces, not a replicable player-facing asset."
+  },
+  {
+    "id": "maelstrom-barge",
+    "name": "Maelstrom Barge (First and Forsaken Lion's mass-transport airship)",
+    "disposition": "gm-only",
+    "summary": "A 50-yard pentagonal platform ringed with 10-30-foot rib-bone spars and soulsteel-mesh sails, invented by the First and Forsaken Lion to move up to 500 ghosts or 4-5 tons of cargo at up to 100 mph by summoning and riding a howling storm of pure Oblivion, whose passage causes Resonance-effect-like entropic fluctuations across the land below it.",
+    "requirements": "Unique to the First and Forsaken Lion's invention/forces; a passenger must commit 15 motes of Essence to raise the driving storm.",
+    "mechanics": "When a passenger commits 15 motes of Essence, howling Abyssal winds thick with spectres and flaying sand rise beneath the platform; unfurling its soulsteel-mesh sails between the horizontal spars lifts it airborne, stabilized by embedded Stability Charms. A fully laden barge triggers effects across a quarter-mile radius resembling 2-4-point Resonance manifestations (see Exalted: The Abyssals, p. 149); light loads are unlikely to trigger this. The barge is not combat-capable, but its raging winds add 4 to the difficulty of Archery/Thrown attacks made against those aboard, while storm-running boots or storm-warding parasols protect wearers from the storm's environmental effects (though not from the Archery/Thrown penalty or the black-miracle field). Over water the storms it leaves behind can rage for days after it passes; over land, the Underworld's own stability limits the storm to the barge's immediate passage. Anyone caught in the storm takes damage as a supernatural ice storm, resisted with a difficulty 3 (land) or difficulty 5 (Sea of Shadows) Intelligence + Survival roll.",
+    "cost": "N/A -- a unique, hand-built Deathlord asset; operating it costs 15 motes of committed Essence per flight.",
+    "compatibility": "Deathlord-scale mass-transport airship, size class 4; not combat-capable.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 113,
+      "pdfPage": 114
+    },
+    "crossReferences": [
+      "war-machine-construction-framework",
+      "sky-eater"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'Airships' -> 'Maelstrom Barge' section (including the 'Soulsteel Mesh' and 'Oblivion's Terrible Wake' sidebars), pp. 113-114 (PDF 114-115), Book of Bone and Ebony. Marked gm-only for the same reasoning as sky-eater: explicitly a singular Deathlord-invented asset ('The Deathlord transformed... the First and Forsaken Lion came up with the notion...'), not a generic buildable template. The Soulsteel Mesh sidebar (bashing soak 30/lethal soak 15, nets count as Artifact ••••, chain swathing needs Resources/Artifact •••••) and Oblivion's Terrible Wake sidebar (mechanical detail for the storm's damage/resistance rolls) are folded into this row's mechanics/notes rather than split out, since both are scoped narrowly to explaining the barge's own storm effect."
+  },
+  {
+    "id": "final-maelstrom",
+    "name": "The Final Maelstrom (First and Forsaken Lion's unfinished flagship, plot hook)",
+    "disposition": "gm-only",
+    "summary": "A singular, still-unfinished superweapon: the First and Forsaken Lion's secret flagship project, three times the length of the Mask of Winters' Juggernaut, built from the hollow carapace of a dead behemoth plated in jade and soulsteel to tap Underworld power even in Creation, nearing completion after nearly a century of construction and hidden even from the other Deathlords.",
+    "requirements": "Sole property of the First and Forsaken Lion; not a purchasable or player-facing asset under any Background.",
+    "mechanics": "Commissioned by the First and Forsaken Lion nearly a century before publication, originally not expected to complete for decades more, but now (per the Deathlord's own optimistic estimate, aided by his deathknights' skilled labor) nine years or less from completion. When finished it will bristle with pyre-flame lances and entropic implosion bows, though the Lion intends to use it as one piece of an integrated strategy (alongside his warstriders and the Legion Sanguinary's ground forces) rather than as a crutch. It remains a secret even from the other Deathlords.",
+    "cost": "N/A -- unique, unfinished, and never framed as purchasable; pure plot/setting content.",
+    "compatibility": "Not yet operational as of this book's writing; a Storyteller-facing future plot hook, not a currently usable asset.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 114,
+      "pdfPage": 115
+    },
+    "crossReferences": [
+      "war-machine-construction-framework",
+      "maelstrom-barge"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'Airships' -> 'Final Maelstrom' section (and the adjoining 'The Gravest Threat' sidebar profiling the First and Forsaken Lion himself), pp. 114-115 (PDF 115-116), Book of Bone and Ebony. Marked gm-only: this is explicitly incomplete, secret-even-from-other-Deathlords narrative plot content with no player-facing mechanics, cost structure, or acquisition path whatsoever -- a pure Storyteller campaign hook for a future reveal, the clearest possible case for this disposition in the whole chapter."
+  },
+  {
+    "id": "armies-of-the-dead-overview-and-logistics",
+    "name": "Armies of the Dead: Troop Types and Battlefield Logistics",
+    "disposition": "gm-only",
+    "summary": "Chapter Four's opening section on how the Deathlords field zombies, ghosts, hungry ghosts and Moliated ghosts as mass-army troop types, including Battlefield Support Labs and Resurrection Pits (Artifact-rated field infrastructure that reclaims 20-40% of destroyed zombies as reassembled 'composite zombies'), zombie-borne disease mechanics, and the catapult-launched 'Storm of Hungry Ghosts' siege tactic.",
+    "requirements": "N/A -- Storyteller-facing overview of Deathlord army composition and siege tactics, not a player-selectable option.",
+    "mechanics": "Zombies are the Deathlords' preferred disposable shock troops (cheap, disease-bearing, but they never heal); wounds a zombie inflicts require five successes on a Stamina + Resistance roll to resist infection (versus the normal difficulty-3, three-success threshold for ordinary battlefield wounds), reduced to a difficulty-2 roll if the wound is sterilized with fire or alcohol within minutes (fire damage used this way counts as one level of lethal damage). Battlefield Support Labs are mobile necrosurgery teams that recover 10 health levels' worth of intact zombie flesh and stitch it into 'meat golems,' requiring five successes on an Intelligence + Craft (Necrosurgery) extended roll (one roll per hour) and then a 24-hour soak in a Resurrection Pit (a Hearthstone •••+ or soulfire-crystal-powered soulsteel cylinder, Artifact •••• holding ~20 meat golems or Artifact ••••• holding ~60, Resources •• to maintain, functional only in the Underworld/shadowlands) to fuse and reanimate; this reclaims 20-40% of a force's zombie casualties without needing a dedicated necromancer. Ghosts play a smaller army role than zombies/hungry ghosts (materializing costs nearly half a ghost's Essence pool), but war-ghost garrisons ambush effectively in shadowlands at night. Hungry ghosts are naturally material at night at no Essence cost, and 'strategic violation' of a slain mortal's corpse yields both a zombie and a hungry ghost from one body; the Shade Prison Amulet spell lets sieging forces catapult-launch swarms of captured hungry ghosts into besieged cities as 'ghost boulders.' Moliated ghosts (via the Shifting Ghost-Clay Path Arcanoi) can add battlefield mutations beyond the core book's list -- Huge Size (+2 -2 health levels), Maw (Str+4L bite), Prehensile Tail, Spikes (3L to anyone landing a hand-to-hand hit), and Suckers (+4 dice on clinch attacks) -- or a possessed mortal can manifest Ghost-Devil Form covertly via Puppeteer's Masterful Hand.",
+    "cost": "N/A (army-composition/tactics overview); Battlefield Support Labs/Resurrection Pits are Artifact •••• or ••••• field infrastructure, Resources •• to maintain.",
+    "compatibility": "Deathlord-army-scale content; relevant to a character with the Abyssal Command Background who commands large troop formations, but not itself a Background purchase.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 81,
+      "pdfPage": 82
+    },
+    "crossReferences": [
+      "abyssal-command-background",
+      "book-of-bone-and-ebony-nemissary-arcanoi-excluded",
+      "mortal-ally-and-command-amulets",
+      "the-zenith-problem"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'Armies of the Dead' through 'Moliated Ghosts' sections (Zombies, Battlefield Support Labs, Zombies and Mortals, Disease, Ghosts, A Storm of Hungry Ghosts, Moliated Ghosts), pp. 81-87 (PDF 82-88), Book of Bone and Ebony. This is the remainder of the chapter's resume-point scope that precedes the nemissary/Custom Corpses material; marked gm-only as Storyteller-facing mass-warfare/tactics content (matching the precedent set by savant-and-sorcerer-chapter-four-practical-summonings-gm-only for similarly narrative/procedural GM content), with its two genuinely player-relevant mechanical carve-outs broken into their own rows: mortal-ally-and-command-amulets (concrete Artifact/Resources-costed items) and the-zenith-problem (a combat mechanic directly affecting Abyssal PCs). The Moliated Ghosts' Shifting Ghost-Clay Path mutations are ghost Arcanoi, excluded for the same reason as book-of-bone-and-ebony-nemissary-arcanoi-excluded and book-of-bone-and-ebony-chapter-two-arcanoi-excluded."
+  },
+  {
+    "id": "mortal-ally-and-command-amulets",
+    "name": "Mortal Ally and Command Amulets (Soul Brand variant / Black Investiture)",
+    "disposition": "selectable",
+    "summary": "Two implantable amulets a necromancer can craft to integrate living mortal troops into an army of the dead: a 30-mote Soul Brand variant that marks a mortal as inedible/friendly to the undead, and a 40-mote-plus-1-Willpower Black Investiture amulet that additionally grants the wearer limited command over zombies, obtainable via Artifact •••, Backing (Deathlord) ••-••••, or Resources ••••.",
+    "requirements": "Knowledge of the Shadowlands Circle spell Soul Brand (for the ally variant) or the 20-mote Labyrinth Circle spell Black Investiture (for the command variant); Artifact •• (ally amulet) or Artifact •••/Backing (Deathlord) ••/Resources •••• (command amulet) to acquire one.",
+    "mechanics": "The ally variant is a more expensive Soul Brand casting (30 motes) that produces an amulet or subdermally implanted talisman identifying a mortal as an inedible ally to the undead; implanted versions cannot be lost, while portable ones are deliberately kept rare due to the risk of loss/theft. These count as level-2 artifacts, last indefinitely in the Underworld/shadowlands but disintegrate after a year in Creation, and are destroyed instantly by Sapphire Countermagic; they can also be issued to characters with Backing (Deathlord) •• or bought on the black market for Resources ••••. The command variant instead uses the 20-mote Labyrinth Circle spell Black Investiture, layered on top of Soul Brand's ally effect, to grant the mortal wearer limited authority to command zombies as a lieutenant; committing it to an amulet costs 40 motes and 1 Willpower and requires the caster to commit 1 mote of Essence to the amulet (reflexively withdrawable by the caster at any time to instantly de-authorize a turncoat mortal). Nemissaries sometimes use these amulets too, at the same Artifact •••/Backing ••••/Resources ••••• cost tiers.",
+    "cost": "Ally amulet: 30 motes to cast, Artifact ••, or Resources •••• (black market). Command amulet: 40 motes + 1 Willpower to cast (plus 1 committed mote of Essence), Artifact •••, Backing (Deathlord) ••, or Resources ••••; ••••/••••• tiers respectively if issued to a nemissary instead.",
+    "compatibility": "Worn by mortal troops integrated into a Deathlord's army; the command variant additionally usable by nemissaries.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 83,
+      "pdfPage": 84
+    },
+    "crossReferences": [
+      "armies-of-the-dead-overview-and-logistics",
+      "artifact-background-altered"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'Zombies and Mortals' section, pp. 83-84 (PDF 84-85), Book of Bone and Ebony. Marked selectable, unlike the surrounding armies-of-the-dead-overview-and-logistics row: these are concrete Artifact/Resources-rated items with fixed costs, matching the precedent set by stomach-weighting-powder and bindings-of-eternal-preservation for individually purchasable equipment, even though this equipment is typically worn by NPC mortal followers rather than the Abyssal PC personally."
+  },
+  {
+    "id": "the-zenith-problem",
+    "name": "The Zenith Problem (Solar Zenith anima flare vs. the undead and war machines)",
+    "disposition": "reference-only",
+    "summary": "A sidebar detailing why Zenith Caste Solars are the Deathlords' most feared enemies: their anima powers can pull ghosts (and mortwights) straight into Lethe, incinerate corpses before necrosurgeons can harvest them, paralyze/repel the walking dead within a radius, and directly damage undead troops, war machines, and even deathknights -- resistible only via an Essence roll (deathknights/Deathlords/Infernals) or the Void Circle spell Abyssal Aegis (full immunity).",
+    "requirements": "N/A -- this is a hazard/threat mechanic imposed by an enemy Zenith Caste Solar's anima powers, not a purchasable option; the Abyssal Aegis counter-spell is the row's one actionable player-facing takeaway.",
+    "mechanics": "A Zenith's touch-based anima flare can consecrate a ghost's remains to the Unconquered Sun, forcing the ghost's player to roll Willpower (difficulty 7, -1 per point of the ghost's permanent Essence, +1 die per two dots of Fetters) or be pulled instantly and permanently into Lethe; the same flare destroys walking-dead corpses outright, denying necrosurgeons the raw material to harvest them. In its Dawn-anima-flare-style incarnation (usable only against undead/demons/creatures of darkness), zombies auto-succeed their Valor rolls but still cannot approach within the Zenith's Essence rating in yards, falling inert if they enter that radius anyway, and the anima flare inflicts grievous automatic damage on ghosts/hungry ghosts/walking dead/Abyssals alike, destroying undead extras outright. Only deathknights, Deathlords and Infernal Exalted can resist it, by spending 5 motes and rolling permanent Essence (reflexively; each success cancels one Zenith success). A nemissary possessing a host body takes at most one level of damage personally, with any excess falling on the host corpse instead; a ghost/demon possessing a living body instead takes one bashing level itself while the invading spirit eats the rest as aggravated damage. Any war machine that is undead-flesh-based, necromantically animated, or fueled by soulfire crystals/Essence gems/an Underworld Hearthstone takes full damage from the flare (soulsteel components remain invulnerable but 'shriek in agony'). The Void Circle spell Abyssal Aegis grants total immunity to the Zenith anima flare, and the First and Forsaken Lion's own armor is confirmed to carry this enchantment.",
+    "cost": "Resisting as a deathknight/Deathlord/Infernal: 5 motes of Essence, reflexive action, roll permanent Essence.",
+    "compatibility": "Directly relevant to Abyssal PCs, their nemissary/ghost allies, and any war machines they control when facing a Zenith Caste Solar antagonist.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "book-of-bone-and-ebony",
+      "printedPage": 85,
+      "pdfPage": 86
+    },
+    "crossReferences": [
+      "armies-of-the-dead-overview-and-logistics",
+      "war-machine-construction-framework",
+      "book-of-bone-and-ebony-nemissary-arcanoi-excluded",
+      "abyssal-aegis"
+    ],
+    "notes": "Chapter Four: Creations of Bone, 'The Zenith Problem' sidebar, p. 85 (PDF 86), Book of Bone and Ebony. Marked reference-only rather than selectable: this documents an enemy threat/hazard mechanic and its one counter (Abyssal Aegis, already an existing selectable spell row) rather than a purchasable Background/Artifact/Charm of its own, matching how comparable hazard-mechanic sidebars elsewhere in this inventory (e.g. disease rules folded into armies-of-the-dead-overview-and-logistics) are catalogued as reference material rather than selectable items."
   }
 ]

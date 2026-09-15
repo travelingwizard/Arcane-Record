@@ -190,13 +190,13 @@ real, creatable sheet.
 
 ## Status per family
 
-| Family     | Source manifest                                                                | Inventory rows | Promoted | Certification                    |
-| ---------- | ------------------------------------------------------------------------------ | -------------- | -------- | -------------------------------- |
-| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles) | 561            | 0        | Locked, all dimensions `not-run` |
-| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide) | 645            | 0        | Locked, all dimensions `not-run` |
-| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles) | 472            | 0        | Locked, all dimensions `not-run` |
-| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide)                  | 277            | 0        | Locked, all dimensions `not-run` |
-| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide)                       | 336            | 0        | Locked, all dimensions `not-run` |
+| Family     | Source manifest                                                                                        | Inventory rows | Promoted | Certification                    |
+| ---------- | ------------------------------------------------------------------------------------------------------ | -------------- | -------- | -------------------------------- |
+| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles)    | 561            | 0        | Locked, all dimensions `not-run` |
+| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide) | 669            | 0        | Locked, all dimensions `not-run` |
+| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles)                         | 472            | 0        | Locked, all dimensions `not-run` |
+| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide)                                          | 277            | 0        | Locked, all dimensions `not-run` |
+| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide)                                               | 336            | 0        | Locked, all dimensions `not-run` |
 
 Lunar's 561 rows cover the core innate powers, every Charm category in
 Chapter Five (Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat
@@ -258,7 +258,7 @@ Guide, Savant and Sorcerer, and Book of Three Circles) is now complete**
 for this pass; only the untriaged cross-splat supplements beyond these four
 remain. See `docs/references/exalted1e/lunar/README.md`.
 
-Abyssal's 645 rows cover the Chapter Three character-creation overview, the
+Abyssal's 669 rows cover the Chapter Three character-creation overview, the
 universal Anima Effect, all five Castes, the Abyssal Curse, the Virtues of
 Death, the full Resonance mechanic (the Limit-Trait analog, including gain,
 loss, and the 1-10 manifestation table), the-title, Useful Crafts, the
@@ -280,11 +280,15 @@ planned families to reach full primary-sourcebook parity (Chapter Six's
 ghost/NPC Arcanoi trees and Chapter Seven's Storytelling material are
 GM-facing and intentionally out of scope). The supplement **The Book of
 Bone and Ebony** has now also been triaged and added as a second source
-book (153 rows): 77 new necromancy spells, a 69-entry small-artifact
+book (177 rows): 80 new necromancy spells, a 69-entry small-artifact
 catalog (Wonders of the Dead), 5 named artifacts plus 1 embedded spell from
-Creations of Bone, and an excluded finding for its Arts of the Dead chapter
-(ghost Arcanoi, not player Charms). That supplement's Chapter Four
-nemissary/war-machine construction subsystem remains an open resume point.
+Creations of Bone, an excluded finding for its Arts of the Dead chapter
+(ghost Arcanoi, not player Charms), and Chapter Four's remaining nemissary/
+war-machine construction subsystem plus its preceding Armies of the Dead
+troop-logistics material (24 rows: 5 selectable, 13 reference-only, 5
+gm-only, 1 excluded — see `docs/references/exalted1e/abyssal/README.md`
+for the full per-row disposition breakdown). **The Book of Bone and Ebony
+supplement is now fully triaged, with no remaining resume points.**
 A cross-splat supplement, **Savant and Sorcerer** — which explicitly
 supersedes the older _Book of Three Circles_ as this edition's official
 magic book — has now also been triaged and added as a third source book

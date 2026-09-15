@@ -3,7 +3,7 @@
 **Status: source intake in progress.** `Exalted: The Abyssals` and its
 supplements, *The Book of Bone and Ebony* and *Savant and Sorcerer*, plus
 the cross-splat *Exalted Players Guide* (for its universal Merits/Flaws
-chapter), have all been supplied, and 645 inventory rows are checked in
+chapter), have all been supplied, and 669 inventory rows are checked in
 under `inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
@@ -16,7 +16,7 @@ the full process this directory follows.
   (*Blood and Salt*) is not yet added. *The Book of Three Circles* was
   consulted (not added as its own source) solely to resolve the Abyssal
   Solar Circle Sorcery access question -- see below.
-- `inventory/exalted-the-abyssals.json` — 645 rows covering:
+- `inventory/exalted-the-abyssals.json` — 669 rows covering:
   - The Chapter Three character-creation overview (Attributes/Abilities/
     Backgrounds/Charms/Virtues/Willpower/Essence).
   - The universal, caste-agnostic Anima Effect (Caste Mark flare, anima
@@ -170,7 +170,7 @@ the full process this directory follows.
 
 - **The Book of Bone and Ebony** (`book-of-bone-and-ebony`) — a
   necromancy/Abyssal-focused supplement, now added as a second source
-  book. 153 new rows:
+  book. 177 new rows:
   - **Chapter Two: The Arts of the Dead — excluded (1 row).** Despite its
     "Charms for the dead" framing, this entire chapter (printed pp. 34-53,
     PDF 35-54) turned out to be ghost Arcanoi — Common and Uncommon
@@ -213,18 +213,67 @@ the full process this directory follows.
     image-based core `Exalted: The Abyssals` PDF); several entries were
     additionally spot-checked against rendered page images with no
     discrepancies found.
-  - **Chapter Four: Creations of Bone — partially covered (5 named
-    artifacts + 1 embedded spell; the larger war-machine subsystem is
-    NOT yet transcribed).** This chapter turned out to be a full
-    nemissary-crafting and war-machine-construction rules subsystem, not
-    a simple catalog — see "What's still needed" below for its scope.
-    What *is* covered: `sarcophagus-of-restoration`,
-    `loathsome-osseous-shell`, `bonestrider`, `the-insidious-ebon-xoanon`,
-    and `manifestation-engine` (pp. 93-113, PDF 94-114), plus one Void
-    Circle necromancy spell found embedded in the chapter's "War Machines
-    of the Dead" section, `oblivions-avatar` (p. 102, PDF 103) — filed
-    alongside the Chapter Five spells for consistency even though it
-    physically appears in Chapter Four.
+  - **Chapter Four: Creations of Bone — fully covered (pp. 81-115,
+    PDF 82-116). No remaining resume points.** This chapter is a full
+    armies-of-the-dead / nemissary-crafting / war-machine-construction
+    rules subsystem, not a simple catalog. It breaks down into:
+    - **Armies of the Dead troop types and logistics (pp. 81-87, PDF
+      82-88)** — zombies, Battlefield Support Labs/Resurrection Pits,
+      disease rules, ghosts, hungry ghosts, and Moliated Ghosts, filed as
+      a single `gm-only` overview row
+      (`armies-of-the-dead-overview-and-logistics`), since this is
+      Storyteller-facing mass-warfare/tactics content. Two mechanically
+      concrete carve-outs were split into their own rows: the
+      `selectable` `mortal-ally-and-command-amulets` (fixed-cost
+      Artifact/Resources items a mortal ally or nemissary can wear) and
+      the `reference-only` `the-zenith-problem` (the anima-flare hazard
+      mechanic Zenith Caste Solars pose to undead/war machines, with its
+      one counter-spell cross-referenced).
+    - **5 named artifacts + 1 embedded spell** (transcribed in an earlier
+      pass): `sarcophagus-of-restoration`, `loathsome-osseous-shell`,
+      `bonestrider`, `the-insidious-ebon-xoanon`, and
+      `manifestation-engine` (pp. 93-113, PDF 94-114), plus one Void
+      Circle necromancy spell found embedded in the chapter's "War
+      Machines of the Dead" section, `oblivions-avatar` (p. 102, PDF
+      103) — filed alongside the Chapter Five spells for consistency
+      even though it physically appears in Chapter Four.
+    - **Custom Corpses / nemissary-crafting and war-machine-construction
+      (pp. 87-115, PDF 88-116) — 24 rows added in this pass.** The
+      Custom Corpses transcendent-revenant-vessel framework and its three
+      options packages (Warm and Pleasing Cadaver, Corpse Made Stealthy,
+      Body Built for War) are `reference-only`, since nemissaries are
+      ghost characters, not part of the Abyssal deathknight sheet this
+      module covers (though nemissaries are a confirmed-eligible
+      `Followers` Background type). The chapter's "Nemissary Arcanoi and
+      Wonders" section is a single chapter-level `excluded` row
+      (`book-of-bone-and-ebony-nemissary-arcanoi-excluded`), matching the
+      Chapter Two Arcanoi exclusion precedent. The full war-machine
+      construction framework (frame/size-class/weapon-mount/passenger/
+      animation/defense/offense rules) is `reference-only`
+      (`war-machine-construction-framework`) — a combinatorial
+      build-your-own system, matching this project's firm precedent for
+      such frameworks even though the source text frames it as directly
+      usable by "characters." Two necromancy spells embedded in that
+      framework are `selectable`: `spurring-the-beast-of-war` (Labyrinth
+      Circle) and `incomparable-destruction-engine` (Void Circle).
+      `oblivions-panoply` (an Artifact-and-Liege-gated armor material
+      with a fixed cost formula) is `selectable`. The Necromantic
+      Weaponry/Oblivion's Avatar effects menu is summarized as one
+      `reference-only` row. Seven named/sample war machines are
+      individually catalogued: `battle-snake`, `dread-brachial-sapping-
+      array`, `thousand-corpse-war-frame`, `web-is-the-spider`,
+      `bone-spider-lotus`, and `necro-drones-sample-catalog` are
+      `reference-only` generic templates any sufficiently skilled
+      necrosurgeon could build; `weapon-of-mephitic-desolation` is
+      `gm-only` due to its child-sacrifice atrocity-ritual framing. Three
+      Deathlord-exclusive singular airship/superweapon assets —
+      `sky-eater`, `maelstrom-barge`, and the still-unfinished
+      `final-maelstrom` — are `gm-only`, since all three are explicitly
+      tied to one specific Deathlord (the First and Forsaken Lion) with
+      no generic construction-cost breakdown, unlike the generic war
+      machine templates above.
+    - **Disposition tally for this pass's 24 rows:** 5 `selectable`, 13
+      `reference-only`, 5 `gm-only`, 1 `excluded`.
 
 - **Savant and Sorcerer** (`savant-and-sorcerer`) — the cross-splat sorcery
   supplement that explicitly replaces *The Book of Three Circles* as the
@@ -393,36 +442,27 @@ Bone and Ebony and Savant and Sorcerer supplement passes above closed out
 this family's remaining high-priority items (new Charms/Arcanoi, new
 necromancy spells, the full Terrestrial/Celestial/Solar Circle Sorcery
 catalog, the Hearthstone catalog, a Sample Artifacts catalog, and the
-Warstriders appendix). What remains is either out-of-core-scope, optional,
-or a smaller resume item:
+Warstriders appendix). The Book of Bone and Ebony's last resume point —
+Chapter Four's nemissary/war-machine construction subsystem — is now also
+resolved (see the Chapter Four writeup above for the full 24-row
+breakdown); **The Book of Bone and Ebony is now fully covered, with no
+remaining resume points.** What remains is either out-of-core-scope or
+optional:
 
-1. **Book of Bone and Ebony, Chapter Four's nemissary/war-machine
-   subsystem (resume point).** Roughly printed pp. 87-115 (PDF 88-116) is
-   a full rules subsystem covering armies-of-the-dead troop types
-   (zombies, ghosts, hungry ghosts, moliated ghosts), "Custom Corpses"
-   nemissary-crafting rules (repair/augmentation/options packages), a
-   "Nemissary Arcanoi and Wonders" section, and a complete war-machine
-   construction toolkit (frame/size-class/weapon-mount/passenger/
-   animation rules, Deathlord-specific "Oblivion's Warstriders" templates,
-   and sample necro-drones/airships). Only the chapter's self-contained
-   named artifacts and one embedded spell were transcribed this pass (see
-   above); the subsystem itself still needs its own inventory pass,
-   likely at the same "reasonable summary granularity" used for Chapter
-   Three, given its size.
-2. Two Book of Bone and Ebony necromancy-spell rows
+1. Two Book of Bone and Ebony necromancy-spell rows
    (`brick-by-brick-solitude`, `barred-tomb`) are marked `unresolved`
    because their source prose never restates an explicit mote cost;
    resolving these would require locating an official errata/FAQ source,
    since the printed book itself simply omits the number.
-3. The necromancy-heavy supplement *Blood and Salt*, if its Abyssal-facing
+2. The necromancy-heavy supplement *Blood and Salt*, if its Abyssal-facing
    mechanics are in scope.
-4. Optional/out-of-core-scope: Chapter Six's Arcanoi (ghost-power) trees
+3. Optional/out-of-core-scope: Chapter Six's Arcanoi (ghost-power) trees
    (pp. 235-263, PDF 236-264 — e.g. Shifting Ghost-Clay Path,
    Mortal-Shadowing Technique, Puppeteer's Masterful Hand, Six Demon Bag)
    are ghost/NPC powers, not player-facing Abyssal Charms, and likely fall
    outside this family's core scope, but are flagged in case a future pass
    wants ghost-antagonist stat support.
-5. Optional/out-of-core-scope: Chapter Seven's Storytelling content
+4. Optional/out-of-core-scope: Chapter Seven's Storytelling content
    (Deathlords, sample series, pp. 264-287, PDF 265-288) is GM-facing
    narrative material, not character-mechanical content.
 
