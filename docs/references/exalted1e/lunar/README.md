@@ -1,18 +1,22 @@
 # Exalted 1e — Lunar source intake
 
-**Status: primary sourcebook fully inventoried; one cross-splat sorcery/
-artifice pass complete; further cross-splat supplements outstanding.**
+**Status: primary sourcebook fully inventoried; two cross-splat passes
+complete (sorcery/artifice, and the Storyteller's Companion); further
+cross-splat supplements outstanding.**
 *Exalted: The Lunars* (PDF, image-scan) has been supplied and is now
-inventoried cover-to-cover for character-creation-relevant material, and a
+inventoried cover-to-cover for character-creation-relevant material, a
 further pass has added the *Savant and Sorcerer* / *Book of Three Circles*
 Terrestrial/Celestial Circle spell catalog, Hearthstone catalog, artifact
-catalog, and Warstriders appendix. See
+catalog, and Warstriders appendix, and a final pass added the *Exalted
+Storyteller's Companion*'s embedded Lunar Charms and universal artifact
+catalog. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md)
 for the full process this directory follows.
 
-`inventory/exalted-the-lunars.json` currently has 561 reviewed rows (341 from
-*Exalted: The Lunars*/the *Exalted Players Guide*, plus 220 from the later
-*Savant and Sorcerer*/*Book of Three Circles* pass described below). Every row
+`inventory/exalted-the-lunars.json` currently has 573 reviewed rows (341 from
+*Exalted: The Lunars*/the *Exalted Players Guide*, 220 from the
+*Savant and Sorcerer*/*Book of Three Circles* pass, plus 12 from the
+*Exalted Storyteller's Companion* pass, both described below). Every row
 was visually compared against a rendered page of the source PDF before being
 marked `reviewed` — none of this content came from OCR alone. It covers:
 
@@ -353,6 +357,31 @@ splat-specific section:
   quickly as possible, and any other Lunar caste must plead for Terrestrial
   Circle tutelage and keep secret any higher-circle knowledge it somehow
   acquires.
+
+### Exalted Storyteller's Companion (12 rows)
+
+A final pass rendered and read this cross-splat sourcebook's Chapter Two
+("The Celestial Exalted") Lunar section and Chapter Four ("Further Wonders")
+universal artifact catalog:
+
+- **Six Lunar-specific Charms** embedded in otherwise-narrative Chapter Two
+  prose (printed pp. 28, 33-34/PDF 29, 34-35): Tentacles, Summon Wild Beasts,
+  Acid Spit, Mighty Thews, and Strides of the Panther (Charm stat blocks),
+  plus Counting Coup (a debt-and-scar social custom, not a Charm, but a
+  discrete mechanical procedure so it was inventoried the same way).
+- **Six universal cross-splat Sample Artifacts** from Chapter Four
+  (printed pp. 77-80/PDF 78-81), transcribed here as the master copy for
+  later derivation into the other four families: Ghost Cestus (Artifact
+  •••, spirit-touching cestus), Sling Bow of Ice (Artifact •••, freezing
+  bow/sling hybrid), The Golden Viper (Artifact •••••, an intelligent
+  flesh-to-gold automaton serpent), Land Ship (Artifact •••••, a vessel that
+  sails on dry land), Singing Staff (Artifact ••••, a bow-played staff that
+  reshapes earth/stone), and the Eye of Autochthon (Artifact N/A, a
+  Storyteller-adjudicated reality-editing pearl).
+
+The remainder of Chapters One through Three of the Storyteller's Companion
+was skimmed and confirmed to be pure narrative/GM/NPC material with no
+further Lunar-facing exceptions.
 
 Still outstanding: any Lunar-facing material in the other cross-splat
 supplements listed in the top-level intent (Blood and Salt, Book of Bone and

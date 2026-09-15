@@ -192,13 +192,13 @@ real, creatable sheet.
 
 | Family     | Source manifest                                                                                        | Inventory rows | Promoted | Certification                    |
 | ---------- | ------------------------------------------------------------------------------------------------------ | -------------- | -------- | -------------------------------- |
-| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles)    | 561            | 0        | Locked, all dimensions `not-run` |
+| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion) | 573            | 0        | Locked, all dimensions `not-run` |
 | Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide) | 669            | 0        | Locked, all dimensions `not-run` |
-| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles)                         | 472            | 0        | Locked, all dimensions `not-run` |
+| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion) | 472            | 0        | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide)                                          | 277            | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide)                                               | 336            | 0        | Locked, all dimensions `not-run` |
 
-Lunar's 561 rows cover the core innate powers, every Charm category in
+Lunar's 573 rows cover the core innate powers, every Charm category in
 Chapter Five (Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat
 I-V, Melee Combat I/II, Ranged Combat I/II, Defensive I/II/III, Survival and
 Healing I/II/III/IV, Perception I/II/III/IV, Stealth, Interaction and
@@ -256,7 +256,18 @@ of scope, since Lunars do not have Solar Circle Sorcery access. **Exalted:
 The Lunars' full four-source-book inventory (core book, Exalted Players
 Guide, Savant and Sorcerer, and Book of Three Circles) is now complete**
 for this pass; only the untriaged cross-splat supplements beyond these four
-remain. See `docs/references/exalted1e/lunar/README.md`.
+remain. A final pass then read the **Exalted Storyteller's Companion**'s
+Chapter Two ("The Celestial Exalted") Lunar section and Chapter Four
+("Further Wonders") universal artifact catalog, adding 12 rows as a fifth
+source book: six Lunar-specific Charms embedded in otherwise-narrative
+Chapter Two prose (Tentacles, Summon Wild Beasts, Acid Spit, Mighty Thews,
+Strides of the Panther, and the Counting Coup debt-and-scar social custom)
+and six universal cross-splat Sample Artifacts from Chapter Four (Ghost
+Cestus, Sling Bow of Ice, The Golden Viper, Land Ship, Singing Staff, and
+the Eye of Autochthon), transcribed into Lunar's inventory as the master
+copy for later derivation into the other four families; the rest of the
+book's Chapters One and Three were skimmed and confirmed to hold only
+GM/NPC/setting material. See `docs/references/exalted1e/lunar/README.md`.
 
 Abyssal's 669 rows cover the Chapter Three character-creation overview, the
 universal Anima Effect, all five Castes, the Abyssal Curse, the Virtues of
@@ -397,8 +408,21 @@ scope, since Sidereals do not have Solar Circle Sorcery access. **Exalted:
 The Sidereals' full three-source-book inventory (core book, Savant and
 Sorcerer, and Book of Three Circles) is now complete** for this pass — the
 fourth of the five planned families to reach full primary-sourcebook parity
-(Chapter Seven onward is Storytelling/setting material and out of scope);
-see `docs/references/exalted1e/sidereal/README.md`.
+(Chapter Seven onward is Storytelling/setting material and out of scope). A
+final pass then read the entire Sidereal portion of the **Exalted
+Storyteller's Companion**'s Chapter Two ("The Celestial Exalted," printed
+pp. 34-41/PDF 35-42) — mostly narrative on post-Usurpation Sidereal society
+(Castes, the Immaculate Order relationship, Loom of Fate culture) — and
+confirmed its only mechanical content, four "Sample Charms" (Force
+Decision, Absence, Wise Choice, Prior Warning), are exact verbatim reprints
+of Charms already inventoried from Chapter Five of the core book, so no new
+rows were added; each existing row's `notes` field was updated to cite the
+reprint. This book was added to Sidereal's source list for that citation
+trail even though it contributed no new rows. A quick skim of Chapter One
+("The Scarlet Empire") and Chapter Three ("Spirits and Spirit Courts") found
+only Dragon-Blooded sample Charms and Spirit/NPC stat blocks — no
+player-facing Sidereal or Lunar exceptions. See
+`docs/references/exalted1e/sidereal/README.md`.
 
 Alchemical's 277 rows cover the character-creation overview, the universal
 Anima Banner effect, Artificial Metabolism, Life/Death/the Soulgem,

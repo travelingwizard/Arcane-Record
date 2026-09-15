@@ -1258,7 +1258,8 @@
       "printedPage": 145,
       "pdfPage": 148
     },
-    "crossReferences": []
+    "crossReferences": [],
+    "notes": "Exalted Storytellers Companion Chapter Two (The Celestial Exalted), Sidereal Exalted section, Sample Charms sidebar (printed p. 41/PDF 42) reprints this same Charm (identical name, requirements, and mechanics; cost rephrased as one mote per difficulty point rather than per target number reduction -- same effect) as an illustrative example for Storytellers; no new content, so no separate row was added for that citation."
   },
   {
     "id": "duck-fate",
@@ -2081,7 +2082,7 @@
     "crossReferences": [
       "impose-nature"
     ],
-    "notes": "Charm text spans the PDF 162/163 page break (printed pp. 159-160); transcribed as a single continuous description."
+    "notes": "Charm text spans the PDF 162/163 page break (printed pp. 159-160); transcribed as a single continuous description. Exalted Storytellers Companion Chapter Two (The Celestial Exalted), Sidereal Exalted section, Sample Charms box (printed p. 41/PDF 42, not p. 40/41 as an earlier pass's note stated -- corrected after a full page-by-page render/read of the section confirmed all four Sample Charms sit on the same page, immediately before the Abyssal Exalted section begins) reprints this same Charm verbatim (identical name, cost, duration, and mechanics) as an illustrative example for Storytellers; no new content, so no separate row was added for that citation."
   },
   {
     "id": "predestined-triumph-practice",
@@ -2978,7 +2979,8 @@
       "printedPage": 175,
       "pdfPage": 178
     },
-    "crossReferences": []
+    "crossReferences": [],
+    "notes": "Exalted Storytellers Companion Chapter Two (The Celestial Exalted), Sidereal Exalted section, Sample Charms sidebar (printed p. 41/PDF 42) reprints this same Charm (identical name, requirements, and mechanics) as an illustrative example for Storytellers, but its stat block lists Cost 5 motes / Duration One hour, disagreeing with this books own Cost 6 motes / Duration Five hours -- flagged as a books own internal inconsistency (likely an errata/editing slip between the two printings) rather than a distinct Charm; no new content, so no separate row was added for that citation."
   },
   {
     "id": "expected-pain",
@@ -3015,7 +3017,8 @@
       "printedPage": 176,
       "pdfPage": 179
     },
-    "crossReferences": []
+    "crossReferences": [],
+    "notes": "Exalted Storytellers Companion Chapter Two (The Celestial Exalted), Sidereal Exalted section, Sample Charms sidebar (printed p. 41/PDF 42) reprints this same Charm (identical name, cost, and mechanics) as an illustrative example for Storytellers, though its stat block omits a Type field (Cost/Duration/Minimum Lore/Minimum Essence only); no new content, so no separate row was added for that citation."
   },
   {
     "id": "supernal-awareness",
