@@ -2,8 +2,11 @@
 
 **Status: source intake in progress.** `Exalted: The Autochthonians` has been
 supplied and reviewed cover-to-cover, and the `Exalted Players Guide`'s
-universal Merits & Flaws chapter has been derived on top of it. 277 inventory
-rows are checked in under `inventory/`. See
+universal Merits & Flaws chapter has been derived on top of it. Two more
+small universal artifact catalogs have since been layered on: six rows
+derived from the `Exalted Storyteller's Companion`'s universal Chapter Four,
+and eight rows freshly transcribed from `Savage Seas`' naval artifact
+catalog. 291 inventory rows are checked in under `inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
@@ -14,10 +17,12 @@ title, matching this project's prior naming correction.
 
 ## What's inventoried so far
 
-- `source-manifest.json` — two source books in scope: the primary
-  `exalted-the-autochthonians`, plus `exalted-players-guide` for the
-  universal Merits & Flaws chapter.
-- `inventory/exalted-the-autochthonians.json` — 277 rows covering:
+- `source-manifest.json` — four source books in scope: the primary
+  `exalted-the-autochthonians`; `exalted-players-guide` for the universal
+  Merits & Flaws chapter; `exalted-storytellers-companion` for six rows of
+  its universal artifact catalog (derived from Lunar's transcription); and
+  `savage-seas` for eight freshly transcribed naval artifact rows.
+- `inventory/exalted-the-autochthonians.json` — 291 rows covering:
   - The Chapter Two character-creation overview (Concept/Caste/Nature,
     Caste-linked Attributes, the flat 23-dot Ability pool with no Caste or
     Favored discount, Charm Slots and Advantages, Virtues, and Willpower/
@@ -241,6 +246,59 @@ title, matching this project's prior naming correction.
   to Clarity instead of the Great Curse; and Hidden Manse kept selectable
   but flagged as conditional on the Manse Background's own
   post-Locust-Crusade availability (see `manse-background-altered`).
+
+- **Six rows derived from the Exalted Storyteller's Companion's universal
+  Chapter Four, "Further Wonders"** (`artifact-ghost-cestus`,
+  `artifact-sling-bow-of-ice`, `artifact-the-golden-viper`,
+  `artifact-land-ship`, `artifact-singing-staff`,
+  `artifact-eye-of-autochthon`). This chapter is a universal, non-splat-
+  restricted artifact catalog; Lunar's inventory already records these six
+  rows as the verified master copy for exactly this kind of cross-family
+  derivation, so they were not independently re-read here. Each row keeps
+  the same id/name/mechanics/cost/citation as the Lunar source and adds an
+  Alchemical-specific note. All six transfer essentially cleanly, since
+  none of their mechanics depend on a biological body (unarmed combat,
+  Essence + Archery/Sailing/Performance rolls, or an autonomous owned
+  servant). Two judgment calls are flagged in their own notes: **The
+  Golden Viper**'s bite turns a victim's "flesh" to gold, which is
+  ambiguous for a vat-built Alchemical body that already incorporates the
+  Five Magical Materials rather than ordinary flesh (kept selectable since
+  its primary owned-servant use case has no flesh dependency at all); and
+  the **Eye of Autochthon**, despite being literally "created by the
+  Primordial Autochthon" — the very god who built the Alchemical Exalted —
+  is written entirely in Creation-native terms (usurping Manses and
+  Demesnes, reshaping "the stable lands of the Realm and Threshold"), none
+  of which exist inside Autochthonia; kept selectable as the same
+  Storyteller-adjudicated plot-device relic Lunar's row frames it as, with
+  a note that its stated powers are only meaningful once a story reaches
+  Creation.
+
+- **Eight rows freshly transcribed from Savage Seas' Chapter Four,
+  "Artifacts of the Waves"** (`artifact-cargo-preservation-spindles`,
+  `artifact-armor-of-aquatic-puissance`, `artifact-steelsilk-sails`,
+  `artifact-storm-sapphire`, `artifact-cord-of-winds`,
+  `artifact-wavecleaver-daiklaive`, `artifact-light-implosion-bow`,
+  `artifact-lightning-ballista`), covering the entire naval artifact
+  catalog (printed pp. 123-127/PDF 124-128) through to the end of the
+  book's content. This PDF has no text layer, so every row was read from
+  pages rendered to PNG images, with the Storm Sapphire Effect Table and a
+  couple of dense paragraph endings re-rendered at higher zoom to confirm
+  exact wording. All eight are kept `selectable` but flagged with the same
+  Autochthonia-has-no-Creation-style-oceans caveat already established for
+  Sun-Seared and Hidden Manse above: none of these items have any
+  mechanical dependency on a biological body, so an Alchemical can use
+  them exactly like any other Exalt, but naval/nautical equipment is only
+  obtainable and meaningfully usable once a story reaches Creation's seas,
+  since Autochthonia has no equivalent oceans or maritime trade routes. One
+  further judgment call: the **Armor of Aquatic Puissance**'s headline
+  underwater-breathing benefit is substantially redundant for an
+  Alchemical wearer, who already cannot drown and does not breathe except
+  to speak (see `alchemical-artificial-metabolism`); its other benefits
+  (buoyancy control, doubled swim speed, underwater vision, soak, and two
+  Hearthstone sockets) are unaffected. The chapter's earlier "Magics of the
+  Sea" Charms section (printed pp. 114-122), which the book's own text
+  restricts to Solar/Dragon-Blooded, was intentionally left untranscribed
+  as out of scope for Alchemical.
 
 ## What's still needed
 
