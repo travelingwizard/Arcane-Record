@@ -6924,3 +6924,97 @@
     padding: 0.25rem;
   }
 }
+
+/* KULT keeps the reference sheets' compact hierarchy while using the shared theme. */
+.kult-character-sheet .local-sheet-section {
+  position: relative;
+}
+
+.kult-character-sheet .local-sheet-section::before {
+  content: '';
+  position: absolute;
+  inset: 0.45rem 0.45rem auto;
+  border-top: 1px solid var(--border-soft);
+  pointer-events: none;
+}
+
+.kult-attribute-groups,
+.kult-wound-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.kult-attribute-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.kult-suggestion-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.kult-card-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.kult-stability-track {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1px;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--border-strong);
+  background: var(--border-soft);
+}
+
+.kult-stability-track li {
+  min-width: 0;
+  padding: var(--space-3);
+  background: var(--surface-raised);
+  text-align: center;
+}
+
+.kult-stability-track li.is-current {
+  background: var(--active-background);
+  color: var(--text-primary);
+  box-shadow: inset 0 0 0 2px var(--theme-accent);
+}
+
+.kult-wound--critical {
+  border-color: var(--status-danger);
+}
+
+.kult-suggestion-browser > summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: var(--font-serif);
+}
+
+@media (max-width: 48rem) {
+  .kult-attribute-groups,
+  .kult-wound-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kult-stability-track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 22rem) {
+  .kult-attribute-grid,
+  .kult-stability-track {
+    grid-template-columns: 1fr;
+  }
+}

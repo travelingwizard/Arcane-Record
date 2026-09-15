@@ -52,6 +52,7 @@ import {
   arsCovenantDefinition,
   arsMagicaDefinition,
 } from './ars-magica-definitive/definition';
+import { kultDefinition } from './kult-divinity-lost/definition';
 
 export const gameSystemRegistry = new GameSystemRegistry()
   .registerFamily({
@@ -98,4 +99,5 @@ export const gameSystemRegistry = new GameSystemRegistry()
   .register(sandvDefinition)
   .register(sandvShipDefinition)
   .register(arsMagicaDefinition)
-  .register(arsCovenantDefinition);
+  .register(arsCovenantDefinition)
+  .register(kultDefinition);
