@@ -4,9 +4,10 @@
 supplements, *The Book of Bone and Ebony* and *Savant and Sorcerer*, the
 cross-splat *Exalted Players Guide* (for its universal Merits/Flaws
 chapter), the *Exalted Storyteller's Companion* (for its universal
-artifact catalog), and *Savage Seas* (for its universal ship-artifact
-catalog) have all been supplied, and 684 inventory rows are checked in
-under `inventory/`. See
+artifact catalog), *Savage Seas* (for its universal ship-artifact
+catalog), and *Exalted: Blood and Salt* (for its handful of genuinely
+player-facing rows) have all been supplied, and 700 inventory rows are
+checked in under `inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
@@ -19,7 +20,7 @@ the full process this directory follows.
   Salt*) is not yet added. *The Book of Three Circles* was consulted (not
   added as its own source) solely to resolve the Abyssal Solar Circle
   Sorcery access question -- see below.
-- `inventory/exalted-the-abyssals.json` — 684 rows covering:
+- `inventory/exalted-the-abyssals.json` — 700 rows covering:
   - The Chapter Three character-creation overview (Attributes/Abilities/
     Backgrounds/Charms/Virtues/Willpower/Essence).
   - The universal, caste-agnostic Anima Effect (Caste Mark flare, anima
@@ -496,6 +497,39 @@ the full process this directory follows.
     acquisition, since doing so would contradict the source's own
     explicit in-setting fact about this splat.
 
+- **Exalted: Blood and Salt** (`blood-and-salt`) — a final cross-splat
+  supplement-triage pass, 16 rows, bringing the inventory to 700. This
+  regional An-Teng/Lintha Family sourcebook was read cover to cover; as
+  expected, the vast majority of its Background/Artifact/Charm/Sorcery/
+  Hearthstone keyword hits sit inside NPC/monster stat blocks (GM-only),
+  but a smaller genuinely player-facing set was found and added: a Lintha
+  Character Backgrounds reinterpretation sidebar and a Bluehaven approach-
+  navigation rule (both `reference-only`, printed p. 63/PDF 65), a bundled
+  regional Character Concepts row (four lists, printed pp. 27/32/36/63,
+  PDF 29/34/38/65), seven new Artifacts from Chapter Three's "Wonders of
+  the Southwest" (Automaton Assassin, Sailcutter Chakram, Ancestor Sash,
+  the Seven Lotus Crown, the Masks That Command the Animals, the Coral
+  Crown, and the Talisman of the Cult of Dukantha — the last granting
+  Infernal sorcery access independent of Abyssal's own necromancy/sorcery
+  Charms), one new Hearthstone (`jewel-of-stability`, Earth Manse •••,
+  unprefixed per this family's existing Hearthstone-id convention), three
+  mundane equipment items (Fire Arrow, Southern Fire Arrow, Water Shoes),
+  and two new Terrestrial Circle spells (`song-of-the-lintha`,
+  `waters-ally`, cross-referenced to `terrestrial-circle-sorcery`). Four
+  artifacts already carried from Savage Seas (`cord-of-winds`,
+  `light-implosion-bow`, `steelsilk-sails`, `storm-sapphire`) are reprinted
+  verbatim in Blood and Salt; a REPRINT NOTE was appended to each existing
+  row instead of creating duplicates, and `calling-the-winds-kiss`/
+  `mast-shattering-spell` likewise received a citation note confirming
+  Blood and Salt's identical reprint rather than a new row (this family's
+  inventory does not carry a Gem of Desire Hearthstone row, so that
+  particular Blood and Salt reprint had no existing row to annotate). The
+  Seven Lotus Crown and Coral Crown are marked `selectable` but flagged as
+  narrowly restricted to a specific narrative title-holder (the rightful
+  High Queen of An-Teng and the true King of the Vodonik, respectively)
+  rather than freely purchasable. The remainder of the book was confirmed
+  out of scope.
+
 ## What's still needed
 
 All four scope items from the previous inventory pass (finishing the
@@ -517,8 +551,9 @@ optional:
    because their source prose never restates an explicit mote cost;
    resolving these would require locating an official errata/FAQ source,
    since the printed book itself simply omits the number.
-2. The necromancy-heavy supplement *Blood and Salt*, if its Abyssal-facing
-   mechanics are in scope.
+2. *Exalted: Blood and Salt* is now fully triaged (see the writeup above);
+   its Abyssal-facing player-facing mechanics are in scope and inventoried,
+   and the rest of the book is confirmed GM-only.
 3. Optional/out-of-core-scope: Chapter Six's Arcanoi (ghost-power) trees
    (pp. 235-263, PDF 236-264 — e.g. Shifting Ghost-Clay Path,
    Mortal-Shadowing Technique, Puppeteer's Masterful Hand, Six Demon Bag)

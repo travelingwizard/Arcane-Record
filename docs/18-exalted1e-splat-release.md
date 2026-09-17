@@ -190,13 +190,13 @@ real, creatable sheet.
 
 ## Status per family
 
-| Family     | Source manifest                                                                                                                                        | Inventory rows | Promoted | Certification                    |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- | -------- | -------------------------------- |
-| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas)    | 582            | 0        | Locked, all dimensions `not-run` |
-| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas) | 684            | 0        | Locked, all dimensions `not-run` |
-| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide) | 567            | 0        | Locked, all dimensions `not-run` |
-| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas)                                          | 291            | 0        | Locked, all dimensions `not-run` |
-| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas)                                               | 351            | 0        | Locked, all dimensions `not-run` |
+| Family     | Source manifest                                                                                                                                                         | Inventory rows | Promoted | Certification                    |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | -------- | -------------------------------- |
+| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)    | 598            | 0        | Locked, all dimensions `not-run` |
+| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 0        | Locked, all dimensions `not-run` |
+| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 0        | Locked, all dimensions `not-run` |
+| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 0        | Locked, all dimensions `not-run` |
+| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 365            | 0        | Locked, all dimensions `not-run` |
 
 Lunar's 582 rows cover the core innate powers, every Charm category in
 Chapter Five (Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat
@@ -288,10 +288,30 @@ Creation-dwellers; Lunar's own existing Survival Charms (Whale-Breath
 Technique, Gill-Breathing Technique, Sealskin Endurance) and the No Moon
 caste's favored Totem Animals ("creatures of the deep ocean") already
 establish a genuine thematic tie to the sea, so this catalog carries the
-least-caveated `compatibility` text of any family's copy. See
-`docs/references/exalted1e/lunar/README.md`.
+least-caveated `compatibility` text of any family's copy. A final
+cross-splat supplement-triage pass then added 16 more rows (582 → 598)
+from a seventh source book, **Exalted: Blood and Salt**, a regional
+sourcebook about An-Teng and the Lintha Family. A full cover-to-cover read
+confirmed the vast majority of its Background/Artifact/Charm/Sorcery/
+Hearthstone keyword hits sit inside NPC/monster stat blocks (GM-only), but
+a smaller genuinely player-facing set was transcribed as Lunar's master
+copy for identical derivation into the other four families: a Lintha
+Character Backgrounds reinterpretation sidebar and a Bluehaven
+approach-navigation rule (both reference-only), a bundled regional
+Character Concepts row, seven new Artifacts (Automaton Assassin,
+Sailcutter Chakram, Ancestor Sash, the Seven Lotus Crown, the Masks That
+Command the Animals, the Coral Crown, and the Talisman of the Cult of
+Dukantha, which grants Infernal sorcery access independent of the bearer's
+own normal sorcery Charms), one new Hearthstone (Jewel of Stability), three
+mundane equipment items (Fire Arrow, Southern Fire Arrow, Water Shoes), and
+two new Terrestrial Circle spells (Song of the Lintha, Water's Ally). Four
+already-inventoried artifacts (Cord of Winds, Light Implosion Bow,
+Steelsilk Sails, Storm Sapphire) plus the Gem of Desire Hearthstone and the
+Calling the Wind's Kiss/Mast-Shattering Spell spells are reprinted verbatim
+in Blood and Salt; each received a citation note on its existing row
+instead of a duplicate. See `docs/references/exalted1e/lunar/README.md`.
 
-Abyssal's 684 rows cover the Chapter Three character-creation overview, the
+Abyssal's 700 rows cover the Chapter Three character-creation overview, the
 universal Anima Effect, all five Castes, the Abyssal Curse, the Virtues of
 Death, the full Resonance mechanic (the Limit-Trait analog, including gain,
 loss, and the 1-10 manifestation table), the-title, Useful Crafts, the
@@ -402,7 +422,22 @@ table — are 8 selectable and 1 reference-only: **Armor of Aquatic
 Puissance** is marked reference-only specifically for Abyssal because the
 source text states verbatim that "No Abyssal is known to own a suit of
 this armor (unsurprisingly)," so it is catalogued in full for reference but
-not offered as a normal selectable acquisition. See
+not offered as a normal selectable acquisition. A final cross-splat
+supplement-triage pass then added 16 more rows (684 → 700) from a seventh
+source book, **Exalted: Blood and Salt**: a Lintha Character Backgrounds
+reinterpretation sidebar and a Bluehaven approach-navigation rule (both
+reference-only), a bundled regional Character Concepts row, seven new
+Artifacts (Automaton Assassin, Sailcutter Chakram, Ancestor Sash, the Seven
+Lotus Crown, the Masks That Command the Animals, the Coral Crown, and the
+Talisman of the Cult of Dukantha, which grants Infernal sorcery access
+independent of Abyssal's own necromancy/sorcery Charms), one new
+Hearthstone (Jewel of Stability, using this family's unprefixed
+Hearthstone-id convention), three mundane equipment items, and two new
+Terrestrial Circle spells (`song-of-the-lintha`, `waters-ally`). Four
+already-inventoried artifacts are reprinted verbatim in Blood and Salt and
+received citation notes on their existing rows rather than duplicates
+(this family's inventory does not carry a Gem of Desire Hearthstone row, so
+that particular Blood and Salt reprint had no row to annotate). See
 `docs/references/exalted1e/abyssal/README.md`.
 
 Sidereal's core book contributes 252 rows covering the Chapter Three
@@ -522,7 +557,19 @@ First Age memory); and one especially notable eligibility caveat, Dark
 Fate, kept selectable but flagged as normally **exempt** for ordinary
 Sidereals, who serve the Bureau of Destiny — purchasable only by a renegade
 Sidereal who has betrayed that role. No new Sidereal-specific Background or
-mechanic needed to be invented from scratch. See
+mechanic needed to be invented from scratch. A final cross-splat
+supplement-triage pass then added 16 more rows (567 → 583) from a seventh
+source book, **Exalted: Blood and Salt**: a Lintha Character Backgrounds
+reinterpretation sidebar and a Bluehaven approach-navigation rule (both
+reference-only), a bundled regional Character Concepts row, seven new
+Artifacts (Automaton Assassin, Sailcutter Chakram, Ancestor Sash, the Seven
+Lotus Crown, the Masks That Command the Animals, the Coral Crown, and the
+Talisman of the Cult of Dukantha), one new Hearthstone (Jewel of Stability),
+three mundane equipment items, and two new Terrestrial Circle spells (Song
+of the Lintha, Water's Ally). Four already-inventoried artifacts plus the
+Gem of Desire Hearthstone and the Calling the Wind's Kiss/Mast-Shattering
+Spell spells are reprinted verbatim in Blood and Salt; each received a
+citation note on its existing row instead of a duplicate. See
 `docs/references/exalted1e/sidereal/README.md`.
 
 Alchemical's 291 rows cover the character-creation overview, the universal
@@ -594,7 +641,22 @@ run to the end of the book's content; all eight are kept selectable but
 flagged with an Autochthonia-has-no-Creation-style-oceans caveat mirroring
 the Sun-Seared/Hidden Manse precedent above, since naval equipment has no
 mechanical dependency on a biological body but is only obtainable once a
-story reaches Creation's seas; see
+story reaches Creation's seas. A final cross-splat supplement-triage pass
+then added 14 more rows (291 → 305) from **Exalted: Blood and Salt**: a
+Lintha Character Backgrounds reinterpretation sidebar and a Bluehaven
+approach-navigation rule (both reference-only), a bundled regional
+Character Concepts row, seven new Artifacts (Automaton Assassin, Sailcutter
+Chakram, Ancestor Sash, the Seven Lotus Crown, the Masks That Command the
+Animals, the Coral Crown, and the Talisman of the Cult of Dukantha, which
+grants Infernal sorcery access entirely independent of any splat's own
+normal sorcery Charms), one new Hearthstone (Jewel of Stability, the first
+Hearthstone row in this family's inventory), and three mundane equipment
+items; no new Terrestrial Circle spells were added since Alchemicals do not
+use standard sorcery. Four already-inventoried artifacts are reprinted
+verbatim in Blood and Salt and received citation notes on their existing
+rows rather than duplicates, and the naval-flavored new items (Sailcutter
+Chakram, Fire Arrow, Southern Fire Arrow, Water Shoes) carry the same
+Autochthonia caveat as the Savage Seas rows above; see
 `docs/references/exalted1e/alchemical/README.md`.
 
 Fair Folk's 263 core-book rows cover both character-creation tracks (common
@@ -668,29 +730,57 @@ which a raksha satisfies — interpreting the binding requirement rather than
 the more pointed word choice. Two low-zoom transcription errors (the Storm
 Sapphire Effect Table's Black Sapphire column, and the Lightning Ballista's
 hearthstone-variant Artifact rating) were caught and corrected via high-zoom
-re-renders before this pass was considered complete; see
-`docs/references/exalted1e/fair-folk/README.md`.
+re-renders before this pass was considered complete. A final cross-splat
+supplement-triage pass then added 14 more rows (351 → 365) from a seventh
+source book, **Exalted: Blood and Salt**: a Lintha Character Backgrounds
+reinterpretation sidebar and a Bluehaven approach-navigation rule (both
+reference-only), a bundled regional Character Concepts row, seven new
+Artifacts (Automaton Assassin, Sailcutter Chakram, Ancestor Sash, the Seven
+Lotus Crown, the Masks That Command the Animals, the Coral Crown, and the
+Talisman of the Cult of Dukantha, which grants Infernal sorcery access
+entirely independent of a raksha's own Glamour Sorcery), one new Hearthstone
+(Jewel of Stability, the first Hearthstone row in this family's inventory),
+and three mundane equipment items; no new Terrestrial Circle spells were
+added since Fair Folk use Glamour Sorcery rather than core Exalted Sorcery.
+Four already-inventoried artifacts are reprinted verbatim in Blood and Salt
+and received citation notes on their existing rows rather than duplicates;
+see `docs/references/exalted1e/fair-folk/README.md`.
 
 All five families have now been reviewed cover-to-cover against their
 primary source books for player-facing mechanics — Alchemical, Lunar, Fair
-Folk, Sidereal, and Abyssal, in that order. Since then, several cross-splat
-supplements have also been triaged for the families that need them: the
-_Exalted Players Guide_'s universal Merits/Flaws chapter (Alchemical,
-Lunar, Fair Folk, Abyssal, and — since each of those core books has no
-Merits/Flaws system of its own comparable to later editions — Sidereal too,
-each family's own core book confirmed to have no comparable system before
-deriving its share from Lunar's master transcription), _Savant
-and Sorcerer_ (Sidereal and Abyssal), _Book of Three Circles_ (Sidereal,
-consulted for Abyssal only to resolve the Solar Circle Sorcery access
-question), _Book of Bone and Ebony_ (Abyssal), the _Exalted Storyteller's
-Companion_'s universal "Further Wonders" artifact catalog (Lunar as the
-master transcription, then derived for Abyssal, Sidereal, Alchemical, and
-Fair Folk), and _Savage Seas_'s universal "Artifacts of the Waves" naval
-catalog (freshly transcribed for Abyssal, Sidereal, Alchemical, and Fair
-Folk, then derived for Lunar). The project owner's remaining cross-splat
-supplements (Blood and Salt and Book of Three Circles' own remaining
-material beyond Sidereal) are still untriaged for the families that
-haven't reviewed them, and no family has anything promoted to a production
+Folk, Sidereal, and Abyssal, in that order. Since then, all seven
+identified cross-splat supplements have also been fully triaged for every
+family that could use them: the _Exalted Players Guide_'s universal
+Merits/Flaws chapter (transcribed once into Lunar as the master copy, since
+each family's own core book was individually confirmed to have no
+comparable system of its own, then derived for Abyssal, Alchemical, Fair
+Folk, and finally Sidereal); _Savant and Sorcerer_ and _Book of Three
+Circles_ (the sorcery/artifice corpus transcribed into Abyssal first, since
+it has access to all three sorcery circles, then derived for Sidereal and
+Lunar — Book of Three Circles' own Chapter Four, Solar Circle Sorcery,
+correctly excluded for all three since none of them have that access, and
+its Hearthstone "long roll" used only as a gap-fill catalog since Savant
+and Sorcerer's own text says it does not reprint that list); _Book of Bone
+and Ebony_ (Abyssal-exclusive by design, since it is a necromancy/Abyssal
+sourcebook with no universal content for the other four — both its main
+Charms/spells/artifacts content and its Chapter Four nemissary/war-machine
+subsystem are now fully inventoried); the _Exalted Storyteller's
+Companion_'s embedded Charms (Lunar and Sidereal, where they appear) and
+its universal "Further Wonders" artifact catalog (Lunar as the master
+transcription, then derived for Abyssal, Sidereal, Alchemical, and Fair
+Folk); _Savage Seas_'s universal "Artifacts of the Waves" naval catalog
+(freshly transcribed for Abyssal, Sidereal, Alchemical, and Fair Folk, then
+derived for Lunar — its earlier "Magics of the Sea" Charms section
+correctly excluded for all five as Solar/Dragon-Blooded-only); and
+_Exalted: Blood and Salt_'s handful of genuinely player-facing rows (a
+Lintha Character Backgrounds sidebar, a Bluehaven approach-navigation rule,
+regional Character Concepts, seven new Artifacts, one new Hearthstone,
+three mundane equipment items, and two new Terrestrial Circle spells for
+the three splats with standard sorcery access — transcribed once into
+Lunar as the master copy, then copied into all five families in the same
+pass; the rest of that book's NPC/monster content was confirmed GM-only
+and out of scope for all five). No further cross-splat supplements remain
+identified for triage, and no family has anything promoted to a production
 catalog yet.
 
 ## Next steps (require source material per book)

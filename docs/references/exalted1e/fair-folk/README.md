@@ -1,7 +1,7 @@
 # Exalted 1e — Fair Folk source intake
 
 **Status: source intake in progress.** `Exalted: The Fair Folk` has been
-supplied and 351 inventory rows are checked in under `inventory/`. The book
+supplied and 365 inventory rows are checked in under `inventory/`. The book
 has now been reviewed cover to cover — every one of its seven chapters has
 either been fully inventoried (Three, Four, Five) or triaged (One, Two, Six,
 Seven) — and Fair Folk Merits/Flaws are definitively confirmed absent
@@ -12,7 +12,9 @@ already-verified transcription of that chapter. A later pass added two more
 small, universal artifact catalogs: 6 rows derived from Lunar's
 already-verified transcription of the **Exalted Storyteller's Companion**'s
 "Further Wonders" chapter, and 9 rows freshly transcribed from **Savage
-Seas**'s "Artifacts of the Waves" section (336 → 351 rows total). See
+Seas**'s "Artifacts of the Waves" section (336 → 351 rows), and a final
+cross-splat supplement-triage pass then added 14 rows from
+**Exalted: Blood and Salt** (351 → 365 rows total). See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
@@ -24,7 +26,7 @@ the full process this directory follows.
   below), `exalted-storytellers-companion` (a universal artifact catalog,
   also derived from Lunar's transcription), and `savage-seas` (a universal
   naval-artifact catalog, freshly transcribed).
-- `inventory/exalted-the-fair-folk.json` — 351 rows covering:
+- `inventory/exalted-the-fair-folk.json` — 365 rows covering:
   - The Chapter Three character-creation overview, split into two rows
     because common and noble raksha use materially different baselines:
     `fair-folk-creation-overview-common` (0-dot starting Attributes, 0 free
@@ -509,6 +511,58 @@ See `source-manifest.json`'s `rulesNotes` for the full accounting of both
 parts, including every judgment call and the two corrected transcription
 errors.
 
+## Exalted: Blood and Salt (351 → 365 rows)
+
+A final cross-splat supplement-triage pass read this regional An-Teng/
+Lintha Family sourcebook cover to cover (real text layer, no rendering
+needed). As expected from the book's reputation, the vast majority of its
+Background/Artifact/Charm/Sorcery/Hearthstone keyword hits sit inside NPC
+and monster stat blocks (GM-only reference material), but a smaller set of
+genuinely player-facing content was found and added, adapted from Lunar's
+already-verified master-copy transcription:
+
+- A **Character Backgrounds sidebar** (`lintha-character-backgrounds`,
+  reference-only, printed p. 63/PDF 65) reinterpreting Allies/Backing/
+  Contacts dot ratings for a character with Lintha Family ties, and a
+  **Navigating the Approaches sidebar** (`bluehaven-approach-navigation`,
+  reference-only, same page) giving the Sail-based difficulty check for
+  piloting a ship to the hidden floating city of Bluehaven. Neither is
+  splat-restricted, so both apply to a raksha exactly as to any Exalt.
+- An **An-Teng Regional Character Concepts** row
+  (`an-teng-regional-character-concepts`) bundling all four archetype
+  lists (Shore Lands, Middle Lands, High Lands, Bluehaven; printed pp.
+  27/32/36/63, PDF 29/34/38/65).
+- **Seven new Artifacts** (printed pp. 107, 119-125/PDF 109, 121-127):
+  Automaton Assassin (Artifact ••), Sailcutter Chakram (Artifact ••),
+  Ancestor Sash (Artifact ••••, explicitly usable by mortals), the Seven
+  Lotus Crown (Artifact ••••, restricted to the rightful High Queen of
+  An-Teng), the Masks That Command the Animals (Artifact •••••), the
+  Coral Crown (Artifact •••••, restricted to the true King of the
+  Vodonik), and the Talisman of the Cult of Dukantha (Artifact •••••,
+  grants Infernal sorcery access entirely independent of a raksha's own
+  Glamour Sorcery, so it functions the same for Fair Folk as for anyone
+  else). None of the source text's "Essence-manipulating wielder"
+  language excludes a raksha, following the same reasoning already applied
+  to this family's Storyteller's Companion and Savage Seas artifact rows.
+- One new **Hearthstone**, the Jewel of Stability
+  (`hearthstone-jewel-of-stability`, Earth Manse •••, printed p. 126/PDF
+  128) — the first Hearthstone row in this family's inventory.
+- **Three mundane equipment items** (printed p. 127/PDF 129): Fire Arrow,
+  Southern Fire Arrow, Water Shoes.
+
+No new Terrestrial Circle spells were added, since Fair Folk use Glamour
+Sorcery rather than core Exalted Sorcery, and Blood and Salt's two new
+spells (Song of the Lintha, Water's Ally) are both standard Terrestrial
+Circle magic. Four artifacts already carried from Savage Seas (Cord of
+Winds, Light Implosion Bow, Steelsilk Sails, Storm Sapphire) are reprinted
+verbatim in Blood and Salt ("repeated here for ease of reference," per the
+book's own text); a REPRINT NOTE was appended to each existing row instead
+of creating duplicates. The Seven Lotus Crown and Coral Crown are both
+marked selectable but flagged as narrowly restricted to a specific
+narrative title-holder rather than freely purchasable at character
+creation. The remainder of the book (all NPC/monster/antagonist stat-block
+content) was confirmed out of scope.
+
 ## What's still needed
 
 **Nothing further from this primary sourcebook.** `Exalted: The Fair Folk`
@@ -544,18 +598,20 @@ above for details). What remains is deliberate, not deferred:
    from the Exalted Players Guide's universal Chapter One, derived from
    Lunar's already-verified transcription (see above) — 73 of 88 rows apply
    to Fair Folk.
-4. The project owner's remaining cross-splat supplements (Blood and Salt,
-   Book of Bone and Ebony, and Book of Three Circles) are still untriaged
-   for any further Fair Folk-relevant material. Two of the previously-listed
-   supplements have since been triaged for Fair Folk specifically: the
+4. The project owner's remaining cross-splat supplements (Book of Bone and
+   Ebony and Book of Three Circles) are still untriaged for any further
+   Fair Folk-relevant material. Three of the previously-listed supplements
+   have since been triaged for Fair Folk specifically: the
    **Exalted Storyteller's Companion**'s universal "Further Wonders" artifact
-   catalog (6 rows derived from Lunar's transcription) and **Savage Seas**'s
+   catalog (6 rows derived from Lunar's transcription), **Savage Seas**'s
    universal "Artifacts of the Waves" section (9 rows freshly transcribed) —
-   see the "Two small universal artifact catalogs" section above. Both
-   books' remaining chapters (beyond the sections already mined for
-   universal, non-splat-restricted material) are still untriaged for Fair
-   Folk. The Players Guide's own remaining chapters (beyond the universal
-   Chapter One now covered above) are also still untriaged.
+   see the "Two small universal artifact catalogs" section above — and
+   **Exalted: Blood and Salt** (14 rows, read cover to cover; see the
+   "Exalted: Blood and Salt" section above). Book of Bone and Ebony and
+   Book of Three Circles' remaining chapters (beyond the sections already
+   mined for universal, non-splat-restricted material) are still untriaged
+   for Fair Folk. The Players Guide's own remaining chapters (beyond the
+   universal Chapter One now covered above) are also still untriaged.
 
 ## Do not add yet
 

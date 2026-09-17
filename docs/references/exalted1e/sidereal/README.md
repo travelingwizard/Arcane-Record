@@ -2,13 +2,15 @@
 
 **Status: source intake in progress.** `Exalted: The Sidereals` plus the
 cross-splat supplements `Savant and Sorcerer`, `Book of Three Circles`,
-`Exalted Storyteller's Companion`, and `Exalted: Savage Seas` have been
-supplied and 567 inventory rows are checked in under `inventory/`. The core
-book was confirmed to have no Merits/Flaws section of its own; that
-universal gap is now filled from a sixth source book, the **Exalted Players
-Guide**'s Chapter One, "Merits and Flaws" — 80 rows derived for Sidereal
-from Lunar's already-verified transcription of that chapter (487 → 567 rows
-total). See
+`Exalted Storyteller's Companion`, `Exalted: Savage Seas`, and
+`Exalted: Blood and Salt` have been supplied and 583 inventory rows are
+checked in under `inventory/`. The core book was confirmed to have no
+Merits/Flaws section of its own; that universal gap is now filled from a
+sixth source book, the **Exalted Players Guide**'s Chapter One, "Merits and
+Flaws" — 80 rows derived for Sidereal from Lunar's already-verified
+transcription of that chapter (487 → 567 rows), and a final cross-splat
+supplement-triage pass then added 16 more rows from *Exalted: Blood and
+Salt* (567 → 583 rows total). See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
@@ -28,7 +30,7 @@ the full process this directory follows.
   universal "Artifacts of the Waves" catalog was transcribed in full, see
   below), and `exalted-players-guide` (the universal Merits/Flaws chapter,
   derived rather than independently transcribed; see below).
-- `inventory/exalted-the-sidereals.json` — 567 rows covering:
+- `inventory/exalted-the-sidereals.json` — 583 rows covering:
   - The Chapter Three character-creation overview (Attributes/Abilities/
     Backgrounds/Charms/Colleges/Virtues/Willpower/Essence), including the
     reduced-scope Ronin Sidereal variant.
@@ -359,6 +361,34 @@ supplements:
   book's earlier "Magics of the Sea" Charms section (printed pp. 114-122/
   PDF 115-123) is explicitly Solar/Dragon-Blooded-only per the book's own
   text and was confirmed out of scope for Sidereal without being rendered.
+- **Exalted: Blood and Salt** — a final cross-splat supplement-triage pass,
+  16 rows, bringing the inventory to 583. This regional An-Teng/Lintha
+  Family sourcebook (real text layer, no rendering needed) was read cover
+  to cover; as expected, the vast majority of its Background/Artifact/
+  Charm/Sorcery/Hearthstone keyword hits sit inside NPC/monster stat
+  blocks (GM-only), but a smaller genuinely player-facing set was found:
+  a Lintha Character Backgrounds reinterpretation sidebar and a Bluehaven
+  approach-navigation rule (both reference-only, printed p. 63/PDF 65), a
+  bundled regional Character Concepts row (four lists, printed pp.
+  27/32/36/63, PDF 29/34/38/65), seven new Artifacts from Chapter Three's
+  "Wonders of the Southwest" (Automaton Assassin, Sailcutter Chakram,
+  Ancestor Sash, the Seven Lotus Crown, the Masks That Command the
+  Animals, the Coral Crown, and the Talisman of the Cult of Dukantha —
+  the last granting Infernal sorcery access independent of Sidereal's own
+  sorcery Charms), one new Hearthstone (`hearthstone-jewel-of-stability`,
+  Earth Manse •••), three mundane equipment items (Fire Arrow, Southern
+  Fire Arrow, Water Shoes), and two new Terrestrial Circle spells
+  (`spell-terrestrial-song-of-the-lintha`, `spell-terrestrial-waters-ally`,
+  cross-referenced to `terrestrial-circle-sorcery`). Four artifacts already
+  carried from Savage Seas (Cord of Winds, Light Implosion Bow, Steelsilk
+  Sails, Storm Sapphire) plus the Book of Three Circles-sourced Gem of
+  Desire Hearthstone are reprinted verbatim in Blood and Salt; a REPRINT
+  NOTE was appended to each existing row instead of creating duplicates,
+  and Calling the Wind's Kiss/Mast-Shattering Spell likewise received a
+  citation note confirming the identical reprint rather than a new row.
+  The Seven Lotus Crown and Coral Crown are marked selectable but flagged
+  as narrowly restricted to a specific narrative title-holder rather than
+  freely purchasable. The remainder of the book was confirmed out of scope.
 
 ## What's still needed
 
@@ -372,9 +402,9 @@ Savant and Sorcerer and Book of Three Circles are also now fully triaged for
 Sidereal scope: no outstanding resume point remains. _Book of Three
 Circles_' Chapter Four (Solar Circle Sorcery) is explicitly out of scope and
 was skipped entirely, since Sidereals do not have Solar Circle Sorcery
-access. The Exalted Storyteller's Companion and Exalted: Savage Seas are
-likewise now fully triaged for Sidereal scope: no outstanding resume point
-remains for either book.
+access. The Exalted Storyteller's Companion, Exalted: Savage Seas, and
+Exalted: Blood and Salt are likewise now fully triaged for Sidereal scope:
+no outstanding resume point remains for any of the three.
 
 **Merits/Flaws:** checked and confirmed absent from this core book. A
 dedicated search of Chapter Three (Character Creation, printed pp. 94-101/

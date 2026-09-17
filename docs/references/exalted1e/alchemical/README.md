@@ -2,11 +2,13 @@
 
 **Status: source intake in progress.** `Exalted: The Autochthonians` has been
 supplied and reviewed cover-to-cover, and the `Exalted Players Guide`'s
-universal Merits & Flaws chapter has been derived on top of it. Two more
-small universal artifact catalogs have since been layered on: six rows
+universal Merits & Flaws chapter has been derived on top of it. Three more
+small universal cross-splat catalogs have since been layered on: six rows
 derived from the `Exalted Storyteller's Companion`'s universal Chapter Four,
-and eight rows freshly transcribed from `Savage Seas`' naval artifact
-catalog. 291 inventory rows are checked in under `inventory/`. See
+eight rows freshly transcribed from `Savage Seas`' naval artifact catalog,
+and 14 rows from a final cross-splat supplement-triage pass over
+`Exalted: Blood and Salt`. 305 inventory rows are checked in under
+`inventory/`. See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md) for
 the full process this directory follows.
 
@@ -22,7 +24,7 @@ title, matching this project's prior naming correction.
   Merits & Flaws chapter; `exalted-storytellers-companion` for six rows of
   its universal artifact catalog (derived from Lunar's transcription); and
   `savage-seas` for eight freshly transcribed naval artifact rows.
-- `inventory/exalted-the-autochthonians.json` — 291 rows covering:
+- `inventory/exalted-the-autochthonians.json` — 305 rows covering:
   - The Chapter Two character-creation overview (Concept/Caste/Nature,
     Caste-linked Attributes, the flat 23-dot Ability pool with no Caste or
     Favored discount, Charm Slots and Advantages, Virtues, and Willpower/
@@ -299,6 +301,37 @@ title, matching this project's prior naming correction.
   Sea" Charms section (printed pp. 114-122), which the book's own text
   restricts to Solar/Dragon-Blooded, was intentionally left untranscribed
   as out of scope for Alchemical.
+
+- **Exalted: Blood and Salt** — a final cross-splat supplement-triage pass,
+  14 rows, bringing the inventory to 305. This regional An-Teng/Lintha
+  Family sourcebook (real text layer, no rendering needed) was read cover
+  to cover; as expected, the vast majority of its Background/Artifact/
+  Charm/Sorcery/Hearthstone keyword hits sit inside NPC/monster stat
+  blocks (GM-only), but a smaller genuinely player-facing set was found: a
+  Lintha Character Backgrounds reinterpretation sidebar and a Bluehaven
+  approach-navigation rule (both reference-only, printed p. 63/PDF 65), a
+  bundled regional Character Concepts row (four lists, printed pp.
+  27/32/36/63, PDF 29/34/38/65), seven new Artifacts from Chapter Three's
+  "Wonders of the Southwest" (Automaton Assassin, Sailcutter Chakram,
+  Ancestor Sash, the Seven Lotus Crown, the Masks That Command the
+  Animals, the Coral Crown, and the Talisman of the Cult of Dukantha —
+  the last granting Infernal sorcery access entirely independent of any
+  splat's own normal sorcery-access Charms, so it functions for an
+  Alchemical exactly as for anyone else), one new Hearthstone
+  (`hearthstone-jewel-of-stability`, Earth Manse •••, the first Hearthstone
+  row in this family's inventory), and three mundane equipment items (Fire
+  Arrow, Southern Fire Arrow, Water Shoes). No new Terrestrial Circle
+  spells were added for Alchemical, since this splat does not use standard
+  sorcery. Four artifacts already carried from Savage Seas (Cord of Winds,
+  Light Implosion Bow, Steelsilk Sails, Storm Sapphire) are reprinted
+  verbatim in Blood and Salt; a REPRINT NOTE was appended to each existing
+  row instead of creating duplicates. The naval/water-flavored new items
+  (Sailcutter Chakram, Fire Arrow, Southern Fire Arrow, Water Shoes) carry
+  the same lighter Autochthonia-has-no-Creation-style-oceans caveat already
+  established for this family's Savage Seas rows. The Seven Lotus Crown and
+  Coral Crown are marked selectable but flagged as narrowly restricted to a
+  specific narrative title-holder rather than freely purchasable. The
+  remainder of the book was confirmed out of scope.
 
 ## What's still needed
 

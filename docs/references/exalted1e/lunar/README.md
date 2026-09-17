@@ -1,24 +1,26 @@
 # Exalted 1e — Lunar source intake
 
-**Status: primary sourcebook fully inventoried; three cross-splat passes
-complete (sorcery/artifice, the Storyteller's Companion, and Savage Seas);
-further cross-splat supplements outstanding.**
+**Status: primary sourcebook fully inventoried; four cross-splat passes
+complete (sorcery/artifice, the Storyteller's Companion, Savage Seas, and
+Blood and Salt); further cross-splat supplements outstanding.**
 *Exalted: The Lunars* (PDF, image-scan) has been supplied and is now
 inventoried cover-to-cover for character-creation-relevant material, a
 further pass has added the *Savant and Sorcerer* / *Book of Three Circles*
 Terrestrial/Celestial Circle spell catalog, Hearthstone catalog, artifact
 catalog, and Warstriders appendix, a further pass added the *Exalted
 Storyteller's Companion*'s embedded Lunar Charms and universal artifact
-catalog, and a final pass added *Exalted: Savage Seas*'s universal
-"Artifacts of the Waves" naval-artifact catalog. See
+catalog, a further pass added *Exalted: Savage Seas*'s universal
+"Artifacts of the Waves" naval-artifact catalog, and a final pass added
+*Exalted: Blood and Salt*'s handful of genuinely player-facing rows (the
+rest of that book being GM-only NPC/monster material). See
 [docs/18-exalted1e-splat-release.md](../../18-exalted1e-splat-release.md)
 for the full process this directory follows.
 
-`inventory/exalted-the-lunars.json` currently has 582 reviewed rows (341 from
+`inventory/exalted-the-lunars.json` currently has 598 reviewed rows (341 from
 *Exalted: The Lunars*/the *Exalted Players Guide*, 220 from the
 *Savant and Sorcerer*/*Book of Three Circles* pass, 12 from the
-*Exalted Storyteller's Companion* pass, and 9 from the *Savage Seas* pass,
-all described below). Every row
+*Exalted Storyteller's Companion* pass, 9 from the *Savage Seas* pass, and 16
+from the *Blood and Salt* pass, all described below). Every row
 was visually compared against a rendered page of the source PDF before being
 marked `reviewed` — none of this content came from OCR alone. It covers:
 
@@ -441,9 +443,72 @@ sixth source book:
   book's own text and was confirmed out of scope for Lunar, consistent with
   the other four families that have already triaged this book.
 
+### Exalted: Blood and Salt (16 rows)
+
+A final cross-splat supplement-triage pass read this regional An-Teng/Lintha
+Family sourcebook cover to cover (Introduction plus all three chapters).
+Confirming the book's reputation, the vast majority of its "Background"/
+"Artifact"/"Charm"/"Sorcery"/"Hearthstone" keyword hits sit inside NPC and
+monster stat blocks (e.g. "Backgrounds: Allies 5, Cult 4..." and "Suggested
+Charms: ...") -- GM-only reference material, not new player-facing options
+-- but a smaller set of genuinely player-facing content was found and added
+as a sixth source book, transcribed here as the master copy for identical
+derivation into the other four families:
+
+- A **Character Backgrounds sidebar** (`lintha-character-backgrounds`,
+  printed p. 63/PDF 65) reinterpreting what dot ratings in the Allies,
+  Backing, and Contacts Backgrounds mean for a character with ties to the
+  Lintha Family, and a **Navigating the Approaches sidebar**
+  (`bluehaven-approach-navigation`, same page) giving the Sail-based
+  difficulty check for piloting a ship through the hidden approaches to the
+  floating city of Bluehaven. Both are reference-only re-flavoring guides,
+  not new Backgrounds or dot tables, and neither is splat-restricted.
+- An **An-Teng Regional Character Concepts** row
+  (`an-teng-regional-character-concepts`) bundling all four one-line-per-
+  entry archetype lists in the book (Shore Lands, Middle Lands, High Lands,
+  Bluehaven; printed pp. 27, 32, 36, 63/PDF 29, 34, 38, 65).
+- **Seven new Artifacts** from Chapter Three's "Wonders of the Southwest"
+  (printed pp. 107, 119-125/PDF 109, 121-127): Automaton Assassin
+  (Artifact ••, a jewelry-disguised clockwork assassin with five
+  magical-material venom variants), Sailcutter Chakram (Artifact ••, a
+  paired rigging-shredding thrown weapon), Ancestor Sash (Artifact ••••,
+  raises the wearer's Essence and grants broad combat/health bonuses for a
+  day, explicitly usable by mortals), the Seven Lotus Crown (Artifact
+  ••••, restricted to the rightful High Queen of An-Teng specifically),
+  the Masks That Command the Animals (Artifact •••••, animal-command and
+  animal-transformation powers), the Coral Crown (Artifact •••••,
+  restricted to the true King of the Vodonik specifically), and the
+  Talisman of the Cult of Dukantha (Artifact •••••, grants Infernal
+  sorcery access independent of the bearer's own normal sorcery Charms).
+  The Seven Lotus Crown and Coral Crown are both marked selectable but
+  flagged as narrowly title-gated rather than freely purchasable.
+- One new **Hearthstone**, the Jewel of Stability (`hearthstone-jewel-of-
+  stability`, Earth Manse •••, printed p. 126/PDF 128) -- immunity to
+  knockdown/knockback/slipping while standing on the ground.
+- **Three mundane equipment items** (printed p. 127/PDF 129): Fire Arrow,
+  Southern Fire Arrow, and Water Shoes.
+- **Two new Terrestrial Circle spells** (printed pp. 125-126/PDF 127-128),
+  cross-referenced to `terrestrial-circle-sorcery`: Song of the Lintha (a
+  six-day ritual spell that opens a door of black flesh into a chancre on
+  the heel of Malfeas, letting the caster petition the Yozi Kimberry) and
+  Water's Ally (lets the caster breathe and move through water as easily
+  as air for a day).
+
+Four artifacts this inventory already carries from *Savage Seas* (Cord of
+Winds, Light Implosion Bow, Steelsilk Sails, Storm Sapphire) are reprinted
+verbatim in *Blood and Salt* ("repeated here for ease of reference," per the
+book's own text); rather than duplicate rows, a REPRINT NOTE was appended to
+each existing row's `notes` field. Likewise, the Book of Three
+Circles-sourced Gem of Desire Hearthstone is reprinted here (citation note
+added), and Calling the Wind's Kiss and Mast-Shattering Spell are reprinted
+under identical names and mechanics to the already-inventoried Savant and
+Sorcerer versions (citation notes added, no new rows). The remainder of the
+book -- all NPC/monster/antagonist stat-block content -- was confirmed out of
+scope.
+
 Still outstanding: any Lunar-facing material in the other cross-splat
-supplements listed in the top-level intent (Blood and Salt, Book of Bone and
-Ebony, etc.), which remain entirely uninventoried.
+supplements listed in the top-level intent (Book of Bone and Ebony, etc.),
+which remain entirely uninventoried.
 
 Nothing here has been promoted to a production catalog yet (`promotedEntries`
 stays `0` until rows are wired into schema/rules/UI, not merely inventoried).

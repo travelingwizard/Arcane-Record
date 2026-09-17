@@ -148,7 +148,7 @@ describe('exalted1e verification gate', () => {
   it('describes a locked family with inventory in progress by its promotion count, not "catalog not started"', () => {
     const status = getFamilyCertificationStatus('lunar');
     expect(status.available).toBe(false);
-    expect(status.blockReason).toContain('0/582 promoted');
+    expect(status.blockReason).toContain('0/598 promoted');
     expect(status.blockReason).toContain('0 unresolved');
     expect(status.blockReason).toContain('rules tests not-run');
   });
@@ -156,7 +156,7 @@ describe('exalted1e verification gate', () => {
   it('describes Abyssal as locked with its inventory-in-progress promotion count', () => {
     const status = getFamilyCertificationStatus('abyssal');
     expect(status.available).toBe(false);
-    expect(status.blockReason).toContain('0/684 promoted');
+    expect(status.blockReason).toContain('0/700 promoted');
     expect(status.blockReason).toContain('2 unresolved');
     expect(status.blockReason).toContain('rules tests not-run');
   });
