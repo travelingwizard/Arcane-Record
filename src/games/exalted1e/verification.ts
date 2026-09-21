@@ -37,7 +37,14 @@ function catalogDimensionPasses(record: SplatCertificationRecord): boolean {
   return (
     catalog.totalInventoryRows > 0 &&
     catalog.unresolvedEntries === 0 &&
-    catalog.promotedEntries === catalog.totalInventoryRows &&
+    // Compared against `promotableEntries` (the subset of inventory rows
+    // that are meant to become a strict catalog entry), not the raw
+    // `totalInventoryRows` — some rows are free-text-by-design (Artifacts,
+    // Hearthstones, Manses, Warstriders, matching Solar/Dragon-Blooded
+    // precedent) or permanently non-selectable, and can never be
+    // "promoted" as a catalog entry. See `SplatCatalogEvidence`'s doc
+    // comment on `promotableEntries` for the full rationale.
+    catalog.promotedEntries === catalog.promotableEntries &&
     catalog.checksum.length > 0
   );
 }
@@ -84,7 +91,7 @@ export function describeCatalog(record: SplatCertificationRecord): string {
   if (catalog.totalInventoryRows === 0) {
     return 'catalog not started';
   }
-  return `catalog ${catalog.promotedEntries}/${catalog.totalInventoryRows} promoted, ${catalog.unresolvedEntries} unresolved`;
+  return `catalog ${catalog.promotedEntries}/${catalog.promotableEntries} promoted (${catalog.totalInventoryRows} total inventory rows), ${catalog.unresolvedEntries} unresolved`;
 }
 
 export function describeFamilyStatus(family: PlannedExaltedFamily): string {

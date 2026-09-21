@@ -20,6 +20,7 @@ function passingRecordFor(
     family,
     catalog: {
       totalInventoryRows: 10,
+      promotableEntries: 10,
       promotedEntries: 10,
       unresolvedEntries: 0,
       checksum: 'abc123',
@@ -51,11 +52,12 @@ describe('exalted1e verification gate', () => {
       // All five families have started source intake (inventory rows > 0).
       // Abyssal has additionally had its Backgrounds, universal
       // Merits/Flaws chapter, Charms, and Necromancy spells promoted to real
-      // production catalogs (414 of its 700 inventory rows), but that alone
-      // must not unlock the family -- `checksum` stays empty and every
-      // test-evidence dimension stays 'not-run' until schema/creator/editor
-      // work for the remaining catalog dimensions (Artifacts, Hearthstones,
-      // Warstriders, the nemissary system) lands too.
+      // production catalogs (414 of its 503 promotable rows -- see
+      // `SplatCatalogEvidence.promotableEntries`), but that alone must not
+      // unlock the family -- `checksum` stays empty and every test-evidence
+      // dimension stays 'not-run' until schema/creator/editor work for the
+      // remaining catalog dimensions (Sorcery spells, Artifacts,
+      // Hearthstones, Warstriders, the nemissary system) lands too.
       expect(record.catalog.promotedEntries).toBe(
         family === 'abyssal' ? 414 : 0,
       );
@@ -83,12 +85,15 @@ describe('exalted1e verification gate', () => {
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
     // 414 = the 80 universal Players Guide Merits/Flaws rows, the 6 new
     // Abyssal-only Backgrounds, 225 Chapter Five Charms, and 103 Necromancy
-    // spells promoted to production catalogs so far. This is intentionally
-    // far short of `totalInventoryRows` (700): Abyssal's Artifacts,
-    // Hearthstones, Warstriders, and nemissary catalogs plus
-    // schema/creator/editor certification support do not exist yet, so
+    // spells promoted to production catalogs so far -- short of the 503
+    // `promotableEntries` target (which also counts 86 not-yet-promoted
+    // Sorcery-spell rows and 3 still-unreviewed Charm/spell rows), and far
+    // short of the raw `totalInventoryRows` (700), most of which is
+    // free-text-by-design Artifacts/Hearthstones/Warstriders/nemissary
+    // content that is never meant to become a catalog entry. Either way,
     // `isFamilyAvailable('abyssal')` must stay false.
     expect(record.catalog.promotedEntries).toBe(414);
+    expect(record.catalog.promotableEntries).toBe(503);
     expect(isFamilyAvailable('abyssal')).toBe(false);
   });
 
@@ -121,6 +126,35 @@ describe('exalted1e verification gate', () => {
     }
   });
 
+  it('rejects a promotableEntries value that exceeds totalInventoryRows', () => {
+    const record = passingRecordFor('lunar');
+    expect(() =>
+      splatCertificationRecordSchema.parse({
+        ...record,
+        catalog: { ...record.catalog, promotableEntries: 11 },
+      }),
+    ).toThrow(/promotableEntries cannot exceed totalInventoryRows/);
+  });
+
+  it('rejects a promotedEntries value that exceeds promotableEntries', () => {
+    const record = passingRecordFor('lunar');
+    expect(() =>
+      splatCertificationRecordSchema.parse({
+        ...record,
+        catalog: { ...record.catalog, promotableEntries: 8 },
+      }),
+    ).toThrow(/promotedEntries cannot exceed promotableEntries/);
+  });
+
+  it('every planned family keeps promotableEntries within [promotedEntries, totalInventoryRows]', () => {
+    for (const family of plannedExaltedFamilies) {
+      const { totalInventoryRows, promotableEntries, promotedEntries } =
+        certificationRecords[family].catalog;
+      expect(promotableEntries).toBeLessThanOrEqual(totalInventoryRows);
+      expect(promotedEntries).toBeLessThanOrEqual(promotableEntries);
+    }
+  });
+
   it('describes a locked family with no inventory yet with concrete evidence, not a generic message', () => {
     // No real planned family has zero inventory rows any more (all five have
     // supplied source material), so the "catalog not started" wording is
@@ -129,6 +163,7 @@ describe('exalted1e verification gate', () => {
       ...passingRecordFor('sidereal'),
       catalog: {
         totalInventoryRows: 0,
+        promotableEntries: 0,
         promotedEntries: 0,
         unresolvedEntries: 0,
         checksum: '',
@@ -146,11 +181,15 @@ describe('exalted1e verification gate', () => {
   it('describes each real planned family locked with concrete promotion-count evidence, not a generic message', () => {
     for (const family of plannedExaltedFamilies) {
       const status = getFamilyCertificationStatus(family);
-      const { totalInventoryRows, promotedEntries, unresolvedEntries } =
-        certificationRecords[family].catalog;
+      const {
+        totalInventoryRows,
+        promotableEntries,
+        promotedEntries,
+        unresolvedEntries,
+      } = certificationRecords[family].catalog;
       expect(status.available).toBe(false);
       expect(status.blockReason).toContain(
-        `catalog ${promotedEntries}/${totalInventoryRows} promoted, ${unresolvedEntries} unresolved`,
+        `catalog ${promotedEntries}/${promotableEntries} promoted (${totalInventoryRows} total inventory rows), ${unresolvedEntries} unresolved`,
       );
       expect(status.blockReason).toContain('rules tests not-run');
       expect(status.blockReason).toContain('creator tests not-run');
@@ -162,7 +201,7 @@ describe('exalted1e verification gate', () => {
   it('describes a locked family with inventory in progress by its promotion count, not "catalog not started"', () => {
     const status = getFamilyCertificationStatus('lunar');
     expect(status.available).toBe(false);
-    expect(status.blockReason).toContain('0/598 promoted');
+    expect(status.blockReason).toContain('0/390 promoted');
     expect(status.blockReason).toContain('0 unresolved');
     expect(status.blockReason).toContain('rules tests not-run');
   });
@@ -170,7 +209,7 @@ describe('exalted1e verification gate', () => {
   it('describes Abyssal as locked with its inventory-in-progress promotion count', () => {
     const status = getFamilyCertificationStatus('abyssal');
     expect(status.available).toBe(false);
-    expect(status.blockReason).toContain('414/700 promoted');
+    expect(status.blockReason).toContain('414/503 promoted');
     expect(status.blockReason).toContain('2 unresolved');
     expect(status.blockReason).toContain('rules tests not-run');
   });
