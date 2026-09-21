@@ -193,7 +193,7 @@ real, creatable sheet.
 | Family     | Source manifest                                                                                                                                                         | Inventory rows | Promoted | Certification                    |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | -------- | -------------------------------- |
 | Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)    | 598            | 0        | Locked, all dimensions `not-run` |
-| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 86       | Locked, all dimensions `not-run` |
+| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 414      | Locked, all dimensions `not-run` |
 | Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 0        | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 365            | 0        | Locked, all dimensions `not-run` |
@@ -793,10 +793,22 @@ shared `dragonblooded-merits-flaws` catalog via each entry's `appliesTo`
 field, plus 6 new Abyssal-only entries for rows with no Dragon-Blooded
 equivalent. `'abyssal'` is now a legal *stored* `sheetType` for schema and
 test purposes, but it is still absent from `definition.tsx`'s selectable
-`variants`, so the family remains fully locked in the app. Remaining
-Abyssal work (Charms/necromancy-spell catalog, Artifacts/Hearthstones/
-Warstriders/nemissary catalogs, guided-creation UI, advancement/XP wiring)
-is tracked as Phases 1b-1e before Abyssal's certification record can flip.
+`variants`, so the family remains fully locked in the app.
+
+Abyssal Phase 1b is also complete: 225 of 227 promotable Chapter Five
+Charm rows and 103 of 106 Necromancy spell rows (23 core book + 80 Book of
+Bone and Ebony) are now real catalog entries in the new
+`abyssal-charms.json`/`abyssal-necromancy.json` files (wrapped by
+`abyssal-powers.ts`, mirroring `dragonblooded-powers.ts`'s shape), wired
+into `schema.ts` in place of the two `TODO(abyssal-charms)` placeholders.
+A new additive `caste` field (Dusk/Midnight/Daybreak/Day/Moonshadow) was
+added, scoped to this catalog only. Two disposition-`unresolved` spell
+rows (missing mote costs) and three disposition-`selectable`-but-
+`unreviewed` rows (2 Charms, 1 spell) were deliberately excluded pending a
+follow-up close read. `promotedEntries` is now 414 of 700. Remaining
+Abyssal work (Artifacts/Hearthstones/Warstriders/nemissary catalogs,
+guided-creation UI, advancement/XP wiring) is tracked as Phases 1c-1e
+before Abyssal's certification record can flip.
 
 ## Next steps (require source material per book)
 
