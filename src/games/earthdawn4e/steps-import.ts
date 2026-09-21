@@ -80,6 +80,7 @@ export function importStepsCharacter(
       circle: Math.max(1, number(record.circle ?? record.Circle) || 1),
       startedAtCircle: 1,
       questor: false,
+      custom: !definition,
     });
     (definition ? mapped : unresolved).push(`Discipline: ${name}`);
   }
@@ -113,6 +114,9 @@ export function importStepsCharacter(
           strain: 0,
           disciplineSources: [],
           optional: false,
+          originCircle: null,
+          originDisciplineId: null,
+          creationOwned: false,
         });
       else
         character.skills.push({
@@ -120,6 +124,7 @@ export function importStepsCharacter(
           category: 'general',
           action: '',
           strain: 0,
+          creationOwned: false,
         });
       (definition ? mapped : unresolved).push(`${kind}: ${name}`);
     }

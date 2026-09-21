@@ -35,10 +35,10 @@ export const earthdawn4eDefinition: GameSystemDefinition<Earthdawn4eCharacter> =
       },
       {
         id: 'play',
-        name: 'Open Blank Play Sheet',
-        description: 'Open a manual Earthdawn sheet directly in Play mode.',
+        name: 'Open Blank Sheet',
+        description: 'Open a manual Earthdawn sheet in Build mode.',
         createInitialCharacter: () =>
-          createBlankEarthdawn4eCharacter({ status: 'manual', mode: 'play' }),
+          createBlankEarthdawn4eCharacter({ status: 'manual', mode: 'edit' }),
       },
     ],
     migrateCharacter: (data) => migrateEarthdawn4eCharacter(data),

@@ -13,8 +13,10 @@ test('creates an Earthdawn adept and exposes source and dice tools', async ({
     page.locator('.earthdawn-creator.character-creator'),
   ).toBeVisible();
   await expect(
-    page.getByText(/Earthdawn creation · Step 1 of 10/),
+    page.getByText(/Earthdawn creation · Step 1 of 8/),
   ).toBeVisible();
+  await page.locator('.earthdawn-choice-grid button').first().click();
+  await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: /Warrior/ }).click();
   await page.getByRole('button', { name: 'Next' }).click();
   const human = page.getByRole('button', { name: /Human/ });
@@ -32,12 +34,14 @@ test('creates an Earthdawn adept and exposes source and dice tools', async ({
   expect(nextButtonHeight).toBeGreaterThanOrEqual(44);
 });
 
-test('blank play sheet remains usable at 320px', async ({ page }) => {
+test('blank Build sheet repairs catalog and custom editing at 320px', async ({
+  page,
+}) => {
   await page.setViewportSize({ width: 320, height: 760 });
   await page.goto('/');
   await page.getByRole('button', { name: 'Create Character' }).click();
   await page.getByRole('button', { name: 'Choose Earthdawn 4e' }).click();
-  await page.getByRole('button', { name: 'Open Blank Play Sheet' }).click();
+  await page.getByRole('button', { name: 'Open Blank Sheet' }).click();
 
   await expect(page.locator('main.local-sheet-editor-shell')).toBeVisible();
   await expect(page.locator('.local-character-sheet')).toBeVisible();
@@ -59,7 +63,12 @@ test('blank play sheet remains usable at 320px', async ({ page }) => {
   });
   await expect(
     page.getByRole('switch', { name: /Earthdawn Edit and Play mode/ }),
-  ).toBeChecked();
+  ).not.toBeChecked();
+  await page.getByRole('button', { name: 'Browse catalogs' }).click();
+  await expect(
+    page.getByRole('dialog', { name: 'Earthdawn catalog' }),
+  ).toBeVisible();
+  await page.getByRole('button', { name: 'Close' }).click();
   const overflow = await page.evaluate(
     () => document.documentElement.scrollWidth > window.innerWidth,
   );
