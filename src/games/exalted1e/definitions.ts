@@ -250,6 +250,28 @@ export const solarAbilityGroups: readonly AbilityGroup[] = [
   },
 ];
 
+/**
+ * Ability groupings for Abyssal's five Castes (Dusk, Midnight, Daybreak,
+ * Day, Moonshadow). Unlike Dragon-Blooded (grouped by classical Element),
+ * Abyssal is Caste-based like Solar — Exalted: The Abyssals states each
+ * Abyssal Caste mirrors its opposed Solar Caste's Ability list exactly
+ * (Dawn<->Dusk, Zenith<->Midnight, Twilight<->Daybreak, Night<->Day,
+ * Eclipse<->Moonshadow), so this reuses `solarAbilityGroups`'s Ability
+ * lists positionally rather than duplicating them, substituting only the
+ * Abyssal Caste ids/labels.
+ */
+export const abyssalAbilityGroups: readonly AbilityGroup[] = [
+  'dusk',
+  'midnight',
+  'daybreak',
+  'day',
+  'moonshadow',
+].map((id, index) => ({
+  id,
+  label: id[0]!.toUpperCase() + id.slice(1),
+  abilityIds: solarAbilityGroups[index]!.abilityIds,
+}));
+
 export const dragonBloodedAbilityGroups: readonly AbilityGroup[] = [
   {
     id: 'air',

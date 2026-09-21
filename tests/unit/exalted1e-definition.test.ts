@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { gameSystemRegistry } from '../../src/games/registry';
 import { plannedExaltedFamilies } from '../../src/games/exalted1e/definitions';
 import { exaltedSheetTypes } from '../../src/games/exalted1e/definitions';
+import { createBlankExaltedCharacter } from '../../src/games/exalted1e/create-character';
 
 describe('Exalted First Edition definition', () => {
   it('exposes one locked Unavailable card per planned splat', () => {
@@ -43,9 +44,27 @@ describe('Exalted First Edition definition', () => {
     expect(exaltedSheetTypes).toEqual(['solar', 'dragon-blooded', 'abyssal']);
     for (const family of plannedExaltedFamilies) {
       if (family === 'abyssal') continue;
-      expect(
-        (exaltedSheetTypes as readonly string[]).includes(family),
-      ).toBe(false);
+      expect((exaltedSheetTypes as readonly string[]).includes(family)).toBe(
+        false,
+      );
     }
+  });
+
+  it('labels an Abyssal character "Abyssal", not "Dragon-Blooded" (sheetLabel three-way fix)', () => {
+    // sheetLabel() previously used `sheetType === 'solar' ? 'Solar' :
+    // 'Dragon-Blooded'`, silently mislabeling Abyssal (only reachable via
+    // createBlankExaltedCharacter('abyssal') today, since Abyssal has no
+    // variants entry). getDisplayName/getSummary both route through it.
+    const definition = gameSystemRegistry.get('exalted1e')!;
+    const abyssal = createBlankExaltedCharacter('abyssal');
+    expect(definition.getDisplayName(abyssal)).toBe('Untitled Abyssal');
+    expect(definition.getSummary(abyssal)).toBe('Abyssal');
+
+    const solar = createBlankExaltedCharacter('solar');
+    expect(definition.getDisplayName(solar)).toBe('Untitled Solar');
+    const dragonBlooded = createBlankExaltedCharacter('dragon-blooded');
+    expect(definition.getDisplayName(dragonBlooded)).toBe(
+      'Untitled Dragon-Blooded',
+    );
   });
 });

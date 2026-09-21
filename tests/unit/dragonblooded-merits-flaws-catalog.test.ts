@@ -1,11 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import {
+  abyssalOnlyTraits,
   dragonBloodedTraitById,
   dragonBloodedTraitIds,
   dragonBloodedTraits,
   excludedDragonBloodedTraitNames,
   getDragonBloodedTraitCostPolicy,
+  getSharedTraitCostPolicy,
   isLegalDragonBloodedTraitCost,
+  isLegalSharedTraitCost,
   matchesDragonBloodedTraitSearch,
 } from '../../src/games/exalted1e/reference/dragonblooded-merits-flaws';
 
@@ -107,5 +110,73 @@ describe('Dragon-Blooded Merits and Flaws catalog', () => {
     expect(isLegalDragonBloodedTraitCost(meritMutation, 2)).toBe(false);
     expect(isLegalDragonBloodedTraitCost(flawMutation, 2)).toBe(true);
     expect(isLegalDragonBloodedTraitCost(flawMutation, 1)).toBe(false);
+  });
+});
+
+describe('abyssalOnlyTraits (shared catalog subset for Abyssal)', () => {
+  it('includes only entries whose appliesTo covers Abyssal', () => {
+    expect(abyssalOnlyTraits.length).toBeGreaterThan(0);
+    for (const definition of abyssalOnlyTraits) {
+      expect(definition.appliesTo).toContain('abyssal');
+    }
+  });
+
+  it('includes the Abyssal-only entries excluded from dragonBloodedOnlyTraits', () => {
+    const abyssalOnlyNames = new Set(abyssalOnlyTraits.map(({ name }) => name));
+    for (const name of [
+      "Taint's Warning",
+      'Eternal Vow',
+      'Permanent Caste Mark',
+      'Death-Taint',
+      'Throwback',
+    ]) {
+      expect(abyssalOnlyNames.has(name)).toBe(true);
+    }
+  });
+
+  it('excludes Dragon-Blooded-only entries that do not apply to Abyssal (Prodigy)', () => {
+    expect(
+      abyssalOnlyTraits.some((definition) => definition.id === 'prodigy'),
+    ).toBe(false);
+    expect(
+      dragonBloodedTraits
+        .find((definition) => definition.id === 'prodigy')
+        ?.appliesTo.includes('abyssal'),
+    ).toBe(false);
+  });
+});
+
+describe('getSharedTraitCostPolicy', () => {
+  it('returns the exact same policy as getDragonBloodedTraitCostPolicy for Dragon-Blooded', () => {
+    for (const definition of dragonBloodedTraits) {
+      expect(getSharedTraitCostPolicy(definition, 'dragon-blooded')).toEqual(
+        getDragonBloodedTraitCostPolicy(definition),
+      );
+    }
+  });
+
+  it("narrows Destiny's options to the Abyssal cap (1-2, not 1-5)", () => {
+    const destiny = dragonBloodedTraitById.get('destiny')!;
+    expect(getDragonBloodedTraitCostPolicy(destiny)).toEqual({
+      kind: 'options',
+      options: [1, 2, 3, 4, 5],
+    });
+    expect(getSharedTraitCostPolicy(destiny, 'abyssal')).toEqual({
+      kind: 'options',
+      options: [1, 2],
+    });
+    const abyssalPolicy = getSharedTraitCostPolicy(destiny, 'abyssal');
+    if (abyssalPolicy.kind === 'options') {
+      for (const option of abyssalPolicy.options) {
+        expect(isLegalSharedTraitCost(destiny, option, 'abyssal')).toBe(true);
+      }
+    }
+  });
+
+  it('leaves non-overridden entries unchanged for Abyssal', () => {
+    const commonSense = dragonBloodedTraitById.get('common-sense')!;
+    expect(getSharedTraitCostPolicy(commonSense, 'abyssal')).toEqual(
+      getDragonBloodedTraitCostPolicy(commonSense),
+    );
   });
 });

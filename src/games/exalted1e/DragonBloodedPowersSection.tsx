@@ -8,6 +8,12 @@ import {
   type TerrestrialSpellDefinition,
 } from './reference/dragonblooded-powers';
 import {
+  abyssalCastes,
+  type AbyssalCaste,
+  type AbyssalCharmDefinition,
+  type AbyssalNecromancySpellDefinition,
+} from './reference/abyssal-powers';
+import {
   getDragonBloodedPowerExperienceCost,
   getExperienceTotals,
 } from './shared/advancement/rules';
@@ -24,6 +30,63 @@ const categoryLabels: Record<DragonBloodedCharmDefinition['category'], string> =
     'immaculate-martial-art': 'Immaculate Martial Art',
     'aspect-book': 'Aspect Book',
   };
+
+/**
+ * Widened Charm/spell definition union so this shared component can serve
+ * Solar, Dragon-Blooded, and Abyssal alike. `AbyssalCharmDefinition` is
+ * already structurally assignable to `DragonBloodedCharmDefinition` (it has
+ * every field plus `caste`/`systemId`/etc., so it needs no adapter), but
+ * `AbyssalNecromancySpellDefinition` genuinely conflicts with
+ * `TerrestrialSpellDefinition` on `circle`/`alternateCircleName` (Necromancy
+ * circles vs. Sorcery circles), so it must be included explicitly.
+ */
+export type ExaltedPowerDefinition =
+  | DragonBloodedCharmDefinition
+  | TerrestrialSpellDefinition
+  | AbyssalCharmDefinition
+  | AbyssalNecromancySpellDefinition;
+
+const DEFAULT_SORCERY_ADVISORY =
+  'Advisory: standard Dragon-Blooded sorcery requires the Terrestrial Circle Sorcery Charm (Occult 3, Essence 3). Spell selection remains available because this is an editable sheet, not a rules engine.';
+
+/**
+ * Abyssal Charms carry real Caste metadata (`caste`); Dragon-Blooded and
+ * Solar Charms have no such field at all. `'caste' in definition` safely
+ * narrows the widened `ExaltedPowerDefinition` union without assuming every
+ * caller's Charms are Abyssal.
+ */
+function charmCaste(definition: ExaltedPowerDefinition): AbyssalCaste | null {
+  return 'caste' in definition ? definition.caste : null;
+}
+
+/**
+ * Abyssal Charm/spell definitions carry a literal `exaltType: 'abyssal'`
+ * field that Dragon-Blooded/Solar definitions never have. Used to narrow the
+ * widened union back down to the shape `getDragonBloodedPowerExperienceCost`
+ * expects, since that function's cost math (favored-Aspect Ability groups)
+ * is Dragon-Blooded-specific and does not apply to Abyssal.
+ */
+function asDragonBloodedPower(
+  definition: ExaltedPowerDefinition,
+): DragonBloodedCharmDefinition | TerrestrialSpellDefinition | null {
+  return 'exaltType' in definition ? null : definition;
+}
+
+/**
+ * Dragon-Blooded/Solar Sorcery spells always carry an `alternateCircleName`
+ * ("Emerald Circle"/"Sapphire Circle"); Abyssal Necromancy spells have none
+ * and are identified only by their own `circle` id (shadowlands/labyrinth/
+ * void). Falls back to a generic "Spell" label if neither is present
+ * (should not happen for any current catalog, but keeps this function total).
+ */
+function spellCircleLabel(definition: ExaltedPowerDefinition): string {
+  const alternateCircleName =
+    'alternateCircleName' in definition ? definition.alternateCircleName : null;
+  if (alternateCircleName) return alternateCircleName;
+  const circle = 'circle' in definition ? definition.circle : null;
+  if (circle) return `${circle[0]!.toUpperCase()}${circle.slice(1)} Circle`;
+  return 'Spell';
+}
 
 function requirementsLabel(definition: DragonBloodedPowerDefinition) {
   const traits = definition.minimumRequirements.map(
@@ -75,9 +138,7 @@ function prerequisitesMet(
 interface Props {
   powers: Exalted1eCharacter['powers'];
   onChange: (powers: Exalted1eCharacter['powers']) => void;
-  definitions?: readonly (
-    DragonBloodedCharmDefinition | TerrestrialSpellDefinition
-  )[];
+  definitions?: readonly ExaltedPowerDefinition[];
   character?: Exalted1eCharacter;
   onLearnWithExperience?: (
     definition: DragonBloodedCharmDefinition | TerrestrialSpellDefinition,
@@ -89,6 +150,12 @@ interface Props {
   showSpells?: boolean;
   showElementFilter?: boolean;
   showCategory?: boolean;
+  /** Abyssal-only: shows a Caste filter alongside Element/Ability/Review. */
+  showCasteFilter?: boolean;
+  /** Label for the spells tab button, e.g. "Sorcery" or "Spells". */
+  spellsTabLabel?: string;
+  /** Advisory copy shown above the spells tab when applicable. */
+  sorceryAdvisory?: string;
 }
 
 export function ExaltedPowersSection({
@@ -102,11 +169,15 @@ export function ExaltedPowersSection({
   showSpells = true,
   showElementFilter = true,
   showCategory = true,
+  showCasteFilter = false,
+  spellsTabLabel = 'Sorcery',
+  sorceryAdvisory = DEFAULT_SORCERY_ADVISORY,
 }: Props) {
   const [activeKind, setActiveKind] = useState<PowerKind>('charms');
   const [catalogOpen, setCatalogOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [element, setElement] = useState('all');
+  const [caste, setCaste] = useState<'all' | AbyssalCaste>('all');
   const [ability, setAbility] = useState('all');
   const [review, setReview] = useState('all');
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
@@ -132,7 +203,10 @@ export function ExaltedPowersSection({
         new Set(
           allDefinitions
             .filter(
-              (entry): entry is DragonBloodedCharmDefinition =>
+              (
+                entry,
+              ): entry is
+                DragonBloodedCharmDefinition | AbyssalCharmDefinition =>
                 entry.kind === 'charm',
             )
             .map(({ ability }) => ability),
@@ -149,6 +223,7 @@ export function ExaltedPowersSection({
     return definitions.filter((definition) => {
       const charm = definition.kind === 'charm' ? definition : null;
       if (element !== 'all' && charm?.element !== element) return false;
+      if (caste !== 'all' && charmCaste(definition) !== caste) return false;
       if (ability !== 'all' && charm?.ability !== ability) return false;
       if (review !== 'all' && definition.reviewStatus !== review) return false;
       if (!normalizedQuery) return true;
@@ -161,12 +236,13 @@ export function ExaltedPowersSection({
         charm?.style ?? '',
       ].some((value) => value.toLocaleLowerCase().includes(normalizedQuery));
     });
-  }, [ability, definitions, element, query, review]);
+  }, [ability, caste, definitions, element, query, review]);
 
   const changeTab = (kind: PowerKind) => {
     setActiveKind(kind);
     setQuery('');
     setElement('all');
+    setCaste('all');
     setAbility('all');
     setVisibleCount(PAGE_SIZE);
   };
@@ -225,7 +301,7 @@ export function ExaltedPowersSection({
             >
               {kind === 'charms'
                 ? `Charms (${powers.charms.length})`
-                : `Sorcery (${powers.spells.length})`}
+                : `${spellsTabLabel} (${powers.spells.length})`}
             </button>
           ))}
         </div>
@@ -233,9 +309,7 @@ export function ExaltedPowersSection({
 
       {activeKind === 'spells' && !knowsTerrestrialCircle ? (
         <p className="exalted-power-warning" role="status">
-          Advisory: standard Dragon-Blooded sorcery requires the Terrestrial
-          Circle Sorcery Charm (Occult 3, Essence 3). Spell selection remains
-          available because this is an editable sheet, not a rules engine.
+          {sorceryAdvisory}
         </p>
       ) : null}
 
@@ -285,7 +359,7 @@ export function ExaltedPowersSection({
                     <p className="eyebrow">
                       {definition.kind === 'charm'
                         ? 'Charm'
-                        : 'Emerald Circle spell'}
+                        : `${spellCircleLabel(definition)} spell`}
                     </p>
                     <h3>{definition.name}</h3>
                   </div>
@@ -376,6 +450,23 @@ export function ExaltedPowersSection({
                     ))}
                   </select>
                 </label>
+                {showCasteFilter ? (
+                  <label>
+                    <span>Caste</span>
+                    <select
+                      value={caste}
+                      onChange={(event) => {
+                        setCaste(event.target.value as 'all' | AbyssalCaste);
+                        setVisibleCount(PAGE_SIZE);
+                      }}
+                    >
+                      <option value="all">All Castes</option>
+                      {abyssalCastes.map((value) => (
+                        <option key={value}>{value}</option>
+                      ))}
+                    </select>
+                  </label>
+                ) : null}
               </>
             ) : null}
             <label>
@@ -402,9 +493,14 @@ export function ExaltedPowersSection({
             {filteredDefinitions.slice(0, visibleCount).map((definition) => {
               const selected = selectedIds.has(definition.id);
               const charm = definition.kind === 'charm' ? definition : null;
-              const xp = character
-                ? getDragonBloodedPowerExperienceCost(character, definition)
-                : null;
+              const dragonBloodedDefinition = asDragonBloodedPower(definition);
+              const xp =
+                character && dragonBloodedDefinition
+                  ? getDragonBloodedPowerExperienceCost(
+                      character,
+                      dragonBloodedDefinition,
+                    )
+                  : null;
               const availableXp = character
                 ? getExperienceTotals(character.experienceLedger).available
                 : 0;
@@ -422,9 +518,12 @@ export function ExaltedPowersSection({
                         <span>
                           {definition.kind === 'charm'
                             ? 'Charm'
-                            : 'Emerald Circle'}
+                            : spellCircleLabel(definition)}
                         </span>
                         {charm?.element ? <span>{charm.element}</span> : null}
+                        {charmCaste(definition) ? (
+                          <span>{charmCaste(definition)}</span>
+                        ) : null}
                         {charm && showCategory ? (
                           <span>{categoryLabels[charm.category]}</span>
                         ) : null}
@@ -497,7 +596,7 @@ export function ExaltedPowersSection({
                     ) : null}
                   </details>
                   <div className="exalted-action-row">
-                    {xp && onLearnWithExperience ? (
+                    {xp && onLearnWithExperience && dragonBloodedDefinition ? (
                       <button
                         type="button"
                         className="primary-button"
@@ -506,7 +605,7 @@ export function ExaltedPowersSection({
                         }
                         onClick={() =>
                           onLearnWithExperience(
-                            definition,
+                            dragonBloodedDefinition,
                             xp.cost,
                             xp.explanation,
                           )

@@ -10,6 +10,7 @@ import {
   exaltedSections,
   plannedExaltedFamilies,
   plannedExaltedFamilyLabels,
+  type ExaltedSheetType,
 } from './definitions';
 import { Exalted1eEditor } from './Exalted1eEditor';
 import {
@@ -19,8 +20,21 @@ import {
 } from './schema';
 import { getFamilyCertificationStatus } from './verification';
 
+/**
+ * Human-readable label per stored `sheetType`. Previously a binary
+ * `sheetType === 'solar' ? 'Solar' : 'Dragon-Blooded'` check, which silently
+ * mislabeled Abyssal characters as "Dragon-Blooded" (only reachable via
+ * `createBlankExaltedCharacter('abyssal')`, since Abyssal has no
+ * user-facing `variants` entry yet — see the module doc comment below).
+ */
+const sheetTypeLabels: Record<ExaltedSheetType, string> = {
+  solar: 'Solar',
+  'dragon-blooded': 'Dragon-Blooded',
+  abyssal: 'Abyssal',
+};
+
 function sheetLabel(character: Exalted1eCharacter) {
-  return character.sheetType === 'solar' ? 'Solar' : 'Dragon-Blooded';
+  return sheetTypeLabels[character.sheetType];
 }
 
 /**

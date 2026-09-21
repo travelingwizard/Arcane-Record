@@ -28,9 +28,7 @@ export const exaltedTraitDefinitionSchema = z.object({
   aliases: z.array(z.string()),
   source: sourceSchema,
   edition: z.literal('Exalted First Edition'),
-  appliesTo: z
-    .array(z.enum(['solar', 'dragon-blooded', 'abyssal']))
-    .min(1),
+  appliesTo: z.array(z.enum(['solar', 'dragon-blooded', 'abyssal'])).min(1),
   notes: z.array(z.string()),
   reviewStatus: z.enum(['source-checked', 'needs-review']),
 });
@@ -139,6 +137,17 @@ export const dragonBloodedTraitIds = new Set(dragonBloodedTraitById.keys());
  */
 export const dragonBloodedOnlyTraits = dragonBloodedTraits.filter(
   (definition) => definition.appliesTo.includes('dragon-blooded'),
+);
+
+/**
+ * The subset of this shared catalog that actually applies to Abyssal
+ * characters, mirroring `dragonBloodedOnlyTraits` exactly. Includes both the
+ * broadly-shared entries (e.g. Selective Conception) and the Abyssal-only
+ * entries (e.g. Death-Taint, Throwback) whose `appliesTo` excludes
+ * Dragon-Blooded.
+ */
+export const abyssalOnlyTraits = dragonBloodedTraits.filter((definition) =>
+  definition.appliesTo.includes('abyssal'),
 );
 export const excludedDragonBloodedTraitNames = new Set(
   dragonBloodedTraitCatalog.excludedForDragonBlooded.map(({ name }) => name),
@@ -301,6 +310,33 @@ export function isLegalSharedTraitCost(
     if (cap !== undefined && chosenCost > cap) return false;
   }
   return true;
+}
+
+/**
+ * Splat-agnostic cost-*policy* wrapper for the shared catalog (as opposed to
+ * `isLegalSharedTraitCost`'s legality check), for UI consumers whose cost
+ * dropdown/formula input is driven by a `TraitCostPolicy` rather than a
+ * pass/fail check. Dragon-Blooded gets the exact same policy as
+ * `getDragonBloodedTraitCostPolicy` (byte-for-byte unchanged); Abyssal
+ * additionally narrows any `options`-kind policy down to the costs
+ * `abyssalCostCapOverrides` actually allows, so the UI's own dropdown (not
+ * just schema validation) only ever offers legal Abyssal choices — e.g.
+ * Destiny narrows from `[1, 2, 3, 4, 5]` to `[1, 2]`. `formula`/`open`
+ * policies pass through unchanged; no current `abyssalCostCapOverrides`
+ * entry applies to either kind, so there is nothing to narrow there yet.
+ */
+export function getSharedTraitCostPolicy(
+  definition: DragonBloodedTraitDefinition,
+  sheetType: 'dragon-blooded' | 'abyssal',
+): TraitCostPolicy {
+  const policy = getDragonBloodedTraitCostPolicy(definition);
+  if (sheetType !== 'abyssal' || policy.kind !== 'options') return policy;
+  const legalOptions = policy.options.filter((option) =>
+    isLegalSharedTraitCost(definition, option, sheetType),
+  );
+  return legalOptions.length
+    ? { kind: 'options', options: legalOptions }
+    : policy;
 }
 
 const repeatLimits: Record<string, number | undefined> = {
