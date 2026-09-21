@@ -42,6 +42,7 @@ import {
   appendRoll,
   createLegendEntry,
   legendTotals,
+  previewDisciplineTalentReconciliation,
   questorTier,
   reconcileDisciplineTalents,
   skillRankCost,
@@ -79,6 +80,10 @@ export function Earthdawn4eEditor({
     [catalogSearch, setCatalogSearch] = useState(''),
     [legendAmount, setLegendAmount] = useState(0),
     [legendDescription, setLegendDescription] = useState(''),
+    [pendingDisciplineChange, setPendingDisciplineChange] = useState<{
+      recordId: string;
+      circle: number;
+    } | null>(null),
     [catalogKind, setCatalogKind] = useState<
       EarthdawnCatalogKind | 'all' | null
     >(null);
@@ -662,30 +667,17 @@ export function Earthdawn4eEditor({
                         max="15"
                         readOnly={playMode}
                         value={d.circle}
-                        onChange={(e) =>
-                          update((current) => {
-                            const circle = Math.min(
-                              15,
-                              Math.max(1, integer(e.target.value)),
-                            );
-                            const definition = earthdawnDisciplines.find(
-                              (entry) => entry.id === d.disciplineId,
-                            );
-                            return {
-                              ...current,
-                              disciplines: current.disciplines.map((item) =>
-                                item.id === d.id ? { ...item, circle } : item,
-                              ),
-                              talents: definition
-                                ? reconcileDisciplineTalents(
-                                    current.talents,
-                                    definition,
-                                    circle,
-                                  )
-                                : current.talents,
-                            };
-                          })
-                        }
+                        onChange={(e) => {
+                          const circle = Math.min(
+                            15,
+                            Math.max(1, integer(e.target.value)),
+                          );
+                          if (circle !== d.circle)
+                            setPendingDisciplineChange({
+                              recordId: d.id,
+                              circle,
+                            });
+                        }}
                       />
                       <small>
                         {d.source} {d.page && `p. ${d.page}`}
@@ -705,6 +697,71 @@ export function Earthdawn4eEditor({
                       >
                         Remove
                       </button>
+                      {pendingDisciplineChange?.recordId === d.id &&
+                        (() => {
+                          const definition = earthdawnDisciplines.find(
+                            (entry) => entry.id === d.disciplineId,
+                          );
+                          const preview = definition
+                            ? previewDisciplineTalentReconciliation(
+                                draft.talents,
+                                definition,
+                                pendingDisciplineChange.circle,
+                              )
+                            : null;
+                          return (
+                            <div className="sheet-notice earthdawn-reconciliation">
+                              <strong>
+                                Review Circle {d.circle} →{' '}
+                                {pendingDisciplineChange.circle}
+                              </strong>
+                              <p>
+                                {preview?.added.length ?? 0} required talent(s)
+                                will be added; {preview?.removed.length ?? 0}{' '}
+                                untouched rank-0 creation talent(s) will be
+                                removed. Advanced, customized, and shared
+                                talents remain.
+                              </p>
+                              <SheetToolbar>
+                                <button
+                                  type="button"
+                                  className="primary-button"
+                                  onClick={() => {
+                                    update((current) => ({
+                                      ...current,
+                                      disciplines: current.disciplines.map(
+                                        (item) =>
+                                          item.id === d.id
+                                            ? {
+                                                ...item,
+                                                circle:
+                                                  pendingDisciplineChange.circle,
+                                              }
+                                            : item,
+                                      ),
+                                      talents:
+                                        definition && preview
+                                          ? preview.next
+                                          : current.talents,
+                                    }));
+                                    setPendingDisciplineChange(null);
+                                  }}
+                                >
+                                  Confirm change
+                                </button>
+                                <button
+                                  type="button"
+                                  className="secondary-button"
+                                  onClick={() =>
+                                    setPendingDisciplineChange(null)
+                                  }
+                                >
+                                  Cancel
+                                </button>
+                              </SheetToolbar>
+                            </div>
+                          );
+                        })()}
                     </div>
                   ))}
                   <SheetCard density="compact">

@@ -69,6 +69,14 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
     page.getByRole('dialog', { name: 'Earthdawn catalog' }),
   ).toBeVisible();
   await page.getByRole('button', { name: 'Close' }).click();
+  await page.getByLabel('Add a Discipline').selectOption({ label: 'Warrior' });
+  await page.getByLabel('Warrior Circle').fill('2');
+  await expect(page.getByText('Review Circle 1 → 2')).toBeVisible();
+  await expect(
+    page.getByText(/required talent\(s\) will be added/),
+  ).toBeVisible();
+  await page.getByRole('button', { name: 'Cancel' }).click();
+  await expect(page.getByLabel('Warrior Circle')).toHaveValue('1');
   const overflow = await page.evaluate(
     () => document.documentElement.scrollWidth > window.innerWidth,
   );

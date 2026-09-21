@@ -21,9 +21,20 @@ import { importStepsCharacter } from '../../src/games/earthdawn4e/steps-import';
 import { auditEarthdawnSourceInventory } from '../../src/games/earthdawn4e/source-inventory';
 import {
   appendRoll,
+  attributeIncreaseCost,
+  attributeTraining,
   createLegendEntry,
+  disciplineCircleTraining,
+  grantedDevotionCost,
   legendTotals,
+  missingCircleTalentRanks,
+  newDisciplineTalentCost,
+  previewDisciplineTalentReconciliation,
+  questorRankCost,
   reconcileDisciplineTalents,
+  refundableLedgerEntry,
+  spellLearningCost,
+  threadRankCost,
 } from '../../src/games/earthdawn4e/rules';
 
 describe('Earthdawn Fourth Edition module', () => {
@@ -90,6 +101,43 @@ describe('Earthdawn Fourth Edition module', () => {
     ];
     const lowered = reconcileDisciplineTalents(advanced, discipline, 1);
     expect(lowered.some(({ id }) => id === advanced[0]!.id)).toBe(true);
+    const preview = previewDisciplineTalentReconciliation(
+      throughThree,
+      discipline,
+      1,
+    );
+    expect(preview.removed.length).toBeGreaterThan(0);
+    expect(preview.added).toHaveLength(0);
+  });
+  it('quotes verified advancement costs and prerequisites', () => {
+    expect(attributeIncreaseCost(1)).toBe(800);
+    expect(attributeIncreaseCost(3)).toBe(2100);
+    expect(attributeIncreaseCost(4)).toBeNull();
+    expect(attributeTraining(7)).toEqual({
+      days: 7,
+      silverCost: 490,
+      waitWeeks: 8,
+    });
+    expect(disciplineCircleTraining(2)).toEqual({
+      hours: 40,
+      periodWeeks: 3,
+      silverCost: 200,
+    });
+    expect(spellLearningCost(3)).toBe(300);
+    expect(threadRankCost(3)).toBe(300);
+    expect(threadRankCost(3, true)).toBe(800);
+    expect(newDisciplineTalentCost(3, 2)).toBe(500);
+    expect(newDisciplineTalentCost(3, 3)).toBe(800);
+    expect(newDisciplineTalentCost(3, 4)).toBe(1300);
+    expect(questorRankCost(2)).toBe(300);
+    expect(grantedDevotionCost(2, 4)).toBe(200);
+    expect(grantedDevotionCost(2, 5)).toBe(300);
+
+    const character = createBlankEarthdawn4eCharacter();
+    const discipline = earthdawnDisciplines[0]!;
+    expect(missingCircleTalentRanks(character, discipline, 2).length).toBe(
+      discipline.circles[0]!.requiredTalents.length,
+    );
   });
   it('derives Legend totals from immutable signed transactions', () => {
     const award = createLegendEntry({
@@ -111,6 +159,17 @@ describe('Earthdawn Fourth Edition module', () => {
       current: 700,
       total: 1000,
     });
+    expect(refundableLedgerEntry([award, purchase], purchase.id)).toBe(true);
+    const dependent = createLegendEntry({
+      type: 'talent',
+      amount: -500,
+      targetId: 'talent',
+      targetName: 'Avoid Blow',
+      description: 'Another rank increase',
+    });
+    expect(
+      refundableLedgerEntry([award, purchase, dependent], purchase.id),
+    ).toBe(false);
   });
   it('supports tracking and non-tracking dice history with FIFO limits', () => {
     const character = createBlankEarthdawn4eCharacter();

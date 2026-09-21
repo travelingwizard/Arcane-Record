@@ -12,7 +12,9 @@ The runtime inventory is generated in `src/games/earthdawn4e/source-inventory.ts
 - Twelve Passions with Mad Passions hidden by default and approval-gated.
 - Verified First Circle starter spells for Elementalist, Illusionist, Nethermancer, and Wizard.
 - A reviewed starting subset of general skills, equipment, weapons, thread records, and supplemental paths.
-- Character calculations, the Step/Dice table, creation attribute budget, Legend Point ledger, and verified talent/skill rank prices.
+- Character calculations, the Step/Dice table, creation attribute budget, and Legend Point ledger.
+- Verified advancement quotations for talent and skill ranks, Attribute increases, Discipline Circle training, spell learning, normal and Group True Pattern threads, additional-Discipline talents, Questor ranks, and granted devotions. Training, silver, and tier-transition requirements remain visible inputs for reviewed confirmation rather than silently inferred story outcomes.
+- Discipline Circle edits use a reconciliation review. Only untouched rank-0 creation records are eligible for removal; advanced, customized, and shared talents are preserved.
 
 ## Deliberate boundaries
 
@@ -26,7 +28,7 @@ Second Step is used only to compare observable workflows and maintain the existi
 ## Future Expansion Roadmap
 
 1. **Higher-Circle Spells (Circles 2–8)**:
-   - Systematically expand spell catalogs for Elementalist, Illusionist, Nethermancer, and Wizard across Circles 2 through 8 from the *Player's Guide*.
+   - Systematically expand spell catalogs for Elementalist, Illusionist, Nethermancer, and Wizard across Circles 2 through 8 from the _Player's Guide_.
    - Each entry requires verified thread weaving, casting difficulty, range, duration, effect mechanics, and inventory row in `src/games/earthdawn4e/source-inventory.ts`.
 
 2. **Talent Options & Knacks Expansion**:
@@ -37,5 +39,4 @@ Second Step is used only to compare observable workflows and maintain the existi
    - Add guided starting allocation profiles for non-Adept Questors and specialized Paths (e.g., Outcast Silver, Wind Dancer) with approval gates.
 
 4. **Elven & Companion Sources**:
-   - Enable High-Circle spells (Circles 9–15) from the *Companion* as an explicitly source-gated supplement.
-
+   - Enable High-Circle spells (Circles 9–15) from the _Companion_ as an explicitly source-gated supplement.
