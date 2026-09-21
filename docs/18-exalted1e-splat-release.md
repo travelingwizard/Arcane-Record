@@ -193,7 +193,7 @@ real, creatable sheet.
 | Family     | Source manifest                                                                                                                                                         | Inventory rows | Promoted | Certification                    |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | -------- | -------------------------------- |
 | Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)    | 598            | 0        | Locked, all dimensions `not-run` |
-| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 0        | Locked, all dimensions `not-run` |
+| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 86       | Locked, all dimensions `not-run` |
 | Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 0        | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 365            | 0        | Locked, all dimensions `not-run` |
@@ -780,8 +780,23 @@ the three splats with standard sorcery access — transcribed once into
 Lunar as the master copy, then copied into all five families in the same
 pass; the rest of that book's NPC/monster content was confirmed GM-only
 and out of scope for all five). No further cross-splat supplements remain
-identified for triage, and no family has anything promoted to a production
-catalog yet.
+identified for triage.
+
+With full-parity inventory and supplement triage complete for all five
+families, work has begun on the schema/code phase, family by family
+(simplest core mechanic first). Abyssal Phase 1a is complete: its 16
+Backgrounds and 80 Exalted Players Guide Merits/Flaws rows (86 catalog
+entries total, since Eternal Vow needed separate merit/flaw variants) are
+now real, Zod-validated production catalog entries — the Backgrounds in
+`definitions.ts`, the Merits/Flaws folded additively into the existing
+shared `dragonblooded-merits-flaws` catalog via each entry's `appliesTo`
+field, plus 6 new Abyssal-only entries for rows with no Dragon-Blooded
+equivalent. `'abyssal'` is now a legal *stored* `sheetType` for schema and
+test purposes, but it is still absent from `definition.tsx`'s selectable
+`variants`, so the family remains fully locked in the app. Remaining
+Abyssal work (Charms/necromancy-spell catalog, Artifacts/Hearthstones/
+Warstriders/nemissary catalogs, guided-creation UI, advancement/XP wiring)
+is tracked as Phases 1b-1e before Abyssal's certification record can flip.
 
 ## Next steps (require source material per book)
 
