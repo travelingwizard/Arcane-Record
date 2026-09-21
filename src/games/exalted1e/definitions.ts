@@ -1,7 +1,20 @@
 export const EXALTED1E_SYSTEM_ID = 'exalted1e' as const;
 export const EXALTED1E_SCHEMA_VERSION = 7 as const;
 
-export const exaltedSheetTypes = ['solar', 'dragon-blooded'] as const;
+/**
+ * Legal `sheetType` values for a STORED character. `'abyssal'` is included
+ * here so the schema can validate a blank Abyssal character (see
+ * `createBlankExaltedCharacter`/tests), even though Abyssal has no
+ * creator/editor UI yet -- `definition.tsx`'s `variants` array (the thing
+ * that actually exposes a sheet type to end users) intentionally does not
+ * list `'abyssal'`. See `plannedExaltedFamilies` below for the family-level
+ * release gate that keeps it locked in the UI.
+ */
+export const exaltedSheetTypes = [
+  'solar',
+  'dragon-blooded',
+  'abyssal',
+] as const;
 export type ExaltedSheetType = (typeof exaltedSheetTypes)[number];
 
 /**
@@ -309,9 +322,39 @@ export const dragonBloodedBackgrounds = [
   { id: 'resources', label: 'Resources' },
 ] as const;
 
+/**
+ * Backgrounds available to Abyssal characters: the shared, splat-neutral
+ * Backgrounds every Exalt can take (the same set as `solarBackgrounds`,
+ * since none of Dragon-Blooded's extra ids -- Breeding, Connections,
+ * Family, Henchmen -- are elemental-specific rather than Abyssal-specific),
+ * plus the six Backgrounds Exalted: The Abyssals adds for deathknights.
+ * Five further Backgrounds (Artifact, Backing/Mentor, Familiar, Followers,
+ * Manse) work differently in play for Abyssals per the source text, but
+ * reuse these same shared ids rather than needing new schema rows.
+ */
+export const abyssalBackgrounds = [
+  { id: 'allies', label: 'Allies' },
+  { id: 'artifact', label: 'Artifact' },
+  { id: 'backing', label: 'Backing' },
+  { id: 'contacts', label: 'Contacts' },
+  { id: 'familiar', label: 'Familiar' },
+  { id: 'followers', label: 'Followers' },
+  { id: 'influence', label: 'Influence' },
+  { id: 'manse', label: 'Manse' },
+  { id: 'mentor', label: 'Mentor' },
+  { id: 'resources', label: 'Resources' },
+  { id: 'abyssal-command', label: 'Abyssal Command' },
+  { id: 'liege', label: 'Liege' },
+  { id: 'necromancy', label: 'Necromancy' },
+  { id: 'spies', label: 'Spies' },
+  { id: 'underworld-manse', label: 'Underworld Manse' },
+  { id: 'whispers', label: 'Whispers' },
+] as const;
+
 export type ExaltedBackgroundId =
   | (typeof solarBackgrounds)[number]['id']
-  | (typeof dragonBloodedBackgrounds)[number]['id'];
+  | (typeof dragonBloodedBackgrounds)[number]['id']
+  | (typeof abyssalBackgrounds)[number]['id'];
 
 export const abilityById = new Map(
   exaltedAbilities.map((ability) => [ability.id, ability]),

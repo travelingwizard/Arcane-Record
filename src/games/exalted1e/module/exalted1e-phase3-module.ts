@@ -36,6 +36,15 @@ import {
   exalted1eDefinitionRefs,
 } from './id-map';
 
+/**
+ * This module-envelope system predates (and does not yet cover) Abyssal;
+ * `module-envelope.ts`'s own schema restricts `sheetType` to
+ * `'solar' | 'dragon-blooded'`. Using a narrower local alias here (rather
+ * than the 3-way `ExaltedSheetType`) keeps that restriction accurate
+ * without changing the unrelated module-envelope schema.
+ */
+type ModuleSheetType = Extract<ExaltedSheetType, 'solar' | 'dragon-blooded'>;
+
 const path = (...segments: string[]) => ({
   root: 'character' as const,
   segments,
@@ -61,7 +70,7 @@ function component(
     ModuleComponentDefinition,
     { type: 'exalted1e-section' }
   >['kind'],
-  sheetType: ExaltedSheetType,
+  sheetType: ModuleSheetType,
   catalogId?: string,
   modes: Record<string, 'edit' | 'view' | 'hidden'> = {
     build: 'edit',
@@ -83,7 +92,7 @@ function component(
   };
 }
 
-const identity = (sheetType: ExaltedSheetType): ModuleComponentDefinition => ({
+const identity = (sheetType: ModuleSheetType): ModuleComponentDefinition => ({
   id: `${sheetType}-identity`,
   label: 'Identity',
   type: 'field-grid',
@@ -155,7 +164,7 @@ const virtueComponents: ModuleComponentDefinition[] = exaltedVirtues.map(
   }),
 );
 
-function normalizeDefaults(sheetType: ExaltedSheetType) {
+function normalizeDefaults(sheetType: ModuleSheetType) {
   const blank = createBlankExaltedCharacter(sheetType);
   return {
     ...blank,
@@ -204,7 +213,7 @@ const sectionGroups: Record<(typeof sharedSections)[number][0], string> = {
   notes: 'advancement',
 };
 
-function componentIds(sheetType: ExaltedSheetType) {
+function componentIds(sheetType: ModuleSheetType) {
   return [
     `${sheetType}-identity`,
     'shared-attributes',
@@ -227,7 +236,7 @@ function componentIds(sheetType: ExaltedSheetType) {
   ];
 }
 
-function sections(sheetType: ExaltedSheetType) {
+function sections(sheetType: ModuleSheetType) {
   const noteIds = [
     `${sheetType}-notes-anima`,
     `${sheetType}-notes-weapons`,
@@ -285,7 +294,7 @@ function sections(sheetType: ExaltedSheetType) {
   }));
 }
 
-function sheetTemplate(sheetType: ExaltedSheetType) {
+function sheetTemplate(sheetType: ModuleSheetType) {
   const isSolar = sheetType === 'solar';
   return {
     id: isSolar ? EXALTED1E_SOLAR_SHEET_ID : EXALTED1E_DRAGON_BLOODED_SHEET_ID,
@@ -660,13 +669,18 @@ export const exalted1ePhase3Module: ArcaneModuleEnvelope = {
           category: 'system',
           data: { catalogKind: 'system-marker' },
         },
-        ...dragonBloodedTraits.map((entry) => ({
-          id: entry.id,
-          name: entry.name,
-          category: entry.kind,
-          summary: entry.summary,
-          data: clean({ ...entry, catalogKind: 'trait' }),
-        })),
+        // `dragonBloodedTraits` is now a shared catalog (Dragon-Blooded and
+        // Abyssal both draw from it), so this Dragon-Blooded-only module
+        // must filter to entries that actually apply to Dragon-Blooded.
+        ...dragonBloodedTraits
+          .filter((entry) => entry.appliesTo.includes('dragon-blooded'))
+          .map((entry) => ({
+            id: entry.id,
+            name: entry.name,
+            category: entry.kind,
+            summary: entry.summary,
+            data: clean({ ...entry, catalogKind: 'trait' }),
+          })),
       ]),
     },
     {

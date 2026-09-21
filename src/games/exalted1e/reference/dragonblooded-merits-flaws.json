@@ -2,13 +2,13 @@
   "format": "arcane-record-reference-catalog",
   "formatVersion": 1,
   "gameSystemId": "exalted1e",
-  "characterType": "dragon-blooded",
+  "characterType": "shared",
   "catalogType": "merits-and-flaws",
   "sourcePolicy": "Paraphrased from the uploaded Exalted Player's Guide, Chapter One: Merits and Flaws. Species-restricted entries incompatible with Dragon-Blooded are excluded from selectable entries and documented separately.",
   "counts": {
-    "total": 80,
-    "merits": 40,
-    "flaws": 40
+    "total": 86,
+    "merits": 42,
+    "flaws": 44
   },
   "entries": [
     {
@@ -27,8 +27,13 @@
         "page": 18
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "Abyssal-specific: deathknights retain fertility, and siring or bearing a child with a living lover is a listed Litany of Sins trigger worth 4 Resonance (see the Abyssal Resonance rules), so this Merit lets a deathknight choose exactly when to risk that particular taint."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -47,7 +52,10 @@
         "page": 18
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -67,7 +75,10 @@
         "page": 18
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -87,7 +98,10 @@
         "page": 19
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -107,8 +121,13 @@
         "page": 19
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "High Abyssal relevance: the source text names 'deathknights with corpse-like flesh' as one of the two groups (with ghosts) for whom this Merit is particularly common."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -127,7 +146,10 @@
         "page": 19
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -147,7 +169,10 @@
         "page": 19
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -167,7 +192,10 @@
         "page": 19
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -187,7 +215,10 @@
         "page": 20
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -207,8 +238,13 @@
         "page": 20
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "Abyssal-specific: the source's Lunar-Tell flavor example and its cross-reference to Exalted: The Lunars do not apply; the underlying Wyld-mutation framework (core Exalted pp. 280-281) is otherwise splat-neutral and applies to a deathknight unchanged."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -227,7 +263,10 @@
         "page": 20
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -247,7 +286,10 @@
         "page": 20
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -267,7 +309,10 @@
         "page": 20
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -280,14 +325,18 @@
       "summary": "Exceptional aptitude in an Ability, either by making it Favored or improving an already favored/aspect Ability.",
       "mechanics": "For Dragon-Blooded, making an additional Ability Favored normally costs 3 points. Spending 2 points on an Ability already Favored or treated as an Aspect Ability improves aptitude: add 1 die to rolls with that Ability and reduce its experience cost to (current rating × 2) - 2. The benefits can be combined for 5 points where legal.",
       "eligibility": "Dragon-Blooded",
-      "requirements": ["Normal Favored Ability allocation limits still apply."],
+      "requirements": [
+        "Normal Favored Ability allocation limits still apply."
+      ],
       "aliases": [],
       "source": {
         "book": "Exalted Player's Guide",
         "page": 20
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -307,7 +356,10 @@
         "page": 21
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -327,7 +379,10 @@
         "page": 21
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -347,7 +402,10 @@
         "page": 21
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -367,8 +425,13 @@
         "page": 21
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "Abyssal-specific: taking a willing lover from among the living is itself a listed Litany of Sins trigger (1 Resonance per night of intimacy), so True Love for a living partner means a deathknight is knowingly accepting ongoing Resonance risk for the relationship."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -380,14 +443,19 @@
       "summary": "Exceptional moral conviction permits a Virtue to exceed normal limits.",
       "mechanics": "The character may raise Virtues to 6; if another rule already permits ratings above 5, increase that maximum by 1 instead. The character may use the highest Virtue instead of Conviction for morning Willpower recovery. Permanent Willpower still cannot exceed 10.",
       "eligibility": "Dragon-Blooded",
-      "requirements": ["Paragon Nature required."],
+      "requirements": [
+        "Paragon Nature required."
+      ],
       "aliases": [],
       "source": {
         "book": "Exalted Player's Guide",
         "page": 21
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -407,7 +475,10 @@
         "page": 21
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -427,7 +498,10 @@
         "page": 22
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -447,7 +521,10 @@
         "page": 22
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -460,14 +537,19 @@
       "summary": "The character is unusually difficult to notice, remember or investigate.",
       "mechanics": "At 2 points, add 1 die to relevant Larceny/Stealth rolls and increase the difficulty of casual pursuit or investigation by 1; Appearance 2 is required. At 4 points, the effect becomes supernatural: double those bonuses and require observers to overcome an Essence-based memory check to retain more than superficial details. The stronger version restricts fame-dependent Backgrounds and does not stack with stronger concealment magic.",
       "eligibility": "Dragon-Blooded",
-      "requirements": ["2-point version requires Appearance 2."],
+      "requirements": [
+        "2-point version requires Appearance 2."
+      ],
       "aliases": [],
       "source": {
         "book": "Exalted Player's Guide",
         "page": 22
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -487,8 +569,13 @@
         "page": 23
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "Abyssal-specific: the higher-value Celestial-favor tiers describe Yu-Shan's courts, but a deathknight could equally hold an equivalent-value favor from a Deathlord, a ghost court, or a Malfean-adjacent spirit within the Underworld's own hierarchy."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -507,7 +594,10 @@
         "page": 23
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -529,8 +619,13 @@
         "page": 23
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "Abyssal-specific: Abyssals have two Manse-equivalent Backgrounds instead of one (the altered Manse Background for the living world, and the new Underworld Manse Background for the Underworld); either can host a Hidden Manse."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -549,7 +644,10 @@
         "page": 24
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -569,7 +667,10 @@
         "page": 24
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -582,14 +683,19 @@
       "summary": "The character has secure access to wealth away from home.",
       "mechanics": "Each point normally establishes access to full Resources/Salary in another city. At 5 points, the character is assumed to have broad access throughout one selected direction of Creation or the Blessed Isle in settlements of town size or larger; further points may extend coverage.",
       "eligibility": "Dragon-Blooded",
-      "requirements": ["Requires Resources 4+ or Salary 2+."],
+      "requirements": [
+        "Requires Resources 4+ or Salary 2+."
+      ],
       "aliases": [],
       "source": {
         "book": "Exalted Player's Guide",
         "page": 24
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -602,14 +708,19 @@
       "summary": "Use a non-astrological ritual to read fate.",
       "mechanics": "Each purchase grants one effective divinatory method such as omens, entrails, tea leaves or trance. Use the normal divination framework; quicker/simple methods may be harder while elaborate rituals can earn stunt bonuses. The character may not purchase more methods than their Occult rating.",
       "eligibility": "Dragon-Blooded",
-      "requirements": ["Number of purchases cannot exceed Occult rating."],
+      "requirements": [
+        "Number of purchases cannot exceed Occult rating."
+      ],
       "aliases": [],
       "source": {
         "book": "Exalted Player's Guide",
         "page": 24
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -629,8 +740,13 @@
         "page": 25
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "Abyssal-specific: Midnight Caste is named among the castes who are innate priests of their patron, granting the same free 1-point version and a discounted 6-point high-priest upgrade (vs. the normal 7); this catalog does not yet model that caste-conditional discount, so a Midnight Caste Abyssal should currently pay the standard cost until it is added."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -649,8 +765,13 @@
         "page": 25
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "Abyssal-specific cost cap: the source's 'Destiny and Exaltation' sidebar names Abyssal Exaltation explicitly and caps post-Exaltation Destiny at 1-2 points for Abyssals, unlike the normal 1-5 range."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -669,7 +790,10 @@
         "page": 27
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -682,14 +806,18 @@
       "summary": "Rare memories from a previous incarnation of the character's higher soul.",
       "mechanics": "Dragon-Blooded may take up to 2 points only under extraordinary circumstances. These memories normally concern the immediately previous mortal incarnation rather than First Age Exalted lives and therefore do not grant the normal First Age technology bonuses of the Celestial version.",
       "eligibility": "Dragon-Blooded only by exceptional Storyteller approval; maximum 2 points.",
-      "requirements": ["Extraordinary circumstances and Storyteller approval."],
+      "requirements": [
+        "Extraordinary circumstances and Storyteller approval."
+      ],
       "aliases": [],
       "source": {
         "book": "Exalted Player's Guide",
         "page": 27
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -709,7 +837,10 @@
         "page": 28
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -731,7 +862,10 @@
         "page": 28
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -744,14 +878,18 @@
       "summary": "Dragon-Blooded breeding reaches an extraordinary sixth-dot level.",
       "mechanics": "Breeding becomes 6. The character gains +6 Personal Essence and +11 Peripheral Essence from breeding, reduces the cost to activate the anima banner by 3 motes, and adds 3 to rolls determining whether children Exalt. The obvious signs of breeding add 1 die to most Social rolls with Dragon-Blooded and mortals who respect or fear Dragon-Blooded majesty, but add +2 difficulty to disguise attempts.",
       "eligibility": "Dragon-Blooded only.",
-      "requirements": ["Breeding 5 required before purchasing this Merit."],
+      "requirements": [
+        "Breeding 5 required before purchasing this Merit."
+      ],
       "aliases": [],
       "source": {
         "book": "Exalted Player's Guide",
         "page": 28
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -771,8 +909,13 @@
         "page": 29
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "Abyssal-specific: a deathknight's visions may also be flavored as an echo of the Malfeans' own dread foresight bleeding up through Resonance-tainted Essence, alongside the ordinary divine-gift framing; thematically adjacent to (but mechanically distinct from) the Whispers Background."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -791,7 +934,10 @@
         "page": 30
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -804,14 +950,21 @@
       "summary": "An extreme affinity for sorcery trades Charm development for cheaper, faster spell mastery.",
       "mechanics": "Double the bonus-point/experience costs and training times of Charms, while halving the corresponding costs and training times for spells. Ox-Body Technique and Charms that directly lead to or include Terrestrial Circle Sorcery as an ultimate prerequisite are exempt from the Charm penalty.",
       "eligibility": "Dragon-Blooded capable of learning sorcery.",
-      "requirements": ["Must be capable of learning sorcery."],
-      "aliases": ["Legacy of Hesiesh"],
+      "requirements": [
+        "Must be capable of learning sorcery."
+      ],
+      "aliases": [
+        "Legacy of Hesiesh"
+      ],
       "source": {
         "book": "Exalted Player's Guide",
         "page": 30
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [
         "Among Dragon-Blooded sorcerers, this Merit is called Legacy of Hesiesh."
       ],
@@ -833,8 +986,13 @@
         "page": 20
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "Abyssal-specific: the source's Lunar-Tell flavor example and its cross-reference to Exalted: The Lunars do not apply; the underlying Wyld-mutation framework (core Exalted pp. 280-281) is otherwise splat-neutral and applies to a deathknight unchanged."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -853,7 +1011,10 @@
         "page": 30
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -873,7 +1034,10 @@
         "page": 30
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -893,8 +1057,13 @@
         "page": 30
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "Abyssal-specific: since deathknights can still conceive with living lovers at a steep Resonance cost, Sterile forecloses a specific documented Resonance risk for an Abyssal rather than being pure flavor."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -913,7 +1082,10 @@
         "page": 30
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -933,8 +1105,13 @@
         "page": 31
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "High Abyssal relevance: the source text names 'ghosts and Abyssals' as the two groups who typically manifest this Flaw at its most extreme, 6-point tier."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -953,7 +1130,10 @@
         "page": 31
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -973,7 +1153,10 @@
         "page": 31
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -993,8 +1176,13 @@
         "page": 31
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "Abyssal-specific reading: since deathknights are already dead, Dying is best read for an Abyssal as a curse-driven progression toward the character's own final unmaking rather than literal terminal illness; a Storyteller-narration judgment call, since the source does not address undead PCs directly."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -1013,7 +1201,10 @@
         "page": 32
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1033,8 +1224,13 @@
         "page": 32
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "Abyssal-specific: the source explicitly allows Abyssal Exalted to take this Flaw (with Storyteller approval) to represent a rotted or death-twisted visage, and cross-references Exalted: The Abyssals for an alternate, no-bonus-point version a Storyteller may substitute instead."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -1053,7 +1249,10 @@
         "page": 33
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1073,7 +1272,10 @@
         "page": 33
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1093,7 +1295,10 @@
         "page": 33
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1113,7 +1318,10 @@
         "page": 33
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1133,7 +1341,10 @@
         "page": 33
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1153,8 +1364,13 @@
         "page": 34
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "Abyssal-specific: the source's special 1-point clause for Celestial Exalted with no memory of past incarnations is scoped to Solar/Lunar/Sidereal and does not extend to Abyssal; the base 1/2/5-point Amnesia Flaw transfers normally."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -1173,7 +1389,10 @@
         "page": 34
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1193,8 +1412,13 @@
         "page": 34
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "Abyssal-specific: the source's restriction against altering or ameliorating the Great Curse is read for Abyssals as applying to Resonance and the Abyssal Curse instead, since that is this splat's own Great-Curse analog."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -1213,8 +1437,13 @@
         "page": 35
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "Abyssal-specific: the source's cross-reference to Exalted: The Lunars for Wyld-addiction rules does not apply to Abyssal; the generic 1-point discount for Exalted constitutions still applies."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -1233,7 +1462,10 @@
         "page": 35
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1253,7 +1485,10 @@
         "page": 35
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1273,7 +1508,10 @@
         "page": 36
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1293,7 +1531,10 @@
         "page": 36
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1313,7 +1554,10 @@
         "page": 36
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1333,7 +1577,10 @@
         "page": 36
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1353,7 +1600,10 @@
         "page": 36
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1373,8 +1623,13 @@
         "page": 36
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "Abyssal-specific: a Deathlord assigning a deathknight a disciple (via the Liege Background) is this splat's natural hook for this Flaw, mirroring the Sidereal/Immaculate hierarchy the source calls out as this Flaw's most common home."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -1393,7 +1648,10 @@
         "page": 37
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1413,7 +1671,10 @@
         "page": 37
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1433,8 +1694,13 @@
         "page": 38
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "Abyssal-specific: Resonance already inflicts a similar Social penalty as it rises; the two can stack for a deathknight who is both innately Disturbing and running a high Resonance total."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -1453,7 +1719,10 @@
         "page": 38
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1473,8 +1742,13 @@
         "page": 23
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "Abyssal-specific: the higher-value Celestial-favor tiers describe Yu-Shan's courts, but a deathknight could equally owe an equivalent-value favor to a Deathlord, a ghost court, or a Malfean-adjacent spirit within the Underworld's own hierarchy."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -1486,15 +1760,22 @@
       "summary": "An Artifact owned by the character begins play damaged.",
       "mechanics": "1 point causes modest reduction or inconsistent function; 2 points represents major damage, often halving effectiveness or stripping significant weapon/armor traits; 3 points makes the artifact effectively unusable until repaired. The award cannot exceed the Artifact rating or the Background/bonus-point investment, and the character must have at least one more Artifact dot than the points received from this Flaw.",
       "eligibility": "Dragon-Blooded",
-      "requirements": ["Must own the affected Artifact."],
+      "requirements": [
+        "Must own the affected Artifact."
+      ],
       "aliases": [],
       "source": {
         "book": "Exalted Player's Guide",
         "page": 38
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "Abyssal-specific: the source's own worked example uses an Abyssal character and cross-references Exalted: The Abyssals' altered Artifact Background costs directly; apply this Flaw's cap against the altered dot-tier table, not the core-Exalted per-dot system."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -1513,7 +1794,10 @@
         "page": 38
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1533,7 +1817,10 @@
         "page": 39
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1553,8 +1840,13 @@
         "page": 39
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "High Abyssal relevance: the source names Abyssals as having their own distinct fate-tracking cosmology for this Flaw, unreachable even by the Maidens; only Sidereals are exempted, for an unrelated reason. Commonly paired with the Destiny Merit."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -1573,7 +1865,10 @@
         "page": 40
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1593,7 +1888,10 @@
         "page": 41
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1613,8 +1911,157 @@
         "page": 41
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded"],
-      "notes": [],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal"
+      ],
+      "notes": [
+        "Abyssal-specific: lets a newly-Exalted deathknight start at Essence 1 instead of this splat's normal starting Essence of 2, withholding up to five Charms (no experience cost, full training time still required) until Essence is raised in play."
+      ],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "taints-warning",
+      "name": "Taint's Warning",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "1",
+      "summary": "An Abyssal with this Merit feels her own taint stir in the presence of Solar Exalted, celestial lions, mice of the sun, and other direct agents of the Unconquered Sun -- her Caste Mark emerges and bleeds instead of lighting up.",
+      "mechanics": "Whenever a Solar Exalt, celestial lion, mouse of the sun, or similar agent of the Unconquered Sun approaches within a number of yards equal to the character's permanent Essence, her Caste Mark emerges on her brow and bleeds. This is a warning about her own vulnerability, not a hunter's early-warning system: it reveals only that something is near, not its exact location or identity, and cannot be suppressed. (Solar Exalted purchase a mirror-image version of this Merit, at 2 points, that lets them sense demons, deathknights, Deathlords, and other creatures of darkness instead; see the Solar catalog.)",
+      "eligibility": "Abyssal Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 27
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": [
+        "abyssal"
+      ],
+      "notes": [
+        "Restricted by the source's own header to Solars (2-pt.) and Abyssals (1-pt.) only. The Abyssal version is mechanically inverted from the Solar version: it warns the deathknight about her own taint rather than warning a Solar about nearby darkness."
+      ],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "eternal-vow-merit",
+      "name": "Eternal Vow",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "3",
+      "summary": "A First-Age marriage bond blessed by Luna and the Unconquered Sun, joining Solar and Lunar Exalted (and their reincarnations) across death itself. A renegade deathknight pursuing redemption, especially to be with her Lunar love, may purchase it as this standard 3-point Merit, exactly as a Solar would.",
+      "mechanics": "Characters with this Merit retain an ancient marriage bond to another Exalt across incarnations. They may sense the other's emotions or health across any separation of distance with a successful Perception + Essence roll, and may gauge the partner's approximate direction with a full turn of concentration if both partners are in the same world (Creation, Yu-Shan, or the Underworld). The characters may also reflexively donate motes to one another with a touch, up to their Essence rating each turn. If either party dies, the survivor loses temporary Willpower equal to her Compassion (a full dot of permanent Willpower if she slew her spouse herself). Restricted to Solars, Lunars, and Abyssals only. A renegade deathknight actively pursuing redemption to reunite with her Lunar love may purchase this Trait as a Merit, as a Solar would; a loyal deathknight instead takes the Flaw version (see eternal-vow-flaw).",
+      "eligibility": "Abyssal Exalted (renegade, pursuing redemption)",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 29
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": [
+        "abyssal"
+      ],
+      "notes": [
+        "Restricted by the source's own header to Solars, Lunars, and Abyssals only. Split into a Merit and Flaw variant for Abyssal (see eternal-vow-flaw) because the same source paragraph gives deathknights two distinct, opposite-valence versions depending on whether the character is a loyal deathknight or a redemption-seeking renegade."
+      ],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "eternal-vow-flaw",
+      "name": "Eternal Vow",
+      "kind": "flaw",
+      "category": "supernatural",
+      "cost": "1",
+      "summary": "A First-Age marriage bond survives from a deathknight's previous incarnation as a Solar spouse of a Lunar, now a liability: the surviving Lunar spouse understandably regards her with enmity, typically paired with the Enemy/Rival Flaw.",
+      "mechanics": "As eternal-vow-merit, but the bond's usual benefits (sensing the partner's emotions/health, donating motes) are outweighed by the liability of the surviving Lunar spouse's enmity. Typically paired with an appropriate rating of the Enemy/Rival Flaw. If the deathknight actually slew her former spouse, the loss of Willpower on that spouse's death (a full dot of permanent Willpower) becomes especially relevant to her own story. A loyal deathknight linked to a Lunar takes this Flaw version; a renegade pursuing redemption may instead take the Merit version (see eternal-vow-merit).",
+      "eligibility": "Abyssal Exalted (loyal, linked to a Lunar spouse)",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 29
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": [
+        "abyssal"
+      ],
+      "notes": [
+        "Restricted by the source's own header to Solars, Lunars, and Abyssals only. Split into a Merit and Flaw variant for Abyssal (see eternal-vow-merit) because the same source paragraph gives deathknights two distinct, opposite-valence versions depending on whether the character is a loyal deathknight or a redemption-seeking renegade."
+      ],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "permanent-caste-mark",
+      "name": "Permanent Caste Mark",
+      "kind": "flaw",
+      "category": "supernatural",
+      "cost": "2",
+      "summary": "The character's Caste Mark is always visible on the brow, even without spending Essence. An Abyssal's mark is a fierce brand charred and stained to inky black, widely recognized by the Immaculate Order's teachings as a sign of Anathema alongside the Solar and Lunar marks.",
+      "mechanics": "The Caste Mark does not need Essence expenditure to glow; it is a permanent, visible mark. For an Abyssal, it takes the form of a fierce brand charred and stained to inky black, rather than a colored tattoo. Because of the Immaculate Order's widespread teachings, many people in Creation recognize the Solar, Lunar, and Abyssal Caste Marks as signs of Anathema and respond accordingly; it is relatively easy to veil the mark until it begins to glow.",
+      "eligibility": "Abyssal Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 40
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": [
+        "abyssal"
+      ],
+      "notes": [
+        "The source's own header restricts this Flaw to 'Celestial Exalted only,' but its body text explicitly defines an Abyssal Caste Mark variant and folds Abyssals into the Immaculate Order's Anathema-recognition list alongside Solars and Lunars; included on that basis. Abyssals pay the standard 2-point cost (Solars and Lunars pay the same; only Sidereals pay a reduced 1 point)."
+      ],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "death-taint",
+      "name": "Death-Taint",
+      "kind": "flaw",
+      "category": "supernatural",
+      "cost": "4",
+      "summary": "Some Abyssal Exalted feel the Malfeans' curse more keenly, gaining 4 bonus points but altering the Abyssal Curse's Resonance mechanics: whenever Resonance exceeds 10, it resets to zero and the character gains a point of permanent Resonance instead (capped at Essence).",
+      "mechanics": "This deepened taint provides 4 bonus points and alters the mechanics of the Abyssal Curse. Whenever the character's Resonance pool exceeds a rating of 10, her pool resets to zero and she gains a point of permanent Resonance instead of a normal Resonance Break. Permanent Resonance is cumulative with temporary Resonance for social penalties and Virtue difficulties, and adds its rating to any evoked or unintentional Resonance effects. A character may not have permanent Resonance higher than her Essence; any excess merely evokes a dark miracle equal to the excess, as with most Abyssals. Reducing permanent Resonance by one dot costs 5 experience points and a Harrowing deep in the Labyrinth. Characters who start play with permanent Resonance already gain one additional bonus point per dot from this Flaw.",
+      "eligibility": "Abyssal Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 41
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": [
+        "abyssal"
+      ],
+      "notes": [
+        "Restricted to 'Abyssals and Ghosts only' by the source's own header; this is one of the two entries in this chapter written specifically for this splat. The source also describes a Ghost-specific Whisper of Oblivion/tainted-Passions variant, which is not itself an Abyssal PC option and is not modeled here."
+      ],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "throwback",
+      "name": "Throwback",
+      "kind": "flaw",
+      "category": "supernatural",
+      "cost": "1-5",
+      "summary": "The character harbors impulses and personality fragments from a previous incarnation of her Essence. A loyal deathknight may harbor an echo of Solar glory pulling her toward Resonance, punishment, and elusive redemption (capped at 3 points); a renegade Abyssal gains no points for a heroic Throwback but may still profit from a wicked one at the full 1-5 point range.",
+      "mechanics": "The character's Essence carries a different Nature from a previous incarnation. In a situation where that Nature would feel strongly and desire a particular course of action, roll Willpower against a difficulty equal to the character's Essence rating; on a failure the character acts on the Essence Nature's impulse without regaining Willpower for it, and a botch lets that Nature take over the scene entirely. If the character's Essence rating ever exceeds her permanent Willpower, her Nature changes entirely to the Throwback's dictates. A loyal deathknight may take a Throwback representing an echo of her former Solar glory driving her toward Resonance, punishment, and elusive redemption, but such a Throwback is never worth more than 3 points. A renegade Abyssal actively rebelling against her destiny gains no bonus points for a heroic (redemption-pulling) Throwback, but may take -- and profit normally from -- a wicked or malignant Throwback at the full 1-5 point range like any other Exalted.",
+      "eligibility": "Abyssal Exalted",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 41
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": [
+        "abyssal"
+      ],
+      "notes": [
+        "The source's own header restricts this Flaw to 'Celestial Exalted only,' but its body text explicitly and separately defines two Abyssal variants (a loyal deathknight's redemption-pulling echo of Solar glory, capped at 3 points; a renegade's wicked-personality Throwback at the full 1-5 point range); included on that basis. Point values follow the named 1/3/5 tiers, matching how the Solar catalog models the same trait."
+      ],
       "reviewStatus": "source-checked"
     }
   ],
@@ -1625,22 +2072,6 @@
       "source": {
         "book": "Exalted Player's Guide",
         "page": "24–25"
-      }
-    },
-    {
-      "name": "Taint's Warning",
-      "reason": "Restricted to Solar and Abyssal Exalted.",
-      "source": {
-        "book": "Exalted Player's Guide",
-        "page": 28
-      }
-    },
-    {
-      "name": "Eternal Vow",
-      "reason": "Restricted to Solars, Lunars and Abyssals.",
-      "source": {
-        "book": "Exalted Player's Guide",
-        "page": 29
       }
     },
     {
@@ -1673,30 +2104,6 @@
       "source": {
         "book": "Exalted Player's Guide",
         "page": 40
-      }
-    },
-    {
-      "name": "Permanent Caste Mark",
-      "reason": "Celestial Exalted only.",
-      "source": {
-        "book": "Exalted Player's Guide",
-        "page": 40
-      }
-    },
-    {
-      "name": "Death-Taint",
-      "reason": "Abyssals and ghosts only.",
-      "source": {
-        "book": "Exalted Player's Guide",
-        "page": 41
-      }
-    },
-    {
-      "name": "Throwback",
-      "reason": "Celestial Exalted only.",
-      "source": {
-        "book": "Exalted Player's Guide",
-        "page": 41
       }
     }
   ]

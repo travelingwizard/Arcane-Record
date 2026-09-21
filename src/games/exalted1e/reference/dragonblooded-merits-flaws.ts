@@ -28,15 +28,28 @@ export const exaltedTraitDefinitionSchema = z.object({
   aliases: z.array(z.string()),
   source: sourceSchema,
   edition: z.literal('Exalted First Edition'),
-  appliesTo: z.array(z.enum(['solar', 'dragon-blooded'])).min(1),
+  appliesTo: z
+    .array(z.enum(['solar', 'dragon-blooded', 'abyssal']))
+    .min(1),
   notes: z.array(z.string()),
   reviewStatus: z.enum(['source-checked', 'needs-review']),
 });
 
+/**
+ * Every entry in this shared catalog must apply to at least one of the two
+ * splats that currently draw from it (Dragon-Blooded or Abyssal). A handful
+ * of entries apply only to Abyssal (e.g. Death-Taint), because the source
+ * chapter explicitly restricts them away from Dragon-Blooded.
+ */
 export const dragonBloodedTraitDefinitionSchema =
   exaltedTraitDefinitionSchema.refine(
-    (definition) => definition.appliesTo.includes('dragon-blooded'),
-    { message: 'Dragon-Blooded definitions must apply to Dragon-Blooded.' },
+    (definition) =>
+      definition.appliesTo.includes('dragon-blooded') ||
+      definition.appliesTo.includes('abyssal'),
+    {
+      message:
+        'Shared catalog definitions must apply to Dragon-Blooded or Abyssal.',
+    },
   );
 
 const excludedTraitSchema = z.object({
@@ -45,20 +58,29 @@ const excludedTraitSchema = z.object({
   source: sourceSchema,
 });
 
+/**
+ * This catalog originally covered only Dragon-Blooded (`characterType:
+ * 'dragon-blooded'`), but it is the transcription of the Exalted Player's
+ * Guide's universal Merits & Flaws chapter, which several splats draw from
+ * via the per-entry `appliesTo` field. Abyssal now shares it too, so
+ * `characterType` is `'shared'` to reflect that honestly; the literal is
+ * kept (rather than dropped) so a future accidental revert to a
+ * single-splat-only file would fail loudly.
+ */
 const catalogSchema = z
   .object({
     format: z.literal('arcane-record-reference-catalog'),
     formatVersion: z.literal(1),
     gameSystemId: z.literal('exalted1e'),
-    characterType: z.literal('dragon-blooded'),
+    characterType: z.literal('shared'),
     catalogType: z.literal('merits-and-flaws'),
     counts: z.object({
-      total: z.literal(80),
-      merits: z.literal(40),
-      flaws: z.literal(40),
+      total: z.literal(86),
+      merits: z.literal(42),
+      flaws: z.literal(44),
     }),
     sourcePolicy: z.string().min(1),
-    entries: z.array(dragonBloodedTraitDefinitionSchema).length(80),
+    entries: z.array(dragonBloodedTraitDefinitionSchema).length(86),
     excludedForDragonBlooded: z.array(excludedTraitSchema),
   })
   .superRefine((catalog, context) => {
@@ -108,9 +130,29 @@ export const dragonBloodedTraitById = new Map(
   dragonBloodedTraits.map((definition) => [definition.id, definition]),
 );
 export const dragonBloodedTraitIds = new Set(dragonBloodedTraitById.keys());
+
+/**
+ * The subset of this shared catalog that actually applies to Dragon-Blooded
+ * characters. Use this (rather than `dragonBloodedTraits`) anywhere that
+ * should only ever show/accept Dragon-Blooded options, since the catalog
+ * now also contains Abyssal-only entries (e.g. Death-Taint).
+ */
+export const dragonBloodedOnlyTraits = dragonBloodedTraits.filter(
+  (definition) => definition.appliesTo.includes('dragon-blooded'),
+);
 export const excludedDragonBloodedTraitNames = new Set(
   dragonBloodedTraitCatalog.excludedForDragonBlooded.map(({ name }) => name),
 );
+
+/**
+ * Splat-agnostic aliases for this shared catalog, for consumers (like
+ * Abyssal's schema validation) that should not imply Dragon-Blooded in
+ * their name. Intentionally aliases rather than replaces the
+ * `dragonBlooded*`-named exports above, since those are still accurate for
+ * Dragon-Blooded's own use and renaming them would ripple through every
+ * existing consumer for no benefit.
+ */
+export const sharedTraitById = dragonBloodedTraitById;
 
 const optionOverrides: Record<string, number[]> = {
   'acute-sense': [1, 3],
@@ -129,6 +171,10 @@ const optionOverrides: Record<string, number[]> = {
   derangement: [1, 3],
   addiction: [0, 1, 2, 3, 4],
   'favor-flaw': [1, 2, 3, 4, 6],
+  // Abyssal-only entry. The source text calls out 1/3/5 as the named tiers
+  // and leaves 2/4 as Storyteller-optional interpolations, matching how
+  // Solar's own catalog models the same trait.
+  throwback: [1, 3, 5],
 };
 
 const formulaOverrides: Record<
@@ -228,6 +274,35 @@ export function isLegalDragonBloodedTraitCost(
   );
 }
 
+/**
+ * A handful of shared entries have an Abyssal-specific cost cap that is
+ * tighter than the Dragon-Blooded range described by `cost`. Today this is
+ * just Destiny (the source's "Destiny and Exaltation" sidebar caps
+ * post-Exaltation Destiny at 1-2 points for Abyssal/Infernal Exaltation,
+ * vs. the normal 1-5 range). Keyed by definition id.
+ */
+const abyssalCostCapOverrides: Record<string, number> = {
+  destiny: 2,
+};
+
+/**
+ * Splat-agnostic wrapper around `isLegalDragonBloodedTraitCost` for the
+ * shared catalog. Dragon-Blooded behavior is unchanged; Abyssal additionally
+ * enforces `abyssalCostCapOverrides` where one exists for the definition.
+ */
+export function isLegalSharedTraitCost(
+  definition: DragonBloodedTraitDefinition,
+  chosenCost: number,
+  sheetType: 'dragon-blooded' | 'abyssal',
+) {
+  if (!isLegalDragonBloodedTraitCost(definition, chosenCost)) return false;
+  if (sheetType === 'abyssal') {
+    const cap = abyssalCostCapOverrides[definition.id];
+    if (cap !== undefined && chosenCost > cap) return false;
+  }
+  return true;
+}
+
 const repeatLimits: Record<string, number | undefined> = {
   'acute-sense': undefined,
   'special-resistance': undefined,
@@ -249,6 +324,9 @@ export function getDragonBloodedTraitRepeatLimit(definitionId: string) {
     ? repeatLimits[definitionId]
     : 1;
 }
+
+/** Splat-agnostic alias; see `sharedTraitById`. */
+export const getSharedTraitRepeatLimit = getDragonBloodedTraitRepeatLimit;
 
 export const storytellerApprovalTraitIds = new Set([
   'legendary-artifact',

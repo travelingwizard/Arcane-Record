@@ -9,25 +9,58 @@ import {
   matchesDragonBloodedTraitSearch,
 } from '../../src/games/exalted1e/reference/dragonblooded-merits-flaws';
 
+// This catalog is now shared between Dragon-Blooded and Abyssal (see
+// `dragonblooded-merits-flaws.ts`); `dragonBloodedTraits` therefore covers
+// every shared entry, while this filtered subset is the one that actually
+// applies to Dragon-Blooded characters.
+const dragonBloodedOnlyTraits = dragonBloodedTraits.filter((definition) =>
+  definition.appliesTo.includes('dragon-blooded'),
+);
+
 describe('Dragon-Blooded Merits and Flaws catalog', () => {
   it('loads all selectable entries with unique stable IDs', () => {
-    expect(dragonBloodedTraits).toHaveLength(80);
-    expect(dragonBloodedTraitIds.size).toBe(80);
+    expect(dragonBloodedTraits).toHaveLength(86);
+    expect(dragonBloodedTraitIds.size).toBe(86);
+    expect(dragonBloodedOnlyTraits).toHaveLength(80);
     expect(
-      dragonBloodedTraits.filter(({ kind }) => kind === 'merit'),
+      dragonBloodedOnlyTraits.filter(({ kind }) => kind === 'merit'),
     ).toHaveLength(40);
     expect(
-      dragonBloodedTraits.filter(({ kind }) => kind === 'flaw'),
+      dragonBloodedOnlyTraits.filter(({ kind }) => kind === 'flaw'),
     ).toHaveLength(40);
   });
 
-  it('keeps every Dragon-Blooded exclusion out of the selectable catalog', () => {
-    expect(excludedDragonBloodedTraitNames.size).toBe(10);
-    const selectableNames = new Set(
-      dragonBloodedTraits.map(({ name }) => name),
+  it('keeps every Dragon-Blooded exclusion out of the Dragon-Blooded-applicable subset', () => {
+    // 5 of the original 10 Dragon-Blooded exclusions are now present in the
+    // shared catalog for Abyssal only (see below); the remaining 5
+    // (Terrestrial Bloodline, Limited Forms, Known Anathema, Chimera,
+    // Greater Curse) are still excluded from the catalog entirely.
+    expect(excludedDragonBloodedTraitNames.size).toBe(5);
+    const dragonBloodedApplicableNames = new Set(
+      dragonBloodedOnlyTraits.map(({ name }) => name),
     );
     for (const name of excludedDragonBloodedTraitNames) {
-      expect(selectableNames.has(name)).toBe(false);
+      expect(dragonBloodedApplicableNames.has(name)).toBe(false);
+    }
+  });
+
+  it('adds Abyssal-only entries for Players Guide rows restricted away from Dragon-Blooded', () => {
+    const namesNowAbyssalOnly = [
+      "Taint's Warning",
+      'Eternal Vow',
+      'Permanent Caste Mark',
+      'Death-Taint',
+      'Throwback',
+    ];
+    for (const name of namesNowAbyssalOnly) {
+      const entries = dragonBloodedTraits.filter(
+        (definition) => definition.name === name,
+      );
+      expect(entries.length).toBeGreaterThan(0);
+      for (const entry of entries) {
+        expect(entry.appliesTo).toContain('abyssal');
+        expect(entry.appliesTo).not.toContain('dragon-blooded');
+      }
     }
   });
 

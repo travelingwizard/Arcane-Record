@@ -25,12 +25,27 @@ describe('Exalted First Edition definition', () => {
     }
   });
 
-  it('does not register any planned family as a real, creatable sheet type', () => {
+  it('does not expose any planned family as a selectable creation variant', () => {
+    const definition = gameSystemRegistry.get('exalted1e');
+    const variantIds = (definition?.variants ?? []).map(({ id }) => id);
     for (const family of plannedExaltedFamilies) {
-      expect((exaltedSheetTypes as readonly string[]).includes(family)).toBe(
-        false,
-      );
+      expect(variantIds).not.toContain(family);
     }
-    expect(exaltedSheetTypes).toEqual(['solar', 'dragon-blooded']);
+    expect(variantIds).toEqual(['solar', 'dragon-blooded']);
+  });
+
+  it('registers Abyssal as a legal stored sheetType without unlocking it', () => {
+    // Abyssal is the sole exception, and only at the schema layer: it is a
+    // legal stored `sheetType` (so a blank Abyssal character can be
+    // validated ahead of its creator/editor UI), but it still is not a
+    // selectable creation variant (see the test above) and every other
+    // planned family remains fully unregistered as a sheet type too.
+    expect(exaltedSheetTypes).toEqual(['solar', 'dragon-blooded', 'abyssal']);
+    for (const family of plannedExaltedFamilies) {
+      if (family === 'abyssal') continue;
+      expect(
+        (exaltedSheetTypes as readonly string[]).includes(family),
+      ).toBe(false);
+    }
   });
 });

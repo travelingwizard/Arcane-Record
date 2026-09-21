@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import {
+  abyssalBackgrounds,
   defaultExaltedSectionGroupOrder,
   dragonBloodedBackgrounds,
   exaltedAbilities,
@@ -8,11 +9,12 @@ import {
   exaltedVirtues,
   solarBackgrounds,
   type ExaltedSectionGroupId,
+  type ExaltedSheetType,
 } from './definitions';
 import {
-  dragonBloodedTraitById,
-  getDragonBloodedTraitRepeatLimit,
-  isLegalDragonBloodedTraitCost,
+  getSharedTraitRepeatLimit,
+  isLegalSharedTraitCost,
+  sharedTraitById,
   type ExaltedTraitKind,
 } from './reference/dragonblooded-merits-flaws';
 import {
@@ -73,9 +75,11 @@ export const exaltedAbilityIdSchema = z.enum(
 export const exaltedBackgroundIdSchema = z.enum(
   Array.from(
     new Set(
-      [...solarBackgrounds, ...dragonBloodedBackgrounds].map(
-        (background) => background.id,
-      ),
+      [
+        ...solarBackgrounds,
+        ...dragonBloodedBackgrounds,
+        ...abyssalBackgrounds,
+      ].map((background) => background.id),
     ),
   ),
 );
@@ -86,6 +90,21 @@ const solarBackgroundIds = new Set<string>(
 const dragonBloodedBackgroundIds = new Set<string>(
   dragonBloodedBackgrounds.map((background) => background.id),
 );
+const abyssalBackgroundIds = new Set<string>(
+  abyssalBackgrounds.map((background) => background.id),
+);
+const backgroundIdsBySheetType: Record<ExaltedSheetType, Set<string>> = {
+  solar: solarBackgroundIds,
+  'dragon-blooded': dragonBloodedBackgroundIds,
+  abyssal: abyssalBackgroundIds,
+};
+
+/** Human-readable label used in validation messages for each sheet type. */
+const sheetTypeLabels: Record<ExaltedSheetType, string> = {
+  solar: 'Solar',
+  'dragon-blooded': 'Dragon-Blooded',
+  abyssal: 'Abyssal',
+};
 
 const selectedTraitSchema = z.object({
   id: z.string().uuid(),
@@ -250,6 +269,19 @@ export const exalted1eCharacterSchema = z
         }
       });
     }
+    // TODO(abyssal-charms): Abyssal has no Charm/Necromancy-spell catalog
+    // yet, so its allowed-id sets are empty below. Once that catalog exists,
+    // replace the empty `Set<string>()` for `abyssal` in
+    // `charmIdsBySheetType` (used by both the Charms block and the Combos
+    // block just below) with the real Abyssal Charm id set, and update the
+    // spells block further down to check a real Abyssal spell id set
+    // instead of always rejecting.
+    const charmIdsBySheetType: Record<ExaltedSheetType, ReadonlySet<string>> =
+      {
+        solar: solarCharmIds,
+        'dragon-blooded': dragonBloodedCharmIds,
+        abyssal: new Set<string>(),
+      };
     character.combos.forEach((combo, index) => {
       if (new Set(combo.charmIds).size !== combo.charmIds.length) {
         context.addIssue({
@@ -258,32 +290,18 @@ export const exalted1eCharacterSchema = z
           path: ['combos', index, 'charmIds'],
         });
       }
-      if (character.sheetType === 'dragon-blooded') {
-        combo.charmIds.forEach((charmId) => {
-          if (!dragonBloodedCharmIds.has(charmId)) {
-            context.addIssue({
-              code: 'custom',
-              message: 'Unknown Dragon-Blooded Charm in Combo.',
-              path: ['combos', index, 'charmIds'],
-            });
-          }
-        });
-      } else {
-        combo.charmIds.forEach((charmId) => {
-          if (!solarCharmIds.has(charmId)) {
-            context.addIssue({
-              code: 'custom',
-              message: 'Unknown Solar Charm in Combo.',
-              path: ['combos', index, 'charmIds'],
-            });
-          }
-        });
-      }
+      const allowedComboCharmIds = charmIdsBySheetType[character.sheetType];
+      combo.charmIds.forEach((charmId) => {
+        if (!allowedComboCharmIds.has(charmId)) {
+          context.addIssue({
+            code: 'custom',
+            message: `Unknown ${sheetTypeLabels[character.sheetType]} Charm in Combo.`,
+            path: ['combos', index, 'charmIds'],
+          });
+        }
+      });
     });
-    const allowedBackgroundIds =
-      character.sheetType === 'solar'
-        ? solarBackgroundIds
-        : dragonBloodedBackgroundIds;
+    const allowedBackgroundIds = backgroundIdsBySheetType[character.sheetType];
     character.backgrounds.forEach((background, index) => {
       if (!allowedBackgroundIds.has(background.definitionId)) {
         context.addIssue({
@@ -293,13 +311,12 @@ export const exalted1eCharacterSchema = z
         });
       }
     });
-    const allowedCharmIds =
-      character.sheetType === 'solar' ? solarCharmIds : dragonBloodedCharmIds;
+    const allowedCharmIds = charmIdsBySheetType[character.sheetType];
     character.powers.charms.forEach((selection, index) => {
       if (!allowedCharmIds.has(selection.definitionId)) {
         context.addIssue({
           code: 'custom',
-          message: `Unknown ${character.sheetType === 'solar' ? 'Solar' : 'Dragon-Blooded'} Charm definition.`,
+          message: `Unknown ${sheetTypeLabels[character.sheetType]} Charm definition.`,
           path: ['powers', 'charms', index, 'definitionId'],
         });
       }
@@ -307,6 +324,7 @@ export const exalted1eCharacterSchema = z
     character.powers.spells.forEach((selection, index) => {
       if (
         character.sheetType === 'solar' ||
+        character.sheetType === 'abyssal' ||
         !dragonBloodedSpellIds.has(selection.definitionId)
       ) {
         context.addIssue({
@@ -314,7 +332,11 @@ export const exalted1eCharacterSchema = z
           message:
             character.sheetType === 'solar'
               ? 'Solar spell definitions are not available in the supplied Charm handbook.'
-              : 'Unknown Dragon-Blooded spell definition.',
+              : character.sheetType === 'abyssal'
+                ? // TODO(abyssal-charms): replace with a real Abyssal
+                  // necromancy-spell id lookup once that catalog exists.
+                  'Abyssal necromancy spell definitions are not available yet.'
+                : 'Unknown Dragon-Blooded spell definition.',
           path: ['powers', 'spells', index, 'definitionId'],
         });
       }
@@ -326,14 +348,20 @@ export const exalted1eCharacterSchema = z
       const pathKey = kind === 'merit' ? 'merits' : 'flaws';
       const definitionCounts = new Map<string, number>();
       selections.forEach((selection, index) => {
+        // Solar has its own dedicated catalog; Dragon-Blooded and Abyssal
+        // draw from the shared catalog (`sharedTraitById`), gated by each
+        // entry's own `appliesTo` list.
         const definition =
           character.sheetType === 'solar'
             ? solarTraitById.get(selection.definitionId)
-            : dragonBloodedTraitById.get(selection.definitionId);
-        if (!definition || definition.kind !== kind) {
+            : sharedTraitById.get(selection.definitionId);
+        const appliesToSheet =
+          definition !== undefined &&
+          definition.appliesTo.includes(character.sheetType);
+        if (!definition || definition.kind !== kind || !appliesToSheet) {
           context.addIssue({
             code: 'custom',
-            message: `Unknown ${character.sheetType === 'solar' ? 'Solar' : 'Dragon-Blooded'} ${kind} definition.`,
+            message: `Unknown ${sheetTypeLabels[character.sheetType]} ${kind} definition.`,
             path: ['meritsFlaws', pathKey, index, 'definitionId'],
           });
           return;
@@ -345,7 +373,11 @@ export const exalted1eCharacterSchema = z
                 selection.chosenCost,
                 character.identity.caste,
               )
-            : isLegalDragonBloodedTraitCost(definition, selection.chosenCost);
+            : isLegalSharedTraitCost(
+                definition,
+                selection.chosenCost,
+                character.sheetType,
+              );
         if (!legalCost) {
           context.addIssue({
             code: 'custom',
@@ -362,7 +394,7 @@ export const exalted1eCharacterSchema = z
         const limit =
           character.sheetType === 'solar'
             ? getSolarTraitRepeatLimit(definitionId)
-            : getDragonBloodedTraitRepeatLimit(definitionId);
+            : getSharedTraitRepeatLimit(definitionId);
         if (limit !== undefined && count > limit) {
           context.addIssue({
             code: 'custom',
@@ -394,6 +426,20 @@ export const exalted1eCharacterSchema = z
         code: 'custom',
         message:
           'Dragon-Blooded-only records are not available on Solar sheets.',
+        path: ['sheetType'],
+      });
+    }
+    // TODO(abyssal-charms): remove this guard once Abyssal's real
+    // necromancy-spell catalog exists and `dragonBloodedSpellIds`-style
+    // Abyssal spell ids are wired into the `powers.spells` check above.
+    if (
+      character.sheetType === 'abyssal' &&
+      character.powers.spells.length > 0
+    ) {
+      context.addIssue({
+        code: 'custom',
+        message:
+          'Abyssal necromancy spell records are not available yet.',
         path: ['sheetType'],
       });
     }

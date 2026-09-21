@@ -40,7 +40,7 @@ describe('exalted1e verification gate', () => {
     }
   });
 
-  it('reports honest not-run/zero test evidence for every planned family, and zero promoted catalog entries even where inventory intake has started', () => {
+  it('reports honest not-run test evidence and an empty checksum for every planned family, even where inventory intake or catalog promotion has started', () => {
     for (const family of plannedExaltedFamilies) {
       const record = certificationRecords[family];
       expect(record.certifiedAt).toBeNull();
@@ -48,10 +48,15 @@ describe('exalted1e verification gate', () => {
       expect(record.creatorTests).toBe('not-run');
       expect(record.migrationTests).toBe('not-run');
       expect(record.browserTests).toBe('not-run');
-      // All five families have started source intake (inventory rows > 0),
-      // but nothing has been promoted to a production catalog yet for any
-      // family.
-      expect(record.catalog.promotedEntries).toBe(0);
+      // All five families have started source intake (inventory rows > 0).
+      // Abyssal has additionally had its Backgrounds and universal
+      // Merits/Flaws chapter promoted to real production catalogs (86 of
+      // its 700 inventory rows), but that alone must not unlock the family
+      // -- `checksum` stays empty and every test-evidence dimension stays
+      // 'not-run' until schema/creator/editor/Charm-catalog work lands too.
+      expect(record.catalog.promotedEntries).toBe(
+        family === 'abyssal' ? 86 : 0,
+      );
       expect(record.catalog.checksum).toBe('');
     }
   });
@@ -74,7 +79,12 @@ describe('exalted1e verification gate', () => {
   it('reflects Abyssal source intake in progress without unlocking the family', () => {
     const record = certificationRecords.abyssal;
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
-    expect(record.catalog.promotedEntries).toBe(0);
+    // 86 = the 80 universal Players Guide Merits/Flaws rows plus the 6 new
+    // Abyssal-only Backgrounds promoted to production catalogs so far. This
+    // is intentionally far short of `totalInventoryRows` (700): Abyssal's
+    // Charms/Necromancy-spell catalog and schema/creator/editor support do
+    // not exist yet, so `isFamilyAvailable('abyssal')` must stay false.
+    expect(record.catalog.promotedEntries).toBe(86);
     expect(isFamilyAvailable('abyssal')).toBe(false);
   });
 
@@ -156,7 +166,7 @@ describe('exalted1e verification gate', () => {
   it('describes Abyssal as locked with its inventory-in-progress promotion count', () => {
     const status = getFamilyCertificationStatus('abyssal');
     expect(status.available).toBe(false);
-    expect(status.blockReason).toContain('0/700 promoted');
+    expect(status.blockReason).toContain('86/700 promoted');
     expect(status.blockReason).toContain('2 unresolved');
     expect(status.blockReason).toContain('rules tests not-run');
   });

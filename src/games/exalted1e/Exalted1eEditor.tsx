@@ -95,7 +95,7 @@ export function Exalted1eEditor({
   const backgroundDefinitions = isSolar
     ? solarBackgrounds
     : dragonBloodedBackgrounds;
-  const backgroundById = new Map(
+  const backgroundById = new Map<string, (typeof backgroundDefinitions)[number]>(
     backgroundDefinitions.map((background) => [background.id, background]),
   );
   const availableBackgrounds = backgroundDefinitions;
