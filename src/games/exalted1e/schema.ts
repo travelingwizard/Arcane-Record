@@ -21,6 +21,10 @@ import {
   dragonBloodedCharmIds,
   dragonBloodedSpellIds,
 } from './reference/dragonblooded-powers';
+import {
+  abyssalCharmIds,
+  abyssalNecromancySpellIds,
+} from './reference/abyssal-powers';
 import { solarCharmIds } from './reference/solar-charms';
 import {
   getSolarTraitRepeatLimit,
@@ -269,18 +273,11 @@ export const exalted1eCharacterSchema = z
         }
       });
     }
-    // TODO(abyssal-charms): Abyssal has no Charm/Necromancy-spell catalog
-    // yet, so its allowed-id sets are empty below. Once that catalog exists,
-    // replace the empty `Set<string>()` for `abyssal` in
-    // `charmIdsBySheetType` (used by both the Charms block and the Combos
-    // block just below) with the real Abyssal Charm id set, and update the
-    // spells block further down to check a real Abyssal spell id set
-    // instead of always rejecting.
     const charmIdsBySheetType: Record<ExaltedSheetType, ReadonlySet<string>> =
       {
         solar: solarCharmIds,
         'dragon-blooded': dragonBloodedCharmIds,
-        abyssal: new Set<string>(),
+        abyssal: abyssalCharmIds,
       };
     character.combos.forEach((combo, index) => {
       if (new Set(combo.charmIds).size !== combo.charmIds.length) {
@@ -322,21 +319,29 @@ export const exalted1eCharacterSchema = z
       }
     });
     character.powers.spells.forEach((selection, index) => {
-      if (
-        character.sheetType === 'solar' ||
-        character.sheetType === 'abyssal' ||
-        !dragonBloodedSpellIds.has(selection.definitionId)
-      ) {
+      if (character.sheetType === 'solar') {
         context.addIssue({
           code: 'custom',
           message:
-            character.sheetType === 'solar'
-              ? 'Solar spell definitions are not available in the supplied Charm handbook.'
-              : character.sheetType === 'abyssal'
-                ? // TODO(abyssal-charms): replace with a real Abyssal
-                  // necromancy-spell id lookup once that catalog exists.
-                  'Abyssal necromancy spell definitions are not available yet.'
-                : 'Unknown Dragon-Blooded spell definition.',
+            'Solar spell definitions are not available in the supplied Charm handbook.',
+          path: ['powers', 'spells', index, 'definitionId'],
+        });
+        return;
+      }
+      if (character.sheetType === 'abyssal') {
+        if (!abyssalNecromancySpellIds.has(selection.definitionId)) {
+          context.addIssue({
+            code: 'custom',
+            message: 'Unknown Abyssal necromancy spell definition.',
+            path: ['powers', 'spells', index, 'definitionId'],
+          });
+        }
+        return;
+      }
+      if (!dragonBloodedSpellIds.has(selection.definitionId)) {
+        context.addIssue({
+          code: 'custom',
+          message: 'Unknown Dragon-Blooded spell definition.',
           path: ['powers', 'spells', index, 'definitionId'],
         });
       }
@@ -426,20 +431,6 @@ export const exalted1eCharacterSchema = z
         code: 'custom',
         message:
           'Dragon-Blooded-only records are not available on Solar sheets.',
-        path: ['sheetType'],
-      });
-    }
-    // TODO(abyssal-charms): remove this guard once Abyssal's real
-    // necromancy-spell catalog exists and `dragonBloodedSpellIds`-style
-    // Abyssal spell ids are wired into the `powers.spells` check above.
-    if (
-      character.sheetType === 'abyssal' &&
-      character.powers.spells.length > 0
-    ) {
-      context.addIssue({
-        code: 'custom',
-        message:
-          'Abyssal necromancy spell records are not available yet.',
         path: ['sheetType'],
       });
     }

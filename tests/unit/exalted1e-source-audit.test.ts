@@ -178,7 +178,15 @@ describe('auditFamily against the real repository (current state)', () => {
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);
     expect(report.inventoryRows).toBeGreaterThan(0);
-    expect(report.promotedEntries).toBe(0);
+    // 328 = 225 promoted Charms (abyssal-charms.json) + 103 promoted
+    // Necromancy spells (abyssal-necromancy.json), as counted directly from
+    // `src/games/exalted1e/reference/abyssal-*.json` by this audit script.
+    // This differs from `certification/abyssal.json`'s own
+    // `catalog.promotedEntries` (414), which also includes the 86 Phase 1a
+    // Backgrounds/Merits/Flaws rows that live in catalogs not prefixed
+    // `abyssal-` (e.g. the shared `dragonblooded-merits-flaws.json`), so
+    // this audit script's file-glob does not count them.
+    expect(report.promotedEntries).toBe(328);
   });
 
   it('reports Sidereal as pending-certification with its real inventory rows and zero audit errors', () => {

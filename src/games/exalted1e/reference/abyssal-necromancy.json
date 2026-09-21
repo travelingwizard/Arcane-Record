@@ -1,0 +1,4027 @@
+[
+  {
+    "id": "hungry-creeping-shadow",
+    "name": "Hungry Creeping Shadow",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; the necromancer opens her mouth as if to scream, gathering into a viscous black ooze pours forth, forming a horrible amorphous creature of liquid shadow that pursues any one target in her creator's line of sight.",
+    "description": "The necromancer opens her mouth as if to scream, gathering into a viscous black ooze pours forth, forming a horrible amorphous creature of liquid shadow that pursues any one target in her creator's line of sight. The beast has Physical Attributes and a Brawl Ability equal to its creator's permanent Essence and a number of health levels equal to its creator's Stamina + Essence. It is immune to all purely kinetic damage, such as from swords or fists, but has no soak against fire or magical damage. Like the undead, it lacks Virtues but never fails Valor checks. The Hungry Creeping Shadow can flow up walls and through narrow pipes or under most doors and unerringly follows its quarry. Once it catches its victim, the creature will attempt to clench and slowly crush the life from her. Upon its demise, it boils away to a slimy residue.",
+    "cost": "15 motes",
+    "duration": "Special",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 224,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 224",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "piercing-the-shroud",
+    "name": "Piercing the Shroud",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; the necromancer concentrates and murmurs a discordant incantation that shakes the earth in the immediate vicinity and unnerves all natural animals who hear it, opening a shimmering rift into the Labyrinth.",
+    "description": "The necromancer concentrates and murmurs a discordant incantation that shakes the earth in the immediate vicinity and unnerves all natural animals who hear it. This chant takes 10 minutes to complete, casting no penalty. At the conclusion of the chant, the Exalt reaches out with her hand and cuts a vertical slash in the fabric of Creation as the blade passes, this rift opens a shimmering rift for a number of turns equal to her creator's permanent Essence before closing with a horrible sucking sound. This spell only permits a necromancer to enter the Labyrinth -- the character must find her own way out.",
+    "cost": "10 motes",
+    "duration": "Special",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 225,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 225",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "raise-the-skeletal-horde",
+    "name": "Raise the Skeletal Horde",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; as she prepares this spell, a ball of crackling Essence grows and envelops the necromancer's clenched hand, erupting at the conclusion into a cascade of jagged lightning that strikes the nearest interred corpses within 100 yards, raising them as common zombies or skeletons.",
+    "description": "As she prepares this spell, a ball of crackling Essence grows and envelops the necromancer's clenched hand. The sphere glows darkly and pulsates before, at the conclusion of the spell, erupting in a cascade of jagged lightning that arcs and forks to strike the nearest interred human carcasses or skeletons within 100 yards. Corpses struck by this energy spend the rest of the turn getting their feet or clawing their way free from the earth as appropriate to their location. Skeletons and zombies raised with this spell have the same statistics as common zombies (see Exalted p. 299), although they are always extras. Once raised, such creatures obey their creator to the best of their limited Intelligence. This spell creates one zombie for every 5 motes spent. Alternately, the necromancer may opt to spend only 3 motes per zombie, but creatures lose all animation at the end of the scene. Characters may not create both permanent and temporary minions the same casting.",
+    "cost": "Varies",
+    "duration": "Special",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 225,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 225",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "rune-of-sweet-passing",
+    "name": "Rune of Sweet Passing",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; the necromancer spends an hour painting an elaborate pattern of glyphs on a naked mortal's skin using paint made from human blood mixed with soil taken from a grave, cursing the target to become a ghost upon death.",
+    "description": "The necromancer spends an hour painting an elaborate pattern of glyphs on a naked mortal's skin. The Exalt must paint using paint made from human blood mixed with soil taken from a grave. At the conclusion of the ritual, the runes flare with red light and soak into the target's skin. Once a mortal has been branded with this rune, she is assured of becoming a ghost upon death, although she does not know when the target dies, although he does not know the circumstances or location of her passing. This spell creates ghosts; it does not compel their service or loyalty. Targets of this spell need not be willing, although unwilling targets must generally be restrained. This spell has no effect on the Exalted or other magical beings.",
+    "cost": "15 motes",
+    "duration": "Special",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 225,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 225",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "shade-prison-amulet",
+    "name": "Shade Prison Amulet",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; this spell can enchant any piece of bone jewelry to become a vessel for hungry ghosts; the amulet touches any one hungry ghost, sucking the soul into itself in a swirl of wind and imprisoning it so long as the talisman remains intact.",
+    "description": "This spell can enchant any piece of bone jewelry to become a vessel for hungry ghosts. The necromancer etches runes onto the object's surface and invests it with Essence. This amulet touches any one hungry ghost, it sucks the soul into itself in a swirl of wind. This amulet's imprisonment lasts only so long as the talisman remains intact. Once the prison breaks, the ghost escapes to wreak havoc, although it will not attack the person who freed it. Breaking a prison by daylight destroys the trapped spirit. A Labyrinth Circle version of this spell, Bauble of the Captive Soul, follows the same rules as this spell but can capture any ghost it touches. This spell costs 15 motes.",
+    "cost": "10 motes",
+    "duration": "Special",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 225,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 225",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "soul-brand",
+    "name": "Soul Brand",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; by pressing her palm against an unExalted mortal's flesh and whispering a benediction to the Malfeans, a necromancer with this spell can mystically tattoo him with a rune of power that confers the same protection as a Ghost-Warding Glyph.",
+    "description": "By pressing her palm against an unExalted mortal's flesh and whispering a benediction to the Malfeans, a necromancer with this spell can mystically tattoo him with a rune of power. This rune confers the same protection as a Ghost-Warding Glyph (see page 216), but the effects persist unless the necromancer removes them. If the glyph is removed, whether through countermagic or by the whim of its creator, it inflicts the necromancer's permanent Essence in aggravated damage as it burns away. Should a mortal ever Exalt, his rune vanishes without a trace, causing no injury. This spell is otherwise used to brand the foreheads or palms of favored servants.",
+    "cost": "15 motes",
+    "duration": "Special",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 225,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 225",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "summon-ghost",
+    "name": "Summon Ghost",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; this spell calls one of the Restless Dead and binds him to the service of the necromancer, requiring an unbroken circle of blood or bone-dust cast at night and an Essence contest to compel service.",
+    "description": "This spell calls one of the Restless Dead and binds him to the service of the necromancer. This spell can only be cast at night and involves an hour-long ritual requiring an unbroken circle of blood or bone-dust. The character must also know the name of the ghost he wishes to summon or have a piece of her corpse in his possession. The ghost's overwrought soul must overpower the necromancer's willpower or Essence contest, costing the target's Willpower + Essence test. For every 5 additional motes the Exalt spends casting, the ghost's pool decreases by one, until one side accumulates three more successes than the other. If the ghost wins, he immediately escapes the portal and cannot be recalled for a full year. If the Exalt wins, the ghost must obey her for one year or fulfill a single task that can have infinite duration. This binding only forces the ghost to obey the letter of the necromancer's command, rather than her actual intent, but most ghosts will comply rather than risk the wrath of an Exalted. Once the ghost fulfills its obligation, it vanishes back to its original location in the Underworld. Although ghosts make excellent servants, their usefulness in the living world is limited by their difficulty in regaining Essence. Necromancers employing such vassals must be sure to feed them motes of Essence, either from their own or from libations of human blood. Though ghosts resent servitude, if only out of fear. On the other hand, summoning a courtier or honored servant of a Deathlord can have dire repercussions instead.",
+    "cost": "15+ motes",
+    "duration": "Special",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 226,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 226",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "walking-war-machine",
+    "name": "Walking War Machine",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; few weapons sow as much terror among living armies as the undead siege engines employed by the Deathlords; with this spell, a necromancer can animate such devices, first building or overseeing the building of the machine.",
+    "description": "Few weapons sow as much terror among living armies as the undead siege engines employed by the Deathlords. With this spell, a necromancer can use Essence to animate such devices. The Exalt must first build or oversee the building of the monstrosity, with his player making an extended Intelligence + Craft (Necrosurgery) roll to represent this task. Grafts and other pieces cut and stitched together and any grafts of metal inserted where appropriate. For a spine chain needs one success for every stage of complexity it needs. Once the creature is complete, the character simply touches it and invests 5 motes for every success needed to assemble it. Monsters created with this Charm serve their master to the best of his limited Intelligence. Statistics for spine chains can be found on page 300 of Exalted. Other devices are left for players' imagination and Storyteller approval but should be of a similar power level.",
+    "cost": "Varies",
+    "duration": "Special",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 226,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 226",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "arisen-legion",
+    "name": "Arisen Legion",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle variant of Raise the Skeletal Horde; duplicates that spell's effect but reduces the Essence cost to 3 motes per permanent zombie or 1 mote per temporary zombie.",
+    "description": "Arisen Legion duplicates the effect of Raise the Skeletal Horde but reduces the Essence cost to 3 motes for a permanent zombie or 1 mote for a temporary zombie.",
+    "cost": "3 motes per permanent zombie or 1 mote per temporary zombie",
+    "duration": "Special",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 225,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 225",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "call-the-greater-servitor",
+    "name": "Call the Greater Servitor",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle variant of Raise the Skeletal Horde; costs 6 motes per minion, cannot create temporary zombies or more corpses in a single casting than the necromancer's Occult score, but its zombies are never extras and have Intelligence and Melee 2, letting them use weapons, wear armor, and follow more complex instructions.",
+    "description": "The second variant, Call the Greater Servitor, costs 6 motes for each minion, but the character cannot create temporary zombies or raise more corpses in a single casting than his Occult score. Zombies raised with Call the Greater Servitor are never extras and have an Intelligence and Melee of 2, allowing them to use weapons or wear armor and to follow more complicated instructions.",
+    "cost": "6 motes per minion",
+    "duration": "Special",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 225,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 225",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "exquisite-undead-aide",
+    "name": "Exquisite Undead Aide",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; instead of raising a mindless shambling horde, a necromancer with this spell can create a single powerful zombie servant to act as a lieutenant or majordomo, one who never decays further and can speak in clipped rasping phrases.",
+    "description": "Instead of raising a mindless shambling horde, a necromancer with this spell can create a single powerful servant to act as a lieutenant or majordomo. The creature begins with the same statistics as a zombie (see Exalted p. 299), with the following modifications: all Attributes have a minimum rating of 2, the creature gains an Appearance of dots equal to its creator's Intelligence + Occult, and it knows all Abilities, though none can exceed the necromancer's own rating. The creature never decays any further, although it exudes a distinctive musty reek that clearly marks it as one of the undead. The creature may speak in clipped, rasping phrases, although it only speaks in response to questions from its master or in fulfillment of her orders. It is not considered an extra and has a full complement of health levels.",
+    "cost": "20 motes",
+    "duration": "Special",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 226,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 226",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "hundred-shade-breath",
+    "name": "Hundred Shade Breath",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; the necromancer exhales a glowing blue fog of curling tendrils that coalesce into a swarm of hungry ghosts, one for every 2 motes of Essence spent, though the spell is useless by day since sunlight would burn the horde to ash.",
+    "description": "The necromancer inhales and concentrates, building the spell inside her lungs. When the magic is ready, she opens her mouth and a glowing blue fog rushes out in dozens of curling tendrils as she exhales. Over the next turn, these wisps coalesce into hungry ghosts -- one for every 2 motes of Essence spent. These ghosts have normal statistics (see Exalted p. 300) and are all extras. Obviously, this spell is of no use during the day, as sunlight would instantly burn the assembled horde to ash. At the end of the scene in which they were summoned, any 'surviving' ghosts dissolve to mist and flow back into the necromancer's mouth. Motes spent on this spell remain committed so long as the ghosts remain, but the character frees 2 motes from the committed total every time one perishes.",
+    "cost": "Varies",
+    "duration": "Special",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 226,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 226",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "ivory-razor-forest",
+    "name": "Ivory Razor Forest",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; the necromancer gestures toward her enemies and an invisible shockwave skims the earth, causing dozens or hundreds of razor-edged bone spines to tear up from the ground at great speed, inflicting 8L damage to anything in their path.",
+    "description": "The necromancer gestures in the direction of her enemies, and a shockwave of Essence skims the earth toward them. The wave is invisible and causes no injury. However, in its wake, dozens or even hundreds of great spines of gleaming bone tear up through the earth at great speed, to a maximum height of the caster's permanent Essence in yards. The razor-edged blades cut through everything in their path, inflicting 8L damage to anything that cannot be blocked, only dodged. The spikes affect a total area of (the necromancer's Charisma + Occult x 10) square yards, although this area can be divided into any shape or configuration as the caster sees fit. Some prefer to break apart troop formations while others grow the bones into impassable fences or ramparts. The blades shatter into dust after a number of days equal to their creator's Essence, but have the durability of a brick wall until that time (see Exalted, p. 239). The blades are densely packed enough that nothing larger than a rabbit can slip through the cracks, and being thrown against them also inflicts 8L.",
+    "cost": "25 motes",
+    "duration": "Special",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 227,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 227",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "reaping-the-fallen",
+    "name": "Reaping the Fallen",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; the necromancer opens her anima to draw power from death, gaining 1 mote for every sentient being that dies within a league of her, up to her usual maximum, making it most useful during mass carnage such as a massacre or military battle.",
+    "description": "With this spell, a necromancer opens her soul to draw power from death. Her anima erupts to its full iconic glory regardless of whether she spent Personal or Peripheral Essence, while her face contorts into a mask of inhuman rage and hunger. For the rest of the scene, the character gains 1 mote for every sentient being dying within a league of her, up to her usual maximum. Obviously, this spell is only useful in the presence of mass carnage, such as a massacre or a military battle. In such settings, the Storyteller should assign how many motes the character gains each turn instead of awarding Essence on a per death basis.",
+    "cost": "25 motes",
+    "duration": "One scene",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 227,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 227",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "spiteful-passing",
+    "name": "Spiteful Passing",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; facing the bitterness of his own demise, a necromancer with this spell unleashes his hate in a final blast of power as he dies, dealing lethal damage to all living beings and Fair Folk in range and bypassing armor.",
+    "description": "Faced with the bitterness of his own demise, a necromancer with this spell may unleash his hate in a final blast of power. Although he must still spend a turn concentrating, the character need only speak one word to cast this spell. He may scream in defiance or weakly cough his last syllable from blood-flecked lips, but the effects remain the same. His body arches in pain and expires as searing light erupts from his opened mouth, eyes, and wounds. All living beings and Fair Folk within a number of yards equal to the necromancer's permanent Essence suffer his permanent Essence in dice of lethal damage, plus one additional die for every point remaining in his pool. This damage bypasses armor. It is soaked only with the victim's own natural soak, and it inflicts no physical trauma -- victims killed by the spell simply drop where they stand, and survivors feel a terrible cold grip them. All plants in range wither and die. The necromancer's corpse rots to dust within moments of the blast.",
+    "cost": "Special",
+    "duration": "Instant",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 227,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 227",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "stealing-the-gathered-breath",
+    "name": "Stealing the Gathered Breath",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; the necromancer opens her mouth and inhales, drawing Essence from every living being within her permanent Essence x 5 yards, soaked only with Stamina, restoring 1 mote to the necromancer per level of damage inflicted and visible to onlookers as pale light rushing into her maw.",
+    "description": "The necromancer opens her mouth and inhales, drawing energy from every sentient living being within the character's permanent Essence x 5 yards. All victims within range suffer one die of lethal damage, soaked only with Stamina. Each level of damage actually inflicted by this spell restores 1 mote of Essence to the necromancer. Energy harvested with this spell can be seen by all onlookers as streams of pale light rushing from the victims to the necromancer's maw.",
+    "cost": "15 motes",
+    "duration": "Instant",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 228,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 228",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "striking-spectre-lash",
+    "name": "Striking Spectre Lash",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; a long tendril of solidified darkness grows from the necromancer's wrist or palm, striking like a dart or octopus tentacle and inflicting normal or crippling grappling attacks; motes spent before an attack roll add automatic successes to hit or Essence damage.",
+    "description": "Upon casting this spell, a long tendril of solidified darkness grows from the necromancer's wrist or palm. This serpentine appendage undulates and coils of its own volition, striking more like a darting snake or an octopus tentacle than any mundane whip. The lash has a Speed, Accuracy, and Defense rating equal to its master's Essence and a score and a length in yards of five times this value. Its base damage equals its creator's Strength + Essence. In addition to inflicting normal damage and permitting grappling attacks, the whip can kill unwary mortals and animals outright. If the necromancer reflexively spends 2 motes before making his attack roll and successfully hits, the victim's player must make a reflexive Essence roll. If this roll fails, the victim falls dead with a look of horror frozen in her face. Exalts, spirits, Fair Folk, and other magical beings are notably larger than humans are immune to this effect so long as their Stamina exceeds the necromancer's Essence rating.",
+    "cost": "15 motes + 2 motes per attack",
+    "duration": "One scene",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 228,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 228",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "blood-from-the-slaughter",
+    "name": "Blood from the Slaughter",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle variant of Reaping the Fallen; instead of gaining Essence, the necromancer regenerates one level of bashing or lethal damage for every sentient being killed within a league each turn, though never more levels per turn than her permanent Essence.",
+    "description": "A Void Circle version of this spell, Blood from the Slaughter, instead allows the necromancer to supplant her own life force with the energy released by carnage. At the end of each turn, the character regenerates one level of bashing or lethal damage for every living sentient killed within one league, but the character cannot regenerate more levels per turn than her permanent Essence.",
+    "cost": "35 motes",
+    "duration": "One scene",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 227,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 227",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "abyssal-aegis",
+    "name": "Abyssal Aegis",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle spell; until the next sunrise, the necromancer gains extra bashing and lethal soak against all magic specifically designed to cause extra damage or trauma to Abyssal Exalted, Deathlords, or denizens of the Underworld, though it does not make the Exalt immune to an attack simply because it was augmented with such damage.",
+    "description": "Until the next sunrise, the necromancer gains extra bashing and lethal soak equal to his permanent Essence. In addition, the character is completely immune to all magic specifically designed to cause extra damage or trauma to Abyssal Exalted, Deathlords, or denizens of the Underworld. This protection does not make the Exalt immune to an attack augmented with such magic, although the extra effect is negated. Thus, blasts from the Zenith Caste anima power vanish in a swirl of shadow before they touch the necromancer, but Blazing Solar Bolt still hits, albeit for lethal damage only.",
+    "cost": "20 motes",
+    "duration": "One day",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 228,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 228",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "anguished-shade-harvest",
+    "name": "Anguished Shade Harvest",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle spell; this potent spell consecrates a stretch of land so that all who suffer violent death within its borders become hungry ghosts, requiring the necromancer to journey there physically as quickly as possible, pacing the intended boundary of the effect.",
+    "description": "This potent spell consecrates a stretch of land so that all who suffer violent death within its borders become hungry ghosts. The necromancer must begin this spell as the sun dips beneath the horizon and spend the required Essence. He then journeys as quickly as possible, physically pacing the intended boundary of the effect. He cannot fly or transport himself magically, although he may use a mount to aid his travel. If he keeps moving without reversing his path and arrives at his original location before midnight, the spell takes effect. Malignant black clouds grow in the sky to cover the entire area, casting the earth into murky gloom even after daybreak. Any mortal who suffers a violent or painful demise in the afflicted area before the last rays of sunlight leave the sky arises as a hungry ghost when the last rays of sunlight leave the sky. These ghosts will not attack the necromancer, but they are not under his control in any way. Hungry ghosts created with this spell have normal statistics (see Exalted, p. 301) but are always considered extras.",
+    "cost": "60 motes",
+    "duration": "Special",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 228,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 228",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "blood-monsoon",
+    "name": "Blood Monsoon",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle spell; the necromancer cuts her palm and flings a spray of blood into the air, forming a mile-wide disk-shaped cloud that eventually covers a radius in miles equal to her permanent Essence, after which a torrential downpour of blood drenches the earth below, harming plants, animals, and unprotected humans and attracting hungry ghosts.",
+    "description": "The necromancer cuts her palm and flings a spray of blood into the air. Instead, these droplets never fall to the earth. Instead, the rise and multiply until a column of bedded crimson ascends in an obscene geyser into the sky. This pillar reaches a height of one mile, it blossoms outward, growing into a disk-shaped cloud that eventually covers a radius in miles equal to its creator's permanent Essence. This entire process takes one hour. Although the necromancer can take other actions during this time, the Essence powering the spell remains committed until it completely runs its course. After the cloud reaches its full size, a torrential downpour of blood drenches the earth below in gore for a number of hours equal to its creator's Stamina. Ghosts and other creatures of the Underworld can glut themselves on this rain, although they gain no Essence from it. Blood summoned with this spell rapidly mixes with dirt and clots into a stinking, sticky morass of polluted gore, wreaking havoc on the local environment. Most plants and smaller animals in the area affected die outright, while humans and other larger creatures must succeed in an hourly Stamina + Endurance check to avoid becoming violently ill and suffering a 1 die penalty to all actions. This spell -- and its concomitant scent of death -- also attracts hungry ghosts and other malevolent creatures for dozens of miles.",
+    "cost": "50 motes (committed) + one lethal health level",
+    "duration": "Special",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 228,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 228",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "dimming-of-the-light",
+    "name": "Dimming of the Light",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle spell; with this terrible spell, a necromancer can taint the divine Essence of a willing Solar, transforming him into the semblance of an Abyssal Exalt, requiring a ritual lasting from sunset to midnight and only performed in a shadowland or the Underworld.",
+    "description": "With this terrible spell, a necromancer can taint the divine Essence of a willing Solar, transforming him into the semblance of an Abyssal Exalt. This spell requires a ritual lasting from sunset to midnight and may only be cast within a shadowland or the Underworld. The Solar must willingly enter a Monstrance of Celestial Portion and only renounce his god and defile her Caste Mark by painting it with the blood of a murdered innocent. She then renounces her powers by one, cursing and foreswearing each Charm she knows. Lastly, she renounces her very name. Powerless, nameless, and empty, the broken Solar kneels and pledges her life and soul to the Malfeans and the Void. The necromancer stands by through this litany, silently praying for the dead Primordials to hear and affirm each renunciation in turn. At the final moment, on the stroke of midnight, the necromancer lays one hand on the forehead of the kneeling Solar and spends the required Essence. The animas of both characters immediately burst into full iconic splendor, shadow and light pressing fiercely against one another. Then, the Solar's anima begins to darken like a guttering candle, and at last dying as shadow swallow it for all time. When the necromancer withdraws his hand, her palm is slick with blood from the new Abyssal's Caste Mark. A Solar Exalted transformed in this manner gains a number of Abyssal Charms equal to the number of Solar Charms she knew before the change. She remembers all her spells, if any, though she can never again call on the magic of the Solar Circle. All magical items attuned to her former self follow her original caste, but they may be subsequently reattuned. Her new caste follows her original caste -- Dawn to Dusk, Zenith to Midnight, etc. Her Virtue Flaw vanishes, replaced with the Abyssal Curse. She is thereafter in all ways a deathknight and must contend with the advantages and disadvantages of her new state.",
+    "cost": "80 motes",
+    "duration": "Permanent",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 229,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 229",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "inauspicious-citadel",
+    "name": "Inauspicious Citadel",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle spell; a necromancer can raise a fortress of gleaming obsidian and black basalt from the earth by first overseeing the excavation of a deep pit in the heart of a shadowland, then sacrificing at least 100 mortals down its depths before the ground shakes and the citadel rises fully formed and defensible.",
+    "description": "Through this spell, a necromancer can raise a fortress of gleaming obsidian and black basalt from the earth. Prior to casting the spell, the Exalt must oversee the excavation of a deep pit in the heart of a shadowland. This pit must be as wide as a man can reach with both arms outstretched and deep enough that a man holding a torch could not see the bottom if he peered into its depths. The Exalt then must sacrifice at least 100 mortals down its depths. Great care must be taken so that not even a single drop of blood falls anywhere but in the pit. After all the corpses have been thrown into the lightless shaft, the necromancer leans over the rim, spends the required Essence and cuts his hand. After one full breath level held the dripped into the dark, the ground shakes as the earth beneath the pit falls away to the depths of the Labyrinth and the dead gods reach slowly upward for the sacrifice. The necromancer and any bystanders have only a few minutes to flee the area before a castle of stone grinds up from beneath the pit. Although each citadel is unique, all emerge hollowed and defensible, with polished towers like jutting fingers of black stone inlaid with the meaningless mark marks of the Labyrinth. At the bottommost room of every citadel, lower than all its dungeons, a gleaming sanctuary of jet serves as a chapel to the Malfeans. In its center of its floor yawns an open shaft that extends down to the ultimate darkness and the whispering, dreaming gods that dwell there.",
+    "cost": "60 motes",
+    "duration": "Permanent",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 229,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 229",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "lord-of-the-dead",
+    "name": "Lord of the Dead",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle spell; upon casting, the necromancer's Caste Mark emerges glowing a baleful vivid red for the next full day, letting the character command any ghost, wraith, or undead creature of lower permanent Essence, though the spell cannot command or protect against other Abyssal Exalted or Deathlords.",
+    "description": "Upon casting this spell, the necromancer's Caste Mark emerges and glows a baleful vivid red for the next full day. While this light persists, the character may command any ghost, wraith, or undead creature that has lower permanent Essence than her own, and affected creatures must obey to the best of their abilities and intelligence. Commands can be as simple or complicated as desired, although zombies have difficulty comprehending anything more involved than a simple sentence. As a final benefit, no creature of death can attack the Exalt. This spell cannot command or protect against Abyssal Exalted or Deathlords.",
+    "cost": "25 motes",
+    "duration": "One day",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 229,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 229",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "poisoning-the-well",
+    "name": "Poisoning the Well",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle spell; through this spell, a necromancer can vastly speed the rate at which a Demesne changes its aspect to Abyssal, remaining at the heart of the Demesne, fasting and praying to the Malfeans for a number of days equal to its rating while the Essence powering the spell stays committed for the full duration.",
+    "description": "Through this spell, a necromancer can vastly speed the rate at which a Demesne changes its aspect to Abyssal. The Exalt must remain at the heart of the Demesne, fasting and praying to the Malfeans for a number of days equal to its rating. The Essence powering this spell must be spent at the beginning of this period and remains committed for the full duration. A Demesne polluted with this spell loses one point from its rating each month as the Underworld consumes its Essence. When the Demesne reaches a rating of zero, it shifts to an Abyssal aspect and begins to regain lost points until it returns to its original strength. A sorcerer who knows the spell Adamant Countermagic may arrest this decay by spending double the usual number of motes, but barring sorcerous or necromantic countermagic, no power short of an Incarna can halt the process. Should the corrosion be averted before it runs its course, lost points of strength return at the rate of one each year.",
+    "cost": "50 motes (committed)",
+    "duration": "Special",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": null,
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 229,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 229",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "banish-ghost",
+    "name": "Banish Ghost",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; the necromancer forces a ghost away through a contested Essence and Willpower duel, banishing it from Creation to the Underworld, from its tomb or place of death, or simply from the caster's presence.",
+    "description": "The necromancer and the target ghost engage in a contested Essence + Willpower duel. If the necromancer wins, she may banish the ghost from Creation back to the Underworld, banish it from its tomb or place of death for three days (as measured by the Calendar of Setesh), or simply banish it from her presence. The necromancer may spend additional motes in increments of three to reduce the ghost's dice pool for the contest by one die per three motes spent.",
+    "cost": "12+ motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One ghost",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 119,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 119",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "black-candle-visage",
+    "name": "Black Candle Visage",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; the necromancer remotely and totally reshapes a ghost's body and form, duplicating the effects of the Nine Terrors Visage/Ghost-Devil Form Arcanoi chain, and can cripple or lock the ghost into its new shape.",
+    "description": "The necromancer rolls Dexterity + Craft (Moliation) to remotely and totally command the shape and body of a target ghost, duplicating the effects of the Nine Terrors Visage and Ghost-Devil Form Arcanoi (see Exalted: The Abyssals, pp. 235-237). The necromancer can use this control to cripple the ghost, reducing its Dexterity or Strength by one dot per success, or to lock the ghost permanently into an imposed shape via a contested Conviction + Willpower roll.",
+    "cost": "18 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One ghost",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 119,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 119",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "bless-the-rapine-soul",
+    "name": "Bless the Rapine Soul",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; a ritual subjugation of a victim's soul that magnifies a ghost's body-controlling Arcanos, such as the Puppeteer's Masterful Hand, letting it affect the victim for far longer and with greater effect.",
+    "description": "Bless the Rapine Soul is a ritual that subjugates a living victim's soul, priming it for possession. It magnifies the effects of a body-controlling Arcanos such as the Puppeteer's Masterful Hand when later used on the victim: the possessing ghost gains extra successes equal to the necromancer's Essence and the possession's duration is extended by one week.",
+    "cost": "16 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One living creature",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 120,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 120",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "blessed-dead-fools",
+    "name": "Blessed Dead Fools",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; raises a binding flagpole at a gathering that grants any ghost who touches it and agrees to its oath a temporary Performance rating and inside knowledge of the event, in exchange for attendance and silence.",
+    "description": "The necromancer raises an enchanted flagpole at a party or gathering. Any ghost who touches the flag and agrees to its unspoken oath gains an effective Performance rating of 5 and full knowledge of the event for its duration, but must attend and can never speak of what occurs there. The spell's effect ends once the sixth ghost touches the flagpole.",
+    "cost": "13 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "Several ghosts",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 120,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 120",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "blood-mirror-speech",
+    "name": "Blood Mirror Speech",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; the necromancer cuts her palm to write a blood message that manifests the next time the target looks into any mirror, and the target can reply in kind.",
+    "description": "The necromancer cuts her own palm and writes a message in her blood across a mirror's surface. The next time the target looks into any mirror, the message manifests before her, and she may reply by writing a return message in her own blood for the necromancer to later find.",
+    "cost": "10 motes, 1 lethal health level",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One creature",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 120,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 120",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "consorting-with-devils",
+    "name": "Consorting with Devils",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell related to Bless the Rapine Soul; forges a bond between one ghost and one mortal that makes the mortal easier for that specific ghost to possess.",
+    "description": "This related spell forges a bond between a single ghost and a single mortal, making it considerably easier for that particular ghost to possess that particular mortal in the future.",
+    "cost": "10 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One ghost and one mortal",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 120,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 120",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "invisible-doorway",
+    "name": "Invisible Doorway",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle mirror spell; opens a three-turn doorway between Creation and the Underworld through any reflective surface, shattering the mirror once used.",
+    "description": "Related to Blood Mirror Speech, this spell opens a passable doorway between Creation and the Underworld through any reflective surface. The portal remains open for three turns, after which the mirror used shatters.",
+    "cost": "18 motes, 1 lethal health level",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One reflective surface",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 120,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 120",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "bone-puppet-dance",
+    "name": "Bone Puppet Dance",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; burns a command word onto an animated skeleton's ribcage, forcing it into total obedience even against its own will or programming.",
+    "description": "The necromancer burns a word of command onto the ribcage of a target skeleton, compelling its total obedience. The skeleton suffers a one-die penalty if it attempts to resist an order. Any other Charm or spell already controlling the animated corpse takes precedence over this compulsion.",
+    "cost": "16 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One skeleton",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 121,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 121",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "bonfire-visions",
+    "name": "Bonfire Visions",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; using the collected bones of the once-living, raises a blue-white bonfire visible for miles across the Underworld that lets any ghost peering into it see clearly through their own Fetters without needing an Arcanos.",
+    "description": "Requiring the collected bones of a once-living creature, this spell raises a blue-white bonfire visible for miles across the Underworld. Any ghost who peers into the flame within the following hour sees clearly through their Fetters, without needing to spend an Arcanos to do so.",
+    "cost": "13 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One bonfire",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 121,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 121",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "death-flies-two-sails",
+    "name": "Death Flies Two Sails",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; raises a small sunken ghost ship crewed by a bound ghost figurehead-singer, functioning as a fast courier vessel that boils away in direct sunlight.",
+    "description": "The necromancer raises a small sunken vessel as a ghost ship, comfortably carrying two passengers (five with effort), with a bound ghost singer serving as its figurehead. The ship functions as a fast courier vessel (see Savage Seas) with 8L soak and 16 health levels, and boils away at a rate of one health level per turn if caught in direct sunlight.",
+    "cost": "14 motes (seven committed)",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One sailing vessel",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 121,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 121",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "death-inversion-loop",
+    "name": "Death Inversion Loop",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; forces a ghost to relive her death in a paralyzed loop via a contested Willpower and Essence duel, draining permanent Willpower with every loss until the ghost is freed or reduced to a mindless haunt of the death scene.",
+    "description": "The target ghost relives the moment of her death, paralyzed, in a contested Willpower + Essence duel against the necromancer. The ghost loses one dot of permanent Willpower for every loop she loses, and is freed only if she wins the contest outright; a ghost reduced to zero permanent Willpower this way becomes a mindless haunt bound to the scene of her death. The spell can also be cast on a living creature to force a disturbing vision of their own death, imposing a one-die penalty for the rest of that turn; casting it against a target too strong for the necromancer to safely punish can rebound on the caster instead.",
+    "cost": "18 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One ghost (or one living creature)",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 122,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 122",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "death-mask",
+    "name": "Death Mask",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell requiring a living sacrifice on first casting; disguises the necromancer as an ordinary ghost using a regenerating shroud of Elsewhere-drawn corpus that absorbs damage before the caster takes any.",
+    "description": "This spell requires a living sacrifice the first time it is ever cast. It cloaks the necromancer in a disguising shroud drawn from Elsewhere, making her appear to be an ordinary ghost. Seeing through the disguise requires the necromancer's Essence + Craft (Moliation) to be beaten by the viewer's Perception + Awareness; mortals and other living creatures cannot see through it at all. The ghostly shroud absorbs damage before the caster does, regenerating one health level per week while in Elsewhere; if the shroud is destroyed it must be regrown before the spell can be used again.",
+    "cost": "14 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "Caster",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 123,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 123",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "congealing-the-last-thought",
+    "name": "Congealing the Last Thought",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell related to Easing the Forsaken Memory; creates a new haunt from a cooperating ghost's memory or from the necromancer's own imagination, lasting far longer if created in the Underworld.",
+    "description": "This related spell creates a haunt out of whole cloth, either drawn from a cooperating ghost's mind or invented entirely from the necromancer's own imagination. Haunts created in Creation last one month per point of the caster's permanent Essence; haunts created in the Underworld are effectively permanent.",
+    "cost": "12 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One haunt",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 124,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 124",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "drawing-blind-edge",
+    "name": "Drawing Blind Edge",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; permanently destroys a ghost by drawing its corpus into a translucent reaver-daiklave-like blade, distributing the drained Essence among the weapon's stats.",
+    "description": "The necromancer draws the target ghost's corpus into a translucent blade resembling a reaver daiklave: it deals half damage to the living, aggravated damage to ghosts and spirits, and permanently destroys the source ghost, draining its Essence into the weapon. The necromancer distributes one point per point of the ghost's permanent Essence among the weapon's Speed, Accuracy, Damage, and Defense, with no single stat exceeding the reaver daiklave's normal caps. The weapon persists until dismissed, dispelled by countermagic, or until dawn.",
+    "cost": "20 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One ghost",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 124,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 124",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "dusk-eyes",
+    "name": "Dusk Eyes",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; grants sight across the life/death boundary, letting the caster see into the Underworld from Creation or vice versa, one world at a time.",
+    "description": "For an hour (as measured by the Calendar of Setesh), the necromancer can see across the boundary between life and death, viewing the Underworld while standing in Creation or Creation while standing in the Underworld. She can only perceive one world at a time, and suffers a two-success penalty if she tries to act on what she sees in the world she is not physically present in while otherwise blind to her actual surroundings. The spell grants no benefit while already standing within a shadowland.",
+    "cost": "10 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "Caster",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 124,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 124",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "easing-the-forsaken-memory",
+    "name": "Easing the Forsaken Memory",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; permanently erases a single haunt (a place tainted by a lingering death-memory), or relocates it for an additional mote per mile of distance.",
+    "description": "This spell permanently erases a single haunt of the necromancer's choosing. For an additional cost of one mote per mile, the necromancer may instead relocate the haunt to a location of her choosing rather than erasing it outright.",
+    "cost": "12+ motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One haunt",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 124,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 124",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "emperors-chains",
+    "name": "Emperor's Chains",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; either halves the movement rate and doubles movement-Arcanoi costs for every ghost within fifty yards, or renders a single nearby ghost immobile with tripled movement-Arcanoi costs.",
+    "description": "As the necromancer claps her hands, every ghost within fifty yards finds its movement rate halved and the Essence cost of any movement-related Arcanoi doubled. Alternatively, the necromancer may focus the spell's effect on a single ghost within twenty yards, rendering that ghost completely unable to move under its own power and tripling the Essence cost of any movement-enhancing Arcanoi it tries to use.",
+    "cost": "16 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "Varies",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 125,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 125",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "faces-of-the-dead",
+    "name": "Faces of the Dead",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; creates a silver twelve-faced mace that captures the faces of ghosts it strikes hard enough, later collapsing into a jar that imprisons the captured souls.",
+    "description": "The necromancer creates a silver mace with a twelve-faced head. Any blow that deals damage equal to or greater than a struck ghost's permanent Essence captures that ghost's face on the weapon in a flash of blue light. After an hour the weapon dissolves into a jar (12L/12B soak, 20 health levels) holding all of the trapped ghosts, who are freed only if the jar shatters, at which point they are left drained of Essence. Abyssals commonly use this spell to collect souls for forging into soulsteel.",
+    "cost": "16 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "Caster",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 125,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 125",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "field-of-fell-dreams",
+    "name": "Field of Fell Dreams",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; raises skeletal hands from the ground across an area that grasp and hold, but do not harm, anyone who passes through until the spell ends at midnight.",
+    "description": "Skeletal hands burst from the ground or stone across the area of effect and attempt to clinch anyone who moves through, using a seven-die pool for each clinch attempt; the hands never try to inflict damage, only to hold their victims in place. The hands have effectively no soak and are fragile, but a new hand replaces each one destroyed. Anyone caught must spend a mote of Essence to become material if they were not already. The spell's effect ends at midnight, as measured by the Calendar of Setesh.",
+    "cost": "16 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "Area of effect",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 125,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 125",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "five-gifts",
+    "name": "Five Gifts",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; grants a ghost a taste of the sensations of life, restoring temporary Willpower equal to the successes rolled on its highest Virtue, at risk of the ghost craving the pleasure again over time.",
+    "description": "The target ghost briefly experiences the world as it did in life, its dulled senses restored to vivid intensity. The ghost gains temporary Willpower equal to the successes rolled on its highest-rated Virtue, which may temporarily exceed its normal maximum. This can raise a ghost's Temperance-tested resolve to peacefully let go of mortal pleasure; when the spell ends, the ghost rolls Temperance, and failure costs it a single point of temporary Willpower, with any excess Willpower above the normal maximum vanishing along with the spell's effects. The spell lasts only until the next sunset, but repeated use can leave ghosts yearning for it, growing more pliable or even slavish to obtain it again.",
+    "cost": "12 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One ghost",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 125,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 125",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "flesh-and-bone-winds",
+    "name": "Flesh and Bone Winds",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; surrounds the caster with a growing storm of shattered bone and flesh that shreds anyone stepping into it and imposes accuracy penalties on attacks against the necromancer.",
+    "description": "The ground around the necromancer erupts, tearing free shattered bone and soft ribbons of flesh that spin around the caster at ever-increasing speed, starting at a one-yard radius and growing as it absorbs more corpses, up to twice the caster's Essence in radius. The storm imposes a one-die accuracy penalty on melee attacks and a three-die penalty on ranged attacks made against the necromancer, and deals three dice of lethal damage per turn to anyone who steps into it. Creatures slain by the storm are shredded, adding their substance to its fury and radius.",
+    "cost": "18 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "Caster",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 126,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 126",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "flesh-sloughing-wave",
+    "name": "Flesh-Sloughing Wave",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; hurls a ball of ivory Essence that strips flesh from bone across a radius, useful both as an attack and as a utility spell for harvesting materials for undead war-machine construction.",
+    "description": "The necromancer hurls a ball of ivory Essence that bursts, stripping flesh from bone in a radius equal to five times her Essence in yards. Living creatures in the area suffer lethal damage soaked at twice their Occult rating (or lose their flesh outright), making the spell equally useful as a weapon or as a utility spell for harvesting materiel to construct undead war machines. A Fair One killed by this spell dies in a blinding flash of light.",
+    "cost": "16 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "Area of effect",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 127,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 127",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "gathering-a-ghosts-strings",
+    "name": "Gathering a Ghost's Strings",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; instantly learns a ghost's Fetters and Passions, or for an additional ten motes overwrites them with the necromancer's own design for up to a month per point of permanent Essence spent.",
+    "description": "Over the course of a full turn, the necromancer instantly learns a target ghost's Fetters and Passions. For an additional cost of ten motes, she may instead overwrite those Fetters and Passions with a new design of her own choosing; the overwritten values fade back to normal after one month per point of the necromancer's permanent Essence. Ghost-blooded targets are immune to the overwrite effect unless they possess a Merit that removes that protection. The Celestial sorcery version of this spell costs twenty motes and takes ten minutes to cast.",
+    "cost": "10 or 20 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One ghost",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 127,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 127",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "gentle-call-of-lethe",
+    "name": "Gentle Call of Lethe",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; marks a living target so that, upon death, they are barred from becoming a ghost, instead passing to Lethe or Oblivion depending on their temperament, and is incompatible with Rune of Sweet Passing.",
+    "description": "The necromancer marks a living target. Should that creature later die, it is barred from ever becoming a ghost, instead passing on to Lethe or to Oblivion depending on its temperament at the moment of death. This spell cannot be cast on a target already affected by Rune of Sweet Passing, and vice versa.",
+    "cost": "13 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One living creature",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 128,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 128",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "master-puppeteers-knife",
+    "name": "Master Puppeteer's Knife",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle countermagic-like spell; instantly destroys every animated-dead extra created by Raise the Skeletal Horde or Arisen Legion within a ninety-degree arc, and can destroy Exquisite Undead Aide-created undead one at a time, but cannot affect undead war machines.",
+    "description": "This spell functions much like countermagic, instantly destroying every animated-dead extra created by Raise the Skeletal Horde or Arisen Legion within a ninety-degree arc out to ten yards. It can also destroy Exquisite Undead Aide-created undead servants, though only one at a time, and it has no effect whatsoever on undead war machines.",
+    "cost": "14 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "Area of effect",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 128,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 128",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "midnight-shadow-sun",
+    "name": "Midnight Shadow Sun",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; cast on a shadowland border, forces creatures crossing it to emerge on the caster's chosen side for the next five minutes.",
+    "description": "Cast upon a shadowland's border, this spell forces up to twice the caster's Essence in creatures who cross that border to emerge on whichever side the necromancer chooses, for the next five minutes.",
+    "cost": "8 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "Shadowland border",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 128,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 128",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "mother-darkness",
+    "name": "Mother Darkness",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; reshapes a one-mile radius into a somber, threatening environment that puts Underworld denizens more at ease and counts toward an Abyssal shedding Resonance, but cannot be cast on a Demesne.",
+    "description": "Over the course of a minute, the necromancer reshapes the local environment within a one-mile radius, darkening the sky, graying the flora and fauna, and adding an air of menace. Creatures of the Underworld find themselves more at ease within the area, recovering an extra mote of Essence per day spent there, and the spell is considered a significant fraction of the trappings of death an Abyssal needs to shed Resonance. The area cannot be cast upon a Demesne, and when cast on Wyld terrain it reduces the Wyld's strength by one tier while its effects persist. The transformation settles in over the course of a week and fades over a similar span once the spell ends.",
+    "cost": "12 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "Area of effect",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 129,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 129",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "piercing-the-heel",
+    "name": "Piercing the Heel",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; using a ghost's former body as an arcane link, ritually pierces its heels with iron nails to bind the ghost from ever physically harming the necromancer, making it fall lame if it tries.",
+    "description": "This spell cannot be cast unless the necromancer has access to her victim's former body, which serves as the arcane link. Ritually piercing the body's heel tendons with iron nails while speaking the ghost's name binds the ghost so that it cannot enact any physical harm upon the necromancer; should it ever attempt to do so, it immediately falls lame and unable to move until it abandons the intention. The binding may be broken by countermagic cast on the ghost, by removing the iron nails from the body's heels, or automatically if the body decays too far for the nails to be removed at all.",
+    "cost": "17 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One ghost",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 129,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 129",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "ringing-hun-rebuke",
+    "name": "Ringing Hun Rebuke",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; pulls two iron rings from thin air and claps them to resonate for an hour, making ghosts reluctant to approach within five yards or to strike the caster.",
+    "description": "The necromancer pulls two iron rings out of thin air, wears one on the middle finger of each hand, and claps her hands to make the rings resonate for the following hour. While the rings sound, any ghost must succeed at a Willpower roll (difficulty 3) to approach within five yards of the caster, and finds it abhorrent to strike her, granting the necromancer an effective additional soak of 2L/3B against ghostly attacks; ranged attacks from beyond the five-yard radius are unaffected. Ghosts in a crowd instinctively move out of the necromancer's path while the spell is active, though a sufficiently motivated and numerous mob can still shove past. There is a greater Labyrinth Circle version of this spell called Brick-by-Brick Solitude.",
+    "cost": "19 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "Caster",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 129,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 129",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "seat-of-deadly-splendors",
+    "name": "Seat of Deadly Splendors",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; raises a bone throne from the ground granting social bonuses and the ability to see and command dematerialized ghosts to manifest.",
+    "description": "Speaking blasphemies to the local gods or ghosts and letting a drop of blood fall upon the earth, the necromancer causes a massive bone throne to burst from the ground for her to sit upon. While seated, she gains a two-die bonus to all rolls involving intimidation, persuasion, or perceiving true motives and lies, and can see dematerialized ghosts as though they were material, forcing any such ghost to manifest at a cost of two motes (adding one to the spell's dice bonuses when applied against ghosts). The magical effects last only an hour, though the throne itself remains until hewn from the ground and removed (treat it as a stone statue, see Exalted, p. 239); destroying the throne ends the spell's magical effects immediately. The spell cannot be successfully cast if the necromancer is on a second floor, in a tree, or otherwise not in contact with the ground.",
+    "cost": "15 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "Caster",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 130,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 130",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "shattered-void-mirror",
+    "name": "Shattered Void Mirror",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; briefly inverts a living victim's physical form against a reflection drawn from the Void, dealing lethal damage equal to twice her remaining health levels and draining motes equal to twice her permanent Essence.",
+    "description": "The necromancer throws her arm out toward a target; for a moment, the colors of the victim's image invert as her Essence is thrown against an exact opposite drawn from the Void. The target's skin and bones crack, her flesh grows cold and pale, and she suffers a number of dice of raw lethal damage equal to twice her current remaining health levels, soakable only by her natural soak, and loses a number of motes of Essence equal to twice her permanent Essence. If the spell kills its target, the victim's inverted image shatters into pieces that scatter on the Underworld's wind, draining her corpse of all color; the spell instantly slays extras.",
+    "cost": "20 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One living creature",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 130,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 130",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "silent-masters-pollen",
+    "name": "Silent Master's Pollen",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; conjures a point of gray-white light that lures a ghost toward Lethe, freeing any ghost successfully struck by it of necromantic bindings, with greater Labyrinth and Void versions freeing higher-Essence ghosts and larger groups.",
+    "description": "The necromancer summons a small, nigh-irresistible point of light representing the cycle of passing through Lethe, which she may either touch directly to a ghost's corpus with a successful unarmed attack or hurl at a target using Wits + Thrown. A ghost struck by the light must roll Willpower (difficulty 3) or silently slip into Lethe with no risk of falling into Oblivion; whether or not the ghost actually passes on, any Charms or spells binding it shatter and release it, provided the bound Arcanoi or Charm was of the Iron Circle or Essence 3 or lower. Greater versions of this spell exist: Black Vial, a Labyrinth Circle spell (24 motes) that frees ghosts bound by Onyx Circle or Essence 4-or-lower effects, and Empty Night Future, a Void Circle spell (32 motes) affecting up to ten ghosts within a ten-yard radius and freeing any bound effect regardless of Essence. For these greater versions, ghosts must beat a higher Willpower roll (difficulty 4 for Black Vial, 5 for Empty Night Future) or be drawn fully into Oblivion instead of Lethe, with the resulting agony absorbed by the caster at a cost of one mote per soul lost this way.",
+    "cost": "18 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One or two ghosts",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 130,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 130",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "smoothing-the-crease-worn-mind",
+    "name": "Smoothing the Crease-Worn Mind",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; silences the voices of long-dead gods in a target's mind, relieving Whisper of Oblivion contagion fear, calming spectres regarding Void subservience, and temporarily suppressing an Abyssal's Whispers of the Malfeans channeling ability.",
+    "description": "By touch (an unarmed attack roll at a one-die penalty against an unwilling target), the necromancer silences the voices of long-dead gods that trouble her target's mind. This relieves the fear associated with Whisper of Oblivion contagion (see Exalted: The Abyssals, p. 284), calms spectres regarding their subservience to the Void, and quiets mortwights and other quiescent undead. If cast on an Abyssal, the target temporarily loses the ability to channel Whispers of the Malfeans. The effect lasts one day per point of the caster's Essence.",
+    "cost": "23 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One creature",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 130,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 130",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "stones-worn-smooth",
+    "name": "Stones Worn Smooth",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; a target ghost's heart is pulled from her and crushed into a black-diamond Hearthstone unless she beats a Willpower roll, drawing her toward Lethe or Oblivion until the stone shatters.",
+    "description": "The target ghost's player rolls Willpower against a difficulty equal to the necromancer's Essence; on a failure, the ghost's heart is pulled from her corpus and crushed into a black diamond Hearthstone whose level equals the ghost's permanent Essence. The Hearthstone lasts only one day before shattering, cannot be used within Creation, and shatters instantly if exposed to the Unconquered Sun's light. While it persists, the ghost is drawn irresistibly toward Lethe or Oblivion until the Hearthstone breaks.",
+    "cost": "15 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "One ghost",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 131,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 131",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "trolling-the-dark-water",
+    "name": "Trolling the Dark Water",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; casts a violet Essence net that settles over the ground and forces ghosts passing through it to spend a mote to manifest, with no effect in the already-material Underworld.",
+    "description": "The necromancer casts a violet net of Essence into the air, which settles over the ground within twenty-five yards. Any ghost passing through the net's area is forced to spend a mote of Essence to manifest if not already material; the necromancer may spend an additional five motes to force manifestation outright rather than merely charging for it. The spell has no effect in the Underworld, where ghosts are already material by default.",
+    "cost": "10 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "Area of effect",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 131,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 131",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "without-pity-without-scorn",
+    "name": "Without Pity, Without Scorn",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; a shattering sphere of Void energy renders all of a ghost's Fetters within an area inert for a time based on Fetter rating, or can instead be hurled at a specific ghost to permanently sever it from one chosen Fetter.",
+    "description": "A sphere of Void energy shatters on the ground, rendering any Fetter (a physical representation binding a ghost to the world) within the area of effect inert for a period based on that Fetter's rating: two months for a one-dot Fetter, one month for two dots, two weeks for three dots, six days for four dots, and three days for a five-dot Fetter. Alternatively, the necromancer may instead hurl the sphere at a specific ghost using Dexterity + Thrown to permanently sever that ghost from one chosen Fetter outright.",
+    "cost": "18 motes",
+    "duration": "Varies / see description",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "Varies",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 131,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 131",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "spurring-the-beast-of-war",
+    "name": "Spurring the Beast of War (aka Onyx Reanimation)",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle necromancy spell; the mid-tier war-machine animation spell, required to bring size class 3 (\"Big and Dead\") war machines to life, granting them stronger baseline Attributes/Abilities and more health levels per necrosurgery success than the entry-level Walking War Machine.",
+    "description": "Also known among necromancers as Onyx Reanimation, this spell is the Labyrinth Circle's more powerful successor to Walking War Machine (Iron Reanimation), required to animate size class 3 war machines and usable for smaller ones as well. Each necrosurgery roll (an extended Intelligence + Craft [Necrosurgery] action) represents two full days of work, and casting the spell costs (8 - the necromancer's permanent Essence rating) motes per success rolled on that necrosurgery check. A war machine animated this way has: Strength 6, Dexterity 2, Stamina 5, Charisma 0, Manipulation 0, Appearance 0, Perception 3, Intelligence 1, Wits 4; no functioning Virtues (automatically succeeds on Valor rolls, automatically fails all others); Athletics 3, Awareness 2, Brawl 4, Dodge 4, Endurance 3, Melee 3, Resistance 3, Stealth 1; Base Initiative 7; soak highly variable by armor but never less than 4L/8B; and, per success on the initial necrosurgery roll, two -0, two -1 and three -2 health levels.",
+    "cost": "(8 - the necromancer's permanent Essence rating) motes per success on the animating Craft (Necrosurgery) roll.",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "one war machine of size class 1-3 built via the war-machine-construction-framework; a nemissary may substitute Nemissary's Ride or Drive the Necrotic Colossus instead of this spell",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      },
+      {
+        "trait": "Craft (Necrosurgery)",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 98,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 98",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "willful-flesh-commands",
+    "name": "Willful Flesh Commands",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle version of Black Candle Visage; over six hours of hands-on manipulation the necromancer permanently reshapes a willing living target's Attributes.",
+    "description": "This greater, Labyrinth Circle version of Black Candle Visage allows the necromancer to reshape the Attributes of a willing living target over six hours of hands-on manipulation. The change is permanent and can only be undone by countermagic or by casting the spell again.",
+    "cost": "24 motes",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "One willing living creature",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 119,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 119",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "white-shard",
+    "name": "White Shard",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle mirror spell; enables face-to-face communication between two specially treated mirrors located anywhere in the Underworld for up to thirty minutes.",
+    "description": "This Labyrinth Circle mirror spell allows face-to-face communication between two mirrors that have both been specially treated in advance, no matter where in the Underworld they are located, for up to thirty minutes.",
+    "cost": "28 motes",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "Two treated mirrors",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 120,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 120",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "funerary-misted-vessel",
+    "name": "Funerary Misted Vessel",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle version of Death Flies Two Sails; raises a much larger fog-shrouded ghost ship built to marine-assault-trireme specifications, capable of stealthy troop transport.",
+    "description": "This greater, Labyrinth Circle version of Death Flies Two Sails raises a much larger ghost ship comfortably carrying twenty passengers (fifty uncomfortably, or eighty walking dead), shrouded in a stealth-granting fog bank. It functions as a marine assault trireme with 14L soak and 16-32 health levels depending on configuration.",
+    "cost": "22 motes cast, 11 committed",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "One sailing vessel",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 121,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 121",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "puzzle-box-of-love",
+    "name": "Puzzle Box of Love",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle version of Gathering a Ghost's Strings; permanently rearranges a ghost's Passions and Fetters entirely, contestable only once a year on the anniversary of the ghost's death.",
+    "description": "This greater, Labyrinth Circle version of Gathering a Ghost's Strings permanently and entirely rearranges a target ghost's Passions and Fetters according to the necromancer's design. The ghost may only contest this rearrangement once per year, on the anniversary of its death.",
+    "cost": "20+ motes",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "One ghost",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 127,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 127",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "black-vial",
+    "name": "Black Vial",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle version of Silent Master's Pollen; frees ghosts bound by Onyx Circle Necromancy or Charms of Essence 4 or lower, risking Oblivion instead of Lethe if the target fails its Willpower roll.",
+    "description": "This greater, Labyrinth Circle version of Silent Master's Pollen frees ghosts bound by Onyx Circle Necromancy or by Charms of Essence 4 or lower. A struck ghost must beat a Willpower roll at difficulty 4 or be drawn into Oblivion instead of Lethe; the necromancer absorbs one mote of agony for each soul lost this way.",
+    "cost": "24 motes",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "One or two ghosts",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 130,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 130",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "baneful-shadow",
+    "name": "Baneful Shadow",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle reverse version of Baneful Sun; curses a target to wander Creation forever unable to regain Essence, or permanently bars a hero from the Underworld.",
+    "description": "This reverse version of Baneful Sun curses its target to wander Creation forever, unable to ever regain Essence, or alternatively bars a heroic target from ever entering the Underworld again.",
+    "cost": "22 motes",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "One creature",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 131,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 131",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "baneful-sun",
+    "name": "Baneful Sun",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; curses a target with a taint that resonates against Creation, inflicting a slow, eventually lethal drain, or against the Underworld with slow-healing wounds; a reverse version curses targets to wander Creation forever or bars heroes from the Underworld.",
+    "description": "The necromancer curses her target with a taint that resonates against Creation: while in Creation, the victim suffers a one-die penalty to all actions and one unsoakable die of aggravated damage per month, which will eventually kill her if left uncured; while in the Underworld, the target's wounds heal at only one health level per month and never any faster. Casting this against a heroic character requires a contested Essence roll. A reverse version of the spell, Baneful Shadow, instead curses the target to wander Creation forever, unable to regain any Essence, or to be permanently barred from entering the Underworld.",
+    "cost": "22 motes",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "One creature",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 131,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 131",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "clamoring-shackles",
+    "name": "Clamoring Shackles",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; fires an unparryable, soak-piercing magical arrow that, if it drops the target below Incapacitated, latches soulsteel grave-prison chains onto a second ghost of the caster's choosing.",
+    "description": "The necromancer fires a magical arrow using Wits + Archery, dealing lethal damage equal to three times her Occult rating and ignoring any soak bonuses granted by Arcanoi or artifacts. If the arrow reduces its target below Incapacitated, soulsteel grave-prison chains (Artifact rating two) latch onto a second ghost of the necromancer's choosing, binding it. The chains last one day per point of the necromancer's permanent Essence unless she spends six experience points to make them permanent, breakable thereafter only by Obsidian Countermagic. A Void Circle version of this spell, Blackstorm Wagon, rains down arrows across a wide area instead.",
+    "cost": "21 motes",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "Two creatures",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 132,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 132",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "crystal-ghost-shard",
+    "name": "Crystal Ghost Shard",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; ejects the necromancer's higher soul as a fully functional ghost while her body is protected inside a black crystal shell, letting her act, fight, and learn Arcanoi as a ghost until the shell shatters.",
+    "description": "The necromancer's higher soul is ejected from her body as a ghost, while her body is encased in a protective black crystal shell (30L/20B soak) that shatters after taking forty levels of damage, at which point it deals two unsoakable levels of aggravated damage to the caster and forcibly pulls her spirit back into her body. While committed, her body is inert and protected; her ghost-self can act freely, use ghost Charms, and learn Arcanoi (at normal cost, or a discount if the necromancer is Moonshadow or Eclipse Caste). If the ejected spirit is slain while outside her body, the necromancer's body loses one dot of permanent Willpower upon her forced return.",
+    "cost": "15 motes (committed)",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "Caster",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 132,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 132",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "dead-mans-voice",
+    "name": "Dead Man's Voice",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; remotely scries and lightly possesses a victim through an arcane link, letting the necromancer see, hear, and speak through the victim while the victim rapidly decays or ages, restricted to living targets of Essence 1 or ghosts of Essence 2 or lower.",
+    "description": "Using an arcane link, the necromancer sees and hears through a victim's senses and can speak through her mouth, though without any motor control over the target's body. While the spell is active, the victim decays or ages rapidly, dying in roughly thirty minutes if mortal (ghosts fare somewhat better, melting away like butter); this spell can only target living creatures of Essence 1 or lower, or ghosts of Essence 2 or lower, and treats extras as having seven health levels for this purpose. The victim suffers one unsoakable level of lethal damage for every five minutes the spell remains active.",
+    "cost": "18 motes",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "One creature",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 133,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 133",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "denying-the-call",
+    "name": "Denying the Call",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; temporarily revives a body that died less than a minute ago, restoring it to one health level above Incapacitated and immune to all but aggravated damage for the spell's duration.",
+    "description": "This spell can only be cast on a creature that died less than a minute ago. It temporarily revives the body to one health level above Incapacitated, harmable only by aggravated damage, for a number of turns equal to the necromancer's Essence; it cannot be recast on the same target a second time. When the spell ends, the target dies again, this time at half its normal maximum health levels, in the Underworld. A Void Circle version, Barred Tomb, extends the revival to up to an hour and restores health levels equal to the caster's Essence.",
+    "cost": "24 motes",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "One recently dead creature",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 134,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 134",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "golden-shadows-cast-in-frieze",
+    "name": "Golden Shadows Cast in Frieze",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; frees a spectre from the Malfeans' whispers and Void obligations, restoring its pre-corruption memories and afterlife through a contested Willpower and Essence roll, and can also strip a pitiable ghost's Arcanoi use.",
+    "description": "The necromancer attempts to free a spectre from its Malfean whispers and obligations to the Void, restoring its former, pre-corruption memories and afterlife. This requires a contested Willpower + Essence roll against the target at difficulty 7, with the necromancer able to purchase additional successes for three motes each, up to a maximum equal to her own Essence. As an alternative use, the necromancer may strike a pitiable ghost with Wits + Occult against the ghost's dodge to strip its ability to use or learn new Arcanoi until the following midnight, as measured by the Calendar of Setesh. This spell can also cleanse Oblivion's Whisper taint from an affected ghost.",
+    "cost": "30+ motes",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "One spectre",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 134,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 134",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "gray-eyes-shield-and-shell",
+    "name": "Gray Eyes Shield and Shell",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; the necromancer's eyes turn gray and dull, granting immunity to ghosts' Arcanoi (including Skinriders' grasp and Essence-theft effects) and to mental influence from ghosts, with self-moliation as the sole exception.",
+    "description": "The necromancer's eyes turn gray and dull as this spell takes hold, granting her immunity to ghostly Arcanoi: Skinriders cannot grasp her, and Essence-theft effects targeting her simply fail. She is also immune to mental influence originating from ghosts. The only exception to this protection is self-inflicted moliation.",
+    "cost": "25 motes",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "Varies",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 136,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 136",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "infinite-footsteps",
+    "name": "Infinite Footsteps",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; creates a shortcut tunnel through the Labyrinth connecting two previously visited or scried points, letting travel between them take exactly one day regardless of true distance.",
+    "description": "The necromancer creates a shortcut tunnel through the Labyrinth connecting two points she has previously visited or scried. Travel through this tunnel takes exactly one day, regardless of the true distance between the two points, and the tunnel itself lasts a number of days equal to the necromancer's Essence.",
+    "cost": "26 motes",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "One journey",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 136,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 136",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "joyless-spirits-corruption",
+    "name": "Joyless Spirit's Corruption",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle ritual spell; completes a rare and foul spirit's corruption from a life-affirming god into allegiance with the death-gods.",
+    "description": "This ritual spell completes the corruption of a god from a life-affirming allegiance into service to the death-gods. It only functions on rare, already-foul spirits already predisposed toward such corruption.",
+    "cost": "30 motes",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "One god",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 136,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 136",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "links-born-of-tumult",
+    "name": "Links Born of Tumult",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle hour-long ritual; splits the necromancer's lower soul off as her own hungry-ghost-like shadow that she can command or directly inhabit, ending only when she devours it and reabsorbs her lower soul.",
+    "description": "Over the course of an hour-long ritual, the necromancer splits her lower soul off into a hungry-ghost-like shadow of herself, using the hungry ghost creation rules (see Exalted: The Abyssals, pp. 61-62). The shadow can be given simple commands, or the necromancer may directly inhabit and control it, leaving her own body powerless while she does so. The spell has no fixed duration, ending only when the necromancer devours the shadow and reabsorbs her lower soul. If the shadow is destroyed while separate, the necromancer's lower soul returns to her violently, costing her one point of permanent Willpower; if she was actively controlling the shadow when it was destroyed, she is also stunned for an hour.",
+    "cost": "22 motes, 1 lethal health level",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "Caster",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 136,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 136",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "rattled-bones-of-war",
+    "name": "Rattled Bones of War",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; bones fly from the ground to form a scout- or common-warstrider-scale construct of bone and iron around the caster, complete with a summonable fighting-chain weapon, lasting an hour and extendable at additional cost.",
+    "description": "Bones fly up from the ground and assemble into either a scout warstrider or a common warstrider (fully attuned) made of bone and iron around the necromancer. It functions as a normal warstrider of the chosen type, though piercing its armor wounds the pilot's spirit directly. It comes with a summonable Warstrider Fighting Chain weapon (Speed +3, Accuracy -1, Damage +4, Defense +2). The construct lasts one hour, extendable by paying eleven motes per additional hour, and the necromancer collapses when its duration finally ends. A Labyrinth Circle variant, Walking Gore Titan, and a Void Circle variant, Void Cocoon Warrior, produce larger constructs from different materials.",
+    "cost": "22 motes (committed)",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "Caster",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 136,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 136",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "seven-visions-wisdom",
+    "name": "Seven Visions Wisdom",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; captures and binds a lower-Essence ghost into a soulsteel medallion, letting the wearer substitute the ghost's Ability rating for their own at a penalty when using an Ability they lack naturally.",
+    "description": "The necromancer captures and binds a ghost of lower Essence than her own into a soulsteel medallion (Artifact rating two, commitment cost two motes). The wearer of the medallion may substitute any one of the bound ghost's Ability ratings for her own when performing a relevant task, though she suffers a two-die penalty if using an Ability she does not naturally possess at all. The medallion loses its integrity after being struck by countermagic or after a number of months equal to the necromancer's Essence; she may spend six experience points to make it permanent and immune to everything but Obsidian Countermagic. Wearing multiple such medallions at once causes them to conflict, imposing a two-die penalty on either Ability substituted.",
+    "cost": "34 motes",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "One ghost",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 137,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 137",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "walking-gore-titan",
+    "name": "Walking Gore Titan",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle variant of Rattled Bones of War; requires a ritual sacrifice with an obsidian knife of beings whose cumulative permanent Essence totals ten or more, raising a crimson warstrider of pooled blood wielding an entrails fighting chain.",
+    "description": "This variant of Rattled Bones of War requires a ritual sacrifice, performed with an obsidian knife, of one or more beings whose cumulative permanent Essence totals ten or more. A crimson warstrider rises from the pooled blood of the sacrifice, wielding an entrails fighting chain in place of the base spell's bone weapon, but otherwise duplicates Rattled Bones of War's construct in all other respects.",
+    "cost": "16 motes (committed)",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "Caster",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 137,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 137",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "rebirth-into-darkness",
+    "name": "Rebirth Into Darkness",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; binds a ghost with an invisible collar that forces it to keep re-manifesting after every death or dissipation rather than passing on or risking Oblivion, commonly used by Deathlords and Abyssals for repeated torture.",
+    "description": "The necromancer binds a target ghost with an invisible collar that compels it to re-manifest after every subsequent death or dissipation, rather than being allowed to pass on or risk falling into Oblivion. The binding persists until the caster chooses to forfeit it; if the ghost's permanent Essence was 0 when bound, maintaining the binding after each recurrence costs ten motes per instance, but otherwise it renews automatically. This spell is commonly used by Deathlords and Abyssals to inflict repeated torture on a captive ghost.",
+    "cost": "25 motes",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "One ghost",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 138,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 138",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "shadow-stones-travel",
+    "name": "Shadow Stones Travel",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; temporarily converts a portion of Creation into a shadowland overlay that spreads over three turns, mirroring normal shadowland rules for anyone inside, with the inverse effect if cast within the Underworld.",
+    "description": "This spell temporarily converts a portion of Creation into a shadowland, with the overlay spreading to a fifty-yard radius over the course of three turns. The transformed area follows normal shadowland rules for anyone caught within it for a number of turns equal to the necromancer's Essence, or until she dismisses the effect early. If cast within the Underworld instead, the spell has the inverse effect, temporarily revealing a patch of Creation.",
+    "cost": "24 motes",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "Area of effect",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 138,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 138",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "shield-of-shattering-bones",
+    "name": "Shield of Shattering Bones",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; lets the caster reflexively shunt incoming damage onto a marked, nearby animate-dead minion in line of sight, which visibly bears the transferred blow.",
+    "description": "At the time of casting, the necromancer marks a nearby animate-dead minion (such as a skeleton or zombie) within five times her Essence in yards and in line of sight. Thereafter, for a reflexive cost of three motes, she may shunt an incoming attack's damage onto the marked minion instead of suffering it herself; the minion visibly displays the transferred blow, such as a skeleton's ribcage collapsing. The marked minion remains valid until sunrise (within the Underworld) or until the spell is recast to mark a new minion.",
+    "cost": "18 motes",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "Caster",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 139,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 139",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "silenced-whispered-prayers",
+    "name": "Silenced Whispered Prayers",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; cuts off a target's incoming worship, dropping a single target's Cult rating to zero for the spell's duration, or halving or reducing all Cult ratings within a wide area if cast on a region instead.",
+    "description": "Cast on a single target, this spell drops that target's Cult rating (Underworld or Ancestor) to zero for the spell's duration. Cast instead on an area (a forty-five-yard radius), it reduces every ghost's Cult rating within the area by one dot, and halves (rounding down) the Cult rating of living creatures within it. The spell's effect lasts until the Underworld's sun has risen seven times.",
+    "cost": "27 motes",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "Varies",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 139,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 139",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "sweet-voice-familiar",
+    "name": "Sweet Voice Familiar",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle spell; the caster's body goes slack and possessed, broadcasting maddening Whispers of Oblivion to every ghost within miles equal to her Essence, risking a taint effect on ghosts who fail a Willpower roll and draining temporary Willpower from mortals who hear it.",
+    "description": "The necromancer's body goes slack, possessed by the spell, and broadcasts maddening Whispers of Oblivion to every ghost within a number of miles equal to her Essence. Affected ghosts must beat a Willpower roll at a difficulty equal to the caster's Whispers rating plus five, or become poisoned by the promises of Oblivion (see Exalted: The Abyssals, p. 284 sidebar). Mortals who hear the broadcast must roll Willpower against the caster's Whispers rating, losing temporary Willpower equal to their margin of failure.",
+    "cost": "32 motes",
+    "duration": "Varies / see description",
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "Area of effect",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 139,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 139",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "incomparable-destruction-engine",
+    "name": "Incomparable Destruction Engine (aka Obsidian Reanimation)",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle necromancy spell; the most powerful war-machine animation spell, required to bring size class 4 (colossal) war machines such as Juggernaut and the web is the spider to life, with the strongest baseline Attributes/Abilities and most health levels per necrosurgery success of the three animation spells.",
+    "description": "Also known among necromancers as Obsidian Reanimation, this is the most powerful of the three war-machine animation spells and the only one capable of animating size class 4 (colossal) war machines. No necromancer can even attempt to cast it without Craft (Necrosurgery) •••••, and each necrosurgery roll represents three full days of work. The spell's minimum Essence cost equals the number of successes needed on the necrosurgery roll, which the Storyteller may double for truly colossal machines such as Juggernaut. A war machine animated this way has: Strength 8, Dexterity 3, Stamina 7, Charisma 0, Manipulation 0, Appearance 0, Perception 4, Intelligence 2, Wits 4; no functioning Virtues (automatically succeeds on Valor rolls, automatically fails all others); Athletics 4, Awareness 3, Brawl 6, Dodge 2, Endurance 4, Melee 4, Resistance 5, Stealth 1; Base Initiative 8; and, per success on the initial necrosurgery roll, three -0, three -1 and four -2 health levels.",
+    "cost": "Minimum Essence equal to the number of successes needed on the animating Craft (Necrosurgery) roll (doubled at Storyteller discretion for colossal machines).",
+    "duration": "Varies / see description",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": "one war machine of size class 4 built via the war-machine-construction-framework",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      },
+      {
+        "trait": "Craft (Necrosurgery)",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 99,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 99",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "oblivions-avatar",
+    "name": "Oblivion's Avatar",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle necromancy spell; invests an animated war machine with a portion of the Malfeans' own power, granting it a chosen channel of entropy into Creation -- a black nimbus of destruction akin to Crypt Bolt or Withering Method, a disease-spreading effect, or some other direct conduit for Oblivion.",
+    "description": "Animating a war machine is sometimes just the first step toward creating a truly devastating weapon. Oblivion's Avatar invests a walking war machine with a portion of the power of the Malfeans themselves, granting it the ability to carry pure entropy into Creation. This might manifest as a black nimbus of destruction akin to the Abyssal Charms Crypt Bolt or (Material) Withering Method, the ability to spread disease, or some other form of direct channeling of Oblivion into the realm of the living; the prayer-blocking ability of the artifact weapon of mephitic desolation is cited as one product of this spell. Casting it costs 10 committed motes per granted power, or 40 motes and 5 experience points per power to make that power permanent.",
+    "cost": "10 motes (committed) per power, or 40 motes and 5 experience points per power to make the effect permanent",
+    "duration": "Varies / see description",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": "One war machine",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 102,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 102",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "the-barless-gate",
+    "name": "The Barless Gate",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle mirror spell; grants instant travel between any two mirrors in the Underworld, shattering any wards at the recipient mirror's location.",
+    "description": "This Void Circle mirror spell allows instantaneous travel between any two mirrors in the Underworld, and its passage shatters any wards protecting the location of the recipient mirror.",
+    "cost": "42 motes",
+    "duration": "Varies / see description",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": "Two mirrors",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 120,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 120",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "folding-midnight",
+    "name": "Folding Midnight",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle version of Midnight Shadow Sun; permanently curses a shadowland border to function as a one-way portal in a single direction, requiring the necromancer to walk its perimeter at the proper time of day.",
+    "description": "This greater, Void Circle version of Midnight Shadow Sun permanently curses a shadowland's border to become a one-way portal that only permits crossing in a single direction. Casting it requires the necromancer to walk the entire perimeter of the shadowland at the time of day appropriate to her desired effect; an unlucky ghost or other creature caught by it may find itself permanently unable to return to the side it started from.",
+    "cost": "46 motes",
+    "duration": "Varies / see description",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": "Shadowland border",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 128,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 128",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "empty-night-future",
+    "name": "Empty Night Future",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle version of Silent Master's Pollen; frees up to ten ghosts within a ten-yard radius from any binding effect regardless of Essence, risking Oblivion instead of Lethe on a failed Willpower roll.",
+    "description": "This greatest, Void Circle version of Silent Master's Pollen affects up to ten ghosts within a ten-yard radius simultaneously and frees them from any binding effect regardless of its Essence rating. Each struck ghost must beat a Willpower roll at difficulty 5 or be drawn into Oblivion instead of Lethe; the necromancer absorbs one mote of agony for each soul lost this way.",
+    "cost": "32 motes",
+    "duration": "Varies / see description",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": "Up to ten ghosts",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 130,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 130",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "blackstorm-wagon",
+    "name": "Blackstorm Wagon",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle version of Clamoring Shackles; a single accuracy roll applies a rain of magical arrows to every target in a hundred-yard radius within five hundred yards, with any ghost slain suffering the same grave-chain fate.",
+    "description": "This greater, Void Circle version of Clamoring Shackles rains down a barrage of magical arrows: the necromancer makes a single Perception + Archery roll that applies to every target within a hundred-yard radius, out to a range of five hundred yards. Any ghost slain by one of these arrows suffers the same soulsteel grave-prison chain fate as a target of Clamoring Shackles.",
+    "cost": "48 motes",
+    "duration": "Varies / see description",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": "Area of effect",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 132,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 132",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "void-cocoon-warrior",
+    "name": "Void Cocoon Warrior",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle variant of Rattled Bones of War; a black cocoon of nothingness becomes a twenty-foot noble or royal warstrider that can be upgraded with a lethal health level sacrifice, lasting two hours and extendable at additional cost.",
+    "description": "This greater, Void Circle variant of Rattled Bones of War forms a black cocoon of nothingness around the necromancer that becomes a twenty-foot mighty noble or royal warstrider. The necromancer may sacrifice a lethal health level to upgrade the construct to a ruddy-red royal warstrider that cannot be healed until the spell ends. It lasts two hours, extendable by paying motes equal to half the spell's original cost per additional hour, and can mount additional Void Cocoon weapons at an extra Essence-based cost.",
+    "cost": "28 motes (committed)",
+    "duration": "Varies / see description",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": "Caster",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 137,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 137",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "birth-of-sanitys-sorrow",
+    "name": "Birth of Sanity's Sorrow",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle spell, castable only once per lifetime in the instant before death and taught directly by a Malfean; transforms the caster into a unique hungry-ghost-like combat form for one scene before she irrevocably dies, her soul devoured by the Void.",
+    "description": "This spell can only be cast once per lifetime, and only in the instant before the necromancer's death, having been taught to her directly by a Malfean. It transforms her into a unique hungry-ghost-like combat form, using the hungry ghost rules (see Exalted: The Abyssals, pp. 61-62) with her Essence added to her Strength and Stamina, and a number of health levels equal to five times her Essence plus an Incapacitated level. Charms cost only one mote each to invoke in this form, and a single mote can substitute for a point of Willpower. The form comes with three unique, bespoke powers costing five to ten motes each, devised jointly by the Storyteller and player. The form remains active for one scene, after which the necromancer instantly and irrevocably dies, her soul devoured by the Void — unless she was already Incapacitated at the moment of casting, in which case she instead survives at the Incapacitated health level. [NOTE: this is a capstone, character-ending transformation spell rather than a standard combat spell, and its bespoke powers are explicitly GM/player-collaborative content rather than fixed mechanics.]",
+    "cost": "10 motes, 1 permanent Willpower",
+    "duration": "Varies / see description",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": "Caster",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 139,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 139",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "black-faith",
+    "name": "Black Faith",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle desperate-suicide ritual; the caster sacrifices a ghost to the Abyss after a half-hour of worship, then leaps into the Void, either being teleported anywhere by the pleased Malfeans or destroyed permanently if they are unimpressed.",
+    "description": "In this desperate ritual, the necromancer sacrifices a ghost's pain and corpus to the Abyss after a half-hour of dedicated worship, then leaps bodily into the Void. If the Malfeans are pleased with the offering, they revoke her intended dissolution and instead teleport her anywhere she wishes — the Labyrinth, the Underworld, or Creation — bypassing all wards along the way. If they are unimpressed, she is instead destroyed, permanently and without recourse. This spell's outcome is explicitly Storyteller-adjudicated and should be used in close coordination with the Storyteller.",
+    "cost": "30 motes, 1 lethal health level",
+    "duration": "Varies / see description",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": "Caster",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 140,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 140",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "forsaken-life-engine",
+    "name": "Forsaken Life Engine",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle spell; conjures a yeddim-sized bone-and-iron engine that devours fed living creatures to permanently carve out a shadowland centered on itself, complete with its own combat statistics and mounted weapons.",
+    "description": "The necromancer conjures a vast engine of bone and iron, roughly the size of a yeddim, that devours living creatures fed into it. Once creatures with a cumulative permanent Essence of at least ten times the motes spent have been consumed, the engine carves out a permanent shadowland with a fifty-mile radius (extendable by another fifty miles per additional ten motes spent) centered on itself. The engine has Strength 6, Dexterity 4, Stamina 6, Perception 2, Intelligence 2, Wits 4, a relevant combat Ability of 3, soaks of 22L/30B, and sixty health levels; damage must exceed its soak to harm it at all, Obsidian Countermagic destroys it instantly, and Adamant Countermagic deals ten health levels of damage to it. It can process up to five creatures per minute (one every four turns) and self-destructs in a fiery explosion with a five-hundred-yard blast radius if destroyed. Its weapons are Engine Claws (Speed -2, Accuracy +3, Damage +6L, Defense +0), Fragment (Accuracy +0, Damage +7L, Rate 3, Range 100), and Blood (Accuracy +3, Damage +6L, Rate 1, Range 25).",
+    "cost": "50+ motes",
+    "duration": "Varies / see description",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": "Area of effect",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 140,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 140",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "the-clay-of-warped-dreams",
+    "name": "The Clay of Warped Dreams",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle spell; requires sacrificing three ghosts after a ten-minute prayer to the Malfeans while standing in the Labyrinth, granting total reshaping control over ten square miles of the Labyrinth for as long as Essence remains committed.",
+    "description": "Standing within the Labyrinth, the necromancer offers a ten-minute prayer to the Malfeans and sacrifices three ghosts, destroying them, to grant herself total control over ten square miles of the Labyrinth, reshaping it to her will. While the spell is committed, she can manifest physical attacks (using Wits plus the appropriate combat Ability plus Occult successes) or create hazards and creatures at the Storyteller's discretion. Control lasts as long as the Essence remains committed, or until a dead god reclaims the reshaped space.",
+    "cost": "60 motes (committed)",
+    "duration": "Varies / see description",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": "Area of effect",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 140,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 140",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "mouth-of-the-void",
+    "name": "Mouth of the Void",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle mass-death spell; the caster's mouth yawns open, pouring out a spreading darkness that devours every living creature within a forty-yard radius, dealing thirty levels of aggravated damage and leaving the ground pitted with obsidian.",
+    "description": "The necromancer intones dark words, and cold shadows flare about her mouth like the lashing tails of a hundred preying cats. As she speaks, her mouth yawns wide and darkness pours out, rippling outward like an oil slick to fill a forty-yard radius over the course of the casting. As the spell ends, the darkness stills before falling into the sky like a silent reverse waterfall, blotting out all light within its boundary as it does. To anyone caught within, the blackness feels alive, clawing, grasping, whispering, and nibbling, removing parts of their innermost flesh and being. After the shadow takes these things, it leaves them, departing for the Void and the end of all life: each living creature within its reach suffers thirty levels of aggravated damage. The earth beneath the devouring shadow is left rotting and pitted, strewn with large chunks of obsidian — the transformed remains of any creature the spell killed.",
+    "cost": "50 motes",
+    "duration": "Varies / see description",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": "Area of effect",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 141,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 141",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "pyre-flame-guardian",
+    "name": "Pyre-Flame Guardian",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle spell; the necromancer doubles in height and fuses soulsteel skin from a dozen sacrificed ghosts to become a devastating melee combatant wreathed in unquenchable green pyre flame, exploding violently when the spell ends.",
+    "description": "As the casting completes, a dozen random ghosts are torn, shrieking, into Oblivion, and their anguish crawls onto the necromancer's skin, fusing into soulsteel that coats her entire body while she grows to twice her normal height. The soulsteel armor grants +12L/+12B soak and ignores any attack dealing fewer than twelve dice of raw damage. Her Strength gains a bonus equal to her Essence, and a billowing sheath of pyre flame inflicts three dice of aggravated damage upon any who dare attack her barehanded vision of harrowing death; anyone attacking with weapons not forged of stone or one of the Five Magical Materials sees their weapon slowly consumed and burned away in their hands. She can also hurl balls of pyre flame as a dice action using Thrown + Dexterity, dealing three health levels of aggravated damage plus one die per extra success, unparryable without Charms; where these flames strike, they leave circles and streaks of green fire across the scenery, and any barehanded attack that connects inflicts three more levels of aggravated damage and blows green fire blossoms across the land. Victims of the guardian's pyre flame must scrape it off (two levels of lethal damage per turn spent doing so, taking three turns) or continue burning; only creatures armored in a Magical Material, in stone, or in armor made entirely of one, are immune to the flame's spread. The spell ends when the caster cancels it, when an hour has passed (per the Calendar of Setesh), or when struck by Obsidian Countermagic; however it ends, the necromancer's soulsteel skin explodes into a thousand screaming shards traced in green fire, dealing five levels of lethal and two of aggravated damage to everyone within thirty yards, avoidable only with a perfect defense. The pyre flame this spell creates behaves as ordinary pyre flame in all respects (see Exalted: The Abyssals, p. 256): sunlight in Creation extinguishes it within minutes, in shadowlands it burns out within a year unless refreshed by sunlight, and in the Underworld it is permanent. Weapon table: Pyre-Flame Ball (Accuracy +Essence, Damage +3A, Rate 5, Range 30).",
+    "cost": "50 motes",
+    "duration": "Varies / see description",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": "Caster",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 141,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 141",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "grandmother-void",
+    "name": "Grandmother Void",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle spell; the caster becomes a flat, empty silhouette — a living doorway into Oblivion — that spawns fully material spectres each turn to obey her commands in the Malfeans' name, at the risk of a taint roll for anyone who hears their whispers.",
+    "description": "Speaking two words of the Old Realm tongue, the necromancer becomes a flat, empty silhouette — a doorway into Oblivion — for a number of turns equal to her Essence. Each turn, two spectres spawn fully formed from her, complete with full Essence and health levels, created using the starting ghost rules plus bonus experience equal to seven times the necromancer's Essence, with stats set by the necromancer herself. These spectres obey the necromancer's commands in the name of the Malfeans. Hearing their whispers risks a Willpower + Essence roll at difficulty 5 to avoid Oblivion's taint (see Exalted: The Abyssals, p. 284). While the caster is filled with infinite nothingness in this form, she is immune to physical and mental assaults; Obsidian or Adamant Countermagic cast during this period returns her to herself and ends the spell early, but will not dispel any spectres she has already brought forth.",
+    "cost": "40 motes, 1 lethal health level",
+    "duration": "Varies / see description",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": "Several spectres",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 142,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 142",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "risen-and-screaming",
+    "name": "Risen and Screaming",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle spell; sows an area with latent undeath by walking a looped boundary, so that any living creature that later dies inside the loop rises minutes afterward as a fast, screaming zombie bound to that ground.",
+    "description": "Focusing dark energy inward, the necromancer walks a looped path around a stretch of fertile earth in Creation; the soil beneath her feet blackens and dries as if charred and salted as she walks. Once she completes the loop there are no immediately apparent effects, but the enclosed land has been sown with lasting undeath. Triggered by the sudden rush of spirit that accompanies any death, when a living creature breathes its last breath and falls within the boundary, the ground crumbles beneath it; the creature sinks into the dirt and rises minutes later as an animate, rotting zombie. The zombies created by this spell are under the necromancer's control if she is present; otherwise they remain stationary unless a living creature becomes visible, at which point they attempt to slay it, propagating the undeath. These zombies cannot leave the circle that birthed them — they will not try, and instantly become inanimate if forced outside the boundary. They scream loudly when they spot prey and move at twice the speed of normal zombies; lacking victims, they bury themselves in the welcoming earth (noticeable only via a Perception + Awareness roll at difficulty two), remaining perfectly aware of all creatures within ten yards and able to claw free as a turn's movement. Otherwise, they are identical to the zombies described in Exalted (p. 299) and are always extras. The enclosed area returns to normal one week per point of the necromancer's Essence after the boundary was walked, though the ground itself will never bear life again.",
+    "cost": "40 motes",
+    "duration": "Varies / see description",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": "Area of effect",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 143,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 143",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "summon-hekatonkhire",
+    "name": "Summon Hekatonkhire",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle six-hour ritual requiring the death of a mortal and a ghost (or one Ghost-Blooded); summons a monstrous hekatonkhire — a reforged fragment of a dead Primordial's soul — and forces a contested soul-duel to determine whether it serves the necromancer or destroys her.",
+    "description": "This six-hour ritual requires the death of both a mortal and a ghost (or a single Ghost-Blooded, see the Exalted Players Guide) as part of the casting, and ends at dusk. Once complete, it calls forth one of the great and fearsome hekatonkhire — dead-god remnants formed from the souls of things that fell in flesh alongside the Primordials during the Primordial War, myriad in shape and form. The necromancer and the summoned hekatonkhire engage in a contested Willpower + Essence duel; the necromancer may spend Essence in seven-mote increments to reduce the creature's dice pool by one die per expenditure. Rolls continue each turn until either side accumulates three more successes than the other. If the necromancer wins, the hekatonkhire serves her loyally for a year and a day, or she may set it to a single indefinite task instead; if the hekatonkhire wins, it consumes the summoner's body and soul and returns to the Underworld. [NOTE: this spell summons a Storyteller-controlled monster type; a sample hekatonkhire NPC (\"Loras, Death Sun\") is provided on the following page but is GM-facing content and is not reproduced in this inventory. The casting and soul-duel mechanics above are player-facing and are what this row tracks.]",
+    "cost": "40 motes",
+    "duration": "Varies / see description",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": "One hekatonkhire",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 143,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 143",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "sins-of-the-father",
+    "name": "Sins of the Father",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle spell; curses a living victim with eternal servitude via a never-healing facial scar that passes to all their descendants, guaranteeing that when the marked person dies they become a ghost bound to obey the caster's every command.",
+    "description": "The necromancer lays a curse of eternal servitude upon a living victim, marking her with a scar — most commonly on the face — that never heals despite any mundane or magical treatment, and which appears identically on all of the victim's descendants while she lives. The victim can be marked in person, by lightly brushing her with the caster's fingers at the climax of the casting, or remotely through an arcane link, which is destroyed in the process. The curse inflicts no other miseries while the marked creature lives, but when she dies, she automatically becomes a ghost possessing the Passion \"Obey She Who Cursed Me\" at a rating equal to her new Conviction, and must immediately seek out and forever obey every command of her master. Even the caster's own death does not free the cursed line: they instead become bound to the necromancer's next incarnation, although they are free to take retribution against the original caster's reincarnation, should she rise again as a ghost herself. Obsidian Countermagic can free a single cursed individual (without freeing any relatives), while Adamant Countermagic frees a victim permanently but kills her in the process. Only a Zenith Caste priest assisted by a Solar Circle sorcerer, petitioning the Unconquered Sun, can free a victim without killing her or resorting to comparably dark magic. The Celestial Exalted cannot be enslaved by this spell, though they can still be marked and pass the curse to their children. Creatures without souls, or whose souls never enter the Underworld, are entirely immune.",
+    "cost": "50 motes, 1 permanent Willpower",
+    "duration": "Varies / see description",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": "One living person",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 144,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 144",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  }
+]

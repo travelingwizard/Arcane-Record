@@ -5,6 +5,10 @@ import {
   exaltedSheetTypes,
 } from '../../src/games/exalted1e/definitions';
 import { exalted1eCharacterSchema } from '../../src/games/exalted1e/schema';
+import {
+  abyssalCharmById,
+  abyssalNecromancySpellById,
+} from '../../src/games/exalted1e/reference/abyssal-powers';
 
 describe('Exalted First Edition Abyssal (schema-only; not yet UI-selectable)', () => {
   it('registers abyssal as a legal stored sheetType', () => {
@@ -336,8 +340,41 @@ describe('Exalted First Edition Abyssal (schema-only; not yet UI-selectable)', (
     });
   });
 
-  describe('Charms, Combos, and spells (no Abyssal catalog yet)', () => {
-    it('rejects a non-empty powers.charms array', () => {
+  describe('Charms (real Abyssal Charm catalog, Phase 1b)', () => {
+    it('accepts a legal Charm selection, including a satisfied prerequisite chain', () => {
+      // twisting-spiteful-shaft lists bloodthirsty-arrow as a
+      // prerequisiteCharms entry in the real catalog.
+      expect(abyssalCharmById.get('twisting-spiteful-shaft')?.prerequisiteCharms).toContain(
+        'bloodthirsty-arrow',
+      );
+      const character = createBlankExaltedCharacter('abyssal');
+      const parsed = exalted1eCharacterSchema.parse({
+        ...character,
+        powers: {
+          charms: [
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'bloodthirsty-arrow',
+              unresolvedReference: null,
+              notes: '',
+            },
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'twisting-spiteful-shaft',
+              unresolvedReference: null,
+              notes: '',
+            },
+          ],
+          spells: [],
+        },
+      });
+      expect(parsed.powers.charms.map((c) => c.definitionId)).toEqual([
+        'bloodthirsty-arrow',
+        'twisting-spiteful-shaft',
+      ]);
+    });
+
+    it('rejects an unknown Charm id', () => {
       const character = createBlankExaltedCharacter('abyssal');
       expect(() =>
         exalted1eCharacterSchema.parse({
@@ -357,7 +394,80 @@ describe('Exalted First Edition Abyssal (schema-only; not yet UI-selectable)', (
       ).toThrow();
     });
 
-    it('rejects a non-empty powers.spells array', () => {
+    it('rejects a Dragon-Blooded Charm id on an Abyssal sheet', () => {
+      const character = createBlankExaltedCharacter('abyssal');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            charms: [
+              {
+                id: crypto.randomUUID(),
+                definitionId: 'language-learning-ritual',
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+            spells: [],
+          },
+        }),
+      ).toThrow();
+    });
+
+    it('does not enforce minimumEssence/minimumRequirements at the schema layer (matches Dragon-Blooded/Solar scope)', () => {
+      // bloodthirsty-arrow requires Minimum Essence 2 per the catalog, but
+      // the schema layer -- like the existing Dragon-Blooded/Solar Charm
+      // validation -- does not check trait/essence minimums, only Charm-id
+      // validity, so selecting it alone on a fresh (Essence 1) character is
+      // accepted.
+      expect(abyssalCharmById.get('bloodthirsty-arrow')?.minimumEssence).toBe(
+        2,
+      );
+      const character = createBlankExaltedCharacter('abyssal');
+      expect(character.essence.rating).toBeLessThan(2);
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            charms: [
+              {
+                id: crypto.randomUUID(),
+                definitionId: 'bloodthirsty-arrow',
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+            spells: [],
+          },
+        }),
+      ).not.toThrow();
+    });
+  });
+
+  describe('Necromancy spells (real Abyssal spell catalog, Phase 1b)', () => {
+    it('accepts a legal Necromancy spell selection', () => {
+      expect(abyssalNecromancySpellById.get('hungry-creeping-shadow')).toBeDefined();
+      const character = createBlankExaltedCharacter('abyssal');
+      const parsed = exalted1eCharacterSchema.parse({
+        ...character,
+        powers: {
+          charms: [],
+          spells: [
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'hungry-creeping-shadow',
+              unresolvedReference: null,
+              notes: '',
+            },
+          ],
+        },
+      });
+      expect(parsed.powers.spells[0]?.definitionId).toBe(
+        'hungry-creeping-shadow',
+      );
+    });
+
+    it('rejects an unknown spell id', () => {
       const character = createBlankExaltedCharacter('abyssal');
       expect(() =>
         exalted1eCharacterSchema.parse({
@@ -377,7 +487,71 @@ describe('Exalted First Edition Abyssal (schema-only; not yet UI-selectable)', (
       ).toThrow();
     });
 
-    it('rejects any Charm id in a Combo', () => {
+    it('rejects a Dragon-Blooded (Terrestrial Circle Sorcery) spell id on an Abyssal sheet', () => {
+      const character = createBlankExaltedCharacter('abyssal');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            charms: [],
+            spells: [
+              {
+                id: crypto.randomUUID(),
+                definitionId: 'assassin-s-fatal-touch',
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+          },
+        }),
+      ).toThrow();
+    });
+
+    it('rejects an Abyssal Necromancy spell id on a Dragon-Blooded sheet', () => {
+      const character = createBlankExaltedCharacter('dragon-blooded');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            charms: [],
+            spells: [
+              {
+                id: crypto.randomUUID(),
+                definitionId: 'hungry-creeping-shadow',
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+          },
+        }),
+      ).toThrow();
+    });
+  });
+
+  describe('Combos', () => {
+    it('accepts a Combo built from known Abyssal Charm ids', () => {
+      const character = createBlankExaltedCharacter('abyssal');
+      const parsed = exalted1eCharacterSchema.parse({
+        ...character,
+        combos: [
+          {
+            id: crypto.randomUUID(),
+            name: 'Twisting Volley',
+            charmIds: ['bloodthirsty-arrow', 'twisting-spiteful-shaft'],
+            description: '',
+            tacticalSummary: '',
+            notes: '',
+            createdAt: new Date().toISOString(),
+          },
+        ],
+      });
+      expect(parsed.combos[0]?.charmIds).toEqual([
+        'bloodthirsty-arrow',
+        'twisting-spiteful-shaft',
+      ]);
+    });
+
+    it('rejects an unknown Charm id in a Combo', () => {
       const character = createBlankExaltedCharacter('abyssal');
       expect(() =>
         exalted1eCharacterSchema.parse({
