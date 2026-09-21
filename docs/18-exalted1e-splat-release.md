@@ -836,7 +836,7 @@ currently has no legal spell to select. The other four families'
 own schema/catalog phases (zero unlock risk today, since every other
 certification dimension keeps all five locked regardless).
 
-Abyssal Phase 1d closes the Sorcery-spell gap that Phase 1b's
+Abyssal Phase 1c-2 closes the Sorcery-spell gap that Phase 1b's
 `promotableEntries` math surfaced (Abyssal's own core-book Charm tree
 already includes source-checked Terrestrial Circle Sorcery and Celestial
 Circle Sorcery Charms, but no matching spell catalog existed). Of the 86
@@ -854,9 +854,34 @@ id; Dragon-Blooded's own spell validation is untouched, since
 `dragonBloodedSpellIds` stays filtered to Terrestrial-only.
 `promotedEntries` is now 500 (414 + 86).
 
+Abyssal Phase 1d wires the editor UI: `Exalted1eEditor.tsx` and its two
+shared sub-components (`ExaltedPowersSection`, `ExaltedMeritsFlawsSection`)
+are generalized from a binary Solar/Dragon-Blooded branch to a three-way
+branch that also renders Abyssal -- a Caste `<select>` constrained to the 5
+canonical Castes (stored in the same generic `identity.caste` string field
+Solar already uses), a Resonance tracker that reuses the existing
+`limit.rating`/`virtueFlaw` schema field verbatim (relabeled, no schema
+change), the full Charms/Necromancy/Sorcery catalog with an optional Caste
+filter, the shared trait catalog's Abyssal subset with Abyssal's tighter
+cost caps enforced live in the UI dropdown (not just at schema-validation
+time), and its 16-entry Backgrounds list. There is no guided-creation
+wizard for any splat in this module (Solar and Dragon-Blooded are both a
+flat `variants` entry plus this one editor component, unlike Mage 20's
+creation-stage engine), so this phase is editor support rather than a new
+creation flow. This is UI, not a catalog dimension, so `promotedEntries`/
+`promotableEntries`/`checksum`/`certifiedAt` are unchanged. `definition.tsx`
+gained one fix (a latent `sheetLabel()` binary bug that mislabeled Abyssal
+characters as "Dragon-Blooded"); its `variants` list and
+`createInitialCharacter` default are otherwise untouched, so Abyssal
+remains fully locked out of the user-facing create-character list.
+
 Remaining Abyssal work before its certification record can flip: the 3
-still-unreviewed Charm/spell rows, guided-creation UI, and advancement/XP
-wiring.
+still-unreviewed Charm/spell rows, advancement/XP wiring (Charm/spell XP
+costs specifically -- Abyssal's Charms & Spells editor branch deliberately
+omits the buy-with-XP action for now, since the existing cost formula is
+Dragon-Blooded's own favored-Aspect logic and has no Abyssal equivalent),
+and the full migration/browser test evidence this project's certification
+gate requires.
 
 ## Next steps (require source material per book)
 
