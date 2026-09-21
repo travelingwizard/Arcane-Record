@@ -805,10 +805,41 @@ A new additive `caste` field (Dusk/Midnight/Daybreak/Day/Moonshadow) was
 added, scoped to this catalog only. Two disposition-`unresolved` spell
 rows (missing mote costs) and three disposition-`selectable`-but-
 `unreviewed` rows (2 Charms, 1 spell) were deliberately excluded pending a
-follow-up close read. `promotedEntries` is now 414 of 700. Remaining
-Abyssal work (Artifacts/Hearthstones/Warstriders/nemissary catalogs,
-guided-creation UI, advancement/XP wiring) is tracked as Phases 1c-1e
-before Abyssal's certification record can flip.
+follow-up close read. `promotedEntries` is now 414.
+
+Verifying Phase 1c's original scope ("promote Artifacts/Hearthstones/
+Warstriders/nemissary rows into production catalogs") surfaced that Solar
+and Dragon-Blooded never built a strict named-item catalog for these at
+all -- they are free-text `possessions`/`manses`/`hearthstones` entries
+with a generic metadata object (rating, material, attuned,
+committedEssence, free-text `powers`/`source`), already fully splat-
+agnostic with zero `sheetType` branching. Phase 1c for Abyssal is
+therefore a no-op by design, matching that precedent exactly, not a
+data-engineering effort.
+
+That verification also surfaced that the certification gate itself was
+unsatisfiable: it required `promotedEntries === totalInventoryRows`
+exactly, but every family's inventory legitimately contains rows that can
+never become a catalog entry (free-text possessions, plus
+reference-only/gm-only/excluded/calculated/unresolved dispositions) --
+no family could ever have certified. Fixed by introducing
+`promotableEntries` (the honest target: just the rows meant to reach a
+real catalog) and comparing against that instead. Abyssal's own value
+(503) was computed precisely against the real built catalogs, which in
+turn surfaced one more real gap: Abyssal's core-book Charm tree already
+includes source-checked Terrestrial/Celestial Circle Sorcery-enabling
+Charms (Daybreak Caste Occult tree) -- Abyssals get ordinary Sorcery in
+addition to Necromancy, just not the Solar Circle -- but no matching
+Sorcery-spell catalog exists yet, so a character with that Charm
+currently has no legal spell to select. The other four families'
+`promotableEntries` are preliminary keyword-based estimates pending their
+own schema/catalog phases (zero unlock risk today, since every other
+certification dimension keeps all five locked regardless).
+
+Remaining Abyssal work before its certification record can flip: promote
+the 86-row Terrestrial/Celestial Sorcery-spell catalog and wire dual
+Necromancy-or-Sorcery spell validation (next up), the 3 still-unreviewed
+Charm/spell rows, guided-creation UI, and advancement/XP wiring.
 
 ## Next steps (require source material per book)
 
