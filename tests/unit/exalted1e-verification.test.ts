@@ -51,15 +51,15 @@ describe('exalted1e verification gate', () => {
       expect(record.browserTests).toBe('not-run');
       // All five families have started source intake (inventory rows > 0).
       // Abyssal has additionally had its Backgrounds, universal
-      // Merits/Flaws chapter, Charms, and Necromancy spells promoted to real
-      // production catalogs (414 of its 503 promotable rows -- see
-      // `SplatCatalogEvidence.promotableEntries`), but that alone must not
-      // unlock the family -- `checksum` stays empty and every test-evidence
-      // dimension stays 'not-run' until schema/creator/editor work for the
-      // remaining catalog dimensions (Sorcery spells, Artifacts,
+      // Merits/Flaws chapter, Charms, Necromancy spells, and Sorcery spells
+      // promoted to real production catalogs (500 of its 503 promotable
+      // rows -- see `SplatCatalogEvidence.promotableEntries`), but that
+      // alone must not unlock the family -- `checksum` stays empty and
+      // every test-evidence dimension stays 'not-run' until schema/creator/
+      // editor work for the remaining catalog dimensions (Artifacts,
       // Hearthstones, Warstriders, the nemissary system) lands too.
       expect(record.catalog.promotedEntries).toBe(
-        family === 'abyssal' ? 414 : 0,
+        family === 'abyssal' ? 500 : 0,
       );
       expect(record.catalog.checksum).toBe('');
     }
@@ -83,16 +83,18 @@ describe('exalted1e verification gate', () => {
   it('reflects Abyssal source intake in progress without unlocking the family', () => {
     const record = certificationRecords.abyssal;
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
-    // 414 = the 80 universal Players Guide Merits/Flaws rows, the 6 new
-    // Abyssal-only Backgrounds, 225 Chapter Five Charms, and 103 Necromancy
-    // spells promoted to production catalogs so far -- short of the 503
-    // `promotableEntries` target (which also counts 86 not-yet-promoted
-    // Sorcery-spell rows and 3 still-unreviewed Charm/spell rows), and far
-    // short of the raw `totalInventoryRows` (700), most of which is
-    // free-text-by-design Artifacts/Hearthstones/Warstriders/nemissary
-    // content that is never meant to become a catalog entry. Either way,
+    // 500 = the 80 universal Players Guide Merits/Flaws rows, the 6 new
+    // Abyssal-only Backgrounds, 225 Chapter Five Charms, 103 Necromancy
+    // spells, and 86 Sorcery spells (55 Terrestrial-circle rows reused from
+    // the shared Dragon-Blooded catalog plus 31 new Celestial-circle rows)
+    // promoted to production catalogs so far -- short of the 503
+    // `promotableEntries` target (which also counts 3 still-unreviewed
+    // Charm/spell rows), and far short of the raw `totalInventoryRows`
+    // (700), most of which is free-text-by-design
+    // Artifacts/Hearthstones/Warstriders/nemissary content that is never
+    // meant to become a catalog entry. Either way,
     // `isFamilyAvailable('abyssal')` must stay false.
-    expect(record.catalog.promotedEntries).toBe(414);
+    expect(record.catalog.promotedEntries).toBe(500);
     expect(record.catalog.promotableEntries).toBe(503);
     expect(isFamilyAvailable('abyssal')).toBe(false);
   });
@@ -209,7 +211,7 @@ describe('exalted1e verification gate', () => {
   it('describes Abyssal as locked with its inventory-in-progress promotion count', () => {
     const status = getFamilyCertificationStatus('abyssal');
     expect(status.available).toBe(false);
-    expect(status.blockReason).toContain('414/503 promoted');
+    expect(status.blockReason).toContain('500/503 promoted');
     expect(status.blockReason).toContain('2 unresolved');
     expect(status.blockReason).toContain('rules tests not-run');
   });

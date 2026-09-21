@@ -182,9 +182,10 @@ describe('auditFamily against the real repository (current state)', () => {
     // Necromancy spells (abyssal-necromancy.json), as counted directly from
     // `src/games/exalted1e/reference/abyssal-*.json` by this audit script.
     // This differs from `certification/abyssal.json`'s own
-    // `catalog.promotedEntries` (414), which also includes the 86 Phase 1a
-    // Backgrounds/Merits/Flaws rows that live in catalogs not prefixed
-    // `abyssal-` (e.g. the shared `dragonblooded-merits-flaws.json`), so
+    // `catalog.promotedEntries` (500), which also includes the 86 Phase 1a
+    // Backgrounds/Merits/Flaws rows and the 86 Phase 1c Sorcery-spell rows
+    // that live in catalogs not prefixed `abyssal-` (e.g. the shared
+    // `dragonblooded-merits-flaws.json`/`dragonblooded-sorcery.json`), so
     // this audit script's file-glob does not count them.
     expect(report.promotedEntries).toBe(328);
   });

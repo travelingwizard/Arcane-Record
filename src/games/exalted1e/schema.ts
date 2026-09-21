@@ -20,6 +20,7 @@ import {
 import {
   dragonBloodedCharmIds,
   dragonBloodedSpellIds,
+  sharedSorcerySpellIds,
 } from './reference/dragonblooded-powers';
 import {
   abyssalCharmIds,
@@ -329,10 +330,22 @@ export const exalted1eCharacterSchema = z
         return;
       }
       if (character.sheetType === 'abyssal') {
-        if (!abyssalNecromancySpellIds.has(selection.definitionId)) {
+        // Abyssal can legally select either a Necromancy spell (their
+        // signature magic) or a Sorcery spell (Terrestrial or Celestial
+        // Circle, via their own Terrestrial/Celestial Circle Sorcery
+        // Charms -- see Exalted: The Abyssals' Daybreak Caste Occult
+        // tree). A single character can plausibly have both magic
+        // systems, since they share this one `powers.spells` array; this
+        // only checks that the id is legal in at least one catalog, not
+        // which system it belongs to.
+        if (
+          !abyssalNecromancySpellIds.has(selection.definitionId) &&
+          !sharedSorcerySpellIds.has(selection.definitionId)
+        ) {
           context.addIssue({
             code: 'custom',
-            message: 'Unknown Abyssal necromancy spell definition.',
+            message:
+              'Unknown Abyssal spell definition (not a valid Necromancy or Sorcery spell).',
             path: ['powers', 'spells', index, 'definitionId'],
           });
         }

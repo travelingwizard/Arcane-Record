@@ -4,6 +4,8 @@ import {
   dragonBloodedCharms,
   dragonBloodedSpellIds,
   dragonBloodedSpells,
+  sharedSorcerySpellById,
+  sharedSorcerySpellIds,
 } from '../../src/games/exalted1e/reference/dragonblooded-powers';
 
 describe('Dragon-Blooded power catalog', () => {
@@ -30,5 +32,45 @@ describe('Dragon-Blooded power catalog', () => {
         spell.prerequisiteCharms.includes('Terrestrial Circle Sorcery'),
       ),
     ).toBe(true);
+    // Dragon-Blooded's own spell export stays Terrestrial-only even though
+    // the underlying sorcery-spell file (dragonblooded-sorcery.json) now
+    // also holds Celestial-circle spells for Abyssal's use (Phase 1c) --
+    // see `sharedSorcerySpellIds` below for the broader set.
+    expect(dragonBloodedSpells.every((spell) => spell.circle === 'terrestrial')).toBe(
+      true,
+    );
+  });
+
+  describe('sharedSorcerySpellIds (Phase 1c: splat-agnostic alias covering both circles)', () => {
+    it('covers 130 spells total: the 99 pre-existing Terrestrial spells plus 31 new Celestial spells', () => {
+      expect(sharedSorcerySpellIds.size).toBe(130);
+      const celestialSpells = [...sharedSorcerySpellById.values()].filter(
+        (spell) => spell.circle === 'celestial',
+      );
+      expect(celestialSpells).toHaveLength(31);
+      expect(celestialSpells.every((spell) => spell.alternateCircleName === 'Sapphire Circle')).toBe(
+        true,
+      );
+      expect(
+        celestialSpells.every((spell) =>
+          spell.prerequisiteCharms.includes('Celestial Circle Sorcery'),
+        ),
+      ).toBe(true);
+    });
+
+    it('is a strict superset of the Terrestrial-only dragonBloodedSpellIds set', () => {
+      expect(
+        [...dragonBloodedSpellIds].every((id) => sharedSorcerySpellIds.has(id)),
+      ).toBe(true);
+    });
+
+    it('has no id collisions between the new Celestial rows and the existing 99 Terrestrial rows', () => {
+      const terrestrialIds = new Set(dragonBloodedSpellIds);
+      const celestialIds = [...sharedSorcerySpellById.values()]
+        .filter((spell) => spell.circle === 'celestial')
+        .map((spell) => spell.id);
+      expect(new Set(celestialIds).size).toBe(celestialIds.length);
+      expect(celestialIds.some((id) => terrestrialIds.has(id))).toBe(false);
+    });
   });
 });

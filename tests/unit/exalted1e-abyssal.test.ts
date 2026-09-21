@@ -9,6 +9,11 @@ import {
   abyssalCharmById,
   abyssalNecromancySpellById,
 } from '../../src/games/exalted1e/reference/abyssal-powers';
+import {
+  dragonBloodedSpellIds,
+  sharedSorcerySpellById,
+  sharedSorcerySpellIds,
+} from '../../src/games/exalted1e/reference/dragonblooded-powers';
 
 describe('Exalted First Edition Abyssal (schema-only; not yet UI-selectable)', () => {
   it('registers abyssal as a legal stored sheetType', () => {
@@ -487,26 +492,6 @@ describe('Exalted First Edition Abyssal (schema-only; not yet UI-selectable)', (
       ).toThrow();
     });
 
-    it('rejects a Dragon-Blooded (Terrestrial Circle Sorcery) spell id on an Abyssal sheet', () => {
-      const character = createBlankExaltedCharacter('abyssal');
-      expect(() =>
-        exalted1eCharacterSchema.parse({
-          ...character,
-          powers: {
-            charms: [],
-            spells: [
-              {
-                id: crypto.randomUUID(),
-                definitionId: 'assassin-s-fatal-touch',
-                unresolvedReference: null,
-                notes: '',
-              },
-            ],
-          },
-        }),
-      ).toThrow();
-    });
-
     it('rejects an Abyssal Necromancy spell id on a Dragon-Blooded sheet', () => {
       const character = createBlankExaltedCharacter('dragon-blooded');
       expect(() =>
@@ -518,6 +503,126 @@ describe('Exalted First Edition Abyssal (schema-only; not yet UI-selectable)', (
               {
                 id: crypto.randomUUID(),
                 definitionId: 'hungry-creeping-shadow',
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+          },
+        }),
+      ).toThrow();
+    });
+  });
+
+  describe('Sorcery spells (Phase 1c: shared Terrestrial catalog + new Celestial spells)', () => {
+    it('accepts a Terrestrial-circle Sorcery spell shared with Dragon-Blooded', () => {
+      // assassin-s-fatal-touch is one of the 55 Terrestrial-circle names
+      // that already exist verbatim in dragonblooded-sorcery.json;
+      // Abyssal's own Terrestrial Circle Sorcery Charm makes this legal
+      // now, whereas it used to be wrongly rejected.
+      expect(dragonBloodedSpellIds.has('assassin-s-fatal-touch')).toBe(true);
+      const character = createBlankExaltedCharacter('abyssal');
+      const parsed = exalted1eCharacterSchema.parse({
+        ...character,
+        powers: {
+          charms: [],
+          spells: [
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'assassin-s-fatal-touch',
+              unresolvedReference: null,
+              notes: '',
+            },
+          ],
+        },
+      });
+      expect(parsed.powers.spells[0]?.definitionId).toBe(
+        'assassin-s-fatal-touch',
+      );
+    });
+
+    it('accepts a newly-added Celestial-circle Sorcery spell', () => {
+      expect(sharedSorcerySpellById.get('the-battles-end')?.circle).toBe(
+        'celestial',
+      );
+      const character = createBlankExaltedCharacter('abyssal');
+      const parsed = exalted1eCharacterSchema.parse({
+        ...character,
+        powers: {
+          charms: [],
+          spells: [
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'the-battles-end',
+              unresolvedReference: null,
+              notes: '',
+            },
+          ],
+        },
+      });
+      expect(parsed.powers.spells[0]?.definitionId).toBe('the-battles-end');
+    });
+
+    it('accepts an Abyssal character with both a Necromancy and a Sorcery spell selected', () => {
+      const character = createBlankExaltedCharacter('abyssal');
+      const parsed = exalted1eCharacterSchema.parse({
+        ...character,
+        powers: {
+          charms: [],
+          spells: [
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'hungry-creeping-shadow',
+              unresolvedReference: null,
+              notes: '',
+            },
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'the-battles-end',
+              unresolvedReference: null,
+              notes: '',
+            },
+          ],
+        },
+      });
+      expect(parsed.powers.spells.map((s) => s.definitionId)).toEqual([
+        'hungry-creeping-shadow',
+        'the-battles-end',
+      ]);
+    });
+
+    it('rejects an unknown spell id for Abyssal (not Necromancy or Sorcery)', () => {
+      const character = createBlankExaltedCharacter('abyssal');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            charms: [],
+            spells: [
+              {
+                id: crypto.randomUUID(),
+                definitionId: 'anything',
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+          },
+        }),
+      ).toThrow();
+    });
+
+    it('rejects a Celestial-circle Sorcery spell id on a Dragon-Blooded sheet (DB canonically cannot reach Celestial Circle)', () => {
+      expect(sharedSorcerySpellIds.has('the-battles-end')).toBe(true);
+      expect(dragonBloodedSpellIds.has('the-battles-end')).toBe(false);
+      const character = createBlankExaltedCharacter('dragon-blooded');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            charms: [],
+            spells: [
+              {
+                id: crypto.randomUUID(),
+                definitionId: 'the-battles-end',
                 unresolvedReference: null,
                 notes: '',
               },

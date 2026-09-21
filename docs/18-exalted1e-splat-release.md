@@ -193,7 +193,7 @@ real, creatable sheet.
 | Family     | Source manifest                                                                                                                                                         | Inventory rows | Promoted | Certification                    |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | -------- | -------------------------------- |
 | Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)    | 598            | 0        | Locked, all dimensions `not-run` |
-| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 414      | Locked, all dimensions `not-run` |
+| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 500      | Locked, all dimensions `not-run` |
 | Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 0        | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 365            | 0        | Locked, all dimensions `not-run` |
@@ -836,10 +836,27 @@ currently has no legal spell to select. The other four families'
 own schema/catalog phases (zero unlock risk today, since every other
 certification dimension keeps all five locked regardless).
 
-Remaining Abyssal work before its certification record can flip: promote
-the 86-row Terrestrial/Celestial Sorcery-spell catalog and wire dual
-Necromancy-or-Sorcery spell validation (next up), the 3 still-unreviewed
-Charm/spell rows, guided-creation UI, and advancement/XP wiring.
+Abyssal Phase 1d closes the Sorcery-spell gap that Phase 1b's
+`promotableEntries` math surfaced (Abyssal's own core-book Charm tree
+already includes source-checked Terrestrial Circle Sorcery and Celestial
+Circle Sorcery Charms, but no matching spell catalog existed). Of the 86
+selectable Sorcery-spell inventory rows, 55 Terrestrial-circle names
+already existed verbatim in `dragonblooded-sorcery.json` (reused, not
+duplicated, via a new splat-agnostic `sharedSorcerySpellIds`/
+`sharedSorcerySpellById` alias in `dragonblooded-powers.ts`); the other 31
+are genuinely new Celestial-circle spells, appended to that same file
+with `circle: 'celestial'`/`alternateCircleName: 'Sapphire Circle'`
+(`TerrestrialSpellDefinition`'s `circle`/`alternateCircleName` fields were
+widened from fixed literals to unions to fit, with a same-shape
+`SorcerySpellDefinition` alias added for new code). `schema.ts`'s Abyssal
+`powers.spells` branch now accepts either a Necromancy or a Sorcery spell
+id; Dragon-Blooded's own spell validation is untouched, since
+`dragonBloodedSpellIds` stays filtered to Terrestrial-only.
+`promotedEntries` is now 500 (414 + 86).
+
+Remaining Abyssal work before its certification record can flip: the 3
+still-unreviewed Charm/spell rows, guided-creation UI, and advancement/XP
+wiring.
 
 ## Next steps (require source material per book)
 
