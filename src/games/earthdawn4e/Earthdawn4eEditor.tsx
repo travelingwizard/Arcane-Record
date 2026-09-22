@@ -452,29 +452,43 @@ export function Earthdawn4eEditor({
             ],
           },
         };
-      if (d.kind === 'weapon')
+      if (d.kind === 'weapon') {
+        let mechanics: {
+          strengthMinimum?: number;
+          damageStep?: number;
+          range?: string;
+        } = {};
+        try {
+          mechanics = JSON.parse(d.mechanics) as typeof mechanics;
+        } catch {
+          mechanics = {};
+        }
         return {
           ...c,
           weapons: [
             ...c.weapons,
             {
               ...base,
-              strengthMinimum: 0,
-              damageStep: 0,
-              range: '',
+              strengthMinimum: mechanics.strengthMinimum ?? 0,
+              damageStep: mechanics.damageStep ?? 0,
+              range: mechanics.range ?? '',
               quantity: 1,
               costSilver: d.costSilver ?? 0,
               inUse: false,
             },
           ],
         };
-      let weight = 0;
+      }
+      let mechanics: {
+        weight?: number;
+        physicalArmor?: number;
+        mysticArmor?: number;
+        initiativePenalty?: number;
+      } = {};
       try {
-        weight = Number(
-          (JSON.parse(d.mechanics) as { weight?: number }).weight ?? 0,
-        );
+        mechanics = JSON.parse(d.mechanics) as typeof mechanics;
       } catch {
-        weight = 0;
+        mechanics = {};
       }
       return {
         ...c,
@@ -487,11 +501,11 @@ export function Earthdawn4eEditor({
             quantity: 1,
             value: d.costSilver == null ? '' : `${d.costSilver} sp`,
             costSilver: d.costSilver ?? 0,
-            weight,
+            weight: mechanics.weight ?? 0,
             inUse: false,
-            physicalArmor: 0,
-            mysticArmor: 0,
-            initiativePenalty: 0,
+            physicalArmor: mechanics.physicalArmor ?? 0,
+            mysticArmor: mechanics.mysticArmor ?? 0,
+            initiativePenalty: mechanics.initiativePenalty ?? 0,
             forgedBonus: 0,
           },
         ],

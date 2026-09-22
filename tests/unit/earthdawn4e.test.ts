@@ -197,6 +197,20 @@ describe('Earthdawn Fourth Edition module', () => {
     expect(
       earthdawnDisciplines.every(({ circles }) => circles.length === 15),
     ).toBe(true);
+    expect(
+      earthdawnCatalog.filter(({ kind }) => kind === 'skill').length,
+    ).toBeGreaterThanOrEqual(70);
+    expect(
+      earthdawnCatalog.filter(({ kind }) => kind === 'weapon').length,
+    ).toBeGreaterThanOrEqual(40);
+    const crystalPlate = earthdawnCatalog.find(
+      ({ name }) => name === 'Crystal Plate',
+    )!;
+    expect(JSON.parse(crystalPlate.mechanics)).toMatchObject({
+      physicalArmor: 7,
+      mysticArmor: 7,
+      initiativePenalty: 5,
+    });
   });
   it('calculates attributes, characteristics, and all 105 dice steps', () => {
     expect(attributeStep(16)).toBe(7);
