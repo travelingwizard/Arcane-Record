@@ -93,6 +93,12 @@ type AdvancementQuote = {
   warning?: string;
   blocked?: boolean;
 };
+type DevotionEligibility = {
+  passion: string;
+  tier: 'follower' | 'adherent' | 'exemplar';
+  minimumQuestorRank: number;
+  page: number;
+};
 export function Earthdawn4eEditor({
   record,
   character,
@@ -310,6 +316,17 @@ export function Earthdawn4eEditor({
       return;
     }
     if (playMode && !confirmed && d.kind === 'devotion') {
+      let mechanics: { eligibility?: DevotionEligibility[] } = {};
+      try {
+        mechanics = JSON.parse(d.mechanics) as typeof mechanics;
+      } catch {
+        mechanics = {};
+      }
+      const eligible = mechanics.eligibility?.find(
+        ({ passion, minimumQuestorRank }) =>
+          passion === draft.questor.patronName &&
+          draft.questor.rank >= minimumQuestorRank,
+      );
       const cost = grantedDevotionCost(1, draft.questor.rank);
       reviewAdvancement(
         {
@@ -321,10 +338,23 @@ export function Earthdawn4eEditor({
           sourceCitation: `${d.source} p. ${d.page}`,
           blocked:
             draft.questor.rank < 1 ||
+            !eligible ||
+            draft.abilities.some(
+              ({ definitionId: selectedId }) => selectedId === definitionId,
+            ) ||
             draft.abilities.filter(({ kind }) => kind === 'questor').length >=
               draft.questor.rank,
           warning:
-            draft.questor.rank < 1 ? 'A Questor rank is required.' : undefined,
+            draft.questor.rank < 1
+              ? 'A Questor rank is required.'
+              : !eligible
+                ? `This devotion is not available to a rank ${draft.questor.rank} questor of ${draft.questor.patronName || 'an unselected Passion'}.`
+                : draft.abilities.some(
+                      ({ definitionId: selectedId }) =>
+                        selectedId === definitionId,
+                    )
+                  ? 'This devotion is already recorded.'
+                  : undefined,
         },
         () => addCatalog(definitionId, true),
       );
@@ -2663,15 +2693,36 @@ export function Earthdawn4eEditor({
                 />
               </label>
               {earthdawnCatalog
-                .filter(
-                  (d) =>
+                .filter((d) => {
+                  let devotionAvailable = true;
+                  if (d.kind === 'devotion') {
+                    try {
+                      const mechanics = JSON.parse(d.mechanics) as {
+                        eligibility?: DevotionEligibility[];
+                      };
+                      devotionAvailable = Boolean(
+                        mechanics.eligibility?.some(
+                          ({ passion, minimumQuestorRank }) =>
+                            passion === draft.questor.patronName &&
+                            draft.questor.rank >= minimumQuestorRank,
+                        ),
+                      );
+                    } catch {
+                      devotionAvailable = false;
+                    }
+                  }
+                  return (
                     (catalogKind === 'all' || d.kind === catalogKind) &&
                     (draft.sources.enabledSourceIds.includes(d.sourceId) ||
                       draft.sources.showUnavailable) &&
+                    (d.kind !== 'devotion' ||
+                      devotionAvailable ||
+                      draft.sources.showUnavailable) &&
                     `${d.name} ${d.summary} ${d.source}`
                       .toLocaleLowerCase()
-                      .includes(catalogSearch.trim().toLocaleLowerCase()),
-                )
+                      .includes(catalogSearch.trim().toLocaleLowerCase())
+                  );
+                })
                 .map((d) => (
                   <article key={d.id} className="reference-card">
                     <h3>{d.name}</h3>

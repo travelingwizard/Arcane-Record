@@ -3,6 +3,7 @@ import {
   earthdawnCatalog,
   earthdawnDisciplines,
   earthdawnKnacks,
+  earthdawnQuestorDefinitions,
   earthdawnRaces,
   earthdawnSpells,
   earthdawnSources,
@@ -60,6 +61,22 @@ describe('Earthdawn Fourth Edition module', () => {
       page: 116,
       requirements: ['Patterncraft, Thread Smithing rank 5'],
     });
+    expect(earthdawnQuestorDefinitions.length).toBeGreaterThan(80);
+    expect(
+      earthdawnQuestorDefinitions.find(
+        ({ name }) => name === 'Passion’s Empowerment',
+      ),
+    ).toMatchObject({
+      kind: 'devotion',
+      verification: 'verified',
+    });
+    expect(
+      JSON.parse(
+        earthdawnQuestorDefinitions.find(
+          ({ name }) => name === 'Passion’s Empowerment',
+        )!.mechanics,
+      ).eligibility,
+    ).toHaveLength(12);
     expect(new Set(earthdawnSpells.map(({ id }) => id)).size).toBe(216);
     for (const discipline of [
       'Elementalist',

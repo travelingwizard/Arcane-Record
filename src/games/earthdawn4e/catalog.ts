@@ -149,6 +149,10 @@ import {
 } from './discipline-progressions';
 import { coreSpellRows } from './core-spells';
 import { companionKnackRows } from './companion-knacks';
+import {
+  questorDevotionProgressions,
+  questorTierMinimumRank,
+} from './questor-devotions';
 
 const raceData: Array<[string, number[], string, number, string[]]> = [
   ['Dwarf', [9, 10, 12, 11, 11, 10], '10', 4, ['Heat Sight']],
@@ -411,11 +415,33 @@ export const earthdawnPassions = [
   ],
 ] as const;
 
+const devotionNames = [
+  ...new Set(questorDevotionProgressions.flatMap(({ names }) => names)),
+];
 export const earthdawnQuestorDefinitions: EarthdawnDefinition[] =
-  earthdawnPassions.map(([name, page, mature, summary]) => ({
-    ...entry('devotion', name, 'ed4.questors', page, summary),
-    requirements: mature ? ['GM approval for a Mad Passion'] : [],
-  }));
+  devotionNames.map((name) => {
+    const eligibility = questorDevotionProgressions
+      .filter(({ names }) => names.includes(name))
+      .map(({ passion, tier, page }) => ({
+        passion,
+        tier,
+        minimumQuestorRank: questorTierMinimumRank[tier],
+        page,
+      }));
+    const passionList = eligibility.map(({ passion }) => passion).join(', ');
+    const first = eligibility[0]!;
+    return {
+      ...entry(
+        'devotion',
+        name,
+        'ed4.questors',
+        first.page,
+        `${name} is a verified Questor devotion available to ${passionList}.`,
+        eligibility.map(({ passion, tier }) => `${passion} ${tier} devotion`),
+      ),
+      mechanics: JSON.stringify({ eligibility }),
+    };
+  });
 
 export const earthdawnSpells: EarthdawnDefinition[] = coreSpellRows.map(
   ([name, discipline, circle, page]) => ({
