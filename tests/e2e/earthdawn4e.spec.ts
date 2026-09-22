@@ -77,6 +77,17 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   ).toBeVisible();
   await page.getByRole('button', { name: 'Cancel' }).click();
   await expect(page.getByLabel('Warrior Circle')).toHaveValue('1');
+  await page.getByLabel('Legend award / correction').fill('1000');
+  await page.getByLabel('Reason').fill('First adventure');
+  await page.getByRole('button', { name: 'Record transaction' }).click();
+  await page
+    .getByRole('switch', { name: /Earthdawn Edit and Play mode/ })
+    .check();
+  await page.getByRole('button', { name: '+1' }).first().click();
+  await expect(page.getByText(/Increase Dexterity to/)).toBeVisible();
+  await expect(page.getByText(/dedicated training days/)).toBeVisible();
+  await page.getByRole('button', { name: 'Confirm purchase' }).click();
+  await expect(page.getByText('200 current LP')).toBeVisible();
   const overflow = await page.evaluate(
     () => document.documentElement.scrollWidth > window.innerWidth,
   );

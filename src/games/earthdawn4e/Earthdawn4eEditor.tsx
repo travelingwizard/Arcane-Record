@@ -37,15 +37,28 @@ import {
   type EarthdawnCatalogKind,
 } from './catalog';
 import { EarthdawnCreator } from './EarthdawnCreator';
-import { deriveCharacter, rollStep, stepDice, stepDiceChart } from './engine';
+import {
+  attributeStep,
+  deriveCharacter,
+  rollStep,
+  stepDice,
+  stepDiceChart,
+} from './engine';
 import {
   appendRoll,
+  attributeIncreaseCost,
+  attributeTraining,
   createLegendEntry,
+  disciplineCircleTraining,
   legendTotals,
+  missingCircleTalentRanks,
   previewDisciplineTalentReconciliation,
+  questorRankCost,
   questorTier,
   reconcileDisciplineTalents,
+  refundableLedgerEntry,
   skillRankCost,
+  threadRankCost,
   talentRankCost,
 } from './rules';
 import {
@@ -68,6 +81,15 @@ const labels: Record<EarthdawnAttributeId, string> = {
   charisma: 'Charisma',
 };
 const integer = (value: string) => Math.max(0, Number.parseInt(value, 10) || 0);
+type AdvancementQuote = {
+  title: string;
+  cost: number;
+  silverCost: number;
+  training: string;
+  sourceCitation: string;
+  warning?: string;
+  blocked?: boolean;
+};
 export function Earthdawn4eEditor({
   record,
   character,
@@ -84,10 +106,14 @@ export function Earthdawn4eEditor({
       recordId: string;
       circle: number;
     } | null>(null),
+    [advancementQuote, setAdvancementQuote] = useState<AdvancementQuote | null>(
+      null,
+    ),
     [catalogKind, setCatalogKind] = useState<
       EarthdawnCatalogKind | 'all' | null
     >(null);
   const catalogButtonRef = useRef<HTMLButtonElement>(null);
+  const advancementActionRef = useRef<(() => void) | null>(null);
   const playMode = draft.sheetLayout.mode === 'play';
   const activeSections = useMemo(() => [...earthdawn4eSections], []),
     isNarrowLayout = useMediaQuery('(max-width: 69.999rem)');
@@ -153,6 +179,10 @@ export function Earthdawn4eEditor({
       { physical: 0, mystic: 0, initiative: 0 },
     );
   const legend = legendTotals(draft.advancement.ledger);
+  const reviewAdvancement = (quote: AdvancementQuote, action: () => void) => {
+    advancementActionRef.current = action;
+    setAdvancementQuote(quote);
+  };
   const summaries = Object.fromEntries(
     activeSections.map((s) => [
       s.id,
@@ -387,6 +417,93 @@ export function Earthdawn4eEditor({
     });
     setCatalogKind(null);
   };
+  const refundPurchase = (entryId: string) =>
+    update((current) => {
+      if (!refundableLedgerEntry(current.advancement.ledger, entryId))
+        return current;
+      const entry = current.advancement.ledger.find(
+        ({ id }) => id === entryId,
+      )!;
+      const beforeRating = entry.beforeRating ?? 0;
+      let next = current;
+      if (entry.type === 'talent')
+        next = {
+          ...next,
+          talents: next.talents.map((record) =>
+            record.id === entry.targetId
+              ? { ...record, rank: beforeRating }
+              : record,
+          ),
+        };
+      if (entry.type === 'skill')
+        next = {
+          ...next,
+          skills: next.skills.map((record) =>
+            record.id === entry.targetId
+              ? { ...record, rank: beforeRating }
+              : record,
+          ),
+        };
+      if (
+        entry.type === 'attribute' &&
+        entry.targetId?.startsWith('attribute:')
+      ) {
+        const attributeId = entry.targetId.slice(
+          'attribute:'.length,
+        ) as EarthdawnAttributeId;
+        next = {
+          ...next,
+          attributes: {
+            ...next.attributes,
+            [attributeId]: {
+              ...next.attributes[attributeId],
+              increases: beforeRating,
+            },
+          },
+        };
+      }
+      if (entry.type === 'thread')
+        next = {
+          ...next,
+          magic: {
+            ...next.magic,
+            effects: next.magic.effects.map((record) =>
+              record.id === entry.targetId
+                ? { ...record, rank: beforeRating }
+                : record,
+            ),
+          },
+        };
+      if (entry.type === 'questor')
+        next = {
+          ...next,
+          questor: {
+            ...next.questor,
+            rank: beforeRating,
+            tier: questorTier(beforeRating),
+          },
+        };
+      return {
+        ...next,
+        advancement: {
+          ledger: [
+            ...next.advancement.ledger,
+            createLegendEntry({
+              type: 'refund',
+              amount: Math.abs(entry.amount),
+              earnedAmount: 0,
+              targetId: entry.targetId,
+              targetName: entry.targetName,
+              beforeRating: entry.afterRating,
+              afterRating: entry.beforeRating,
+              sourceCitation: entry.sourceCitation,
+              description: `Refund: ${entry.description || entry.targetName}`,
+              reversesId: entry.id,
+            }),
+          ],
+        },
+      };
+    });
   return (
     <CharacterSectionProvider value={context}>
       <SheetEditorShell
@@ -682,6 +799,78 @@ export function Earthdawn4eEditor({
                       <small>
                         {d.source} {d.page && `p. ${d.page}`}
                       </small>
+                      {playMode && d.disciplineId && d.circle < 15 ? (
+                        <button
+                          type="button"
+                          className="secondary-button"
+                          onClick={() => {
+                            const definition = earthdawnDisciplines.find(
+                              ({ id }) => id === d.disciplineId,
+                            );
+                            if (!definition) return;
+                            const nextCircle = d.circle + 1;
+                            const training =
+                              disciplineCircleTraining(nextCircle)!;
+                            const missing = missingCircleTalentRanks(
+                              draft,
+                              definition,
+                              nextCircle,
+                            );
+                            const reconciliation =
+                              previewDisciplineTalentReconciliation(
+                                draft.talents,
+                                definition,
+                                nextCircle,
+                              );
+                            reviewAdvancement(
+                              {
+                                title: `Advance ${d.name} to Circle ${nextCircle}`,
+                                cost: 0,
+                                silverCost: training.silverCost,
+                                training: `${training.hours} hours with a higher-Circle tutor within ${training.periodWeeks} weeks`,
+                                sourceCitation: "Player's Guide pp. 452–457",
+                                warning: missing.length
+                                  ? `Not ready: ${missing.map(({ name, currentRank, requiredRank }) => `${name} ${currentRank}/${requiredRank}`).join(', ')}`
+                                  : undefined,
+                                blocked: missing.length > 0,
+                              },
+                              () => {
+                                if (missing.length) return;
+                                update((current) => ({
+                                  ...current,
+                                  disciplines: current.disciplines.map(
+                                    (record) =>
+                                      record.id === d.id
+                                        ? { ...record, circle: nextCircle }
+                                        : record,
+                                  ),
+                                  talents: reconciliation.next,
+                                  advancement: {
+                                    ledger: [
+                                      ...current.advancement.ledger,
+                                      createLegendEntry({
+                                        type: 'circle',
+                                        amount: 0,
+                                        targetId: d.id,
+                                        targetName: d.name,
+                                        beforeRating: d.circle,
+                                        afterRating: nextCircle,
+                                        silverCost: training.silverCost,
+                                        training: `${training.hours} hours in ${training.periodWeeks} weeks`,
+                                        sourceCitation:
+                                          "Player's Guide pp. 452–457",
+                                        description: `Advance ${d.name} to Circle ${nextCircle}`,
+                                      }),
+                                    ],
+                                  },
+                                }));
+                              },
+                            );
+                          }}
+                        >
+                          Advance Circle
+                        </button>
+                      ) : null}
                       <button
                         type="button"
                         className="text-button"
@@ -824,6 +1013,68 @@ export function Earthdawn4eEditor({
                       <span>
                         Tier <strong>{draft.questor.tier}</strong>
                       </span>
+                      {playMode && draft.questor.patronName ? (
+                        <button
+                          type="button"
+                          className="secondary-button"
+                          disabled={draft.questor.rank >= 12}
+                          onClick={() => {
+                            const nextRank = draft.questor.rank + 1;
+                            const cost = questorRankCost(nextRank);
+                            const crossesTier = [5, 9].includes(nextRank);
+                            reviewAdvancement(
+                              {
+                                title: `Raise Questor rank to ${nextRank}`,
+                                cost,
+                                silverCost: 0,
+                                training:
+                                  'Commune with the patron Passion; only one devotion may advance per day.',
+                                sourceCitation: 'Questors pp. 133–135',
+                                warning: crossesTier
+                                  ? 'This crosses a Questor tier and requires a completed quest approved by the gamemaster.'
+                                  : undefined,
+                              },
+                              () =>
+                                update((current) => {
+                                  if (
+                                    legendTotals(current.advancement.ledger)
+                                      .current < cost
+                                  )
+                                    return current;
+                                  const before = current.questor.rank;
+                                  return {
+                                    ...current,
+                                    questor: {
+                                      ...current.questor,
+                                      rank: before + 1,
+                                      tier: questorTier(before + 1),
+                                    },
+                                    advancement: {
+                                      ledger: [
+                                        ...current.advancement.ledger,
+                                        createLegendEntry({
+                                          type: 'questor',
+                                          amount: -cost,
+                                          targetId: 'questor-rank',
+                                          targetName: 'Questor rank',
+                                          beforeRating: before,
+                                          afterRating: before + 1,
+                                          training:
+                                            'Communion; one rank per day',
+                                          sourceCitation:
+                                            'Questors pp. 133–135',
+                                          description: `Raise Questor rank to ${before + 1}`,
+                                        }),
+                                      ],
+                                    },
+                                  };
+                                }),
+                            );
+                          }}
+                        >
+                          Advance Questor rank
+                        </button>
+                      ) : null}
                     </SheetFieldGrid>
                   </SheetCard>
                 </>,
@@ -837,6 +1088,65 @@ export function Earthdawn4eEditor({
                   values={values}
                   playMode={playMode}
                   update={update}
+                  onAdvance={(attributeId) => {
+                    const attribute = draft.attributes[attributeId];
+                    const nextIncrease = attribute.increases + 1;
+                    const cost = attributeIncreaseCost(nextIncrease);
+                    if (cost === null) return;
+                    const training = attributeTraining(
+                      attributeStep(values[attributeId]),
+                    );
+                    reviewAdvancement(
+                      {
+                        title: `Increase ${labels[attributeId]} to ${values[attributeId] + 1}`,
+                        cost,
+                        silverCost: training.silverCost,
+                        training: `${training.days} dedicated training days; wait ${training.waitWeeks} weeks before another Attribute increase`,
+                        sourceCitation: "Player's Guide pp. 451–452",
+                        warning:
+                          draft.health.damage || draft.health.wounds
+                            ? 'The character currently has damage or wounds; Attribute training requires good health.'
+                            : undefined,
+                      },
+                      () =>
+                        update((current) => {
+                          if (
+                            legendTotals(current.advancement.ledger).current <
+                            cost
+                          )
+                            return current;
+                          const before =
+                            current.attributes[attributeId].increases;
+                          return {
+                            ...current,
+                            attributes: {
+                              ...current.attributes,
+                              [attributeId]: {
+                                ...current.attributes[attributeId],
+                                increases: before + 1,
+                              },
+                            },
+                            advancement: {
+                              ledger: [
+                                ...current.advancement.ledger,
+                                createLegendEntry({
+                                  type: 'attribute',
+                                  amount: -cost,
+                                  targetId: `attribute:${attributeId}`,
+                                  targetName: labels[attributeId],
+                                  beforeRating: before,
+                                  afterRating: before + 1,
+                                  silverCost: training.silverCost,
+                                  training: `${training.days} days`,
+                                  sourceCitation: "Player's Guide pp. 451–452",
+                                  description: `Increase ${labels[attributeId]}`,
+                                }),
+                              ],
+                            },
+                          };
+                        }),
+                    );
+                  }}
                 />,
               )}
               {section(
@@ -1380,6 +1690,69 @@ export function Earthdawn4eEditor({
                             }
                           />
                         </SheetField>
+                        {playMode && e.kind !== 'blood' ? (
+                          <button
+                            type="button"
+                            className="secondary-button"
+                            disabled={e.rank >= 15}
+                            onClick={() => {
+                              const nextRank = e.rank + 1;
+                              const cost = threadRankCost(
+                                nextRank,
+                                e.kind === 'pattern',
+                              );
+                              reviewAdvancement(
+                                {
+                                  title: `Raise ${e.name || 'thread'} to rank ${nextRank}`,
+                                  cost,
+                                  silverCost: 0,
+                                  training:
+                                    'Verify Thread Weaving rank, Key Knowledge, Deeds, and the pattern maximum before weaving.',
+                                  sourceCitation:
+                                    "Player's Guide pp. 225–229, 447",
+                                },
+                                () =>
+                                  update((current) => {
+                                    if (
+                                      legendTotals(current.advancement.ledger)
+                                        .current < cost
+                                    )
+                                      return current;
+                                    return {
+                                      ...current,
+                                      magic: {
+                                        ...current.magic,
+                                        effects: current.magic.effects.map(
+                                          (record) =>
+                                            record.id === e.id
+                                              ? { ...record, rank: nextRank }
+                                              : record,
+                                        ),
+                                      },
+                                      advancement: {
+                                        ledger: [
+                                          ...current.advancement.ledger,
+                                          createLegendEntry({
+                                            type: 'thread',
+                                            amount: -cost,
+                                            targetId: e.id,
+                                            targetName: e.name || 'Thread',
+                                            beforeRating: e.rank,
+                                            afterRating: nextRank,
+                                            sourceCitation:
+                                              "Player's Guide pp. 225–229, 447",
+                                            description: `Raise ${e.name || 'thread'} to rank ${nextRank}`,
+                                          }),
+                                        ],
+                                      },
+                                    };
+                                  }),
+                              );
+                            }}
+                          >
+                            Advance thread rank
+                          </button>
+                        ) : null}
                         <label className="sheet-choice-card">
                           <input
                             type="checkbox"
@@ -1839,6 +2212,50 @@ export function Earthdawn4eEditor({
                 'advancement',
                 'Legend & Advancement',
                 <>
+                  {advancementQuote ? (
+                    <SheetCard density="compact" selected>
+                      <h3>{advancementQuote.title}</h3>
+                      <p>
+                        <strong>{advancementQuote.cost} LP</strong>
+                        {' · '}
+                        {advancementQuote.silverCost} silver
+                      </p>
+                      <p>{advancementQuote.training}</p>
+                      <small>{advancementQuote.sourceCitation}</small>
+                      {advancementQuote.warning ? (
+                        <p className="sheet-notice">
+                          {advancementQuote.warning}
+                        </p>
+                      ) : null}
+                      <SheetToolbar>
+                        <button
+                          type="button"
+                          className="primary-button"
+                          disabled={
+                            advancementQuote.blocked ||
+                            legend.current < advancementQuote.cost
+                          }
+                          onClick={() => {
+                            advancementActionRef.current?.();
+                            advancementActionRef.current = null;
+                            setAdvancementQuote(null);
+                          }}
+                        >
+                          Confirm purchase
+                        </button>
+                        <button
+                          type="button"
+                          className="secondary-button"
+                          onClick={() => {
+                            advancementActionRef.current = null;
+                            setAdvancementQuote(null);
+                          }}
+                        >
+                          Cancel
+                        </button>
+                      </SheetToolbar>
+                    </SheetCard>
+                  ) : null}
                   <div className="sheet-stat-grid earthdawn-derived-grid">
                     <span>
                       Current Legend Points <strong>{legend.current}</strong>
@@ -1912,7 +2329,21 @@ export function Earthdawn4eEditor({
                                 {entry.amount > 0 ? '+' : ''}
                                 {entry.amount}
                               </td>
-                              <td>{entry.description || entry.targetName}</td>
+                              <td>
+                                {entry.description || entry.targetName}
+                                {refundableLedgerEntry(
+                                  draft.advancement.ledger,
+                                  entry.id,
+                                ) ? (
+                                  <button
+                                    type="button"
+                                    className="text-button"
+                                    onClick={() => refundPurchase(entry.id)}
+                                  >
+                                    Refund
+                                  </button>
+                                ) : null}
+                              </td>
                             </tr>
                           ))}
                       </tbody>
@@ -2200,11 +2631,13 @@ function AttributeTable({
   values,
   playMode,
   update,
+  onAdvance,
 }: {
   character: Earthdawn4eCharacter;
   values: Record<EarthdawnAttributeId, number>;
   playMode: boolean;
   update: (fn: (value: Earthdawn4eCharacter) => Earthdawn4eCharacter) => void;
+  onAdvance: (attributeId: EarthdawnAttributeId) => void;
 }) {
   return (
     <div
@@ -2224,6 +2657,7 @@ function AttributeTable({
         <span>Value</span>
         <span>Step</span>
         <span>Dice</span>
+        <span>Advance</span>
       </div>
       {Object.entries(character.attributes).map(([id, attribute]) => {
         const attributeId = id as EarthdawnAttributeId;
@@ -2284,6 +2718,14 @@ function AttributeTable({
             <strong>{values[attributeId]}</strong>
             <span>{step}</span>
             <span>{stepDice(step)}</span>
+            <button
+              type="button"
+              className="secondary-button"
+              disabled={attribute.increases >= 3}
+              onClick={() => onAdvance(attributeId)}
+            >
+              +1
+            </button>
           </div>
         );
       })}

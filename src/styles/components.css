@@ -1935,7 +1935,8 @@
   display: grid;
   grid-template-columns:
     minmax(7rem, 1.4fr) repeat(4, minmax(4.5rem, 0.75fr))
-    minmax(3.5rem, 0.55fr) minmax(3rem, 0.5fr) minmax(6rem, 0.9fr);
+    minmax(3.5rem, 0.55fr) minmax(3rem, 0.5fr) minmax(6rem, 0.9fr)
+    minmax(4rem, 0.65fr);
   gap: var(--earthdawn-row-gap);
   align-items: center;
   min-width: 0;
