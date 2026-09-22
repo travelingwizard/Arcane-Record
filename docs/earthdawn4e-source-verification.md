@@ -13,6 +13,7 @@ The runtime inventory is generated in `src/games/earthdawn4e/source-inventory.ts
 - The complete Questor progression lists for all twelve Passions: each unique devotion records every eligible Passion, minimum tier/rank, and progression-page citation. The catalog hides devotions unavailable to the selected patron and current Questor rank unless unavailable options are explicitly shown.
 - All 216 Player’s Guide spells for Elementalist, Illusionist, Nethermancer, and Wizard across Circles 1–8. Names, Discipline ownership, Circle, and printed-page citations were layout-extracted, reconciled against the source headings, and visually sampled at every Discipline/Circle boundary. Runtime summaries remain concise metadata rather than copied spell text.
 - All 142 Companion knack headings, associated talents, minimum ranks, and printed-page citations from pp. 77–117. The layout-extracted inventory was visually sampled across the full chapter, with the final enchanting entries manually reconciled. Knack learning uses the required-rank Novice talent cost, rank-based training duration, and the published typical instructor fee.
+- All 50 named Companion thread items from pp. 177–242, with stable IDs and exact opening-page citations. Added records retain editable key knowledges, deeds, rank, and effect fields; thread advancement uses the verified normal-thread cost table.
 - The complete Player’s Guide Novice and Journeyman general-skill rosters, plus editable Artisan, Knowledge, and language records.
 - The Player’s Guide melee, missile, and throwing weapon tables with damage, minimum Strength, range, price, weight, and availability metadata.
 - The Player’s Guide armor and shield tables. Armor retains physical/mystic armor and initiative values; shields retain distinct physical/mystic Defense bonuses, initiative penalties, and shatter thresholds. Schema v3 migrates prior equipment additively without flattening advancement transactions.
@@ -36,5 +37,5 @@ Second Step is used only to compare observable workflows and maintain the existi
 1. **Supplemental Paths & Questor Profiles**:
    - Add guided starting allocation profiles for non-Adept Questors and specialized Paths (e.g., Outcast Silver, Wind Dancer) with approval gates.
 
-2. **Elven & Companion Sources**:
-   - Enable High-Circle spells (Circles 9–15) from the _Companion_ as an explicitly source-gated supplement.
+2. **Regional Player Options**:
+   - Promote additional regional options only after their complete player-facing mechanics are independently certified.

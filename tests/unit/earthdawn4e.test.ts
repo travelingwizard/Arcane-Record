@@ -7,6 +7,7 @@ import {
   earthdawnRaces,
   earthdawnSpells,
   earthdawnSources,
+  earthdawnThreadItems,
 } from '../../src/games/earthdawn4e/catalog';
 import { createBlankEarthdawn4eCharacter } from '../../src/games/earthdawn4e/create-character';
 import {
@@ -62,6 +63,8 @@ describe('Earthdawn Fourth Edition module', () => {
     }
     expect(earthdawnSpells).toHaveLength(216);
     expect(earthdawnKnacks).toHaveLength(142);
+    expect(earthdawnThreadItems).toHaveLength(50);
+    expect(new Set(earthdawnThreadItems.map(({ id }) => id)).size).toBe(50);
     expect(new Set(earthdawnKnacks.map(({ id }) => id)).size).toBe(142);
     expect(
       earthdawnKnacks.find(({ name }) => name === 'Craft True Pattern'),

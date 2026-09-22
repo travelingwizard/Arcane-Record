@@ -153,6 +153,7 @@ import {
   questorDevotionProgressions,
   questorTierMinimumRank,
 } from './questor-devotions';
+import { companionThreadItemRows } from './companion-thread-items';
 
 const raceData: Array<[string, number[], string, number, string[]]> = [
   ['Dwarf', [9, 10, 12, 11, 11, 10], '10', 4, ['Heat Sight']],
@@ -609,12 +610,24 @@ export const earthdawnKnacks: EarthdawnDefinition[] = companionKnackRows.map(
     }),
   }),
 );
+export const earthdawnThreadItems: EarthdawnDefinition[] =
+  companionThreadItemRows.map(([name, page]) => ({
+    ...entry(
+      'thread-item',
+      name,
+      'ed4.companion',
+      page,
+      `${name} is a verified Companion thread item. Record key knowledges, deeds, and unlocked rank effects on the character’s editable thread record.`,
+    ),
+    mechanics: JSON.stringify({ rankType: 'normal' }),
+  }));
 export const earthdawnCatalog: EarthdawnDefinition[] = [
   ...earthdawnRaces,
   ...earthdawnDisciplines,
   ...earthdawnQuestorDefinitions,
   ...earthdawnSpells,
   ...earthdawnKnacks,
+  ...earthdawnThreadItems,
   ...named(
     'talent',
     [
