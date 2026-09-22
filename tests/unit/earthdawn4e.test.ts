@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 import {
   earthdawnCatalog,
   earthdawnDisciplines,
+  earthdawnKnacks,
   earthdawnRaces,
   earthdawnSpells,
   earthdawnSources,
@@ -27,6 +28,7 @@ import {
   createLegendEntry,
   disciplineCircleTraining,
   grantedDevotionCost,
+  knackLearningQuote,
   legendTotals,
   missingCircleTalentRanks,
   newDisciplineTalentCost,
@@ -50,6 +52,14 @@ describe('Earthdawn Fourth Edition module', () => {
     expect(earthdawnRaces).toHaveLength(8);
     expect(earthdawnDisciplines).toHaveLength(15);
     expect(earthdawnSpells).toHaveLength(216);
+    expect(earthdawnKnacks).toHaveLength(142);
+    expect(new Set(earthdawnKnacks.map(({ id }) => id)).size).toBe(142);
+    expect(
+      earthdawnKnacks.find(({ name }) => name === 'Craft True Pattern'),
+    ).toMatchObject({
+      page: 116,
+      requirements: ['Patterncraft, Thread Smithing rank 5'],
+    });
     expect(new Set(earthdawnSpells.map(({ id }) => id)).size).toBe(216);
     for (const discipline of [
       'Elementalist',
@@ -67,6 +77,13 @@ describe('Earthdawn Fourth Edition module', () => {
         ).size,
       ).toBe(8);
     }
+  });
+  it('quotes Companion knack learning at the required Novice talent rank', () => {
+    expect(knackLearningQuote(5)).toEqual({
+      legendCost: 800,
+      trainingDays: 5,
+      silverCost: 250,
+    });
   });
   it('opens blank sheets in Build mode and migrates v1 state additively', () => {
     const character = createBlankEarthdawn4eCharacter({

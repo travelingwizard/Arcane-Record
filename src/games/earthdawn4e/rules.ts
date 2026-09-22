@@ -170,6 +170,15 @@ export function spellLearningCost(circle: number) {
   return talentRankCost(circle, 1);
 }
 
+export function knackLearningQuote(minimumRank: number) {
+  const rank = Math.max(1, Math.trunc(minimumRank));
+  return {
+    legendCost: talentRankCost(rank, 1),
+    trainingDays: rank,
+    silverCost: rank * 50,
+  };
+}
+
 export function threadRankCost(newRank: number, groupTruePattern = false) {
   return talentRankCost(newRank, groupTruePattern ? 9 : 1);
 }

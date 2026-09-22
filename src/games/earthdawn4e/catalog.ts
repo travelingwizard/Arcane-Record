@@ -148,6 +148,7 @@ import {
   coreTalentOptions,
 } from './discipline-progressions';
 import { coreSpellRows } from './core-spells';
+import { companionKnackRows } from './companion-knacks';
 
 const raceData: Array<[string, number[], string, number, string[]]> = [
   ['Dwarf', [9, 10, 12, 11, 11, 10], '10', 4, ['Heat Sight']],
@@ -555,11 +556,28 @@ const shieldEntries = (
       }),
     }),
   );
+export const earthdawnKnacks: EarthdawnDefinition[] = companionKnackRows.map(
+  ([name, talents, minimumRank, page]) => ({
+    ...entry(
+      'knack',
+      name,
+      'ed4.companion',
+      page,
+      `${name} is a verified knack for ${talents}, requiring rank ${minimumRank}.`,
+      [`${talents} rank ${minimumRank}`],
+    ),
+    mechanics: JSON.stringify({
+      talents: talents.split(', '),
+      minimumRank,
+    }),
+  }),
+);
 export const earthdawnCatalog: EarthdawnDefinition[] = [
   ...earthdawnRaces,
   ...earthdawnDisciplines,
   ...earthdawnQuestorDefinitions,
   ...earthdawnSpells,
+  ...earthdawnKnacks,
   ...named(
     'talent',
     [

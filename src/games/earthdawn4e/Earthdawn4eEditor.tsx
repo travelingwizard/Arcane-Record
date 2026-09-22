@@ -51,6 +51,7 @@ import {
   createLegendEntry,
   disciplineCircleTraining,
   grantedDevotionCost,
+  knackLearningQuote,
   legendTotals,
   missingCircleTalentRanks,
   previewDisciplineTalentReconciliation,
@@ -258,6 +259,39 @@ export function Earthdawn4eEditor({
   );
   const addCatalog = (definitionId: string, confirmed = false) => {
     const d = earthdawnDefinitionById.get(definitionId)!;
+    if (playMode && !confirmed && d.kind === 'knack') {
+      let mechanics: { talents?: string[]; minimumRank?: number } = {};
+      try {
+        mechanics = JSON.parse(d.mechanics) as typeof mechanics;
+      } catch {
+        mechanics = {};
+      }
+      const minimumRank = mechanics.minimumRank ?? 1;
+      const talents = mechanics.talents ?? [];
+      const eligibleTalent = draft.talents.find(
+        (talent) =>
+          talents.includes(talent.name) &&
+          talent.rank >= minimumRank &&
+          talent.disciplineSources.length > 0,
+      );
+      const quote = knackLearningQuote(minimumRank);
+      reviewAdvancement(
+        {
+          title: `Learn ${d.name}`,
+          cost: quote.legendCost,
+          silverCost: quote.silverCost,
+          training: `${quote.trainingDays} day(s), four hours per day, with an instructor; only one knack may be learned at a time.`,
+          sourceCitation: `${d.source} p. ${d.page}`,
+          blocked: !eligibleTalent,
+          warning: eligibleTalent
+            ? undefined
+            : `Requires ${talents.join(' or ')} at rank ${minimumRank}, learned through a Discipline.`,
+        },
+        () => addCatalog(definitionId, true),
+      );
+      setCatalogKind(null);
+      return;
+    }
     if (playMode && !confirmed && d.kind === 'spell') {
       const circle = Number(d.requirements[0]?.match(/Circle (\d+)/)?.[1] ?? 1);
       const cost = spellLearningCost(circle);
@@ -393,20 +427,51 @@ export function Earthdawn4eEditor({
               }
             : c.advancement,
         };
-      if (d.kind === 'knack')
+      if (d.kind === 'knack') {
+        let mechanics: { talents?: string[]; minimumRank?: number } = {};
+        try {
+          mechanics = JSON.parse(d.mechanics) as typeof mechanics;
+        } catch {
+          mechanics = {};
+        }
+        const minimumRank = mechanics.minimumRank ?? 1;
+        const associatedTalent = c.talents.find(({ name }) =>
+          (mechanics.talents ?? []).includes(name),
+        );
+        const quote = knackLearningQuote(minimumRank);
         return {
           ...c,
           knacks: [
             ...c.knacks,
             {
               ...base,
-              talentId: null,
-              minimumRank: 0,
+              talentId: associatedTalent?.id ?? null,
+              minimumRank,
               action: '',
               strain: 0,
             },
           ],
+          advancement: confirmed
+            ? {
+                ledger: [
+                  ...c.advancement.ledger,
+                  createLegendEntry({
+                    type: 'knack',
+                    amount: -quote.legendCost,
+                    targetId: d.id,
+                    targetName: d.name,
+                    beforeRating: 0,
+                    afterRating: 1,
+                    silverCost: quote.silverCost,
+                    sourceCitation: `${d.source} p. ${d.page}`,
+                    training: `${quote.trainingDays} day(s), four hours per day, with an instructor`,
+                    description: `Learn ${d.name}`,
+                  }),
+                ],
+              }
+            : c.advancement,
         };
+      }
       if (['ability', 'path', 'devotion'].includes(d.kind))
         return {
           ...c,
@@ -594,6 +659,14 @@ export function Earthdawn4eEditor({
                 id !== entry.targetId && definitionId !== entry.targetId,
             ),
           },
+        };
+      if (entry.type === 'knack')
+        next = {
+          ...next,
+          knacks: next.knacks.filter(
+            ({ id, definitionId }) =>
+              id !== entry.targetId && definitionId !== entry.targetId,
+          ),
         };
       if (entry.type === 'questor' && entry.targetId === 'questor-rank')
         next = {
@@ -2609,9 +2682,12 @@ export function Earthdawn4eEditor({
                     <button
                       disabled={
                         (playMode &&
-                          !['spell', 'devotion', 'thread-item'].includes(
-                            d.kind,
-                          )) ||
+                          ![
+                            'spell',
+                            'devotion',
+                            'thread-item',
+                            'knack',
+                          ].includes(d.kind)) ||
                         !draft.sources.enabledSourceIds.includes(d.sourceId)
                       }
                       onClick={() => addCatalog(d.id)}
