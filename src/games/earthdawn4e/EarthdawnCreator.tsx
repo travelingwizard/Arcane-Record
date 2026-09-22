@@ -777,6 +777,19 @@ export function EarthdawnCreator({
               key={definition.id}
               onClick={() =>
                 update((current) => {
+                  let mechanics: Record<string, unknown> = {};
+                  try {
+                    mechanics = JSON.parse(definition.mechanics) as Record<
+                      string,
+                      unknown
+                    >;
+                  } catch {
+                    mechanics = {};
+                  }
+                  const numeric = (key: string) =>
+                    typeof mechanics[key] === 'number'
+                      ? (mechanics[key] as number)
+                      : 0;
                   const base = {
                     id: crypto.randomUUID(),
                     definitionId: definition.id,
@@ -794,9 +807,12 @@ export function EarthdawnCreator({
                         ...current.weapons,
                         {
                           ...base,
-                          strengthMinimum: 0,
-                          damageStep: 0,
-                          range: '',
+                          strengthMinimum: numeric('strengthMinimum'),
+                          damageStep: numeric('damageStep'),
+                          range:
+                            typeof mechanics.range === 'string'
+                              ? mechanics.range
+                              : '',
                           quantity: 1,
                           costSilver: definition.costSilver ?? 0,
                           inUse: false,
@@ -814,11 +830,14 @@ export function EarthdawnCreator({
                         quantity: 1,
                         value: `${definition.costSilver ?? 0} sp`,
                         costSilver: definition.costSilver ?? 0,
-                        weight: 0,
+                        weight: numeric('weight'),
                         inUse: false,
-                        physicalArmor: 0,
-                        mysticArmor: 0,
-                        initiativePenalty: 0,
+                        physicalArmor: numeric('physicalArmor'),
+                        mysticArmor: numeric('mysticArmor'),
+                        physicalDefense: numeric('physicalDefense'),
+                        mysticDefense: numeric('mysticDefense'),
+                        initiativePenalty: numeric('initiativePenalty'),
+                        shatterThreshold: numeric('shatterThreshold'),
                         forgedBonus: 0,
                       },
                     ],

@@ -176,9 +176,17 @@ export function Earthdawn4eEditor({
       (sum, i) => ({
         physical: sum.physical + i.physicalArmor + i.forgedBonus,
         mystic: sum.mystic + i.mysticArmor,
+        physicalDefense: sum.physicalDefense + i.physicalDefense,
+        mysticDefense: sum.mysticDefense + i.mysticDefense,
         initiative: sum.initiative + i.initiativePenalty,
       }),
-      { physical: 0, mystic: 0, initiative: 0 },
+      {
+        physical: 0,
+        mystic: 0,
+        physicalDefense: 0,
+        mysticDefense: 0,
+        initiative: 0,
+      },
     );
   const legend = legendTotals(draft.advancement.ledger);
   const reviewAdvancement = (quote: AdvancementQuote, action: () => void) => {
@@ -483,7 +491,10 @@ export function Earthdawn4eEditor({
         weight?: number;
         physicalArmor?: number;
         mysticArmor?: number;
+        physicalDefense?: number;
+        mysticDefense?: number;
         initiativePenalty?: number;
+        shatterThreshold?: number;
       } = {};
       try {
         mechanics = JSON.parse(d.mechanics) as typeof mechanics;
@@ -505,7 +516,10 @@ export function Earthdawn4eEditor({
             inUse: false,
             physicalArmor: mechanics.physicalArmor ?? 0,
             mysticArmor: mechanics.mysticArmor ?? 0,
+            physicalDefense: mechanics.physicalDefense ?? 0,
+            mysticDefense: mechanics.mysticDefense ?? 0,
             initiativePenalty: mechanics.initiativePenalty ?? 0,
+            shatterThreshold: mechanics.shatterThreshold ?? 0,
             forgedBonus: 0,
           },
         ],
@@ -1270,10 +1284,16 @@ export function Earthdawn4eEditor({
                 'Characteristics',
                 <div className="sheet-stat-grid earthdawn-derived-grid">
                   <span>
-                    Physical Defense <strong>{derived.physicalDefense}</strong>
+                    Physical Defense{' '}
+                    <strong>
+                      {derived.physicalDefense + armor.physicalDefense}
+                    </strong>
                   </span>
                   <span>
-                    Mystic Defense <strong>{derived.mysticDefense}</strong>
+                    Mystic Defense{' '}
+                    <strong>
+                      {derived.mysticDefense + armor.mysticDefense}
+                    </strong>
                   </span>
                   <span>
                     Social Defense <strong>{derived.socialDefense}</strong>
@@ -1976,6 +1996,39 @@ export function Earthdawn4eEditor({
                             }
                           />
                         </SheetField>
+                        {(
+                          [
+                            ['weight', 'Weight'],
+                            ['physicalArmor', 'Physical Armor'],
+                            ['mysticArmor', 'Mystic Armor'],
+                            ['physicalDefense', 'Physical Defense'],
+                            ['mysticDefense', 'Mystic Defense'],
+                            ['initiativePenalty', 'Initiative Penalty'],
+                            ['shatterThreshold', 'Shatter Threshold'],
+                          ] as const
+                        ).map(([field, label]) => (
+                          <SheetField key={field} label={label}>
+                            <input
+                              type="number"
+                              min="0"
+                              readOnly={playMode}
+                              value={e[field]}
+                              onChange={(event) =>
+                                update((c) => ({
+                                  ...c,
+                                  equipment: c.equipment.map((item) =>
+                                    item.id === e.id
+                                      ? {
+                                          ...item,
+                                          [field]: Number(event.target.value),
+                                        }
+                                      : item,
+                                  ),
+                                }))
+                              }
+                            />
+                          </SheetField>
+                        ))}
                         <label className="sheet-choice-card">
                           <input
                             type="checkbox"

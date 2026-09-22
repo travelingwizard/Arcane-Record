@@ -13,7 +13,7 @@ The runtime inventory is generated in `src/games/earthdawn4e/source-inventory.ts
 - Verified First Circle starter spells for Elementalist, Illusionist, Nethermancer, and Wizard.
 - The complete Player’s Guide Novice and Journeyman general-skill rosters, plus editable Artisan, Knowledge, and language records.
 - The Player’s Guide melee, missile, and throwing weapon tables with damage, minimum Strength, range, price, weight, and availability metadata.
-- The Player’s Guide armor table with physical armor, mystic armor, initiative penalty, price, weight, and availability metadata. Shields remain equipment records until their Defense and shatter fields have dedicated schema support.
+- The Player’s Guide armor and shield tables. Armor retains physical/mystic armor and initiative values; shields retain distinct physical/mystic Defense bonuses, initiative penalties, and shatter thresholds. Schema v3 migrates prior equipment additively without flattening advancement transactions.
 - The Player’s Guide common magic item, blood charm, healing aid, and adventuring-equipment tables with corrected silver-equivalent prices and weights. Copper-denominated entries remain fractional silver so builder arithmetic uses one currency consistently.
 - A reviewed starting subset of thread records and supplemental paths.
 - Character calculations, the Step/Dice table, creation attribute budget, and Legend Point ledger.

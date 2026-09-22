@@ -213,7 +213,10 @@ export const earthdawn4eCharacterSchema = z.object({
       inUse: z.boolean(),
       physicalArmor: nonnegative,
       mysticArmor: nonnegative,
+      physicalDefense: nonnegative,
+      mysticDefense: nonnegative,
       initiativePenalty: nonnegative,
+      shatterThreshold: nonnegative,
       forgedBonus: nonnegative,
       notes: z.string(),
     }),
@@ -336,6 +339,8 @@ const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === 'object' && value !== null && !Array.isArray(value);
 
 export function migrateEarthdawn4eCharacter(data: unknown) {
+  const parsedCurrent = earthdawn4eCharacterSchema.safeParse(data);
+  if (parsedCurrent.success) return parsedCurrent.data;
   if (!isRecord(data)) return earthdawn4eCharacterSchema.parse(data);
   const now = new Date().toISOString();
   const identity = isRecord(data.identity) ? data.identity : {};
@@ -357,20 +362,37 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
     return {
       id: typeof value.id === 'string' ? value.id : crypto.randomUUID(),
       date: typeof value.date === 'string' ? value.date : now.slice(0, 10),
-      type:
-        value.type === 'refund' ? ('refund' as const) : ('adjustment' as const),
+      type: [
+        'opening',
+        'award',
+        'talent',
+        'skill',
+        'attribute',
+        'circle',
+        'spell',
+        'thread',
+        'questor',
+        'refund',
+        'adjustment',
+      ].includes(String(value.type))
+        ? value.type
+        : 'adjustment',
       amount,
-      earnedAmount: amount > 0 ? amount : 0,
+      earnedAmount: Number(value.earnedAmount ?? (amount > 0 ? amount : 0)),
       targetId: typeof value.targetId === 'string' ? value.targetId : null,
       targetName: typeof value.targetName === 'string' ? value.targetName : '',
-      beforeRating: null,
-      afterRating: null,
-      silverCost: 0,
-      training: '',
-      sourceCitation: '',
+      beforeRating:
+        typeof value.beforeRating === 'number' ? value.beforeRating : null,
+      afterRating:
+        typeof value.afterRating === 'number' ? value.afterRating : null,
+      silverCost: Number(value.silverCost ?? 0),
+      training: typeof value.training === 'string' ? value.training : '',
+      sourceCitation:
+        typeof value.sourceCitation === 'string' ? value.sourceCitation : '',
       description:
         typeof value.description === 'string' ? value.description : '',
-      reversesId: null,
+      reversesId:
+        typeof value.reversesId === 'string' ? value.reversesId : null,
       createdAt: typeof value.createdAt === 'string' ? value.createdAt : now,
     };
   });
@@ -497,6 +519,13 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
       (entry) => ({
         ...(isRecord(entry) ? entry : {}),
         costSilver: isRecord(entry) ? Number(entry.costSilver ?? 0) : 0,
+        physicalDefense: isRecord(entry)
+          ? Number(entry.physicalDefense ?? 0)
+          : 0,
+        mysticDefense: isRecord(entry) ? Number(entry.mysticDefense ?? 0) : 0,
+        shatterThreshold: isRecord(entry)
+          ? Number(entry.shatterThreshold ?? 0)
+          : 0,
       }),
     ),
     weapons: Array.isArray(data.weapons) ? data.weapons : [],

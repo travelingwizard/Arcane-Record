@@ -545,6 +545,38 @@ const armorEntries = (
       }),
     }),
   );
+const shieldEntries = (
+  rows: Array<[string, number, number, number, number, number, number, string]>,
+) =>
+  rows.map(
+    ([
+      name,
+      physicalDefense,
+      mysticDefense,
+      initiativePenalty,
+      shatterThreshold,
+      cost,
+      weight,
+      availability,
+    ]) => ({
+      ...entry(
+        'equipment',
+        name,
+        'ed4.players-guide',
+        435,
+        `${name} is a verified Player’s Guide shield (${availability} availability).`,
+      ),
+      costSilver: cost,
+      mechanics: JSON.stringify({
+        weight,
+        physicalDefense,
+        mysticDefense,
+        initiativePenalty,
+        shatterThreshold,
+        availability,
+      }),
+    }),
+  );
 export const earthdawnCatalog: EarthdawnDefinition[] = [
   ...earthdawnRaces,
   ...earthdawnDisciplines,
@@ -672,8 +704,6 @@ export const earthdawnCatalog: EarthdawnDefinition[] = [
       ['Padded Cloth', 2, 5],
       ['Padded Leather', 20, 20],
       ['Ring Mail', 110, 30],
-      ['Buckler', 5, 3],
-      ['Footman’s Shield', 15, 10],
     ],
     433,
   ),
@@ -731,6 +761,15 @@ export const earthdawnCatalog: EarthdawnDefinition[] = [
     ['Obsidiman Skin', 3, 1, 0, 100, 20, 'Rare'],
     ['Plate Armor', 9, 0, 4, 3000, 60, 'Unusual'],
     ['Wyvern Skin', 8, 1, 3, 2000, 50, 'Rare'],
+  ]),
+  ...shieldEntries([
+    ['Body Shield', 3, 0, 2, 21, 50, 15, 'Unusual'],
+    ['Buckler', 1, 0, 0, 17, 5, 3, 'Average'],
+    ['Crystal Buckler', 1, 1, 0, 17, 50, 5, 'Rare'],
+    ['Crystal Raider Shield', 2, 2, 2, 18, 150, 15, 'Rare'],
+    ['Ferndask Shield', 1, 2, 2, 16, 22, 5, 'Unusual'],
+    ['Footman’s Shield', 2, 0, 1, 19, 15, 10, 'Average'],
+    ['Rider’s Shield', 2, 0, 1, 19, 20, 8, 'Average'],
   ]),
   ...priced(
     'equipment',

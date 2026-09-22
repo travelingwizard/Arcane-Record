@@ -84,6 +84,53 @@ describe('Earthdawn Fourth Edition module', () => {
     expect(migrated.identity.height).toBe('');
     expect(migrated.dice).toMatchObject({ tracking: true, historyLimit: 10 });
   });
+  it('migrates v2 equipment additively without flattening advancement history', () => {
+    const legacy = createBlankEarthdawn4eCharacter();
+    const purchase = createLegendEntry({
+      type: 'talent',
+      amount: -100,
+      targetId: 'talent-id',
+      targetName: 'Avoid Blow',
+      beforeRating: 0,
+      afterRating: 1,
+      description: 'Raise Avoid Blow',
+    });
+    legacy.advancement.ledger.push(purchase);
+    const oldEquipment = {
+      id: crypto.randomUUID(),
+      definitionId: null,
+      sourceId: null,
+      source: null,
+      page: null,
+      unresolved: true,
+      name: 'Old shield',
+      type: 'equipment',
+      description: '',
+      quantity: 1,
+      value: '',
+      costSilver: 0,
+      weight: 1,
+      inUse: false,
+      physicalArmor: 0,
+      mysticArmor: 0,
+      initiativePenalty: 0,
+      forgedBonus: 0,
+      notes: '',
+    };
+    (legacy.equipment as unknown[]).push(oldEquipment);
+    const migrated = migrateEarthdawn4eCharacter(legacy);
+    expect(migrated.equipment[0]).toMatchObject({
+      physicalDefense: 0,
+      mysticDefense: 0,
+      shatterThreshold: 0,
+    });
+    expect(migrated.advancement.ledger[0]).toMatchObject({
+      type: 'talent',
+      beforeRating: 0,
+      afterRating: 1,
+      targetId: 'talent-id',
+    });
+  });
   it('adds only required Discipline talents and preserves advanced records when Circle falls', () => {
     const discipline = earthdawnDisciplines.find(
       ({ name }) => name === 'Swordmaster',
@@ -217,6 +264,15 @@ describe('Earthdawn Fourth Edition module', () => {
       physicalArmor: 7,
       mysticArmor: 7,
       initiativePenalty: 5,
+    });
+    const bodyShield = earthdawnCatalog.find(
+      ({ name }) => name === 'Body Shield',
+    )!;
+    expect(JSON.parse(bodyShield.mechanics)).toMatchObject({
+      physicalDefense: 3,
+      mysticDefense: 0,
+      initiativePenalty: 2,
+      shatterThreshold: 21,
     });
   });
   it('calculates attributes, characteristics, and all 105 dice steps', () => {
