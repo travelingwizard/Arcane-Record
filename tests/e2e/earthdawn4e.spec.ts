@@ -88,6 +88,16 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   await expect(page.getByText(/dedicated training days/)).toBeVisible();
   await page.getByRole('button', { name: 'Confirm purchase' }).click();
   await expect(page.getByText('200 current LP')).toBeVisible();
+  await page.getByRole('button', { name: 'Browse Spells' }).click();
+  const spellDialog = page.getByRole('dialog', {
+    name: 'Earthdawn catalog',
+  });
+  await spellDialog.getByRole('button', { name: 'Add' }).first().click();
+  await expect(page.getByText(/Learn Air Armor/)).toBeVisible();
+  await page.getByRole('button', { name: 'Confirm purchase' }).click();
+  await expect(page.getByText('100 current LP')).toBeVisible();
+  await page.getByRole('button', { name: 'Refund' }).first().click();
+  await expect(page.getByText('200 current LP')).toBeVisible();
   const overflow = await page.evaluate(
     () => document.documentElement.scrollWidth > window.innerWidth,
   );

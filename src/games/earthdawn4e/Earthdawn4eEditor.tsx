@@ -50,6 +50,7 @@ import {
   attributeTraining,
   createLegendEntry,
   disciplineCircleTraining,
+  grantedDevotionCost,
   legendTotals,
   missingCircleTalentRanks,
   previewDisciplineTalentReconciliation,
@@ -58,6 +59,7 @@ import {
   reconcileDisciplineTalents,
   refundableLedgerEntry,
   skillRankCost,
+  spellLearningCost,
   threadRankCost,
   talentRankCost,
 } from './rules';
@@ -246,8 +248,47 @@ export function Earthdawn4eEditor({
       {children}
     </SheetSection>
   );
-  const addCatalog = (definitionId: string) => {
+  const addCatalog = (definitionId: string, confirmed = false) => {
     const d = earthdawnDefinitionById.get(definitionId)!;
+    if (playMode && !confirmed && d.kind === 'spell') {
+      const circle = Number(d.requirements[0]?.match(/Circle (\d+)/)?.[1] ?? 1);
+      const cost = spellLearningCost(circle);
+      reviewAdvancement(
+        {
+          title: `Learn ${d.name}`,
+          cost,
+          silverCost: 0,
+          training:
+            'Complete the Patterncraft learning process and record the successful result.',
+          sourceCitation: `${d.source} p. ${d.page}; Player's Guide p. 252`,
+        },
+        () => addCatalog(definitionId, true),
+      );
+      setCatalogKind(null);
+      return;
+    }
+    if (playMode && !confirmed && d.kind === 'devotion') {
+      const cost = grantedDevotionCost(1, draft.questor.rank);
+      reviewAdvancement(
+        {
+          title: `Learn ${d.name} devotion`,
+          cost,
+          silverCost: 0,
+          training:
+            'Requires an available granted-devotion slot, communion, patron approval, and at most one devotion purchase per day.',
+          sourceCitation: `${d.source} p. ${d.page}`,
+          blocked:
+            draft.questor.rank < 1 ||
+            draft.abilities.filter(({ kind }) => kind === 'questor').length >=
+              draft.questor.rank,
+          warning:
+            draft.questor.rank < 1 ? 'A Questor rank is required.' : undefined,
+        },
+        () => addCatalog(definitionId, true),
+      );
+      setCatalogKind(null);
+      return;
+    }
     update((c) => {
       const base = {
         id: crypto.randomUUID(),
@@ -321,6 +362,28 @@ export function Earthdawn4eEditor({
               },
             ],
           },
+          advancement: confirmed
+            ? {
+                ledger: [
+                  ...c.advancement.ledger,
+                  createLegendEntry({
+                    type: 'spell',
+                    amount: -spellLearningCost(
+                      Number(
+                        d.requirements[0]?.match(/Circle (\d+)/)?.[1] ?? 1,
+                      ),
+                    ),
+                    targetId: d.id,
+                    targetName: d.name,
+                    beforeRating: 0,
+                    afterRating: 1,
+                    sourceCitation: `${d.source} p. ${d.page}`,
+                    training: 'Patterncraft learning process',
+                    description: `Learn ${d.name}`,
+                  }),
+                ],
+              }
+            : c.advancement,
         };
       if (d.kind === 'knack')
         return {
@@ -351,6 +414,25 @@ export function Earthdawn4eEditor({
                     : ('other' as const),
             },
           ],
+          advancement:
+            confirmed && d.kind === 'devotion'
+              ? {
+                  ledger: [
+                    ...c.advancement.ledger,
+                    createLegendEntry({
+                      type: 'questor',
+                      amount: -grantedDevotionCost(1, c.questor.rank),
+                      targetId: d.id,
+                      targetName: d.name,
+                      beforeRating: 0,
+                      afterRating: 1,
+                      sourceCitation: `${d.source} p. ${d.page}`,
+                      training: 'Communion; one devotion per day',
+                      description: `Learn ${d.name} devotion`,
+                    }),
+                  ],
+                }
+              : c.advancement,
         };
       if (d.kind === 'thread-item')
         return {
@@ -474,7 +556,18 @@ export function Earthdawn4eEditor({
             ),
           },
         };
-      if (entry.type === 'questor')
+      if (entry.type === 'spell')
+        next = {
+          ...next,
+          magic: {
+            ...next.magic,
+            spells: next.magic.spells.filter(
+              ({ id, definitionId }) =>
+                id !== entry.targetId && definitionId !== entry.targetId,
+            ),
+          },
+        };
+      if (entry.type === 'questor' && entry.targetId === 'questor-rank')
         next = {
           ...next,
           questor: {
@@ -482,6 +575,14 @@ export function Earthdawn4eEditor({
             rank: beforeRating,
             tier: questorTier(beforeRating),
           },
+        };
+      if (entry.type === 'questor' && entry.targetId !== 'questor-rank')
+        next = {
+          ...next,
+          abilities: next.abilities.filter(
+            ({ id, definitionId }) =>
+              id !== entry.targetId && definitionId !== entry.targetId,
+          ),
         };
       return {
         ...next,
@@ -1356,7 +1457,6 @@ export function Earthdawn4eEditor({
                 'Spells & Matrices',
                 <div className="earthdawn-record-stack">
                   <button
-                    disabled={playMode}
                     onClick={() => setCatalogKind('spell')}
                     className="secondary-button"
                   >
@@ -2441,7 +2541,10 @@ export function Earthdawn4eEditor({
                     </small>
                     <button
                       disabled={
-                        playMode ||
+                        (playMode &&
+                          !['spell', 'devotion', 'thread-item'].includes(
+                            d.kind,
+                          )) ||
                         !draft.sources.enabledSourceIds.includes(d.sourceId)
                       }
                       onClick={() => addCatalog(d.id)}
