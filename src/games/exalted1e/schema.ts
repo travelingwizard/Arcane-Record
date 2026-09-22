@@ -27,6 +27,10 @@ import {
   abyssalCharmIds,
   abyssalNecromancySpellIds,
 } from './reference/abyssal-powers';
+import {
+  siderealCharmIds,
+  siderealSorcerySpellIds,
+} from './reference/sidereal-powers';
 import { solarCharmIds } from './reference/solar-charms';
 import {
   getSolarTraitRepeatLimit,
@@ -286,16 +290,13 @@ export const exalted1eCharacterSchema = z
         solar: solarCharmIds,
         'dragon-blooded': dragonBloodedCharmIds,
         abyssal: abyssalCharmIds,
-        // PLACEHOLDER pending Sidereal's own Charms-catalog phase ("Phase
-        // 2b" -- 176+ Chapter Five Charm rows, the three secret Martial
-        // Arts styles, and the Astrology/Colleges system are all out of
-        // scope for this phase). An empty set means a blank Sidereal
-        // character (no Charms/Combos selected) validates cleanly, while
-        // any future non-empty Charm/Combo selection is correctly rejected
-        // as unknown until that catalog exists -- matching how Abyssal's
-        // own two `charmIdsBySheetType` entries were `TODO(abyssal-charms)`
-        // placeholders before its later Phase 1b.
-        sidereal: new Set<string>(),
+        // Phase 2b: 193 Chapter Five Charms -- 152 Caste-and-Auspicious-
+        // Ability Charms (25 trees) plus the 41 Charms of the three named
+        // secret Martial Arts styles (Charcoal March of Spiders,
+        // Prismatic Arrangement of Creation, Citrine Poxes of Contagion).
+        // The Astrology/Colleges system remains out of scope for this
+        // phase; see `siderealCharmIds` in `./reference/sidereal-powers`.
+        sidereal: siderealCharmIds,
       };
     character.combos.forEach((combo, index) => {
       if (new Set(combo.charmIds).size !== combo.charmIds.length) {
@@ -369,19 +370,23 @@ export const exalted1eCharacterSchema = z
         return;
       }
       if (character.sheetType === 'sidereal') {
-        // PLACEHOLDER pending Sidereal's own spell-catalog phase ("Phase
-        // 2b" -- Sidereal's own Terrestrial/Celestial Circle Sorcery
-        // spells, plus the Astrology/Colleges system, are out of scope for
-        // this phase; see the `sidereal` entry in `charmIdsBySheetType`
-        // above for the matching Charms-side placeholder). Without this
-        // branch, Sidereal would silently fall through to the
-        // Dragon-Blooded check below and wrongly accept Dragon-Blooded's
-        // own Terrestrial spell ids as if they were legal Sidereal spells.
-        context.addIssue({
-          code: 'custom',
-          message: 'No Sidereal spell catalog exists yet.',
-          path: ['powers', 'spells', index, 'definitionId'],
-        });
+        // Phase 2b: Sidereal's 73 promoted Sorcery spells (all of them
+        // already present, name-for-name, in the shared Dragon-Blooded
+        // Sorcery catalog -- see `siderealSorcerySpellIds` in
+        // `./reference/sidereal-powers`). The Astrology/Colleges system
+        // remains out of scope for this phase. Without this branch,
+        // Sidereal would silently fall through to the Dragon-Blooded
+        // check below and wrongly accept every Dragon-Blooded Terrestrial
+        // spell id (including the 13 unreviewed Savant and Sorcerer rows
+        // this phase deliberately excluded) as if it were legal for
+        // Sidereal.
+        if (!siderealSorcerySpellIds.has(selection.definitionId)) {
+          context.addIssue({
+            code: 'custom',
+            message: 'Unknown Sidereal spell definition.',
+            path: ['powers', 'spells', index, 'definitionId'],
+          });
+        }
         return;
       }
       if (!dragonBloodedSpellIds.has(selection.definitionId)) {

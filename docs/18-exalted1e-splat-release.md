@@ -194,7 +194,7 @@ real, creatable sheet.
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | -------- | -------------------------------- |
 | Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)    | 598            | 0        | Locked, all dimensions `not-run` |
 | Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 500      | Locked, all dimensions `not-run` |
-| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 94       | Locked, all dimensions `not-run` |
+| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 360      | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 365            | 0        | Locked, all dimensions `not-run` |
 
@@ -791,7 +791,7 @@ now real, Zod-validated production catalog entries — the Backgrounds in
 `definitions.ts`, the Merits/Flaws folded additively into the existing
 shared `dragonblooded-merits-flaws` catalog via each entry's `appliesTo`
 field, plus 6 new Abyssal-only entries for rows with no Dragon-Blooded
-equivalent. `'abyssal'` is now a legal *stored* `sheetType` for schema and
+equivalent. `'abyssal'` is now a legal _stored_ `sheetType` for schema and
 test purposes, but it is still absent from `definition.tsx`'s selectable
 `variants`, so the family remains fully locked in the app.
 
@@ -887,7 +887,7 @@ Sidereal Phase 2a combines what was Abyssal's initial schema-wiring step
 with its own Phase 1a into a single pass, since Sidereal started this
 phase with zero code/schema wiring at all (only a `plannedExaltedFamilies`
 label, unlike Abyssal which already had Phase 1a's prerequisite schema
-work done for it by an earlier pass). `'sidereal'` is now a legal *stored*
+work done for it by an earlier pass). `'sidereal'` is now a legal _stored_
 `sheetType` in `exaltedSheetTypes`, but -- exactly like Abyssal -- remains
 absent from `definition.tsx`'s selectable `variants`, so the family stays
 fully locked out of the user-facing create-character list. Its 12
@@ -919,6 +919,46 @@ Phase 1b. `definition.tsx` and `Exalted1eEditor.tsx` each gained one
 lookups purely to stay exhaustive over `ExaltedSheetType`; no Sidereal
 editor UI (Caste select, Arcane Fate/Paradox tracker, Astrology UI) was
 built in this phase.
+
+Sidereal Phase 2b promotes the Charms and Sorcery spells that Phase 2a left
+as placeholders. All 193 disposition-`selectable`, `verificationState:
+'reviewed'` Chapter Five Charm rows -- the 152 Caste-and-Auspicious-Ability
+Charms across all 25 trees (5 Castes x 5 Abilities each) plus the 41 Charms
+of the three named secret Martial Arts styles (Charcoal March of Spiders 12,
+Prismatic Arrangement of Creation 16, Citrine Poxes of Contagion 13) -- are
+now real, Zod-validated entries in new files `sidereal-charms.json`/
+`sidereal-powers.ts`, following `abyssal-powers.ts`'s Charm-shape precedent
+field-for-field: the 25-tree Charms use a new `caste: SiderealCaste | null`
+field (mirroring `abyssalCastes`) holding one of Journeys/Serenity/Battles/
+Secrets/Endings with `style: null`, while the three Martial Arts styles use
+`style: '<Style Name>'` (mirroring Dragon-Blooded's own Immaculate style
+field) with `caste: null`. Every `prerequisiteCharms` reference was resolved
+from its printed name to the real sibling Charm id within this same catalog
+(a dedicated integrity test asserts a 100% round-trip), and `comboRules`
+were derived strictly from explicit, self-referential "Combo" sentences in
+each Charm's own mechanics text -- 9 Charms received an override (6 an
+explicit cross-Ability Combo permission, 3 an explicit Combo prohibition);
+Charms whose text merely _discusses_ Combos or other Charms' Combo rules at
+length, without stating a rule about themselves, were deliberately left
+with default rules, matching `abyssal-powers.ts`'s strict precedent. All 84
+Sorcery spell rows in the Sidereal inventory were cross-checked against the
+existing shared `dragonblooded-sorcery.json` catalog: the 73 reviewed rows
+all matched an existing entry there exactly (Savant and Sorcerer is the
+single canonical current-edition sorcery source for every splat, so full
+overlap is the expected, good outcome), so no new spells were appended and
+no Sidereal-only spell catalog file was created -- `sidereal-powers.ts`
+instead exports a self-validating `siderealSorcerySpellIds` subset of the
+shared `sharedSorcerySpellIds`. The remaining 13 rows are still
+`verificationState: 'unreviewed'` and were excluded from promotion, tracked
+in the new `siderealUnreviewedExcludedSpellIds` export (mirroring Abyssal's
+own unreviewed-exclusion precedent). `schema.ts`'s `charmIdsBySheetType.
+sidereal` placeholder empty `Set()` is now `siderealCharmIds`, and the
+`powers.spells` sidereal branch now validates against
+`siderealSorcerySpellIds` instead of hard-rejecting every selection.
+`promotedEntries` is now 360 (94 + 193 + 73). Astrology/Colleges, the
+editor UI, and advancement/XP wiring remain out of scope for this phase, and
+`'sidereal'` remains absent from `definition.tsx`'s user-facing `variants`
+list.
 
 ## Next steps (require source material per book)
 

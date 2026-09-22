@@ -5,6 +5,7 @@ import {
   siderealBackgrounds,
 } from '../../src/games/exalted1e/definitions';
 import { exalted1eCharacterSchema } from '../../src/games/exalted1e/schema';
+import { siderealCharmById } from '../../src/games/exalted1e/reference/sidereal-powers';
 
 describe('Exalted First Edition Sidereal (schema-only; not yet UI-selectable)', () => {
   it('registers sidereal as a legal stored sheetType', () => {
@@ -408,7 +409,7 @@ describe('Exalted First Edition Sidereal (schema-only; not yet UI-selectable)', 
     });
   });
 
-  describe('Charms and spells (Phase 2b: out of scope for this phase)', () => {
+  describe('Charms and spells (Phase 2b: real Sidereal Charm/Sorcery catalogs)', () => {
     it('validates a blank Sidereal character with zero Charm/Combo/spell selections', () => {
       const character = createBlankExaltedCharacter('sidereal');
       expect(character.powers.charms).toEqual([]);
@@ -417,7 +418,71 @@ describe('Exalted First Edition Sidereal (schema-only; not yet UI-selectable)', 
       expect(() => exalted1eCharacterSchema.parse(character)).not.toThrow();
     });
 
-    it('rejects any Charm selection on a Sidereal sheet, since no Sidereal Charm catalog exists yet', () => {
+    it('accepts a legal Charm selection, including a satisfied prerequisite chain', () => {
+      // blade-of-the-battle-maiden lists secrets-of-future-strife as a
+      // prerequisiteCharms entry in the real catalog.
+      expect(
+        siderealCharmById.get('blade-of-the-battle-maiden')?.prerequisiteCharms,
+      ).toContain('secrets-of-future-strife');
+      const character = createBlankExaltedCharacter('sidereal');
+      const parsed = exalted1eCharacterSchema.parse({
+        ...character,
+        powers: {
+          charms: [
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'secrets-of-future-strife',
+              unresolvedReference: null,
+              notes: '',
+            },
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'blade-of-the-battle-maiden',
+              unresolvedReference: null,
+              notes: '',
+            },
+          ],
+          spells: [],
+        },
+      });
+      expect(parsed.powers.charms.map((c) => c.definitionId)).toEqual([
+        'secrets-of-future-strife',
+        'blade-of-the-battle-maiden',
+      ]);
+    });
+
+    it('accepts a Charm from each of the three secret Martial Arts styles', () => {
+      const character = createBlankExaltedCharacter('sidereal');
+      const parsed = exalted1eCharacterSchema.parse({
+        ...character,
+        powers: {
+          charms: [
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'unnatural-many-step-stride',
+              unresolvedReference: null,
+              notes: '',
+            },
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'deadly-starmetal-offensive',
+              unresolvedReference: null,
+              notes: '',
+            },
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'feverish-essence-discharge-atemi',
+              unresolvedReference: null,
+              notes: '',
+            },
+          ],
+          spells: [],
+        },
+      });
+      expect(parsed.powers.charms).toHaveLength(3);
+    });
+
+    it('rejects an unknown Charm id on a Sidereal sheet', () => {
       const character = createBlankExaltedCharacter('sidereal');
       expect(() =>
         exalted1eCharacterSchema.parse({
@@ -437,7 +502,88 @@ describe('Exalted First Edition Sidereal (schema-only; not yet UI-selectable)', 
       ).toThrow();
     });
 
-    it('rejects any spell selection on a Sidereal sheet, since no Sidereal spell catalog exists yet (regression: previously fell through and wrongly accepted Dragon-Blooded Terrestrial spell ids)', () => {
+    it('rejects a Dragon-Blooded Charm id on a Sidereal sheet', () => {
+      const character = createBlankExaltedCharacter('sidereal');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            charms: [
+              {
+                id: crypto.randomUUID(),
+                // A real Dragon-Blooded Charm id -- must still be rejected
+                // for Sidereal.
+                definitionId: 'language-learning-ritual',
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+            spells: [],
+          },
+        }),
+      ).toThrow();
+    });
+
+    it('accepts a legal Sorcery spell selection on a Sidereal sheet', () => {
+      const character = createBlankExaltedCharacter('sidereal');
+      const parsed = exalted1eCharacterSchema.parse({
+        ...character,
+        powers: {
+          charms: [],
+          spells: [
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'the-battles-end',
+              unresolvedReference: null,
+              notes: '',
+            },
+          ],
+        },
+      });
+      expect(parsed.powers.spells[0]?.definitionId).toBe('the-battles-end');
+    });
+
+    it('rejects an unknown spell id on a Sidereal sheet', () => {
+      const character = createBlankExaltedCharacter('sidereal');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            charms: [],
+            spells: [
+              {
+                id: crypto.randomUUID(),
+                definitionId: 'anything',
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+          },
+        }),
+      ).toThrow();
+    });
+
+    it('rejects a still-unreviewed Sorcery spell id on a Sidereal sheet (excluded pending visual verification)', () => {
+      const character = createBlankExaltedCharacter('sidereal');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            charms: [],
+            spells: [
+              {
+                id: crypto.randomUUID(),
+                definitionId: 'bone-lion',
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+          },
+        }),
+      ).toThrow();
+    });
+
+    it('rejects a Dragon-Blooded-only Terrestrial Circle Sorcery spell id that Sidereal has no matching promoted entry for (regression guard: previously fell through and wrongly accepted any Dragon-Blooded Terrestrial spell id)', () => {
       const character = createBlankExaltedCharacter('sidereal');
       expect(() =>
         exalted1eCharacterSchema.parse({
@@ -448,7 +594,8 @@ describe('Exalted First Edition Sidereal (schema-only; not yet UI-selectable)', 
               {
                 id: crypto.randomUUID(),
                 // A real Dragon-Blooded Terrestrial Circle Sorcery spell id
-                // -- must still be rejected for Sidereal.
+                // that is not among Sidereal's own 73 promoted spell ids --
+                // must still be rejected for Sidereal.
                 definitionId: 'assassin-s-fatal-touch',
                 unresolvedReference: null,
                 notes: '',

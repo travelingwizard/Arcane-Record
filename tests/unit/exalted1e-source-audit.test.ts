@@ -195,7 +195,18 @@ describe('auditFamily against the real repository (current state)', () => {
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);
     expect(report.inventoryRows).toBeGreaterThan(0);
-    expect(report.promotedEntries).toBe(0);
+    // 193 = the 193 promoted Charms in sidereal-charms.json, as counted
+    // directly from `src/games/exalted1e/reference/sidereal-*.json` by
+    // this audit script. This differs from `certification/sidereal.json`'s
+    // own `catalog.promotedEntries` (360), which also includes the 94
+    // Phase 2a Backgrounds/Merits/Flaws rows and the 73 Phase 2b Sorcery
+    // spell rows, none of which live in a `sidereal-`-prefixed catalog
+    // file (Backgrounds/Merits/Flaws live in `definitions.ts`/the shared
+    // `dragonblooded-merits-flaws.json`; the 73 Sorcery spells are a
+    // subset of the shared `dragonblooded-sorcery.json`), so this audit
+    // script's file-glob does not count them -- matching Abyssal's own
+    // 328-vs-500 precedent above.
+    expect(report.promotedEntries).toBe(193);
   });
 
   it('reports Alchemical as pending-certification with its real inventory rows and zero audit errors', () => {

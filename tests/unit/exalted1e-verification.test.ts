@@ -54,15 +54,16 @@ describe('exalted1e verification gate', () => {
       // Merits/Flaws chapter, Charms, Necromancy spells, and Sorcery spells
       // promoted to real production catalogs (500 of its 503 promotable
       // rows -- see `SplatCatalogEvidence.promotableEntries`), and Sidereal
-      // has had its Backgrounds and universal Merits/Flaws chapter promoted
-      // (94 rows: 12 Backgrounds + 82 Merits/Flaws), but that alone must
+      // has had its Backgrounds, universal Merits/Flaws chapter, Charms,
+      // and Sorcery spells promoted (360 rows: 12 Backgrounds + 82
+      // Merits/Flaws + 193 Charms + 73 Sorcery spells), but that alone must
       // not unlock either family -- `checksum` stays empty and every
       // test-evidence dimension stays 'not-run' until schema/creator/editor
-      // work for the remaining catalog dimensions (Charms, Sorcery spells,
-      // Artifacts, Hearthstones, Warstriders, the nemissary system, the
-      // Astrology/Colleges system) lands too.
+      // work for the remaining catalog dimensions (Sidereal's own
+      // Astrology/Colleges system; Abyssal's Artifacts, Hearthstones,
+      // Warstriders, the nemissary system) lands too.
       expect(record.catalog.promotedEntries).toBe(
-        family === 'abyssal' ? 500 : family === 'sidereal' ? 94 : 0,
+        family === 'abyssal' ? 500 : family === 'sidereal' ? 360 : 0,
       );
       expect(record.catalog.checksum).toBe('');
     }
@@ -105,14 +106,17 @@ describe('exalted1e verification gate', () => {
   it('reflects Sidereal source intake in progress without unlocking the family', () => {
     const record = certificationRecords.sidereal;
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
-    // 94 = 12 Backgrounds (siderealBackgrounds) + 82 shared Merits/Flaws
+    // 360 = 12 Backgrounds (siderealBackgrounds) + 82 shared Merits/Flaws
     // catalog rows now carrying 'sidereal' in appliesTo (79 extended
-    // existing entries plus 3 wholly new Sidereal-only entries) -- short of
-    // the 365 `promotableEntries` estimate (which also counts Charms,
-    // Sorcery spells, and other rows not yet promoted), and far short of
-    // the raw `totalInventoryRows` (583). Either way,
-    // `isFamilyAvailable('sidereal')` must stay false.
-    expect(record.catalog.promotedEntries).toBe(94);
+    // existing entries plus 3 wholly new Sidereal-only entries) + 193
+    // Chapter Five Charms (sidereal-charms.json/sidereal-powers.ts) + 73
+    // Sorcery spells (siderealSorcerySpellIds, a subset of the shared
+    // dragonblooded-sorcery.json catalog) -- short of the 365
+    // `promotableEntries` estimate (which also counts the still-unreviewed
+    // Sorcery spell rows and the not-yet-scoped Astrology/Colleges
+    // system), and far short of the raw `totalInventoryRows` (583). Either
+    // way, `isFamilyAvailable('sidereal')` must stay false.
+    expect(record.catalog.promotedEntries).toBe(360);
     expect(isFamilyAvailable('sidereal')).toBe(false);
   });
 
