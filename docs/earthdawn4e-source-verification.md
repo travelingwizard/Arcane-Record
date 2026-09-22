@@ -10,7 +10,7 @@ The runtime inventory is generated in `src/games/earthdawn4e/source-inventory.ts
 - Fifteen core Disciplines with required progression through Circle 15. Player’s Guide Circles 1–8 and Companion Circles 9–15 remain source-separated.
 - Verified required Discipline talents and the currently reviewed talent-option lists.
 - Twelve Passions with Mad Passions hidden by default and approval-gated.
-- Verified First Circle starter spells for Elementalist, Illusionist, Nethermancer, and Wizard.
+- All 216 Player’s Guide spells for Elementalist, Illusionist, Nethermancer, and Wizard across Circles 1–8. Names, Discipline ownership, Circle, and printed-page citations were layout-extracted, reconciled against the source headings, and visually sampled at every Discipline/Circle boundary. Runtime summaries remain concise metadata rather than copied spell text.
 - The complete Player’s Guide Novice and Journeyman general-skill rosters, plus editable Artisan, Knowledge, and language records.
 - The Player’s Guide melee, missile, and throwing weapon tables with damage, minimum Strength, range, price, weight, and availability metadata.
 - The Player’s Guide armor and shield tables. Armor retains physical/mystic armor and initiative values; shields retain distinct physical/mystic Defense bonuses, initiative penalties, and shatter thresholds. Schema v3 migrates prior equipment additively without flattening advancement transactions.
@@ -31,16 +31,12 @@ Second Step is used only to compare observable workflows and maintain the existi
 
 ## Future Expansion Roadmap
 
-1. **Higher-Circle Spells (Circles 2–8)**:
-   - Systematically expand spell catalogs for Elementalist, Illusionist, Nethermancer, and Wizard across Circles 2 through 8 from the _Player's Guide_.
-   - Each entry requires verified thread weaving, casting difficulty, range, duration, effect mechanics, and inventory row in `src/games/earthdawn4e/source-inventory.ts`.
-
-2. **Talent Options & Knacks Expansion**:
+1. **Talent Options & Knacks Expansion**:
    - Expand selectable optional talents across Journeyman, Warden, and Master tiers.
    - Implement knack definitions and prerequisites once tier validation is verified.
 
-3. **Supplemental Paths & Questor Profiles**:
+2. **Supplemental Paths & Questor Profiles**:
    - Add guided starting allocation profiles for non-Adept Questors and specialized Paths (e.g., Outcast Silver, Wind Dancer) with approval gates.
 
-4. **Elven & Companion Sources**:
+3. **Elven & Companion Sources**:
    - Enable High-Circle spells (Circles 9–15) from the _Companion_ as an explicitly source-gated supplement.

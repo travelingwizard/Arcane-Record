@@ -3,6 +3,7 @@ import {
   earthdawnCatalog,
   earthdawnDisciplines,
   earthdawnRaces,
+  earthdawnSpells,
   earthdawnSources,
 } from '../../src/games/earthdawn4e/catalog';
 import { createBlankEarthdawn4eCharacter } from '../../src/games/earthdawn4e/create-character';
@@ -48,6 +49,24 @@ describe('Earthdawn Fourth Edition module', () => {
     expect(character.sources.enabledSourceIds).toEqual(['ed4.players-guide']);
     expect(earthdawnRaces).toHaveLength(8);
     expect(earthdawnDisciplines).toHaveLength(15);
+    expect(earthdawnSpells).toHaveLength(216);
+    expect(new Set(earthdawnSpells.map(({ id }) => id)).size).toBe(216);
+    for (const discipline of [
+      'Elementalist',
+      'Illusionist',
+      'Nethermancer',
+      'Wizard',
+    ]) {
+      expect(
+        new Set(
+          earthdawnSpells
+            .filter(({ requirements }) =>
+              requirements[0]?.startsWith(discipline),
+            )
+            .map(({ requirements }) => requirements[0]),
+        ).size,
+      ).toBe(8);
+    }
   });
   it('opens blank sheets in Build mode and migrates v1 state additively', () => {
     const character = createBlankEarthdawn4eCharacter({

@@ -147,6 +147,7 @@ import {
   coreDisciplineProgressions,
   coreTalentOptions,
 } from './discipline-progressions';
+import { coreSpellRows } from './core-spells';
 
 const raceData: Array<[string, number[], string, number, string[]]> = [
   ['Dwarf', [9, 10, 12, 11, 11, 10], '10', 4, ['Heat Sight']],
@@ -415,30 +416,7 @@ export const earthdawnQuestorDefinitions: EarthdawnDefinition[] =
     requirements: mature ? ['GM approval for a Mad Passion'] : [],
   }));
 
-const spellRows: Array<[string, string, number, number]> = [
-  ['Air Armor', 'Elementalist', 1, 271],
-  ['Earth Darts', 'Elementalist', 1, 272],
-  ['Flameweapon', 'Elementalist', 1, 272],
-  ['Purify Water', 'Elementalist', 1, 274],
-  ['Shelter', 'Elementalist', 1, 274],
-  ['Assuring Touch', 'Illusionist', 1, 294],
-  ['Best Face', 'Illusionist', 1, 295],
-  ['Cloak', 'Illusionist', 1, 295],
-  ['Ephemeral Bolt', 'Illusionist', 1, 296],
-  ['Trust', 'Illusionist', 1, 299],
-  ['Astral Spear', 'Nethermancer', 1, 317],
-  ['Bone Circle', 'Nethermancer', 1, 318],
-  ['Ethereal Darkness', 'Nethermancer', 1, 319],
-  ['Soul Armor', 'Nethermancer', 1, 321],
-  ['Spirit Dart', 'Nethermancer', 1, 322],
-  ['Astral Sense', 'Wizard', 1, 342],
-  ['Catseyes', 'Wizard', 1, 343],
-  ['Flame Flash', 'Wizard', 1, 344],
-  ['Mage Armor', 'Wizard', 1, 344],
-  ['Mind Dagger', 'Wizard', 1, 345],
-];
-
-export const earthdawnSpells: EarthdawnDefinition[] = spellRows.map(
+export const earthdawnSpells: EarthdawnDefinition[] = coreSpellRows.map(
   ([name, discipline, circle, page]) => ({
     ...entry(
       'spell',
