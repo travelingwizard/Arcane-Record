@@ -21,6 +21,7 @@ import {
   migrateEarthdawn4eCharacter,
 } from '../../src/games/earthdawn4e/schema';
 import { importStepsCharacter } from '../../src/games/earthdawn4e/steps-import';
+import { coreTalentOptions } from '../../src/games/earthdawn4e/discipline-progressions';
 import { auditEarthdawnSourceInventory } from '../../src/games/earthdawn4e/source-inventory';
 import {
   appendRoll,
@@ -52,6 +53,13 @@ describe('Earthdawn Fourth Edition module', () => {
     expect(character.sources.enabledSourceIds).toEqual(['ed4.players-guide']);
     expect(earthdawnRaces).toHaveLength(8);
     expect(earthdawnDisciplines).toHaveLength(15);
+    expect(Object.keys(coreTalentOptions)).toHaveLength(15);
+    for (const discipline of earthdawnDisciplines) {
+      expect(coreTalentOptions[discipline.name]?.novice).toHaveLength(10);
+      expect(coreTalentOptions[discipline.name]?.journeyman).toHaveLength(10);
+      expect(coreTalentOptions[discipline.name]?.warden).toHaveLength(10);
+      expect(coreTalentOptions[discipline.name]?.master).toHaveLength(8);
+    }
     expect(earthdawnSpells).toHaveLength(216);
     expect(earthdawnKnacks).toHaveLength(142);
     expect(new Set(earthdawnKnacks.map(({ id }) => id)).size).toBe(142);
