@@ -64,11 +64,19 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   await expect(
     page.getByRole('switch', { name: /Earthdawn Edit and Play mode/ }),
   ).not.toBeChecked();
-  await page.getByRole('button', { name: 'Browse catalogs' }).click();
+  const browseCatalogs = page.getByRole('button', {
+    name: 'Browse catalogs',
+  });
+  await browseCatalogs.focus();
+  await browseCatalogs.click();
   await expect(
     page.getByRole('dialog', { name: 'Earthdawn catalog' }),
   ).toBeVisible();
-  await page.getByRole('button', { name: 'Close' }).click();
+  await expect(
+    page.getByRole('searchbox', { name: 'Search catalog' }),
+  ).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(browseCatalogs).toBeFocused();
   await page.getByLabel('Add a Discipline').selectOption({ label: 'Warrior' });
   await page.getByLabel('Warrior Circle').fill('2');
   await expect(page.getByText('Review Circle 1 → 2')).toBeVisible();

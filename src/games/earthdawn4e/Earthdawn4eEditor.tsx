@@ -123,6 +123,8 @@ export function Earthdawn4eEditor({
       EarthdawnCatalogKind | 'all' | null
     >(null);
   const catalogButtonRef = useRef<HTMLButtonElement>(null);
+  const catalogDialogRef = useRef<HTMLDivElement>(null);
+  const catalogReturnFocusRef = useRef<HTMLElement | null>(null);
   const advancementActionRef = useRef<(() => void) | null>(null);
   const playMode = draft.sheetLayout.mode === 'play';
   const activeSections = useMemo(() => [...earthdawn4eSections], []),
@@ -155,14 +157,43 @@ export function Earthdawn4eEditor({
   }, [draft, save, saveStatus]);
   useEffect(() => {
     if (!catalogKind) return;
-    const close = (event: KeyboardEvent) => {
-      if (event.key !== 'Escape') return;
-      setCatalogKind(null);
-      window.setTimeout(() => catalogButtonRef.current?.focus(), 0);
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setCatalogKind(null);
+        window.setTimeout(() => catalogReturnFocusRef.current?.focus(), 0);
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const focusable = [
+        ...(catalogDialogRef.current?.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [href], [tabindex]:not([tabindex="-1"])',
+        ) ?? []),
+      ];
+      if (!focusable.length) return;
+      const first = focusable[0]!;
+      const last = focusable.at(-1)!;
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
-    window.addEventListener('keydown', close);
-    return () => window.removeEventListener('keydown', close);
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
   }, [catalogKind]);
+  const openCatalog = (kind: EarthdawnCatalogKind | 'all') => {
+    catalogReturnFocusRef.current =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : catalogButtonRef.current;
+    setCatalogKind(kind);
+  };
+  const closeCatalog = () => {
+    setCatalogKind(null);
+    window.setTimeout(() => catalogReturnFocusRef.current?.focus(), 0);
+  };
   const update = useCallback(
     (fn: (value: Earthdawn4eCharacter) => Earthdawn4eCharacter) => {
       setDraft((current) => earthdawn4eCharacterSchema.parse(fn(current)));
@@ -296,7 +327,7 @@ export function Earthdawn4eEditor({
         },
         () => addCatalog(definitionId, true),
       );
-      setCatalogKind(null);
+      closeCatalog();
       return;
     }
     if (playMode && !confirmed && d.kind === 'spell') {
@@ -313,7 +344,7 @@ export function Earthdawn4eEditor({
         },
         () => addCatalog(definitionId, true),
       );
-      setCatalogKind(null);
+      closeCatalog();
       return;
     }
     if (playMode && !confirmed && d.kind === 'devotion') {
@@ -359,7 +390,7 @@ export function Earthdawn4eEditor({
         },
         () => addCatalog(definitionId, true),
       );
-      setCatalogKind(null);
+      closeCatalog();
       return;
     }
     update((c) => {
@@ -621,7 +652,7 @@ export function Earthdawn4eEditor({
         ],
       };
     });
-    setCatalogKind(null);
+    closeCatalog();
   };
   const addDiscipline = (
     discipline: (typeof earthdawnDisciplines)[number],
@@ -875,7 +906,7 @@ export function Earthdawn4eEditor({
               ref={catalogButtonRef}
               className="secondary-button"
               disabled={playMode}
-              onClick={() => setCatalogKind('all')}
+              onClick={() => openCatalog('all')}
             >
               Browse catalogs
             </button>
@@ -1524,7 +1555,7 @@ export function Earthdawn4eEditor({
                 <RankedList
                   records={draft.talents}
                   playMode={playMode}
-                  onBrowse={() => setCatalogKind('talent')}
+                  onBrowse={() => openCatalog('talent')}
                   onChange={(id, patch) =>
                     update((c) => ({
                       ...c,
@@ -1585,7 +1616,7 @@ export function Earthdawn4eEditor({
                   <RankedList
                     records={draft.skills}
                     playMode={playMode}
-                    onBrowse={() => setCatalogKind('skill')}
+                    onBrowse={() => openCatalog('skill')}
                     onChange={(id, patch) =>
                       update((c) => ({
                         ...c,
@@ -1644,7 +1675,7 @@ export function Earthdawn4eEditor({
                     <button
                       disabled={playMode}
                       className="secondary-button"
-                      onClick={() => setCatalogKind('knack')}
+                      onClick={() => openCatalog('knack')}
                     >
                       Browse Knacks
                     </button>
@@ -1697,7 +1728,7 @@ export function Earthdawn4eEditor({
                 'Spells & Matrices',
                 <div className="earthdawn-record-stack">
                   <button
-                    onClick={() => setCatalogKind('spell')}
+                    onClick={() => openCatalog('spell')}
                     className="secondary-button"
                   >
                     Browse Spells
@@ -2128,14 +2159,14 @@ export function Earthdawn4eEditor({
                 <>
                   <button
                     disabled={playMode}
-                    onClick={() => setCatalogKind('equipment')}
+                    onClick={() => openCatalog('equipment')}
                     className="secondary-button"
                   >
                     Browse Equipment
                   </button>
                   <button
                     disabled={playMode}
-                    onClick={() => setCatalogKind('weapon')}
+                    onClick={() => openCatalog('weapon')}
                     className="secondary-button"
                   >
                     Browse Weapons
@@ -2777,11 +2808,8 @@ export function Earthdawn4eEditor({
             aria-modal="true"
             aria-label="Earthdawn catalog"
           >
-            <div className="catalog-dialog">
-              <button
-                className="text-button"
-                onClick={() => setCatalogKind(null)}
-              >
+            <div className="catalog-dialog" ref={catalogDialogRef}>
+              <button className="text-button" onClick={closeCatalog}>
                 Close
               </button>
               <h2>Official Earthdawn catalog</h2>
