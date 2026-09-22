@@ -77,6 +77,36 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   ).toBeFocused();
   await page.keyboard.press('Escape');
   await expect(browseCatalogs).toBeFocused();
+  for (const [sectionId, buttonName] of [
+    ['#ed4-talents', 'Browse catalog'],
+    ['#ed4-skills', 'Browse catalog'],
+    ['#ed4-skills', 'Browse Knacks'],
+    ['#ed4-magic', 'Browse Spells'],
+    ['#ed4-patterns', 'Browse Thread Items'],
+    ['#ed4-equipment', 'Browse Equipment'],
+    ['#ed4-equipment', 'Browse Weapons'],
+  ] as const) {
+    const opener = page.locator(sectionId).getByRole('button', {
+      name: buttonName,
+      exact: true,
+    });
+    await opener.click();
+    await expect(
+      page.getByRole('dialog', { name: 'Earthdawn catalog' }),
+    ).toBeVisible();
+    await page.keyboard.press('Escape');
+    await expect(opener).toBeFocused();
+  }
+  await page
+    .locator('#ed4-skills')
+    .getByRole('button', { name: 'Add Custom Skill' })
+    .click();
+  const customSkillName = page
+    .locator('#ed4-skills')
+    .getByLabel('Record name')
+    .last();
+  await customSkillName.fill('Barsaive Lore');
+  await expect(customSkillName).toHaveValue('Barsaive Lore');
   await page.getByLabel('Add a Discipline').selectOption({ label: 'Warrior' });
   await page.getByLabel('Warrior Circle').fill('2');
   await expect(page.getByText('Review Circle 1 → 2')).toBeVisible();

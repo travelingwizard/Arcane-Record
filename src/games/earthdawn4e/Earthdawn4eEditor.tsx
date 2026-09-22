@@ -1952,6 +1952,13 @@ export function Earthdawn4eEditor({
                 'Thread & Blood Magic',
                 <>
                   <button
+                    type="button"
+                    className="secondary-button"
+                    onClick={() => openCatalog('thread-item')}
+                  >
+                    Browse Thread Items
+                  </button>
+                  <button
                     disabled={playMode}
                     className="secondary-button"
                     onClick={() =>
