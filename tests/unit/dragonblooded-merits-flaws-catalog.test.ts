@@ -10,6 +10,7 @@ import {
   isLegalDragonBloodedTraitCost,
   isLegalSharedTraitCost,
   matchesDragonBloodedTraitSearch,
+  siderealOnlyTraits,
 } from '../../src/games/exalted1e/reference/dragonblooded-merits-flaws';
 
 // This catalog is now shared between Dragon-Blooded and Abyssal (see
@@ -22,8 +23,8 @@ const dragonBloodedOnlyTraits = dragonBloodedTraits.filter((definition) =>
 
 describe('Dragon-Blooded Merits and Flaws catalog', () => {
   it('loads all selectable entries with unique stable IDs', () => {
-    expect(dragonBloodedTraits).toHaveLength(86);
-    expect(dragonBloodedTraitIds.size).toBe(86);
+    expect(dragonBloodedTraits).toHaveLength(89);
+    expect(dragonBloodedTraitIds.size).toBe(89);
     expect(dragonBloodedOnlyTraits).toHaveLength(80);
     expect(
       dragonBloodedOnlyTraits.filter(({ kind }) => kind === 'merit'),
@@ -178,5 +179,83 @@ describe('getSharedTraitCostPolicy', () => {
     expect(getSharedTraitCostPolicy(commonSense, 'abyssal')).toEqual(
       getDragonBloodedTraitCostPolicy(commonSense),
     );
+  });
+
+  it("narrows Destiny's options to the same 1-2 cap for Sidereal", () => {
+    const destiny = dragonBloodedTraitById.get('destiny')!;
+    expect(getSharedTraitCostPolicy(destiny, 'sidereal')).toEqual({
+      kind: 'options',
+      options: [1, 2],
+    });
+  });
+
+  it("replaces Permanent Caste Mark's options entirely for Sidereal (flat 1, not the shared flat 2)", () => {
+    const permanentCasteMark = dragonBloodedTraitById.get(
+      'permanent-caste-mark',
+    )!;
+    expect(getDragonBloodedTraitCostPolicy(permanentCasteMark)).toEqual({
+      kind: 'options',
+      options: [2],
+    });
+    expect(getSharedTraitCostPolicy(permanentCasteMark, 'sidereal')).toEqual({
+      kind: 'options',
+      options: [1],
+    });
+    expect(isLegalSharedTraitCost(permanentCasteMark, 1, 'sidereal')).toBe(
+      true,
+    );
+    expect(isLegalSharedTraitCost(permanentCasteMark, 2, 'sidereal')).toBe(
+      false,
+    );
+    expect(isLegalSharedTraitCost(permanentCasteMark, 2, 'abyssal')).toBe(true);
+  });
+
+  it('leaves non-overridden entries unchanged for Sidereal', () => {
+    const commonSense = dragonBloodedTraitById.get('common-sense')!;
+    expect(getSharedTraitCostPolicy(commonSense, 'sidereal')).toEqual(
+      getDragonBloodedTraitCostPolicy(commonSense),
+    );
+  });
+});
+
+describe('siderealOnlyTraits (shared catalog subset for Sidereal)', () => {
+  it('includes only entries whose appliesTo covers Sidereal', () => {
+    expect(siderealOnlyTraits.length).toBeGreaterThan(0);
+    for (const definition of siderealOnlyTraits) {
+      expect(definition.appliesTo).toContain('sidereal');
+    }
+  });
+
+  it('includes the three wholly new Sidereal-only entries', () => {
+    const siderealOnlyIds = new Set(siderealOnlyTraits.map(({ id }) => id));
+    for (const id of [
+      'terrestrial-bloodline-sidereal',
+      'greater-curse-sidereal',
+      'known-anathema-sidereal',
+    ]) {
+      expect(siderealOnlyIds.has(id)).toBe(true);
+    }
+  });
+
+  it('excludes Dragon-Blooded-only entries that do not apply to Sidereal (Terrestrial Bloodline)', () => {
+    expect(
+      siderealOnlyTraits.some(
+        (definition) => definition.id === 'terrestrial-bloodline',
+      ),
+    ).toBe(false);
+  });
+
+  it('includes a broadly-shared entry that also applies to Dragon-Blooded and Abyssal (Selective Conception)', () => {
+    const selectiveConception = dragonBloodedTraitById.get(
+      'selective-conception',
+    )!;
+    expect(selectiveConception.appliesTo).toEqual(
+      expect.arrayContaining(['dragon-blooded', 'abyssal', 'sidereal']),
+    );
+    expect(
+      siderealOnlyTraits.some(
+        (definition) => definition.id === 'selective-conception',
+      ),
+    ).toBe(true);
   });
 });

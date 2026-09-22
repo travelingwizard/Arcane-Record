@@ -6,9 +6,9 @@
   "catalogType": "merits-and-flaws",
   "sourcePolicy": "Paraphrased from the uploaded Exalted Player's Guide, Chapter One: Merits and Flaws. Species-restricted entries incompatible with Dragon-Blooded are excluded from selectable entries and documented separately.",
   "counts": {
-    "total": 86,
-    "merits": 42,
-    "flaws": 44
+    "total": 89,
+    "merits": 43,
+    "flaws": 46
   },
   "entries": [
     {
@@ -29,7 +29,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
         "Abyssal-specific: deathknights retain fertility, and siring or bearing a child with a living lover is a listed Litany of Sins trigger worth 4 Resonance (see the Abyssal Resonance rules), so this Merit lets a deathknight choose exactly when to risk that particular taint."
@@ -54,9 +55,12 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
-      "notes": [],
+      "notes": [
+        "Sidereal-specific: the source's discounted 1-point cost for the two-point (omniambidextrous) version is Lunar-specific and does not extend to Sidereal, who pay the full standard 1-/2-point cost."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -77,7 +81,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -100,9 +105,12 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
-      "notes": [],
+      "notes": [
+        "Sidereal-specific: the source's discounted 2-point cost for the greater (uncanny-contortionist) version is Lunar-specific and does not extend to Sidereal, who pay the full standard 1-/3-point cost."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -123,7 +131,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
         "High Abyssal relevance: the source text names 'deathknights with corpse-like flesh' as one of the two groups (with ghosts) for whom this Merit is particularly common."
@@ -148,9 +157,12 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
-      "notes": [],
+      "notes": [
+        "Sidereal-specific: the source's Lunar-specific clause about the bonus health level carrying into all of a Lunar's forms (via Prey's Skin Disguise) does not apply to Sidereal, who have no innate shapechanging power; otherwise transfers unchanged at the standard 4-/6-point cost."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -171,7 +183,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -194,7 +207,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -217,7 +231,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -240,7 +255,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
         "Abyssal-specific: the source's Lunar-Tell flavor example and its cross-reference to Exalted: The Lunars do not apply; the underlying Wyld-mutation framework (core Exalted pp. 280-281) is otherwise splat-neutral and applies to a deathknight unchanged."
@@ -265,7 +281,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -288,7 +305,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -311,7 +329,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -335,9 +354,12 @@
       },
       "edition": "Exalted First Edition",
       "appliesTo": [
-        "dragon-blooded"
+        "dragon-blooded",
+        "sidereal"
       ],
-      "notes": [],
+      "notes": [
+        "Sidereal-specific judgment call: the source's exclusion list names only Solar, Abyssal, and Lunar (who already have Ability-favoring built into their Exalted status) plus, for a separate reason, Alchemical; Sidereal is not named among the exclusions, so this Merit is included for Sidereal at the standard 3-point cost (not the discounted 2-point Dragon King/God-Blooded tier), reading the exclusion list textually rather than thematically -- consistent with how the Fair Folk derivation pass also included this Merit for the same reason."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -358,7 +380,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -381,7 +404,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -404,7 +428,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -427,7 +452,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
         "Abyssal-specific: taking a willing lover from among the living is itself a listed Litany of Sins trigger (1 Resonance per night of intimacy), so True Love for a living partner means a deathknight is knowingly accepting ongoing Resonance risk for the relationship."
@@ -454,7 +480,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -477,7 +504,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -500,7 +528,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -523,7 +552,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -571,7 +601,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
         "Abyssal-specific: the higher-value Celestial-favor tiers describe Yu-Shan's courts, but a deathknight could equally hold an equivalent-value favor from a Deathlord, a ghost court, or a Malfean-adjacent spirit within the Underworld's own hierarchy."
@@ -596,7 +627,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -621,7 +653,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
         "Abyssal-specific: Abyssals have two Manse-equivalent Backgrounds instead of one (the altered Manse Background for the living world, and the new Underworld Manse Background for the Underworld); either can host a Hidden Manse."
@@ -646,7 +679,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -669,7 +703,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -694,7 +729,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -719,9 +755,12 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
-      "notes": [],
+      "notes": [
+        "Sidereal-specific: Sidereal Exalted learn two divinatory rituals per purchase instead of the normal one, since Sidereal astrology already grants ordinary divination rituals and this Merit represents crude analogs via other methods; the standard 1-point-per-purchase cost is unchanged."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -742,10 +781,12 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
-        "Abyssal-specific: Midnight Caste is named among the castes who are innate priests of their patron, granting the same free 1-point version and a discounted 6-point high-priest upgrade (vs. the normal 7); this catalog does not yet model that caste-conditional discount, so a Midnight Caste Abyssal should currently pay the standard cost until it is added."
+        "Abyssal-specific: Midnight Caste is named among the castes who are innate priests of their patron, granting the same free 1-point version and a discounted 6-point high-priest upgrade (vs. the normal 7); this catalog does not yet model that caste-conditional discount, so a Midnight Caste Abyssal should currently pay the standard cost until it is added.",
+        "Sidereal-specific: all Sidereal Exalted are automatically and freely priests (the free 1-point version) of the astrological college they are initiated into, as an innate part of their Exaltation, and pay a discounted 6-point (not 7) high-priest upgrade; this catalog does not yet model that automatic-grant/discount mechanically (matching how the analogous unmodeled Abyssal Midnight Caste discount above is also left unenforced), so a Sidereal character currently pays the standard 1-/7-point cost until this is added."
       ],
       "reviewStatus": "source-checked"
     },
@@ -767,10 +808,12 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
-        "Abyssal-specific cost cap: the source's 'Destiny and Exaltation' sidebar names Abyssal Exaltation explicitly and caps post-Exaltation Destiny at 1-2 points for Abyssals, unlike the normal 1-5 range."
+        "Abyssal-specific cost cap: the source's 'Destiny and Exaltation' sidebar names Abyssal Exaltation explicitly and caps post-Exaltation Destiny at 1-2 points for Abyssals, unlike the normal 1-5 range.",
+        "Sidereal-specific cost cap: the same 'Destiny and Exaltation' sidebar also caps post-Exaltation Destiny at 1-2 points for Sidereals (like Abyssal), but additionally requires pre-Exaltation Destiny 4+ for Sidereal Exaltation itself (one point higher than the Destiny 3+ Solars/Lunars need) and reduces a new Sidereal's Destiny by four points, not three, upon Exaltation; this project's schema does not model pre-Exaltation prerequisites, only the shared 1-2 point post-Exaltation cap."
       ],
       "reviewStatus": "source-checked"
     },
@@ -792,9 +835,12 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
-      "notes": [],
+      "notes": [
+        "Sidereal-specific cost cap: Sidereal Exalted use a different luck-pool formula (pool equals points invested plus two, capped at a pool of five), so a Sidereal pays a maximum of 3 points for the largest pool and cannot have a pool smaller than 3; legal Sidereal costs are therefore 1-3, not the normal 1-5 range."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -839,7 +885,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -864,9 +911,12 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
-      "notes": [],
+      "notes": [
+        "Sidereal-specific: not named explicitly in the source (only Lunar packs are called out as a known exception), but nothing restricts this Merit away from Sidereal; any Sidereal Exalted who took part in the underlying Sworn Brothers' Oath ritual may purchase it at the standard cost."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -911,10 +961,12 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
-        "Abyssal-specific: a deathknight's visions may also be flavored as an echo of the Malfeans' own dread foresight bleeding up through Resonance-tainted Essence, alongside the ordinary divine-gift framing; thematically adjacent to (but mechanically distinct from) the Whispers Background."
+        "Abyssal-specific: a deathknight's visions may also be flavored as an echo of the Malfeans' own dread foresight bleeding up through Resonance-tainted Essence, alongside the ordinary divine-gift framing; thematically adjacent to (but mechanically distinct from) the Whispers Background.",
+        "Sidereal-specific cost override: Sidereal Exalted pay a reduced flat 2-point cost for this Merit (not the standard 3), reflecting Sidereal's own fate-based Exaltation; this is the only sheet type whose legal cost for this Merit falls outside the base 3-point value."
       ],
       "reviewStatus": "source-checked"
     },
@@ -936,7 +988,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -963,10 +1016,12 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
-        "Among Dragon-Blooded sorcerers, this Merit is called Legacy of Hesiesh."
+        "Among Dragon-Blooded sorcerers, this Merit is called Legacy of Hesiesh.",
+        "Sidereal-specific: Sidereal Exalted are eligible for the base 5-point version via their own Terrestrial/Celestial Circle Sorcery-access Charms; the 4-point Twilight Caste Solar discount does not extend to Sidereal, who always pay the standard 5-point cost."
       ],
       "reviewStatus": "source-checked"
     },
@@ -988,7 +1043,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
         "Abyssal-specific: the source's Lunar-Tell flavor example and its cross-reference to Exalted: The Lunars do not apply; the underlying Wyld-mutation framework (core Exalted pp. 280-281) is otherwise splat-neutral and applies to a deathknight unchanged."
@@ -1013,7 +1069,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1036,7 +1093,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1059,7 +1117,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
         "Abyssal-specific: since deathknights can still conceive with living lovers at a steep Resonance cost, Sterile forecloses a specific documented Resonance risk for an Abyssal rather than being pure flavor."
@@ -1084,7 +1143,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1107,7 +1167,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
         "High Abyssal relevance: the source text names 'ghosts and Abyssals' as the two groups who typically manifest this Flaw at its most extreme, 6-point tier."
@@ -1132,7 +1193,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1155,7 +1217,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1178,7 +1241,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
         "Abyssal-specific reading: since deathknights are already dead, Dying is best read for an Abyssal as a curse-driven progression toward the character's own final unmaking rather than literal terminal illness; a Storyteller-narration judgment call, since the source does not address undead PCs directly."
@@ -1203,9 +1267,12 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
-      "notes": [],
+      "notes": [
+        "Sidereal-specific: the source's Lunar-specific clause about the size reduction carrying into all of a Lunar's forms (via Prey's Skin Disguise/Lunar Shapechanging) does not apply to Sidereal, who have no innate shapechanging power; otherwise transfers unchanged at the standard 3-point cost."
+      ],
       "reviewStatus": "source-checked"
     },
     {
@@ -1226,10 +1293,12 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
-        "Abyssal-specific: the source explicitly allows Abyssal Exalted to take this Flaw (with Storyteller approval) to represent a rotted or death-twisted visage, and cross-references Exalted: The Abyssals for an alternate, no-bonus-point version a Storyteller may substitute instead."
+        "Abyssal-specific: the source explicitly allows Abyssal Exalted to take this Flaw (with Storyteller approval) to represent a rotted or death-twisted visage, and cross-references Exalted: The Abyssals for an alternate, no-bonus-point version a Storyteller may substitute instead.",
+        "Sidereal-specific: the source's own worked example of an Exalted-appropriate deformity ('a Lunar with a hideous Tell') is Lunar-flavor only, since Sidereal has no Tell mechanic; the Abyssal rotted-visage cross-reference above remains general setting color, and Sidereal otherwise transfers unchanged at the standard 3-/4-point cost."
       ],
       "reviewStatus": "source-checked"
     },
@@ -1251,7 +1320,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1274,7 +1344,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1297,7 +1368,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1320,7 +1392,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1343,7 +1416,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1366,10 +1440,12 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
-        "Abyssal-specific: the source's special 1-point clause for Celestial Exalted with no memory of past incarnations is scoped to Solar/Lunar/Sidereal and does not extend to Abyssal; the base 1/2/5-point Amnesia Flaw transfers normally."
+        "Abyssal-specific: the source's special 1-point clause for Celestial Exalted with no memory of past incarnations is scoped to Solar/Lunar/Sidereal and does not extend to Abyssal; the base 1/2/5-point Amnesia Flaw transfers normally.",
+        "Sidereal-specific: the source's special 1-point clause for Celestial Exalted with no memory of past incarnations (Solar/Lunar/Sidereal) applies to Sidereal directly; unlike Solar/Lunar, Sidereal cannot cross-reference the Past Lives Merit (excluded from this splat entirely), so a Sidereal's thematic analog for recovering First Age memory is the Savant Background instead."
       ],
       "reviewStatus": "source-checked"
     },
@@ -1391,7 +1467,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1414,10 +1491,12 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
-        "Abyssal-specific: the source's restriction against altering or ameliorating the Great Curse is read for Abyssals as applying to Resonance and the Abyssal Curse instead, since that is this splat's own Great-Curse analog."
+        "Abyssal-specific: the source's restriction against altering or ameliorating the Great Curse is read for Abyssals as applying to Resonance and the Abyssal Curse instead, since that is this splat's own Great-Curse analog.",
+        "Sidereal-specific: the restriction against altering or ameliorating the Great Curse applies, for Sidereal, to their own Paradox-pool expression of it (see the Greater Curse (Sidereal) Flaw) rather than a reduced Limit pool."
       ],
       "reviewStatus": "source-checked"
     },
@@ -1439,7 +1518,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
         "Abyssal-specific: the source's cross-reference to Exalted: The Lunars for Wyld-addiction rules does not apply to Abyssal; the generic 1-point discount for Exalted constitutions still applies."
@@ -1464,7 +1544,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1487,7 +1568,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1510,7 +1592,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1533,7 +1616,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1556,7 +1640,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1579,7 +1664,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1602,7 +1688,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1625,10 +1712,12 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
-        "Abyssal-specific: a Deathlord assigning a deathknight a disciple (via the Liege Background) is this splat's natural hook for this Flaw, mirroring the Sidereal/Immaculate hierarchy the source calls out as this Flaw's most common home."
+        "Abyssal-specific: a Deathlord assigning a deathknight a disciple (via the Liege Background) is this splat's natural hook for this Flaw, mirroring the Sidereal/Immaculate hierarchy the source calls out as this Flaw's most common home.",
+        "Sidereal-specific: the source names Sidereals explicitly (alongside the Immaculate Order) as most commonly holding this Flaw, since both depend on a rigid hierarchy for training a disciple; a young or newly-Exalted Sidereal assigned a disciple by the Bureau of Destiny or her astrological college is the natural in-fiction hook."
       ],
       "reviewStatus": "source-checked"
     },
@@ -1650,7 +1739,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1673,7 +1763,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1696,7 +1787,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
         "Abyssal-specific: Resonance already inflicts a similar Social penalty as it rises; the two can stack for a deathknight who is both innately Disturbing and running a high Resonance total."
@@ -1721,7 +1813,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1744,7 +1837,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
         "Abyssal-specific: the higher-value Celestial-favor tiers describe Yu-Shan's courts, but a deathknight could equally owe an equivalent-value favor to a Deathlord, a ghost court, or a Malfean-adjacent spirit within the Underworld's own hierarchy."
@@ -1771,7 +1865,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
         "Abyssal-specific: the source's own worked example uses an Abyssal character and cross-references Exalted: The Abyssals' altered Artifact Background costs directly; apply this Flaw's cap against the altered dot-tier table, not the core-Exalted per-dot system."
@@ -1796,7 +1891,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1819,7 +1915,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1842,10 +1939,12 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
-        "High Abyssal relevance: the source names Abyssals as having their own distinct fate-tracking cosmology for this Flaw, unreachable even by the Maidens; only Sidereals are exempted, for an unrelated reason. Commonly paired with the Destiny Merit."
+        "High Abyssal relevance: the source names Abyssals as having their own distinct fate-tracking cosmology for this Flaw, unreachable even by the Maidens; only Sidereals are exempted, for an unrelated reason. Commonly paired with the Destiny Merit.",
+        "Sidereal-specific eligibility caveat: ordinary Sidereal Exalted are normally EXEMPT from this Flaw by virtue of their Bureau of Destiny role; only a renegade Sidereal who has betrayed that role to serve the enemies of Creation may purchase it, at any of the standard 1-5 point tiers. This catalog does not mechanically enforce the renegade-only eligibility gate, matching how this project generally documents rather than code-enforces narrative eligibility restrictions."
       ],
       "reviewStatus": "source-checked"
     },
@@ -1867,7 +1966,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1890,7 +1990,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1913,7 +2014,8 @@
       "edition": "Exalted First Edition",
       "appliesTo": [
         "dragon-blooded",
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
         "Abyssal-specific: lets a newly-Exalted deathknight start at Essence 1 instead of this splat's normal starting Essence of 2, withholding up to five Charms (no experience cost, full training time still required) until Essence is raised in play."
@@ -2009,10 +2111,12 @@
       },
       "edition": "Exalted First Edition",
       "appliesTo": [
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
-        "The source's own header restricts this Flaw to 'Celestial Exalted only,' but its body text explicitly defines an Abyssal Caste Mark variant and folds Abyssals into the Immaculate Order's Anathema-recognition list alongside Solars and Lunars; included on that basis. Abyssals pay the standard 2-point cost (Solars and Lunars pay the same; only Sidereals pay a reduced 1 point)."
+        "The source's own header restricts this Flaw to 'Celestial Exalted only,' but its body text explicitly defines an Abyssal Caste Mark variant and folds Abyssals into the Immaculate Order's Anathema-recognition list alongside Solars and Lunars; included on that basis. Abyssals pay the standard 2-point cost (Solars and Lunars pay the same; only Sidereals pay a reduced 1 point).",
+        "Sidereal-specific cost override: a Sidereal's Caste Mark takes the color of her patron Maiden rather than a Solar-gold/Lunar-silver tattoo or Abyssal's charred-black brand, and -- being far less widely known/recognized than the other three -- costs only 1 point for Sidereal, not the standard 2-point tier Solar/Lunar/Abyssal pay."
       ],
       "reviewStatus": "source-checked"
     },
@@ -2057,10 +2161,86 @@
       },
       "edition": "Exalted First Edition",
       "appliesTo": [
-        "abyssal"
+        "abyssal",
+        "sidereal"
       ],
       "notes": [
-        "The source's own header restricts this Flaw to 'Celestial Exalted only,' but its body text explicitly and separately defines two Abyssal variants (a loyal deathknight's redemption-pulling echo of Solar glory, capped at 3 points; a renegade's wicked-personality Throwback at the full 1-5 point range); included on that basis. Point values follow the named 1/3/5 tiers, matching how the Solar catalog models the same trait."
+        "The source's own header restricts this Flaw to 'Celestial Exalted only,' but its body text explicitly and separately defines two Abyssal variants (a loyal deathknight's redemption-pulling echo of Solar glory, capped at 3 points; a renegade's wicked-personality Throwback at the full 1-5 point range); included on that basis. Point values follow the named 1/3/5 tiers, matching how the Solar catalog models the same trait.",
+        "Sidereal-specific: as Celestial Exalted whose Essence passes to a new soul upon death (like Solar/Lunar), a Sidereal may take this Flaw for impulses/personality fragments bleeding through from a prior incarnation of her Essence; the source names no Sidereal-specific point-tier carve-out beyond the general Celestial-Exalted eligibility, so Sidereal uses the full 1-5 (interpolated 1/3/5 named tiers) range like Solar/Lunar, not Abyssal's specially-capped variants."
+      ],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "terrestrial-bloodline-sidereal",
+      "name": "Terrestrial Bloodline (Sidereal)",
+      "kind": "merit",
+      "category": "supernatural",
+      "cost": "1",
+      "summary": "Marks a mortal carrier of Dragon-Blooded ancestry, mechanically a patrician of good pedigree for producing a Dragon-Blooded child; a Celestial Exalted (including Sidereal) parent may retain this Merit until Essence 4, though it cannot pass Dragon-Blooded Exaltation odds to Half-Caste children.",
+      "mechanics": "Mortal carriers of a Terrestrial Bloodline are mechanically considered patricians of good pedigree for the purposes of producing a Dragon-Blooded child. If a character with this Merit mates with a mortal lacking any such ancestry, their child Exalts on a roll of 1 on a ten-sided die; a result of 2-3 indicates the child is mortal but also gains this Merit; anything else indicates the bloodline ends unreinforced with new blood. If two characters with this Merit mate, any offspring who do not Exalt automatically gain this Merit. A Sidereal (or other Celestial Exalted) who held this Merit before Exaltation may retain it until she reaches Essence 4, though any Half-Caste children she produces have no chance of Exalting as Dragon-Blooded regardless. Dragon-Blooded themselves have no need to purchase this Merit.",
+      "eligibility": "A Sidereal Exalted who carried Dragon-Blooded ancestry as a mortal before Exaltation.",
+      "requirements": [
+        "Character must have carried Dragon-Blooded ancestry (a Terrestrial Bloodline) as a mortal before Exaltation."
+      ],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 24
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": [
+        "sidereal"
+      ],
+      "notes": [
+        "NEW ENTRY rather than an extension of an existing one: this shared catalog has never carried a plain 'Terrestrial Bloodline' entry, since the source explicitly bars Dragon-Blooded themselves from purchasing it (see this file's excludedForDragonBlooded list) and Abyssal's own Phase 1a excluded it too (\"scoped to other splats with no Abyssal carve-out\"). Sidereal's own inventory includes this row (derived from Lunar's verified Players Guide transcription) with a genuinely applicable mechanic -- a Celestial Exalted parent, including Sidereal, may retain the Merit until Essence 4 -- so it is promoted here as a Sidereal-only entry. Named '(Sidereal)' to avoid colliding with the excludedForDragonBlooded 'Terrestrial Bloodline' name."
+      ],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "greater-curse-sidereal",
+      "name": "Greater Curse (Sidereal)",
+      "kind": "flaw",
+      "category": "supernatural",
+      "cost": "1–5",
+      "summary": "Sidereal Exalted with this Flaw suffer more deeply from the curse laid on their kind by the pattern spiders, but the effect manifests as a memorandum of reprimand inscribed in their strands of destiny -- reducing their maximum Paradox pool by one dot per point in the Flaw (max reduction 5 dots), rather than reducing a Limit pool as this Flaw does for Solar/Lunar.",
+      "mechanics": "Reduces the character's maximum Paradox pool by one dot per point invested in the Flaw, to a maximum reduction of five dots -- the direct Sidereal analog of the Limit-pool reduction this Flaw applies to Solar and Lunar. A character with three points of this Flaw, for example, suffers the Sidereal Paradox equivalent of Limit Break once her Paradox pool's maximum has been reduced accordingly. This Flaw may not be used to alter or ameliorate that reduction.",
+      "eligibility": "Sidereal Exalted.",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 40
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": [
+        "sidereal"
+      ],
+      "notes": [
+        "NEW ENTRY rather than an extension of an existing one: this shared catalog has never carried a plain 'Greater Curse' entry, since the source restricts it to 'Celestial Exalted only' and Dragon-Blooded is excluded (see this file's excludedForDragonBlooded list), while Abyssal's own Phase 1a separately excluded it too (its own Resonance mechanic replaces the Limit Trait this Flaw normally hooks into). Sidereal's own inventory row gives this Flaw a genuinely distinct Paradox-pool mechanic instead of the Limit-pool mechanic the source describes for Solar/Lunar (cross-referenced to sidereal-astrology-paradox), which is mechanically different enough to warrant its own entry rather than folding it into a nonexistent shared row. Named '(Sidereal)' to avoid colliding with the excludedForDragonBlooded 'Greater Curse' name."
+      ],
+      "reviewStatus": "source-checked"
+    },
+    {
+      "id": "known-anathema-sidereal",
+      "name": "Known Anathema (Sidereal)",
+      "kind": "flaw",
+      "category": "social",
+      "cost": "1–5",
+      "summary": "The character's Exaltation and deeds are known to the Wyld Hunt and Immaculate brotherhoods, scaling from mere regional notoriety (1 point) up to being ranked alongside the Bull of the North and the Deathlords as one of the Realm's greatest threats (5 points).",
+      "mechanics": "One point indicates regional notoriety the Wyld Hunt could discover through tavern gossip but does not yet know. Two points means the Wyld Hunt knows the character's name and a crude idea of her deeds, but not her whereabouts. Three points means a brotherhood has already been tasked with the character's execution. Four points means the Wyld Hunt regards the character as a terrible threat and may send an experienced Hunt or a Sidereal assassin of the Bronze Faction after her. Five points means the character is considered one of the greatest threats presently facing the Realm, on par with the Bull of the North and the Deathlords.",
+      "eligibility": "Sidereal Exalted (restricted to Celestial Exalted -- Solar, Lunar, Sidereal -- by the source's own header).",
+      "requirements": [],
+      "aliases": [],
+      "source": {
+        "book": "Exalted Player's Guide",
+        "page": 38
+      },
+      "edition": "Exalted First Edition",
+      "appliesTo": [
+        "sidereal"
+      ],
+      "notes": [
+        "NEW ENTRY rather than an extension of an existing one: this shared catalog has never carried a plain 'Known Anathema' entry, since the source restricts it to 'Celestial Exalted only' and Dragon-Blooded is excluded (see this file's excludedForDragonBlooded list), and Abyssal's own Phase 1a separately excluded it too (Abyssal is not textually 'Celestial Exalted' per this chapter's header). Sidereal, as Celestial Exalted, is squarely eligible, so this is promoted as a new Sidereal-only entry rather than an extension of an existing one. The entry's own 4-point flavor example names 'a Sidereal assassin of the Bronze Faction' as a possible hunter of OTHER Known Anathema -- in-setting lore documenting Sidereal-as-hunter, not a restriction on a Sidereal PC holding the Flaw herself, though it is thematically rarer for a Sidereal than for Solar/Lunar given Sidereals' usual institutional secrecy. Named '(Sidereal)' to avoid colliding with the excludedForDragonBlooded 'Known Anathema' name."
       ],
       "reviewStatus": "source-checked"
     }

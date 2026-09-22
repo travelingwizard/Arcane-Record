@@ -28,25 +28,30 @@ export const exaltedTraitDefinitionSchema = z.object({
   aliases: z.array(z.string()),
   source: sourceSchema,
   edition: z.literal('Exalted First Edition'),
-  appliesTo: z.array(z.enum(['solar', 'dragon-blooded', 'abyssal'])).min(1),
+  appliesTo: z
+    .array(z.enum(['solar', 'dragon-blooded', 'abyssal', 'sidereal']))
+    .min(1),
   notes: z.array(z.string()),
   reviewStatus: z.enum(['source-checked', 'needs-review']),
 });
 
 /**
- * Every entry in this shared catalog must apply to at least one of the two
- * splats that currently draw from it (Dragon-Blooded or Abyssal). A handful
- * of entries apply only to Abyssal (e.g. Death-Taint), because the source
- * chapter explicitly restricts them away from Dragon-Blooded.
+ * Every entry in this shared catalog must apply to at least one of the
+ * three splats that currently draw from it (Dragon-Blooded, Abyssal, or
+ * Sidereal). A handful of entries apply only to Abyssal (e.g. Death-Taint)
+ * or only to Sidereal (e.g. Greater Curse (Sidereal)), because the source
+ * chapter explicitly restricts them away from Dragon-Blooded (and, for the
+ * Sidereal-only entries, away from Abyssal too).
  */
 export const dragonBloodedTraitDefinitionSchema =
   exaltedTraitDefinitionSchema.refine(
     (definition) =>
       definition.appliesTo.includes('dragon-blooded') ||
-      definition.appliesTo.includes('abyssal'),
+      definition.appliesTo.includes('abyssal') ||
+      definition.appliesTo.includes('sidereal'),
     {
       message:
-        'Shared catalog definitions must apply to Dragon-Blooded or Abyssal.',
+        'Shared catalog definitions must apply to Dragon-Blooded, Abyssal, or Sidereal.',
     },
   );
 
@@ -60,9 +65,9 @@ const excludedTraitSchema = z.object({
  * This catalog originally covered only Dragon-Blooded (`characterType:
  * 'dragon-blooded'`), but it is the transcription of the Exalted Player's
  * Guide's universal Merits & Flaws chapter, which several splats draw from
- * via the per-entry `appliesTo` field. Abyssal now shares it too, so
- * `characterType` is `'shared'` to reflect that honestly; the literal is
- * kept (rather than dropped) so a future accidental revert to a
+ * via the per-entry `appliesTo` field. Abyssal and Sidereal now share it
+ * too, so `characterType` is `'shared'` to reflect that honestly; the
+ * literal is kept (rather than dropped) so a future accidental revert to a
  * single-splat-only file would fail loudly.
  */
 const catalogSchema = z
@@ -73,12 +78,12 @@ const catalogSchema = z
     characterType: z.literal('shared'),
     catalogType: z.literal('merits-and-flaws'),
     counts: z.object({
-      total: z.literal(86),
-      merits: z.literal(42),
-      flaws: z.literal(44),
+      total: z.literal(89),
+      merits: z.literal(43),
+      flaws: z.literal(46),
     }),
     sourcePolicy: z.string().min(1),
-    entries: z.array(dragonBloodedTraitDefinitionSchema).length(86),
+    entries: z.array(dragonBloodedTraitDefinitionSchema).length(89),
     excludedForDragonBlooded: z.array(excludedTraitSchema),
   })
   .superRefine((catalog, context) => {
@@ -148,6 +153,18 @@ export const dragonBloodedOnlyTraits = dragonBloodedTraits.filter(
  */
 export const abyssalOnlyTraits = dragonBloodedTraits.filter((definition) =>
   definition.appliesTo.includes('abyssal'),
+);
+
+/**
+ * The subset of this shared catalog that actually applies to Sidereal
+ * characters, mirroring `abyssalOnlyTraits` exactly. Includes both the
+ * broadly-shared entries (e.g. Selective Conception) and the three
+ * Sidereal-only entries (Terrestrial Bloodline (Sidereal), Greater Curse
+ * (Sidereal), Known Anathema (Sidereal)) whose `appliesTo` excludes
+ * Dragon-Blooded and Abyssal.
+ */
+export const siderealOnlyTraits = dragonBloodedTraits.filter((definition) =>
+  definition.appliesTo.includes('sidereal'),
 );
 export const excludedDragonBloodedTraitNames = new Set(
   dragonBloodedTraitCatalog.excludedForDragonBlooded.map(({ name }) => name),
@@ -284,32 +301,50 @@ export function isLegalDragonBloodedTraitCost(
 }
 
 /**
- * A handful of shared entries have an Abyssal-specific cost cap that is
- * tighter than the Dragon-Blooded range described by `cost`. Today this is
- * just Destiny (the source's "Destiny and Exaltation" sidebar caps
- * post-Exaltation Destiny at 1-2 points for Abyssal/Infernal Exaltation,
- * vs. the normal 1-5 range). Keyed by definition id.
+ * A handful of shared entries have an Abyssal- or Sidereal-specific legal
+ * cost set that differs from the Dragon-Blooded range described by `cost`.
+ * Originally this was just a per-Abyssal numeric *cap* (Destiny's "Destiny
+ * and Exaltation" sidebar caps post-Exaltation Destiny at 1-2 points for
+ * Abyssal/Infernal Exaltation, vs. the normal 1-5 range) — but Sidereal
+ * introduced entries whose legal cost isn't a subset of the base range at
+ * all (e.g. Permanent Caste Mark's Sidereal-only 1-point tier, vs. the
+ * base 2-point cost; Prescient Dreamer's Sidereal-only flat 2, vs. the
+ * base flat 3). Rather than keep two separate "cap" and "replace"
+ * mechanisms, this map is generalized to always store the *complete* list
+ * of that sheet type's legal costs for the definition, replacing (not
+ * filtering) `getDragonBloodedTraitCostPolicy`'s base-range result — a cap
+ * is just the special case where that list happens to be a subset of the
+ * base range (e.g. Destiny's `[1, 2]` out of the base `[1, 2, 3, 4, 5]`).
+ * Keyed by definition id, then by the non-Dragon-Blooded sheet type.
  */
-const abyssalCostCapOverrides: Record<string, number> = {
-  destiny: 2,
+const sharedCostOverrides: Record<
+  string,
+  Partial<Record<'abyssal' | 'sidereal', number[]>>
+> = {
+  destiny: { abyssal: [1, 2], sidereal: [1, 2] },
+  lucky: { sidereal: [1, 2, 3] },
+  'permanent-caste-mark': { sidereal: [1] },
+  'prescient-dreamer': { sidereal: [2] },
 };
 
 /**
  * Splat-agnostic wrapper around `isLegalDragonBloodedTraitCost` for the
- * shared catalog. Dragon-Blooded behavior is unchanged; Abyssal additionally
- * enforces `abyssalCostCapOverrides` where one exists for the definition.
+ * shared catalog. Dragon-Blooded behavior is unchanged; Abyssal and
+ * Sidereal additionally enforce `sharedCostOverrides` where one exists for
+ * the definition, which fully replaces (not just narrows) the base
+ * Dragon-Blooded-derived legal cost set for that sheet type/definition.
  */
 export function isLegalSharedTraitCost(
   definition: DragonBloodedTraitDefinition,
   chosenCost: number,
-  sheetType: 'dragon-blooded' | 'abyssal',
+  sheetType: 'dragon-blooded' | 'abyssal' | 'sidereal',
 ) {
-  if (!isLegalDragonBloodedTraitCost(definition, chosenCost)) return false;
-  if (sheetType === 'abyssal') {
-    const cap = abyssalCostCapOverrides[definition.id];
-    if (cap !== undefined && chosenCost > cap) return false;
+  if (!Number.isInteger(chosenCost)) return false;
+  if (sheetType === 'abyssal' || sheetType === 'sidereal') {
+    const override = sharedCostOverrides[definition.id]?.[sheetType];
+    if (override !== undefined) return override.includes(chosenCost);
   }
-  return true;
+  return isLegalDragonBloodedTraitCost(definition, chosenCost);
 }
 
 /**
@@ -317,26 +352,26 @@ export function isLegalSharedTraitCost(
  * `isLegalSharedTraitCost`'s legality check), for UI consumers whose cost
  * dropdown/formula input is driven by a `TraitCostPolicy` rather than a
  * pass/fail check. Dragon-Blooded gets the exact same policy as
- * `getDragonBloodedTraitCostPolicy` (byte-for-byte unchanged); Abyssal
- * additionally narrows any `options`-kind policy down to the costs
- * `abyssalCostCapOverrides` actually allows, so the UI's own dropdown (not
- * just schema validation) only ever offers legal Abyssal choices — e.g.
- * Destiny narrows from `[1, 2, 3, 4, 5]` to `[1, 2]`. `formula`/`open`
- * policies pass through unchanged; no current `abyssalCostCapOverrides`
- * entry applies to either kind, so there is nothing to narrow there yet.
+ * `getDragonBloodedTraitCostPolicy` (byte-for-byte unchanged); Abyssal and
+ * Sidereal each get their own `sharedCostOverrides` entry (if one exists
+ * for the definition) as a complete `options`-kind replacement policy, so
+ * the UI's own dropdown (not just schema validation) only ever offers
+ * legal choices for that sheet type — e.g. Destiny narrows from
+ * `[1, 2, 3, 4, 5]` to `[1, 2]` for both Abyssal and Sidereal, while
+ * Permanent Caste Mark replaces Sidereal's policy with the wholly
+ * out-of-base-range `[1]`. `formula`/`open` policies, and definitions with
+ * no override entry, pass through `getDragonBloodedTraitCostPolicy`
+ * unchanged.
  */
 export function getSharedTraitCostPolicy(
   definition: DragonBloodedTraitDefinition,
-  sheetType: 'dragon-blooded' | 'abyssal',
+  sheetType: 'dragon-blooded' | 'abyssal' | 'sidereal',
 ): TraitCostPolicy {
-  const policy = getDragonBloodedTraitCostPolicy(definition);
-  if (sheetType !== 'abyssal' || policy.kind !== 'options') return policy;
-  const legalOptions = policy.options.filter((option) =>
-    isLegalSharedTraitCost(definition, option, sheetType),
-  );
-  return legalOptions.length
-    ? { kind: 'options', options: legalOptions }
-    : policy;
+  if (sheetType === 'abyssal' || sheetType === 'sidereal') {
+    const override = sharedCostOverrides[definition.id]?.[sheetType];
+    if (override !== undefined) return { kind: 'options', options: override };
+  }
+  return getDragonBloodedTraitCostPolicy(definition);
 }
 
 const repeatLimits: Record<string, number | undefined> = {

@@ -53,13 +53,16 @@ describe('exalted1e verification gate', () => {
       // Abyssal has additionally had its Backgrounds, universal
       // Merits/Flaws chapter, Charms, Necromancy spells, and Sorcery spells
       // promoted to real production catalogs (500 of its 503 promotable
-      // rows -- see `SplatCatalogEvidence.promotableEntries`), but that
-      // alone must not unlock the family -- `checksum` stays empty and
-      // every test-evidence dimension stays 'not-run' until schema/creator/
-      // editor work for the remaining catalog dimensions (Artifacts,
-      // Hearthstones, Warstriders, the nemissary system) lands too.
+      // rows -- see `SplatCatalogEvidence.promotableEntries`), and Sidereal
+      // has had its Backgrounds and universal Merits/Flaws chapter promoted
+      // (94 rows: 12 Backgrounds + 82 Merits/Flaws), but that alone must
+      // not unlock either family -- `checksum` stays empty and every
+      // test-evidence dimension stays 'not-run' until schema/creator/editor
+      // work for the remaining catalog dimensions (Charms, Sorcery spells,
+      // Artifacts, Hearthstones, Warstriders, the nemissary system, the
+      // Astrology/Colleges system) lands too.
       expect(record.catalog.promotedEntries).toBe(
-        family === 'abyssal' ? 500 : 0,
+        family === 'abyssal' ? 500 : family === 'sidereal' ? 94 : 0,
       );
       expect(record.catalog.checksum).toBe('');
     }
@@ -102,7 +105,14 @@ describe('exalted1e verification gate', () => {
   it('reflects Sidereal source intake in progress without unlocking the family', () => {
     const record = certificationRecords.sidereal;
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
-    expect(record.catalog.promotedEntries).toBe(0);
+    // 94 = 12 Backgrounds (siderealBackgrounds) + 82 shared Merits/Flaws
+    // catalog rows now carrying 'sidereal' in appliesTo (79 extended
+    // existing entries plus 3 wholly new Sidereal-only entries) -- short of
+    // the 365 `promotableEntries` estimate (which also counts Charms,
+    // Sorcery spells, and other rows not yet promoted), and far short of
+    // the raw `totalInventoryRows` (583). Either way,
+    // `isFamilyAvailable('sidereal')` must stay false.
+    expect(record.catalog.promotedEntries).toBe(94);
     expect(isFamilyAvailable('sidereal')).toBe(false);
   });
 

@@ -35,15 +35,21 @@ describe('Exalted First Edition definition', () => {
     expect(variantIds).toEqual(['solar', 'dragon-blooded']);
   });
 
-  it('registers Abyssal as a legal stored sheetType without unlocking it', () => {
-    // Abyssal is the sole exception, and only at the schema layer: it is a
-    // legal stored `sheetType` (so a blank Abyssal character can be
-    // validated ahead of its creator/editor UI), but it still is not a
-    // selectable creation variant (see the test above) and every other
-    // planned family remains fully unregistered as a sheet type too.
-    expect(exaltedSheetTypes).toEqual(['solar', 'dragon-blooded', 'abyssal']);
+  it('registers Abyssal and Sidereal as legal stored sheetTypes without unlocking them', () => {
+    // Abyssal and Sidereal are the sole exceptions, and only at the schema
+    // layer: each is a legal stored `sheetType` (so a blank
+    // Abyssal/Sidereal character can be validated ahead of its
+    // creator/editor UI), but neither is a selectable creation variant
+    // (see the test above) and every other planned family remains fully
+    // unregistered as a sheet type too.
+    expect(exaltedSheetTypes).toEqual([
+      'solar',
+      'dragon-blooded',
+      'abyssal',
+      'sidereal',
+    ]);
     for (const family of plannedExaltedFamilies) {
-      if (family === 'abyssal') continue;
+      if (family === 'abyssal' || family === 'sidereal') continue;
       expect((exaltedSheetTypes as readonly string[]).includes(family)).toBe(
         false,
       );
@@ -66,5 +72,9 @@ describe('Exalted First Edition definition', () => {
     expect(definition.getDisplayName(dragonBlooded)).toBe(
       'Untitled Dragon-Blooded',
     );
+
+    const sidereal = createBlankExaltedCharacter('sidereal');
+    expect(definition.getDisplayName(sidereal)).toBe('Untitled Sidereal');
+    expect(definition.getSummary(sidereal)).toBe('Sidereal');
   });
 });

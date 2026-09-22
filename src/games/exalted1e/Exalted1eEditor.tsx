@@ -84,11 +84,20 @@ const abyssalPowerDefinitions: readonly ExaltedPowerDefinition[] = [
   ...Array.from(sharedSorcerySpellById.values()),
 ];
 
-/** Human-readable label for each sheet type, used throughout this editor. */
+/**
+ * Human-readable label for each sheet type, used throughout this editor.
+ * `sidereal` is included only so this `Record` stays exhaustive over
+ * `ExaltedSheetType` -- Sidereal has no editor UI of its own yet (see the
+ * module-level `isSolar`/`isAbyssal` branches below, which fall through to
+ * the Dragon-Blooded-equivalent default for any other sheet type,
+ * including Sidereal, as a placeholder pending a future Sidereal editor
+ * phase) and is not reachable through `definition.tsx`'s `variants` list.
+ */
 const sheetTypeNames: Record<Exalted1eCharacter['sheetType'], string> = {
   solar: 'Solar',
   'dragon-blooded': 'Dragon-Blooded',
   abyssal: 'Abyssal',
+  sidereal: 'Sidereal',
 };
 
 const AUTOSAVE_DELAY_MS = 550;

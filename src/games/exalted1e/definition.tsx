@@ -26,11 +26,15 @@ import { getFamilyCertificationStatus } from './verification';
  * mislabeled Abyssal characters as "Dragon-Blooded" (only reachable via
  * `createBlankExaltedCharacter('abyssal')`, since Abyssal has no
  * user-facing `variants` entry yet — see the module doc comment below).
+ * `sidereal` was added for the same reason once it became a legal stored
+ * `sheetType` too (`createBlankExaltedCharacter('sidereal')`); it remains
+ * absent from `variants` below just like `abyssal`.
  */
 const sheetTypeLabels: Record<ExaltedSheetType, string> = {
   solar: 'Solar',
   'dragon-blooded': 'Dragon-Blooded',
   abyssal: 'Abyssal',
+  sidereal: 'Sidereal',
 };
 
 function sheetLabel(character: Exalted1eCharacter) {

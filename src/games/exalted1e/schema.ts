@@ -7,6 +7,7 @@ import {
   exaltedSectionGroupIds,
   exaltedSheetTypes,
   exaltedVirtues,
+  siderealBackgrounds,
   solarBackgrounds,
   type ExaltedSectionGroupId,
   type ExaltedSheetType,
@@ -84,6 +85,7 @@ export const exaltedBackgroundIdSchema = z.enum(
         ...solarBackgrounds,
         ...dragonBloodedBackgrounds,
         ...abyssalBackgrounds,
+        ...siderealBackgrounds,
       ].map((background) => background.id),
     ),
   ),
@@ -98,10 +100,14 @@ const dragonBloodedBackgroundIds = new Set<string>(
 const abyssalBackgroundIds = new Set<string>(
   abyssalBackgrounds.map((background) => background.id),
 );
+const siderealBackgroundIds = new Set<string>(
+  siderealBackgrounds.map((background) => background.id),
+);
 const backgroundIdsBySheetType: Record<ExaltedSheetType, Set<string>> = {
   solar: solarBackgroundIds,
   'dragon-blooded': dragonBloodedBackgroundIds,
   abyssal: abyssalBackgroundIds,
+  sidereal: siderealBackgroundIds,
 };
 
 /** Human-readable label used in validation messages for each sheet type. */
@@ -109,6 +115,7 @@ const sheetTypeLabels: Record<ExaltedSheetType, string> = {
   solar: 'Solar',
   'dragon-blooded': 'Dragon-Blooded',
   abyssal: 'Abyssal',
+  sidereal: 'Sidereal',
 };
 
 const selectedTraitSchema = z.object({
@@ -279,6 +286,16 @@ export const exalted1eCharacterSchema = z
         solar: solarCharmIds,
         'dragon-blooded': dragonBloodedCharmIds,
         abyssal: abyssalCharmIds,
+        // PLACEHOLDER pending Sidereal's own Charms-catalog phase ("Phase
+        // 2b" -- 176+ Chapter Five Charm rows, the three secret Martial
+        // Arts styles, and the Astrology/Colleges system are all out of
+        // scope for this phase). An empty set means a blank Sidereal
+        // character (no Charms/Combos selected) validates cleanly, while
+        // any future non-empty Charm/Combo selection is correctly rejected
+        // as unknown until that catalog exists -- matching how Abyssal's
+        // own two `charmIdsBySheetType` entries were `TODO(abyssal-charms)`
+        // placeholders before its later Phase 1b.
+        sidereal: new Set<string>(),
       };
     character.combos.forEach((combo, index) => {
       if (new Set(combo.charmIds).size !== combo.charmIds.length) {
@@ -349,6 +366,22 @@ export const exalted1eCharacterSchema = z
             path: ['powers', 'spells', index, 'definitionId'],
           });
         }
+        return;
+      }
+      if (character.sheetType === 'sidereal') {
+        // PLACEHOLDER pending Sidereal's own spell-catalog phase ("Phase
+        // 2b" -- Sidereal's own Terrestrial/Celestial Circle Sorcery
+        // spells, plus the Astrology/Colleges system, are out of scope for
+        // this phase; see the `sidereal` entry in `charmIdsBySheetType`
+        // above for the matching Charms-side placeholder). Without this
+        // branch, Sidereal would silently fall through to the
+        // Dragon-Blooded check below and wrongly accept Dragon-Blooded's
+        // own Terrestrial spell ids as if they were legal Sidereal spells.
+        context.addIssue({
+          code: 'custom',
+          message: 'No Sidereal spell catalog exists yet.',
+          path: ['powers', 'spells', index, 'definitionId'],
+        });
         return;
       }
       if (!dragonBloodedSpellIds.has(selection.definitionId)) {

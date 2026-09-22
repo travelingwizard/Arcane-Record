@@ -194,7 +194,7 @@ real, creatable sheet.
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | -------- | -------------------------------- |
 | Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)    | 598            | 0        | Locked, all dimensions `not-run` |
 | Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 500      | Locked, all dimensions `not-run` |
-| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 0        | Locked, all dimensions `not-run` |
+| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 94       | Locked, all dimensions `not-run` |
 | Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 0        | Locked, all dimensions `not-run` |
 | Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 365            | 0        | Locked, all dimensions `not-run` |
 
@@ -882,6 +882,43 @@ omits the buy-with-XP action for now, since the existing cost formula is
 Dragon-Blooded's own favored-Aspect logic and has no Abyssal equivalent),
 and the full migration/browser test evidence this project's certification
 gate requires.
+
+Sidereal Phase 2a combines what was Abyssal's initial schema-wiring step
+with its own Phase 1a into a single pass, since Sidereal started this
+phase with zero code/schema wiring at all (only a `plannedExaltedFamilies`
+label, unlike Abyssal which already had Phase 1a's prerequisite schema
+work done for it by an earlier pass). `'sidereal'` is now a legal *stored*
+`sheetType` in `exaltedSheetTypes`, but -- exactly like Abyssal -- remains
+absent from `definition.tsx`'s selectable `variants`, so the family stays
+fully locked out of the user-facing create-character list. Its 12
+Backgrounds (the shared Allies/Artifact/Backing/Familiar/Manse/Resources
+ids, each re-flavored per Exalted: The Sidereals Chapter Four, plus the
+six new Acquaintances/Celestial Manse/Connections/Salary/Savant/Sifu ids
+that fully replace Solar's Contacts/Influence/Followers/Mentor ids for
+this splat) and 82 Merits/Flaws rows (60 transferred verbatim, 19 extended
+with a Sidereal-specific note, and 3 wholly new Sidereal-only entries --
+Terrestrial Bloodline (Sidereal), Greater Curse (Sidereal), and Known
+Anathema (Sidereal) -- for rows whose mechanics diverge too far from any
+shared entry to extend in place) are now real, Zod-validated production
+catalog entries, folded additively into `definitions.ts`'s
+`siderealBackgrounds` export and the existing shared
+`dragonblooded-merits-flaws` catalog respectively (`counts` grew from
+`{ total: 86, merits: 42, flaws: 44 }` to `{ total: 89, merits: 43,
+flaws: 46 }`). The formerly Abyssal-only `abyssalCostCapOverrides` cost-cap
+map was generalized into a splat-agnostic `sharedCostOverrides` map, since
+Sidereal introduced overrides (Permanent Caste Mark, Prescient Dreamer)
+whose legal cost is not simply a narrower subset of the shared range, only
+a wholesale replacement of it. `promotedEntries` is now 94 (12 + 82).
+Sidereal's Charms, secret Martial Arts styles, and Astrology/Colleges
+system remain entirely out of scope ("Phase 2b"): `charmIdsBySheetType` in
+`schema.ts` carries only a placeholder empty `Set()` for `sidereal`, so a
+blank Sidereal character validates with zero Charm/Combo/spell selections,
+matching how Abyssal's own Charms were unimplemented before its later
+Phase 1b. `definition.tsx` and `Exalted1eEditor.tsx` each gained one
+`sidereal` entry in their respective `sheetTypeLabels`/`sheetTypeNames`
+lookups purely to stay exhaustive over `ExaltedSheetType`; no Sidereal
+editor UI (Caste select, Arcane Fate/Paradox tracker, Astrology UI) was
+built in this phase.
 
 ## Next steps (require source material per book)
 
