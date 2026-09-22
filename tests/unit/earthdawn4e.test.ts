@@ -216,6 +216,21 @@ describe('Earthdawn Fourth Edition module', () => {
     );
     expect(preview.removed.length).toBeGreaterThan(0);
     expect(preview.added).toHaveLength(0);
+
+    const shared = reconcileDisciplineTalents(
+      [
+        {
+          ...throughThree[0]!,
+          disciplineSources: [],
+          originDisciplineId: null,
+          creationOwned: false,
+          rank: 1,
+        },
+      ],
+      discipline,
+      1,
+    );
+    expect(shared[0]!.disciplineSources).toContain(discipline.id);
   });
   it('quotes verified advancement costs and prerequisites', () => {
     expect(attributeIncreaseCost(1)).toBe(800);

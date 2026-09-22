@@ -54,6 +54,7 @@ import {
   knackLearningQuote,
   legendTotals,
   missingCircleTalentRanks,
+  newDisciplineTalentCost,
   previewDisciplineTalentReconciliation,
   questorRankCost,
   questorTier,
@@ -622,6 +623,95 @@ export function Earthdawn4eEditor({
     });
     setCatalogKind(null);
   };
+  const addDiscipline = (
+    discipline: (typeof earthdawnDisciplines)[number],
+    confirmed = false,
+  ) => {
+    if (
+      draft.disciplines.some(
+        ({ disciplineId }) => disciplineId === discipline.id,
+      )
+    )
+      return;
+    const recordId = crypto.randomUUID();
+    const existingTalentNames = new Set(
+      draft.talents.filter(({ rank }) => rank >= 1).map(({ name }) => name),
+    );
+    const required = discipline.circles[0]?.requiredTalents ?? [];
+    const missing = required.filter((name) => !existingTalentNames.has(name));
+    const lowestCircle = draft.disciplines.length
+      ? Math.min(5, ...draft.disciplines.map(({ circle }) => circle))
+      : 1;
+    const perTalent = newDisciplineTalentCost(
+      Number.isFinite(lowestCircle) ? lowestCircle : 1,
+      draft.disciplines.length + 1,
+    );
+    const cost = perTalent * missing.length;
+    if (playMode && !confirmed) {
+      reviewAdvancement(
+        {
+          title: `Begin ${discipline.name} at First Circle`,
+          cost,
+          silverCost: 0,
+          training: `Learn ${missing.length} missing First-Circle talent(s) at rank 1 from qualified instructors, then complete initiation with a higher-Circle adept.`,
+          sourceCitation: "Player's Guide pp. 456–459",
+        },
+        () => addDiscipline(discipline, true),
+      );
+      return;
+    }
+    update((current) => {
+      const reconciled = reconcileDisciplineTalents(
+        current.talents,
+        discipline,
+        1,
+      ).map((talent) =>
+        missing.includes(talent.name)
+          ? { ...talent, rank: 1, creationOwned: false }
+          : talent,
+      );
+      return {
+        ...current,
+        disciplines: [
+          ...current.disciplines,
+          {
+            id: recordId,
+            definitionId: discipline.id,
+            sourceId: discipline.sourceId,
+            source: discipline.source,
+            page: discipline.page,
+            unresolved: false,
+            disciplineId: discipline.id,
+            name: discipline.name,
+            circle: 1,
+            startedAtCircle: 1,
+            questor: false,
+            custom: false,
+          },
+        ],
+        talents: reconciled,
+        advancement:
+          confirmed && playMode
+            ? {
+                ledger: [
+                  ...current.advancement.ledger,
+                  createLegendEntry({
+                    type: 'discipline',
+                    amount: -cost,
+                    targetId: recordId,
+                    targetName: discipline.name,
+                    beforeRating: 0,
+                    afterRating: 1,
+                    sourceCitation: "Player's Guide pp. 456–459",
+                    training: `First-Circle initiation; ${missing.length} missing talent(s)`,
+                    description: `Begin ${discipline.name} at First Circle`,
+                  }),
+                ],
+              }
+            : current.advancement,
+      };
+    });
+  };
   const refundPurchase = (entryId: string) =>
     update((current) => {
       if (!refundableLedgerEntry(current.advancement.ledger, entryId))
@@ -698,6 +788,37 @@ export function Earthdawn4eEditor({
               id !== entry.targetId && definitionId !== entry.targetId,
           ),
         };
+      if (entry.type === 'discipline') {
+        const removed = next.disciplines.find(
+          ({ id }) => id === entry.targetId,
+        );
+        if (removed?.disciplineId) {
+          const disciplineId = removed.disciplineId;
+          next = {
+            ...next,
+            disciplines: next.disciplines.filter(
+              ({ id }) => id !== entry.targetId,
+            ),
+            talents: next.talents.flatMap((talent) => {
+              if (!talent.disciplineSources.includes(disciplineId))
+                return [talent];
+              const disciplineSources = talent.disciplineSources.filter(
+                (id) => id !== disciplineId,
+              );
+              if (
+                disciplineSources.length === 0 &&
+                talent.originDisciplineId === disciplineId &&
+                !talent.creationOwned &&
+                talent.rank === 1 &&
+                talent.freeRank === 0 &&
+                !talent.notes.trim()
+              )
+                return [];
+              return [{ ...talent, disciplineSources }];
+            }),
+          };
+        }
+      }
       if (entry.type === 'questor' && entry.targetId === 'questor-rank')
         next = {
           ...next,
@@ -913,7 +1034,6 @@ export function Earthdawn4eEditor({
                   <SheetFieldGrid columns={2}>
                     <SheetField label="Add a Discipline">
                       <select
-                        disabled={playMode}
                         value=""
                         onChange={(event) => {
                           const definition = earthdawnCatalog.find(
@@ -925,39 +1045,22 @@ export function Earthdawn4eEditor({
                             (entry) => entry.id === definition.id,
                           );
                           if (!discipline) return;
-                          update((current) => ({
-                            ...current,
-                            disciplines: [
-                              ...current.disciplines,
-                              {
-                                id: crypto.randomUUID(),
-                                definitionId: discipline.id,
-                                sourceId: discipline.sourceId,
-                                source: discipline.source,
-                                page: discipline.page,
-                                unresolved: false,
-                                disciplineId: discipline.id,
-                                name: discipline.name,
-                                circle: 1,
-                                startedAtCircle: 1,
-                                questor: false,
-                                custom: false,
-                              },
-                            ],
-                            talents: reconcileDisciplineTalents(
-                              current.talents,
-                              discipline,
-                              1,
-                            ),
-                          }));
+                          addDiscipline(discipline);
                         }}
                       >
                         <option value="">Choose Discipline…</option>
-                        {earthdawnDisciplines.map((entry) => (
-                          <option key={entry.id} value={entry.id}>
-                            {entry.name}
-                          </option>
-                        ))}
+                        {earthdawnDisciplines
+                          .filter(
+                            (entry) =>
+                              !draft.disciplines.some(
+                                ({ disciplineId }) => disciplineId === entry.id,
+                              ),
+                          )
+                          .map((entry) => (
+                            <option key={entry.id} value={entry.id}>
+                              {entry.name}
+                            </option>
+                          ))}
                       </select>
                     </SheetField>
                     <button
@@ -2729,9 +2832,13 @@ export function Earthdawn4eEditor({
                     <p>{d.summary}</p>
                     <small>
                       {d.source}, p. {d.page}
+                      {d.verification !== 'verified'
+                        ? ` · ${d.verification.replace('-', ' ')}`
+                        : ''}
                     </small>
                     <button
                       disabled={
+                        d.verification !== 'verified' ||
                         (playMode &&
                           ![
                             'spell',

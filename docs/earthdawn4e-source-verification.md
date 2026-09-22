@@ -17,7 +17,7 @@ The runtime inventory is generated in `src/games/earthdawn4e/source-inventory.ts
 - The Player’s Guide melee, missile, and throwing weapon tables with damage, minimum Strength, range, price, weight, and availability metadata.
 - The Player’s Guide armor and shield tables. Armor retains physical/mystic armor and initiative values; shields retain distinct physical/mystic Defense bonuses, initiative penalties, and shatter thresholds. Schema v3 migrates prior equipment additively without flattening advancement transactions.
 - The Player’s Guide common magic item, blood charm, healing aid, and adventuring-equipment tables with corrected silver-equivalent prices and weights. Copper-denominated entries remain fractional silver so builder arithmetic uses one currency consistently.
-- A reviewed starting subset of thread records and supplemental paths.
+- A reviewed starting index of supplemental paths and Travar equipment remains visibly reference-only. These entries cannot be added or drive calculations until their complete mechanics are certified.
 - Character calculations, the Step/Dice table, creation attribute budget, and Legend Point ledger.
 - Verified advancement quotations for talent and skill ranks, Attribute increases, Discipline Circle training, spell learning, normal and Group True Pattern threads, additional-Discipline talents, Questor ranks, and granted devotions. Training, silver, and tier-transition requirements remain visible inputs for reviewed confirmation rather than silently inferred story outcomes.
 - Discipline Circle edits use a reconciliation review. Only untouched rank-0 creation records are eligible for removal; advanced, customized, and shared talents are preserved.

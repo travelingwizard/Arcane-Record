@@ -472,6 +472,17 @@ const named = (
       `${name} is official ${earthdawnSources.find(({ id }) => id === sourceId)!.shortTitle} character content. Consult the cited page for its complete rules.`,
     ),
   );
+const referenced = (
+  kind: EarthdawnCatalogKind,
+  names: string[],
+  sourceId: string,
+  page: number,
+) =>
+  named(kind, names, sourceId, page).map((definition) => ({
+    ...definition,
+    verification: 'reference-only' as const,
+    summary: `${definition.name} is indexed as player-facing reference material, but its complete selectable mechanics have not been certified.`,
+  }));
 const priced = (
   kind: 'equipment' | 'weapon',
   rows: Array<[string, number, number]>,
@@ -918,14 +929,14 @@ export const earthdawnCatalog: EarthdawnDefinition[] = [
     'ed4.gamemasters-guide',
     197,
   ),
-  ...named(
+  ...referenced(
     'equipment',
     ['Blood Ink', 'Blood Charm', 'The Edge of Travar'],
     'ed4.travar',
     273,
   ),
-  ...named('path', ['Marauder', 'Avowed'], 'ed4.vasgothia', 183),
-  ...named(
+  ...referenced('path', ['Marauder', 'Avowed'], 'ed4.vasgothia', 183),
+  ...referenced(
     'path',
     [
       'Brother of Stone',

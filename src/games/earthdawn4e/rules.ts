@@ -35,15 +35,25 @@ export function reconcileDisciplineTalents(
 ) {
   const needed = requiredTalents(discipline, circle);
   const neededNames = new Set(needed.map(({ name }) => name));
-  const preserved = talents.filter(
-    (talent) =>
-      talent.originDisciplineId !== discipline.id ||
-      neededNames.has(talent.name) ||
-      !talent.creationOwned ||
-      talent.rank > 0 ||
-      talent.freeRank > 0 ||
-      talent.notes.trim().length > 0,
-  );
+  const preserved = talents
+    .filter(
+      (talent) =>
+        talent.originDisciplineId !== discipline.id ||
+        neededNames.has(talent.name) ||
+        !talent.creationOwned ||
+        talent.rank > 0 ||
+        talent.freeRank > 0 ||
+        talent.notes.trim().length > 0,
+    )
+    .map((talent) =>
+      neededNames.has(talent.name) &&
+      !talent.disciplineSources.includes(discipline.id)
+        ? {
+            ...talent,
+            disciplineSources: [...talent.disciplineSources, discipline.id],
+          }
+        : talent,
+    );
   const existing = new Set(preserved.map(({ name }) => name));
   const additions: Talent[] = needed
     .filter(({ name }) => !existing.has(name))
