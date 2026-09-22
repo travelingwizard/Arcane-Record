@@ -14,7 +14,8 @@ The runtime inventory is generated in `src/games/earthdawn4e/source-inventory.ts
 - The complete Player’s Guide Novice and Journeyman general-skill rosters, plus editable Artisan, Knowledge, and language records.
 - The Player’s Guide melee, missile, and throwing weapon tables with damage, minimum Strength, range, price, weight, and availability metadata.
 - The Player’s Guide armor table with physical armor, mystic armor, initiative penalty, price, weight, and availability metadata. Shields remain equipment records until their Defense and shatter fields have dedicated schema support.
-- A reviewed starting subset of general equipment, healing aids, common magic items, blood charms, thread records, and supplemental paths.
+- The Player’s Guide common magic item, blood charm, healing aid, and adventuring-equipment tables with corrected silver-equivalent prices and weights. Copper-denominated entries remain fractional silver so builder arithmetic uses one currency consistently.
+- A reviewed starting subset of thread records and supplemental paths.
 - Character calculations, the Step/Dice table, creation attribute budget, and Legend Point ledger.
 - Verified advancement quotations for talent and skill ranks, Attribute increases, Discipline Circle training, spell learning, normal and Group True Pattern threads, additional-Discipline talents, Questor ranks, and granted devotions. Training, silver, and tier-transition requirements remain visible inputs for reviewed confirmation rather than silently inferred story outcomes.
 - Discipline Circle edits use a reconciliation review. Only untouched rank-0 creation records are eligible for removal; advanced, customized, and shared talents are preserved.

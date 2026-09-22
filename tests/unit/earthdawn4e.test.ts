@@ -203,6 +203,13 @@ describe('Earthdawn Fourth Edition module', () => {
     expect(
       earthdawnCatalog.filter(({ kind }) => kind === 'weapon').length,
     ).toBeGreaterThanOrEqual(40);
+    expect(
+      earthdawnCatalog.filter(({ kind }) => kind === 'equipment').length,
+    ).toBeGreaterThanOrEqual(100);
+    expect(
+      earthdawnCatalog.find(({ name }) => name === 'Healing Potion')
+        ?.costSilver,
+    ).toBe(300);
     const crystalPlate = earthdawnCatalog.find(
       ({ name }) => name === 'Crystal Plate',
     )!;
