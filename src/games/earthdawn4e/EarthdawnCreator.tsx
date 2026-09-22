@@ -72,6 +72,10 @@ export function EarthdawnCreator({
     (sum, talent) => sum + talent.freeRank,
     0,
   );
+  const optionalTalentCount = character.talents.filter(
+    ({ optional, originDisciplineId }) =>
+      optional && originDisciplineId === discipline?.id,
+  ).length;
   const skillRanks = Object.fromEntries(
     (['general', 'knowledge', 'artisan', 'language'] as const).map(
       (category) => [
@@ -101,6 +105,10 @@ export function EarthdawnCreator({
     character.creation.profile !== 'questor' &&
       talentRanks !== 8 &&
       `Assign exactly 8 free talent ranks (${talentRanks} assigned).`,
+    character.creation.profile !== 'questor' &&
+      discipline &&
+      optionalTalentCount !== (selected?.circle ?? 1) &&
+      `Choose one Talent Option for each Circle (${optionalTalentCount}/${selected?.circle ?? 1} chosen).`,
     character.creation.profile !== 'questor' &&
       skillRanks.general !== character.creation.skillPoints.general &&
       `Assign ${character.creation.skillPoints.general} General skill ranks (${skillRanks.general} assigned).`,
@@ -510,6 +518,110 @@ export function EarthdawnCreator({
       <SheetNotice tone={talentRanks === 8 ? 'success' : 'warning'}>
         {8 - talentRanks} free talent ranks remaining
       </SheetNotice>
+      {discipline ? (
+        <>
+          <h3>
+            Talent Options · {optionalTalentCount}/{selected?.circle ?? 1}
+          </h3>
+          {(
+            [
+              ['novice', 1],
+              ['journeyman', 5],
+              ['warden', 9],
+              ['master', 13],
+            ] as const
+          ).map(([tier, minimumCircle]) =>
+            (selected?.circle ?? 1) >= minimumCircle ? (
+              <div key={tier}>
+                <h4>{tier[0]!.toUpperCase() + tier.slice(1)}</h4>
+                <div className="sheet-choice-grid earthdawn-choice-grid">
+                  {discipline.talentOptions[tier].map((name) => {
+                    const chosen = character.talents.some(
+                      (talent) =>
+                        talent.optional &&
+                        talent.originDisciplineId === discipline.id &&
+                        talent.name === name,
+                    );
+                    return (
+                      <button
+                        type="button"
+                        key={`${tier}-${name}`}
+                        aria-pressed={chosen}
+                        disabled={
+                          !chosen &&
+                          optionalTalentCount >= (selected?.circle ?? 1)
+                        }
+                        onClick={() =>
+                          update((current) => {
+                            if (chosen)
+                              return {
+                                ...current,
+                                talents: current.talents.filter(
+                                  (talent) =>
+                                    !(
+                                      talent.optional &&
+                                      talent.originDisciplineId ===
+                                        discipline.id &&
+                                      talent.name === name
+                                    ),
+                                ),
+                              };
+                            const definition = earthdawnCatalog.find(
+                              (entry) =>
+                                entry.kind === 'talent' && entry.name === name,
+                            );
+                            return {
+                              ...current,
+                              talents: [
+                                ...current.talents,
+                                {
+                                  id: crypto.randomUUID(),
+                                  definitionId: definition?.id ?? null,
+                                  sourceId:
+                                    minimumCircle <= 8
+                                      ? 'ed4.players-guide'
+                                      : 'ed4.companion',
+                                  source:
+                                    minimumCircle <= 8
+                                      ? 'Earthdawn Fourth Edition Player’s Guide'
+                                      : 'Earthdawn Fourth Edition Companion',
+                                  page:
+                                    minimumCircle <= 8
+                                      ? discipline.page
+                                      : (discipline.circles.find(
+                                          ({ circle }) =>
+                                            circle === minimumCircle,
+                                        )?.page ?? null),
+                                  unresolved: false,
+                                  name,
+                                  rank: 0,
+                                  freeRank: 0,
+                                  attribute: 'dexterity',
+                                  bonus: 0,
+                                  notes: '',
+                                  action: '',
+                                  strain: 0,
+                                  disciplineSources: [discipline.id],
+                                  optional: true,
+                                  originCircle: optionalTalentCount + 1,
+                                  originDisciplineId: discipline.id,
+                                  creationOwned: true,
+                                },
+                              ],
+                            };
+                          })
+                        }
+                      >
+                        {name}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : null,
+          )}
+        </>
+      ) : null}
       {discipline?.spellcaster ? (
         <div className="sheet-choice-grid earthdawn-choice-grid">
           {earthdawnCatalog
@@ -769,7 +881,10 @@ export function EarthdawnCreator({
       <div className="sheet-choice-grid earthdawn-choice-grid">
         {earthdawnCatalog
           .filter(
-            (entry) => entry.kind === 'equipment' || entry.kind === 'weapon',
+            (entry) =>
+              (entry.kind === 'equipment' || entry.kind === 'weapon') &&
+              entry.verification === 'verified' &&
+              character.sources.enabledSourceIds.includes(entry.sourceId),
           )
           .map((definition) => (
             <button

@@ -22,6 +22,17 @@ test('creates an Earthdawn adept and exposes source and dice tools', async ({
   const human = page.getByRole('button', { name: /Human/ });
   await human.click();
   await expect(human).toHaveAttribute('aria-pressed', 'true');
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('button', { name: 'Next' }).click();
+  await expect(
+    page.getByRole('heading', { name: /Talent Options/ }),
+  ).toBeVisible();
+  const talentOption = page.getByRole('button', {
+    name: 'Acrobatic Defense',
+    exact: true,
+  });
+  await talentOption.click();
+  await expect(talentOption).toHaveAttribute('aria-pressed', 'true');
   await page.setViewportSize({ width: 320, height: 800 });
   expect(
     await page.evaluate(
