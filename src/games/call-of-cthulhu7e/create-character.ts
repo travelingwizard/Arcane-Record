@@ -123,12 +123,14 @@ export function createCoc7eInvestigator(
     clues: [],
     mythosRecords: [],
     equipment: [],
+    spells: [],
     weapons: [],
     temporaryEffects: [],
     notes: '',
     totalExperience: 0,
     currentExperience: 0,
     rollHistory: [],
+    rollerSettings: { historyMode: 'bounded', historyLimit: 10 },
     history: [],
   };
 }

@@ -70,6 +70,8 @@ const roll = z.object({
     'fumble',
   ]),
   pushed: z.boolean(),
+  pushedFromRollId: uuid.nullable(),
+  pushJustification: z.string(),
   context: z.string(),
   createdAt: dt,
 });
@@ -81,7 +83,7 @@ const history = z.object({
   createdAt: dt,
 });
 
-export const coc7eInvestigatorSchema = z.object({
+const coc7eInvestigatorV2Schema = z.object({
   schemaVersion: z.literal(COC7E_SCHEMA_VERSION),
   name: z.string(),
   player: z.string(),
@@ -180,6 +182,26 @@ export const coc7eInvestigatorSchema = z.object({
     cited.extend({
       quantity: z.number().int().nonnegative(),
       state: z.enum(['carried', 'stored', 'lost', 'consumed']),
+      category: z.string(),
+      priceLabel: z.string(),
+      priceMinimumCents: z.number().int().nonnegative().nullable(),
+      priceMaximumCents: z.number().int().nonnegative().nullable(),
+      pricingUnit: z.string(),
+      era: z.string(),
+      sourceUrl: z.string(),
+      unresolved: z.boolean(),
+    }),
+  ),
+  spells: z.array(
+    cited.extend({
+      category: z.string(),
+      aliases: z.array(z.string()),
+      summary: z.string(),
+      reference: z.string(),
+      sourceUrl: z.string(),
+      keeperGrantedAt: dt.nullable(),
+      keeperGrantNote: z.string(),
+      unresolved: z.boolean(),
     }),
   ),
   weapons: z.array(
@@ -195,8 +217,51 @@ export const coc7eInvestigatorSchema = z.object({
   totalExperience: z.number().int().nonnegative(),
   currentExperience: z.number().int().nonnegative(),
   rollHistory: z.array(roll),
+  rollerSettings: z.object({
+    historyMode: z.enum(['bounded', 'continuous']),
+    historyLimit: z.number().int().min(1).max(100),
+  }),
   history: z.array(history),
 });
-export type Coc7eInvestigator = z.infer<typeof coc7eInvestigatorSchema>;
+
+function migrateToV2(data: unknown): unknown {
+  if (!data || typeof data !== 'object') return data;
+  const record = data as Record<string, unknown>;
+  if (record.schemaVersion !== 1) return data;
+  const equipment = Array.isArray(record.equipment)
+    ? record.equipment.map((entry) => ({
+        ...(entry as Record<string, unknown>),
+        category: 'custom',
+        priceLabel: '',
+        priceMinimumCents: null,
+        priceMaximumCents: null,
+        pricingUnit: '',
+        era: 'custom',
+        sourceUrl: '',
+        unresolved: true,
+      }))
+    : [];
+  const rollHistory = Array.isArray(record.rollHistory)
+    ? record.rollHistory.map((entry) => ({
+        ...(entry as Record<string, unknown>),
+        pushedFromRollId: null,
+        pushJustification: '',
+      }))
+    : [];
+  return {
+    ...record,
+    schemaVersion: 2,
+    equipment,
+    spells: [],
+    rollHistory,
+    rollerSettings: { historyMode: 'bounded', historyLimit: 10 },
+  };
+}
+
+export const coc7eInvestigatorSchema = z.preprocess(
+  migrateToV2,
+  coc7eInvestigatorV2Schema,
+);
+export type Coc7eInvestigator = z.infer<typeof coc7eInvestigatorV2Schema>;
 export const migrateCoc7eInvestigator = (data: unknown) =>
   coc7eInvestigatorSchema.parse(data);

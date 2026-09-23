@@ -107,6 +107,30 @@ export function selectPercentile(
       ? Math.max(...values)
       : values[0]!;
 }
+
+export function appendRoll(
+  history: Coc7eInvestigator['rollHistory'],
+  roll: Coc7eInvestigator['rollHistory'][number],
+  settings: Coc7eInvestigator['rollerSettings'],
+) {
+  const next = [...history, roll];
+  return settings.historyMode === 'continuous'
+    ? next
+    : next.slice(-settings.historyLimit);
+}
+
+export function canPushRoll(
+  roll: Coc7eInvestigator['rollHistory'][number],
+  history: Coc7eInvestigator['rollHistory'],
+) {
+  return (
+    !roll.pushed &&
+    roll.pushedFromRollId === null &&
+    ['skill', 'characteristic'].includes(roll.kind) &&
+    ['failure', 'fumble'].includes(roll.level) &&
+    !history.some((entry) => entry.pushedFromRollId === roll.id)
+  );
+}
 export function creationIssues(
   c: Coc7eInvestigator,
   budget: number,

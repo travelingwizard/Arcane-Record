@@ -1,5 +1,5 @@
 export const COC7E_SYSTEM_ID = 'call-of-cthulhu-7e';
-export const COC7E_SCHEMA_VERSION = 1;
+export const COC7E_SCHEMA_VERSION = 2;
 
 export const coc7eGroups = [
   { id: 'investigator', label: 'Investigator' },

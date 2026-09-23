@@ -7573,3 +7573,230 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Call of Cthulhu 7E: compact ruled-sheet hierarchy. */
+.coc7-dashboard,
+.coc7-roller-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(15rem, 1fr);
+  gap: var(--space-4);
+}
+
+.coc7-characteristics-grid,
+.coc7-skills-grid,
+.coc7-record-list {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.coc7-characteristics-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.coc7-value-row,
+.coc7-skill-row {
+  min-width: 0;
+  display: grid;
+  align-items: end;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.coc7-value-row {
+  grid-template-columns: 3.25rem repeat(3, minmax(3.25rem, 1fr));
+}
+
+.coc7-value-row label,
+.coc7-skill-row label {
+  min-width: 0;
+}
+
+.coc7-value-row label span,
+.coc7-skill-row label span {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.coc7-value-row output,
+.coc7-skill-row output {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding-inline: var(--space-2);
+  border: 1px solid var(--border-soft);
+  background: var(--surface-muted);
+}
+
+.coc7-derived-panel {
+  padding: var(--space-3);
+  border: 1px solid var(--border-strong);
+  background: var(--surface-raised);
+}
+
+.coc7-derived-panel dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--border-soft);
+}
+
+.coc7-derived-panel dl > div {
+  padding: var(--space-2);
+  background: var(--surface-raised);
+}
+
+.coc7-derived-panel dt {
+  color: var(--text-secondary);
+  font-size: var(--text-xs);
+}
+.coc7-derived-panel dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+.coc7-skills-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: var(--space-3);
+}
+
+.coc7-skill-row {
+  grid-template-columns: 2rem minmax(7rem, 1fr) repeat(3, minmax(3rem, 4rem));
+  align-items: center;
+  border: 1px solid var(--border-soft);
+  background: var(--surface-raised);
+}
+
+.coc7-skill-name,
+.coc7-catalog-row > div {
+  min-width: 0;
+  display: grid;
+}
+.coc7-skill-name small,
+.coc7-catalog-row span,
+.coc7-catalog-row small,
+.coc7-record-row small {
+  color: var(--text-secondary);
+}
+.coc7-improvement {
+  align-self: center;
+}
+.coc7-allocation-fields {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.coc7-ledger-heading,
+.catalog-dialog-header,
+.coc7-catalog-row,
+.coc7-record-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.coc7-roll-ledger {
+  display: grid;
+  gap: var(--space-2);
+  padding-left: 1.5rem;
+}
+.coc7-roll-ledger li {
+  padding-block: var(--space-2);
+  border-bottom: 1px solid var(--border-soft);
+}
+.coc7-roll-ledger li > div {
+  display: grid;
+}
+.coc7-push-panel,
+.coc7-clear-confirmation {
+  margin-block: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--border-strong);
+}
+
+.catalog-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--backdrop) 72%, transparent);
+}
+
+.coc7-catalog-dialog {
+  width: min(56rem, 100%);
+  max-height: min(48rem, calc(100vh - 2rem));
+  overflow: auto;
+  padding: var(--space-5);
+  border: 1px solid var(--border-strong);
+  background: var(--surface-raised);
+  box-shadow: var(--shadow-lg);
+}
+
+.coc7-catalog-results {
+  display: grid;
+  gap: var(--space-2);
+  margin-block: var(--space-3);
+}
+.coc7-catalog-row,
+.coc7-record-row {
+  min-width: 0;
+  padding: var(--space-3);
+  border: 1px solid var(--border-soft);
+}
+.coc7-record-row {
+  align-items: end;
+}
+.coc7-quick-reference {
+  columns: 2 16rem;
+  column-gap: var(--space-5);
+}
+
+@media (max-width: 70rem) {
+  .coc7-skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 48rem) {
+  .coc7-dashboard,
+  .coc7-roller-layout,
+  .coc7-characteristics-grid,
+  .coc7-skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .coc7-skill-row {
+    grid-template-columns: 2rem minmax(0, 1fr) repeat(3, minmax(3rem, 4rem));
+  }
+  .coc7-record-row,
+  .catalog-dialog-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 22rem) {
+  .coc7-value-row {
+    grid-template-columns: 1fr repeat(3, minmax(0, 1fr));
+  }
+  .coc7-skill-row {
+    grid-template-columns: 2rem minmax(0, 1fr);
+  }
+  .coc7-skill-row > label:not(.coc7-improvement) {
+    grid-column: span 1;
+  }
+  .coc7-skill-row > label:nth-of-type(2) {
+    grid-column: 1 / -1;
+  }
+  .catalog-dialog-backdrop {
+    padding: var(--space-2);
+  }
+  .coc7-catalog-dialog {
+    padding: var(--space-3);
+  }
+}

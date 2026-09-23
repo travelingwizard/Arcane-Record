@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import {
   SheetCard,
   SheetField,
@@ -9,9 +9,17 @@ import {
 import type { GameCharacterEditorProps } from '../game-system';
 import { LocalSheet, TextField, useLocalSheet } from '../shared/LocalSheet';
 import { coc7eExperiencePackages, coc7eOccupations } from './catalog';
+import {
+  coc7eEquipmentCatalog,
+  coc7eEquipmentSource,
+  coc7eSpellCatalog,
+  coc7eSpellSource,
+} from './reference-catalog';
 import { coc7eGroups, coc7eSections } from './definitions';
 import {
   ageRequirements,
+  appendRoll,
+  canPushRoll,
   creationIssues,
   derived,
   half,
@@ -445,67 +453,458 @@ function Roller({
 }) {
   const [target, setTarget] = useState(50),
     [bonus, setBonus] = useState(0),
-    [label, setLabel] = useState('Skill roll');
-  const roll = () => {
+    [label, setLabel] = useState('Skill roll'),
+    [kind, setKind] = useState<'skill' | 'characteristic'>('skill'),
+    [difficulty, setDifficulty] = useState<'regular' | 'hard' | 'extreme'>(
+      'regular',
+    ),
+    [context, setContext] = useState(''),
+    [pushRollId, setPushRollId] = useState<string | null>(null),
+    [pushJustification, setPushJustification] = useState(''),
+    [confirmClear, setConfirmClear] = useState(false);
+  const roll = (pushedFrom?: Coc7eInvestigator['rollHistory'][number]) => {
+    const effectiveBonus = pushedFrom?.bonusPenalty ?? bonus;
+    const effectiveTarget = pushedFrom?.target ?? target;
     const ones = randomDie(10) - 1,
       tens = Array.from(
-        { length: 1 + Math.abs(bonus) },
+        { length: 1 + Math.abs(effectiveBonus) },
         () => randomDie(10) - 1,
       ),
-      selectedTotal = selectPercentile(ones, tens, bonus),
-      level = percentileLevel(selectedTotal, target);
+      selectedTotal = selectPercentile(ones, tens, effectiveBonus),
+      level = percentileLevel(selectedTotal, effectiveTarget),
+      nextRoll: Coc7eInvestigator['rollHistory'][number] = {
+        id: crypto.randomUUID(),
+        kind: pushedFrom?.kind ?? kind,
+        label: pushedFrom?.label ?? label,
+        goal: '',
+        target: pushedFrom?.target ?? target,
+        difficulty: pushedFrom?.difficulty ?? difficulty,
+        bonusPenalty: pushedFrom?.bonusPenalty ?? bonus,
+        ones,
+        tens,
+        selectedTotal,
+        level,
+        pushed: Boolean(pushedFrom),
+        pushedFromRollId: pushedFrom?.id ?? null,
+        pushJustification: pushedFrom ? pushJustification.trim() : '',
+        context: pushedFrom?.context ?? context,
+        createdAt: now(),
+      };
     u({
       ...c,
-      rollHistory: [
-        ...c.rollHistory,
-        {
-          id: crypto.randomUUID(),
-          kind: 'skill',
-          label,
-          goal: '',
-          target,
-          difficulty: 'regular',
-          bonusPenalty: bonus,
-          ones,
-          tens,
-          selectedTotal,
-          level,
-          pushed: false,
-          context: '',
-          createdAt: now(),
-        },
-      ],
+      rollHistory: appendRoll(c.rollHistory, nextRoll, c.rollerSettings),
     });
+    setPushRollId(null);
+    setPushJustification('');
   };
   return (
-    <SheetCard>
-      <h3>7E d100 helper</h3>
-      <SheetFieldGrid columns={3}>
-        <TextField label="Roll label" value={label} onChange={setLabel} />
-        <Num label="Target" value={target} onChange={setTarget} />
-        <SheetField label="Bonus / penalty dice">
-          <select
-            value={bonus}
-            onChange={(e) => setBonus(Number(e.target.value))}
-          >
-            <option value={2}>Two bonus</option>
-            <option value={1}>One bonus</option>
-            <option value={0}>None</option>
-            <option value={-1}>One penalty</option>
-            <option value={-2}>Two penalty</option>
-          </select>
-        </SheetField>
-      </SheetFieldGrid>
-      <button className="primary-button" onClick={roll}>
-        Roll d100
-      </button>
-      {c.rollHistory.at(-1) && (
-        <p>
-          Latest: {c.rollHistory.at(-1)!.selectedTotal} ·{' '}
-          {c.rollHistory.at(-1)!.level}
+    <div className="coc7-roller-layout">
+      <SheetCard>
+        <h3>7E d100 helper</h3>
+        <p className="coc7-threshold-summary">
+          Regular ≤ {target} · Hard ≤ {half(target)} · Extreme ≤ {fifth(target)}
         </p>
-      )}
-    </SheetCard>
+        <SheetFieldGrid columns={3}>
+          <TextField label="Roll label" value={label} onChange={setLabel} />
+          <Num label="Target" value={target} onChange={setTarget} />
+          <SheetField label="Roll type">
+            <select
+              value={kind}
+              onChange={(event) =>
+                setKind(event.target.value as 'skill' | 'characteristic')
+              }
+            >
+              <option value="skill">Skill</option>
+              <option value="characteristic">Characteristic</option>
+            </select>
+          </SheetField>
+          <SheetField label="Required success">
+            <select
+              value={difficulty}
+              onChange={(event) =>
+                setDifficulty(
+                  event.target.value as 'regular' | 'hard' | 'extreme',
+                )
+              }
+            >
+              <option value="regular">Regular</option>
+              <option value="hard">Hard</option>
+              <option value="extreme">Extreme</option>
+            </select>
+          </SheetField>
+          <SheetField label="Bonus / penalty dice">
+            <select
+              value={bonus}
+              onChange={(e) => setBonus(Number(e.target.value))}
+            >
+              <option value={2}>Two bonus</option>
+              <option value={1}>One bonus</option>
+              <option value={0}>None</option>
+              <option value={-1}>One penalty</option>
+              <option value={-2}>Two penalty</option>
+            </select>
+          </SheetField>
+          <TextField label="Context" value={context} onChange={setContext} />
+        </SheetFieldGrid>
+        <button className="primary-button" onClick={() => roll()}>
+          Roll d100
+        </button>
+      </SheetCard>
+      <SheetCard>
+        <div className="coc7-ledger-heading">
+          <div>
+            <h3>Roll ledger</h3>
+            <p>
+              {c.rollerSettings.historyMode === 'bounded'
+                ? `Newest ${c.rollerSettings.historyLimit} rolls`
+                : 'Continuous until cleared'}
+            </p>
+          </div>
+          <label className="appearance-switch">
+            <input
+              type="checkbox"
+              role="switch"
+              checked={c.rollerSettings.historyMode === 'continuous'}
+              onChange={(event) =>
+                u({
+                  ...c,
+                  rollerSettings: {
+                    ...c.rollerSettings,
+                    historyMode: event.target.checked
+                      ? 'continuous'
+                      : 'bounded',
+                  },
+                })
+              }
+            />
+            <span>Continuous mode</span>
+          </label>
+        </div>
+        {c.rollHistory.length === 0 ? (
+          <p>No rolls recorded.</p>
+        ) : (
+          <ol className="coc7-roll-ledger">
+            {c.rollHistory.map((entry) => (
+              <li key={entry.id}>
+                <div>
+                  <strong>{entry.label}</strong>
+                  <span>
+                    {entry.selectedTotal} · {entry.level} · target{' '}
+                    {entry.target}
+                    {' · '}H {half(entry.target ?? 0)} · E{' '}
+                    {fifth(entry.target ?? 0)}
+                  </span>
+                  <small>
+                    Dice {entry.tens.join(',')}|{entry.ones} ·{' '}
+                    {entry.difficulty}
+                    {entry.pushed
+                      ? ` · pushed: ${entry.pushJustification}`
+                      : ''}
+                  </small>
+                </div>
+                {canPushRoll(entry, c.rollHistory) ? (
+                  <button
+                    type="button"
+                    className="small-button"
+                    onClick={() => setPushRollId(entry.id)}
+                  >
+                    Push failed roll
+                  </button>
+                ) : null}
+              </li>
+            ))}
+          </ol>
+        )}
+        {pushRollId ? (
+          <div className="coc7-push-panel">
+            <p>
+              A pushed failure permits the Keeper to impose a dire consequence.
+              Record how the investigator changes the approach before rolling.
+            </p>
+            <TextField
+              label="Push justification"
+              value={pushJustification}
+              onChange={setPushJustification}
+            />
+            <button
+              type="button"
+              className="primary-button"
+              disabled={!pushJustification.trim()}
+              onClick={() => {
+                const original = c.rollHistory.find(
+                  (entry) => entry.id === pushRollId,
+                );
+                if (original) roll(original);
+              }}
+            >
+              Roll pushed attempt
+            </button>
+            <button
+              type="button"
+              className="text-button"
+              onClick={() => setPushRollId(null)}
+            >
+              Cancel push
+            </button>
+          </div>
+        ) : null}
+        {confirmClear ? (
+          <div className="coc7-clear-confirmation">
+            <p>Clear every saved roll from this investigator?</p>
+            <button
+              type="button"
+              className="danger-button"
+              onClick={() => {
+                u({ ...c, rollHistory: [] });
+                setConfirmClear(false);
+              }}
+            >
+              Confirm clear ledger
+            </button>
+            <button
+              type="button"
+              className="text-button"
+              onClick={() => setConfirmClear(false)}
+            >
+              Keep rolls
+            </button>
+          </div>
+        ) : (
+          <button
+            type="button"
+            className="secondary-button"
+            disabled={c.rollHistory.length === 0}
+            onClick={() => setConfirmClear(true)}
+          >
+            Clear roll ledger
+          </button>
+        )}
+      </SheetCard>
+    </div>
+  );
+}
+
+function EquipmentCatalog({
+  c,
+  u,
+  close,
+}: {
+  c: Coc7eInvestigator;
+  u: (x: Coc7eInvestigator) => void;
+  close: () => void;
+}) {
+  const [query, setQuery] = useState('');
+  const [category, setCategory] = useState('all');
+  const categories = [...new Set(coc7eEquipmentCatalog.map((x) => x.category))];
+  const results = coc7eEquipmentCatalog.filter(
+    (x) =>
+      (category === 'all' || x.category === category) &&
+      `${x.name} ${x.category}`.toLowerCase().includes(query.toLowerCase()),
+  );
+  return (
+    <div className="catalog-dialog-backdrop" role="presentation">
+      <section
+        className="catalog-dialog coc7-catalog-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="coc7-equipment-title"
+      >
+        <div className="catalog-dialog-header">
+          <div>
+            <h2 id="coc7-equipment-title">1920s equipment</h2>
+            <p>
+              Prices are historical reference values in every investigator era.
+            </p>
+          </div>
+          <button className="secondary-button" onClick={close}>
+            Close
+          </button>
+        </div>
+        <SheetFieldGrid columns={2}>
+          <TextField
+            label="Search equipment"
+            value={query}
+            onChange={setQuery}
+          />
+          <SheetField label="Category">
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option value="all">All categories</option>
+              {categories.map((x) => (
+                <option key={x}>{x}</option>
+              ))}
+            </select>
+          </SheetField>
+        </SheetFieldGrid>
+        <div className="coc7-catalog-results">
+          {results.map((item) => (
+            <article key={item.id} className="coc7-catalog-row">
+              <div>
+                <strong>{item.name}</strong>
+                <span>
+                  {item.category} · {item.priceLabel}
+                </span>
+              </div>
+              <button
+                className="small-button"
+                onClick={() =>
+                  u({
+                    ...c,
+                    equipment: [
+                      ...c.equipment,
+                      {
+                        ...cited(item.name),
+                        definitionId: item.id,
+                        sourceId: coc7eEquipmentSource.id,
+                        quantity: 1,
+                        state: 'carried',
+                        category: item.category,
+                        priceLabel: item.priceLabel,
+                        priceMinimumCents: item.priceMinimumCents,
+                        priceMaximumCents: item.priceMaximumCents,
+                        pricingUnit: item.pricingUnit,
+                        era: '1920s',
+                        sourceUrl: coc7eEquipmentSource.url,
+                        unresolved: false,
+                      },
+                    ],
+                  })
+                }
+              >
+                Add
+              </button>
+            </article>
+          ))}
+        </div>
+        <p>
+          <a href={coc7eEquipmentSource.url} target="_blank" rel="noreferrer">
+            Official Call of Cthulhu RPG Wiki equipment reference
+          </a>
+        </p>
+      </section>
+    </div>
+  );
+}
+
+function SpellCatalog({
+  c,
+  u,
+  close,
+}: {
+  c: Coc7eInvestigator;
+  u: (x: Coc7eInvestigator) => void;
+  close: () => void;
+}) {
+  const [query, setQuery] = useState('');
+  const [selected, setSelected] = useState<string | null>(null);
+  const [note, setNote] = useState('');
+  const results = coc7eSpellCatalog.filter((x) =>
+    `${x.name} ${x.aliases.join(' ')} ${x.category}`
+      .toLowerCase()
+      .includes(query.toLowerCase()),
+  );
+  return (
+    <div className="catalog-dialog-backdrop" role="presentation">
+      <section
+        className="catalog-dialog coc7-catalog-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="coc7-spell-title"
+      >
+        <div className="catalog-dialog-header">
+          <div>
+            <h2 id="coc7-spell-title">Keeper-granted spell index</h2>
+            <p>
+              <strong>Mythos content warning.</strong> This index may reveal
+              spell names and effects. A Keeper grant is required.
+            </p>
+          </div>
+          <button className="secondary-button" onClick={close}>
+            Close
+          </button>
+        </div>
+        <TextField label="Search spells" value={query} onChange={setQuery} />
+        <div className="coc7-catalog-results">
+          {results.map((spell) => (
+            <article key={spell.id} className="coc7-catalog-row">
+              <div>
+                <strong>{spell.name}</strong>
+                <span>
+                  {spell.category} · {spell.reference}
+                </span>
+                <small>{spell.summary}</small>
+              </div>
+              <button
+                className="small-button"
+                onClick={() => {
+                  setSelected(spell.id);
+                  setNote('');
+                }}
+              >
+                Review grant
+              </button>
+            </article>
+          ))}
+        </div>
+        {selected ? (
+          <SheetCard selected>
+            <p>
+              Confirm that the Keeper granted{' '}
+              <strong>
+                {coc7eSpellCatalog.find((x) => x.id === selected)?.name}
+              </strong>
+              .
+            </p>
+            <TextField
+              label="Keeper grant note"
+              value={note}
+              onChange={setNote}
+            />
+            <button
+              className="primary-button"
+              disabled={!note.trim()}
+              onClick={() => {
+                const spell = coc7eSpellCatalog.find((x) => x.id === selected);
+                if (!spell) return;
+                u({
+                  ...c,
+                  spells: [
+                    ...c.spells,
+                    {
+                      ...cited(spell.name),
+                      definitionId: spell.id,
+                      sourceId: coc7eSpellSource.id,
+                      category: spell.category,
+                      aliases: spell.aliases,
+                      summary: spell.summary,
+                      reference: spell.reference,
+                      sourceUrl: coc7eSpellSource.url,
+                      keeperGrantedAt: now(),
+                      keeperGrantNote: note.trim(),
+                      unresolved: false,
+                    },
+                  ],
+                });
+                setSelected(null);
+                setNote('');
+              }}
+            >
+              Keeper Granted
+            </button>
+          </SheetCard>
+        ) : null}
+        <p>
+          Index adapted from{' '}
+          <a href={coc7eSpellSource.url} target="_blank" rel="noreferrer">
+            {coc7eSpellSource.title}
+          </a>{' '}
+          by {coc7eSpellSource.attribution}, licensed {coc7eSpellSource.license}
+          .
+        </p>
+      </section>
+    </div>
   );
 }
 
@@ -521,6 +920,12 @@ export function Coc7eEditor(
   } = useLocalSheet(props, coc7eInvestigatorSchema);
   const locked = c.mode === 'play',
     d = derived(c);
+  const [equipmentCatalogOpen, setEquipmentCatalogOpen] = useState(false);
+  const [spellCatalogOpen, setSpellCatalogOpen] = useState(false);
+  const sortedSkills = useMemo(
+    () => [...c.skills].sort((a, b) => a.name.localeCompare(b.name)),
+    [c.skills],
+  );
   const add = (
     key:
       | 'contacts'
@@ -577,19 +982,90 @@ export function Coc7eEditor(
       </>
     ),
     characteristics: (
-      <SheetFieldGrid columns={4}>
-        {Object.entries(c.characteristics).map(([k, v]) => (
-          <Num
-            key={k}
-            label={`${k.toUpperCase()} · ½ ${half(v)} · ⅕ ${fifth(v)}`}
-            value={v}
-            onChange={(n) =>
-              u({ ...c, characteristics: { ...c.characteristics, [k]: n } })
-            }
-            locked={locked}
-          />
-        ))}
-      </SheetFieldGrid>
+      <div className="coc7-dashboard">
+        <div className="coc7-characteristics-grid">
+          {Object.entries(c.characteristics).map(([k, v]) => (
+            <div className="coc7-value-row" key={k}>
+              <strong>{k.toUpperCase()}</strong>
+              <label>
+                <span>Regular</span>
+                <input
+                  aria-label={`${k} regular`}
+                  type="number"
+                  min={0}
+                  max={200}
+                  value={v}
+                  readOnly={locked}
+                  onChange={(e) =>
+                    u({
+                      ...c,
+                      characteristics: {
+                        ...c.characteristics,
+                        [k]: Number(e.target.value),
+                      },
+                    })
+                  }
+                />
+              </label>
+              <label>
+                <span>Hard</span>
+                <output>{half(v)}</output>
+              </label>
+              <label>
+                <span>Extreme</span>
+                <output>{fifth(v)}</output>
+              </label>
+            </div>
+          ))}
+        </div>
+        <aside className="coc7-derived-panel">
+          <h3>Investigator summary</h3>
+          <dl>
+            <div>
+              <dt>HP</dt>
+              <dd>
+                {c.resources.hitPointsCurrent} / {d.hp}
+              </dd>
+            </div>
+            <div>
+              <dt>MP</dt>
+              <dd>
+                {c.resources.magicPointsCurrent} / {d.mp}
+              </dd>
+            </div>
+            <div>
+              <dt>Luck</dt>
+              <dd>{c.resources.luckCurrent}</dd>
+            </div>
+            <div>
+              <dt>SAN</dt>
+              <dd>
+                {c.resources.sanityCurrent} / {c.resources.sanityMaximum}
+              </dd>
+            </div>
+            <div>
+              <dt>MOV</dt>
+              <dd>{d.mov}</dd>
+            </div>
+            <div>
+              <dt>Build</dt>
+              <dd>{d.build}</dd>
+            </div>
+            <div>
+              <dt>Damage Bonus</dt>
+              <dd>{d.damageBonus}</dd>
+            </div>
+            <div>
+              <dt>Dodge</dt>
+              <dd>
+                {Math.floor(c.characteristics.dex / 2)} /{' '}
+                {Math.floor(c.characteristics.dex / 4)} /{' '}
+                {Math.floor(c.characteristics.dex / 10)}
+              </dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
     ),
     skills: (
       <>
@@ -620,111 +1096,123 @@ export function Coc7eEditor(
             Add custom Skill or specialization
           </button>
         )}
-        <div className="sheet-list">
-          {c.skills.map((s) => (
-            <SheetCard density="compact" key={s.id}>
-              <SheetFieldGrid columns={4}>
-                <SheetField label={s.name}>
-                  <input
-                    type="number"
-                    value={s.rating}
-                    readOnly={locked}
-                    onChange={(e) =>
+        <div className="coc7-skills-grid">
+          {sortedSkills.map((s) => (
+            <article className="coc7-skill-row" key={s.id}>
+              <label className="coc7-improvement">
+                <input
+                  aria-label={`${s.name} improvement check`}
+                  type="checkbox"
+                  checked={s.experienceChecked}
+                  onChange={(e) =>
+                    u({
+                      ...c,
+                      skills: c.skills.map((x) =>
+                        x.id === s.id
+                          ? { ...x, experienceChecked: e.target.checked }
+                          : x,
+                      ),
+                    })
+                  }
+                />
+              </label>
+              <div className="coc7-skill-name">
+                <strong>{s.name}</strong>
+                <small>
+                  Base {s.baseChance}%{s.page ? ` · p. ${s.page}` : ''}
+                </small>
+              </div>
+              <label>
+                <span>Regular</span>
+                <input
+                  type="number"
+                  min={0}
+                  max={999}
+                  value={s.rating}
+                  readOnly={locked}
+                  onChange={(e) =>
+                    u({
+                      ...c,
+                      skills: c.skills.map((x) =>
+                        x.id === s.id
+                          ? { ...x, rating: Number(e.target.value) }
+                          : x,
+                      ),
+                    })
+                  }
+                />
+              </label>
+              <label>
+                <span>Hard</span>
+                <output>{half(s.rating)}</output>
+              </label>
+              <label>
+                <span>Extreme</span>
+                <output>{fifth(s.rating)}</output>
+              </label>
+              {!locked && (
+                <div className="coc7-allocation-fields">
+                  <Num
+                    label="Occupation points"
+                    value={s.occupationPoints}
+                    onChange={(occupationPoints) => {
+                      const skills = c.skills.map((x) =>
+                        x.id === s.id
+                          ? {
+                              ...x,
+                              occupationPoints,
+                              rating:
+                                x.baseChance +
+                                occupationPoints +
+                                x.personalPoints,
+                            }
+                          : x,
+                      );
                       u({
                         ...c,
-                        skills: c.skills.map((x) =>
-                          x.id === s.id
-                            ? { ...x, rating: Number(e.target.value) }
-                            : x,
-                        ),
-                      })
-                    }
+                        skills,
+                        creation: {
+                          ...c.creation,
+                          occupationPointsSpent: skills.reduce(
+                            (sum, x) => sum + x.occupationPoints,
+                            0,
+                          ),
+                        },
+                      });
+                    }}
                   />
-                </SheetField>
-                {!locked && (
-                  <>
-                    <Num
-                      label="Occupation points"
-                      value={s.occupationPoints}
-                      onChange={(occupationPoints) => {
-                        const skills = c.skills.map((x) =>
-                          x.id === s.id
-                            ? {
-                                ...x,
-                                occupationPoints,
-                                rating:
-                                  x.baseChance +
-                                  occupationPoints +
-                                  x.personalPoints,
-                              }
-                            : x,
-                        );
-                        u({
-                          ...c,
-                          skills,
-                          creation: {
-                            ...c.creation,
-                            occupationPointsSpent: skills.reduce(
-                              (sum, x) => sum + x.occupationPoints,
-                              0,
-                            ),
-                          },
-                        });
-                      }}
-                    />
-                    <Num
-                      label="Personal points"
-                      value={s.personalPoints}
-                      onChange={(personalPoints) => {
-                        const skills = c.skills.map((x) =>
-                          x.id === s.id
-                            ? {
-                                ...x,
+                  <Num
+                    label="Personal points"
+                    value={s.personalPoints}
+                    onChange={(personalPoints) => {
+                      const skills = c.skills.map((x) =>
+                        x.id === s.id
+                          ? {
+                              ...x,
+                              personalPoints,
+                              rating:
+                                x.baseChance +
+                                x.occupationPoints +
                                 personalPoints,
-                                rating:
-                                  x.baseChance +
-                                  x.occupationPoints +
-                                  personalPoints,
-                              }
-                            : x,
-                        );
-                        u({
-                          ...c,
-                          skills,
-                          creation: {
-                            ...c.creation,
-                            personalPointsSpent: skills.reduce(
-                              (sum, x) => sum + x.personalPoints,
-                              0,
-                            ),
-                          },
-                        });
-                      }}
-                    />
-                  </>
-                )}
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={s.experienceChecked}
-                    onChange={(e) =>
+                            }
+                          : x,
+                      );
                       u({
                         ...c,
-                        skills: c.skills.map((x) =>
-                          x.id === s.id
-                            ? { ...x, experienceChecked: e.target.checked }
-                            : x,
-                        ),
-                      })
-                    }
-                  />{' '}
-                  Improvement check
-                </label>
-                <span>
-                  Base {s.baseChance}% · p. {s.page}
-                </span>
-              </SheetFieldGrid>
-            </SheetCard>
+                        skills,
+                        creation: {
+                          ...c.creation,
+                          personalPointsSpent: skills.reduce(
+                            (sum, x) => sum + x.personalPoints,
+                            0,
+                          ),
+                        },
+                      });
+                    }}
+                  />
+                </div>
+              )}
+            </article>
           ))}
         </div>
       </>
@@ -846,43 +1334,186 @@ export function Coc7eEditor(
             onChange={(value) => u({ ...c, cash: value })}
           />
         </SheetFieldGrid>
-        <button
-          className="secondary-button"
-          onClick={() =>
-            u({
-              ...c,
-              equipment: [
-                ...c.equipment,
-                { ...cited('New equipment'), quantity: 1, state: 'carried' },
-              ],
-            })
-          }
-        >
-          Add equipment
-        </button>
+        <SheetToolbar>
+          <button
+            className="secondary-button"
+            onClick={() => setEquipmentCatalogOpen(true)}
+          >
+            Browse 1920s equipment
+          </button>
+          <button
+            className="secondary-button"
+            onClick={() =>
+              u({
+                ...c,
+                equipment: [
+                  ...c.equipment,
+                  {
+                    ...cited('Custom equipment'),
+                    quantity: 1,
+                    state: 'carried',
+                    category: 'custom',
+                    priceLabel: '',
+                    priceMinimumCents: null,
+                    priceMaximumCents: null,
+                    pricingUnit: '',
+                    era: c.era,
+                    sourceUrl: '',
+                    unresolved: false,
+                  },
+                ],
+              })
+            }
+          >
+            Add custom equipment
+          </button>
+        </SheetToolbar>
+        <div className="coc7-record-list">
+          {c.equipment.map((item) => (
+            <article className="coc7-record-row" key={item.id}>
+              <TextField
+                label="Item"
+                value={item.name}
+                onChange={(name) =>
+                  u({
+                    ...c,
+                    equipment: c.equipment.map((x) =>
+                      x.id === item.id ? { ...x, name } : x,
+                    ),
+                  })
+                }
+              />
+              <Num
+                label="Quantity"
+                value={item.quantity}
+                onChange={(quantity) =>
+                  u({
+                    ...c,
+                    equipment: c.equipment.map((x) =>
+                      x.id === item.id ? { ...x, quantity } : x,
+                    ),
+                  })
+                }
+              />
+              <TextField
+                label="Price"
+                value={item.priceLabel}
+                onChange={(priceLabel) =>
+                  u({
+                    ...c,
+                    equipment: c.equipment.map((x) =>
+                      x.id === item.id ? { ...x, priceLabel } : x,
+                    ),
+                  })
+                }
+              />
+              <TextField
+                label="Notes"
+                value={item.notes}
+                onChange={(notes) =>
+                  u({
+                    ...c,
+                    equipment: c.equipment.map((x) =>
+                      x.id === item.id ? { ...x, notes } : x,
+                    ),
+                  })
+                }
+              />
+              <button
+                className="small-button"
+                onClick={() =>
+                  u({
+                    ...c,
+                    equipment: c.equipment.filter((x) => x.id !== item.id),
+                  })
+                }
+              >
+                Remove
+              </button>
+            </article>
+          ))}
+        </div>
+        {equipmentCatalogOpen ? (
+          <EquipmentCatalog
+            c={c}
+            u={u}
+            close={() => setEquipmentCatalogOpen(false)}
+          />
+        ) : null}
       </>
     ),
     investigation: (
-      <SheetToolbar>
-        <button
-          className="secondary-button"
-          onClick={() => add('clues', 'New clue')}
-        >
-          Add clue
-        </button>
-        <button
-          className="secondary-button"
-          onClick={() => add('contacts', 'New contact')}
-        >
-          Add contact
-        </button>
-        <button
-          className="secondary-button"
-          onClick={() => add('mythosRecords', 'Keeper-granted Mythos record')}
-        >
-          Record Keeper grant
-        </button>
-      </SheetToolbar>
+      <>
+        <SheetToolbar>
+          <button
+            className="secondary-button"
+            onClick={() => add('clues', 'New clue')}
+          >
+            Add clue
+          </button>
+          <button
+            className="secondary-button"
+            onClick={() => add('contacts', 'New contact')}
+          >
+            Add contact
+          </button>
+          <button
+            className="secondary-button"
+            onClick={() => add('mythosRecords', 'Keeper-granted Mythos record')}
+          >
+            Record Keeper grant
+          </button>
+          <button
+            className="secondary-button"
+            onClick={() => setSpellCatalogOpen(true)}
+          >
+            Browse Keeper-granted spells
+          </button>
+        </SheetToolbar>
+        <div className="coc7-record-list">
+          {c.spells.map((spell) => (
+            <article className="coc7-record-row" key={spell.id}>
+              <div>
+                <strong>{spell.name}</strong>
+                <small>
+                  {spell.category} · {spell.reference}
+                </small>
+                <p>{spell.summary}</p>
+                <small>
+                  Granted{' '}
+                  {spell.keeperGrantedAt
+                    ? new Date(spell.keeperGrantedAt).toLocaleDateString()
+                    : 'manually'}{' '}
+                  · {spell.keeperGrantNote}
+                </small>
+              </div>
+              <TextField
+                label="Notes"
+                value={spell.notes}
+                onChange={(notes) =>
+                  u({
+                    ...c,
+                    spells: c.spells.map((x) =>
+                      x.id === spell.id ? { ...x, notes } : x,
+                    ),
+                  })
+                }
+              />
+              <button
+                className="small-button"
+                onClick={() =>
+                  u({ ...c, spells: c.spells.filter((x) => x.id !== spell.id) })
+                }
+              >
+                Remove
+              </button>
+            </article>
+          ))}
+        </div>
+        {spellCatalogOpen ? (
+          <SpellCatalog c={c} u={u} close={() => setSpellCatalogOpen(false)} />
+        ) : null}
+      </>
     ),
     development: (
       <>
@@ -906,6 +1537,27 @@ export function Coc7eEditor(
     ),
     records: (
       <>
+        <SheetCard density="compact">
+          <h3>Quick reference</h3>
+          <div className="coc7-quick-reference">
+            <p>
+              <strong>Success:</strong> roll at or below Regular; Hard uses
+              half; Extreme uses one-fifth.
+            </p>
+            <p>
+              <strong>Push:</strong> explain a changed approach, then accept
+              raised stakes if the second roll fails.
+            </p>
+            <p>
+              <strong>Major wounds:</strong> compare a single injury with half
+              maximum HP; review consciousness and dying when HP reaches zero.
+            </p>
+            <p>
+              <strong>Healing:</strong> record First Aid, Medicine, and recovery
+              separately; the Keeper determines narrative consequences.
+            </p>
+          </div>
+        </SheetCard>
         <TextField
           label="Notes"
           value={c.notes}

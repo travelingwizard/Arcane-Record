@@ -6,6 +6,12 @@ import {
 } from '../src/games/call-of-cthulhu7e/catalog';
 import { createCoc7eInvestigator } from '../src/games/call-of-cthulhu7e/create-character';
 import {
+  coc7eEquipmentCatalog,
+  coc7eSpellCatalog,
+  coc7eSpellSource,
+} from '../src/games/call-of-cthulhu7e/reference-catalog';
+import {
+  appendRoll,
   ageRequirements,
   damageBuild,
   derived,
@@ -112,5 +118,76 @@ describe('Call of Cthulhu Seventh Edition', () => {
     expect(percentileLevel(96, 50)).toBe('failure');
     expect(selectPercentile(7, [8, 2], 1)).toBe(27);
     expect(selectPercentile(7, [8, 2], -1)).toBe(87);
+  });
+  it('calculates all displayed difficulty thresholds without persisted copies', () => {
+    expect(
+      [0, 1, 3, 99, 200].map((value) => [half(value), fifth(value)]),
+    ).toEqual([
+      [0, 0],
+      [0, 0],
+      [1, 0],
+      [49, 19],
+      [100, 40],
+    ]);
+  });
+  it('keeps the newest bounded rolls and preserves continuous history', () => {
+    const base = createCoc7eInvestigator();
+    const roll = (id: string) => ({
+      id,
+      kind: 'skill' as const,
+      label: id,
+      goal: '',
+      target: 50,
+      difficulty: 'regular' as const,
+      bonusPenalty: 0,
+      ones: 1,
+      tens: [2],
+      selectedTotal: 21,
+      level: 'hard' as const,
+      pushed: false,
+      pushedFromRollId: null,
+      pushJustification: '',
+      context: '',
+      createdAt: new Date().toISOString(),
+    });
+    const history = Array.from({ length: 10 }, () => roll(crypto.randomUUID()));
+    const newest = roll(crypto.randomUUID());
+    expect(appendRoll(history, newest, base.rollerSettings)).toHaveLength(10);
+    expect(
+      appendRoll(history, newest, {
+        historyMode: 'continuous',
+        historyLimit: 10,
+      }),
+    ).toHaveLength(11);
+  });
+  it('ships unique attributed equipment and Keeper-gated spell indexes', () => {
+    expect(new Set(coc7eEquipmentCatalog.map((x) => x.id)).size).toBe(
+      coc7eEquipmentCatalog.length,
+    );
+    expect(coc7eEquipmentCatalog.length).toBeGreaterThan(60);
+    expect(
+      coc7eEquipmentCatalog.every((x) => x.era === '1920s' && x.sourceUrl),
+    ).toBe(true);
+    expect(new Set(coc7eSpellCatalog.map((x) => x.id)).size).toBe(
+      coc7eSpellCatalog.length,
+    );
+    expect(coc7eSpellCatalog.length).toBeGreaterThan(40);
+    expect(coc7eSpellSource.license).toBe('CC BY-NC-SA 4.0');
+  });
+  it('migrates v1 equipment and roll history without truncation', () => {
+    const legacy = structuredClone(createCoc7eInvestigator()) as Record<
+      string,
+      unknown
+    >;
+    legacy.schemaVersion = 1;
+    delete legacy.spells;
+    delete legacy.rollerSettings;
+    const parsed = coc7eInvestigatorSchema.parse(legacy);
+    expect(parsed.schemaVersion).toBe(2);
+    expect(parsed.rollerSettings).toEqual({
+      historyMode: 'bounded',
+      historyLimit: 10,
+    });
+    expect(parsed.spells).toEqual([]);
   });
 });

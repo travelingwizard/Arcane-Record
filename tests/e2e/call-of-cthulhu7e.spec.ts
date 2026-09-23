@@ -45,3 +45,24 @@ test('opens a strict 7E blank investigator at 320px without overflow', async ({
     ),
   ).toBe(true);
 });
+
+test('uses the equipment browser and bounded roll ledger', async ({ page }) => {
+  await page.goto('/create/call-of-cthulhu-7e');
+  await page.getByRole('button', { name: 'Choose Investigator' }).click();
+  await page.getByRole('button', { name: 'Open Blank Sheet' }).click();
+
+  await page.getByRole('button', { name: 'Browse 1920s equipment' }).click();
+  await expect(
+    page.getByRole('heading', { name: '1920s equipment' }),
+  ).toBeVisible();
+  await page.getByLabel('Search equipment').fill('typewriter');
+  await page.getByRole('button', { name: 'Add', exact: true }).click();
+  await page.getByRole('button', { name: 'Close' }).click();
+  await expect(page.getByRole('textbox', { name: 'Item' })).toHaveValue(
+    'Remington Typewriter',
+  );
+
+  await page.getByRole('button', { name: 'Roll d100' }).click();
+  await expect(page.locator('.coc7-roll-ledger li')).toHaveCount(1);
+  await expect(page.getByText('Newest 10 rolls')).toBeVisible();
+});
