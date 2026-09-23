@@ -4,9 +4,8 @@ import type { GameSystemRegistry } from '../games/game-system-registry';
 import type { StoredCharacterRepository } from '../storage/stored-character-repository';
 import type { ModuleRegistry } from '../modules/registry/module-registry';
 import { ARCANE_MODULE_SYSTEM_ID } from '../storage/stored-character';
-import { MAGE20_MODULE_ID } from '../games/mage20/module/id-map';
-import { EXALTED1E_MODULE_ID } from '../games/exalted1e/module/id-map';
 import { prepareImportedRecord } from '../features/import-export/character-files';
+import { GameChooser } from '../features/game-chooser/GameChooser';
 
 export function CreateCharacterPage({
   systemId,
@@ -34,13 +33,6 @@ export function CreateCharacterPage({
   const importInputRef = useRef<HTMLInputElement>(null);
   const system = systemId ? registry.get(systemId) : undefined;
   const family = systemId ? registry.getFamily(systemId) : undefined;
-  const localModules =
-    moduleRegistry
-      ?.list()
-      .filter(
-        ({ moduleId }) =>
-          moduleId !== MAGE20_MODULE_ID && moduleId !== EXALTED1E_MODULE_ID,
-      ) ?? [];
 
   if (moduleSelection) {
     const module = moduleRegistry
@@ -127,70 +119,14 @@ export function CreateCharacterPage({
         <p className="eyebrow">Create character · Step 1 of 2</p>
         <h1>Choose a game</h1>
         <p>Select the game system that defines this character’s sheet.</p>
-        <div className="game-system-grid">
-          {registry.listFamilies().map((definition) => (
-            <article className="game-system-card" key={definition.id}>
-              <p className="eyebrow">Available game family</p>
-              <h2>{definition.name}</h2>
-              <p>{definition.description}</p>
-              <button
-                className="primary-button"
-                onClick={() => onNavigate(`/create/${definition.id}`)}
-              >
-                Choose {definition.shortName}
-              </button>
-            </article>
-          ))}
-          {registry
-            .list()
-            .filter(
-              (definition) =>
-                !definition.parentSystemId && !definition.familyId,
-            )
-            .map((definition) => (
-              <article className="game-system-card" key={definition.id}>
-                <p className="eyebrow">Available game</p>
-                <h2>{definition.name}</h2>
-                <p>{definition.description}</p>
-                <button
-                  className="primary-button"
-                  onClick={() => {
-                    setChosenSheet('');
-                    onNavigate(`/create/${definition.id}`);
-                  }}
-                >
-                  Choose {definition.shortName}
-                </button>
-              </article>
-            ))}
-          {localModules.flatMap((module) =>
-            module.sheetTemplates.map((template) => {
-              const node = module.gameNodes.find(
-                ({ id }) => id === template.gameNodeId,
-              );
-              return (
-                <article
-                  className="game-system-card"
-                  key={`${module.moduleId}-${template.id}`}
-                >
-                  <p className="eyebrow">Installed local module</p>
-                  <h2>{node?.name ?? module.name}</h2>
-                  <p>{template.description ?? module.description}</p>
-                  <button
-                    className="primary-button"
-                    onClick={() =>
-                      onNavigate(
-                        `/create-module/${encodeURIComponent(module.moduleId)}/${encodeURIComponent(template.gameNodeId)}/${encodeURIComponent(template.id)}`,
-                      )
-                    }
-                  >
-                    Choose {node?.name ?? module.name}
-                  </button>
-                </article>
-              );
-            }),
-          )}
-        </div>
+        <GameChooser
+          registry={registry}
+          moduleRegistry={moduleRegistry}
+          onNavigate={(path) => {
+            setChosenSheet('');
+            onNavigate(path);
+          }}
+        />
       </main>
     );
   }

@@ -148,6 +148,141 @@
   box-shadow: var(--shadow-card);
 }
 
+.game-chooser-controls {
+  margin-top: 2rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  display: grid;
+  grid-template-columns: minmax(16rem, 2fr) repeat(2, minmax(10rem, 1fr)) auto;
+  align-items: end;
+  gap: 1rem;
+  border: 1px solid var(--rule-light);
+  border-radius: var(--radius);
+  background: var(--paper-light);
+  box-shadow: var(--shadow-card);
+}
+
+.game-chooser-controls > button {
+  min-width: 11rem;
+}
+
+.game-chooser-search__input {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
+.game-chooser-search__input > input {
+  min-width: 0;
+  flex: 1;
+}
+
+.game-chooser-search__input > button {
+  min-width: auto;
+  min-height: 44px;
+  padding-inline: 0.9rem;
+}
+
+.game-chooser-results {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.game-chooser-results > p {
+  margin: 0;
+  color: var(--muted-ink);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.game-chooser-group {
+  margin-top: 2rem;
+}
+
+.game-chooser-group > .game-system-grid {
+  margin-top: 1rem;
+}
+
+.game-chooser-group__title {
+  margin: 0;
+  padding-bottom: 0.55rem;
+  border-bottom: 3px double var(--rule);
+}
+
+.game-chooser-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.game-chooser-card > :is(h2, p) {
+  margin: 0;
+}
+
+.game-chooser-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.game-chooser-card__matches {
+  color: var(--muted-ink);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+}
+
+.game-chooser-card__actions {
+  margin-top: auto;
+  padding-top: 0.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.game-chooser-card__actions > button {
+  flex: 1 1 9rem;
+}
+
+.game-chooser-empty {
+  margin-top: 2rem;
+}
+
+@media (max-width: 68rem) {
+  .game-chooser-controls {
+    grid-template-columns: minmax(14rem, 2fr) repeat(2, minmax(9rem, 1fr));
+  }
+
+  .game-chooser-controls > button {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 48rem) {
+  .game-chooser-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .game-chooser-controls > button {
+    width: 100%;
+  }
+
+  .game-chooser-results {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 24rem) {
+  .game-chooser-search__input {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
 .global-settings {
   margin: 1.5rem 0 2rem;
   display: grid;
