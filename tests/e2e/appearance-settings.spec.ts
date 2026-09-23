@@ -23,6 +23,7 @@ test('applies and restores appearance preferences without changing character dat
     'data-theme',
     'technocratic-dossier',
   );
+  await expect(page.locator('html')).toHaveCSS('--theme-accent', '#55d9ef');
   await expect(page.locator('html')).toHaveAttribute(
     'data-overlay',
     'virtual-adepts',
@@ -45,6 +46,14 @@ test('applies and restores appearance preferences without changing character dat
   await expect(
     page.getByRole('radio', { name: /Technocratic Dossier/ }),
   ).toBeChecked();
+  await expect(page.locator('html')).toHaveCSS('--theme-accent', '#55d9ef');
+
+  await page.getByRole('button', { name: '← Character library' }).click();
+  await expect(page).toHaveURL(/\/$/);
+  await expect(page.locator('html')).toHaveCSS('--theme-accent', '#55d9ef');
+  await page.getByRole('button', { name: 'Create Character' }).click();
+  await expect(page).toHaveURL(/\/create$/);
+  await expect(page.locator('html')).toHaveCSS('--theme-accent', '#55d9ef');
 
   const documentWidth = await page.evaluate(() => ({
     client: document.documentElement.clientWidth,

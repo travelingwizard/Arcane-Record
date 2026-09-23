@@ -23,26 +23,11 @@ export function SettingsPage({ onBack }: { onBack: () => void }) {
         className="global-settings"
         aria-labelledby="global-appearance-title"
       >
-        <h2 id="global-appearance-title">Global appearance</h2>
+        <h2 id="global-appearance-title">Global accessibility</h2>
         <p>
-          Controls the neutral library, creation flow, and shared app pages.
+          The selected Arcane Record theme below also applies to the character
+          library, game chooser, and shared app pages.
         </p>
-        <label>
-          <span>Color appearance</span>
-          <select
-            value={global.appearance}
-            onChange={(event) =>
-              update({
-                ...global,
-                appearance: event.target.value as typeof global.appearance,
-              })
-            }
-          >
-            <option value="system">System</option>
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-          </select>
-        </label>
         <label className="appearance-switch">
           <input
             type="checkbox"
@@ -61,7 +46,7 @@ export function SettingsPage({ onBack }: { onBack: () => void }) {
           className="small-button small-button--quiet"
           onClick={() => update(defaultGlobalPreferences)}
         >
-          Reset global preferences
+          Reset global accessibility
         </button>
       </section>
       <AppearancePanel gameLabel="all character sheets" />
