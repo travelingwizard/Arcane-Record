@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { createBlankExaltedCharacter } from '../../src/games/exalted1e/create-character';
 import {
+  abyssalAbilityGroups,
   defaultExaltedSectionGroupOrder,
   dragonBloodedAbilityGroups,
   solarAbilityGroups,
@@ -40,11 +41,38 @@ describe('Exalted First Edition foundation', () => {
   );
 
   it('uses all 25 Abilities once in each sheet grouping', () => {
-    for (const groups of [solarAbilityGroups, dragonBloodedAbilityGroups]) {
+    for (const groups of [
+      solarAbilityGroups,
+      dragonBloodedAbilityGroups,
+      abyssalAbilityGroups,
+    ]) {
       const abilityIds = groups.flatMap((group) => group.abilityIds);
       expect(abilityIds).toHaveLength(25);
       expect(new Set(abilityIds)).toHaveLength(25);
     }
+  });
+
+  it("mirrors each Abyssal Caste's Abilities onto its opposed Solar Caste, positionally", () => {
+    // Exalted: The Abyssals states each Abyssal Caste mirrors its opposed
+    // Solar Caste's Ability list one-for-one: Dawn<->Dusk, Zenith<->Midnight,
+    // Twilight<->Daybreak, Night<->Day, Eclipse<->Moonshadow.
+    expect(abyssalAbilityGroups.map(({ id }) => id)).toEqual([
+      'dusk',
+      'midnight',
+      'daybreak',
+      'day',
+      'moonshadow',
+    ]);
+    expect(abyssalAbilityGroups.map(({ label }) => label)).toEqual([
+      'Dusk',
+      'Midnight',
+      'Daybreak',
+      'Day',
+      'Moonshadow',
+    ]);
+    abyssalAbilityGroups.forEach((group, index) => {
+      expect(group.abilityIds).toEqual(solarAbilityGroups[index]!.abilityIds);
+    });
   });
 
   it('rejects invalid sheet types and non-integer ratings', () => {

@@ -1,33 +1,70 @@
 import { describe, expect, it } from 'vitest';
 import {
+  abyssalOnlyTraits,
   dragonBloodedTraitById,
   dragonBloodedTraitIds,
   dragonBloodedTraits,
   excludedDragonBloodedTraitNames,
   getDragonBloodedTraitCostPolicy,
+  getSharedTraitCostPolicy,
   isLegalDragonBloodedTraitCost,
+  isLegalSharedTraitCost,
   matchesDragonBloodedTraitSearch,
+  siderealOnlyTraits,
 } from '../../src/games/exalted1e/reference/dragonblooded-merits-flaws';
+
+// This catalog is now shared between Dragon-Blooded and Abyssal (see
+// `dragonblooded-merits-flaws.ts`); `dragonBloodedTraits` therefore covers
+// every shared entry, while this filtered subset is the one that actually
+// applies to Dragon-Blooded characters.
+const dragonBloodedOnlyTraits = dragonBloodedTraits.filter((definition) =>
+  definition.appliesTo.includes('dragon-blooded'),
+);
 
 describe('Dragon-Blooded Merits and Flaws catalog', () => {
   it('loads all selectable entries with unique stable IDs', () => {
-    expect(dragonBloodedTraits).toHaveLength(80);
-    expect(dragonBloodedTraitIds.size).toBe(80);
+    expect(dragonBloodedTraits).toHaveLength(89);
+    expect(dragonBloodedTraitIds.size).toBe(89);
+    expect(dragonBloodedOnlyTraits).toHaveLength(80);
     expect(
-      dragonBloodedTraits.filter(({ kind }) => kind === 'merit'),
+      dragonBloodedOnlyTraits.filter(({ kind }) => kind === 'merit'),
     ).toHaveLength(40);
     expect(
-      dragonBloodedTraits.filter(({ kind }) => kind === 'flaw'),
+      dragonBloodedOnlyTraits.filter(({ kind }) => kind === 'flaw'),
     ).toHaveLength(40);
   });
 
-  it('keeps every Dragon-Blooded exclusion out of the selectable catalog', () => {
-    expect(excludedDragonBloodedTraitNames.size).toBe(10);
-    const selectableNames = new Set(
-      dragonBloodedTraits.map(({ name }) => name),
+  it('keeps every Dragon-Blooded exclusion out of the Dragon-Blooded-applicable subset', () => {
+    // 5 of the original 10 Dragon-Blooded exclusions are now present in the
+    // shared catalog for Abyssal only (see below); the remaining 5
+    // (Terrestrial Bloodline, Limited Forms, Known Anathema, Chimera,
+    // Greater Curse) are still excluded from the catalog entirely.
+    expect(excludedDragonBloodedTraitNames.size).toBe(5);
+    const dragonBloodedApplicableNames = new Set(
+      dragonBloodedOnlyTraits.map(({ name }) => name),
     );
     for (const name of excludedDragonBloodedTraitNames) {
-      expect(selectableNames.has(name)).toBe(false);
+      expect(dragonBloodedApplicableNames.has(name)).toBe(false);
+    }
+  });
+
+  it('adds Abyssal-only entries for Players Guide rows restricted away from Dragon-Blooded', () => {
+    const namesNowAbyssalOnly = [
+      "Taint's Warning",
+      'Eternal Vow',
+      'Permanent Caste Mark',
+      'Death-Taint',
+      'Throwback',
+    ];
+    for (const name of namesNowAbyssalOnly) {
+      const entries = dragonBloodedTraits.filter(
+        (definition) => definition.name === name,
+      );
+      expect(entries.length).toBeGreaterThan(0);
+      for (const entry of entries) {
+        expect(entry.appliesTo).toContain('abyssal');
+        expect(entry.appliesTo).not.toContain('dragon-blooded');
+      }
     }
   });
 
@@ -74,5 +111,151 @@ describe('Dragon-Blooded Merits and Flaws catalog', () => {
     expect(isLegalDragonBloodedTraitCost(meritMutation, 2)).toBe(false);
     expect(isLegalDragonBloodedTraitCost(flawMutation, 2)).toBe(true);
     expect(isLegalDragonBloodedTraitCost(flawMutation, 1)).toBe(false);
+  });
+});
+
+describe('abyssalOnlyTraits (shared catalog subset for Abyssal)', () => {
+  it('includes only entries whose appliesTo covers Abyssal', () => {
+    expect(abyssalOnlyTraits.length).toBeGreaterThan(0);
+    for (const definition of abyssalOnlyTraits) {
+      expect(definition.appliesTo).toContain('abyssal');
+    }
+  });
+
+  it('includes the Abyssal-only entries excluded from dragonBloodedOnlyTraits', () => {
+    const abyssalOnlyNames = new Set(abyssalOnlyTraits.map(({ name }) => name));
+    for (const name of [
+      "Taint's Warning",
+      'Eternal Vow',
+      'Permanent Caste Mark',
+      'Death-Taint',
+      'Throwback',
+    ]) {
+      expect(abyssalOnlyNames.has(name)).toBe(true);
+    }
+  });
+
+  it('excludes Dragon-Blooded-only entries that do not apply to Abyssal (Prodigy)', () => {
+    expect(
+      abyssalOnlyTraits.some((definition) => definition.id === 'prodigy'),
+    ).toBe(false);
+    expect(
+      dragonBloodedTraits
+        .find((definition) => definition.id === 'prodigy')
+        ?.appliesTo.includes('abyssal'),
+    ).toBe(false);
+  });
+});
+
+describe('getSharedTraitCostPolicy', () => {
+  it('returns the exact same policy as getDragonBloodedTraitCostPolicy for Dragon-Blooded', () => {
+    for (const definition of dragonBloodedTraits) {
+      expect(getSharedTraitCostPolicy(definition, 'dragon-blooded')).toEqual(
+        getDragonBloodedTraitCostPolicy(definition),
+      );
+    }
+  });
+
+  it("narrows Destiny's options to the Abyssal cap (1-2, not 1-5)", () => {
+    const destiny = dragonBloodedTraitById.get('destiny')!;
+    expect(getDragonBloodedTraitCostPolicy(destiny)).toEqual({
+      kind: 'options',
+      options: [1, 2, 3, 4, 5],
+    });
+    expect(getSharedTraitCostPolicy(destiny, 'abyssal')).toEqual({
+      kind: 'options',
+      options: [1, 2],
+    });
+    const abyssalPolicy = getSharedTraitCostPolicy(destiny, 'abyssal');
+    if (abyssalPolicy.kind === 'options') {
+      for (const option of abyssalPolicy.options) {
+        expect(isLegalSharedTraitCost(destiny, option, 'abyssal')).toBe(true);
+      }
+    }
+  });
+
+  it('leaves non-overridden entries unchanged for Abyssal', () => {
+    const commonSense = dragonBloodedTraitById.get('common-sense')!;
+    expect(getSharedTraitCostPolicy(commonSense, 'abyssal')).toEqual(
+      getDragonBloodedTraitCostPolicy(commonSense),
+    );
+  });
+
+  it("narrows Destiny's options to the same 1-2 cap for Sidereal", () => {
+    const destiny = dragonBloodedTraitById.get('destiny')!;
+    expect(getSharedTraitCostPolicy(destiny, 'sidereal')).toEqual({
+      kind: 'options',
+      options: [1, 2],
+    });
+  });
+
+  it("replaces Permanent Caste Mark's options entirely for Sidereal (flat 1, not the shared flat 2)", () => {
+    const permanentCasteMark = dragonBloodedTraitById.get(
+      'permanent-caste-mark',
+    )!;
+    expect(getDragonBloodedTraitCostPolicy(permanentCasteMark)).toEqual({
+      kind: 'options',
+      options: [2],
+    });
+    expect(getSharedTraitCostPolicy(permanentCasteMark, 'sidereal')).toEqual({
+      kind: 'options',
+      options: [1],
+    });
+    expect(isLegalSharedTraitCost(permanentCasteMark, 1, 'sidereal')).toBe(
+      true,
+    );
+    expect(isLegalSharedTraitCost(permanentCasteMark, 2, 'sidereal')).toBe(
+      false,
+    );
+    expect(isLegalSharedTraitCost(permanentCasteMark, 2, 'abyssal')).toBe(true);
+  });
+
+  it('leaves non-overridden entries unchanged for Sidereal', () => {
+    const commonSense = dragonBloodedTraitById.get('common-sense')!;
+    expect(getSharedTraitCostPolicy(commonSense, 'sidereal')).toEqual(
+      getDragonBloodedTraitCostPolicy(commonSense),
+    );
+  });
+});
+
+describe('siderealOnlyTraits (shared catalog subset for Sidereal)', () => {
+  it('includes only entries whose appliesTo covers Sidereal', () => {
+    expect(siderealOnlyTraits.length).toBeGreaterThan(0);
+    for (const definition of siderealOnlyTraits) {
+      expect(definition.appliesTo).toContain('sidereal');
+    }
+  });
+
+  it('includes the three wholly new Sidereal-only entries', () => {
+    const siderealOnlyIds = new Set(siderealOnlyTraits.map(({ id }) => id));
+    for (const id of [
+      'terrestrial-bloodline-sidereal',
+      'greater-curse-sidereal',
+      'known-anathema-sidereal',
+    ]) {
+      expect(siderealOnlyIds.has(id)).toBe(true);
+    }
+  });
+
+  it('excludes Dragon-Blooded-only entries that do not apply to Sidereal (Terrestrial Bloodline)', () => {
+    expect(
+      siderealOnlyTraits.some(
+        (definition) => definition.id === 'terrestrial-bloodline',
+      ),
+    ).toBe(false);
+  });
+
+  it('includes a broadly-shared entry that also applies to Dragon-Blooded and Abyssal (Selective Conception)', () => {
+    const selectiveConception = dragonBloodedTraitById.get(
+      'selective-conception',
+    )!;
+    expect(selectiveConception.appliesTo).toEqual(
+      expect.arrayContaining(['dragon-blooded', 'abyssal', 'sidereal']),
+    );
+    expect(
+      siderealOnlyTraits.some(
+        (definition) => definition.id === 'selective-conception',
+      ),
+    ).toBe(true);
   });
 });

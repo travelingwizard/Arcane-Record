@@ -24,6 +24,22 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   await expect(
     page.getByRole('heading', { name: 'Dragon-Blooded' }),
   ).toBeVisible();
+  // The five planned-but-uncertified splats must appear as locked variant
+  // cards on this same screen (see `exalted1eDefinition.variants`, gated by
+  // `unavailableRequirement`), never implying they are creatable yet.
+  for (const family of [
+    'Lunar Exalted',
+    'Abyssal Exalted',
+    'Sidereal Exalted',
+    'Alchemical Exalted',
+    'Fair Folk',
+  ]) {
+    await expect(page.getByRole('heading', { name: family })).toBeVisible();
+  }
+  await expect(page.getByText('Unavailable').first()).toBeVisible();
+  await expect(
+    page.getByRole('button', { name: 'Source verification required' }).first(),
+  ).toBeDisabled();
 
   await page.getByRole('button', { name: 'Choose Solar' }).click();
   await expect(page).toHaveURL(/\/characters\//);

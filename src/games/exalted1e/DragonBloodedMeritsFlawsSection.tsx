@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import type { Exalted1eCharacter } from './schema';
 import {
-  dragonBloodedTraits,
+  dragonBloodedOnlyTraits,
   exaltedTraitCategories,
   getDragonBloodedTraitCostPolicy,
   getDragonBloodedTraitRepeatLimit,
@@ -86,7 +86,7 @@ export function ExaltedMeritsFlawsSection({
   onChange,
   derangements,
   onDerangementsChange,
-  definitions = dragonBloodedTraits,
+  definitions = dragonBloodedOnlyTraits,
   getCostPolicy = getDragonBloodedTraitCostPolicy,
   getRepeatLimit = getDragonBloodedTraitRepeatLimit,
   matchesSearch = matchesDragonBloodedTraitSearch,

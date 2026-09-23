@@ -1,24 +1,36 @@
 import { z } from 'zod';
 import {
+  abyssalBackgrounds,
   defaultExaltedSectionGroupOrder,
   dragonBloodedBackgrounds,
   exaltedAbilities,
   exaltedSectionGroupIds,
   exaltedSheetTypes,
   exaltedVirtues,
+  siderealBackgrounds,
   solarBackgrounds,
   type ExaltedSectionGroupId,
+  type ExaltedSheetType,
 } from './definitions';
 import {
-  dragonBloodedTraitById,
-  getDragonBloodedTraitRepeatLimit,
-  isLegalDragonBloodedTraitCost,
+  getSharedTraitRepeatLimit,
+  isLegalSharedTraitCost,
+  sharedTraitById,
   type ExaltedTraitKind,
 } from './reference/dragonblooded-merits-flaws';
 import {
   dragonBloodedCharmIds,
   dragonBloodedSpellIds,
+  sharedSorcerySpellIds,
 } from './reference/dragonblooded-powers';
+import {
+  abyssalCharmIds,
+  abyssalNecromancySpellIds,
+} from './reference/abyssal-powers';
+import {
+  siderealCharmIds,
+  siderealSorcerySpellIds,
+} from './reference/sidereal-powers';
 import { solarCharmIds } from './reference/solar-charms';
 import {
   getSolarTraitRepeatLimit,
@@ -76,6 +88,12 @@ export const exaltedAbilityIdSchema = z.enum(
   exaltedAbilities.map((ability) => ability.id),
 );
 
+// A bare string, not an enum -- matches how `powers.charms[].definitionId`/
+// `powers.spells[].definitionId` are already validated: real restriction
+// happens per-sheetType in this schema's own `superRefine` below (via
+// `backgroundIdsBySheetType`), not here. This also means adding a new
+// family's Backgrounds later never requires touching this schema, only
+// that family's own `backgroundIdsBySheetType` entry.
 export const exaltedBackgroundIdSchema = z.string().min(1).max(200);
 
 const solarBackgroundIds = new Set<string>(
@@ -84,6 +102,43 @@ const solarBackgroundIds = new Set<string>(
 const dragonBloodedBackgroundIds = new Set<string>(
   dragonBloodedBackgrounds.map((background) => background.id),
 );
+const abyssalBackgroundIds = new Set<string>(
+  abyssalBackgrounds.map((background) => background.id),
+);
+const siderealBackgroundIds = new Set<string>(
+  siderealBackgrounds.map((background) => background.id),
+);
+/**
+ * Every `ExaltedSheetType` (now all seven planned families, since
+ * `exaltedSheetTypes` widened to re-export `exaltedCharacterTypes` from
+ * `profiles.ts`) gets a real, explicit entry here -- an empty `Set()` for
+ * Lunar/Alchemical/Fair Folk, which have no promoted Backgrounds catalog
+ * yet, rather than a `null`/unrestricted fallback. This keeps the
+ * `superRefine` check below correctly rejecting any Background selection
+ * for those three families, instead of silently accepting arbitrary
+ * strings, matching the same explicit-empty-set precedent already used
+ * for `charmIdsBySheetType`.
+ */
+const backgroundIdsBySheetType: Record<ExaltedSheetType, Set<string>> = {
+  solar: solarBackgroundIds,
+  'dragon-blooded': dragonBloodedBackgroundIds,
+  abyssal: abyssalBackgroundIds,
+  sidereal: siderealBackgroundIds,
+  lunar: new Set<string>(),
+  alchemical: new Set<string>(),
+  'fair-folk': new Set<string>(),
+};
+
+/** Human-readable label used in validation messages for each sheet type. */
+const sheetTypeLabels: Record<ExaltedSheetType, string> = {
+  solar: 'Solar',
+  'dragon-blooded': 'Dragon-Blooded',
+  abyssal: 'Abyssal',
+  sidereal: 'Sidereal',
+  lunar: 'Lunar',
+  alchemical: 'Alchemical',
+  'fair-folk': 'Fair Folk',
+};
 
 const selectedTraitSchema = z.object({
   id: z.string().uuid(),
@@ -358,6 +413,27 @@ export const exalted1eCharacterSchema = z
         }
       });
     }
+    // Every `ExaltedSheetType` gets a real, explicit entry -- an empty
+    // `Set()` for Lunar/Alchemical/Fair Folk, which have no promoted
+    // Charms catalog yet, exactly like `backgroundIdsBySheetType` above.
+    // A blank character of any of these three types validates cleanly
+    // (no Charms/Combos selected); any non-empty selection is explicitly
+    // rejected as unknown rather than silently accepted.
+    const charmIdsBySheetType: Record<ExaltedSheetType, ReadonlySet<string>> = {
+      solar: solarCharmIds,
+      'dragon-blooded': dragonBloodedCharmIds,
+      abyssal: abyssalCharmIds,
+      // Phase 2b: 193 Chapter Five Charms -- 152 Caste-and-Auspicious-
+      // Ability Charms (25 trees) plus the 41 Charms of the three named
+      // secret Martial Arts styles (Charcoal March of Spiders,
+      // Prismatic Arrangement of Creation, Citrine Poxes of Contagion).
+      // The Astrology/Colleges system remains out of scope for this
+      // phase; see `siderealCharmIds` in `./reference/sidereal-powers`.
+      sidereal: siderealCharmIds,
+      lunar: new Set<string>(),
+      alchemical: new Set<string>(),
+      'fair-folk': new Set<string>(),
+    };
     character.combos.forEach((combo, index) => {
       if (new Set(combo.charmIds).size !== combo.charmIds.length) {
         context.addIssue({
@@ -366,39 +442,20 @@ export const exalted1eCharacterSchema = z
           path: ['combos', index, 'charmIds'],
         });
       }
-      if (character.sheetType === 'dragon-blooded') {
-        combo.charmIds.forEach((charmId) => {
-          if (!dragonBloodedCharmIds.has(charmId)) {
-            context.addIssue({
-              code: 'custom',
-              message: 'Unknown Dragon-Blooded Charm in Combo.',
-              path: ['combos', index, 'charmIds'],
-            });
-          }
-        });
-      } else if (character.sheetType === 'solar') {
-        combo.charmIds.forEach((charmId) => {
-          if (!solarCharmIds.has(charmId)) {
-            context.addIssue({
-              code: 'custom',
-              message: 'Unknown Solar Charm in Combo.',
-              path: ['combos', index, 'charmIds'],
-            });
-          }
-        });
-      }
+      const allowedComboCharmIds = charmIdsBySheetType[character.sheetType];
+      combo.charmIds.forEach((charmId) => {
+        if (!allowedComboCharmIds.has(charmId)) {
+          context.addIssue({
+            code: 'custom',
+            message: `Unknown ${sheetTypeLabels[character.sheetType]} Charm in Combo.`,
+            path: ['combos', index, 'charmIds'],
+          });
+        }
+      });
     });
-    const allowedBackgroundIds =
-      character.sheetType === 'solar'
-        ? solarBackgroundIds
-        : character.sheetType === 'dragon-blooded'
-          ? dragonBloodedBackgroundIds
-          : null;
+    const allowedBackgroundIds = backgroundIdsBySheetType[character.sheetType];
     character.backgrounds.forEach((background, index) => {
-      if (
-        allowedBackgroundIds &&
-        !allowedBackgroundIds.has(background.definitionId)
-      ) {
+      if (!allowedBackgroundIds.has(background.definitionId)) {
         context.addIssue({
           code: 'custom',
           message: `Background is not available to ${character.sheetType} sheets.`,
@@ -406,33 +463,93 @@ export const exalted1eCharacterSchema = z
         });
       }
     });
-    const allowedCharmIds =
-      character.sheetType === 'solar'
-        ? solarCharmIds
-        : character.sheetType === 'dragon-blooded'
-          ? dragonBloodedCharmIds
-          : null;
+    const allowedCharmIds = charmIdsBySheetType[character.sheetType];
     character.powers.charms.forEach((selection, index) => {
-      if (allowedCharmIds && !allowedCharmIds.has(selection.definitionId)) {
+      if (!allowedCharmIds.has(selection.definitionId)) {
         context.addIssue({
           code: 'custom',
-          message: `Unknown ${character.sheetType === 'solar' ? 'Solar' : 'Dragon-Blooded'} Charm definition.`,
+          message: `Unknown ${sheetTypeLabels[character.sheetType]} Charm definition.`,
           path: ['powers', 'charms', index, 'definitionId'],
         });
       }
     });
     character.powers.spells.forEach((selection, index) => {
-      if (
-        character.sheetType === 'solar' ||
-        (character.sheetType === 'dragon-blooded' &&
-          !dragonBloodedSpellIds.has(selection.definitionId))
-      ) {
+      if (character.sheetType === 'solar') {
         context.addIssue({
           code: 'custom',
           message:
-            character.sheetType === 'solar'
-              ? 'Solar spell definitions are not available in the supplied Charm handbook.'
-              : 'Unknown Dragon-Blooded spell definition.',
+            'Solar spell definitions are not available in the supplied Charm handbook.',
+          path: ['powers', 'spells', index, 'definitionId'],
+        });
+        return;
+      }
+      if (character.sheetType === 'abyssal') {
+        // Abyssal can legally select either a Necromancy spell (their
+        // signature magic) or a Sorcery spell (Terrestrial or Celestial
+        // Circle, via their own Terrestrial/Celestial Circle Sorcery
+        // Charms -- see Exalted: The Abyssals' Daybreak Caste Occult
+        // tree). A single character can plausibly have both magic
+        // systems, since they share this one `powers.spells` array; this
+        // only checks that the id is legal in at least one catalog, not
+        // which system it belongs to.
+        if (
+          !abyssalNecromancySpellIds.has(selection.definitionId) &&
+          !sharedSorcerySpellIds.has(selection.definitionId)
+        ) {
+          context.addIssue({
+            code: 'custom',
+            message:
+              'Unknown Abyssal spell definition (not a valid Necromancy or Sorcery spell).',
+            path: ['powers', 'spells', index, 'definitionId'],
+          });
+        }
+        return;
+      }
+      if (character.sheetType === 'sidereal') {
+        // Phase 2b: Sidereal's 73 promoted Sorcery spells (all of them
+        // already present, name-for-name, in the shared Dragon-Blooded
+        // Sorcery catalog -- see `siderealSorcerySpellIds` in
+        // `./reference/sidereal-powers`). The Astrology/Colleges system
+        // remains out of scope for this phase. Without this branch,
+        // Sidereal would silently fall through to the Dragon-Blooded
+        // check below and wrongly accept every Dragon-Blooded Terrestrial
+        // spell id (including the 13 unreviewed Savant and Sorcerer rows
+        // this phase deliberately excluded) as if it were legal for
+        // Sidereal.
+        if (!siderealSorcerySpellIds.has(selection.definitionId)) {
+          context.addIssue({
+            code: 'custom',
+            message: 'Unknown Sidereal spell definition.',
+            path: ['powers', 'spells', index, 'definitionId'],
+          });
+        }
+        return;
+      }
+      if (
+        character.sheetType === 'lunar' ||
+        character.sheetType === 'alchemical' ||
+        character.sheetType === 'fair-folk'
+      ) {
+        // PLACEHOLDER pending each family's own spell/power-catalog phase.
+        // Without this branch, these three would silently fall through to
+        // the Dragon-Blooded check below and wrongly accept Dragon-Blooded
+        // Terrestrial spell ids as if they were legal -- the exact bug
+        // class already found and fixed for Sidereal before its own
+        // catalog existed (see git history). Alchemical in particular has
+        // no Sorcery/spell system at all per the source rules, so this
+        // rejection is expected to remain permanent for that family, not
+        // just a temporary placeholder.
+        context.addIssue({
+          code: 'custom',
+          message: `No ${sheetTypeLabels[character.sheetType]} spell catalog exists yet.`,
+          path: ['powers', 'spells', index, 'definitionId'],
+        });
+        return;
+      }
+      if (!dragonBloodedSpellIds.has(selection.definitionId)) {
+        context.addIssue({
+          code: 'custom',
+          message: 'Unknown Dragon-Blooded spell definition.',
           path: ['powers', 'spells', index, 'definitionId'],
         });
       }
@@ -444,19 +561,34 @@ export const exalted1eCharacterSchema = z
       const pathKey = kind === 'merit' ? 'merits' : 'flaws';
       const definitionCounts = new Map<string, number>();
       selections.forEach((selection, index) => {
-        if (
-          character.sheetType !== 'solar' &&
-          character.sheetType !== 'dragon-blooded'
-        )
-          return;
+        // Solar has its own dedicated catalog; every other sheet type
+        // (Dragon-Blooded, Abyssal, Sidereal today; Lunar, Alchemical,
+        // and Fair Folk once/if they ever draw from this catalog) looks
+        // up the shared catalog (`sharedTraitById`), gated by each
+        // entry's own `appliesTo` list. No early-return for unimplemented
+        // families is needed here: `appliesTo` simply never includes
+        // them yet, so the lookup below naturally rejects any selection
+        // for those sheet types as an unknown definition.
         const definition =
           character.sheetType === 'solar'
             ? solarTraitById.get(selection.definitionId)
-            : dragonBloodedTraitById.get(selection.definitionId);
-        if (!definition || definition.kind !== kind) {
+            : sharedTraitById.get(selection.definitionId);
+        const appliesToSheet =
+          definition !== undefined &&
+          // `appliesTo` is typed over the narrower set of sheet types this
+          // shared catalog actually covers (solar/dragon-blooded/abyssal/
+          // sidereal); widened to a plain string comparison so this
+          // compiles against the full seven-member `ExaltedSheetType`
+          // without narrowing `character.sheetType` first. Lunar/
+          // Alchemical/Fair Folk simply never appear in any entry's
+          // `appliesTo`, so this naturally evaluates to `false` for them.
+          (definition.appliesTo as readonly string[]).includes(
+            character.sheetType,
+          );
+        if (!definition || definition.kind !== kind || !appliesToSheet) {
           context.addIssue({
             code: 'custom',
-            message: `Unknown ${character.sheetType === 'solar' ? 'Solar' : 'Dragon-Blooded'} ${kind} definition.`,
+            message: `Unknown ${sheetTypeLabels[character.sheetType]} ${kind} definition.`,
             path: ['meritsFlaws', pathKey, index, 'definitionId'],
           });
           return;
@@ -468,7 +600,11 @@ export const exalted1eCharacterSchema = z
                 selection.chosenCost,
                 character.identity.caste,
               )
-            : isLegalDragonBloodedTraitCost(definition, selection.chosenCost);
+            : isLegalSharedTraitCost(
+                definition,
+                selection.chosenCost,
+                character.sheetType,
+              );
         if (!legalCost) {
           context.addIssue({
             code: 'custom',
@@ -485,7 +621,7 @@ export const exalted1eCharacterSchema = z
         const limit =
           character.sheetType === 'solar'
             ? getSolarTraitRepeatLimit(definitionId)
-            : getDragonBloodedTraitRepeatLimit(definitionId);
+            : getSharedTraitRepeatLimit(definitionId);
         if (limit !== undefined && count > limit) {
           context.addIssue({
             code: 'custom',

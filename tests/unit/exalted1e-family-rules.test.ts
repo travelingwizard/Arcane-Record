@@ -14,10 +14,11 @@ import {
   alchemicalCharms,
   fairFolkCharms,
 } from '../../src/games/exalted1e/reference/family-powers';
+import { certificationRecords } from '../../src/games/exalted1e/certification';
 import {
   canCreateProductionExaltedCharacter,
-  exaltedFamilyVerification,
   getExaltedVerificationRequirement,
+  isFamilyAvailable,
 } from '../../src/games/exalted1e/verification';
 
 describe('Exalted production verification gate', () => {
@@ -29,19 +30,25 @@ describe('Exalted production verification gate', () => {
       (type) => type !== 'solar' && type !== 'dragon-blooded',
     )) {
       expect(canCreateProductionExaltedCharacter(family)).toBe(false);
-      expect(exaltedFamilyVerification[family].blockers.length).toBeGreaterThan(
-        0,
-      );
+      expect(certificationRecords[family].blockers.length).toBeGreaterThan(0);
       expect(getExaltedVerificationRequirement(family)).toMatch(
         /^Source verification required:/,
       );
     }
   });
 
-  it('keeps a passed inventory from bypassing an incomplete creator', () => {
-    expect(exaltedFamilyVerification.alchemical.sourceInventory).toBe('passed');
-    expect(exaltedFamilyVerification.alchemical.guidedCreator).toBe('blocked');
-    expect(canCreateProductionExaltedCharacter('alchemical')).toBe(false);
+  it('keeps an incomplete family blocked even where one dimension has real progress', () => {
+    // Abyssal and Sidereal have the most catalog progress of the five
+    // planned families (500/503 and 360/365 promoted respectively) but
+    // still fail the overall gate because their `rulesTests`/`creatorTests`/
+    // `migrationTests`/`browserTests` dimensions haven't run yet -- partial
+    // progress on one dimension never bypasses the others.
+    expect(
+      certificationRecords.abyssal.catalog.promotedEntries,
+    ).toBeGreaterThan(0);
+    expect(certificationRecords.abyssal.rulesTests).not.toBe('pass');
+    expect(isFamilyAvailable('abyssal')).toBe(false);
+    expect(canCreateProductionExaltedCharacter('abyssal')).toBe(false);
   });
 
   it('binds the creation route to the verification result', () => {
@@ -53,7 +60,7 @@ describe('Exalted production verification gate', () => {
       'Source verification required:',
     );
     expect(variants.get('lunar')?.unavailableRequirement).toContain(
-      'OCR Charm inventory',
+      'Shapechanging/Forms',
     );
   });
 });

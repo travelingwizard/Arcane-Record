@@ -83,7 +83,15 @@ describe('Exalted First Edition Phase 3 module', () => {
     const powers = exalted1ePhase3Module.catalogs.find(
       ({ id }) => id === 'dragon-blooded-powers',
     )!;
-    expect(traits.entries).toHaveLength(dragonBloodedTraits.length + 1);
+    // `dragonBloodedTraits` is now a shared catalog (Dragon-Blooded and
+    // Abyssal); this Dragon-Blooded-only module only includes entries whose
+    // `appliesTo` covers Dragon-Blooded.
+    const dragonBloodedApplicableTraits = dragonBloodedTraits.filter(
+      (entry) => entry.appliesTo.includes('dragon-blooded'),
+    );
+    expect(traits.entries).toHaveLength(
+      dragonBloodedApplicableTraits.length + 1,
+    );
     expect(powers.entries).toHaveLength(
       dragonBloodedCharms.length + dragonBloodedSpells.length + 1,
     );

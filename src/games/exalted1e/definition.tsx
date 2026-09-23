@@ -19,6 +19,17 @@ import {
 } from './profiles';
 import { getExaltedVerificationRequirement } from './verification';
 
+/**
+ * Human-readable label per stored `sheetType`, sourced from each family's
+ * `ExaltedCharacterProfile` (`./profiles`) rather than a locally
+ * hand-maintained `Record`, so this stays exhaustive as new families are
+ * added without a second place to update. Every `ExaltedCharacterType`
+ * (all seven planned families) can label a stored character correctly,
+ * even ones with no `variants` entry of their own yet -- see the
+ * `unavailableRequirement`-driven gating below, which is what actually
+ * keeps a family locked out of character creation, not the absence of a
+ * label here.
+ */
 function sheetLabel(character: Exalted1eCharacter) {
   return getExaltedCharacterProfile(character.sheetType).shortName;
 }

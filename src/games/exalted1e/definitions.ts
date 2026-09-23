@@ -1,10 +1,55 @@
 export const EXALTED1E_SYSTEM_ID = 'exalted1e' as const;
 export const EXALTED1E_SCHEMA_VERSION = 9 as const;
 
+/**
+ * Legal `sheetType` values for a STORED character. Re-exported from
+ * `profiles.ts` (the single canonical list of all seven Exalted 1e
+ * character types) rather than redefined here, so this project has exactly
+ * one enum of character types instead of two independently-maintained
+ * ones. All five new families (Lunar, Abyssal, Sidereal, Alchemical, Fair
+ * Folk) are legal STORED `sheetType` values -- each has at least a blank
+ * character (`createBlankExaltedCharacter`) and a `familyState` shape --
+ * but none has a creator/editor UI exposed to end users yet:
+ * `definition.tsx`'s `variants` array only lists the two production
+ * families, and `schema.ts`'s per-family Background/Charm/Merit-Flaw/Spell
+ * validation only actually accepts real selections for the families with a
+ * promoted catalog (today: Solar, Dragon-Blooded, Abyssal, Sidereal for
+ * Backgrounds/Merits-Flaws; Abyssal and Sidereal for Charms/spells) --
+ * every other combination is explicitly rejected, never silently
+ * unrestricted. See `plannedExaltedFamilies` below and
+ * `src/games/exalted1e/verification.ts` for the family-level release gate
+ * that keeps all five locked in the UI until they each separately earn it.
+ */
 export {
   exaltedCharacterTypes as exaltedSheetTypes,
   type ExaltedCharacterType as ExaltedSheetType,
 } from './profiles';
+
+/**
+ * Splats that are planned for Exalted First Edition but have no schema,
+ * catalog, creator, or editor yet. These IDs are never valid persisted
+ * `sheetType` values — `exaltedSheetTypes` above is the only enum a stored
+ * character can use. They exist solely so the certification gate
+ * (`./verification.ts`) and the source audit script have a stable, shared
+ * identifier per family while that family's real implementation is pending.
+ */
+export const plannedExaltedFamilies = [
+  'lunar',
+  'abyssal',
+  'sidereal',
+  'alchemical',
+  'fair-folk',
+] as const;
+export type PlannedExaltedFamily = (typeof plannedExaltedFamilies)[number];
+
+export const plannedExaltedFamilyLabels: Record<PlannedExaltedFamily, string> =
+  {
+    lunar: 'Lunar',
+    abyssal: 'Abyssal',
+    sidereal: 'Sidereal',
+    alchemical: 'Alchemical',
+    'fair-folk': 'Fair Folk',
+  };
 
 export const exaltedSectionGroups = [
   { id: 'character', label: 'Character' },
@@ -213,6 +258,28 @@ export const solarAbilityGroups: readonly AbilityGroup[] = [
   },
 ];
 
+/**
+ * Ability groupings for Abyssal's five Castes (Dusk, Midnight, Daybreak,
+ * Day, Moonshadow). Unlike Dragon-Blooded (grouped by classical Element),
+ * Abyssal is Caste-based like Solar — Exalted: The Abyssals states each
+ * Abyssal Caste mirrors its opposed Solar Caste's Ability list exactly
+ * (Dawn<->Dusk, Zenith<->Midnight, Twilight<->Daybreak, Night<->Day,
+ * Eclipse<->Moonshadow), so this reuses `solarAbilityGroups`'s Ability
+ * lists positionally rather than duplicating them, substituting only the
+ * Abyssal Caste ids/labels.
+ */
+export const abyssalAbilityGroups: readonly AbilityGroup[] = [
+  'dusk',
+  'midnight',
+  'daybreak',
+  'day',
+  'moonshadow',
+].map((id, index) => ({
+  id,
+  label: id[0]!.toUpperCase() + id.slice(1),
+  abilityIds: solarAbilityGroups[index]!.abilityIds,
+}));
+
 export const dragonBloodedAbilityGroups: readonly AbilityGroup[] = [
   {
     id: 'air',
@@ -285,9 +352,77 @@ export const dragonBloodedBackgrounds = [
   { id: 'resources', label: 'Resources' },
 ] as const;
 
+/**
+ * Backgrounds available to Abyssal characters: the shared, splat-neutral
+ * Backgrounds every Exalt can take (the same set as `solarBackgrounds`,
+ * since none of Dragon-Blooded's extra ids -- Breeding, Connections,
+ * Family, Henchmen -- are elemental-specific rather than Abyssal-specific),
+ * plus the six Backgrounds Exalted: The Abyssals adds for deathknights.
+ * Five further Backgrounds (Artifact, Backing/Mentor, Familiar, Followers,
+ * Manse) work differently in play for Abyssals per the source text, but
+ * reuse these same shared ids rather than needing new schema rows.
+ */
+export const abyssalBackgrounds = [
+  { id: 'allies', label: 'Allies' },
+  { id: 'artifact', label: 'Artifact' },
+  { id: 'backing', label: 'Backing' },
+  { id: 'contacts', label: 'Contacts' },
+  { id: 'familiar', label: 'Familiar' },
+  { id: 'followers', label: 'Followers' },
+  { id: 'influence', label: 'Influence' },
+  { id: 'manse', label: 'Manse' },
+  { id: 'mentor', label: 'Mentor' },
+  { id: 'resources', label: 'Resources' },
+  { id: 'abyssal-command', label: 'Abyssal Command' },
+  { id: 'liege', label: 'Liege' },
+  { id: 'necromancy', label: 'Necromancy' },
+  { id: 'spies', label: 'Spies' },
+  { id: 'underworld-manse', label: 'Underworld Manse' },
+  { id: 'whispers', label: 'Whispers' },
+] as const;
+
+/**
+ * Backgrounds available to Sidereal characters. Exalted: The Sidereals'
+ * Chapter Four ('Altered Backgrounds' / 'New Backgrounds', see
+ * `docs/references/exalted1e/sidereal/inventory/exalted-the-sidereals.json`)
+ * reuses six of the shared, splat-neutral ids (Allies, Artifact, Backing,
+ * Familiar, Manse, Resources), each re-flavored in play (e.g. Familiar is
+ * capped at one until expanded by a Charm; Manse is deprioritized in favor
+ * of the new Celestial Manse; Resources remains the ronin Sidereal's
+ * economic Background even though most non-ronin Sidereals use the new
+ * Salary Background instead) -- but, unlike Abyssal, explicitly drops four
+ * of Solar's shared ids that the source states are wholly UNAVAILABLE to
+ * Sidereals, each fully replaced by one of the six new ids below: Contacts
+ * and Influence are both replaced by Connections; Followers is replaced by
+ * Acquaintances (Sidereals' innate Arcane Fate makes mortals forget them
+ * without it); Mentor is replaced by Sifu (a dedicated secret-martial-arts
+ * tutor Background). The six new ids -- Acquaintances, Celestial Manse,
+ * Connections, Salary, Savant, Sifu -- match the source manifest's
+ * `newBackgrounds: 6`/`alteredBackgrounds: 5` counts (five of the six
+ * reused shared ids -- all but Resources -- have their own dedicated
+ * "altered" inventory row; Resources' alteration is a one-line note folded
+ * into the Salary row instead of a separate row, per the source text).
+ */
+export const siderealBackgrounds = [
+  { id: 'allies', label: 'Allies' },
+  { id: 'artifact', label: 'Artifact' },
+  { id: 'backing', label: 'Backing' },
+  { id: 'familiar', label: 'Familiar' },
+  { id: 'manse', label: 'Manse' },
+  { id: 'resources', label: 'Resources' },
+  { id: 'acquaintances', label: 'Acquaintances' },
+  { id: 'celestial-manse', label: 'Celestial Manse' },
+  { id: 'connections', label: 'Connections' },
+  { id: 'salary', label: 'Salary' },
+  { id: 'savant', label: 'Savant' },
+  { id: 'sifu', label: 'Sifu' },
+] as const;
+
 export type ExaltedBackgroundId =
   | (typeof solarBackgrounds)[number]['id']
-  | (typeof dragonBloodedBackgrounds)[number]['id'];
+  | (typeof dragonBloodedBackgrounds)[number]['id']
+  | (typeof abyssalBackgrounds)[number]['id']
+  | (typeof siderealBackgrounds)[number]['id'];
 
 export const abilityById = new Map(
   exaltedAbilities.map((ability) => [ability.id, ability]),
