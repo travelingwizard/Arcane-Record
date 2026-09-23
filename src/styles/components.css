@@ -4978,6 +4978,135 @@
   width: 100%;
 }
 
+/* Shared modal catalog pattern. Game modules should reuse this structure. */
+.catalog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--backdrop) 72%, transparent);
+}
+
+.catalog-dialog {
+  width: min(64rem, 100%);
+  max-height: min(52rem, calc(100vh - 2rem));
+  overflow: auto;
+  padding: var(--space-5);
+  border: 1px solid var(--border-strong);
+  background: var(--surface-raised);
+  box-shadow: var(--shadow-lg);
+}
+
+.catalog-dialog .catalog-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: var(--space-3);
+}
+
+.catalog-dialog .catalog-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.catalog-dialog .catalog-card > .primary-button,
+.catalog-dialog .catalog-card > .secondary-button {
+  margin-top: auto;
+}
+
+.app-error-recovery {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-5);
+  background: var(--body-background);
+}
+
+.app-error-recovery > section {
+  width: min(42rem, 100%);
+}
+
+.app-error-recovery pre {
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.earthdawn-basic-play {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-2);
+  margin-block: var(--space-3);
+}
+
+.earthdawn-basic-stat {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--border-soft);
+  background: var(--surface-raised);
+}
+
+.earthdawn-basic-stat > span,
+.earthdawn-basic-stat > small {
+  color: var(--text-secondary);
+}
+
+.earthdawn-matrix-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.earthdawn-matrix-heading input {
+  max-width: 22rem;
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.earthdawn-matrix-spells {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: var(--space-2);
+  margin-block: var(--space-3);
+  border: 1px solid var(--border-soft);
+}
+
+.earthdawn-matrix-spells legend {
+  padding-inline: var(--space-2);
+  font-family: var(--font-serif);
+  font-weight: 700;
+}
+
+@media (max-width: 64rem) {
+  .earthdawn-basic-play {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 32rem) {
+  .catalog-overlay {
+    padding: var(--space-2);
+  }
+  .catalog-dialog {
+    padding: var(--space-3);
+  }
+  .catalog-dialog-header,
+  .earthdawn-matrix-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .earthdawn-basic-play {
+    grid-template-columns: 1fr;
+  }
+}
+
 .rote-requirements {
   margin: 0;
   padding: 0.75rem;

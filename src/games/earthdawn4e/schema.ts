@@ -179,10 +179,34 @@ export const earthdawn4eCharacterSchema = z.object({
     matrices: z.array(
       z.object({
         id: uuid,
-        type: z.enum(['standard', 'enhanced', 'armored', 'shared']),
+        name: z.string(),
+        type: z.enum([
+          'standard',
+          'enhanced',
+          'armored',
+          'shared',
+          'object',
+          'blood-charm',
+          'elemental',
+          'spirit',
+          'blood-and-bone',
+          'illusory',
+        ]),
         source: z.string(),
         rank: nonnegative,
         spellId: z.string().nullable(),
+        spellIds: z.array(z.string()),
+        prewovenThreads: nonnegative,
+        damage: nonnegative,
+        deathRating: nonnegative,
+        active: z.boolean(),
+        temporaryUntil: z.string(),
+        restriction: z.string(),
+        reattuning: z.object({
+          inProgress: z.boolean(),
+          difficulty: nonnegative,
+          strainPaid: nonnegative,
+        }),
         used: z.boolean(),
         notes: z.string(),
       }),
@@ -247,6 +271,7 @@ export const earthdawn4eCharacterSchema = z.object({
     reputation: z.string(),
   }),
   health: z.object({
+    basicMode: z.boolean(),
     damage: nonnegative,
     wounds: nonnegative,
     bloodMagicDamage: nonnegative,
@@ -560,6 +585,42 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
           rank: isRecord(entry) ? Number(entry.rank ?? 0) : 0,
         }),
       ),
+      matrices: (Array.isArray(magic.matrices) ? magic.matrices : []).map(
+        (entry) => {
+          const value = isRecord(entry) ? entry : {};
+          const type = typeof value.type === 'string' ? value.type : 'standard';
+          const defaultDeath =
+            type === 'armored'
+              ? 25
+              : type === 'shared'
+                ? 20
+                : type === 'enhanced'
+                  ? 15
+                  : 10;
+          return {
+            ...value,
+            name: typeof value.name === 'string' ? value.name : 'Spell Matrix',
+            spellIds: Array.isArray(value.spellIds)
+              ? value.spellIds
+              : typeof value.spellId === 'string'
+                ? [value.spellId]
+                : [],
+            prewovenThreads: Number(value.prewovenThreads ?? 0),
+            damage: Number(value.damage ?? 0),
+            deathRating: Number(value.deathRating ?? defaultDeath),
+            active: value.active !== false,
+            temporaryUntil:
+              typeof value.temporaryUntil === 'string'
+                ? value.temporaryUntil
+                : '',
+            restriction:
+              typeof value.restriction === 'string' ? value.restriction : '',
+            reattuning: isRecord(value.reattuning)
+              ? value.reattuning
+              : { inProgress: false, difficulty: 0, strainPaid: 0 },
+          };
+        },
+      ),
     },
     equipment: (Array.isArray(data.equipment) ? data.equipment : []).map(
       (entry) => ({
@@ -581,7 +642,11 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
     reputation: isRecord(data.reputation)
       ? data.reputation
       : { legendaryStatus: '', renown: '', reputation: '' },
-    health: { ...health, bloodMagicDamage: health.bloodMagicDamage ?? 0 },
+    health: {
+      ...health,
+      basicMode: health.basicMode ?? false,
+      bloodMagicDamage: health.bloodMagicDamage ?? 0,
+    },
     advancement: { ledger: migratedLedger },
     dice: {
       ...oldDice,

@@ -53,11 +53,15 @@ import {
   grantedDevotionCost,
   knackLearningQuote,
   legendTotals,
+  matrixCapacityUsed,
+  matrixDeathRating,
+  matrixIssues,
   missingCircleTalentRanks,
   newDisciplineTalentCost,
   previewDisciplineTalentReconciliation,
   questorRankCost,
   questorTier,
+  reconcileFreeMatrices,
   reconcileDisciplineTalents,
   refundableLedgerEntry,
   skillRankCost,
@@ -196,7 +200,9 @@ export function Earthdawn4eEditor({
   };
   const update = useCallback(
     (fn: (value: Earthdawn4eCharacter) => Earthdawn4eCharacter) => {
-      setDraft((current) => earthdawn4eCharacterSchema.parse(fn(current)));
+      setDraft((current) =>
+        earthdawn4eCharacterSchema.parse(reconcileFreeMatrices(fn(current))),
+      );
       setSaveStatus('unsaved');
     },
     [],
@@ -1857,10 +1863,23 @@ export function Earthdawn4eEditor({
                             ...c.magic.matrices,
                             {
                               id: crypto.randomUUID(),
+                              name: 'Spell Matrix',
                               type: 'standard',
                               source: '',
                               rank: 0,
                               spellId: null,
+                              spellIds: [],
+                              prewovenThreads: 0,
+                              damage: 0,
+                              deathRating: 10,
+                              active: true,
+                              temporaryUntil: '',
+                              restriction: '',
+                              reattuning: {
+                                inProgress: false,
+                                difficulty: 0,
+                                strainPaid: 0,
+                              },
                               used: false,
                               notes: '',
                             },
@@ -1873,7 +1892,32 @@ export function Earthdawn4eEditor({
                   </button>
                   {draft.magic.matrices.map((matrix) => (
                     <SheetCard key={matrix.id} density="compact">
-                      <SheetFieldGrid columns={3}>
+                      <div className="earthdawn-matrix-heading">
+                        <input
+                          aria-label="Matrix name"
+                          value={matrix.name}
+                          onChange={(event) =>
+                            update((c) => ({
+                              ...c,
+                              magic: {
+                                ...c.magic,
+                                matrices: c.magic.matrices.map((item) =>
+                                  item.id === matrix.id
+                                    ? { ...item, name: event.target.value }
+                                    : item,
+                                ),
+                              },
+                            }))
+                          }
+                        />
+                        <span>
+                          Capacity{' '}
+                          {matrixCapacityUsed(matrix, draft.magic.spells)} /{' '}
+                          {matrix.rank}
+                          {' · '}Damage {matrix.damage} / {matrix.deathRating}
+                        </span>
+                      </div>
+                      <SheetFieldGrid columns={4}>
                         <SheetField label="Type">
                           <select
                             disabled={playMode}
@@ -1889,6 +1933,10 @@ export function Earthdawn4eEditor({
                                           ...item,
                                           type: e.target
                                             .value as typeof matrix.type,
+                                          deathRating: matrixDeathRating(
+                                            e.target
+                                              .value as typeof matrix.type,
+                                          ),
                                         }
                                       : item,
                                   ),
@@ -1896,11 +1944,20 @@ export function Earthdawn4eEditor({
                               }))
                             }
                           >
-                            {['standard', 'enhanced', 'armored', 'shared'].map(
-                              (type) => (
-                                <option key={type}>{type}</option>
-                              ),
-                            )}
+                            {[
+                              'standard',
+                              'enhanced',
+                              'armored',
+                              'shared',
+                              'object',
+                              'blood-charm',
+                              'elemental',
+                              'spirit',
+                              'blood-and-bone',
+                              'illusory',
+                            ].map((type) => (
+                              <option key={type}>{type}</option>
+                            ))}
                           </select>
                         </SheetField>
                         <SheetField label="Rank">
@@ -1919,6 +1976,54 @@ export function Earthdawn4eEditor({
                                       ? {
                                           ...item,
                                           rank: integer(e.target.value),
+                                        }
+                                      : item,
+                                  ),
+                                },
+                              }))
+                            }
+                          />
+                        </SheetField>
+                        <SheetField label="Damage">
+                          <input
+                            type="number"
+                            min="0"
+                            value={matrix.damage}
+                            onChange={(event) =>
+                              update((c) => ({
+                                ...c,
+                                magic: {
+                                  ...c.magic,
+                                  matrices: c.magic.matrices.map((item) =>
+                                    item.id === matrix.id
+                                      ? {
+                                          ...item,
+                                          damage: integer(event.target.value),
+                                        }
+                                      : item,
+                                  ),
+                                },
+                              }))
+                            }
+                          />
+                        </SheetField>
+                        <SheetField label="Death Rating">
+                          <input
+                            type="number"
+                            min="1"
+                            value={matrix.deathRating}
+                            onChange={(event) =>
+                              update((c) => ({
+                                ...c,
+                                magic: {
+                                  ...c.magic,
+                                  matrices: c.magic.matrices.map((item) =>
+                                    item.id === matrix.id
+                                      ? {
+                                          ...item,
+                                          deathRating: integer(
+                                            event.target.value,
+                                          ),
                                         }
                                       : item,
                                   ),
@@ -1948,6 +2053,309 @@ export function Earthdawn4eEditor({
                           <span>Matrix in use</span>
                         </label>
                       </SheetFieldGrid>
+                      <SheetFieldGrid columns={2}>
+                        <SheetField label="Restriction / keyword">
+                          <input
+                            value={matrix.restriction}
+                            placeholder="Discipline, element, spirit, or item contact"
+                            onChange={(event) =>
+                              update((c) => ({
+                                ...c,
+                                magic: {
+                                  ...c.magic,
+                                  matrices: c.magic.matrices.map((item) =>
+                                    item.id === matrix.id
+                                      ? {
+                                          ...item,
+                                          restriction: event.target.value,
+                                        }
+                                      : item,
+                                  ),
+                                },
+                              }))
+                            }
+                          />
+                        </SheetField>
+                        <SheetField label="Temporary until">
+                          <input
+                            value={matrix.temporaryUntil}
+                            placeholder="Permanent or expiry"
+                            onChange={(event) =>
+                              update((c) => ({
+                                ...c,
+                                magic: {
+                                  ...c.magic,
+                                  matrices: c.magic.matrices.map((item) =>
+                                    item.id === matrix.id
+                                      ? {
+                                          ...item,
+                                          temporaryUntil: event.target.value,
+                                        }
+                                      : item,
+                                  ),
+                                },
+                              }))
+                            }
+                          />
+                        </SheetField>
+                        <SheetField label="Pre-woven threads">
+                          <input
+                            type="number"
+                            min="0"
+                            value={matrix.prewovenThreads}
+                            onChange={(event) =>
+                              update((c) => ({
+                                ...c,
+                                magic: {
+                                  ...c.magic,
+                                  matrices: c.magic.matrices.map((item) =>
+                                    item.id === matrix.id
+                                      ? {
+                                          ...item,
+                                          prewovenThreads: integer(
+                                            event.target.value,
+                                          ),
+                                        }
+                                      : item,
+                                  ),
+                                },
+                              }))
+                            }
+                          />
+                        </SheetField>
+                        <SheetField label="Combined reattuning difficulty">
+                          <input
+                            type="number"
+                            min="0"
+                            value={matrix.reattuning.difficulty}
+                            onChange={(event) =>
+                              update((c) => ({
+                                ...c,
+                                magic: {
+                                  ...c.magic,
+                                  matrices: c.magic.matrices.map((item) =>
+                                    item.id === matrix.id
+                                      ? {
+                                          ...item,
+                                          reattuning: {
+                                            ...item.reattuning,
+                                            difficulty: integer(
+                                              event.target.value,
+                                            ),
+                                          },
+                                        }
+                                      : item,
+                                  ),
+                                },
+                              }))
+                            }
+                          />
+                        </SheetField>
+                      </SheetFieldGrid>
+                      <fieldset className="earthdawn-matrix-spells">
+                        <legend>Attuned spells</legend>
+                        {draft.magic.spells.length ? (
+                          draft.magic.spells.map((spell) => (
+                            <label key={spell.id} className="sheet-choice-card">
+                              <input
+                                type="checkbox"
+                                checked={matrix.spellIds.includes(spell.id)}
+                                onChange={(event) =>
+                                  update((c) => ({
+                                    ...c,
+                                    magic: {
+                                      ...c.magic,
+                                      matrices: c.magic.matrices.map((item) =>
+                                        item.id === matrix.id
+                                          ? {
+                                              ...item,
+                                              spellIds: event.target.checked
+                                                ? [...item.spellIds, spell.id]
+                                                : item.spellIds.filter(
+                                                    (id) => id !== spell.id,
+                                                  ),
+                                              spellId: event.target.checked
+                                                ? spell.id
+                                                : item.spellId === spell.id
+                                                  ? null
+                                                  : item.spellId,
+                                            }
+                                          : item,
+                                      ),
+                                    },
+                                  }))
+                                }
+                              />
+                              <span>
+                                {spell.name} · Circle {spell.circle}
+                              </span>
+                            </label>
+                          ))
+                        ) : (
+                          <p>Add learned spells before attuning this matrix.</p>
+                        )}
+                      </fieldset>
+                      {matrixIssues(
+                        matrix,
+                        draft.magic.spells,
+                        Math.max(
+                          0,
+                          ...draft.disciplines.map(
+                            (discipline) => discipline.circle,
+                          ),
+                        ),
+                      ).map((issue) => (
+                        <p className="sheet-warning" key={issue}>
+                          {issue}
+                        </p>
+                      ))}
+                      <SheetToolbar>
+                        <button
+                          className="secondary-button"
+                          disabled={matrix.reattuning.inProgress}
+                          onClick={() =>
+                            update((c) => ({
+                              ...c,
+                              health: {
+                                ...c.health,
+                                damage: c.health.damage + 1,
+                              },
+                              magic: {
+                                ...c.magic,
+                                matrices: c.magic.matrices.map((item) =>
+                                  item.id === matrix.id
+                                    ? {
+                                        ...item,
+                                        reattuning: {
+                                          ...item.reattuning,
+                                          inProgress: true,
+                                          strainPaid:
+                                            item.reattuning.strainPaid + 1,
+                                        },
+                                      }
+                                    : item,
+                                ),
+                              },
+                            }))
+                          }
+                        >
+                          Begin on-the-fly reattunement · 1 Strain
+                        </button>
+                        <button
+                          className="secondary-button"
+                          disabled={!matrix.reattuning.inProgress}
+                          onClick={() =>
+                            update((c) => ({
+                              ...c,
+                              magic: {
+                                ...c.magic,
+                                matrices: c.magic.matrices.map((item) =>
+                                  item.id === matrix.id
+                                    ? {
+                                        ...item,
+                                        reattuning: {
+                                          ...item.reattuning,
+                                          inProgress: false,
+                                        },
+                                      }
+                                    : item,
+                                ),
+                              },
+                            }))
+                          }
+                        >
+                          Complete reattunement
+                        </button>
+                        <button
+                          className="secondary-button"
+                          disabled={
+                            !draft.magic.matrices.some(
+                              (item) => item.reattuning.inProgress,
+                            )
+                          }
+                          onClick={() =>
+                            update((c) => ({
+                              ...c,
+                              magic: {
+                                ...c.magic,
+                                matrices: c.magic.matrices.map((item) => ({
+                                  ...item,
+                                  spellIds: [],
+                                  spellId: null,
+                                  reattuning: {
+                                    ...item.reattuning,
+                                    inProgress: false,
+                                  },
+                                })),
+                              },
+                            }))
+                          }
+                        >
+                          Concentration failed · dislodge every matrix
+                        </button>
+                        <button
+                          className="secondary-button"
+                          onClick={() =>
+                            update((c) => ({
+                              ...c,
+                              magic: {
+                                ...c.magic,
+                                matrices: c.magic.matrices.map((item) =>
+                                  item.id === matrix.id
+                                    ? {
+                                        ...item,
+                                        spellIds: [],
+                                        spellId: null,
+                                        reattuning: {
+                                          ...item.reattuning,
+                                          inProgress: false,
+                                        },
+                                      }
+                                    : item,
+                                ),
+                              },
+                            }))
+                          }
+                        >
+                          Dislodge all spells
+                        </button>
+                        <button
+                          className="secondary-button"
+                          disabled={matrix.damage === 0}
+                          onClick={() => {
+                            const result = rollStep(
+                              derived.recoveryStep,
+                              0,
+                              0,
+                              `Recover ${matrix.name}`,
+                            );
+                            update((c) => ({
+                              ...c,
+                              magic: {
+                                ...c.magic,
+                                matrices: c.magic.matrices.map((item) =>
+                                  item.id === matrix.id
+                                    ? {
+                                        ...item,
+                                        damage: Math.max(
+                                          0,
+                                          item.damage - result.total,
+                                        ),
+                                      }
+                                    : item,
+                                ),
+                              },
+                              health: {
+                                ...c.health,
+                                recoveryUsed: c.health.recoveryUsed + 1,
+                              },
+                              dice: appendRoll(c.dice, result),
+                            }));
+                          }}
+                        >
+                          Recovery test ({stepDice(derived.recoveryStep)})
+                        </button>
+                      </SheetToolbar>
                     </SheetCard>
                   ))}
                 </div>,
@@ -2397,45 +2805,198 @@ export function Earthdawn4eEditor({
                 'ed4-health',
                 'combat',
                 'Health & Conditions',
-                <div className="sheet-field-grid earthdawn-field-grid">
-                  {(
-                    [
-                      'damage',
-                      'wounds',
-                      'unconsciousnessBonus',
-                      'deathBonus',
-                      'recoveryUsed',
-                      'karmaCurrent',
-                      'karmaMaximum',
-                      'devotionPoints',
-                    ] as const
-                  ).map((field) => (
-                    <label key={field}>
-                      <span>{field.replace(/([A-Z])/g, ' $1')}</span>
+                <>
+                  <SheetToolbar>
+                    <label className="appearance-switch">
                       <input
-                        type="number"
-                        readOnly={playMode && field === 'karmaMaximum'}
-                        value={draft.health[field]}
-                        onChange={(e) =>
+                        type="checkbox"
+                        role="switch"
+                        checked={draft.health.basicMode}
+                        onChange={(event) =>
                           update((c) => ({
                             ...c,
                             health: {
                               ...c.health,
-                              [field]: integer(e.target.value),
+                              basicMode: event.target.checked,
                             },
                           }))
                         }
                       />
+                      <span>
+                        <strong>Basic play mode</strong>
+                        <small>
+                          Keep damage, wounds, recovery, and Legend totals
+                          together.
+                        </small>
+                      </span>
                     </label>
-                  ))}
-                  <p>
-                    Unconsciousness{' '}
-                    {derived.unconsciousness +
-                      draft.health.unconsciousnessBonus}{' '}
-                    · Death {derived.death + draft.health.deathBonus} · Wound
-                    threshold {derived.woundThreshold}
-                  </p>
-                </div>,
+                  </SheetToolbar>
+                  {draft.health.basicMode ? (
+                    <div className="earthdawn-basic-play">
+                      <div className="earthdawn-basic-stat">
+                        <span>Damage</span>
+                        <input
+                          aria-label="Current damage"
+                          type="number"
+                          min="0"
+                          value={draft.health.damage}
+                          onChange={(event) =>
+                            update((c) => ({
+                              ...c,
+                              health: {
+                                ...c.health,
+                                damage: integer(event.target.value),
+                              },
+                            }))
+                          }
+                        />
+                        <small>
+                          Unconscious{' '}
+                          {derived.unconsciousness +
+                            draft.health.unconsciousnessBonus}{' '}
+                          · Death {derived.death + draft.health.deathBonus}
+                        </small>
+                      </div>
+                      <div className="earthdawn-basic-stat">
+                        <span>Wounds</span>
+                        <input
+                          aria-label="Current wounds"
+                          type="number"
+                          min="0"
+                          value={draft.health.wounds}
+                          onChange={(event) =>
+                            update((c) => ({
+                              ...c,
+                              health: {
+                                ...c.health,
+                                wounds: integer(event.target.value),
+                              },
+                            }))
+                          }
+                        />
+                        <small>Threshold {derived.woundThreshold}</small>
+                      </div>
+                      <div className="earthdawn-basic-stat">
+                        <span>Recovery</span>
+                        <strong>
+                          {draft.health.recoveryUsed} / {derived.recoveryTests}
+                        </strong>
+                        <small>
+                          Step {derived.recoveryStep} ·{' '}
+                          {stepDice(derived.recoveryStep)}
+                        </small>
+                        <button
+                          className="small-button"
+                          disabled={
+                            draft.health.recoveryUsed >= derived.recoveryTests
+                          }
+                          onClick={() => {
+                            const result = rollStep(
+                              derived.recoveryStep,
+                              0,
+                              0,
+                              'Recovery test',
+                            );
+                            update((c) => ({
+                              ...c,
+                              health: {
+                                ...c.health,
+                                recoveryUsed: c.health.recoveryUsed + 1,
+                              },
+                              dice: appendRoll(c.dice, result),
+                            }));
+                          }}
+                        >
+                          Roll Recovery
+                        </button>
+                      </div>
+                      <div className="earthdawn-basic-stat">
+                        <span>Wound Balance</span>
+                        <strong>
+                          Step{' '}
+                          {attributeStep(values.strength) +
+                            (draft.talents.find(
+                              (talent) => talent.name === 'Wound Balance',
+                            )?.rank ?? 0)}
+                        </strong>
+                        <small>
+                          {stepDice(
+                            attributeStep(values.strength) +
+                              (draft.talents.find(
+                                (talent) => talent.name === 'Wound Balance',
+                              )?.rank ?? 0),
+                          )}
+                        </small>
+                        <button
+                          className="small-button"
+                          onClick={() => {
+                            const step =
+                              attributeStep(values.strength) +
+                              (draft.talents.find(
+                                (talent) => talent.name === 'Wound Balance',
+                              )?.rank ?? 0);
+                            const result = rollStep(
+                              step,
+                              0,
+                              0,
+                              'Wound Balance',
+                            );
+                            update((c) => ({
+                              ...c,
+                              dice: appendRoll(c.dice, result),
+                            }));
+                          }}
+                        >
+                          Roll Wound Balance
+                        </button>
+                      </div>
+                      <div className="earthdawn-basic-stat">
+                        <span>Legend Points</span>
+                        <strong>{legend.current} current</strong>
+                        <small>{legend.total} total earned</small>
+                      </div>
+                    </div>
+                  ) : null}
+                  <div className="sheet-field-grid earthdawn-field-grid">
+                    {(
+                      [
+                        'damage',
+                        'wounds',
+                        'unconsciousnessBonus',
+                        'deathBonus',
+                        'recoveryUsed',
+                        'karmaCurrent',
+                        'karmaMaximum',
+                        'devotionPoints',
+                      ] as const
+                    ).map((field) => (
+                      <label key={field}>
+                        <span>{field.replace(/([A-Z])/g, ' $1')}</span>
+                        <input
+                          type="number"
+                          readOnly={playMode && field === 'karmaMaximum'}
+                          value={draft.health[field]}
+                          onChange={(e) =>
+                            update((c) => ({
+                              ...c,
+                              health: {
+                                ...c.health,
+                                [field]: integer(e.target.value),
+                              },
+                            }))
+                          }
+                        />
+                      </label>
+                    ))}
+                    <p>
+                      Unconsciousness{' '}
+                      {derived.unconsciousness +
+                        draft.health.unconsciousnessBonus}{' '}
+                      · Death {derived.death + draft.health.deathBonus} · Wound
+                      threshold {derived.woundThreshold}
+                    </p>
+                  </div>
+                </>,
               )}
               {section(
                 'ed4-dice',
@@ -2822,79 +3383,98 @@ export function Earthdawn4eEditor({
             aria-label="Earthdawn catalog"
           >
             <div className="catalog-dialog" ref={catalogDialogRef}>
-              <button className="text-button" onClick={closeCatalog}>
-                Close
-              </button>
-              <h2>Official Earthdawn catalog</h2>
-              <label>
-                <span>Search catalog</span>
-                <input
-                  type="search"
-                  autoFocus
-                  value={catalogSearch}
-                  onChange={(event) => setCatalogSearch(event.target.value)}
-                  placeholder="Name, summary, or source"
-                />
-              </label>
-              {earthdawnCatalog
-                .filter((d) => {
-                  let devotionAvailable = true;
-                  if (d.kind === 'devotion') {
-                    try {
-                      const mechanics = JSON.parse(d.mechanics) as {
-                        eligibility?: DevotionEligibility[];
-                      };
-                      devotionAvailable = Boolean(
-                        mechanics.eligibility?.some(
-                          ({ passion, minimumQuestorRank }) =>
-                            passion === draft.questor.patronName &&
-                            draft.questor.rank >= minimumQuestorRank,
-                        ),
-                      );
-                    } catch {
-                      devotionAvailable = false;
-                    }
-                  }
-                  return (
-                    (catalogKind === 'all' || d.kind === catalogKind) &&
-                    (draft.sources.enabledSourceIds.includes(d.sourceId) ||
-                      draft.sources.showUnavailable) &&
-                    (d.kind !== 'devotion' ||
-                      devotionAvailable ||
-                      draft.sources.showUnavailable) &&
-                    `${d.name} ${d.summary} ${d.source}`
-                      .toLocaleLowerCase()
-                      .includes(catalogSearch.trim().toLocaleLowerCase())
-                  );
-                })
-                .map((d) => (
-                  <article key={d.id} className="reference-card">
-                    <h3>{d.name}</h3>
-                    <p>{d.summary}</p>
-                    <small>
-                      {d.source}, p. {d.page}
-                      {d.verification !== 'verified'
-                        ? ` · ${d.verification.replace('-', ' ')}`
-                        : ''}
-                    </small>
-                    <button
-                      disabled={
-                        d.verification !== 'verified' ||
-                        (playMode &&
-                          ![
-                            'spell',
-                            'devotion',
-                            'thread-item',
-                            'knack',
-                          ].includes(d.kind)) ||
-                        !draft.sources.enabledSourceIds.includes(d.sourceId)
+              <div className="catalog-dialog-header">
+                <div>
+                  <p className="sheet-eyebrow">Verified game references</p>
+                  <h2>Official Earthdawn catalog</h2>
+                  <p>Add a cited record without leaving the character sheet.</p>
+                </div>
+                <button className="secondary-button" onClick={closeCatalog}>
+                  Close catalog
+                </button>
+              </div>
+              <div className="reference-catalog">
+                <SheetToolbar className="catalog-toolbar">
+                  <SheetField className="catalog-search" label="Search catalog">
+                    <input
+                      type="search"
+                      autoFocus
+                      value={catalogSearch}
+                      onChange={(event) => setCatalogSearch(event.target.value)}
+                      placeholder="Name, summary, or source"
+                    />
+                  </SheetField>
+                </SheetToolbar>
+                <div className="catalog-results">
+                  {earthdawnCatalog
+                    .filter((d) => {
+                      let devotionAvailable = true;
+                      if (d.kind === 'devotion') {
+                        try {
+                          const mechanics = JSON.parse(d.mechanics) as {
+                            eligibility?: DevotionEligibility[];
+                          };
+                          devotionAvailable = Boolean(
+                            mechanics.eligibility?.some(
+                              ({ passion, minimumQuestorRank }) =>
+                                passion === draft.questor.patronName &&
+                                draft.questor.rank >= minimumQuestorRank,
+                            ),
+                          );
+                        } catch {
+                          devotionAvailable = false;
+                        }
                       }
-                      onClick={() => addCatalog(d.id)}
-                    >
-                      Add
-                    </button>
-                  </article>
-                ))}
+                      return (
+                        (catalogKind === 'all' || d.kind === catalogKind) &&
+                        (draft.sources.enabledSourceIds.includes(d.sourceId) ||
+                          draft.sources.showUnavailable) &&
+                        (d.kind !== 'devotion' ||
+                          devotionAvailable ||
+                          draft.sources.showUnavailable) &&
+                        `${d.name} ${d.summary} ${d.source}`
+                          .toLocaleLowerCase()
+                          .includes(catalogSearch.trim().toLocaleLowerCase())
+                      );
+                    })
+                    .map((d) => (
+                      <SheetCard key={d.id} className="catalog-card">
+                        <div className="catalog-card__heading">
+                          <div>
+                            <span className="kind-badge">
+                              {d.kind.replace('-', ' ')}
+                            </span>
+                            <h3>{d.name}</h3>
+                          </div>
+                        </div>
+                        <p className="catalog-card__source">
+                          {d.source}, p. {d.page}
+                          {d.verification !== 'verified'
+                            ? ` · ${d.verification.replace('-', ' ')}`
+                            : ''}
+                        </p>
+                        <p>{d.summary}</p>
+                        <button
+                          className="primary-button"
+                          disabled={
+                            d.verification !== 'verified' ||
+                            (playMode &&
+                              ![
+                                'spell',
+                                'devotion',
+                                'thread-item',
+                                'knack',
+                              ].includes(d.kind)) ||
+                            !draft.sources.enabledSourceIds.includes(d.sourceId)
+                          }
+                          onClick={() => addCatalog(d.id)}
+                        >
+                          Add
+                        </button>
+                      </SheetCard>
+                    ))}
+                </div>
+              </div>
             </div>
           </div>
         ) : null}

@@ -33,10 +33,14 @@ import {
   grantedDevotionCost,
   knackLearningQuote,
   legendTotals,
+  matrixCapacityUsed,
+  matrixDeathRating,
+  matrixIssues,
   missingCircleTalentRanks,
   newDisciplineTalentCost,
   previewDisciplineTalentReconciliation,
   questorRankCost,
+  reconcileFreeMatrices,
   reconcileDisciplineTalents,
   refundableLedgerEntry,
   spellLearningCost,
@@ -215,6 +219,122 @@ describe('Earthdawn Fourth Edition module', () => {
       afterRating: 1,
       targetId: 'talent-id',
     });
+  });
+  it('models matrix capacity, damage, and legacy attunement additively', () => {
+    const character = createBlankEarthdawn4eCharacter();
+    const firstSpell = {
+      id: crypto.randomUUID(),
+      definitionId: null,
+      sourceId: null,
+      source: null,
+      page: null,
+      unresolved: false,
+      name: 'First Circle Spell',
+      discipline: 'Wizard',
+      circle: 1,
+      threads: 0,
+      weaving: '',
+      casting: '',
+      range: '',
+      duration: '',
+      effect: '',
+      learned: true,
+      notes: '',
+    };
+    const secondSpell = {
+      ...firstSpell,
+      id: crypto.randomUUID(),
+      name: 'Second Circle Spell',
+      circle: 2,
+    };
+    character.magic.spells.push(firstSpell, secondSpell);
+    const matrix = {
+      id: crypto.randomUUID(),
+      name: 'Shared Matrix',
+      type: 'shared' as const,
+      source: '',
+      rank: 3,
+      spellId: firstSpell.id,
+      spellIds: [firstSpell.id, secondSpell.id],
+      prewovenThreads: 0,
+      damage: 20,
+      deathRating: 20,
+      active: true,
+      temporaryUntil: '',
+      restriction: '',
+      reattuning: { inProgress: false, difficulty: 0, strainPaid: 0 },
+      used: true,
+      notes: '',
+    };
+    expect(matrixCapacityUsed(matrix, character.magic.spells)).toBe(3);
+    expect(matrixIssues(matrix, character.magic.spells, 2)).toContain(
+      'The matrix is shut down until its damage is recovered.',
+    );
+    expect(matrixDeathRating('standard')).toBe(10);
+    expect(matrixDeathRating('enhanced')).toBe(15);
+    expect(matrixDeathRating('shared')).toBe(20);
+    expect(matrixDeathRating('armored')).toBe(25);
+
+    const legacy = structuredClone(character) as unknown as Record<
+      string,
+      unknown
+    >;
+    legacy.magic = {
+      ...(legacy.magic as object),
+      matrices: [
+        {
+          id: crypto.randomUUID(),
+          type: 'standard',
+          source: '',
+          rank: 2,
+          spellId: firstSpell.id,
+          used: true,
+          notes: '',
+        },
+      ],
+    };
+    const migrated = migrateEarthdawn4eCharacter(legacy);
+    expect(migrated.magic.matrices[0]).toMatchObject({
+      spellIds: [firstSpell.id],
+      damage: 0,
+      deathRating: 10,
+      active: true,
+    });
+    expect(migrated.health.basicMode).toBe(false);
+  });
+  it('grants and advances the two free magician matrices', () => {
+    const character = createBlankEarthdawn4eCharacter();
+    const wizard = earthdawnDisciplines.find(({ name }) => name === 'Wizard')!;
+    character.disciplines.push({
+      id: crypto.randomUUID(),
+      disciplineId: wizard.id,
+      name: wizard.name,
+      circle: 1,
+      startedAtCircle: 1,
+      questor: false,
+      custom: false,
+      definitionId: wizard.id,
+      sourceId: wizard.sourceId,
+      source: wizard.source,
+      page: wizard.page,
+      unresolved: false,
+    });
+    const novice = reconcileFreeMatrices(character);
+    expect(novice.magic.matrices).toHaveLength(2);
+    expect(
+      novice.magic.matrices.every(
+        ({ type, rank }) => type === 'standard' && rank === 1,
+      ),
+    ).toBe(true);
+    novice.disciplines[0]!.circle = 5;
+    const journeyman = reconcileFreeMatrices(novice);
+    expect(journeyman.magic.matrices.map(({ type }) => type)).toEqual([
+      'enhanced',
+      'standard',
+    ]);
+    expect(journeyman.magic.matrices.every(({ rank }) => rank === 5)).toBe(
+      true,
+    );
   });
   it('adds only required Discipline talents and preserves advanced records when Circle falls', () => {
     const discipline = earthdawnDisciplines.find(

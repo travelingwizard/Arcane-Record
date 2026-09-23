@@ -58,6 +58,17 @@ character-owned notes. Mature entries require an explicit opt-in control.
 Selected Focus, Wonder, and Rote cards remain visually quieter than the
 catalog so character data stays primary.
 
+All game-owned catalog browsers use that same modal catalog contract. The
+trigger opens a centered, bounded dialog over the semantic backdrop; the
+dialog header contains its title, concise purpose, and a clearly labeled close
+button. Search and filters use `SheetToolbar` and `SheetField`. Results use the
+shared `reference-catalog`, `catalog-results`, and `catalog-card` structure,
+with kind, citation, availability, verification state, summary, and one clear
+add action. Catalogs must trap keyboard focus, restore it to their trigger,
+remain scrollable within the viewport, and collapse to one result column
+without page-level horizontal overflow at 320 CSS pixels. A game must not
+render an unstyled list of headings and buttons as a catalog.
+
 Equipment reuses the same reference-preview and selected-card language.
 Important statistics appear as compact text rather than simulated controls;
 equipped state, quantity, and category use ordinary labeled form controls.

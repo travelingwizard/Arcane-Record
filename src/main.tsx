@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from './app/App';
+import { AppErrorBoundary } from './app/AppErrorBoundary';
 import { AppearanceProvider } from './features/settings/AppearanceProvider';
 import {
   applyAppearancePreferences,
@@ -21,7 +22,9 @@ writeGlobalPreferences(readGlobalPreferences());
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <AppearanceProvider>
-      <App />
+      <AppErrorBoundary>
+        <App />
+      </AppErrorBoundary>
     </AppearanceProvider>
   </StrictMode>,
 );

@@ -79,6 +79,7 @@ export function createBlankEarthdawn4eCharacter(
     wealth: { copper: 0, silver: 100, gold: 0, other: '', startingSilver: 100 },
     reputation: { legendaryStatus: '', renown: '', reputation: '' },
     health: {
+      basicMode: false,
       damage: 0,
       wounds: 0,
       bloodMagicDamage: 0,

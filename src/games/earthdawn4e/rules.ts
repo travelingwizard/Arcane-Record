@@ -1,6 +1,109 @@
 import type { EarthdawnDiscipline } from './catalog';
 import type { Earthdawn4eCharacter } from './schema';
 
+export type EarthdawnMatrix = Earthdawn4eCharacter['magic']['matrices'][number];
+
+export function matrixDeathRating(type: EarthdawnMatrix['type']) {
+  if (type === 'armored') return 25;
+  if (type === 'shared') return 20;
+  if (type === 'enhanced') return 15;
+  return 10;
+}
+
+export function matrixCapacityUsed(
+  matrix: EarthdawnMatrix,
+  spells: Earthdawn4eCharacter['magic']['spells'],
+) {
+  const assigned = spells.filter((spell) => matrix.spellIds.includes(spell.id));
+  return matrix.type === 'shared'
+    ? assigned.reduce((sum, spell) => sum + spell.circle, 0)
+    : assigned.length
+      ? Math.max(...assigned.map((spell) => spell.circle))
+      : 0;
+}
+
+export function matrixIssues(
+  matrix: EarthdawnMatrix,
+  spells: Earthdawn4eCharacter['magic']['spells'],
+  highestCircle: number,
+) {
+  const assigned = spells.filter((spell) => matrix.spellIds.includes(spell.id));
+  const issues: string[] = [];
+  if (matrix.type !== 'shared' && assigned.length > 1)
+    issues.push('This matrix normally holds one spell.');
+  if (matrixCapacityUsed(matrix, spells) > matrix.rank)
+    issues.push('Assigned spell Circles exceed the matrix Rank.');
+  if (assigned.some((spell) => spell.circle > highestCircle))
+    issues.push('A spell exceeds the magician’s highest Discipline Circle.');
+  if (matrix.damage >= matrix.deathRating)
+    issues.push('The matrix is shut down until its damage is recovered.');
+  return issues;
+}
+
+const matrixDisciplines = new Set([
+  'Elementalist',
+  'Illusionist',
+  'Nethermancer',
+  'Shaman',
+  'Wizard',
+]);
+
+export function reconcileFreeMatrices(character: Earthdawn4eCharacter) {
+  const discipline = character.disciplines.find((entry) =>
+    matrixDisciplines.has(entry.name),
+  );
+  if (!discipline) return character;
+  const source = `free:${discipline.id}`;
+  const existing = character.magic.matrices.filter(
+    (matrix) => matrix.source === source,
+  );
+  const upgradedMatrices = character.magic.matrices.map((matrix) => {
+    if (matrix.source !== source) return matrix;
+    const freeIndex = existing.findIndex(({ id }) => id === matrix.id);
+    const type: EarthdawnMatrix['type'] =
+      discipline.circle >= 5 && freeIndex === 0 ? 'enhanced' : 'standard';
+    return {
+      ...matrix,
+      name:
+        type === 'enhanced' ? 'Free Enhanced Matrix' : 'Free Standard Matrix',
+      type,
+      rank: discipline.circle,
+      prewovenThreads: type === 'enhanced' ? 1 : 0,
+      deathRating: matrixDeathRating(type),
+      restriction: discipline.name,
+    };
+  });
+  const additions = Array.from({ length: 2 - existing.length }, (_, index) => {
+    const upgraded = discipline.circle >= 5 && existing.length + index === 0;
+    const type = upgraded ? ('enhanced' as const) : ('standard' as const);
+    return {
+      id: crypto.randomUUID(),
+      name: upgraded ? 'Free Enhanced Matrix' : 'Free Standard Matrix',
+      type,
+      source,
+      rank: discipline.circle,
+      spellId: null,
+      spellIds: [],
+      prewovenThreads: upgraded ? 1 : 0,
+      damage: 0,
+      deathRating: matrixDeathRating(type),
+      active: true,
+      temporaryUntil: '',
+      restriction: discipline.name,
+      reattuning: { inProgress: false, difficulty: 0, strainPaid: 0 },
+      used: false,
+      notes: 'Granted by magician Discipline progression.',
+    };
+  });
+  return {
+    ...character,
+    magic: {
+      ...character.magic,
+      matrices: [...upgradedMatrices, ...additions],
+    },
+  };
+}
+
 type Talent = Earthdawn4eCharacter['talents'][number];
 type LedgerEntry = Earthdawn4eCharacter['advancement']['ledger'][number];
 
