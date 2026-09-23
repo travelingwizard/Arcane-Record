@@ -166,6 +166,14 @@ describe('auditFamily against the real repository (current state)', () => {
   });
 
   it('reports Lunar as pending-certification with its real inventory rows and zero audit errors', () => {
+    // `lunar-charms.json`, a raw OCR extraction with garbled ids that don't
+    // match this family's real inventory, lives in
+    // `./reference/ocr-drafts/` specifically so it falls outside this
+    // audit script's `${family}-*.json` promoted-catalog glob (which only
+    // scans `src/games/exalted1e/reference/` directly) -- see
+    // `./reference/family-powers.ts`'s doc comment. This audit therefore
+    // sees Lunar exactly as its real inventory/promotion state: real
+    // inventory rows, nothing promoted yet.
     const report = auditFamily('lunar');
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);
@@ -210,6 +218,10 @@ describe('auditFamily against the real repository (current state)', () => {
   });
 
   it('reports Alchemical as pending-certification with its real inventory rows and zero audit errors', () => {
+    // `alchemical-charms.json`, an OCR extraction with a majority of
+    // entries sharing an identical generic description (not real
+    // transcribed mechanics), lives in `./reference/ocr-drafts/` for the
+    // same reason as Lunar's -- see the comment above.
     const report = auditFamily('alchemical');
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);
@@ -218,6 +230,9 @@ describe('auditFamily against the real repository (current state)', () => {
   });
 
   it('reports Fair Folk as pending-certification with its real inventory rows and zero audit errors', () => {
+    // `fair-folk-charms.json`, an OCR extraction with several garbled ids
+    // that don't match this family's real inventory, lives in
+    // `./reference/ocr-drafts/` for the same reason as Lunar's above.
     const report = auditFamily('fair-folk');
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);

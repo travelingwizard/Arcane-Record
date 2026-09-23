@@ -51,6 +51,8 @@ export interface GameSystemVariantDefinition<TCharacter> {
   createInitialCharacter: () => TCharacter;
   /** Optional blank/manual record for systems whose variants support both flows. */
   createManualInitialCharacter?: () => TCharacter;
+  /** Keep a planned variant visible without permitting incomplete records. */
+  unavailableRequirement?: string;
 }
 
 export interface GameSystemCreationAction<TCharacter> {

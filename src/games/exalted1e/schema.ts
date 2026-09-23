@@ -59,9 +59,15 @@ import {
   weaponById,
 } from './shared/equipment/catalog';
 import { unresolvedExaltedReferenceSchema } from './shared/unresolved-reference';
+import {
+  createDefaultFamilyState,
+  exaltedCharacterTypes,
+  type ExaltedCharacterType,
+} from './profiles';
+import { defaultExaltedSourceIds } from './sources';
 
 const fivePointRating = z.number().int().min(0).max(5);
-const attributeRating = z.number().int().min(1).max(5);
+const attributeRating = z.number().int().min(0).max(7);
 const exaltedSectionGroupIdSchema = z.enum(exaltedSectionGroupIds);
 const exaltedSectionGroupOrderSchema = z
   .array(exaltedSectionGroupIdSchema)
@@ -82,18 +88,13 @@ export const exaltedAbilityIdSchema = z.enum(
   exaltedAbilities.map((ability) => ability.id),
 );
 
-export const exaltedBackgroundIdSchema = z.enum(
-  Array.from(
-    new Set(
-      [
-        ...solarBackgrounds,
-        ...dragonBloodedBackgrounds,
-        ...abyssalBackgrounds,
-        ...siderealBackgrounds,
-      ].map((background) => background.id),
-    ),
-  ),
-);
+// A bare string, not an enum -- matches how `powers.charms[].definitionId`/
+// `powers.spells[].definitionId` are already validated: real restriction
+// happens per-sheetType in this schema's own `superRefine` below (via
+// `backgroundIdsBySheetType`), not here. This also means adding a new
+// family's Backgrounds later never requires touching this schema, only
+// that family's own `backgroundIdsBySheetType` entry.
+export const exaltedBackgroundIdSchema = z.string().min(1).max(200);
 
 const solarBackgroundIds = new Set<string>(
   solarBackgrounds.map((background) => background.id),
@@ -107,11 +108,25 @@ const abyssalBackgroundIds = new Set<string>(
 const siderealBackgroundIds = new Set<string>(
   siderealBackgrounds.map((background) => background.id),
 );
+/**
+ * Every `ExaltedSheetType` (now all seven planned families, since
+ * `exaltedSheetTypes` widened to re-export `exaltedCharacterTypes` from
+ * `profiles.ts`) gets a real, explicit entry here -- an empty `Set()` for
+ * Lunar/Alchemical/Fair Folk, which have no promoted Backgrounds catalog
+ * yet, rather than a `null`/unrestricted fallback. This keeps the
+ * `superRefine` check below correctly rejecting any Background selection
+ * for those three families, instead of silently accepting arbitrary
+ * strings, matching the same explicit-empty-set precedent already used
+ * for `charmIdsBySheetType`.
+ */
 const backgroundIdsBySheetType: Record<ExaltedSheetType, Set<string>> = {
   solar: solarBackgroundIds,
   'dragon-blooded': dragonBloodedBackgroundIds,
   abyssal: abyssalBackgroundIds,
   sidereal: siderealBackgroundIds,
+  lunar: new Set<string>(),
+  alchemical: new Set<string>(),
+  'fair-folk': new Set<string>(),
 };
 
 /** Human-readable label used in validation messages for each sheet type. */
@@ -120,6 +135,9 @@ const sheetTypeLabels: Record<ExaltedSheetType, string> = {
   'dragon-blooded': 'Dragon-Blooded',
   abyssal: 'Abyssal',
   sidereal: 'Sidereal',
+  lunar: 'Lunar',
+  alchemical: 'Alchemical',
+  'fair-folk': 'Fair Folk',
 };
 
 const selectedTraitSchema = z.object({
@@ -131,6 +149,82 @@ const selectedTraitSchema = z.object({
   linkedDerangementId: z.string().uuid().nullable().optional(),
   unresolvedReference: unresolvedExaltedReferenceSchema,
 });
+
+const approvalSchema = z.object({
+  id: z.string().uuid(),
+  ruleId: z.string().min(1).max(300),
+  reason: z.string().min(1).max(5_000),
+  approvedAt: z.string().datetime(),
+});
+
+const creationPurchaseSchema = z.object({
+  id: z.string().uuid(),
+  targetType: z.string().min(1).max(100),
+  targetId: z.string().min(1).max(500),
+  fromRating: z.number().int().min(0).max(99),
+  toRating: z.number().int().min(0).max(99),
+  cost: z.number().int().min(0).max(999),
+  origin: z.enum(['initial', 'bonus', 'manual']),
+  sourceId: z.string().min(1).max(200),
+  sourcePage: z.string().max(100),
+});
+
+const familyStateSchema = z.discriminatedUnion('type', [
+  z.object({ type: z.literal('solar') }),
+  z.object({
+    type: z.literal('dragon-blooded'),
+    animaFlux: z.number().int().min(0).max(99),
+  }),
+  z.object({
+    type: z.literal('lunar'),
+    tell: z.string(),
+    tattooed: z.boolean(),
+    heartBloodForms: z.array(
+      z.object({ id: z.string().uuid(), name: z.string(), notes: z.string() }),
+    ),
+    activeFormId: z.string().uuid().nullable(),
+  }),
+  z.object({
+    type: z.literal('abyssal'),
+    resonance: z.number().int().min(0).max(99),
+    liege: z.string(),
+    whispers: z.number().int().min(0).max(5),
+  }),
+  z.object({
+    type: z.literal('sidereal'),
+    division: z.string(),
+    paradox: z.number().int().min(0).max(99),
+    colleges: z.record(z.string(), z.number().int().min(0).max(5)),
+    destinies: z.array(
+      z.object({
+        id: z.string().uuid(),
+        name: z.string(),
+        active: z.boolean(),
+        notes: z.string(),
+      }),
+    ),
+  }),
+  z.object({
+    type: z.literal('alchemical'),
+    clarity: z.number().int().min(0).max(10),
+    installedCharmIds: z.array(z.string()),
+    charmSlots: z.number().int().min(0).max(99),
+  }),
+  z.object({
+    type: z.literal('fair-folk'),
+    graces: z.record(z.string(), z.number().int().min(0).max(5)),
+    feedingNotes: z.string(),
+    activeAssumption: z.string(),
+    oaths: z.array(
+      z.object({
+        id: z.string().uuid(),
+        name: z.string(),
+        state: z.string(),
+        notes: z.string(),
+      }),
+    ),
+  }),
+]);
 
 export const exalted1eCharacterSchema = z
   .object({
@@ -144,6 +238,8 @@ export const exalted1eCharacterSchema = z
       aspect: z.string(),
       house: z.string(),
       anima: z.string(),
+      familyIdentity: z.string().default(''),
+      organization: z.string().default(''),
     }),
     attributes: z.object({
       physical: z.object({
@@ -249,11 +345,43 @@ export const exalted1eCharacterSchema = z
       weapons: z.string(),
       experience: z.string(),
     }),
+    familyState: familyStateSchema,
+    sourcePreferences: z.object({
+      enabledSourceIds: z.array(z.string()).min(1),
+      showUnavailable: z.boolean(),
+    }),
+    creation: z.object({
+      status: z.enum(['manual', 'draft', 'finalized']),
+      currentStep: z.number().int().min(0).max(100),
+      profileId: z.enum(exaltedCharacterTypes),
+      favoredAttributeIds: z.array(z.string()).max(3),
+      rulesVariant: z.enum([
+        'standard',
+        'casteless',
+        'fugitive',
+        'ronin',
+        'common',
+        'heroic-common',
+      ]),
+      initialPurchases: z.array(creationPurchaseSchema),
+      bonusPurchases: z.array(creationPurchaseSchema),
+      approvals: z.array(approvalSchema),
+      baselineJson: z.string(),
+      finalizedAt: z.string().datetime().nullable(),
+    }),
     sheetLayout: z.object({
       groupOrder: exaltedSectionGroupOrderSchema,
+      mode: z.enum(['build', 'play']).default('build'),
     }),
   })
   .superRefine((character, context) => {
+    if (character.familyState.type !== character.sheetType) {
+      context.addIssue({
+        code: 'custom',
+        message: 'Family state must match the selected character type.',
+        path: ['familyState', 'type'],
+      });
+    }
     const equipmentGroups = [
       ['weapons', 'weapon', weaponById] as const,
       ['armor', 'armor', armorById] as const,
@@ -285,19 +413,27 @@ export const exalted1eCharacterSchema = z
         }
       });
     }
-    const charmIdsBySheetType: Record<ExaltedSheetType, ReadonlySet<string>> =
-      {
-        solar: solarCharmIds,
-        'dragon-blooded': dragonBloodedCharmIds,
-        abyssal: abyssalCharmIds,
-        // Phase 2b: 193 Chapter Five Charms -- 152 Caste-and-Auspicious-
-        // Ability Charms (25 trees) plus the 41 Charms of the three named
-        // secret Martial Arts styles (Charcoal March of Spiders,
-        // Prismatic Arrangement of Creation, Citrine Poxes of Contagion).
-        // The Astrology/Colleges system remains out of scope for this
-        // phase; see `siderealCharmIds` in `./reference/sidereal-powers`.
-        sidereal: siderealCharmIds,
-      };
+    // Every `ExaltedSheetType` gets a real, explicit entry -- an empty
+    // `Set()` for Lunar/Alchemical/Fair Folk, which have no promoted
+    // Charms catalog yet, exactly like `backgroundIdsBySheetType` above.
+    // A blank character of any of these three types validates cleanly
+    // (no Charms/Combos selected); any non-empty selection is explicitly
+    // rejected as unknown rather than silently accepted.
+    const charmIdsBySheetType: Record<ExaltedSheetType, ReadonlySet<string>> = {
+      solar: solarCharmIds,
+      'dragon-blooded': dragonBloodedCharmIds,
+      abyssal: abyssalCharmIds,
+      // Phase 2b: 193 Chapter Five Charms -- 152 Caste-and-Auspicious-
+      // Ability Charms (25 trees) plus the 41 Charms of the three named
+      // secret Martial Arts styles (Charcoal March of Spiders,
+      // Prismatic Arrangement of Creation, Citrine Poxes of Contagion).
+      // The Astrology/Colleges system remains out of scope for this
+      // phase; see `siderealCharmIds` in `./reference/sidereal-powers`.
+      sidereal: siderealCharmIds,
+      lunar: new Set<string>(),
+      alchemical: new Set<string>(),
+      'fair-folk': new Set<string>(),
+    };
     character.combos.forEach((combo, index) => {
       if (new Set(combo.charmIds).size !== combo.charmIds.length) {
         context.addIssue({
@@ -389,6 +525,27 @@ export const exalted1eCharacterSchema = z
         }
         return;
       }
+      if (
+        character.sheetType === 'lunar' ||
+        character.sheetType === 'alchemical' ||
+        character.sheetType === 'fair-folk'
+      ) {
+        // PLACEHOLDER pending each family's own spell/power-catalog phase.
+        // Without this branch, these three would silently fall through to
+        // the Dragon-Blooded check below and wrongly accept Dragon-Blooded
+        // Terrestrial spell ids as if they were legal -- the exact bug
+        // class already found and fixed for Sidereal before its own
+        // catalog existed (see git history). Alchemical in particular has
+        // no Sorcery/spell system at all per the source rules, so this
+        // rejection is expected to remain permanent for that family, not
+        // just a temporary placeholder.
+        context.addIssue({
+          code: 'custom',
+          message: `No ${sheetTypeLabels[character.sheetType]} spell catalog exists yet.`,
+          path: ['powers', 'spells', index, 'definitionId'],
+        });
+        return;
+      }
       if (!dragonBloodedSpellIds.has(selection.definitionId)) {
         context.addIssue({
           code: 'custom',
@@ -404,16 +561,30 @@ export const exalted1eCharacterSchema = z
       const pathKey = kind === 'merit' ? 'merits' : 'flaws';
       const definitionCounts = new Map<string, number>();
       selections.forEach((selection, index) => {
-        // Solar has its own dedicated catalog; Dragon-Blooded and Abyssal
-        // draw from the shared catalog (`sharedTraitById`), gated by each
-        // entry's own `appliesTo` list.
+        // Solar has its own dedicated catalog; every other sheet type
+        // (Dragon-Blooded, Abyssal, Sidereal today; Lunar, Alchemical,
+        // and Fair Folk once/if they ever draw from this catalog) looks
+        // up the shared catalog (`sharedTraitById`), gated by each
+        // entry's own `appliesTo` list. No early-return for unimplemented
+        // families is needed here: `appliesTo` simply never includes
+        // them yet, so the lookup below naturally rejects any selection
+        // for those sheet types as an unknown definition.
         const definition =
           character.sheetType === 'solar'
             ? solarTraitById.get(selection.definitionId)
             : sharedTraitById.get(selection.definitionId);
         const appliesToSheet =
           definition !== undefined &&
-          definition.appliesTo.includes(character.sheetType);
+          // `appliesTo` is typed over the narrower set of sheet types this
+          // shared catalog actually covers (solar/dragon-blooded/abyssal/
+          // sidereal); widened to a plain string comparison so this
+          // compiles against the full seven-member `ExaltedSheetType`
+          // without narrowing `character.sheetType` first. Lunar/
+          // Alchemical/Fair Folk simply never appear in any entry's
+          // `appliesTo`, so this naturally evaluates to `false` for them.
+          (definition.appliesTo as readonly string[]).includes(
+            character.sheetType,
+          );
         if (!definition || definition.kind !== kind || !appliesToSheet) {
           context.addIssue({
             code: 'custom',
@@ -694,6 +865,55 @@ export function prepareExalted1eCharacterData(
           description:
             typeof notes?.description === 'string' ? notes.description : '',
           history: typeof notes?.history === 'string' ? notes.history : '',
+        },
+      };
+    }
+    if (fromVersion < 8) {
+      const type = (exaltedCharacterTypes as readonly string[]).includes(
+        String(recordCandidate.sheetType),
+      )
+        ? (recordCandidate.sheetType as ExaltedCharacterType)
+        : 'solar';
+      const identity = (recordCandidate.identity ?? {}) as Record<
+        string,
+        unknown
+      >;
+      const sheetLayout = (recordCandidate.sheetLayout ?? {}) as Record<
+        string,
+        unknown
+      >;
+      recordCandidate = {
+        ...recordCandidate,
+        identity: { ...identity, familyIdentity: '', organization: '' },
+        familyState: createDefaultFamilyState(type),
+        sourcePreferences: {
+          enabledSourceIds: defaultExaltedSourceIds(type),
+          showUnavailable: false,
+        },
+        creation: {
+          status: 'manual',
+          currentStep: 0,
+          profileId: type,
+          initialPurchases: [],
+          bonusPurchases: [],
+          approvals: [],
+          baselineJson: '',
+          finalizedAt: null,
+        },
+        sheetLayout: { ...sheetLayout, mode: 'build' },
+      };
+    }
+    if (fromVersion < 9) {
+      const creation = (recordCandidate.creation ?? {}) as Record<
+        string,
+        unknown
+      >;
+      recordCandidate = {
+        ...recordCandidate,
+        creation: {
+          ...creation,
+          rulesVariant: 'standard',
+          favoredAttributeIds: [],
         },
       };
     }

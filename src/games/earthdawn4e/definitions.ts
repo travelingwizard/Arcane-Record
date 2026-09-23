@@ -4,7 +4,7 @@ import type {
 } from '../game-system';
 
 export const EARTHDAWN4E_SYSTEM_ID = 'earthdawn4e';
-export const EARTHDAWN4E_SCHEMA_VERSION = 1;
+export const EARTHDAWN4E_SCHEMA_VERSION = 3;
 
 export const earthdawn4eSectionGroups = [
   { id: 'character', label: 'Character' },
@@ -38,7 +38,6 @@ export const earthdawn4eSections = [
     label: 'Legend & Advancement',
     group: 'advancement',
   },
-  { id: 'ed4-sources', label: 'Owned Sources', group: 'records' },
   { id: 'ed4-notes', label: 'Description & Notes', group: 'records' },
 ] as const satisfies readonly GameSectionDefinition[];
 

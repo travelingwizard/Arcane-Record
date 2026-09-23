@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import catalogData from './dragonblooded-merits-flaws.json';
+import type { ExaltedSheetType } from '../definitions';
 
 export const exaltedTraitKinds = ['merit', 'flaw'] as const;
 export const exaltedTraitCategories = [
@@ -337,7 +338,14 @@ const sharedCostOverrides: Record<
 export function isLegalSharedTraitCost(
   definition: DragonBloodedTraitDefinition,
   chosenCost: number,
-  sheetType: 'dragon-blooded' | 'abyssal' | 'sidereal',
+  // Widened to every non-Solar `ExaltedSheetType` (not just the three that
+  // actually draw from this shared catalog today) so callers in
+  // `schema.ts` can pass `character.sheetType` directly after that widened
+  // to seven planned families. Lunar/Alchemical/Fair Folk never reach the
+  // `sharedCostOverrides` branch below in practice, since `appliesTo`
+  // never includes them and `schema.ts` only calls this once a matching
+  // `definition` has already been found for the sheet type.
+  sheetType: Exclude<ExaltedSheetType, 'solar'>,
 ) {
   if (!Number.isInteger(chosenCost)) return false;
   if (sheetType === 'abyssal' || sheetType === 'sidereal') {
@@ -365,7 +373,7 @@ export function isLegalSharedTraitCost(
  */
 export function getSharedTraitCostPolicy(
   definition: DragonBloodedTraitDefinition,
-  sheetType: 'dragon-blooded' | 'abyssal' | 'sidereal',
+  sheetType: Exclude<ExaltedSheetType, 'solar'>,
 ): TraitCostPolicy {
   if (sheetType === 'abyssal' || sheetType === 'sidereal') {
     const override = sharedCostOverrides[definition.id]?.[sheetType];

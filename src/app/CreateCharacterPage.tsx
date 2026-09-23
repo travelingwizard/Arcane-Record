@@ -425,19 +425,31 @@ export function CreateCharacterPage({
         <div className="game-system-grid">
           {system.variants.map((variant) => (
             <article className="game-system-card" key={variant.id}>
-              <p className="eyebrow">Character sheet</p>
+              <p className="eyebrow">
+                {variant.unavailableRequirement
+                  ? 'Unavailable'
+                  : 'Character sheet'}
+              </p>
               <h2>{variant.name}</h2>
               <p>{variant.description}</p>
+              {variant.unavailableRequirement ? (
+                <p className="notice notice--warning">
+                  {variant.unavailableRequirement}
+                </p>
+              ) : null}
               <button
                 className="primary-button"
-                disabled={creating}
+                disabled={creating || Boolean(variant.unavailableRequirement)}
                 onClick={() => void create(variant.id)}
               >
-                {creatingVariantId === variant.id
-                  ? 'Opening sheet…'
-                  : `Choose ${variant.shortName}`}
+                {variant.unavailableRequirement
+                  ? 'Source verification required'
+                  : creatingVariantId === variant.id
+                    ? 'Opening sheet…'
+                    : `Choose ${variant.shortName}`}
               </button>
-              {variant.createManualInitialCharacter ? (
+              {variant.createManualInitialCharacter &&
+              !variant.unavailableRequirement ? (
                 <button
                   className="secondary-button"
                   disabled={creating}

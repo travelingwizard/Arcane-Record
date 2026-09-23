@@ -2,6 +2,7 @@ import {
   plannedExaltedFamilies,
   type PlannedExaltedFamily,
 } from './definitions';
+import type { ExaltedCharacterType } from './profiles';
 import {
   certificationRecords,
   type SplatCertificationRecord,
@@ -25,8 +26,12 @@ import {
  * 4. Migration tests pass.
  * 5. Browser/E2E tests pass.
  *
- * Today none of the five families have a schema, catalog, or editor, so
- * every dimension is honestly `not-run` and every family is locked. This
+ * A family's own certification record is the ONLY source of truth for
+ * whether it may be unlocked. Nothing else — a populated catalog file, an
+ * OCR extraction script's output, a `verified` label on an
+ * `ExaltedCharacterProfile` (see `./profiles`), or a passing typecheck/build
+ * — can promote a family implicitly. Today none of the five families have
+ * passed every dimension, so every one of them is honestly locked. This
  * module exists so unlocking a family later is a data change (updating its
  * certification record with real evidence) rather than a code change to a
  * pass/block switch.
@@ -125,4 +130,48 @@ export function getAllFamilyCertificationStatuses(): FamilyCertificationStatus[]
   return plannedExaltedFamilies.map((family) =>
     getFamilyCertificationStatus(family),
   );
+}
+
+function isPlannedExaltedFamily(
+  family: ExaltedCharacterType,
+): family is PlannedExaltedFamily {
+  return (plannedExaltedFamilies as readonly string[]).includes(family);
+}
+
+/**
+ * Whole-character-type gate covering all seven `ExaltedCharacterType`
+ * values (see `./profiles`), not just the five planned families. Solar and
+ * Dragon-Blooded are already-shipped production sheet types with no
+ * certification record of their own (they predate this evidence-based
+ * gate) and are always available; every other type defers entirely to its
+ * certification record above. This is the single function UI code (e.g.
+ * `definition.tsx`'s `variants`, `ExaltedCreationPanel.tsx`) should call to
+ * decide whether a given family may be created — there is intentionally no
+ * second, independently-maintained boolean gate anywhere else in this
+ * module.
+ */
+export function canCreateProductionExaltedCharacter(
+  family: ExaltedCharacterType,
+): boolean {
+  if (!isPlannedExaltedFamily(family)) return true;
+  return isFamilyAvailable(family);
+}
+
+/**
+ * Human-readable reason a family can't be created yet, suitable for
+ * surfacing in the create-character UI, or `undefined` once it's available.
+ * Prefers the certification record's own short `blockers` list (see
+ * `./certification/schema.ts`) when present, falling back to the more
+ * technical `describeFamilyStatus` wording otherwise.
+ */
+export function getExaltedVerificationRequirement(
+  family: ExaltedCharacterType,
+): string | undefined {
+  if (canCreateProductionExaltedCharacter(family)) return undefined;
+  if (!isPlannedExaltedFamily(family)) return undefined;
+  const record = certificationRecords[family];
+  if (record.blockers.length > 0) {
+    return `Source verification required: ${record.blockers.join(' ')}`;
+  }
+  return `Source verification required: ${describeFamilyStatus(family)}.`;
 }

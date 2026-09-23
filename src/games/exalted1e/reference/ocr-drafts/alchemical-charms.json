@@ -1,0 +1,3302 @@
+[
+  {
+    "id": "transitory-augmentation-of-attribute",
+    "name": "Transitory Augmentation Of (Attribute)",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires (Attribute) 1 and Essence 2.",
+    "description": "Alchemical Charm; requires (Attribute) 1 and Essence 2.",
+    "cost": "1 mote per die",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "(Attribute)",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 89",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 89,
+      "pdfPage": 92
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "(Attribute)",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "sustained-augmentation-of-attribute",
+    "name": "Sustained Augmentation Of (Attribute)",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires (Attribute) 2 and Essence 2.",
+    "description": "Alchemical Charm; requires (Attribute) 2 and Essence 2.",
+    "cost": "None",
+    "installationCost": "1 mote",
+    "duration": "N/A",
+    "type": "Permanent",
+    "minimumRequirements": [
+      {
+        "trait": "(Attribute)",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 89",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 89,
+      "pdfPage": 92
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "(Attribute)",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "tactical-analysis-engrams",
+    "name": "Tactical Analysis Engrams",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Wits 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Wits 3 and Essence 2.",
+    "cost": "2 motes",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Wits",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 90",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 90,
+      "pdfPage": 93
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "accelerated-response-system",
+    "name": "Accelerated Response System",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Dexterity 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Dexterity 3 and Essence 2.",
+    "cost": "2 motes",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Dexterity",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 91",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 91,
+      "pdfPage": 94
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "dynamic-reaction-enhancement-system",
+    "name": "Dynamic Reaction Enhancement System",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Dexterity 2 and Essence 2.",
+    "description": "Alchemical Charm; requires Dexterity 2 and Essence 2.",
+    "cost": "1 mote per +2 initiative",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Dexterity",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 91",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 91,
+      "pdfPage": 94
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "celerity-enabling-module",
+    "name": "Celerity Enabling Module",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Dexterity 4 and Essence 3.",
+    "description": "Alchemical Charm; requires Dexterity 4 and Essence 3.",
+    "cost": "5 motes, 1 Willpower",
+    "installationCost": "1 mote",
+    "duration": "Instant/One scene",
+    "type": "Extra Action/Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["dynamic-reaction-enhancement-system"],
+    "prerequisiteText": "Dynamic Reaction Enhancement System",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 91",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 91,
+      "pdfPage": 94
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "anticipatory-simulation-processor",
+    "name": "Anticipatory Simulation Processor",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Wits 5 and Essence 4.",
+    "description": "Alchemical Charm; requires Wits 5 and Essence 4.",
+    "cost": "Varies",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["accelerated-response-system"],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Wits, Accelerated Response System, Celerity",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 92",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 92,
+      "pdfPage": 95
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "polymodal-joint-bearings",
+    "name": "Polymodal Joint Bearings",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Dexterity 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Dexterity 3 and Essence 2.",
+    "cost": "2 motes",
+    "installationCost": "1 mote",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Dexterity",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 92",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 92,
+      "pdfPage": 95
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "limb-extension-armatures",
+    "name": "Limb Extension Armatures",
+    "kind": "charm",
+    "summary": "Alchemical Charm; Essence 2.",
+    "description": "Alchemical Charm; Essence 2.",
+    "cost": "2 motes",
+    "installationCost": "None",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Dexterity",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 93",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 93,
+      "pdfPage": 96
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Alchemical",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "multi-limb-frame",
+    "name": "Multi-Limb Frame",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Dexterity 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Dexterity 3 and Essence 2.",
+    "cost": "1 mote/None",
+    "installationCost": "None/1 mote",
+    "duration": "Indefinite/N/A",
+    "type": "Simple/Permanent",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Sustained Augmentation of",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 93",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 93,
+      "pdfPage": 96
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "hyperdextrous-tentacle-apparatus",
+    "name": "Hyperdextrous Tentacle Apparatus",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Dexterity 5 and Essence 3.",
+    "description": "Alchemical Charm; requires Dexterity 5 and Essence 3.",
+    "cost": "8 motes, 1 Willpower",
+    "installationCost": "1 mote",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Sustained Augmentation",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 93",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 93,
+      "pdfPage": 96
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "integrated-arsenal-upgrade",
+    "name": "Integrated Arsenal Upgrade",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Dexterity 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Dexterity 3 and Essence 2.",
+    "cost": "None",
+    "installationCost": "None",
+    "duration": "N/A",
+    "type": "Permanent",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["multi-limb-frame"],
+    "prerequisiteText": "Multi-Limb Frame",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 94",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 94,
+      "pdfPage": 97
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "material-synthesis-wave-emitter",
+    "name": "(Material) Synthesis Wave Emitter",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Strength 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Strength 3 and Essence 2.",
+    "cost": "2 motes",
+    "installationCost": "None",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Strength",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory Augmentation of",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 95",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 95,
+      "pdfPage": 98
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Strength",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "transcendent-multimodal-weapon-matrix",
+    "name": "Transcendent Multimodal Weapon Matrix",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Dexterity 4 and Essence 3.",
+    "description": "Alchemical Charm; requires Dexterity 4 and Essence 3.",
+    "cost": "Varies",
+    "installationCost": "None",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Dexterity, (Caste Material) Synthesis Wave Emitter",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 96",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 96,
+      "pdfPage": 99
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "electrification-onslaught-dynamo",
+    "name": "Electrification Onslaught Dynamo",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Strength 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Strength 3 and Essence 2.",
+    "cost": "Varies",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Strength",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory Augmentation of",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 96",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 96,
+      "pdfPage": 99
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Strength",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "chemical-fog-generator",
+    "name": "Chemical Fog Generator",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Manipulation 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Manipulation 3 and Essence 2.",
+    "cost": "Varies",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 96",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 96,
+      "pdfPage": 99
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "perfected-lotus-matrix",
+    "name": "Perfected Lotus Matrix",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Martial Arts 2 and Essence 2.",
+    "description": "Alchemical Charm; requires Martial Arts 2 and Essence 2.",
+    "cost": "None",
+    "installationCost": "2 motes",
+    "duration": "N/A",
+    "type": "Permanent",
+    "minimumRequirements": [
+      {
+        "trait": "Martial Arts",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 98",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 98,
+      "pdfPage": 101
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Martial Arts",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "aim-calibrating-sensors",
+    "name": "Aim-Calibrating Sensors",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Perception 2 and Essence 2.",
+    "description": "Alchemical Charm; requires Perception 2 and Essence 2.",
+    "cost": "1+ motes",
+    "installationCost": "2 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 98",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 98,
+      "pdfPage": 101
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "paramagnetic-tether-beam",
+    "name": "Paramagnetic Tether Beam",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Strength 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Strength 3 and Essence 2.",
+    "cost": "3 motes",
+    "installationCost": "2 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Strength",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["aim-calibrating-sensors"],
+    "prerequisiteText": "Aim-Calibrating Sensors",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 98",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 98,
+      "pdfPage": 101
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Strength",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "essence-pulse-cannon",
+    "name": "Essence Pulse Cannon",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Strength 4 and Essence 2.",
+    "description": "Alchemical Charm; requires Strength 4 and Essence 2.",
+    "cost": "2 motes",
+    "installationCost": "1 mote",
+    "duration": "Indefinite",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Strength",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["aim-calibrating-sensors"],
+    "prerequisiteText": "Aim-Calibrating Sensors",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 99",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 99,
+      "pdfPage": 102
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Strength",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "interceptor-spark-emitter",
+    "name": "Interceptor Spark Emitter",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Wits 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Wits 3 and Essence 2.",
+    "cost": "2 motes or 3 motes",
+    "installationCost": "None",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["essence-pulse-cannon"],
+    "prerequisiteText": "Essence Pulse Cannon",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 101",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 101,
+      "pdfPage": 104
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "pulseweb-entanglement-burst",
+    "name": "Pulseweb Entanglement Burst",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Strength 5 and Essence 3.",
+    "description": "Alchemical Charm; requires Strength 5 and Essence 3.",
+    "cost": "6 motes, 1 Willpower",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Strength",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["essence-pulse-cannon"],
+    "prerequisiteText": "Essence Pulse Cannon",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 102",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 102,
+      "pdfPage": 105
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Strength",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "protosynthetic-ammunition-replicator",
+    "name": "Protosynthetic Ammunition Replicator",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Dexterity 2 and Essence 2.",
+    "description": "Alchemical Charm; requires Dexterity 2 and Essence 2.",
+    "cost": "1 mote",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["aim-calibrating-sensors"],
+    "prerequisiteText": "Aim-Calibrating Sensors",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 102",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 102,
+      "pdfPage": 105
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "repeating-pneumatic-bow",
+    "name": "Repeating Pneumatic Bow",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Strength 3 and Essence 3.",
+    "description": "Alchemical Charm; requires Strength 3 and Essence 3.",
+    "cost": "2 motes",
+    "installationCost": "1 mote",
+    "duration": "Indefinite",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Strength",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Protosynthetic Ammunition",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 103",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 103,
+      "pdfPage": 106
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Strength",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "subluminous-onslaught-missile",
+    "name": "Subluminous Onslaught Missile",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Strength 5 and Essence 4.",
+    "description": "Alchemical Charm; requires Strength 5 and Essence 4.",
+    "cost": "10 motes, 1 Willpower",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Strength",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["repeating-pneumatic-bow"],
+    "prerequisiteText": "Repeating Pneumatic Bow",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 103",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 103,
+      "pdfPage": 106
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Strength",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "hundredfold-strafing-methodology",
+    "name": "Hundredfold Strafing Methodology",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Dexterity 5 and Essence 4.",
+    "description": "Alchemical Charm; requires Dexterity 5 and Essence 4.",
+    "cost": "8 motes, 1 Willpower",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Extra Action",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["repeating-pneumatic-bow"],
+    "prerequisiteText": "Repeating Pneumatic Bow",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 103",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 103,
+      "pdfPage": 106
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "transmodal-rapid-targeting-system",
+    "name": "Transmodal Rapid Targeting System",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Dexterity 5 and Essence 3.",
+    "description": "Alchemical Charm; requires Dexterity 5 and Essence 3.",
+    "cost": "3 motes per target",
+    "installationCost": "2 motes",
+    "duration": "Instant",
+    "type": "Extra Action",
+    "minimumRequirements": [
+      {
+        "trait": "Dexterity",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["aim-calibrating-sensors"],
+    "prerequisiteText": "Aim-Calibrating Sensors",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 104",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 104,
+      "pdfPage": 107
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Dexterity",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "dedicated-harmonic-targeting",
+    "name": "Dedicated Harmonic Targeting",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Perception 3 and Essence 3.",
+    "description": "Alchemical Charm; requires Perception 3 and Essence 3.",
+    "cost": "3 motes",
+    "installationCost": "None",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transmodal Rapid Targeting",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 105",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 105,
+      "pdfPage": 108
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "strain-resistant-chassis-modification",
+    "name": "Strain Resistant Chassis Modification",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Stamina 2 and Essence 2.",
+    "description": "Alchemical Charm; requires Stamina 2 and Essence 2.",
+    "cost": "None",
+    "installationCost": "1 mote",
+    "duration": "N/A",
+    "type": "Permanent",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 105",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 105,
+      "pdfPage": 108
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "pain-suppression-nodes",
+    "name": "Pain Suppression Nodes",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Stamina 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Stamina 3 and Essence 2.",
+    "cost": "1mote",
+    "installationCost": "1 mote",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Sustained Augmentation of",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 105",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 105,
+      "pdfPage": 108
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "subcutaneous-exoskeletal-armor-plating",
+    "name": "Subcutaneous/Exoskeletal Armor Plating",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Stamina 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Stamina 3 and Essence 2.",
+    "cost": "None",
+    "installationCost": "1 mote",
+    "duration": "N/A",
+    "type": "Permanent",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Sustained Augmentation of",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 106",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 106,
+      "pdfPage": 109
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "aegis-integration-system",
+    "name": "Aegis Integration System",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Stamina 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Stamina 3 and Essence 2.",
+    "cost": "5 motes, 1 Willpower",
+    "installationCost": "1 mote",
+    "duration": "Five minutes",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Sustained Augmentation of",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 106",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 106,
+      "pdfPage": 109
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "essence-shield-projector",
+    "name": "Essence Shield Projector",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Stamina 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Stamina 3 and Essence 2.",
+    "cost": "Varies",
+    "installationCost": "1 mote",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 106",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 106,
+      "pdfPage": 109
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "element-inured-frame",
+    "name": "(Element)-Inured Frame",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Stamina 4 and Essence 3.",
+    "description": "Alchemical Charm; requires Stamina 4 and Essence 3.",
+    "cost": "5 motes",
+    "installationCost": "1 mote",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Sustained Augmentation of",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 107",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 107,
+      "pdfPage": 110
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "alloyed-reinforcement-of-flesh",
+    "name": "Alloyed Reinforcement Of Flesh",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Strength 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Strength 3 and Essence 2.",
+    "cost": "None",
+    "installationCost": "1 mote",
+    "duration": "N/A",
+    "type": "Permanent",
+    "minimumRequirements": [
+      {
+        "trait": "Strength",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Sustained or Transitory Augmentation of Strength",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 107",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 107,
+      "pdfPage": 110
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Strength",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "personal-gravity-manipulation-apparatus",
+    "name": "Personal Gravity Manipulation Apparatus",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Strength 2 and Essence 2.",
+    "description": "Alchemical Charm; requires Strength 2 and Essence 2.",
+    "cost": "2 motes",
+    "installationCost": "1 mote",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Strength",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 108",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 108,
+      "pdfPage": 111
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Strength",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "parabolic-leap-overcharger-device",
+    "name": "Parabolic Leap Overcharger Device",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Strength 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Strength 3 and Essence 2.",
+    "cost": "2 motes per turn or 1 mote",
+    "installationCost": "None",
+    "duration": "Varies",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Strength",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Personal Gravity Manipulation",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 109",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 109,
+      "pdfPage": 112
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Strength",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "electroneural-control-spurs",
+    "name": "Electroneural Control Spurs",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Charisma 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Charisma 3 and Essence 2.",
+    "cost": "6 motes, 1 Willpower",
+    "installationCost": "1 mote",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Charisma",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 110",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 110,
+      "pdfPage": 113
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "universal-pilot-key",
+    "name": "Universal Pilot Key",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Charisma 4 and Essence 3.",
+    "description": "Alchemical Charm; requires Charisma 4 and Essence 3.",
+    "cost": "14 motes, 1 Willpower",
+    "installationCost": "1 mote",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["electroneural-control-spurs"],
+    "prerequisiteText": "Electroneural Control Spurs",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 111",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 111,
+      "pdfPage": 114
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "pattern-facilitation-module",
+    "name": "Pattern Facilitation Module",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Charisma 4 and Essence 3.",
+    "description": "Alchemical Charm; requires Charisma 4 and Essence 3.",
+    "cost": "8 motes, 1 Willpower",
+    "installationCost": "1 motes",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory and Sustained Augmentation of Charisma",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 111",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 111,
+      "pdfPage": 114
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "synergy-promoting-upgrade",
+    "name": "Synergy-Promoting Upgrade",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Charisma 2 and Essence 2.",
+    "description": "Alchemical Charm; requires Charisma 2 and Essence 2.",
+    "cost": "1 mote per target",
+    "installationCost": "1 mote",
+    "duration": "One turn",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 112",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 112,
+      "pdfPage": 115
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "perfection-of-assembly",
+    "name": "Perfection Of Assembly",
+    "kind": "charm",
+    "summary": "Alchemical Charm; Essence 2.",
+    "description": "Alchemical Charm; Essence 2.",
+    "cost": "3 motes, 1 Willpower",
+    "installationCost": "None",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["synergy-promoting-upgrade"],
+    "prerequisiteText": "Synergy-Promoting Upgrade",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 113",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 113,
+      "pdfPage": 116
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Alchemical",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "thousandfold-courtesan-calculations",
+    "name": "Thousandfold Courtesan Calculations",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Appearance 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Appearance 3 and Essence 2.",
+    "cost": "5 mote",
+    "installationCost": "1 mote",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Appearance",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Appearance",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 113",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 113,
+      "pdfPage": 116
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Appearance",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "emotive-aesthetics-of-the-body-electric",
+    "name": "Emotive Aesthetics Of The Body Electric",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Appearance 4 and Essence 2.",
+    "description": "Alchemical Charm; requires Appearance 4 and Essence 2.",
+    "cost": "None",
+    "installationCost": "2 motes",
+    "duration": "N/A",
+    "type": "Permanent",
+    "minimumRequirements": [
+      {
+        "trait": "Appearance",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Sustained Augmentation of",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 113",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 113,
+      "pdfPage": 116
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Appearance",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "empathy-simulation-engine",
+    "name": "Empathy Simulation Engine",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Manipulation 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Manipulation 3 and Essence 2.",
+    "cost": "1 mote",
+    "installationCost": "1 mote",
+    "duration": "One Scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 114",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 114,
+      "pdfPage": 117
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "transcendent-brutality-programming",
+    "name": "Transcendent Brutality Programming",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Manipulation 4 and Essence 2.",
+    "description": "Alchemical Charm; requires Manipulation 4 and Essence 2.",
+    "cost": "None",
+    "installationCost": "1 mote",
+    "duration": "N/A",
+    "type": "Permanent",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["empathy-simulation-engine"],
+    "prerequisiteText": "Empathy Simulation Engine",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 114",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 114,
+      "pdfPage": 117
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "conceptual-entropy-module",
+    "name": "Conceptual Entropy Module",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Manipulation 3 and Essence 3.",
+    "description": "Alchemical Charm; requires Manipulation 3 and Essence 3.",
+    "cost": "6 motes, 1 Willpower",
+    "installationCost": "1 mote",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Manipulation",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 114",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 114,
+      "pdfPage": 117
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "motivational-vocoder",
+    "name": "Motivational Vocoder",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Manipulation 3 and Essence 3.",
+    "description": "Alchemical Charm; requires Manipulation 3 and Essence 3.",
+    "cost": "10 motes, 1 Willpower",
+    "installationCost": "1mote",
+    "duration": "One day",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Manipulation",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 114",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 114,
+      "pdfPage": 117
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "mind-ripping-probe",
+    "name": "Mind-Ripping Probe",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Manipulation 5 and Essence 4.",
+    "description": "Alchemical Charm; requires Manipulation 5 and Essence 4.",
+    "cost": "None",
+    "installationCost": "1 mote",
+    "duration": "N/A",
+    "type": "Permanent",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Personality Override Spike",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 117",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 117,
+      "pdfPage": 120
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "integrated-artifact-transmogrifier",
+    "name": "Integrated Artifact Transmogrifier",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Appearance 1 and Essence 2.",
+    "description": "Alchemical Charm; requires Appearance 1 and Essence 2.",
+    "cost": "1 mote per Charm or 5 motes",
+    "installationCost": "1 mote",
+    "duration": "Indefinite",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Appearance",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 118",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 118,
+      "pdfPage": 121
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Appearance",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "essence-dormancy-mode",
+    "name": "Essence Dormancy Mode",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Appearance 2 and Essence 3.",
+    "description": "Alchemical Charm; requires Appearance 2 and Essence 3.",
+    "cost": "3 motes",
+    "installationCost": "None",
+    "duration": "Indefinite",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Appearance",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Integrated Artifact",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 119",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 119,
+      "pdfPage": 122
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Appearance",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "voice-distortion-field",
+    "name": "Voice Distortion Field",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Manipulation 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Manipulation 3 and Essence 2.",
+    "cost": "1 mote",
+    "installationCost": "1 mote",
+    "duration": "Varies",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Manipulation",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 120",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 120,
+      "pdfPage": 123
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Manipulation",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "pheromone-regulation-systems",
+    "name": "Pheromone Regulation Systems",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Charisma 2 and Essence 2.",
+    "description": "Alchemical Charm; requires Charisma 2 and Essence 2.",
+    "cost": "1 mote",
+    "installationCost": "1 mote",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 120",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 120,
+      "pdfPage": 123
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "optical-shroud",
+    "name": "Optical Shroud",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Appearance 2 and Essence 2.",
+    "description": "Alchemical Charm; requires Appearance 2 and Essence 2.",
+    "cost": "2 motes",
+    "installationCost": "2 motes",
+    "duration": "Indefinite",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Appearance",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 121",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 121,
+      "pdfPage": 124
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Appearance",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "aura-dampening-component",
+    "name": "Aura-Dampening Component",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Appearance 2 and Essence 2.",
+    "description": "Alchemical Charm; requires Appearance 2 and Essence 2.",
+    "cost": "None",
+    "installationCost": "1 mote",
+    "duration": "N/A",
+    "type": "Permanent",
+    "minimumRequirements": [
+      {
+        "trait": "Appearance",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["optical-shroud"],
+    "prerequisiteText": "Optical Shroud",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 121",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 121,
+      "pdfPage": 124
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Appearance",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "dynamic-cloaking-module",
+    "name": "Dynamic Cloaking Module",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Appearance 2 and Essence 3.",
+    "description": "Alchemical Charm; requires Appearance 2 and Essence 3.",
+    "cost": "5 motes, 1 Willpower",
+    "installationCost": "1 mote",
+    "duration": "One hour",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Appearance",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["optical-shroud"],
+    "prerequisiteText": "Optical Shroud",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 121",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 121,
+      "pdfPage": 124
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Appearance",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "essence-veil",
+    "name": "Essence Veil",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Appearance 2 and Essence 4.",
+    "description": "Alchemical Charm; requires Appearance 2 and Essence 4.",
+    "cost": "None",
+    "installationCost": "1 mote",
+    "duration": "N/A",
+    "type": "Permanent",
+    "minimumRequirements": [
+      {
+        "trait": "Appearance",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["dynamic-cloaking-module"],
+    "prerequisiteText": "Dynamic Cloaking Module",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 121",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 121,
+      "pdfPage": 124
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Appearance",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "optical-enhancement",
+    "name": "Optical Enhancement",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Perception 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Perception 3 and Essence 2.",
+    "cost": "None",
+    "installationCost": "2 motes",
+    "duration": "N/A",
+    "type": "Permanent",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Perception",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 122",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 122,
+      "pdfPage": 125
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "tympanal-receptor-upgrade",
+    "name": "Tympanal Receptor Upgrade",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Perception 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Perception 3 and Essence 2.",
+    "cost": "3 motes",
+    "installationCost": "1 mote",
+    "duration": "One hour",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Perception",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 125",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 125,
+      "pdfPage": 128
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "deception-recognition-module",
+    "name": "Deception Recognition Module",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Perception 4 and Essence 2.",
+    "description": "Alchemical Charm; requires Perception 4 and Essence 2.",
+    "cost": "2 motes",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Chemical Analysis System or",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 126",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 126,
+      "pdfPage": 129
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "interpolative-situational-analysis-processor",
+    "name": "Interpolative Situational Analysis Processor",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Wits 4 and Essence 3.",
+    "description": "Alchemical Charm; requires Wits 4 and Essence 3.",
+    "cost": "4 motes",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory and Sustained Augmentation of Wits",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 126",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 126,
+      "pdfPage": 129
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "soulgem-detector",
+    "name": "Soulgem Detector",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Perception 2 and Essence 2.",
+    "description": "Alchemical Charm; requires Perception 2 and Essence 2.",
+    "cost": "3 motes",
+    "installationCost": "1 mote",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Perception",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 126",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 126,
+      "pdfPage": 129
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "cross-phase-scanner",
+    "name": "Cross-Phase Scanner",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Perception 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Perception 3 and Essence 2.",
+    "cost": "2 motes per sense",
+    "installationCost": "1 mote",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Perception",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 127",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 127,
+      "pdfPage": 130
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "transphase-engine",
+    "name": "Transphase Engine",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Wits 3 and Essence 3.",
+    "description": "Alchemical Charm; requires Wits 3 and Essence 3.",
+    "cost": "4 motes",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["cross-phase-scanner"],
+    "prerequisiteText": "Cross-Phase Scanner",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 127",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 127,
+      "pdfPage": 130
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "god-ward-projector",
+    "name": "God-Ward Projector",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Charisma 5 and Essence 3.",
+    "description": "Alchemical Charm; requires Charisma 5 and Essence 3.",
+    "cost": "30 mote, 2 Willpower",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Charisma",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["cross-phase-scanner"],
+    "prerequisiteText": "Cross-Phase Scanner",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 128",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 128,
+      "pdfPage": 131
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Charisma",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "sustenance-replication-engine",
+    "name": "Sustenance Replication Engine",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Stamina 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Stamina 3 and Essence 2.",
+    "cost": "None/5 motes",
+    "installationCost": "1 mote",
+    "duration": "Permanent/One minute",
+    "type": "Upgrade/Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Sustained Augmentation of",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 128",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 128,
+      "pdfPage": 131
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "toxicity-filtration-subsystems",
+    "name": "Toxicity Filtration Subsystems",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Stamina 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Stamina 3 and Essence 2.",
+    "cost": "2 motes",
+    "installationCost": "1 mote",
+    "duration": "One hour",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": null,
+    "sourceDisplay": "Exalted: The Autochthonians, p. 128",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 128,
+      "pdfPage": 131
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "restorative-fusion-transponder",
+    "name": "Restorative Fusion Transponder",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Stamina 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Stamina 3 and Essence 2.",
+    "cost": "5 motes",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Biofunction Inhibitor",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 129",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 129,
+      "pdfPage": 132
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "body-reweaving-matrix",
+    "name": "Body-Reweaving Matrix",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Stamina 4 and Essence 3.",
+    "description": "Alchemical Charm; requires Stamina 4 and Essence 3.",
+    "cost": "12 motes, 1 Willpower",
+    "installationCost": "1 mote",
+    "duration": "Indefinite",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["restorative-fusion-transponder"],
+    "prerequisiteText": "Restorative Fusion Transponder",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 129",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 129,
+      "pdfPage": 132
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "diagnostic-sensor-apparatus",
+    "name": "Diagnostic Sensor Apparatus",
+    "kind": "charm",
+    "summary": "Alchemical Charm; Essence 2.",
+    "description": "Alchemical Charm; Essence 2.",
+    "cost": "1 mote",
+    "installationCost": "1 mote",
+    "duration": "Until analysis completed",
+    "type": "Simple",
+    "minimumRequirements": [],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Sustained or Transitory Augmentation of Perception",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 130",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 130,
+      "pdfPage": 133
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Alchemical",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "biosight-reticle",
+    "name": "Biosight Reticle",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Perception 4 and Essence 3.",
+    "description": "Alchemical Charm; requires Perception 4 and Essence 3.",
+    "cost": "6 motes, 1 Willpower",
+    "installationCost": "1 mote",
+    "duration": "One hour",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["diagnostic-sensor-apparatus"],
+    "prerequisiteText": "Diagnostic Sensor Apparatus",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 130",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 130,
+      "pdfPage": 133
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "biostasis-field-projector",
+    "name": "Biostasis Field Projector",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Intelligence 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Intelligence 3 and Essence 2.",
+    "cost": "3 motes",
+    "installationCost": "1 mote",
+    "duration": "One day or indefinite",
+    "type": "Simple or Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Intelligence",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["diagnostic-sensor-apparatus"],
+    "prerequisiteText": "Biofunction Inhibitor, Diagnostic Sensor Apparatus",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 132",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 132,
+      "pdfPage": 135
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Intelligence",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "multifunction-hypodermic-apparatus",
+    "name": "Multifunction Hypodermic Apparatus",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Intelligence 4 and Essence 2.",
+    "description": "Alchemical Charm; requires Intelligence 4 and Essence 2.",
+    "cost": "4 motes",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Intelligence",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["diagnostic-sensor-apparatus"],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Intelligence, Diagnostic Sensor Apparatus",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 132",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 132,
+      "pdfPage": 135
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Intelligence",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "regenerative-essence-transfusion",
+    "name": "Regenerative Essence Transfusion",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Intelligence 4 and Essence 3.",
+    "description": "Alchemical Charm; requires Intelligence 4 and Essence 3.",
+    "cost": "10 motes or Varies",
+    "installationCost": "None",
+    "duration": "Indefinite or instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Intelligence",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "biostasis-field-projector",
+      "multifunction-hypodermic-apparatus"
+    ],
+    "prerequisiteText": "Biostasis Field Projector, Multifunction Hypodermic Apparatus",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 134",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 134,
+      "pdfPage": 137
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Intelligence",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "metabolic-augmentation-injection",
+    "name": "Metabolic Augmentation Injection",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Intelligence 4 and Essence 3.",
+    "description": "Alchemical Charm; requires Intelligence 4 and Essence 3.",
+    "cost": "Varies",
+    "installationCost": "None",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Intelligence",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "biostasis-field-projector",
+      "multifunction-hypodermic-apparatus"
+    ],
+    "prerequisiteText": "Biostasis Field Projector, Multifunction Hypodermic Apparatus",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 134",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 134,
+      "pdfPage": 137
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Intelligence",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "imprinted-data-cluster",
+    "name": "Imprinted Data Cluster",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Intelligence 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Intelligence 3 and Essence 2.",
+    "cost": "1 mote per dot",
+    "installationCost": "2 motes",
+    "duration": "Indefinite",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Intelligence",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Sustained Augmentation of",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 135",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 135,
+      "pdfPage": 138
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Intelligence",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "clarified-data-assimilator",
+    "name": "Clarified Data Assimilator",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Intelligence 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Intelligence 3 and Essence 2.",
+    "cost": "3 motes",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Intelligence",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Intelligence",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 136",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 136,
+      "pdfPage": 139
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Intelligence",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "abstract-abacus-implant",
+    "name": "Abstract Abacus Implant",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Intelligence 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Intelligence 3 and Essence 2.",
+    "cost": "2 mote per success/difficulty point",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Intelligence",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Intelligence",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 136",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 136,
+      "pdfPage": 139
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Intelligence",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "technological-analysis-engrams",
+    "name": "Technological Analysis Engrams",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Perception 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Perception 3 and Essence 2.",
+    "cost": "3 motes",
+    "installationCost": "1 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Perception",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["abstract-abacus-implant"],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Perception, Abstract Abacus Implant",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 136",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 136,
+      "pdfPage": 139
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Perception",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "omnitool-implant",
+    "name": "Omnitool Implant",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Wits 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Wits 3 and Essence 2.",
+    "cost": "4 motes",
+    "installationCost": "1 mote",
+    "duration": "One hour",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Wits",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 137",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 137,
+      "pdfPage": 140
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "synaptic-acceleration-node",
+    "name": "Synaptic Acceleration Node",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Wits 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Wits 3 and Essence 2.",
+    "cost": "2 motes per hour",
+    "installationCost": "1 mote",
+    "duration": "Varies",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Wits",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 137",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 137,
+      "pdfPage": 140
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "incomparable-efficiency-upgrade",
+    "name": "Incomparable Efficiency Upgrade",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Wits 5 and Essence 3.",
+    "description": "Alchemical Charm; requires Wits 5 and Essence 3.",
+    "cost": "6 motes",
+    "installationCost": "1 mote",
+    "duration": "Indefinite",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["synaptic-acceleration-node"],
+    "prerequisiteText": "Synaptic Acceleration Node",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 137",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 137,
+      "pdfPage": 140
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "logic-engineering-lobe",
+    "name": "Logic Engineering Lobe",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Wits 5 and Essence 3.",
+    "description": "Alchemical Charm; requires Wits 5 and Essence 3.",
+    "cost": "3 motes per difficulty point",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "abstract-abacus-implant",
+      "synaptic-acceleration-node"
+    ],
+    "prerequisiteText": "Abstract Abacus Implant, Synaptic Acceleration Node",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 138",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 138,
+      "pdfPage": 141
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "eidetic-processing-core",
+    "name": "Eidetic Processing Core",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Wits 3 and Essence 2.",
+    "description": "Alchemical Charm; requires Wits 3 and Essence 2.",
+    "cost": "None",
+    "installationCost": "1 mote",
+    "duration": "N/A",
+    "type": "Permanent",
+    "minimumRequirements": [
+      {
+        "trait": "Wits",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Transitory or Sustained Augmentation of Wits",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 138",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 138,
+      "pdfPage": 141
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Wits",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "auxiliary-essence-storage-unit",
+    "name": "Auxiliary Essence Storage Unit",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Stamina 1 and Essence 2.",
+    "description": "Alchemical Charm; requires Stamina 1 and Essence 2.",
+    "cost": "None",
+    "installationCost": "1 mote",
+    "duration": "N/A",
+    "type": "Permanent",
+    "minimumRequirements": [
+      {
+        "trait": "Stamina",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 139",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 139,
+      "pdfPage": 142
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Stamina",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "man-machine-weaving-engine",
+    "name": "Man-Machine Weaving Engine",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Intelligence 4 and Essence 4.",
+    "description": "Alchemical Charm; requires Intelligence 4 and Essence 4.",
+    "cost": "1 Willpower",
+    "installationCost": "1 mote",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Intelligence",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 139",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 139,
+      "pdfPage": 142
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Intelligence",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  },
+  {
+    "id": "god-machine-weaving-engine",
+    "name": "God-Machine Weaving Engine",
+    "kind": "charm",
+    "summary": "Alchemical Charm; requires Intelligence 6 and Essence 5.",
+    "description": "Alchemical Charm; requires Intelligence 6 and Essence 5.",
+    "cost": "2 Willpower",
+    "installationCost": "2 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Intelligence",
+        "rating": 6
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": ["auxiliary-essence-storage-unit"],
+    "prerequisiteText": "Auxiliary Essence Storage Unit,",
+    "sourceDisplay": "Exalted: The Autochthonians, p. 139",
+    "source": {
+      "id": "autochthonians",
+      "bookTitle": "Exalted: The Autochthonians",
+      "printedPage": 139,
+      "pdfPage": 142
+    },
+    "reviewStatus": "source-checked",
+    "reviewFlags": [],
+    "category": "native",
+    "element": null,
+    "ability": "Intelligence",
+    "style": null,
+    "comboRules": {
+      "eligible": false,
+      "restrictions": ["Alchemical Charms use Arrays rather than Combos."],
+      "specialRules": []
+    }
+  }
+]

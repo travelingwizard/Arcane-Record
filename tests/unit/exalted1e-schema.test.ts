@@ -237,6 +237,7 @@ describe('Exalted First Edition foundation', () => {
     delete versionFour.combos;
     versionFour.sheetLayout = {
       groupOrder: ['traits', 'character', 'advantages', 'records'] as never,
+      mode: 'build',
     };
     const migrated = migrateExalted1eCharacter(versionFour, 4);
     expect(migrated.equipment.weapons).toEqual([]);

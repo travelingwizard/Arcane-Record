@@ -1913,6 +1913,143 @@
   min-height: 8rem;
 }
 
+.earthdawn-character-sheet {
+  --earthdawn-row-gap: 0.45rem;
+}
+
+.earthdawn-record-stack,
+.earthdawn-roll-ledger {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.earthdawn-attribute-table {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius);
+  background: var(--surface-glaze);
+}
+
+.earthdawn-attribute-row {
+  display: grid;
+  grid-template-columns:
+    minmax(7rem, 1.4fr) repeat(4, minmax(4.5rem, 0.75fr))
+    minmax(3.5rem, 0.55fr) minmax(3rem, 0.5fr) minmax(6rem, 0.9fr)
+    minmax(4rem, 0.65fr);
+  gap: var(--earthdawn-row-gap);
+  align-items: center;
+  min-width: 0;
+  padding: 0.4rem 0.55rem;
+  border-block-end: 1px solid var(--rule-light);
+}
+
+.earthdawn-attribute-row:last-child {
+  border-block-end: 0;
+}
+
+.earthdawn-attribute-head {
+  min-height: 44px;
+  color: var(--muted-ink);
+  background: var(--paper-light);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.earthdawn-attribute-row input,
+.earthdawn-attribute-row select {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+}
+
+.earthdawn-step-table-wrap,
+.earthdawn-ledger-table-wrap {
+  max-height: 28rem;
+  overflow: auto;
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius);
+}
+
+.earthdawn-step-table,
+.earthdawn-ledger-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.earthdawn-step-table :is(th, td),
+.earthdawn-ledger-table :is(th, td) {
+  padding: 0.55rem 0.75rem;
+  border-block-end: 1px solid var(--rule-light);
+  text-align: left;
+}
+
+.earthdawn-step-table thead,
+.earthdawn-ledger-table thead {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  background: var(--paper-light);
+}
+
+.earthdawn-roll-ledger {
+  max-height: 18rem;
+  margin: 0;
+  padding: 0.75rem 0.75rem 0.75rem 2.25rem;
+  overflow: auto;
+  border: 1px solid var(--rule-light);
+  background: var(--surface-glaze);
+}
+
+@media (max-width: 70rem) {
+  .earthdawn-attribute-head {
+    display: none;
+  }
+
+  .earthdawn-attribute-row:not(.earthdawn-attribute-head) {
+    grid-template-columns: minmax(7rem, 1fr) repeat(3, minmax(4rem, 0.7fr));
+  }
+
+  .earthdawn-attribute-row:not(.earthdawn-attribute-head) > :nth-child(n + 6) {
+    text-align: center;
+  }
+}
+
+@media (max-width: 36rem) {
+  .earthdawn-field-grid,
+  .earthdawn-text-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .earthdawn-attribute-table {
+    border: 0;
+    background: transparent;
+  }
+
+  .earthdawn-attribute-row:not(.earthdawn-attribute-head) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: var(--space-3);
+    margin-block-end: var(--space-3);
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius);
+    background: var(--surface-glaze);
+  }
+
+  .earthdawn-attribute-row:not(.earthdawn-attribute-head) > strong:first-child {
+    grid-column: 1 / -1;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+  }
+
+  .earthdawn-step-table-wrap,
+  .earthdawn-ledger-table-wrap {
+    max-width: 100%;
+  }
+}
+
 .module-character-editor .identity-grid {
   align-items: start;
 }
@@ -5673,6 +5810,266 @@
   border-color: var(--rule-light);
 }
 
+/* Dragonbane echoes the compact hierarchy of its paper record with original,
+   token-driven web treatments. No source artwork or trade dress is used. */
+.dragonbane-character-sheet {
+  --dragonbane-band: var(--accent);
+  --dragonbane-band-text: var(--text-on-accent);
+  --dragonbane-frame: var(--rule);
+}
+
+.dragonbane-character-sheet .local-sheet-section {
+  background:
+    linear-gradient(135deg, var(--surface-glaze), transparent 12rem),
+    var(--panel-background);
+}
+
+.dragonbane-character-sheet .local-sheet-section > .sheet-section__heading {
+  margin: -0.25rem -0.25rem 1.25rem;
+  padding: 0.15rem 0.8rem;
+  color: var(--dragonbane-band-text);
+  background: var(--dragonbane-band);
+  clip-path: polygon(
+    0.7rem 0,
+    calc(100% - 0.7rem) 0,
+    100% 50%,
+    calc(100% - 0.7rem) 100%,
+    0.7rem 100%,
+    0 50%
+  );
+}
+
+.dragonbane-character-sheet
+  .local-sheet-section
+  > .sheet-section__heading
+  .character-section-disclosure {
+  color: inherit;
+}
+
+.dragonbane-character-sheet
+  .local-sheet-section
+  > .sheet-section__heading
+  .character-section-disclosure__icon {
+  border-color: currentColor;
+  color: inherit;
+}
+
+.dragonbane-identity-grid {
+  padding: 0.25rem 0 0.75rem;
+  border-bottom: 3px double var(--dragonbane-frame);
+}
+
+.dragonbane-identity-grid .sheet-field:nth-child(1) {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: center;
+}
+
+.dragonbane-attribute-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(5.25rem, 1fr));
+  gap: 0.75rem;
+}
+
+.dragonbane-attribute {
+  min-width: 0;
+  display: grid;
+  justify-items: center;
+  gap: 0.45rem;
+}
+
+.dragonbane-attribute > .sheet-field {
+  width: 5.25rem;
+  text-align: center;
+}
+
+.dragonbane-attribute > .sheet-field .sheet-field__label {
+  color: var(--ink);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dragonbane-attribute > .sheet-field input {
+  width: 5.25rem;
+  height: 5.25rem;
+  padding: 0;
+  border: 2px solid var(--dragonbane-frame);
+  border-radius: 50%;
+  background: var(--paper-light);
+  box-shadow:
+    inset 0 0 0 0.3rem var(--surface-glaze),
+    0 0.25rem 0 var(--rule-light);
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.dragonbane-condition-chip {
+  min-width: 0;
+  min-height: 44px;
+  padding: 0.35rem 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 1px solid var(--dragonbane-frame);
+  color: var(--ink);
+  background: var(--surface-raised);
+  clip-path: polygon(
+    0.45rem 0,
+    calc(100% - 0.45rem) 0,
+    100% 50%,
+    calc(100% - 0.45rem) 100%,
+    0.45rem 100%,
+    0 50%
+  );
+  font-family: var(--font-metadata);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.dragonbane-condition-chip:has(input:checked) {
+  color: var(--dragonbane-band-text);
+  background: var(--dragonbane-band);
+}
+
+.dragonbane-derived-strip {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.dragonbane-derived-strip > span {
+  min-height: 3.25rem;
+  padding: 0.55rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  border: 1px solid var(--dragonbane-frame);
+  color: var(--ink);
+  background: var(--surface-raised);
+  clip-path: polygon(
+    0.55rem 0,
+    calc(100% - 0.55rem) 0,
+    100% 50%,
+    calc(100% - 0.55rem) 100%,
+    0.55rem 100%,
+    0 50%
+  );
+}
+
+.dragonbane-derived-strip strong {
+  font-family: var(--font-metadata);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.dragonbane-skill-ledger {
+  padding: 0.75rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 1rem;
+  border: 1px solid var(--dragonbane-frame);
+  background: var(--surface-glaze);
+  box-shadow: inset 0 0 0 0.25rem var(--panel-background);
+}
+
+.dragonbane-skill-column {
+  min-width: 0;
+}
+
+.dragonbane-skill-column h3 {
+  margin: 0 0 0.5rem;
+  padding: 0.45rem 0.7rem;
+  color: var(--dragonbane-band-text);
+  background: var(--dragonbane-band);
+  font-family: var(--font-metadata);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.dragonbane-skill-column .sheet-card {
+  padding: 0.35rem 0.15rem;
+  border-width: 0 0 1px;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.dragonbane-skill-column .sheet-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 4.75rem auto;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dragonbane-skill-column .sheet-field {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.1rem;
+}
+
+.dragonbane-skill-column .sheet-field input {
+  min-height: 2.25rem;
+  padding: 0.25rem;
+  text-align: center;
+}
+
+.dragonbane-skill-column .sheet-field__label,
+.dragonbane-advancement-mark {
+  font-size: 0.62rem;
+}
+
+.dragonbane-advancement-mark {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+}
+
+.dragonbane-resource-grid > .sheet-field {
+  padding: 0.75rem;
+  border: 1px solid var(--dragonbane-frame);
+  background: var(--surface-raised);
+}
+
+.dragonbane-resource-grid > .sheet-field:nth-child(-n + 2) {
+  border-top: 0.35rem solid var(--danger);
+}
+
+.dragonbane-resource-grid > .sheet-field:nth-child(n + 3) {
+  border-top: 0.35rem solid var(--accent);
+}
+
+.local-character-sheet.dragonbane-character-sheet
+  .dragonbane-attribute
+  > .sheet-field
+  input[type='number'] {
+  width: 5.25rem;
+  height: 5.25rem;
+  padding: 0;
+  border: 2px solid var(--dragonbane-frame);
+  border-radius: 50%;
+  background: var(--paper-light);
+  box-shadow:
+    inset 0 0 0 0.3rem var(--surface-glaze),
+    0 0.25rem 0 var(--rule-light);
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+}
+
 /* Local-sheet fields follow the same label-over-control grid used by Mage and
    Exalted. This prevents inline labels from offsetting otherwise equal fields. */
 .local-character-sheet :is(.field, .sheet-field) {
@@ -6662,5 +7059,99 @@
     min-height: 44px;
     font-size: 0.75rem;
     padding: 0.25rem;
+  }
+}
+
+/* KULT keeps the reference sheets' compact hierarchy while using the shared theme. */
+.kult-character-sheet .local-sheet-section {
+  position: relative;
+}
+
+.kult-character-sheet .local-sheet-section::before {
+  content: '';
+  position: absolute;
+  inset: 0.45rem 0.45rem auto;
+  border-top: 1px solid var(--border-soft);
+  pointer-events: none;
+}
+
+.kult-attribute-groups,
+.kult-wound-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.kult-attribute-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.kult-suggestion-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.kult-card-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.kult-stability-track {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1px;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--border-strong);
+  background: var(--border-soft);
+}
+
+.kult-stability-track li {
+  min-width: 0;
+  padding: var(--space-3);
+  background: var(--surface-raised);
+  text-align: center;
+}
+
+.kult-stability-track li.is-current {
+  background: var(--active-background);
+  color: var(--text-primary);
+  box-shadow: inset 0 0 0 2px var(--theme-accent);
+}
+
+.kult-wound--critical {
+  border-color: var(--status-danger);
+}
+
+.kult-suggestion-browser > summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: var(--font-serif);
+}
+
+@media (max-width: 48rem) {
+  .kult-attribute-groups,
+  .kult-wound-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kult-stability-track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 22rem) {
+  .kult-attribute-grid,
+  .kult-stability-track {
+    grid-template-columns: 1fr;
   }
 }

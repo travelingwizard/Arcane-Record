@@ -49,9 +49,12 @@ export const splatCatalogEvidenceSchema = z
      */
     checksum: z.string(),
   })
-  .refine((catalog) => catalog.promotableEntries <= catalog.totalInventoryRows, {
-    message: 'promotableEntries cannot exceed totalInventoryRows.',
-  })
+  .refine(
+    (catalog) => catalog.promotableEntries <= catalog.totalInventoryRows,
+    {
+      message: 'promotableEntries cannot exceed totalInventoryRows.',
+    },
+  )
   .refine((catalog) => catalog.promotedEntries <= catalog.promotableEntries, {
     message: 'promotedEntries cannot exceed promotableEntries.',
   });
@@ -66,6 +69,14 @@ export const splatCertificationRecordSchema = z.object({
   browserTests: certificationTestStatusSchema,
   /** Set only once every dimension below has passed. Null while locked. */
   certifiedAt: z.string().datetime().nullable(),
+  /**
+   * Short, human-readable reasons this family isn't available yet, for
+   * display in the create-character UI (see `getExaltedVerificationRequirement`
+   * in `../verification.ts`). Purely descriptive — never consulted by the
+   * pass/fail gate itself, which only trusts the structured dimensions
+   * above. Empty once certified.
+   */
+  blockers: z.array(z.string()).default([]),
   notes: z.string(),
 });
 export type SplatCertificationRecord = z.infer<

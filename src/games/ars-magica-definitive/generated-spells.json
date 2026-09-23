@@ -1,0 +1,6602 @@
+[
+  {
+    "id": "ars.spell.aegis-of-the-hearth",
+    "aliases": [],
+    "name": "Aegis Of The Hearth",
+    "technique": "Re",
+    "form": "Vim",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 370,
+    "pdfPage": 378,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.agony-of-the-beast",
+    "aliases": [],
+    "name": "Agony Of The Beast",
+    "technique": "Pe",
+    "form": "An",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 318,
+    "pdfPage": 326,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "An",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.air-s-ghostly-form",
+    "aliases": [],
+    "name": "Air's Ghostly Form",
+    "technique": "Cr",
+    "form": "Au",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 325,
+    "pdfPage": 333,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.arc-of-fiery-ribbons",
+    "aliases": [],
+    "name": "Arc Of Fiery Ribbons",
+    "technique": "Cr",
+    "form": "Ig",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 344,
+    "pdfPage": 352,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.arm-of-the-infant",
+    "aliases": [],
+    "name": "Arm Of The Infant",
+    "technique": "Mu",
+    "form": "Co",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 334,
+    "pdfPage": 342,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.aura-of-ennobled-presence",
+    "aliases": [],
+    "name": "Aura Of Ennobled Presence",
+    "technique": "Mu",
+    "form": "Im",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 350,
+    "pdfPage": 358,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Im",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.aura-of-rightful-authority",
+    "aliases": [],
+    "name": "Aura Of Rightful Authority",
+    "technique": "Re",
+    "form": "Me",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 357,
+    "pdfPage": 365,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.awaken-the-slumbering-corpse",
+    "aliases": [],
+    "name": "Awaken The Slumbering Corpse",
+    "technique": "Re",
+    "form": "Co",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 338,
+    "pdfPage": 346,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.ball-of-abysmal-flame",
+    "aliases": [],
+    "name": "Ball Of Abysmal Flame",
+    "technique": "Cr",
+    "form": "Ig",
+    "level": 35,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 344,
+    "pdfPage": 352,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.bane-of-the-decrepit-body",
+    "aliases": [],
+    "name": "Bane Of The Decrepit Body",
+    "technique": "Pe",
+    "form": "Co",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 336,
+    "pdfPage": 344,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.beast-of-minuscule-proportions",
+    "aliases": [],
+    "name": "Beast Of Minuscule Proportions",
+    "technique": "Mu",
+    "form": "An",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 318,
+    "pdfPage": 326,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "An",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.beast-of-outlandish-size",
+    "aliases": [],
+    "name": "Beast Of Outlandish Size",
+    "technique": "Mu",
+    "form": "An",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 317,
+    "pdfPage": 325,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "An",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.beast-remade-the",
+    "aliases": [],
+    "name": "Beast Remade, The",
+    "technique": "Mu",
+    "form": "An",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 318,
+    "pdfPage": 326,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "An",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.bind-wound",
+    "aliases": [],
+    "name": "Bind Wound",
+    "technique": "Cr",
+    "form": "Co",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 332,
+    "pdfPage": 340,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Co",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.black-whisper",
+    "aliases": [],
+    "name": "Black Whisper",
+    "technique": "Pe",
+    "form": "Me",
+    "level": 40,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 356,
+    "pdfPage": 364,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Me",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.blade-of-the-virulent-flame",
+    "aliases": [],
+    "name": "Blade Of The Virulent Flame",
+    "technique": "Cr",
+    "form": "Ig",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 344,
+    "pdfPage": 352,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.blessing-of-childlike-bliss",
+    "aliases": [],
+    "name": "Blessing Of Childlike Bliss",
+    "technique": "Pe",
+    "form": "Me",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 356,
+    "pdfPage": 364,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Me",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.blunt-the-viper-s-fangs",
+    "aliases": [],
+    "name": "Blunt The Viper's Fangs",
+    "technique": "Pe",
+    "form": "An",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 319,
+    "pdfPage": 327,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "An",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.bountiful-feast-the",
+    "aliases": [],
+    "name": "Bountiful Feast, The",
+    "technique": "Cr",
+    "form": "He",
+    "level": 35,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 339,
+    "pdfPage": 347,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "He",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.break-the-oncoming-wave",
+    "aliases": [],
+    "name": "Break The Oncoming Wave",
+    "technique": "Re",
+    "form": "Aq",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 324,
+    "pdfPage": 332,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.breath-of-the-open-sky",
+    "aliases": [],
+    "name": "Breath Of The Open Sky",
+    "technique": "Cr",
+    "form": "Au",
+    "level": 40,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 327,
+    "pdfPage": 335,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.breath-of-winter",
+    "aliases": [],
+    "name": "Breath Of Winter",
+    "technique": "Re",
+    "form": "Aq",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 324,
+    "pdfPage": 332,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.bridge-of-frost",
+    "aliases": [],
+    "name": "Bridge Of Frost",
+    "technique": "Re",
+    "form": "Aq",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 324,
+    "pdfPage": 332,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.bridge-of-wood",
+    "aliases": [],
+    "name": "Bridge Of Wood",
+    "technique": "Cr",
+    "form": "He",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 339,
+    "pdfPage": 347,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "He",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.broom-of-the-winds",
+    "aliases": [],
+    "name": "Broom Of The Winds",
+    "technique": "Cr",
+    "form": "Au",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 326,
+    "pdfPage": 334,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.burst-of-the-sweeping-flames",
+    "aliases": [],
+    "name": "Burst Of The Sweeping Flames",
+    "technique": "Re",
+    "form": "Ig",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 347,
+    "pdfPage": 355,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Ig",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.call-of-the-rushing-waters",
+    "aliases": [],
+    "name": "Call Of The Rushing Waters",
+    "technique": "In",
+    "form": "Aq",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 322,
+    "pdfPage": 330,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Aq",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.call-to-slumber-the",
+    "aliases": [],
+    "name": "Call To Slumber, The",
+    "technique": "Re",
+    "form": "Me",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 357,
+    "pdfPage": 365,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.calling-the-council-of-the-trees",
+    "aliases": [],
+    "name": "Calling The Council Of The Trees",
+    "technique": "Re",
+    "form": "He",
+    "level": 45,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 343,
+    "pdfPage": 351,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": 45,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.calling-the-odious-drought",
+    "aliases": [],
+    "name": "Calling The Odious Drought",
+    "technique": "Pe",
+    "form": "Aq",
+    "level": 50,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 323,
+    "pdfPage": 331,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Aq",
+      "level": 50,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.calm-the-motion-of-the-heart",
+    "aliases": [],
+    "name": "Calm The Motion Of The Heart",
+    "technique": "Pe",
+    "form": "Me",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 356,
+    "pdfPage": 364,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Me",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.captive-voice-the",
+    "aliases": [],
+    "name": "Captive Voice, The",
+    "technique": "Re",
+    "form": "Im",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 352,
+    "pdfPage": 360,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Im",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.cascade-of-rocks",
+    "aliases": [],
+    "name": "Cascade Of Rocks",
+    "technique": "Pe",
+    "form": "Te",
+    "level": 40,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 362,
+    "pdfPage": 370,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Te",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.chamber-of-invisibility",
+    "aliases": [],
+    "name": "Chamber Of Invisibility",
+    "technique": "Pe",
+    "form": "Im",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 351,
+    "pdfPage": 359,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Im",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.chamber-of-spring-breezes",
+    "aliases": [],
+    "name": "Chamber Of Spring Breezes",
+    "technique": "Cr",
+    "form": "Au",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 325,
+    "pdfPage": 333,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.chaos-of-the-angry-waves",
+    "aliases": [],
+    "name": "Chaos Of The Angry Waves",
+    "technique": "Re",
+    "form": "Aq",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 324,
+    "pdfPage": 332,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.charge-of-the-angry-winds",
+    "aliases": [],
+    "name": "Charge Of The Angry Winds",
+    "technique": "Cr",
+    "form": "Au",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 326,
+    "pdfPage": 334,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.charm-against-putrefaction",
+    "aliases": [],
+    "name": "Charm Against Putrefaction",
+    "technique": "Cr",
+    "form": "Co",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 332,
+    "pdfPage": 340,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Co",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.cheating-the-reaper",
+    "aliases": [],
+    "name": "Cheating The Reaper",
+    "technique": "Cr",
+    "form": "Co",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 332,
+    "pdfPage": 340,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Co",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.chirurgeon-s-healing-touch-the",
+    "aliases": [],
+    "name": "Chirurgeon's Healing Touch, The",
+    "technique": "Cr",
+    "form": "Co",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 332,
+    "pdfPage": 340,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Co",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.circle-of-beast-warding",
+    "aliases": [],
+    "name": "Circle Of Beast Warding",
+    "technique": "Re",
+    "form": "An",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 319,
+    "pdfPage": 327,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "An",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.circle-of-encompassing-flames",
+    "aliases": [],
+    "name": "Circle Of Encompassing Flames",
+    "technique": "Cr",
+    "form": "Ig",
+    "level": 35,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 344,
+    "pdfPage": 352,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.circling-winds-of-protection",
+    "aliases": [],
+    "name": "Circling Winds Of Protection",
+    "technique": "Cr",
+    "form": "Au",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 326,
+    "pdfPage": 334,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.circular-ward-against-demons",
+    "aliases": [],
+    "name": "Circular Ward Against Demons",
+    "technique": "Re",
+    "form": "Vim",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 371,
+    "pdfPage": 379,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.clear-sight-of-the-naiad",
+    "aliases": [],
+    "name": "Clear Sight Of The Naiad",
+    "technique": "In",
+    "form": "Aq",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 321,
+    "pdfPage": 329,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Aq",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.clenching-grasp-of-the-crushed-heart",
+    "aliases": [],
+    "name": "Clenching Grasp Of The Crushed Heart",
+    "technique": "Pe",
+    "form": "Co",
+    "level": 40,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 336,
+    "pdfPage": 344,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.cloak-of-black-feathers",
+    "aliases": [],
+    "name": "Cloak Of Black Feathers",
+    "technique": "Mu",
+    "form": "Co",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 334,
+    "pdfPage": 342,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.cloak-of-mist",
+    "aliases": [],
+    "name": "Cloak Of Mist",
+    "technique": "Mu",
+    "form": "Co",
+    "level": 40,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 335,
+    "pdfPage": 343,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.cloak-of-the-duck-s-feathers",
+    "aliases": [],
+    "name": "Cloak Of The Duck's Feathers",
+    "technique": "Re",
+    "form": "Aq",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 323,
+    "pdfPage": 331,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.closing-the-earth-s-gate",
+    "aliases": [],
+    "name": "Closing The Earth's Gate",
+    "technique": "Pe",
+    "form": "Aq",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 323,
+    "pdfPage": 331,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Aq",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.cloudless-sky-returned-the",
+    "aliases": [],
+    "name": "Cloudless Sky Returned, The",
+    "technique": "Pe",
+    "form": "Au",
+    "level": 45,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 329,
+    "pdfPage": 337,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Au",
+      "level": 45,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.clouds-of-rain-and-thunder",
+    "aliases": [],
+    "name": "Clouds Of Rain And Thunder",
+    "technique": "Cr",
+    "form": "Au",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 326,
+    "pdfPage": 334,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.clouds-of-summer-snow",
+    "aliases": [],
+    "name": "Clouds Of Summer Snow",
+    "technique": "Cr",
+    "form": "Au",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 326,
+    "pdfPage": 334,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.clouds-of-thunderous-might",
+    "aliases": [],
+    "name": "Clouds Of Thunderous Might",
+    "technique": "Re",
+    "form": "Au",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 330,
+    "pdfPage": 338,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Au",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.coat-of-flame",
+    "aliases": [],
+    "name": "Coat Of Flame",
+    "technique": "Cr",
+    "form": "Ig",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 344,
+    "pdfPage": 352,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.coerce-the-spirits-of-the-night",
+    "aliases": [],
+    "name": "Coerce The Spirits Of The Night",
+    "technique": "Re",
+    "form": "Me",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 357,
+    "pdfPage": 365,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.coils-of-the-entangling-plants",
+    "aliases": [],
+    "name": "Coils Of The Entangling Plants",
+    "technique": "Re",
+    "form": "He",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 342,
+    "pdfPage": 350,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.comfort-of-the-drenched-traveler",
+    "aliases": [],
+    "name": "Comfort Of The Drenched Traveler",
+    "technique": "Pe",
+    "form": "Aq",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 323,
+    "pdfPage": 331,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Aq",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.commanding-the-harnessed-beast",
+    "aliases": [],
+    "name": "Commanding The Harnessed Beast",
+    "technique": "Re",
+    "form": "An",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 320,
+    "pdfPage": 328,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "An",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.confusion-of-the-insane-vibrations",
+    "aliases": [],
+    "name": "Confusion Of The Insane Vibrations",
+    "technique": "Re",
+    "form": "Im",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 352,
+    "pdfPage": 360,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Im",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.confusion-of-the-numbed-will",
+    "aliases": [],
+    "name": "Confusion Of The Numbed Will",
+    "technique": "Re",
+    "form": "Me",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 357,
+    "pdfPage": 365,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.conjuration-of-the-indubitable-cold",
+    "aliases": [],
+    "name": "Conjuration Of The Indubitable Cold",
+    "technique": "Pe",
+    "form": "Ig",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 346,
+    "pdfPage": 354,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Ig",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.conjure-the-sturdy-vine",
+    "aliases": [],
+    "name": "Conjure The Sturdy Vine",
+    "technique": "Cr",
+    "form": "He",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 339,
+    "pdfPage": 347,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "He",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.conjuring-the-mystic-tower",
+    "aliases": [],
+    "name": "Conjuring The Mystic Tower",
+    "technique": "Cr",
+    "form": "Te",
+    "level": 35,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 359,
+    "pdfPage": 367,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Te",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.converse-with-plant-and-tree",
+    "aliases": [],
+    "name": "Converse With Plant And Tree",
+    "technique": "In",
+    "form": "He",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 340,
+    "pdfPage": 348,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "He",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.creeping-chasm",
+    "aliases": [],
+    "name": "Creeping Chasm",
+    "technique": "Re",
+    "form": "Te",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 363,
+    "pdfPage": 371,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.creeping-oil",
+    "aliases": [],
+    "name": "Creeping Oil",
+    "technique": "Cr",
+    "form": "Aq",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 321,
+    "pdfPage": 329,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Aq",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.crest-of-the-earth-wave",
+    "aliases": [],
+    "name": "Crest Of The Earth Wave",
+    "technique": "Re",
+    "form": "Te",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 363,
+    "pdfPage": 371,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.cripple-the-howling-wolf",
+    "aliases": [],
+    "name": "Cripple The Howling Wolf",
+    "technique": "Pe",
+    "form": "An",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 319,
+    "pdfPage": 327,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "An",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.crystal-dart-the",
+    "aliases": [],
+    "name": "Crystal Dart, The",
+    "technique": "Mu",
+    "form": "Te",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 360,
+    "pdfPage": 368,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Te",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.curse-of-circe",
+    "aliases": [],
+    "name": "Curse Of Circe",
+    "technique": "Mu",
+    "form": "Co",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 334,
+    "pdfPage": 342,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.curse-of-the-desert",
+    "aliases": [],
+    "name": "Curse Of The Desert",
+    "technique": "Pe",
+    "form": "Aq",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 323,
+    "pdfPage": 331,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Aq",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.curse-of-the-haunted-forest",
+    "aliases": [],
+    "name": "Curse Of The Haunted Forest",
+    "technique": "Mu",
+    "form": "He",
+    "level": 60,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 341,
+    "pdfPage": 349,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "He",
+      "level": 60,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.curse-of-the-leprous-flesh",
+    "aliases": [],
+    "name": "Curse Of The Leprous Flesh",
+    "technique": "Pe",
+    "form": "Co",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 336,
+    "pdfPage": 344,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.curse-of-the-ravenous-swarm",
+    "aliases": [],
+    "name": "Curse Of The Ravenous Swarm",
+    "technique": "Cr",
+    "form": "An",
+    "level": 50,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 316,
+    "pdfPage": 324,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "An",
+      "level": 50,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.curse-of-the-rotted-wood",
+    "aliases": [],
+    "name": "Curse Of The Rotted Wood",
+    "technique": "Pe",
+    "form": "He",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 341,
+    "pdfPage": 349,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "He",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.curse-of-the-unportended-plague",
+    "aliases": [],
+    "name": "Curse Of The Unportended Plague",
+    "technique": "Pe",
+    "form": "Co",
+    "level": 55,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 337,
+    "pdfPage": 345,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 55,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.curse-of-the-unruly-tongue",
+    "aliases": [],
+    "name": "Curse Of The Unruly Tongue",
+    "technique": "Re",
+    "form": "Co",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 337,
+    "pdfPage": 345,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.dance-of-the-staves",
+    "aliases": [],
+    "name": "Dance Of The Staves",
+    "technique": "Re",
+    "form": "He",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 342,
+    "pdfPage": 350,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.decay-fur-and-hide",
+    "aliases": [],
+    "name": "Decay Fur And Hide",
+    "technique": "Pe",
+    "form": "An",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 318,
+    "pdfPage": 326,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "An",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.deluge-of-rushing-and-dashing",
+    "aliases": [],
+    "name": "Deluge Of Rushing And Dashing",
+    "technique": "Cr",
+    "form": "Aq",
+    "level": 40,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 321,
+    "pdfPage": 329,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Aq",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.demon-s-eternal-oblivion",
+    "aliases": [],
+    "name": "Demon's Eternal Oblivion",
+    "technique": "Pe",
+    "form": "Vim",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 370,
+    "pdfPage": 378,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.despair-of-the-quivering-manacles",
+    "aliases": [],
+    "name": "Despair Of The Quivering Manacles",
+    "technique": "Re",
+    "form": "Co",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 337,
+    "pdfPage": 345,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.discern-own-illusions",
+    "aliases": [],
+    "name": "Discern Own Illusions",
+    "technique": "In",
+    "form": "Im",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 349,
+    "pdfPage": 357,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Im",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.discern-the-images-of-truth-and-falsehood",
+    "aliases": [],
+    "name": "Discern The Images Of Truth And Falsehood",
+    "technique": "In",
+    "form": "Im",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 349,
+    "pdfPage": 357,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Im",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.disenchant",
+    "aliases": [],
+    "name": "Disenchant",
+    "technique": "Pe",
+    "form": "Vim",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 370,
+    "pdfPage": 378,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.disguise-of-the-new-visage",
+    "aliases": [],
+    "name": "Disguise Of The New Visage",
+    "technique": "Mu",
+    "form": "Co",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 333,
+    "pdfPage": 341,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.disguise-of-the-putrid-aroma",
+    "aliases": [],
+    "name": "Disguise Of The Putrid Aroma",
+    "technique": "Re",
+    "form": "An",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 319,
+    "pdfPage": 327,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "An",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.disguise-of-the-transformed-image",
+    "aliases": [],
+    "name": "Disguise Of The Transformed Image",
+    "technique": "Mu",
+    "form": "Im",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 350,
+    "pdfPage": 358,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Im",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.dispel-the-phantom-image",
+    "aliases": [],
+    "name": "Dispel The Phantom Image",
+    "technique": "Pe",
+    "form": "Im",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 351,
+    "pdfPage": 359,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Im",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.doublet-of-impenetrable-silk",
+    "aliases": [],
+    "name": "Doublet Of Impenetrable Silk",
+    "technique": "Mu",
+    "form": "An",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 318,
+    "pdfPage": 326,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "An",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.dream-of-the-mind-that-sits",
+    "aliases": [],
+    "name": "Dream Of The Mind That Sits",
+    "technique": "In",
+    "form": "Te",
+    "level": 50,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 360,
+    "pdfPage": 368,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Te",
+      "level": 50,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.dust-to-dust",
+    "aliases": [],
+    "name": "Dust To Dust",
+    "technique": "Pe",
+    "form": "Co",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 335,
+    "pdfPage": 343,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.ear-for-distant-voices-the",
+    "aliases": [],
+    "name": "Ear For Distant Voices, The",
+    "technique": "In",
+    "form": "Im",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 349,
+    "pdfPage": 357,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Im",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.earth-s-carbuncle-the",
+    "aliases": [],
+    "name": "Earth's Carbuncle, The",
+    "technique": "Re",
+    "form": "Te",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 363,
+    "pdfPage": 371,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.earth-shock",
+    "aliases": [],
+    "name": "Earth Shock",
+    "technique": "Re",
+    "form": "Te",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 363,
+    "pdfPage": 371,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.earth-split-asunder-the",
+    "aliases": [],
+    "name": "Earth Split Asunder, The",
+    "technique": "Re",
+    "form": "Te",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 364,
+    "pdfPage": 372,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.earth-that-breaks-no-more",
+    "aliases": [],
+    "name": "Earth That Breaks No More",
+    "technique": "Mu",
+    "form": "Te",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 361,
+    "pdfPage": 369,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Te",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.edge-of-the-razor",
+    "aliases": [],
+    "name": "Edge Of The Razor",
+    "technique": "Mu",
+    "form": "Te",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 361,
+    "pdfPage": 369,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Te",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.enchantment-of-detachment",
+    "aliases": [],
+    "name": "Enchantment Of Detachment",
+    "technique": "Pe",
+    "form": "Me",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 356,
+    "pdfPage": 364,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Me",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.enchantment-of-the-scrying-pool",
+    "aliases": [],
+    "name": "Enchantment Of The Scrying Pool",
+    "technique": "In",
+    "form": "Aq",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 322,
+    "pdfPage": 330,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Aq",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.end-of-the-mighty-castle",
+    "aliases": [],
+    "name": "End Of The Mighty Castle",
+    "technique": "Pe",
+    "form": "Te",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 362,
+    "pdfPage": 370,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Te",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.endurance-of-the-berserkers",
+    "aliases": [],
+    "name": "Endurance Of The Berserkers",
+    "technique": "Re",
+    "form": "Co",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 338,
+    "pdfPage": 346,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.enigma-s-gift-the",
+    "aliases": [],
+    "name": "Enigma's Gift, The",
+    "technique": "Cr",
+    "form": "Vim",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 365,
+    "pdfPage": 373,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Vim",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.enslave-the-mortal-mind",
+    "aliases": [],
+    "name": "Enslave The Mortal Mind",
+    "technique": "Re",
+    "form": "Me",
+    "level": 40,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 358,
+    "pdfPage": 366,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.exchange-of-the-two-minds",
+    "aliases": [],
+    "name": "Exchange Of The Two Minds",
+    "technique": "Re",
+    "form": "Me",
+    "level": 55,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 358,
+    "pdfPage": 366,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 55,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.eye-of-the-sage-the",
+    "aliases": [],
+    "name": "Eye Of The Sage, The",
+    "technique": "In",
+    "form": "Co",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 333,
+    "pdfPage": 341,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Co",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.eyes-of-the-bat",
+    "aliases": [],
+    "name": "Eyes of the Bat",
+    "technique": "In",
+    "form": "Au",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 327,
+    "pdfPage": 335,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Au",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.eyes-of-the-cat",
+    "aliases": [],
+    "name": "Eyes Of The Cat",
+    "technique": "Mu",
+    "form": "Co",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 333,
+    "pdfPage": 341,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.eyes-of-the-eagle",
+    "aliases": [],
+    "name": "Eyes Of The Eagle",
+    "technique": "In",
+    "form": "Im",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 349,
+    "pdfPage": 357,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Im",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.eyes-of-the-eons",
+    "aliases": [],
+    "name": "Eyes Of The Eons",
+    "technique": "In",
+    "form": "Te",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 359,
+    "pdfPage": 367,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Te",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.eyes-of-the-flame",
+    "aliases": [],
+    "name": "Eyes Of The Flame",
+    "technique": "In",
+    "form": "Ig",
+    "level": 35,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 345,
+    "pdfPage": 353,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Ig",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.eyes-of-the-treacherous-terrain",
+    "aliases": [],
+    "name": "Eyes Of The Treacherous Terrain",
+    "technique": "In",
+    "form": "Te",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 359,
+    "pdfPage": 367,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Te",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.falcon-s-hood-the",
+    "aliases": [],
+    "name": "Falcon's Hood, The",
+    "technique": "Pe",
+    "form": "An",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 319,
+    "pdfPage": 327,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "An",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.fist-of-shattering",
+    "aliases": [],
+    "name": "Fist Of Shattering",
+    "technique": "Pe",
+    "form": "Te",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 361,
+    "pdfPage": 369,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Te",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.flames-of-sculpted-ice",
+    "aliases": [],
+    "name": "Flames Of Sculpted Ice",
+    "technique": "Mu",
+    "form": "Ig",
+    "level": 35,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 346,
+    "pdfPage": 354,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Ig",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.flash-of-the-scarlet-flames",
+    "aliases": [],
+    "name": "Flash Of The Scarlet Flames",
+    "technique": "Cr",
+    "form": "Ig",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 344,
+    "pdfPage": 352,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.fog-of-confusion",
+    "aliases": [],
+    "name": "Fog Of Confusion",
+    "technique": "Mu",
+    "form": "Au",
+    "level": 45,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 328,
+    "pdfPage": 336,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Au",
+      "level": 45,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.footsteps-of-slippery-oil",
+    "aliases": [],
+    "name": "Footsteps Of Slippery Oil",
+    "technique": "Cr",
+    "form": "Aq",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 320,
+    "pdfPage": 328,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Aq",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.forgiving-earth-the",
+    "aliases": [],
+    "name": "Forgiving Earth, The",
+    "technique": "Re",
+    "form": "Te",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 363,
+    "pdfPage": 371,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.freeing-the-striding-tree",
+    "aliases": [],
+    "name": "Freeing The Striding Tree",
+    "technique": "Re",
+    "form": "He",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 343,
+    "pdfPage": 351,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.frosty-breath-of-the-spoken-lie",
+    "aliases": [],
+    "name": "Frosty Breath Of The Spoken Lie",
+    "technique": "In",
+    "form": "Me",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 354,
+    "pdfPage": 362,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Me",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.gather-the-essence-of-the-beast",
+    "aliases": [],
+    "name": "Gather The Essence Of The Beast",
+    "technique": "Re",
+    "form": "Vim",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 372,
+    "pdfPage": 380,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Vim",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.gathering-of-the-stormy-might",
+    "aliases": [],
+    "name": "Gathering Of The Stormy Might",
+    "technique": "Re",
+    "form": "Au",
+    "level": 40,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 330,
+    "pdfPage": 338,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Au",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.gentle-beast-the",
+    "aliases": [],
+    "name": "Gentle Beast, The",
+    "technique": "Re",
+    "form": "An",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 320,
+    "pdfPage": 328,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "An",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.gentle-touch-of-the-purified-body",
+    "aliases": [],
+    "name": "Gentle Touch Of The Purified Body",
+    "technique": "Cr",
+    "form": "Co",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 332,
+    "pdfPage": 340,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Co",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.gift-of-reason",
+    "aliases": [],
+    "name": "Gift Of Reason",
+    "technique": "Cr",
+    "form": "Me",
+    "level": 35,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 354,
+    "pdfPage": 362,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Me",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.gift-of-the-bear-s-fortitude",
+    "aliases": [],
+    "name": "Gift Of The Bear's Fortitude",
+    "technique": "Mu",
+    "form": "Co",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 334,
+    "pdfPage": 342,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.gift-of-the-frog-s-legs",
+    "aliases": [],
+    "name": "Gift Of The Frog's Legs",
+    "technique": "Re",
+    "form": "Co",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 338,
+    "pdfPage": 346,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.gift-of-vigor-the",
+    "aliases": [],
+    "name": "Gift Of Vigor, The",
+    "technique": "Re",
+    "form": "Co",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 338,
+    "pdfPage": 346,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.gloom-of-evening",
+    "aliases": [],
+    "name": "Gloom Of Evening",
+    "technique": "Pe",
+    "form": "Ig",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 346,
+    "pdfPage": 354,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Ig",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.great-rot-the",
+    "aliases": [],
+    "name": "Great Rot, The",
+    "technique": "Pe",
+    "form": "He",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 341,
+    "pdfPage": 349,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "He",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.grip-of-the-choking-hand",
+    "aliases": [],
+    "name": "Grip Of The Choking Hand",
+    "technique": "Pe",
+    "form": "Co",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 336,
+    "pdfPage": 344,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.growth-of-the-creeping-things",
+    "aliases": [],
+    "name": "Growth Of The Creeping Things",
+    "technique": "Mu",
+    "form": "An",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 318,
+    "pdfPage": 326,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "An",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.hands-of-the-grasping-earth",
+    "aliases": [],
+    "name": "Hands Of The Grasping Earth",
+    "technique": "Re",
+    "form": "Te",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 363,
+    "pdfPage": 371,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.haunt-of-the-living-ghost",
+    "aliases": [],
+    "name": "Haunt Of The Living Ghost",
+    "technique": "Cr",
+    "form": "Im",
+    "level": 35,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 348,
+    "pdfPage": 356,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Im",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.heat-of-the-searing-forge",
+    "aliases": [],
+    "name": "Heat Of The Searing Forge",
+    "technique": "Cr",
+    "form": "Ig",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 343,
+    "pdfPage": 351,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.hermes-portal",
+    "aliases": [],
+    "name": "Hermes' Portal",
+    "technique": "Re",
+    "form": "Te",
+    "level": 75,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 364,
+    "pdfPage": 372,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 75,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.hornet-fire",
+    "aliases": [],
+    "name": "Hornet Fire",
+    "technique": "Mu",
+    "form": "Ig",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 345,
+    "pdfPage": 353,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Ig",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.hunt-for-the-wild-herb",
+    "aliases": [],
+    "name": "Hunt For The Wild Herb",
+    "technique": "In",
+    "form": "He",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 340,
+    "pdfPage": 348,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "He",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.hunter-s-sense",
+    "aliases": [],
+    "name": "Hunter's Sense",
+    "technique": "In",
+    "form": "An",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 317,
+    "pdfPage": 325,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "An",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.ice-of-drowning",
+    "aliases": [],
+    "name": "Ice Of Drowning",
+    "technique": "Re",
+    "form": "Aq",
+    "level": 35,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 324,
+    "pdfPage": 332,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.illusion-of-cool-flames",
+    "aliases": [],
+    "name": "Illusion Of Cool Flames",
+    "technique": "Pe",
+    "form": "Im",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 351,
+    "pdfPage": 359,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Im",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.illusion-of-the-misplaced-castle",
+    "aliases": [],
+    "name": "Illusion Of The Misplaced Castle",
+    "technique": "Re",
+    "form": "Im",
+    "level": 50,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 352,
+    "pdfPage": 360,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Im",
+      "level": 50,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.illusion-of-the-shifted-image",
+    "aliases": [],
+    "name": "Illusion Of The Shifted Image",
+    "technique": "Re",
+    "form": "Im",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 352,
+    "pdfPage": 360,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Im",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.image-from-the-wizard-torn",
+    "aliases": [],
+    "name": "Image From The Wizard Torn",
+    "technique": "Re",
+    "form": "Im",
+    "level": 35,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 352,
+    "pdfPage": 360,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Im",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.image-of-the-beast",
+    "aliases": [],
+    "name": "Image Of The Beast",
+    "technique": "In",
+    "form": "An",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 316,
+    "pdfPage": 324,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "An",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.image-phantom",
+    "aliases": [],
+    "name": "Image Phantom",
+    "technique": "Mu",
+    "form": "Im",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 350,
+    "pdfPage": 358,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Im",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.incantation-of-lightning-the",
+    "aliases": [],
+    "name": "Incantation Of Lightning, The",
+    "technique": "Cr",
+    "form": "Au",
+    "level": 35,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 327,
+    "pdfPage": 335,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.incantation-of-putrid-wine",
+    "aliases": [],
+    "name": "Incantation Of Putrid Wine",
+    "technique": "Mu",
+    "form": "Aq",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 322,
+    "pdfPage": 330,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Aq",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.incantation-of-summoning-the-dead",
+    "aliases": [],
+    "name": "Incantation Of Summoning The Dead",
+    "technique": "Re",
+    "form": "Me",
+    "level": 40,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 358,
+    "pdfPage": 366,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.incantation-of-the-body-made-whole",
+    "aliases": [],
+    "name": "Incantation Of The Body Made Whole",
+    "technique": "Cr",
+    "form": "Co",
+    "level": 40,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 332,
+    "pdfPage": 340,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Co",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.incantation-of-the-milky-eyes",
+    "aliases": [],
+    "name": "Incantation Of The Milky Eyes",
+    "technique": "Pe",
+    "form": "Co",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 336,
+    "pdfPage": 344,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.inexorable-search-the",
+    "aliases": [],
+    "name": "Inexorable Search, The",
+    "technique": "In",
+    "form": "Co",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 333,
+    "pdfPage": 341,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Co",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.infernal-smoke-of-death",
+    "aliases": [],
+    "name": "Infernal Smoke Of Death",
+    "technique": "Mu",
+    "form": "Au",
+    "level": 40,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 328,
+    "pdfPage": 336,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Au",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.inmost-companion",
+    "aliases": [],
+    "name": "Inmost Companion",
+    "technique": "Mu",
+    "form": "Me",
+    "level": 40,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 355,
+    "pdfPage": 363,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Me",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.intuition-of-the-forest",
+    "aliases": [],
+    "name": "Intuition Of The Forest",
+    "technique": "In",
+    "form": "He",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 340,
+    "pdfPage": 348,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "He",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.invisibility-of-the-standing-wizard",
+    "aliases": [],
+    "name": "Invisibility Of The Standing Wizard",
+    "technique": "Pe",
+    "form": "Im",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 351,
+    "pdfPage": 359,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Im",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.invisible-eye-revealed-the",
+    "aliases": [],
+    "name": "Invisible Eye Revealed, The",
+    "technique": "In",
+    "form": "Vim",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 366,
+    "pdfPage": 374,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.invisible-sling-of-vilano",
+    "aliases": [],
+    "name": "Invisible Sling Of Vilano",
+    "technique": "Re",
+    "form": "Te",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 363,
+    "pdfPage": 371,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.invocation-of-weariness",
+    "aliases": [],
+    "name": "Invocation Of Weariness",
+    "technique": "Pe",
+    "form": "Co",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 336,
+    "pdfPage": 344,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.jupiter-s-resounding-blow",
+    "aliases": [],
+    "name": "Jupiter's Resounding Blow",
+    "technique": "Cr",
+    "form": "Au",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 326,
+    "pdfPage": 334,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.kiss-of-death-the",
+    "aliases": [],
+    "name": "Kiss Of Death, The",
+    "technique": "Pe",
+    "form": "Co",
+    "level": 45,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 336,
+    "pdfPage": 344,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 45,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.lamp-without-flame",
+    "aliases": [],
+    "name": "Lamp Without Flame",
+    "technique": "Cr",
+    "form": "Ig",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 344,
+    "pdfPage": 352,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.lay-to-rest-the-haunting-spirit",
+    "aliases": [],
+    "name": "Lay To Rest The Haunting Spirit",
+    "technique": "Pe",
+    "form": "Me",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 355,
+    "pdfPage": 363,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Me",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.leap-of-homecoming-the",
+    "aliases": [],
+    "name": "Leap Of Homecoming, The",
+    "technique": "Re",
+    "form": "Co",
+    "level": 35,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 338,
+    "pdfPage": 346,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.leap-of-the-fire",
+    "aliases": [],
+    "name": "Leap Of The Fire",
+    "technique": "Re",
+    "form": "Ig",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 347,
+    "pdfPage": 355,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Ig",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.lifting-the-dangling-puppet",
+    "aliases": [],
+    "name": "Lifting The Dangling Puppet",
+    "technique": "Re",
+    "form": "Co",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 338,
+    "pdfPage": 346,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.light-shaft-of-the-night",
+    "aliases": [],
+    "name": "Light Shaft Of The Night",
+    "technique": "Re",
+    "form": "Ig",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 347,
+    "pdfPage": 355,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Ig",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.lord-of-the-trees",
+    "aliases": [],
+    "name": "Lord Of The Trees",
+    "technique": "Re",
+    "form": "He",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 343,
+    "pdfPage": 351,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.loss-of-but-a-moment-s-memory",
+    "aliases": [],
+    "name": "Loss Of But A Moment's Memory",
+    "technique": "Pe",
+    "form": "Me",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 356,
+    "pdfPage": 364,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Me",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.lungs-of-the-fish",
+    "aliases": [],
+    "name": "Lungs Of The Fish",
+    "technique": "Mu",
+    "form": "Aq",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 323,
+    "pdfPage": 331,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Aq",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.maintaining-the-demanding-spell",
+    "aliases": [],
+    "name": "Maintaining The Demanding Spell",
+    "technique": "Re",
+    "form": "Vim",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 372,
+    "pdfPage": 380,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.many-hued-conflagration-the",
+    "aliases": [],
+    "name": "Many-Hued Conflagration, The",
+    "technique": "Mu",
+    "form": "Ig",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 345,
+    "pdfPage": 353,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Ig",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.masking-the-odor-of-magic",
+    "aliases": [],
+    "name": "Masking The Odor Of Magic",
+    "technique": "Pe",
+    "form": "Vim",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 369,
+    "pdfPage": 377,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.mastering-the-unruly-beast",
+    "aliases": [],
+    "name": "Mastering The Unruly Beast",
+    "technique": "Re",
+    "form": "An",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 320,
+    "pdfPage": 328,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "An",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.memory-of-the-distant-dream",
+    "aliases": [],
+    "name": "Memory Of The Distant Dream",
+    "technique": "Cr",
+    "form": "Me",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 353,
+    "pdfPage": 361,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Me",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.mighty-torrent-of-water",
+    "aliases": [],
+    "name": "Mighty Torrent Of Water",
+    "technique": "Cr",
+    "form": "Aq",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 321,
+    "pdfPage": 329,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Aq",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.mind-of-the-beast",
+    "aliases": [],
+    "name": "Mind Of The Beast",
+    "technique": "Mu",
+    "form": "Me",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 355,
+    "pdfPage": 363,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Me",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.miner-s-keen-eye-the",
+    "aliases": [],
+    "name": "Miner's Keen Eye, The",
+    "technique": "In",
+    "form": "Te",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 359,
+    "pdfPage": 367,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Te",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.mists-of-change",
+    "aliases": [],
+    "name": "Mists Of Change",
+    "technique": "Mu",
+    "form": "Co",
+    "level": 60,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 335,
+    "pdfPage": 343,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 60,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.moonbeam",
+    "aliases": [],
+    "name": "Moonbeam",
+    "technique": "Cr",
+    "form": "Ig",
+    "level": 3,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 343,
+    "pdfPage": 351,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 3,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.neptune-s-wrath",
+    "aliases": [],
+    "name": "Neptune's Wrath",
+    "technique": "Re",
+    "form": "Aq",
+    "level": 40,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 325,
+    "pdfPage": 333,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.notes-of-a-delightful-sound",
+    "aliases": [],
+    "name": "Notes Of A Delightful Sound",
+    "technique": "Mu",
+    "form": "Im",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 350,
+    "pdfPage": 358,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Im",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.object-of-increased-size",
+    "aliases": [],
+    "name": "Object Of Increased Size",
+    "technique": "Mu",
+    "form": "Te",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 361,
+    "pdfPage": 369,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Te",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.obliteration-of-the-metallic-barrier",
+    "aliases": [],
+    "name": "Obliteration Of The Metallic Barrier",
+    "technique": "Pe",
+    "form": "Te",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 361,
+    "pdfPage": 369,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Te",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.opening-the-intangible-tunnel",
+    "aliases": [],
+    "name": "Opening The Intangible Tunnel",
+    "technique": "Re",
+    "form": "Vim",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 372,
+    "pdfPage": 380,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.opening-the-tome-of-the-animal-s-mind",
+    "aliases": [],
+    "name": "Opening The Tome Of The Animal's Mind",
+    "technique": "In",
+    "form": "An",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 317,
+    "pdfPage": 325,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "An",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.pains-of-the-perpetual-worry",
+    "aliases": [],
+    "name": "Pains Of The Perpetual Worry",
+    "technique": "Cr",
+    "form": "Me",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 353,
+    "pdfPage": 361,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Me",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.palm-of-flame",
+    "aliases": [],
+    "name": "Palm Of Flame",
+    "technique": "Cr",
+    "form": "Ig",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 343,
+    "pdfPage": 351,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.panic-of-the-elephant-s-mouse",
+    "aliases": [],
+    "name": "Panic Of The Elephant's Mouse",
+    "technique": "Re",
+    "form": "An",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 319,
+    "pdfPage": 327,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "An",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.panic-of-the-trembling-heart",
+    "aliases": [],
+    "name": "Panic Of The Trembling Heart",
+    "technique": "Cr",
+    "form": "Me",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 353,
+    "pdfPage": 361,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Me",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.parching-wind",
+    "aliases": [],
+    "name": "Parching Wind",
+    "technique": "Pe",
+    "form": "Aq",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 323,
+    "pdfPage": 331,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Aq",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.parting-the-waves",
+    "aliases": [],
+    "name": "Parting The Waves",
+    "technique": "Re",
+    "form": "Aq",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 324,
+    "pdfPage": 332,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.pass-the-unyielding-portal",
+    "aliases": [],
+    "name": "Pass The Unyielding Portal",
+    "technique": "Mu",
+    "form": "He",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 340,
+    "pdfPage": 348,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "He",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.passion-s-lost-feeling",
+    "aliases": [],
+    "name": "Passion's Lost Feeling",
+    "technique": "Pe",
+    "form": "Me",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 356,
+    "pdfPage": 364,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Me",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.past-of-another",
+    "aliases": [],
+    "name": "Past Of Another",
+    "technique": "Mu",
+    "form": "Me",
+    "level": 35,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 355,
+    "pdfPage": 363,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Me",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.peering-into-the-mortal-mind",
+    "aliases": [],
+    "name": "Peering Into The Mortal Mind",
+    "technique": "In",
+    "form": "Me",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 354,
+    "pdfPage": 362,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Me",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.perception-of-the-conflicting-motives",
+    "aliases": [],
+    "name": "Perception Of The Conflicting Motives",
+    "technique": "In",
+    "form": "Me",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 354,
+    "pdfPage": 362,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Me",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.phantasm-of-the-human-form",
+    "aliases": [],
+    "name": "Phantasm Of The Human Form",
+    "technique": "Cr",
+    "form": "Im",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 348,
+    "pdfPage": 356,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Im",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.phantasm-of-the-talking-head",
+    "aliases": [],
+    "name": "Phantasm Of The Talking Head",
+    "technique": "Cr",
+    "form": "Im",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 348,
+    "pdfPage": 356,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Im",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.phantasmal-animal",
+    "aliases": [],
+    "name": "Phantasmal Animal",
+    "technique": "Cr",
+    "form": "Im",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 348,
+    "pdfPage": 356,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Im",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.phantasmal-fire",
+    "aliases": [],
+    "name": "Phantasmal Fire",
+    "technique": "Cr",
+    "form": "Im",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 348,
+    "pdfPage": 356,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Im",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.phantom-gift-the",
+    "aliases": [],
+    "name": "Phantom Gift, The",
+    "technique": "Cr",
+    "form": "Vim",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 365,
+    "pdfPage": 373,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Vim",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.physician-s-eye",
+    "aliases": [],
+    "name": "Physician's Eye",
+    "technique": "In",
+    "form": "Co",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 333,
+    "pdfPage": 341,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Co",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.piercing-shaft-of-wood",
+    "aliases": [],
+    "name": "Piercing Shaft Of Wood",
+    "technique": "Mu",
+    "form": "He",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 341,
+    "pdfPage": 349,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "He",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.piercing-the-faerie-veil",
+    "aliases": [],
+    "name": "Piercing The Faerie Veil",
+    "technique": "In",
+    "form": "Vim",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 367,
+    "pdfPage": 375,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Vim",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.pilum-of-fire",
+    "aliases": [],
+    "name": "Pilum Of Fire",
+    "technique": "Cr",
+    "form": "Ig",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 344,
+    "pdfPage": 352,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Ig",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.pit-of-the-gaping-earth",
+    "aliases": [],
+    "name": "Pit Of The Gaping Earth",
+    "technique": "Pe",
+    "form": "Te",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 361,
+    "pdfPage": 369,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Te",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.plant-s-withering-bane",
+    "aliases": [],
+    "name": "Plant's Withering Bane",
+    "technique": "Pe",
+    "form": "He",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 341,
+    "pdfPage": 349,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "He",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.poisoning-the-will",
+    "aliases": [],
+    "name": "Poisoning The Will",
+    "technique": "Pe",
+    "form": "Me",
+    "level": 65,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 356,
+    "pdfPage": 364,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Me",
+      "level": 65,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.posing-the-silent-question",
+    "aliases": [],
+    "name": "Posing The Silent Question",
+    "technique": "In",
+    "form": "Me",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 354,
+    "pdfPage": 362,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Me",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.preternatural-growth-and-shrinking",
+    "aliases": [],
+    "name": "Preternatural Growth And Shrinking",
+    "technique": "Mu",
+    "form": "Co",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 333,
+    "pdfPage": 341,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.prison-of-flames",
+    "aliases": [],
+    "name": "Prison Of Flames",
+    "technique": "Mu",
+    "form": "Ig",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 345,
+    "pdfPage": 353,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Ig",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.probe-for-pure-silver",
+    "aliases": [],
+    "name": "Probe For Pure Silver",
+    "technique": "In",
+    "form": "Te",
+    "level": 4,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 359,
+    "pdfPage": 367,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Te",
+      "level": 4,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.probe-nature-s-hidden-lore",
+    "aliases": [],
+    "name": "Probe Nature's Hidden Lore",
+    "technique": "In",
+    "form": "He",
+    "level": 4,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 340,
+    "pdfPage": 348,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "He",
+      "level": 4,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.prying-eyes",
+    "aliases": [],
+    "name": "Prying Eyes",
+    "technique": "In",
+    "form": "Im",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 349,
+    "pdfPage": 357,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Im",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.pull-of-the-skybound-winds",
+    "aliases": [],
+    "name": "Pull Of The Skybound Winds",
+    "technique": "Cr",
+    "form": "Au",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 326,
+    "pdfPage": 334,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.pull-of-the-watery-grave",
+    "aliases": [],
+    "name": "Pull Of The Watery Grave",
+    "technique": "Re",
+    "form": "Aq",
+    "level": 35,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 325,
+    "pdfPage": 333,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.purification-of-the-festering-wounds",
+    "aliases": [],
+    "name": "Purification Of The Festering Wounds",
+    "technique": "Cr",
+    "form": "Co",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 332,
+    "pdfPage": 340,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Co",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.push-of-the-gentle-wave",
+    "aliases": [],
+    "name": "Push Of The Gentle Wave",
+    "technique": "Re",
+    "form": "Aq",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 324,
+    "pdfPage": 332,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.quiet-the-raging-winds",
+    "aliases": [],
+    "name": "Quiet The Raging Winds",
+    "technique": "Pe",
+    "form": "Au",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 329,
+    "pdfPage": 337,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Au",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.rain-of-oil",
+    "aliases": [],
+    "name": "Rain Of Oil",
+    "technique": "Mu",
+    "form": "Au",
+    "level": 50,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 329,
+    "pdfPage": 337,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Au",
+      "level": 50,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.rain-of-stones",
+    "aliases": [],
+    "name": "Rain Of Stones",
+    "technique": "Mu",
+    "form": "Au",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 328,
+    "pdfPage": 336,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Au",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.recollection-of-memories-never-quite-lived",
+    "aliases": [],
+    "name": "Recollection Of Memories Never Quite Lived",
+    "technique": "Mu",
+    "form": "Me",
+    "level": 4,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 355,
+    "pdfPage": 363,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Me",
+      "level": 4,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.removal-of-the-conspicuous-sigil",
+    "aliases": [],
+    "name": "Removal Of The Conspicuous Sigil",
+    "technique": "Pe",
+    "form": "Im",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 351,
+    "pdfPage": 359,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Im",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.repel-the-wooden-shafts",
+    "aliases": [],
+    "name": "Repel The Wooden Shafts",
+    "technique": "Re",
+    "form": "He",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 342,
+    "pdfPage": 350,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.restoration-of-the-defiled-body",
+    "aliases": [],
+    "name": "Restoration Of The Defiled Body",
+    "technique": "Cr",
+    "form": "Co",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 332,
+    "pdfPage": 340,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Co",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.restore-the-faded-threads",
+    "aliases": [],
+    "name": "Restore The Faded Threads",
+    "technique": "Cr",
+    "form": "Vim",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 365,
+    "pdfPage": 373,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.restore-the-moved-image",
+    "aliases": [],
+    "name": "Restore The Moved Image",
+    "technique": "Re",
+    "form": "Im",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 352,
+    "pdfPage": 360,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Im",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.revealed-flaws-of-mortal-flesh",
+    "aliases": [],
+    "name": "Revealed Flaws Of Mortal Flesh",
+    "technique": "In",
+    "form": "Co",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 333,
+    "pdfPage": 341,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Co",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.ring-of-warding-against-spirits",
+    "aliases": [],
+    "name": "Ring Of Warding Against Spirits",
+    "technique": "Re",
+    "form": "Me",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 357,
+    "pdfPage": 365,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.rise-of-the-feathery-body",
+    "aliases": [],
+    "name": "Rise Of The Feathery Body",
+    "technique": "Re",
+    "form": "Co",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 337,
+    "pdfPage": 345,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.rising-ire",
+    "aliases": [],
+    "name": "Rising Ire",
+    "technique": "Cr",
+    "form": "Me",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 353,
+    "pdfPage": 361,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Me",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.rock-of-viscid-clay",
+    "aliases": [],
+    "name": "Rock Of Viscid Clay",
+    "technique": "Mu",
+    "form": "Te",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 361,
+    "pdfPage": 369,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Te",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.room-of-stale-air",
+    "aliases": [],
+    "name": "Room Of Stale Air",
+    "technique": "Pe",
+    "form": "Au",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 329,
+    "pdfPage": 337,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Au",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.rope-of-bronze",
+    "aliases": [],
+    "name": "Rope Of Bronze",
+    "technique": "Mu",
+    "form": "He",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 341,
+    "pdfPage": 349,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "He",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.rusted-decay-of-ten-score-years",
+    "aliases": [],
+    "name": "Rusted Decay Of Ten-Score Years",
+    "technique": "Pe",
+    "form": "Te",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 361,
+    "pdfPage": 369,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Te",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.sailor-s-foretaste-of-the-morrow",
+    "aliases": [],
+    "name": "Sailor's Foretaste Of The Morrow",
+    "technique": "In",
+    "form": "Au",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 327,
+    "pdfPage": 335,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Au",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.scales-of-the-magical-weight",
+    "aliases": [],
+    "name": "Scales Of The Magical Weight",
+    "technique": "In",
+    "form": "Vim",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 366,
+    "pdfPage": 374,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Vim",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.scent-of-peaceful-slumber",
+    "aliases": [],
+    "name": "Scent Of Peaceful Slumber",
+    "technique": "Re",
+    "form": "Me",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 357,
+    "pdfPage": 365,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.seal-the-earth",
+    "aliases": [],
+    "name": "Seal The Earth",
+    "technique": "Cr",
+    "form": "Te",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 359,
+    "pdfPage": 367,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Te",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.sense-of-magical-power",
+    "aliases": [],
+    "name": "Sense Of Magical Power",
+    "technique": "In",
+    "form": "Vim",
+    "level": 2,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 366,
+    "pdfPage": 374,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Vim",
+      "level": 2,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.sense-of-the-lingering-magic",
+    "aliases": [],
+    "name": "Sense Of The Lingering Magic",
+    "technique": "In",
+    "form": "Vim",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 367,
+    "pdfPage": 375,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Vim",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.sense-the-feet-that-tread-the-earth",
+    "aliases": [],
+    "name": "Sense The Feet That Tread The Earth",
+    "technique": "In",
+    "form": "Te",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 360,
+    "pdfPage": 368,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Te",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.sense-the-nature-of-vis",
+    "aliases": [],
+    "name": "Sense The Nature Of Vis",
+    "technique": "In",
+    "form": "Vim",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 367,
+    "pdfPage": 375,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Vim",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.seven-league-stride",
+    "aliases": [],
+    "name": "Seven-League Stride",
+    "technique": "Re",
+    "form": "Co",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 338,
+    "pdfPage": 346,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.severed-limb-made-whole-the",
+    "aliases": [],
+    "name": "Severed Limb Made Whole, The",
+    "technique": "Cr",
+    "form": "Co",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 332,
+    "pdfPage": 340,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Co",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.shadow-of-human-life-the",
+    "aliases": [],
+    "name": "Shadow Of Human Life, The",
+    "technique": "Cr",
+    "form": "Im",
+    "level": 40,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 349,
+    "pdfPage": 357,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Im",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.shadow-of-life-renewed-the",
+    "aliases": [],
+    "name": "Shadow Of Life Renewed, The",
+    "technique": "Cr",
+    "form": "Co",
+    "level": 75,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 332,
+    "pdfPage": 340,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Co",
+      "level": 75,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.shadows-of-the-fires-past",
+    "aliases": [],
+    "name": "Shadows Of The Fires Past",
+    "technique": "In",
+    "form": "Ig",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 345,
+    "pdfPage": 353,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Ig",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.shape-of-the-woodland-prowler",
+    "aliases": [],
+    "name": "Shape Of The Woodland Prowler",
+    "technique": "Mu",
+    "form": "Co",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 334,
+    "pdfPage": 342,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.shell-of-false-determinations",
+    "aliases": [],
+    "name": "Shell Of False Determinations",
+    "technique": "Cr",
+    "form": "Vim",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 365,
+    "pdfPage": 373,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.shell-of-opaque-mysteries",
+    "aliases": [],
+    "name": "Shell Of Opaque Mysteries",
+    "technique": "Cr",
+    "form": "Vim",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 365,
+    "pdfPage": 373,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.shiver-of-the-lycanthrope",
+    "aliases": [],
+    "name": "Shiver Of The Lycanthrope",
+    "technique": "In",
+    "form": "An",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 317,
+    "pdfPage": 325,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "An",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.show-of-the-flames-and-smoke",
+    "aliases": [],
+    "name": "Show Of The Flames And Smoke",
+    "technique": "Mu",
+    "form": "Ig",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 345,
+    "pdfPage": 353,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Ig",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.shriek-of-the-impending-shafts",
+    "aliases": [],
+    "name": "Shriek Of The Impending Shafts",
+    "technique": "In",
+    "form": "He",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 340,
+    "pdfPage": 348,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "He",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.shroud-magic",
+    "aliases": [],
+    "name": "Shroud Magic",
+    "technique": "Mu",
+    "form": "Vim",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 368,
+    "pdfPage": 376,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.shrouded-glen-the",
+    "aliases": [],
+    "name": "Shrouded Glen, The",
+    "technique": "Re",
+    "form": "Me",
+    "level": 40,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 358,
+    "pdfPage": 366,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.sight-of-the-active-magics",
+    "aliases": [],
+    "name": "Sight Of The Active Magics",
+    "technique": "In",
+    "form": "Vim",
+    "level": 40,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 367,
+    "pdfPage": 375,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Vim",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.sight-of-the-transparent-motive",
+    "aliases": [],
+    "name": "Sight Of The Transparent Motive",
+    "technique": "In",
+    "form": "Me",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 354,
+    "pdfPage": 362,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Me",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.sight-of-the-true-form",
+    "aliases": [],
+    "name": "Sight Of The True Form",
+    "technique": "In",
+    "form": "Co",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 333,
+    "pdfPage": 341,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Co",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.silence-of-the-smothered-sound",
+    "aliases": [],
+    "name": "Silence Of The Smothered Sound",
+    "technique": "Pe",
+    "form": "Im",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 351,
+    "pdfPage": 359,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Im",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.silent-vigil-the",
+    "aliases": [],
+    "name": "Silent Vigil, The",
+    "technique": "Mu",
+    "form": "Co",
+    "level": 45,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 335,
+    "pdfPage": 343,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 45,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.snap-of-awakening",
+    "aliases": [],
+    "name": "Snap Of Awakening",
+    "technique": "Re",
+    "form": "Me",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 357,
+    "pdfPage": 365,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.soothe-pains-of-the-beast",
+    "aliases": [],
+    "name": "Soothe Pains Of The Beast",
+    "technique": "Cr",
+    "form": "An",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 316,
+    "pdfPage": 324,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "An",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.soothe-the-ferocious-bear",
+    "aliases": [],
+    "name": "Soothe The Ferocious Bear",
+    "technique": "Re",
+    "form": "An",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 319,
+    "pdfPage": 327,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "An",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.soothe-the-raging-flames",
+    "aliases": [],
+    "name": "Soothe The Raging Flames",
+    "technique": "Pe",
+    "form": "Ig",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 346,
+    "pdfPage": 354,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Ig",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.sorcerer-s-fork-the",
+    "aliases": [],
+    "name": "Sorcerer's Fork, The",
+    "technique": "Mu",
+    "form": "Vim",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 368,
+    "pdfPage": 376,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.spasms-of-the-uncontrolled-hand",
+    "aliases": [],
+    "name": "Spasms Of The Uncontrolled Hand",
+    "technique": "Re",
+    "form": "Co",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 337,
+    "pdfPage": 345,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.stance-of-the-patient-tree",
+    "aliases": [],
+    "name": "Stance Of The Patient Tree",
+    "technique": "Mu",
+    "form": "Co",
+    "level": 35,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 335,
+    "pdfPage": 343,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.steed-of-vengeance",
+    "aliases": [],
+    "name": "Steed Of Vengeance",
+    "technique": "Mu",
+    "form": "An",
+    "level": 35,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 318,
+    "pdfPage": 326,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "An",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.stench-of-the-twenty-corpses",
+    "aliases": [],
+    "name": "Stench Of The Twenty Corpses",
+    "technique": "Cr",
+    "form": "Au",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 326,
+    "pdfPage": 334,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Au",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.stir-the-slumbering-tree",
+    "aliases": [],
+    "name": "Stir The Slumbering Tree",
+    "technique": "Mu",
+    "form": "He",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 341,
+    "pdfPage": 349,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "He",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.stone-tell-of-the-mind-that-sits",
+    "aliases": [],
+    "name": "Stone Tell Of The Mind That Sits",
+    "technique": "In",
+    "form": "Te",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 360,
+    "pdfPage": 368,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Te",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.stone-to-falling-dust",
+    "aliases": [],
+    "name": "Stone To Falling Dust",
+    "technique": "Pe",
+    "form": "Te",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 362,
+    "pdfPage": 370,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Te",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.strike-of-the-angered-branch",
+    "aliases": [],
+    "name": "Strike Of The Angered Branch",
+    "technique": "Re",
+    "form": "He",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 342,
+    "pdfPage": 350,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.strings-of-the-unwilling-marionette",
+    "aliases": [],
+    "name": "Strings Of The Unwilling Marionette",
+    "technique": "Re",
+    "form": "Co",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 338,
+    "pdfPage": 346,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.subtle-taste-of-poison-and-purity",
+    "aliases": [],
+    "name": "Subtle Taste Of Poison And Purity",
+    "technique": "In",
+    "form": "Aq",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 321,
+    "pdfPage": 329,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Aq",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.summoning-the-distant-image",
+    "aliases": [],
+    "name": "Summoning The Distant Image",
+    "technique": "In",
+    "form": "Im",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 350,
+    "pdfPage": 358,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Im",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.supple-iron-and-rigid-rope",
+    "aliases": [],
+    "name": "Supple Iron And Rigid Rope",
+    "technique": "Mu",
+    "form": "Te",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 361,
+    "pdfPage": 369,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Te",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.suppressing-the-wizard-s-handiwork",
+    "aliases": [],
+    "name": "Suppressing The Wizard's Handiwork",
+    "technique": "Re",
+    "form": "Vim",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 372,
+    "pdfPage": 380,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Vim",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.tales-of-the-ashes",
+    "aliases": [],
+    "name": "Tales Of The Ashes",
+    "technique": "In",
+    "form": "Ig",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 345,
+    "pdfPage": 353,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Ig",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.talons-of-the-winds",
+    "aliases": [],
+    "name": "Talons Of The Winds",
+    "technique": "Mu",
+    "form": "Au",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 328,
+    "pdfPage": 336,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Au",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.tangle-of-wood-and-thorns",
+    "aliases": [],
+    "name": "Tangle Of Wood And Thorns",
+    "technique": "Re",
+    "form": "He",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 342,
+    "pdfPage": 350,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.taste-of-the-dulled-tongue",
+    "aliases": [],
+    "name": "Taste Of The Dulled Tongue",
+    "technique": "Pe",
+    "form": "Im",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 351,
+    "pdfPage": 359,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Im",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.taste-of-the-spices-and-herbs",
+    "aliases": [],
+    "name": "Taste Of The Spices And Herbs",
+    "technique": "Mu",
+    "form": "Im",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 350,
+    "pdfPage": 358,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Im",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.teeth-of-the-earth-mother",
+    "aliases": [],
+    "name": "Teeth Of The Earth Mother",
+    "technique": "Mu",
+    "form": "Te",
+    "level": 35,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 361,
+    "pdfPage": 369,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Te",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.thaumaturgical-transformation-of-plants-to-iron",
+    "aliases": [],
+    "name": "Thaumaturgical Transformation Of Plants To Iron",
+    "technique": "Mu",
+    "form": "He",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 341,
+    "pdfPage": 349,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "He",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.thoughts-within-babble",
+    "aliases": [],
+    "name": "Thoughts Within Babble",
+    "technique": "In",
+    "form": "Me",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 354,
+    "pdfPage": 362,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Me",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.tip-of-the-tongue",
+    "aliases": [],
+    "name": "Tip Of The Tongue",
+    "technique": "Pe",
+    "form": "Me",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 355,
+    "pdfPage": 363,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Me",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.touch-of-midas",
+    "aliases": [],
+    "name": "Touch Of Midas",
+    "technique": "Cr",
+    "form": "Te",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 359,
+    "pdfPage": 367,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Te",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.touch-of-the-goose-feather",
+    "aliases": [],
+    "name": "Touch Of The Goose Feather",
+    "technique": "Pe",
+    "form": "Co",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 335,
+    "pdfPage": 343,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.touch-of-the-pearls",
+    "aliases": [],
+    "name": "Touch Of The Pearls",
+    "technique": "In",
+    "form": "Aq",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 322,
+    "pdfPage": 330,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Aq",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.tower-of-whirling-water",
+    "aliases": [],
+    "name": "Tower Of Whirling Water",
+    "technique": "Re",
+    "form": "Aq",
+    "level": 35,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 325,
+    "pdfPage": 333,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.trackless-step",
+    "aliases": [],
+    "name": "Trackless Step",
+    "technique": "Re",
+    "form": "Te",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 363,
+    "pdfPage": 371,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.tracks-of-the-faerie-glow",
+    "aliases": [],
+    "name": "Tracks Of The Faerie Glow",
+    "technique": "In",
+    "form": "Te",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 359,
+    "pdfPage": 367,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Te",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.transform-to-water",
+    "aliases": [],
+    "name": "Transform To Water",
+    "technique": "Mu",
+    "form": "Co",
+    "level": 40,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 335,
+    "pdfPage": 343,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Co",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.transformation-of-the-ravenous-beast-to-the-torpid-toad",
+    "aliases": [],
+    "name": "Transformation Of The Ravenous Beast To The Torpid Toad",
+    "technique": "Mu",
+    "form": "An",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 318,
+    "pdfPage": 326,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "An",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.transformation-of-the-thorny-staff",
+    "aliases": [],
+    "name": "Transformation Of The Thorny Staff",
+    "technique": "Mu",
+    "form": "He",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 341,
+    "pdfPage": 349,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "He",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.trap-of-the-entwining-vines",
+    "aliases": [],
+    "name": "Trap Of The Entwining Vines",
+    "technique": "Cr",
+    "form": "He",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 339,
+    "pdfPage": 347,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "He",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.trapping-the-fire",
+    "aliases": [],
+    "name": "Trapping The Fire",
+    "technique": "Mu",
+    "form": "Ig",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 346,
+    "pdfPage": 354,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Ig",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.treacherous-spear-the",
+    "aliases": [],
+    "name": "Treacherous Spear, The",
+    "technique": "Re",
+    "form": "He",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 343,
+    "pdfPage": 351,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.treading-the-ashen-path",
+    "aliases": [],
+    "name": "Treading The Ashen Path",
+    "technique": "Pe",
+    "form": "He",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 342,
+    "pdfPage": 350,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "He",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.tremulous-vault-of-the-torch-s-flame",
+    "aliases": [],
+    "name": "Tremulous Vault Of The Torch's Flame",
+    "technique": "Re",
+    "form": "Ig",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 347,
+    "pdfPage": 355,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Ig",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.true-rest-of-the-injured-brute",
+    "aliases": [],
+    "name": "True Rest Of The Injured Brute",
+    "technique": "Cr",
+    "form": "An",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 316,
+    "pdfPage": 324,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "An",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.true-sight-of-the-air",
+    "aliases": [],
+    "name": "True Sight Of The Air",
+    "technique": "In",
+    "form": "Au",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 327,
+    "pdfPage": 335,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Au",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.trust-of-childlike-faith",
+    "aliases": [],
+    "name": "Trust Of Childlike Faith",
+    "technique": "Pe",
+    "form": "Me",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 356,
+    "pdfPage": 364,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Me",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.twist-of-the-tongue",
+    "aliases": [],
+    "name": "Twist Of The Tongue",
+    "technique": "Pe",
+    "form": "Co",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 336,
+    "pdfPage": 344,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Co",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.twist-the-living-tree",
+    "aliases": [],
+    "name": "Twist The Living Tree",
+    "technique": "Re",
+    "form": "He",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 343,
+    "pdfPage": 351,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.unseen-arm",
+    "aliases": [],
+    "name": "Unseen Arm",
+    "technique": "Re",
+    "form": "Te",
+    "level": 5,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 362,
+    "pdfPage": 370,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 5,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.unseen-porter-the",
+    "aliases": [],
+    "name": "Unseen Porter, The",
+    "technique": "Re",
+    "form": "Te",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 363,
+    "pdfPage": 371,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.unyielding-earth",
+    "aliases": [],
+    "name": "Unyielding Earth",
+    "technique": "Re",
+    "form": "Te",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 363,
+    "pdfPage": 371,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.veil-of-invisibility",
+    "aliases": [],
+    "name": "Veil Of Invisibility",
+    "technique": "Pe",
+    "form": "Im",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 351,
+    "pdfPage": 359,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Pe",
+      "form": "Im",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.vile-water-of-sterility",
+    "aliases": [],
+    "name": "Vile Water Of Sterility",
+    "technique": "Mu",
+    "form": "Aq",
+    "level": 45,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 323,
+    "pdfPage": 331,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Aq",
+      "level": 45,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.viper-s-gaze",
+    "aliases": [],
+    "name": "Viper's Gaze",
+    "technique": "Re",
+    "form": "An",
+    "level": 15,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 320,
+    "pdfPage": 328,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "An",
+      "level": 15,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.vision-of-heat-s-light",
+    "aliases": [],
+    "name": "Vision Of Heat's Light",
+    "technique": "In",
+    "form": "Ig",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 345,
+    "pdfPage": 353,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Ig",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.vision-of-the-haunting-spirits",
+    "aliases": [],
+    "name": "Vision Of The Haunting Spirits",
+    "technique": "Mu",
+    "form": "Me",
+    "level": 40,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 355,
+    "pdfPage": 363,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Mu",
+      "form": "Me",
+      "level": 40,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.visions-of-the-infernal-terrors",
+    "aliases": [],
+    "name": "Visions Of The Infernal Terrors",
+    "technique": "Re",
+    "form": "Me",
+    "level": 30,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 357,
+    "pdfPage": 365,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Me",
+      "level": 30,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.voice-of-the-lake",
+    "aliases": [],
+    "name": "Voice Of The Lake",
+    "technique": "In",
+    "form": "Aq",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 322,
+    "pdfPage": 330,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "In",
+      "form": "Aq",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.walking-corpse-the",
+    "aliases": [],
+    "name": "Walking Corpse, The",
+    "technique": "Re",
+    "form": "Co",
+    "level": 35,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 339,
+    "pdfPage": 347,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Co",
+      "level": 35,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.wall-of-living-wood",
+    "aliases": [],
+    "name": "Wall Of Living Wood",
+    "technique": "Cr",
+    "form": "He",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 339,
+    "pdfPage": 347,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "He",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.wall-of-protecting-stone",
+    "aliases": [],
+    "name": "Wall Of Protecting Stone",
+    "technique": "Cr",
+    "form": "Te",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 359,
+    "pdfPage": 367,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "Te",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.wall-of-thorns",
+    "aliases": [],
+    "name": "Wall Of Thorns",
+    "technique": "Cr",
+    "form": "He",
+    "level": 20,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 339,
+    "pdfPage": 347,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Cr",
+      "form": "He",
+      "level": 20,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.ward-against-faeries-of-the-air",
+    "aliases": [],
+    "name": "Ward Against Faeries Of The Air",
+    "technique": "Re",
+    "form": "Au",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 329,
+    "pdfPage": 337,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Au",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.ward-against-faeries-of-the-mountain",
+    "aliases": [],
+    "name": "Ward Against Faeries Of The Mountain",
+    "technique": "Re",
+    "form": "Te",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 362,
+    "pdfPage": 370,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Te",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.ward-against-faeries-of-the-waters",
+    "aliases": [],
+    "name": "Ward Against Faeries Of The Waters",
+    "technique": "Re",
+    "form": "Aq",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 323,
+    "pdfPage": 331,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Aq",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.ward-against-faeries-of-the-wood",
+    "aliases": [],
+    "name": "Ward Against Faeries Of The Wood",
+    "technique": "Re",
+    "form": "He",
+    "level": null,
+    "general": true,
+    "sourceId": "ars.definitive",
+    "printedPage": 342,
+    "pdfPage": 350,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "He",
+      "level": null,
+      "general": true
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.ward-against-heat-and-flames",
+    "aliases": [],
+    "name": "Ward Against Heat And Flames",
+    "technique": "Re",
+    "form": "Ig",
+    "level": 25,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 347,
+    "pdfPage": 355,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Ig",
+      "level": 25,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  },
+  {
+    "id": "ars.spell.ward-against-rain",
+    "aliases": [],
+    "name": "Ward Against Rain",
+    "technique": "Re",
+    "form": "Au",
+    "level": 10,
+    "general": false,
+    "sourceId": "ars.definitive",
+    "printedPage": 330,
+    "pdfPage": 338,
+    "verification": "verified",
+    "mechanics": {
+      "technique": "Re",
+      "form": "Au",
+      "level": 10,
+      "general": false
+    },
+    "summary": "Core formulaic or ritual spell. Use the cited rulebook entry for its full effect and any requisites."
+  }
+]

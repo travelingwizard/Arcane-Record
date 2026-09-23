@@ -21,8 +21,10 @@
     "generate:equipment": "node scripts/generate-equipment.mjs",
     "generate:maneuvers": "node scripts/generate-maneuvers.mjs",
     "generate:burning-wheel": "node scripts/generate-burning-wheel-catalog.mjs",
-    "package:burning-wheel-source": "node scripts/package-burning-wheel-source.mjs",
+    "audit:ars-magica-sources": "node scripts/audit-ars-magica-sources.mjs",
     "audit:exalted-sources": "node scripts/audit-exalted-sources.mjs",
+    "audit:earthdawn-sources": "vitest run tests/unit/earthdawn4e.test.ts -t \"uses unique cited official definitions\"",
+    "package:burning-wheel-source": "node scripts/package-burning-wheel-source.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test"

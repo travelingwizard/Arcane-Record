@@ -1,22 +1,29 @@
 export const EXALTED1E_SYSTEM_ID = 'exalted1e' as const;
-export const EXALTED1E_SCHEMA_VERSION = 7 as const;
+export const EXALTED1E_SCHEMA_VERSION = 9 as const;
 
 /**
- * Legal `sheetType` values for a STORED character. `'abyssal'` and
- * `'sidereal'` are included here so the schema can validate a blank
- * Abyssal/Sidereal character (see `createBlankExaltedCharacter`/tests),
- * even though neither has a creator/editor UI yet -- `definition.tsx`'s
- * `variants` array (the thing that actually exposes a sheet type to end
- * users) intentionally does not list either. See `plannedExaltedFamilies`
- * below for the family-level release gate that keeps them locked in the UI.
+ * Legal `sheetType` values for a STORED character. Re-exported from
+ * `profiles.ts` (the single canonical list of all seven Exalted 1e
+ * character types) rather than redefined here, so this project has exactly
+ * one enum of character types instead of two independently-maintained
+ * ones. All five new families (Lunar, Abyssal, Sidereal, Alchemical, Fair
+ * Folk) are legal STORED `sheetType` values -- each has at least a blank
+ * character (`createBlankExaltedCharacter`) and a `familyState` shape --
+ * but none has a creator/editor UI exposed to end users yet:
+ * `definition.tsx`'s `variants` array only lists the two production
+ * families, and `schema.ts`'s per-family Background/Charm/Merit-Flaw/Spell
+ * validation only actually accepts real selections for the families with a
+ * promoted catalog (today: Solar, Dragon-Blooded, Abyssal, Sidereal for
+ * Backgrounds/Merits-Flaws; Abyssal and Sidereal for Charms/spells) --
+ * every other combination is explicitly rejected, never silently
+ * unrestricted. See `plannedExaltedFamilies` below and
+ * `src/games/exalted1e/verification.ts` for the family-level release gate
+ * that keeps all five locked in the UI until they each separately earn it.
  */
-export const exaltedSheetTypes = [
-  'solar',
-  'dragon-blooded',
-  'abyssal',
-  'sidereal',
-] as const;
-export type ExaltedSheetType = (typeof exaltedSheetTypes)[number];
+export {
+  exaltedCharacterTypes as exaltedSheetTypes,
+  type ExaltedCharacterType as ExaltedSheetType,
+} from './profiles';
 
 /**
  * Splats that are planned for Exalted First Edition but have no schema,

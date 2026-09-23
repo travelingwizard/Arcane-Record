@@ -36,3 +36,30 @@ test('opens a playable local Dragonbane sheet at 320px without overflow', async 
     ),
   ).toBe(true);
 });
+
+test('uses the compact Dragonbane reference hierarchy on desktop', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.goto('/create/dragonbane');
+  await page.getByRole('button', { name: 'Open Blank Sheet' }).click();
+
+  await expect(page.locator('.dragonbane-character-sheet')).toBeVisible();
+  await expect(page.locator('.dragonbane-attribute')).toHaveCount(6);
+  await expect(page.locator('.dragonbane-condition-chip')).toHaveCount(6);
+  await expect(page.locator('.dragonbane-derived-strip > span')).toHaveCount(4);
+
+  const attributeColumns = await page
+    .locator('.dragonbane-attribute-grid')
+    .evaluate((element) => getComputedStyle(element).gridTemplateColumns);
+  expect(attributeColumns.split(' ')).toHaveLength(6);
+
+  await page.getByRole('link', { name: 'Skills' }).click();
+  await expect(page.locator('.dragonbane-skill-column')).toHaveCount(2);
+  await expect(
+    page.getByRole('heading', { name: 'General skills' }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: 'Weapon skills' }),
+  ).toBeVisible();
+});

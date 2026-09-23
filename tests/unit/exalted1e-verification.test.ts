@@ -30,6 +30,7 @@ function passingRecordFor(
     migrationTests: 'pass',
     browserTests: 'pass',
     certifiedAt: '2026-01-01T00:00:00.000Z',
+    blockers: [],
     notes: 'Fixture-only fully passing record.',
   };
 }
