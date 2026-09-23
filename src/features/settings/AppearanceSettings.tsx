@@ -198,50 +198,56 @@ export function AppearancePanel({
           </span>
         </label>
 
-        {(['general', 'mage', 'exalted', 'simple'] as ThemeCategory[]).map(
-          (category) => (
-            <section className="theme-category" key={category}>
-              <h4>{themeCategoryLabels[category]}</h4>
-              <div className="theme-card-grid">
-                {baseThemeOptions
-                  .filter((theme) => theme.category === category)
-                  .map((theme) => (
-                    <label
-                      className="theme-preview-card"
-                      data-preview-theme={theme.id}
-                      data-selected={preferences.baseTheme === theme.id}
-                      key={theme.id}
+        {(
+          [
+            'general',
+            'mage',
+            'exalted',
+            'earthdawn',
+            'simple',
+          ] as ThemeCategory[]
+        ).map((category) => (
+          <section className="theme-category" key={category}>
+            <h4>{themeCategoryLabels[category]}</h4>
+            <div className="theme-card-grid">
+              {baseThemeOptions
+                .filter((theme) => theme.category === category)
+                .map((theme) => (
+                  <label
+                    className="theme-preview-card"
+                    data-preview-theme={theme.id}
+                    data-selected={preferences.baseTheme === theme.id}
+                    key={theme.id}
+                  >
+                    <input
+                      type="radio"
+                      name={`${radioGroupId}-base-theme`}
+                      value={theme.id}
+                      checked={preferences.baseTheme === theme.id}
+                      onChange={() => setBaseTheme(theme.id)}
+                    />
+                    <span
+                      className="theme-preview-card__sample"
+                      aria-hidden="true"
                     >
-                      <input
-                        type="radio"
-                        name={`${radioGroupId}-base-theme`}
-                        value={theme.id}
-                        checked={preferences.baseTheme === theme.id}
-                        onChange={() => setBaseTheme(theme.id)}
-                      />
-                      <span
-                        className="theme-preview-card__sample"
-                        aria-hidden="true"
-                      >
-                        <span />
-                        <i />
-                        <b />
-                      </span>
-                      <span className="theme-preview-card__copy">
-                        <strong>{theme.name}</strong>
-                        <small>{theme.description}</small>
-                      </span>
-                      <span className="theme-preview-card__state">
-                        {preferences.baseTheme === theme.id
-                          ? 'Selected'
-                          : 'Select'}
-                      </span>
-                    </label>
-                  ))}
-              </div>
-            </section>
-          ),
-        )}
+                      <span />
+                      <i />
+                      <b />
+                    </span>
+                    <span className="theme-preview-card__copy">
+                      <strong>{theme.name}</strong>
+                      <small>{theme.description}</small>
+                    </span>
+                    <span className="theme-preview-card__state">
+                      {preferences.baseTheme === theme.id
+                        ? 'Selected'
+                        : 'Select'}
+                    </span>
+                  </label>
+                ))}
+            </div>
+          </section>
+        ))}
         {preferences.baseTheme === 'custom-background' ? (
           <label className="custom-background-control">
             <span>Custom background color</span>

@@ -12,7 +12,7 @@ test('applies and restores appearance preferences without changing character dat
   await expect(
     settings.getByRole('heading', { name: 'Settings' }),
   ).toBeVisible();
-  await expect(settings.getByRole('radio')).toHaveCount(23);
+  await expect(settings.getByRole('radio')).toHaveCount(28);
   await settings.getByRole('radio', { name: /Technocratic Dossier/ }).check();
   await settings.getByRole('radio', { name: /Virtual Adepts/ }).check();
   await settings

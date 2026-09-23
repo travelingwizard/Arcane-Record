@@ -2,11 +2,20 @@ import { describe, expect, it } from 'vitest';
 import {
   appearanceStorageKey,
   applyAppearancePreferences,
+  baseThemeOptions,
   defaultAppearancePreferenceStore,
   getEffectiveAppearance,
   readAppearancePreferences,
   resolveBaseTheme,
 } from '../../src/features/settings/appearance-preferences';
+
+const earthdawnThemeIds = [
+  'barsaive-twilight',
+  'dragons-horn',
+  'blood-wood',
+  'horror-taint',
+  'astral-thread',
+] as const;
 
 describe('appearance preferences', () => {
   it('uses Arcane Ledger defaults when no valid preference exists', () => {
@@ -106,5 +115,28 @@ describe('appearance preferences', () => {
       root,
     );
     expect(root.style.getPropertyValue('--custom-app-background')).toBe('');
+  });
+
+  it('registers and applies every Earthdawn-inspired theme as a dark theme', () => {
+    expect(
+      baseThemeOptions
+        .filter((theme) => theme.category === 'earthdawn')
+        .map((theme) => theme.id),
+    ).toEqual(earthdawnThemeIds);
+
+    for (const baseTheme of earthdawnThemeIds) {
+      const root = document.createElement('html');
+      applyAppearancePreferences(
+        {
+          baseTheme,
+          identityOverlay: 'neutral',
+          reduceMotion: false,
+          customBackground: null,
+        },
+        root,
+      );
+      expect(root).toHaveAttribute('data-theme', baseTheme);
+      expect(root.style.colorScheme).toBe('dark');
+    }
   });
 });

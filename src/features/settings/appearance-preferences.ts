@@ -12,6 +12,11 @@ export const baseThemeIds = [
   'umbral-dreamscape',
   'tradition-codex',
   'exalted-vermilion',
+  'barsaive-twilight',
+  'dragons-horn',
+  'blood-wood',
+  'horror-taint',
+  'astral-thread',
   'simple-crimson',
   'simple-navy',
   'simple-forest',
@@ -81,7 +86,8 @@ export const defaultAppearancePreferenceStore: AppearancePreferenceStore = {
   characterAppearances: {},
 };
 
-export type ThemeCategory = 'general' | 'mage' | 'exalted' | 'simple';
+export type ThemeCategory =
+  'general' | 'mage' | 'exalted' | 'earthdawn' | 'simple';
 
 export interface BaseThemeOption {
   id: BaseThemeId;
@@ -94,6 +100,7 @@ export const themeCategoryLabels: Record<ThemeCategory, string> = {
   general: 'General',
   mage: 'Suggested for Mage',
   exalted: 'Suggested for Exalted',
+  earthdawn: 'Inspired by Earthdawn',
   simple: 'Simple backgrounds',
 };
 
@@ -147,6 +154,37 @@ export const baseThemeOptions: readonly BaseThemeOption[] = [
     name: 'Exalted Vermilion',
     description: 'Ivory pages, vermilion selections, and ceremonial gold.',
     category: 'exalted',
+  },
+  {
+    id: 'barsaive-twilight',
+    name: 'Barsaive Twilight',
+    description: 'Bruised violet, twilight slate, heroic gold, and warm ivory.',
+    category: 'earthdawn',
+  },
+  {
+    id: 'dragons-horn',
+    name: 'Dragon’s Horn',
+    description: 'Charcoal, antique gold, and restrained emerald detail.',
+    category: 'earthdawn',
+  },
+  {
+    id: 'blood-wood',
+    name: 'Blood Wood',
+    description: 'Wine red, black bark, thorn blue, and resin amber.',
+    category: 'earthdawn',
+  },
+  {
+    id: 'horror-taint',
+    name: 'Horror Taint',
+    description: 'Sickly astral green, bruised purple, and oxidized metal.',
+    category: 'earthdawn',
+  },
+  {
+    id: 'astral-thread',
+    name: 'Astral Thread',
+    description:
+      'Astral midnight, luminous thread, moon silver, and violet fire.',
+    category: 'earthdawn',
   },
   {
     id: 'simple-crimson',
@@ -330,6 +368,11 @@ export function applyAppearancePreferences(
     'midnight-quintessence',
     'technocratic-dossier',
     'tradition-codex',
+    'barsaive-twilight',
+    'dragons-horn',
+    'blood-wood',
+    'horror-taint',
+    'astral-thread',
   ].includes(resolvedTheme)
     ? 'dark'
     : 'light';

@@ -643,6 +643,46 @@
   --preview-accent: #9b2f25;
 }
 
+.theme-preview-card[data-preview-theme='barsaive-twilight'] {
+  --preview-canvas: #17152a;
+  --preview-surface: #24213a;
+  --preview-text: #f4ecdc;
+  --preview-border: #887a9e;
+  --preview-accent: #d79a3a;
+}
+
+.theme-preview-card[data-preview-theme='dragons-horn'] {
+  --preview-canvas: #111715;
+  --preview-surface: #202925;
+  --preview-text: #f2e9d2;
+  --preview-border: #7d826f;
+  --preview-accent: #d0a53e;
+}
+
+.theme-preview-card[data-preview-theme='blood-wood'] {
+  --preview-canvas: #190d13;
+  --preview-surface: #29131c;
+  --preview-text: #f4e6dc;
+  --preview-border: #8e5b65;
+  --preview-accent: #d48332;
+}
+
+.theme-preview-card[data-preview-theme='horror-taint'] {
+  --preview-canvas: #10140e;
+  --preview-surface: #1b2117;
+  --preview-text: #e9ecd9;
+  --preview-border: #778068;
+  --preview-accent: #a9bd51;
+}
+
+.theme-preview-card[data-preview-theme='astral-thread'] {
+  --preview-canvas: #081320;
+  --preview-surface: #101f31;
+  --preview-text: #edf3f3;
+  --preview-border: #6d8799;
+  --preview-accent: #83d0d0;
+}
+
 .theme-preview-card[data-preview-theme='simple-crimson'] {
   --preview-canvas: #641f2a;
   --preview-surface: #fffdf8;

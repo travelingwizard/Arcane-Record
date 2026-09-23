@@ -42,6 +42,11 @@ test('Mage Experience fields follow every dark base theme', async ({
     'Midnight Quintessence',
     'Technocratic Dossier',
     'Tradition Codex',
+    'Barsaive Twilight',
+    'Dragon’s Horn',
+    'Blood Wood',
+    'Horror Taint',
+    'Astral Thread',
   ]) {
     await page.getByRole('button', { name: 'Settings' }).click();
     const settings = page.getByRole('dialog', { name: 'Settings' });
