@@ -536,6 +536,7 @@ export function EarthdawnCreator({
           <button
             type="button"
             key={value}
+            className="earthdawn-creator-choice-card"
             aria-pressed={character.creation.profile === value}
             onClick={() => patchCreation({ profile: value })}
           >

@@ -15,7 +15,19 @@ test('creates an Earthdawn adept and exposes source and dice tools', async ({
   await expect(
     page.getByText(/Earthdawn creation · Step 1 of 8/),
   ).toBeVisible();
-  await page.locator('.earthdawn-choice-grid button').first().click();
+  const adeptPath = page.locator('.earthdawn-choice-grid button').first();
+  await expect(
+    adeptPath.evaluate((node) => ({
+      direction: getComputedStyle(node).flexDirection,
+      titleAlign: getComputedStyle(node.querySelector('strong')!).textAlign,
+      summaryDisplay: getComputedStyle(node.querySelector('small')!).display,
+    })),
+  ).resolves.toEqual({
+    direction: 'column',
+    titleAlign: 'center',
+    summaryDisplay: 'block',
+  });
+  await adeptPath.click();
   await page.getByRole('button', { name: 'Next' }).click();
   const warrior = page.getByRole('button', { name: /Warrior/ });
   await expect(
