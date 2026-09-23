@@ -22,7 +22,7 @@ const ranked = nullableSource.extend({
   id: uuid,
   name: z.string(),
   rank: z.number().int().min(0).max(15),
-  freeRank: z.number().int().min(0).max(3),
+  freeRank: z.number().int().min(0).max(15),
   attribute: attributeId,
   bonus: z.number().int(),
   notes: z.string(),
@@ -342,7 +342,30 @@ const isRecord = (value: unknown): value is Record<string, unknown> =>
 
 export function migrateEarthdawn4eCharacter(data: unknown) {
   const parsedCurrent = earthdawn4eCharacterSchema.safeParse(data);
-  if (parsedCurrent.success) return parsedCurrent.data;
+  if (parsedCurrent.success) {
+    if (
+      !parsedCurrent.data.creation.enforceRules &&
+      !parsedCurrent.data.creation.overrides.some(
+        ({ code }) => code === 'creator-global-override',
+      )
+    )
+      return earthdawn4eCharacterSchema.parse({
+        ...parsedCurrent.data,
+        creation: {
+          ...parsedCurrent.data.creation,
+          overrides: [
+            ...parsedCurrent.data.creation.overrides,
+            {
+              id: crypto.randomUUID(),
+              code: 'creator-global-override',
+              reason: 'Legacy GM override retained during migration.',
+              createdAt: new Date().toISOString(),
+            },
+          ],
+        },
+      });
+    return parsedCurrent.data;
+  }
   if (!isRecord(data)) return earthdawn4eCharacterSchema.parse(data);
   const now = new Date().toISOString();
   const identity = isRecord(data.identity) ? data.identity : {};
@@ -450,6 +473,25 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
       ...creation,
       currentStep: Math.min(7, Number(creation.currentStep ?? 0)),
       profile: creation.profile ?? 'adept',
+      overrides:
+        creation.enforceRules === false &&
+        !(
+          Array.isArray(creation.overrides) &&
+          creation.overrides.some(
+            (entry) =>
+              isRecord(entry) && entry.code === 'creator-global-override',
+          )
+        )
+          ? [
+              ...(Array.isArray(creation.overrides) ? creation.overrides : []),
+              {
+                id: crypto.randomUUID(),
+                code: 'creator-global-override',
+                reason: 'Legacy GM override retained during migration.',
+                createdAt: now,
+              },
+            ]
+          : creation.overrides,
       skillPoints: {
         ...(isRecord(creation.skillPoints) ? creation.skillPoints : {}),
         language: isRecord(creation.skillPoints)

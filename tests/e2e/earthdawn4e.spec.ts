@@ -17,7 +17,19 @@ test('creates an Earthdawn adept and exposes source and dice tools', async ({
   ).toBeVisible();
   await page.locator('.earthdawn-choice-grid button').first().click();
   await page.getByRole('button', { name: 'Next' }).click();
-  await page.getByRole('button', { name: /Warrior/ }).click();
+  const warrior = page.getByRole('button', { name: /Warrior/ });
+  await expect(
+    warrior.evaluate((node) => ({
+      direction: getComputedStyle(node).flexDirection,
+      titleAlign: getComputedStyle(node.querySelector('strong')!).textAlign,
+      summaryDisplay: getComputedStyle(node.querySelector('small')!).display,
+    })),
+  ).resolves.toEqual({
+    direction: 'column',
+    titleAlign: 'center',
+    summaryDisplay: 'block',
+  });
+  await warrior.click();
   await page.getByRole('button', { name: 'Next' }).click();
   const human = page.getByRole('button', { name: /Human/ });
   await human.click();
@@ -33,6 +45,16 @@ test('creates an Earthdawn adept and exposes source and dice tools', async ({
   });
   await talentOption.click();
   await expect(talentOption).toHaveAttribute('aria-pressed', 'true');
+  await page.getByLabel('GM Override reason').fill('High-powered campaign');
+  await page.getByRole('switch', { name: 'GM Override' }).check();
+  const secondTalentOption = page.getByRole('button', {
+    name: 'Anticipate Blow',
+    exact: true,
+  });
+  await secondTalentOption.click();
+  await expect(secondTalentOption).toHaveAttribute('aria-pressed', 'true');
+  await page.getByLabel('Avoid Blow free ranks').fill('5');
+  await expect(page.getByLabel('Avoid Blow free ranks')).toHaveValue('5');
   await page.setViewportSize({ width: 320, height: 800 });
   expect(
     await page.evaluate(
@@ -43,6 +65,84 @@ test('creates an Earthdawn adept and exposes source and dice tools', async ({
     .getByRole('button', { name: 'Next' })
     .evaluate((button) => button.getBoundingClientRect().height);
   expect(nextButtonHeight).toBeGreaterThanOrEqual(44);
+});
+
+test('uses compact catalogs, reasoned GM override, and completes a partial character', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Create Character' }).click();
+  await page.getByRole('button', { name: 'Choose Earthdawn 4e' }).click();
+  await page.getByRole('button', { name: 'Build Character' }).click();
+
+  for (let index = 0; index < 5; index += 1)
+    await page.getByRole('button', { name: 'Next' }).click();
+
+  await page.getByRole('button', { name: 'Add Specific Skill' }).click();
+  const skillDialog = page.getByRole('dialog', { name: 'Add Specific Skill' });
+  await skillDialog.getByRole('button', { name: 'Artisan' }).click();
+  await skillDialog.getByRole('searchbox').fill('Singing');
+  await skillDialog
+    .getByRole('article')
+    .filter({ hasText: 'Singing' })
+    .getByRole('button', { name: 'Add' })
+    .click();
+  await skillDialog.getByRole('button', { name: 'Close' }).click();
+  const selectedSkill = page.locator('.sheet-card').filter({
+    has: page.locator('input[value="Singing"]'),
+  });
+  await expect(selectedSkill).toBeVisible();
+  await expect(selectedSkill.locator('select').first()).toHaveValue('artisan');
+
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByLabel('Starting silver').fill('0');
+  await page
+    .getByRole('button', { name: 'Browse Equipment and Weapons' })
+    .click();
+  const equipmentDialog = page.getByRole('dialog', {
+    name: 'Browse Equipment and Weapons',
+  });
+  await equipmentDialog.getByRole('button', { name: 'Weapons' }).click();
+  await equipmentDialog.getByRole('searchbox').fill('Broadsword');
+  await equipmentDialog
+    .getByRole('article')
+    .filter({ hasText: 'Broadsword' })
+    .getByRole('button', { name: 'Add' })
+    .click();
+  await equipmentDialog.getByRole('button', { name: 'Close' }).click();
+  await expect(page.getByText(/Starting funds are negative/)).toBeVisible();
+  await page.getByRole('button', { name: 'Next' }).click();
+  await expect(
+    page.getByRole('button', { name: 'Complete Character' }),
+  ).toBeDisabled();
+  await page.getByRole('button', { name: 'Previous' }).click();
+  await page.getByLabel('GM Override reason').fill('Approved starting debt');
+  await page.getByRole('switch', { name: 'GM Override' }).check();
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByLabel('name').fill('Partial Adept');
+  await page.getByRole('button', { name: 'Complete Character' }).click();
+  await expect(
+    page.getByRole('switch', { name: /Earthdawn Edit and Play mode/ }),
+  ).toBeChecked();
+  await expect(page.getByRole('heading', { name: 'Identity' })).toBeVisible();
+});
+
+test('completes an entirely blank creator without inventing required fields', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Create Character' }).click();
+  await page.getByRole('button', { name: 'Choose Earthdawn 4e' }).click();
+  await page.getByRole('button', { name: 'Build Character' }).click();
+  for (let index = 0; index < 7; index += 1)
+    await page.getByRole('button', { name: 'Next' }).click();
+  const complete = page.getByRole('button', { name: 'Complete Character' });
+  await expect(complete).toBeEnabled();
+  await complete.click();
+  await expect(
+    page.getByRole('switch', { name: /Earthdawn Edit and Play mode/ }),
+  ).toBeChecked();
+  await expect(page.getByText('Untitled Earthdawn Adept')).toBeVisible();
 });
 
 test('blank Build sheet repairs catalog and custom editing at 320px', async ({

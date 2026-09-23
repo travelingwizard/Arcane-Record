@@ -434,9 +434,9 @@ export function Earthdawn4eEditor({
               ...base,
               rank: 0,
               freeRank: 0,
-              attribute: 'dexterity',
+              attribute: d.defaultAttribute ?? 'perception',
               bonus: 0,
-              category: 'general',
+              category: d.skillCategory ?? 'general',
               action: '',
               strain: 0,
               creationOwned: false,
@@ -916,6 +916,12 @@ export function Earthdawn4eEditor({
                   type="checkbox"
                   role="switch"
                   checked={draft.creation.enforceRules}
+                  disabled={
+                    draft.creation.enforceRules &&
+                    !draft.creation.overrides
+                      .find(({ code }) => code === 'creator-global-override')
+                      ?.reason.trim()
+                  }
                   onChange={(e) =>
                     update((c) => ({
                       ...c,
@@ -929,8 +935,8 @@ export function Earthdawn4eEditor({
                 <span>
                   <strong>Enforce official creation rules</strong>
                   <small>
-                    Block invalid finalization unless a GM Approved override is
-                    recorded.
+                    A reasoned GM Override must be recorded in the creator
+                    before official limits can be disabled.
                   </small>
                 </span>
               </label>

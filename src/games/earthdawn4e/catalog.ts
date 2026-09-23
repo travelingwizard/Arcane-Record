@@ -31,6 +31,8 @@ export interface EarthdawnDefinition {
   page: number;
   verification: 'verified' | 'reference-only' | 'unresolved';
   costSilver?: number;
+  skillCategory?: 'general' | 'knowledge' | 'artisan' | 'language';
+  defaultAttribute?: EarthdawnAttributeId;
 }
 export interface EarthdawnRace extends EarthdawnDefinition {
   attributes: Record<EarthdawnAttributeId, number>;
@@ -473,6 +475,117 @@ const named = (
       `${name} is official ${earthdawnSources.find(({ id }) => id === sourceId)!.shortTitle} character content. Consult the cited page for its complete rules.`,
     ),
   );
+
+const skillAttribute = (name: string): EarthdawnAttributeId => {
+  const attributes: Partial<Record<string, EarthdawnAttributeId>> = {
+    Acting: 'charisma',
+    Alchemy: 'perception',
+    'Acrobatic Defense': 'dexterity',
+    'Air Sailing': 'willpower',
+    'Animal Bond': 'charisma',
+    'Animal Handling': 'willpower',
+    'Animal Training': 'charisma',
+    'Anticipate Blow': 'perception',
+    'Arcane Mutterings': 'charisma',
+    'Avoid Blow': 'dexterity',
+    Awareness: 'perception',
+    'Battle Bellow': 'charisma',
+    'Battle Shout': 'charisma',
+    'Blade Juggle': 'dexterity',
+    Bribery: 'charisma',
+    Charge: 'strength',
+    Climbing: 'dexterity',
+    'Conceal Object': 'dexterity',
+    Conversation: 'charisma',
+    'Craft Armor': 'perception',
+    'Craft Weapon': 'perception',
+    'Danger Sense': 'perception',
+    Diplomacy: 'charisma',
+    Disarm: 'dexterity',
+    'Disarm Trap': 'dexterity',
+    Disguise: 'perception',
+    Distract: 'charisma',
+    'Down Strike': 'strength',
+    'Emotion Song': 'charisma',
+    'Engaging Banter': 'charisma',
+    Etiquette: 'charisma',
+    'Evidence Analysis': 'perception',
+    'Fast Hand': 'dexterity',
+    'First Impression': 'charisma',
+    Flirting: 'charisma',
+    'Graceful Exit': 'charisma',
+    'Great Leap': 'dexterity',
+    Haggle: 'charisma',
+    'Heartening Laugh': 'charisma',
+    Hypnotize: 'charisma',
+    'Impressive Display': 'charisma',
+    Leadership: 'charisma',
+    'Lock Picking': 'dexterity',
+    Maneuver: 'dexterity',
+    Mapmaking: 'perception',
+    'Melee Weapons': 'dexterity',
+    'Mimic Voice': 'charisma',
+    'Missile Weapons': 'dexterity',
+    'Mount Attack': 'dexterity',
+    Navigation: 'perception',
+    'Picking Pockets': 'dexterity',
+    'Read and Write Language': 'perception',
+    Research: 'perception',
+    'Resist Taunt': 'willpower',
+    Riposte: 'dexterity',
+    'Second Attack': 'dexterity',
+    'Second Shot': 'dexterity',
+    'Second Weapon': 'dexterity',
+    Seduction: 'charisma',
+    'Shield Bash': 'strength',
+    'Slough Blame': 'charisma',
+    'Speak Language': 'perception',
+    'Stealthy Stride': 'dexterity',
+    Streetwise: 'charisma',
+    'Sure Mount': 'strength',
+    'Surprise Strike': 'strength',
+    Swimming: 'strength',
+    'Swift Kick': 'dexterity',
+    Tactics: 'perception',
+    Taunt: 'charisma',
+    'Throwing Weapons': 'dexterity',
+    Tracking: 'perception',
+    'Trick Riding': 'dexterity',
+    'Unarmed Combat': 'dexterity',
+    'Wheeling Attack': 'dexterity',
+    'Wheeling Defense': 'dexterity',
+    'Wilderness Survival': 'perception',
+    'Wound Balance': 'strength',
+  };
+  return attributes[name] ?? 'perception';
+};
+
+const skillDefinitions = (
+  category: NonNullable<EarthdawnDefinition['skillCategory']>,
+  names: string[],
+  page: number,
+) =>
+  [...new Set(names)].map((name) => ({
+    ...entry(
+      'skill',
+      name,
+      'ed4.players-guide',
+      page,
+      `${name} is a Player’s Guide ${category} skill or published example.`,
+    ),
+    id: `ed4.players-guide.skill.${category}.${slug(name)}`,
+    skillCategory: category,
+    defaultAttribute:
+      category === 'artisan'
+        ? name === 'Craft Armor' ||
+          name === 'Craft Weapon' ||
+          name === 'Mapmaking'
+          ? 'perception'
+          : 'charisma'
+        : category === 'knowledge' || category === 'language'
+          ? 'perception'
+          : skillAttribute(name),
+  }));
 const referenced = (
   kind: EarthdawnCatalogKind,
   names: string[],
@@ -653,8 +766,8 @@ export const earthdawnCatalog: EarthdawnDefinition[] = [
     'ed4.players-guide',
     119,
   ),
-  ...named(
-    'skill',
+  ...skillDefinitions(
+    'general',
     [
       'Acting',
       'Alchemy',
@@ -695,8 +808,6 @@ export const earthdawnCatalog: EarthdawnDefinition[] = [
       'Research',
       'Seduction',
       'Shield Bash',
-      'Speak Language',
-      'Read and Write Language',
       'Stealthy Stride',
       'Streetwise',
       'Sure Mount',
@@ -729,13 +840,75 @@ export const earthdawnCatalog: EarthdawnDefinition[] = [
       'Tactics',
       'Wheeling Attack',
       'Wheeling Defense',
-      'Artisan',
       'Craft Armor',
       'Craft Weapon',
       'Disguise',
+      'Forgery',
+      'Mapmaking',
+      'Physician',
+      'Pilot Boat',
+      'Sailing',
+      'Swimming',
     ],
-    'ed4.players-guide',
     185,
+  ),
+  ...skillDefinitions(
+    'artisan',
+    [
+      'Acting',
+      'Baking',
+      'Basket Weaving',
+      'Body Painting',
+      'Carving',
+      'Cooking',
+      'Craft Armor',
+      'Craft Weapon',
+      'Dancing',
+      'Embroidery',
+      'Juggling',
+      'Mapmaking',
+      'Musician',
+      'Poetry',
+      'Rune Carving',
+      'Sculpting',
+      'Singing',
+      'Storytelling',
+      'Tattooing',
+      'Wardrobe and Style',
+    ],
+    193,
+  ),
+  ...skillDefinitions(
+    'knowledge',
+    [
+      'Barsaive Politics',
+      'Barsaivian Cuisine',
+      'Botany',
+      'Current Throal Politics',
+      'Theran Cuisine',
+      'Throal Cuisine',
+      'Throal History',
+      'Throal Military',
+      'Throal Politics',
+      'T’skrang Lore',
+    ],
+    188,
+  ),
+  ...skillDefinitions(
+    'language',
+    [
+      ...[
+        'Dwarf (Throalic)',
+        'Sperethiel',
+        'Human',
+        'Obsidiman',
+        'Or’zet',
+        'Troll',
+        'T’skrang',
+        'Windling',
+      ].flatMap((language) => [`Speak ${language}`, `Read/Write ${language}`]),
+    ],
+    191,
   ),
   ...priced(
     'equipment',

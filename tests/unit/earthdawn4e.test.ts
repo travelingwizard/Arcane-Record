@@ -64,6 +64,20 @@ describe('Earthdawn Fourth Edition module', () => {
     expect(earthdawnSpells).toHaveLength(216);
     expect(earthdawnKnacks).toHaveLength(142);
     expect(earthdawnThreadItems).toHaveLength(50);
+    const skills = earthdawnCatalog.filter(({ kind }) => kind === 'skill');
+    expect(new Set(skills.map(({ id }) => id)).size).toBe(skills.length);
+    expect(new Set(skills.map(({ skillCategory }) => skillCategory))).toEqual(
+      new Set(['general', 'knowledge', 'artisan', 'language']),
+    );
+    expect(
+      skills.find(
+        ({ name, skillCategory }) =>
+          name === 'Acrobatic Defense' && skillCategory === 'general',
+      ),
+    ).toMatchObject({ defaultAttribute: 'dexterity', page: 185 });
+    expect(
+      skills.filter(({ skillCategory }) => skillCategory === 'language'),
+    ).toHaveLength(16);
     expect(new Set(earthdawnThreadItems.map(({ id }) => id)).size).toBe(50);
     expect(new Set(earthdawnKnacks.map(({ id }) => id)).size).toBe(142);
     expect(
@@ -140,6 +154,7 @@ describe('Earthdawn Fourth Edition module', () => {
     delete legacy.weapons;
     delete legacy.wealth;
     delete legacy.reputation;
+    (legacy.creation as Record<string, unknown>).enforceRules = false;
     const migrated = migrateEarthdawn4eCharacter(legacy);
     expect(legendTotals(migrated.advancement.ledger)).toEqual({
       current: 900,
@@ -147,6 +162,12 @@ describe('Earthdawn Fourth Edition module', () => {
     });
     expect(migrated.identity.height).toBe('');
     expect(migrated.dice).toMatchObject({ tracking: true, historyLimit: 10 });
+    expect(migrated.creation.overrides).toContainEqual(
+      expect.objectContaining({
+        code: 'creator-global-override',
+        reason: 'Legacy GM override retained during migration.',
+      }),
+    );
   });
   it('migrates v2 equipment additively without flattening advancement history', () => {
     const legacy = createBlankEarthdawn4eCharacter();
