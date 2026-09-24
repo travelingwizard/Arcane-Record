@@ -2335,6 +2335,23 @@
   --earthdawn-row-gap: 0.45rem;
 }
 
+.earthdawn-character-sheet:has([id='ed4-health']) {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 var(--space-3);
+}
+
+.earthdawn-character-sheet:has([id='ed4-health']) > * {
+  min-width: 0;
+  grid-column: 1 / -1;
+}
+
+.earthdawn-character-sheet:has([id='ed4-health'])
+  > :is([id='ed4-characteristics'], [id='ed4-health']) {
+  grid-column: auto;
+}
+
 .earthdawn-record-stack,
 .earthdawn-roll-ledger {
   display: grid;
@@ -5176,9 +5193,91 @@
 
 .earthdawn-basic-play {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-2);
   margin-block: var(--space-3);
+}
+
+.earthdawn-health-primary {
+  display: grid;
+  grid-template-columns: 44px minmax(4rem, 1fr) 44px;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.earthdawn-health-primary strong {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1;
+}
+
+.earthdawn-health-ratings {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.earthdawn-health-ratings div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+  border-block-end: 1px solid var(--rule-light);
+}
+
+.earthdawn-health-ratings dd,
+.earthdawn-threshold {
+  margin: 0;
+  font-size: var(--text-xl);
+}
+
+.earthdawn-step-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.earthdawn-step-table tr.is-highlighted {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: -3px;
+  background: var(--surface-selected);
+}
+
+.earthdawn-progression-list {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-2);
+}
+
+.earthdawn-progression-list > div {
+  display: grid;
+  grid-template-columns: 6rem minmax(10rem, 1fr);
+  gap: 0.25rem var(--space-2);
+  border-block-end: 1px solid var(--rule-light);
+}
+
+.earthdawn-progression-list :is(small, cite) {
+  grid-column: 2;
+}
+
+.earthdawn-questor-row,
+.earthdawn-note-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.earthdawn-note-list,
+.earthdawn-custom-discipline-settings {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.earthdawn-ledger-remove {
+  min-width: 44px;
+  margin-inline-start: var(--space-2);
 }
 
 .earthdawn-basic-stat {
@@ -5226,12 +5325,29 @@
 }
 
 @media (max-width: 64rem) {
+  .earthdawn-character-sheet:has([id='ed4-health']) {
+    grid-template-columns: 1fr;
+  }
+
+  .earthdawn-character-sheet:has([id='ed4-health'])
+    > :is([id='ed4-characteristics'], [id='ed4-health']) {
+    grid-column: 1;
+  }
   .earthdawn-basic-play {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .earthdawn-step-columns {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 32rem) {
+  .earthdawn-character-sheet,
+  .earthdawn-sheet-section {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
   .catalog-overlay {
     padding: var(--space-2);
   }

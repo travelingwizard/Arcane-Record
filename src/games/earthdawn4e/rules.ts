@@ -52,12 +52,25 @@ export function reconcileFreeMatrices(character: Earthdawn4eCharacter) {
   const discipline = character.disciplines.find((entry) =>
     matrixDisciplines.has(entry.name),
   );
-  if (!discipline) return character;
+  if (!discipline)
+    return {
+      ...character,
+      magic: {
+        ...character.magic,
+        matrices: character.magic.matrices.filter(
+          ({ source }) => !source.startsWith('free:'),
+        ),
+      },
+    };
   const source = `free:${discipline.id}`;
-  const existing = character.magic.matrices.filter(
+  const eligibleMatrices = character.magic.matrices.filter(
+    ({ source: matrixSource }) =>
+      !matrixSource.startsWith('free:') || matrixSource === source,
+  );
+  const existing = eligibleMatrices.filter(
     (matrix) => matrix.source === source,
   );
-  const upgradedMatrices = character.magic.matrices.map((matrix) => {
+  const upgradedMatrices = eligibleMatrices.map((matrix) => {
     if (matrix.source !== source) return matrix;
     const freeIndex = existing.findIndex(({ id }) => id === matrix.id);
     const type: EarthdawnMatrix['type'] =
@@ -221,9 +234,17 @@ export function questorTier(
 }
 
 export function legendTotals(ledger: readonly LedgerEntry[]) {
+  const active = ledger.filter((entry) => !entry.voidedAt);
   return {
-    current: ledger.reduce((total, entry) => total + entry.amount, 0),
-    total: ledger.reduce((total, entry) => total + entry.earnedAmount, 0),
+    current: active.reduce((total, entry) => total + entry.amount, 0),
+    total: active.reduce((total, entry) => total + entry.earnedAmount, 0),
+    spent: active.reduce(
+      (total, entry) => total + (entry.amount < 0 ? -entry.amount : 0),
+      0,
+    ),
+    corrections: active
+      .filter(({ type }) => type === 'adjustment')
+      .reduce((total, entry) => total + entry.amount, 0),
   };
 }
 
@@ -259,6 +280,23 @@ export function talentRankCost(newRank: number, circle: number) {
   return talentCosts[tierForCircle(circle)][
     Math.min(15, Math.max(1, newRank))
   ]!;
+}
+
+export function equivalentTalentCircle(
+  disciplineCircle: number,
+  disciplineIndex: number,
+  versatility = false,
+) {
+  const baseTier =
+    disciplineCircle <= 4
+      ? 0
+      : disciplineCircle <= 8
+        ? 1
+        : disciplineCircle <= 12
+          ? 2
+          : 3;
+  const shift = versatility ? 1 : Math.max(0, disciplineIndex);
+  return [1, 5, 9, 13][Math.min(3, baseTier + shift)]!;
 }
 
 const noviceSkillCosts = [
@@ -427,6 +465,9 @@ export function createLegendEntry(
     training: '',
     sourceCitation: '',
     reversesId: null,
+    manual: false,
+    voidedAt: null,
+    voidReason: '',
     ...values,
     createdAt,
   };

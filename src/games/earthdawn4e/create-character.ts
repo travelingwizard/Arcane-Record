@@ -61,6 +61,7 @@ export function createBlankEarthdawn4eCharacter(
       outOfFavor: false,
       notes: '',
     },
+    questorPaths: [],
     attributes: {
       dexterity: attribute(),
       strength: attribute(),
@@ -89,6 +90,10 @@ export function createBlankEarthdawn4eCharacter(
       karmaCurrent: 0,
       karmaMaximum: 0,
       devotionPoints: 0,
+      karmaAdjustment: 0,
+      lastKarmaRitualAt: null,
+      lastRecoveryRoll: null,
+      lastWoundBalanceRoll: null,
       conditions: {
         stance: 'normal',
         knockedDown: false,
@@ -111,7 +116,7 @@ export function createBlankEarthdawn4eCharacter(
       lastRoll: null,
       history: [],
     },
-    notes: { log: '', notes: '', importReview: null },
+    notes: { log: '', notes: '', entries: [], importReview: null },
     sheetLayout: {
       mode: options.mode ?? 'edit',
       groupOrder: [...defaultEarthdawn4eGroupOrder],

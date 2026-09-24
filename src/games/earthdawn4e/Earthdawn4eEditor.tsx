@@ -32,6 +32,7 @@ import {
   earthdawnDefinitionById,
   earthdawnDisciplines,
   earthdawnPassions,
+  earthdawnRaces,
   earthdawnSources,
   type EarthdawnAttributeId,
   type EarthdawnCatalogKind,
@@ -40,6 +41,8 @@ import {
 import { EarthdawnCreator } from './EarthdawnCreator';
 import {
   attributeStep,
+  addKarmaDie,
+  attributeModifierCosts,
   deriveCharacter,
   rollStep,
   stepDice,
@@ -51,6 +54,7 @@ import {
   attributeTraining,
   createLegendEntry,
   disciplineCircleTraining,
+  equivalentTalentCircle,
   grantedDevotionCost,
   knackLearningQuote,
   legendTotals,
@@ -80,6 +84,11 @@ import {
   earthdawn4eCharacterSchema,
   type Earthdawn4eCharacter,
 } from './schema';
+import {
+  createCustomDisciplineDraft,
+  customDisciplineRepository,
+  type CustomDisciplineDraft,
+} from './custom-discipline-repository';
 
 const labels: Record<EarthdawnAttributeId, string> = {
   dexterity: 'Dexterity',
@@ -157,6 +166,18 @@ export function Earthdawn4eEditor({
     [catalogEquipmentKind, setCatalogEquipmentKind] = useState('all'),
     [legendAmount, setLegendAmount] = useState(0),
     [legendDescription, setLegendDescription] = useState(''),
+    [disciplinePickerOpen, setDisciplinePickerOpen] = useState(false),
+    [disciplineSearch, setDisciplineSearch] = useState(''),
+    [stepSearch, setStepSearch] = useState(''),
+    [karmaEligibility, setKarmaEligibility] = useState('none'),
+    [recoveryKarma, setRecoveryKarma] = useState(false),
+    [woundBalanceKarma, setWoundBalanceKarma] = useState(false),
+    [noteSearch, setNoteSearch] = useState(''),
+    [noteKind, setNoteKind] = useState<'all' | 'general' | 'campaign'>('all'),
+    [noteSort, setNoteSort] = useState<'updated' | 'session'>('updated'),
+    [customDisciplines, setCustomDisciplines] = useState<
+      CustomDisciplineDraft[]
+    >(() => customDisciplineRepository.list()),
     [pendingDisciplineChange, setPendingDisciplineChange] = useState<{
       recordId: string;
       circle: number;
@@ -168,6 +189,7 @@ export function Earthdawn4eEditor({
       EarthdawnCatalogKind | 'all' | null
     >(null);
   const catalogButtonRef = useRef<HTMLButtonElement>(null);
+  const stepResultRef = useRef<HTMLTableRowElement>(null);
   const catalogDialogRef = useRef<HTMLDivElement>(null);
   const catalogReturnFocusRef = useRef<HTMLElement | null>(null);
   const advancementActionRef = useRef<(() => void) | null>(null);
@@ -228,6 +250,24 @@ export function Earthdawn4eEditor({
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   }, [catalogKind]);
+  useEffect(() => {
+    const refresh = () =>
+      setCustomDisciplines(customDisciplineRepository.list());
+    window.addEventListener('storage', refresh);
+    window.addEventListener('arcane-record:custom-disciplines', refresh);
+    return () => {
+      window.removeEventListener('storage', refresh);
+      window.removeEventListener('arcane-record:custom-disciplines', refresh);
+    };
+  }, []);
+  useEffect(() => {
+    if (!disciplinePickerOpen) return;
+    const close = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setDisciplinePickerOpen(false);
+    };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, [disciplinePickerOpen]);
   const openCatalog = (kind: EarthdawnCatalogKind | 'all') => {
     catalogReturnFocusRef.current =
       document.activeElement instanceof HTMLElement
@@ -282,6 +322,26 @@ export function Earthdawn4eEditor({
       },
     );
   const legend = legendTotals(draft.advancement.ledger);
+  const gmOverride = !draft.creation.enforceRules;
+  const racialKarmaModifier =
+    earthdawnRaces.find(({ id }) => id === draft.identity.raceId)
+      ?.karmaModifier ?? 0;
+  const unusedAttributePoints = Math.max(
+    0,
+    Object.keys(draft.creation.attributePoints).length
+      ? 25 -
+          Object.values(draft.creation.attributePoints).reduce(
+            (a, b) => a + (attributeModifierCosts[b] ?? 0),
+            0,
+          )
+      : 0,
+  );
+  const derivedKarmaMaximum = Math.max(
+    0,
+    racialKarmaModifier * primaryCircle +
+      unusedAttributePoints +
+      draft.health.karmaAdjustment,
+  );
   const reviewAdvancement = (quote: AdvancementQuote, action: () => void) => {
     advancementActionRef.current = action;
     setAdvancementQuote(quote);
@@ -814,6 +874,36 @@ export function Earthdawn4eEditor({
       };
     });
   };
+  const addQuestorPath = (name: string) => {
+    const existing = draft.questorPaths.some(
+      ({ patronName }) => patronName === name,
+    );
+    if (existing || (draft.questorPaths.length > 0 && !gmOverride)) return;
+    const path = {
+      id: crypto.randomUUID(),
+      patronId: `ed4.questor.${name.toLocaleLowerCase()}`,
+      patronName: name,
+      rank: 0,
+      tier: 'none' as const,
+      outOfFavor: false,
+      gmOverride: draft.questorPaths.length > 0,
+      notes: '',
+    };
+    update((current) => ({
+      ...current,
+      identity: current.questorPaths.length
+        ? current.identity
+        : { ...current.identity, passion: name },
+      questor: current.questorPaths.length
+        ? current.questor
+        : {
+            ...current.questor,
+            patronId: path.patronId,
+            patronName: name,
+          },
+      questorPaths: [...current.questorPaths, path],
+    }));
+  };
   const refundPurchase = (entryId: string) =>
     update((current) => {
       if (!refundableLedgerEntry(current.advancement.ledger, entryId))
@@ -1326,6 +1416,36 @@ export function Earthdawn4eEditor({
                   </small>
                 </span>
               </label>
+              <details className="earthdawn-custom-discipline-settings">
+                <summary>Custom Disciplines</summary>
+                <p>
+                  Custom Discipline rules are not yet defined. Drafts are kept
+                  in this browser and cannot be published into character
+                  selection.
+                </p>
+                <button
+                  type="button"
+                  className="secondary-button"
+                  onClick={() =>
+                    customDisciplineRepository.save(
+                      createCustomDisciplineDraft(),
+                    )
+                  }
+                >
+                  New custom Discipline draft
+                </button>
+                {customDisciplines.map((custom) => (
+                  <CustomDisciplineDraftEditor
+                    key={custom.id}
+                    draft={custom}
+                    onSave={(next) => customDisciplineRepository.save(next)}
+                    onRemove={() =>
+                      window.confirm('Delete this custom Discipline draft?') &&
+                      customDisciplineRepository.remove(custom.id)
+                    }
+                  />
+                ))}
+              </details>
               {draft.creation.status !== 'draft' && !playMode ? (
                 <button
                   className="secondary-button"
@@ -1416,67 +1536,22 @@ export function Earthdawn4eEditor({
                 'disciplines',
                 'Discipline & Questor',
                 <>
-                  <SheetFieldGrid columns={2}>
-                    <SheetField label="Add a Discipline">
-                      <select
-                        value=""
-                        onChange={(event) => {
-                          const definition = earthdawnCatalog.find(
-                            (entry) => entry.id === event.target.value,
-                          );
-                          if (!definition || definition.kind !== 'discipline')
-                            return;
-                          const discipline = earthdawnDisciplines.find(
-                            (entry) => entry.id === definition.id,
-                          );
-                          if (!discipline) return;
-                          addDiscipline(discipline);
-                        }}
-                      >
-                        <option value="">Choose Discipline…</option>
-                        {earthdawnDisciplines
-                          .filter(
-                            (entry) =>
-                              !draft.disciplines.some(
-                                ({ disciplineId }) => disciplineId === entry.id,
-                              ),
-                          )
-                          .map((entry) => (
-                            <option key={entry.id} value={entry.id}>
-                              {entry.name}
-                            </option>
-                          ))}
-                      </select>
-                    </SheetField>
+                  <SheetToolbar>
                     <button
-                      disabled={playMode}
-                      className="secondary-button"
-                      onClick={() =>
-                        update((current) => ({
-                          ...current,
-                          disciplines: [
-                            ...current.disciplines,
-                            {
-                              id: crypto.randomUUID(),
-                              definitionId: null,
-                              sourceId: null,
-                              source: null,
-                              page: null,
-                              unresolved: true,
-                              disciplineId: null,
-                              name: '',
-                              circle: 1,
-                              startedAtCircle: 1,
-                              questor: false,
-                              custom: true,
-                            },
-                          ],
-                        }))
-                      }
+                      type="button"
+                      className="primary-button"
+                      onClick={() => {
+                        setDisciplineSearch('');
+                        setDisciplinePickerOpen(true);
+                      }}
                     >
-                      Add Custom Discipline
+                      Add Discipline &amp; Questor
                     </button>
-                  </SheetFieldGrid>
+                    <small>
+                      Search by Discipline, Passion, talent, or Circle ability.
+                      Custom Discipline drafts are managed in Settings.
+                    </small>
+                  </SheetToolbar>
                   {draft.disciplines.map((d) => (
                     <div
                       key={d.id}
@@ -1673,39 +1748,78 @@ export function Earthdawn4eEditor({
                         })()}
                     </div>
                   ))}
+                  {draft.questorPaths.map((path, pathIndex) => (
+                    <SheetCard key={path.id} density="compact">
+                      <div className="earthdawn-questor-row">
+                        <div>
+                          <span className="kind-badge">Questor</span>
+                          <h3>{path.patronName}</h3>
+                          <small>
+                            Rank {path.rank} · {path.tier}
+                            {path.gmOverride ? ' · GM Override' : ''}
+                          </small>
+                        </div>
+                        <SheetField label={`${path.patronName} Questor rank`}>
+                          <input
+                            type="number"
+                            min="0"
+                            max="12"
+                            readOnly={playMode}
+                            value={path.rank}
+                            onChange={(event) => {
+                              const rank = Math.min(
+                                12,
+                                integer(event.target.value),
+                              );
+                              update((current) => ({
+                                ...current,
+                                questorPaths: current.questorPaths.map(
+                                  (item) =>
+                                    item.id === path.id
+                                      ? {
+                                          ...item,
+                                          rank,
+                                          tier: questorTier(rank),
+                                        }
+                                      : item,
+                                ),
+                                questor:
+                                  pathIndex === 0
+                                    ? {
+                                        ...current.questor,
+                                        rank,
+                                        tier: questorTier(rank),
+                                      }
+                                    : current.questor,
+                              }));
+                            }}
+                          />
+                        </SheetField>
+                        <button
+                          type="button"
+                          className="text-button"
+                          disabled={playMode}
+                          onClick={() =>
+                            update((current) => ({
+                              ...current,
+                              questorPaths: current.questorPaths.filter(
+                                ({ id }) => id !== path.id,
+                              ),
+                            }))
+                          }
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </SheetCard>
+                  ))}
                   <SheetCard density="compact">
                     <SheetFieldGrid columns={3}>
                       <SheetField label="Patron Passion">
-                        <select
-                          disabled={playMode}
-                          value={draft.questor.patronName}
-                          onChange={(event) => {
-                            const name = event.target.value;
-                            update((current) => ({
-                              ...current,
-                              identity: { ...current.identity, passion: name },
-                              questor: {
-                                ...current.questor,
-                                patronName: name,
-                                patronId: name
-                                  ? `ed4.questor.${name.toLowerCase()}`
-                                  : null,
-                              },
-                            }));
-                          }}
-                        >
-                          <option value="">Not a Questor</option>
-                          {earthdawnPassions.map(([name, , mad]) => (
-                            <option
-                              key={name}
-                              value={name}
-                              hidden={mad && !draft.sources.showUnavailable}
-                            >
-                              {name}
-                              {mad ? ' (GM approval)' : ''}
-                            </option>
-                          ))}
-                        </select>
+                        <input
+                          readOnly
+                          value={draft.questor.patronName || 'Not a Questor'}
+                        />
                       </SheetField>
                       <SheetField label="Questor rank">
                         <input
@@ -1962,7 +2076,31 @@ export function Earthdawn4eEditor({
                       );
                       if (!talent) return current;
                       const circle = talent.originCircle ?? primaryCircle;
-                      const cost = talentRankCost(talent.rank + 1, circle);
+                      const matchingDisciplineIndices = draft.disciplines
+                        .map((discipline, index) =>
+                          discipline.disciplineId &&
+                          talent.disciplineSources.includes(
+                            discipline.disciplineId,
+                          )
+                            ? index
+                            : -1,
+                        )
+                        .filter((index) => index >= 0);
+                      const disciplineIndex = matchingDisciplineIndices.length
+                        ? Math.min(...matchingDisciplineIndices)
+                        : Math.max(
+                            0,
+                            draft.disciplines.findIndex(
+                              ({ disciplineId }) =>
+                                disciplineId === talent.originDisciplineId,
+                            ),
+                          );
+                      const costCircle = equivalentTalentCircle(
+                        circle,
+                        disciplineIndex,
+                        talent.disciplineSources.includes('versatility'),
+                      );
+                      const cost = talentRankCost(talent.rank + 1, costCircle);
                       if (
                         legendTotals(current.advancement.ledger).current < cost
                       )
@@ -3202,46 +3340,87 @@ export function Earthdawn4eEditor({
                     <div className="earthdawn-basic-play">
                       <div className="earthdawn-basic-stat">
                         <span>Damage</span>
-                        <input
-                          aria-label="Current damage"
-                          type="number"
-                          min="0"
-                          value={draft.health.damage}
-                          onChange={(event) =>
-                            update((c) => ({
-                              ...c,
-                              health: {
-                                ...c.health,
-                                damage: integer(event.target.value),
-                              },
-                            }))
-                          }
-                        />
-                        <small>
-                          Unconscious{' '}
-                          {derived.unconsciousness +
-                            draft.health.unconsciousnessBonus}{' '}
-                          · Death {derived.death + draft.health.deathBonus}
-                        </small>
+                        <div className="earthdawn-health-primary">
+                          <button
+                            aria-label="Remove one damage"
+                            onClick={() =>
+                              update((c) => ({
+                                ...c,
+                                health: {
+                                  ...c.health,
+                                  damage: Math.max(0, c.health.damage - 1),
+                                },
+                              }))
+                            }
+                          >
+                            −
+                          </button>
+                          <strong>{draft.health.damage}</strong>
+                          <button
+                            aria-label="Add one damage"
+                            onClick={() =>
+                              update((c) => ({
+                                ...c,
+                                health: {
+                                  ...c.health,
+                                  damage: c.health.damage + 1,
+                                },
+                              }))
+                            }
+                          >
+                            +
+                          </button>
+                        </div>
+                        <dl className="earthdawn-health-ratings">
+                          <div>
+                            <dt>Unconsciousness</dt>
+                            <dd>
+                              {derived.unconsciousness +
+                                draft.health.unconsciousnessBonus}
+                            </dd>
+                          </div>
+                          <div>
+                            <dt>Death</dt>
+                            <dd>{derived.death + draft.health.deathBonus}</dd>
+                          </div>
+                        </dl>
                       </div>
                       <div className="earthdawn-basic-stat">
                         <span>Wounds</span>
-                        <input
-                          aria-label="Current wounds"
-                          type="number"
-                          min="0"
-                          value={draft.health.wounds}
-                          onChange={(event) =>
-                            update((c) => ({
-                              ...c,
-                              health: {
-                                ...c.health,
-                                wounds: integer(event.target.value),
-                              },
-                            }))
-                          }
-                        />
-                        <small>Threshold {derived.woundThreshold}</small>
+                        <div className="earthdawn-health-primary">
+                          <button
+                            aria-label="Remove one wound"
+                            onClick={() =>
+                              update((c) => ({
+                                ...c,
+                                health: {
+                                  ...c.health,
+                                  wounds: Math.max(0, c.health.wounds - 1),
+                                },
+                              }))
+                            }
+                          >
+                            −
+                          </button>
+                          <strong>{draft.health.wounds}</strong>
+                          <button
+                            aria-label="Add one wound"
+                            onClick={() =>
+                              update((c) => ({
+                                ...c,
+                                health: {
+                                  ...c.health,
+                                  wounds: c.health.wounds + 1,
+                                },
+                              }))
+                            }
+                          >
+                            +
+                          </button>
+                        </div>
+                        <strong className="earthdawn-threshold">
+                          Threshold {derived.woundThreshold}
+                        </strong>
                       </div>
                       <div className="earthdawn-basic-stat">
                         <span>Recovery</span>
@@ -3255,20 +3434,31 @@ export function Earthdawn4eEditor({
                         <button
                           className="small-button"
                           disabled={
-                            draft.health.recoveryUsed >= derived.recoveryTests
+                            draft.health.recoveryUsed >=
+                              derived.recoveryTests ||
+                            (recoveryKarma && draft.health.karmaCurrent < 1)
                           }
                           onClick={() => {
-                            const result = rollStep(
+                            let result = rollStep(
                               derived.recoveryStep,
                               0,
                               0,
                               'Recovery test',
                             );
+                            if (recoveryKarma)
+                              result = addKarmaDie(
+                                result,
+                                primaryCircle >= 13 ? 8 : 6,
+                              );
                             update((c) => ({
                               ...c,
                               health: {
                                 ...c.health,
                                 recoveryUsed: c.health.recoveryUsed + 1,
+                                karmaCurrent: recoveryKarma
+                                  ? Math.max(0, c.health.karmaCurrent - 1)
+                                  : c.health.karmaCurrent,
+                                lastRecoveryRoll: result,
                               },
                               dice: appendRoll(c.dice, result),
                             }));
@@ -3276,6 +3466,33 @@ export function Earthdawn4eEditor({
                         >
                           Roll Recovery
                         </button>
+                        <label>
+                          <input
+                            type="checkbox"
+                            checked={recoveryKarma}
+                            onChange={(event) =>
+                              setRecoveryKarma(event.target.checked)
+                            }
+                          />{' '}
+                          Spend Karma (Recovery ability)
+                        </label>
+                        <button
+                          className="text-button"
+                          disabled={!draft.health.recoveryUsed}
+                          onClick={() =>
+                            update((c) => ({
+                              ...c,
+                              health: { ...c.health, recoveryUsed: 0 },
+                            }))
+                          }
+                        >
+                          Reset Recovery Tests
+                        </button>
+                        {draft.health.lastRecoveryRoll ? (
+                          <output>
+                            Last roll: {draft.health.lastRecoveryRoll.total}
+                          </output>
+                        ) : null}
                       </div>
                       <div className="earthdawn-basic-stat">
                         <span>Wound Balance</span>
@@ -3296,25 +3513,103 @@ export function Earthdawn4eEditor({
                         </small>
                         <button
                           className="small-button"
+                          disabled={
+                            woundBalanceKarma && draft.health.karmaCurrent < 1
+                          }
                           onClick={() => {
                             const step =
                               attributeStep(values.strength) +
                               (draft.talents.find(
                                 (talent) => talent.name === 'Wound Balance',
                               )?.rank ?? 0);
-                            const result = rollStep(
-                              step,
-                              0,
-                              0,
-                              'Wound Balance',
-                            );
+                            let result = rollStep(step, 0, 0, 'Wound Balance');
+                            if (woundBalanceKarma)
+                              result = addKarmaDie(
+                                result,
+                                primaryCircle >= 13 ? 8 : 6,
+                              );
                             update((c) => ({
                               ...c,
+                              health: {
+                                ...c.health,
+                                lastWoundBalanceRoll: result,
+                                karmaCurrent: woundBalanceKarma
+                                  ? Math.max(0, c.health.karmaCurrent - 1)
+                                  : c.health.karmaCurrent,
+                              },
                               dice: appendRoll(c.dice, result),
                             }));
                           }}
                         >
                           Roll Wound Balance
+                        </button>
+                        <label>
+                          <input
+                            type="checkbox"
+                            checked={woundBalanceKarma}
+                            onChange={(event) =>
+                              setWoundBalanceKarma(event.target.checked)
+                            }
+                          />{' '}
+                          Spend Karma (recorded ability)
+                        </label>
+                        {draft.health.lastWoundBalanceRoll ? (
+                          <output>
+                            Last roll: {draft.health.lastWoundBalanceRoll.total}
+                          </output>
+                        ) : null}
+                      </div>
+                      <div className="earthdawn-basic-stat">
+                        <span>Karma</span>
+                        <strong>
+                          {draft.health.karmaCurrent} / {derivedKarmaMaximum}
+                        </strong>
+                        <small>
+                          Karma die {primaryCircle >= 13 ? 'd8' : 'd6'}
+                        </small>
+                        <button
+                          className="small-button"
+                          disabled={draft.health.karmaCurrent <= 0}
+                          onClick={() =>
+                            update((c) => ({
+                              ...c,
+                              health: {
+                                ...c.health,
+                                karmaCurrent: Math.max(
+                                  0,
+                                  c.health.karmaCurrent - 1,
+                                ),
+                              },
+                            }))
+                          }
+                        >
+                          Spend 1 Karma
+                        </button>
+                        <button
+                          className="text-button"
+                          disabled={Boolean(
+                            draft.health.lastKarmaRitualAt &&
+                            new Date(
+                              draft.health.lastKarmaRitualAt,
+                            ).toDateString() === new Date().toDateString(),
+                          )}
+                          onClick={() =>
+                            update((c) => ({
+                              ...c,
+                              health: {
+                                ...c.health,
+                                karmaCurrent: derivedKarmaMaximum,
+                                lastKarmaRitualAt: new Date().toISOString(),
+                              },
+                            }))
+                          }
+                        >
+                          {draft.health.lastKarmaRitualAt &&
+                          new Date(
+                            draft.health.lastKarmaRitualAt,
+                          ).toDateString() === new Date().toDateString()
+                            ? 'Karma Ritual completed today'
+                            : 'Complete Karma Ritual'}
                         </button>
                       </div>
                       <div className="earthdawn-basic-stat">
@@ -3341,8 +3636,12 @@ export function Earthdawn4eEditor({
                         <span>{field.replace(/([A-Z])/g, ' $1')}</span>
                         <input
                           type="number"
-                          readOnly={playMode && field === 'karmaMaximum'}
-                          value={draft.health[field]}
+                          readOnly={field === 'karmaMaximum'}
+                          value={
+                            field === 'karmaMaximum'
+                              ? derivedKarmaMaximum
+                              : draft.health[field]
+                          }
                           onChange={(e) =>
                             update((c) => ({
                               ...c,
@@ -3355,6 +3654,25 @@ export function Earthdawn4eEditor({
                         />
                       </label>
                     ))}
+                    {gmOverride ? (
+                      <label>
+                        <span>Karma maximum adjustment</span>
+                        <input
+                          type="number"
+                          value={draft.health.karmaAdjustment}
+                          onChange={(event) =>
+                            update((c) => ({
+                              ...c,
+                              health: {
+                                ...c.health,
+                                karmaAdjustment:
+                                  Number.parseInt(event.target.value, 10) || 0,
+                              },
+                            }))
+                          }
+                        />
+                      </label>
+                    ) : null}
                     <p>
                       Unconsciousness{' '}
                       {derived.unconsciousness +
@@ -3487,21 +3805,70 @@ export function Earthdawn4eEditor({
                         }
                       />
                     </label>
+                    <label>
+                      <span>Roll context</span>
+                      <input
+                        value={draft.dice.context}
+                        onChange={(event) =>
+                          update((c) => ({
+                            ...c,
+                            dice: { ...c.dice, context: event.target.value },
+                          }))
+                        }
+                        placeholder="Talent, Half-Magic, or ability"
+                      />
+                    </label>
+                    <label>
+                      <span>Karma eligibility</span>
+                      <select
+                        value={karmaEligibility}
+                        onChange={(event) =>
+                          setKarmaEligibility(event.target.value)
+                        }
+                      >
+                        <option value="none">Do not spend Karma</option>
+                        <option value="discipline-talent">
+                          Discipline Talent
+                        </option>
+                        <option value="half-magic">Half-Magic</option>
+                        <option value="discipline-ability">
+                          Recorded Discipline ability
+                        </option>
+                        <option value="knack-item">Knack or thread item</option>
+                      </select>
+                    </label>
                     <button
                       className="primary-button"
+                      disabled={
+                        karmaEligibility !== 'none' &&
+                        draft.health.karmaCurrent < 1
+                      }
                       onClick={() =>
-                        update((c) => ({
-                          ...c,
-                          dice: appendRoll(
-                            c.dice,
-                            rollStep(
-                              c.dice.step,
-                              c.dice.modifier,
-                              c.dice.targetNumber,
-                              c.dice.context,
-                            ),
-                          ),
-                        }))
+                        update((c) => {
+                          const base = rollStep(
+                            c.dice.step,
+                            c.dice.modifier,
+                            c.dice.targetNumber,
+                            c.dice.context,
+                          );
+                          const spendKarma = karmaEligibility !== 'none';
+                          const result = spendKarma
+                            ? addKarmaDie(base, primaryCircle >= 13 ? 8 : 6)
+                            : base;
+                          return {
+                            ...c,
+                            health: spendKarma
+                              ? {
+                                  ...c.health,
+                                  karmaCurrent: Math.max(
+                                    0,
+                                    c.health.karmaCurrent - 1,
+                                  ),
+                                }
+                              : c.health,
+                            dice: appendRoll(c.dice, result),
+                          };
+                        })
                       }
                     >
                       Roll{' '}
@@ -3531,23 +3898,86 @@ export function Earthdawn4eEditor({
                   ) : null}
                   <details>
                     <summary>Step 1–105 chart</summary>
-                    <div className="earthdawn-step-table-wrap">
-                      <table className="earthdawn-step-table">
-                        <thead>
-                          <tr>
-                            <th scope="col">Step</th>
-                            <th scope="col">Action dice</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {stepDiceChart.map((row) => (
-                            <tr key={row.step}>
-                              <th scope="row">{row.step}</th>
-                              <td>{row.dice}</td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
+                    <SheetToolbar>
+                      <SheetField label="Find exact Step">
+                        <input
+                          type="search"
+                          inputMode="numeric"
+                          value={stepSearch}
+                          onChange={(event) =>
+                            setStepSearch(event.target.value)
+                          }
+                          placeholder="1–105"
+                        />
+                      </SheetField>
+                      <button
+                        className="secondary-button"
+                        onClick={() =>
+                          window.setTimeout(
+                            () => stepResultRef.current?.focus(),
+                            0,
+                          )
+                        }
+                      >
+                        Search
+                      </button>
+                      <button
+                        className="text-button"
+                        onClick={() => setStepSearch('')}
+                      >
+                        Clear
+                      </button>
+                    </SheetToolbar>
+                    <div className="earthdawn-step-columns">
+                      {(stepSearch &&
+                      Number(stepSearch) >= 1 &&
+                      Number(stepSearch) <= 105
+                        ? [[stepDiceChart[Number(stepSearch) - 1]!]]
+                        : [
+                            stepDiceChart.slice(0, 35),
+                            stepDiceChart.slice(35, 70),
+                            stepDiceChart.slice(70),
+                          ]
+                      ).map((rows, column) => (
+                        <div className="earthdawn-step-table-wrap" key={column}>
+                          <table className="earthdawn-step-table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Step</th>
+                                <th scope="col">Action dice</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {rows.map((row) => (
+                                <tr
+                                  key={row.step}
+                                  ref={
+                                    stepSearch &&
+                                    row.step === Number(stepSearch)
+                                      ? stepResultRef
+                                      : undefined
+                                  }
+                                  tabIndex={
+                                    stepSearch &&
+                                    row.step === Number(stepSearch)
+                                      ? -1
+                                      : undefined
+                                  }
+                                  className={
+                                    stepSearch &&
+                                    row.step === Number(stepSearch)
+                                      ? 'is-highlighted'
+                                      : ''
+                                  }
+                                >
+                                  <th scope="row">{row.step}</th>
+                                  <td>{row.dice}</td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      ))}
                     </div>
                   </details>
                 </>,
@@ -3608,11 +4038,18 @@ export function Earthdawn4eEditor({
                     <span>
                       Total earned Legend Points <strong>{legend.total}</strong>
                     </span>
+                    <span>
+                      Total spent <strong>{legend.spent}</strong>
+                    </span>
+                    <span>
+                      Net corrections <strong>{legend.corrections}</strong>
+                    </span>
                   </div>
                   <SheetToolbar>
-                    <SheetField label="Legend award / correction">
+                    <SheetField label="Legend Points">
                       <input
                         type="number"
+                        min="1"
                         value={legendAmount}
                         onChange={(event) =>
                           setLegendAmount(Number(event.target.value))
@@ -3637,11 +4074,12 @@ export function Earthdawn4eEditor({
                             ledger: [
                               ...c.advancement.ledger,
                               createLegendEntry({
-                                type: legendAmount > 0 ? 'award' : 'adjustment',
-                                amount: legendAmount,
+                                type: 'award',
+                                amount: Math.abs(legendAmount),
                                 targetId: null,
                                 targetName: '',
                                 description: legendDescription,
+                                manual: true,
                               }),
                             ],
                           },
@@ -3650,7 +4088,37 @@ export function Earthdawn4eEditor({
                         setLegendDescription('');
                       }}
                     >
-                      Record transaction
+                      Add LP
+                    </button>
+                    <button
+                      className="secondary-button"
+                      disabled={
+                        !legendAmount ||
+                        !legendDescription.trim() ||
+                        legend.current < Math.abs(legendAmount)
+                      }
+                      onClick={() => {
+                        update((c) => ({
+                          ...c,
+                          advancement: {
+                            ledger: [
+                              ...c.advancement.ledger,
+                              createLegendEntry({
+                                type: 'adjustment',
+                                amount: -Math.abs(legendAmount),
+                                targetId: null,
+                                targetName: '',
+                                description: legendDescription,
+                                manual: true,
+                              }),
+                            ],
+                          },
+                        }));
+                        setLegendAmount(0);
+                        setLegendDescription('');
+                      }}
+                    >
+                      Spend LP
                     </button>
                   </SheetToolbar>
                   <div className="earthdawn-ledger-table-wrap">
@@ -3668,14 +4136,61 @@ export function Earthdawn4eEditor({
                           .reverse()
                           .map((entry) => (
                             <tr key={entry.id}>
-                              <td>{entry.date}</td>
+                              <td>
+                                {new Date(entry.createdAt).toLocaleString()}
+                              </td>
                               <td>{entry.type}</td>
                               <td>
-                                {entry.amount > 0 ? '+' : ''}
-                                {entry.amount}
+                                {entry.voidedAt
+                                  ? 'Voided'
+                                  : `${entry.amount > 0 ? '+' : ''}${entry.amount}`}
                               </td>
                               <td>
                                 {entry.description || entry.targetName}
+                                {entry.manual && !entry.voidedAt ? (
+                                  <button
+                                    type="button"
+                                    className="text-button earthdawn-ledger-remove"
+                                    aria-label={`Void ${entry.description || 'Legend Point transaction'}`}
+                                    onClick={() => {
+                                      if (
+                                        !window.confirm(
+                                          'Void this Legend Point transaction? Its audit record will be retained.',
+                                        )
+                                      )
+                                        return;
+                                      const reason = window.prompt(
+                                        'Reason for voiding this transaction:',
+                                        'Entered by mistake.',
+                                      );
+                                      if (reason == null) return;
+                                      update((current) => ({
+                                        ...current,
+                                        advancement: {
+                                          ledger:
+                                            current.advancement.ledger.map(
+                                              (item) =>
+                                                item.id === entry.id
+                                                  ? {
+                                                      ...item,
+                                                      voidedAt:
+                                                        new Date().toISOString(),
+                                                      voidReason:
+                                                        reason.trim() ||
+                                                        'Entered by mistake.',
+                                                    }
+                                                  : item,
+                                            ),
+                                        },
+                                      }));
+                                    }}
+                                  >
+                                    ×
+                                  </button>
+                                ) : null}
+                                {entry.voidedAt ? (
+                                  <small> · {entry.voidReason}</small>
+                                ) : null}
                                 {refundableLedgerEntry(
                                   draft.advancement.ledger,
                                   entry.id,
@@ -3700,35 +4215,259 @@ export function Earthdawn4eEditor({
                 'ed4-notes',
                 'records',
                 'Description & Notes',
-                <div className="sheet-field-grid earthdawn-text-grid">
-                  <label>
-                    <span>Description</span>
-                    <textarea
-                      readOnly={playMode}
-                      value={draft.identity.description}
-                      onChange={(e) =>
+                <div className="earthdawn-notes-section">
+                  <SheetToolbar>
+                    <button
+                      className="primary-button"
+                      onClick={() => {
+                        const now = new Date().toISOString();
                         update((c) => ({
                           ...c,
-                          identity: {
-                            ...c.identity,
-                            description: e.target.value,
+                          notes: {
+                            ...c.notes,
+                            entries: [
+                              ...c.notes.entries,
+                              {
+                                id: crypto.randomUUID(),
+                                kind: 'general',
+                                title: 'New Note',
+                                body: '',
+                                sessionDate: '',
+                                createdAt: now,
+                                updatedAt: now,
+                                collapsed: false,
+                              },
+                            ],
                           },
-                        }))
-                      }
-                    />
-                  </label>
-                  <label>
-                    <span>Campaign log</span>
-                    <textarea
-                      value={draft.notes.log}
-                      onChange={(e) =>
-                        update((c) => ({
-                          ...c,
-                          notes: { ...c.notes, log: e.target.value },
-                        }))
-                      }
-                    />
-                  </label>
+                        }));
+                      }}
+                    >
+                      New Note
+                    </button>
+                    <SheetField label="Search notes">
+                      <input
+                        type="search"
+                        value={noteSearch}
+                        onChange={(event) => setNoteSearch(event.target.value)}
+                      />
+                    </SheetField>
+                    <SheetField label="Note type">
+                      <select
+                        value={noteKind}
+                        onChange={(event) =>
+                          setNoteKind(event.target.value as typeof noteKind)
+                        }
+                      >
+                        <option value="all">All notes</option>
+                        <option value="general">General Notes</option>
+                        <option value="campaign">Campaign Log</option>
+                      </select>
+                    </SheetField>
+                    <SheetField label="Sort notes">
+                      <select
+                        value={noteSort}
+                        onChange={(event) =>
+                          setNoteSort(event.target.value as typeof noteSort)
+                        }
+                      >
+                        <option value="updated">Recently updated</option>
+                        <option value="session">Session date</option>
+                      </select>
+                    </SheetField>
+                  </SheetToolbar>
+                  <div className="sheet-field-grid earthdawn-text-grid">
+                    <label>
+                      <span>Description</span>
+                      <textarea
+                        readOnly={playMode}
+                        value={draft.identity.description}
+                        onChange={(e) =>
+                          update((c) => ({
+                            ...c,
+                            identity: {
+                              ...c.identity,
+                              description: e.target.value,
+                            },
+                          }))
+                        }
+                      />
+                    </label>
+                  </div>
+                  <div className="earthdawn-note-list">
+                    {[...draft.notes.entries]
+                      .filter(
+                        (entry) =>
+                          noteKind === 'all' || entry.kind === noteKind,
+                      )
+                      .filter((entry) =>
+                        `${entry.title} ${entry.body}`
+                          .toLocaleLowerCase()
+                          .includes(noteSearch.trim().toLocaleLowerCase()),
+                      )
+                      .sort((a, b) =>
+                        noteSort === 'session'
+                          ? (b.sessionDate || b.updatedAt).localeCompare(
+                              a.sessionDate || a.updatedAt,
+                            )
+                          : b.updatedAt.localeCompare(a.updatedAt),
+                      )
+                      .map((entry) => (
+                        <SheetCard key={entry.id} density="compact">
+                          <div className="earthdawn-note-heading">
+                            <button
+                              className="text-button"
+                              aria-label={`${entry.collapsed ? 'Expand' : 'Collapse'} ${entry.title}`}
+                              onClick={() =>
+                                update((c) => ({
+                                  ...c,
+                                  notes: {
+                                    ...c.notes,
+                                    entries: c.notes.entries.map((item) =>
+                                      item.id === entry.id
+                                        ? {
+                                            ...item,
+                                            collapsed: !item.collapsed,
+                                          }
+                                        : item,
+                                    ),
+                                  },
+                                }))
+                              }
+                            >
+                              {entry.collapsed ? '▸' : '▾'}
+                            </button>
+                            <strong>{entry.title || 'Untitled note'}</strong>
+                            <span className="kind-badge">
+                              {entry.kind === 'campaign'
+                                ? 'Campaign Log'
+                                : 'General Note'}
+                            </span>
+                            <button
+                              className="text-button"
+                              aria-label={`Delete ${entry.title}`}
+                              onClick={() =>
+                                window.confirm('Delete this note?') &&
+                                update((c) => ({
+                                  ...c,
+                                  notes: {
+                                    ...c.notes,
+                                    entries: c.notes.entries.filter(
+                                      ({ id }) => id !== entry.id,
+                                    ),
+                                  },
+                                }))
+                              }
+                            >
+                              ×
+                            </button>
+                          </div>
+                          {!entry.collapsed ? (
+                            <SheetFieldGrid columns={2}>
+                              <SheetField label="Type">
+                                <select
+                                  value={entry.kind}
+                                  onChange={(event) =>
+                                    update((c) => ({
+                                      ...c,
+                                      notes: {
+                                        ...c.notes,
+                                        entries: c.notes.entries.map((item) =>
+                                          item.id === entry.id
+                                            ? {
+                                                ...item,
+                                                kind: event.target.value as
+                                                  'general' | 'campaign',
+                                                updatedAt:
+                                                  new Date().toISOString(),
+                                              }
+                                            : item,
+                                        ),
+                                      },
+                                    }))
+                                  }
+                                >
+                                  <option value="general">General Note</option>
+                                  <option value="campaign">Campaign Log</option>
+                                </select>
+                              </SheetField>
+                              <SheetField label="Title">
+                                <input
+                                  value={entry.title}
+                                  onChange={(event) =>
+                                    update((c) => ({
+                                      ...c,
+                                      notes: {
+                                        ...c.notes,
+                                        entries: c.notes.entries.map((item) =>
+                                          item.id === entry.id
+                                            ? {
+                                                ...item,
+                                                title: event.target.value,
+                                                updatedAt:
+                                                  new Date().toISOString(),
+                                              }
+                                            : item,
+                                        ),
+                                      },
+                                    }))
+                                  }
+                                />
+                              </SheetField>
+                              <SheetField label="Session date">
+                                <input
+                                  type="date"
+                                  value={entry.sessionDate}
+                                  onChange={(event) =>
+                                    update((c) => ({
+                                      ...c,
+                                      notes: {
+                                        ...c.notes,
+                                        entries: c.notes.entries.map((item) =>
+                                          item.id === entry.id
+                                            ? {
+                                                ...item,
+                                                sessionDate: event.target.value,
+                                                updatedAt:
+                                                  new Date().toISOString(),
+                                              }
+                                            : item,
+                                        ),
+                                      },
+                                    }))
+                                  }
+                                />
+                              </SheetField>
+                              <SheetField label="Note">
+                                <textarea
+                                  value={entry.body}
+                                  onChange={(event) =>
+                                    update((c) => ({
+                                      ...c,
+                                      notes: {
+                                        ...c.notes,
+                                        entries: c.notes.entries.map((item) =>
+                                          item.id === entry.id
+                                            ? {
+                                                ...item,
+                                                body: event.target.value,
+                                                updatedAt:
+                                                  new Date().toISOString(),
+                                              }
+                                            : item,
+                                        ),
+                                      },
+                                    }))
+                                  }
+                                />
+                              </SheetField>
+                            </SheetFieldGrid>
+                          ) : null}
+                        </SheetCard>
+                      ))}
+                    {!draft.notes.entries.length ? (
+                      <p className="catalog-empty-state">No notes yet.</p>
+                    ) : null}
+                  </div>
                   {draft.notes.importReview ? (
                     <details>
                       <summary>Steps import review</summary>
@@ -3742,6 +4481,183 @@ export function Earthdawn4eEditor({
             </OrderedSheetSections>
           )}
         </div>
+        {disciplinePickerOpen ? (
+          <div
+            className="catalog-overlay"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Add Discipline and Questor"
+          >
+            <div className="catalog-dialog">
+              <div className="catalog-dialog-header">
+                <div>
+                  <p className="sheet-eyebrow">Earthdawn paths</p>
+                  <h2>Add Discipline &amp; Questor</h2>
+                  <p>Review complete progression before adding a path.</p>
+                </div>
+                <button
+                  className="secondary-button"
+                  onClick={() => setDisciplinePickerOpen(false)}
+                >
+                  Close
+                </button>
+              </div>
+              <div className="reference-catalog">
+                <SheetField label="Search Disciplines, Questors, talents, and abilities">
+                  <input
+                    type="search"
+                    autoFocus
+                    value={disciplineSearch}
+                    onChange={(event) =>
+                      setDisciplineSearch(event.target.value)
+                    }
+                  />
+                </SheetField>
+                <div className="catalog-results">
+                  {earthdawnDisciplines
+                    .filter((discipline) => {
+                      const query = disciplineSearch.trim().toLocaleLowerCase();
+                      return (
+                        !query ||
+                        `${discipline.name} ${discipline.summary} ${discipline.circles.flatMap((circle) => [...circle.requiredTalents, circle.ability, ...circle.bonuses]).join(' ')} ${Object.values(discipline.talentOptions).flat().join(' ')}`
+                          .toLocaleLowerCase()
+                          .includes(query)
+                      );
+                    })
+                    .map((discipline) => {
+                      const selected = draft.disciplines.some(
+                        ({ disciplineId }) => disciplineId === discipline.id,
+                      );
+                      return (
+                        <SheetCard key={discipline.id} className="catalog-card">
+                          <span className="kind-badge">Discipline</span>
+                          <h3>{discipline.name}</h3>
+                          <p>{discipline.summary}</p>
+                          {(
+                            [
+                              'novice',
+                              'journeyman',
+                              'warden',
+                              'master',
+                            ] as const
+                          ).map((tier, tierIndex) => {
+                            const start = tierIndex * 4 + 1;
+                            const end = tier === 'master' ? 15 : start + 3;
+                            const circles = discipline.circles.filter(
+                              ({ circle }) => circle >= start && circle <= end,
+                            );
+                            return (
+                              <details key={tier}>
+                                <summary>
+                                  {tier[0].toUpperCase() + tier.slice(1)} ·
+                                  Circles {start}–{end}
+                                </summary>
+                                <div className="earthdawn-progression-list">
+                                  {circles.map((circle) => (
+                                    <div key={circle.circle}>
+                                      <strong>Circle {circle.circle}</strong>
+                                      <span>
+                                        {circle.requiredTalents.join(', ')}
+                                      </span>
+                                      {circle.ability ? (
+                                        <small>{circle.ability}</small>
+                                      ) : null}
+                                      {circle.bonuses.length ? (
+                                        <small>
+                                          {circle.bonuses.join(' · ')}
+                                        </small>
+                                      ) : null}
+                                      <cite>
+                                        {circle.source}, p. {circle.page}
+                                      </cite>
+                                    </div>
+                                  ))}
+                                  <p>
+                                    <strong>Talent options:</strong>{' '}
+                                    {discipline.talentOptions[tier].join(
+                                      ', ',
+                                    ) || 'None listed'}
+                                  </p>
+                                </div>
+                              </details>
+                            );
+                          })}
+                          <button
+                            className="primary-button"
+                            disabled={selected}
+                            onClick={() => addDiscipline(discipline)}
+                          >
+                            {selected ? 'Selected' : 'Add Discipline'}
+                          </button>
+                        </SheetCard>
+                      );
+                    })}
+                  {earthdawnPassions
+                    .filter(([name, , , summary]) => {
+                      const query = disciplineSearch.trim().toLocaleLowerCase();
+                      const devotions = earthdawnCatalog
+                        .filter(
+                          ({ kind, mechanics }) =>
+                            kind === 'devotion' && mechanics.includes(name),
+                        )
+                        .map(({ name: devotionName }) => devotionName)
+                        .join(' ');
+                      return (
+                        !query ||
+                        `${name} ${summary} ${devotions}`
+                          .toLocaleLowerCase()
+                          .includes(query)
+                      );
+                    })
+                    .map(([name, page, mad, summary]) => {
+                      const selected = draft.questorPaths.some(
+                        ({ patronName }) => patronName === name,
+                      );
+                      const unavailable = mad && !gmOverride;
+                      return (
+                        <SheetCard key={name} className="catalog-card">
+                          <span className="kind-badge">Questor</span>
+                          <h3>{name}</h3>
+                          <p>{summary}</p>
+                          <details>
+                            <summary>
+                              Follower, Adherent, and Exemplar devotions
+                            </summary>
+                            <ul>
+                              {earthdawnCatalog
+                                .filter(
+                                  ({ kind, mechanics }) =>
+                                    kind === 'devotion' &&
+                                    mechanics.includes(name),
+                                )
+                                .map((devotion) => (
+                                  <li key={devotion.id}>{devotion.name}</li>
+                                ))}
+                            </ul>
+                          </details>
+                          <small>
+                            Questors, p. {page}
+                            {mad ? ' · Mad Passion; GM Override required' : ''}
+                          </small>
+                          <button
+                            className="primary-button"
+                            disabled={
+                              selected ||
+                              unavailable ||
+                              (draft.questorPaths.length > 0 && !gmOverride)
+                            }
+                            onClick={() => addQuestorPath(name)}
+                          >
+                            {selected ? 'Selected' : 'Add Questor path'}
+                          </button>
+                        </SheetCard>
+                      );
+                    })}
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : null}
         {catalogKind ? (
           <div
             className="catalog-overlay"
@@ -3969,6 +4885,107 @@ export function Earthdawn4eEditor({
     </CharacterSectionProvider>
   );
 }
+
+function CustomDisciplineDraftEditor({
+  draft,
+  onSave,
+  onRemove,
+}: {
+  draft: CustomDisciplineDraft;
+  onSave: (draft: CustomDisciplineDraft) => void;
+  onRemove: () => void;
+}) {
+  const [working, setWorking] = useState(draft);
+  const updateTier = (
+    tier: keyof CustomDisciplineDraft['tiers'],
+    field: keyof CustomDisciplineDraft['tiers']['novice'],
+    value: string,
+  ) =>
+    setWorking((current) => ({
+      ...current,
+      tiers: {
+        ...current.tiers,
+        [tier]: { ...current.tiers[tier], [field]: value },
+      },
+    }));
+  return (
+    <SheetCard density="compact">
+      <SheetField label="Draft name">
+        <input
+          value={working.name}
+          onChange={(event) =>
+            setWorking({ ...working, name: event.target.value })
+          }
+        />
+      </SheetField>
+      <SheetField label="Summary">
+        <textarea
+          value={working.summary}
+          onChange={(event) =>
+            setWorking({ ...working, summary: event.target.value })
+          }
+        />
+      </SheetField>
+      <SheetField label="Source notes">
+        <textarea
+          value={working.sourceNotes}
+          onChange={(event) =>
+            setWorking({ ...working, sourceNotes: event.target.value })
+          }
+        />
+      </SheetField>
+      <SheetField label="Karma permissions">
+        <textarea
+          value={working.karmaPermissions}
+          onChange={(event) =>
+            setWorking({ ...working, karmaPermissions: event.target.value })
+          }
+        />
+      </SheetField>
+      {(Object.keys(working.tiers) as Array<keyof typeof working.tiers>).map(
+        (tier) => (
+          <details key={tier}>
+            <summary>{tier[0].toUpperCase() + tier.slice(1)} draft</summary>
+            {(
+              ['talents', 'optionalTalents', 'abilities', 'spells'] as const
+            ).map((field) => (
+              <SheetField key={field} label={field.replace(/([A-Z])/g, ' $1')}>
+                <textarea
+                  value={working.tiers[tier][field]}
+                  onChange={(event) =>
+                    updateTier(tier, field, event.target.value)
+                  }
+                />
+              </SheetField>
+            ))}
+          </details>
+        ),
+      )}
+      <SheetToolbar>
+        <button
+          className="secondary-button"
+          onClick={() =>
+            onSave({
+              ...working,
+              status: 'draft',
+              updatedAt: new Date().toISOString(),
+            })
+          }
+        >
+          Save draft
+        </button>
+        <button className="text-button" onClick={onRemove}>
+          Delete draft
+        </button>
+        <small>
+          Draft only · publishing is unavailable until custom creation rules are
+          supplied.
+        </small>
+      </SheetToolbar>
+    </SheetCard>
+  );
+}
+
 function TalentTable({
   records,
   playMode,

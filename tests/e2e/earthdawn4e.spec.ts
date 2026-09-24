@@ -252,7 +252,17 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
     .last();
   await customSkillName.fill('Barsaive Lore');
   await expect(customSkillName).toHaveValue('Barsaive Lore');
-  await page.getByLabel('Add a Discipline').selectOption({ label: 'Warrior' });
+  await page.getByRole('button', { name: 'Add Discipline & Questor' }).click();
+  const pathDialog = page.getByRole('dialog', {
+    name: 'Add Discipline and Questor',
+  });
+  await pathDialog.getByRole('searchbox').fill('Warrior');
+  await pathDialog
+    .locator('.catalog-card')
+    .filter({ hasText: 'Warrior' })
+    .getByRole('button', { name: 'Add Discipline' })
+    .click();
+  await pathDialog.getByRole('button', { name: 'Close' }).click();
   await page.getByLabel('Warrior Circle').fill('2');
   await expect(page.getByText('Review Circle 1 → 2')).toBeVisible();
   await expect(
@@ -260,9 +270,9 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   ).toBeVisible();
   await page.getByRole('button', { name: 'Cancel' }).click();
   await expect(page.getByLabel('Warrior Circle')).toHaveValue('1');
-  await page.getByLabel('Legend award / correction').fill('1000');
+  await page.getByLabel('Legend Points').fill('1000');
   await page.getByLabel('Reason').fill('First adventure');
-  await page.getByRole('button', { name: 'Record transaction' }).click();
+  await page.getByRole('button', { name: 'Add LP' }).click();
   await page
     .getByRole('switch', { name: /Earthdawn Edit and Play mode/ })
     .check();

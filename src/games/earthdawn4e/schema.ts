@@ -112,6 +112,18 @@ export const earthdawn4eCharacterSchema = z.object({
     outOfFavor: z.boolean(),
     notes: z.string(),
   }),
+  questorPaths: z.array(
+    z.object({
+      id: uuid,
+      patronId: z.string().nullable(),
+      patronName: z.string(),
+      rank: z.number().int().min(0).max(12),
+      tier: z.enum(['none', 'follower', 'adherent', 'exemplar']),
+      outOfFavor: z.boolean(),
+      gmOverride: z.boolean(),
+      notes: z.string(),
+    }),
+  ),
   attributes: z.record(
     attributeId,
     z.object({
@@ -287,6 +299,10 @@ export const earthdawn4eCharacterSchema = z.object({
     karmaCurrent: nonnegative,
     karmaMaximum: nonnegative,
     devotionPoints: nonnegative,
+    karmaAdjustment: z.number().int(),
+    lastKarmaRitualAt: z.string().datetime().nullable(),
+    lastRecoveryRoll: roll.nullable(),
+    lastWoundBalanceRoll: roll.nullable(),
     conditions: z.object({
       stance: z.enum(['normal', 'aggressive', 'defensive']),
       knockedDown: z.boolean(),
@@ -337,6 +353,9 @@ export const earthdawn4eCharacterSchema = z.object({
         sourceCitation: z.string(),
         description: z.string(),
         reversesId: z.string().nullable(),
+        manual: z.boolean(),
+        voidedAt: z.string().datetime().nullable(),
+        voidReason: z.string(),
         createdAt: z.string().datetime(),
       }),
     ),
@@ -354,6 +373,18 @@ export const earthdawn4eCharacterSchema = z.object({
   notes: z.object({
     log: z.string(),
     notes: z.string(),
+    entries: z.array(
+      z.object({
+        id: uuid,
+        kind: z.enum(['general', 'campaign']),
+        title: z.string(),
+        body: z.string(),
+        sessionDate: z.string(),
+        createdAt: z.string().datetime(),
+        updatedAt: z.string().datetime(),
+        collapsed: z.boolean(),
+      }),
+    ),
     importReview: z
       .object({
         mapped: z.array(z.string()),
@@ -451,6 +482,9 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
         typeof value.description === 'string' ? value.description : '',
       reversesId:
         typeof value.reversesId === 'string' ? value.reversesId : null,
+      manual: Boolean(value.manual),
+      voidedAt: typeof value.voidedAt === 'string' ? value.voidedAt : null,
+      voidReason: typeof value.voidReason === 'string' ? value.voidReason : '',
       createdAt: typeof value.createdAt === 'string' ? value.createdAt : now,
     };
   });
@@ -470,6 +504,9 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
       sourceCitation: '',
       description: 'Preserved Total Legend Points from the prior schema.',
       reversesId: null,
+      manual: true,
+      voidedAt: null,
+      voidReason: '',
       createdAt: now,
     });
     if (current !== total)
@@ -488,6 +525,9 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
         sourceCitation: '',
         description: 'Preserved Current Legend Points from the prior schema.',
         reversesId: null,
+        manual: true,
+        voidedAt: null,
+        voidReason: '',
         createdAt: now,
       });
   }
@@ -547,6 +587,40 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
           outOfFavor: false,
           notes: '',
         },
+    questorPaths: Array.isArray(data.questorPaths)
+      ? data.questorPaths
+      : (() => {
+          const legacy = isRecord(data.questor) ? data.questor : null;
+          const patronName =
+            legacy && typeof legacy.patronName === 'string'
+              ? legacy.patronName
+              : typeof identity.passion === 'string'
+                ? identity.passion
+                : '';
+          return patronName
+            ? [
+                {
+                  id: crypto.randomUUID(),
+                  patronId:
+                    legacy && typeof legacy.patronId === 'string'
+                      ? legacy.patronId
+                      : null,
+                  patronName,
+                  rank: legacy ? Number(legacy.rank ?? 0) : 0,
+                  tier:
+                    legacy && typeof legacy.tier === 'string'
+                      ? legacy.tier
+                      : 'none',
+                  outOfFavor: legacy ? Boolean(legacy.outOfFavor) : false,
+                  gmOverride: false,
+                  notes:
+                    legacy && typeof legacy.notes === 'string'
+                      ? legacy.notes
+                      : '',
+                },
+              ]
+            : [];
+        })(),
     talents: (Array.isArray(data.talents) ? data.talents : []).map((entry) => ({
       ...(isRecord(entry) ? entry : {}),
       originCircle: null,
@@ -652,6 +726,10 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
       ...health,
       basicMode: health.basicMode ?? false,
       bloodMagicDamage: health.bloodMagicDamage ?? 0,
+      karmaAdjustment: health.karmaAdjustment ?? 0,
+      lastKarmaRitualAt: health.lastKarmaRitualAt ?? null,
+      lastRecoveryRoll: health.lastRecoveryRoll ?? null,
+      lastWoundBalanceRoll: health.lastWoundBalanceRoll ?? null,
     },
     advancement: { ledger: migratedLedger },
     dice: {
@@ -661,6 +739,38 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
         oldDice.historyLimit === undefined ? 10 : oldDice.historyLimit,
       lastRoll: oldDice.lastRoll ?? history[0] ?? null,
       history,
+    },
+    notes: {
+      ...(isRecord(data.notes) ? data.notes : {}),
+      log:
+        isRecord(data.notes) && typeof data.notes.log === 'string'
+          ? data.notes.log
+          : '',
+      notes:
+        isRecord(data.notes) && typeof data.notes.notes === 'string'
+          ? data.notes.notes
+          : '',
+      entries: Array.isArray(isRecord(data.notes) ? data.notes.entries : null)
+        ? (data.notes as Record<string, unknown>).entries
+        : isRecord(data.notes) &&
+            typeof data.notes.log === 'string' &&
+            data.notes.log.trim()
+          ? [
+              {
+                id: crypto.randomUUID(),
+                kind: 'campaign',
+                title: 'Migrated campaign log',
+                body: data.notes.log,
+                sessionDate: '',
+                createdAt: now,
+                updatedAt: now,
+                collapsed: false,
+              },
+            ]
+          : [],
+      importReview: isRecord(data.notes)
+        ? (data.notes.importReview ?? null)
+        : null,
     },
   };
   return earthdawn4eCharacterSchema.parse(next);

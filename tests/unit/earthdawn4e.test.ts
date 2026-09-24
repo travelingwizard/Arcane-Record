@@ -13,6 +13,7 @@ import {
 import { createBlankEarthdawn4eCharacter } from '../../src/games/earthdawn4e/create-character';
 import {
   attributeStep,
+  addKarmaDie,
   deriveCharacter,
   rollStep,
   stepDice,
@@ -31,6 +32,7 @@ import {
   attributeTraining,
   createLegendEntry,
   disciplineCircleTraining,
+  equivalentTalentCircle,
   grantedDevotionCost,
   knackLearningQuote,
   legendTotals,
@@ -47,6 +49,10 @@ import {
   spellLearningCost,
   threadRankCost,
 } from '../../src/games/earthdawn4e/rules';
+import {
+  createCustomDisciplineDraft,
+  customDisciplineRepository,
+} from '../../src/games/earthdawn4e/custom-discipline-repository';
 
 describe('Earthdawn Fourth Edition module', () => {
   it('creates a valid local-first character and complete official source list', () => {
@@ -184,6 +190,8 @@ describe('Earthdawn Fourth Edition module', () => {
     expect(legendTotals(migrated.advancement.ledger)).toEqual({
       current: 900,
       total: 1200,
+      spent: 300,
+      corrections: 900,
     });
     expect(migrated.identity.height).toBe('');
     expect(migrated.dice).toMatchObject({ tracking: true, historyLimit: 10 });
@@ -427,6 +435,60 @@ describe('Earthdawn Fourth Edition module', () => {
       discipline.circles[0]!.requiredTalents.length,
     );
   });
+  it('shifts talent cost tiers for additional Disciplines and Versatility', () => {
+    expect(equivalentTalentCircle(1, 0)).toBe(1);
+    expect(equivalentTalentCircle(1, 1)).toBe(5);
+    expect(equivalentTalentCircle(1, 2)).toBe(9);
+    expect(equivalentTalentCircle(5, 1)).toBe(9);
+    expect(equivalentTalentCircle(13, 3)).toBe(13);
+    expect(equivalentTalentCircle(1, 0, true)).toBe(5);
+  });
+  it('keeps only the primary magician Discipline free matrices', () => {
+    const character = createBlankEarthdawn4eCharacter();
+    const wizard = earthdawnDisciplines.find(({ name }) => name === 'Wizard')!;
+    const elementalist = earthdawnDisciplines.find(
+      ({ name }) => name === 'Elementalist',
+    )!;
+    character.disciplines = [wizard, elementalist].map((definition) => ({
+      id: crypto.randomUUID(),
+      definitionId: definition.id,
+      sourceId: definition.sourceId,
+      source: definition.source,
+      page: definition.page,
+      unresolved: false,
+      disciplineId: definition.id,
+      name: definition.name,
+      circle: 5,
+      startedAtCircle: 1,
+      questor: false,
+      custom: false,
+    }));
+    const reconciled = reconcileFreeMatrices(character);
+    expect(reconciled.magic.matrices).toHaveLength(2);
+    expect(
+      new Set(reconciled.magic.matrices.map(({ restriction }) => restriction)),
+    ).toEqual(new Set(['Wizard']));
+  });
+  it('adds an exploding Karma die to a Step roll', () => {
+    vi.spyOn(crypto, 'getRandomValues').mockImplementation((array) => {
+      (array as Uint32Array)[0] = 2;
+      return array;
+    });
+    const result = addKarmaDie(rollStep(4), 6);
+    expect(result.dice).toContain('Karma');
+    expect(result.rolls.at(-1)?.sides).toBe(6);
+    vi.restoreAllMocks();
+  });
+  it('stores reusable custom Discipline drafts locally without publishing them', () => {
+    localStorage.clear();
+    const draft = createCustomDisciplineDraft();
+    customDisciplineRepository.save({ ...draft, name: 'Test Discipline' });
+    expect(customDisciplineRepository.list()).toContainEqual(
+      expect.objectContaining({ name: 'Test Discipline', status: 'draft' }),
+    );
+    customDisciplineRepository.remove(draft.id);
+    expect(customDisciplineRepository.list()).toEqual([]);
+  });
   it('derives Legend totals from immutable signed transactions', () => {
     const award = createLegendEntry({
       type: 'award',
@@ -446,6 +508,8 @@ describe('Earthdawn Fourth Edition module', () => {
     expect(legendTotals([award, purchase])).toEqual({
       current: 700,
       total: 1000,
+      spent: 300,
+      corrections: 0,
     });
     expect(refundableLedgerEntry([award, purchase], purchase.id)).toBe(true);
     const dependent = createLegendEntry({

@@ -167,3 +167,25 @@ export function rollStep(
     createdAt: new Date().toISOString(),
   };
 }
+
+export function addKarmaDie(result: RollResult, sides: 6 | 8): RollResult {
+  const values: number[] = [];
+  let value = sides;
+  let karmaTotal = 0;
+  while (value === sides) {
+    value = (crypto.getRandomValues(new Uint32Array(1))[0]! % sides) + 1;
+    values.push(value);
+    karmaTotal += value;
+  }
+  const total = result.total + karmaTotal;
+  return {
+    ...result,
+    dice: `${result.dice}+1d${sides} Karma`,
+    rolls: [...result.rolls, { sides, values }],
+    total,
+    successLevel:
+      result.targetNumber > 0 && total >= result.targetNumber
+        ? 1 + Math.floor((total - result.targetNumber) / 5)
+        : 0,
+  };
+}
