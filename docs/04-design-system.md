@@ -64,7 +64,10 @@ dialog header contains its title, concise purpose, and a clearly labeled close
 button. Search and filters use `SheetToolbar` and `SheetField`. Results use the
 shared `reference-catalog`, `catalog-results`, and `catalog-card` structure,
 with kind, citation, availability, verification state, summary, and one clear
-add action. Catalogs must trap keyboard focus, restore it to their trigger,
+add action. Character-sheet sections open a browser already scoped to that
+record type; a top-level combined browser may remain as an index. Adding a
+record keeps the browser open, changes the action to a disabled “Selected”
+state, and preserves the active query and filters. Catalogs must trap keyboard focus, restore it to their trigger,
 remain scrollable within the viewport, and collapse to one result column
 without page-level horizontal overflow at 320 CSS pixels. A game must not
 render an unstyled list of headings and buttons as a catalog.

@@ -201,13 +201,12 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   await page.keyboard.press('Escape');
   await expect(browseCatalogs).toBeFocused();
   for (const [sectionId, buttonName] of [
-    ['#ed4-talents', 'Browse catalog'],
-    ['#ed4-skills', 'Browse catalog'],
+    ['#ed4-talents', 'Browse Talents'],
+    ['#ed4-skills', 'Browse Skills'],
     ['#ed4-skills', 'Browse Knacks'],
     ['#ed4-magic', 'Browse Spells'],
     ['#ed4-patterns', 'Browse Thread Items'],
-    ['#ed4-equipment', 'Browse Equipment'],
-    ['#ed4-equipment', 'Browse Weapons'],
+    ['#ed4-equipment', 'Browse Equipment, Weapons & Armor'],
   ] as const) {
     const opener = page.locator(sectionId).getByRole('button', {
       name: buttonName,
@@ -220,6 +219,29 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
     await page.keyboard.press('Escape');
     await expect(opener).toBeFocused();
   }
+  const browseTalents = page
+    .locator('#ed4-talents')
+    .getByRole('button', { name: 'Browse Talents' });
+  await browseTalents.click();
+  const talentDialog = page.getByRole('dialog', { name: 'Earthdawn catalog' });
+  await talentDialog.getByRole('searchbox').fill('Acrobatic Defense');
+  const talentCard = talentDialog
+    .locator('.catalog-card')
+    .filter({ hasText: 'Acrobatic Defense' });
+  await expect(talentCard).toContainText('Dexterity');
+  await expect(talentCard).toContainText('Simple');
+  await expect(talentCard).toContainText('Strain');
+  await talentCard.getByRole('button', { name: 'Add' }).click();
+  await expect(talentDialog).toBeVisible();
+  await expect(
+    talentCard.getByRole('button', { name: 'Selected' }),
+  ).toBeDisabled();
+  await page.keyboard.press('Escape');
+  await expect(
+    page.locator('#ed4-talents .earthdawn-talent-row').filter({
+      has: page.locator('input[value="Acrobatic Defense"]'),
+    }),
+  ).toBeVisible();
   await page
     .locator('#ed4-skills')
     .getByRole('button', { name: 'Add Custom Skill' })
@@ -253,7 +275,10 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   const spellDialog = page.getByRole('dialog', {
     name: 'Earthdawn catalog',
   });
-  await spellDialog.getByRole('button', { name: 'Add' }).first().click();
+  await spellDialog
+    .getByRole('button', { name: 'Add', exact: true })
+    .first()
+    .click();
   await expect(page.getByText(/Learn Air Armor/)).toBeVisible();
   await page.getByRole('button', { name: 'Confirm purchase' }).click();
   await expect(page.getByText('100 current LP')).toBeVisible();

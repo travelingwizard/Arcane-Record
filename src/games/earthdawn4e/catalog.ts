@@ -33,6 +33,14 @@ export interface EarthdawnDefinition {
   costSilver?: number;
   skillCategory?: 'general' | 'knowledge' | 'artisan' | 'language';
   defaultAttribute?: EarthdawnAttributeId;
+  talentMetadata?: {
+    attributeText: string;
+    effectText: string;
+    actionText: string;
+    strainText: string;
+    citationText: string;
+    sourceIds: string[];
+  };
 }
 export interface EarthdawnRace extends EarthdawnDefinition {
   attributes: Record<EarthdawnAttributeId, number>;
@@ -156,6 +164,97 @@ import {
   questorTierMinimumRank,
 } from './questor-devotions';
 import { companionThreadItemRows } from './companion-thread-items';
+import { earthdawnTalentReferenceRows } from './talent-reference';
+
+const attrs: EarthdawnAttributeId[] = [
+  'dexterity',
+  'strength',
+  'toughness',
+  'perception',
+  'willpower',
+  'charisma',
+];
+
+const talentSourceIds: Record<number, string> = {
+  1: 'ed4.deeper-secrets',
+  2: 'ed4.players-guide',
+  3: 'ed4.questors',
+  4: 'ed4.gamemasters-guide',
+  5: 'ed4.companion',
+  6: 'ed4.mystic-paths',
+  7: 'ed4.iopos',
+  8: 'ed4.elven-nations',
+  9: 'ed4.vasgothia',
+  10: 'ed4.travar',
+};
+
+const expandSourceReferences = (value: string) => {
+  const numbers = new Set<number>();
+  for (const part of value.split(',').map((item) => item.trim())) {
+    const range = part.match(/^(\d+)-(\d+)$/);
+    if (range) {
+      for (let index = Number(range[1]); index <= Number(range[2]); index += 1)
+        numbers.add(index);
+      continue;
+    }
+    if (/^\d+$/.test(part)) numbers.add(Number(part));
+  }
+  return [...numbers]
+    .map((number) => talentSourceIds[number])
+    .filter((id): id is string => Boolean(id));
+};
+
+const normalizedTalentAttribute = (
+  value: string,
+): EarthdawnAttributeId | undefined => {
+  const normalized = value.toLocaleLowerCase();
+  return attrs.find((attribute) => attribute === normalized);
+};
+
+const citationPage = (citation: string) =>
+  Number(citation.match(/(?:p\.|page)\s*(\d+)/i)?.[1] ?? 1);
+
+export const earthdawnTalents: EarthdawnDefinition[] =
+  earthdawnTalentReferenceRows.map(
+    ([
+      name,
+      attributeText,
+      effectText,
+      actionText,
+      strainText,
+      citationText,
+      sourceReferences,
+    ]) => {
+      const sourceIds = expandSourceReferences(sourceReferences);
+      const sourceId = sourceIds.includes('ed4.players-guide')
+        ? 'ed4.players-guide'
+        : (sourceIds[0] ?? 'ed4.players-guide');
+      return {
+        ...entry(
+          'talent',
+          name,
+          sourceId,
+          citationPage(citationText),
+          effectText,
+        ),
+        defaultAttribute: normalizedTalentAttribute(attributeText),
+        mechanics: JSON.stringify({
+          attributeText,
+          effectText,
+          actionText,
+          strainText,
+        }),
+        talentMetadata: {
+          attributeText,
+          effectText,
+          actionText,
+          strainText,
+          citationText,
+          sourceIds,
+        },
+      };
+    },
+  );
 
 const raceData: Array<[string, number[], string, number, string[]]> = [
   ['Dwarf', [9, 10, 12, 11, 11, 10], '10', 4, ['Heat Sight']],
@@ -178,14 +277,6 @@ const raceData: Array<[string, number[], string, number, string[]]> = [
     6,
     ['Astral Sight', 'Flight', 'Increased Physical Defense'],
   ],
-];
-const attrs: EarthdawnAttributeId[] = [
-  'dexterity',
-  'strength',
-  'toughness',
-  'perception',
-  'willpower',
-  'charisma',
 ];
 export const earthdawnRaces: EarthdawnRace[] = raceData.map(
   ([name, values, movement, karmaModifier, abilities], index) => ({
@@ -741,31 +832,7 @@ export const earthdawnCatalog: EarthdawnDefinition[] = [
   ...earthdawnSpells,
   ...earthdawnKnacks,
   ...earthdawnThreadItems,
-  ...named(
-    'talent',
-    [
-      ...new Set(
-        Object.values(coreDisciplineProgressions)
-          .flatMap((circles) =>
-            circles.flatMap(({ requiredTalents }) => requiredTalents),
-          )
-          .concat(
-            Object.values(coreTalentOptions).flatMap((tiers) =>
-              Object.values(tiers).flat(),
-            ),
-          )
-          .concat([
-            'Astral Sight',
-            'Versatility',
-            'Karma Ritual',
-            'Durability',
-            'Thread Weaving',
-          ]),
-      ),
-    ],
-    'ed4.players-guide',
-    119,
-  ),
+  ...earthdawnTalents,
   ...skillDefinitions(
     'general',
     [

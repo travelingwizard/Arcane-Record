@@ -1022,6 +1022,22 @@ export function EarthdawnCreator({
                                     notes: '',
                                     action: '',
                                     strain: 0,
+                                    attributeText:
+                                      definition?.talentMetadata
+                                        ?.attributeText ?? '',
+                                    effectText:
+                                      definition?.talentMetadata?.effectText ??
+                                      '',
+                                    actionText:
+                                      definition?.talentMetadata?.actionText ??
+                                      '',
+                                    strainText:
+                                      definition?.talentMetadata?.strainText ??
+                                      '',
+                                    citationText:
+                                      definition?.talentMetadata
+                                        ?.citationText ?? '',
+                                    metadataOverrides: [],
                                     disciplineSources: [discipline.id],
                                     optional: true,
                                     originCircle: minimumCircle,

@@ -35,6 +35,7 @@ import {
   earthdawnSources,
   type EarthdawnAttributeId,
   type EarthdawnCatalogKind,
+  type EarthdawnDefinition,
 } from './catalog';
 import { EarthdawnCreator } from './EarthdawnCreator';
 import {
@@ -89,6 +90,40 @@ const labels: Record<EarthdawnAttributeId, string> = {
   charisma: 'Charisma',
 };
 const integer = (value: string) => Math.max(0, Number.parseInt(value, 10) || 0);
+const catalogFacts = (definition: EarthdawnDefinition) => {
+  const facts: Array<[string, string]> = [];
+  if (definition.costSilver != null)
+    facts.push(['Price', `${definition.costSilver} sp`]);
+  try {
+    const mechanics = JSON.parse(definition.mechanics) as Record<
+      string,
+      unknown
+    >;
+    const labels: Record<string, string> = {
+      discipline: 'Discipline',
+      circle: 'Circle',
+      weight: 'Weight',
+      damageStep: 'Damage Step',
+      strengthMinimum: 'Strength Minimum',
+      range: 'Range',
+      physicalArmor: 'Physical Armor',
+      mysticArmor: 'Mystic Armor',
+      physicalDefense: 'Physical Defense',
+      mysticDefense: 'Mystic Defense',
+      initiativePenalty: 'Initiative Penalty',
+      shatterThreshold: 'Shatter Threshold',
+      availability: 'Availability',
+    };
+    for (const [key, label] of Object.entries(labels)) {
+      const value = mechanics[key];
+      if (value !== undefined && value !== '')
+        facts.push([label, String(value)]);
+    }
+  } catch {
+    // Older concise definitions use plain-text mechanics.
+  }
+  return facts;
+};
 type AdvancementQuote = {
   title: string;
   cost: number;
@@ -114,6 +149,12 @@ export function Earthdawn4eEditor({
   const [draft, setDraft] = useState(character),
     [saveStatus, setSaveStatus] = useState<SaveStatus>('saved'),
     [catalogSearch, setCatalogSearch] = useState(''),
+    [catalogSource, setCatalogSource] = useState('all'),
+    [catalogAttribute, setCatalogAttribute] = useState('all'),
+    [catalogAction, setCatalogAction] = useState('all'),
+    [catalogDiscipline, setCatalogDiscipline] = useState('all'),
+    [catalogCircle, setCatalogCircle] = useState('all'),
+    [catalogEquipmentKind, setCatalogEquipmentKind] = useState('all'),
     [legendAmount, setLegendAmount] = useState(0),
     [legendDescription, setLegendDescription] = useState(''),
     [pendingDisciplineChange, setPendingDisciplineChange] = useState<{
@@ -193,6 +234,13 @@ export function Earthdawn4eEditor({
         ? document.activeElement
         : catalogButtonRef.current;
     setCatalogKind(kind);
+    setCatalogSearch('');
+    setCatalogSource('all');
+    setCatalogAttribute('all');
+    setCatalogAction('all');
+    setCatalogDiscipline('all');
+    setCatalogCircle('all');
+    setCatalogEquipmentKind('all');
   };
   const closeCatalog = () => {
     setCatalogKind(null);
@@ -303,6 +351,17 @@ export function Earthdawn4eEditor({
   );
   const addCatalog = (definitionId: string, confirmed = false) => {
     const d = earthdawnDefinitionById.get(definitionId)!;
+    const alreadySelected = [
+      ...draft.talents,
+      ...draft.skills,
+      ...draft.knacks,
+      ...draft.magic.spells,
+      ...draft.equipment,
+      ...draft.weapons,
+      ...draft.magic.effects,
+      ...draft.abilities,
+    ].some((item) => item.definitionId === definitionId);
+    if (alreadySelected) return;
     if (playMode && !confirmed && d.kind === 'knack') {
       let mechanics: { talents?: string[]; minimumRank?: number } = {};
       try {
@@ -419,10 +478,17 @@ export function Earthdawn4eEditor({
               ...base,
               rank: 0,
               freeRank: 0,
-              attribute: 'dexterity',
+              attribute: d.defaultAttribute ?? 'perception',
               bonus: 0,
-              action: '',
+              action: d.talentMetadata?.actionText ?? '',
               strain: 0,
+              attributeText: d.talentMetadata?.attributeText ?? '',
+              effectText: d.talentMetadata?.effectText ?? d.summary,
+              actionText: d.talentMetadata?.actionText ?? '',
+              strainText: d.talentMetadata?.strainText ?? '',
+              citationText:
+                d.talentMetadata?.citationText ?? `${d.source}, p. ${d.page}`,
+              metadataOverrides: [],
               disciplineSources: [],
               optional: true,
               originCircle: null,
@@ -658,7 +724,6 @@ export function Earthdawn4eEditor({
         ],
       };
     });
-    closeCatalog();
   };
   const addDiscipline = (
     discipline: (typeof earthdawnDisciplines)[number],
@@ -894,6 +959,283 @@ export function Earthdawn4eEditor({
         },
       };
     });
+  const selectedDefinitionIds = new Set(
+    [
+      ...draft.talents,
+      ...draft.skills,
+      ...draft.knacks,
+      ...draft.magic.spells,
+      ...draft.magic.effects,
+      ...draft.equipment,
+      ...draft.weapons,
+      ...draft.abilities,
+    ]
+      .map(({ definitionId }) => definitionId)
+      .filter((id): id is string => Boolean(id)),
+  );
+  const addCustomCatalogRecord = () => {
+    if (!catalogKind || catalogKind === 'all') return;
+    update((current) => {
+      const base = {
+        id: crypto.randomUUID(),
+        definitionId: null,
+        sourceId: null,
+        source: null,
+        page: null,
+        unresolved: true,
+        notes: '',
+      };
+      if (catalogKind === 'talent')
+        return {
+          ...current,
+          talents: [
+            ...current.talents,
+            {
+              ...base,
+              name: 'Custom Talent',
+              rank: 0,
+              freeRank: 0,
+              attribute: 'perception' as const,
+              bonus: 0,
+              action: '',
+              strain: 0,
+              attributeText: 'Perception',
+              effectText: '',
+              actionText: '',
+              strainText: '0',
+              citationText: 'Custom',
+              metadataOverrides: [],
+              disciplineSources: [],
+              optional: true,
+              originCircle: null,
+              originDisciplineId: null,
+              creationOwned: false,
+            },
+          ],
+        };
+      if (catalogKind === 'skill')
+        return {
+          ...current,
+          skills: [
+            ...current.skills,
+            {
+              ...base,
+              name: 'Custom Skill',
+              rank: 0,
+              freeRank: 0,
+              attribute: 'perception' as const,
+              bonus: 0,
+              category: 'general' as const,
+              action: '',
+              strain: 0,
+              creationOwned: false,
+            },
+          ],
+        };
+      if (catalogKind === 'knack')
+        return {
+          ...current,
+          knacks: [
+            ...current.knacks,
+            {
+              ...base,
+              name: 'Custom Knack',
+              talentId: null,
+              minimumRank: 0,
+              action: '',
+              strain: 0,
+            },
+          ],
+        };
+      if (catalogKind === 'spell')
+        return {
+          ...current,
+          magic: {
+            ...current.magic,
+            spells: [
+              ...current.magic.spells,
+              {
+                ...base,
+                name: 'Custom Spell',
+                discipline: '',
+                circle: 1,
+                threads: 0,
+                weaving: '',
+                casting: '',
+                range: '',
+                duration: '',
+                effect: '',
+                learned: true,
+              },
+            ],
+          },
+        };
+      if (catalogKind === 'thread-item')
+        return {
+          ...current,
+          magic: {
+            ...current.magic,
+            effects: [
+              ...current.magic.effects,
+              {
+                ...base,
+                name: 'Custom Thread Item',
+                target: '',
+                rank: 0,
+                applicable: false,
+                effects: '',
+                kind: 'thread' as const,
+              },
+            ],
+          },
+        };
+      if (catalogKind === 'equipment' || catalogKind === 'weapon')
+        return {
+          ...current,
+          equipment: [
+            ...current.equipment,
+            {
+              ...base,
+              name: 'Custom Equipment',
+              type: 'equipment',
+              description: '',
+              quantity: 1,
+              value: '',
+              costSilver: 0,
+              weight: 0,
+              inUse: false,
+              physicalArmor: 0,
+              mysticArmor: 0,
+              physicalDefense: 0,
+              mysticDefense: 0,
+              initiativePenalty: 0,
+              shatterThreshold: 0,
+              forgedBonus: 0,
+            },
+          ],
+        };
+      return current;
+    });
+  };
+  const catalogTitles: Record<
+    EarthdawnCatalogKind | 'all',
+    [title: string, description: string]
+  > = {
+    all: [
+      'Earthdawn reference catalog',
+      'Browse all verified character options.',
+    ],
+    talent: [
+      'Browse Talents',
+      'Add source-backed talents with complete compact metadata.',
+    ],
+    skill: [
+      'Browse Skills',
+      'Search General, Knowledge, Artisan, and Language skills.',
+    ],
+    knack: [
+      'Browse Knacks',
+      'Find knacks and review their talent prerequisites.',
+    ],
+    spell: [
+      'Browse Spells',
+      'Search spells by name, Discipline, Circle, or source.',
+    ],
+    equipment: [
+      'Browse Equipment',
+      'Search equipment, weapons, armor, and shields.',
+    ],
+    weapon: [
+      'Browse Weapons',
+      'Search weapons with price and combat statistics.',
+    ],
+    'thread-item': [
+      'Browse Thread Items',
+      'Find source-backed thread items and rank records.',
+    ],
+    race: ['Browse Races', 'Browse verified playable races.'],
+    discipline: ['Browse Disciplines', 'Browse verified adept Disciplines.'],
+    path: ['Browse Paths', 'Browse verified Paths.'],
+    devotion: ['Browse Devotions', 'Browse eligible Questor devotions.'],
+    ability: ['Browse Abilities', 'Browse source-backed abilities.'],
+  };
+  const visibleCatalog = earthdawnCatalog.filter((definition) => {
+    if (definition.kind === 'devotion' && !draft.sources.showUnavailable) {
+      try {
+        const mechanics = JSON.parse(definition.mechanics) as {
+          eligibility?: DevotionEligibility[];
+        };
+        if (
+          !mechanics.eligibility?.some(
+            ({ passion, minimumQuestorRank }) =>
+              passion === draft.questor.patronName &&
+              draft.questor.rank >= minimumQuestorRank,
+          )
+        )
+          return false;
+      } catch {
+        return false;
+      }
+    }
+    const kindMatches =
+      catalogKind === 'all' ||
+      definition.kind === catalogKind ||
+      (catalogKind === 'equipment' && definition.kind === 'weapon');
+    const sourceMatches =
+      catalogSource === 'all' ||
+      definition.sourceId === catalogSource ||
+      definition.talentMetadata?.sourceIds.includes(catalogSource);
+    const attributeMatches =
+      catalogAttribute === 'all' ||
+      Boolean(
+        definition.talentMetadata?.attributeText
+          .toLocaleLowerCase()
+          .includes(catalogAttribute),
+      );
+    const actionMatches =
+      catalogAction === 'all' ||
+      definition.talentMetadata?.actionText.includes(catalogAction);
+    let spellMatches = true;
+    if (definition.kind === 'spell') {
+      try {
+        const mechanics = JSON.parse(definition.mechanics) as {
+          discipline?: string;
+          circle?: number;
+        };
+        spellMatches =
+          (catalogDiscipline === 'all' ||
+            mechanics.discipline === catalogDiscipline) &&
+          (catalogCircle === 'all' ||
+            mechanics.circle === Number(catalogCircle));
+      } catch {
+        spellMatches = false;
+      }
+    }
+    const equipmentMatches =
+      catalogEquipmentKind === 'all' ||
+      definition.kind === catalogEquipmentKind ||
+      (catalogEquipmentKind === 'armor' &&
+        definition.kind === 'equipment' &&
+        /armor|shield/i.test(definition.name));
+    const sourceAvailable =
+      draft.sources.enabledSourceIds.includes(definition.sourceId) ||
+      draft.sources.showUnavailable;
+    const query = catalogSearch.trim().toLocaleLowerCase();
+    const searchMatches =
+      `${definition.name} ${definition.summary} ${definition.source} ${definition.requirements.join(' ')} ${definition.talentMetadata?.attributeText ?? ''} ${definition.talentMetadata?.actionText ?? ''}`
+        .toLocaleLowerCase()
+        .includes(query);
+    return (
+      kindMatches &&
+      sourceMatches &&
+      attributeMatches &&
+      actionMatches &&
+      spellMatches &&
+      equipmentMatches &&
+      sourceAvailable &&
+      searchMatches
+    );
+  });
   return (
     <CharacterSectionProvider value={context}>
       <SheetEditorShell
@@ -1564,15 +1906,46 @@ export function Earthdawn4eEditor({
                 'ed4-talents',
                 'talents',
                 'Talents',
-                <RankedList
+                <TalentTable
                   records={draft.talents}
                   playMode={playMode}
+                  gmOverride={!draft.creation.enforceRules}
                   onBrowse={() => openCatalog('talent')}
                   onChange={(id, patch) =>
                     update((c) => ({
                       ...c,
                       talents: c.talents.map((r) =>
-                        r.id === id ? { ...r, ...patch } : r,
+                        r.id === id
+                          ? {
+                              ...r,
+                              ...patch,
+                              ...(patch.attributeText
+                                ? {
+                                    attribute:
+                                      (Object.entries(labels).find(
+                                        ([, label]) =>
+                                          label.toLocaleLowerCase() ===
+                                          patch.attributeText?.toLocaleLowerCase(),
+                                      )?.[0] as
+                                        EarthdawnAttributeId | undefined) ??
+                                      r.attribute,
+                                  }
+                                : {}),
+                              metadataOverrides:
+                                r.definitionId &&
+                                !c.creation.enforceRules &&
+                                Object.keys(patch).some((key) => key !== 'rank')
+                                  ? [
+                                      ...new Set([
+                                        ...r.metadataOverrides,
+                                        ...Object.keys(patch).filter(
+                                          (key) => key !== 'rank',
+                                        ),
+                                      ]),
+                                    ]
+                                  : r.metadataOverrides,
+                            }
+                          : r,
                       ),
                     }))
                   }
@@ -1628,6 +2001,7 @@ export function Earthdawn4eEditor({
                   <RankedList
                     records={draft.skills}
                     playMode={playMode}
+                    browseLabel="Browse Skills"
                     onBrowse={() => openCatalog('skill')}
                     onChange={(id, patch) =>
                       update((c) => ({
@@ -2583,14 +2957,7 @@ export function Earthdawn4eEditor({
                     onClick={() => openCatalog('equipment')}
                     className="secondary-button"
                   >
-                    Browse Equipment
-                  </button>
-                  <button
-                    disabled={playMode}
-                    onClick={() => openCatalog('weapon')}
-                    className="secondary-button"
-                  >
-                    Browse Weapons
+                    Browse Equipment, Weapons & Armor
                   </button>
                   {draft.equipment.map((e) => (
                     <SheetCard key={e.id} density="compact">
@@ -3386,8 +3753,8 @@ export function Earthdawn4eEditor({
               <div className="catalog-dialog-header">
                 <div>
                   <p className="sheet-eyebrow">Verified game references</p>
-                  <h2>Official Earthdawn catalog</h2>
-                  <p>Add a cited record without leaving the character sheet.</p>
+                  <h2>{catalogTitles[catalogKind][0]}</h2>
+                  <p>{catalogTitles[catalogKind][1]}</p>
                 </div>
                 <button className="secondary-button" onClick={closeCatalog}>
                   Close catalog
@@ -3404,75 +3771,195 @@ export function Earthdawn4eEditor({
                       placeholder="Name, summary, or source"
                     />
                   </SheetField>
-                </SheetToolbar>
-                <div className="catalog-results">
-                  {earthdawnCatalog
-                    .filter((d) => {
-                      let devotionAvailable = true;
-                      if (d.kind === 'devotion') {
-                        try {
-                          const mechanics = JSON.parse(d.mechanics) as {
-                            eligibility?: DevotionEligibility[];
-                          };
-                          devotionAvailable = Boolean(
-                            mechanics.eligibility?.some(
-                              ({ passion, minimumQuestorRank }) =>
-                                passion === draft.questor.patronName &&
-                                draft.questor.rank >= minimumQuestorRank,
-                            ),
-                          );
-                        } catch {
-                          devotionAvailable = false;
-                        }
-                      }
-                      return (
-                        (catalogKind === 'all' || d.kind === catalogKind) &&
-                        (draft.sources.enabledSourceIds.includes(d.sourceId) ||
-                          draft.sources.showUnavailable) &&
-                        (d.kind !== 'devotion' ||
-                          devotionAvailable ||
-                          draft.sources.showUnavailable) &&
-                        `${d.name} ${d.summary} ${d.source}`
-                          .toLocaleLowerCase()
-                          .includes(catalogSearch.trim().toLocaleLowerCase())
-                      );
-                    })
-                    .map((d) => (
-                      <SheetCard key={d.id} className="catalog-card">
-                        <div className="catalog-card__heading">
-                          <div>
-                            <span className="kind-badge">
-                              {d.kind.replace('-', ' ')}
-                            </span>
-                            <h3>{d.name}</h3>
-                          </div>
-                        </div>
-                        <p className="catalog-card__source">
-                          {d.source}, p. {d.page}
-                          {d.verification !== 'verified'
-                            ? ` · ${d.verification.replace('-', ' ')}`
-                            : ''}
-                        </p>
-                        <p>{d.summary}</p>
-                        <button
-                          className="primary-button"
-                          disabled={
-                            d.verification !== 'verified' ||
-                            (playMode &&
-                              ![
-                                'spell',
-                                'devotion',
-                                'thread-item',
-                                'knack',
-                              ].includes(d.kind)) ||
-                            !draft.sources.enabledSourceIds.includes(d.sourceId)
+                  <SheetField label="Source">
+                    <select
+                      value={catalogSource}
+                      onChange={(event) => setCatalogSource(event.target.value)}
+                    >
+                      <option value="all">All enabled sources</option>
+                      {earthdawnSources.map((source) => (
+                        <option key={source.id} value={source.id}>
+                          {source.shortTitle}
+                        </option>
+                      ))}
+                    </select>
+                  </SheetField>
+                  {catalogKind === 'talent' ? (
+                    <>
+                      <SheetField label="Linked Attribute">
+                        <select
+                          value={catalogAttribute}
+                          onChange={(event) =>
+                            setCatalogAttribute(event.target.value)
                           }
-                          onClick={() => addCatalog(d.id)}
                         >
-                          Add
-                        </button>
-                      </SheetCard>
-                    ))}
+                          <option value="all">All Attributes</option>
+                          {Object.entries(labels).map(([id, label]) => (
+                            <option key={id} value={id}>
+                              {label}
+                            </option>
+                          ))}
+                          <option value="not in source">Not in source</option>
+                        </select>
+                      </SheetField>
+                      <SheetField label="Action">
+                        <select
+                          value={catalogAction}
+                          onChange={(event) =>
+                            setCatalogAction(event.target.value)
+                          }
+                        >
+                          <option value="all">All actions</option>
+                          <option value="Free">Free</option>
+                          <option value="Simple">Simple</option>
+                          <option value="Standard">Standard</option>
+                          <option value="Sustained">Sustained</option>
+                        </select>
+                      </SheetField>
+                    </>
+                  ) : null}
+                  {catalogKind === 'spell' ? (
+                    <>
+                      <SheetField label="Discipline">
+                        <select
+                          value={catalogDiscipline}
+                          onChange={(event) =>
+                            setCatalogDiscipline(event.target.value)
+                          }
+                        >
+                          <option value="all">All Disciplines</option>
+                          {earthdawnDisciplines
+                            .filter(({ spellcaster }) => spellcaster)
+                            .map(({ name }) => (
+                              <option key={name} value={name}>
+                                {name}
+                              </option>
+                            ))}
+                        </select>
+                      </SheetField>
+                      <SheetField label="Circle">
+                        <select
+                          value={catalogCircle}
+                          onChange={(event) =>
+                            setCatalogCircle(event.target.value)
+                          }
+                        >
+                          <option value="all">All Circles</option>
+                          {Array.from(
+                            { length: 15 },
+                            (_, index) => index + 1,
+                          ).map((circle) => (
+                            <option key={circle} value={circle}>
+                              Circle {circle}
+                            </option>
+                          ))}
+                        </select>
+                      </SheetField>
+                    </>
+                  ) : null}
+                  {catalogKind === 'equipment' ? (
+                    <SheetField label="Equipment type">
+                      <select
+                        value={catalogEquipmentKind}
+                        onChange={(event) =>
+                          setCatalogEquipmentKind(event.target.value)
+                        }
+                      >
+                        <option value="all">All equipment</option>
+                        <option value="equipment">General equipment</option>
+                        <option value="weapon">Weapons</option>
+                        <option value="armor">Armor and shields</option>
+                      </select>
+                    </SheetField>
+                  ) : null}
+                  {catalogKind !== 'all' ? (
+                    <button
+                      type="button"
+                      className="secondary-button"
+                      disabled={playMode}
+                      onClick={addCustomCatalogRecord}
+                    >
+                      Add custom {catalogKind.replace('-', ' ')}
+                    </button>
+                  ) : null}
+                </SheetToolbar>
+                <p className="catalog-result-count" aria-live="polite">
+                  {visibleCatalog.length} result
+                  {visibleCatalog.length === 1 ? '' : 's'}
+                </p>
+                <div className="catalog-results">
+                  {visibleCatalog.map((d) => (
+                    <SheetCard key={d.id} className="catalog-card">
+                      <div className="catalog-card__heading">
+                        <div>
+                          <span className="kind-badge">
+                            {d.kind.replace('-', ' ')}
+                          </span>
+                          <h3>{d.name}</h3>
+                        </div>
+                      </div>
+                      <p className="catalog-card__source">
+                        {d.source}, p. {d.page}
+                        {d.verification !== 'verified'
+                          ? ` · ${d.verification.replace('-', ' ')}`
+                          : ''}
+                      </p>
+                      <p>{d.summary}</p>
+                      {d.talentMetadata ? (
+                        <dl className="catalog-card__meta">
+                          <div>
+                            <dt>Attribute</dt>
+                            <dd>{d.talentMetadata.attributeText}</dd>
+                          </div>
+                          <div>
+                            <dt>Action</dt>
+                            <dd>{d.talentMetadata.actionText}</dd>
+                          </div>
+                          <div>
+                            <dt>Strain</dt>
+                            <dd>{d.talentMetadata.strainText}</dd>
+                          </div>
+                        </dl>
+                      ) : d.requirements.length ? (
+                        <p className="catalog-card__requirements">
+                          {d.requirements.join(' · ')}
+                        </p>
+                      ) : null}
+                      {catalogFacts(d).length ? (
+                        <dl className="catalog-card__meta">
+                          {catalogFacts(d).map(([label, value]) => (
+                            <div key={label}>
+                              <dt>{label}</dt>
+                              <dd>{value}</dd>
+                            </div>
+                          ))}
+                        </dl>
+                      ) : null}
+                      <button
+                        className="primary-button"
+                        disabled={
+                          selectedDefinitionIds.has(d.id) ||
+                          d.verification !== 'verified' ||
+                          (playMode &&
+                            ![
+                              'spell',
+                              'devotion',
+                              'thread-item',
+                              'knack',
+                            ].includes(d.kind)) ||
+                          !draft.sources.enabledSourceIds.includes(d.sourceId)
+                        }
+                        onClick={() => addCatalog(d.id)}
+                      >
+                        {selectedDefinitionIds.has(d.id) ? 'Selected' : 'Add'}
+                      </button>
+                    </SheetCard>
+                  ))}
+                  {!visibleCatalog.length ? (
+                    <p className="catalog-empty-state">
+                      No entries match the current search and filters.
+                    </p>
+                  ) : null}
                 </div>
               </div>
             </div>
@@ -3482,9 +3969,201 @@ export function Earthdawn4eEditor({
     </CharacterSectionProvider>
   );
 }
+function TalentTable({
+  records,
+  playMode,
+  gmOverride,
+  onBrowse,
+  onChange,
+  onRemove,
+  onAdvance,
+}: {
+  records: Earthdawn4eCharacter['talents'];
+  playMode: boolean;
+  gmOverride: boolean;
+  onBrowse: () => void;
+  onChange: (
+    id: string,
+    patch: Partial<
+      Pick<
+        Earthdawn4eCharacter['talents'][number],
+        | 'name'
+        | 'rank'
+        | 'attributeText'
+        | 'actionText'
+        | 'strainText'
+        | 'effectText'
+        | 'citationText'
+      >
+    >,
+  ) => void;
+  onRemove: (id: string) => void;
+  onAdvance: (id: string) => void;
+}) {
+  return (
+    <>
+      <SheetToolbar>
+        <button className="secondary-button" onClick={onBrowse}>
+          Browse Talents
+        </button>
+        <small>
+          Official details are source-backed and locked unless GM Override is
+          active. Rank remains editable while building.
+        </small>
+      </SheetToolbar>
+      <div className="earthdawn-talent-table" role="table" aria-label="Talents">
+        <div className="earthdawn-talent-row earthdawn-talent-head" role="row">
+          <span>Talent</span>
+          <span>Attribute</span>
+          <span>Rank</span>
+          <span>Action</span>
+          <span>Strain</span>
+          <span>Effect</span>
+          <span>Source</span>
+          <span>Actions</span>
+        </div>
+        {records.map((record) => {
+          const definition = record.definitionId
+            ? earthdawnDefinitionById.get(record.definitionId)
+            : undefined;
+          const official = Boolean(record.definitionId && !record.unresolved);
+          const metadataEditable = !official || gmOverride;
+          const metadata = definition?.talentMetadata;
+          const value = {
+            attributeText:
+              record.attributeText ||
+              metadata?.attributeText ||
+              labels[record.attribute],
+            actionText:
+              record.actionText || metadata?.actionText || record.action,
+            strainText:
+              record.strainText ||
+              metadata?.strainText ||
+              String(record.strain),
+            effectText:
+              record.effectText || metadata?.effectText || record.notes,
+            citationText:
+              record.citationText ||
+              metadata?.citationText ||
+              `${record.source ?? 'Custom'}${record.page ? `, p. ${record.page}` : ''}`,
+          };
+          return (
+            <div
+              className={`earthdawn-talent-row${record.metadataOverrides.length ? ' is-overridden' : ''}`}
+              role="row"
+              key={record.id}
+            >
+              <label data-label="Talent">
+                <span className="sr-only">Talent name</span>
+                <input
+                  value={record.name}
+                  readOnly={!metadataEditable}
+                  onChange={(event) =>
+                    onChange(record.id, { name: event.target.value })
+                  }
+                />
+                {record.metadataOverrides.length ? (
+                  <small>GM overridden</small>
+                ) : official ? (
+                  <small>Official</small>
+                ) : (
+                  <small>Custom</small>
+                )}
+              </label>
+              <label data-label="Attribute">
+                <span className="sr-only">Linked Attribute</span>
+                <input
+                  value={value.attributeText}
+                  readOnly={!metadataEditable}
+                  onChange={(event) =>
+                    onChange(record.id, { attributeText: event.target.value })
+                  }
+                />
+              </label>
+              <label data-label="Rank">
+                <span className="sr-only">{record.name} rank</span>
+                <input
+                  type="number"
+                  min="0"
+                  max="15"
+                  value={record.rank}
+                  readOnly={playMode && !gmOverride}
+                  onChange={(event) =>
+                    onChange(record.id, { rank: integer(event.target.value) })
+                  }
+                />
+              </label>
+              <label data-label="Action">
+                <span className="sr-only">Action</span>
+                <input
+                  value={value.actionText}
+                  readOnly={!metadataEditable}
+                  onChange={(event) =>
+                    onChange(record.id, { actionText: event.target.value })
+                  }
+                />
+              </label>
+              <label data-label="Strain">
+                <span className="sr-only">Strain</span>
+                <input
+                  value={value.strainText}
+                  readOnly={!metadataEditable}
+                  onChange={(event) =>
+                    onChange(record.id, { strainText: event.target.value })
+                  }
+                />
+              </label>
+              <label data-label="Effect">
+                <span className="sr-only">Effect or bonus</span>
+                <input
+                  value={value.effectText}
+                  readOnly={!metadataEditable}
+                  onChange={(event) =>
+                    onChange(record.id, { effectText: event.target.value })
+                  }
+                />
+              </label>
+              <label data-label="Source">
+                <span className="sr-only">Source citation</span>
+                <input
+                  value={value.citationText}
+                  readOnly={!metadataEditable}
+                  onChange={(event) =>
+                    onChange(record.id, { citationText: event.target.value })
+                  }
+                />
+              </label>
+              <div className="earthdawn-talent-actions" data-label="Actions">
+                <button
+                  type="button"
+                  className="secondary-button"
+                  onClick={() => onAdvance(record.id)}
+                >
+                  Advance
+                </button>
+                <button
+                  type="button"
+                  className="text-button"
+                  disabled={playMode}
+                  onClick={() => onRemove(record.id)}
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+          );
+        })}
+        {!records.length ? (
+          <p className="catalog-empty-state">No talents selected.</p>
+        ) : null}
+      </div>
+    </>
+  );
+}
 function RankedList({
   records,
   playMode,
+  browseLabel = 'Browse catalog',
   onBrowse,
   onChange,
   onRemove,
@@ -3495,6 +4174,7 @@ function RankedList({
     | Earthdawn4eCharacter['skills'][number]
   >;
   playMode: boolean;
+  browseLabel?: string;
   onBrowse: () => void;
   onChange: (
     id: string,
@@ -3519,7 +4199,7 @@ function RankedList({
         className="secondary-button"
         onClick={onBrowse}
       >
-        Browse catalog
+        {browseLabel}
       </button>
       <div className="sheet-card-list earthdawn-card-list">
         {records.map((r) => (

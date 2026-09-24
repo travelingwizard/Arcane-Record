@@ -2384,6 +2384,79 @@
   min-height: 44px;
 }
 
+.earthdawn-talent-table {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius);
+  background: var(--surface-glaze);
+}
+
+.earthdawn-talent-row {
+  display: grid;
+  grid-template-columns:
+    minmax(9rem, 1.25fr) minmax(6.5rem, 0.75fr) 4.5rem minmax(6rem, 0.7fr)
+    minmax(5rem, 0.55fr) minmax(12rem, 1.6fr) minmax(10rem, 1.1fr)
+    minmax(7rem, 0.75fr);
+  gap: 0.4rem;
+  align-items: center;
+  min-width: 0;
+  padding: 0.4rem 0.55rem;
+  border-block-end: 1px solid var(--rule-light);
+}
+
+.earthdawn-talent-row:last-child {
+  border-block-end: 0;
+}
+
+.earthdawn-talent-head {
+  min-height: 44px;
+  color: var(--muted-ink);
+  background: var(--paper-light);
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.earthdawn-talent-row label,
+.earthdawn-talent-actions {
+  min-width: 0;
+}
+
+.earthdawn-talent-row input {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+}
+
+.earthdawn-talent-row input[readonly] {
+  border-color: transparent;
+  background: transparent;
+}
+
+.earthdawn-talent-row small {
+  display: block;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+}
+
+.earthdawn-talent-row.is-overridden {
+  box-shadow: inset 3px 0 0 var(--gold);
+}
+
+.earthdawn-talent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.earthdawn-talent-actions button {
+  min-height: 44px;
+}
+
 .earthdawn-step-table-wrap,
 .earthdawn-ledger-table-wrap {
   max-height: 28rem;
@@ -2434,6 +2507,28 @@
   .earthdawn-attribute-row:not(.earthdawn-attribute-head) > :nth-child(n + 6) {
     text-align: center;
   }
+
+  .earthdawn-talent-head {
+    display: none;
+  }
+
+  .earthdawn-talent-row:not(.earthdawn-talent-head) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-block-end: var(--space-2);
+    border: 1px solid var(--rule-light);
+  }
+
+  .earthdawn-talent-row:not(.earthdawn-talent-head) > *::before {
+    content: attr(data-label);
+    display: block;
+    margin-block-end: 0.2rem;
+    color: var(--ink-soft);
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
 }
 
 @media (max-width: 36rem) {
@@ -2460,6 +2555,18 @@
     grid-column: 1 / -1;
     font-family: var(--font-display);
     font-size: 1.1rem;
+  }
+
+  .earthdawn-talent-table {
+    border: 0;
+    background: transparent;
+  }
+
+  .earthdawn-talent-row:not(.earthdawn-talent-head) {
+    grid-template-columns: 1fr;
+    padding: var(--space-3);
+    border-radius: var(--radius);
+    background: var(--surface-glaze);
   }
 
   .earthdawn-step-table-wrap,
@@ -5009,6 +5116,40 @@
   display: flex;
   min-width: 0;
   flex-direction: column;
+}
+
+.catalog-card__meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-2);
+  margin: 0 0 var(--space-3);
+}
+
+.catalog-card__meta > div {
+  min-width: 0;
+  padding: 0.45rem;
+  border: 1px solid var(--rule-light);
+  background: var(--surface-glaze);
+}
+
+.catalog-card__meta :is(dt, dd) {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.catalog-card__meta dt {
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.catalog-card__requirements,
+.catalog-empty-state {
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
 }
 
 .catalog-dialog .catalog-card > .primary-button,

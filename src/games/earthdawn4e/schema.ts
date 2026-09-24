@@ -125,6 +125,12 @@ export const earthdawn4eCharacterSchema = z.object({
     ranked.extend({
       action: z.string(),
       strain: nonnegative,
+      attributeText: z.string().default(''),
+      effectText: z.string().default(''),
+      actionText: z.string().default(''),
+      strainText: z.string().default(''),
+      citationText: z.string().default(''),
+      metadataOverrides: z.array(z.string()).default([]),
       disciplineSources: z.array(z.string()),
       optional: z.boolean(),
       originCircle: z.number().int().min(1).max(15).nullable(),

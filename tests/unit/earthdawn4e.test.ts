@@ -7,6 +7,7 @@ import {
   earthdawnRaces,
   earthdawnSpells,
   earthdawnSources,
+  earthdawnTalents,
   earthdawnThreadItems,
 } from '../../src/games/earthdawn4e/catalog';
 import { createBlankEarthdawn4eCharacter } from '../../src/games/earthdawn4e/create-character';
@@ -68,6 +69,26 @@ describe('Earthdawn Fourth Edition module', () => {
     expect(earthdawnSpells).toHaveLength(216);
     expect(earthdawnKnacks).toHaveLength(142);
     expect(earthdawnThreadItems).toHaveLength(50);
+    expect(earthdawnTalents).toHaveLength(433);
+    expect(new Set(earthdawnTalents.map(({ id }) => id)).size).toBe(433);
+    expect(
+      earthdawnTalents.find(({ name }) => name === 'Acrobatic Defense'),
+    ).toMatchObject({
+      defaultAttribute: 'dexterity',
+      page: 124,
+      talentMetadata: {
+        attributeText: 'Dexterity',
+        actionText: 'Simple',
+        strainText: '1',
+        sourceIds: ['ed4.players-guide', 'ed4.questors'],
+      },
+    });
+    expect(
+      earthdawnTalents.find(({ name }) => name === 'Acrobatic Finesse'),
+    ).toMatchObject({
+      defaultAttribute: undefined,
+      talentMetadata: { attributeText: 'Not in source' },
+    });
     const skills = earthdawnCatalog.filter(({ kind }) => kind === 'skill');
     expect(new Set(skills.map(({ id }) => id)).size).toBe(skills.length);
     expect(new Set(skills.map(({ skillCategory }) => skillCategory))).toEqual(

@@ -1,4 +1,4 @@
-import type { EarthdawnDiscipline } from './catalog';
+import { earthdawnDefinitionById, type EarthdawnDiscipline } from './catalog';
 import type { Earthdawn4eCharacter } from './schema';
 
 export type EarthdawnMatrix = Earthdawn4eCharacter['magic']['matrices'][number];
@@ -160,27 +160,38 @@ export function reconcileDisciplineTalents(
   const existing = new Set(preserved.map(({ name }) => name));
   const additions: Talent[] = needed
     .filter(({ name }) => !existing.has(name))
-    .map(({ name, circle: originCircle, source, page }) => ({
-      id: crypto.randomUUID(),
-      definitionId: talentId(name),
-      sourceId: originCircle <= 8 ? 'ed4.players-guide' : 'ed4.companion',
-      source,
-      page,
-      unresolved: false,
-      name,
-      rank: 0,
-      freeRank: 0,
-      attribute: 'dexterity',
-      bonus: 0,
-      notes: '',
-      action: '',
-      strain: 0,
-      disciplineSources: [discipline.id],
-      optional: false,
-      originCircle,
-      originDisciplineId: discipline.id,
-      creationOwned: true,
-    }));
+    .map(({ name, circle: originCircle, source, page }) => {
+      const definitionId = talentId(name);
+      const definition = earthdawnDefinitionById.get(definitionId);
+      return {
+        id: crypto.randomUUID(),
+        definitionId,
+        sourceId: originCircle <= 8 ? 'ed4.players-guide' : 'ed4.companion',
+        source,
+        page,
+        unresolved: false,
+        name,
+        rank: 0,
+        freeRank: 0,
+        attribute: definition?.defaultAttribute ?? 'perception',
+        bonus: 0,
+        notes: '',
+        action: definition?.talentMetadata?.actionText ?? '',
+        strain: 0,
+        attributeText: definition?.talentMetadata?.attributeText ?? '',
+        effectText: definition?.talentMetadata?.effectText ?? '',
+        actionText: definition?.talentMetadata?.actionText ?? '',
+        strainText: definition?.talentMetadata?.strainText ?? '',
+        citationText:
+          definition?.talentMetadata?.citationText ?? `${source}, p. ${page}`,
+        metadataOverrides: [],
+        disciplineSources: [discipline.id],
+        optional: false,
+        originCircle,
+        originDisciplineId: discipline.id,
+        creationOwned: true,
+      };
+    });
   return [...preserved, ...additions];
 }
 
