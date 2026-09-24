@@ -9,14 +9,15 @@ import {
 } from './reference/dragonblooded-powers';
 import {
   abyssalCastes,
-  type AbyssalCaste,
   type AbyssalCharmDefinition,
   type AbyssalNecromancySpellDefinition,
 } from './reference/abyssal-powers';
+import type { SiderealCharmDefinition } from './reference/sidereal-powers';
 import {
   getAbyssalPowerExperienceCost,
   getDragonBloodedPowerExperienceCost,
   getExperienceTotals,
+  getSiderealPowerExperienceCost,
 } from './shared/advancement/rules';
 import { exaltedAbilities } from './definitions';
 
@@ -34,49 +35,61 @@ const categoryLabels: Record<DragonBloodedCharmDefinition['category'], string> =
 
 /**
  * Widened Charm/spell definition union so this shared component can serve
- * Solar, Dragon-Blooded, and Abyssal alike. `AbyssalCharmDefinition` is
- * already structurally assignable to `DragonBloodedCharmDefinition` (it has
- * every field plus `caste`/`systemId`/etc., so it needs no adapter), but
+ * Solar, Dragon-Blooded, Abyssal, and Sidereal alike. `AbyssalCharmDefinition`/
+ * `SiderealCharmDefinition` are already structurally assignable to
+ * `DragonBloodedCharmDefinition` (each has every field plus its own
+ * `caste`/`systemId`/etc., so neither needs an adapter), but
  * `AbyssalNecromancySpellDefinition` genuinely conflicts with
  * `TerrestrialSpellDefinition` on `circle`/`alternateCircleName` (Necromancy
- * circles vs. Sorcery circles), so it must be included explicitly.
+ * circles vs. Sorcery circles), so it must be included explicitly. Sidereal
+ * has no spell type of its own -- its Sorcery access is entirely the shared
+ * `TerrestrialSpellDefinition` catalog (see `siderealSorcerySpellIds`).
  */
 export type ExaltedPowerDefinition =
   | DragonBloodedCharmDefinition
   | TerrestrialSpellDefinition
   | AbyssalCharmDefinition
-  | AbyssalNecromancySpellDefinition;
+  | AbyssalNecromancySpellDefinition
+  | SiderealCharmDefinition;
 
 const DEFAULT_SORCERY_ADVISORY =
   'Advisory: standard Dragon-Blooded sorcery requires the Terrestrial Circle Sorcery Charm (Occult 3, Essence 3). Spell selection remains available because this is an editable sheet, not a rules engine.';
 
 /**
- * Abyssal Charms carry real Caste metadata (`caste`); Dragon-Blooded and
- * Solar Charms have no such field at all. `'caste' in definition` safely
- * narrows the widened `ExaltedPowerDefinition` union without assuming every
- * caller's Charms are Abyssal.
+ * Abyssal and Sidereal Charms both carry real Caste metadata (`caste`,
+ * though each family's own distinct enum); Dragon-Blooded and Solar Charms
+ * have no such field at all. `'caste' in definition` safely narrows the
+ * widened `ExaltedPowerDefinition` union without assuming every caller's
+ * Charms belong to one specific family's Caste set. Returned as a plain
+ * `string | null` (not `AbyssalCaste`) since the two families' Caste
+ * enums are disjoint string literal unions.
  */
-function charmCaste(definition: ExaltedPowerDefinition): AbyssalCaste | null {
+function charmCaste(definition: ExaltedPowerDefinition): string | null {
   return 'caste' in definition ? definition.caste : null;
 }
 
 /**
- * Abyssal Charm/spell definitions carry a literal `exaltType: 'abyssal'`
- * field that Dragon-Blooded/Solar definitions never have. Used to route
- * XP-cost math to the right family's rule set: Dragon-Blooded's
+ * Abyssal and Sidereal Charm/spell definitions both carry a literal
+ * `exaltType` field ('abyssal'/'sidereal') that Dragon-Blooded/Solar
+ * definitions never have; checking its actual value (not just presence)
+ * routes XP-cost math to the right family's rule set: Dragon-Blooded's
  * favored-Aspect-Ability-group cost function for anything without
- * `exaltType`, or Abyssal's favored-Caste/Favored-Ability cost function
- * (`getAbyssalPowerExperienceCost`) when it is present. Solar definitions
- * also lack `exaltType`, but the Solar branch never passes `character`, so
- * this function is only ever reached with `character` defined for
- * Dragon-Blooded or Abyssal callers today.
+ * `exaltType`, Abyssal's favored-Caste/Favored-Ability cost function when
+ * it is `'abyssal'`, or Sidereal's favored-Auspicious-Ability cost function
+ * when it is `'sidereal'`. Solar definitions also lack `exaltType`, but the
+ * Solar branch never passes `character`, so this function is only ever
+ * reached with `character` defined for Dragon-Blooded/Abyssal/Sidereal
+ * callers today.
  */
 function getPowerExperienceCost(
   character: Exalted1eCharacter,
   definition: ExaltedPowerDefinition,
 ) {
   if ('exaltType' in definition) {
-    return getAbyssalPowerExperienceCost(character, definition);
+    if (definition.exaltType === 'abyssal') {
+      return getAbyssalPowerExperienceCost(character, definition);
+    }
+    return getSiderealPowerExperienceCost(character, definition);
   }
   return getDragonBloodedPowerExperienceCost(character, definition);
 }
@@ -159,8 +172,14 @@ interface Props {
   showSpells?: boolean;
   showElementFilter?: boolean;
   showCategory?: boolean;
-  /** Abyssal-only: shows a Caste filter alongside Element/Ability/Review. */
+  /** Abyssal/Sidereal-only: shows a Caste filter alongside Element/Ability/Review. */
   showCasteFilter?: boolean;
+  /**
+   * The Caste values to list in the Caste filter dropdown when
+   * `showCasteFilter` is true. Defaults to Abyssal's five Castes for
+   * backward compatibility; Sidereal callers pass `siderealCastes`.
+   */
+  castes?: readonly string[];
   /** Label for the spells tab button, e.g. "Sorcery" or "Spells". */
   spellsTabLabel?: string;
   /** Advisory copy shown above the spells tab when applicable. */
@@ -179,6 +198,7 @@ export function ExaltedPowersSection({
   showElementFilter = true,
   showCategory = true,
   showCasteFilter = false,
+  castes = abyssalCastes,
   spellsTabLabel = 'Sorcery',
   sorceryAdvisory = DEFAULT_SORCERY_ADVISORY,
 }: Props) {
@@ -186,7 +206,7 @@ export function ExaltedPowersSection({
   const [catalogOpen, setCatalogOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [element, setElement] = useState('all');
-  const [caste, setCaste] = useState<'all' | AbyssalCaste>('all');
+  const [caste, setCaste] = useState('all');
   const [ability, setAbility] = useState('all');
   const [review, setReview] = useState('all');
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
@@ -215,8 +235,9 @@ export function ExaltedPowersSection({
               (
                 entry,
               ): entry is
-                DragonBloodedCharmDefinition | AbyssalCharmDefinition =>
-                entry.kind === 'charm',
+                | DragonBloodedCharmDefinition
+                | AbyssalCharmDefinition
+                | SiderealCharmDefinition => entry.kind === 'charm',
             )
             .map(({ ability }) => ability),
         ),
@@ -465,12 +486,12 @@ export function ExaltedPowersSection({
                     <select
                       value={caste}
                       onChange={(event) => {
-                        setCaste(event.target.value as 'all' | AbyssalCaste);
+                        setCaste(event.target.value);
                         setVisibleCount(PAGE_SIZE);
                       }}
                     >
                       <option value="all">All Castes</option>
-                      {abyssalCastes.map((value) => (
+                      {castes.map((value) => (
                         <option key={value}>{value}</option>
                       ))}
                     </select>

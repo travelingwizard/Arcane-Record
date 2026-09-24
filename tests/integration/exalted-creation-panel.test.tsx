@@ -24,6 +24,10 @@ function abyssalDraft(): Exalted1eCharacter {
   return createBlankExaltedCharacter('abyssal', 'draft');
 }
 
+function siderealDraft(): Exalted1eCharacter {
+  return createBlankExaltedCharacter('sidereal', 'draft');
+}
+
 describe('ExaltedCreationPanel (Abyssal guided creation, Phase 1e)', () => {
   it('offers the Abyssal-only "Fugitive" creation profile alongside Standard', () => {
     render(<Harness initial={abyssalDraft()} />);
@@ -95,6 +99,88 @@ describe('ExaltedCreationPanel (Abyssal guided creation, Phase 1e)', () => {
   it('does not render at all for a manual (non-guided) Abyssal sheet', () => {
     const { container } = render(
       <Harness initial={createBlankExaltedCharacter('abyssal', 'manual')} />,
+    );
+    expect(container).toBeEmptyDOMElement();
+  });
+});
+
+/**
+ * Phase 2d "creator tests" dimension: exercises the same shared
+ * `ExaltedCreationPanel` with a Sidereal draft. `family-rules.ts`'s
+ * Sidereal creation data (castes, the "Ronin" variant, XP/derived-value
+ * math) was already in place from Phase 2a, but no test exercised the
+ * panel's actual rendered UI against it -- this closes that gap the same
+ * way the Abyssal block above did for its own family.
+ */
+describe('ExaltedCreationPanel (Sidereal guided creation, Phase 2d)', () => {
+  it('offers the Sidereal-only "Ronin" creation profile alongside Standard', () => {
+    render(<Harness initial={siderealDraft()} />);
+    const select = screen.getByLabelText('Creation profile');
+    const optionLabels = within(select)
+      .getAllByRole('option')
+      .map((option) => option.textContent);
+    expect(optionLabels).toEqual(['Standard', 'Ronin']);
+  });
+
+  it('lists all five Sidereal Castes in the Caste selector, sourced from the verified creation rules', () => {
+    render(<Harness initial={siderealDraft()} />);
+    const select = screen.getByLabelText('Caste');
+    const optionLabels = within(select)
+      .getAllByRole('option')
+      .map((option) => option.textContent);
+    expect(optionLabels).toEqual([
+      'Choose…',
+      'Chosen of Journeys',
+      'Chosen of Serenity',
+      'Chosen of Battles',
+      'Chosen of Secrets',
+      'Chosen of Endings',
+    ]);
+  });
+
+  it('surfaces unresolved creation-budget requirements for a blank Sidereal draft and gates Finalize on them', () => {
+    render(<Harness initial={siderealDraft()} />);
+    expect(screen.getByText(/requirements? remaining/)).toBeVisible();
+    expect(screen.getByText(/Choose a Caste\./)).toBeVisible();
+    expect(
+      screen.getByText(/Allocate exactly 35 initial Ability dots/),
+    ).toBeVisible();
+    expect(
+      screen.getByText(/Allocate Attribute categories as 8\/6\/4/),
+    ).toBeVisible();
+    expect(
+      screen.queryByRole('button', { name: 'Finalize character' }),
+    ).toBeDisabled();
+  });
+
+  it('clears the Caste-selection requirement once a verified Sidereal Caste is chosen', async () => {
+    const user = userEvent.setup();
+    render(<Harness initial={siderealDraft()} />);
+    expect(screen.getByText(/Choose a Caste\./)).toBeVisible();
+    await user.selectOptions(screen.getByLabelText('Caste'), 'journeys');
+    expect(screen.queryByText(/Choose a Caste\./)).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(/not in the verified catalog/),
+    ).not.toBeInTheDocument();
+  });
+
+  it('cites Exalted: The Sidereals p. 100 (PDF 103) as the creation-rules source', () => {
+    render(<Harness initial={siderealDraft()} />);
+    expect(screen.getByLabelText('Creation source')).toHaveValue(
+      'sidereals, p. 100 (PDF 103)',
+    );
+  });
+
+  it("shows the Ronin-variant Backgrounds budget (7) rather than Standard's (15)", () => {
+    const draft = siderealDraft();
+    draft.creation.rulesVariant = 'ronin';
+    render(<Harness initial={draft} />);
+    expect(screen.getByText(/Backgrounds 7;/)).toBeVisible();
+  });
+
+  it('does not render at all for a manual (non-guided) Sidereal sheet', () => {
+    const { container } = render(
+      <Harness initial={createBlankExaltedCharacter('sidereal', 'manual')} />,
     );
     expect(container).toBeEmptyDOMElement();
   });

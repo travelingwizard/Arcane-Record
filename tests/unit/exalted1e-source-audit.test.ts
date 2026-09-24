@@ -222,6 +222,8 @@ describe('auditFamily against the real repository (current state)', () => {
     // script's file-glob does not count them -- matching Abyssal's own
     // 328-vs-500 precedent above.
     expect(report.promotedEntries).toBe(193);
+    expect(report.catalogChecksum).toHaveLength(8);
+    expect(report.catalogChecksum).toMatch(/^[0-9a-f]{8}$/);
   });
 
   it('reports Alchemical as pending-certification with its real inventory rows and zero audit errors', () => {

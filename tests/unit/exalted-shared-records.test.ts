@@ -6,16 +6,20 @@ import {
   getDragonBloodedEssenceExperienceCost,
   getDragonBloodedPowerExperienceCost,
   getExperienceTotals,
+  getSiderealPowerExperienceCost,
   isAbyssalAbilityFavored,
+  isSiderealAbilityFavored,
 } from '../../src/games/exalted1e/shared/advancement/rules';
 import {
   dragonBloodedCharms,
   dragonBloodedSpells,
+  sharedSorcerySpellById,
 } from '../../src/games/exalted1e/reference/dragonblooded-powers';
 import {
   abyssalCharmById,
   abyssalNecromancySpellById,
 } from '../../src/games/exalted1e/reference/abyssal-powers';
+import { siderealCharmById } from '../../src/games/exalted1e/reference/sidereal-powers';
 
 describe('shared Exalted records and Dragon-Blooded advancement', () => {
   it('keeps native, permanent, temporary, and custom languages distinct', () => {
@@ -181,6 +185,59 @@ describe('shared Exalted records and Dragon-Blooded advancement', () => {
     character.favoredAbilities = [];
     character.identity.caste = 'Dusk';
     expect(getAbyssalPowerExperienceCost(character, spell)).toMatchObject({
+      cost: 12,
+      favored: false,
+      explanation: 'Unfavored new spell',
+    });
+  });
+
+  it('applies Sidereal favored-Auspicious and favored-Ability Charm/spell XP costs (Phase 2d)', () => {
+    const character = createBlankExaltedCharacter('sidereal');
+    const charm = siderealCharmById.get('ox-body-technique-sidereal')!;
+    expect(charm.ability).toBe('Endurance');
+
+    // Endurance is a Journeys-Caste Auspicious Ability; an uncommitted
+    // Caste means neither the explicit favoredAbilities list nor the
+    // Caste-ability lookup matches, so the Charm is Unfavored (12 XP).
+    character.identity.caste = '';
+    character.favoredAbilities = [];
+    expect(isSiderealAbilityFavored(character, 'Endurance')).toBe(false);
+    expect(getSiderealPowerExperienceCost(character, charm)).toMatchObject({
+      cost: 12,
+      favored: false,
+      explanation: 'Unfavored new Charm',
+    });
+
+    // Selecting the Journeys Caste (which lists Endurance as an
+    // Auspicious Ability, see `siderealAbilityGroups`) makes the same
+    // Charm Favored/Auspicious (10 XP) with no need to also list
+    // Endurance in favoredAbilities.
+    character.identity.caste = 'Journeys';
+    expect(isSiderealAbilityFavored(character, 'Endurance')).toBe(true);
+    expect(getSiderealPowerExperienceCost(character, charm)).toMatchObject({
+      cost: 10,
+      favored: true,
+      explanation: 'Favored/Auspicious new Charm',
+    });
+
+    // An explicitly chosen Favored Ability outside the character's Caste
+    // (Occult is a Secrets-Caste ability, not Journeys') is favored too.
+    character.identity.caste = 'Journeys';
+    character.favoredAbilities = ['occult'];
+    expect(isSiderealAbilityFavored(character, 'Occult')).toBe(true);
+
+    // Sorcery spells are always costed off Occult regardless of the
+    // spell's own metadata, mirroring Abyssal's Necromancy-spell
+    // convention.
+    const spell = sharedSorcerySpellById.get('spirit-of-might')!;
+    expect(getSiderealPowerExperienceCost(character, spell)).toMatchObject({
+      cost: 10,
+      favored: true,
+      explanation: 'Favored/Auspicious new spell',
+    });
+    character.favoredAbilities = [];
+    character.identity.caste = 'Journeys';
+    expect(getSiderealPowerExperienceCost(character, spell)).toMatchObject({
       cost: 12,
       favored: false,
       explanation: 'Unfavored new spell',

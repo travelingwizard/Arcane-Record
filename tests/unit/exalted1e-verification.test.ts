@@ -47,16 +47,16 @@ describe('exalted1e verification gate', () => {
     for (const family of plannedExaltedFamilies) {
       const record = certificationRecords[family];
       expect(record.certifiedAt).toBeNull();
-      // Abyssal (Phase 1e) is the one exception: its rules/creator/
-      // migration test dimensions now have real, passing coverage (see
-      // `exalted-shared-records.test.ts`'s XP-cost tests,
-      // `exalted-creation-panel.test.tsx`, and `exalted1e-abyssal.test.ts`'s
-      // migration test) -- but its `browserTests` still can't run before
-      // the family is unlocked, and its catalog still has 5 rows blocked
-      // on source access (see its record's own `blockers`), so it remains
+      // Abyssal (Phase 1e) and Sidereal (Phase 2d) are the two exceptions:
+      // their rules/creator/migration test dimensions now have real,
+      // passing coverage (see `exalted-shared-records.test.ts`'s XP-cost
+      // tests, `exalted-creation-panel.test.tsx`, and each family's own
+      // schema-migration test) -- but `browserTests` still can't run
+      // before either family is unlocked, and each still has real catalog
+      // gaps of its own (see each record's own `blockers`), so both remain
       // fully locked regardless. Every other family stays 'not-run' on all
       // four test dimensions.
-      if (family === 'abyssal') {
+      if (family === 'abyssal' || family === 'sidereal') {
         expect(record.rulesTests).toBe('pass');
         expect(record.creatorTests).toBe('pass');
         expect(record.migrationTests).toBe('pass');
@@ -72,28 +72,29 @@ describe('exalted1e verification gate', () => {
       // promoted to real production catalogs (505 of 505: Backgrounds,
       // universal Merits/Flaws chapter, all 227 Chapter Five Charms, all
       // 106 Necromancy spells, and 86 Sorcery spells -- see
-      // `SplatCatalogEvidence.promotableEntries`), which is why it is the
-      // one family with a non-empty `catalog.checksum` (a real value
-      // computed by `scripts/audit-exalted-sources.mjs`, not a
-      // placeholder). Sidereal has had its Backgrounds, universal
-      // Merits/Flaws chapter, Charms, and Sorcery spells promoted (360
-      // rows: 12 Backgrounds + 82 Merits/Flaws + 193 Charms + 73 Sorcery
-      // spells), but that alone must not unlock it -- its `checksum` stays
-      // empty until schema/creator/editor work for its remaining catalog
-      // dimension (its own Astrology/Colleges system) lands too. Even with
-      // Abyssal's catalog dimension fully satisfied, `certifiedAt` stays
-      // null and the family stays locked: `browserTests` can't run before
-      // the family is unlocked, and Phase 6's rule requires all five
-      // families to reach `certifiedAt !== null` together.
+      // `SplatCatalogEvidence.promotableEntries`). Sidereal has had its
+      // Backgrounds, universal Merits/Flaws chapter, Charms, and Sorcery
+      // spells promoted (360 rows: 12 Backgrounds + 82 Merits/Flaws + 193
+      // Charms + 73 Sorcery spells), but that alone must not unlock it --
+      // its own Astrology/Colleges system (5 more promotable rows) still
+      // isn't promoted, so `promotedEntries` (360) stays short of
+      // `promotableEntries` (365) even though `catalog.checksum` is now a
+      // real, non-empty value for both families (each computed by
+      // `scripts/audit-exalted-sources.mjs`'s family-prefixed-file scan,
+      // not a placeholder). Even with a fully or partially satisfied
+      // catalog dimension, `certifiedAt` stays null and both families stay
+      // locked: `browserTests` can't run before either family is unlocked,
+      // and Phase 6's rule requires all five families to reach
+      // `certifiedAt !== null` together.
       expect(record.catalog.promotedEntries).toBe(
         family === 'abyssal' ? 505 : family === 'sidereal' ? 360 : 0,
       );
-      if (family === 'abyssal') {
+      if (family === 'abyssal' || family === 'sidereal') {
         // Cross-check against the audit script's own live computation
         // rather than hardcoding the hash, so this test can't silently go
         // stale if the promoted catalog changes.
         expect(record.catalog.checksum).toBe(
-          auditFamily('abyssal').catalogChecksum,
+          auditFamily(family).catalogChecksum,
         );
         expect(record.catalog.checksum.length).toBeGreaterThan(0);
       } else {
@@ -244,11 +245,12 @@ describe('exalted1e verification gate', () => {
       expect(status.blockReason).toContain(
         `catalog ${promotedEntries}/${promotableEntries} promoted (${totalInventoryRows} total inventory rows), ${unresolvedEntries} unresolved`,
       );
-      // Abyssal (Phase 1e) is the one family whose rules/creator/migration
-      // dimensions now pass (see the previous test's comment); every other
-      // family, and Abyssal's own still-not-run browser dimension, keeps
-      // the generic 'not-run' wording.
-      if (family === 'abyssal') {
+      // Abyssal (Phase 1e) and Sidereal (Phase 2d) are the two families
+      // whose rules/creator/migration dimensions now pass (see the
+      // previous test's comment); every other family, and both families'
+      // own still-not-run browser dimension, keeps the generic 'not-run'
+      // wording.
+      if (family === 'abyssal' || family === 'sidereal') {
         expect(status.blockReason).toContain('rules tests pass');
         expect(status.blockReason).toContain('creator tests pass');
         expect(status.blockReason).toContain('migration tests pass');
@@ -274,6 +276,19 @@ describe('exalted1e verification gate', () => {
     const status = getFamilyCertificationStatus('abyssal');
     expect(status.available).toBe(false);
     expect(status.blockReason).toContain('505/505 promoted');
+    expect(status.blockReason).toContain('0 unresolved');
+    expect(status.blockReason).toContain('rules tests pass');
+    expect(status.blockReason).toContain('browser tests not-run');
+  });
+
+  it('describes Sidereal as locked with its still-incomplete catalog dimension despite its passing test dimensions', () => {
+    const status = getFamilyCertificationStatus('sidereal');
+    expect(status.available).toBe(false);
+    // Unlike Abyssal, Sidereal's catalog dimension is NOT yet fully
+    // resolved (5 of 365 promotable rows -- its own Astrology/Colleges
+    // system -- remain unpromoted), even though rulesTests/creatorTests/
+    // migrationTests all pass (Phase 2d).
+    expect(status.blockReason).toContain('360/365 promoted');
     expect(status.blockReason).toContain('0 unresolved');
     expect(status.blockReason).toContain('rules tests pass');
     expect(status.blockReason).toContain('browser tests not-run');

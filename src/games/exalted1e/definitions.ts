@@ -280,6 +280,51 @@ export const abyssalAbilityGroups: readonly AbilityGroup[] = [
   abilityIds: solarAbilityGroups[index]!.abilityIds,
 }));
 
+/**
+ * Ability groupings for Sidereal's five Castes (Journeys, Serenity,
+ * Battles, Secrets, Endings). Unlike Abyssal (which mirrors its opposed
+ * Solar Caste's Ability list exactly), Sidereal's Caste-Ability trees are
+ * genuinely its own, arranged around the five Auspicious Abilities per
+ * Caste that Exalted: The Sidereals' Chapter Five actually documents. This
+ * list is derived directly from `sidereal-charms.json`'s own `caste`/
+ * `ability` fields on the 152 already-promoted, page-cited Caste-and-
+ * Auspicious-Ability Charms (Phase 2b) -- not retyped from memory -- so it
+ * is exactly as reliable as the catalog itself.
+ */
+export const siderealAbilityGroups: readonly AbilityGroup[] = [
+  {
+    id: 'journeys',
+    label: 'Journeys',
+    abilityIds: ['endurance', 'ride', 'sail', 'survival', 'thrown'],
+  },
+  {
+    id: 'serenity',
+    label: 'Serenity',
+    abilityIds: ['craft', 'dodge', 'linguistics', 'performance', 'socialize'],
+  },
+  {
+    id: 'battles',
+    label: 'Battles',
+    abilityIds: ['archery', 'brawl', 'melee', 'presence', 'resistance'],
+  },
+  {
+    id: 'secrets',
+    label: 'Secrets',
+    abilityIds: ['investigation', 'larceny', 'lore', 'occult', 'stealth'],
+  },
+  {
+    id: 'endings',
+    label: 'Endings',
+    abilityIds: [
+      'athletics',
+      'awareness',
+      'bureaucracy',
+      'martialArts',
+      'medicine',
+    ],
+  },
+];
+
 export const dragonBloodedAbilityGroups: readonly AbilityGroup[] = [
   {
     id: 'air',

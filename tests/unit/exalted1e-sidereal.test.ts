@@ -4,7 +4,10 @@ import {
   exaltedSheetTypes,
   siderealBackgrounds,
 } from '../../src/games/exalted1e/definitions';
-import { exalted1eCharacterSchema } from '../../src/games/exalted1e/schema';
+import {
+  exalted1eCharacterSchema,
+  migrateExalted1eCharacter,
+} from '../../src/games/exalted1e/schema';
 import { siderealCharmById } from '../../src/games/exalted1e/reference/sidereal-powers';
 
 describe('Exalted First Edition Sidereal (schema-only; not yet UI-selectable)', () => {
@@ -604,6 +607,70 @@ describe('Exalted First Edition Sidereal (schema-only; not yet UI-selectable)', 
           },
         }),
       ).toThrow();
+    });
+  });
+
+  describe('Schema migration (Phase 2d: migration-dimension coverage)', () => {
+    it('migrates an old-shape Sidereal record (missing shared collections added in later schema versions) into a fully valid, re-parseable character', () => {
+      const character = createBlankExaltedCharacter('sidereal');
+      character.identity.caste = 'Journeys';
+      character.backgrounds = [
+        {
+          id: crypto.randomUUID(),
+          definitionId: 'celestial-manse',
+          rating: 2,
+          notes: '',
+          label: '',
+          description: '',
+          linkedEntityIds: [],
+          createdAt: new Date().toISOString(),
+        },
+      ];
+      character.powers = {
+        charms: [
+          {
+            id: crypto.randomUUID(),
+            definitionId: 'ox-body-technique-sidereal',
+            unresolvedReference: null,
+            notes: '',
+          },
+        ],
+        spells: [],
+      };
+      const legacy = { ...character } as Record<string, unknown>;
+      // These collections were all added in schema versions after
+      // Sidereal's own fields (backgrounds, powers, identity.caste), so a
+      // Sidereal record captured before that point would be missing them
+      // entirely rather than having them present-but-empty, mirroring
+      // Abyssal's identical migration contract (see
+      // `exalted1e-abyssal.test.ts`'s equivalent test).
+      for (const key of [
+        'languages',
+        'derangements',
+        'experienceLedger',
+        'downtimeAdvancement',
+        'possessions',
+        'manses',
+        'hearthstones',
+      ]) {
+        delete legacy[key];
+      }
+      const migrated = migrateExalted1eCharacter(legacy, 5);
+      expect(migrated.sheetType).toBe('sidereal');
+      // Sidereal-specific data captured before the missing fields were
+      // added survives migration untouched.
+      expect(migrated.identity.caste).toBe('Journeys');
+      expect(migrated.backgrounds[0]?.definitionId).toBe('celestial-manse');
+      expect(migrated.powers.charms[0]?.definitionId).toBe(
+        'ox-body-technique-sidereal',
+      );
+      // The missing shared collections are backfilled empty rather than
+      // inferred.
+      expect(migrated.languages).toEqual([]);
+      expect(migrated.derangements).toEqual([]);
+      expect(migrated.experienceLedger).toEqual([]);
+      expect(migrated.downtimeAdvancement).toEqual([]);
+      expect(exalted1eCharacterSchema.parse(migrated)).toEqual(migrated);
     });
   });
 });

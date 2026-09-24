@@ -27,6 +27,8 @@ import {
   exaltedSections,
   exaltedAttributeGroups,
   exaltedVirtues,
+  siderealAbilityGroups,
+  siderealBackgrounds,
   solarAbilityGroups,
   solarBackgrounds,
   type ExaltedAbilityId,
@@ -64,10 +66,16 @@ import {
   abyssalNecromancySpells,
 } from './reference/abyssal-powers';
 import {
+  siderealCastes,
+  siderealCharms,
+  siderealSorcerySpellIds,
+} from './reference/sidereal-powers';
+import {
   abyssalOnlyTraits,
   getSharedTraitCostPolicy,
   getSharedTraitRepeatLimit,
   matchesDragonBloodedTraitSearch,
+  siderealOnlyTraits,
   storytellerApprovalTraitIds,
 } from './reference/dragonblooded-merits-flaws';
 import { getExaltedCharacterProfile } from './profiles';
@@ -89,6 +97,24 @@ const abyssalPowerDefinitions: readonly ExaltedPowerDefinition[] = [
   ...abyssalCharms,
   ...abyssalNecromancySpells,
   ...Array.from(sharedSorcerySpellById.values()),
+];
+
+/**
+ * Sidereal's Charms & Sorcery catalog for `ExaltedPowersSection`: all 193
+ * promoted Sidereal Charms (152 Caste-and-Auspicious-Ability Charms across
+ * 25 trees, plus 41 Charms across three named secret Martial Arts styles)
+ * plus exactly the 73 shared Sorcery spells `siderealSorcerySpellIds`
+ * confirms Sidereal can reach -- unlike Abyssal's own catalog above, this
+ * is filtered rather than including every shared Sorcery spell, since
+ * Sidereal's spell-reachability list was verified page-by-page rather than
+ * assumed identical to Solar/Dragon-Blooded's full Sorcery access. Computed
+ * once at module scope since every source collection is a static import.
+ */
+const siderealPowerDefinitions: readonly ExaltedPowerDefinition[] = [
+  ...siderealCharms,
+  ...Array.from(sharedSorcerySpellById.values()).filter(({ id }) =>
+    siderealSorcerySpellIds.has(id),
+  ),
 ];
 
 const AUTOSAVE_DELAY_MS = 550;
@@ -127,31 +153,35 @@ export function Exalted1eEditor({
   const isSolar = draft.sheetType === 'solar';
   const isDragonBlooded = draft.sheetType === 'dragon-blooded';
   const isAbyssal = draft.sheetType === 'abyssal';
+  const isSidereal = draft.sheetType === 'sidereal';
   const profile = getExaltedCharacterProfile(draft.sheetType);
   const activeSections = useMemo(() => [...exaltedSections], []);
   const sheetName = profile.shortName;
-  // Sidereal, Lunar, Alchemical, and Fair Folk fall back to a single
-  // generic "Abilities" group -- none of the four has a promoted,
-  // schema-validated catalog of its own in this editor yet (see
-  // `schema.ts`'s `backgroundIdsBySheetType`/`charmIdsBySheetType`), so
-  // this UI is a placeholder that matches the underlying "no real
-  // selections accepted yet" reality rather than presenting a false
-  // choice. Sidereal keeps its own Caste-and-Auspicious-Ability grouping
-  // once its editor phase lands; see the Sidereal Phase 2d TODO.
+  // Lunar, Alchemical, and Fair Folk fall back to a single generic
+  // "Abilities" group -- none of the three has a promoted, schema-validated
+  // catalog of its own in this editor yet (see `schema.ts`'s
+  // `backgroundIdsBySheetType`/`charmIdsBySheetType`), so this UI is a
+  // placeholder that matches the underlying "no real selections accepted
+  // yet" reality rather than presenting a false choice. Sidereal now uses
+  // its own real Caste-and-Auspicious-Ability grouping (Phase 2d),
+  // verified against the promoted Charm catalog rather than guessed --
+  // see `siderealAbilityGroups` in `definitions.ts`.
   const abilityGroups = isSolar
     ? solarAbilityGroups
     : isDragonBlooded
       ? dragonBloodedAbilityGroups
       : isAbyssal
         ? abyssalAbilityGroups
-        : [
-            {
-              id: 'abilities',
-              label: 'Abilities',
-              abilityIds: exaltedAbilities.map(({ id }) => id),
-            },
-          ];
-  // Sidereal, Lunar, Alchemical, and Fair Folk deliberately render an empty
+        : isSidereal
+          ? siderealAbilityGroups
+          : [
+              {
+                id: 'abilities',
+                label: 'Abilities',
+                abilityIds: exaltedAbilities.map(({ id }) => id),
+              },
+            ];
+  // Lunar, Alchemical, and Fair Folk deliberately render an empty
   // Backgrounds picker rather than `getExaltedFamilyBackgrounds`'s catalog
   // (`./family-catalogs.ts`): that catalog is OCR-derived and has not been
   // through this project's page-cited inventory/verification process (see
@@ -159,7 +189,8 @@ export function Exalted1eEditor({
   // `backgroundIdsBySheetType` correctly rejects every id in it for these
   // three families today. Showing it here would let someone add a
   // Background the sheet then can't validate. Revisit per-family once each
-  // earns a real promoted catalog.
+  // earns a real promoted catalog. Sidereal now has its own real,
+  // page-cited Backgrounds catalog (Phase 2a).
   const backgroundDefinitions: readonly { id: string; label: string }[] =
     isSolar
       ? solarBackgrounds
@@ -167,7 +198,9 @@ export function Exalted1eEditor({
         ? dragonBloodedBackgrounds
         : isAbyssal
           ? abyssalBackgrounds
-          : [];
+          : isSidereal
+            ? siderealBackgrounds
+            : [];
   const backgroundById = new Map(
     backgroundDefinitions.map((background) => [background.id, background]),
   );
@@ -563,11 +596,35 @@ export function Exalted1eEditor({
                       ))}
                     </select>
                   </SheetField>
+                ) : isSidereal ? (
+                  // Mirrors Abyssal's constrained <select> above: Sidereal
+                  // has exactly five fixed Castes (Journeys/Serenity/
+                  // Battles/Secrets/Endings), and a <select> matches that
+                  // reality while enabling the Charms catalog's Caste
+                  // filter (see `ExaltedPowersSection`'s `showCasteFilter`/
+                  // `castes` props below). Still stores a plain string in
+                  // the same generic `identity.caste` field -- no schema
+                  // change needed.
+                  <SheetField label="Caste">
+                    <select
+                      value={draft.identity.caste}
+                      onChange={(event) =>
+                        updateIdentity('caste', event.target.value)
+                      }
+                    >
+                      <option value="">Choose a Caste</option>
+                      {siderealCastes.map((caste) => (
+                        <option key={caste} value={caste}>
+                          {caste}
+                        </option>
+                      ))}
+                    </select>
+                  </SheetField>
                 ) : (
-                  // Sidereal, Lunar, Alchemical, and Fair Folk have no
-                  // dedicated identity UI of their own yet -- fall back to
-                  // the generic family-identity/organization fields driven
-                  // by each family's `ExaltedCharacterProfile` (see
+                  // Lunar, Alchemical, and Fair Folk have no dedicated
+                  // identity UI of their own yet -- fall back to the
+                  // generic family-identity/organization fields driven by
+                  // each family's `ExaltedCharacterProfile` (see
                   // `./profiles`), matching this file's existing
                   // placeholder-until-implemented precedent (compare the
                   // Abilities/Backgrounds fallbacks below).
@@ -654,7 +711,7 @@ export function Exalted1eEditor({
                   ? 'Caste groupings'
                   : isDragonBlooded
                     ? 'Elemental groupings'
-                    : isAbyssal
+                    : isAbyssal || isSidereal
                       ? 'Caste groupings'
                       : `${sheetName} Abilities`}
               </p>
@@ -1265,7 +1322,7 @@ export function Exalted1eEditor({
                 id="exalted-merits-flaws-content"
                 hidden={!meritsFlawsExpanded}
               >
-                {isSolar || isDragonBlooded || isAbyssal ? (
+                {isSolar || isDragonBlooded || isAbyssal || isSidereal ? (
                   <ExaltedMeritsFlawsSection
                     traits={draft.meritsFlaws}
                     derangements={draft.derangements}
@@ -1274,7 +1331,9 @@ export function Exalted1eEditor({
                         ? solarTraits
                         : isAbyssal
                           ? abyssalOnlyTraits
-                          : undefined
+                          : isSidereal
+                            ? siderealOnlyTraits
+                            : undefined
                     }
                     getCostPolicy={
                       isSolar
@@ -1286,26 +1345,29 @@ export function Exalted1eEditor({
                         : isAbyssal
                           ? (definition) =>
                               getSharedTraitCostPolicy(definition, 'abyssal')
-                          : undefined
+                          : isSidereal
+                            ? (definition) =>
+                                getSharedTraitCostPolicy(definition, 'sidereal')
+                            : undefined
                     }
                     getRepeatLimit={
                       isSolar
                         ? getSolarTraitRepeatLimit
-                        : isAbyssal
+                        : isAbyssal || isSidereal
                           ? getSharedTraitRepeatLimit
                           : undefined
                     }
                     matchesSearch={
                       isSolar
                         ? matchesSolarTraitSearch
-                        : isAbyssal
+                        : isAbyssal || isSidereal
                           ? matchesDragonBloodedTraitSearch
                           : undefined
                     }
                     approvalTraitIds={
                       isSolar
                         ? solarStorytellerApprovalTraitIds
-                        : isAbyssal
+                        : isAbyssal || isSidereal
                           ? storytellerApprovalTraitIds
                           : undefined
                     }
@@ -1314,14 +1376,18 @@ export function Exalted1eEditor({
                         ? 'solar-trait-catalog'
                         : isAbyssal
                           ? 'abyssal-trait-catalog'
-                          : undefined
+                          : isSidereal
+                            ? 'sidereal-trait-catalog'
+                            : undefined
                     }
                     catalogDescription={
                       isSolar
                         ? "Record Solar Merits and Flaws from the supplied Exalted Player's Guide workbook. Solar and Caste-specific costs are applied; requirements remain advisory."
                         : isAbyssal
                           ? "Record Abyssal Merits and Flaws from the shared Exalted Player's Guide catalog. Abyssal-specific cost caps (e.g. Destiny) are applied; requirements remain advisory."
-                          : undefined
+                          : isSidereal
+                            ? "Record Sidereal Merits and Flaws from the shared Exalted Player's Guide catalog. Sidereal-specific cost caps (e.g. Destiny, Lucky, Permanent Caste Mark, Prescient Dreamer) are applied; requirements remain advisory."
+                            : undefined
                     }
                     onChange={(meritsFlaws) =>
                       update((current) => ({ ...current, meritsFlaws }))
@@ -1331,11 +1397,11 @@ export function Exalted1eEditor({
                     }
                   />
                 ) : (
-                  // Sidereal, Lunar, Alchemical, and Fair Folk have no
-                  // promoted Merits/Flaws catalog yet (`schema.ts` rejects
-                  // any selection outright for these types today). Show
-                  // main's honest placeholder notice rather than a
-                  // non-functional catalog UI.
+                  // Lunar, Alchemical, and Fair Folk have no promoted
+                  // Merits/Flaws catalog yet (`schema.ts` rejects any
+                  // selection outright for these types today). Show an
+                  // honest placeholder notice rather than a non-functional
+                  // catalog UI.
                   <p className="sheet-notice">
                     The {sheetName} Merit and Flaw inventory is being
                     source-verified. Existing unresolved records remain
@@ -1433,7 +1499,9 @@ export function Exalted1eEditor({
                     ? 'Charms & Sorcery'
                     : isAbyssal
                       ? 'Charms & Spells'
-                      : 'Powers'}
+                      : isSidereal
+                        ? 'Charms & Sorcery'
+                        : 'Powers'}
               </h2>
               {isSolar ? (
                 <ExaltedPowersSection
@@ -1480,14 +1548,42 @@ export function Exalted1eEditor({
                   }
                   onLearnWithExperience={learnPowerWithExperience}
                 />
+              ) : isSidereal ? (
+                // Phase 2d: Sidereal's real, page-cited 193-Charm catalog
+                // (152 Caste-and-Auspicious-Ability Charms across 25 trees
+                // plus 41 Charms across three named secret Martial Arts
+                // styles) plus its 73 confirmed-reachable shared Sorcery
+                // spells, wired the same way Abyssal's Phase 1e wired its
+                // own catalog: `character`/`onLearnWithExperience` use
+                // `getSiderealPowerExperienceCost`'s favored-Auspicious/
+                // Favored-Ability cost math (see
+                // `shared/advancement/rules.ts`), and `castes` swaps the
+                // Caste filter's dropdown to Sidereal's own five Castes
+                // instead of Abyssal's.
+                <ExaltedPowersSection
+                  powers={draft.powers}
+                  character={draft}
+                  definitions={siderealPowerDefinitions}
+                  catalogId="sidereal-power-catalog"
+                  catalogDescription="Choose from 193 Sidereal Charms (152 Caste-and-Auspicious-Ability Charms across 25 trees, plus 41 Charms across three secret Martial Arts styles) and 73 Sorcery spells confirmed reachable from the shared Terrestrial/Celestial Circle catalog. Requirements are advisory; entries retain their cited book and page and are marked for source review."
+                  showElementFilter={false}
+                  showCategory={false}
+                  showCasteFilter
+                  castes={siderealCastes}
+                  spellsTabLabel="Sorcery"
+                  sorceryAdvisory="Advisory: standard Sidereal sorcery requires the matching Terrestrial/Celestial Circle Sorcery Charm before spells of that Circle are castable. Spell selection remains available because this is an editable sheet, not a rules engine."
+                  onChange={(powers) =>
+                    update((current) => ({ ...current, powers }))
+                  }
+                  onLearnWithExperience={learnPowerWithExperience}
+                />
               ) : (
-                // Sidereal, Lunar, Alchemical, and Fair Folk have no
-                // production Charm/spell catalog wired into `schema.ts`
-                // yet (Sidereal's real 193-Charm catalog exists but has no
-                // editor UI of its own until Phase 2d). Deliberately does
-                // NOT fall back to `getExaltedFamilyPowers`'s OCR-derived
-                // Alchemical/Fair Folk catalogs (`./reference/family-powers.ts`)
-                // for the same reason `backgroundDefinitions` above skips
+                // Lunar, Alchemical, and Fair Folk have no production
+                // Charm/spell catalog wired into `schema.ts` yet.
+                // Deliberately does NOT fall back to
+                // `getExaltedFamilyPowers`'s OCR-derived Alchemical/Fair
+                // Folk catalogs (`./reference/family-powers.ts`) for the
+                // same reason `backgroundDefinitions` above skips
                 // `getExaltedFamilyBackgrounds` -- that data hasn't been
                 // through this project's page-cited verification process,
                 // and `schema.ts` correctly rejects every id in it today.
