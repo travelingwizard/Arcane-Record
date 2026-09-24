@@ -318,7 +318,8 @@ for (const id of siderealSorcerySpellIds) {
  * captured in the source pass; headers/costs/prerequisites are confirmed.
  * Promoting any of these would fail
  * `scripts/audit-exalted-sources.mjs`'s visual-review gate, exactly like
- * `abyssalUnreviewedExcludedCharmIds`/`abyssalUnreviewedExcludedSpellIds`.
+ * the Abyssal unreviewed-Charm/spell exclusions resolved in that family's
+ * Phase 1e (see `src/games/exalted1e/reference/abyssal-powers.ts`).
  * Follow-up: promote once a future inventory pass captures their full
  * mechanics text and flips `verificationState` to `reviewed`.
  */

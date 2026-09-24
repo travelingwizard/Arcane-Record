@@ -4023,5 +4023,126 @@
     "sourceDisplay": "The Book of Bone and Ebony, p. 144",
     "reviewStatus": "source-checked",
     "reviewFlags": []
+  },
+  {
+    "id": "iron-countermagic",
+    "name": "Iron Countermagic",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "shadowlands",
+    "alternateCircleName": null,
+    "summary": "Shadowlands Circle spell; either shields the caster from hostile Shadowlands Circle necromancy for a turn, or actively extinguishes a single such spell at range, with stronger Onyx/Obsidian tiers unlocked by Labyrinth/Void Circle Necromancy.",
+    "description": "With this spell, the Exalted can absorb and smother the energy of hostile necromancy. If the character spends 10 motes, she may slash at the air, tearing ribbons of black power to swirl and bleed around her person. This shield negates all hostile spells of the Shadowlands Circle directed at her until the end of the next turn, but its cold seeps into her joints and bones, inflicting a -2 penalty to all Physical actions for as long as it persists. Alternately, for 20 motes, the caster can extinguish a single Shadowlands Circle spell within a number of feet equaling her permanent Essence x 50. Extant spells are disintegrated, while spells in the process of being cast are torn asunder. This spell is extremely fast and takes effect as soon as the character spends Willpower. Countermagic can banish summoned ghosts, although it cannot break bonds of servitude wrought by necromancy. Spells countered with Iron Countermagic shatter without inflicting any side effects; if used to counter a lower circle, the countermagic utterly annihilates the spell with no side effects or collateral damage. Countered Void Circle spells still mar bystanders and ravage the earth, although in most cases the backlash pales compared to the intended effects. More powerful versions of this spell exist at higher circles: Onyx for Labyrinth, Obsidian for Void. Each protects against spells of its own circle or below. Necromantic countermagic can also oppose sorcery if it is one circle or higher, and vice versa; thus Sapphire Countermagic (Exalted, p. 221) may counter Shadowlands Circle spells, while Obsidian Countermagic may block Celestial Circle Sorcery. The personal shield/direct-extinguishing costs for Onyx and Obsidian are 15 motes/20 motes and 20 motes/25 motes respectively.",
+    "cost": "10 or 20 motes (Onyx and Obsidian tiers cost more; see description)",
+    "duration": "Until the end of the next turn (shield) or Instant (extinguish)",
+    "type": "Shadowlands Circle Spell",
+    "castingTime": null,
+    "target": "Caster (shield) or one spell effect within range (extinguish)",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "shadowlands-circle-necromancy"
+    ],
+    "prerequisiteText": "Shadowlands Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 224,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 224",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "brick-by-brick-solitude",
+    "name": "Brick-by-Brick Solitude",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "labyrinth",
+    "alternateCircleName": null,
+    "summary": "Labyrinth Circle upgrade of Ringing Hun Rebuke; the resonating rings keep ghosts at a full radius scaling with Essence and unable to make hand-to-hand attacks.",
+    "description": "This is the greater Labyrinth Circle version of Ringing Hun Rebuke. When cast, several dozen arcane symbols appear in a cylinder around the necromancer. Bright, as if drawn with pure sunlight, they expand rapidly to a radius equal to the caster's permanent Essence x 10 yards. Any ghosts closer than that boundary are pushed out to it as the wall expands. Ghosts are unable to pierce this boundary and, therefore, cannot make hand-to-hand attacks; ranged attacks suffer a loss of half their successes before they reach the necromancer. Brick-by-Brick Solitude does not increase the caster's Strength: while the boundary moves with him and will shove most ghosts out of his path with little effort, a sufficiently determined mob can still resist being pushed past a number of ghosts equal to three times his Strength rating. The source text does not restate a separate mote cost or duration for this greater version; it is presented purely as a variant description following Ringing Hun Rebuke's own entry.",
+    "cost": null,
+    "duration": null,
+    "type": "Labyrinth Circle Spell",
+    "castingTime": null,
+    "target": "Area centered on the caster",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "labyrinth-circle-necromancy"
+    ],
+    "prerequisiteText": "Labyrinth Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 129,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 129",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "The printed text describes this spell entirely by reference to Ringing Hun Rebuke's base effect and prints no separate mote cost or duration for this version; confirmed by direct visual re-check of the page, not an extraction gap."
+    ]
+  },
+  {
+    "id": "barred-tomb",
+    "name": "Barred Tomb",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "spell",
+    "circle": "void",
+    "alternateCircleName": null,
+    "summary": "Void Circle version of Denying the Call; extends the temporary revival to up to an hour with health levels equal to the caster's Essence, and binds the revived creature to obey the necromancer's will for the duration.",
+    "description": "There exists a Void Circle variation of Denying the Call, called Barred Tomb, which places a recently departed soul back into its body for up to an hour, with a number of health levels equal to the caster's Essence, binding it to obey the necromancer's will for the duration. Like Denying the Call, these health levels can only be lost to aggravated damage, and this spell cannot be cast upon a target who has already been affected by Denying the Call or by Barred Tomb. Once a spirit is released by Barred Tomb, it appears in the Underworld with only a single health level.",
+    "cost": null,
+    "duration": "Up to one hour",
+    "type": "Void Circle Spell",
+    "castingTime": null,
+    "target": "One recently dead creature",
+    "minimumRequirements": [
+      {
+        "trait": "Occult",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 5,
+    "prerequisiteCharms": [
+      "void-circle-necromancy"
+    ],
+    "prerequisiteText": "Void Circle Necromancy",
+    "sources": [
+      {
+        "bookId": "book-of-bone-and-ebony",
+        "bookLabel": "The Book of Bone and Ebony",
+        "page": 134,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "The Book of Bone and Ebony, p. 134",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "The printed text describes this spell entirely by reference to Denying the Call's base effect and prints no mote cost of its own for this version; confirmed by direct visual re-check of the page, not an extraction gap."
+    ]
   }
 ]

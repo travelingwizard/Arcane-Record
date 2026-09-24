@@ -176,6 +176,7 @@ export function auditFamily(family, { repoRoot } = {}) {
       status: 'pending-source-material',
       inventoryRows: 0,
       promotedEntries: 0,
+      catalogChecksum: '',
       issues: [],
     };
   }
@@ -205,6 +206,22 @@ export function auditFamily(family, { repoRoot } = {}) {
   );
   issues.push(...auditPromotedCatalog(promotedEntries, rows));
 
+  // Deterministic (file-order-independent) checksum over every entry found
+  // in this family's own `${family}-*.json` reference catalog files, for
+  // drift detection between the checked-in certification record and the
+  // catalog on disk. Empty (no checksum) until at least one entry has been
+  // promoted -- see docs/18-exalted1e-splat-release.md's "Design note on
+  // the checksum". This intentionally covers only the family-prefixed
+  // catalog files scanned above; catalogs shared across multiple splats
+  // (e.g. cross-splat Merits/Flaws, Backgrounds, Sorcery) are validated
+  // once, not per family, and are not part of this hash.
+  const catalogChecksum =
+    promotedEntries.length > 0
+      ? computeChecksum(
+          [...promotedEntries].sort((a, b) => a.id.localeCompare(b.id)),
+        )
+      : '';
+
   return {
     family,
     status: issues.some((issue) => issue.severity === 'error')
@@ -212,6 +229,7 @@ export function auditFamily(family, { repoRoot } = {}) {
       : 'pending-certification',
     inventoryRows: rows.length,
     promotedEntries: promotedEntries.length,
+    catalogChecksum,
     issues,
   };
 }
@@ -233,7 +251,11 @@ if (isRunAsCli()) {
 
   for (const report of reports) {
     console.log(
-      `\n${report.family}: ${report.status} (${report.inventoryRows} inventory rows, ${report.promotedEntries} promoted)`,
+      `\n${report.family}: ${report.status} (${report.inventoryRows} inventory rows, ${report.promotedEntries} promoted${
+        report.catalogChecksum
+          ? `, catalog checksum ${report.catalogChecksum}`
+          : ''
+      })`,
     );
     for (const issue of report.issues) {
       console.log(`  [${issue.severity}] ${issue.message}`);

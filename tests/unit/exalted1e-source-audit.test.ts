@@ -186,16 +186,23 @@ describe('auditFamily against the real repository (current state)', () => {
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);
     expect(report.inventoryRows).toBeGreaterThan(0);
-    // 328 = 225 promoted Charms (abyssal-charms.json) + 103 promoted
+    // 333 = 227 promoted Charms (abyssal-charms.json) + 106 promoted
     // Necromancy spells (abyssal-necromancy.json), as counted directly from
-    // `src/games/exalted1e/reference/abyssal-*.json` by this audit script.
-    // This differs from `certification/abyssal.json`'s own
-    // `catalog.promotedEntries` (500), which also includes the 86 Phase 1a
-    // Backgrounds/Merits/Flaws rows and the 86 Phase 1c Sorcery-spell rows
-    // that live in catalogs not prefixed `abyssal-` (e.g. the shared
+    // `src/games/exalted1e/reference/abyssal-*.json` by this audit script
+    // (Phase 1e promoted the last 5 previously held-back rows: two
+    // unreviewed Day Caste Charms, one unreviewed core-book spell, and two
+    // unresolved-for-missing-cost Book of Bone and Ebony spells). This
+    // differs from `certification/abyssal.json`'s own
+    // `catalog.promotedEntries` (505), which also includes the 80 Phase 1a
+    // Merits/Flaws rows, 6 Backgrounds rows, and 86 Phase 1c Sorcery-spell
+    // rows that live in catalogs not prefixed `abyssal-` (e.g. the shared
     // `dragonblooded-merits-flaws.json`/`dragonblooded-sorcery.json`), so
-    // this audit script's file-glob does not count them.
-    expect(report.promotedEntries).toBe(328);
+    // this audit script's file-glob does not count them. `catalogChecksum`
+    // covers only this narrower, file-glob-scoped 333-entry set for the
+    // same reason -- see `certification/abyssal.json`'s notes.
+    expect(report.promotedEntries).toBe(333);
+    expect(report.catalogChecksum).toHaveLength(8);
+    expect(report.catalogChecksum).toMatch(/^[0-9a-f]{8}$/);
   });
 
   it('reports Sidereal as pending-certification with its real inventory rows and zero audit errors', () => {
@@ -227,6 +234,7 @@ describe('auditFamily against the real repository (current state)', () => {
     expect(report.issues).toEqual([]);
     expect(report.inventoryRows).toBeGreaterThan(0);
     expect(report.promotedEntries).toBe(0);
+    expect(report.catalogChecksum).toBe('');
   });
 
   it('reports Fair Folk as pending-certification with its real inventory rows and zero audit errors', () => {
@@ -238,5 +246,15 @@ describe('auditFamily against the real repository (current state)', () => {
     expect(report.issues).toEqual([]);
     expect(report.inventoryRows).toBeGreaterThan(0);
     expect(report.promotedEntries).toBe(0);
+    expect(report.catalogChecksum).toBe('');
+  });
+
+  it('computes a stable catalog checksum for Abyssal that changes if the promoted catalog changes', () => {
+    const first = auditFamily('abyssal');
+    const second = auditFamily('abyssal');
+    expect(first.catalogChecksum).toBe(second.catalogChecksum);
+    expect(first.catalogChecksum).not.toBe(
+      computeChecksum([{ id: 'not-the-real-catalog' }]),
+    );
   });
 });

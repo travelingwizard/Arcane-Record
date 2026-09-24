@@ -3654,10 +3654,10 @@
     "disposition": "selectable",
     "summary": "Combines gliding descent with a diving strike, capping the Athletics 1 branch of the Day Caste tree.",
     "requirements": "Minimum Athletics 5; Minimum Essence 3; Prerequisite Charms: Autumn Leaf's Descent, Falling Scythe Attack.",
-    "mechanics": "The Charm header, cost, duration, type, and full prerequisites were confirmed directly from the printed Charm tree diagram and from cross-references in Autumn Leaf's Descent and Falling Scythe Attack, but the complete rules-text paragraph runs onto a portion of the page spread that was not legible in this extraction pass. Treat the full effect text as unresolved pending a follow-up close read of the surrounding page.",
+    "mechanics": "Where he could only glide with Autumn Leaf's Descent, an Abyssal with this Charm can truly -- if briefly -- fly. The character must spend a full turn in concentration as he floods his being with Essence. At the end of the turn, he is borne aloft on spectral winds and may subsequently fly wherever he wishes. These winds cause capes and cloaks to billow and flutter, giving the illusion of wings if the character is so attired. Characters may keep this Charm active as long as they continue to spend 2 motes of Essence each turn, but they will stop flying normally once they stop paying this reflexive upkeep. All Essence spent on Soaring Raptor Prana is completely committed until the character ceases flying. While propelled by this Charm, Exalts move (Dexterity x 9) yards per turn and may attack other aerial combatants normally or assault targets on the ground using ranged weapons. Alternately, they can swoop and strike as they pass. Unless they are swooping, flying characters can only be attacked by ranged weapons, by other flying/leaping characters, or on the initiative count when they strike a ground-based target in close combat. Due to the Exalt's speed, individuals other than his target strike him at a -3 dice penalty unless wielding a long weapon, in which case the penalty drops to -1. The Exalt's target can attack him normally without penalty so long as the Exalt is attacking in return.",
     "cost": "3 motes, 1 Willpower",
     "compatibility": "Duration: Special. Type: Simple.",
-    "verificationState": "unreviewed",
+    "verificationState": "reviewed",
     "citation": {
       "bookId": "exalted-the-abyssals",
       "printedPage": 201,
@@ -3667,7 +3667,7 @@
       "autumn-leafs-descent",
       "falling-scythe-attack"
     ],
-    "notes": "Chapter Five: Charms, Day Caste Athletics tree, p. 201-202 (PDF 202-203). Full rules text not fully legible in the rendered capture; flagged for a follow-up close read before promotion."
+    "notes": "Chapter Five: Charms, Day Caste Athletics tree, p. 201-203 (PDF 202-203). Full rules text re-verified against a direct visual re-check of the source page (Phase 1e); the earlier extraction pass's concern about partial legibility did not hold up -- the full paragraph is legible and matches this transcription. Promoted."
   },
   {
     "id": "shadow-races-the-light",
@@ -4236,10 +4236,10 @@
     "disposition": "selectable",
     "summary": "Capstone of the second Day Caste Larceny branch, building on the sleight-of-hand mastery of Artful Conjuration Trick to permit outright theft of items from a target.",
     "requirements": "Minimum Larceny 5; Minimum Essence 3; Prerequisite Charms: Artful Conjuration Trick.",
-    "mechanics": "This Charm's full effect text was not captured with sufficient confidence in this extraction pass; the Charm's header, cost, duration, type, and prerequisite were confirmed directly from the printed page, but the descriptive rules paragraph should be re-verified against the source before promotion.",
+    "mechanics": "The Abyssal extends his hand in a lightning-fast clutching gesture, reaching out with his Essence to steal an object in his direct line of sight. The targeted object flickers and rematerializes from Elsewhere in the character's grasp. This Charm can only grab objects small enough to comfortably hold with one hand and may not take possession of an object that is part of a sentient being's grasp. Possessions on a person's body can be grabbed but not if they are securely fastened (a money pouch could be grabbed but not the belt it is affixed to, for example). The Storyteller retains final say on what can and cannot be taken with this Charm.",
     "cost": "4 motes",
     "compatibility": "Duration: Instant. Type: Simple.",
-    "verificationState": "unreviewed",
+    "verificationState": "reviewed",
     "citation": {
       "bookId": "exalted-the-abyssals",
       "printedPage": 210,
@@ -4248,7 +4248,7 @@
     "crossReferences": [
       "artful-conjuration-trick"
     ],
-    "notes": "Chapter Five: Charms, Day Caste Larceny tree, p. 210 (PDF 211). Closes out the Larceny tree (9 Charms total). Full rules text flagged for a follow-up close read before promotion."
+    "notes": "Chapter Five: Charms, Day Caste Larceny tree, p. 209-210 (PDF 210-211). Closes out the Larceny tree (9 Charms total). Full rules text re-verified against a direct visual re-check of the source page (Phase 1e); legible and matches this transcription. Promoted."
   },
   {
     "id": "concealing-distraction-discipline",
@@ -5273,10 +5273,10 @@
     "disposition": "selectable",
     "summary": "Shadowlands Circle spell; with this spell, the Exalt can absorb and smother the energy of hostile necromancy, or alternately extinguish a single Shadowlands Circle spell directed at her, and can counter higher-circle spells at greater mote costs.",
     "requirements": "Necromancy: Shadowlands Circle (see Necromancy Framework and Circles).",
-    "mechanics": "With this spell, the Exalt can absorb and smother the energy of hostile necromancy. If the character spends 10 motes, she may slash at the air, tearing ribbons of black power to swirl and bleed around her person. This shield negates all hostile spells of the Shadowlands Circle directed at her until the end of the next turn, but its cold seeps into her joints and bones, inflicting a -2 penalty to all Physical actions for as long as it persists. Alternately, for 20 motes, the caster can extinguish a single Shadowlands Circle spell within a number of feet equaling her permanent Essence x 50. Excalted opponents, but they are always extras in the process of being cast are torn asunder. This spell is extremely fast and takes effect as soon as the character spends Willpower. Countermagic can break bonds of servitude wrought by necromancy. Also, spells countered by Iron Countermagic shatter without inflicting any side effects; if used to counter a lower circle, the countermagic entirely annihilates the spell with no side effects or collateral damage. Counterered Void Circle spells still mar bystanders and ravage the earth, although in most cases, the backlash pale compared to the intended effects. More powerful versions of this spell exist higher on either circle: Onyx for Labyrinth and Void, Obsidian for Void. Each protects against spells of their circle or below. If used to counter a lower circle, the countermagic utterly annihilates the spell with no side effects or collateral damage. Necromantic countermagic can also oppose sorcery if it is one circle or higher, vice versa. Thus, Sapphire Countermagic (see Exalted, p. 221) may counter Shadowlands Circle spells as well, and Obsidian Countermagic may block Celestial Circle Sorcery, etc. The personal shield/direct extinguishing costs for Onyx and Obsidian are 15 motes/20 motes and 20 motes/25 motes respectively.",
-    "cost": "10 or 20 motes",
-    "compatibility": "Duration: Instant.",
-    "verificationState": "unreviewed",
+    "mechanics": "With this spell, the Exalted can absorb and smother the energy of hostile necromancy. If the character spends 10 motes, she may slash at the air, tearing ribbons of black power to swirl and bleed around her person. This shield negates all hostile spells of the Shadowlands Circle directed at her until the end of the next turn, but its cold seeps into her joints and bones, inflicting a -2 penalty to all Physical actions for as long as it persists. Alternately, for 20 motes, the caster can extinguish a single Shadowlands Circle spell within a number of feet equaling her permanent Essence x 50. Extant spells are disintegrated, while spells in the process of being cast are torn asunder. This spell is extremely fast and takes effect as soon as the character spends Willpower. Countermagic can banish summoned ghosts, although it cannot break bonds of servitude wrought by necromancy. Spells countered with Iron Countermagic shatter without inflicting any side effects; if used to counter a lower circle, the countermagic utterly annihilates the spell with no side effects or collateral damage. Countered Void Circle spells still mar bystanders and ravage the earth, although in most cases the backlash pales compared to the intended effects. More powerful versions of this spell exist at higher circles: Onyx for Labyrinth, Obsidian for Void. Each protects against spells of its own circle or below. Necromantic countermagic can also oppose sorcery if it is one circle or higher, and vice versa; thus Sapphire Countermagic (Exalted, p. 221) may counter Shadowlands Circle spells, while Obsidian Countermagic may block Celestial Circle Sorcery. The personal shield/direct-extinguishing costs for Onyx and Obsidian are 15 motes/20 motes and 20 motes/25 motes respectively.",
+    "cost": "10 or 20 motes (Onyx and Obsidian tiers cost more; see mechanics)",
+    "compatibility": "Duration: Until the end of the next turn (shield) or Instant (extinguish).",
+    "verificationState": "reviewed",
     "citation": {
       "bookId": "exalted-the-abyssals",
       "printedPage": 224,
@@ -5286,7 +5286,7 @@
       "necromancy-framework-and-circles",
       "piercing-the-shroud"
     ],
-    "notes": "Chapter Six: Necromancy, The Shadowlands Circle, pp. 224-225 (PDF 225-226). OCR of this spell's rules text is degraded in places (garbled clauses around the counter-lower-circle wording); the core mechanic (personal shield vs. targeted dispel, higher-circle Onyx/Obsidian variants) is clear, but flagged as unreviewed pending a cleaner re-read."
+    "notes": "Chapter Six: Necromancy, The Shadowlands Circle, pp. 224-226 (PDF 225-226). The earlier extraction pass's OCR was degraded and its transcription of the counter-lower-circle clause and the servitude-bond clause was garbled/inverted; a direct visual re-check of the source page (Phase 1e) produced a clean, complete transcription (this spell is a personal shield or an active spell-extinguishing effect against hostile Shadowlands Circle necromancy, not a passive dispel-ward on the caster's own spells). Promoted."
   },
   {
     "id": "piercing-the-shroud",
@@ -6656,13 +6656,13 @@
   {
     "id": "brick-by-brick-solitude",
     "name": "Brick-by-Brick Solitude",
-    "disposition": "unresolved",
+    "disposition": "selectable",
     "summary": "Labyrinth Circle version of Ringing Hun Rebuke; surrounds the necromancer with an expanding cylinder of arcane symbols that ghosts cannot pierce or make hand-to-hand attacks through.",
     "requirements": "Necromancy: Labyrinth Circle (see Necromancy Framework and Circles).",
-    "mechanics": "This greater, Labyrinth Circle version of Ringing Hun Rebuke summons several dozen arcane symbols in a cylinder around the necromancer that, if cast under direct sunlight, expand rapidly to a radius equal to ten times the caster's permanent Essence in yards. Ghosts cannot pierce this invisible boundary and therefore cannot make hand-to-hand attacks through it, though ranged attacks still function normally once they cross into range; the boundary moves with the necromancer and can shove most ghosts out of the way with a Strength rating three times the necromancer's own, though a sufficiently large and determined mob can still resist being pushed. The book does not restate an explicit Essence cost for this version; treat it as at least as costly as the base spell's 19 motes pending clarification. [FLAG: the sourcebook describes this variant in prose immediately following Ringing Hun Rebuke without a separate 'Cost:' header; the cost was not printed and should be treated as an open question rather than assumed.]",
-    "cost": "Not specified (greater version of Ringing Hun Rebuke)",
+    "mechanics": "This is the greater Labyrinth Circle version of Ringing Hun Rebuke. When cast, several dozen arcane symbols appear in a cylinder around the necromancer. Bright, as if drawn with pure sunlight, they expand rapidly to a radius equal to the caster's permanent Essence x 10 yards. Any ghosts closer than that boundary are pushed out to it as the wall expands. Ghosts are unable to pierce this boundary and, therefore, cannot make hand-to-hand attacks; ranged attacks suffer a loss of half their successes before they reach the necromancer. Brick-by-Brick Solitude does not increase the caster's Strength: while the boundary moves with him and will shove most ghosts out of his path with little effort, a sufficiently determined mob can still resist being pushed past a number of ghosts equal to three times his Strength rating.",
+    "cost": "Not specified in the source (see mechanics)",
     "compatibility": "Target: Area of effect.",
-    "verificationState": "unresolved",
+    "verificationState": "reviewed",
     "citation": {
       "bookId": "book-of-bone-and-ebony",
       "printedPage": 129,
@@ -6673,7 +6673,7 @@
       "labyrinth-circle-necromancy",
       "ringing-hun-rebuke"
     ],
-    "notes": "Chapter Five: Necromancy, The Labyrinth Circle, p. 129 (PDF 130), Book of Bone and Ebony."
+    "notes": "Chapter Five: Necromancy, The Labyrinth Circle, p. 129 (PDF 130), Book of Bone and Ebony. A direct visual re-check of the source page (Phase 1e) confirmed the full mechanics paragraph is legible and complete, and confirmed that the book genuinely never restates a separate mote cost or duration for this variant -- a real authorial omission (it is presented purely as a variant description following Ringing Hun Rebuke's own entry), not an extraction gap. Promoted with an honestly-null cost."
   },
   {
     "id": "seat-of-deadly-splendors",
@@ -7016,13 +7016,13 @@
   {
     "id": "barred-tomb",
     "name": "Barred Tomb",
-    "disposition": "unresolved",
+    "disposition": "selectable",
     "summary": "Void Circle version of Denying the Call; extends the temporary revival to up to an hour, with health levels equal to the caster's Essence.",
     "requirements": "Necromancy: Void Circle (see Necromancy Framework and Circles).",
-    "mechanics": "This greater, Void Circle version of Denying the Call extends the temporary revival of a recently dead creature to up to an hour, restoring it with health levels equal to the necromancer's Essence rather than the base spell's fixed level above Incapacitated. [FLAG: an explicit mote cost for this variant was not printed in the passage describing it; treat the cost as at least the base spell's 24 motes pending clarification.]",
-    "cost": "Not specified (greater version of Denying the Call)",
-    "compatibility": "Target: One recently dead creature.",
-    "verificationState": "unresolved",
+    "mechanics": "There exists a Void Circle variation of Denying the Call, called Barred Tomb, which places a recently departed soul back into its body for up to an hour, with a number of health levels equal to the caster's Essence, binding it to obey the necromancer's will for the duration. Like Denying the Call, these health levels can only be lost to aggravated damage, and this spell cannot be cast upon a target who has already been affected by Denying the Call or by Barred Tomb. Once a spirit is released by Barred Tomb, it appears in the Underworld with only a single health level.",
+    "cost": "Not specified in the source (see mechanics)",
+    "compatibility": "Target: One recently dead creature. Duration: Up to one hour.",
+    "verificationState": "reviewed",
     "citation": {
       "bookId": "book-of-bone-and-ebony",
       "printedPage": 134,
@@ -7033,7 +7033,7 @@
       "the-void-circle",
       "denying-the-call"
     ],
-    "notes": "Chapter Five: Necromancy, The Void Circle, p. 134 (PDF 135), Book of Bone and Ebony."
+    "notes": "Chapter Five: Necromancy, The Void Circle, p. 134 (PDF 135), Book of Bone and Ebony. A direct visual re-check of the source page (Phase 1e) confirmed the full mechanics paragraph is legible and complete (including the will-binding effect and the mutual-exclusion restriction with Denying the Call, both omitted from the earlier extraction pass), and confirmed that the book genuinely never restates a separate mote cost for this variant -- a real authorial omission, not an extraction gap. Promoted with an honestly-null cost."
   },
   {
     "id": "golden-shadows-cast-in-frieze",

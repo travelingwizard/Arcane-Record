@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { auditFamily } from '../../scripts/audit-exalted-sources.mjs';
 import { plannedExaltedFamilies } from '../../src/games/exalted1e/definitions';
 import {
   describeCatalog,
@@ -67,21 +68,37 @@ describe('exalted1e verification gate', () => {
         expect(record.browserTests).toBe('not-run');
       }
       // All five families have started source intake (inventory rows > 0).
-      // Abyssal has additionally had its Backgrounds, universal
-      // Merits/Flaws chapter, Charms, Necromancy spells, and Sorcery spells
-      // promoted to real production catalogs (500 of its 503 promotable
-      // rows -- see `SplatCatalogEvidence.promotableEntries`), and Sidereal
-      // has had its Backgrounds, universal Merits/Flaws chapter, Charms,
-      // and Sorcery spells promoted (360 rows: 12 Backgrounds + 82
-      // Merits/Flaws + 193 Charms + 73 Sorcery spells), but that alone must
-      // not unlock either family -- `checksum` stays empty until
-      // schema/creator/editor work for the remaining catalog dimensions
-      // (Sidereal's own Astrology/Colleges system; Abyssal's Artifacts,
-      // Hearthstones, Warstriders, the nemissary system) lands too.
+      // Abyssal (Phase 1e) has now had every one of its promotable rows
+      // promoted to real production catalogs (505 of 505: Backgrounds,
+      // universal Merits/Flaws chapter, all 227 Chapter Five Charms, all
+      // 106 Necromancy spells, and 86 Sorcery spells -- see
+      // `SplatCatalogEvidence.promotableEntries`), which is why it is the
+      // one family with a non-empty `catalog.checksum` (a real value
+      // computed by `scripts/audit-exalted-sources.mjs`, not a
+      // placeholder). Sidereal has had its Backgrounds, universal
+      // Merits/Flaws chapter, Charms, and Sorcery spells promoted (360
+      // rows: 12 Backgrounds + 82 Merits/Flaws + 193 Charms + 73 Sorcery
+      // spells), but that alone must not unlock it -- its `checksum` stays
+      // empty until schema/creator/editor work for its remaining catalog
+      // dimension (its own Astrology/Colleges system) lands too. Even with
+      // Abyssal's catalog dimension fully satisfied, `certifiedAt` stays
+      // null and the family stays locked: `browserTests` can't run before
+      // the family is unlocked, and Phase 6's rule requires all five
+      // families to reach `certifiedAt !== null` together.
       expect(record.catalog.promotedEntries).toBe(
-        family === 'abyssal' ? 500 : family === 'sidereal' ? 360 : 0,
+        family === 'abyssal' ? 505 : family === 'sidereal' ? 360 : 0,
       );
-      expect(record.catalog.checksum).toBe('');
+      if (family === 'abyssal') {
+        // Cross-check against the audit script's own live computation
+        // rather than hardcoding the hash, so this test can't silently go
+        // stale if the promoted catalog changes.
+        expect(record.catalog.checksum).toBe(
+          auditFamily('abyssal').catalogChecksum,
+        );
+        expect(record.catalog.checksum.length).toBeGreaterThan(0);
+      } else {
+        expect(record.catalog.checksum).toBe('');
+      }
     }
   });
 
@@ -103,19 +120,23 @@ describe('exalted1e verification gate', () => {
   it('reflects Abyssal source intake in progress without unlocking the family', () => {
     const record = certificationRecords.abyssal;
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
-    // 500 = the 80 universal Players Guide Merits/Flaws rows, the 6 new
-    // Abyssal-only Backgrounds, 225 Chapter Five Charms, 103 Necromancy
-    // spells, and 86 Sorcery spells (55 Terrestrial-circle rows reused from
-    // the shared Dragon-Blooded catalog plus 31 new Celestial-circle rows)
-    // promoted to production catalogs so far -- short of the 503
-    // `promotableEntries` target (which also counts 3 still-unreviewed
-    // Charm/spell rows), and far short of the raw `totalInventoryRows`
-    // (700), most of which is free-text-by-design
-    // Artifacts/Hearthstones/Warstriders/nemissary content that is never
-    // meant to become a catalog entry. Either way,
+    // 505 = the 80 universal Players Guide Merits/Flaws rows, the 6 new
+    // Abyssal-only Backgrounds, all 227 Chapter Five Charms, all 106
+    // Necromancy spells, and 86 Sorcery spells (55 Terrestrial-circle rows
+    // reused from the shared Dragon-Blooded catalog plus 31 new
+    // Celestial-circle rows) -- every one of Abyssal's `promotableEntries`
+    // (Phase 1e closed the last gap: 2 previously-unresolved Necromancy
+    // spells with no printed mote cost, and 3 previously-unreviewed
+    // Charm/spell rows, all resolved by direct source re-check). This is
+    // far short of the raw `totalInventoryRows` (700), most of which is
+    // free-text-by-design Artifacts/Hearthstones/Warstriders/nemissary
+    // content that is never meant to become a catalog entry -- and even a
+    // fully-satisfied catalog dimension must not unlock the family, since
+    // `browserTests` and Phase 6's all-five-together rule remain.
     // `isFamilyAvailable('abyssal')` must stay false.
-    expect(record.catalog.promotedEntries).toBe(500);
-    expect(record.catalog.promotableEntries).toBe(503);
+    expect(record.catalog.promotedEntries).toBe(505);
+    expect(record.catalog.promotableEntries).toBe(505);
+    expect(record.catalog.unresolvedEntries).toBe(0);
     expect(isFamilyAvailable('abyssal')).toBe(false);
   });
 
@@ -249,11 +270,11 @@ describe('exalted1e verification gate', () => {
     expect(status.blockReason).toContain('rules tests not-run');
   });
 
-  it('describes Abyssal as locked with its inventory-in-progress promotion count despite its passing test dimensions', () => {
+  it('describes Abyssal as locked with its now-complete catalog dimension despite its passing test dimensions', () => {
     const status = getFamilyCertificationStatus('abyssal');
     expect(status.available).toBe(false);
-    expect(status.blockReason).toContain('500/503 promoted');
-    expect(status.blockReason).toContain('2 unresolved');
+    expect(status.blockReason).toContain('505/505 promoted');
+    expect(status.blockReason).toContain('0 unresolved');
     expect(status.blockReason).toContain('rules tests pass');
     expect(status.blockReason).toContain('browser tests not-run');
   });

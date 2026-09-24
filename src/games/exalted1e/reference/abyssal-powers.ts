@@ -122,14 +122,15 @@ const abyssalNecromancySpellSchema = z.object({
 });
 
 /**
- * 225 of the 228 Chapter Five Charm rows in the Abyssal inventory. Excluded:
+ * 227 of the 228 Chapter Five Charm rows in the Abyssal inventory. Excluded:
  * `necromancy-framework-and-circles` (disposition `reference-only` framework
- * prose, not a selectable Charm) and two disposition-`selectable` rows whose
- * inventory `verificationState` is still `unreviewed` --
- * `soaring-raptor-prana` and `striking-snake-grab` -- since
- * `scripts/audit-exalted-sources.mjs` hard-fails any promoted catalog entry
- * backed by a not-yet-visually-reviewed inventory row. See
- * `abyssalUnreviewedExcludedCharmIds` below. Validated with a unique-id
+ * prose, not a selectable Charm). `soaring-raptor-prana` and
+ * `striking-snake-grab` (both Day Caste) were originally held back with
+ * inventory `verificationState: 'unreviewed'` because their rules-text
+ * paragraphs were not legibly captured in the first source pass; a direct
+ * visual re-check against *Exalted: The Abyssals* pp. 201 and 210 (Phase 1e)
+ * confirmed complete, legible mechanics for both, and both are now
+ * `reviewed`/`selectable` and promoted here. Validated with a unique-id
  * check; the full prerequisite-id round-trip (every `prerequisiteCharms`
  * entry resolves to another id in this same catalog) is covered by a
  * dedicated catalog-integrity test rather than here, per this phase's task
@@ -137,7 +138,7 @@ const abyssalNecromancySpellSchema = z.object({
  */
 const abyssalCharmCatalogSchema = z
   .array(abyssalCharmSchema)
-  .length(225)
+  .length(227)
   .superRefine((charms, context) => {
     const ids = charms.map(({ id }) => id);
     if (new Set(ids).size !== ids.length) {
@@ -149,15 +150,20 @@ const abyssalCharmCatalogSchema = z
   });
 
 /**
- * 103 of the 106 necromancy-spell rows in the Abyssal inventory (26 core
- * book + 80 Book of Bone and Ebony), minus 2 disposition-`unresolved` rows
- * with no printed mote cost (`brick-by-brick-solitude`, `barred-tomb`) and
- * 1 disposition-`selectable`-but-`unreviewed` row (`iron-countermagic`;
- * see `abyssalUnreviewedExcludedSpellIds` below).
+ * All 106 necromancy-spell rows in the Abyssal inventory (26 core book + 80
+ * Book of Bone and Ebony). Three rows were originally held back pending
+ * further source review, all now resolved in Phase 1e by a direct visual
+ * re-check of the cited pages: `iron-countermagic` (core book, p. 224) was
+ * `unreviewed`; `brick-by-brick-solitude` (Book of Bone and Ebony, p. 129)
+ * and `barred-tomb` (Book of Bone and Ebony, p. 134) were `unresolved`
+ * because the source text never restates an explicit mote cost for either
+ * Labyrinth/Void Circle variant -- confirmed as a genuine authorial
+ * omission, not an extraction failure, so both are promoted with
+ * `cost: null` and a `reviewFlags` note rather than a fabricated number.
  */
 const abyssalNecromancySpellCatalogSchema = z
   .array(abyssalNecromancySpellSchema)
-  .length(103)
+  .length(106)
   .superRefine((spells, context) => {
     const ids = spells.map(({ id }) => id);
     if (new Set(ids).size !== ids.length) {
@@ -313,37 +319,15 @@ export const abyssalNecromancySpellIds = new Set(
 );
 
 /**
- * The two disposition-`unresolved` inventory rows deliberately excluded
- * from this promotion pass, both missing a printed mote cost: the
- * Labyrinth Circle upgrade of Ringing Hun Rebuke and the Void Circle
- * upgrade of Denying the Call. Exported for tooling/tests that want to
- * cross-check the exclusion without re-deriving it from the inventory.
+ * Historical note (Phase 1e): `brick-by-brick-solitude`, `barred-tomb`,
+ * `soaring-raptor-prana`, `striking-snake-grab`, and `iron-countermagic`
+ * were previously excluded from the promoted catalogs above pending source
+ * re-review (2 `unresolved` for a missing printed mote cost, 3
+ * `unreviewed` for illegible source-pass transcription). A direct visual
+ * re-check of the cited *Exalted: The Abyssals* and *Book of Bone and
+ * Ebony* pages resolved all five; they are now promoted in
+ * `abyssal-charms.json`/`abyssal-necromancy.json` above like any other row.
+ * These exclusion-list exports were removed once empty; see
+ * `tests/unit/abyssal-charms-catalog.test.ts` for the coverage that
+ * replaced them.
  */
-export const abyssalUnresolvedNecromancySpellIds = [
-  'brick-by-brick-solitude',
-  'barred-tomb',
-] as const;
-
-/**
- * Two disposition-`selectable` Charm rows excluded from this promotion pass
- * because their inventory `verificationState` is still `unreviewed` (their
- * full rules-text paragraphs were not legibly captured in the source pass;
- * headers/costs/prerequisites are confirmed). `soaring-raptor-prana` is a
- * Day Caste Athletics tree Charm; `striking-snake-grab` closes out the Day
- * Caste Larceny tree. Promoting either would fail
- * `scripts/audit-exalted-sources.mjs`'s visual-review gate. Follow-up:
- * promote once a future inventory pass captures their full mechanics text
- * and flips `verificationState` to `reviewed`.
- */
-export const abyssalUnreviewedExcludedCharmIds = [
-  'soaring-raptor-prana',
-  'striking-snake-grab',
-] as const;
-
-/**
- * One disposition-`selectable` core-book necromancy-spell row
- * (`iron-countermagic`, Shadowlands Circle) excluded from this promotion
- * pass for the same `unreviewed`-verificationState reason as
- * `abyssalUnreviewedExcludedCharmIds` above.
- */
-export const abyssalUnreviewedExcludedSpellIds = ['iron-countermagic'] as const;

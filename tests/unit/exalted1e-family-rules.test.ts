@@ -43,18 +43,28 @@ describe('Exalted production verification gate', () => {
     // (real coverage added this phase -- see
     // `exalted-shared-records.test.ts`'s XP-cost tests,
     // `exalted-creation-panel.test.tsx`, and `exalted1e-abyssal.test.ts`'s
-    // migration test), and its catalog is 500/503 promoted. It still fails
-    // the overall gate because 5 catalog rows remain blocked on source
-    // access (see the record's own `blockers`) and `browserTests` cannot
-    // run until the family is unlocked -- a family never becomes available
-    // just because most of its dimensions have passed; every one must.
+    // migration test), and its catalog dimension is now fully satisfied
+    // too (505/505 promoted, 0 unresolved, a real non-empty checksum -- the
+    // 5 previously source-access-blocked rows were resolved this same
+    // phase). It still fails the overall gate because `browserTests`
+    // cannot run until the family is unlocked, and because `certifiedAt`
+    // deliberately stays null pending Phase 6's rule that all five planned
+    // families reach `certifiedAt !== null` together -- a family never
+    // becomes available just because most (or even all but one) of its
+    // dimensions have passed; every one must, including the final
+    // certification flip.
+    expect(certificationRecords.abyssal.catalog.promotedEntries).toBe(
+      certificationRecords.abyssal.catalog.promotableEntries,
+    );
+    expect(certificationRecords.abyssal.catalog.unresolvedEntries).toBe(0);
     expect(
-      certificationRecords.abyssal.catalog.promotedEntries,
+      certificationRecords.abyssal.catalog.checksum.length,
     ).toBeGreaterThan(0);
     expect(certificationRecords.abyssal.rulesTests).toBe('pass');
     expect(certificationRecords.abyssal.creatorTests).toBe('pass');
     expect(certificationRecords.abyssal.migrationTests).toBe('pass');
     expect(certificationRecords.abyssal.browserTests).not.toBe('pass');
+    expect(certificationRecords.abyssal.certifiedAt).toBeNull();
     expect(isFamilyAvailable('abyssal')).toBe(false);
     expect(canCreateProductionExaltedCharacter('abyssal')).toBe(false);
   });

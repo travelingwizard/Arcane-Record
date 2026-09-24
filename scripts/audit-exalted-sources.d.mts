@@ -48,6 +48,7 @@ export interface FamilyAuditReport {
   status: FamilyAuditStatus;
   inventoryRows: number;
   promotedEntries: number;
+  catalogChecksum: string;
   issues: AuditIssue[];
 }
 

@@ -8948,5 +8948,86 @@
     "sourceDisplay": "Exalted: The Abyssals, p. 223",
     "reviewStatus": "source-checked",
     "reviewFlags": []
+  },
+  {
+    "id": "soaring-raptor-prana",
+    "name": "Soaring Raptor Prana",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": "Athletics",
+    "style": null,
+    "caste": "Day",
+    "summary": "Caps the Day Caste Athletics tree; grants the Abyssal true flight after a full turn of concentration, at an upkeep of 2 motes per turn.",
+    "description": "Where he could only glide with Autumn Leaf's Descent, an Abyssal with this Charm can truly — if briefly — fly. The character must spend a full turn in concentration as he floods his being with Essence. At the end of the turn, he is borne aloft on spectral winds and may subsequently fly wherever he wishes. These winds cause capes and cloaks to billow and flutter, giving the illusion of wings if the character is so attired. Characters may keep this Charm active as long as they continue to spend 2 motes of Essence each turn, but they will stop flying normally once they stop paying this reflexive upkeep. All Essence spent on Soaring Raptor Prana is completely committed until the character ceases flying. While propelled by this Charm, Exalts move (Dexterity x 9) yards per turn and may attack other aerial combatants normally or assault targets on the ground using ranged weapons. Alternately, they can swoop and strike as they pass. Unless they are swooping, flying characters can only be attacked by ranged weapons, by other flying/leaping characters, or on the initiative count when they strike a ground-based target in close combat. As usual, characters rolling higher than the Abyssal can delay their initiative to strike at the necessary moment. Due to the Exalt's speed, individuals other than his target strike him at a -3 dice penalty unless wielding a long weapon, such as a spear, in which case the penalty drops to -1. The Exalt's target can attack him normally without penalty so long as the Exalt is attacking in return.",
+    "cost": "3 motes, 1 Willpower",
+    "duration": "Special",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Athletics",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "autumn-leafs-descent",
+      "falling-scythe-attack"
+    ],
+    "prerequisiteText": "Autumn Leaf's Descent; Falling Scythe Attack",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 201,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 201",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "striking-snake-grab",
+    "name": "Striking Snake Grab",
+    "systemId": "exalted1e",
+    "moduleId": "abyssal",
+    "exaltType": "abyssal",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": "Larceny",
+    "style": null,
+    "caste": "Day",
+    "summary": "Closes out the Day Caste Larceny tree; lets the Abyssal instantly steal a small, unsecured object in his line of sight.",
+    "description": "The Abyssal extends his hand in a lightning-fast clutching gesture, reaching out with his Essence to steal an object in his direct line of sight. The targeted object flickers and rematerializes from Elsewhere in the character's grasp. This Charm can only grab objects small enough to comfortably hold with one hand and may not take possession of an object that is part of a sentient being's grasp. Possessions on a person's body can be grabbed but not if they are securely fastened (a money pouch could be grabbed but not the belt it is affixed to, for example). Ultimately, the Storyteller retains final say on what can or cannot be taken with this Charm.",
+    "cost": "4 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Larceny",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "artful-conjuration-trick"
+    ],
+    "prerequisiteText": "Artful Conjuration Trick",
+    "sources": [
+      {
+        "bookId": "exalted-the-abyssals",
+        "bookLabel": "Exalted: The Abyssals",
+        "page": 210,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Abyssals, p. 210",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
   }
 ]

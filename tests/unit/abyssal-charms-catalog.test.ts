@@ -7,22 +7,19 @@ import {
   abyssalNecromancySpellById,
   abyssalNecromancySpellIds,
   abyssalNecromancySpells,
-  abyssalUnresolvedNecromancySpellIds,
-  abyssalUnreviewedExcludedCharmIds,
-  abyssalUnreviewedExcludedSpellIds,
 } from '../../src/games/exalted1e/reference/abyssal-powers';
 
 describe('Abyssal Charm and Necromancy spell catalogs (Phase 1b)', () => {
   it('loads all promoted Charm rows with unique stable IDs', () => {
-    expect(abyssalCharms).toHaveLength(225);
-    expect(abyssalCharmIds.size).toBe(225);
-    expect(abyssalCharmById.size).toBe(225);
+    expect(abyssalCharms).toHaveLength(227);
+    expect(abyssalCharmIds.size).toBe(227);
+    expect(abyssalCharmById.size).toBe(227);
   });
 
   it('loads all promoted Necromancy spell rows with unique stable IDs', () => {
-    expect(abyssalNecromancySpells).toHaveLength(103);
-    expect(abyssalNecromancySpellIds.size).toBe(103);
-    expect(abyssalNecromancySpellById.size).toBe(103);
+    expect(abyssalNecromancySpells).toHaveLength(106);
+    expect(abyssalNecromancySpellIds.size).toBe(106);
+    expect(abyssalNecromancySpellById.size).toBe(106);
   });
 
   it('assigns every Charm a valid Caste from the five documented Abyssal Castes', () => {
@@ -42,11 +39,11 @@ describe('Abyssal Charm and Necromancy spell catalogs (Phase 1b)', () => {
     expect(casteCounts.get('Dusk')).toBe(65);
     expect(casteCounts.get('Midnight')).toBe(42);
     expect(casteCounts.get('Daybreak')).toBe(41);
-    expect(casteCounts.get('Day')).toBe(38);
+    expect(casteCounts.get('Day')).toBe(40);
     expect(casteCounts.get('Moonshadow')).toBe(39);
     expect(
       Array.from(casteCounts.values()).reduce((sum, count) => sum + count, 0),
-    ).toBe(225);
+    ).toBe(227);
   });
 
   it('resolves every prerequisiteCharms entry to another id in the same catalog (no dangling references)', () => {
@@ -63,23 +60,34 @@ describe('Abyssal Charm and Necromancy spell catalogs (Phase 1b)', () => {
     }
   });
 
-  it('deliberately excludes the two unresolved (missing mote cost) spell rows', () => {
-    for (const id of abyssalUnresolvedNecromancySpellIds) {
-      expect(abyssalNecromancySpellById.has(id)).toBe(false);
-      expect(abyssalCharmById.has(id)).toBe(false);
+  it('promotes the two previously-unreviewed Day Caste Charms (Phase 1e)', () => {
+    for (const id of ['soaring-raptor-prana', 'striking-snake-grab']) {
+      const charm = abyssalCharmById.get(id);
+      expect(charm).toBeDefined();
+      expect(charm?.caste).toBe('Day');
+      expect(charm?.reviewStatus).toBe('source-checked');
     }
   });
 
-  it('deliberately excludes the still-unreviewed Charm rows', () => {
-    for (const id of abyssalUnreviewedExcludedCharmIds) {
-      expect(abyssalCharmById.has(id)).toBe(false);
-    }
+  it('promotes the previously-unreviewed core-book spell row (Phase 1e)', () => {
+    const spell = abyssalNecromancySpellById.get('iron-countermagic');
+    expect(spell).toBeDefined();
+    expect(spell?.circle).toBe('shadowlands');
+    expect(spell?.cost).not.toBeNull();
   });
 
-  it('deliberately excludes the still-unreviewed spell row', () => {
-    for (const id of abyssalUnreviewedExcludedSpellIds) {
-      expect(abyssalNecromancySpellById.has(id)).toBe(false);
+  it('promotes the two previously-unresolved Book of Bone and Ebony spell rows with an honestly-null cost (Phase 1e)', () => {
+    const brickByBrickSolitude = abyssalNecromancySpellById.get(
+      'brick-by-brick-solitude',
+    );
+    const barredTomb = abyssalNecromancySpellById.get('barred-tomb');
+    for (const spell of [brickByBrickSolitude, barredTomb]) {
+      expect(spell).toBeDefined();
+      expect(spell?.cost).toBeNull();
+      expect(spell?.reviewFlags.length).toBeGreaterThan(0);
     }
+    expect(brickByBrickSolitude?.circle).toBe('labyrinth');
+    expect(barredTomb?.circle).toBe('void');
   });
 
   it('assigns Combo rules to every Charm', () => {
@@ -109,12 +117,12 @@ describe('Abyssal Charm and Necromancy spell catalogs (Phase 1b)', () => {
         (circleCounts.get(spell.circle) ?? 0) + 1,
       );
     }
-    expect(circleCounts.get('shadowlands')).toBe(44);
-    expect(circleCounts.get('labyrinth')).toBe(34);
-    expect(circleCounts.get('void')).toBe(25);
+    expect(circleCounts.get('shadowlands')).toBe(45);
+    expect(circleCounts.get('labyrinth')).toBe(35);
+    expect(circleCounts.get('void')).toBe(26);
     expect(
       Array.from(circleCounts.values()).reduce((sum, count) => sum + count, 0),
-    ).toBe(103);
+    ).toBe(106);
   });
 
   it('gates every spell behind its circle-appropriate enabling Charm', () => {

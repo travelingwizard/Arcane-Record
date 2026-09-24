@@ -75,8 +75,8 @@ import { ExaltedCreationPanel } from './ExaltedCreationPanel';
 import { ExaltedFamilyStatePanel } from './ExaltedFamilyStatePanel';
 
 /**
- * Abyssal's Charms & Sorcery catalog for `ExaltedPowersSection`: the 225
- * Abyssal Charms plus every spell an Abyssal can legally reach (103
+ * Abyssal's Charms & Sorcery catalog for `ExaltedPowersSection`: all 227
+ * Abyssal Charms plus every spell an Abyssal can legally reach (all 106
  * Necromancy spells, their signature magic, and every Terrestrial/Celestial
  * Circle Sorcery spell via their own Sorcery-enabling Charms). Computed once
  * at module scope since all three source collections are static imports.
@@ -1469,7 +1469,7 @@ export function Exalted1eEditor({
                   character={draft}
                   definitions={abyssalPowerDefinitions}
                   catalogId="abyssal-power-catalog"
-                  catalogDescription="Choose from 225 Abyssal Charms and 103 Necromancy spells, plus every Terrestrial/Celestial Circle Sorcery spell reachable via Abyssal's own Sorcery-enabling Charms. Requirements are advisory; entries retain their cited book and page and are marked for source review."
+                  catalogDescription="Choose from 227 Abyssal Charms and 106 Necromancy spells, plus every Terrestrial/Celestial Circle Sorcery spell reachable via Abyssal's own Sorcery-enabling Charms. Requirements are advisory; entries retain their cited book and page and are marked for source review."
                   showElementFilter={false}
                   showCategory={false}
                   showCasteFilter
