@@ -42,14 +42,30 @@ describe('exalted1e verification gate', () => {
     }
   });
 
-  it('reports honest not-run test evidence and an empty checksum for every planned family, even where inventory intake or catalog promotion has started', () => {
+  it('reports honest test evidence and an empty checksum for every planned family, even where inventory intake, catalog promotion, or test-dimension work has started', () => {
     for (const family of plannedExaltedFamilies) {
       const record = certificationRecords[family];
       expect(record.certifiedAt).toBeNull();
-      expect(record.rulesTests).toBe('not-run');
-      expect(record.creatorTests).toBe('not-run');
-      expect(record.migrationTests).toBe('not-run');
-      expect(record.browserTests).toBe('not-run');
+      // Abyssal (Phase 1e) is the one exception: its rules/creator/
+      // migration test dimensions now have real, passing coverage (see
+      // `exalted-shared-records.test.ts`'s XP-cost tests,
+      // `exalted-creation-panel.test.tsx`, and `exalted1e-abyssal.test.ts`'s
+      // migration test) -- but its `browserTests` still can't run before
+      // the family is unlocked, and its catalog still has 5 rows blocked
+      // on source access (see its record's own `blockers`), so it remains
+      // fully locked regardless. Every other family stays 'not-run' on all
+      // four test dimensions.
+      if (family === 'abyssal') {
+        expect(record.rulesTests).toBe('pass');
+        expect(record.creatorTests).toBe('pass');
+        expect(record.migrationTests).toBe('pass');
+        expect(record.browserTests).toBe('not-run');
+      } else {
+        expect(record.rulesTests).toBe('not-run');
+        expect(record.creatorTests).toBe('not-run');
+        expect(record.migrationTests).toBe('not-run');
+        expect(record.browserTests).toBe('not-run');
+      }
       // All five families have started source intake (inventory rows > 0).
       // Abyssal has additionally had its Backgrounds, universal
       // Merits/Flaws chapter, Charms, Necromancy spells, and Sorcery spells
@@ -58,11 +74,10 @@ describe('exalted1e verification gate', () => {
       // has had its Backgrounds, universal Merits/Flaws chapter, Charms,
       // and Sorcery spells promoted (360 rows: 12 Backgrounds + 82
       // Merits/Flaws + 193 Charms + 73 Sorcery spells), but that alone must
-      // not unlock either family -- `checksum` stays empty and every
-      // test-evidence dimension stays 'not-run' until schema/creator/editor
-      // work for the remaining catalog dimensions (Sidereal's own
-      // Astrology/Colleges system; Abyssal's Artifacts, Hearthstones,
-      // Warstriders, the nemissary system) lands too.
+      // not unlock either family -- `checksum` stays empty until
+      // schema/creator/editor work for the remaining catalog dimensions
+      // (Sidereal's own Astrology/Colleges system; Abyssal's Artifacts,
+      // Hearthstones, Warstriders, the nemissary system) lands too.
       expect(record.catalog.promotedEntries).toBe(
         family === 'abyssal' ? 500 : family === 'sidereal' ? 360 : 0,
       );
@@ -208,10 +223,21 @@ describe('exalted1e verification gate', () => {
       expect(status.blockReason).toContain(
         `catalog ${promotedEntries}/${promotableEntries} promoted (${totalInventoryRows} total inventory rows), ${unresolvedEntries} unresolved`,
       );
-      expect(status.blockReason).toContain('rules tests not-run');
-      expect(status.blockReason).toContain('creator tests not-run');
-      expect(status.blockReason).toContain('migration tests not-run');
-      expect(status.blockReason).toContain('browser tests not-run');
+      // Abyssal (Phase 1e) is the one family whose rules/creator/migration
+      // dimensions now pass (see the previous test's comment); every other
+      // family, and Abyssal's own still-not-run browser dimension, keeps
+      // the generic 'not-run' wording.
+      if (family === 'abyssal') {
+        expect(status.blockReason).toContain('rules tests pass');
+        expect(status.blockReason).toContain('creator tests pass');
+        expect(status.blockReason).toContain('migration tests pass');
+        expect(status.blockReason).toContain('browser tests not-run');
+      } else {
+        expect(status.blockReason).toContain('rules tests not-run');
+        expect(status.blockReason).toContain('creator tests not-run');
+        expect(status.blockReason).toContain('migration tests not-run');
+        expect(status.blockReason).toContain('browser tests not-run');
+      }
     }
   });
 
@@ -223,12 +249,13 @@ describe('exalted1e verification gate', () => {
     expect(status.blockReason).toContain('rules tests not-run');
   });
 
-  it('describes Abyssal as locked with its inventory-in-progress promotion count', () => {
+  it('describes Abyssal as locked with its inventory-in-progress promotion count despite its passing test dimensions', () => {
     const status = getFamilyCertificationStatus('abyssal');
     expect(status.available).toBe(false);
     expect(status.blockReason).toContain('500/503 promoted');
     expect(status.blockReason).toContain('2 unresolved');
-    expect(status.blockReason).toContain('rules tests not-run');
+    expect(status.blockReason).toContain('rules tests pass');
+    expect(status.blockReason).toContain('browser tests not-run');
   });
 
   it('returns one status entry per planned family', () => {

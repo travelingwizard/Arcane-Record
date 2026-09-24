@@ -49,7 +49,6 @@ import { LanguagesSection } from './shared/languages/LanguagesSection';
 import { DerangementsSection } from './shared/derangements/DerangementsSection';
 import { ExperienceSection } from './shared/advancement/ExperienceSection';
 import { PossessionsSection } from './shared/possessions/PossessionsSection';
-import type { DragonBloodedPowerDefinition } from './reference/dragonblooded-powers';
 import { sharedSorcerySpellById } from './reference/dragonblooded-powers';
 import { solarCharms } from './reference/solar-charms';
 import {
@@ -230,6 +229,66 @@ export function Exalted1eEditor({
     }
     await onBack();
   };
+
+  /**
+   * Shared "learn a Charm/spell by spending XP" handler for
+   * `ExaltedPowersSection`'s `onLearnWithExperience` callback. Generic
+   * across families -- it only reads `definition.kind`/`.id`/`.name`, never
+   * a family-specific field -- so both the Dragon-Blooded and Abyssal
+   * branches below pass this same function; each family's own XP-cost
+   * math (favored-Aspect vs. favored-Caste) is computed upstream in
+   * `ExaltedPowersSection` via `getPowerExperienceCost`.
+   */
+  const learnPowerWithExperience = (
+    definition: ExaltedPowerDefinition,
+    cost: number,
+    explanation: string,
+  ) =>
+    update((current) => {
+      const key =
+        definition.kind === 'charm' ? ('charms' as const) : ('spells' as const);
+      if (
+        current.powers[key].some(
+          ({ definitionId }) => definitionId === definition.id,
+        ) ||
+        current.experienceLedger.reduce((sum, entry) => sum + entry.amount, 0) <
+          cost
+      ) {
+        return current;
+      }
+      return {
+        ...current,
+        powers: {
+          ...current.powers,
+          [key]: [
+            ...current.powers[key],
+            {
+              id: crypto.randomUUID(),
+              definitionId: definition.id,
+              notes: '',
+            },
+          ],
+        },
+        experienceLedger: [
+          ...current.experienceLedger,
+          {
+            id: crypto.randomUUID(),
+            date: new Date().toISOString().slice(0, 10),
+            session: '',
+            type: 'purchase',
+            amount: -cost,
+            category: definition.kind === 'charm' ? 'Charm' : 'Spell',
+            targetId: definition.id,
+            targetName: definition.name,
+            previousRating: null,
+            newRating: null,
+            description: `Learned ${definition.name}`,
+            notes: explanation,
+            createdAt: new Date().toISOString(),
+          },
+        ],
+      };
+    });
 
   const updateIdentity = (
     field: keyof Exalted1eCharacter['identity'],
@@ -1396,74 +1455,18 @@ export function Exalted1eEditor({
                   onChange={(powers) =>
                     update((current) => ({ ...current, powers }))
                   }
-                  onLearnWithExperience={(
-                    definition: DragonBloodedPowerDefinition,
-                    cost,
-                    explanation,
-                  ) =>
-                    update((current) => {
-                      const key =
-                        definition.kind === 'charm'
-                          ? ('charms' as const)
-                          : ('spells' as const);
-                      if (
-                        current.powers[key].some(
-                          ({ definitionId }) => definitionId === definition.id,
-                        ) ||
-                        current.experienceLedger.reduce(
-                          (sum, entry) => sum + entry.amount,
-                          0,
-                        ) < cost
-                      ) {
-                        return current;
-                      }
-                      return {
-                        ...current,
-                        powers: {
-                          ...current.powers,
-                          [key]: [
-                            ...current.powers[key],
-                            {
-                              id: crypto.randomUUID(),
-                              definitionId: definition.id,
-                              notes: '',
-                            },
-                          ],
-                        },
-                        experienceLedger: [
-                          ...current.experienceLedger,
-                          {
-                            id: crypto.randomUUID(),
-                            date: new Date().toISOString().slice(0, 10),
-                            session: '',
-                            type: 'purchase',
-                            amount: -cost,
-                            category:
-                              definition.kind === 'charm' ? 'Charm' : 'Spell',
-                            targetId: definition.id,
-                            targetName: definition.name,
-                            previousRating: null,
-                            newRating: null,
-                            description: `Learned ${definition.name}`,
-                            notes: explanation,
-                            createdAt: new Date().toISOString(),
-                          },
-                        ],
-                      };
-                    })
-                  }
+                  onLearnWithExperience={learnPowerWithExperience}
                 />
               ) : isAbyssal ? (
-                // Abyssal omits `character`/`onLearnWithExperience` (same as
-                // the Solar branch above): `getDragonBloodedPowerExperienceCost`
-                // computes cost from Dragon-Blooded's favored-Aspect Ability
-                // groups, which has no Abyssal equivalent (Abyssal is
-                // Caste-based, not Aspect-based) — wiring it in would risk
-                // silently-wrong XP costs. Follow-up: add real Abyssal
-                // Charm/spell XP-cost rules and wire this callback once they
-                // exist.
+                // Phase 1e: Abyssal now wires `character`/
+                // `onLearnWithExperience` too, using
+                // `getAbyssalPowerExperienceCost`'s favored-Caste/Favored
+                // Ability cost math (see `shared/advancement/rules.ts`)
+                // rather than Dragon-Blooded's favored-Aspect math, which
+                // does not apply to Abyssal's Caste-based structure.
                 <ExaltedPowersSection
                   powers={draft.powers}
+                  character={draft}
                   definitions={abyssalPowerDefinitions}
                   catalogId="abyssal-power-catalog"
                   catalogDescription="Choose from 225 Abyssal Charms and 103 Necromancy spells, plus every Terrestrial/Celestial Circle Sorcery spell reachable via Abyssal's own Sorcery-enabling Charms. Requirements are advisory; entries retain their cited book and page and are marked for source review."
@@ -1475,6 +1478,7 @@ export function Exalted1eEditor({
                   onChange={(powers) =>
                     update((current) => ({ ...current, powers }))
                   }
+                  onLearnWithExperience={learnPowerWithExperience}
                 />
               ) : (
                 // Sidereal, Lunar, Alchemical, and Fair Folk have no

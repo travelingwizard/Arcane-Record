@@ -2,14 +2,20 @@ import { describe, expect, it } from 'vitest';
 import { createBlankExaltedCharacter } from '../../src/games/exalted1e/create-character';
 import { migrateExalted1eCharacter } from '../../src/games/exalted1e/schema';
 import {
+  getAbyssalPowerExperienceCost,
   getDragonBloodedEssenceExperienceCost,
   getDragonBloodedPowerExperienceCost,
   getExperienceTotals,
+  isAbyssalAbilityFavored,
 } from '../../src/games/exalted1e/shared/advancement/rules';
 import {
   dragonBloodedCharms,
   dragonBloodedSpells,
 } from '../../src/games/exalted1e/reference/dragonblooded-powers';
+import {
+  abyssalCharmById,
+  abyssalNecromancySpellById,
+} from '../../src/games/exalted1e/reference/abyssal-powers';
 
 describe('shared Exalted records and Dragon-Blooded advancement', () => {
   it('keeps native, permanent, temporary, and custom languages distinct', () => {
@@ -127,6 +133,58 @@ describe('shared Exalted records and Dragon-Blooded advancement', () => {
         .cost,
     ).toBe(12);
     expect(getDragonBloodedEssenceExperienceCost(3)).toBe(30);
+  });
+
+  it('applies Abyssal favored-Caste and favored-Ability Charm/spell XP costs (Phase 1e)', () => {
+    const character = createBlankExaltedCharacter('abyssal');
+    const charm = abyssalCharmById.get('bloodthirsty-arrow')!;
+    expect(charm.ability).toBe('Archery');
+
+    // Archery is a Dusk-Caste ability; an uncommitted Caste means neither
+    // the explicit favoredAbilities list nor the Caste-ability lookup
+    // matches, so the Charm is Unfavored (12 XP).
+    character.identity.caste = '';
+    character.favoredAbilities = [];
+    expect(isAbyssalAbilityFavored(character, 'Archery')).toBe(false);
+    expect(getAbyssalPowerExperienceCost(character, charm)).toMatchObject({
+      cost: 12,
+      favored: false,
+      explanation: 'Unfavored new Charm',
+    });
+
+    // Selecting the Dusk Caste (which lists Archery as a Caste Ability,
+    // see `abyssalAbilityGroups`/family-rules.ts's `abilityCastes` for
+    // Abyssal) makes the same Charm Favored/Caste (10 XP) with no need to
+    // also list Archery in favoredAbilities.
+    character.identity.caste = 'Dusk';
+    expect(isAbyssalAbilityFavored(character, 'Archery')).toBe(true);
+    expect(getAbyssalPowerExperienceCost(character, charm)).toMatchObject({
+      cost: 10,
+      favored: true,
+      explanation: 'Favored/Caste new Charm',
+    });
+
+    // An explicitly chosen Favored Ability outside the character's Caste
+    // (Occult is a Daybreak-Caste ability, not Dusk's) is favored too.
+    character.identity.caste = 'Dusk';
+    character.favoredAbilities = ['occult'];
+    expect(isAbyssalAbilityFavored(character, 'Occult')).toBe(true);
+
+    // Necromancy spells (and, by the same convention, Sorcery spells) are
+    // always costed off Occult regardless of the spell's own metadata.
+    const spell = abyssalNecromancySpellById.get('hungry-creeping-shadow')!;
+    expect(getAbyssalPowerExperienceCost(character, spell)).toMatchObject({
+      cost: 10,
+      favored: true,
+      explanation: 'Favored/Caste new spell',
+    });
+    character.favoredAbilities = [];
+    character.identity.caste = 'Dusk';
+    expect(getAbyssalPowerExperienceCost(character, spell)).toMatchObject({
+      cost: 12,
+      favored: false,
+      explanation: 'Unfavored new spell',
+    });
   });
 
   it('migrates shared collections empty without inferring historical XP', () => {

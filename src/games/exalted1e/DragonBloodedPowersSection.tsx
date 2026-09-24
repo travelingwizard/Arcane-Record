@@ -14,6 +14,7 @@ import {
   type AbyssalNecromancySpellDefinition,
 } from './reference/abyssal-powers';
 import {
+  getAbyssalPowerExperienceCost,
   getDragonBloodedPowerExperienceCost,
   getExperienceTotals,
 } from './shared/advancement/rules';
@@ -61,15 +62,23 @@ function charmCaste(definition: ExaltedPowerDefinition): AbyssalCaste | null {
 
 /**
  * Abyssal Charm/spell definitions carry a literal `exaltType: 'abyssal'`
- * field that Dragon-Blooded/Solar definitions never have. Used to narrow the
- * widened union back down to the shape `getDragonBloodedPowerExperienceCost`
- * expects, since that function's cost math (favored-Aspect Ability groups)
- * is Dragon-Blooded-specific and does not apply to Abyssal.
+ * field that Dragon-Blooded/Solar definitions never have. Used to route
+ * XP-cost math to the right family's rule set: Dragon-Blooded's
+ * favored-Aspect-Ability-group cost function for anything without
+ * `exaltType`, or Abyssal's favored-Caste/Favored-Ability cost function
+ * (`getAbyssalPowerExperienceCost`) when it is present. Solar definitions
+ * also lack `exaltType`, but the Solar branch never passes `character`, so
+ * this function is only ever reached with `character` defined for
+ * Dragon-Blooded or Abyssal callers today.
  */
-function asDragonBloodedPower(
+function getPowerExperienceCost(
+  character: Exalted1eCharacter,
   definition: ExaltedPowerDefinition,
-): DragonBloodedCharmDefinition | TerrestrialSpellDefinition | null {
-  return 'exaltType' in definition ? null : definition;
+) {
+  if ('exaltType' in definition) {
+    return getAbyssalPowerExperienceCost(character, definition);
+  }
+  return getDragonBloodedPowerExperienceCost(character, definition);
 }
 
 /**
@@ -141,7 +150,7 @@ interface Props {
   definitions?: readonly ExaltedPowerDefinition[];
   character?: Exalted1eCharacter;
   onLearnWithExperience?: (
-    definition: DragonBloodedCharmDefinition | TerrestrialSpellDefinition,
+    definition: ExaltedPowerDefinition,
     cost: number,
     explanation: string,
   ) => void;
@@ -493,14 +502,9 @@ export function ExaltedPowersSection({
             {filteredDefinitions.slice(0, visibleCount).map((definition) => {
               const selected = selectedIds.has(definition.id);
               const charm = definition.kind === 'charm' ? definition : null;
-              const dragonBloodedDefinition = asDragonBloodedPower(definition);
-              const xp =
-                character && dragonBloodedDefinition
-                  ? getDragonBloodedPowerExperienceCost(
-                      character,
-                      dragonBloodedDefinition,
-                    )
-                  : null;
+              const xp = character
+                ? getPowerExperienceCost(character, definition)
+                : null;
               const availableXp = character
                 ? getExperienceTotals(character.experienceLedger).available
                 : 0;
@@ -596,7 +600,7 @@ export function ExaltedPowersSection({
                     ) : null}
                   </details>
                   <div className="exalted-action-row">
-                    {xp && onLearnWithExperience && dragonBloodedDefinition ? (
+                    {xp && onLearnWithExperience ? (
                       <button
                         type="button"
                         className="primary-button"
@@ -605,7 +609,7 @@ export function ExaltedPowersSection({
                         }
                         onClick={() =>
                           onLearnWithExperience(
-                            dragonBloodedDefinition,
+                            definition,
                             xp.cost,
                             xp.explanation,
                           )

@@ -4,7 +4,10 @@ import {
   abyssalBackgrounds,
   exaltedSheetTypes,
 } from '../../src/games/exalted1e/definitions';
-import { exalted1eCharacterSchema } from '../../src/games/exalted1e/schema';
+import {
+  exalted1eCharacterSchema,
+  migrateExalted1eCharacter,
+} from '../../src/games/exalted1e/schema';
 import {
   abyssalCharmById,
   abyssalNecromancySpellById,
@@ -349,9 +352,9 @@ describe('Exalted First Edition Abyssal (schema-only; not yet UI-selectable)', (
     it('accepts a legal Charm selection, including a satisfied prerequisite chain', () => {
       // twisting-spiteful-shaft lists bloodthirsty-arrow as a
       // prerequisiteCharms entry in the real catalog.
-      expect(abyssalCharmById.get('twisting-spiteful-shaft')?.prerequisiteCharms).toContain(
-        'bloodthirsty-arrow',
-      );
+      expect(
+        abyssalCharmById.get('twisting-spiteful-shaft')?.prerequisiteCharms,
+      ).toContain('bloodthirsty-arrow');
       const character = createBlankExaltedCharacter('abyssal');
       const parsed = exalted1eCharacterSchema.parse({
         ...character,
@@ -451,7 +454,9 @@ describe('Exalted First Edition Abyssal (schema-only; not yet UI-selectable)', (
 
   describe('Necromancy spells (real Abyssal spell catalog, Phase 1b)', () => {
     it('accepts a legal Necromancy spell selection', () => {
-      expect(abyssalNecromancySpellById.get('hungry-creeping-shadow')).toBeDefined();
+      expect(
+        abyssalNecromancySpellById.get('hungry-creeping-shadow'),
+      ).toBeDefined();
       const character = createBlankExaltedCharacter('abyssal');
       const parsed = exalted1eCharacterSchema.parse({
         ...character,
@@ -674,6 +679,69 @@ describe('Exalted First Edition Abyssal (schema-only; not yet UI-selectable)', (
           ],
         }),
       ).toThrow();
+    });
+  });
+
+  describe('Schema migration (Phase 1e: migration-dimension coverage)', () => {
+    it('migrates an old-shape Abyssal record (missing shared collections added in later schema versions) into a fully valid, re-parseable character', () => {
+      const character = createBlankExaltedCharacter('abyssal');
+      character.identity.caste = 'Dusk';
+      character.backgrounds = [
+        {
+          id: crypto.randomUUID(),
+          definitionId: 'necromancy',
+          rating: 2,
+          notes: '',
+          label: '',
+          description: '',
+          linkedEntityIds: [],
+          createdAt: new Date().toISOString(),
+        },
+      ];
+      character.powers = {
+        charms: [
+          {
+            id: crypto.randomUUID(),
+            definitionId: 'bloodthirsty-arrow',
+            unresolvedReference: null,
+            notes: '',
+          },
+        ],
+        spells: [],
+      };
+      const legacy = { ...character } as Record<string, unknown>;
+      // These collections were all added in schema versions after
+      // Abyssal's own fields (backgrounds, powers, identity.caste), so an
+      // Abyssal record captured before that point would be missing them
+      // entirely rather than having them present-but-empty.
+      for (const key of [
+        'languages',
+        'derangements',
+        'experienceLedger',
+        'downtimeAdvancement',
+        'possessions',
+        'manses',
+        'hearthstones',
+      ]) {
+        delete legacy[key];
+      }
+      const migrated = migrateExalted1eCharacter(legacy, 5);
+      expect(migrated.sheetType).toBe('abyssal');
+      // Abyssal-specific data captured before the missing fields were
+      // added survives migration untouched.
+      expect(migrated.identity.caste).toBe('Dusk');
+      expect(migrated.backgrounds[0]?.definitionId).toBe('necromancy');
+      expect(migrated.powers.charms[0]?.definitionId).toBe(
+        'bloodthirsty-arrow',
+      );
+      // The missing shared collections are backfilled empty rather than
+      // inferred, matching Dragon-Blooded's identical migration contract
+      // (see `exalted-shared-records.test.ts`'s equivalent test).
+      expect(migrated.languages).toEqual([]);
+      expect(migrated.derangements).toEqual([]);
+      expect(migrated.experienceLedger).toEqual([]);
+      expect(migrated.downtimeAdvancement).toEqual([]);
+      expect(exalted1eCharacterSchema.parse(migrated)).toEqual(migrated);
     });
   });
 });

@@ -37,16 +37,24 @@ describe('Exalted production verification gate', () => {
     }
   });
 
-  it('keeps an incomplete family blocked even where one dimension has real progress', () => {
-    // Abyssal and Sidereal have the most catalog progress of the five
-    // planned families (500/503 and 360/365 promoted respectively) but
-    // still fail the overall gate because their `rulesTests`/`creatorTests`/
-    // `migrationTests`/`browserTests` dimensions haven't run yet -- partial
-    // progress on one dimension never bypasses the others.
+  it('keeps an incomplete family blocked even where every other dimension has passed', () => {
+    // Abyssal (Phase 1e) is the furthest along of the five planned
+    // families: its rules/creator/migration test dimensions all pass now
+    // (real coverage added this phase -- see
+    // `exalted-shared-records.test.ts`'s XP-cost tests,
+    // `exalted-creation-panel.test.tsx`, and `exalted1e-abyssal.test.ts`'s
+    // migration test), and its catalog is 500/503 promoted. It still fails
+    // the overall gate because 5 catalog rows remain blocked on source
+    // access (see the record's own `blockers`) and `browserTests` cannot
+    // run until the family is unlocked -- a family never becomes available
+    // just because most of its dimensions have passed; every one must.
     expect(
       certificationRecords.abyssal.catalog.promotedEntries,
     ).toBeGreaterThan(0);
-    expect(certificationRecords.abyssal.rulesTests).not.toBe('pass');
+    expect(certificationRecords.abyssal.rulesTests).toBe('pass');
+    expect(certificationRecords.abyssal.creatorTests).toBe('pass');
+    expect(certificationRecords.abyssal.migrationTests).toBe('pass');
+    expect(certificationRecords.abyssal.browserTests).not.toBe('pass');
     expect(isFamilyAvailable('abyssal')).toBe(false);
     expect(canCreateProductionExaltedCharacter('abyssal')).toBe(false);
   });
