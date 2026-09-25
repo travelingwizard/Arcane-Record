@@ -2339,6 +2339,8 @@
   min-width: 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-flow: row dense;
+  align-items: stretch;
   gap: 0 var(--space-3);
 }
 
@@ -2350,6 +2352,7 @@
 .earthdawn-character-sheet:has([id='ed4-health'])
   > :is([id='ed4-characteristics'], [id='ed4-health']) {
   grid-column: auto;
+  height: 100%;
 }
 
 .earthdawn-character-sheet:has([id='ed4-health']) > [id='ed4-health'] {

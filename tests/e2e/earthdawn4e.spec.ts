@@ -137,6 +137,30 @@ test('uses compact catalogs, reasoned GM override, and completes a partial chara
     page.getByRole('switch', { name: /Earthdawn Edit and Play mode/ }),
   ).toBeChecked();
   await expect(page.getByRole('heading', { name: 'Identity' })).toBeVisible();
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  const dashboardBounds = await page.evaluate(() => {
+    const health = document
+      .getElementById('ed4-health')!
+      .getBoundingClientRect();
+    const characteristics = document
+      .getElementById('ed4-characteristics')!
+      .getBoundingClientRect();
+    return {
+      health: { top: health.top, bottom: health.bottom },
+      characteristics: {
+        top: characteristics.top,
+        bottom: characteristics.bottom,
+      },
+    };
+  });
+  expect(dashboardBounds.health.top).toBeCloseTo(
+    dashboardBounds.characteristics.top,
+    0,
+  );
+  expect(dashboardBounds.health.bottom).toBeCloseTo(
+    dashboardBounds.characteristics.bottom,
+    0,
+  );
 });
 
 test('completes an entirely blank creator without inventing required fields', async ({
