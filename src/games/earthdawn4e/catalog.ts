@@ -1,3 +1,5 @@
+import type { EarthdawnSpellReference } from './spell-types';
+
 export type EarthdawnCatalogKind =
   | 'race'
   | 'discipline'
@@ -28,7 +30,7 @@ export interface EarthdawnDefinition {
   aliases: string[];
   sourceId: string;
   source: string;
-  page: number;
+  page: number | null;
   verification: 'verified' | 'reference-only' | 'unresolved';
   costSilver?: number;
   skillCategory?: 'general' | 'knowledge' | 'artisan' | 'language';
@@ -41,6 +43,7 @@ export interface EarthdawnDefinition {
     citationText: string;
     sourceIds: string[];
   };
+  spellMetadata?: EarthdawnSpellReference;
 }
 export interface EarthdawnRace extends EarthdawnDefinition {
   attributes: Record<EarthdawnAttributeId, number>;
@@ -157,7 +160,7 @@ import {
   coreDisciplineProgressions,
   coreTalentOptions,
 } from './discipline-progressions';
-import { coreSpellRows } from './core-spells';
+import { earthdawnSpellReference } from './spell-reference';
 import { companionKnackRows } from './companion-knacks';
 import {
   questorDevotionProgressions,
@@ -537,19 +540,52 @@ export const earthdawnQuestorDefinitions: EarthdawnDefinition[] =
     };
   });
 
-export const earthdawnSpells: EarthdawnDefinition[] = coreSpellRows.map(
-  ([name, discipline, circle, page]) => ({
-    ...entry(
-      'spell',
-      name,
-      'ed4.players-guide',
-      page,
-      `${discipline} Circle ${circle} spell. Add it to the grimoire for editable casting details.`,
-      [`${discipline} Circle ${circle}`],
-    ),
-    mechanics: JSON.stringify({ discipline, circle }),
-  }),
-);
+export const earthdawnSpells: EarthdawnDefinition[] =
+  earthdawnSpellReference.map((rawSpell) => {
+    const spell: EarthdawnSpellReference = rawSpell;
+    const preferredVariant =
+      (spell.legacyPlayerGuideId
+        ? spell.variants.find(
+            (variant) => variant.sourceId === 'ed4.players-guide',
+          )
+        : undefined) ?? spell.variants[0]!;
+    const sourceId = spell.legacyPlayerGuideId
+      ? 'ed4.players-guide'
+      : preferredVariant.sourceId;
+    const source = earthdawnSources.find(({ id }) => id === sourceId)!;
+    return {
+      id: `${sourceId}.spell.${slug(spell.name)}`,
+      kind: 'spell',
+      name: spell.name,
+      summary: spell.description,
+      mechanics: JSON.stringify({
+        discipline: preferredVariant.discipline,
+        circle: preferredVariant.circleMin,
+        variants: spell.variants,
+        threadsText: spell.threadsText,
+        threadsValue: spell.threadsValue,
+        difficultyText: spell.difficultyText,
+        weavingDifficulty: spell.weavingDifficulty,
+        reattuningDifficulty: spell.reattuningDifficulty,
+        castingDifficulty: spell.castingDifficulty,
+        effectText: spell.effectText,
+      }),
+      requirements: spell.variants.map(
+        (variant) =>
+          `${variant.discipline} ${
+            variant.circleMin === variant.circleMax
+              ? `Circle ${variant.circleMin}`
+              : `Circles ${variant.circleMin}–${variant.circleMax}`
+          }`,
+      ),
+      aliases: [...spell.aliases],
+      sourceId,
+      source: source.title,
+      page: preferredVariant.pageStart,
+      verification: 'verified',
+      spellMetadata: spell,
+    } satisfies EarthdawnDefinition;
+  });
 
 const named = (
   kind: EarthdawnCatalogKind,

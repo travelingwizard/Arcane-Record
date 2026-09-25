@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { earthdawn4eGroupIds } from './definitions';
+import { earthdawnDefinitionById } from './catalog';
 
 const uuid = z.string().uuid();
 const nonnegative = z.number().int().nonnegative();
@@ -192,6 +193,15 @@ export const earthdawn4eCharacterSchema = z.object({
         effect: z.string(),
         learned: z.boolean(),
         notes: z.string(),
+        variantKey: z.string().nullable().optional(),
+        variantSourceId: z.string().nullable().optional(),
+        variantPageEnd: z.number().int().positive().nullable().optional(),
+        description: z.string().optional(),
+        threadsText: z.string().optional(),
+        difficultyText: z.string().optional(),
+        weavingDifficulty: nonnegative.nullable().optional(),
+        reattuningDifficulty: nonnegative.nullable().optional(),
+        castingDifficulty: nonnegative.nullable().optional(),
       }),
     ),
     matrices: z.array(
@@ -405,18 +415,55 @@ const isRecord = (value: unknown): value is Record<string, unknown> =>
 export function migrateEarthdawn4eCharacter(data: unknown) {
   const parsedCurrent = earthdawn4eCharacterSchema.safeParse(data);
   if (parsedCurrent.success) {
+    const normalized = earthdawn4eCharacterSchema.parse({
+      ...parsedCurrent.data,
+      magic: {
+        ...parsedCurrent.data.magic,
+        spells: parsedCurrent.data.magic.spells.map((spell) => {
+          if (!spell.definitionId || spell.variantKey) return spell;
+          const definition = earthdawnDefinitionById.get(spell.definitionId);
+          const metadata = definition?.spellMetadata;
+          if (!metadata) return spell;
+          const variant =
+            metadata.variants.find(
+              (candidate) =>
+                candidate.discipline === spell.discipline &&
+                spell.circle >= candidate.circleMin &&
+                spell.circle <= candidate.circleMax &&
+                (!spell.sourceId || candidate.sourceId === spell.sourceId),
+            ) ?? metadata.variants[0];
+          if (!variant) return spell;
+          return {
+            ...spell,
+            variantKey: `${variant.sourceId}|${variant.discipline}|${spell.circle}`,
+            variantSourceId: variant.sourceId,
+            variantPageEnd: variant.pageEnd,
+            description: metadata.description,
+            threadsText: metadata.threadsText,
+            difficultyText: metadata.difficultyText,
+            weavingDifficulty: metadata.weavingDifficulty ?? null,
+            reattuningDifficulty: metadata.reattuningDifficulty ?? null,
+            castingDifficulty: metadata.castingDifficulty ?? null,
+            effect: spell.effect || metadata.effectText,
+            threads: metadata.threadsValue ?? spell.threads,
+            weaving: spell.weaving || metadata.difficultyText,
+            casting: spell.casting || metadata.difficultyText,
+          };
+        }),
+      },
+    });
     if (
-      !parsedCurrent.data.creation.enforceRules &&
-      !parsedCurrent.data.creation.overrides.some(
+      !normalized.creation.enforceRules &&
+      !normalized.creation.overrides.some(
         ({ code }) => code === 'creator-global-override',
       )
     )
       return earthdawn4eCharacterSchema.parse({
-        ...parsedCurrent.data,
+        ...normalized,
         creation: {
-          ...parsedCurrent.data.creation,
+          ...normalized.creation,
           overrides: [
-            ...parsedCurrent.data.creation.overrides,
+            ...normalized.creation.overrides,
             {
               id: crypto.randomUUID(),
               code: 'creator-global-override',
@@ -426,7 +473,7 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
           ],
         },
       });
-    return parsedCurrent.data;
+    return normalized;
   }
   if (!isRecord(data)) return earthdawn4eCharacterSchema.parse(data);
   const now = new Date().toISOString();

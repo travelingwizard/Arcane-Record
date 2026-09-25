@@ -89,6 +89,7 @@ import {
   customDisciplineRepository,
   type CustomDisciplineDraft,
 } from './custom-discipline-repository';
+import type { EarthdawnSpellVariant } from './spell-types';
 
 const labels: Record<EarthdawnAttributeId, string> = {
   dexterity: 'Dexterity',
@@ -99,6 +100,71 @@ const labels: Record<EarthdawnAttributeId, string> = {
   charisma: 'Charisma',
 };
 const integer = (value: string) => Math.max(0, Number.parseInt(value, 10) || 0);
+type SpellSort =
+  | 'discipline-circle'
+  | 'name-asc'
+  | 'name-desc'
+  | 'circle-asc'
+  | 'circle-desc'
+  | 'source';
+type SpellChoice = {
+  key: string;
+  variant: EarthdawnSpellVariant;
+  circle: number;
+};
+const spellChoices = (definition: EarthdawnDefinition): SpellChoice[] =>
+  (definition.spellMetadata?.variants ?? []).flatMap((variant) =>
+    Array.from(
+      { length: variant.circleMax - variant.circleMin + 1 },
+      (_, index) => {
+        const circle = variant.circleMin + index;
+        return {
+          key: `${variant.sourceId}|${variant.discipline}|${circle}`,
+          variant,
+          circle,
+        };
+      },
+    ),
+  );
+const spellChoiceLabel = (choice: SpellChoice) => {
+  const page = choice.variant.pageStart
+    ? ` · p. ${choice.variant.pageStart}${
+        choice.variant.pageEnd !== choice.variant.pageStart
+          ? `–${choice.variant.pageEnd}`
+          : ''
+      }`
+    : '';
+  return `${choice.variant.discipline} · Circle ${choice.circle}${page}`;
+};
+const compareSpellDefinitions = (
+  left: EarthdawnDefinition,
+  right: EarthdawnDefinition,
+  sort: SpellSort,
+) => {
+  const leftChoice = spellChoices(left)[0];
+  const rightChoice = spellChoices(right)[0];
+  const byName = left.name.localeCompare(right.name);
+  if (sort === 'name-asc') return byName;
+  if (sort === 'name-desc') return -byName;
+  if (sort === 'source')
+    return (
+      left.source.localeCompare(right.source) ||
+      (left.page ?? Number.MAX_SAFE_INTEGER) -
+        (right.page ?? Number.MAX_SAFE_INTEGER) ||
+      byName
+    );
+  const circleDifference =
+    (leftChoice?.circle ?? 99) - (rightChoice?.circle ?? 99);
+  if (sort === 'circle-asc') return circleDifference || byName;
+  if (sort === 'circle-desc') return -circleDifference || byName;
+  return (
+    (leftChoice?.variant.discipline ?? '').localeCompare(
+      rightChoice?.variant.discipline ?? '',
+    ) ||
+    circleDifference ||
+    byName
+  );
+};
 const catalogFacts = (definition: EarthdawnDefinition) => {
   const facts: Array<[string, string]> = [];
   if (definition.costSilver != null)
@@ -163,6 +229,13 @@ export function Earthdawn4eEditor({
     [catalogAction, setCatalogAction] = useState('all'),
     [catalogDiscipline, setCatalogDiscipline] = useState('all'),
     [catalogCircle, setCatalogCircle] = useState('all'),
+    [catalogSpellSort, setCatalogSpellSort] =
+      useState<SpellSort>('discipline-circle'),
+    [sheetSpellSort, setSheetSpellSort] =
+      useState<SpellSort>('discipline-circle'),
+    [spellVariantSelections, setSpellVariantSelections] = useState<
+      Record<string, string>
+    >({}),
     [catalogEquipmentKind, setCatalogEquipmentKind] = useState('all'),
     [legendAmount, setLegendAmount] = useState(0),
     [legendDescription, setLegendDescription] = useState(''),
@@ -280,6 +353,7 @@ export function Earthdawn4eEditor({
     setCatalogAction('all');
     setCatalogDiscipline('all');
     setCatalogCircle('all');
+    setCatalogSpellSort('discipline-circle');
     setCatalogEquipmentKind('all');
   };
   const closeCatalog = () => {
@@ -409,8 +483,32 @@ export function Earthdawn4eEditor({
       {children}
     </SheetSection>
   );
-  const addCatalog = (definitionId: string, confirmed = false) => {
+  const addCatalog = (
+    definitionId: string,
+    confirmed = false,
+    requestedSpellChoice?: SpellChoice,
+  ) => {
     const d = earthdawnDefinitionById.get(definitionId)!;
+    const availableSpellChoices =
+      d.kind === 'spell'
+        ? spellChoices(d).filter(
+            ({ variant }) =>
+              draft.sources.enabledSourceIds.includes(variant.sourceId) ||
+              draft.sources.showUnavailable,
+          )
+        : [];
+    const selectedSpellChoice =
+      requestedSpellChoice ??
+      availableSpellChoices.find(
+        ({ key }) => spellVariantSelections[d.id] === key,
+      ) ??
+      availableSpellChoices.find(
+        ({ variant, circle }) =>
+          (catalogDiscipline === 'all' ||
+            variant.discipline === catalogDiscipline) &&
+          (catalogCircle === 'all' || circle === Number(catalogCircle)),
+      ) ??
+      availableSpellChoices[0];
     const alreadySelected = [
       ...draft.talents,
       ...draft.skills,
@@ -420,7 +518,15 @@ export function Earthdawn4eEditor({
       ...draft.weapons,
       ...draft.magic.effects,
       ...draft.abilities,
-    ].some((item) => item.definitionId === definitionId);
+    ].some(
+      (item) =>
+        item.definitionId === definitionId &&
+        (d.kind !== 'spell' ||
+          !selectedSpellChoice ||
+          ('variantKey' in item &&
+            (item.variantKey == null ||
+              item.variantKey === selectedSpellChoice.key))),
+    );
     if (alreadySelected) return;
     if (playMode && !confirmed && d.kind === 'knack') {
       let mechanics: { talents?: string[]; minimumRank?: number } = {};
@@ -456,7 +562,7 @@ export function Earthdawn4eEditor({
       return;
     }
     if (playMode && !confirmed && d.kind === 'spell') {
-      const circle = Number(d.requirements[0]?.match(/Circle (\d+)/)?.[1] ?? 1);
+      const circle = selectedSpellChoice?.circle ?? 1;
       const cost = spellLearningCost(circle);
       reviewAdvancement(
         {
@@ -465,9 +571,13 @@ export function Earthdawn4eEditor({
           silverCost: 0,
           training:
             'Complete the Patterncraft learning process and record the successful result.',
-          sourceCitation: `${d.source} p. ${d.page}; Player's Guide p. 252`,
+          sourceCitation: `${
+            earthdawnSources.find(
+              ({ id }) => id === selectedSpellChoice?.variant.sourceId,
+            )?.title ?? d.source
+          }${selectedSpellChoice?.variant.pageStart ? ` p. ${selectedSpellChoice.variant.pageStart}` : ''}; Player's Guide p. 252`,
         },
-        () => addCatalog(definitionId, true),
+        () => addCatalog(definitionId, true, selectedSpellChoice),
       );
       closeCatalog();
       return;
@@ -584,17 +694,32 @@ export function Earthdawn4eEditor({
               ...c.magic.spells,
               {
                 ...base,
-                discipline: d.requirements[0]?.split(' Circle ')[0] ?? '',
-                circle: Number(
-                  d.requirements[0]?.match(/Circle (\d+)/)?.[1] ?? 1,
-                ),
-                threads: 0,
-                weaving: '',
-                casting: '',
+                sourceId: selectedSpellChoice?.variant.sourceId ?? d.sourceId,
+                source:
+                  earthdawnSources.find(
+                    ({ id }) => id === selectedSpellChoice?.variant.sourceId,
+                  )?.title ?? d.source,
+                page: selectedSpellChoice?.variant.pageStart ?? d.page,
+                discipline: selectedSpellChoice?.variant.discipline ?? '',
+                circle: selectedSpellChoice?.circle ?? 1,
+                threads: d.spellMetadata?.threadsValue ?? 0,
+                weaving: d.spellMetadata?.difficultyText ?? '',
+                casting: d.spellMetadata?.difficultyText ?? '',
                 range: '',
                 duration: '',
-                effect: '',
+                effect: d.spellMetadata?.effectText ?? '',
                 learned: true,
+                variantKey: selectedSpellChoice?.key ?? null,
+                variantSourceId:
+                  selectedSpellChoice?.variant.sourceId ?? d.sourceId,
+                variantPageEnd: selectedSpellChoice?.variant.pageEnd ?? d.page,
+                description: d.spellMetadata?.description ?? d.summary,
+                threadsText: d.spellMetadata?.threadsText ?? '0',
+                difficultyText: d.spellMetadata?.difficultyText ?? '',
+                weavingDifficulty: d.spellMetadata?.weavingDifficulty ?? null,
+                reattuningDifficulty:
+                  d.spellMetadata?.reattuningDifficulty ?? null,
+                castingDifficulty: d.spellMetadata?.castingDifficulty ?? null,
               },
             ],
           },
@@ -605,15 +730,18 @@ export function Earthdawn4eEditor({
                   createLegendEntry({
                     type: 'spell',
                     amount: -spellLearningCost(
-                      Number(
-                        d.requirements[0]?.match(/Circle (\d+)/)?.[1] ?? 1,
-                      ),
+                      selectedSpellChoice?.circle ?? 1,
                     ),
                     targetId: d.id,
                     targetName: d.name,
                     beforeRating: 0,
                     afterRating: 1,
-                    sourceCitation: `${d.source} p. ${d.page}`,
+                    sourceCitation: `${
+                      earthdawnSources.find(
+                        ({ id }) =>
+                          id === selectedSpellChoice?.variant.sourceId,
+                      )?.title ?? d.source
+                    }${selectedSpellChoice?.variant.pageStart ? ` p. ${selectedSpellChoice.variant.pageStart}` : ''}`,
                     training: 'Patterncraft learning process',
                     description: `Learn ${d.name}`,
                   }),
@@ -1249,83 +1377,106 @@ export function Earthdawn4eEditor({
     devotion: ['Browse Devotions', 'Browse eligible Questor devotions.'],
     ability: ['Browse Abilities', 'Browse source-backed abilities.'],
   };
-  const visibleCatalog = earthdawnCatalog.filter((definition) => {
-    if (definition.kind === 'devotion' && !draft.sources.showUnavailable) {
-      try {
-        const mechanics = JSON.parse(definition.mechanics) as {
-          eligibility?: DevotionEligibility[];
-        };
-        if (
-          !mechanics.eligibility?.some(
-            ({ passion, minimumQuestorRank }) =>
-              passion === draft.questor.patronName &&
-              draft.questor.rank >= minimumQuestorRank,
+  const visibleCatalog = earthdawnCatalog
+    .filter((definition) => {
+      if (definition.kind === 'devotion' && !draft.sources.showUnavailable) {
+        try {
+          const mechanics = JSON.parse(definition.mechanics) as {
+            eligibility?: DevotionEligibility[];
+          };
+          if (
+            !mechanics.eligibility?.some(
+              ({ passion, minimumQuestorRank }) =>
+                passion === draft.questor.patronName &&
+                draft.questor.rank >= minimumQuestorRank,
+            )
           )
-        )
+            return false;
+        } catch {
           return false;
-      } catch {
-        return false;
+        }
       }
-    }
-    const kindMatches =
-      catalogKind === 'all' ||
-      definition.kind === catalogKind ||
-      (catalogKind === 'equipment' && definition.kind === 'weapon');
-    const sourceMatches =
-      catalogSource === 'all' ||
-      definition.sourceId === catalogSource ||
-      definition.talentMetadata?.sourceIds.includes(catalogSource);
-    const attributeMatches =
-      catalogAttribute === 'all' ||
-      Boolean(
-        definition.talentMetadata?.attributeText
+      const kindMatches =
+        catalogKind === 'all' ||
+        definition.kind === catalogKind ||
+        (catalogKind === 'equipment' && definition.kind === 'weapon');
+      const sourceMatches =
+        catalogSource === 'all' ||
+        definition.sourceId === catalogSource ||
+        definition.talentMetadata?.sourceIds.includes(catalogSource) ||
+        definition.spellMetadata?.variants.some(
+          ({ sourceId }) => sourceId === catalogSource,
+        );
+      const attributeMatches =
+        catalogAttribute === 'all' ||
+        Boolean(
+          definition.talentMetadata?.attributeText
+            .toLocaleLowerCase()
+            .includes(catalogAttribute),
+        );
+      const actionMatches =
+        catalogAction === 'all' ||
+        definition.talentMetadata?.actionText.includes(catalogAction);
+      let spellMatches = true;
+      if (definition.kind === 'spell') {
+        try {
+          const mechanics = JSON.parse(definition.mechanics) as {
+            discipline?: string;
+            circle?: number;
+          };
+          const choices = spellChoices(definition);
+          spellMatches =
+            choices.length > 0
+              ? choices.some(
+                  ({ variant, circle }) =>
+                    (catalogDiscipline === 'all' ||
+                      variant.discipline === catalogDiscipline) &&
+                    (catalogCircle === 'all' ||
+                      circle === Number(catalogCircle)) &&
+                    (catalogSource === 'all' ||
+                      variant.sourceId === catalogSource),
+                )
+              : (catalogDiscipline === 'all' ||
+                  mechanics.discipline === catalogDiscipline) &&
+                (catalogCircle === 'all' ||
+                  mechanics.circle === Number(catalogCircle));
+        } catch {
+          spellMatches = false;
+        }
+      }
+      const equipmentMatches =
+        catalogEquipmentKind === 'all' ||
+        definition.kind === catalogEquipmentKind ||
+        (catalogEquipmentKind === 'armor' &&
+          definition.kind === 'equipment' &&
+          /armor|shield/i.test(definition.name));
+      const sourceAvailable =
+        draft.sources.enabledSourceIds.includes(definition.sourceId) ||
+        definition.spellMetadata?.variants.some(({ sourceId }) =>
+          draft.sources.enabledSourceIds.includes(sourceId),
+        ) ||
+        draft.sources.showUnavailable;
+      const query = catalogSearch.trim().toLocaleLowerCase();
+      const searchMatches =
+        `${definition.name} ${definition.aliases.join(' ')} ${definition.summary} ${definition.source} ${definition.requirements.join(' ')} ${definition.talentMetadata?.attributeText ?? ''} ${definition.talentMetadata?.actionText ?? ''} ${definition.spellMetadata?.effectText ?? ''} ${definition.spellMetadata?.threadsText ?? ''} ${definition.spellMetadata?.difficultyText ?? ''} ${definition.spellMetadata?.variants.map((variant) => `${variant.discipline} ${variant.circleText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.pageStart ?? ''}`).join(' ') ?? ''}`
           .toLocaleLowerCase()
-          .includes(catalogAttribute),
+          .includes(query);
+      return (
+        kindMatches &&
+        sourceMatches &&
+        attributeMatches &&
+        actionMatches &&
+        spellMatches &&
+        equipmentMatches &&
+        sourceAvailable &&
+        searchMatches
       );
-    const actionMatches =
-      catalogAction === 'all' ||
-      definition.talentMetadata?.actionText.includes(catalogAction);
-    let spellMatches = true;
-    if (definition.kind === 'spell') {
-      try {
-        const mechanics = JSON.parse(definition.mechanics) as {
-          discipline?: string;
-          circle?: number;
-        };
-        spellMatches =
-          (catalogDiscipline === 'all' ||
-            mechanics.discipline === catalogDiscipline) &&
-          (catalogCircle === 'all' ||
-            mechanics.circle === Number(catalogCircle));
-      } catch {
-        spellMatches = false;
-      }
-    }
-    const equipmentMatches =
-      catalogEquipmentKind === 'all' ||
-      definition.kind === catalogEquipmentKind ||
-      (catalogEquipmentKind === 'armor' &&
-        definition.kind === 'equipment' &&
-        /armor|shield/i.test(definition.name));
-    const sourceAvailable =
-      draft.sources.enabledSourceIds.includes(definition.sourceId) ||
-      draft.sources.showUnavailable;
-    const query = catalogSearch.trim().toLocaleLowerCase();
-    const searchMatches =
-      `${definition.name} ${definition.summary} ${definition.source} ${definition.requirements.join(' ')} ${definition.talentMetadata?.attributeText ?? ''} ${definition.talentMetadata?.actionText ?? ''}`
-        .toLocaleLowerCase()
-        .includes(query);
-    return (
-      kindMatches &&
-      sourceMatches &&
-      attributeMatches &&
-      actionMatches &&
-      spellMatches &&
-      equipmentMatches &&
-      sourceAvailable &&
-      searchMatches
+    })
+    .sort((left, right) =>
+      catalogKind === 'spell'
+        ? compareSpellDefinitions(left, right, catalogSpellSort)
+        : left.name.localeCompare(right.name),
     );
-  });
   return (
     <CharacterSectionProvider value={context}>
       <SheetEditorShell
@@ -2251,99 +2402,87 @@ export function Earthdawn4eEditor({
                 'magic',
                 'Spells & Matrices',
                 <div className="earthdawn-record-stack">
-                  <button
-                    onClick={() => openCatalog('spell')}
-                    className="secondary-button"
-                  >
-                    Browse Spells
-                  </button>
-                  {draft.magic.spells.map((spell) => (
-                    <SheetCard key={spell.id} density="compact">
-                      <SheetFieldGrid columns={3}>
-                        <SheetField label="Spell">
-                          <input
-                            readOnly={playMode}
-                            value={spell.name}
-                            onChange={(e) =>
-                              update((c) => ({
-                                ...c,
-                                magic: {
-                                  ...c.magic,
-                                  spells: c.magic.spells.map((item) =>
-                                    item.id === spell.id
-                                      ? { ...item, name: e.target.value }
-                                      : item,
-                                  ),
-                                },
-                              }))
-                            }
-                          />
-                        </SheetField>
-                        <SheetField label="Circle">
-                          <input
-                            type="number"
-                            min="1"
-                            max="15"
-                            readOnly={playMode}
-                            value={spell.circle}
-                            onChange={(e) =>
-                              update((c) => ({
-                                ...c,
-                                magic: {
-                                  ...c.magic,
-                                  spells: c.magic.spells.map((item) =>
-                                    item.id === spell.id
-                                      ? {
-                                          ...item,
-                                          circle: Math.max(
-                                            1,
-                                            integer(e.target.value),
-                                          ),
-                                        }
-                                      : item,
-                                  ),
-                                },
-                              }))
-                            }
-                          />
-                        </SheetField>
-                        <SheetField label="Threads">
-                          <input
-                            type="number"
-                            min="0"
-                            readOnly={playMode}
-                            value={spell.threads}
-                            onChange={(e) =>
-                              update((c) => ({
-                                ...c,
-                                magic: {
-                                  ...c.magic,
-                                  spells: c.magic.spells.map((item) =>
-                                    item.id === spell.id
-                                      ? {
-                                          ...item,
-                                          threads: integer(e.target.value),
-                                        }
-                                      : item,
-                                  ),
-                                },
-                              }))
-                            }
-                          />
-                        </SheetField>
-                        {(
-                          [
-                            'weaving',
-                            'casting',
-                            'range',
-                            'duration',
-                            'effect',
-                            'notes',
-                          ] as const
-                        ).map((field) => (
-                          <SheetField key={field} label={field}>
+                  <SheetToolbar>
+                    <button
+                      onClick={() => openCatalog('spell')}
+                      className="secondary-button"
+                    >
+                      Browse Spells
+                    </button>
+                    <SheetField label="Sort selected spells">
+                      <select
+                        value={sheetSpellSort}
+                        onChange={(event) =>
+                          setSheetSpellSort(event.target.value as SpellSort)
+                        }
+                      >
+                        <option value="discipline-circle">
+                          Discipline, Circle, Name
+                        </option>
+                        <option value="name-asc">Name A–Z</option>
+                        <option value="name-desc">Name Z–A</option>
+                        <option value="circle-asc">Circle low–high</option>
+                        <option value="circle-desc">Circle high–low</option>
+                        <option value="source">Source and page</option>
+                      </select>
+                    </SheetField>
+                  </SheetToolbar>
+                  {[...draft.magic.spells]
+                    .sort((left, right) => {
+                      const byName = left.name.localeCompare(right.name);
+                      if (sheetSpellSort === 'name-asc') return byName;
+                      if (sheetSpellSort === 'name-desc') return -byName;
+                      if (sheetSpellSort === 'source')
+                        return (
+                          (left.source ?? '').localeCompare(
+                            right.source ?? '',
+                          ) ||
+                          (left.page ?? Number.MAX_SAFE_INTEGER) -
+                            (right.page ?? Number.MAX_SAFE_INTEGER) ||
+                          byName
+                        );
+                      const circleDifference = left.circle - right.circle;
+                      if (sheetSpellSort === 'circle-asc')
+                        return circleDifference || byName;
+                      if (sheetSpellSort === 'circle-desc')
+                        return -circleDifference || byName;
+                      return (
+                        left.discipline.localeCompare(right.discipline) ||
+                        circleDifference ||
+                        byName
+                      );
+                    })
+                    .map((spell) => (
+                      <SheetCard key={spell.id} density="compact">
+                        {spell.variantSourceId ? (
+                          <small className="catalog-card__source">
+                            {spell.source}
+                            {spell.page ? `, p. ${spell.page}` : ''}
+                            {spell.variantPageEnd &&
+                            spell.variantPageEnd !== spell.page
+                              ? `–${spell.variantPageEnd}`
+                              : ''}
+                          </small>
+                        ) : null}
+                        {spell.description ? <p>{spell.description}</p> : null}
+                        {spell.threadsText || spell.difficultyText ? (
+                          <p className="catalog-card__requirements">
+                            {spell.threadsText
+                              ? `Threads: ${spell.threadsText}`
+                              : ''}
+                            {spell.threadsText && spell.difficultyText
+                              ? ' · '
+                              : ''}
+                            {spell.difficultyText
+                              ? `Difficulty: ${spell.difficultyText}`
+                              : ''}
+                          </p>
+                        ) : null}
+                        <SheetFieldGrid columns={3}>
+                          <SheetField label="Spell">
                             <input
-                              value={spell[field]}
+                              readOnly={playMode}
+                              value={spell.name}
                               onChange={(e) =>
                                 update((c) => ({
                                   ...c,
@@ -2351,7 +2490,7 @@ export function Earthdawn4eEditor({
                                     ...c.magic,
                                     spells: c.magic.spells.map((item) =>
                                       item.id === spell.id
-                                        ? { ...item, [field]: e.target.value }
+                                        ? { ...item, name: e.target.value }
                                         : item,
                                     ),
                                   },
@@ -2359,10 +2498,90 @@ export function Earthdawn4eEditor({
                               }
                             />
                           </SheetField>
-                        ))}
-                      </SheetFieldGrid>
-                    </SheetCard>
-                  ))}
+                          <SheetField label="Circle">
+                            <input
+                              type="number"
+                              min="1"
+                              max="15"
+                              readOnly={playMode}
+                              value={spell.circle}
+                              onChange={(e) =>
+                                update((c) => ({
+                                  ...c,
+                                  magic: {
+                                    ...c.magic,
+                                    spells: c.magic.spells.map((item) =>
+                                      item.id === spell.id
+                                        ? {
+                                            ...item,
+                                            circle: Math.max(
+                                              1,
+                                              integer(e.target.value),
+                                            ),
+                                          }
+                                        : item,
+                                    ),
+                                  },
+                                }))
+                              }
+                            />
+                          </SheetField>
+                          <SheetField label="Threads">
+                            <input
+                              type="number"
+                              min="0"
+                              readOnly={playMode}
+                              value={spell.threads}
+                              onChange={(e) =>
+                                update((c) => ({
+                                  ...c,
+                                  magic: {
+                                    ...c.magic,
+                                    spells: c.magic.spells.map((item) =>
+                                      item.id === spell.id
+                                        ? {
+                                            ...item,
+                                            threads: integer(e.target.value),
+                                          }
+                                        : item,
+                                    ),
+                                  },
+                                }))
+                              }
+                            />
+                          </SheetField>
+                          {(
+                            [
+                              'weaving',
+                              'casting',
+                              'range',
+                              'duration',
+                              'effect',
+                              'notes',
+                            ] as const
+                          ).map((field) => (
+                            <SheetField key={field} label={field}>
+                              <input
+                                value={spell[field]}
+                                onChange={(e) =>
+                                  update((c) => ({
+                                    ...c,
+                                    magic: {
+                                      ...c.magic,
+                                      spells: c.magic.spells.map((item) =>
+                                        item.id === spell.id
+                                          ? { ...item, [field]: e.target.value }
+                                          : item,
+                                      ),
+                                    },
+                                  }))
+                                }
+                              />
+                            </SheetField>
+                          ))}
+                        </SheetFieldGrid>
+                      </SheetCard>
+                    ))}
                   <button
                     disabled={playMode}
                     className="secondary-button"
@@ -4771,6 +4990,23 @@ export function Earthdawn4eEditor({
                           ))}
                         </select>
                       </SheetField>
+                      <SheetField label="Sort spells">
+                        <select
+                          value={catalogSpellSort}
+                          onChange={(event) =>
+                            setCatalogSpellSort(event.target.value as SpellSort)
+                          }
+                        >
+                          <option value="discipline-circle">
+                            Discipline, Circle, Name
+                          </option>
+                          <option value="name-asc">Name A–Z</option>
+                          <option value="name-desc">Name Z–A</option>
+                          <option value="circle-asc">Circle low–high</option>
+                          <option value="circle-desc">Circle high–low</option>
+                          <option value="source">Source and page</option>
+                        </select>
+                      </SheetField>
                     </>
                   ) : null}
                   {catalogKind === 'equipment' ? (
@@ -4804,73 +5040,161 @@ export function Earthdawn4eEditor({
                   {visibleCatalog.length === 1 ? '' : 's'}
                 </p>
                 <div className="catalog-results">
-                  {visibleCatalog.map((d) => (
-                    <SheetCard key={d.id} className="catalog-card">
-                      <div className="catalog-card__heading">
-                        <div>
-                          <span className="kind-badge">
-                            {d.kind.replace('-', ' ')}
-                          </span>
-                          <h3>{d.name}</h3>
+                  {visibleCatalog.map((d) => {
+                    const choices = spellChoices(d).filter(
+                      ({ variant, circle }) =>
+                        (draft.sources.enabledSourceIds.includes(
+                          variant.sourceId,
+                        ) ||
+                          draft.sources.showUnavailable) &&
+                        (catalogSource === 'all' ||
+                          variant.sourceId === catalogSource) &&
+                        (catalogDiscipline === 'all' ||
+                          variant.discipline === catalogDiscipline) &&
+                        (catalogCircle === 'all' ||
+                          circle === Number(catalogCircle)),
+                    );
+                    const selectedChoice =
+                      choices.find(
+                        ({ key }) => spellVariantSelections[d.id] === key,
+                      ) ?? choices[0];
+                    const choiceSelected = draft.magic.spells.some(
+                      (spell) =>
+                        spell.definitionId === d.id &&
+                        (spell.variantKey == null ||
+                          spell.variantKey === selectedChoice?.key),
+                    );
+                    return (
+                      <SheetCard key={d.id} className="catalog-card">
+                        <div className="catalog-card__heading">
+                          <div>
+                            <span className="kind-badge">
+                              {d.kind.replace('-', ' ')}
+                            </span>
+                            <h3>{d.name}</h3>
+                          </div>
                         </div>
-                      </div>
-                      <p className="catalog-card__source">
-                        {d.source}, p. {d.page}
-                        {d.verification !== 'verified'
-                          ? ` · ${d.verification.replace('-', ' ')}`
-                          : ''}
-                      </p>
-                      <p>{d.summary}</p>
-                      {d.talentMetadata ? (
-                        <dl className="catalog-card__meta">
-                          <div>
-                            <dt>Attribute</dt>
-                            <dd>{d.talentMetadata.attributeText}</dd>
-                          </div>
-                          <div>
-                            <dt>Action</dt>
-                            <dd>{d.talentMetadata.actionText}</dd>
-                          </div>
-                          <div>
-                            <dt>Strain</dt>
-                            <dd>{d.talentMetadata.strainText}</dd>
-                          </div>
-                        </dl>
-                      ) : d.requirements.length ? (
-                        <p className="catalog-card__requirements">
-                          {d.requirements.join(' · ')}
+                        <p className="catalog-card__source">
+                          {d.source}
+                          {d.page ? `, p. ${d.page}` : ''}
+                          {d.verification !== 'verified'
+                            ? ` · ${d.verification.replace('-', ' ')}`
+                            : ''}
                         </p>
-                      ) : null}
-                      {catalogFacts(d).length ? (
-                        <dl className="catalog-card__meta">
-                          {catalogFacts(d).map(([label, value]) => (
-                            <div key={label}>
-                              <dt>{label}</dt>
-                              <dd>{value}</dd>
+                        <p>{d.summary}</p>
+                        {d.kind === 'spell' && d.spellMetadata ? (
+                          <>
+                            <dl className="catalog-card__meta">
+                              <div>
+                                <dt>Threads</dt>
+                                <dd>{d.spellMetadata.threadsText}</dd>
+                              </div>
+                              <div>
+                                <dt>Difficulty</dt>
+                                <dd>{d.spellMetadata.difficultyText}</dd>
+                              </div>
+                              <div>
+                                <dt>Effect</dt>
+                                <dd>{d.spellMetadata.effectText}</dd>
+                              </div>
+                            </dl>
+                            <details className="catalog-spell-variants">
+                              <summary>
+                                {choices.length} available source variant
+                                {choices.length === 1 ? '' : 's'}
+                              </summary>
+                              <SheetField label={`Choose ${d.name} variant`}>
+                                <select
+                                  value={selectedChoice?.key ?? ''}
+                                  onChange={(event) =>
+                                    setSpellVariantSelections((current) => ({
+                                      ...current,
+                                      [d.id]: event.target.value,
+                                    }))
+                                  }
+                                >
+                                  {choices.map((choice) => (
+                                    <option key={choice.key} value={choice.key}>
+                                      {spellChoiceLabel(choice)} ·{' '}
+                                      {earthdawnSources.find(
+                                        ({ id }) =>
+                                          id === choice.variant.sourceId,
+                                      )?.shortTitle ?? choice.variant.sourceId}
+                                    </option>
+                                  ))}
+                                </select>
+                              </SheetField>
+                            </details>
+                          </>
+                        ) : null}
+                        {d.talentMetadata ? (
+                          <dl className="catalog-card__meta">
+                            <div>
+                              <dt>Attribute</dt>
+                              <dd>{d.talentMetadata.attributeText}</dd>
                             </div>
-                          ))}
-                        </dl>
-                      ) : null}
-                      <button
-                        className="primary-button"
-                        disabled={
-                          selectedDefinitionIds.has(d.id) ||
-                          d.verification !== 'verified' ||
-                          (playMode &&
-                            ![
-                              'spell',
-                              'devotion',
-                              'thread-item',
-                              'knack',
-                            ].includes(d.kind)) ||
-                          !draft.sources.enabledSourceIds.includes(d.sourceId)
-                        }
-                        onClick={() => addCatalog(d.id)}
-                      >
-                        {selectedDefinitionIds.has(d.id) ? 'Selected' : 'Add'}
-                      </button>
-                    </SheetCard>
-                  ))}
+                            <div>
+                              <dt>Action</dt>
+                              <dd>{d.talentMetadata.actionText}</dd>
+                            </div>
+                            <div>
+                              <dt>Strain</dt>
+                              <dd>{d.talentMetadata.strainText}</dd>
+                            </div>
+                          </dl>
+                        ) : d.requirements.length ? (
+                          <p className="catalog-card__requirements">
+                            {d.requirements.join(' · ')}
+                          </p>
+                        ) : null}
+                        {catalogFacts(d).length ? (
+                          <dl className="catalog-card__meta">
+                            {catalogFacts(d).map(([label, value]) => (
+                              <div key={label}>
+                                <dt>{label}</dt>
+                                <dd>{value}</dd>
+                              </div>
+                            ))}
+                          </dl>
+                        ) : null}
+                        <button
+                          className="primary-button"
+                          disabled={
+                            (d.kind === 'spell'
+                              ? choiceSelected || !selectedChoice
+                              : selectedDefinitionIds.has(d.id)) ||
+                            d.verification !== 'verified' ||
+                            (playMode &&
+                              ![
+                                'spell',
+                                'devotion',
+                                'thread-item',
+                                'knack',
+                              ].includes(d.kind)) ||
+                            (d.kind === 'spell'
+                              ? !selectedChoice ||
+                                !draft.sources.enabledSourceIds.includes(
+                                  selectedChoice.variant.sourceId,
+                                )
+                              : !draft.sources.enabledSourceIds.includes(
+                                  d.sourceId,
+                                ))
+                          }
+                          onClick={() =>
+                            addCatalog(d.id, false, selectedChoice)
+                          }
+                        >
+                          {d.kind === 'spell'
+                            ? choiceSelected
+                              ? 'Selected'
+                              : 'Add variant'
+                            : selectedDefinitionIds.has(d.id)
+                              ? 'Selected'
+                              : 'Add'}
+                        </button>
+                      </SheetCard>
+                    );
+                  })}
                   {!visibleCatalog.length ? (
                     <p className="catalog-empty-state">
                       No entries match the current search and filters.

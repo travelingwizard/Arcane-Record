@@ -140,8 +140,19 @@ export function auditEarthdawnSourceInventory() {
       errors.push(`Unknown source: ${row.sourceId}`);
     if (row.definitionId && !catalogIds.has(row.definitionId))
       errors.push(`Unknown definition: ${row.definitionId}`);
-    if (row.disposition === 'selectable' && !row.printedPage)
-      errors.push(`Selectable row lacks citation: ${row.id}`);
+    if (row.disposition === 'selectable' && !row.printedPage) {
+      const definition = earthdawnCatalog.find(
+        ({ id }) => id === row.definitionId,
+      );
+      const hasSourceOnlySpellCitation =
+        definition?.kind === 'spell' &&
+        Boolean(definition.spellMetadata?.variants.length) &&
+        definition.spellMetadata!.variants.every(({ sourceId }) =>
+          sourceIds.has(sourceId),
+        );
+      if (!hasSourceOnlySpellCitation)
+        errors.push(`Selectable row lacks citation: ${row.id}`);
+    }
   }
   for (const definition of earthdawnCatalog) {
     if (

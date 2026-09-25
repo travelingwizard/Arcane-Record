@@ -72,7 +72,7 @@ describe('Earthdawn Fourth Edition module', () => {
       expect(coreTalentOptions[discipline.name]?.warden).toHaveLength(10);
       expect(coreTalentOptions[discipline.name]?.master).toHaveLength(8);
     }
-    expect(earthdawnSpells).toHaveLength(216);
+    expect(earthdawnSpells).toHaveLength(464);
     expect(earthdawnKnacks).toHaveLength(142);
     expect(earthdawnThreadItems).toHaveLength(50);
     expect(earthdawnTalents).toHaveLength(433);
@@ -133,22 +133,57 @@ describe('Earthdawn Fourth Edition module', () => {
         )!.mechanics,
       ).eligibility,
     ).toHaveLength(12);
-    expect(new Set(earthdawnSpells.map(({ id }) => id)).size).toBe(216);
+    expect(new Set(earthdawnSpells.map(({ id }) => id)).size).toBe(464);
+    expect(earthdawnSpells.find(({ name }) => name === 'Air Armor')?.id).toBe(
+      'ed4.players-guide.spell.air-armor',
+    );
+    expect(
+      earthdawnSpells.find(({ name }) => name === 'Astral Spear')
+        ?.spellMetadata,
+    ).toMatchObject({
+      threadsText: expect.any(String),
+      difficultyText: expect.any(String),
+      variants: expect.arrayContaining([
+        expect.objectContaining({ sourceId: 'ed4.players-guide' }),
+        expect.objectContaining({ sourceId: 'ed4.mystic-paths' }),
+      ]),
+    });
+    expect(
+      earthdawnSpells.some(
+        ({ spellMetadata }) =>
+          spellMetadata?.threadsValue == null &&
+          /special|see text|to|\+/i.test(spellMetadata?.threadsText ?? ''),
+      ),
+    ).toBe(true);
     for (const discipline of [
       'Elementalist',
       'Illusionist',
       'Nethermancer',
+      'Shaman',
       'Wizard',
     ]) {
       expect(
         new Set(
           earthdawnSpells
             .filter(({ requirements }) =>
-              requirements[0]?.startsWith(discipline),
+              requirements.some((requirement) =>
+                requirement.startsWith(discipline),
+              ),
             )
-            .map(({ requirements }) => requirements[0]),
+            .flatMap(({ spellMetadata }) =>
+              (spellMetadata?.variants ?? [])
+                .filter((variant) => variant.discipline === discipline)
+                .flatMap((variant) =>
+                  Array.from(
+                    {
+                      length: variant.circleMax - variant.circleMin + 1,
+                    },
+                    (_, index) => variant.circleMin + index,
+                  ),
+                ),
+            ),
         ).size,
-      ).toBe(8);
+      ).toBeGreaterThanOrEqual(8);
     }
   });
   it('quotes Companion knack learning at the required Novice talent rank', () => {
@@ -201,6 +236,39 @@ describe('Earthdawn Fourth Edition module', () => {
         reason: 'Legacy GM override retained during migration.',
       }),
     );
+  });
+  it('enriches legacy catalog spells without changing custom records', () => {
+    const character = createBlankEarthdawn4eCharacter({
+      status: 'manual',
+      mode: 'edit',
+    });
+    character.magic.spells.push({
+      id: crypto.randomUUID(),
+      definitionId: 'ed4.players-guide.spell.air-armor',
+      sourceId: 'ed4.players-guide',
+      source: 'Earthdawn Fourth Edition Player’s Guide',
+      page: 271,
+      unresolved: false,
+      name: 'Air Armor',
+      discipline: 'Elementalist',
+      circle: 1,
+      threads: 0,
+      weaving: '',
+      casting: '',
+      range: '',
+      duration: '',
+      effect: '',
+      learned: true,
+      notes: '',
+    });
+    const migrated = migrateEarthdawn4eCharacter(character);
+    expect(migrated.magic.spells[0]).toMatchObject({
+      variantKey: 'ed4.players-guide|Elementalist|1',
+      variantSourceId: 'ed4.players-guide',
+      description: expect.any(String),
+      threadsText: expect.any(String),
+      difficultyText: expect.stringContaining('Weaving:'),
+    });
   });
   it('migrates v2 equipment additively without flattening advancement history', () => {
     const legacy = createBlankEarthdawn4eCharacter();
@@ -542,7 +610,7 @@ describe('Earthdawn Fourth Edition module', () => {
         ({ sourceId, source, page }) =>
           earthdawnSources.some(({ id }) => id === sourceId) &&
           source.length > 0 &&
-          page > 0,
+          (page == null || page > 0),
       ),
     ).toBe(true);
     expect(auditEarthdawnSourceInventory()).toEqual([]);

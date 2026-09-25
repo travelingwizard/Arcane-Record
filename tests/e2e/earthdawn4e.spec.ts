@@ -285,9 +285,20 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   const spellDialog = page.getByRole('dialog', {
     name: 'Earthdawn catalog',
   });
+  await expect(
+    spellDialog.getByRole('combobox', { name: 'Sort spells' }),
+  ).toHaveValue('discipline-circle');
+  await spellDialog.getByRole('searchbox').fill('Air Armor');
+  const airArmorCard = spellDialog
+    .locator('.catalog-card')
+    .filter({ hasText: 'Air Armor' });
+  await expect(airArmorCard).toContainText('Weaving:');
+  await airArmorCard.getByText(/available source variant/).click();
+  await expect(
+    airArmorCard.getByRole('combobox', { name: 'Choose Air Armor variant' }),
+  ).toContainText('Elementalist · Circle 1');
   await spellDialog
-    .getByRole('button', { name: 'Add', exact: true })
-    .first()
+    .getByRole('button', { name: 'Add variant', exact: true })
     .click();
   await expect(page.getByText(/Learn Air Armor/)).toBeVisible();
   await page.getByRole('button', { name: 'Confirm purchase' }).click();
