@@ -61,7 +61,7 @@ describe('Earthdawn Fourth Edition module', () => {
       mode: 'edit',
     });
     expect(earthdawn4eCharacterSchema.parse(character)).toEqual(character);
-    expect(earthdawnSources).toHaveLength(10);
+    expect(earthdawnSources).toHaveLength(11);
     expect(character.sources.enabledSourceIds).toEqual(['ed4.players-guide']);
     expect(earthdawnRaces).toHaveLength(8);
     expect(earthdawnDisciplines).toHaveLength(15);
@@ -74,9 +74,9 @@ describe('Earthdawn Fourth Edition module', () => {
     }
     expect(earthdawnSpells).toHaveLength(464);
     expect(earthdawnKnacks).toHaveLength(142);
-    expect(earthdawnThreadItems).toHaveLength(50);
-    expect(earthdawnTalents).toHaveLength(433);
-    expect(new Set(earthdawnTalents.map(({ id }) => id)).size).toBe(433);
+    expect(earthdawnThreadItems).toHaveLength(142);
+    expect(earthdawnTalents).toHaveLength(450);
+    expect(new Set(earthdawnTalents.map(({ id }) => id)).size).toBe(450);
     expect(
       earthdawnTalents.find(({ name }) => name === 'Acrobatic Defense'),
     ).toMatchObject({
@@ -108,8 +108,15 @@ describe('Earthdawn Fourth Edition module', () => {
     ).toMatchObject({ defaultAttribute: 'dexterity', page: 185 });
     expect(
       skills.filter(({ skillCategory }) => skillCategory === 'language'),
-    ).toHaveLength(16);
-    expect(new Set(earthdawnThreadItems.map(({ id }) => id)).size).toBe(50);
+    ).toHaveLength(19);
+    expect(new Set(earthdawnThreadItems.map(({ id }) => id)).size).toBe(142);
+    expect(
+      earthdawnThreadItems.some(
+        ({ threadItemMetadata }) =>
+          threadItemMetadata?.provenance === 'workbook' &&
+          Boolean(threadItemMetadata.inferredKeyKnowledge),
+      ),
+    ).toBe(true);
     expect(new Set(earthdawnKnacks.map(({ id }) => id)).size).toBe(142);
     expect(
       earthdawnKnacks.find(({ name }) => name === 'Craft True Pattern'),

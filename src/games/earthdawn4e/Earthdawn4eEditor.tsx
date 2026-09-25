@@ -228,6 +228,12 @@ export function Earthdawn4eEditor({
     [catalogAttribute, setCatalogAttribute] = useState('all'),
     [catalogAction, setCatalogAction] = useState('all'),
     [catalogDiscipline, setCatalogDiscipline] = useState('all'),
+    [catalogTalentMembership, setCatalogTalentMembership] = useState('all'),
+    [catalogSkillCategory, setCatalogSkillCategory] = useState('all'),
+    [catalogSkillSort, setCatalogSkillSort] = useState<'category' | 'name'>(
+      'category',
+    ),
+    [catalogThreadType, setCatalogThreadType] = useState('all'),
     [catalogCircle, setCatalogCircle] = useState('all'),
     [catalogSpellSort, setCatalogSpellSort] =
       useState<SpellSort>('discipline-circle'),
@@ -245,6 +251,7 @@ export function Earthdawn4eEditor({
     [karmaEligibility, setKarmaEligibility] = useState('none'),
     [recoveryKarma, setRecoveryKarma] = useState(false),
     [woundBalanceKarma, setWoundBalanceKarma] = useState(false),
+    [damageAmount, setDamageAmount] = useState(1),
     [noteSearch, setNoteSearch] = useState(''),
     [noteKind, setNoteKind] = useState<'all' | 'general' | 'campaign'>('all'),
     [noteSort, setNoteSort] = useState<'updated' | 'session'>('updated'),
@@ -419,6 +426,11 @@ export function Earthdawn4eEditor({
   const reviewAdvancement = (quote: AdvancementQuote, action: () => void) => {
     advancementActionRef.current = action;
     setAdvancementQuote(quote);
+    window.requestAnimationFrame(() =>
+      document
+        .getElementById('ed4-advancement')
+        ?.scrollIntoView({ behavior: 'smooth', block: 'start' }),
+    );
   };
   const summaries = Object.fromEntries(
     activeSections.map((s) => [
@@ -1417,6 +1429,40 @@ export function Earthdawn4eEditor({
       const actionMatches =
         catalogAction === 'all' ||
         definition.talentMetadata?.actionText.includes(catalogAction);
+      let talentDisciplineMatches = true;
+      if (definition.kind === 'talent' && catalogDiscipline !== 'all') {
+        const discipline = earthdawnDisciplines.find(
+          ({ name }) => name === catalogDiscipline,
+        );
+        const normalizedName = definition.name.toLocaleLowerCase();
+        const required = Boolean(
+          discipline?.circles.some((circle) =>
+            circle.requiredTalents.some(
+              (talent) => talent.toLocaleLowerCase() === normalizedName,
+            ),
+          ),
+        );
+        const optional = Boolean(
+          discipline &&
+          Object.values(discipline.talentOptions).some((talents) =>
+            talents.some(
+              (talent) => talent.toLocaleLowerCase() === normalizedName,
+            ),
+          ),
+        );
+        talentDisciplineMatches =
+          catalogTalentMembership === 'required'
+            ? required
+            : catalogTalentMembership === 'optional'
+              ? optional
+              : required || optional;
+      }
+      const skillCategoryMatches =
+        catalogSkillCategory === 'all' ||
+        definition.skillCategory === catalogSkillCategory;
+      const threadTypeMatches =
+        catalogThreadType === 'all' ||
+        definition.threadItemMetadata?.itemType === catalogThreadType;
       let spellMatches = true;
       if (definition.kind === 'spell') {
         try {
@@ -1458,7 +1504,7 @@ export function Earthdawn4eEditor({
         draft.sources.showUnavailable;
       const query = catalogSearch.trim().toLocaleLowerCase();
       const searchMatches =
-        `${definition.name} ${definition.aliases.join(' ')} ${definition.summary} ${definition.source} ${definition.requirements.join(' ')} ${definition.talentMetadata?.attributeText ?? ''} ${definition.talentMetadata?.actionText ?? ''} ${definition.spellMetadata?.effectText ?? ''} ${definition.spellMetadata?.threadsText ?? ''} ${definition.spellMetadata?.difficultyText ?? ''} ${definition.spellMetadata?.variants.map((variant) => `${variant.discipline} ${variant.circleText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.pageStart ?? ''}`).join(' ') ?? ''}`
+        `${definition.name} ${definition.aliases.join(' ')} ${definition.summary} ${definition.source} ${definition.page ?? ''} ${definition.requirements.join(' ')} ${definition.skillCategory ?? ''} ${definition.talentMetadata?.attributeText ?? ''} ${definition.talentMetadata?.actionText ?? ''} ${definition.talentMetadata?.descriptionText ?? ''} ${definition.talentMetadata?.requirementsText ?? ''} ${definition.threadItemMetadata?.itemType ?? ''} ${definition.threadItemMetadata?.inferredKeyKnowledge ?? ''} ${definition.spellMetadata?.effectText ?? ''} ${definition.spellMetadata?.threadsText ?? ''} ${definition.spellMetadata?.difficultyText ?? ''} ${definition.spellMetadata?.variants.map((variant) => `${variant.discipline} ${variant.circleText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.pageStart ?? ''}`).join(' ') ?? ''}`
           .toLocaleLowerCase()
           .includes(query);
       return (
@@ -1466,17 +1512,24 @@ export function Earthdawn4eEditor({
         sourceMatches &&
         attributeMatches &&
         actionMatches &&
+        talentDisciplineMatches &&
+        skillCategoryMatches &&
+        threadTypeMatches &&
         spellMatches &&
         equipmentMatches &&
         sourceAvailable &&
         searchMatches
       );
     })
-    .sort((left, right) =>
-      catalogKind === 'spell'
-        ? compareSpellDefinitions(left, right, catalogSpellSort)
-        : left.name.localeCompare(right.name),
-    );
+    .sort((left, right) => {
+      if (catalogKind === 'spell')
+        return compareSpellDefinitions(left, right, catalogSpellSort);
+      if (catalogKind === 'skill' && catalogSkillSort === 'category')
+        return `${left.skillCategory ?? ''}:${left.name}`.localeCompare(
+          `${right.skillCategory ?? ''}:${right.name}`,
+        );
+      return left.name.localeCompare(right.name);
+    });
   return (
     <CharacterSectionProvider value={context}>
       <SheetEditorShell
@@ -1964,104 +2017,107 @@ export function Earthdawn4eEditor({
                       </div>
                     </SheetCard>
                   ))}
-                  <SheetCard density="compact">
-                    <SheetFieldGrid columns={3}>
-                      <SheetField label="Patron Passion">
-                        <input
-                          readOnly
-                          value={draft.questor.patronName || 'Not a Questor'}
-                        />
-                      </SheetField>
-                      <SheetField label="Questor rank">
-                        <input
-                          type="number"
-                          min="0"
-                          max="12"
-                          disabled={playMode}
-                          value={draft.questor.rank}
-                          onChange={(event) => {
-                            const rank = Math.min(
-                              12,
-                              integer(event.target.value),
-                            );
-                            update((current) => ({
-                              ...current,
-                              questor: {
-                                ...current.questor,
-                                rank,
-                                tier: questorTier(rank),
-                              },
-                            }));
-                          }}
-                        />
-                      </SheetField>
-                      <span>
-                        Tier <strong>{draft.questor.tier}</strong>
-                      </span>
-                      {playMode && draft.questor.patronName ? (
-                        <button
-                          type="button"
-                          className="secondary-button"
-                          disabled={draft.questor.rank >= 12}
-                          onClick={() => {
-                            const nextRank = draft.questor.rank + 1;
-                            const cost = questorRankCost(nextRank);
-                            const crossesTier = [5, 9].includes(nextRank);
-                            reviewAdvancement(
-                              {
-                                title: `Raise Questor rank to ${nextRank}`,
-                                cost,
-                                silverCost: 0,
-                                training:
-                                  'Commune with the patron Passion; only one devotion may advance per day.',
-                                sourceCitation: 'Questors pp. 133–135',
-                                warning: crossesTier
-                                  ? 'This crosses a Questor tier and requires a completed quest approved by the gamemaster.'
-                                  : undefined,
-                              },
-                              () =>
-                                update((current) => {
-                                  if (
-                                    legendTotals(current.advancement.ledger)
-                                      .current < cost
-                                  )
-                                    return current;
-                                  const before = current.questor.rank;
-                                  return {
-                                    ...current,
-                                    questor: {
-                                      ...current.questor,
-                                      rank: before + 1,
-                                      tier: questorTier(before + 1),
-                                    },
-                                    advancement: {
-                                      ledger: [
-                                        ...current.advancement.ledger,
-                                        createLegendEntry({
-                                          type: 'questor',
-                                          amount: -cost,
-                                          targetId: 'questor-rank',
-                                          targetName: 'Questor rank',
-                                          beforeRating: before,
-                                          afterRating: before + 1,
-                                          training:
-                                            'Communion; one rank per day',
-                                          sourceCitation:
-                                            'Questors pp. 133–135',
-                                          description: `Raise Questor rank to ${before + 1}`,
-                                        }),
-                                      ],
-                                    },
-                                  };
-                                }),
-                            );
-                          }}
-                        >
-                          Advance Questor rank
-                        </button>
-                      ) : null}
-                    </SheetFieldGrid>
-                  </SheetCard>
+                  {draft.questor.patronName &&
+                  draft.questorPaths.length === 0 ? (
+                    <SheetCard density="compact">
+                      <SheetFieldGrid columns={3}>
+                        <SheetField label="Patron Passion">
+                          <input
+                            readOnly
+                            value={draft.questor.patronName || 'Not a Questor'}
+                          />
+                        </SheetField>
+                        <SheetField label="Questor rank">
+                          <input
+                            type="number"
+                            min="0"
+                            max="12"
+                            disabled={playMode}
+                            value={draft.questor.rank}
+                            onChange={(event) => {
+                              const rank = Math.min(
+                                12,
+                                integer(event.target.value),
+                              );
+                              update((current) => ({
+                                ...current,
+                                questor: {
+                                  ...current.questor,
+                                  rank,
+                                  tier: questorTier(rank),
+                                },
+                              }));
+                            }}
+                          />
+                        </SheetField>
+                        <span>
+                          Tier <strong>{draft.questor.tier}</strong>
+                        </span>
+                        {playMode && draft.questor.patronName ? (
+                          <button
+                            type="button"
+                            className="secondary-button"
+                            disabled={draft.questor.rank >= 12}
+                            onClick={() => {
+                              const nextRank = draft.questor.rank + 1;
+                              const cost = questorRankCost(nextRank);
+                              const crossesTier = [5, 9].includes(nextRank);
+                              reviewAdvancement(
+                                {
+                                  title: `Raise Questor rank to ${nextRank}`,
+                                  cost,
+                                  silverCost: 0,
+                                  training:
+                                    'Commune with the patron Passion; only one devotion may advance per day.',
+                                  sourceCitation: 'Questors pp. 133–135',
+                                  warning: crossesTier
+                                    ? 'This crosses a Questor tier and requires a completed quest approved by the gamemaster.'
+                                    : undefined,
+                                },
+                                () =>
+                                  update((current) => {
+                                    if (
+                                      legendTotals(current.advancement.ledger)
+                                        .current < cost
+                                    )
+                                      return current;
+                                    const before = current.questor.rank;
+                                    return {
+                                      ...current,
+                                      questor: {
+                                        ...current.questor,
+                                        rank: before + 1,
+                                        tier: questorTier(before + 1),
+                                      },
+                                      advancement: {
+                                        ledger: [
+                                          ...current.advancement.ledger,
+                                          createLegendEntry({
+                                            type: 'questor',
+                                            amount: -cost,
+                                            targetId: 'questor-rank',
+                                            targetName: 'Questor rank',
+                                            beforeRating: before,
+                                            afterRating: before + 1,
+                                            training:
+                                              'Communion; one rank per day',
+                                            sourceCitation:
+                                              'Questors pp. 133–135',
+                                            description: `Raise Questor rank to ${before + 1}`,
+                                          }),
+                                        ],
+                                      },
+                                    };
+                                  }),
+                              );
+                            }}
+                          >
+                            Advance Questor rank
+                          </button>
+                        ) : null}
+                      </SheetFieldGrid>
+                    </SheetCard>
+                  ) : null}
                 </>,
               )}
               {section(
@@ -2220,66 +2276,91 @@ export function Earthdawn4eEditor({
                       talents: c.talents.filter((record) => record.id !== id),
                     }))
                   }
-                  onAdvance={(id) =>
-                    update((current) => {
-                      const talent = current.talents.find(
-                        (item) => item.id === id,
-                      );
-                      if (!talent) return current;
-                      const circle = talent.originCircle ?? primaryCircle;
-                      const matchingDisciplineIndices = draft.disciplines
-                        .map((discipline, index) =>
-                          discipline.disciplineId &&
-                          talent.disciplineSources.includes(
-                            discipline.disciplineId,
-                          )
-                            ? index
-                            : -1,
+                  onAdvance={(id) => {
+                    const talent = draft.talents.find((item) => item.id === id);
+                    if (!talent) return;
+                    const circle = talent.originCircle ?? primaryCircle;
+                    const matchingDisciplineIndices = draft.disciplines
+                      .map((discipline, index) =>
+                        discipline.disciplineId &&
+                        talent.disciplineSources.includes(
+                          discipline.disciplineId,
                         )
-                        .filter((index) => index >= 0);
-                      const disciplineIndex = matchingDisciplineIndices.length
-                        ? Math.min(...matchingDisciplineIndices)
-                        : Math.max(
-                            0,
-                            draft.disciplines.findIndex(
-                              ({ disciplineId }) =>
-                                disciplineId === talent.originDisciplineId,
-                            ),
-                          );
-                      const costCircle = equivalentTalentCircle(
-                        circle,
-                        disciplineIndex,
-                        talent.disciplineSources.includes('versatility'),
-                      );
-                      const cost = talentRankCost(talent.rank + 1, costCircle);
-                      if (
-                        legendTotals(current.advancement.ledger).current < cost
+                          ? index
+                          : -1,
                       )
-                        return current;
-                      const entry = createLegendEntry({
-                        type: 'talent',
-                        amount: -cost,
-                        earnedAmount: 0,
-                        targetId: talent.id,
-                        targetName: talent.name,
-                        beforeRating: talent.rank,
-                        afterRating: talent.rank + 1,
+                      .filter((index) => index >= 0);
+                    const disciplineIndex = matchingDisciplineIndices.length
+                      ? Math.min(...matchingDisciplineIndices)
+                      : Math.max(
+                          0,
+                          draft.disciplines.findIndex(
+                            ({ disciplineId }) =>
+                              disciplineId === talent.originDisciplineId,
+                          ),
+                        );
+                    const versatility =
+                      talent.disciplineSources.includes('versatility');
+                    const costCircle = equivalentTalentCircle(
+                      circle,
+                      disciplineIndex,
+                      versatility,
+                    );
+                    const nextRank = talent.rank + 1;
+                    const cost = talentRankCost(nextRank, costCircle);
+                    reviewAdvancement(
+                      {
+                        title: `Advance ${talent.name} to rank ${nextRank}`,
+                        cost,
+                        silverCost: 0,
+                        training: versatility
+                          ? 'Versatility talent; use the next higher Legend Point tier and verify training requirements.'
+                          : `Talent learned through ${draft.disciplines[disciplineIndex]?.name || 'the recorded Discipline'}.`,
                         sourceCitation: `${talent.source ?? 'Earthdawn'}${talent.page ? ` p. ${talent.page}` : ''}`,
-                        description: `Raise ${talent.name} to rank ${talent.rank + 1}`,
-                      });
-                      return {
-                        ...current,
-                        talents: current.talents.map((item) =>
-                          item.id === id
-                            ? { ...item, rank: item.rank + 1 }
-                            : item,
-                        ),
-                        advancement: {
-                          ledger: [...current.advancement.ledger, entry],
-                        },
-                      };
-                    })
-                  }
+                        warning:
+                          legend.current < cost
+                            ? `Insufficient Legend Points. ${cost - legend.current} more LP required.`
+                            : undefined,
+                      },
+                      () =>
+                        update((current) => {
+                          const currentTalent = current.talents.find(
+                            (item) => item.id === id,
+                          );
+                          if (
+                            !currentTalent ||
+                            currentTalent.rank !== talent.rank ||
+                            legendTotals(current.advancement.ledger).current <
+                              cost
+                          )
+                            return current;
+                          return {
+                            ...current,
+                            talents: current.talents.map((item) =>
+                              item.id === id
+                                ? { ...item, rank: nextRank }
+                                : item,
+                            ),
+                            advancement: {
+                              ledger: [
+                                ...current.advancement.ledger,
+                                createLegendEntry({
+                                  type: 'talent',
+                                  amount: -cost,
+                                  earnedAmount: 0,
+                                  targetId: talent.id,
+                                  targetName: talent.name,
+                                  beforeRating: talent.rank,
+                                  afterRating: nextRank,
+                                  sourceCitation: `${talent.source ?? 'Earthdawn'}${talent.page ? ` p. ${talent.page}` : ''}`,
+                                  description: `Raise ${talent.name} to rank ${nextRank}`,
+                                }),
+                              ],
+                            },
+                          };
+                        }),
+                    );
+                  }}
                 />,
               )}
               {section(
@@ -3300,6 +3381,31 @@ export function Earthdawn4eEditor({
                           <span>Effect active</span>
                         </label>
                       </SheetFieldGrid>
+                      <SheetToolbar>
+                        <button
+                          type="button"
+                          className="text-button"
+                          onClick={() => {
+                            if (
+                              !window.confirm(
+                                `Remove ${e.name || 'this magic effect'}?`,
+                              )
+                            )
+                              return;
+                            update((c) => ({
+                              ...c,
+                              magic: {
+                                ...c.magic,
+                                effects: c.magic.effects.filter(
+                                  ({ id }) => id !== e.id,
+                                ),
+                              },
+                            }));
+                          }}
+                        >
+                          Remove magic effect
+                        </button>
+                      </SheetToolbar>
                     </SheetCard>
                   ))}
                 </>,
@@ -3527,7 +3633,7 @@ export function Earthdawn4eEditor({
               )}
               {section(
                 'ed4-health',
-                'combat',
+                'attributes',
                 'Health & Conditions',
                 <>
                   <SheetToolbar>
@@ -3590,6 +3696,69 @@ export function Earthdawn4eEditor({
                             +
                           </button>
                         </div>
+                        <div className="earthdawn-damage-actions">
+                          <label>
+                            <span>Damage amount</span>
+                            <input
+                              type="number"
+                              inputMode="numeric"
+                              min="0"
+                              value={damageAmount}
+                              onChange={(event) =>
+                                setDamageAmount(integer(event.target.value))
+                              }
+                            />
+                          </label>
+                          <button
+                            type="button"
+                            className="secondary-button"
+                            disabled={damageAmount <= 0}
+                            onClick={() =>
+                              update((c) => ({
+                                ...c,
+                                health: {
+                                  ...c.health,
+                                  damage: c.health.damage + damageAmount,
+                                },
+                              }))
+                            }
+                          >
+                            Take Damage
+                          </button>
+                          <button
+                            type="button"
+                            className="secondary-button"
+                            disabled={
+                              damageAmount <= 0 || draft.health.damage === 0
+                            }
+                            onClick={() =>
+                              update((c) => ({
+                                ...c,
+                                health: {
+                                  ...c.health,
+                                  damage: Math.max(
+                                    0,
+                                    c.health.damage - damageAmount,
+                                  ),
+                                },
+                              }))
+                            }
+                          >
+                            Recover Damage
+                          </button>
+                        </div>
+                        {draft.health.damage >=
+                        derived.death + draft.health.deathBonus ? (
+                          <output className="earthdawn-health-status is-dead">
+                            <span aria-hidden="true">💀</span> Dead
+                          </output>
+                        ) : draft.health.damage >=
+                          derived.unconsciousness +
+                            draft.health.unconsciousnessBonus ? (
+                          <output className="earthdawn-health-status is-unconscious">
+                            <span aria-hidden="true">😵</span> Unconscious
+                          </output>
+                        ) : null}
                         <dl className="earthdawn-health-ratings">
                           <div>
                             <dt>Unconsciousness</dt>
@@ -4213,6 +4382,13 @@ export function Earthdawn4eEditor({
                         <strong>{advancementQuote.cost} LP</strong>
                         {' · '}
                         {advancementQuote.silverCost} silver
+                      </p>
+                      <p>
+                        Legend Point balance: <strong>{legend.current}</strong>{' '}
+                        →{' '}
+                        <strong>
+                          {Math.max(0, legend.current - advancementQuote.cost)}
+                        </strong>
                       </p>
                       <p>{advancementQuote.training}</p>
                       <small>{advancementQuote.sourceCitation}</small>
@@ -4921,6 +5097,34 @@ export function Earthdawn4eEditor({
                   </SheetField>
                   {catalogKind === 'talent' ? (
                     <>
+                      <SheetField label="Discipline">
+                        <select
+                          value={catalogDiscipline}
+                          onChange={(event) =>
+                            setCatalogDiscipline(event.target.value)
+                          }
+                        >
+                          <option value="all">All Disciplines</option>
+                          {earthdawnDisciplines.map(({ name }) => (
+                            <option key={name} value={name}>
+                              {name}
+                            </option>
+                          ))}
+                        </select>
+                      </SheetField>
+                      <SheetField label="Discipline talent type">
+                        <select
+                          disabled={catalogDiscipline === 'all'}
+                          value={catalogTalentMembership}
+                          onChange={(event) =>
+                            setCatalogTalentMembership(event.target.value)
+                          }
+                        >
+                          <option value="all">Required and options</option>
+                          <option value="required">Required talents</option>
+                          <option value="optional">Talent options</option>
+                        </select>
+                      </SheetField>
                       <SheetField label="Linked Attribute">
                         <select
                           value={catalogAttribute}
@@ -4952,6 +5156,67 @@ export function Earthdawn4eEditor({
                         </select>
                       </SheetField>
                     </>
+                  ) : null}
+                  {catalogKind === 'skill' ? (
+                    <>
+                      <SheetField label="Skill category">
+                        <select
+                          value={catalogSkillCategory}
+                          onChange={(event) =>
+                            setCatalogSkillCategory(event.target.value)
+                          }
+                        >
+                          <option value="all">All categories</option>
+                          <option value="general">General</option>
+                          <option value="knowledge">Knowledge</option>
+                          <option value="artisan">Artisan</option>
+                          <option value="language">Language</option>
+                        </select>
+                      </SheetField>
+                      <SheetField label="Sort skills">
+                        <select
+                          value={catalogSkillSort}
+                          onChange={(event) =>
+                            setCatalogSkillSort(
+                              event.target.value as 'category' | 'name',
+                            )
+                          }
+                        >
+                          <option value="category">Category, then name</option>
+                          <option value="name">Name A–Z</option>
+                        </select>
+                      </SheetField>
+                    </>
+                  ) : null}
+                  {catalogKind === 'thread-item' ? (
+                    <SheetField label="Thread item type">
+                      <select
+                        value={catalogThreadType}
+                        onChange={(event) =>
+                          setCatalogThreadType(event.target.value)
+                        }
+                      >
+                        <option value="all">All item types</option>
+                        {[
+                          ...new Set(
+                            earthdawnCatalog
+                              .filter(({ kind }) => kind === 'thread-item')
+                              .map(({ threadItemMetadata }) =>
+                                threadItemMetadata?.itemType.trim(),
+                              )
+                              .filter((value): value is string =>
+                                Boolean(value),
+                              ),
+                          ),
+                        ]
+                          .sort()
+                          .map((type) => (
+                            <option key={type} value={type}>
+                              {type}
+                            </option>
+                          ))}
+                      </select>
+                    </SheetField>
                   ) : null}
                   {catalogKind === 'spell' ? (
                     <>
@@ -5128,24 +5393,54 @@ export function Earthdawn4eEditor({
                           </>
                         ) : null}
                         {d.talentMetadata ? (
-                          <dl className="catalog-card__meta">
-                            <div>
-                              <dt>Attribute</dt>
-                              <dd>{d.talentMetadata.attributeText}</dd>
-                            </div>
-                            <div>
-                              <dt>Action</dt>
-                              <dd>{d.talentMetadata.actionText}</dd>
-                            </div>
-                            <div>
-                              <dt>Strain</dt>
-                              <dd>{d.talentMetadata.strainText}</dd>
-                            </div>
-                          </dl>
+                          <>
+                            <dl className="catalog-card__meta">
+                              <div>
+                                <dt>Attribute</dt>
+                                <dd>{d.talentMetadata.attributeText}</dd>
+                              </div>
+                              <div>
+                                <dt>Action</dt>
+                                <dd>{d.talentMetadata.actionText}</dd>
+                              </div>
+                              <div>
+                                <dt>Strain</dt>
+                                <dd>{d.talentMetadata.strainText}</dd>
+                              </div>
+                            </dl>
+                            {d.talentMetadata.requirementsText ? (
+                              <p className="catalog-card__requirements">
+                                {d.talentMetadata.requirementsText}
+                              </p>
+                            ) : null}
+                          </>
                         ) : d.requirements.length ? (
                           <p className="catalog-card__requirements">
                             {d.requirements.join(' · ')}
                           </p>
+                        ) : null}
+                        {d.kind === 'skill' && d.skillCategory ? (
+                          <p className="catalog-card__requirements">
+                            {d.skillCategory[0].toUpperCase() +
+                              d.skillCategory.slice(1)}{' '}
+                            skill
+                          </p>
+                        ) : null}
+                        {d.threadItemMetadata ? (
+                          <>
+                            <p className="catalog-card__requirements">
+                              {d.threadItemMetadata.itemType}
+                            </p>
+                            {d.threadItemMetadata.inferredKeyKnowledge ? (
+                              <details>
+                                <summary>Inferred key knowledge</summary>
+                                <p>
+                                  <strong>Inferred:</strong>{' '}
+                                  {d.threadItemMetadata.inferredKeyKnowledge}
+                                </p>
+                              </details>
+                            ) : null}
+                          </>
                         ) : null}
                         {catalogFacts(d).length ? (
                           <dl className="catalog-card__meta">
@@ -5396,13 +5691,18 @@ function TalentTable({
             >
               <label data-label="Talent">
                 <span className="sr-only">Talent name</span>
-                <input
-                  value={record.name}
-                  readOnly={!metadataEditable}
-                  onChange={(event) =>
-                    onChange(record.id, { name: event.target.value })
-                  }
-                />
+                {metadataEditable ? (
+                  <input
+                    value={record.name}
+                    onChange={(event) =>
+                      onChange(record.id, { name: event.target.value })
+                    }
+                  />
+                ) : (
+                  <strong className="earthdawn-talent-value">
+                    {record.name}
+                  </strong>
+                )}
                 {record.metadataOverrides.length ? (
                   <small>GM overridden</small>
                 ) : official ? (
@@ -5413,13 +5713,18 @@ function TalentTable({
               </label>
               <label data-label="Attribute">
                 <span className="sr-only">Linked Attribute</span>
-                <input
-                  value={value.attributeText}
-                  readOnly={!metadataEditable}
-                  onChange={(event) =>
-                    onChange(record.id, { attributeText: event.target.value })
-                  }
-                />
+                {metadataEditable ? (
+                  <input
+                    value={value.attributeText}
+                    onChange={(event) =>
+                      onChange(record.id, { attributeText: event.target.value })
+                    }
+                  />
+                ) : (
+                  <span className="earthdawn-talent-value">
+                    {value.attributeText}
+                  </span>
+                )}
               </label>
               <label data-label="Rank">
                 <span className="sr-only">{record.name} rank</span>
@@ -5436,43 +5741,63 @@ function TalentTable({
               </label>
               <label data-label="Action">
                 <span className="sr-only">Action</span>
-                <input
-                  value={value.actionText}
-                  readOnly={!metadataEditable}
-                  onChange={(event) =>
-                    onChange(record.id, { actionText: event.target.value })
-                  }
-                />
+                {metadataEditable ? (
+                  <input
+                    value={value.actionText}
+                    onChange={(event) =>
+                      onChange(record.id, { actionText: event.target.value })
+                    }
+                  />
+                ) : (
+                  <span className="earthdawn-talent-value">
+                    {value.actionText}
+                  </span>
+                )}
               </label>
               <label data-label="Strain">
                 <span className="sr-only">Strain</span>
-                <input
-                  value={value.strainText}
-                  readOnly={!metadataEditable}
-                  onChange={(event) =>
-                    onChange(record.id, { strainText: event.target.value })
-                  }
-                />
+                {metadataEditable ? (
+                  <input
+                    value={value.strainText}
+                    onChange={(event) =>
+                      onChange(record.id, { strainText: event.target.value })
+                    }
+                  />
+                ) : (
+                  <span className="earthdawn-talent-value">
+                    {value.strainText}
+                  </span>
+                )}
               </label>
               <label data-label="Effect">
                 <span className="sr-only">Effect or bonus</span>
-                <input
-                  value={value.effectText}
-                  readOnly={!metadataEditable}
-                  onChange={(event) =>
-                    onChange(record.id, { effectText: event.target.value })
-                  }
-                />
+                {metadataEditable ? (
+                  <input
+                    value={value.effectText}
+                    onChange={(event) =>
+                      onChange(record.id, { effectText: event.target.value })
+                    }
+                  />
+                ) : (
+                  <span className="earthdawn-talent-value">
+                    {value.effectText}
+                  </span>
+                )}
               </label>
               <label data-label="Source">
                 <span className="sr-only">Source citation</span>
-                <input
-                  value={value.citationText}
-                  readOnly={!metadataEditable}
-                  onChange={(event) =>
-                    onChange(record.id, { citationText: event.target.value })
-                  }
-                />
+                {metadataEditable ? (
+                  <input
+                    value={value.citationText}
+                    onChange={(event) =>
+                      onChange(record.id, { citationText: event.target.value })
+                    }
+                  />
+                ) : (
+                  <span className="earthdawn-talent-value">
+                    {value.citationText}
+                  </span>
+                )}
               </label>
               <div className="earthdawn-talent-actions" data-label="Actions">
                 <button

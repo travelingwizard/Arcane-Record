@@ -224,6 +224,18 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
     .getByRole('button', { name: 'Browse Talents' });
   await browseTalents.click();
   const talentDialog = page.getByRole('dialog', { name: 'Earthdawn catalog' });
+  await expect(
+    talentDialog.getByRole('combobox', { name: 'Discipline', exact: true }),
+  ).toBeVisible();
+  await talentDialog
+    .getByRole('combobox', { name: 'Discipline', exact: true })
+    .selectOption('Warrior');
+  await expect(
+    talentDialog.getByRole('combobox', { name: 'Discipline talent type' }),
+  ).toBeEnabled();
+  await talentDialog
+    .getByRole('combobox', { name: 'Discipline', exact: true })
+    .selectOption('all');
   await talentDialog.getByRole('searchbox').fill('Acrobatic Defense');
   const talentCard = talentDialog
     .locator('.catalog-card')
@@ -238,9 +250,9 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   ).toBeDisabled();
   await page.keyboard.press('Escape');
   await expect(
-    page.locator('#ed4-talents .earthdawn-talent-row').filter({
-      has: page.locator('input[value="Acrobatic Defense"]'),
-    }),
+    page
+      .locator('#ed4-talents .earthdawn-talent-row')
+      .filter({ hasText: 'Acrobatic Defense' }),
   ).toBeVisible();
   await page
     .locator('#ed4-skills')
@@ -252,6 +264,29 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
     .last();
   await customSkillName.fill('Barsaive Lore');
   await expect(customSkillName).toHaveValue('Barsaive Lore');
+  await page
+    .locator('#ed4-patterns')
+    .getByRole('button', { name: 'Add magic effect' })
+    .click();
+  const magicEffect = page.locator('#ed4-patterns .sheet-card').last();
+  await magicEffect.getByLabel('name').fill('Test effect');
+  page.once('dialog', (dialog) => dialog.accept());
+  await magicEffect
+    .getByRole('button', { name: 'Remove magic effect' })
+    .click();
+  await expect(
+    page
+      .locator('#ed4-patterns')
+      .getByRole('button', { name: 'Remove magic effect' }),
+  ).toHaveCount(0);
+  const health = page.locator('#ed4-health');
+  const basicMode = health.getByRole('switch', { name: /Basic play mode/ });
+  if (!(await basicMode.isChecked())) await basicMode.check();
+  await health.getByLabel('Damage amount').fill('3');
+  await health.getByRole('button', { name: 'Take Damage' }).click();
+  await expect(health.getByText('3', { exact: true }).first()).toBeVisible();
+  await health.getByRole('button', { name: 'Recover Damage' }).click();
+  await expect(health.getByText('0', { exact: true }).first()).toBeVisible();
   await page.getByRole('button', { name: 'Add Discipline & Questor' }).click();
   const pathDialog = page.getByRole('dialog', {
     name: 'Add Discipline and Questor',
@@ -281,6 +316,13 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   await expect(page.getByText(/dedicated training days/)).toBeVisible();
   await page.getByRole('button', { name: 'Confirm purchase' }).click();
   await expect(page.getByText('200 current LP')).toBeVisible();
+  const avoidBlowTalent = page
+    .locator('#ed4-talents .earthdawn-talent-row')
+    .filter({ hasText: 'Avoid Blow' });
+  await avoidBlowTalent.getByRole('button', { name: 'Advance' }).click();
+  await expect(page.getByText(/Advance Avoid Blow to rank/)).toBeVisible();
+  await expect(page.getByText(/Legend Point balance:/)).toBeVisible();
+  await page.getByRole('button', { name: 'Cancel' }).click();
   await page.getByRole('button', { name: 'Browse Spells' }).click();
   const spellDialog = page.getByRole('dialog', {
     name: 'Earthdawn catalog',
@@ -305,8 +347,15 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   await expect(page.getByText('100 current LP')).toBeVisible();
   await page.getByRole('button', { name: 'Refund' }).first().click();
   await expect(page.getByText('200 current LP')).toBeVisible();
-  const overflow = await page.evaluate(
-    () => document.documentElement.scrollWidth > window.innerWidth,
-  );
-  expect(overflow).toBe(false);
+  const overflow = await page.evaluate(() => ({
+    page: document.documentElement.scrollWidth > window.innerWidth,
+    offenders: [...document.querySelectorAll<HTMLElement>('body *')]
+      .filter(
+        (element) =>
+          element.getBoundingClientRect().right > window.innerWidth + 1,
+      )
+      .slice(0, 10)
+      .map((element) => `${element.tagName}.${element.className}`),
+  }));
+  expect(overflow).toEqual({ page: false, offenders: [] });
 });

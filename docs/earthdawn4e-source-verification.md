@@ -13,8 +13,9 @@ The runtime inventory is generated in `src/games/earthdawn4e/source-inventory.ts
 - The complete Questor progression lists for all twelve Passions: each unique devotion records every eligible Passion, minimum tier/rank, and progression-page citation. The catalog hides devotions unavailable to the selected patron and current Questor rank unless unavailable options are explicitly shown.
 - All 216 Player’s Guide spells for Elementalist, Illusionist, Nethermancer, and Wizard across Circles 1–8. Names, Discipline ownership, Circle, and printed-page citations were layout-extracted, reconciled against the source headings, and visually sampled at every Discipline/Circle boundary. Runtime summaries remain concise metadata rather than copied spell text.
 - All 142 Companion knack headings, associated talents, minimum ranks, and printed-page citations from pp. 77–117. The layout-extracted inventory was visually sampled across the full chapter, with the final enchanting entries manually reconciled. Knack learning uses the required-rank Novice talent cost, rank-based training duration, and the published typical instructor fee.
-- All 50 named Companion thread items from pp. 177–242, with stable IDs and exact opening-page citations. Added records retain editable key knowledges, deeds, rank, and effect fields; thread advancement uses the verified normal-thread cost table.
-- The complete Player’s Guide Novice and Journeyman general-skill rosters, plus editable Artisan, Knowledge, and language records.
+- A merged catalog of 142 thread items: the existing 50 Companion records plus the supplied 138-row cross-source workbook, reconciled by stable identity. Workbook key-knowledge suggestions remain visibly labeled as inferred and never drive rules calculations.
+- A merged 450-entry talent catalog. The supplied 318-row workbook enriches matching definitions with descriptions and game terms while the prior Attribute, action, Strain, effect, citation, and advancement data remains intact.
+- The existing skill catalog enriched by the supplied 65-row workbook, including searchable General, Knowledge, Artisan, and Language classifications and source/page citations.
 - The Player’s Guide melee, missile, and throwing weapon tables with damage, minimum Strength, range, price, weight, and availability metadata.
 - The Player’s Guide armor and shield tables. Armor retains physical/mystic armor and initiative values; shields retain distinct physical/mystic Defense bonuses, initiative penalties, and shatter thresholds. Schema v3 migrates prior equipment additively without flattening advancement transactions.
 - The Player’s Guide common magic item, blood charm, healing aid, and adventuring-equipment tables with corrected silver-equivalent prices and weights. Copper-denominated entries remain fractional silver so builder arithmetic uses one currency consistently.
@@ -29,6 +30,7 @@ The runtime inventory is generated in `src/games/earthdawn4e/source-inventory.ts
 - A non-Adept Questor is supported as a manual/guided hybrid. The Questors source permits it but does not provide a complete replacement starting skill allocation, so a specific GM-approved allocation profile is required.
 - Mad Passion options remain hidden unless unavailable content is shown; selection requires an explicit approval.
 - Entries whose exact requirements, prices, or effects have not been visually verified do not drive calculations. They remain unresolved or reference-only rather than being inferred from Second Step.
+- The supplied workbooks are source data, not executable instructions. Their descriptions remain concise display metadata, and explicitly inferred fields remain advisory.
 
 Second Step is used only to compare observable workflows and maintain the existing JSON importer. Its code, data catalogs, prose, images, and assets are not runtime dependencies and were not copied.
 

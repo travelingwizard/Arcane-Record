@@ -42,6 +42,14 @@ export interface EarthdawnDefinition {
     strainText: string;
     citationText: string;
     sourceIds: string[];
+    descriptionText?: string;
+    requirementsText?: string;
+  };
+  threadItemMetadata?: {
+    itemType: string;
+    descriptionText: string;
+    inferredKeyKnowledge: string;
+    provenance: 'workbook' | 'catalog';
   };
   spellMetadata?: EarthdawnSpellReference;
 }
@@ -127,6 +135,12 @@ export const earthdawnSources: EarthdawnSource[] = [
     shortTitle: 'Elven Nations',
     required: false,
   },
+  {
+    id: 'ed4.grand-bazaar',
+    title: 'The Grand Bazaar',
+    shortTitle: 'Grand Bazaar',
+    required: false,
+  },
 ];
 const slug = (name: string) =>
   name
@@ -168,6 +182,11 @@ import {
 } from './questor-devotions';
 import { companionThreadItemRows } from './companion-thread-items';
 import { earthdawnTalentReferenceRows } from './talent-reference';
+import {
+  earthdawnSkillReferenceRows,
+  earthdawnTalentSupplementRows,
+  earthdawnThreadItemReferenceRows,
+} from './reference-workbooks';
 
 const attrs: EarthdawnAttributeId[] = [
   'dexterity',
@@ -217,47 +236,77 @@ const normalizedTalentAttribute = (
 const citationPage = (citation: string) =>
   Number(citation.match(/(?:p\.|page)\s*(\d+)/i)?.[1] ?? 1);
 
-export const earthdawnTalents: EarthdawnDefinition[] =
-  earthdawnTalentReferenceRows.map(
-    ([
-      name,
-      attributeText,
-      effectText,
-      actionText,
-      strainText,
-      citationText,
-      sourceReferences,
-    ]) => {
-      const sourceIds = expandSourceReferences(sourceReferences);
-      const sourceId = sourceIds.includes('ed4.players-guide')
-        ? 'ed4.players-guide'
-        : (sourceIds[0] ?? 'ed4.players-guide');
-      return {
-        ...entry(
-          'talent',
-          name,
-          sourceId,
-          citationPage(citationText),
-          effectText,
-        ),
-        defaultAttribute: normalizedTalentAttribute(attributeText),
-        mechanics: JSON.stringify({
-          attributeText,
-          effectText,
-          actionText,
-          strainText,
-        }),
-        talentMetadata: {
-          attributeText,
-          effectText,
-          actionText,
-          strainText,
-          citationText,
-          sourceIds,
-        },
-      };
-    },
-  );
+const talentSupplements = new Map(
+  earthdawnTalentSupplementRows.map((row) => [row[0].toLocaleLowerCase(), row]),
+);
+const primaryTalents: EarthdawnDefinition[] = earthdawnTalentReferenceRows.map(
+  ([
+    name,
+    attributeText,
+    effectText,
+    actionText,
+    strainText,
+    citationText,
+    sourceReferences,
+  ]) => {
+    const sourceIds = expandSourceReferences(sourceReferences);
+    const sourceId = sourceIds.includes('ed4.players-guide')
+      ? 'ed4.players-guide'
+      : (sourceIds[0] ?? 'ed4.players-guide');
+    const supplement = talentSupplements.get(name.toLocaleLowerCase());
+    return {
+      ...entry(
+        'talent',
+        name,
+        sourceId,
+        citationPage(citationText),
+        effectText,
+      ),
+      defaultAttribute: normalizedTalentAttribute(attributeText),
+      mechanics: JSON.stringify({
+        attributeText,
+        effectText,
+        actionText,
+        strainText,
+      }),
+      talentMetadata: {
+        attributeText,
+        effectText,
+        actionText,
+        strainText,
+        citationText,
+        sourceIds: [
+          ...new Set([...sourceIds, ...(supplement ? [supplement[3]] : [])]),
+        ],
+        descriptionText: supplement?.[1],
+        requirementsText: supplement?.[2],
+      },
+    };
+  },
+);
+const existingTalentNames = new Set(
+  primaryTalents.map(({ name }) => name.toLocaleLowerCase()),
+);
+export const earthdawnTalents: EarthdawnDefinition[] = [
+  ...primaryTalents,
+  ...earthdawnTalentSupplementRows
+    .filter(([name]) => !existingTalentNames.has(name.toLocaleLowerCase()))
+    .map(([name, description, requirementsText, sourceId, page]) => ({
+      ...entry('talent', name, sourceId, page ?? 1, description),
+      page,
+      mechanics: JSON.stringify({ description, requirementsText }),
+      talentMetadata: {
+        attributeText: 'Not in source',
+        effectText: description,
+        actionText: 'Not in source',
+        strainText: 'Not in source',
+        citationText: `${earthdawnSources.find(({ id }) => id === sourceId)?.title ?? sourceId}${page ? `, p. ${page}` : ''}`,
+        sourceIds: [sourceId],
+        descriptionText: description,
+        requirementsText,
+      },
+    })),
+];
 
 const raceData: Array<[string, number[], string, number, string[]]> = [
   ['Dwarf', [9, 10, 12, 11, 11, 10], '10', 4, ['Heat Sight']],
@@ -850,8 +899,8 @@ export const earthdawnKnacks: EarthdawnDefinition[] = companionKnackRows.map(
     }),
   }),
 );
-export const earthdawnThreadItems: EarthdawnDefinition[] =
-  companionThreadItemRows.map(([name, page]) => ({
+const companionThreadItems: EarthdawnDefinition[] = companionThreadItemRows.map(
+  ([name, page]) => ({
     ...entry(
       'thread-item',
       name,
@@ -860,8 +909,80 @@ export const earthdawnThreadItems: EarthdawnDefinition[] =
       `${name} is a verified Companion thread item. Record key knowledges, deeds, and unlocked rank effects on the character’s editable thread record.`,
     ),
     mechanics: JSON.stringify({ rankType: 'normal' }),
-  }));
-export const earthdawnCatalog: EarthdawnDefinition[] = [
+    threadItemMetadata: {
+      itemType: 'Thread Item',
+      descriptionText: `${name} is a verified Companion thread item.`,
+      inferredKeyKnowledge: '',
+      provenance: 'catalog',
+    },
+  }),
+);
+const companionThreadNames = new Set(
+  companionThreadItems.map(({ name }) => name.toLocaleLowerCase()),
+);
+const companionThreadIds = new Set(companionThreadItems.map(({ id }) => id));
+export const earthdawnThreadItems: EarthdawnDefinition[] = [
+  ...companionThreadItems.map((definition) => {
+    const workbook = earthdawnThreadItemReferenceRows.find(
+      ([name, , , , sourceId]) =>
+        name.toLocaleLowerCase() === definition.name.toLocaleLowerCase() ||
+        `${sourceId}.thread-item.${slug(name)}` === definition.id,
+    );
+    return workbook
+      ? {
+          ...definition,
+          summary: workbook[2] || definition.summary,
+          mechanics: JSON.stringify({
+            rankType: 'normal',
+            itemType: workbook[1],
+          }),
+          threadItemMetadata: {
+            itemType: workbook[1],
+            descriptionText: workbook[2],
+            inferredKeyKnowledge: workbook[3],
+            provenance: 'workbook' as const,
+          },
+        }
+      : definition;
+  }),
+  ...earthdawnThreadItemReferenceRows
+    .filter(
+      ([name, , , , sourceId]) =>
+        !companionThreadNames.has(name.toLocaleLowerCase()) &&
+        !companionThreadIds.has(`${sourceId}.thread-item.${slug(name)}`),
+    )
+    .map(
+      ([
+        name,
+        itemType,
+        description,
+        inferredKeyKnowledge,
+        sourceId,
+        page,
+      ]) => ({
+        ...entry('thread-item', name, sourceId, page ?? 1, description),
+        page,
+        mechanics: JSON.stringify({ rankType: 'normal', itemType }),
+        threadItemMetadata: {
+          itemType,
+          descriptionText: description,
+          inferredKeyKnowledge,
+          provenance: 'workbook' as const,
+        },
+      }),
+    ),
+];
+
+const workbookSkills: EarthdawnDefinition[] = earthdawnSkillReferenceRows.map(
+  ([name, category, description, sourceId, page]) => ({
+    ...entry('skill', name, sourceId, page ?? 1, description),
+    id: `${sourceId}.skill.${category}.${slug(name)}`,
+    page,
+    skillCategory: category,
+    defaultAttribute: skillAttribute(name),
+  }),
+);
+const earthdawnCatalogRows: EarthdawnDefinition[] = [
   ...earthdawnRaces,
   ...earthdawnDisciplines,
   ...earthdawnQuestorDefinitions,
@@ -1013,6 +1134,7 @@ export const earthdawnCatalog: EarthdawnDefinition[] = [
     ],
     191,
   ),
+  ...workbookSkills,
   ...priced(
     'equipment',
     [
@@ -1247,6 +1369,28 @@ export const earthdawnCatalog: EarthdawnDefinition[] = [
     'ed4.mystic-paths',
     11,
   ),
+];
+const mergedCatalog = new Map<string, EarthdawnDefinition>();
+for (const definition of earthdawnCatalogRows) {
+  const key =
+    definition.kind === 'skill'
+      ? `skill:${definition.skillCategory}:${definition.name.toLocaleLowerCase()}`
+      : definition.id;
+  const existing = mergedCatalog.get(key);
+  if (!existing) {
+    mergedCatalog.set(key, definition);
+    continue;
+  }
+  if (definition.kind === 'skill') {
+    mergedCatalog.set(key, {
+      ...definition,
+      id: existing.id,
+      aliases: [...new Set([...existing.aliases, ...definition.aliases])],
+    });
+  }
+}
+export const earthdawnCatalog: EarthdawnDefinition[] = [
+  ...mergedCatalog.values(),
 ];
 export const earthdawnDefinitionById = new Map(
   earthdawnCatalog.map((value) => [value.id, value]),
