@@ -5228,6 +5228,37 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.earthdawn-vital-tracker {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.85fr);
+  gap: var(--space-2);
+  margin-block-end: var(--space-3);
+}
+
+.earthdawn-vital-stat {
+  min-height: 15rem;
+}
+
+.earthdawn-vital-value {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 7vw, 5rem);
+  line-height: 0.95;
+  text-align: center;
+}
+
+.earthdawn-vital-actions {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.earthdawn-vital-actions > button {
+  min-width: 0;
+  white-space: normal;
+}
+
 .earthdawn-health-primary {
   display: grid;
   grid-template-columns: 44px minmax(4rem, 1fr) 44px;
@@ -5399,6 +5430,9 @@
     > :is([id='ed4-characteristics'], [id='ed4-health']) {
     grid-column: 1;
   }
+  .earthdawn-vital-tracker {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.85fr);
+  }
   .earthdawn-basic-play {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -5429,6 +5463,10 @@
     grid-template-columns: 1fr;
   }
   .earthdawn-character-sheet > [id='ed4-health'] .earthdawn-basic-play {
+    grid-template-columns: 1fr;
+  }
+  .earthdawn-vital-tracker,
+  .earthdawn-vital-actions {
     grid-template-columns: 1fr;
   }
   .earthdawn-damage-actions {

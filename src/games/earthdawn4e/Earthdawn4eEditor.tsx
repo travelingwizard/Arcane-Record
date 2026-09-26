@@ -2194,34 +2194,161 @@ export function Earthdawn4eEditor({
                 'ed4-characteristics',
                 'attributes',
                 'Characteristics',
-                <div className="sheet-stat-grid earthdawn-derived-grid">
-                  <span>
-                    Physical Defense{' '}
-                    <strong>
-                      {derived.physicalDefense + armor.physicalDefense}
-                    </strong>
-                  </span>
-                  <span>
-                    Mystic Defense{' '}
-                    <strong>
-                      {derived.mysticDefense + armor.mysticDefense}
-                    </strong>
-                  </span>
-                  <span>
-                    Social Defense <strong>{derived.socialDefense}</strong>
-                  </span>
-                  <span>
-                    Initiative{' '}
-                    <strong>{derived.initiative - armor.initiative}</strong>
-                  </span>
-                  <span>
-                    Carrying <strong>{derived.carryingCapacity}</strong>
-                  </span>
-                  <span>
-                    Mystic Armor{' '}
-                    <strong>{derived.mysticArmor + armor.mystic}</strong>
-                  </span>
-                </div>,
+                <>
+                  <div className="earthdawn-vital-tracker">
+                    <div className="earthdawn-basic-stat earthdawn-vital-stat">
+                      <span>Damage</span>
+                      <strong className="earthdawn-vital-value">
+                        {draft.health.damage}
+                      </strong>
+                      <div className="earthdawn-damage-actions">
+                        <label>
+                          <span>Damage amount</span>
+                          <input
+                            type="number"
+                            inputMode="numeric"
+                            min="0"
+                            value={damageAmount}
+                            onChange={(event) =>
+                              setDamageAmount(integer(event.target.value))
+                            }
+                          />
+                        </label>
+                        <div className="earthdawn-vital-actions">
+                          <button
+                            type="button"
+                            className="secondary-button"
+                            disabled={damageAmount <= 0}
+                            onClick={() =>
+                              update((c) => ({
+                                ...c,
+                                health: {
+                                  ...c.health,
+                                  damage: c.health.damage + damageAmount,
+                                },
+                              }))
+                            }
+                          >
+                            Take Damage
+                          </button>
+                          <button
+                            type="button"
+                            className="secondary-button"
+                            disabled={
+                              damageAmount <= 0 || draft.health.damage === 0
+                            }
+                            onClick={() =>
+                              update((c) => ({
+                                ...c,
+                                health: {
+                                  ...c.health,
+                                  damage: Math.max(
+                                    0,
+                                    c.health.damage - damageAmount,
+                                  ),
+                                },
+                              }))
+                            }
+                          >
+                            Heal Damage
+                          </button>
+                        </div>
+                      </div>
+                      {draft.health.damage >=
+                      derived.death + draft.health.deathBonus ? (
+                        <output className="earthdawn-health-status is-dead">
+                          <span aria-hidden="true">💀</span> Dead
+                        </output>
+                      ) : draft.health.damage >=
+                        derived.unconsciousness +
+                          draft.health.unconsciousnessBonus ? (
+                        <output className="earthdawn-health-status is-unconscious">
+                          <span aria-hidden="true">😵</span> Unconscious
+                        </output>
+                      ) : null}
+                      <dl className="earthdawn-health-ratings">
+                        <div>
+                          <dt>Unconsciousness</dt>
+                          <dd>
+                            {derived.unconsciousness +
+                              draft.health.unconsciousnessBonus}
+                          </dd>
+                        </div>
+                        <div>
+                          <dt>Death</dt>
+                          <dd>{derived.death + draft.health.deathBonus}</dd>
+                        </div>
+                      </dl>
+                    </div>
+                    <div className="earthdawn-basic-stat earthdawn-vital-stat">
+                      <span>Wounds</span>
+                      <div className="earthdawn-health-primary">
+                        <button
+                          type="button"
+                          aria-label="Remove one wound"
+                          onClick={() =>
+                            update((c) => ({
+                              ...c,
+                              health: {
+                                ...c.health,
+                                wounds: Math.max(0, c.health.wounds - 1),
+                              },
+                            }))
+                          }
+                        >
+                          −
+                        </button>
+                        <strong>{draft.health.wounds}</strong>
+                        <button
+                          type="button"
+                          aria-label="Add one wound"
+                          onClick={() =>
+                            update((c) => ({
+                              ...c,
+                              health: {
+                                ...c.health,
+                                wounds: c.health.wounds + 1,
+                              },
+                            }))
+                          }
+                        >
+                          +
+                        </button>
+                      </div>
+                      <strong className="earthdawn-threshold">
+                        Wound Threshold {derived.woundThreshold}
+                      </strong>
+                    </div>
+                  </div>
+                  <div className="sheet-stat-grid earthdawn-derived-grid">
+                    <span>
+                      Physical Defense{' '}
+                      <strong>
+                        {derived.physicalDefense + armor.physicalDefense}
+                      </strong>
+                    </span>
+                    <span>
+                      Mystic Defense{' '}
+                      <strong>
+                        {derived.mysticDefense + armor.mysticDefense}
+                      </strong>
+                    </span>
+                    <span>
+                      Social Defense <strong>{derived.socialDefense}</strong>
+                    </span>
+                    <span>
+                      Initiative{' '}
+                      <strong>{derived.initiative - armor.initiative}</strong>
+                    </span>
+                    <span>
+                      Carrying <strong>{derived.carryingCapacity}</strong>
+                    </span>
+                    <span>
+                      Mystic Armor{' '}
+                      <strong>{derived.mysticArmor + armor.mystic}</strong>
+                    </span>
+                  </div>
+                </>,
               )}
               {section(
                 'ed4-talents',
@@ -3664,153 +3791,6 @@ export function Earthdawn4eEditor({
                   {draft.health.basicMode ? (
                     <div className="earthdawn-basic-play">
                       <div className="earthdawn-basic-stat">
-                        <span>Damage</span>
-                        <div className="earthdawn-health-primary">
-                          <button
-                            aria-label="Remove one damage"
-                            onClick={() =>
-                              update((c) => ({
-                                ...c,
-                                health: {
-                                  ...c.health,
-                                  damage: Math.max(0, c.health.damage - 1),
-                                },
-                              }))
-                            }
-                          >
-                            −
-                          </button>
-                          <strong>{draft.health.damage}</strong>
-                          <button
-                            aria-label="Add one damage"
-                            onClick={() =>
-                              update((c) => ({
-                                ...c,
-                                health: {
-                                  ...c.health,
-                                  damage: c.health.damage + 1,
-                                },
-                              }))
-                            }
-                          >
-                            +
-                          </button>
-                        </div>
-                        <div className="earthdawn-damage-actions">
-                          <label>
-                            <span>Damage amount</span>
-                            <input
-                              type="number"
-                              inputMode="numeric"
-                              min="0"
-                              value={damageAmount}
-                              onChange={(event) =>
-                                setDamageAmount(integer(event.target.value))
-                              }
-                            />
-                          </label>
-                          <button
-                            type="button"
-                            className="secondary-button"
-                            disabled={damageAmount <= 0}
-                            onClick={() =>
-                              update((c) => ({
-                                ...c,
-                                health: {
-                                  ...c.health,
-                                  damage: c.health.damage + damageAmount,
-                                },
-                              }))
-                            }
-                          >
-                            Take Damage
-                          </button>
-                          <button
-                            type="button"
-                            className="secondary-button"
-                            disabled={
-                              damageAmount <= 0 || draft.health.damage === 0
-                            }
-                            onClick={() =>
-                              update((c) => ({
-                                ...c,
-                                health: {
-                                  ...c.health,
-                                  damage: Math.max(
-                                    0,
-                                    c.health.damage - damageAmount,
-                                  ),
-                                },
-                              }))
-                            }
-                          >
-                            Recover Damage
-                          </button>
-                        </div>
-                        {draft.health.damage >=
-                        derived.death + draft.health.deathBonus ? (
-                          <output className="earthdawn-health-status is-dead">
-                            <span aria-hidden="true">💀</span> Dead
-                          </output>
-                        ) : draft.health.damage >=
-                          derived.unconsciousness +
-                            draft.health.unconsciousnessBonus ? (
-                          <output className="earthdawn-health-status is-unconscious">
-                            <span aria-hidden="true">😵</span> Unconscious
-                          </output>
-                        ) : null}
-                        <dl className="earthdawn-health-ratings">
-                          <div>
-                            <dt>Unconsciousness</dt>
-                            <dd>
-                              {derived.unconsciousness +
-                                draft.health.unconsciousnessBonus}
-                            </dd>
-                          </div>
-                          <div>
-                            <dt>Death</dt>
-                            <dd>{derived.death + draft.health.deathBonus}</dd>
-                          </div>
-                        </dl>
-                      </div>
-                      <div className="earthdawn-basic-stat">
-                        <span>Wounds</span>
-                        <div className="earthdawn-health-primary">
-                          <button
-                            aria-label="Remove one wound"
-                            onClick={() =>
-                              update((c) => ({
-                                ...c,
-                                health: {
-                                  ...c.health,
-                                  wounds: Math.max(0, c.health.wounds - 1),
-                                },
-                              }))
-                            }
-                          >
-                            −
-                          </button>
-                          <strong>{draft.health.wounds}</strong>
-                          <button
-                            aria-label="Add one wound"
-                            onClick={() =>
-                              update((c) => ({
-                                ...c,
-                                health: {
-                                  ...c.health,
-                                  wounds: c.health.wounds + 1,
-                                },
-                              }))
-                            }
-                          >
-                            +
-                          </button>
-                        </div>
-                        <strong className="earthdawn-threshold">
-                          Threshold {derived.woundThreshold}
-                        </strong>
-                      </div>
-                      <div className="earthdawn-basic-stat">
                         <span>Recovery</span>
                         <strong>
                           {draft.health.recoveryUsed} / {derived.recoveryTests}
@@ -4010,8 +3990,6 @@ export function Earthdawn4eEditor({
                   <div className="sheet-field-grid earthdawn-field-grid">
                     {(
                       [
-                        'damage',
-                        'wounds',
                         'unconsciousnessBonus',
                         'deathBonus',
                         'recoveryUsed',

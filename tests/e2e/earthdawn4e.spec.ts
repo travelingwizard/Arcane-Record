@@ -306,11 +306,39 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   const health = page.locator('#ed4-health');
   const basicMode = health.getByRole('switch', { name: /Basic play mode/ });
   if (!(await basicMode.isChecked())) await basicMode.check();
-  await health.getByLabel('Damage amount').fill('3');
-  await health.getByRole('button', { name: 'Take Damage' }).click();
-  await expect(health.getByText('3', { exact: true }).first()).toBeVisible();
-  await health.getByRole('button', { name: 'Recover Damage' }).click();
-  await expect(health.getByText('0', { exact: true }).first()).toBeVisible();
+  const characteristics = page.locator('#ed4-characteristics');
+  await characteristics.getByLabel('Damage amount').fill('3');
+  await characteristics.getByRole('button', { name: 'Take Damage' }).click();
+  await expect(
+    characteristics.getByText('3', { exact: true }).first(),
+  ).toBeVisible();
+  await characteristics.getByRole('button', { name: 'Add one wound' }).click();
+  await expect(
+    characteristics.getByText('1', { exact: true }).first(),
+  ).toBeVisible();
+  await characteristics
+    .getByRole('button', { name: 'Remove one wound' })
+    .click();
+  await characteristics.getByRole('button', { name: 'Heal Damage' }).click();
+  await expect(
+    characteristics.getByText('0', { exact: true }).first(),
+  ).toBeVisible();
+  const unconsciousness = Number(
+    await characteristics
+      .locator('.earthdawn-health-ratings div')
+      .filter({ hasText: 'Unconsciousness' })
+      .locator('dd')
+      .textContent(),
+  );
+  await characteristics
+    .getByLabel('Damage amount')
+    .fill(String(unconsciousness));
+  await characteristics.getByRole('button', { name: 'Take Damage' }).click();
+  await expect(characteristics.getByText('😵 Unconscious')).toBeVisible();
+  await characteristics.getByRole('button', { name: 'Heal Damage' }).click();
+  await characteristics.getByLabel('Damage amount').fill('999');
+  await characteristics.getByRole('button', { name: 'Take Damage' }).click();
+  await expect(characteristics.getByText('💀 Dead')).toBeVisible();
   await page.getByRole('button', { name: 'Add Discipline & Questor' }).click();
   const pathDialog = page.getByRole('dialog', {
     name: 'Add Discipline and Questor',
