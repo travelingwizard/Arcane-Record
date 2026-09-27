@@ -237,9 +237,10 @@ export function createDefaultFamilyState(type: ExaltedCharacterType) {
         type: 'sidereal' as const,
         division: '',
         paradox: 0,
-        colleges: {},
+        colleges: {} as Record<string, number>,
         destinies: [] as {
           id: string;
+          collegeId: string | null;
           name: string;
           active: boolean;
           notes: string;

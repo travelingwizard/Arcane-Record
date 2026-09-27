@@ -190,13 +190,13 @@ real, creatable sheet.
 
 ## Status per family
 
-| Family     | Source manifest                                                                                                                                                         | Inventory rows | Promoted                                                              | Certification                                                                                                                                                                  |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)    | 598            | 0                                                                     | Locked, all dimensions `not-run`                                                                                                                                               |
-| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 505 of 505 promotable (catalog dimension complete, Phase 1e)          | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6                                         |
-| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 360 of 365 promotable (Astrology/Colleges still unpromoted, Phase 2d) | Locked; rules/creator/migration tests pass (Phase 2d), catalog dimension still short by 5 rows, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
-| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 0                                                                     | Locked, all dimensions `not-run`                                                                                                                                               |
-| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 365            | 0                                                                     | Locked, all dimensions `not-run`                                                                                                                                               |
+| Family     | Source manifest                                                                                                                                                         | Inventory rows | Promoted                                                                      | Certification                                                                                                                          |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)    | 598            | 0                                                                             | Locked, all dimensions `not-run`                                                                                                       |
+| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 505 of 505 promotable (catalog dimension complete, Phase 1e)                  | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
+| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 370 of 370 promotable (catalog dimension complete, Phase: Astrology/Colleges) | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
+| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 0                                                                             | Locked, all dimensions `not-run`                                                                                                       |
+| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 365            | 0                                                                             | Locked, all dimensions `not-run`                                                                                                       |
 
 Lunar's 582 rows cover the core innate powers, every Charm category in
 Chapter Five (Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat
@@ -999,6 +999,41 @@ certification record can flip: the 5 Astrology/Colleges catalog rows, the
 13 still-unreviewed Savant and Sorcerer spell rows, and the full
 browser-test evidence and Phase 6 all-five-together gate this project's
 certification requires.
+
+Sidereal Phase: Astrology/Colleges closes the last catalog-dimension gap
+Phase 2d left open. A precise recount against the full inventory found
+that "5 Astrology/Colleges rows" had undercounted: exactly 10
+disposition-`calculated`, `verificationState: 'reviewed'` rows cover the
+Astrology rules framework (Petitions, the Effect Roll, Blessings and
+Curses, Scope/Duration/Power, Multiple and Canceling Effects, Censure,
+Paradox, Pattern Bite, and Greater Signs) plus Resplendent Destinies, all
+now promoted verbatim into a new `sidereal-astrology-rules.json` catalog
+file. `promotableEntries` is corrected from 365 to 370 and
+`promotedEntries` rises from 360 to 370, so `catalogDimensionPasses` now
+returns `true` for Sidereal for the first time (matching Abyssal's own
+catalog-complete state). Alongside that audited catalog, a richer,
+Zod-validated reference module (`sidereal-astrology.ts`) derives the
+complete named-College catalog from Exalted: The Sidereals Chapter Six --
+5 astrological Houses (Journeys/Leisure/War/Secrets/Endings), 25 named
+Colleges (5 per House, each mapped 1:1 to that House's Caste's five
+Auspicious Abilities via the existing `siderealAbilityGroups` export, with
+a runtime assertion that fails loudly on any drift between the two), 75
+named Resplendent Effects (3 per College), 5 capstone Greater Signs, and 8
+generic Blessing/Curse effect types -- and a new `SiderealAstrologyPanel.tsx`
+editor component renders College dot-ratings, a Resplendent Destinies
+manager, computed Greater Sign eligibility (Caste + Essence 4+ + all five
+House Colleges at 3+), and a browsable rules reference. `schema.ts` gained
+a `familyState.destinies[].collegeId` machine-id field (schema version
+9 -> 10, with a migration that backfills `collegeId: null` onto
+pre-existing destinies and drops any legacy `colleges` key that isn't a
+real College id) and a `colleges` record validated against the real
+College catalog. No dice-rolling automation was added: this app has no
+dice engine for any family, so the Effect Roll/Paradox/Scope-Duration-Power
+math stays reference text applied by hand, exactly like every other
+family's own procedural-rules handling. Sidereal now passes every
+per-family test dimension this project tracks (catalog/rules/creator/
+migration); only `browserTests` (no user-facing creation route yet) and
+Phase 6's all-five-families-together rule keep it locked.
 
 ## Next steps (require source material per book)
 

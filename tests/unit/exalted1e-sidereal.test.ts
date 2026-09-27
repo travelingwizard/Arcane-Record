@@ -672,5 +672,49 @@ describe('Exalted First Edition Sidereal (schema-only; not yet UI-selectable)', 
       expect(migrated.downtimeAdvancement).toEqual([]);
       expect(exalted1eCharacterSchema.parse(migrated)).toEqual(migrated);
     });
+
+    it('migrates a legacy Sidereal familyState (schema version 10: Astrology/Colleges) by dropping unknown College keys and backfilling destinies[].collegeId', () => {
+      const character = createBlankExaltedCharacter('sidereal');
+      character.identity.caste = 'Journeys';
+      const legacy = {
+        ...character,
+        familyState: {
+          type: 'sidereal',
+          division: 'Bureau of Destiny',
+          paradox: 3,
+          // A real College id (kept) alongside a stray/legacy key that
+          // predates the real catalog (dropped -- there is no way to know
+          // what it meant).
+          colleges: { 'journeys-the-captain': 2, 'legacy-unknown-key': 5 },
+          // A destiny recorded before `collegeId` existed: only a
+          // free-text name, no catalog link.
+          destinies: [
+            {
+              id: crypto.randomUUID(),
+              name: 'The Captain, in name only',
+              active: false,
+              notes: 'Recorded before the Colleges catalog existed.',
+            },
+          ],
+        },
+      } as unknown as Record<string, unknown>;
+
+      const migrated = migrateExalted1eCharacter(legacy, 9);
+      expect(migrated.sheetType).toBe('sidereal');
+      if (migrated.familyState.type !== 'sidereal') {
+        throw new Error('Expected a Sidereal familyState after migration.');
+      }
+      expect(migrated.familyState.division).toBe('Bureau of Destiny');
+      expect(migrated.familyState.paradox).toBe(3);
+      expect(migrated.familyState.colleges).toEqual({
+        'journeys-the-captain': 2,
+      });
+      expect(migrated.familyState.destinies).toHaveLength(1);
+      expect(migrated.familyState.destinies[0]?.collegeId).toBeNull();
+      expect(migrated.familyState.destinies[0]?.name).toBe(
+        'The Captain, in name only',
+      );
+      expect(exalted1eCharacterSchema.parse(migrated)).toEqual(migrated);
+    });
   });
 });

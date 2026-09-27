@@ -31,6 +31,7 @@ import {
   siderealCharmIds,
   siderealSorcerySpellIds,
 } from './reference/sidereal-powers';
+import { siderealAstrologyCollegeIds } from './reference/sidereal-astrology';
 import { solarCharmIds } from './reference/solar-charms';
 import {
   getSolarTraitRepeatLimit,
@@ -194,10 +195,34 @@ const familyStateSchema = z.discriminatedUnion('type', [
     type: z.literal('sidereal'),
     division: z.string(),
     paradox: z.number().int().min(0).max(99),
-    colleges: z.record(z.string(), z.number().int().min(0).max(5)),
+    // Keys are College ids from `siderealAstrologyColleges` (25 named
+    // Colleges, 5 per astrological House) -- see
+    // `./reference/sidereal-astrology.ts`'s module-doc for why this is a
+    // machine-id record (never a display label) and why the underlying
+    // Astrology mechanics this rating unlocks stay reference-only rather
+    // than dice-automated (this app has no dice engine anywhere). A plain
+    // `z.string()` key (rather than `z.enum(...)`) is deliberate: Zod
+    // treats an enum-keyed `z.record` as requiring every enum member to
+    // be present (matching TypeScript's own `Record<Union, T>`), but a
+    // real character only stores the Colleges she has actually
+    // initiated into, leaving the other 20+ implicitly un-rated.
+    colleges: z
+      .record(z.string(), fivePointRating)
+      .refine(
+        (colleges) =>
+          Object.keys(colleges).every((id) =>
+            (siderealAstrologyCollegeIds as readonly string[]).includes(id),
+          ),
+        { message: 'Unknown Sidereal Astrology College id.' },
+      ),
     destinies: z.array(
       z.object({
         id: z.string().uuid(),
+        // The College whose Resplendent Destiny this identity represents;
+        // `null` covers a destiny recorded before this field existed (see
+        // schema version 10's migration) or a Storyteller-approved
+        // homebrew destiny with no matching catalog College.
+        collegeId: z.enum(siderealAstrologyCollegeIds).nullable(),
         name: z.string(),
         active: z.boolean(),
         notes: z.string(),
@@ -916,6 +941,41 @@ export function prepareExalted1eCharacterData(
           favoredAttributeIds: [],
         },
       };
+    }
+    if (fromVersion < 10) {
+      // Sidereal Astrology (Phase: Astrology/Colleges) promoted a real
+      // College catalog (`siderealAstrologyCollegeIds`) after
+      // `familyState.colleges`/`.destinies` had already shipped as open
+      // placeholders (any string key; a free-text destiny name with no
+      // catalog link). Drop any pre-existing College rating whose key is
+      // not a real catalog id (there is no way to know what a stray
+      // legacy key meant), and give every existing destiny a `collegeId`
+      // of `null` rather than guessing one from its free-text `name`.
+      const familyState = recordCandidate.familyState as
+        Record<string, unknown> | undefined;
+      if (familyState?.type === 'sidereal') {
+        const validCollegeIds = new Set<string>(siderealAstrologyCollegeIds);
+        const legacyColleges = (familyState.colleges ?? {}) as Record<
+          string,
+          unknown
+        >;
+        const colleges = Object.fromEntries(
+          Object.entries(legacyColleges).filter(([collegeId]) =>
+            validCollegeIds.has(collegeId),
+          ),
+        );
+        const legacyDestinies = Array.isArray(familyState.destinies)
+          ? familyState.destinies
+          : [];
+        const destinies = legacyDestinies.map((destiny) => ({
+          ...(destiny as Record<string, unknown>),
+          collegeId: null,
+        }));
+        recordCandidate = {
+          ...recordCandidate,
+          familyState: { ...familyState, colleges, destinies },
+        };
+      }
     }
     candidate = recordCandidate;
   }

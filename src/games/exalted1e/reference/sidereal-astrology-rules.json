@@ -1,0 +1,142 @@
+[
+  {
+    "id": "sidereal-astrology-petitions",
+    "name": "Sidereal Astrology Petitions (paperwork, calligraphy, co/countersignatures)",
+    "summary": "Heaven runs on bureaucracy: a Sidereal who wants prompt, low-difficulty action from the pattern spiders should file written paperwork (a divine petition, prepared like a Charm prayer strip) rather than relying on an unbuffered prayer roll, and can further improve the roll with fine calligraphy, other Sidereals' cosignatures, a god's countersignature, extended/lengthy prayer, or ordinary stunts.",
+    "requirements": "The Sidereal must have initiation in the constellation/college being petitioned; a divine petition costs Resources \u2022\u2022 to prepare as paperwork (in addition to any prayer-strip cost).",
+    "mechanics": "Divine Petition: a written petition prepared like a Charm prayer strip; the Sidereal's player rolls Wits + Linguistics or Wits + Craft (Calligraphy) at difficulty 2 to execute the strip properly (difficulty 4 if written in a single turn). Calligraphy: four or more successes on that roll decreases the prayer roll's difficulty by 1; six or more successes decreases it by 3. Cosignatories: other Sidereals of the four other Castes, initiated in the petitioned college, with Essence no higher than the petitioner's, can each add one die to the prayer roll by signing (each cosignatory rolls Wits + Linguistics or Wits + Craft (Calligraphy) at difficulty 1 to sign correctly). Countersignatures: the god heading the college's division of the Bureau of Destiny may sign off for three extra dice, at the cost of a separate Charisma + Performance prayer/sacrifice roll (difficulty 3, or 2 if the god is head of that division); a countersignature from outside the character's own division generally requires a Resources \u2022\u2022\u2022 minimum sacrifice. Extended Prayers: add one die per three hours of ritual repetition, to a maximum of three dice. Preferred Sacrifices: five named divinities (Ruvia, Yaogin, Hu Dai Liang, Nara-O, Wayang) have preferred offering types; an off-type sacrifice loses one dot of Resources value. Stunts: well-described ritual behavior, prayer language, or sacrifice materials add one to three dice as an ordinary stunt.",
+    "cost": "Divine petition: Resources \u2022\u2022 (paperwork) plus the underlying prayer-strip cost; countersignature sacrifice: Resources \u2022\u2022\u2022 minimum if going outside the character's own division.",
+    "compatibility": "All Sidereal Castes; cosignatories must be Sidereals of a different Caste from the petitioner, initiated in the college in question, with Essence no higher than the petitioner's.",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 206,
+      "pdfPage": 209
+    }
+  },
+  {
+    "id": "sidereal-astrology-effect-roll",
+    "name": "Sidereal Astrology Effect Roll (Determining, Formulating and Activating Effects)",
+    "summary": "Once a prayer roll succeeds, the Sidereal spends a point of temporary Willpower and rolls Essence + College rating to generate 'effect dice,' whose successes are spent to buy the target Scope, Duration and Power of an ascending (positive) or descending (negative) astrological effect; the player then formulates the effect in words, and it clings to the target ('goes contagious') until the Exalt's next touch or attack activates it.",
+    "requirements": "A successful prayer roll to the college (see sidereal-astrology-petitions); one point of temporary Willpower per effect roll.",
+    "mechanics": "Effect Roll: spend a point of temporary Willpower and roll Essence + the Sidereal's rating in the college being invoked, reflexively, immediately after a successful prayer roll. The player states the target and whether the invocation is ascending, descending, or resplendent before rolling. Determining Effect: the roll's successes are spent to buy Duration and Scope from the Effect Scope/Duration/Power tables, while the specific effect itself is chosen from the Catalog of Colleges. Formulating the Effect: the Sidereal states the effect aloud as a written pronouncement ('I pronounce that [subjects] be taken into the College of [constellation] and subjected to [effect]...'). Activating Effects: ascending/descending effects are 'contagious,' clinging to the target until the Sidereal's touch or attack sets them in motion (a Sidereal can bear only one contagious destiny for another at a time); resplendent effects instead attach only to the Sidereal's own resplendent destiny and are available immediately, never contagious. Effect Modifiers: Artificial Specialties (from specific Charms); Destiny Planning (Intelligence + Craft (Fate), difficulty = target's permanent Essence, one day, +1 effect die per 3 successes); Precomputed Horoscopes (Intelligence + Occult, difficulty 1, capped by the planning roll's successes, +1 effect die per 3 successes, requires Resources \u2022\u2022\u2022 astrological devices); Excellent Petition (per sidereal-astrology-petitions); Ritual Behavior (+1 die for 3 trappings borne for 3 days, +3 dice for donning the resplendent destiny, +1 more if the target already resides in the college's precincts); Multiple Sidereals (add each legal cosignatory's Essence); Choose Effect (+1 Paradox die for a simple trigger, +3 for an intelligent trigger); Paradox Roll (one die for invoking astrology at all, plus one per Paradox point already held, 10s counting double).",
+    "cost": "One point of temporary Willpower per effect roll; see sidereal-astrology-paradox for the Paradox dice generated by invoking the effect.",
+    "compatibility": "All Sidereal Castes; contagious (ascending/descending) effects can be attached to any target with a Scope-eligible Essence, but resplendent effects only ever target the Sidereal's own resplendent destiny.",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 208,
+      "pdfPage": 211
+    }
+  },
+  {
+    "id": "sidereal-astrology-blessings-and-curses",
+    "name": "Sidereal Astrology Blessing/Curse Effect Types",
+    "summary": "The eight generic ascending (blessing) and descending (curse) effect types Sidereals can lay on the subjects of the 25 constellations, ranging from mild dice bonuses and Willpower gains to Virtue-draining afflictions; the Sidereal cannot choose which of these effects a college offers, since each college is predisposed toward specific ones (see the Catalog of Colleges).",
+    "requirements": "A successful prayer and effect roll targeting a subject of the relevant constellation (see sidereal-astrology-effect-roll); each effect type is only available from certain colleges.",
+    "mechanics": "Artless Prodigy Blessing: -1 to a roll's target number. Blissful Idiot Blessing: the target regains 1 point of temporary Willpower from accomplishing a task related to the blessing (or +1 success in an opposed test). Hound-Chases-Rabbit Blessing: +1 die to a roll involving the blessing (or +1 success in an opposed test). Fortified Spirit Blessing: +1 to a chosen Virtue for a roll related to the blessing. Sloped Floor Curse: +1 difficulty to a roll involving the curse. Ruin Without Failure Curse: +1 difficulty to the target's roll (or -1 success in an opposed test). Heart-Piercing Curse: any failure on an Ability roll relating to the curse costs a point of temporary Willpower. Name-Destroying Curse: -1 to a chosen Virtue for a roll related to the curse. These bonuses/penalties stack with other forms of Essence manipulation, except that target numbers cannot be reduced below 4 or raised above 9.",
+    "cost": "Paid for in effect-roll successes spent on Scope/Duration/Power per sidereal-astrology-scope-duration-power; no separate cost of its own.",
+    "compatibility": "All Sidereal Castes; the specific blessing/curse types available are fixed per college (see the Catalog of Colleges).",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 210,
+      "pdfPage": 213
+    }
+  },
+  {
+    "id": "sidereal-astrology-scope-duration-power",
+    "name": "Sidereal Astrology Effect Scope, Duration and Power Tables",
+    "summary": "The three tables that convert an Effect Roll's successes into how many/large a population an ascending or descending effect covers (Scope), how long it lasts (Duration), and how strong or frequent it manifests (Power); high-Essence individual targets require spending successes differently than mass-Scope targets, and some Scope/Duration bands impose extra Paradox or a censure risk.",
+    "requirements": "Successes generated on the Essence + College effect roll (see sidereal-astrology-effect-roll).",
+    "mechanics": "Effect Scope (mortal-tier individuals affected): 0 = an individual alone, no world-altering effect; 1 = individual alone, world-altering effect; 2 = small group (up to 10); 3 = extended family/hamlet (up to 25); 4* = clan/village (up to 100); 5* = town (up to 1,000); 6 = city (up to 10,000); 7** = principality (up to 100,000); 8 = kingdom (up to 1,000,000); 9 = region (about 10,000,000); 10 = astrological direction (about 100,000,000). High-Essence targets instead cost 1 permanent Essence point per target (not successes); affecting a population of high-Essence beings requires affecting all of them or the effect fails; self-targeting always costs 2 successes regardless of Essence; obedient local gods cost nothing. Effect Duration: 0 = one month; 1 = one season; 2* = one year; 3 = 10 years; 4 = 20 years; 5*** = 60 years; 6* = 140 years; 7 = 260 years; 8 = 600 years; 9 = 1,000 years; 10 = 2,000 years. Effect Power (frequency): 1 = moderate, about once/week; 2* = strong, about once/day; 3* = very strong, about once/scene; 4*** = overpowering, every chance it gets. Table Key: * invites peer censure; \u2022 one additional Paradox die; \u2022\u2022\u2022 three additional Paradox dice.",
+    "cost": "Paid entirely in effect-roll successes (or permanent Essence points for high-Essence individual targets); certain bands additionally cost Paradox dice or invite censure per the Table Key.",
+    "compatibility": "All Sidereal Castes; the High-Essence Beings scope rule applies to any target of Essence 2 or higher, Exalted or otherwise.",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 210,
+      "pdfPage": 213
+    }
+  },
+  {
+    "id": "sidereal-astrology-multiple-and-canceling-effects",
+    "name": "Sidereal Astrology Multiple Effects and Canceling Effects",
+    "summary": "No individual can carry more Sidereal-astrology effects than points of permanent Essence at once (excess low-rolling effects simply dissipate, with resplendent destinies always treated as the lowest-priority/first-to-drop); a Sidereal can cancel her own astrology effects through official channels, but cannot cancel another Sidereal's, and effects a Sidereal's own next incarnation didn't bother to cancel run their full course.",
+    "requirements": "Canceling an effect requires drawing up a cancellation petition (as with creating one) and, if the effect had cosignatories or a countersignature, obtaining their permission and physical presence.",
+    "mechanics": "Multiple Effects: an individual can be the target of no more than his points of permanent Essence in Sidereal astrology effects at once; if too many are placed on someone, the lowest Essence + College-rolled effects dissipate (ties favor the higher roll). Resplendent destinies are always the lowest-priority tiebreak candidates for being knocked off. Canceling Effects: the Sidereal must submit an official cancellation petition through bureau channels (difficulty 2 to draw up, difficulty 3 for the cancellation prayer roll; calligraphy reduces difficulty as usual). Sidereals can only cancel their own astrology, never another Sidereal's; if the originating Sidereal dies, her next incarnation cannot terminate the effect. Any co/countersignatories must be notified of a cancellation, and any surviving co-signing Sidereals must give permission and be physically present when the cancellation petition is sent.",
+    "cost": "A cancellation petition (difficulty 2 to prepare) and prayer roll (difficulty 3); requires physical presence/permission of any surviving co/countersignatories.",
+    "compatibility": "Only the originating Sidereal may cancel her own effects; another Sidereal's astrology, or effects left uncanceled after the originator's death, run their full Duration.",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 212,
+      "pdfPage": 215
+    }
+  },
+  {
+    "id": "sidereal-astrology-censure",
+    "name": "Sidereal Astrology Censure",
+    "summary": "Censure is the formal, social/professional disapproval a Sidereal incurs from peers and superiors in the Bureau of Destiny for careless or self-serving use of astrology (flagged by the asterisk entries in the Scope/Duration/Power tables); it has no direct mechanical penalty of its own but accumulates as a reputational black mark that supervisors track and that can affect career advancement, scheduling, and how much scrutiny a Sidereal's future petitions receive.",
+    "requirements": "Triggered by choosing certain flagged Scope/Duration/Power bands (see sidereal-astrology-scope-duration-power's Table Key), or by using astrology in ways the Bureau considers wasteful, self-serving, disproportionate, or damaging to Heaven's professional image.",
+    "mechanics": "No direct mechanical effects, but many indirect ones tracked informally by the Storyteller: proportionality (abusing Scope for petty or grandiose ends), professional image (making the Bureau look ineffectual -- 'no miracle at all' is often the goal, since astrology should stay hidden and subtle), and secrecy (overuse forces elder Sidereals to clean up visible messes in the Tapestry). Senior Dynasts are rarely subjected to astrology at all; Sidereals need written permission from Chejop Kejak or the Inner Circle to use astrology on the Blessed Isle; gods of Essence 5+ and their mortal lovers are off-limits; using astrology on any Celestial deity requires a censor's approval.",
+    "cost": "n/a (reputational, not a dice-pool or Paradox cost); tracked informally by the Storyteller/Bureau rather than a numeric Trait.",
+    "compatibility": "All Sidereal Castes; particularly relevant to any effect flagged with an asterisk in the Scope/Duration/Power tables.",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 212,
+      "pdfPage": 215
+    }
+  },
+  {
+    "id": "sidereal-astrology-paradox",
+    "name": "Sidereal Astrology Paradox",
+    "summary": "Paradox tracks the pattern spiders' own displeasure at having their weaving diverted from its natural course; every invocation of Sidereal astrology risks generating it (regardless of how carefully or kindly it's used), certain resplendent-destiny events generate more of it per the Paradox Gain table, and accumulating 10 points triggers pattern bite.",
+    "requirements": "Any use of Sidereal astrology (an effect roll) risks Paradox gain; resplendent destinies generate Paradox from a separate list of triggering events (see resplendent-destinies' Paradox Gain table).",
+    "mechanics": "Every time the Sidereal invokes an astrological effect, her player rolls a die: each success gains 1 Paradox, and a 10 counts as two successes. Flagged Scope/Duration/Power bands (see the Table Key) and resplendent-destiny events (per the Paradox Gain table) add further dice. In general, the longer and larger-Scope an effect, the more Paradox it risks. Reaching 10 or more Paradox triggers pattern bite.",
+    "cost": "1 die per invocation of Sidereal astrology, gaining 1 Paradox per success (10s count double); additional Paradox from flagged Scope/Duration/Power bands and from Resplendent Destiny triggers.",
+    "compatibility": "All Sidereal Castes; Paradox accumulates on the individual Sidereal, not shared across cosignatories.",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 214,
+      "pdfPage": 217
+    }
+  },
+  {
+    "id": "sidereal-astrology-pattern-bite",
+    "name": "Sidereal Astrology Pattern Bite",
+    "summary": "The instant a Sidereal accumulates 10 or more points of Paradox, the pattern spiders lash out with a venomous 'pattern bite' (rolled on a 1-10 table of ten distinct debilitating effects, from Essence/Willpower drains to death for the character's loved one), then immediately reduce her Paradox to 0; Paradox otherwise decays on its own by one point every three months, faster through a costly ritual called the Wrapped Fly Ritual.",
+    "requirements": "Triggers automatically the instant a Sidereal's Paradox reaches 10 or more points.",
+    "mechanics": "Roll 1d10 on the venom table: 1. Power-Neutralizing Venom -- loses all temporary Essence, cannot regain it for 1-10 days. 2. Blunted Mind Venom -- loses all Willpower, cannot regain it for 1-10 days. 3. Burning Muscle Venom -- -3 wound penalty for 1-10 weeks, unmodifiable. 4. Divine Anaesthetic Venom -- -1 permanent Essence for 1-10 weeks, cannot raise Essence during this period. 5. Resolve-Decaying Venom -- loses all remaining temporary Virtue points for the rest of the story. 6. Essence-Weeping Venom -- +1 mote to all Charm costs for 1-10 days (also applies to Combos/sorcery). 7. Visage-Twisting Venom -- reduced to Appearance 0 for 1-10 months. 8. Black Voyage Venom -- sleeps for 1-10 days in terrible nightmares; nothing can wake her. 9. Essence Venom -- takes 1-10 dice of aggravated damage. 10. Dead Wife Venom -- a loved one of Essence 1 dies horribly (the only venom one can become immune to through repeated exposure). Dissipating Paradox: one point decays naturally every three months (season). Pattern bite itself immediately resets Paradox to 0. The Wrapped Fly Ritual (25 hours, a written apology/verse, Charisma + Performance difficulty 3, costs 1 Willpower) removes 1 Paradox point. The Wrapped Diamond Ritual (a day of enforced lassitude, Temperance difficulty 2, plus successful calligraphy and prayer rolls, costs 1 experience point, which may go into arrears) reduces Paradox fully to 0.",
+    "cost": "Automatic at 10+ Paradox, resetting Paradox to 0; the Wrapped Fly Ritual costs 25 hours and 1 Willpower to remove 1 Paradox point, the Wrapped Diamond Ritual costs a day and 1 experience point to reduce Paradox fully to 0.",
+    "compatibility": "All Sidereal Castes; only Sidereals initiated into a college know the Wrapped Fly/Diamond Rituals.",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 214,
+      "pdfPage": 217
+    }
+  },
+  {
+    "id": "resplendent-destinies",
+    "name": "Resplendent Destinies",
+    "summary": "A resplendent destiny is a self-targeted Sidereal astrology effect that lets the Exalt assume a simplified, constellation-flavored alternate identity ('in character' as her college's archetype) at will, avoiding the visibility/Paradox costs of her Arcane Fate anima banner and gaining access to that college's resplendent powers; maintaining the ruse convincingly (and the Paradox it generates from suspicious or out-of-character behavior) is the central balancing cost.",
+    "requirements": "The Sidereal must have initiation in the college whose resplendent destiny she wants to assume; invoking or ending a specific identity costs one point of temporary Willpower and takes a turn.",
+    "mechanics": "Changing What You Are: by spending a Willpower and taking no other action for a turn, the Sidereal dons one of her active resplendent destinies; others recognize her as that college's 'type' and can remember her name under that identity. The same persona always represents a given resplendency. Being What You Aren't: masquerading as a resplendent destiny in front of others is at +3 dice, difficulty 1, even across build/gender differences -- but the character must stay fundamentally true to the college's description and trappings (a single identity cannot switch character day to day). Acting out of character (by the Storyteller's common-sense judgment) costs a Paradox die, whether witnessed or not. Resplendency Paradox: a resplendent destiny's own powers never generate Paradox for the Exalt, even used publicly, and work on beings outside fate (unlike ordinary ascending/descending effects) -- but the Paradox Gain table separately charges Paradox dice for: every out-of-character act (1 die); a month spent somewhere the Sidereal has held a dozen+ known resplendent destinies in the last 10 years (1 die); the anima banner activating at the 4-7 level while wearing a destiny (1 die) or 8-10+ level (2 dice); a confused meeting with someone who knew the Sidereal as her Exalted self while now wearing a destiny, or vice versa (1 die); being mistaken for a different resplendent destiny (2 dice); or being identified as a supernatural being outright (3 dice). Using Resplendent Powers: available at all times regardless of which (if any) identity is currently worn; invocation is reflexive unless the power allows an attack. A character cannot hold two of the same destiny at once, and destinies whose effect points are spent dissolve, taking their identity's history with them.",
+    "cost": "1 Willpower and a turn to don/end a resplendent identity; Paradox risk per the Paradox Gain table (out-of-character acts, anima banner triggers at 4-7/8-10+, confused identity meetings).",
+    "compatibility": "All Sidereal Castes; requires initiation in the college whose destiny is assumed; interacts with (but does not supersede) Ceasing to Exist Approach, Wanting and Fearing Prayer, and Walking Outside Fate.",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 215,
+      "pdfPage": 218
+    }
+  },
+  {
+    "id": "sidereal-astrology-greater-signs",
+    "name": "Sidereal Astrology Greater Signs",
+    "summary": "Greater Signs are the Sidereal astrology equivalent of an ultimate technique -- the Five Maidens' own reality-shaping gestures, once used to order the universe before the pattern spiders existed, which a sufficiently advanced Chosen of a Maiden can reflexively mimic to produce a house-wide area effect (instant mass travel, dispelling all magic, capping incoming damage, revealing beings outside fate, or converting damage into automatic successes) at the cost of permanent Essence and Willpower.",
+    "requirements": "Permanent Essence 4 or higher; must be a Chosen of the Maiden whose Greater Sign is being mimicked; must have a minimum rating of 3 in all five colleges of that Maiden's astrological house.",
+    "mechanics": "Making a Greater Sign is a reflexive action costing 10 motes, 1 permanent Essence and 1 permanent Willpower; it supersedes (cannot combine with) that Maiden's Lesser Sign, i.e. the Sidereal's own anima banner. Greater Sign of Mercury (Travel, House of Journeys): brilliant yellow aura; instantly moves the Exalt and up to Essence allies to any location that is part of fate. Greater Sign of Venus (Serenity, House of Leisure): brilliant blue aura; silently snuffs all Essence effects (other than Solar Circle Sorcery or a Celestial Incarna's own doing) within a radius of miles equal to the Exalt's Essence. Greater Sign of Mars (War, House of War): brilliant ruby aura; for Essence hours, allied attacks within a radius of Essence miles deal maximum raw pre-soak damage equal to the attacker's Essence. Greater Sign of Jupiter (Secrets, House of Secrets): brilliant green aura; for Essence hours, beings outside fate within a radius of Essence miles are temporarily made part of the Tapestry. Greater Sign of Saturn (Endings, House of Endings): brilliant violet aura; for Essence hours, allied damage rolls within a radius of Essence miles convert unsoaked/minimum damage dice into automatic successes. The Mars/Jupiter/Saturn signs lock affected beings in for the full duration even if they later leave the radius.",
+    "cost": "10 motes, 1 permanent Essence, and 1 permanent Willpower per use (reflexive).",
+    "compatibility": "Only a Chosen of the matching Maiden who meets the Essence-4 and all-five-colleges-at-3+ prerequisites; each Greater Sign supersedes and cannot be combined with that Maiden's Lesser Sign (anima banner).",
+    "citation": {
+      "bookId": "exalted-the-sidereals",
+      "printedPage": 235,
+      "pdfPage": 238
+    }
+  }
+]

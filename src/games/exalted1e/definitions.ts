@@ -1,5 +1,5 @@
 export const EXALTED1E_SYSTEM_ID = 'exalted1e' as const;
-export const EXALTED1E_SCHEMA_VERSION = 9 as const;
+export const EXALTED1E_SCHEMA_VERSION = 10 as const;
 
 /**
  * Legal `sheetType` values for a STORED character. Re-exported from

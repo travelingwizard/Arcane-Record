@@ -7,6 +7,7 @@ import {
 } from '../../components/layout/SheetPrimitives';
 import type { Exalted1eCharacter } from './schema';
 import { alchemicalCharms } from './reference/family-powers';
+import { SiderealAstrologyPanel } from './SiderealAstrologyPanel';
 
 interface Props {
   character: Exalted1eCharacter;
@@ -136,37 +137,41 @@ export function ExaltedFamilyStatePanel({ character, onChange }: Props) {
 
   if (state.type === 'sidereal') {
     return (
-      <SheetCard density="compact">
-        <h3>Sidereal state</h3>
-        <SheetFieldGrid columns={2}>
-          <SheetField label="Division">
-            <input
-              value={state.division}
-              disabled={!buildMode}
-              onChange={(event) =>
-                replaceState({ ...state, division: event.target.value })
-              }
-            />
-          </SheetField>
-          <SheetField label="Paradox">
-            <input
-              type="number"
-              min={0}
-              value={state.paradox}
-              onChange={(event) =>
-                replaceState({
-                  ...state,
-                  paradox: Number.parseInt(event.target.value, 10) || 0,
-                })
-              }
-            />
-          </SheetField>
-        </SheetFieldGrid>
-        <SheetNotice>
-          Astrology effects and resplendent destinies remain manually recorded
-          until their complete procedures pass verification.
-        </SheetNotice>
-      </SheetCard>
+      <>
+        <SheetCard density="compact">
+          <h3>Sidereal state</h3>
+          <SheetFieldGrid columns={2}>
+            <SheetField label="Division">
+              <input
+                value={state.division}
+                disabled={!buildMode}
+                onChange={(event) =>
+                  replaceState({ ...state, division: event.target.value })
+                }
+              />
+            </SheetField>
+            <SheetField label="Paradox">
+              <input
+                type="number"
+                min={0}
+                value={state.paradox}
+                onChange={(event) =>
+                  replaceState({
+                    ...state,
+                    paradox: Number.parseInt(event.target.value, 10) || 0,
+                  })
+                }
+              />
+            </SheetField>
+          </SheetFieldGrid>
+        </SheetCard>
+        <SiderealAstrologyPanel
+          character={character}
+          state={state}
+          buildMode={buildMode}
+          onChange={replaceState}
+        />
+      </>
     );
   }
 

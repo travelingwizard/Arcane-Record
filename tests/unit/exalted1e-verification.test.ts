@@ -68,26 +68,21 @@ describe('exalted1e verification gate', () => {
         expect(record.browserTests).toBe('not-run');
       }
       // All five families have started source intake (inventory rows > 0).
-      // Abyssal (Phase 1e) has now had every one of its promotable rows
-      // promoted to real production catalogs (505 of 505: Backgrounds,
-      // universal Merits/Flaws chapter, all 227 Chapter Five Charms, all
-      // 106 Necromancy spells, and 86 Sorcery spells -- see
-      // `SplatCatalogEvidence.promotableEntries`). Sidereal has had its
-      // Backgrounds, universal Merits/Flaws chapter, Charms, and Sorcery
-      // spells promoted (360 rows: 12 Backgrounds + 82 Merits/Flaws + 193
-      // Charms + 73 Sorcery spells), but that alone must not unlock it --
-      // its own Astrology/Colleges system (5 more promotable rows) still
-      // isn't promoted, so `promotedEntries` (360) stays short of
-      // `promotableEntries` (365) even though `catalog.checksum` is now a
-      // real, non-empty value for both families (each computed by
-      // `scripts/audit-exalted-sources.mjs`'s family-prefixed-file scan,
-      // not a placeholder). Even with a fully or partially satisfied
-      // catalog dimension, `certifiedAt` stays null and both families stay
-      // locked: `browserTests` can't run before either family is unlocked,
-      // and Phase 6's rule requires all five families to reach
+      // Abyssal (Phase 1e) and Sidereal (Phase: Astrology/Colleges) have
+      // now each had every one of their promotable rows promoted to real
+      // production catalogs (Abyssal: 505 of 505 -- Backgrounds, universal
+      // Merits/Flaws chapter, all 227 Chapter Five Charms, all 106
+      // Necromancy spells, and 86 Sorcery spells; Sidereal: 370 of 370 --
+      // 12 Backgrounds + 82 Merits/Flaws + 193 Charms + 73 Sorcery spells
+      // + 10 Astrology/Colleges procedural-rules rows -- see
+      // `SplatCatalogEvidence.promotableEntries`), so `catalogDimensionPasses`
+      // now returns true for both. Even with a fully satisfied catalog
+      // dimension, `certifiedAt` stays null and both families stay
+      // locked: `browserTests` can't run before either family is
+      // unlocked, and Phase 6's rule requires all five families to reach
       // `certifiedAt !== null` together.
       expect(record.catalog.promotedEntries).toBe(
-        family === 'abyssal' ? 505 : family === 'sidereal' ? 360 : 0,
+        family === 'abyssal' ? 505 : family === 'sidereal' ? 370 : 0,
       );
       if (family === 'abyssal' || family === 'sidereal') {
         // Cross-check against the audit script's own live computation
@@ -144,17 +139,25 @@ describe('exalted1e verification gate', () => {
   it('reflects Sidereal source intake in progress without unlocking the family', () => {
     const record = certificationRecords.sidereal;
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
-    // 360 = 12 Backgrounds (siderealBackgrounds) + 82 shared Merits/Flaws
+    // 370 = 12 Backgrounds (siderealBackgrounds) + 82 shared Merits/Flaws
     // catalog rows now carrying 'sidereal' in appliesTo (79 extended
     // existing entries plus 3 wholly new Sidereal-only entries) + 193
     // Chapter Five Charms (sidereal-charms.json/sidereal-powers.ts) + 73
     // Sorcery spells (siderealSorcerySpellIds, a subset of the shared
-    // dragonblooded-sorcery.json catalog) -- short of the 365
-    // `promotableEntries` estimate (which also counts the still-unreviewed
-    // Sorcery spell rows and the not-yet-scoped Astrology/Colleges
-    // system), and far short of the raw `totalInventoryRows` (583). Either
-    // way, `isFamilyAvailable('sidereal')` must stay false.
-    expect(record.catalog.promotedEntries).toBe(360);
+    // dragonblooded-sorcery.json catalog) + 10 Astrology/Colleges
+    // procedural-rules rows (sidereal-astrology-rules.json) -- this now
+    // equals the 370 `promotableEntries` estimate (which still excludes
+    // the still-unreviewed Sorcery spell rows, since those are not
+    // `verificationState: 'reviewed'` and so never counted as
+    // promotable), and is far short of the raw `totalInventoryRows`
+    // (583). Even with the catalog dimension fully satisfied,
+    // `isFamilyAvailable('sidereal')` must stay false: `browserTests`
+    // can't run before the family is unlocked, and Phase 6's rule
+    // requires all five families to reach `certifiedAt !== null`
+    // together.
+    expect(record.catalog.promotedEntries).toBe(370);
+    expect(record.catalog.promotableEntries).toBe(370);
+    expect(record.catalog.unresolvedEntries).toBe(0);
     expect(isFamilyAvailable('sidereal')).toBe(false);
   });
 
@@ -281,14 +284,15 @@ describe('exalted1e verification gate', () => {
     expect(status.blockReason).toContain('browser tests not-run');
   });
 
-  it('describes Sidereal as locked with its still-incomplete catalog dimension despite its passing test dimensions', () => {
+  it('describes Sidereal as locked with its now-complete catalog dimension despite its passing test dimensions', () => {
     const status = getFamilyCertificationStatus('sidereal');
     expect(status.available).toBe(false);
-    // Unlike Abyssal, Sidereal's catalog dimension is NOT yet fully
-    // resolved (5 of 365 promotable rows -- its own Astrology/Colleges
-    // system -- remain unpromoted), even though rulesTests/creatorTests/
-    // migrationTests all pass (Phase 2d).
-    expect(status.blockReason).toContain('360/365 promoted');
+    // Like Abyssal, Sidereal's catalog dimension is now fully resolved
+    // (370 of 370 promotable rows, including its own Astrology/Colleges
+    // system's 10 procedural-rules rows), and rulesTests/creatorTests/
+    // migrationTests all pass (Phase 2d) -- the family stays locked only
+    // for browserTests (not-run) and Phase 6's all-five-together rule.
+    expect(status.blockReason).toContain('370/370 promoted');
     expect(status.blockReason).toContain('0 unresolved');
     expect(status.blockReason).toContain('rules tests pass');
     expect(status.blockReason).toContain('browser tests not-run');
