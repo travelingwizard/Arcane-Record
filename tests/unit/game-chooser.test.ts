@@ -96,10 +96,11 @@ describe('game chooser preferences', () => {
     };
     writeGameChooserPreferences(
       {
-        version: 1,
+        version: 2,
         sort: 'engine',
         capability: 'builder',
         hiddenIds: ['future-game', 'module:missing:node:sheet'],
+        favoriteIds: ['mage20', 'future-game'],
       },
       storage,
     );
@@ -108,6 +109,26 @@ describe('game chooser preferences', () => {
       sort: 'engine',
       capability: 'builder',
       hiddenIds: ['future-game', 'module:missing:node:sheet'],
+      favoriteIds: ['mage20', 'future-game'],
+    });
+  });
+
+  it('migrates version one preferences with an empty favorite order', () => {
+    const storage = {
+      getItem: () =>
+        JSON.stringify({
+          version: 1,
+          sort: 'name-asc',
+          capability: 'all',
+          hiddenIds: ['future-game'],
+        }),
+    };
+    expect(readGameChooserPreferences(storage)).toEqual({
+      version: 2,
+      sort: 'name-asc',
+      capability: 'all',
+      hiddenIds: ['future-game'],
+      favoriteIds: [],
     });
   });
 });

@@ -13,20 +13,29 @@ export const gameChooserSorts = [
 ] as const;
 export const gameChooserFilters = ['all', 'builder', 'sheet-only'] as const;
 
-const schema = z.object({
+const versionOneSchema = z.object({
   version: z.literal(1),
   sort: z.enum(gameChooserSorts),
   capability: z.enum(gameChooserFilters),
   hiddenIds: z.array(z.string().min(1).max(500)).max(1_000),
 });
 
+const schema = z.object({
+  version: z.literal(2),
+  sort: z.enum(gameChooserSorts),
+  capability: z.enum(gameChooserFilters),
+  hiddenIds: z.array(z.string().min(1).max(500)).max(1_000),
+  favoriteIds: z.array(z.string().min(1).max(500)).max(1_000),
+});
+
 export type GameChooserPreferences = z.infer<typeof schema>;
 
 export const defaultGameChooserPreferences: GameChooserPreferences = {
-  version: 1,
+  version: 2,
   sort: 'name-asc',
   capability: 'all',
   hiddenIds: [],
+  favoriteIds: [],
 };
 
 export function readGameChooserPreferences(
@@ -34,8 +43,13 @@ export function readGameChooserPreferences(
 ): GameChooserPreferences {
   try {
     const raw = storage.getItem(gameChooserPreferenceKey);
-    const parsed = schema.safeParse(raw ? JSON.parse(raw) : null);
-    return parsed.success ? parsed.data : defaultGameChooserPreferences;
+    const value = raw ? JSON.parse(raw) : null;
+    const parsed = schema.safeParse(value);
+    if (parsed.success) return parsed.data;
+    const legacy = versionOneSchema.safeParse(value);
+    return legacy.success
+      ? { ...legacy.data, version: 2, favoriteIds: [] }
+      : defaultGameChooserPreferences;
   } catch {
     return defaultGameChooserPreferences;
   }

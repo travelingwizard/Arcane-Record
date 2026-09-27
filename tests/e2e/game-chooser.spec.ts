@@ -72,6 +72,58 @@ test('groups by engine and keeps the requested games together', async ({
   ).toBeVisible();
 });
 
+test('favorites games, orders them first, and preserves normal search sorting', async ({
+  page,
+}) => {
+  const mageCard = page.locator('.game-chooser-card').filter({
+    has: page.getByRole('heading', { name: /Mage:/ }),
+  });
+  const earthdawnCard = page.locator('.game-chooser-card').filter({
+    has: page.getByRole('heading', { name: 'Earthdawn Fourth Edition' }),
+  });
+  await mageCard.getByRole('button', { name: /Add favorite/ }).click();
+  await earthdawnCard.getByRole('button', { name: /Add favorite/ }).click();
+
+  const favorites = page
+    .locator('.game-chooser-group')
+    .filter({ has: page.getByRole('heading', { name: 'Favorites' }) });
+  await expect(favorites.getByRole('heading', { name: /Mage:/ })).toBeVisible();
+  await expect(
+    favorites.getByRole('heading', { name: 'Earthdawn Fourth Edition' }),
+  ).toBeVisible();
+  await favorites
+    .locator('article')
+    .filter({ hasText: 'Earthdawn Fourth Edition' })
+    .dragTo(favorites.locator('article').filter({ hasText: 'Mage' }));
+  expect((await favorites.locator('article h2').allTextContents())[0]).toBe(
+    'Earthdawn Fourth Edition',
+  );
+  await favorites.getByRole('button', { name: /Move Mage:.*earlier/ }).click();
+  const favoriteNames = await favorites.locator('article h2').allTextContents();
+  expect(favoriteNames[0]).toMatch(/^Mage:/);
+
+  await page.reload();
+  await expect(
+    page.getByRole('button', {
+      name: 'Remove favorite: Earthdawn Fourth Edition',
+    }),
+  ).toBeVisible();
+  await page
+    .getByRole('button', { name: 'Hide game: Earthdawn Fourth Edition' })
+    .click();
+  await page.getByRole('button', { name: 'Show hidden games (1)' }).click();
+  await expect(
+    page.getByRole('button', {
+      name: 'Remove favorite: Earthdawn Fourth Edition',
+    }),
+  ).toBeVisible();
+  await page
+    .getByRole('button', { name: 'Restore game: Earthdawn Fourth Edition' })
+    .click();
+  await page.getByRole('searchbox', { name: 'Search games' }).fill('Mage');
+  await expect(page.getByRole('heading', { name: 'Favorites' })).toHaveCount(0);
+});
+
 test('hides, restores, and persists games without disabling their routes', async ({
   page,
 }) => {

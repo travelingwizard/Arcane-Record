@@ -30,18 +30,97 @@ function GameCard({
   entry,
   query,
   hidden,
+  favorite,
+  reorderEnabled,
+  firstFavorite,
+  lastFavorite,
   onChoose,
   onVisibilityChange,
+  onFavoriteChange,
+  onMove,
+  onDragStart,
+  onDrop,
 }: {
   entry: GameChooserEntry;
   query: string;
   hidden: boolean;
+  favorite: boolean;
+  reorderEnabled: boolean;
+  firstFavorite: boolean;
+  lastFavorite: boolean;
   onChoose: () => void;
   onVisibilityChange: () => void;
+  onFavoriteChange: () => void;
+  onMove: (direction: 'earlier' | 'later') => void;
+  onDragStart: () => void;
+  onDrop: () => void;
 }) {
   const matches = matchingLabels(entry, query);
   return (
-    <article className="game-system-card game-chooser-card">
+    <article
+      className="game-system-card game-chooser-card"
+      draggable={reorderEnabled}
+      onDragStart={(event) => {
+        if (!reorderEnabled) return;
+        event.dataTransfer.effectAllowed = 'move';
+        onDragStart();
+      }}
+      onDragOver={(event) => {
+        if (reorderEnabled) event.preventDefault();
+      }}
+      onDrop={(event) => {
+        if (!reorderEnabled) return;
+        event.preventDefault();
+        onDrop();
+      }}
+    >
+      <div className="game-chooser-card__controls">
+        {reorderEnabled ? (
+          <span className="game-chooser-card__reorder">
+            <button
+              type="button"
+              aria-label={`Move ${entry.name} earlier`}
+              title="Move earlier"
+              disabled={firstFavorite}
+              onClick={() => onMove('earlier')}
+            >
+              ↑
+            </button>
+            <button
+              type="button"
+              aria-label={`Move ${entry.name} later`}
+              title="Move later"
+              disabled={lastFavorite}
+              onClick={() => onMove('later')}
+            >
+              ↓
+            </button>
+            <span aria-hidden="true" title="Drag to reorder">
+              ↕
+            </span>
+          </span>
+        ) : null}
+        <button
+          type="button"
+          className="game-chooser-card__icon"
+          aria-label={`${favorite ? 'Remove' : 'Add'} favorite: ${entry.name}`}
+          aria-pressed={favorite}
+          title={favorite ? 'Remove favorite' : 'Add favorite'}
+          onClick={onFavoriteChange}
+        >
+          <span aria-hidden="true">{favorite ? '★' : '☆'}</span>
+        </button>
+        <button
+          type="button"
+          className="game-chooser-card__icon"
+          aria-label={`${hidden ? 'Restore' : 'Hide'} game: ${entry.name}`}
+          aria-pressed={hidden}
+          title={hidden ? 'Restore game' : 'Hide game'}
+          onClick={onVisibilityChange}
+        >
+          <span aria-hidden="true">{hidden ? '↩' : '◉'}</span>
+        </button>
+      </div>
       <div className="game-chooser-card__badges">
         <span className="sheet-badge">{entry.engine.label}</span>
         <span className="sheet-badge">
@@ -61,13 +140,6 @@ function GameCard({
             Choose {entry.shortName}
           </button>
         ) : null}
-        <button
-          className="secondary-button"
-          aria-label={`${hidden ? 'Restore' : 'Hide'} game: ${entry.name}`}
-          onClick={onVisibilityChange}
-        >
-          {hidden ? 'Restore game' : 'Hide game'}
-        </button>
       </div>
     </article>
   );
@@ -84,6 +156,10 @@ export function GameChooser({
 }) {
   const [query, setQuery] = useState('');
   const [showHidden, setShowHidden] = useState(false);
+  const [draggedFavoriteId, setDraggedFavoriteId] = useState<string | null>(
+    null,
+  );
+  const [announcement, setAnnouncement] = useState('');
   const [preferences, setPreferences] = useState(readGameChooserPreferences);
   const entries = buildGameChooserEntries(registry, moduleRegistry);
 
@@ -105,6 +181,10 @@ export function GameChooser({
     () => new Set(preferences.hiddenIds),
     [preferences.hiddenIds],
   );
+  const favoriteSet = useMemo(
+    () => new Set(preferences.favoriteIds),
+    [preferences.favoriteIds],
+  );
   const normalizedQuery = normalizeGameSearch(query);
   const filtered = entries.filter((entry) => {
     if (showHidden !== hiddenSet.has(entry.id)) return false;
@@ -122,35 +202,113 @@ export function GameChooser({
       return false;
     return true;
   });
-  const sorted = [...filtered].sort((a, b) => {
-    if (preferences.sort === 'name-desc') return compareNames(b, a);
-    if (preferences.sort === 'engine')
-      return a.engine.label.localeCompare(b.engine.label) || compareNames(a, b);
-    if (preferences.sort === 'creation-support')
-      return (
-        supportOrder[a.creationSupport] - supportOrder[b.creationSupport] ||
-        compareNames(a, b)
-      );
-    return compareNames(a, b);
-  });
-  const groups =
-    preferences.sort === 'engine'
-      ? Object.entries(
-          sorted.reduce<Record<string, GameChooserEntry[]>>((result, entry) => {
-            (result[entry.engine.label] ??= []).push(entry);
-            return result;
-          }, {}),
-        )
-      : [['', sorted] as const];
+  const sortEntries = (values: GameChooserEntry[]) =>
+    [...values].sort((a, b) => {
+      if (preferences.sort === 'name-desc') return compareNames(b, a);
+      if (preferences.sort === 'engine')
+        return (
+          a.engine.label.localeCompare(b.engine.label) || compareNames(a, b)
+        );
+      if (preferences.sort === 'creation-support')
+        return (
+          supportOrder[a.creationSupport] - supportOrder[b.creationSupport] ||
+          compareNames(a, b)
+        );
+      return compareNames(a, b);
+    });
+  const normallySorted = sortEntries(filtered);
+  const favoriteEntries =
+    !normalizedQuery && !showHidden
+      ? preferences.favoriteIds
+          .map((id) => filtered.find((entry) => entry.id === id))
+          .filter((entry): entry is GameChooserEntry => Boolean(entry))
+      : [];
+  const favoriteEntrySet = new Set(favoriteEntries.map(({ id }) => id));
+  const sorted = normalizedQuery
+    ? normallySorted
+    : [
+        ...favoriteEntries,
+        ...normallySorted.filter(({ id }) => !favoriteEntrySet.has(id)),
+      ];
+  const remainingEntries = normallySorted.filter(
+    ({ id }) => !favoriteEntrySet.has(id),
+  );
+  const rawGroups: ReadonlyArray<readonly [string, GameChooserEntry[]]> =
+    favoriteEntries.length
+      ? [
+          ['Favorites', favoriteEntries],
+          ...(preferences.sort === 'engine'
+            ? Object.entries(
+                remainingEntries.reduce<Record<string, GameChooserEntry[]>>(
+                  (result, entry) => {
+                    (result[entry.engine.label] ??= []).push(entry);
+                    return result;
+                  },
+                  {},
+                ),
+              )
+            : [['All other games', remainingEntries] as const]),
+        ]
+      : preferences.sort === 'engine'
+        ? Object.entries(
+            normallySorted.reduce<Record<string, GameChooserEntry[]>>(
+              (result, entry) => {
+                (result[entry.engine.label] ??= []).push(entry);
+                return result;
+              },
+              {},
+            ),
+          )
+        : [['', normallySorted] as const];
+  const groups = rawGroups.filter(([, groupEntries]) => groupEntries.length);
   const presentHiddenCount = entries.filter(({ id }) =>
     hiddenSet.has(id),
   ).length;
 
   const toggleHidden = (entry: GameChooserEntry) => {
     const next = new Set(preferences.hiddenIds);
-    if (next.has(entry.id)) next.delete(entry.id);
-    else next.add(entry.id);
+    if (next.has(entry.id)) {
+      next.delete(entry.id);
+      if (!next.size) setShowHidden(false);
+    } else next.add(entry.id);
     updatePreferences({ ...preferences, hiddenIds: [...next] });
+  };
+
+  const toggleFavorite = (entry: GameChooserEntry) => {
+    const favoriteIds = preferences.favoriteIds.includes(entry.id)
+      ? preferences.favoriteIds.filter((id) => id !== entry.id)
+      : [...preferences.favoriteIds, entry.id];
+    updatePreferences({ ...preferences, favoriteIds });
+  };
+
+  const reorderFavorite = (entryId: string, direction: 'earlier' | 'later') => {
+    const visibleIds = favoriteEntries.map(({ id }) => id);
+    const index = visibleIds.indexOf(entryId);
+    const target = direction === 'earlier' ? index - 1 : index + 1;
+    if (index < 0 || target < 0 || target >= visibleIds.length) return;
+    const favoriteIds = [...preferences.favoriteIds];
+    const left = favoriteIds.indexOf(visibleIds[index]);
+    const right = favoriteIds.indexOf(visibleIds[target]);
+    [favoriteIds[left], favoriteIds[right]] = [
+      favoriteIds[right],
+      favoriteIds[left],
+    ];
+    updatePreferences({ ...preferences, favoriteIds });
+    setAnnouncement(
+      `${entryId} moved ${direction === 'earlier' ? 'earlier' : 'later'}.`,
+    );
+  };
+
+  const dropFavorite = (targetId: string) => {
+    if (!draggedFavoriteId || draggedFavoriteId === targetId) return;
+    const favoriteIds = preferences.favoriteIds.filter(
+      (id) => id !== draggedFavoriteId,
+    );
+    const targetIndex = favoriteIds.indexOf(targetId);
+    favoriteIds.splice(targetIndex, 0, draggedFavoriteId);
+    updatePreferences({ ...preferences, favoriteIds });
+    setAnnouncement(`${draggedFavoriteId} reordered.`);
+    setDraggedFavoriteId(null);
   };
 
   return (
@@ -247,6 +405,9 @@ export function GameChooser({
           </button>
         ) : null}
       </div>
+      <p className="sr-only" aria-live="polite">
+        {announcement}
+      </p>
 
       {!sorted.length ? (
         <section className="sheet-empty-state game-chooser-empty">
@@ -278,8 +439,20 @@ export function GameChooser({
                   entry={entry}
                   query={query}
                   hidden={showHidden}
+                  favorite={favoriteSet.has(entry.id)}
+                  reorderEnabled={
+                    engine === 'Favorites' && !normalizedQuery && !showHidden
+                  }
+                  firstFavorite={entry.id === favoriteEntries[0]?.id}
+                  lastFavorite={
+                    entry.id === favoriteEntries[favoriteEntries.length - 1]?.id
+                  }
                   onChoose={() => onNavigate(entry.route)}
                   onVisibilityChange={() => toggleHidden(entry)}
+                  onFavoriteChange={() => toggleFavorite(entry)}
+                  onMove={(direction) => reorderFavorite(entry.id, direction)}
+                  onDragStart={() => setDraggedFavoriteId(entry.id)}
+                  onDrop={() => dropFavorite(entry.id)}
                 />
               ))}
             </div>

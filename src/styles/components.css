@@ -213,6 +213,7 @@
 }
 
 .game-chooser-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -223,9 +224,51 @@
 }
 
 .game-chooser-card__badges {
+  padding-block-start: 2.75rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
+}
+
+.game-chooser-card__controls,
+.character-card__controls {
+  position: absolute;
+  z-index: 2;
+  inset-block-start: 0.5rem;
+  inset-inline-end: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.game-chooser-card__controls button,
+.character-card__controls button {
+  width: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  color: var(--umber-deep);
+  background: transparent;
+  font-size: 1.25rem;
+}
+
+.game-chooser-card__controls button:hover,
+.character-card__controls button:hover {
+  background: var(--hover-background);
+}
+
+.game-chooser-card__reorder,
+.character-card__reorder {
+  display: flex;
+  align-items: center;
+}
+
+.game-chooser-card__reorder > span,
+.character-card__reorder > span {
+  width: 2rem;
+  text-align: center;
+  cursor: grab;
 }
 
 .game-chooser-card__matches {
@@ -1074,6 +1117,34 @@
   font-weight: 500;
 }
 
+.library-section__controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+.library-show-all {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-sans);
+  font-weight: 700;
+}
+
+.library-show-all input {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.library-reorder-notice {
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+}
+
 .record-count {
   color: var(--ink-soft);
   font-family: var(--font-metadata);
@@ -1113,17 +1184,38 @@
   gap: 1rem;
 }
 
+.character-library-groups,
+.character-library-group {
+  display: grid;
+  gap: 1rem;
+}
+
+.character-library-groups {
+  gap: 2rem;
+}
+
+.character-library-group > h3 {
+  margin: 0;
+  padding-block-end: 0.45rem;
+  border-block-end: 1px solid var(--rule-light);
+}
+
 .character-card {
+  position: relative;
   min-width: 0;
   border: 1px solid var(--rule-light);
   background: var(--paper-light);
   box-shadow: var(--shadow-card);
 }
 
+.character-card.is-archived {
+  opacity: 0.82;
+}
+
 .character-card__open {
   width: 100%;
   min-height: 6rem;
-  padding: 1rem;
+  padding: 3.4rem 1rem 1rem;
   display: grid;
   grid-template-columns: 3rem minmax(0, 1fr) auto;
   align-items: center;
