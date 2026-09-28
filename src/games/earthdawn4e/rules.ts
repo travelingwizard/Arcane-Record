@@ -1,4 +1,9 @@
-import { earthdawnDefinitionById, type EarthdawnDiscipline } from './catalog';
+import {
+  earthdawnDefinitionById,
+  earthdawnRaces,
+  type EarthdawnDiscipline,
+  type EarthdawnRace,
+} from './catalog';
 import type { Earthdawn4eCharacter } from './schema';
 
 export type EarthdawnMatrix = Earthdawn4eCharacter['magic']['matrices'][number];
@@ -119,6 +124,266 @@ export function reconcileFreeMatrices(character: Earthdawn4eCharacter) {
 
 type Talent = Earthdawn4eCharacter['talents'][number];
 type LedgerEntry = Earthdawn4eCharacter['advancement']['ledger'][number];
+type ActivityEntry = Earthdawn4eCharacter['activity']['ledger'][number];
+
+export type MoneyDenomination = 'cp' | 'sp' | 'gp';
+const denominationCopper: Record<MoneyDenomination, number> = {
+  cp: 1,
+  sp: 10,
+  gp: 100,
+};
+
+export function moneyToCopper(amount: number, denomination: MoneyDenomination) {
+  return Math.max(0, Math.trunc(amount)) * denominationCopper[denomination];
+}
+
+export function walletTotalCopper(wealth: Earthdawn4eCharacter['wealth']) {
+  return (
+    Math.max(0, Math.trunc(wealth.copper)) +
+    Math.max(0, Math.trunc(wealth.silver)) * 10 +
+    Math.max(0, Math.trunc(wealth.gold)) * 100
+  );
+}
+
+export function walletFromCopper(
+  totalCopper: number,
+  previous: Earthdawn4eCharacter['wealth'],
+): Earthdawn4eCharacter['wealth'] {
+  const safe = Math.max(0, Math.trunc(totalCopper));
+  const gold = Math.floor(safe / 100);
+  const afterGold = safe % 100;
+  const silver = Math.floor(afterGold / 10);
+  return {
+    ...previous,
+    gold,
+    silver,
+    copper: afterGold % 10,
+  };
+}
+
+export function changeWallet(
+  wealth: Earthdawn4eCharacter['wealth'],
+  copperDelta: number,
+) {
+  const before = walletTotalCopper(wealth);
+  const after = before + Math.trunc(copperDelta);
+  return after < 0 ? null : walletFromCopper(after, wealth);
+}
+
+export function formatWallet(wealth: Earthdawn4eCharacter['wealth']) {
+  return `${Math.trunc(wealth.gold)} gp · ${Math.trunc(wealth.silver)} sp · ${Math.trunc(wealth.copper)} cp`;
+}
+
+export function createActivityEntry(
+  values: Partial<ActivityEntry> & Pick<ActivityEntry, 'type' | 'description'>,
+): ActivityEntry {
+  return {
+    id: crypto.randomUUID(),
+    createdAt: new Date().toISOString(),
+    copperDelta: 0,
+    targetId: null,
+    targetName: '',
+    quantityDelta: 0,
+    locked: false,
+    reversesId: null,
+    reversedAt: null,
+    before: '',
+    after: '',
+    ...values,
+  };
+}
+
+const raceGearRules: Record<
+  string,
+  Pick<
+    NonNullable<Earthdawn4eCharacter['raceSnapshot']>,
+    'weaponSizeNotes' | 'armorCostMultiplier' | 'armorWeightMultiplier'
+  >
+> = {
+  Dwarf: {
+    weaponSizeNotes: 'One-handed Size 1–3; two-handed Size 4–5.',
+    armorCostMultiplier: 1,
+    armorWeightMultiplier: 1,
+  },
+  Elf: {
+    weaponSizeNotes: 'One-handed Size 1–3; two-handed Size 4–6.',
+    armorCostMultiplier: 1,
+    armorWeightMultiplier: 1,
+  },
+  Human: {
+    weaponSizeNotes: 'One-handed Size 1–3; two-handed Size 4–6.',
+    armorCostMultiplier: 1,
+    armorWeightMultiplier: 1,
+  },
+  Obsidiman: {
+    weaponSizeNotes: 'One-handed Size 2–4; two-handed Size 5–7.',
+    armorCostMultiplier: 1.25,
+    armorWeightMultiplier: 1.25,
+  },
+  Ork: {
+    weaponSizeNotes: 'One-handed Size 1–3; two-handed Size 4–6.',
+    armorCostMultiplier: 1,
+    armorWeightMultiplier: 1,
+  },
+  Troll: {
+    weaponSizeNotes: 'One-handed Size 2–4; two-handed Size 5–7.',
+    armorCostMultiplier: 1.25,
+    armorWeightMultiplier: 1.25,
+  },
+  'T’skrang': {
+    weaponSizeNotes:
+      'One-handed Size 1–3; two-handed Size 4–6; tail weapons Size 1–2.',
+    armorCostMultiplier: 1,
+    armorWeightMultiplier: 1,
+  },
+  Windling: {
+    weaponSizeNotes: 'One-handed Size 1; two-handed Size 2.',
+    armorCostMultiplier: 0.75,
+    armorWeightMultiplier: 0.2,
+  },
+};
+
+export function reconcileRace(
+  character: Earthdawn4eCharacter,
+  race: EarthdawnRace,
+) {
+  const raceSource = `race:${race.id}`;
+  const previousRaceSources = new Set(
+    earthdawnRaces.map(({ id }) => `race:${id}`),
+  );
+  const racialTalentNames =
+    race.name === 'Human'
+      ? ['Versatility']
+      : race.name === 'Windling'
+        ? ['Astral Sight']
+        : [];
+  const talents = character.talents
+    .filter(
+      ({ disciplineSources }) =>
+        !disciplineSources.some((source) => previousRaceSources.has(source)),
+    )
+    .map((talent) => ({
+      ...talent,
+      disciplineSources: [...talent.disciplineSources],
+    }));
+  for (const name of racialTalentNames) {
+    const existing = talents.find((talent) => talent.name === name);
+    if (existing) {
+      const index = talents.indexOf(existing);
+      talents[index] = {
+        ...existing,
+        disciplineSources: [
+          ...new Set([...existing.disciplineSources, raceSource]),
+        ],
+      };
+      continue;
+    }
+    const definition = [...earthdawnDefinitionById.values()].find(
+      (candidate) => candidate.kind === 'talent' && candidate.name === name,
+    );
+    talents.push({
+      id: crypto.randomUUID(),
+      definitionId: definition?.id ?? null,
+      sourceId: race.sourceId,
+      source: race.source,
+      page: race.page,
+      unresolved: !definition,
+      name,
+      rank: 0,
+      freeRank: 0,
+      attribute: definition?.defaultAttribute ?? 'perception',
+      bonus: 0,
+      notes: 'Granted by Race.',
+      action: definition?.talentMetadata?.actionText ?? '',
+      strain: 0,
+      attributeText: definition?.talentMetadata?.attributeText ?? '',
+      effectText: definition?.talentMetadata?.effectText ?? '',
+      actionText: definition?.talentMetadata?.actionText ?? '',
+      strainText: definition?.talentMetadata?.strainText ?? '',
+      citationText: `${race.source}${race.page ? `, p. ${race.page}` : ''}`,
+      metadataOverrides: [],
+      disciplineSources: [raceSource],
+      optional: false,
+      originCircle: null,
+      originDisciplineId: null,
+      creationOwned: true,
+    });
+  }
+  const abilities = [
+    ...character.abilities.filter(
+      ({ definitionId }) => !definitionId?.startsWith('race-grant:'),
+    ),
+    ...race.abilities.map((name) => ({
+      id: crypto.randomUUID(),
+      definitionId: `race-grant:${race.id}:${name}`,
+      sourceId: race.sourceId,
+      source: race.source,
+      page: race.page,
+      unresolved: false,
+      name,
+      kind: 'racial' as const,
+      notes: `Granted by ${race.name}.`,
+    })),
+  ];
+  const modifiers = character.health.modifiers.filter(
+    ({ name }) => !name.startsWith('Racial:'),
+  );
+  if (race.name === 'Obsidiman') {
+    modifiers.push(
+      {
+        id: crypto.randomUUID(),
+        name: 'Racial: Natural Armor',
+        target: 'physicalArmor',
+        value: 3,
+        active: true,
+      },
+      {
+        id: crypto.randomUUID(),
+        name: 'Racial: Increased Wound Threshold',
+        target: 'woundThreshold',
+        value: 3,
+        active: true,
+      },
+    );
+  }
+  if (race.name === 'Windling')
+    modifiers.push({
+      id: crypto.randomUUID(),
+      name: 'Racial: Increased Physical Defense',
+      target: 'physicalDefense',
+      value: 2,
+      active: true,
+    });
+  const gear = raceGearRules[race.name] ?? {
+    weaponSizeNotes: '',
+    armorCostMultiplier: 1,
+    armorWeightMultiplier: 1,
+  };
+  return {
+    ...character,
+    identity: { ...character.identity, raceId: race.id, raceName: race.name },
+    raceSnapshot: {
+      definitionId: race.id,
+      name: race.name,
+      movement: race.movement,
+      karmaModifier: race.karmaModifier,
+      abilities: [...race.abilities],
+      ...gear,
+    },
+    attributes: Object.fromEntries(
+      Object.entries(character.attributes).map(([id, attribute]) => [
+        id,
+        {
+          ...attribute,
+          racial: race.attributes[id as keyof typeof race.attributes],
+        },
+      ]),
+    ) as Earthdawn4eCharacter['attributes'],
+    talents,
+    abilities,
+    health: { ...character.health, modifiers },
+  };
+}
 
 const talentId = (name: string) =>
   `ed4.players-guide.talent.${name

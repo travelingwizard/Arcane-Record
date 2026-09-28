@@ -31,6 +31,9 @@ import {
   attributeIncreaseCost,
   attributeTraining,
   createLegendEntry,
+  changeWallet,
+  formatWallet,
+  moneyToCopper,
   disciplineCircleTraining,
   equivalentTalentCircle,
   grantedDevotionCost,
@@ -45,9 +48,11 @@ import {
   questorRankCost,
   reconcileFreeMatrices,
   reconcileDisciplineTalents,
+  reconcileRace,
   refundableLedgerEntry,
   spellLearningCost,
   threadRankCost,
+  walletTotalCopper,
 } from '../../src/games/earthdawn4e/rules';
 import {
   createCustomDisciplineDraft,
@@ -61,7 +66,7 @@ describe('Earthdawn Fourth Edition module', () => {
       mode: 'edit',
     });
     expect(earthdawn4eCharacterSchema.parse(character)).toEqual(character);
-    expect(earthdawnSources).toHaveLength(11);
+    expect(earthdawnSources).toHaveLength(12);
     expect(character.sources.enabledSourceIds).toEqual(['ed4.players-guide']);
     expect(earthdawnRaces).toHaveLength(8);
     expect(earthdawnDisciplines).toHaveLength(15);
@@ -192,6 +197,32 @@ describe('Earthdawn Fourth Edition module', () => {
         ).size,
       ).toBeGreaterThanOrEqual(8);
     }
+  });
+  it('manages decimal coinage with automatic change', () => {
+    const character = createBlankEarthdawn4eCharacter();
+    expect(walletTotalCopper(character.wealth)).toBe(1000);
+    expect(moneyToCopper(2, 'gp')).toBe(200);
+    const changed = changeWallet(character.wealth, -1)!;
+    expect(changed).toMatchObject({ gold: 9, silver: 9, copper: 9 });
+    expect(formatWallet(changed)).toBe('9 gp · 9 sp · 9 cp');
+    expect(changeWallet({ ...character.wealth, silver: 0 }, -1)).toBeNull();
+  });
+  it('reconciles Race grants without discarding purchased attributes', () => {
+    const character = createBlankEarthdawn4eCharacter();
+    character.attributes.dexterity.purchased = 2;
+    const windling = earthdawnRaces.find(({ name }) => name === 'Windling')!;
+    const next = reconcileRace(character, windling);
+    expect(next.attributes.dexterity).toMatchObject({
+      racial: 11,
+      purchased: 2,
+    });
+    expect(next.talents.some(({ name }) => name === 'Astral Sight')).toBe(true);
+    expect(next.abilities.some(({ name }) => name === 'Flight')).toBe(true);
+    expect(
+      next.health.modifiers.find(({ target }) => target === 'physicalDefense')
+        ?.value,
+    ).toBe(2);
+    expect(next.raceSnapshot?.movement).toBe('6 / 16 flying');
   });
   it('quotes Companion knack learning at the required Novice talent rank', () => {
     expect(knackLearningQuote(5)).toEqual({
@@ -404,7 +435,7 @@ describe('Earthdawn Fourth Edition module', () => {
       deathRating: 10,
       active: true,
     });
-    expect(migrated.health.basicMode).toBe(false);
+    expect(migrated.health.basicMode).toBe(true);
   });
   it('grants and advances the two free magician matrices', () => {
     const character = createBlankEarthdawn4eCharacter();

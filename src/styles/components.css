@@ -2060,6 +2060,182 @@
   gap: 0.75rem;
 }
 
+.compact-inline-button {
+  width: auto;
+  min-height: 44px;
+  padding-block: 0.45rem;
+  align-self: end;
+}
+
+.earthdawn-compact-toolbar > .sheet-field {
+  flex: 0 1 14rem;
+}
+
+.earthdawn-mode-bar {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.earthdawn-tracking-switch {
+  margin-inline-start: auto;
+}
+
+.earthdawn-wallet,
+.earthdawn-combat-loadout,
+.earthdawn-tracking-ledger {
+  min-width: 0;
+  margin-block: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--rule-light);
+  background: var(--surface-glaze);
+}
+
+.earthdawn-wallet__balances {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-2);
+  margin-block-end: var(--space-2);
+}
+
+.earthdawn-wallet__balances span {
+  padding: var(--space-2);
+  border: 1px solid var(--rule-light);
+  text-align: center;
+}
+
+.earthdawn-owned-item__summary,
+.earthdawn-combat-weapon > div:first-child {
+  display: flex;
+  min-width: 0;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-block-end: var(--space-2);
+}
+
+.earthdawn-owned-item__summary div,
+.earthdawn-owned-item__summary small,
+.earthdawn-combat-weapon small {
+  display: block;
+  min-width: 0;
+}
+
+.earthdawn-adjusted-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-2);
+}
+
+.earthdawn-adjusted-stat {
+  min-width: 0;
+  padding: var(--space-2);
+  border: 1px solid var(--rule-light);
+  background: var(--surface-glaze);
+}
+
+.earthdawn-adjusted-stat summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+  cursor: pointer;
+}
+
+.earthdawn-adjusted-stat summary strong {
+  font-size: var(--text-xl);
+}
+
+.earthdawn-adjusted-stat dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.earthdawn-adjusted-stat dd {
+  margin: 0;
+}
+
+.earthdawn-modifier-list {
+  display: grid;
+  gap: var(--space-1);
+  padding: 0;
+  list-style: none;
+}
+
+.earthdawn-modifier-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.earthdawn-catalog-table-wrap {
+  max-width: 100%;
+  overflow: auto;
+  border: 1px solid var(--rule-light);
+}
+
+.earthdawn-catalog-table {
+  width: 100%;
+  min-width: 48rem;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.earthdawn-catalog-table :is(th, td) {
+  min-width: 7rem;
+  max-width: 18rem;
+  padding: 0.4rem 0.55rem;
+  border-bottom: 1px solid var(--rule-light);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.earthdawn-catalog-table tr.is-expanded td {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.earthdawn-resizable-column {
+  resize: horizontal;
+  overflow: auto;
+}
+
+.earthdawn-catalog-table th button,
+.catalog-table-expand {
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  text-align: left;
+}
+
+.catalog-table-actions,
+.catalog-card__actions {
+  display: flex;
+  min-width: 0;
+  gap: var(--space-1);
+}
+
+.earthdawn-combat-loadout,
+.earthdawn-equipped-protection {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.earthdawn-combat-steps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
 .sheet-notice {
   min-width: 0;
   padding: 0.75rem 1rem;
@@ -5531,6 +5707,9 @@
   .earthdawn-step-columns {
     grid-template-columns: 1fr;
   }
+  .earthdawn-adjusted-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 32rem) {
@@ -5563,6 +5742,17 @@
   }
   .earthdawn-damage-actions {
     grid-template-columns: 1fr;
+  }
+  .earthdawn-adjusted-grid,
+  .earthdawn-wallet__balances {
+    grid-template-columns: 1fr;
+  }
+  .earthdawn-owned-item__summary,
+  .earthdawn-combat-weapon > div:first-child {
+    flex-direction: column;
+  }
+  .earthdawn-tracking-switch {
+    margin-inline-start: 0;
   }
 }
 

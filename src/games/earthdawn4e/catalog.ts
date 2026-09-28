@@ -33,6 +33,16 @@ export interface EarthdawnDefinition {
   page: number | null;
   verification: 'verified' | 'reference-only' | 'unresolved';
   costSilver?: number;
+  price?: { amount: number; denomination: 'cp' | 'sp' | 'gp' };
+  equipmentMetadata?: {
+    category: string;
+    availability: string;
+    weight: number;
+    size: number;
+    weaponType?: 'melee' | 'missile' | 'throwing';
+    shortRange?: string;
+    longRange?: string;
+  };
   skillCategory?: 'general' | 'knowledge' | 'artisan' | 'language';
   defaultAttribute?: EarthdawnAttributeId;
   talentMetadata?: {
@@ -139,6 +149,12 @@ export const earthdawnSources: EarthdawnSource[] = [
     id: 'ed4.grand-bazaar',
     title: 'The Grand Bazaar',
     shortTitle: 'Grand Bazaar',
+    required: false,
+  },
+  {
+    id: 'ed4.user-currency-reference',
+    title: 'User-supplied Barsaive Currency Reference',
+    shortTitle: 'Currency Reference',
     required: false,
   },
 ];
@@ -309,7 +325,7 @@ export const earthdawnTalents: EarthdawnDefinition[] = [
 ];
 
 const raceData: Array<[string, number[], string, number, string[]]> = [
-  ['Dwarf', [9, 10, 12, 11, 11, 10], '10', 4, ['Heat Sight']],
+  ['Dwarf', [9, 10, 12, 11, 11, 10], '10', 4, ['Heat Sight', 'Strong Back']],
   ['Elf', [12, 10, 8, 11, 11, 11], '14', 4, ['Low-Light Vision']],
   ['Human', [10, 10, 10, 10, 10, 10], '12', 5, ['Versatility']],
   [
@@ -321,7 +337,13 @@ const raceData: Array<[string, number[], string, number, string[]]> = [
   ],
   ['Ork', [10, 13, 11, 10, 8, 9], '12', 5, ['Gahad', 'Low-Light Vision']],
   ['Troll', [10, 14, 12, 9, 11, 10], '14', 3, ['Heat Sight']],
-  ['T’skrang', [11, 10, 11, 10, 10, 11], '12', 4, ['Tail Combat']],
+  [
+    'T’skrang',
+    [11, 10, 11, 10, 10, 11],
+    '12 land / 12 swimming',
+    4,
+    ['Tail Combat', 'Aquatic Movement'],
+  ],
   [
     'Windling',
     [11, 4, 8, 11, 10, 12],
@@ -787,8 +809,37 @@ const priced = (
       `${name} is verified Player’s Guide equipment. Price is recorded in silver-piece equivalents.`,
     ),
     costSilver,
+    price:
+      costSilver > 0 && costSilver < 1
+        ? { amount: Math.round(costSilver * 100), denomination: 'cp' as const }
+        : { amount: Math.round(costSilver), denomination: 'sp' as const },
+    equipmentMetadata: {
+      category: 'equipment',
+      availability: '',
+      weight,
+      size: 0,
+    },
     mechanics: JSON.stringify({ weight }),
   }));
+const missileWeaponNames = new Set([
+  'Blowgun',
+  'Elven Warbow',
+  'Light Crossbow',
+  'Longbow',
+  'Medium Crossbow',
+  'Shortbow',
+  'Sling',
+  'Troll Sling',
+  'Windling Bow',
+]);
+const throwingWeaponNames = new Set([
+  'Bola',
+  'Dart',
+  'Flight Dagger',
+  'Hawk Hatchet',
+  'Throwing Axe',
+  'Throwing Dagger',
+]);
 const weaponEntries = (
   rows: Array<[string, number, number, number, string, number, number, string]>,
 ) =>
@@ -802,24 +853,46 @@ const weaponEntries = (
       cost,
       weight,
       availability,
-    ]) => ({
-      ...entry(
-        'weapon',
-        name,
-        'ed4.players-guide',
-        range ? 434 : 433,
-        `${name} is a verified Player’s Guide weapon (${availability} availability).`,
-      ),
-      costSilver: cost,
-      mechanics: JSON.stringify({
-        damageStep,
-        strengthMinimum,
-        size,
-        range,
-        weight,
-        availability,
-      }),
-    }),
+    ]) => {
+      const weaponType = missileWeaponNames.has(name)
+        ? ('missile' as const)
+        : throwingWeaponNames.has(name)
+          ? ('throwing' as const)
+          : ('melee' as const);
+      const [shortRange = '', longRange = ''] = range.split(/\s*\/\s*/);
+      return {
+        ...entry(
+          'weapon',
+          name,
+          'ed4.players-guide',
+          range ? 434 : 433,
+          `${name} is a verified Player’s Guide weapon (${availability} availability).`,
+        ),
+        costSilver: cost,
+        price:
+          cost > 0 && cost < 1
+            ? { amount: Math.round(cost * 100), denomination: 'cp' as const }
+            : { amount: Math.round(cost), denomination: 'sp' as const },
+        equipmentMetadata: {
+          category: 'weapon',
+          availability,
+          weight,
+          size,
+          weaponType,
+          shortRange,
+          longRange,
+        },
+        mechanics: JSON.stringify({
+          damageStep,
+          strengthMinimum,
+          size,
+          range,
+          weight,
+          availability,
+          weaponType,
+        }),
+      };
+    },
   );
 const armorEntries = (
   rows: Array<[string, number, number, number, number, number, string]>,
@@ -842,6 +915,13 @@ const armorEntries = (
         `${name} is verified Player’s Guide armor or a shield (${availability} availability).`,
       ),
       costSilver: cost,
+      price: { amount: Math.round(cost), denomination: 'sp' as const },
+      equipmentMetadata: {
+        category: 'armor',
+        availability,
+        weight,
+        size: 0,
+      },
       mechanics: JSON.stringify({
         weight,
         physicalArmor,
@@ -873,6 +953,13 @@ const shieldEntries = (
         `${name} is a verified Player’s Guide shield (${availability} availability).`,
       ),
       costSilver: cost,
+      price: { amount: Math.round(cost), denomination: 'sp' as const },
+      equipmentMetadata: {
+        category: 'shield',
+        availability,
+        weight,
+        size: 0,
+      },
       mechanics: JSON.stringify({
         weight,
         physicalDefense,
@@ -982,6 +1069,60 @@ const workbookSkills: EarthdawnDefinition[] = earthdawnSkillReferenceRows.map(
     defaultAttribute: skillAttribute(name),
   }),
 );
+const currencyReferenceEntries: EarthdawnDefinition[] = [
+  ['Earth Coin', 'A plain brown True earth coin worth 100 silver pieces.', 100],
+  [
+    'Water Coin',
+    'A damp, blue-green True water coin worth 100 silver pieces.',
+    100,
+  ],
+  ['Air Coin', 'A crystal-like True air coin worth 1,000 silver pieces.', 1000],
+  ['Fire Coin', 'A sparking True fire coin worth 1,000 silver pieces.', 1000],
+  [
+    'Orichalcum Coin',
+    'A rare gold-orange coin worth 10,000 silver pieces.',
+    10000,
+  ],
+  ['Copper Trilem', 'An Iopan hoop of three copper crescents.', 0],
+  ['Silver Trilem', 'An Iopan hoop worth three silver pieces.', 3],
+  ['Gold Trilem', 'An Iopan hoop worth three gold pieces.', 30],
+  ['Hacksilver', 'Broken Theran silver traded by weight; value varies.', 0],
+  [
+    'Gemstone or Valuable',
+    'A portable valuable whose redemption value varies.',
+    0,
+  ],
+].map(([name, summary, silverValue]) => ({
+  ...entry(
+    'equipment',
+    String(name),
+    'ed4.user-currency-reference',
+    1,
+    String(summary),
+  ),
+  page: null,
+  verification: 'reference-only' as const,
+  costSilver: Number(silverValue),
+  price:
+    name === 'Copper Trilem'
+      ? { amount: 3, denomination: 'cp' as const }
+      : name === 'Gold Trilem'
+        ? { amount: 3, denomination: 'gp' as const }
+        : {
+            amount: Math.round(Number(silverValue)),
+            denomination: 'sp' as const,
+          },
+  equipmentMetadata: {
+    category: 'currency-reference',
+    availability: 'Varies',
+    weight: 0.1,
+    size: 0,
+  },
+  mechanics: JSON.stringify({
+    category: 'currency-reference',
+    provenance: 'User-supplied reference; authoritative page citation pending',
+  }),
+}));
 const earthdawnCatalogRows: EarthdawnDefinition[] = [
   ...earthdawnRaces,
   ...earthdawnDisciplines,
@@ -990,6 +1131,7 @@ const earthdawnCatalogRows: EarthdawnDefinition[] = [
   ...earthdawnKnacks,
   ...earthdawnThreadItems,
   ...earthdawnTalents,
+  ...currencyReferenceEntries,
   ...skillDefinitions(
     'general',
     [

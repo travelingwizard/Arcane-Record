@@ -32,6 +32,7 @@ export function createBlankEarthdawn4eCharacter(
       traits: '',
       description: '',
     },
+    raceSnapshot: null,
     creation: {
       status: options.status ?? 'draft',
       currentStep: 0,
@@ -78,9 +79,10 @@ export function createBlankEarthdawn4eCharacter(
     equipment: [],
     weapons: [],
     wealth: { copper: 0, silver: 100, gold: 0, other: '', startingSilver: 100 },
+    activity: { tracking: true, ledger: [] },
     reputation: { legendaryStatus: '', renown: '', reputation: '' },
     health: {
-      basicMode: false,
+      basicMode: true,
       damage: 0,
       wounds: 0,
       bloodMagicDamage: 0,

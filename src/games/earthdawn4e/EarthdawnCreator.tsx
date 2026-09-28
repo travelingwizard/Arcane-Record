@@ -19,6 +19,7 @@ import {
 import { attributeModifierCosts, deriveCharacter, stepDice } from './engine';
 import {
   questorTier,
+  reconcileRace,
   reconcileDisciplineTalents,
   requiredTalents,
 } from './rules';
@@ -391,7 +392,20 @@ export function EarthdawnCreator({
               range: typeof mechanics.range === 'string' ? mechanics.range : '',
               quantity: 1,
               costSilver: definition.costSilver ?? 0,
+              price: definition.price ?? {
+                amount: Math.round(definition.costSilver ?? 0),
+                denomination: 'sp' as const,
+              },
               inUse: false,
+              weaponType: definition.equipmentMetadata?.weaponType ?? 'melee',
+              size: definition.equipmentMetadata?.size ?? 0,
+              shortRange: definition.equipmentMetadata?.shortRange ?? '',
+              longRange: definition.equipmentMetadata?.longRange ?? '',
+              availability: definition.equipmentMetadata?.availability ?? '',
+              attackSourceId: null,
+              attackMode: definition.equipmentMetadata?.weaponType ?? 'melee',
+              modifiers: [],
+              metadataOverrides: [],
             },
           ],
         };
@@ -403,9 +417,14 @@ export function EarthdawnCreator({
             ...base,
             type: equipmentCategory(definition),
             description: definition.summary,
+            category: definition.equipmentMetadata?.category ?? 'equipment',
             quantity: 1,
             value: `${definition.costSilver ?? 0} sp`,
             costSilver: definition.costSilver ?? 0,
+            price: definition.price ?? {
+              amount: Math.round(definition.costSilver ?? 0),
+              denomination: 'sp' as const,
+            },
             weight: numericMechanic(mechanics, 'weight'),
             inUse: false,
             physicalArmor: numericMechanic(mechanics, 'physicalArmor'),
@@ -415,6 +434,10 @@ export function EarthdawnCreator({
             initiativePenalty: numericMechanic(mechanics, 'initiativePenalty'),
             shatterThreshold: numericMechanic(mechanics, 'shatterThreshold'),
             forgedBonus: 0,
+            availability: definition.equipmentMetadata?.availability ?? '',
+            size: definition.equipmentMetadata?.size ?? 0,
+            modifiers: [],
+            metadataOverrides: [],
           },
         ],
       };
@@ -747,30 +770,7 @@ export function EarthdawnCreator({
             key={entry.id}
             className="earthdawn-creator-choice-card"
             aria-pressed={race?.id === entry.id}
-            onClick={() =>
-              update((current) => ({
-                ...current,
-                identity: {
-                  ...current.identity,
-                  raceId: entry.id,
-                  raceName: entry.name,
-                },
-                attributes: Object.fromEntries(
-                  Object.entries(current.attributes).map(([id, value]) => [
-                    id,
-                    {
-                      ...value,
-                      racial:
-                        entry.attributes[id as keyof typeof entry.attributes],
-                    },
-                  ]),
-                ) as typeof current.attributes,
-                health: {
-                  ...current.health,
-                  karmaMaximum: entry.karmaModifier,
-                },
-              }))
-            }
+            onClick={() => update((current) => reconcileRace(current, entry))}
           >
             <strong>{entry.name}</strong>
             <small>{entry.summary}</small>

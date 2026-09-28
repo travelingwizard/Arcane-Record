@@ -53,6 +53,11 @@ import {
   attributeIncreaseCost,
   attributeTraining,
   createLegendEntry,
+  createActivityEntry,
+  changeWallet,
+  formatWallet,
+  moneyToCopper,
+  reconcileRace,
   disciplineCircleTraining,
   equivalentTalentCircle,
   grantedDevotionCost,
@@ -73,6 +78,7 @@ import {
   spellLearningCost,
   threadRankCost,
   talentRankCost,
+  walletTotalCopper,
 } from './rules';
 import {
   EARTHDAWN4E_SCHEMA_VERSION,
@@ -111,6 +117,11 @@ type SpellChoice = {
   key: string;
   variant: EarthdawnSpellVariant;
   circle: number;
+};
+type CatalogView = 'cards' | 'table';
+type CatalogSort = {
+  key: 'name' | 'kind' | 'source' | 'page';
+  direction: 'asc' | 'desc';
 };
 const spellChoices = (definition: EarthdawnDefinition): SpellChoice[] =>
   (definition.spellMetadata?.variants ?? []).flatMap((variant) =>
@@ -252,6 +263,28 @@ export function Earthdawn4eEditor({
     [recoveryKarma, setRecoveryKarma] = useState(false),
     [woundBalanceKarma, setWoundBalanceKarma] = useState(false),
     [damageAmount, setDamageAmount] = useState(1),
+    [moneyAmount, setMoneyAmount] = useState(1),
+    [moneyDenomination, setMoneyDenomination] = useState<'cp' | 'sp' | 'gp'>(
+      'sp',
+    ),
+    [moneyError, setMoneyError] = useState(''),
+    [raceSearch, setRaceSearch] = useState(''),
+    [editingEquipmentIds, setEditingEquipmentIds] = useState<Set<string>>(
+      new Set(),
+    ),
+    [catalogView, setCatalogView] = useState<CatalogView>('cards'),
+    [catalogSort, setCatalogSort] = useState<CatalogSort>({
+      key: 'name',
+      direction: 'asc',
+    }),
+    [expandedCatalogRows, setExpandedCatalogRows] = useState<Set<string>>(
+      new Set(),
+    ),
+    [temporaryModifierTarget, setTemporaryModifierTarget] =
+      useState('physicalDefense'),
+    [temporaryModifierName, setTemporaryModifierName] =
+      useState('Temporary bonus'),
+    [temporaryModifierValue, setTemporaryModifierValue] = useState(0),
     [noteSearch, setNoteSearch] = useState(''),
     [noteKind, setNoteKind] = useState<'all' | 'general' | 'campaign'>('all'),
     [noteSort, setNoteSort] = useState<'updated' | 'session'>('updated'),
@@ -331,6 +364,19 @@ export function Earthdawn4eEditor({
     return () => window.removeEventListener('keydown', handleKey);
   }, [catalogKind]);
   useEffect(() => {
+    if (!catalogKind) return;
+    const key = `arcane-record:earthdawn4e:catalog:${catalogKind}:view`;
+    const stored = window.localStorage.getItem(key);
+    setCatalogView(stored === 'table' ? 'table' : 'cards');
+  }, [catalogKind]);
+  useEffect(() => {
+    if (!catalogKind) return;
+    window.localStorage.setItem(
+      `arcane-record:earthdawn4e:catalog:${catalogKind}:view`,
+      catalogView,
+    );
+  }, [catalogKind, catalogView]);
+  useEffect(() => {
     const refresh = () =>
       setCustomDisciplines(customDisciplineRepository.list());
     window.addEventListener('storage', refresh);
@@ -402,6 +448,15 @@ export function Earthdawn4eEditor({
         initiative: 0,
       },
     );
+  const modifierValue = (target: string) =>
+    draft.health.modifiers
+      .filter((modifier) => modifier.active && modifier.target === target)
+      .reduce((sum, modifier) => sum + modifier.value, 0) +
+    [...draft.equipment, ...draft.weapons]
+      .filter((item) => item.inUse)
+      .flatMap((item) => item.modifiers)
+      .filter((modifier) => modifier.target === target)
+      .reduce((sum, modifier) => sum + modifier.value, 0);
   const legend = legendTotals(draft.advancement.ledger);
   const gmOverride = !draft.creation.enforceRules;
   const racialKarmaModifier =
@@ -499,6 +554,7 @@ export function Earthdawn4eEditor({
     definitionId: string,
     confirmed = false,
     requestedSpellChoice?: SpellChoice,
+    acquisition: 'gain' | 'purchase' = 'gain',
   ) => {
     const d = earthdawnDefinitionById.get(definitionId)!;
     const availableSpellChoices =
@@ -540,6 +596,50 @@ export function Earthdawn4eEditor({
               item.variantKey === selectedSpellChoice.key))),
     );
     if (alreadySelected) return;
+    const equipmentPurchase = ['equipment', 'weapon'].includes(d.kind);
+    let raceMultiplier =
+      d.equipmentMetadata?.category === 'armor'
+        ? (draft.raceSnapshot?.armorCostMultiplier ?? 1)
+        : d.kind === 'weapon' && draft.identity.raceName === 'Windling'
+          ? 1.25
+          : 1;
+    let raceWeightMultiplier =
+      d.equipmentMetadata?.category === 'armor'
+        ? (draft.raceSnapshot?.armorWeightMultiplier ?? 1)
+        : 1;
+    if (
+      equipmentPurchase &&
+      acquisition === 'purchase' &&
+      d.equipmentMetadata?.category === 'armor' &&
+      draft.identity.raceName === 'T’skrang'
+    ) {
+      const fitting = window.prompt(
+        'T’skrang fitting: enter "standard", "tail opening", or "full tail".',
+        'tail opening',
+      );
+      if (fitting == null) return;
+      if (fitting.trim().toLocaleLowerCase() === 'tail opening')
+        raceMultiplier *= 1.1;
+      if (fitting.trim().toLocaleLowerCase() === 'full tail') {
+        raceMultiplier *= 1.25;
+        raceWeightMultiplier *= 1.1;
+      }
+    }
+    const purchaseCopper = Math.round(
+      moneyToCopper(
+        d.price?.amount ?? Math.round(d.costSilver ?? 0),
+        d.price?.denomination ?? 'sp',
+      ) * raceMultiplier,
+    );
+    if (
+      equipmentPurchase &&
+      acquisition === 'purchase' &&
+      walletTotalCopper(draft.wealth) < purchaseCopper
+    ) {
+      setMoneyError(`Insufficient funds to purchase ${d.name}.`);
+      return;
+    }
+    setMoneyError('');
     if (playMode && !confirmed && d.kind === 'knack') {
       let mechanics: { talents?: string[]; minimumRank?: number } = {};
       try {
@@ -650,6 +750,36 @@ export function Earthdawn4eEditor({
         unresolved: false,
         name: d.name,
         notes: '',
+      };
+      const acquisitionState = () => {
+        if (!equipmentPurchase)
+          return { wealth: c.wealth, activity: c.activity };
+        const wealth =
+          acquisition === 'purchase'
+            ? (changeWallet(c.wealth, -purchaseCopper) ?? c.wealth)
+            : c.wealth;
+        const activity = c.activity.tracking
+          ? {
+              ...c.activity,
+              ledger: [
+                ...c.activity.ledger,
+                createActivityEntry({
+                  type: 'equipment',
+                  description:
+                    acquisition === 'purchase'
+                      ? `Purchased ${d.name}.`
+                      : `Gained ${d.name}.`,
+                  copperDelta: acquisition === 'purchase' ? -purchaseCopper : 0,
+                  targetId: base.id,
+                  targetName: d.name,
+                  quantityDelta: 1,
+                  before: formatWallet(c.wealth),
+                  after: formatWallet(wealth),
+                }),
+              ],
+            }
+          : c.activity;
+        return { wealth, activity };
       };
       if (d.kind === 'talent')
         return {
@@ -872,6 +1002,7 @@ export function Earthdawn4eEditor({
         }
         return {
           ...c,
+          ...acquisitionState(),
           weapons: [
             ...c.weapons,
             {
@@ -881,7 +1012,20 @@ export function Earthdawn4eEditor({
               range: mechanics.range ?? '',
               quantity: 1,
               costSilver: d.costSilver ?? 0,
+              price: d.price ?? {
+                amount: Math.round(d.costSilver ?? 0),
+                denomination: 'sp' as const,
+              },
               inUse: false,
+              weaponType: d.equipmentMetadata?.weaponType ?? 'melee',
+              size: d.equipmentMetadata?.size ?? 0,
+              shortRange: d.equipmentMetadata?.shortRange ?? '',
+              longRange: d.equipmentMetadata?.longRange ?? '',
+              availability: d.equipmentMetadata?.availability ?? '',
+              attackSourceId: null,
+              attackMode: d.equipmentMetadata?.weaponType ?? 'melee',
+              modifiers: [],
+              metadataOverrides: [],
             },
           ],
         };
@@ -902,16 +1046,22 @@ export function Earthdawn4eEditor({
       }
       return {
         ...c,
+        ...acquisitionState(),
         equipment: [
           ...c.equipment,
           {
             ...base,
             type: d.kind,
             description: d.summary,
+            category: d.equipmentMetadata?.category ?? d.kind,
             quantity: 1,
             value: d.costSilver == null ? '' : `${d.costSilver} sp`,
             costSilver: d.costSilver ?? 0,
-            weight: mechanics.weight ?? 0,
+            price: d.price ?? {
+              amount: Math.round(d.costSilver ?? 0),
+              denomination: 'sp' as const,
+            },
+            weight: (mechanics.weight ?? 0) * raceWeightMultiplier,
             inUse: false,
             physicalArmor: mechanics.physicalArmor ?? 0,
             mysticArmor: mechanics.mysticArmor ?? 0,
@@ -920,6 +1070,10 @@ export function Earthdawn4eEditor({
             initiativePenalty: mechanics.initiativePenalty ?? 0,
             shatterThreshold: mechanics.shatterThreshold ?? 0,
             forgedBonus: 0,
+            availability: d.equipmentMetadata?.availability ?? '',
+            size: d.equipmentMetadata?.size ?? 0,
+            modifiers: [],
+            metadataOverrides: [],
           },
         ],
       };
@@ -1329,9 +1483,11 @@ export function Earthdawn4eEditor({
               name: 'Custom Equipment',
               type: 'equipment',
               description: '',
+              category: 'equipment',
               quantity: 1,
               value: '',
               costSilver: 0,
+              price: { amount: 0, denomination: 'sp' as const },
               weight: 0,
               inUse: false,
               physicalArmor: 0,
@@ -1341,6 +1497,10 @@ export function Earthdawn4eEditor({
               initiativePenalty: 0,
               shatterThreshold: 0,
               forgedBonus: 0,
+              availability: '',
+              size: 0,
+              modifiers: [],
+              metadataOverrides: [],
             },
           ],
         };
@@ -1498,6 +1658,7 @@ export function Earthdawn4eEditor({
           /armor|shield/i.test(definition.name));
       const sourceAvailable =
         draft.sources.enabledSourceIds.includes(definition.sourceId) ||
+        definition.sourceId === 'ed4.user-currency-reference' ||
         definition.spellMetadata?.variants.some(({ sourceId }) =>
           draft.sources.enabledSourceIds.includes(sourceId),
         ) ||
@@ -1522,6 +1683,20 @@ export function Earthdawn4eEditor({
       );
     })
     .sort((left, right) => {
+      if (catalogView === 'table') {
+        const value = (definition: EarthdawnDefinition) =>
+          catalogSort.key === 'page'
+            ? (definition.page ?? Number.MAX_SAFE_INTEGER)
+            : definition[catalogSort.key];
+        const compared = String(value(left)).localeCompare(
+          String(value(right)),
+          undefined,
+          {
+            numeric: true,
+          },
+        );
+        return catalogSort.direction === 'asc' ? compared : -compared;
+      }
       if (catalogKind === 'spell')
         return compareSpellDefinitions(left, right, catalogSpellSort);
       if (catalogKind === 'skill' && catalogSkillSort === 'category')
@@ -1668,18 +1843,54 @@ export function Earthdawn4eEditor({
         }
       >
         {draft.creation.status !== 'draft' ? (
-          <SheetLayoutModeToggle
-            mode={draft.sheetLayout.mode}
-            editMode="edit"
-            editLabel="Edit mode"
-            ariaLabel="Earthdawn Edit and Play mode"
-            onModeChange={(mode) =>
-              update((current) => ({
-                ...current,
-                sheetLayout: { ...current.sheetLayout, mode },
-              }))
-            }
-          />
+          <div className="earthdawn-mode-bar">
+            <SheetLayoutModeToggle
+              mode={draft.sheetLayout.mode}
+              editMode="edit"
+              editLabel="Edit mode"
+              ariaLabel="Earthdawn Edit and Play mode"
+              onModeChange={(mode) =>
+                update((current) => ({
+                  ...current,
+                  sheetLayout: { ...current.sheetLayout, mode },
+                }))
+              }
+            />
+            <label className="appearance-switch earthdawn-tracking-switch">
+              <input
+                type="checkbox"
+                role="switch"
+                checked={draft.activity.tracking}
+                onChange={(event) =>
+                  update((current) => {
+                    const tracking = event.target.checked;
+                    const entry = createActivityEntry({
+                      type: 'tracking',
+                      description: `Activity tracking turned ${tracking ? 'on' : 'off'}.`,
+                      locked: true,
+                      before: current.activity.tracking ? 'On' : 'Off',
+                      after: tracking ? 'On' : 'Off',
+                    });
+                    return {
+                      ...current,
+                      activity: {
+                        tracking,
+                        ledger: [...current.activity.ledger, entry],
+                      },
+                    };
+                  })
+                }
+              />
+              <span>
+                <strong>Tracking</strong>
+                <small>
+                  {draft.activity.tracking
+                    ? 'Activity recorded'
+                    : 'Activity paused'}
+                </small>
+              </span>
+            </label>
+          </div>
         ) : null}
         <MobileSectionNavigator />
         <div className="character-editor-layout">
@@ -1697,43 +1908,122 @@ export function Earthdawn4eEditor({
                 'ed4-identity',
                 'character',
                 'Identity',
-                <SheetFieldGrid columns={3} className="earthdawn-field-grid">
-                  {(
-                    [
-                      'name',
-                      'player',
-                      'raceName',
-                      'gender',
-                      'age',
-                      'height',
-                      'weight',
-                      'hair',
-                      'skin',
-                      'eyes',
-                      'passion',
-                      'traits',
-                    ] as const
-                  ).map((field) => (
-                    <SheetField
-                      key={field}
-                      label={field.replace(/([A-Z])/g, ' $1')}
-                    >
+                <>
+                  <SheetToolbar className="earthdawn-compact-toolbar">
+                    <SheetField label="Race">
                       <input
-                        value={draft.identity[field]}
-                        readOnly={playMode}
-                        onChange={(e) =>
-                          update((c) => ({
-                            ...c,
-                            identity: {
-                              ...c.identity,
-                              [field]: e.target.value,
-                            },
-                          }))
-                        }
+                        type="search"
+                        list="earthdawn-race-options"
+                        value={raceSearch || draft.identity.raceName}
+                        placeholder="Search Race"
+                        onChange={(event) => setRaceSearch(event.target.value)}
                       />
+                      <datalist id="earthdawn-race-options">
+                        {earthdawnRaces.map((race) => (
+                          <option key={race.id} value={race.name} />
+                        ))}
+                      </datalist>
                     </SheetField>
-                  ))}
-                </SheetFieldGrid>,
+                    <button
+                      type="button"
+                      className="secondary-button compact-inline-button"
+                      disabled={
+                        !earthdawnRaces.some(
+                          ({ name }) =>
+                            name.toLocaleLowerCase() ===
+                            (raceSearch || draft.identity.raceName)
+                              .trim()
+                              .toLocaleLowerCase(),
+                        )
+                      }
+                      onClick={() => {
+                        const race = earthdawnRaces.find(
+                          ({ name }) =>
+                            name.toLocaleLowerCase() ===
+                            (raceSearch || draft.identity.raceName)
+                              .trim()
+                              .toLocaleLowerCase(),
+                        );
+                        if (!race) return;
+                        if (
+                          draft.identity.raceId &&
+                          !window.confirm(
+                            `Change Race to ${race.name}? Racial bases and automatic racial features will be reconciled; purchased increases and custom records remain.`,
+                          )
+                        )
+                          return;
+                        update((current) => {
+                          const before = current.identity.raceName || 'No Race';
+                          const next = reconcileRace(current, race);
+                          return current.activity.tracking
+                            ? {
+                                ...next,
+                                activity: {
+                                  ...next.activity,
+                                  ledger: [
+                                    ...next.activity.ledger,
+                                    createActivityEntry({
+                                      type: 'race',
+                                      description: `Race reconciled: ${before} → ${race.name}.`,
+                                      targetId: race.id,
+                                      targetName: race.name,
+                                      before,
+                                      after: race.name,
+                                    }),
+                                  ],
+                                },
+                              }
+                            : next;
+                        });
+                        setRaceSearch('');
+                      }}
+                    >
+                      Apply Race
+                    </button>
+                    {draft.raceSnapshot ? (
+                      <span className="earthdawn-toolbar-note">
+                        Movement {draft.raceSnapshot.movement} · Karma modifier{' '}
+                        {draft.raceSnapshot.karmaModifier}
+                      </span>
+                    ) : null}
+                  </SheetToolbar>
+                  <SheetFieldGrid columns={3} className="earthdawn-field-grid">
+                    {(
+                      [
+                        'name',
+                        'player',
+                        'gender',
+                        'age',
+                        'height',
+                        'weight',
+                        'hair',
+                        'skin',
+                        'eyes',
+                        'passion',
+                        'traits',
+                      ] as const
+                    ).map((field) => (
+                      <SheetField
+                        key={field}
+                        label={field.replace(/([A-Z])/g, ' $1')}
+                      >
+                        <input
+                          value={draft.identity[field]}
+                          readOnly={playMode}
+                          onChange={(e) =>
+                            update((c) => ({
+                              ...c,
+                              identity: {
+                                ...c.identity,
+                                [field]: e.target.value,
+                              },
+                            }))
+                          }
+                        />
+                      </SheetField>
+                    ))}
+                  </SheetFieldGrid>
+                </>,
               )}
               {section(
                 'ed4-disciplines',
@@ -2193,7 +2483,7 @@ export function Earthdawn4eEditor({
               {section(
                 'ed4-characteristics',
                 'attributes',
-                'Characteristics',
+                'Characteristics & Health',
                 <>
                   <div className="earthdawn-vital-tracker">
                     <div className="earthdawn-basic-stat earthdawn-vital-stat">
@@ -2255,13 +2545,16 @@ export function Earthdawn4eEditor({
                         </div>
                       </div>
                       {draft.health.damage >=
-                      derived.death + draft.health.deathBonus ? (
+                      derived.death +
+                        draft.health.deathBonus +
+                        modifierValue('death') ? (
                         <output className="earthdawn-health-status is-dead">
                           <span aria-hidden="true">💀</span> Dead
                         </output>
                       ) : draft.health.damage >=
                         derived.unconsciousness +
-                          draft.health.unconsciousnessBonus ? (
+                          draft.health.unconsciousnessBonus +
+                          modifierValue('unconsciousness') ? (
                         <output className="earthdawn-health-status is-unconscious">
                           <span aria-hidden="true">😵</span> Unconscious
                         </output>
@@ -2271,12 +2564,17 @@ export function Earthdawn4eEditor({
                           <dt>Unconsciousness</dt>
                           <dd>
                             {derived.unconsciousness +
-                              draft.health.unconsciousnessBonus}
+                              draft.health.unconsciousnessBonus +
+                              modifierValue('unconsciousness')}
                           </dd>
                         </div>
                         <div>
                           <dt>Death</dt>
-                          <dd>{derived.death + draft.health.deathBonus}</dd>
+                          <dd>
+                            {derived.death +
+                              draft.health.deathBonus +
+                              modifierValue('death')}
+                          </dd>
                         </div>
                       </dl>
                     </div>
@@ -2316,38 +2614,170 @@ export function Earthdawn4eEditor({
                         </button>
                       </div>
                       <strong className="earthdawn-threshold">
-                        Wound Threshold {derived.woundThreshold}
+                        Wound Threshold{' '}
+                        {derived.woundThreshold +
+                          modifierValue('woundThreshold')}
                       </strong>
                     </div>
                   </div>
-                  <div className="sheet-stat-grid earthdawn-derived-grid">
-                    <span>
-                      Physical Defense{' '}
-                      <strong>
-                        {derived.physicalDefense + armor.physicalDefense}
-                      </strong>
-                    </span>
-                    <span>
-                      Mystic Defense{' '}
-                      <strong>
-                        {derived.mysticDefense + armor.mysticDefense}
-                      </strong>
-                    </span>
-                    <span>
-                      Social Defense <strong>{derived.socialDefense}</strong>
-                    </span>
-                    <span>
-                      Initiative{' '}
-                      <strong>{derived.initiative - armor.initiative}</strong>
-                    </span>
-                    <span>
-                      Carrying <strong>{derived.carryingCapacity}</strong>
-                    </span>
-                    <span>
-                      Mystic Armor{' '}
-                      <strong>{derived.mysticArmor + armor.mystic}</strong>
-                    </span>
+                  <div className="earthdawn-adjusted-grid">
+                    <AdjustedStat
+                      label="Physical Defense"
+                      base={derived.physicalDefense}
+                      equipment={armor.physicalDefense}
+                      modifier={modifierValue('physicalDefense')}
+                    />
+                    <AdjustedStat
+                      label="Mystic Defense"
+                      base={derived.mysticDefense}
+                      equipment={armor.mysticDefense}
+                      modifier={modifierValue('mysticDefense')}
+                    />
+                    <AdjustedStat
+                      label="Social Defense"
+                      base={derived.socialDefense}
+                      modifier={modifierValue('socialDefense')}
+                    />
+                    <AdjustedStat
+                      label="Initiative"
+                      base={derived.initiative}
+                      equipment={-armor.initiative}
+                      modifier={modifierValue('initiative')}
+                    />
+                    <AdjustedStat
+                      label="Physical Armor"
+                      base={0}
+                      equipment={armor.physical}
+                      modifier={modifierValue('physicalArmor')}
+                    />
+                    <AdjustedStat
+                      label="Mystic Armor"
+                      base={derived.mysticArmor}
+                      equipment={armor.mystic}
+                      modifier={modifierValue('mysticArmor')}
+                    />
+                    <AdjustedStat
+                      label="Carrying Capacity"
+                      base={derived.carryingCapacity}
+                      modifier={modifierValue('carryingCapacity')}
+                    />
+                    <AdjustedStat
+                      label="Movement"
+                      base={0}
+                      textBase={draft.raceSnapshot?.movement || '—'}
+                      modifier={modifierValue('movement')}
+                    />
                   </div>
+                  <SheetToolbar className="earthdawn-compact-toolbar earthdawn-temporary-modifier">
+                    <SheetField label="Temporary effect">
+                      <input
+                        value={temporaryModifierName}
+                        onChange={(event) =>
+                          setTemporaryModifierName(event.target.value)
+                        }
+                      />
+                    </SheetField>
+                    <SheetField label="Characteristic">
+                      <select
+                        value={temporaryModifierTarget}
+                        onChange={(event) =>
+                          setTemporaryModifierTarget(event.target.value)
+                        }
+                      >
+                        {[
+                          'physicalDefense',
+                          'mysticDefense',
+                          'socialDefense',
+                          'initiative',
+                          'physicalArmor',
+                          'mysticArmor',
+                          'carryingCapacity',
+                          'movement',
+                          'woundThreshold',
+                          'unconsciousness',
+                          'death',
+                          'attack',
+                          'damage',
+                          'recovery',
+                        ].map((target) => (
+                          <option key={target} value={target}>
+                            {target.replace(/([A-Z])/g, ' $1')}
+                          </option>
+                        ))}
+                      </select>
+                    </SheetField>
+                    <SheetField label="Bonus / penalty">
+                      <input
+                        type="number"
+                        value={temporaryModifierValue}
+                        onChange={(event) =>
+                          setTemporaryModifierValue(
+                            Number(event.target.value) || 0,
+                          )
+                        }
+                      />
+                    </SheetField>
+                    <button
+                      type="button"
+                      className="secondary-button compact-inline-button"
+                      disabled={
+                        !temporaryModifierName.trim() ||
+                        temporaryModifierValue === 0
+                      }
+                      onClick={() =>
+                        update((current) => ({
+                          ...current,
+                          health: {
+                            ...current.health,
+                            modifiers: [
+                              ...current.health.modifiers,
+                              {
+                                id: crypto.randomUUID(),
+                                name: temporaryModifierName.trim(),
+                                target: temporaryModifierTarget,
+                                value: temporaryModifierValue,
+                                active: true,
+                              },
+                            ],
+                          },
+                        }))
+                      }
+                    >
+                      Add effect
+                    </button>
+                  </SheetToolbar>
+                  {draft.health.modifiers.filter(
+                    ({ name }) => !name.startsWith('Racial:'),
+                  ).length ? (
+                    <ul className="earthdawn-modifier-list">
+                      {draft.health.modifiers
+                        .filter(({ name }) => !name.startsWith('Racial:'))
+                        .map((modifier) => (
+                          <li key={modifier.id}>
+                            <span>
+                              {modifier.name}: {modifier.value >= 0 ? '+' : ''}
+                              {modifier.value} {modifier.target}
+                            </span>
+                            <button
+                              className="text-button"
+                              onClick={() =>
+                                update((current) => ({
+                                  ...current,
+                                  health: {
+                                    ...current.health,
+                                    modifiers: current.health.modifiers.filter(
+                                      ({ id }) => id !== modifier.id,
+                                    ),
+                                  },
+                                }))
+                              }
+                            >
+                              Remove
+                            </button>
+                          </li>
+                        ))}
+                    </ul>
+                  ) : null}
                 </>,
               )}
               {section(
@@ -2561,38 +2991,6 @@ export function Earthdawn4eEditor({
                       onClick={() => openCatalog('knack')}
                     >
                       Browse Knacks
-                    </button>
-                    <button
-                      disabled={playMode}
-                      className="secondary-button"
-                      onClick={() =>
-                        update((c) => ({
-                          ...c,
-                          skills: [
-                            ...c.skills,
-                            {
-                              id: crypto.randomUUID(),
-                              definitionId: null,
-                              sourceId: null,
-                              source: null,
-                              page: null,
-                              unresolved: true,
-                              name: 'Custom Knowledge',
-                              rank: 1,
-                              freeRank: 0,
-                              attribute: 'perception',
-                              bonus: 0,
-                              notes: '',
-                              category: 'knowledge',
-                              action: '',
-                              strain: 0,
-                              creationOwned: false,
-                            },
-                          ],
-                        }))
-                      }
-                    >
-                      Add Custom Skill
                     </button>
                   </SheetToolbar>
                   {draft.knacks.map((knack) => (
@@ -3549,85 +3947,166 @@ export function Earthdawn4eEditor({
                   >
                     Browse Equipment, Weapons & Armor
                   </button>
-                  {draft.equipment.map((e) => (
-                    <SheetCard key={e.id} density="compact">
-                      <SheetFieldGrid columns={3}>
-                        <SheetField label="Item">
-                          <input
-                            readOnly={playMode}
-                            value={e.name}
-                            onChange={(event) =>
-                              update((c) => ({
-                                ...c,
-                                equipment: c.equipment.map((item) =>
-                                  item.id === e.id
-                                    ? { ...item, name: event.target.value }
-                                    : item,
-                                ),
-                              }))
-                            }
-                          />
-                        </SheetField>
-                        <SheetField label="Quantity">
-                          <input
-                            type="number"
-                            min="1"
-                            value={e.quantity}
-                            onChange={(event) =>
-                              update((c) => ({
-                                ...c,
-                                equipment: c.equipment.map((item) =>
-                                  item.id === e.id
-                                    ? {
-                                        ...item,
-                                        quantity: Math.max(
-                                          1,
-                                          integer(event.target.value),
-                                        ),
-                                      }
-                                    : item,
-                                ),
-                              }))
-                            }
-                          />
-                        </SheetField>
-                        <SheetField label="Cost (silver)">
-                          <input
-                            type="number"
-                            readOnly={playMode}
-                            value={e.costSilver}
-                            onChange={(event) =>
-                              update((c) => ({
-                                ...c,
-                                equipment: c.equipment.map((item) =>
-                                  item.id === e.id
-                                    ? {
-                                        ...item,
-                                        costSilver: Number(event.target.value),
-                                      }
-                                    : item,
-                                ),
-                              }))
-                            }
-                          />
-                        </SheetField>
-                        {(
-                          [
-                            ['weight', 'Weight'],
-                            ['physicalArmor', 'Physical Armor'],
-                            ['mysticArmor', 'Mystic Armor'],
-                            ['physicalDefense', 'Physical Defense'],
-                            ['mysticDefense', 'Mystic Defense'],
-                            ['initiativePenalty', 'Initiative Penalty'],
-                            ['shatterThreshold', 'Shatter Threshold'],
-                          ] as const
-                        ).map(([field, label]) => (
-                          <SheetField key={field} label={label}>
+                  <div className="earthdawn-wallet" aria-label="Coin wallet">
+                    <div className="earthdawn-wallet__balances">
+                      <span>
+                        <strong>{Math.trunc(draft.wealth.gold)}</strong> gp
+                      </span>
+                      <span>
+                        <strong>{Math.trunc(draft.wealth.silver)}</strong> sp
+                      </span>
+                      <span>
+                        <strong>{Math.trunc(draft.wealth.copper)}</strong> cp
+                      </span>
+                    </div>
+                    <SheetToolbar className="earthdawn-compact-toolbar">
+                      <SheetField label="Coin amount">
+                        <input
+                          type="number"
+                          min="1"
+                          inputMode="numeric"
+                          value={moneyAmount}
+                          onChange={(event) =>
+                            setMoneyAmount(
+                              Math.max(1, integer(event.target.value)),
+                            )
+                          }
+                        />
+                      </SheetField>
+                      <SheetField label="Denomination">
+                        <select
+                          value={moneyDenomination}
+                          onChange={(event) =>
+                            setMoneyDenomination(
+                              event.target.value as 'cp' | 'sp' | 'gp',
+                            )
+                          }
+                        >
+                          <option value="cp">Copper</option>
+                          <option value="sp">Silver</option>
+                          <option value="gp">Gold</option>
+                        </select>
+                      </SheetField>
+                      <button
+                        type="button"
+                        className="primary-button compact-inline-button"
+                        onClick={() => {
+                          const delta = moneyToCopper(
+                            moneyAmount,
+                            moneyDenomination,
+                          );
+                          update((current) => {
+                            const wealth = changeWallet(current.wealth, delta)!;
+                            return {
+                              ...current,
+                              wealth,
+                              activity: current.activity.tracking
+                                ? {
+                                    ...current.activity,
+                                    ledger: [
+                                      ...current.activity.ledger,
+                                      createActivityEntry({
+                                        type: 'currency',
+                                        description: `Added ${moneyAmount} ${moneyDenomination}.`,
+                                        copperDelta: delta,
+                                        before: formatWallet(current.wealth),
+                                        after: formatWallet(wealth),
+                                      }),
+                                    ],
+                                  }
+                                : current.activity,
+                            };
+                          });
+                          setMoneyError('');
+                        }}
+                      >
+                        Add
+                      </button>
+                      <button
+                        type="button"
+                        className="secondary-button compact-inline-button"
+                        onClick={() => {
+                          const delta = moneyToCopper(
+                            moneyAmount,
+                            moneyDenomination,
+                          );
+                          if (walletTotalCopper(draft.wealth) < delta) {
+                            setMoneyError('Insufficient funds.');
+                            return;
+                          }
+                          update((current) => {
+                            const wealth = changeWallet(
+                              current.wealth,
+                              -delta,
+                            )!;
+                            return {
+                              ...current,
+                              wealth,
+                              activity: current.activity.tracking
+                                ? {
+                                    ...current.activity,
+                                    ledger: [
+                                      ...current.activity.ledger,
+                                      createActivityEntry({
+                                        type: 'currency',
+                                        description: `Spent ${moneyAmount} ${moneyDenomination}.`,
+                                        copperDelta: -delta,
+                                        before: formatWallet(current.wealth),
+                                        after: formatWallet(wealth),
+                                      }),
+                                    ],
+                                  }
+                                : current.activity,
+                            };
+                          });
+                          setMoneyError('');
+                        }}
+                      >
+                        Spend
+                      </button>
+                    </SheetToolbar>
+                    {moneyError ? (
+                      <p className="field-error" role="alert">
+                        {moneyError}
+                      </p>
+                    ) : null}
+                  </div>
+                  {draft.equipment.map((e) => {
+                    const editing = editingEquipmentIds.has(e.id);
+                    return (
+                      <SheetCard key={e.id} density="compact">
+                        <div className="earthdawn-owned-item__summary">
+                          <div>
+                            <strong>{e.name}</strong>
+                            <small>{e.description}</small>
+                          </div>
+                          <span>
+                            {e.price.amount} {e.price.denomination} · {e.weight}{' '}
+                            lb · {e.availability || 'Availability not listed'}
+                          </span>
+                        </div>
+                        <SheetFieldGrid columns={3}>
+                          <SheetField label="Item">
+                            <input
+                              readOnly={!editing}
+                              value={e.name}
+                              onChange={(event) =>
+                                update((c) => ({
+                                  ...c,
+                                  equipment: c.equipment.map((item) =>
+                                    item.id === e.id
+                                      ? { ...item, name: event.target.value }
+                                      : item,
+                                  ),
+                                }))
+                              }
+                            />
+                          </SheetField>
+                          <SheetField label="Quantity">
                             <input
                               type="number"
-                              min="0"
-                              readOnly={playMode}
-                              value={e[field]}
+                              min="1"
+                              value={e.quantity}
                               onChange={(event) =>
                                 update((c) => ({
                                   ...c,
@@ -3635,7 +4114,10 @@ export function Earthdawn4eEditor({
                                     item.id === e.id
                                       ? {
                                           ...item,
-                                          [field]: Number(event.target.value),
+                                          quantity: Math.max(
+                                            1,
+                                            integer(event.target.value),
+                                          ),
                                         }
                                       : item,
                                   ),
@@ -3643,119 +4125,297 @@ export function Earthdawn4eEditor({
                               }
                             />
                           </SheetField>
-                        ))}
-                        <label className="sheet-choice-card">
-                          <input
-                            type="checkbox"
-                            checked={e.inUse}
-                            onChange={(event) =>
-                              update((c) => ({
-                                ...c,
-                                equipment: c.equipment.map((item) =>
-                                  item.id === e.id
-                                    ? { ...item, inUse: event.target.checked }
-                                    : item,
-                                ),
-                              }))
+                          <SheetField label="Cost (silver)">
+                            <input
+                              type="number"
+                              readOnly={!editing}
+                              value={e.costSilver}
+                              onChange={(event) =>
+                                update((c) => ({
+                                  ...c,
+                                  equipment: c.equipment.map((item) =>
+                                    item.id === e.id
+                                      ? {
+                                          ...item,
+                                          costSilver: Number(
+                                            event.target.value,
+                                          ),
+                                        }
+                                      : item,
+                                  ),
+                                }))
+                              }
+                            />
+                          </SheetField>
+                          {(
+                            [
+                              ['weight', 'Weight'],
+                              ['physicalArmor', 'Physical Armor'],
+                              ['mysticArmor', 'Mystic Armor'],
+                              ['physicalDefense', 'Physical Defense'],
+                              ['mysticDefense', 'Mystic Defense'],
+                              ['initiativePenalty', 'Initiative Penalty'],
+                              ['shatterThreshold', 'Shatter Threshold'],
+                            ] as const
+                          ).map(([field, label]) => (
+                            <SheetField key={field} label={label}>
+                              <input
+                                type="number"
+                                min="0"
+                                readOnly={!editing}
+                                value={e[field]}
+                                onChange={(event) =>
+                                  update((c) => ({
+                                    ...c,
+                                    equipment: c.equipment.map((item) =>
+                                      item.id === e.id
+                                        ? {
+                                            ...item,
+                                            [field]: Number(event.target.value),
+                                          }
+                                        : item,
+                                    ),
+                                  }))
+                                }
+                              />
+                            </SheetField>
+                          ))}
+                          <label className="sheet-choice-card">
+                            <input
+                              type="checkbox"
+                              checked={e.inUse}
+                              onChange={(event) =>
+                                update((c) => ({
+                                  ...c,
+                                  equipment: c.equipment.map((item) =>
+                                    item.id === e.id
+                                      ? { ...item, inUse: event.target.checked }
+                                      : item,
+                                  ),
+                                }))
+                              }
+                            />
+                            <span>Carried / equipped</span>
+                          </label>
+                        </SheetFieldGrid>
+                        <SheetToolbar className="earthdawn-compact-toolbar">
+                          <button
+                            type="button"
+                            className="secondary-button compact-inline-button"
+                            onClick={() =>
+                              setEditingEquipmentIds((current) => {
+                                const next = new Set(current);
+                                if (editing) next.delete(e.id);
+                                else next.add(e.id);
+                                return next;
+                              })
                             }
-                          />
-                          <span>Carried / equipped</span>
-                        </label>
-                      </SheetFieldGrid>
-                    </SheetCard>
-                  ))}
-                  {draft.weapons.map((weapon) => (
-                    <SheetCard key={weapon.id} density="compact">
-                      <SheetFieldGrid columns={3}>
-                        <SheetField label="Weapon">
-                          <input
-                            readOnly={playMode}
-                            value={weapon.name}
-                            onChange={(event) =>
-                              update((c) => ({
-                                ...c,
-                                weapons: c.weapons.map((item) =>
-                                  item.id === weapon.id
-                                    ? { ...item, name: event.target.value }
-                                    : item,
+                          >
+                            {editing ? 'Save' : 'Edit'}
+                          </button>
+                          <button
+                            type="button"
+                            className="text-button"
+                            onClick={() => {
+                              if (!window.confirm(`Remove ${e.name}?`)) return;
+                              update((current) => ({
+                                ...current,
+                                equipment: current.equipment.filter(
+                                  ({ id }) => id !== e.id,
                                 ),
-                              }))
+                                activity: current.activity.tracking
+                                  ? {
+                                      ...current.activity,
+                                      ledger: [
+                                        ...current.activity.ledger,
+                                        createActivityEntry({
+                                          type: 'equipment',
+                                          description: `Removed ${e.name}.`,
+                                          targetId: e.id,
+                                          targetName: e.name,
+                                          quantityDelta: -e.quantity,
+                                        }),
+                                      ],
+                                    }
+                                  : current.activity,
+                              }));
+                            }}
+                          >
+                            Remove
+                          </button>
+                        </SheetToolbar>
+                      </SheetCard>
+                    );
+                  })}
+                  {draft.weapons.map((weapon) => {
+                    const editing = editingEquipmentIds.has(weapon.id);
+                    return (
+                      <SheetCard key={weapon.id} density="compact">
+                        <div className="earthdawn-owned-item__summary">
+                          <div>
+                            <strong>{weapon.name}</strong>
+                            <small>
+                              {weapon.weaponType} · Damage +{weapon.damageStep}{' '}
+                              · {weapon.range || 'close range'}
+                            </small>
+                          </div>
+                          <span>
+                            {weapon.price.amount} {weapon.price.denomination} ·
+                            Size {weapon.size || '—'} ·{' '}
+                            {weapon.availability || 'Availability not listed'}
+                          </span>
+                        </div>
+                        <SheetFieldGrid columns={3}>
+                          <SheetField label="Weapon">
+                            <input
+                              readOnly={!editing}
+                              value={weapon.name}
+                              onChange={(event) =>
+                                update((c) => ({
+                                  ...c,
+                                  weapons: c.weapons.map((item) =>
+                                    item.id === weapon.id
+                                      ? { ...item, name: event.target.value }
+                                      : item,
+                                  ),
+                                }))
+                              }
+                            />
+                          </SheetField>
+                          <SheetField label="Damage step">
+                            <input
+                              type="number"
+                              readOnly={!editing}
+                              value={weapon.damageStep}
+                              onChange={(event) =>
+                                update((c) => ({
+                                  ...c,
+                                  weapons: c.weapons.map((item) =>
+                                    item.id === weapon.id
+                                      ? {
+                                          ...item,
+                                          damageStep: Number(
+                                            event.target.value,
+                                          ),
+                                        }
+                                      : item,
+                                  ),
+                                }))
+                              }
+                            />
+                          </SheetField>
+                          <SheetField label="Range">
+                            <input
+                              readOnly={!editing}
+                              value={weapon.range}
+                              onChange={(event) =>
+                                update((c) => ({
+                                  ...c,
+                                  weapons: c.weapons.map((item) =>
+                                    item.id === weapon.id
+                                      ? { ...item, range: event.target.value }
+                                      : item,
+                                  ),
+                                }))
+                              }
+                            />
+                          </SheetField>
+                          <SheetField label="Quantity">
+                            <input
+                              type="number"
+                              min="1"
+                              value={weapon.quantity}
+                              onChange={(event) =>
+                                update((current) => ({
+                                  ...current,
+                                  weapons: current.weapons.map((item) =>
+                                    item.id === weapon.id
+                                      ? {
+                                          ...item,
+                                          quantity: Math.max(
+                                            1,
+                                            integer(event.target.value),
+                                          ),
+                                        }
+                                      : item,
+                                  ),
+                                }))
+                              }
+                            />
+                          </SheetField>
+                          <label className="sheet-choice-card">
+                            <input
+                              type="checkbox"
+                              checked={weapon.inUse}
+                              onChange={(event) =>
+                                update((current) => ({
+                                  ...current,
+                                  weapons: current.weapons.map((item) =>
+                                    item.id === weapon.id
+                                      ? { ...item, inUse: event.target.checked }
+                                      : item,
+                                  ),
+                                }))
+                              }
+                            />
+                            <span>Carried / equipped</span>
+                          </label>
+                        </SheetFieldGrid>
+                        <SheetToolbar className="earthdawn-compact-toolbar">
+                          <button
+                            type="button"
+                            className="secondary-button compact-inline-button"
+                            onClick={() =>
+                              setEditingEquipmentIds((current) => {
+                                const next = new Set(current);
+                                if (editing) next.delete(weapon.id);
+                                else next.add(weapon.id);
+                                return next;
+                              })
                             }
-                          />
-                        </SheetField>
-                        <SheetField label="Damage step">
-                          <input
-                            type="number"
-                            value={weapon.damageStep}
-                            onChange={(event) =>
-                              update((c) => ({
-                                ...c,
-                                weapons: c.weapons.map((item) =>
-                                  item.id === weapon.id
-                                    ? {
-                                        ...item,
-                                        damageStep: Number(event.target.value),
-                                      }
-                                    : item,
+                          >
+                            {editing ? 'Save' : 'Edit'}
+                          </button>
+                          <button
+                            type="button"
+                            className="text-button"
+                            onClick={() => {
+                              if (!window.confirm(`Remove ${weapon.name}?`))
+                                return;
+                              update((current) => ({
+                                ...current,
+                                weapons: current.weapons.filter(
+                                  ({ id }) => id !== weapon.id,
                                 ),
-                              }))
-                            }
-                          />
-                        </SheetField>
-                        <SheetField label="Range">
-                          <input
-                            value={weapon.range}
-                            onChange={(event) =>
-                              update((c) => ({
-                                ...c,
-                                weapons: c.weapons.map((item) =>
-                                  item.id === weapon.id
-                                    ? { ...item, range: event.target.value }
-                                    : item,
-                                ),
-                              }))
-                            }
-                          />
-                        </SheetField>
-                      </SheetFieldGrid>
-                    </SheetCard>
-                  ))}
-                  <div className="sheet-stat-grid earthdawn-derived-grid">
-                    <span>
-                      Starting silver{' '}
-                      <strong>{draft.wealth.startingSilver}</strong>
-                    </span>
-                    <span>
-                      Spent{' '}
-                      <strong>
-                        {draft.equipment.reduce(
-                          (sum, item) => sum + item.costSilver * item.quantity,
-                          0,
-                        ) +
-                          draft.weapons.reduce(
-                            (sum, item) =>
-                              sum + item.costSilver * item.quantity,
-                            0,
-                          )}
-                      </strong>
-                    </span>
-                    <span>
-                      Balance{' '}
-                      <strong>
-                        {draft.wealth.startingSilver -
-                          draft.equipment.reduce(
-                            (sum, item) =>
-                              sum + item.costSilver * item.quantity,
-                            0,
-                          ) -
-                          draft.weapons.reduce(
-                            (sum, item) =>
-                              sum + item.costSilver * item.quantity,
-                            0,
-                          )}
-                      </strong>
-                    </span>
-                  </div>
+                                activity: current.activity.tracking
+                                  ? {
+                                      ...current.activity,
+                                      ledger: [
+                                        ...current.activity.ledger,
+                                        createActivityEntry({
+                                          type: 'equipment',
+                                          description: `Removed ${weapon.name}.`,
+                                          targetId: weapon.id,
+                                          targetName: weapon.name,
+                                          quantityDelta: -weapon.quantity,
+                                        }),
+                                      ],
+                                    }
+                                  : current.activity,
+                              }));
+                            }}
+                          >
+                            Remove
+                          </button>
+                        </SheetToolbar>
+                      </SheetCard>
+                    );
+                  })}
+                  <p className="earthdawn-wallet-total">
+                    Total value:{' '}
+                    <strong>{walletTotalCopper(draft.wealth)} cp</strong> (
+                    {formatWallet(draft.wealth)})
+                  </p>
                 </>,
               )}
               {section(
@@ -3955,13 +4615,13 @@ export function Earthdawn4eEditor({
                         </button>
                         <button
                           className="text-button"
-                          disabled={Boolean(
-                            draft.health.lastKarmaRitualAt &&
-                            new Date(
-                              draft.health.lastKarmaRitualAt,
-                            ).toDateString() === new Date().toDateString(),
-                          )}
-                          onClick={() =>
+                          onClick={() => {
+                            if (
+                              !window.confirm(
+                                'Complete a Karma Ritual and restore Karma to its maximum?',
+                              )
+                            )
+                              return;
                             update((c) => ({
                               ...c,
                               health: {
@@ -3969,15 +4629,10 @@ export function Earthdawn4eEditor({
                                 karmaCurrent: derivedKarmaMaximum,
                                 lastKarmaRitualAt: new Date().toISOString(),
                               },
-                            }))
-                          }
+                            }));
+                          }}
                         >
-                          {draft.health.lastKarmaRitualAt &&
-                          new Date(
-                            draft.health.lastKarmaRitualAt,
-                          ).toDateString() === new Date().toDateString()
-                            ? 'Karma Ritual completed today'
-                            : 'Complete Karma Ritual'}
+                          Complete Karma Ritual
                         </button>
                       </div>
                       <div className="earthdawn-basic-stat">
@@ -4052,8 +4707,176 @@ export function Earthdawn4eEditor({
               {section(
                 'ed4-dice',
                 'combat',
-                'Step Dice & Roller',
+                'Combat & Roller',
                 <>
+                  <div className="earthdawn-combat-loadout">
+                    <h3>Equipped combat gear</h3>
+                    {draft.weapons
+                      .filter(({ inUse }) => inUse)
+                      .map((weapon) => {
+                        const sourceName =
+                          weapon.attackMode === 'missile'
+                            ? 'Missile Weapons'
+                            : weapon.attackMode === 'throwing'
+                              ? 'Throwing Weapons'
+                              : 'Melee Weapons';
+                        const sources = [...draft.talents, ...draft.skills]
+                          .filter(({ name }) => name === sourceName)
+                          .sort(
+                            (a, b) =>
+                              b.rank +
+                              b.freeRank +
+                              b.bonus -
+                              (a.rank + a.freeRank + a.bonus),
+                          );
+                        const selected =
+                          sources.find(
+                            ({ id }) => id === weapon.attackSourceId,
+                          ) ?? sources[0];
+                        const attackStep =
+                          attributeStep(values.dexterity) +
+                          (selected
+                            ? selected.rank + selected.freeRank + selected.bonus
+                            : 0) +
+                          modifierValue('attack');
+                        const damageStep =
+                          attributeStep(values.strength) +
+                          weapon.damageStep +
+                          modifierValue('damage');
+                        return (
+                          <SheetCard
+                            key={weapon.id}
+                            density="compact"
+                            className="earthdawn-combat-weapon"
+                          >
+                            <div>
+                              <strong>{weapon.name}</strong>
+                              <small>
+                                {weapon.attackMode} · Range{' '}
+                                {weapon.range || 'close'}
+                              </small>
+                            </div>
+                            <SheetFieldGrid columns={3}>
+                              <SheetField label="Attack mode">
+                                <select
+                                  value={weapon.attackMode}
+                                  onChange={(event) =>
+                                    update((current) => ({
+                                      ...current,
+                                      weapons: current.weapons.map((item) =>
+                                        item.id === weapon.id
+                                          ? {
+                                              ...item,
+                                              attackMode: event.target
+                                                .value as typeof item.attackMode,
+                                              attackSourceId: null,
+                                            }
+                                          : item,
+                                      ),
+                                    }))
+                                  }
+                                >
+                                  <option value="melee">Melee</option>
+                                  <option value="missile">Missile</option>
+                                  <option value="throwing">Throwing</option>
+                                </select>
+                              </SheetField>
+                              <SheetField label="Talent / Skill">
+                                <select
+                                  value={selected?.id ?? ''}
+                                  onChange={(event) =>
+                                    update((current) => ({
+                                      ...current,
+                                      weapons: current.weapons.map((item) =>
+                                        item.id === weapon.id
+                                          ? {
+                                              ...item,
+                                              attackSourceId:
+                                                event.target.value || null,
+                                            }
+                                          : item,
+                                      ),
+                                    }))
+                                  }
+                                >
+                                  <option value="">Dexterity only</option>
+                                  {sources.map((source) => (
+                                    <option key={source.id} value={source.id}>
+                                      {source.name} Rank{' '}
+                                      {source.rank + source.freeRank}
+                                    </option>
+                                  ))}
+                                </select>
+                              </SheetField>
+                              <div className="earthdawn-combat-steps">
+                                <span>
+                                  Attack Step <strong>{attackStep}</strong>
+                                </span>
+                                <span>
+                                  Damage Step <strong>{damageStep}</strong>
+                                </span>
+                              </div>
+                            </SheetFieldGrid>
+                            <SheetToolbar className="earthdawn-compact-toolbar">
+                              <button
+                                className="primary-button compact-inline-button"
+                                onClick={() =>
+                                  update((current) => ({
+                                    ...current,
+                                    dice: appendRoll(
+                                      current.dice,
+                                      rollStep(
+                                        attackStep,
+                                        0,
+                                        current.dice.targetNumber,
+                                        `${weapon.name} attack (${selected?.name ?? 'Dexterity'})`,
+                                      ),
+                                    ),
+                                  }))
+                                }
+                              >
+                                Roll Attack
+                              </button>
+                              <button
+                                className="secondary-button compact-inline-button"
+                                onClick={() =>
+                                  update((current) => ({
+                                    ...current,
+                                    dice: appendRoll(
+                                      current.dice,
+                                      rollStep(
+                                        damageStep,
+                                        0,
+                                        0,
+                                        `${weapon.name} damage`,
+                                      ),
+                                    ),
+                                  }))
+                                }
+                              >
+                                Roll Damage
+                              </button>
+                            </SheetToolbar>
+                          </SheetCard>
+                        );
+                      })}
+                    {!draft.weapons.some(({ inUse }) => inUse) ? (
+                      <p>No weapon is equipped.</p>
+                    ) : null}
+                    <div className="earthdawn-equipped-protection">
+                      {draft.equipment
+                        .filter(
+                          (item) =>
+                            item.inUse &&
+                            ['armor', 'shield'].includes(item.category),
+                        )
+                        .map((item) => (
+                          <span key={item.id}>
+                            <strong>{item.name}</strong> · {item.category}
+                          </span>
+                        ))}
+                    </div>
+                  </div>
                   <SheetToolbar>
                     <label className="appearance-switch">
                       <input
@@ -4582,6 +5405,169 @@ export function Earthdawn4eEditor({
                       </tbody>
                     </table>
                   </div>
+                  <details className="earthdawn-tracking-ledger">
+                    <summary>
+                      Tracking Ledger (
+                      {draft.activity.ledger.length +
+                        draft.advancement.ledger.length}
+                      )
+                    </summary>
+                    <p>
+                      Legend transactions remain authoritative. Activity events
+                      are recorded only while Tracking is on, except immutable
+                      tracking-state changes.
+                    </p>
+                    <div className="earthdawn-ledger-table-wrap">
+                      <table className="earthdawn-ledger-table">
+                        <thead>
+                          <tr>
+                            <th>Date</th>
+                            <th>Area</th>
+                            <th>Change</th>
+                            <th>Record</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {[
+                            ...draft.advancement.ledger.map((entry) => ({
+                              id: entry.id,
+                              createdAt: entry.createdAt,
+                              area: 'Legend',
+                              change: `${entry.amount > 0 ? '+' : ''}${entry.amount} LP`,
+                              description:
+                                entry.description || entry.targetName,
+                              activity: null as
+                                | Earthdawn4eCharacter['activity']['ledger'][number]
+                                | null,
+                            })),
+                            ...draft.activity.ledger.map((entry) => ({
+                              id: entry.id,
+                              createdAt: entry.createdAt,
+                              area: entry.type,
+                              change: entry.copperDelta
+                                ? `${entry.copperDelta > 0 ? '+' : ''}${entry.copperDelta} cp`
+                                : entry.quantityDelta
+                                  ? `${entry.quantityDelta > 0 ? '+' : ''}${entry.quantityDelta}`
+                                  : '—',
+                              description: entry.description,
+                              activity: entry,
+                            })),
+                          ]
+                            .sort((a, b) =>
+                              b.createdAt.localeCompare(a.createdAt),
+                            )
+                            .map((entry) => (
+                              <tr key={`${entry.area}:${entry.id}`}>
+                                <td>
+                                  {new Date(entry.createdAt).toLocaleString()}
+                                </td>
+                                <td>{entry.area}</td>
+                                <td>{entry.change}</td>
+                                <td>
+                                  {entry.description}
+                                  {entry.activity &&
+                                  !entry.activity.locked &&
+                                  !entry.activity.reversedAt ? (
+                                    <button
+                                      type="button"
+                                      className="text-button"
+                                      onClick={() => {
+                                        const activity = entry.activity!;
+                                        if (
+                                          !window.confirm(
+                                            'Reverse this tracked change? The original audit event will be retained.',
+                                          )
+                                        )
+                                          return;
+                                        update((current) => {
+                                          const wealth = changeWallet(
+                                            current.wealth,
+                                            -activity.copperDelta,
+                                          );
+                                          if (!wealth) return current;
+                                          const ownsEquipment =
+                                            current.equipment.some(
+                                              ({ id }) =>
+                                                id === activity.targetId,
+                                            );
+                                          const ownsWeapon =
+                                            current.weapons.some(
+                                              ({ id }) =>
+                                                id === activity.targetId,
+                                            );
+                                          if (
+                                            activity.type === 'equipment' &&
+                                            activity.quantityDelta > 0 &&
+                                            !ownsEquipment &&
+                                            !ownsWeapon
+                                          )
+                                            return current;
+                                          const now = new Date().toISOString();
+                                          return {
+                                            ...current,
+                                            wealth,
+                                            equipment:
+                                              activity.type === 'equipment' &&
+                                              activity.quantityDelta > 0
+                                                ? current.equipment.filter(
+                                                    ({ id }) =>
+                                                      id !== activity.targetId,
+                                                  )
+                                                : current.equipment,
+                                            weapons:
+                                              activity.type === 'equipment' &&
+                                              activity.quantityDelta > 0
+                                                ? current.weapons.filter(
+                                                    ({ id }) =>
+                                                      id !== activity.targetId,
+                                                  )
+                                                : current.weapons,
+                                            activity: {
+                                              ...current.activity,
+                                              ledger: [
+                                                ...current.activity.ledger.map(
+                                                  (item) =>
+                                                    item.id === activity.id
+                                                      ? {
+                                                          ...item,
+                                                          reversedAt: now,
+                                                        }
+                                                      : item,
+                                                ),
+                                                createActivityEntry({
+                                                  type: 'correction',
+                                                  description: `Reversed: ${activity.description}`,
+                                                  copperDelta:
+                                                    -activity.copperDelta,
+                                                  targetId: activity.targetId,
+                                                  targetName:
+                                                    activity.targetName,
+                                                  quantityDelta:
+                                                    -activity.quantityDelta,
+                                                  reversesId: activity.id,
+                                                  before: formatWallet(
+                                                    current.wealth,
+                                                  ),
+                                                  after: formatWallet(wealth),
+                                                }),
+                                              ],
+                                            },
+                                          };
+                                        });
+                                      }}
+                                    >
+                                      Reverse
+                                    </button>
+                                  ) : entry.activity?.reversedAt ? (
+                                    <small> · Reversed</small>
+                                  ) : null}
+                                </td>
+                              </tr>
+                            ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </details>
                 </>,
               )}
               {section(
@@ -4591,7 +5577,7 @@ export function Earthdawn4eEditor({
                 <div className="earthdawn-notes-section">
                   <SheetToolbar>
                     <button
-                      className="primary-button"
+                      className="primary-button compact-inline-button"
                       onClick={() => {
                         const now = new Date().toISOString();
                         update((c) => ({
@@ -5270,7 +6256,7 @@ export function Earthdawn4eEditor({
                   {catalogKind !== 'all' ? (
                     <button
                       type="button"
-                      className="secondary-button"
+                      className="secondary-button compact-inline-button"
                       disabled={playMode}
                       onClick={addCustomCatalogRecord}
                     >
@@ -5278,11 +6264,189 @@ export function Earthdawn4eEditor({
                     </button>
                   ) : null}
                 </SheetToolbar>
+                <SheetToolbar className="earthdawn-catalog-view-toolbar earthdawn-compact-toolbar">
+                  <span>View</span>
+                  <button
+                    type="button"
+                    className={
+                      catalogView === 'cards'
+                        ? 'primary-button compact-inline-button'
+                        : 'secondary-button compact-inline-button'
+                    }
+                    aria-pressed={catalogView === 'cards'}
+                    onClick={() => setCatalogView('cards')}
+                  >
+                    Cards
+                  </button>
+                  <button
+                    type="button"
+                    className={
+                      catalogView === 'table'
+                        ? 'primary-button compact-inline-button'
+                        : 'secondary-button compact-inline-button'
+                    }
+                    aria-pressed={catalogView === 'table'}
+                    onClick={() => setCatalogView('table')}
+                  >
+                    Table
+                  </button>
+                  {catalogView === 'table' ? (
+                    <button
+                      type="button"
+                      className="text-button"
+                      onClick={() =>
+                        setCatalogSort({ key: 'name', direction: 'asc' })
+                      }
+                    >
+                      Reset columns & sort
+                    </button>
+                  ) : null}
+                </SheetToolbar>
                 <p className="catalog-result-count" aria-live="polite">
                   {visibleCatalog.length} result
                   {visibleCatalog.length === 1 ? '' : 's'}
                 </p>
-                <div className="catalog-results">
+                {catalogView === 'table' ? (
+                  <div className="earthdawn-catalog-table-wrap">
+                    <table className="earthdawn-catalog-table">
+                      <thead>
+                        <tr>
+                          {(['name', 'kind', 'source', 'page'] as const).map(
+                            (key) => (
+                              <th
+                                key={key}
+                                className="earthdawn-resizable-column"
+                              >
+                                <button
+                                  type="button"
+                                  onClick={() =>
+                                    setCatalogSort((current) => ({
+                                      key,
+                                      direction:
+                                        current.key === key &&
+                                        current.direction === 'asc'
+                                          ? 'desc'
+                                          : 'asc',
+                                    }))
+                                  }
+                                >
+                                  {key[0].toUpperCase() + key.slice(1)}
+                                  {catalogSort.key === key
+                                    ? catalogSort.direction === 'asc'
+                                      ? ' ▲'
+                                      : ' ▼'
+                                    : ''}
+                                </button>
+                              </th>
+                            ),
+                          )}
+                          <th>Details</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {visibleCatalog.map((definition) => {
+                          const selected = selectedDefinitionIds.has(
+                            definition.id,
+                          );
+                          const expanded = expandedCatalogRows.has(
+                            definition.id,
+                          );
+                          const addable =
+                            (definition.verification === 'verified' ||
+                              definition.sourceId ===
+                                'ed4.user-currency-reference') &&
+                            (draft.sources.enabledSourceIds.includes(
+                              definition.sourceId,
+                            ) ||
+                              definition.sourceId ===
+                                'ed4.user-currency-reference');
+                          return (
+                            <tr
+                              key={definition.id}
+                              className={expanded ? 'is-expanded' : ''}
+                            >
+                              <td title={definition.name}>{definition.name}</td>
+                              <td>{definition.kind.replace('-', ' ')}</td>
+                              <td title={definition.source}>
+                                {definition.source}
+                              </td>
+                              <td>{definition.page ?? '—'}</td>
+                              <td>
+                                <button
+                                  type="button"
+                                  className="catalog-table-expand"
+                                  aria-expanded={expanded}
+                                  onClick={() =>
+                                    setExpandedCatalogRows((current) => {
+                                      const next = new Set(current);
+                                      if (expanded) next.delete(definition.id);
+                                      else next.add(definition.id);
+                                      return next;
+                                    })
+                                  }
+                                >
+                                  {expanded
+                                    ? 'Hide description'
+                                    : 'Description…'}
+                                </button>
+                                {expanded ? <p>{definition.summary}</p> : null}
+                              </td>
+                              <td>
+                                <div className="catalog-table-actions">
+                                  <button
+                                    type="button"
+                                    className="primary-button compact-inline-button"
+                                    disabled={selected || !addable}
+                                    onClick={() =>
+                                      addCatalog(
+                                        definition.id,
+                                        false,
+                                        undefined,
+                                        'gain',
+                                      )
+                                    }
+                                  >
+                                    {selected
+                                      ? 'Selected'
+                                      : ['equipment', 'weapon'].includes(
+                                            definition.kind,
+                                          )
+                                        ? 'Gain'
+                                        : 'Add'}
+                                  </button>
+                                  {['equipment', 'weapon'].includes(
+                                    definition.kind,
+                                  ) && !selected ? (
+                                    <button
+                                      type="button"
+                                      className="secondary-button compact-inline-button"
+                                      disabled={!addable}
+                                      onClick={() =>
+                                        addCatalog(
+                                          definition.id,
+                                          false,
+                                          undefined,
+                                          'purchase',
+                                        )
+                                      }
+                                    >
+                                      Purchase
+                                    </button>
+                                  ) : null}
+                                </div>
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                ) : null}
+                <div
+                  className="catalog-results"
+                  hidden={catalogView !== 'cards'}
+                >
                   {visibleCatalog.map((d) => {
                     const choices = spellChoices(d).filter(
                       ({ variant, circle }) =>
@@ -5430,41 +6594,72 @@ export function Earthdawn4eEditor({
                             ))}
                           </dl>
                         ) : null}
-                        <button
-                          className="primary-button"
-                          disabled={
-                            (d.kind === 'spell'
-                              ? choiceSelected || !selectedChoice
-                              : selectedDefinitionIds.has(d.id)) ||
-                            d.verification !== 'verified' ||
-                            (playMode &&
-                              ![
-                                'spell',
-                                'devotion',
-                                'thread-item',
-                                'knack',
-                              ].includes(d.kind)) ||
-                            (d.kind === 'spell'
-                              ? !selectedChoice ||
-                                !draft.sources.enabledSourceIds.includes(
-                                  selectedChoice.variant.sourceId,
-                                )
-                              : !draft.sources.enabledSourceIds.includes(
+                        <div className="catalog-card__actions">
+                          <button
+                            className="primary-button compact-inline-button"
+                            disabled={
+                              (d.kind === 'spell'
+                                ? choiceSelected || !selectedChoice
+                                : selectedDefinitionIds.has(d.id)) ||
+                              (d.verification !== 'verified' &&
+                                d.sourceId !== 'ed4.user-currency-reference') ||
+                              (playMode &&
+                                ![
+                                  'spell',
+                                  'devotion',
+                                  'thread-item',
+                                  'knack',
+                                ].includes(d.kind)) ||
+                              (d.kind === 'spell'
+                                ? !selectedChoice ||
+                                  !draft.sources.enabledSourceIds.includes(
+                                    selectedChoice.variant.sourceId,
+                                  )
+                                : !draft.sources.enabledSourceIds.includes(
+                                    d.sourceId,
+                                  ) &&
+                                  d.sourceId !== 'ed4.user-currency-reference')
+                            }
+                            onClick={() =>
+                              addCatalog(d.id, false, selectedChoice, 'gain')
+                            }
+                          >
+                            {d.kind === 'spell'
+                              ? choiceSelected
+                                ? 'Selected'
+                                : 'Add variant'
+                              : selectedDefinitionIds.has(d.id)
+                                ? 'Selected'
+                                : ['equipment', 'weapon'].includes(d.kind)
+                                  ? 'Gain'
+                                  : 'Add'}
+                          </button>
+                          {['equipment', 'weapon'].includes(d.kind) &&
+                          !selectedDefinitionIds.has(d.id) ? (
+                            <button
+                              className="secondary-button compact-inline-button"
+                              disabled={
+                                (d.verification !== 'verified' &&
+                                  d.sourceId !==
+                                    'ed4.user-currency-reference') ||
+                                (!draft.sources.enabledSourceIds.includes(
                                   d.sourceId,
-                                ))
-                          }
-                          onClick={() =>
-                            addCatalog(d.id, false, selectedChoice)
-                          }
-                        >
-                          {d.kind === 'spell'
-                            ? choiceSelected
-                              ? 'Selected'
-                              : 'Add variant'
-                            : selectedDefinitionIds.has(d.id)
-                              ? 'Selected'
-                              : 'Add'}
-                        </button>
+                                ) &&
+                                  d.sourceId !== 'ed4.user-currency-reference')
+                              }
+                              onClick={() =>
+                                addCatalog(
+                                  d.id,
+                                  false,
+                                  selectedChoice,
+                                  'purchase',
+                                )
+                              }
+                            >
+                              Purchase
+                            </button>
+                          ) : null}
+                        </div>
                       </SheetCard>
                     );
                   })}
@@ -5580,6 +6775,58 @@ function CustomDisciplineDraftEditor({
         </small>
       </SheetToolbar>
     </SheetCard>
+  );
+}
+
+function AdjustedStat({
+  label,
+  base,
+  equipment = 0,
+  modifier = 0,
+  textBase,
+}: {
+  label: string;
+  base: number;
+  equipment?: number;
+  modifier?: number;
+  textBase?: string;
+}) {
+  const adjusted = base + equipment + modifier;
+  return (
+    <details className="earthdawn-adjusted-stat">
+      <summary>
+        <span>{label}</span>
+        <strong>{textBase && adjusted === 0 ? textBase : adjusted}</strong>
+      </summary>
+      <dl>
+        <div>
+          <dt>Natural</dt>
+          <dd>{textBase ?? base}</dd>
+        </div>
+        {equipment ? (
+          <div>
+            <dt>Equipment</dt>
+            <dd>
+              {equipment >= 0 ? '+' : ''}
+              {equipment}
+            </dd>
+          </div>
+        ) : null}
+        {modifier ? (
+          <div>
+            <dt>Other effects</dt>
+            <dd>
+              {modifier >= 0 ? '+' : ''}
+              {modifier}
+            </dd>
+          </div>
+        ) : null}
+        <div>
+          <dt>Adjusted</dt>
+          <dd>{textBase && adjusted === 0 ? textBase : adjusted}</dd>
+        </div>
+      </dl>
+    </details>
   );
 }
 

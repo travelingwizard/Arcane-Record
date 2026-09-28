@@ -4,6 +4,8 @@ import { earthdawnDefinitionById } from './catalog';
 
 const uuid = z.string().uuid();
 const nonnegative = z.number().int().nonnegative();
+const denomination = z.enum(['cp', 'sp', 'gp']);
+const moneyAmount = z.object({ amount: nonnegative, denomination });
 const nullableSource = z.object({
   definitionId: z.string().nullable(),
   sourceId: z.string().nullable(),
@@ -67,6 +69,19 @@ export const earthdawn4eCharacterSchema = z.object({
     traits: z.string(),
     description: z.string(),
   }),
+  raceSnapshot: z
+    .object({
+      definitionId: z.string(),
+      name: z.string(),
+      movement: z.string(),
+      karmaModifier: nonnegative,
+      abilities: z.array(z.string()),
+      weaponSizeNotes: z.string(),
+      armorCostMultiplier: z.number().positive(),
+      armorWeightMultiplier: z.number().positive(),
+    })
+    .nullable()
+    .default(null),
   creation: z.object({
     status: z.enum(['draft', 'finalized', 'manual']),
     currentStep: z.number().int().min(0).max(7),
@@ -258,9 +273,11 @@ export const earthdawn4eCharacterSchema = z.object({
       name: z.string(),
       type: z.string(),
       description: z.string(),
+      category: z.string().default('equipment'),
       quantity: z.number().int().min(1),
       value: z.string(),
       costSilver: z.number(),
+      price: moneyAmount.default({ amount: 0, denomination: 'sp' }),
       weight: z.number().nonnegative(),
       inUse: z.boolean(),
       physicalArmor: nonnegative,
@@ -270,6 +287,19 @@ export const earthdawn4eCharacterSchema = z.object({
       initiativePenalty: nonnegative,
       shatterThreshold: nonnegative,
       forgedBonus: nonnegative,
+      availability: z.string().default(''),
+      size: nonnegative.default(0),
+      modifiers: z
+        .array(
+          z.object({
+            id: uuid,
+            target: z.string(),
+            label: z.string(),
+            value: z.number().int(),
+          }),
+        )
+        .default([]),
+      metadataOverrides: z.array(z.string()).default([]),
       notes: z.string(),
     }),
   ),
@@ -282,7 +312,26 @@ export const earthdawn4eCharacterSchema = z.object({
       range: z.string(),
       quantity: z.number().int().min(1),
       costSilver: z.number(),
+      price: moneyAmount.default({ amount: 0, denomination: 'sp' }),
       inUse: z.boolean(),
+      weaponType: z.enum(['melee', 'missile', 'throwing']).default('melee'),
+      size: nonnegative.default(0),
+      shortRange: z.string().default(''),
+      longRange: z.string().default(''),
+      availability: z.string().default(''),
+      attackSourceId: z.string().nullable().default(null),
+      attackMode: z.enum(['melee', 'missile', 'throwing']).default('melee'),
+      modifiers: z
+        .array(
+          z.object({
+            id: uuid,
+            target: z.string(),
+            label: z.string(),
+            value: z.number().int(),
+          }),
+        )
+        .default([]),
+      metadataOverrides: z.array(z.string()).default([]),
       notes: z.string(),
     }),
   ),
@@ -293,6 +342,34 @@ export const earthdawn4eCharacterSchema = z.object({
     other: z.string(),
     startingSilver: z.number(),
   }),
+  activity: z
+    .object({
+      tracking: z.boolean(),
+      ledger: z.array(
+        z.object({
+          id: uuid,
+          createdAt: z.string().datetime(),
+          type: z.enum([
+            'tracking',
+            'currency',
+            'equipment',
+            'race',
+            'correction',
+          ]),
+          description: z.string(),
+          copperDelta: z.number().int(),
+          targetId: z.string().nullable(),
+          targetName: z.string(),
+          quantityDelta: z.number().int(),
+          locked: z.boolean(),
+          reversesId: z.string().nullable(),
+          reversedAt: z.string().datetime().nullable(),
+          before: z.string(),
+          after: z.string(),
+        }),
+      ),
+    })
+    .default({ tracking: true, ledger: [] }),
   reputation: z.object({
     legendaryStatus: z.string(),
     renown: z.string(),
@@ -409,6 +486,11 @@ export const earthdawn4eCharacterSchema = z.object({
 
 export type Earthdawn4eCharacter = z.infer<typeof earthdawn4eCharacterSchema>;
 
+const legacyPrice = (costSilver: number) =>
+  costSilver > 0 && costSilver < 1
+    ? { amount: Math.round(costSilver * 100), denomination: 'cp' as const }
+    : { amount: Math.round(costSilver), denomination: 'sp' as const };
+
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === 'object' && value !== null && !Array.isArray(value);
 
@@ -417,6 +499,20 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
   if (parsedCurrent.success) {
     const normalized = earthdawn4eCharacterSchema.parse({
       ...parsedCurrent.data,
+      equipment: parsedCurrent.data.equipment.map((item) => ({
+        ...item,
+        price:
+          item.price.amount === 0 && item.costSilver > 0
+            ? legacyPrice(item.costSilver)
+            : item.price,
+      })),
+      weapons: parsedCurrent.data.weapons.map((item) => ({
+        ...item,
+        price:
+          item.price.amount === 0 && item.costSilver > 0
+            ? legacyPrice(item.costSilver)
+            : item.price,
+      })),
       magic: {
         ...parsedCurrent.data.magic,
         spells: parsedCurrent.data.magic.spells.map((spell) => {
@@ -753,6 +849,10 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
       (entry) => ({
         ...(isRecord(entry) ? entry : {}),
         costSilver: isRecord(entry) ? Number(entry.costSilver ?? 0) : 0,
+        price:
+          isRecord(entry) && isRecord(entry.price)
+            ? entry.price
+            : legacyPrice(isRecord(entry) ? Number(entry.costSilver ?? 0) : 0),
         physicalDefense: isRecord(entry)
           ? Number(entry.physicalDefense ?? 0)
           : 0,
@@ -762,7 +862,13 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
           : 0,
       }),
     ),
-    weapons: Array.isArray(data.weapons) ? data.weapons : [],
+    weapons: (Array.isArray(data.weapons) ? data.weapons : []).map((entry) => ({
+      ...(isRecord(entry) ? entry : {}),
+      price:
+        isRecord(entry) && isRecord(entry.price)
+          ? entry.price
+          : legacyPrice(isRecord(entry) ? Number(entry.costSilver ?? 0) : 0),
+    })),
     wealth: isRecord(data.wealth)
       ? data.wealth
       : { copper: 0, silver: 0, gold: 0, other: '', startingSilver: 0 },

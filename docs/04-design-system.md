@@ -1,5 +1,11 @@
 # 04. Design system
 
+## Compact catalog and adjusted-value patterns
+
+- A section toolbar uses controls of equal visual height. Inline actions remain at least 44 CSS pixels tall but do not expand to dominate adjacent inputs or selects.
+- Catalog dialogs may offer Card and Table views. Table rows stay single-line until an explicit details control expands them, long text truncates within the bounded table scroller, sortable headers expose direction, and resizable columns never create page-level overflow.
+- Derived values use a compact adjusted-value box. The summary shows the final value; its disclosure lists natural, racial, equipment, temporary, and adjusted contributions without combining distinct rules concepts such as Armor and Defense.
+
 ## Reference observations
 
 The two A4 pages use a nearly monochrome warm paper, high-contrast black ink, a large classical title, symmetrical scrollwork borders, compact labeled rows, circular rating marks, and boxed page sections. Page one is dense and hierarchical; page two uses more writing space and fine horizontal rules.
