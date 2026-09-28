@@ -289,13 +289,21 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
     .click();
   await page
     .getByRole('dialog', { name: 'Earthdawn catalog' })
-    .getByRole('button', { name: 'Table' })
+    .getByRole('button', { name: 'Show catalog as a table' })
     .click();
+  const skillDialog = page.getByRole('dialog', {
+    name: 'Earthdawn catalog',
+  });
+  await expect(skillDialog.locator('.earthdawn-catalog-table')).toBeVisible();
   await expect(
-    page
-      .getByRole('dialog', { name: 'Earthdawn catalog' })
-      .locator('.earthdawn-catalog-table'),
+    skillDialog.getByRole('columnheader', { name: /Category/ }),
   ).toBeVisible();
+  await expect(
+    skillDialog.getByRole('columnheader', { name: /Attribute/ }),
+  ).toBeVisible();
+  await expect(
+    skillDialog.getByRole('combobox', { name: 'Sort skills' }),
+  ).toHaveCount(0);
   await page
     .getByRole('dialog', { name: 'Earthdawn catalog' })
     .getByRole('button', { name: 'Add custom skill' })
@@ -308,9 +316,13 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   await customSkillName.fill('Barsaive Lore');
   await expect(customSkillName).toHaveValue('Barsaive Lore');
   const identity = page.locator('#ed4-identity');
-  await identity.getByLabel('Race').fill('Windling');
-  await identity.getByRole('button', { name: 'Apply Race' }).click();
+  await identity.getByLabel('Race').selectOption({ label: 'Windling' });
   await expect(identity.getByText(/Movement 6 \/ 16 flying/)).toBeVisible();
+  page.once('dialog', (dialog) => dialog.dismiss());
+  await identity.getByLabel('Race').selectOption({ label: 'Human' });
+  await expect(identity.getByLabel('Race')).toHaveValue(
+    'ed4.players-guide.race.windling',
+  );
   const equipment = page.locator('#ed4-equipment');
   await equipment.getByLabel('Coin amount').fill('1');
   await equipment.getByLabel('Denomination').selectOption('gp');

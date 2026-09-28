@@ -120,7 +120,7 @@ type SpellChoice = {
 };
 type CatalogView = 'cards' | 'table';
 type CatalogSort = {
-  key: 'name' | 'kind' | 'source' | 'page';
+  key: string;
   direction: 'asc' | 'desc';
 };
 const spellChoices = (definition: EarthdawnDefinition): SpellChoice[] =>
@@ -210,6 +210,280 @@ const catalogFacts = (definition: EarthdawnDefinition) => {
   }
   return facts;
 };
+type CatalogTableColumn = {
+  key: string;
+  label: string;
+  value: (definition: EarthdawnDefinition) => string | number;
+};
+const mechanicsValue = (definition: EarthdawnDefinition, key: string) => {
+  try {
+    const mechanics = JSON.parse(definition.mechanics) as Record<
+      string,
+      unknown
+    >;
+    return mechanics[key] == null ? '' : String(mechanics[key]);
+  } catch {
+    return '';
+  }
+};
+const catalogTableColumns = (
+  kind: EarthdawnCatalogKind | 'all' | null,
+): CatalogTableColumn[] => {
+  const name: CatalogTableColumn = {
+    key: 'name',
+    label: 'Name',
+    value: (definition) => definition.name,
+  };
+  const source: CatalogTableColumn = {
+    key: 'source',
+    label: 'Source',
+    value: (definition) =>
+      `${definition.source}${definition.page ? `, p. ${definition.page}` : ''}`,
+  };
+  const summary: CatalogTableColumn = {
+    key: 'summary',
+    label: 'Description',
+    value: (definition) => definition.summary,
+  };
+  if (kind === 'race')
+    return [
+      name,
+      {
+        key: 'movement',
+        label: 'Movement',
+        value: (definition) =>
+          earthdawnRaces.find(({ id }) => id === definition.id)?.movement ?? '',
+      },
+      {
+        key: 'karma',
+        label: 'Karma',
+        value: (definition) =>
+          earthdawnRaces.find(({ id }) => id === definition.id)
+            ?.karmaModifier ?? '',
+      },
+      {
+        key: 'attributes',
+        label: 'Attribute profile',
+        value: (definition) => {
+          const race = earthdawnRaces.find(({ id }) => id === definition.id);
+          return race
+            ? Object.entries(race.attributes)
+                .map(
+                  ([attribute, value]) =>
+                    `${labels[attribute as EarthdawnAttributeId].slice(0, 3).toUpperCase()} ${value}`,
+                )
+                .join(' · ')
+            : '';
+        },
+      },
+      {
+        key: 'abilities',
+        label: 'Abilities',
+        value: (definition) =>
+          earthdawnRaces
+            .find(({ id }) => id === definition.id)
+            ?.abilities.join(' · ') ?? '',
+      },
+    ];
+  if (kind === 'discipline')
+    return [
+      name,
+      {
+        key: 'attributes',
+        label: 'Important Attributes',
+        value: (definition) =>
+          earthdawnDisciplines
+            .find(({ id }) => id === definition.id)
+            ?.importantAttributes.map((attribute) => labels[attribute])
+            .join(', ') ?? '',
+      },
+      {
+        key: 'durability',
+        label: 'Durability',
+        value: (definition) =>
+          earthdawnDisciplines.find(({ id }) => id === definition.id)
+            ?.durability ?? '',
+      },
+      {
+        key: 'spellAccess',
+        label: 'Spell access',
+        value: (definition) =>
+          earthdawnDisciplines.find(({ id }) => id === definition.id)
+            ?.spellcaster
+            ? 'Magician'
+            : 'None',
+      },
+      summary,
+      source,
+    ];
+  if (kind === 'talent')
+    return [
+      name,
+      {
+        key: 'attribute',
+        label: 'Attribute',
+        value: (definition) => definition.talentMetadata?.attributeText ?? '',
+      },
+      {
+        key: 'action',
+        label: 'Action',
+        value: (definition) => definition.talentMetadata?.actionText ?? '',
+      },
+      {
+        key: 'strain',
+        label: 'Strain',
+        value: (definition) => definition.talentMetadata?.strainText ?? '',
+      },
+      {
+        key: 'effect',
+        label: 'Effect',
+        value: (definition) =>
+          definition.talentMetadata?.effectText ?? definition.summary,
+      },
+      source,
+    ];
+  if (kind === 'skill')
+    return [
+      name,
+      {
+        key: 'category',
+        label: 'Category',
+        value: (definition) => definition.skillCategory ?? '',
+      },
+      {
+        key: 'attribute',
+        label: 'Attribute',
+        value: (definition) =>
+          definition.defaultAttribute
+            ? labels[definition.defaultAttribute]
+            : '',
+      },
+      summary,
+      source,
+    ];
+  if (kind === 'spell')
+    return [
+      name,
+      {
+        key: 'discipline',
+        label: 'Discipline',
+        value: (definition) =>
+          spellChoices(definition)[0]?.variant.discipline ?? '',
+      },
+      {
+        key: 'circle',
+        label: 'Circle',
+        value: (definition) => spellChoices(definition)[0]?.circle ?? '',
+      },
+      {
+        key: 'threads',
+        label: 'Threads',
+        value: (definition) => definition.spellMetadata?.threadsText ?? '',
+      },
+      {
+        key: 'difficulty',
+        label: 'Difficulty',
+        value: (definition) => definition.spellMetadata?.difficultyText ?? '',
+      },
+      {
+        key: 'effect',
+        label: 'Effect',
+        value: (definition) => definition.spellMetadata?.effectText ?? '',
+      },
+      source,
+    ];
+  if (kind === 'equipment' || kind === 'weapon')
+    return [
+      name,
+      {
+        key: 'category',
+        label: 'Category',
+        value: (definition) =>
+          definition.equipmentMetadata?.category ?? definition.kind,
+      },
+      {
+        key: 'price',
+        label: 'Price',
+        value: (definition) =>
+          definition.price
+            ? `${definition.price.amount} ${definition.price.denomination}`
+            : definition.costSilver != null
+              ? `${definition.costSilver} sp`
+              : '',
+      },
+      {
+        key: 'weight',
+        label: 'Weight',
+        value: (definition) =>
+          definition.equipmentMetadata?.weight ??
+          mechanicsValue(definition, 'weight'),
+      },
+      {
+        key: 'availability',
+        label: 'Availability',
+        value: (definition) =>
+          definition.equipmentMetadata?.availability ??
+          mechanicsValue(definition, 'availability'),
+      },
+      {
+        key: 'statistics',
+        label: 'Statistics',
+        value: (definition) =>
+          catalogFacts(definition)
+            .filter(
+              ([label]) => !['Price', 'Weight', 'Availability'].includes(label),
+            )
+            .map(([label, value]) => `${label}: ${value}`)
+            .join(' · '),
+      },
+      source,
+    ];
+  if (kind === 'thread-item')
+    return [
+      name,
+      {
+        key: 'type',
+        label: 'Type',
+        value: (definition) => definition.threadItemMetadata?.itemType ?? '',
+      },
+      summary,
+      {
+        key: 'knowledge',
+        label: 'Inferred knowledge',
+        value: (definition) =>
+          definition.threadItemMetadata?.inferredKeyKnowledge
+            ? `Inferred: ${definition.threadItemMetadata.inferredKeyKnowledge}`
+            : '',
+      },
+      source,
+    ];
+  if (
+    kind === 'knack' ||
+    kind === 'path' ||
+    kind === 'devotion' ||
+    kind === 'ability'
+  )
+    return [
+      name,
+      {
+        key: 'requirements',
+        label: 'Requirements',
+        value: (definition) => definition.requirements.join(' · '),
+      },
+      summary,
+      source,
+    ];
+  return [
+    name,
+    {
+      key: 'kind',
+      label: 'Type',
+      value: (definition) => definition.kind.replace('-', ' '),
+    },
+    summary,
+    source,
+  ];
+};
 type AdvancementQuote = {
   title: string;
   cost: number;
@@ -268,7 +542,6 @@ export function Earthdawn4eEditor({
       'sp',
     ),
     [moneyError, setMoneyError] = useState(''),
-    [raceSearch, setRaceSearch] = useState(''),
     [editingEquipmentIds, setEditingEquipmentIds] = useState<Set<string>>(
       new Set(),
     ),
@@ -1549,6 +1822,7 @@ export function Earthdawn4eEditor({
     devotion: ['Browse Devotions', 'Browse eligible Questor devotions.'],
     ability: ['Browse Abilities', 'Browse source-backed abilities.'],
   };
+  const tableColumns = catalogTableColumns(catalogKind);
   const visibleCatalog = earthdawnCatalog
     .filter((definition) => {
       if (definition.kind === 'devotion' && !draft.sources.showUnavailable) {
@@ -1684,10 +1958,11 @@ export function Earthdawn4eEditor({
     })
     .sort((left, right) => {
       if (catalogView === 'table') {
+        const column =
+          tableColumns.find(({ key }) => key === catalogSort.key) ??
+          tableColumns[0];
         const value = (definition: EarthdawnDefinition) =>
-          catalogSort.key === 'page'
-            ? (definition.page ?? Number.MAX_SAFE_INTEGER)
-            : definition[catalogSort.key];
+          column?.value(definition) ?? definition.name;
         const compared = String(value(left)).localeCompare(
           String(value(right)),
           undefined,
@@ -1844,52 +2119,54 @@ export function Earthdawn4eEditor({
       >
         {draft.creation.status !== 'draft' ? (
           <div className="earthdawn-mode-bar">
-            <SheetLayoutModeToggle
-              mode={draft.sheetLayout.mode}
-              editMode="edit"
-              editLabel="Edit mode"
-              ariaLabel="Earthdawn Edit and Play mode"
-              onModeChange={(mode) =>
-                update((current) => ({
-                  ...current,
-                  sheetLayout: { ...current.sheetLayout, mode },
-                }))
-              }
-            />
-            <label className="appearance-switch earthdawn-tracking-switch">
-              <input
-                type="checkbox"
-                role="switch"
-                checked={draft.activity.tracking}
-                onChange={(event) =>
-                  update((current) => {
-                    const tracking = event.target.checked;
-                    const entry = createActivityEntry({
-                      type: 'tracking',
-                      description: `Activity tracking turned ${tracking ? 'on' : 'off'}.`,
-                      locked: true,
-                      before: current.activity.tracking ? 'On' : 'Off',
-                      after: tracking ? 'On' : 'Off',
-                    });
-                    return {
-                      ...current,
-                      activity: {
-                        tracking,
-                        ledger: [...current.activity.ledger, entry],
-                      },
-                    };
-                  })
+            <div className="earthdawn-mode-controls">
+              <SheetLayoutModeToggle
+                mode={draft.sheetLayout.mode}
+                editMode="edit"
+                editLabel="Edit mode"
+                ariaLabel="Earthdawn Edit and Play mode"
+                onModeChange={(mode) =>
+                  update((current) => ({
+                    ...current,
+                    sheetLayout: { ...current.sheetLayout, mode },
+                  }))
                 }
               />
-              <span>
-                <strong>Tracking</strong>
-                <small>
-                  {draft.activity.tracking
-                    ? 'Activity recorded'
-                    : 'Activity paused'}
-                </small>
-              </span>
-            </label>
+              <label className="appearance-switch earthdawn-tracking-switch">
+                <input
+                  type="checkbox"
+                  role="switch"
+                  checked={draft.activity.tracking}
+                  onChange={(event) =>
+                    update((current) => {
+                      const tracking = event.target.checked;
+                      const entry = createActivityEntry({
+                        type: 'tracking',
+                        description: `Activity tracking turned ${tracking ? 'on' : 'off'}.`,
+                        locked: true,
+                        before: current.activity.tracking ? 'On' : 'Off',
+                        after: tracking ? 'On' : 'Off',
+                      });
+                      return {
+                        ...current,
+                        activity: {
+                          tracking,
+                          ledger: [...current.activity.ledger, entry],
+                        },
+                      };
+                    })
+                  }
+                />
+                <span>
+                  <strong>Tracking</strong>
+                  <small>
+                    {draft.activity.tracking
+                      ? 'Activity recorded'
+                      : 'Activity paused'}
+                  </small>
+                </span>
+              </label>
+            </div>
           </div>
         ) : null}
         <MobileSectionNavigator />
@@ -1911,75 +2188,61 @@ export function Earthdawn4eEditor({
                 <>
                   <SheetToolbar className="earthdawn-compact-toolbar">
                     <SheetField label="Race">
-                      <input
-                        type="search"
-                        list="earthdawn-race-options"
-                        value={raceSearch || draft.identity.raceName}
-                        placeholder="Search Race"
-                        onChange={(event) => setRaceSearch(event.target.value)}
-                      />
-                      <datalist id="earthdawn-race-options">
-                        {earthdawnRaces.map((race) => (
-                          <option key={race.id} value={race.name} />
-                        ))}
-                      </datalist>
-                    </SheetField>
-                    <button
-                      type="button"
-                      className="secondary-button compact-inline-button"
-                      disabled={
-                        !earthdawnRaces.some(
-                          ({ name }) =>
-                            name.toLocaleLowerCase() ===
-                            (raceSearch || draft.identity.raceName)
-                              .trim()
-                              .toLocaleLowerCase(),
-                        )
-                      }
-                      onClick={() => {
-                        const race = earthdawnRaces.find(
-                          ({ name }) =>
-                            name.toLocaleLowerCase() ===
-                            (raceSearch || draft.identity.raceName)
-                              .trim()
-                              .toLocaleLowerCase(),
-                        );
-                        if (!race) return;
-                        if (
-                          draft.identity.raceId &&
-                          !window.confirm(
-                            `Change Race to ${race.name}? Racial bases and automatic racial features will be reconciled; purchased increases and custom records remain.`,
+                      <select
+                        value={
+                          draft.identity.raceId ??
+                          earthdawnRaces.find(
+                            ({ name }) => name === draft.identity.raceName,
+                          )?.id ??
+                          ''
+                        }
+                        onChange={(event) => {
+                          const race = earthdawnRaces.find(
+                            ({ id }) => id === event.target.value,
+                          );
+                          if (!race) return;
+                          if (
+                            draft.identity.raceName &&
+                            draft.identity.raceName !== race.name &&
+                            !window.confirm(
+                              `Change Race to ${race.name}? Racial bases and automatic racial features will be reconciled; purchased increases and custom records remain.`,
+                            )
                           )
-                        )
-                          return;
-                        update((current) => {
-                          const before = current.identity.raceName || 'No Race';
-                          const next = reconcileRace(current, race);
-                          return current.activity.tracking
-                            ? {
-                                ...next,
-                                activity: {
-                                  ...next.activity,
-                                  ledger: [
-                                    ...next.activity.ledger,
-                                    createActivityEntry({
-                                      type: 'race',
-                                      description: `Race reconciled: ${before} → ${race.name}.`,
-                                      targetId: race.id,
-                                      targetName: race.name,
-                                      before,
-                                      after: race.name,
-                                    }),
-                                  ],
-                                },
-                              }
-                            : next;
-                        });
-                        setRaceSearch('');
-                      }}
-                    >
-                      Apply Race
-                    </button>
+                            return;
+                          update((current) => {
+                            const before =
+                              current.identity.raceName || 'No Race';
+                            const next = reconcileRace(current, race);
+                            return current.activity.tracking
+                              ? {
+                                  ...next,
+                                  activity: {
+                                    ...next.activity,
+                                    ledger: [
+                                      ...next.activity.ledger,
+                                      createActivityEntry({
+                                        type: 'race',
+                                        description: `Race reconciled: ${before} → ${race.name}.`,
+                                        targetId: race.id,
+                                        targetName: race.name,
+                                        before,
+                                        after: race.name,
+                                      }),
+                                    ],
+                                  },
+                                }
+                              : next;
+                          });
+                        }}
+                      >
+                        <option value="">Select Race</option>
+                        {earthdawnRaces.map((race) => (
+                          <option key={race.id} value={race.id}>
+                            {race.name}
+                          </option>
+                        ))}
+                      </select>
+                    </SheetField>
                     {draft.raceSnapshot ? (
                       <span className="earthdawn-toolbar-note">
                         Movement {draft.raceSnapshot.movement} · Karma modifier{' '}
@@ -6137,19 +6400,23 @@ export function Earthdawn4eEditor({
                           <option value="language">Language</option>
                         </select>
                       </SheetField>
-                      <SheetField label="Sort skills">
-                        <select
-                          value={catalogSkillSort}
-                          onChange={(event) =>
-                            setCatalogSkillSort(
-                              event.target.value as 'category' | 'name',
-                            )
-                          }
-                        >
-                          <option value="category">Category, then name</option>
-                          <option value="name">Name A–Z</option>
-                        </select>
-                      </SheetField>
+                      {catalogView === 'cards' ? (
+                        <SheetField label="Sort skills">
+                          <select
+                            value={catalogSkillSort}
+                            onChange={(event) =>
+                              setCatalogSkillSort(
+                                event.target.value as 'category' | 'name',
+                              )
+                            }
+                          >
+                            <option value="category">
+                              Category, then name
+                            </option>
+                            <option value="name">Name A–Z</option>
+                          </select>
+                        </SheetField>
+                      ) : null}
                     </>
                   ) : null}
                   {catalogKind === 'thread-item' ? (
@@ -6219,23 +6486,27 @@ export function Earthdawn4eEditor({
                           ))}
                         </select>
                       </SheetField>
-                      <SheetField label="Sort spells">
-                        <select
-                          value={catalogSpellSort}
-                          onChange={(event) =>
-                            setCatalogSpellSort(event.target.value as SpellSort)
-                          }
-                        >
-                          <option value="discipline-circle">
-                            Discipline, Circle, Name
-                          </option>
-                          <option value="name-asc">Name A–Z</option>
-                          <option value="name-desc">Name Z–A</option>
-                          <option value="circle-asc">Circle low–high</option>
-                          <option value="circle-desc">Circle high–low</option>
-                          <option value="source">Source and page</option>
-                        </select>
-                      </SheetField>
+                      {catalogView === 'cards' ? (
+                        <SheetField label="Sort spells">
+                          <select
+                            value={catalogSpellSort}
+                            onChange={(event) =>
+                              setCatalogSpellSort(
+                                event.target.value as SpellSort,
+                              )
+                            }
+                          >
+                            <option value="discipline-circle">
+                              Discipline, Circle, Name
+                            </option>
+                            <option value="name-asc">Name A–Z</option>
+                            <option value="name-desc">Name Z–A</option>
+                            <option value="circle-asc">Circle low–high</option>
+                            <option value="circle-desc">Circle high–low</option>
+                            <option value="source">Source and page</option>
+                          </select>
+                        </SheetField>
+                      ) : null}
                     </>
                   ) : null}
                   {catalogKind === 'equipment' ? (
@@ -6265,30 +6536,25 @@ export function Earthdawn4eEditor({
                   ) : null}
                 </SheetToolbar>
                 <SheetToolbar className="earthdawn-catalog-view-toolbar earthdawn-compact-toolbar">
-                  <span>View</span>
                   <button
                     type="button"
-                    className={
-                      catalogView === 'cards'
-                        ? 'primary-button compact-inline-button'
-                        : 'secondary-button compact-inline-button'
-                    }
+                    className="icon-button earthdawn-catalog-view-button"
+                    title="Card view"
+                    aria-label="Show catalog as cards"
                     aria-pressed={catalogView === 'cards'}
                     onClick={() => setCatalogView('cards')}
                   >
-                    Cards
+                    <span aria-hidden="true">▦</span>
                   </button>
                   <button
                     type="button"
-                    className={
-                      catalogView === 'table'
-                        ? 'primary-button compact-inline-button'
-                        : 'secondary-button compact-inline-button'
-                    }
+                    className="icon-button earthdawn-catalog-view-button"
+                    title="Table view"
+                    aria-label="Show catalog as a table"
                     aria-pressed={catalogView === 'table'}
                     onClick={() => setCatalogView('table')}
                   >
-                    Table
+                    <span aria-hidden="true">☷</span>
                   </button>
                   {catalogView === 'table' ? (
                     <button
@@ -6311,35 +6577,33 @@ export function Earthdawn4eEditor({
                     <table className="earthdawn-catalog-table">
                       <thead>
                         <tr>
-                          {(['name', 'kind', 'source', 'page'] as const).map(
-                            (key) => (
-                              <th
-                                key={key}
-                                className="earthdawn-resizable-column"
+                          {tableColumns.map((column) => (
+                            <th
+                              key={column.key}
+                              className="earthdawn-resizable-column"
+                            >
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  setCatalogSort((current) => ({
+                                    key: column.key,
+                                    direction:
+                                      current.key === column.key &&
+                                      current.direction === 'asc'
+                                        ? 'desc'
+                                        : 'asc',
+                                  }))
+                                }
                               >
-                                <button
-                                  type="button"
-                                  onClick={() =>
-                                    setCatalogSort((current) => ({
-                                      key,
-                                      direction:
-                                        current.key === key &&
-                                        current.direction === 'asc'
-                                          ? 'desc'
-                                          : 'asc',
-                                    }))
-                                  }
-                                >
-                                  {key[0].toUpperCase() + key.slice(1)}
-                                  {catalogSort.key === key
-                                    ? catalogSort.direction === 'asc'
-                                      ? ' ▲'
-                                      : ' ▼'
-                                    : ''}
-                                </button>
-                              </th>
-                            ),
-                          )}
+                                {column.label}
+                                {catalogSort.key === column.key
+                                  ? catalogSort.direction === 'asc'
+                                    ? ' ▲'
+                                    : ' ▼'
+                                  : ''}
+                              </button>
+                            </th>
+                          ))}
                           <th>Details</th>
                           <th>Action</th>
                         </tr>
@@ -6366,16 +6630,24 @@ export function Earthdawn4eEditor({
                               key={definition.id}
                               className={expanded ? 'is-expanded' : ''}
                             >
-                              <td title={definition.name}>{definition.name}</td>
-                              <td>{definition.kind.replace('-', ' ')}</td>
-                              <td title={definition.source}>
-                                {definition.source}
-                              </td>
-                              <td>{definition.page ?? '—'}</td>
+                              {tableColumns.map((column) => {
+                                const value = column.value(definition);
+                                return (
+                                  <td key={column.key} title={String(value)}>
+                                    {value || '—'}
+                                  </td>
+                                );
+                              })}
                               <td>
                                 <button
                                   type="button"
                                   className="catalog-table-expand"
+                                  title={
+                                    expanded
+                                      ? 'Collapse details'
+                                      : 'Expand details'
+                                  }
+                                  aria-label={`${expanded ? 'Collapse' : 'Expand'} details for ${definition.name}`}
                                   aria-expanded={expanded}
                                   onClick={() =>
                                     setExpandedCatalogRows((current) => {
@@ -6386,9 +6658,9 @@ export function Earthdawn4eEditor({
                                     })
                                   }
                                 >
-                                  {expanded
-                                    ? 'Hide description'
-                                    : 'Description…'}
+                                  <span aria-hidden="true">
+                                    {expanded ? '−' : '…'}
+                                  </span>
                                 </button>
                                 {expanded ? <p>{definition.summary}</p> : null}
                               </td>

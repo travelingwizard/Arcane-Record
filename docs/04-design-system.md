@@ -78,6 +78,14 @@ remain scrollable within the viewport, and collapse to one result column
 without page-level horizontal overflow at 320 CSS pixels. A game must not
 render an unstyled list of headings and buttons as a catalog.
 
+Catalog view switches use icon-only 44px controls with visible pressed state,
+tooltips, and accessible names. Table views expose rules-specific columns,
+sortable headers, bounded horizontal scrolling, resizable columns, and an
+accessible detail expansion for truncated values; they do not repeat a
+separate sort selector. Inline sheet actions use compact secondary-button
+geometry aligned with adjacent fields, while dialog close, confirmation, and
+destructive actions retain their normal emphasis.
+
 Equipment reuses the same reference-preview and selected-card language.
 Important statistics appear as compact text rather than simulated controls;
 equipped state, quantity, and category use ordinary labeled form controls.
