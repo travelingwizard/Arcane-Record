@@ -69,6 +69,16 @@ export const earthdawn4eCharacterSchema = z.object({
     traits: z.string(),
     description: z.string(),
   }),
+  portrait: z
+    .object({
+      dataUrl: z.string().startsWith('data:image/'),
+      mimeType: z.enum(['image/webp', 'image/png', 'image/jpeg']),
+      width: z.number().int().positive().max(1024),
+      height: z.number().int().positive().max(1024),
+      source: z.enum(['file', 'url']),
+    })
+    .nullable()
+    .default(null),
   raceSnapshot: z
     .object({
       definitionId: z.string(),
@@ -300,6 +310,21 @@ export const earthdawn4eCharacterSchema = z.object({
         )
         .default([]),
       metadataOverrides: z.array(z.string()).default([]),
+      details: z
+        .object({
+          rank: nonnegative.optional(),
+          enchantingDifficulty: nonnegative.optional(),
+          designAspects: z.string().optional(),
+          feedCost: z.string().optional(),
+          stableCost: z.string().optional(),
+          carryingCapacity: z.string().optional(),
+          speed: z.string().optional(),
+          lifespan: z.string().optional(),
+          costUnit: z.string().optional(),
+          maximumThreads: nonnegative.optional(),
+          tier: z.string().optional(),
+        })
+        .default({}),
       notes: z.string(),
     }),
   ),
@@ -313,6 +338,7 @@ export const earthdawn4eCharacterSchema = z.object({
       quantity: z.number().int().min(1),
       costSilver: z.number(),
       price: moneyAmount.default({ amount: 0, denomination: 'sp' }),
+      weight: z.number().nonnegative().default(0),
       inUse: z.boolean(),
       weaponType: z.enum(['melee', 'missile', 'throwing']).default('melee'),
       size: nonnegative.default(0),
@@ -683,6 +709,7 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
       height: identity.height ?? '',
       weight: identity.weight ?? '',
     },
+    portrait: isRecord(data.portrait) ? data.portrait : null,
     creation: {
       ...creation,
       currentStep: Math.min(7, Number(creation.currentStep ?? 0)),
@@ -877,7 +904,7 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
       : { legendaryStatus: '', renown: '', reputation: '' },
     health: {
       ...health,
-      basicMode: health.basicMode ?? false,
+      basicMode: true,
       bloodMagicDamage: health.bloodMagicDamage ?? 0,
       karmaAdjustment: health.karmaAdjustment ?? 0,
       lastKarmaRitualAt: health.lastKarmaRitualAt ?? null,

@@ -27,6 +27,10 @@ import { importStepsCharacter } from '../../src/games/earthdawn4e/steps-import';
 import { coreTalentOptions } from '../../src/games/earthdawn4e/discipline-progressions';
 import { auditEarthdawnSourceInventory } from '../../src/games/earthdawn4e/source-inventory';
 import {
+  EARTHDAWN_PORTRAIT_MAX_BYTES,
+  processEarthdawnPortrait,
+} from '../../src/games/earthdawn4e/portrait';
+import {
   appendRoll,
   attributeIncreaseCost,
   attributeTraining,
@@ -267,6 +271,8 @@ describe('Earthdawn Fourth Edition module', () => {
       corrections: 900,
     });
     expect(migrated.identity.height).toBe('');
+    expect(migrated.portrait).toBeNull();
+    expect(migrated.health.basicMode).toBe(true);
     expect(migrated.dice).toMatchObject({ tracking: true, historyLimit: 10 });
     expect(migrated.creation.overrides).toContainEqual(
       expect.objectContaining({
@@ -744,5 +750,24 @@ describe('Earthdawn Fourth Edition module', () => {
       'talent: Unknown Fan Talent',
     );
     expect(JSON.stringify(imported)).not.toContain('data:image');
+  });
+
+  it('rejects unsafe or oversized portrait sources before decoding them', async () => {
+    await expect(
+      processEarthdawnPortrait(
+        new File(['<svg/>'], 'portrait.svg', { type: 'image/svg+xml' }),
+        'file',
+      ),
+    ).rejects.toThrow(/PNG, JPEG, or WebP/);
+    await expect(
+      processEarthdawnPortrait(
+        new File(
+          [new Uint8Array(EARTHDAWN_PORTRAIT_MAX_BYTES + 1)],
+          'portrait.png',
+          { type: 'image/png' },
+        ),
+        'file',
+      ),
+    ).rejects.toThrow(/5 MB/);
   });
 });

@@ -5,6 +5,16 @@
 - A section toolbar uses controls of equal visual height. Inline actions remain at least 44 CSS pixels tall but do not expand to dominate adjacent inputs or selects.
 - Catalog dialogs may offer Card and Table views. Table rows stay single-line until an explicit details control expands them, long text truncates within the bounded table scroller, sortable headers expose direction, and resizable columns never create page-level overflow.
 - Derived values use a compact adjusted-value box. The summary shows the final value; its disclosure lists natural, racial, equipment, temporary, and adjusted contributions without combining distinct rules concepts such as Armor and Defense.
+- Earthdawn identity choices with substantial rules consequences, such as Race,
+  use the shared catalog dialog. Cards summarize the choice before expandable
+  attributes and automatic grants.
+- Earthdawn portraits are processed into self-contained raster data locally;
+  the sheet never hotlinks them at runtime.
+- Owned equipment is read-only by default. It shows only populated statistics
+  applicable to its category, keeps quantity and equipped state available, and
+  exposes editing as a quiet text action.
+- Conflicting armor or shield choices use an explicit Replace / Add too / Cancel
+  decision, and an Add-too rules override remains visible in derived summaries.
 
 ## Reference observations
 

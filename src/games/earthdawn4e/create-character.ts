@@ -32,6 +32,7 @@ export function createBlankEarthdawn4eCharacter(
       traits: '',
       description: '',
     },
+    portrait: null,
     raceSnapshot: null,
     creation: {
       status: options.status ?? 'draft',

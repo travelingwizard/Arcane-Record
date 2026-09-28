@@ -396,6 +396,7 @@ export function EarthdawnCreator({
                 amount: Math.round(definition.costSilver ?? 0),
                 denomination: 'sp' as const,
               },
+              weight: numericMechanic(mechanics, 'weight'),
               inUse: false,
               weaponType: definition.equipmentMetadata?.weaponType ?? 'melee',
               size: definition.equipmentMetadata?.size ?? 0,
@@ -438,6 +439,7 @@ export function EarthdawnCreator({
             size: definition.equipmentMetadata?.size ?? 0,
             modifiers: [],
             metadataOverrides: [],
+            details: {},
           },
         ],
       };

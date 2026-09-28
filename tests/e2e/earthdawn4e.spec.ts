@@ -316,13 +316,24 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   await customSkillName.fill('Barsaive Lore');
   await expect(customSkillName).toHaveValue('Barsaive Lore');
   const identity = page.locator('#ed4-identity');
-  await identity.getByLabel('Race').selectOption({ label: 'Windling' });
+  await identity.getByRole('button', { name: 'Add Race' }).click();
+  let raceDialog = page.getByRole('dialog', { name: 'Earthdawn catalog' });
+  await raceDialog
+    .getByRole('article')
+    .filter({ hasText: 'Windling' })
+    .getByRole('button', { name: 'Select Race' })
+    .click();
   await expect(identity.getByText(/Movement 6 \/ 16 flying/)).toBeVisible();
   page.once('dialog', (dialog) => dialog.dismiss());
-  await identity.getByLabel('Race').selectOption({ label: 'Human' });
-  await expect(identity.getByLabel('Race')).toHaveValue(
-    'ed4.players-guide.race.windling',
-  );
+  await identity.getByRole('button', { name: 'Change Race' }).click();
+  raceDialog = page.getByRole('dialog', { name: 'Earthdawn catalog' });
+  await raceDialog
+    .getByRole('article')
+    .filter({ hasText: 'Human' })
+    .getByRole('button', { name: 'Change to this Race' })
+    .click();
+  await raceDialog.getByRole('button', { name: 'Close' }).click();
+  await expect(identity.getByText('Windling', { exact: true })).toBeVisible();
   const equipment = page.locator('#ed4-equipment');
   await equipment.getByLabel('Coin amount').fill('1');
   await equipment.getByLabel('Denomination').selectOption('gp');
@@ -346,8 +357,11 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
       .getByRole('button', { name: 'Remove magic effect' }),
   ).toHaveCount(0);
   const health = page.locator('#ed4-health');
-  const basicMode = health.getByRole('switch', { name: /Basic play mode/ });
-  if (!(await basicMode.isChecked())) await basicMode.check();
+  await expect(
+    health.getByRole('switch', { name: /Basic play mode/ }),
+  ).toHaveCount(0);
+  await expect(health.getByText('Recovery', { exact: true })).toBeVisible();
+  await expect(health.getByText('Combat & Roller')).toBeVisible();
   const characteristics = page.locator('#ed4-characteristics');
   await characteristics.getByLabel('Damage amount').fill('3');
   await characteristics.getByRole('button', { name: 'Take Damage' }).click();

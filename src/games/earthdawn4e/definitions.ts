@@ -4,7 +4,7 @@ import type {
 } from '../game-system';
 
 export const EARTHDAWN4E_SYSTEM_ID = 'earthdawn4e';
-export const EARTHDAWN4E_SCHEMA_VERSION = 7;
+export const EARTHDAWN4E_SCHEMA_VERSION = 8;
 
 export const earthdawn4eSectionGroups = [
   { id: 'character', label: 'Character' },
@@ -35,8 +35,11 @@ export const earthdawn4eSections = [
   { id: 'ed4-magic', label: 'Spells & Matrices', group: 'magic' },
   { id: 'ed4-patterns', label: 'Thread & Blood Magic', group: 'magic' },
   { id: 'ed4-equipment', label: 'Equipment', group: 'equipment' },
-  { id: 'ed4-health', label: 'Health details', group: 'attributes' },
-  { id: 'ed4-dice', label: 'Combat & Roller', group: 'combat' },
+  {
+    id: 'ed4-health',
+    label: 'Health, Conditions & Combat',
+    group: 'attributes',
+  },
   {
     id: 'ed4-advancement',
     label: 'Legend & Advancement',
