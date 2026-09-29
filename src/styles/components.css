@@ -2152,6 +2152,23 @@
   font-size: var(--text-2xl);
 }
 
+.earthdawn-identity-paths {
+  min-width: 0;
+  display: grid;
+  gap: var(--space-2);
+  margin-block-start: var(--space-2);
+  padding-block-start: var(--space-3);
+  border-block-start: 1px solid var(--color-rule);
+}
+
+.earthdawn-identity-paths > h3 {
+  margin: 0;
+}
+
+.earthdawn-identity-paths .earthdawn-record {
+  grid-template-columns: minmax(0, 1fr) minmax(5rem, 0.35fr) auto;
+}
+
 .earthdawn-wallet__balances {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

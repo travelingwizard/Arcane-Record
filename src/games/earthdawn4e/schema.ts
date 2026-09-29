@@ -165,6 +165,7 @@ export const earthdawn4eCharacterSchema = z.object({
       strain: nonnegative,
       attributeText: z.string().default(''),
       effectText: z.string().default(''),
+      descriptionText: z.string().default(''),
       actionText: z.string().default(''),
       strainText: z.string().default(''),
       citationText: z.string().default(''),

@@ -1030,6 +1030,9 @@ export function EarthdawnCreator({
                                     effectText:
                                       definition?.talentMetadata?.effectText ??
                                       '',
+                                    descriptionText:
+                                      definition?.talentMetadata
+                                        ?.descriptionText ?? '',
                                     actionText:
                                       definition?.talentMetadata?.actionText ??
                                       '',

@@ -298,6 +298,7 @@ export function reconcileRace(
       strain: 0,
       attributeText: definition?.talentMetadata?.attributeText ?? '',
       effectText: definition?.talentMetadata?.effectText ?? '',
+      descriptionText: definition?.talentMetadata?.descriptionText ?? '',
       actionText: definition?.talentMetadata?.actionText ?? '',
       strainText: definition?.talentMetadata?.strainText ?? '',
       citationText: `${race.source}${race.page ? `, p. ${race.page}` : ''}`,
@@ -458,6 +459,7 @@ export function reconcileDisciplineTalents(
         strain: 0,
         attributeText: definition?.talentMetadata?.attributeText ?? '',
         effectText: definition?.talentMetadata?.effectText ?? '',
+        descriptionText: definition?.talentMetadata?.descriptionText ?? '',
         actionText: definition?.talentMetadata?.actionText ?? '',
         strainText: definition?.talentMetadata?.strainText ?? '',
         citationText:

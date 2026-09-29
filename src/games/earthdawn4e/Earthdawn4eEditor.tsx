@@ -1165,6 +1165,7 @@ export function Earthdawn4eEditor({
               strain: 0,
               attributeText: d.talentMetadata?.attributeText ?? '',
               effectText: d.talentMetadata?.effectText ?? d.summary,
+              descriptionText: d.talentMetadata?.descriptionText ?? d.summary,
               actionText: d.talentMetadata?.actionText ?? '',
               strainText: d.talentMetadata?.strainText ?? '',
               citationText:
@@ -1758,6 +1759,7 @@ export function Earthdawn4eEditor({
               strain: 0,
               attributeText: 'Perception',
               effectText: '',
+              descriptionText: '',
               actionText: '',
               strainText: '0',
               citationText: 'Custom',
@@ -2081,6 +2083,365 @@ export function Earthdawn4eEditor({
         );
       return left.name.localeCompare(right.name);
     });
+  const disciplineQuestorContent = (
+    <>
+      <SheetToolbar>
+        <button
+          type="button"
+          className="primary-button"
+          onClick={() => {
+            setDisciplineSearch('');
+            setDisciplinePickerOpen(true);
+          }}
+        >
+          Add Discipline &amp; Questor
+        </button>
+        <small>
+          Search by Discipline, Passion, talent, or Circle ability. Custom
+          Discipline drafts are managed in Settings.
+        </small>
+      </SheetToolbar>
+      {draft.disciplines.map((d) => (
+        <div
+          key={d.id}
+          className="sheet-card sheet-card--compact earthdawn-record"
+        >
+          <input
+            aria-label="Discipline name"
+            readOnly={playMode}
+            value={d.name}
+            onChange={(event) =>
+              update((current) => ({
+                ...current,
+                disciplines: current.disciplines.map((item) =>
+                  item.id === d.id
+                    ? { ...item, name: event.target.value }
+                    : item,
+                ),
+              }))
+            }
+          />
+          <input
+            aria-label={`${d.name} Circle`}
+            type="number"
+            min="1"
+            max="15"
+            readOnly={playMode}
+            value={d.circle}
+            onChange={(e) => {
+              const circle = Math.min(15, Math.max(1, integer(e.target.value)));
+              if (circle !== d.circle)
+                setPendingDisciplineChange({
+                  recordId: d.id,
+                  circle,
+                });
+            }}
+          />
+          <small>
+            {d.source} {d.page && `p. ${d.page}`}
+          </small>
+          {playMode && d.disciplineId && d.circle < 15 ? (
+            <button
+              type="button"
+              className="secondary-button"
+              onClick={() => {
+                const definition = earthdawnDisciplines.find(
+                  ({ id }) => id === d.disciplineId,
+                );
+                if (!definition) return;
+                const nextCircle = d.circle + 1;
+                const training = disciplineCircleTraining(nextCircle)!;
+                const missing = missingCircleTalentRanks(
+                  draft,
+                  definition,
+                  nextCircle,
+                );
+                const reconciliation = previewDisciplineTalentReconciliation(
+                  draft.talents,
+                  definition,
+                  nextCircle,
+                );
+                reviewAdvancement(
+                  {
+                    title: `Advance ${d.name} to Circle ${nextCircle}`,
+                    cost: 0,
+                    silverCost: training.silverCost,
+                    training: `${training.hours} hours with a higher-Circle tutor within ${training.periodWeeks} weeks`,
+                    sourceCitation: "Player's Guide pp. 452–457",
+                    warning: missing.length
+                      ? `Not ready: ${missing.map(({ name, currentRank, requiredRank }) => `${name} ${currentRank}/${requiredRank}`).join(', ')}`
+                      : undefined,
+                    blocked: missing.length > 0,
+                  },
+                  () => {
+                    if (missing.length) return;
+                    update((current) => ({
+                      ...current,
+                      disciplines: current.disciplines.map((record) =>
+                        record.id === d.id
+                          ? { ...record, circle: nextCircle }
+                          : record,
+                      ),
+                      talents: reconciliation.next,
+                      advancement: {
+                        ledger: [
+                          ...current.advancement.ledger,
+                          createLegendEntry({
+                            type: 'circle',
+                            amount: 0,
+                            targetId: d.id,
+                            targetName: d.name,
+                            beforeRating: d.circle,
+                            afterRating: nextCircle,
+                            silverCost: training.silverCost,
+                            training: `${training.hours} hours in ${training.periodWeeks} weeks`,
+                            sourceCitation: "Player's Guide pp. 452–457",
+                            description: `Advance ${d.name} to Circle ${nextCircle}`,
+                          }),
+                        ],
+                      },
+                    }));
+                  },
+                );
+              }}
+            >
+              Advance Circle
+            </button>
+          ) : null}
+          <button
+            type="button"
+            className="text-button"
+            disabled={playMode}
+            onClick={() =>
+              update((current) => ({
+                ...current,
+                disciplines: current.disciplines.filter(
+                  (item) => item.id !== d.id,
+                ),
+              }))
+            }
+          >
+            Remove
+          </button>
+          {pendingDisciplineChange?.recordId === d.id &&
+            (() => {
+              const definition = earthdawnDisciplines.find(
+                (entry) => entry.id === d.disciplineId,
+              );
+              const preview = definition
+                ? previewDisciplineTalentReconciliation(
+                    draft.talents,
+                    definition,
+                    pendingDisciplineChange.circle,
+                  )
+                : null;
+              return (
+                <div className="sheet-notice earthdawn-reconciliation">
+                  <strong>
+                    Review Circle {d.circle} → {pendingDisciplineChange.circle}
+                  </strong>
+                  <p>
+                    {preview?.added.length ?? 0} required talent(s) will be
+                    added; {preview?.removed.length ?? 0} untouched rank-0
+                    creation talent(s) will be removed. Advanced, customized,
+                    and shared talents remain.
+                  </p>
+                  <SheetToolbar>
+                    <button
+                      type="button"
+                      className="primary-button"
+                      onClick={() => {
+                        update((current) => ({
+                          ...current,
+                          disciplines: current.disciplines.map((item) =>
+                            item.id === d.id
+                              ? {
+                                  ...item,
+                                  circle: pendingDisciplineChange.circle,
+                                }
+                              : item,
+                          ),
+                          talents:
+                            definition && preview
+                              ? preview.next
+                              : current.talents,
+                        }));
+                        setPendingDisciplineChange(null);
+                      }}
+                    >
+                      Confirm change
+                    </button>
+                    <button
+                      type="button"
+                      className="secondary-button"
+                      onClick={() => setPendingDisciplineChange(null)}
+                    >
+                      Cancel
+                    </button>
+                  </SheetToolbar>
+                </div>
+              );
+            })()}
+        </div>
+      ))}
+      {draft.questorPaths.map((path, pathIndex) => (
+        <SheetCard key={path.id} density="compact">
+          <div className="earthdawn-questor-row">
+            <div>
+              <span className="kind-badge">Questor</span>
+              <h3>{path.patronName}</h3>
+              <small>
+                Rank {path.rank} · {path.tier}
+                {path.gmOverride ? ' · GM Override' : ''}
+              </small>
+            </div>
+            <SheetField label={`${path.patronName} Questor rank`}>
+              <input
+                type="number"
+                min="0"
+                max="12"
+                readOnly={playMode}
+                value={path.rank}
+                onChange={(event) => {
+                  const rank = Math.min(12, integer(event.target.value));
+                  update((current) => ({
+                    ...current,
+                    questorPaths: current.questorPaths.map((item) =>
+                      item.id === path.id
+                        ? {
+                            ...item,
+                            rank,
+                            tier: questorTier(rank),
+                          }
+                        : item,
+                    ),
+                    questor:
+                      pathIndex === 0
+                        ? {
+                            ...current.questor,
+                            rank,
+                            tier: questorTier(rank),
+                          }
+                        : current.questor,
+                  }));
+                }}
+              />
+            </SheetField>
+            <button
+              type="button"
+              className="text-button"
+              disabled={playMode}
+              onClick={() =>
+                update((current) => ({
+                  ...current,
+                  questorPaths: current.questorPaths.filter(
+                    ({ id }) => id !== path.id,
+                  ),
+                }))
+              }
+            >
+              Remove
+            </button>
+          </div>
+        </SheetCard>
+      ))}
+      {draft.questor.patronName && draft.questorPaths.length === 0 ? (
+        <SheetCard density="compact">
+          <SheetFieldGrid columns={3}>
+            <SheetField label="Patron Passion">
+              <input
+                readOnly
+                value={draft.questor.patronName || 'Not a Questor'}
+              />
+            </SheetField>
+            <SheetField label="Questor rank">
+              <input
+                type="number"
+                min="0"
+                max="12"
+                disabled={playMode}
+                value={draft.questor.rank}
+                onChange={(event) => {
+                  const rank = Math.min(12, integer(event.target.value));
+                  update((current) => ({
+                    ...current,
+                    questor: {
+                      ...current.questor,
+                      rank,
+                      tier: questorTier(rank),
+                    },
+                  }));
+                }}
+              />
+            </SheetField>
+            <span>
+              Tier <strong>{draft.questor.tier}</strong>
+            </span>
+            {playMode && draft.questor.patronName ? (
+              <button
+                type="button"
+                className="secondary-button"
+                disabled={draft.questor.rank >= 12}
+                onClick={() => {
+                  const nextRank = draft.questor.rank + 1;
+                  const cost = questorRankCost(nextRank);
+                  const crossesTier = [5, 9].includes(nextRank);
+                  reviewAdvancement(
+                    {
+                      title: `Raise Questor rank to ${nextRank}`,
+                      cost,
+                      silverCost: 0,
+                      training:
+                        'Commune with the patron Passion; only one devotion may advance per day.',
+                      sourceCitation: 'Questors pp. 133–135',
+                      warning: crossesTier
+                        ? 'This crosses a Questor tier and requires a completed quest approved by the gamemaster.'
+                        : undefined,
+                    },
+                    () =>
+                      update((current) => {
+                        if (
+                          legendTotals(current.advancement.ledger).current <
+                          cost
+                        )
+                          return current;
+                        const before = current.questor.rank;
+                        return {
+                          ...current,
+                          questor: {
+                            ...current.questor,
+                            rank: before + 1,
+                            tier: questorTier(before + 1),
+                          },
+                          advancement: {
+                            ledger: [
+                              ...current.advancement.ledger,
+                              createLegendEntry({
+                                type: 'questor',
+                                amount: -cost,
+                                targetId: 'questor-rank',
+                                targetName: 'Questor rank',
+                                beforeRating: before,
+                                afterRating: before + 1,
+                                training: 'Communion; one rank per day',
+                                sourceCitation: 'Questors pp. 133–135',
+                                description: `Raise Questor rank to ${before + 1}`,
+                              }),
+                            ],
+                          },
+                        };
+                      }),
+                  );
+                }}
+              >
+                Advance Questor rank
+              </button>
+            ) : null}
+          </SheetFieldGrid>
+        </SheetCard>
+      ) : null}
+    </>
+  );
   return (
     <CharacterSectionProvider value={context}>
       <SheetEditorShell
@@ -2414,6 +2775,10 @@ export function Earthdawn4eEditor({
                       >
                         {draft.identity.raceId ? 'Change Race' : 'Add Race'}
                       </button>
+                      <div className="earthdawn-identity-paths">
+                        <h3>Discipline &amp; Questor</h3>
+                        {disciplineQuestorContent}
+                      </div>
                     </SheetCard>
                   </div>
                   <SheetFieldGrid columns={3} className="earthdawn-field-grid">
@@ -2452,391 +2817,6 @@ export function Earthdawn4eEditor({
                       </SheetField>
                     ))}
                   </SheetFieldGrid>
-                </>,
-              )}
-              {section(
-                'ed4-disciplines',
-                'disciplines',
-                'Discipline & Questor',
-                <>
-                  <SheetToolbar>
-                    <button
-                      type="button"
-                      className="primary-button"
-                      onClick={() => {
-                        setDisciplineSearch('');
-                        setDisciplinePickerOpen(true);
-                      }}
-                    >
-                      Add Discipline &amp; Questor
-                    </button>
-                    <small>
-                      Search by Discipline, Passion, talent, or Circle ability.
-                      Custom Discipline drafts are managed in Settings.
-                    </small>
-                  </SheetToolbar>
-                  {draft.disciplines.map((d) => (
-                    <div
-                      key={d.id}
-                      className="sheet-card sheet-card--compact earthdawn-record"
-                    >
-                      <input
-                        aria-label="Discipline name"
-                        readOnly={playMode}
-                        value={d.name}
-                        onChange={(event) =>
-                          update((current) => ({
-                            ...current,
-                            disciplines: current.disciplines.map((item) =>
-                              item.id === d.id
-                                ? { ...item, name: event.target.value }
-                                : item,
-                            ),
-                          }))
-                        }
-                      />
-                      <input
-                        aria-label={`${d.name} Circle`}
-                        type="number"
-                        min="1"
-                        max="15"
-                        readOnly={playMode}
-                        value={d.circle}
-                        onChange={(e) => {
-                          const circle = Math.min(
-                            15,
-                            Math.max(1, integer(e.target.value)),
-                          );
-                          if (circle !== d.circle)
-                            setPendingDisciplineChange({
-                              recordId: d.id,
-                              circle,
-                            });
-                        }}
-                      />
-                      <small>
-                        {d.source} {d.page && `p. ${d.page}`}
-                      </small>
-                      {playMode && d.disciplineId && d.circle < 15 ? (
-                        <button
-                          type="button"
-                          className="secondary-button"
-                          onClick={() => {
-                            const definition = earthdawnDisciplines.find(
-                              ({ id }) => id === d.disciplineId,
-                            );
-                            if (!definition) return;
-                            const nextCircle = d.circle + 1;
-                            const training =
-                              disciplineCircleTraining(nextCircle)!;
-                            const missing = missingCircleTalentRanks(
-                              draft,
-                              definition,
-                              nextCircle,
-                            );
-                            const reconciliation =
-                              previewDisciplineTalentReconciliation(
-                                draft.talents,
-                                definition,
-                                nextCircle,
-                              );
-                            reviewAdvancement(
-                              {
-                                title: `Advance ${d.name} to Circle ${nextCircle}`,
-                                cost: 0,
-                                silverCost: training.silverCost,
-                                training: `${training.hours} hours with a higher-Circle tutor within ${training.periodWeeks} weeks`,
-                                sourceCitation: "Player's Guide pp. 452–457",
-                                warning: missing.length
-                                  ? `Not ready: ${missing.map(({ name, currentRank, requiredRank }) => `${name} ${currentRank}/${requiredRank}`).join(', ')}`
-                                  : undefined,
-                                blocked: missing.length > 0,
-                              },
-                              () => {
-                                if (missing.length) return;
-                                update((current) => ({
-                                  ...current,
-                                  disciplines: current.disciplines.map(
-                                    (record) =>
-                                      record.id === d.id
-                                        ? { ...record, circle: nextCircle }
-                                        : record,
-                                  ),
-                                  talents: reconciliation.next,
-                                  advancement: {
-                                    ledger: [
-                                      ...current.advancement.ledger,
-                                      createLegendEntry({
-                                        type: 'circle',
-                                        amount: 0,
-                                        targetId: d.id,
-                                        targetName: d.name,
-                                        beforeRating: d.circle,
-                                        afterRating: nextCircle,
-                                        silverCost: training.silverCost,
-                                        training: `${training.hours} hours in ${training.periodWeeks} weeks`,
-                                        sourceCitation:
-                                          "Player's Guide pp. 452–457",
-                                        description: `Advance ${d.name} to Circle ${nextCircle}`,
-                                      }),
-                                    ],
-                                  },
-                                }));
-                              },
-                            );
-                          }}
-                        >
-                          Advance Circle
-                        </button>
-                      ) : null}
-                      <button
-                        type="button"
-                        className="text-button"
-                        disabled={playMode}
-                        onClick={() =>
-                          update((current) => ({
-                            ...current,
-                            disciplines: current.disciplines.filter(
-                              (item) => item.id !== d.id,
-                            ),
-                          }))
-                        }
-                      >
-                        Remove
-                      </button>
-                      {pendingDisciplineChange?.recordId === d.id &&
-                        (() => {
-                          const definition = earthdawnDisciplines.find(
-                            (entry) => entry.id === d.disciplineId,
-                          );
-                          const preview = definition
-                            ? previewDisciplineTalentReconciliation(
-                                draft.talents,
-                                definition,
-                                pendingDisciplineChange.circle,
-                              )
-                            : null;
-                          return (
-                            <div className="sheet-notice earthdawn-reconciliation">
-                              <strong>
-                                Review Circle {d.circle} →{' '}
-                                {pendingDisciplineChange.circle}
-                              </strong>
-                              <p>
-                                {preview?.added.length ?? 0} required talent(s)
-                                will be added; {preview?.removed.length ?? 0}{' '}
-                                untouched rank-0 creation talent(s) will be
-                                removed. Advanced, customized, and shared
-                                talents remain.
-                              </p>
-                              <SheetToolbar>
-                                <button
-                                  type="button"
-                                  className="primary-button"
-                                  onClick={() => {
-                                    update((current) => ({
-                                      ...current,
-                                      disciplines: current.disciplines.map(
-                                        (item) =>
-                                          item.id === d.id
-                                            ? {
-                                                ...item,
-                                                circle:
-                                                  pendingDisciplineChange.circle,
-                                              }
-                                            : item,
-                                      ),
-                                      talents:
-                                        definition && preview
-                                          ? preview.next
-                                          : current.talents,
-                                    }));
-                                    setPendingDisciplineChange(null);
-                                  }}
-                                >
-                                  Confirm change
-                                </button>
-                                <button
-                                  type="button"
-                                  className="secondary-button"
-                                  onClick={() =>
-                                    setPendingDisciplineChange(null)
-                                  }
-                                >
-                                  Cancel
-                                </button>
-                              </SheetToolbar>
-                            </div>
-                          );
-                        })()}
-                    </div>
-                  ))}
-                  {draft.questorPaths.map((path, pathIndex) => (
-                    <SheetCard key={path.id} density="compact">
-                      <div className="earthdawn-questor-row">
-                        <div>
-                          <span className="kind-badge">Questor</span>
-                          <h3>{path.patronName}</h3>
-                          <small>
-                            Rank {path.rank} · {path.tier}
-                            {path.gmOverride ? ' · GM Override' : ''}
-                          </small>
-                        </div>
-                        <SheetField label={`${path.patronName} Questor rank`}>
-                          <input
-                            type="number"
-                            min="0"
-                            max="12"
-                            readOnly={playMode}
-                            value={path.rank}
-                            onChange={(event) => {
-                              const rank = Math.min(
-                                12,
-                                integer(event.target.value),
-                              );
-                              update((current) => ({
-                                ...current,
-                                questorPaths: current.questorPaths.map(
-                                  (item) =>
-                                    item.id === path.id
-                                      ? {
-                                          ...item,
-                                          rank,
-                                          tier: questorTier(rank),
-                                        }
-                                      : item,
-                                ),
-                                questor:
-                                  pathIndex === 0
-                                    ? {
-                                        ...current.questor,
-                                        rank,
-                                        tier: questorTier(rank),
-                                      }
-                                    : current.questor,
-                              }));
-                            }}
-                          />
-                        </SheetField>
-                        <button
-                          type="button"
-                          className="text-button"
-                          disabled={playMode}
-                          onClick={() =>
-                            update((current) => ({
-                              ...current,
-                              questorPaths: current.questorPaths.filter(
-                                ({ id }) => id !== path.id,
-                              ),
-                            }))
-                          }
-                        >
-                          Remove
-                        </button>
-                      </div>
-                    </SheetCard>
-                  ))}
-                  {draft.questor.patronName &&
-                  draft.questorPaths.length === 0 ? (
-                    <SheetCard density="compact">
-                      <SheetFieldGrid columns={3}>
-                        <SheetField label="Patron Passion">
-                          <input
-                            readOnly
-                            value={draft.questor.patronName || 'Not a Questor'}
-                          />
-                        </SheetField>
-                        <SheetField label="Questor rank">
-                          <input
-                            type="number"
-                            min="0"
-                            max="12"
-                            disabled={playMode}
-                            value={draft.questor.rank}
-                            onChange={(event) => {
-                              const rank = Math.min(
-                                12,
-                                integer(event.target.value),
-                              );
-                              update((current) => ({
-                                ...current,
-                                questor: {
-                                  ...current.questor,
-                                  rank,
-                                  tier: questorTier(rank),
-                                },
-                              }));
-                            }}
-                          />
-                        </SheetField>
-                        <span>
-                          Tier <strong>{draft.questor.tier}</strong>
-                        </span>
-                        {playMode && draft.questor.patronName ? (
-                          <button
-                            type="button"
-                            className="secondary-button"
-                            disabled={draft.questor.rank >= 12}
-                            onClick={() => {
-                              const nextRank = draft.questor.rank + 1;
-                              const cost = questorRankCost(nextRank);
-                              const crossesTier = [5, 9].includes(nextRank);
-                              reviewAdvancement(
-                                {
-                                  title: `Raise Questor rank to ${nextRank}`,
-                                  cost,
-                                  silverCost: 0,
-                                  training:
-                                    'Commune with the patron Passion; only one devotion may advance per day.',
-                                  sourceCitation: 'Questors pp. 133–135',
-                                  warning: crossesTier
-                                    ? 'This crosses a Questor tier and requires a completed quest approved by the gamemaster.'
-                                    : undefined,
-                                },
-                                () =>
-                                  update((current) => {
-                                    if (
-                                      legendTotals(current.advancement.ledger)
-                                        .current < cost
-                                    )
-                                      return current;
-                                    const before = current.questor.rank;
-                                    return {
-                                      ...current,
-                                      questor: {
-                                        ...current.questor,
-                                        rank: before + 1,
-                                        tier: questorTier(before + 1),
-                                      },
-                                      advancement: {
-                                        ledger: [
-                                          ...current.advancement.ledger,
-                                          createLegendEntry({
-                                            type: 'questor',
-                                            amount: -cost,
-                                            targetId: 'questor-rank',
-                                            targetName: 'Questor rank',
-                                            beforeRating: before,
-                                            afterRating: before + 1,
-                                            training:
-                                              'Communion; one rank per day',
-                                            sourceCitation:
-                                              'Questors pp. 133–135',
-                                            description: `Raise Questor rank to ${before + 1}`,
-                                          }),
-                                        ],
-                                      },
-                                    };
-                                  }),
-                              );
-                            }}
-                          >
-                            Advance Questor rank
-                          </button>
-                        ) : null}
-                      </SheetFieldGrid>
-                    </SheetCard>
-                  ) : null}
                 </>,
               )}
               {section(
@@ -7812,6 +7792,8 @@ function TalentTable({
               String(record.strain),
             effectText:
               record.effectText || metadata?.effectText || record.notes,
+            descriptionText:
+              record.descriptionText || metadata?.descriptionText || '',
             citationText:
               record.citationText ||
               metadata?.citationText ||
@@ -7917,6 +7899,12 @@ function TalentTable({
                     {value.effectText}
                   </span>
                 )}
+                {value.descriptionText ? (
+                  <details className="earthdawn-talent-description">
+                    <summary>Description</summary>
+                    <p>{value.descriptionText}</p>
+                  </details>
+                ) : null}
               </label>
               <label data-label="Source">
                 <span className="sr-only">Source citation</span>

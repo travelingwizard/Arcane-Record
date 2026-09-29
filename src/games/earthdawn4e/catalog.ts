@@ -198,6 +198,7 @@ import {
 } from './questor-devotions';
 import { companionThreadItemRows } from './companion-thread-items';
 import { earthdawnTalentReferenceRows } from './talent-reference';
+import { earthdawnTalentDescriptionRows } from './talent-descriptions';
 import {
   earthdawnSkillReferenceRows,
   earthdawnTalentSupplementRows,
@@ -255,6 +256,12 @@ const citationPage = (citation: string) =>
 const talentSupplements = new Map(
   earthdawnTalentSupplementRows.map((row) => [row[0].toLocaleLowerCase(), row]),
 );
+const talentDescriptions = new Map(
+  earthdawnTalentDescriptionRows.map((row) => [
+    row[0].toLocaleLowerCase(),
+    row,
+  ]),
+);
 const primaryTalents: EarthdawnDefinition[] = earthdawnTalentReferenceRows.map(
   ([
     name,
@@ -270,13 +277,14 @@ const primaryTalents: EarthdawnDefinition[] = earthdawnTalentReferenceRows.map(
       ? 'ed4.players-guide'
       : (sourceIds[0] ?? 'ed4.players-guide');
     const supplement = talentSupplements.get(name.toLocaleLowerCase());
+    const description = talentDescriptions.get(name.toLocaleLowerCase())?.[1];
     return {
       ...entry(
         'talent',
         name,
         sourceId,
         citationPage(citationText),
-        effectText,
+        description ?? effectText,
       ),
       defaultAttribute: normalizedTalentAttribute(attributeText),
       mechanics: JSON.stringify({
@@ -294,7 +302,7 @@ const primaryTalents: EarthdawnDefinition[] = earthdawnTalentReferenceRows.map(
         sourceIds: [
           ...new Set([...sourceIds, ...(supplement ? [supplement[3]] : [])]),
         ],
-        descriptionText: supplement?.[1],
+        descriptionText: description ?? supplement?.[1],
         requirementsText: supplement?.[2],
       },
     };
@@ -307,21 +315,25 @@ export const earthdawnTalents: EarthdawnDefinition[] = [
   ...primaryTalents,
   ...earthdawnTalentSupplementRows
     .filter(([name]) => !existingTalentNames.has(name.toLocaleLowerCase()))
-    .map(([name, description, requirementsText, sourceId, page]) => ({
-      ...entry('talent', name, sourceId, page ?? 1, description),
-      page,
-      mechanics: JSON.stringify({ description, requirementsText }),
-      talentMetadata: {
-        attributeText: 'Not in source',
-        effectText: description,
-        actionText: 'Not in source',
-        strainText: 'Not in source',
-        citationText: `${earthdawnSources.find(({ id }) => id === sourceId)?.title ?? sourceId}${page ? `, p. ${page}` : ''}`,
-        sourceIds: [sourceId],
-        descriptionText: description,
-        requirementsText,
-      },
-    })),
+    .map(([name, description, requirementsText, sourceId, page]) => {
+      const preferredDescription =
+        talentDescriptions.get(name.toLocaleLowerCase())?.[1] ?? description;
+      return {
+        ...entry('talent', name, sourceId, page ?? 1, preferredDescription),
+        page,
+        mechanics: JSON.stringify({ description, requirementsText }),
+        talentMetadata: {
+          attributeText: 'Not in source',
+          effectText: description,
+          actionText: 'Not in source',
+          strainText: 'Not in source',
+          citationText: `${earthdawnSources.find(({ id }) => id === sourceId)?.title ?? sourceId}${page ? `, p. ${page}` : ''}`,
+          sourceIds: [sourceId],
+          descriptionText: preferredDescription,
+          requirementsText,
+        },
+      };
+    }),
 ];
 
 const raceData: Array<[string, number[], string, number, string[]]> = [

@@ -23,7 +23,6 @@ export type Earthdawn4eGroupId = (typeof earthdawn4eGroupIds)[number];
 
 export const earthdawn4eSections = [
   { id: 'ed4-identity', label: 'Identity', group: 'character' },
-  { id: 'ed4-disciplines', label: 'Disciplines', group: 'disciplines' },
   { id: 'ed4-attributes', label: 'Attributes', group: 'attributes' },
   {
     id: 'ed4-characteristics',

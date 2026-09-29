@@ -26,6 +26,7 @@ import {
 import { importStepsCharacter } from '../../src/games/earthdawn4e/steps-import';
 import { coreTalentOptions } from '../../src/games/earthdawn4e/discipline-progressions';
 import { auditEarthdawnSourceInventory } from '../../src/games/earthdawn4e/source-inventory';
+import { earthdawnTalentDescriptionRows } from '../../src/games/earthdawn4e/talent-descriptions';
 import {
   EARTHDAWN_PORTRAIT_MAX_BYTES,
   processEarthdawnPortrait,
@@ -150,6 +151,11 @@ describe('Earthdawn Fourth Edition module', () => {
       ).eligibility,
     ).toHaveLength(12);
     expect(new Set(earthdawnSpells.map(({ id }) => id)).size).toBe(464);
+    expect(earthdawnTalentDescriptionRows).toHaveLength(244);
+    expect(
+      earthdawnTalents.find(({ name }) => name === 'Acrobatic Defense')
+        ?.talentMetadata?.descriptionText,
+    ).toMatch(/flips and somersaults/);
     expect(earthdawnSpells.find(({ name }) => name === 'Air Armor')?.id).toBe(
       'ed4.players-guide.spell.air-armor',
     );
