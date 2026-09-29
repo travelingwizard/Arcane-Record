@@ -140,6 +140,7 @@ export const earthdawn4eCharacterSchema = z.object({
   sources: z.object({
     enabledSourceIds: z.array(z.string()),
     showUnavailable: z.boolean(),
+    defaultsVersion: z.number().int().nonnegative().default(0),
   }),
   disciplines: z.array(
     nullableSource.extend({
@@ -581,6 +582,19 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
   if (parsedCurrent.success) {
     const normalized = earthdawn4eCharacterSchema.parse({
       ...parsedCurrent.data,
+      sources:
+        parsedCurrent.data.sources.defaultsVersion < 1
+          ? {
+              ...parsedCurrent.data.sources,
+              enabledSourceIds: [
+                ...new Set([
+                  ...parsedCurrent.data.sources.enabledSourceIds,
+                  ...earthdawnSources.map(({ id }) => id),
+                ]),
+              ],
+              defaultsVersion: 1,
+            }
+          : parsedCurrent.data.sources,
       equipment: parsedCurrent.data.equipment.map((item) => ({
         ...item,
         price:
@@ -797,6 +811,26 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
   const history = Array.isArray(oldDice.history) ? oldDice.history : [];
   const next = {
     ...data,
+    sources: {
+      ...(isRecord(data.sources) ? data.sources : {}),
+      enabledSourceIds: [
+        ...new Set([
+          ...(isRecord(data.sources) &&
+          Array.isArray(data.sources.enabledSourceIds)
+            ? data.sources.enabledSourceIds.filter(
+                (id): id is string => typeof id === 'string',
+              )
+            : []),
+          ...earthdawnSources.map(({ id }) => id),
+        ]),
+      ],
+      showUnavailable:
+        isRecord(data.sources) &&
+        typeof data.sources.showUnavailable === 'boolean'
+          ? data.sources.showUnavailable
+          : false,
+      defaultsVersion: 1,
+    },
     identity: {
       ...identity,
       height: identity.height ?? '',

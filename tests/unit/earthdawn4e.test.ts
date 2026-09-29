@@ -76,7 +76,10 @@ describe('Earthdawn Fourth Edition module', () => {
     });
     expect(earthdawn4eCharacterSchema.parse(character)).toEqual(character);
     expect(earthdawnSources).toHaveLength(12);
-    expect(character.sources.enabledSourceIds).toEqual(['ed4.players-guide']);
+    expect(character.sources.enabledSourceIds).toEqual(
+      earthdawnSources.map(({ id }) => id),
+    );
+    expect(character.sources.defaultsVersion).toBe(1);
     expect(earthdawnRaces).toHaveLength(8);
     expect(earthdawnDisciplines).toHaveLength(15);
     expect(Object.keys(coreTalentOptions)).toHaveLength(15);
@@ -337,6 +340,10 @@ describe('Earthdawn Fourth Edition module', () => {
     delete legacy.weapons;
     delete legacy.wealth;
     delete legacy.reputation;
+    legacy.sources = {
+      enabledSourceIds: ['ed4.players-guide'],
+      showUnavailable: false,
+    };
     const legacyMagic = legacy.magic as Record<string, unknown>;
     legacyMagic.effects = [
       {
@@ -382,6 +389,10 @@ describe('Earthdawn Fourth Edition module', () => {
     expect(migrated.portrait).toBeNull();
     expect(migrated.health.basicMode).toBe(true);
     expect(migrated.dice).toMatchObject({ tracking: true, historyLimit: 10 });
+    expect(migrated.sources).toMatchObject({
+      enabledSourceIds: earthdawnSources.map(({ id }) => id),
+      defaultsVersion: 1,
+    });
     expect(migrated.magic.effects[0]).toMatchObject({
       target: 'Physical Defense',
       modifierTarget: 'physicalDefense',

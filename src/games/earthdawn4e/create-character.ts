@@ -48,11 +48,10 @@ export function createBlankEarthdawn4eCharacter(
     sources: {
       enabledSourceIds:
         typeof localStorage === 'undefined'
-          ? earthdawnSources
-              .filter(({ required }) => required)
-              .map(({ id }) => id)
+          ? earthdawnSources.map(({ id }) => id)
           : readEarthdawnSourceDefaults(),
       showUnavailable: false,
+      defaultsVersion: 1,
     },
     disciplines: [],
     questor: {

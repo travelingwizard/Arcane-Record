@@ -243,6 +243,24 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
     await page.keyboard.press('Escape');
     await expect(opener).toBeFocused();
   }
+  const browseKnacks = page
+    .locator('#ed4-skills')
+    .getByRole('button', { name: 'Browse Knacks' });
+  await browseKnacks.click();
+  const knackDialog = page.getByRole('dialog', {
+    name: 'Earthdawn catalog',
+  });
+  await knackDialog.getByRole('searchbox').fill('Assess Intentions');
+  const knackCard = knackDialog
+    .locator('.catalog-card')
+    .filter({ hasText: 'Assess Intentions' });
+  await expect(knackCard).toBeVisible();
+  await knackCard.getByText('2 source/association variants').click();
+  await knackCard
+    .getByLabel('Choose Assess Intentions variant')
+    .selectOption({ index: 1 });
+  await expect(knackCard.getByRole('button', { name: 'Add' })).toBeEnabled();
+  await page.keyboard.press('Escape');
   const browseTalents = page
     .locator('#ed4-talents')
     .getByRole('button', { name: 'Browse Talents' });

@@ -4,16 +4,19 @@ const key = 'arcane-record:earthdawn4e:source-defaults';
 const required = earthdawnSources
   .filter(({ required }) => required)
   .map(({ id }) => id);
+const allOfficial = earthdawnSources.map(({ id }) => id);
 
 export function readEarthdawnSourceDefaults() {
   try {
-    const parsed: unknown = JSON.parse(localStorage.getItem(key) ?? '[]');
+    const savedValue = localStorage.getItem(key);
+    if (savedValue == null) return allOfficial;
+    const parsed: unknown = JSON.parse(savedValue);
     const saved = Array.isArray(parsed)
       ? parsed.filter((id): id is string => typeof id === 'string')
       : [];
     return [...new Set([...required, ...saved])];
   } catch {
-    return required;
+    return allOfficial;
   }
 }
 
