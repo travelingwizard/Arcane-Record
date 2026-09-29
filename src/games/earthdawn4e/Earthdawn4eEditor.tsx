@@ -3749,7 +3749,11 @@ export function Earthdawn4eEditor({
                     Add Matrix
                   </button>
                   {draft.magic.matrices.map((matrix) => (
-                    <SheetCard key={matrix.id} density="compact">
+                    <SheetCard
+                      key={matrix.id}
+                      density="compact"
+                      className="earthdawn-matrix-card"
+                    >
                       <div className="earthdawn-matrix-heading">
                         <strong>{matrix.name}</strong>
                         <span>
@@ -4128,6 +4132,7 @@ export function Earthdawn4eEditor({
                         </>
                       ) : null}
                       <SheetField
+                        className="earthdawn-matrix-spell-picker"
                         label={
                           matrix.type === 'shared'
                             ? 'Add a known spell'
@@ -4206,7 +4211,7 @@ export function Earthdawn4eEditor({
                         </select>
                       </SheetField>
                       {matrix.type === 'shared' && matrix.spellIds.length ? (
-                        <ul className="earthdawn-matrix-attuned-list">
+                        <ul className="earthdawn-matrix-attuned-list earthdawn-matrix-attuned-list--positioned">
                           {matrix.spellIds.map((spellId) => {
                             const spell = draft.magic.spells.find(
                               ({ id }) => id === spellId,
@@ -8571,13 +8576,13 @@ function AttributeTable({
         role="row"
       >
         <span>Attribute</span>
+        <span>Value</span>
+        <span>Step</span>
+        <span>Dice</span>
         <span>Race</span>
         <span>Purchased</span>
         <span>Permanent</span>
         <span>Temporary</span>
-        <span>Value</span>
-        <span>Step</span>
-        <span>Dice</span>
         <span>Advance</span>
       </div>
       {Object.entries(character.attributes).map(([id, attribute]) => {
@@ -8600,6 +8605,9 @@ function AttributeTable({
         return (
           <div className="earthdawn-attribute-row" role="row" key={id}>
             <strong>{labels[attributeId]}</strong>
+            <strong>{values[attributeId]}</strong>
+            <span>{step}</span>
+            <span>{stepDice(step)}</span>
             <input
               aria-label={`${labels[attributeId]} racial value`}
               readOnly={playMode}
@@ -8636,9 +8644,6 @@ function AttributeTable({
                 change('temporaryBonus', Number(event.target.value))
               }
             />
-            <strong>{values[attributeId]}</strong>
-            <span>{step}</span>
-            <span>{stepDice(step)}</span>
             <button
               type="button"
               className="secondary-button"
