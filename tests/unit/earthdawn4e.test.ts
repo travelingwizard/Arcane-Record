@@ -44,9 +44,11 @@ import {
   grantedDevotionCost,
   knackLearningQuote,
   legendTotals,
+  isMatrixTalent,
   matrixCapacityUsed,
   matrixDeathRating,
   matrixIssues,
+  matrixTypeForTalent,
   missingCircleTalentRanks,
   newDisciplineTalentCost,
   previewDisciplineTalentReconciliation,
@@ -421,6 +423,10 @@ describe('Earthdawn Fourth Edition module', () => {
     expect(matrixDeathRating('enhanced')).toBe(15);
     expect(matrixDeathRating('shared')).toBe(20);
     expect(matrixDeathRating('armored')).toBe(25);
+    expect(isMatrixTalent('Standard Matrix')).toBe(true);
+    expect(isMatrixTalent('Spell Matrix')).toBe(true);
+    expect(isMatrixTalent('Awareness')).toBe(false);
+    expect(matrixTypeForTalent('Enhanced Matrix')).toBe('enhanced');
 
     const legacy = structuredClone(character) as unknown as Record<
       string,
@@ -468,6 +474,12 @@ describe('Earthdawn Fourth Edition module', () => {
     });
     const novice = reconcileFreeMatrices(character);
     expect(novice.magic.matrices).toHaveLength(2);
+    expect(
+      novice.magic.matrices.every(({ talentId }) => Boolean(talentId)),
+    ).toBe(true);
+    expect(
+      novice.talents.filter(({ name }) => isMatrixTalent(name)),
+    ).toHaveLength(2);
     expect(
       novice.magic.matrices.every(
         ({ type, rank }) => type === 'standard' && rank === 1,

@@ -1,12 +1,31 @@
 import {
   earthdawnDefinitionById,
   earthdawnRaces,
+  earthdawnTalents,
   type EarthdawnDiscipline,
   type EarthdawnRace,
 } from './catalog';
 import type { Earthdawn4eCharacter } from './schema';
 
 export type EarthdawnMatrix = Earthdawn4eCharacter['magic']['matrices'][number];
+
+export const matrixTalentTypes = {
+  'spell matrix': 'standard',
+  'standard matrix': 'standard',
+  'enhanced matrix': 'enhanced',
+  'shared matrix': 'shared',
+  'armored matrix': 'armored',
+} as const;
+
+export function matrixTypeForTalent(name: string) {
+  return matrixTalentTypes[
+    name.trim().toLocaleLowerCase() as keyof typeof matrixTalentTypes
+  ];
+}
+
+export function isMatrixTalent(name: string) {
+  return Boolean(matrixTypeForTalent(name));
+}
 
 export function matrixDeathRating(type: EarthdawnMatrix['type']) {
   if (type === 'armored') return 25;
@@ -111,13 +130,96 @@ export function reconcileFreeMatrices(character: Earthdawn4eCharacter) {
       reattuning: { inProgress: false, difficulty: 0, strainPaid: 0 },
       used: false,
       notes: 'Granted by magician Discipline progression.',
+      originType: 'free-discipline' as const,
+      talentId: null,
+    };
+  });
+  const matrices = [...upgradedMatrices, ...additions];
+  const talents = [...character.talents];
+  const usedTalentIds = new Set(
+    matrices.map(({ talentId }) => talentId).filter(Boolean),
+  );
+  const template = talents.find(({ name }) => isMatrixTalent(name));
+  const linkedMatrices = matrices.map((matrix) => {
+    if (matrix.source !== source) return matrix;
+    let talent = matrix.talentId
+      ? talents.find(({ id }) => id === matrix.talentId)
+      : talents.find(
+          (candidate) =>
+            isMatrixTalent(candidate.name) && !usedTalentIds.has(candidate.id),
+        );
+    if (!talent && template) {
+      talent = {
+        ...template,
+        id: crypto.randomUUID(),
+        name:
+          matrix.type === 'enhanced' ? 'Enhanced Matrix' : 'Standard Matrix',
+        rank: discipline.circle,
+        freeRank: discipline.circle,
+        notes: 'Granted by magician Discipline progression.',
+      };
+      talents.push(talent);
+    }
+    if (!talent) {
+      const definition = earthdawnTalents.find(
+        ({ name }) => name === 'Standard Matrix' || name === 'Spell Matrix',
+      );
+      if (definition) {
+        talent = {
+          id: crypto.randomUUID(),
+          definitionId: definition.id,
+          sourceId: definition.sourceId,
+          source: definition.source,
+          page: definition.page,
+          unresolved: false,
+          name:
+            matrix.type === 'enhanced' ? 'Enhanced Matrix' : 'Standard Matrix',
+          rank: discipline.circle,
+          freeRank: discipline.circle,
+          attribute: definition.defaultAttribute ?? 'perception',
+          bonus: 0,
+          notes: 'Granted by magician Discipline progression.',
+          action: definition.talentMetadata?.actionText ?? 'NA',
+          strain: 0,
+          attributeText: definition.talentMetadata?.attributeText ?? 'Rank',
+          effectText: definition.talentMetadata?.effectText ?? '',
+          descriptionText: definition.talentMetadata?.descriptionText ?? '',
+          actionText: definition.talentMetadata?.actionText ?? 'NA',
+          strainText: definition.talentMetadata?.strainText ?? '0',
+          citationText:
+            definition.talentMetadata?.citationText ?? definition.source,
+          metadataOverrides: [],
+          disciplineSources: discipline.disciplineId
+            ? [discipline.disciplineId]
+            : [],
+          optional: false,
+          originCircle: 1,
+          originDisciplineId: discipline.disciplineId,
+          creationOwned: true,
+        };
+        talents.push(talent);
+      }
+    }
+    if (!talent) return matrix;
+    usedTalentIds.add(talent.id);
+    const index = talents.findIndex(({ id }) => id === talent!.id);
+    talents[index] = {
+      ...talents[index]!,
+      rank: discipline.circle,
+      freeRank: Math.max(talents[index]!.freeRank, discipline.circle),
+    };
+    return {
+      ...matrix,
+      originType: 'free-discipline' as const,
+      talentId: talent.id,
     };
   });
   return {
     ...character,
+    talents,
     magic: {
       ...character.magic,
-      matrices: [...upgradedMatrices, ...additions],
+      matrices: linkedMatrices,
     },
   };
 }

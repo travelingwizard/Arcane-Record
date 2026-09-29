@@ -212,7 +212,7 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
     page.getByRole('switch', { name: /Earthdawn Edit and Play mode/ }),
   ).not.toBeChecked();
   const browseCatalogs = page.getByRole('button', {
-    name: 'Browse catalogs',
+    name: 'Compendium',
   });
   await browseCatalogs.focus();
   await browseCatalogs.click();

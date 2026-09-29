@@ -5806,6 +5806,104 @@
   margin-bottom: var(--space-3);
 }
 
+.earthdawn-matrix-summary,
+.earthdawn-spell-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.earthdawn-matrix-summary > div,
+.earthdawn-spell-details > div {
+  min-width: 0;
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--sheet-rule, currentColor);
+}
+
+.earthdawn-matrix-summary dt,
+.earthdawn-spell-details dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.earthdawn-matrix-summary dd,
+.earthdawn-spell-details dd {
+  margin: 0.15rem 0 0;
+  overflow-wrap: anywhere;
+}
+
+.earthdawn-matrix-damage {
+  display: inline-block;
+  width: 4.5rem;
+  min-height: 44px;
+}
+
+.earthdawn-known-spell {
+  border-block-end: 1px solid var(--sheet-rule, currentColor);
+}
+
+.earthdawn-known-spell > summary {
+  display: grid;
+  grid-template-columns:
+    minmax(9rem, 1.2fr) minmax(7rem, 0.8fr) 5rem minmax(12rem, 2fr)
+    minmax(8rem, 1fr);
+  gap: 0.65rem;
+  align-items: center;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.earthdawn-known-spell > summary > * {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.earthdawn-matrix-attuned-list {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.earthdawn-matrix-attuned-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.earthdawn-compendium-kinds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.8rem;
+  border: 1px solid var(--sheet-rule, currentColor);
+}
+
+.earthdawn-compendium-kinds label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-height: 44px;
+}
+
+.earthdawn-spellbook-override {
+  margin-inline-start: auto;
+}
+
+@media (max-width: 50rem) {
+  .earthdawn-known-spell > summary {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .earthdawn-known-spell > summary span:nth-of-type(n + 2) {
+    display: none;
+  }
+}
+
 .earthdawn-matrix-heading input {
   max-width: 22rem;
   font-family: var(--font-serif);

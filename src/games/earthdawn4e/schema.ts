@@ -228,6 +228,11 @@ export const earthdawn4eCharacterSchema = z.object({
         weavingDifficulty: nonnegative.nullable().optional(),
         reattuningDifficulty: nonnegative.nullable().optional(),
         castingDifficulty: nonnegative.nullable().optional(),
+        area: z.string().optional(),
+        keywords: z.array(z.string()).optional(),
+        detailedEffects: z.string().optional(),
+        successLevels: z.string().optional(),
+        extraThreads: z.string().optional(),
       }),
     ),
     matrices: z.array(
@@ -263,6 +268,10 @@ export const earthdawn4eCharacterSchema = z.object({
         }),
         used: z.boolean(),
         notes: z.string(),
+        originType: z
+          .enum(['talent', 'free-discipline', 'item', 'temporary', 'custom'])
+          .optional(),
+        talentId: uuid.nullable().optional(),
       }),
     ),
     effects: z.array(
