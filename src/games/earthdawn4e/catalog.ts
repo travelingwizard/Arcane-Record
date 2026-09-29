@@ -1,4 +1,5 @@
 import type { EarthdawnSpellReference } from './spell-types';
+import type { EarthdawnKnackVariant } from './knack-types';
 
 export type EarthdawnCatalogKind =
   | 'race'
@@ -54,6 +55,9 @@ export interface EarthdawnDefinition {
     sourceIds: string[];
     descriptionText?: string;
     requirementsText?: string;
+  };
+  knackMetadata?: {
+    variants: readonly EarthdawnKnackVariant[];
   };
   threadItemMetadata?: {
     itemType: string;
@@ -191,7 +195,7 @@ import {
   coreTalentOptions,
 } from './discipline-progressions';
 import { earthdawnSpellReference } from './spell-reference';
-import { companionKnackRows } from './companion-knacks';
+import { earthdawnKnackReference } from './knack-reference';
 import {
   questorDevotionProgressions,
   questorTierMinimumRank,
@@ -982,22 +986,29 @@ const shieldEntries = (
       }),
     }),
   );
-export const earthdawnKnacks: EarthdawnDefinition[] = companionKnackRows.map(
-  ([name, talents, minimumRank, page]) => ({
-    ...entry(
-      'knack',
-      name,
-      'ed4.companion',
-      page,
-      `${name} is a verified knack for ${talents}, requiring rank ${minimumRank}.`,
-      [`${talents} rank ${minimumRank}`],
-    ),
-    mechanics: JSON.stringify({
-      talents: talents.split(', '),
-      minimumRank,
-    }),
-  }),
-);
+export const earthdawnKnacks: EarthdawnDefinition[] =
+  earthdawnKnackReference.map((reference) => {
+    const primary =
+      reference.variants.find(({ sourceId }) => sourceId === 'ed4.companion') ??
+      reference.variants[0]!;
+    const source = earthdawnSources.find(({ id }) => id === primary.sourceId)!;
+    return {
+      id: `${reference.legacyCompanionId ? 'ed4.companion' : primary.sourceId}.knack.${slug(reference.name)}`,
+      kind: 'knack',
+      name: reference.name,
+      summary: primary.description,
+      mechanics: primary.mechanicsText,
+      requirements: [
+        ...new Set(reference.variants.map(({ association }) => association)),
+      ],
+      aliases: [],
+      sourceId: primary.sourceId,
+      source: source.title,
+      page: primary.page,
+      verification: 'verified',
+      knackMetadata: { variants: reference.variants },
+    };
+  });
 const companionThreadItems: EarthdawnDefinition[] = companionThreadItemRows.map(
   ([name, page]) => ({
     ...entry(

@@ -15,6 +15,8 @@ import {
   attributeStep,
   addKarmaDie,
   deriveCharacter,
+  earthdawnAttributeValues,
+  magicEffectModifierValue,
   rollStep,
   stepDice,
   stepDiceChart,
@@ -85,7 +87,7 @@ describe('Earthdawn Fourth Edition module', () => {
       expect(coreTalentOptions[discipline.name]?.master).toHaveLength(8);
     }
     expect(earthdawnSpells).toHaveLength(464);
-    expect(earthdawnKnacks).toHaveLength(142);
+    expect(earthdawnKnacks).toHaveLength(227);
     expect(earthdawnThreadItems).toHaveLength(142);
     expect(earthdawnTalents).toHaveLength(450);
     expect(new Set(earthdawnTalents.map(({ id }) => id)).size).toBe(450);
@@ -129,12 +131,53 @@ describe('Earthdawn Fourth Edition module', () => {
           Boolean(threadItemMetadata.inferredKeyKnowledge),
       ),
     ).toBe(true);
-    expect(new Set(earthdawnKnacks.map(({ id }) => id)).size).toBe(142);
+    expect(new Set(earthdawnKnacks.map(({ id }) => id)).size).toBe(227);
+    expect(
+      earthdawnKnacks.reduce(
+        (total, knack) => total + (knack.knackMetadata?.variants.length ?? 0),
+        0,
+      ),
+    ).toBe(243);
+    expect(
+      new Set(
+        earthdawnKnacks.flatMap(
+          ({ knackMetadata }) =>
+            knackMetadata?.variants.map(({ key }) => key) ?? [],
+        ),
+      ).size,
+    ).toBe(243);
+    expect(
+      new Set(
+        earthdawnKnacks.flatMap(
+          ({ knackMetadata }) =>
+            knackMetadata?.variants.map(({ sourceId }) => sourceId) ?? [],
+        ),
+      ),
+    ).toEqual(
+      new Set([
+        'ed4.companion',
+        'ed4.vasgothia',
+        'ed4.mystic-paths',
+        'ed4.travar',
+        'ed4.iopos',
+        'ed4.questors',
+      ]),
+    );
     expect(
       earthdawnKnacks.find(({ name }) => name === 'Craft True Pattern'),
     ).toMatchObject({
+      id: 'ed4.companion.knack.craft-true-pattern',
       page: 116,
-      requirements: ['Patterncraft, Thread Smithing rank 5'],
+      knackMetadata: {
+        variants: expect.arrayContaining([
+          expect.objectContaining({
+            association: 'Patterncraft, Thread Smithing',
+            minimumRank: 5,
+            sourceId: 'ed4.companion',
+            page: 116,
+          }),
+        ]),
+      },
     });
     expect(earthdawnQuestorDefinitions.length).toBeGreaterThan(80);
     expect(
@@ -243,6 +286,30 @@ describe('Earthdawn Fourth Edition module', () => {
       silverCost: 250,
     });
   });
+  it('applies only active structured magic effects to attributes and ratings', () => {
+    const character = createBlankEarthdawn4eCharacter();
+    const effects = [
+      {
+        applicable: true,
+        modifierTarget: 'attribute.dexterity',
+        modifierValue: 2,
+      },
+      {
+        applicable: true,
+        modifierTarget: 'physicalDefense',
+        modifierValue: 3,
+      },
+      {
+        applicable: false,
+        modifierTarget: 'physicalDefense',
+        modifierValue: 9,
+      },
+    ];
+    const values = earthdawnAttributeValues(character.attributes, effects);
+    expect(values.dexterity).toBe(12);
+    expect(deriveCharacter(values).physicalDefense).toBe(7);
+    expect(magicEffectModifierValue(effects, 'physicalDefense')).toBe(3);
+  });
   it('opens blank sheets in Build mode and migrates v1 state additively', () => {
     const character = createBlankEarthdawn4eCharacter({
       status: 'manual',
@@ -270,6 +337,39 @@ describe('Earthdawn Fourth Edition module', () => {
     delete legacy.weapons;
     delete legacy.wealth;
     delete legacy.reputation;
+    const legacyMagic = legacy.magic as Record<string, unknown>;
+    legacyMagic.effects = [
+      {
+        id: crypto.randomUUID(),
+        definitionId: null,
+        sourceId: null,
+        source: null,
+        page: null,
+        unresolved: true,
+        name: 'Legacy defense bonus',
+        target: 'Physical Defense',
+        rank: 1,
+        applicable: true,
+        effects: '',
+        kind: 'pattern',
+        notes: '',
+      },
+      {
+        id: crypto.randomUUID(),
+        definitionId: null,
+        sourceId: null,
+        source: null,
+        page: null,
+        unresolved: true,
+        name: 'Legacy special power',
+        target: 'Something unusual',
+        rank: 1,
+        applicable: true,
+        effects: '',
+        kind: 'thread',
+        notes: '',
+      },
+    ];
     (legacy.creation as Record<string, unknown>).enforceRules = false;
     const migrated = migrateEarthdawn4eCharacter(legacy);
     expect(legendTotals(migrated.advancement.ledger)).toEqual({
@@ -282,6 +382,16 @@ describe('Earthdawn Fourth Edition module', () => {
     expect(migrated.portrait).toBeNull();
     expect(migrated.health.basicMode).toBe(true);
     expect(migrated.dice).toMatchObject({ tracking: true, historyLimit: 10 });
+    expect(migrated.magic.effects[0]).toMatchObject({
+      target: 'Physical Defense',
+      modifierTarget: 'physicalDefense',
+      modifierValue: 0,
+    });
+    expect(migrated.magic.effects[1]).toMatchObject({
+      target: 'Something unusual',
+      modifierTarget: null,
+      modifierValue: 0,
+    });
     expect(migrated.creation.overrides).toContainEqual(
       expect.objectContaining({
         code: 'creator-global-override',

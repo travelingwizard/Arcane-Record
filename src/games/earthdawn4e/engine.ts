@@ -1,5 +1,47 @@
 import type { EarthdawnAttributeId } from './catalog';
 
+export type CalculatedMagicEffect = {
+  applicable: boolean;
+  modifierTarget: string | null;
+  modifierValue: number;
+};
+
+export function magicEffectModifierValue(
+  effects: readonly CalculatedMagicEffect[],
+  target: string,
+) {
+  return effects
+    .filter((effect) => effect.applicable && effect.modifierTarget === target)
+    .reduce((sum, effect) => sum + effect.modifierValue, 0);
+}
+
+export function earthdawnAttributeValues(
+  attributes: Record<
+    EarthdawnAttributeId,
+    {
+      racial: number;
+      purchased: number;
+      increases: number;
+      temporaryBonus: number;
+    }
+  >,
+  effects: readonly CalculatedMagicEffect[] = [],
+) {
+  return Object.fromEntries(
+    Object.entries(attributes).map(([id, attribute]) => [
+      id,
+      Math.max(
+        1,
+        attribute.racial +
+          attribute.purchased +
+          attribute.increases +
+          attribute.temporaryBonus +
+          magicEffectModifierValue(effects, `attribute.${id}`),
+      ),
+    ]),
+  ) as Record<EarthdawnAttributeId, number>;
+}
+
 export const attributeModifierCosts: Record<number, number> = {
   [-2]: -2,
   [-1]: -1,

@@ -44,6 +44,8 @@ import {
   addKarmaDie,
   attributeModifierCosts,
   deriveCharacter,
+  earthdawnAttributeValues,
+  magicEffectModifierValue,
   rollStep,
   stepDice,
   stepDiceChart,
@@ -111,6 +113,43 @@ const labels: Record<EarthdawnAttributeId, string> = {
   willpower: 'Willpower',
   charisma: 'Charisma',
 };
+const magicEffectTargetGroups = [
+  {
+    label: 'Attributes',
+    options: (Object.entries(labels) as [EarthdawnAttributeId, string][]).map(
+      ([id, label]) => [`attribute.${id}`, label] as const,
+    ),
+  },
+  {
+    label: 'Defenses and armor',
+    options: [
+      ['physicalDefense', 'Physical Defense'],
+      ['mysticDefense', 'Mystic Defense'],
+      ['socialDefense', 'Social Defense'],
+      ['physicalArmor', 'Physical Armor'],
+      ['mysticArmor', 'Mystic Armor'],
+    ] as const,
+  },
+  {
+    label: 'Characteristics and health',
+    options: [
+      ['initiative', 'Initiative'],
+      ['movement', 'Movement'],
+      ['carryingCapacity', 'Carrying Capacity'],
+      ['woundThreshold', 'Wound Threshold'],
+      ['unconsciousness', 'Unconsciousness'],
+      ['death', 'Death'],
+      ['recovery', 'Recovery'],
+    ] as const,
+  },
+  {
+    label: 'Combat',
+    options: [
+      ['attack', 'Attack'],
+      ['damage', 'Damage'],
+    ] as const,
+  },
+] as const;
 const integer = (value: string) => Math.max(0, Number.parseInt(value, 10) || 0);
 type SpellSort =
   | 'discipline-circle'
@@ -152,6 +191,16 @@ const spellChoiceLabel = (choice: SpellChoice) => {
       }`
     : '';
   return `${choice.variant.discipline} · Circle ${choice.circle}${page}`;
+};
+const knackVariants = (definition: EarthdawnDefinition) =>
+  definition.knackMetadata?.variants ?? [];
+const knackVariantCitation = (
+  variant: NonNullable<
+    EarthdawnDefinition['knackMetadata']
+  >['variants'][number],
+) => {
+  const source = earthdawnSources.find(({ id }) => id === variant.sourceId);
+  return `${source?.title ?? variant.sourceId}${variant.page ? `, p. ${variant.page}` : ' · page unavailable'}`;
 };
 const compareSpellDefinitions = (
   left: EarthdawnDefinition,
@@ -463,18 +512,65 @@ const catalogTableColumns = (
       },
       source,
     ];
-  if (
-    kind === 'knack' ||
-    kind === 'path' ||
-    kind === 'devotion' ||
-    kind === 'ability'
-  )
+  if (kind === 'path' || kind === 'devotion' || kind === 'ability')
     return [
       name,
       {
         key: 'requirements',
         label: 'Requirements',
         value: (definition) => definition.requirements.join(' · '),
+      },
+      summary,
+      source,
+    ];
+  if (kind === 'knack')
+    return [
+      name,
+      {
+        key: 'association',
+        label: 'Association',
+        value: (definition) =>
+          [
+            ...new Set(
+              knackVariants(definition).map(({ association }) => association),
+            ),
+          ].join(' · '),
+      },
+      {
+        key: 'minimumRank',
+        label: 'Minimum Rank',
+        value: (definition) =>
+          [
+            ...new Set(
+              knackVariants(definition).map(({ minimumRank }) =>
+                minimumRank == null ? 'Unspecified' : String(minimumRank),
+              ),
+            ),
+          ].join(' · '),
+      },
+      {
+        key: 'action',
+        label: 'Action',
+        value: (definition) =>
+          [
+            ...new Set(
+              knackVariants(definition)
+                .map(({ actionText }) => actionText)
+                .filter(Boolean),
+            ),
+          ].join(' · '),
+      },
+      {
+        key: 'strain',
+        label: 'Strain',
+        value: (definition) =>
+          [
+            ...new Set(
+              knackVariants(definition)
+                .map(({ strainText }) => strainText)
+                .filter(Boolean),
+            ),
+          ].join(' · '),
       },
       summary,
       source,
@@ -531,6 +627,9 @@ export function Earthdawn4eEditor({
     [sheetSpellSort, setSheetSpellSort] =
       useState<SpellSort>('discipline-circle'),
     [spellVariantSelections, setSpellVariantSelections] = useState<
+      Record<string, string>
+    >({}),
+    [knackVariantSelections, setKnackVariantSelections] = useState<
       Record<string, string>
     >({}),
     [catalogEquipmentKind, setCatalogEquipmentKind] = useState('all'),
@@ -763,12 +862,10 @@ export function Earthdawn4eEditor({
     },
     [],
   );
-  const values = Object.fromEntries(
-    Object.entries(draft.attributes).map(([id, a]) => [
-      id,
-      a.racial + a.purchased + a.increases + a.temporaryBonus,
-    ]),
-  ) as Record<EarthdawnAttributeId, number>;
+  const values = earthdawnAttributeValues(
+    draft.attributes,
+    draft.magic.effects,
+  );
   const primaryCircle = draft.disciplines[0]?.circle ?? 1;
   const derived = deriveCharacter(values, primaryCircle);
   const armor = draft.equipment
@@ -797,7 +894,8 @@ export function Earthdawn4eEditor({
       .filter((item) => item.inUse)
       .flatMap((item) => item.modifiers)
       .filter((modifier) => modifier.target === target)
-      .reduce((sum, modifier) => sum + modifier.value, 0);
+      .reduce((sum, modifier) => sum + modifier.value, 0) +
+    magicEffectModifierValue(draft.magic.effects, target);
   const legend = legendTotals(draft.advancement.ledger);
   const gmOverride = !draft.creation.enforceRules;
   const racialKarmaModifier =
@@ -899,6 +997,7 @@ export function Earthdawn4eEditor({
     confirmed = false,
     requestedSpellChoice?: SpellChoice,
     acquisition: 'gain' | 'purchase' = 'gain',
+    requestedKnackVariantKey?: string,
   ) => {
     const d = earthdawnDefinitionById.get(definitionId)!;
     if (d.kind === 'discipline') {
@@ -964,6 +1063,26 @@ export function Earthdawn4eEditor({
           (catalogCircle === 'all' || circle === Number(catalogCircle)),
       ) ??
       availableSpellChoices[0];
+    const availableKnackVariants =
+      d.kind === 'knack'
+        ? knackVariants(d).filter(
+            ({ sourceId }) =>
+              (draft.sources.enabledSourceIds.includes(sourceId) ||
+                draft.sources.showUnavailable) &&
+              (catalogSource === 'all' || sourceId === catalogSource),
+          )
+        : [];
+    const selectedKnackVariant =
+      availableKnackVariants.find(
+        ({ key }) => key === requestedKnackVariantKey,
+      ) ??
+      availableKnackVariants.find(
+        ({ key }) => key === knackVariantSelections[d.id],
+      ) ??
+      (availableKnackVariants.length === 1
+        ? availableKnackVariants[0]
+        : undefined);
+    if (d.kind === 'knack' && !selectedKnackVariant) return;
     const alreadySelected = [
       ...draft.talents,
       ...draft.skills,
@@ -981,7 +1100,11 @@ export function Earthdawn4eEditor({
           !selectedSpellChoice ||
           ('variantKey' in item &&
             (item.variantKey == null ||
-              item.variantKey === selectedSpellChoice.key))),
+              item.variantKey === selectedSpellChoice.key))) &&
+        (d.kind !== 'knack' ||
+          !selectedKnackVariant ||
+          ('variantKey' in item &&
+            item.variantKey === selectedKnackVariant.key)),
     );
     if (alreadySelected && !repeatableDefinition(d)) return;
     const equipmentPurchase = ['equipment', 'weapon'].includes(d.kind);
@@ -1029,34 +1152,47 @@ export function Earthdawn4eEditor({
     }
     setMoneyError('');
     if (playMode && !confirmed && d.kind === 'knack') {
-      let mechanics: { talents?: string[]; minimumRank?: number } = {};
-      try {
-        mechanics = JSON.parse(d.mechanics) as typeof mechanics;
-      } catch {
-        mechanics = {};
-      }
-      const minimumRank = mechanics.minimumRank ?? 1;
-      const talents = mechanics.talents ?? [];
+      if (!selectedKnackVariant) return;
+      const minimumRank = selectedKnackVariant.minimumRank;
+      const talents = selectedKnackVariant.association
+        .split(/,|\bor\b/i)
+        .map((item) => item.trim())
+        .filter(Boolean);
       const eligibleTalent = draft.talents.find(
         (talent) =>
           talents.includes(talent.name) &&
+          minimumRank != null &&
           talent.rank >= minimumRank &&
           talent.disciplineSources.length > 0,
       );
-      const quote = knackLearningQuote(minimumRank);
+      const quote =
+        minimumRank == null ? null : knackLearningQuote(minimumRank);
       reviewAdvancement(
         {
           title: `Learn ${d.name}`,
-          cost: quote.legendCost,
-          silverCost: quote.silverCost,
-          training: `${quote.trainingDays} day(s), four hours per day, with an instructor; only one knack may be learned at a time.`,
-          sourceCitation: `${d.source} p. ${d.page}`,
-          blocked: !eligibleTalent,
-          warning: eligibleTalent
-            ? undefined
-            : `Requires ${talents.join(' or ')} at rank ${minimumRank}, learned through a Discipline.`,
+          cost: gmOverride ? 0 : (quote?.legendCost ?? 0),
+          silverCost: gmOverride ? 0 : (quote?.silverCost ?? 0),
+          training: quote
+            ? `${quote.trainingDays} day(s), four hours per day, with an instructor; only one knack may be learned at a time.`
+            : 'The workbook does not provide a numeric Rank requirement. Record this purchase manually or use a documented GM Override.',
+          sourceCitation: knackVariantCitation(selectedKnackVariant),
+          blocked: !gmOverride && (minimumRank == null || !eligibleTalent),
+          warning: gmOverride
+            ? `GM Override: ${draft.creation.overrides.find(({ code }) => code === 'creator-global-override')?.reason || 'recorded override'}`
+            : minimumRank == null
+              ? 'Automatic pricing is unavailable because no numeric Rank requirement was supplied.'
+              : eligibleTalent
+                ? undefined
+                : `Requires ${talents.join(' or ')} at rank ${minimumRank}, learned through a Discipline.`,
         },
-        () => addCatalog(definitionId, true),
+        () =>
+          addCatalog(
+            definitionId,
+            true,
+            undefined,
+            'gain',
+            selectedKnackVariant.key,
+          ),
       );
       closeCatalog();
       return;
@@ -1328,17 +1464,18 @@ export function Earthdawn4eEditor({
               : c.advancement,
         };
       if (d.kind === 'knack') {
-        let mechanics: { talents?: string[]; minimumRank?: number } = {};
-        try {
-          mechanics = JSON.parse(d.mechanics) as typeof mechanics;
-        } catch {
-          mechanics = {};
-        }
-        const minimumRank = mechanics.minimumRank ?? 1;
+        if (!selectedKnackVariant) return c;
+        const minimumRank = selectedKnackVariant.minimumRank ?? 0;
         const associatedTalent = c.talents.find(({ name }) =>
-          (mechanics.talents ?? []).includes(name),
+          selectedKnackVariant.association
+            .split(/,|\bor\b/i)
+            .map((item) => item.trim())
+            .includes(name),
         );
-        const quote = knackLearningQuote(minimumRank);
+        const quote =
+          selectedKnackVariant.minimumRank == null
+            ? null
+            : knackLearningQuote(minimumRank);
         return {
           ...c,
           knacks: [
@@ -1347,29 +1484,48 @@ export function Earthdawn4eEditor({
               ...base,
               talentId: associatedTalent?.id ?? null,
               minimumRank,
-              action: '',
-              strain: 0,
+              action: selectedKnackVariant.actionText,
+              strain: selectedKnackVariant.strainValue ?? 0,
+              sourceId: selectedKnackVariant.sourceId,
+              source:
+                earthdawnSources.find(
+                  ({ id }) => id === selectedKnackVariant.sourceId,
+                )?.title ?? d.source,
+              page: selectedKnackVariant.page,
+              variantKey: selectedKnackVariant.key,
+              association: selectedKnackVariant.association,
+              description: selectedKnackVariant.description,
+              mechanicsText: selectedKnackVariant.mechanicsText,
+              actionText: selectedKnackVariant.actionText,
+              strainText: selectedKnackVariant.strainText,
+              minimumRankKnown: selectedKnackVariant.minimumRank != null,
             },
           ],
-          advancement: confirmed
-            ? {
-                ledger: [
-                  ...c.advancement.ledger,
-                  createLegendEntry({
-                    type: 'knack',
-                    amount: -quote.legendCost,
-                    targetId: d.id,
-                    targetName: d.name,
-                    beforeRating: 0,
-                    afterRating: 1,
-                    silverCost: quote.silverCost,
-                    sourceCitation: `${d.source} p. ${d.page}`,
-                    training: `${quote.trainingDays} day(s), four hours per day, with an instructor`,
-                    description: `Learn ${d.name}`,
-                  }),
-                ],
-              }
-            : c.advancement,
+          advancement:
+            confirmed && (quote || gmOverride)
+              ? {
+                  ledger: [
+                    ...c.advancement.ledger,
+                    createLegendEntry({
+                      type: 'knack',
+                      amount: gmOverride ? 0 : -quote!.legendCost,
+                      targetId: d.id,
+                      targetName: d.name,
+                      beforeRating: 0,
+                      afterRating: 1,
+                      silverCost: gmOverride ? 0 : quote!.silverCost,
+                      sourceCitation:
+                        knackVariantCitation(selectedKnackVariant),
+                      training: gmOverride
+                        ? `GM Override: ${c.creation.overrides.find(({ code }) => code === 'creator-global-override')?.reason || 'recorded override'}`
+                        : `${quote!.trainingDays} day(s), four hours per day, with an instructor`,
+                      description: gmOverride
+                        ? `Learn ${d.name} (GM Override)`
+                        : `Learn ${d.name}`,
+                    }),
+                  ],
+                }
+              : c.advancement,
         };
       }
       if (['ability', 'path', 'devotion'].includes(d.kind))
@@ -1417,6 +1573,8 @@ export function Earthdawn4eEditor({
               {
                 ...base,
                 target: '',
+                modifierTarget: null,
+                modifierValue: 0,
                 rank: 0,
                 applicable: false,
                 effects: d.summary,
@@ -1877,6 +2035,13 @@ export function Earthdawn4eEditor({
               minimumRank: 0,
               action: '',
               strain: 0,
+              variantKey: null,
+              association: '',
+              description: '',
+              mechanicsText: '',
+              actionText: '',
+              strainText: '',
+              minimumRankKnown: false,
             },
           ],
         };
@@ -1914,6 +2079,8 @@ export function Earthdawn4eEditor({
                 ...base,
                 name: 'Custom Thread Item',
                 target: '',
+                modifierTarget: null,
+                modifierValue: 0,
                 rank: 0,
                 applicable: false,
                 effects: '',
@@ -2031,6 +2198,9 @@ export function Earthdawn4eEditor({
         definition.talentMetadata?.sourceIds.includes(catalogSource) ||
         definition.spellMetadata?.variants.some(
           ({ sourceId }) => sourceId === catalogSource,
+        ) ||
+        definition.knackMetadata?.variants.some(
+          ({ sourceId }) => sourceId === catalogSource,
         );
       const attributeMatches =
         catalogAttribute === 'all' ||
@@ -2114,15 +2284,21 @@ export function Earthdawn4eEditor({
           definition.kind === 'equipment' &&
           /armor|shield/i.test(definition.name));
       const sourceAvailable =
-        draft.sources.enabledSourceIds.includes(definition.sourceId) ||
-        definition.sourceId === 'ed4.user-currency-reference' ||
-        definition.spellMetadata?.variants.some(({ sourceId }) =>
-          draft.sources.enabledSourceIds.includes(sourceId),
-        ) ||
-        draft.sources.showUnavailable;
+        draft.sources.showUnavailable ||
+        (definition.knackMetadata
+          ? definition.knackMetadata.variants.some(
+              ({ sourceId }) =>
+                (catalogSource === 'all' || sourceId === catalogSource) &&
+                draft.sources.enabledSourceIds.includes(sourceId),
+            )
+          : draft.sources.enabledSourceIds.includes(definition.sourceId) ||
+            definition.sourceId === 'ed4.user-currency-reference' ||
+            definition.spellMetadata?.variants.some(({ sourceId }) =>
+              draft.sources.enabledSourceIds.includes(sourceId),
+            ));
       const query = catalogSearch.trim().toLocaleLowerCase();
       const searchMatches =
-        `${definition.name} ${definition.aliases.join(' ')} ${definition.summary} ${definition.source} ${definition.page ?? ''} ${definition.requirements.join(' ')} ${definition.skillCategory ?? ''} ${definition.talentMetadata?.attributeText ?? ''} ${definition.talentMetadata?.actionText ?? ''} ${definition.talentMetadata?.descriptionText ?? ''} ${definition.talentMetadata?.requirementsText ?? ''} ${definition.threadItemMetadata?.itemType ?? ''} ${definition.threadItemMetadata?.inferredKeyKnowledge ?? ''} ${definition.spellMetadata?.effectText ?? ''} ${definition.spellMetadata?.threadsText ?? ''} ${definition.spellMetadata?.difficultyText ?? ''} ${definition.spellMetadata?.variants.map((variant) => `${variant.discipline} ${variant.circleText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.pageStart ?? ''}`).join(' ') ?? ''}`
+        `${definition.name} ${definition.aliases.join(' ')} ${definition.summary} ${definition.source} ${definition.page ?? ''} ${definition.requirements.join(' ')} ${definition.skillCategory ?? ''} ${definition.talentMetadata?.attributeText ?? ''} ${definition.talentMetadata?.actionText ?? ''} ${definition.talentMetadata?.descriptionText ?? ''} ${definition.talentMetadata?.requirementsText ?? ''} ${definition.threadItemMetadata?.itemType ?? ''} ${definition.threadItemMetadata?.inferredKeyKnowledge ?? ''} ${definition.spellMetadata?.effectText ?? ''} ${definition.spellMetadata?.threadsText ?? ''} ${definition.spellMetadata?.difficultyText ?? ''} ${definition.spellMetadata?.variants.map((variant) => `${variant.discipline} ${variant.circleText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.pageStart ?? ''}`).join(' ') ?? ''} ${definition.knackMetadata?.variants.map((variant) => `${variant.association} ${variant.description} ${variant.mechanicsText} ${variant.actionText} ${variant.strainText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.page ?? ''}`).join(' ') ?? ''}`
           .toLocaleLowerCase()
           .includes(query);
       return (
@@ -3551,6 +3727,16 @@ export function Earthdawn4eEditor({
                       <small>
                         {knack.source} {knack.page ? `p. ${knack.page}` : ''}
                       </small>
+                      {knack.association ? (
+                        <small>Associated with {knack.association}</small>
+                      ) : null}
+                      {knack.description ? <p>{knack.description}</p> : null}
+                      {knack.mechanicsText ? (
+                        <details>
+                          <summary>Mechanics and requirements</summary>
+                          <p>{knack.mechanicsText}</p>
+                        </details>
+                      ) : null}
                     </SheetCard>
                   ))}
                 </>,
@@ -4384,7 +4570,7 @@ export function Earthdawn4eEditor({
                           disabled={matrix.damage === 0}
                           onClick={() => {
                             const result = rollStep(
-                              derived.recoveryStep,
+                              derived.recoveryStep + modifierValue('recovery'),
                               0,
                               0,
                               `Recover ${matrix.name}`,
@@ -4413,7 +4599,11 @@ export function Earthdawn4eEditor({
                             }));
                           }}
                         >
-                          Recovery test ({stepDice(derived.recoveryStep)})
+                          Recovery test (
+                          {stepDice(
+                            derived.recoveryStep + modifierValue('recovery'),
+                          )}
+                          )
                         </button>
                       </SheetToolbar>
                     </SheetCard>
@@ -4451,6 +4641,8 @@ export function Earthdawn4eEditor({
                               unresolved: true,
                               name: '',
                               target: '',
+                              modifierTarget: null,
+                              modifierValue: 0,
                               rank: 0,
                               applicable: true,
                               effects: '',
@@ -4467,7 +4659,7 @@ export function Earthdawn4eEditor({
                   {draft.magic.effects.map((e) => (
                     <SheetCard key={e.id} density="compact">
                       <SheetFieldGrid columns={3}>
-                        {(['name', 'target', 'effects', 'notes'] as const).map(
+                        {(['name', 'effects', 'notes'] as const).map(
                           (field) => (
                             <SheetField key={field} label={field}>
                               <input
@@ -4492,6 +4684,68 @@ export function Earthdawn4eEditor({
                             </SheetField>
                           ),
                         )}
+                        <SheetField label="Target">
+                          <select
+                            value={e.modifierTarget ?? ''}
+                            onChange={(event) =>
+                              update((c) => ({
+                                ...c,
+                                magic: {
+                                  ...c.magic,
+                                  effects: c.magic.effects.map((item) =>
+                                    item.id === e.id
+                                      ? {
+                                          ...item,
+                                          modifierTarget: (event.target.value ||
+                                            null) as typeof item.modifierTarget,
+                                        }
+                                      : item,
+                                  ),
+                                },
+                              }))
+                            }
+                          >
+                            <option value="">Descriptive Only</option>
+                            {magicEffectTargetGroups.map((group) => (
+                              <optgroup key={group.label} label={group.label}>
+                                {group.options.map(([target, label]) => (
+                                  <option key={target} value={target}>
+                                    {label}
+                                  </option>
+                                ))}
+                              </optgroup>
+                            ))}
+                          </select>
+                        </SheetField>
+                        <SheetField label="Bonus / Penalty">
+                          <input
+                            type="number"
+                            value={e.modifierValue}
+                            disabled={!e.modifierTarget}
+                            onChange={(event) =>
+                              update((c) => ({
+                                ...c,
+                                magic: {
+                                  ...c.magic,
+                                  effects: c.magic.effects.map((item) =>
+                                    item.id === e.id
+                                      ? {
+                                          ...item,
+                                          modifierValue:
+                                            Number(event.target.value) || 0,
+                                        }
+                                      : item,
+                                  ),
+                                },
+                              }))
+                            }
+                          />
+                        </SheetField>
+                        {e.target && !e.modifierTarget ? (
+                          <SheetField label="Legacy target">
+                            <input readOnly value={e.target} />
+                          </SheetField>
+                        ) : null}
                         <SheetField label="Kind">
                           <select
                             disabled={playMode}
@@ -5514,8 +5768,11 @@ export function Earthdawn4eEditor({
                         {draft.health.recoveryUsed} / {derived.recoveryTests}
                       </strong>
                       <small>
-                        Step {derived.recoveryStep} ·{' '}
-                        {stepDice(derived.recoveryStep)}
+                        Step {derived.recoveryStep + modifierValue('recovery')}{' '}
+                        ·{' '}
+                        {stepDice(
+                          derived.recoveryStep + modifierValue('recovery'),
+                        )}
                       </small>
                       <button
                         className="small-button"
@@ -5525,7 +5782,7 @@ export function Earthdawn4eEditor({
                         }
                         onClick={() => {
                           let result = rollStep(
-                            derived.recoveryStep,
+                            derived.recoveryStep + modifierValue('recovery'),
                             0,
                             0,
                             'Recovery test',
@@ -7572,18 +7829,51 @@ export function Earthdawn4eEditor({
                       </thead>
                       <tbody>
                         {visibleCatalog.map((definition) => {
+                          const availableKnackVariants =
+                            definition.kind === 'knack'
+                              ? knackVariants(definition).filter(
+                                  ({ sourceId }) =>
+                                    (draft.sources.enabledSourceIds.includes(
+                                      sourceId,
+                                    ) ||
+                                      draft.sources.showUnavailable) &&
+                                    (catalogSource === 'all' ||
+                                      sourceId === catalogSource),
+                                )
+                              : [];
+                          const selectedKnackVariant =
+                            availableKnackVariants.find(
+                              ({ key }) =>
+                                knackVariantSelections[definition.id] === key,
+                            ) ??
+                            (availableKnackVariants.length === 1
+                              ? availableKnackVariants[0]
+                              : undefined);
                           const selected =
-                            !repeatableDefinition(definition) &&
-                            selectedDefinitionIds.has(definition.id);
+                            definition.kind === 'knack'
+                              ? Boolean(
+                                  selectedKnackVariant &&
+                                  draft.knacks.some(
+                                    (knack) =>
+                                      knack.definitionId === definition.id &&
+                                      knack.variantKey ===
+                                        selectedKnackVariant.key,
+                                  ),
+                                )
+                              : !repeatableDefinition(definition) &&
+                                selectedDefinitionIds.has(definition.id);
                           const expanded = expandedCatalogRows.has(
                             definition.id,
                           );
+                          const addableSourceId =
+                            selectedKnackVariant?.sourceId ??
+                            definition.sourceId;
                           const addable =
                             (definition.verification === 'verified' ||
                               definition.sourceId ===
                                 'ed4.user-currency-reference') &&
                             (draft.sources.enabledSourceIds.includes(
-                              definition.sourceId,
+                              addableSourceId,
                             ) ||
                               definition.sourceId ===
                                 'ed4.user-currency-reference');
@@ -7624,20 +7914,67 @@ export function Earthdawn4eEditor({
                                     {expanded ? '−' : '…'}
                                   </span>
                                 </button>
-                                {expanded ? <p>{definition.summary}</p> : null}
+                                {expanded ? (
+                                  <>
+                                    <p>{definition.summary}</p>
+                                    {definition.kind === 'knack' ? (
+                                      <SheetField
+                                        label={`Choose ${definition.name} variant`}
+                                      >
+                                        <select
+                                          value={
+                                            selectedKnackVariant?.key ?? ''
+                                          }
+                                          onChange={(event) =>
+                                            setKnackVariantSelections(
+                                              (current) => ({
+                                                ...current,
+                                                [definition.id]:
+                                                  event.target.value,
+                                              }),
+                                            )
+                                          }
+                                        >
+                                          {availableKnackVariants.length > 1 ? (
+                                            <option value="">
+                                              Select an association…
+                                            </option>
+                                          ) : null}
+                                          {availableKnackVariants.map(
+                                            (variant) => (
+                                              <option
+                                                key={variant.key}
+                                                value={variant.key}
+                                              >
+                                                {variant.association} ·{' '}
+                                                {knackVariantCitation(variant)}
+                                              </option>
+                                            ),
+                                          )}
+                                        </select>
+                                      </SheetField>
+                                    ) : null}
+                                  </>
+                                ) : null}
                               </td>
                               <td>
                                 <div className="catalog-table-actions">
                                   <button
                                     type="button"
                                     className="primary-button compact-inline-button"
-                                    disabled={selected || !addable}
+                                    disabled={
+                                      selected ||
+                                      !addable ||
+                                      (definition.kind === 'knack' &&
+                                        !selectedKnackVariant)
+                                    }
                                     onClick={() =>
                                       addCatalog(
                                         definition.id,
                                         false,
                                         undefined,
                                         'gain',
+                                        selectedKnackVariant?.key,
                                       )
                                     }
                                   >
@@ -7707,6 +8044,33 @@ export function Earthdawn4eEditor({
                         spell.definitionId === d.id &&
                         (spell.variantKey == null ||
                           spell.variantKey === selectedChoice?.key),
+                    );
+                    const availableKnackVariants =
+                      d.kind === 'knack'
+                        ? knackVariants(d).filter(
+                            ({ sourceId }) =>
+                              (draft.sources.enabledSourceIds.includes(
+                                sourceId,
+                              ) ||
+                                draft.sources.showUnavailable) &&
+                              (catalogSource === 'all' ||
+                                sourceId === catalogSource),
+                          )
+                        : [];
+                    const selectedKnackVariant =
+                      availableKnackVariants.find(
+                        ({ key }) => knackVariantSelections[d.id] === key,
+                      ) ??
+                      (availableKnackVariants.length === 1
+                        ? availableKnackVariants[0]
+                        : undefined);
+                    const knackChoiceSelected = Boolean(
+                      selectedKnackVariant &&
+                      draft.knacks.some(
+                        (knack) =>
+                          knack.definitionId === d.id &&
+                          knack.variantKey === selectedKnackVariant.key,
+                      ),
                     );
                     return (
                       <SheetCard key={d.id} className="catalog-card">
@@ -7868,6 +8232,44 @@ export function Earthdawn4eEditor({
                             skill
                           </p>
                         ) : null}
+                        {d.kind === 'knack' ? (
+                          <details>
+                            <summary>
+                              {availableKnackVariants.length} source/association
+                              variant
+                              {availableKnackVariants.length === 1 ? '' : 's'}
+                            </summary>
+                            <SheetField label={`Choose ${d.name} variant`}>
+                              <select
+                                value={selectedKnackVariant?.key ?? ''}
+                                onChange={(event) =>
+                                  setKnackVariantSelections((current) => ({
+                                    ...current,
+                                    [d.id]: event.target.value,
+                                  }))
+                                }
+                              >
+                                {availableKnackVariants.length > 1 ? (
+                                  <option value="">
+                                    Select an association…
+                                  </option>
+                                ) : null}
+                                {availableKnackVariants.map((variant) => (
+                                  <option key={variant.key} value={variant.key}>
+                                    {variant.association} ·{' '}
+                                    {knackVariantCitation(variant)}
+                                  </option>
+                                ))}
+                              </select>
+                            </SheetField>
+                            {selectedKnackVariant ? (
+                              <div className="catalog-card__variant-details">
+                                <p>{selectedKnackVariant.description}</p>
+                                <p>{selectedKnackVariant.mechanicsText}</p>
+                              </div>
+                            ) : null}
+                          </details>
+                        ) : null}
                         {d.threadItemMetadata ? (
                           <>
                             <p className="catalog-card__requirements">
@@ -7900,8 +8302,10 @@ export function Earthdawn4eEditor({
                             disabled={
                               (d.kind === 'spell'
                                 ? choiceSelected || !selectedChoice
-                                : !repeatableDefinition(d) &&
-                                  selectedDefinitionIds.has(d.id)) ||
+                                : d.kind === 'knack'
+                                  ? knackChoiceSelected || !selectedKnackVariant
+                                  : !repeatableDefinition(d) &&
+                                    selectedDefinitionIds.has(d.id)) ||
                               (d.verification !== 'verified' &&
                                 d.sourceId !== 'ed4.user-currency-reference') ||
                               (playMode &&
@@ -7924,12 +8328,19 @@ export function Earthdawn4eEditor({
                                     selectedChoice.variant.sourceId,
                                   )
                                 : !draft.sources.enabledSourceIds.includes(
-                                    d.sourceId,
+                                    selectedKnackVariant?.sourceId ??
+                                      d.sourceId,
                                   ) &&
                                   d.sourceId !== 'ed4.user-currency-reference')
                             }
                             onClick={() =>
-                              addCatalog(d.id, false, selectedChoice, 'gain')
+                              addCatalog(
+                                d.id,
+                                false,
+                                selectedChoice,
+                                'gain',
+                                selectedKnackVariant?.key,
+                              )
                             }
                           >
                             {d.kind === 'spell'
@@ -7938,18 +8349,22 @@ export function Earthdawn4eEditor({
                                 : spellbookMode
                                   ? `Learn · ${spellLearningCost(selectedChoice?.circle ?? 1)} LP`
                                   : 'Add variant'
-                              : d.kind === 'race'
-                                ? selectedDefinitionIds.has(d.id)
+                              : d.kind === 'knack'
+                                ? knackChoiceSelected
                                   ? 'Selected'
-                                  : draft.identity.raceId
-                                    ? 'Change to this Race'
-                                    : 'Select Race'
-                                : !repeatableDefinition(d) &&
-                                    selectedDefinitionIds.has(d.id)
-                                  ? 'Selected'
-                                  : ['equipment', 'weapon'].includes(d.kind)
-                                    ? 'Gain'
-                                    : 'Add'}
+                                  : 'Add'
+                                : d.kind === 'race'
+                                  ? selectedDefinitionIds.has(d.id)
+                                    ? 'Selected'
+                                    : draft.identity.raceId
+                                      ? 'Change to this Race'
+                                      : 'Select Race'
+                                  : !repeatableDefinition(d) &&
+                                      selectedDefinitionIds.has(d.id)
+                                    ? 'Selected'
+                                    : ['equipment', 'weapon'].includes(d.kind)
+                                      ? 'Gain'
+                                      : 'Add'}
                           </button>
                           {['equipment', 'weapon'].includes(d.kind) &&
                           !selectedDefinitionIds.has(d.id) ? (

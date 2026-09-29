@@ -150,7 +150,13 @@ export function auditEarthdawnSourceInventory() {
         definition.spellMetadata!.variants.every(({ sourceId }) =>
           sourceIds.has(sourceId),
         );
-      if (!hasSourceOnlySpellCitation)
+      const hasSourceOnlyKnackCitation =
+        definition?.kind === 'knack' &&
+        Boolean(definition.knackMetadata?.variants.length) &&
+        definition.knackMetadata!.variants.every(({ sourceId }) =>
+          sourceIds.has(sourceId),
+        );
+      if (!hasSourceOnlySpellCitation && !hasSourceOnlyKnackCitation)
         errors.push(`Selectable row lacks citation: ${row.id}`);
     }
   }

@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { earthdawn4eGroupIds } from './definitions';
-import { earthdawnDefinitionById } from './catalog';
+import { earthdawnDefinitionById, earthdawnSources } from './catalog';
 
 const uuid = z.string().uuid();
 const nonnegative = z.number().int().nonnegative();
@@ -20,6 +20,28 @@ const attributeId = z.enum([
   'perception',
   'willpower',
   'charisma',
+]);
+export const magicEffectTarget = z.enum([
+  'attribute.dexterity',
+  'attribute.strength',
+  'attribute.toughness',
+  'attribute.perception',
+  'attribute.willpower',
+  'attribute.charisma',
+  'physicalDefense',
+  'mysticDefense',
+  'socialDefense',
+  'initiative',
+  'physicalArmor',
+  'mysticArmor',
+  'movement',
+  'carryingCapacity',
+  'woundThreshold',
+  'unconsciousness',
+  'death',
+  'recovery',
+  'attack',
+  'damage',
 ]);
 const ranked = nullableSource.extend({
   id: uuid,
@@ -194,6 +216,13 @@ export const earthdawn4eCharacterSchema = z.object({
       action: z.string(),
       strain: nonnegative,
       notes: z.string(),
+      variantKey: z.string().nullable().default(null),
+      association: z.string().default(''),
+      description: z.string().default(''),
+      mechanicsText: z.string().default(''),
+      actionText: z.string().default(''),
+      strainText: z.string().default(''),
+      minimumRankKnown: z.boolean().default(true),
     }),
   ),
   abilities: z.array(
@@ -284,6 +313,8 @@ export const earthdawn4eCharacterSchema = z.object({
         effects: z.string(),
         kind: z.enum(['thread', 'blood', 'pattern']),
         notes: z.string(),
+        modifierTarget: magicEffectTarget.nullable().default(null),
+        modifierValue: z.number().int().default(0),
       }),
     ),
   }),
@@ -530,6 +561,21 @@ const legacyPrice = (costSilver: number) =>
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === 'object' && value !== null && !Array.isArray(value);
 
+const legacyMagicEffectTarget = (value: unknown) => {
+  if (typeof value !== 'string') return null;
+  const normalized = value
+    .trim()
+    .toLocaleLowerCase()
+    .replace(/[^a-z]/g, '');
+  const targets = Object.fromEntries(
+    magicEffectTarget.options.map((target) => [
+      target.toLocaleLowerCase().replace(/[^a-z]/g, ''),
+      target,
+    ]),
+  ) as Record<string, z.infer<typeof magicEffectTarget>>;
+  return targets[normalized] ?? null;
+};
+
 export function migrateEarthdawn4eCharacter(data: unknown) {
   const parsedCurrent = earthdawn4eCharacterSchema.safeParse(data);
   if (parsedCurrent.success) {
@@ -549,8 +595,45 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
             ? legacyPrice(item.costSilver)
             : item.price,
       })),
+      knacks: parsedCurrent.data.knacks.map((knack) => {
+        if (!knack.definitionId || knack.variantKey) return knack;
+        const variants =
+          earthdawnDefinitionById.get(knack.definitionId)?.knackMetadata
+            ?.variants ?? [];
+        const variant =
+          variants.find(
+            (candidate) =>
+              candidate.sourceId === knack.sourceId &&
+              (!knack.association ||
+                candidate.association === knack.association),
+          ) ?? (variants.length === 1 ? variants[0] : undefined);
+        if (!variant) return knack;
+        return {
+          ...knack,
+          sourceId: variant.sourceId,
+          source:
+            earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ??
+            knack.source,
+          page: variant.page,
+          variantKey: variant.key,
+          association: variant.association,
+          description: variant.description,
+          mechanicsText: variant.mechanicsText,
+          action: variant.actionText,
+          actionText: variant.actionText,
+          strain: variant.strainValue ?? 0,
+          strainText: variant.strainText,
+          minimumRank: variant.minimumRank ?? 0,
+          minimumRankKnown: variant.minimumRank != null,
+        };
+      }),
       magic: {
         ...parsedCurrent.data.magic,
+        effects: parsedCurrent.data.magic.effects.map((effect) => ({
+          ...effect,
+          modifierTarget:
+            effect.modifierTarget ?? legacyMagicEffectTarget(effect.target),
+        })),
         spells: parsedCurrent.data.magic.spells.map((spell) => {
           if (!spell.definitionId || spell.variantKey) return spell;
           const definition = earthdawnDefinitionById.get(spell.definitionId);
@@ -843,6 +926,10 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
         (entry) => ({
           ...(isRecord(entry) ? entry : {}),
           rank: isRecord(entry) ? Number(entry.rank ?? 0) : 0,
+          modifierTarget: isRecord(entry)
+            ? legacyMagicEffectTarget(entry.modifierTarget ?? entry.target)
+            : null,
+          modifierValue: isRecord(entry) ? Number(entry.modifierValue ?? 0) : 0,
         }),
       ),
       matrices: (Array.isArray(magic.matrices) ? magic.matrices : []).map(

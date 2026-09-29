@@ -347,6 +347,21 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
     .click();
   const magicEffect = page.locator('#ed4-patterns .sheet-card').last();
   await magicEffect.getByLabel('name').fill('Test effect');
+  const physicalDefense = page
+    .locator('#ed4-characteristics .earthdawn-adjusted-stat')
+    .filter({ hasText: 'Physical Defense' });
+  const physicalDefenseBefore = Number(
+    await physicalDefense.locator('summary strong').textContent(),
+  );
+  await magicEffect.getByLabel('Target').selectOption('physicalDefense');
+  await magicEffect.getByLabel('Bonus / Penalty').fill('2');
+  await expect(physicalDefense.locator('summary strong')).toHaveText(
+    String(physicalDefenseBefore + 2),
+  );
+  await magicEffect.getByText('Effect active').click();
+  await expect(physicalDefense.locator('summary strong')).toHaveText(
+    String(physicalDefenseBefore),
+  );
   page.once('dialog', (dialog) => dialog.accept());
   await magicEffect
     .getByRole('button', { name: 'Remove magic effect' })
