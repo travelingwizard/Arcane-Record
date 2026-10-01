@@ -8,6 +8,7 @@ import {
   exalted1eCharacterSchema,
   migrateExalted1eCharacter,
 } from '../../src/games/exalted1e/schema';
+import { lunarCharmById } from '../../src/games/exalted1e/reference/lunar-powers';
 
 describe('Exalted First Edition Lunar (schema-only; not yet UI-selectable)', () => {
   it('registers lunar as a legal stored sheetType', () => {
@@ -450,7 +451,7 @@ describe('Exalted First Edition Lunar (schema-only; not yet UI-selectable)', () 
     });
   });
 
-  describe('Charms and spells (still unimplemented pending a future Lunar Charm catalog phase)', () => {
+  describe('Charms (real Lunar Charm catalog, Phase 1b)', () => {
     it('validates a blank Lunar character with zero Charm/Combo/spell selections', () => {
       const character = createBlankExaltedCharacter('lunar');
       expect(character.powers.charms).toEqual([]);
@@ -459,7 +460,50 @@ describe('Exalted First Edition Lunar (schema-only; not yet UI-selectable)', () 
       expect(() => exalted1eCharacterSchema.parse(character)).not.toThrow();
     });
 
-    it('rejects any Charm selection on a Lunar sheet (no catalog exists yet)', () => {
+    it('accepts a legal Charm selection, including a satisfied prerequisite chain', () => {
+      // coiled-cobra-stance lists snake-body-technique and
+      // deadly-viper-strike as prerequisiteCharms entries in the real
+      // catalog.
+      expect(
+        lunarCharmById.get('coiled-cobra-stance')?.prerequisiteCharms,
+      ).toEqual(
+        expect.arrayContaining(['snake-body-technique', 'deadly-viper-strike']),
+      );
+      const character = createBlankExaltedCharacter('lunar');
+      const parsed = exalted1eCharacterSchema.parse({
+        ...character,
+        powers: {
+          charms: [
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'snake-body-technique',
+              unresolvedReference: null,
+              notes: '',
+            },
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'deadly-viper-strike',
+              unresolvedReference: null,
+              notes: '',
+            },
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'coiled-cobra-stance',
+              unresolvedReference: null,
+              notes: '',
+            },
+          ],
+          spells: [],
+        },
+      });
+      expect(parsed.powers.charms.map((c) => c.definitionId)).toEqual([
+        'snake-body-technique',
+        'deadly-viper-strike',
+        'coiled-cobra-stance',
+      ]);
+    });
+
+    it('rejects an unknown Charm id', () => {
       const character = createBlankExaltedCharacter('lunar');
       expect(() =>
         exalted1eCharacterSchema.parse({
@@ -479,7 +523,78 @@ describe('Exalted First Edition Lunar (schema-only; not yet UI-selectable)', () 
       ).toThrow();
     });
 
-    it('rejects any spell selection on a Lunar sheet (no catalog exists yet)', () => {
+    it('rejects a Sidereal-only Charm id (Ox-Body Technique, Sidereal variant) on a Lunar sheet', () => {
+      const character = createBlankExaltedCharacter('lunar');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            charms: [
+              {
+                id: crypto.randomUUID(),
+                definitionId: 'ox-body-technique-sidereal',
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+            spells: [],
+          },
+        }),
+      ).toThrow();
+    });
+
+    it('excludes the ten Beastman Transformation "gift" sub-options as independently-selectable Charms', () => {
+      const character = createBlankExaltedCharacter('lunar');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            charms: [
+              {
+                id: crypto.randomUUID(),
+                definitionId: 'horrifying-might',
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+            spells: [],
+          },
+        }),
+      ).toThrow();
+    });
+
+    it('does not enforce minimumEssence/minimumRequirements at the schema layer (matches Dragon-Blooded/Solar/Abyssal/Sidereal scope)', () => {
+      // bitter-mother-tongue requires Minimum Essence 2 per the catalog,
+      // but the schema layer only checks Charm-id validity, so selecting
+      // any valid Essence-2 Charm alone on a fresh (Essence 1) character is
+      // accepted.
+      const essenceTwoCharm = Array.from(lunarCharmById.values()).find(
+        (charm) => charm.minimumEssence === 2,
+      );
+      expect(essenceTwoCharm).toBeDefined();
+      const character = createBlankExaltedCharacter('lunar');
+      expect(character.essence.rating).toBeLessThan(2);
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            charms: [
+              {
+                id: crypto.randomUUID(),
+                definitionId: essenceTwoCharm!.id,
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+            spells: [],
+          },
+        }),
+      ).not.toThrow();
+    });
+  });
+
+  describe('Spells (still unimplemented pending a future Lunar Sorcery spell catalog phase)', () => {
+    it('rejects any spell selection on a Lunar sheet (no spell catalog exists yet)', () => {
       const character = createBlankExaltedCharacter('lunar');
       expect(() =>
         exalted1eCharacterSchema.parse({

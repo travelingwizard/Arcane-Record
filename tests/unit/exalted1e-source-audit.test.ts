@@ -166,19 +166,33 @@ describe('auditFamily against the real repository (current state)', () => {
   });
 
   it('reports Lunar as pending-certification with its real inventory rows and zero audit errors', () => {
-    // `lunar-charms.json`, a raw OCR extraction with garbled ids that don't
-    // match this family's real inventory, lives in
-    // `./reference/ocr-drafts/` specifically so it falls outside this
-    // audit script's `${family}-*.json` promoted-catalog glob (which only
-    // scans `src/games/exalted1e/reference/` directly) -- see
-    // `./reference/family-powers.ts`'s doc comment. This audit therefore
-    // sees Lunar exactly as its real inventory/promotion state: real
-    // inventory rows, nothing promoted yet.
+    // An earlier, pre-governance raw OCR extraction with garbled ids that
+    // don't match this family's real inventory still lives in
+    // `./reference/ocr-drafts/lunar-charms.json` specifically so it falls
+    // outside this audit script's `${family}-*.json` promoted-catalog glob
+    // (which only scans `src/games/exalted1e/reference/` directly, not its
+    // `ocr-drafts/` subdirectory) -- it was never promoted and is kept only
+    // as a historical artifact. Phase 1b's own real, source-checked
+    // `lunar-charms.json` (219 Charms, built from the reviewed inventory,
+    // not that old draft) now lives at the top level and is the one this
+    // audit script counts.
     const report = auditFamily('lunar');
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);
     expect(report.inventoryRows).toBeGreaterThan(0);
-    expect(report.promotedEntries).toBe(0);
+    // 219 = the promoted Charms in lunar-charms.json, as counted directly
+    // from `src/games/exalted1e/reference/lunar-*.json` by this audit
+    // script. This differs from `certification/lunar.json`'s own
+    // `catalog.promotedEntries` (319), which also includes the 100
+    // Phase 1a Backgrounds/Merits-Flaws rows, none of which live in a
+    // `lunar-`-prefixed catalog file (Backgrounds live in `definitions.ts`;
+    // Merits/Flaws live in the shared `dragonblooded-merits-flaws.json`),
+    // so this audit script's file-glob does not count them -- matching
+    // Abyssal's own 333-vs-505 and Sidereal's own 203-vs-370 precedent
+    // above.
+    expect(report.promotedEntries).toBe(219);
+    expect(report.catalogChecksum).toHaveLength(8);
+    expect(report.catalogChecksum).toMatch(/^[0-9a-f]{8}$/);
   });
 
   it('reports Abyssal as pending-certification with its real inventory rows and zero audit errors', () => {
@@ -231,8 +245,10 @@ describe('auditFamily against the real repository (current state)', () => {
   it('reports Alchemical as pending-certification with its real inventory rows and zero audit errors', () => {
     // `alchemical-charms.json`, an OCR extraction with a majority of
     // entries sharing an identical generic description (not real
-    // transcribed mechanics), lives in `./reference/ocr-drafts/` for the
-    // same reason as Lunar's -- see the comment above.
+    // transcribed mechanics), lives in `./reference/ocr-drafts/` so it
+    // falls outside this audit script's `${family}-*.json` promoted-
+    // catalog glob, exactly like Lunar's own pre-Phase-1b draft (see the
+    // comment above) -- Alchemical has no real promoted catalog yet.
     const report = auditFamily('alchemical');
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);
@@ -244,7 +260,10 @@ describe('auditFamily against the real repository (current state)', () => {
   it('reports Fair Folk as pending-certification with its real inventory rows and zero audit errors', () => {
     // `fair-folk-charms.json`, an OCR extraction with several garbled ids
     // that don't match this family's real inventory, lives in
-    // `./reference/ocr-drafts/` for the same reason as Lunar's above.
+    // `./reference/ocr-drafts/` so it falls outside this audit script's
+    // `${family}-*.json` promoted-catalog glob, exactly like Lunar's own
+    // pre-Phase-1b draft (see the comment above) -- Fair Folk has no real
+    // promoted catalog yet.
     const report = auditFamily('fair-folk');
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);

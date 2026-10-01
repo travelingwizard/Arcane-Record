@@ -33,6 +33,7 @@ import {
   siderealSorcerySpellIds,
 } from './reference/sidereal-powers';
 import { siderealAstrologyCollegeIds } from './reference/sidereal-astrology';
+import { lunarCharmIds } from './reference/lunar-powers';
 import { solarCharmIds } from './reference/solar-charms';
 import {
   getSolarTraitRepeatLimit,
@@ -443,10 +444,10 @@ export const exalted1eCharacterSchema = z
       });
     }
     // Every `ExaltedSheetType` gets a real, explicit entry -- an empty
-    // `Set()` for Lunar/Alchemical/Fair Folk, which have no promoted
-    // Charms catalog yet, exactly like `backgroundIdsBySheetType` above.
-    // A blank character of any of these three types validates cleanly
-    // (no Charms/Combos selected); any non-empty selection is explicitly
+    // `Set()` for Alchemical/Fair Folk, which have no promoted Charms
+    // catalog yet, exactly like `backgroundIdsBySheetType` above. A blank
+    // character of either of those two types validates cleanly (no
+    // Charms/Combos selected); any non-empty selection is explicitly
     // rejected as unknown rather than silently accepted.
     const charmIdsBySheetType: Record<ExaltedSheetType, ReadonlySet<string>> = {
       solar: solarCharmIds,
@@ -459,7 +460,15 @@ export const exalted1eCharacterSchema = z
       // The Astrology/Colleges system remains out of scope for this
       // phase; see `siderealCharmIds` in `./reference/sidereal-powers`.
       sidereal: siderealCharmIds,
-      lunar: new Set<string>(),
+      // Phase 1b: 219 Chapter Five Charms (Shapechanging I/II/III, Body
+      // Enhancement I/II, Unarmed Combat, Melee/Ranged Combat, Defensive,
+      // Survival and Healing, Perception, Stealth, Interaction and
+      // Knowledge, Spirit and Sorcery-access) plus the 5 Exalted
+      // Storyteller's Companion Sample Charms; see `lunarCharmIds` in
+      // `./reference/lunar-powers`. The Great Curse/Shapechanging-Forms
+      // subsystem and the 10 Beastman Transformation "gift" sub-options
+      // remain out of scope for this phase.
+      lunar: lunarCharmIds,
       alchemical: new Set<string>(),
       'fair-folk': new Set<string>(),
     };

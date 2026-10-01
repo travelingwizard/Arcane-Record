@@ -192,7 +192,7 @@ real, creatable sheet.
 
 | Family     | Source manifest                                                                                                                                                         | Inventory rows | Promoted                                                                      | Certification                                                                                                                          |
 | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)    | 598            | 100 of 390 promotable (Backgrounds + Merits/Flaws only, Phase 1a)             | Locked, all dimensions `not-run`                                                                                                       |
+| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)    | 598            | 319 of 390 promotable (Backgrounds + Merits/Flaws + Charms, Phase 1a/1b)      | Locked, all dimensions `not-run`                                                                                                       |
 | Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 505 of 505 promotable (catalog dimension complete, Phase 1e)                  | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
 | Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 370 of 370 promotable (catalog dimension complete, Phase: Astrology/Colleges) | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
 | Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 0                                                                             | Locked, all dimensions `not-run`                                                                                                       |
@@ -1034,6 +1034,60 @@ family's own procedural-rules handling. Sidereal now passes every
 per-family test dimension this project tracks (catalog/rules/creator/
 migration); only `browserTests` (no user-facing creation route yet) and
 Phase 6's all-five-families-together rule keep it locked.
+
+With Abyssal and Sidereal's own catalog dimensions complete, work moved to
+Lunar, the next family in the planned build order. Lunar Phase 1a added
+`'lunar'` to `exaltedSheetTypes` (a legal stored `sheetType` for the first
+time, still absent from `definition.tsx`'s selectable `variants`, exactly
+like Abyssal/Sidereal before their own later UI phases) and promoted its
+first two catalog dimensions: 13 Backgrounds (`lunarBackgrounds` in
+definitions.ts — 5 shared ids with Lunar-specific flavor text, 5
+confirmed-unaltered shared ids, and 3 wholly new ids: Cult, Heart's Blood,
+Renown) and 87 of the shared Exalted Players Guide Merits/Flaws catalog's
+92 entries (84 extended with `'lunar'` in `appliesTo` plus 3 wholly new
+Lunar-only entries — Chimera, Limited Forms, and Greater Curse
+(Solar/Lunar) — confirming Lunar's own inventory is the canonical original
+transcription that Abyssal/Sidereal/Alchemical/Fair Folk's own Merits/
+Flaws rows were all derived from). `sharedCostOverrides` gained two
+genuine Lunar-specific discounts named directly in the source text:
+Ambidextrous collapses to a flat 1 point, and Double-Jointed narrows to
+1-2 points. `promotedEntries` rose from 0 to 100.
+
+Lunar Phase 1b promoted its Charms catalog: 219 of the 229 raw Chapter
+Five Charm-page rows (pp. 122-193), plus the Exalted Storyteller's
+Companion's own 5 Sample Charms (Tentacles, Summon Wild Beasts, Acid
+Spit, Mighty Thews, Strides of the Panther), are now a real, Zod-validated
+`lunar-charms.json` catalog plus a `lunar-powers.ts` reference module
+(mirroring `abyssal-powers.ts`/`sidereal-powers.ts`). The remaining 10 rows
+(the Beastman Transformation "gift" sub-options — Horrifying Might,
+Bestial Reflexes, Lightning Speed, Spider-Foot Climbing, Glue-Foot
+Climbing, Gift of Hands, Arm-Array, Terrible Beast Claws, Savage Moonsilver
+Talons, Resilience of Nature) are deliberately excluded: they are a menu
+of passive options selected when purchasing Deadly Beastman Transformation
+itself (which is promoted), not independently-purchasable Charms with
+their own mote cost — a proper "select N gifts" mechanic is deferred to a
+future Great Curse/Shapechanging-Forms subsystem phase. Since no single
+Ability governs every Charm within a Lunar Charm-category (unlike Dragon-
+Blooded/Abyssal/Sidereal), the catalog keeps `category`/`element`/
+`ability`/`style` as fixed placeholders and adds one genuinely new field,
+`charmCategory`, with 15 values derived from the source's own structure
+(Sample Charms, Shapechanging I/II/III, Body Enhancement I/II, Unarmed
+Combat, Melee Combat, Ranged Combat, Defensive, Survival and Healing,
+Perception, Stealth, Interaction and Knowledge, and Spirit and Sorcery),
+summing to exactly 219 rows with none fabricated or guessed. 21 Charms
+carry explicit Combo restrictions or special rules (e.g. Coiled Cobra
+Stance cannot combo with extra-action Charms; Terrestrial/Celestial Circle
+Sorcery can never be part of a Combo), captured in a per-Charm
+`explicitComboRules` override map derived from explicit source-text
+sentences, matching Abyssal's own precedent. `charmIdsBySheetType.lunar`
+in schema.ts now resolves to the real 219-entry `lunarCharmIds` set
+(previously an empty placeholder); Sorcery spells remain a placeholder
+rejection, since this phase promoted Charms only, not the 84 Terrestrial/
+Celestial Circle spell rows already inventoried (a separate future
+sub-phase). `promotedEntries` rose from 100 to 319. Remaining Lunar work:
+the Sorcery spell catalog, the Great Curse/Shapechanging-Forms subsystem,
+an editor UI branch, XP-cost rules, and the full rules/creator/migration/
+browser test evidence this project's certification gate requires.
 
 ## Next steps (require source material per book)
 

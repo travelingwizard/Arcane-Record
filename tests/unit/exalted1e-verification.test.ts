@@ -87,7 +87,7 @@ describe('exalted1e verification gate', () => {
           : family === 'sidereal'
             ? 370
             : family === 'lunar'
-              ? 100
+              ? 319
               : 0,
       );
       if (family === 'abyssal' || family === 'sidereal') {
@@ -115,17 +115,18 @@ describe('exalted1e verification gate', () => {
   it('reflects Lunar source intake in progress without unlocking the family', () => {
     const record = certificationRecords.lunar;
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
-    // 100 = 13 Backgrounds (lunarBackgrounds) + 87 shared Merits/Flaws
-    // catalog rows now carrying 'lunar' in appliesTo (84 extended existing
-    // entries plus 3 wholly new Lunar-only entries) -- Phase 1a only.
-    // Charms/Gifts, Shapechanging/Forms, and the Great Curse remain
-    // unpromoted, so this is far short of both the raw `totalInventoryRows`
-    // (598) and the `promotableEntries` (390) estimate. Even once the
-    // catalog dimension is eventually fully satisfied, `isFamilyAvailable`
-    // must stay false: `browserTests` can't run before the family is
-    // unlocked, and Phase 6's rule requires all five families to reach
-    // `certifiedAt !== null` together.
-    expect(record.catalog.promotedEntries).toBe(100);
+    // 319 = 100 (13 Backgrounds + 87 shared Merits/Flaws catalog rows now
+    // carrying 'lunar' in appliesTo, Phase 1a) + 219 Charms (Phase 1b:
+    // every Chapter Five Charm-page row except the 10 Beastman
+    // Transformation "gift" sub-options, plus the Storyteller's
+    // Companion's 5 Sample Charms). Sorcery spells, Shapechanging/Forms,
+    // and the Great Curse remain unpromoted, so this is far short of both
+    // the raw `totalInventoryRows` (598) and the `promotableEntries` (390)
+    // estimate. Even once the catalog dimension is eventually fully
+    // satisfied, `isFamilyAvailable` must stay false: `browserTests` can't
+    // run before the family is unlocked, and Phase 6's rule requires all
+    // five families to reach `certifiedAt !== null` together.
+    expect(record.catalog.promotedEntries).toBe(319);
     expect(record.catalog.promotableEntries).toBe(390);
     expect(record.catalog.unresolvedEntries).toBe(0);
     expect(isFamilyAvailable('lunar')).toBe(false);
@@ -288,7 +289,7 @@ describe('exalted1e verification gate', () => {
   it('describes a locked family with inventory in progress by its promotion count, not "catalog not started"', () => {
     const status = getFamilyCertificationStatus('lunar');
     expect(status.available).toBe(false);
-    expect(status.blockReason).toContain('100/390 promoted');
+    expect(status.blockReason).toContain('319/390 promoted');
     expect(status.blockReason).toContain('0 unresolved');
     expect(status.blockReason).toContain('rules tests not-run');
   });
