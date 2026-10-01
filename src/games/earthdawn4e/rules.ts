@@ -6,6 +6,10 @@ import {
   type EarthdawnRace,
 } from './catalog';
 import type { Earthdawn4eCharacter } from './schema';
+import {
+  matchingSharingRule,
+  missingSharingPrerequisites,
+} from './matrix-sharing';
 
 export type EarthdawnMatrix = Earthdawn4eCharacter['magic']['matrices'][number];
 
@@ -37,25 +41,77 @@ export function matrixDeathRating(type: EarthdawnMatrix['type']) {
 export function matrixCapacityUsed(
   matrix: EarthdawnMatrix,
   spells: Earthdawn4eCharacter['magic']['spells'],
+  knacks: Earthdawn4eCharacter['knacks'] = [],
 ) {
   const assigned = spells.filter((spell) => matrix.spellIds.includes(spell.id));
-  return matrix.type === 'shared'
-    ? assigned.reduce((sum, spell) => sum + spell.circle, 0)
-    : assigned.length
-      ? Math.max(...assigned.map((spell) => spell.circle))
-      : 0;
+  if (!assigned.length) return 0;
+  if (matrix.type !== 'shared')
+    return Math.max(...assigned.map((spell) => spell.circle));
+  const remaining = [...assigned];
+  let capacity = 0;
+  while (remaining.length) {
+    let groupedIndexes: number[] = [];
+    for (let mask = 1; mask < 1 << remaining.length; mask += 1) {
+      const indexes = remaining.flatMap((_, index) =>
+        mask & (1 << index) ? [index] : [],
+      );
+      if (
+        indexes.length > groupedIndexes.length &&
+        matchingSharingRule(
+          indexes.map((index) => remaining[index]!),
+          knacks,
+        )
+      )
+        groupedIndexes = indexes;
+    }
+    if (groupedIndexes.length > 1) {
+      capacity += Math.max(
+        ...groupedIndexes.map((index) => remaining[index]!.circle),
+      );
+      for (const index of groupedIndexes.sort((a, b) => b - a))
+        remaining.splice(index, 1);
+    } else capacity += remaining.shift()!.circle;
+  }
+  return capacity;
+}
+
+export function canAssignSpellToMatrix(
+  matrix: EarthdawnMatrix,
+  candidate: Earthdawn4eCharacter['magic']['spells'][number],
+  spells: Earthdawn4eCharacter['magic']['spells'],
+  knacks: Earthdawn4eCharacter['knacks'],
+) {
+  if (candidate.circle > matrix.rank) return false;
+  const assigned = spells.filter((spell) => matrix.spellIds.includes(spell.id));
+  if (!assigned.length) return true;
+  const prospective = [...assigned, candidate];
+  if (matrix.type !== 'shared' && !matchingSharingRule(prospective, knacks))
+    return false;
+  const prospectiveMatrix = {
+    ...matrix,
+    spellIds: prospective.map(({ id }) => id),
+  };
+  return matrixCapacityUsed(prospectiveMatrix, spells, knacks) <= matrix.rank;
 }
 
 export function matrixIssues(
   matrix: EarthdawnMatrix,
   spells: Earthdawn4eCharacter['magic']['spells'],
   highestCircle: number,
+  knacks: Earthdawn4eCharacter['knacks'] = [],
 ) {
   const assigned = spells.filter((spell) => matrix.spellIds.includes(spell.id));
   const issues: string[] = [];
-  if (matrix.type !== 'shared' && assigned.length > 1)
-    issues.push('This matrix normally holds one spell.');
-  if (matrixCapacityUsed(matrix, spells) > matrix.rank)
+  if (
+    matrix.type !== 'shared' &&
+    assigned.length > 1 &&
+    !matchingSharingRule(assigned, knacks)
+  )
+    issues.push('These spells are not an allowed matrix-sharing combination.');
+  const missing = missingSharingPrerequisites(assigned, knacks);
+  if (missing.length)
+    issues.push(`Missing matrix-sharing knack: ${missing.join(' and ')}.`);
+  if (matrixCapacityUsed(matrix, spells, knacks) > matrix.rank)
     issues.push('Assigned spell Circles exceed the matrix Rank.');
   if (assigned.some((spell) => spell.circle > highestCircle))
     issues.push('A spell exceeds the magician’s highest Discipline Circle.');

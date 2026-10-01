@@ -263,6 +263,8 @@ export const earthdawn4eCharacterSchema = z.object({
         detailedEffects: z.string().optional(),
         successLevels: z.string().optional(),
         extraThreads: z.string().optional(),
+        formKey: z.string().nullable().optional(),
+        formLabel: z.string().nullable().optional(),
       }),
     ),
     matrices: z.array(
@@ -583,7 +585,7 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
     const normalized = earthdawn4eCharacterSchema.parse({
       ...parsedCurrent.data,
       sources:
-        parsedCurrent.data.sources.defaultsVersion < 1
+        parsedCurrent.data.sources.defaultsVersion < 2
           ? {
               ...parsedCurrent.data.sources,
               enabledSourceIds: [
@@ -592,7 +594,7 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
                   ...earthdawnSources.map(({ id }) => id),
                 ]),
               ],
-              defaultsVersion: 1,
+              defaultsVersion: 2,
             }
           : parsedCurrent.data.sources,
       equipment: parsedCurrent.data.equipment.map((item) => ({
@@ -829,7 +831,7 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
         typeof data.sources.showUnavailable === 'boolean'
           ? data.sources.showUnavailable
           : false,
-      defaultsVersion: 1,
+      defaultsVersion: 2,
     },
     identity: {
       ...identity,

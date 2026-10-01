@@ -222,6 +222,18 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   await expect(
     page.getByRole('searchbox', { name: 'Search catalog' }),
   ).toBeFocused();
+  const compendium = page.getByRole('dialog', { name: 'Earthdawn catalog' });
+  await compendium.getByRole('button', { name: 'Clear all' }).click();
+  await expect(
+    compendium.getByText('Select one or more Catalog sections to browse.'),
+  ).toBeVisible();
+  await compendium.getByLabel('Knacks').check();
+  await compendium.getByRole('searchbox').fill('Assess Intentions');
+  await expect(
+    compendium
+      .locator('.catalog-card')
+      .filter({ hasText: 'Assess Intentions' }),
+  ).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(browseCatalogs).toBeFocused();
   for (const [sectionId, buttonName] of [
@@ -334,7 +346,12 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   await customSkillName.fill('Barsaive Lore');
   await expect(customSkillName).toHaveValue('Barsaive Lore');
   const identity = page.locator('#ed4-identity');
-  await identity.getByRole('button', { name: 'Add Race' }).click();
+  const addRace = identity.getByRole('button', { name: 'Add Race' });
+  await expect(addRace).toHaveClass(/primary-button/);
+  await expect(
+    identity.getByRole('button', { name: 'Add Discipline & Questor' }),
+  ).toHaveClass(/primary-button/);
+  await addRace.click();
   let raceDialog = page.getByRole('dialog', { name: 'Earthdawn catalog' });
   await raceDialog
     .getByRole('article')

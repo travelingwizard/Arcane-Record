@@ -51,7 +51,7 @@ export function createBlankEarthdawn4eCharacter(
           ? earthdawnSources.map(({ id }) => id)
           : readEarthdawnSourceDefaults(),
       showUnavailable: false,
-      defaultsVersion: 1,
+      defaultsVersion: 2,
     },
     disciplines: [],
     questor: {

@@ -59,6 +59,7 @@ import {
   changeWallet,
   formatWallet,
   moneyToCopper,
+  canAssignSpellToMatrix,
   reconcileRace,
   disciplineCircleTraining,
   equivalentTalentCircle,
@@ -84,6 +85,7 @@ import {
   talentRankCost,
   walletTotalCopper,
 } from './rules';
+import { formsForSpell } from './matrix-sharing';
 import {
   EARTHDAWN4E_SCHEMA_VERSION,
   earthdawn4eSectionGroups,
@@ -162,25 +164,48 @@ type SpellChoice = {
   key: string;
   variant: EarthdawnSpellVariant;
   circle: number;
+  formKey: string | null;
+  formLabel: string | null;
 };
 type CatalogView = 'cards' | 'table';
 type CatalogSort = {
   key: string;
   direction: 'asc' | 'desc';
 };
+const compendiumCatalogKinds: readonly EarthdawnCatalogKind[] = [
+  'race',
+  'discipline',
+  'path',
+  'devotion',
+  'talent',
+  'skill',
+  'knack',
+  'spell',
+  'equipment',
+  'weapon',
+  'thread-item',
+  'ability',
+];
+const compendiumKindsPreferenceKey =
+  'arcane-record:earthdawn4e:compendium:kinds';
 const spellChoices = (definition: EarthdawnDefinition): SpellChoice[] =>
   (definition.spellMetadata?.variants ?? []).flatMap((variant) =>
     Array.from(
       { length: variant.circleMax - variant.circleMin + 1 },
       (_, index) => {
         const circle = variant.circleMin + index;
-        return {
-          key: `${variant.sourceId}|${variant.discipline}|${circle}`,
-          variant,
-          circle,
-        };
+        const forms = formsForSpell(definition.name);
+        return (forms.length ? forms : [[null, null] as const]).map(
+          ([formKey, formLabel]) => ({
+            key: `${variant.sourceId}|${variant.discipline}|${circle}|${formKey ?? ''}`,
+            variant,
+            circle,
+            formKey,
+            formLabel,
+          }),
+        );
       },
-    ),
+    ).flat(),
   );
 const spellChoiceLabel = (choice: SpellChoice) => {
   const page = choice.variant.pageStart
@@ -190,10 +215,14 @@ const spellChoiceLabel = (choice: SpellChoice) => {
           : ''
       }`
     : '';
-  return `${choice.variant.discipline} · Circle ${choice.circle}${page}`;
+  return `${choice.variant.discipline} · Circle ${choice.circle}${choice.formLabel ? ` · ${choice.formLabel}` : ''}${page}`;
 };
 const knackVariants = (definition: EarthdawnDefinition) =>
   definition.knackMetadata?.variants ?? [];
+const isAddableReferenceSource = (sourceId: string) =>
+  ['ed4.user-currency-reference', 'ed4.user-matrix-reference'].includes(
+    sourceId,
+  );
 const knackVariantCitation = (
   variant: NonNullable<
     EarthdawnDefinition['knackMetadata']
@@ -674,7 +703,22 @@ export function Earthdawn4eEditor({
     [editingMatrixId, setEditingMatrixId] = useState<string | null>(null),
     [spellbookMode, setSpellbookMode] = useState(false),
     [compendiumKinds, setCompendiumKinds] = useState<Set<EarthdawnCatalogKind>>(
-      new Set(),
+      () => {
+        try {
+          const stored = JSON.parse(
+            localStorage.getItem(compendiumKindsPreferenceKey) ?? 'null',
+          ) as unknown;
+          return new Set(
+            Array.isArray(stored)
+              ? stored.filter((kind): kind is EarthdawnCatalogKind =>
+                  compendiumCatalogKinds.includes(kind as EarthdawnCatalogKind),
+                )
+              : compendiumCatalogKinds,
+          );
+        } catch {
+          return new Set(compendiumCatalogKinds);
+        }
+      },
     ),
     [temporaryModifierTarget, setTemporaryModifierTarget] =
       useState('physicalDefense'),
@@ -729,6 +773,12 @@ export function Earthdawn4eEditor({
     },
     [onRecordChanged, record, repository],
   );
+  useEffect(() => {
+    localStorage.setItem(
+      compendiumKindsPreferenceKey,
+      JSON.stringify([...compendiumKinds]),
+    );
+  }, [compendiumKinds]);
   useEffect(() => {
     if (saveStatus !== 'unsaved') return;
     const timer = window.setTimeout(() => void save(draft), 550);
@@ -1429,6 +1479,8 @@ export function Earthdawn4eEditor({
                 detailedEffects: d.spellMetadata?.description ?? d.summary,
                 successLevels: '',
                 extraThreads: '',
+                formKey: selectedSpellChoice?.formKey ?? null,
+                formLabel: selectedSpellChoice?.formLabel ?? null,
               },
             ],
           },
@@ -2187,9 +2239,7 @@ export function Earthdawn4eEditor({
         }
       }
       const kindMatches =
-        (catalogKind === 'all' &&
-          (compendiumKinds.size === 0 ||
-            compendiumKinds.has(definition.kind))) ||
+        (catalogKind === 'all' && compendiumKinds.has(definition.kind)) ||
         definition.kind === catalogKind ||
         (catalogKind === 'equipment' && definition.kind === 'weapon');
       const sourceMatches =
@@ -2292,7 +2342,7 @@ export function Earthdawn4eEditor({
                 draft.sources.enabledSourceIds.includes(sourceId),
             )
           : draft.sources.enabledSourceIds.includes(definition.sourceId) ||
-            definition.sourceId === 'ed4.user-currency-reference' ||
+            isAddableReferenceSource(definition.sourceId) ||
             definition.spellMetadata?.variants.some(({ sourceId }) =>
               draft.sources.enabledSourceIds.includes(sourceId),
             ));
@@ -3025,7 +3075,7 @@ export function Earthdawn4eEditor({
                       ) : null}
                       <button
                         type="button"
-                        className="secondary-button compact-inline-button"
+                        className="primary-button"
                         onClick={() => openCatalog('race')}
                       >
                         {draft.identity.raceId ? 'Change Race' : 'Add Race'}
@@ -3810,13 +3860,17 @@ export function Earthdawn4eEditor({
                       const matrix = draft.magic.matrices.find((item) =>
                         item.spellIds.includes(spell.id),
                       );
+                      const availableForms = formsForSpell(spell.name);
                       return (
                         <details
                           className="earthdawn-known-spell"
                           key={spell.id}
                         >
                           <summary>
-                            <strong>{spell.name}</strong>
+                            <strong>
+                              {spell.name}
+                              {spell.formLabel ? ` — ${spell.formLabel}` : ''}
+                            </strong>
                             <span>{spell.discipline}</span>
                             <span>Circle {spell.circle}</span>
                             <span>
@@ -3828,6 +3882,53 @@ export function Earthdawn4eEditor({
                               {matrix ? `Matrix: ${matrix.name}` : 'Available'}
                             </span>
                           </summary>
+                          {availableForms.length && !spell.formKey ? (
+                            <SheetField label="Choose spell form">
+                              <select
+                                value=""
+                                onChange={(event) => {
+                                  const form = availableForms.find(
+                                    ([key]) => key === event.target.value,
+                                  );
+                                  if (!form) return;
+                                  update((character) => ({
+                                    ...character,
+                                    magic: {
+                                      ...character.magic,
+                                      spells: character.magic.spells.map(
+                                        (item) =>
+                                          item.id === spell.id
+                                            ? {
+                                                ...item,
+                                                formKey: form[0],
+                                                formLabel: form[1],
+                                                variantKey: `${item.variantKey ?? item.definitionId ?? item.id}|${form[0]}`,
+                                              }
+                                            : item,
+                                      ),
+                                    },
+                                  }));
+                                }}
+                              >
+                                <option value="">Select a form…</option>
+                                {availableForms.map(([key, label]) => (
+                                  <option
+                                    key={key}
+                                    value={key}
+                                    disabled={draft.magic.spells.some(
+                                      (item) =>
+                                        item.id !== spell.id &&
+                                        item.definitionId ===
+                                          spell.definitionId &&
+                                        item.formKey === key,
+                                    )}
+                                  >
+                                    {label}
+                                  </option>
+                                ))}
+                              </select>
+                            </SheetField>
+                          ) : null}
                           <dl className="earthdawn-spell-details">
                             <div>
                               <dt>Threads</dt>
@@ -3944,8 +4045,12 @@ export function Earthdawn4eEditor({
                         <strong>{matrix.name}</strong>
                         <span>
                           Capacity{' '}
-                          {matrixCapacityUsed(matrix, draft.magic.spells)} /{' '}
-                          {matrix.rank}
+                          {matrixCapacityUsed(
+                            matrix,
+                            draft.magic.spells,
+                            draft.knacks,
+                          )}{' '}
+                          / {matrix.rank}
                           {' · '}Damage {matrix.damage} / {matrix.deathRating}
                         </span>
                         <button
@@ -4320,19 +4425,18 @@ export function Earthdawn4eEditor({
                       <SheetField
                         className="earthdawn-matrix-spell-picker"
                         label={
-                          matrix.type === 'shared'
-                            ? 'Add a known spell'
-                            : 'Attuned spell'
+                          matrix.spellIds.length
+                            ? 'Add compatible spell'
+                            : matrix.type === 'shared'
+                              ? 'Add a known spell'
+                              : 'Attuned spell'
                         }
                       >
                         <select
-                          value={
-                            matrix.type === 'shared'
-                              ? ''
-                              : (matrix.spellIds[0] ?? '')
-                          }
+                          value=""
                           onChange={(event) => {
                             const spellId = event.target.value;
+                            if (!spellId) return;
                             update((c) => ({
                               ...c,
                               magic: {
@@ -4340,34 +4444,27 @@ export function Earthdawn4eEditor({
                                 matrices: c.magic.matrices.map((item) =>
                                   item.id !== matrix.id
                                     ? item
-                                    : matrix.type === 'shared'
-                                      ? {
-                                          ...item,
-                                          spellIds: spellId
-                                            ? [
-                                                ...new Set([
-                                                  ...item.spellIds,
-                                                  spellId,
-                                                ]),
-                                              ]
-                                            : item.spellIds,
-                                          spellId:
-                                            (item.spellId ?? spellId) || null,
-                                        }
-                                      : {
-                                          ...item,
-                                          spellIds: spellId ? [spellId] : [],
-                                          spellId: spellId || null,
-                                        },
+                                    : {
+                                        ...item,
+                                        spellIds: [
+                                          ...new Set([
+                                            ...item.spellIds,
+                                            spellId,
+                                          ]),
+                                        ],
+                                        spellId: item.spellId ?? spellId,
+                                      },
                                 ),
                               },
                             }));
                           }}
                         >
                           <option value="">
-                            {matrix.type === 'shared'
-                              ? 'Choose a spell…'
-                              : 'Empty matrix'}
+                            {matrix.spellIds.length
+                              ? 'Choose a compatible spell…'
+                              : matrix.type === 'shared'
+                                ? 'Choose a spell…'
+                                : 'Empty matrix'}
                           </option>
                           {draft.magic.spells
                             .filter((spell) => {
@@ -4379,24 +4476,26 @@ export function Earthdawn4eEditor({
                                 );
                               if (assignedElsewhere) return false;
                               if (matrix.spellIds.includes(spell.id))
-                                return matrix.type !== 'shared';
-                              if (spell.circle > matrix.rank) return false;
-                              return (
-                                matrix.type !== 'shared' ||
-                                matrixCapacityUsed(matrix, draft.magic.spells) +
-                                  spell.circle <=
-                                  matrix.rank
+                                return false;
+                              return canAssignSpellToMatrix(
+                                matrix,
+                                spell,
+                                draft.magic.spells,
+                                draft.knacks,
                               );
                             })
                             .map((spell) => (
                               <option key={spell.id} value={spell.id}>
-                                {spell.name} · {spell.discipline} Circle{' '}
-                                {spell.circle}
+                                {spell.name}
+                                {spell.formLabel
+                                  ? ` — ${spell.formLabel}`
+                                  : ''}{' '}
+                                · {spell.discipline} Circle {spell.circle}
                               </option>
                             ))}
                         </select>
                       </SheetField>
-                      {matrix.type === 'shared' && matrix.spellIds.length ? (
+                      {matrix.spellIds.length ? (
                         <ul className="earthdawn-matrix-attuned-list earthdawn-matrix-attuned-list--positioned">
                           {matrix.spellIds.map((spellId) => {
                             const spell = draft.magic.spells.find(
@@ -4405,7 +4504,11 @@ export function Earthdawn4eEditor({
                             return spell ? (
                               <li key={spellId}>
                                 <span>
-                                  {spell.name} · Circle {spell.circle}
+                                  {spell.name}
+                                  {spell.formLabel
+                                    ? ` — ${spell.formLabel}`
+                                    : ''}{' '}
+                                  · Circle {spell.circle}
                                 </span>
                                 <button
                                   className="text-button"
@@ -4450,6 +4553,7 @@ export function Earthdawn4eEditor({
                             (discipline) => discipline.circle,
                           ),
                         ),
+                        draft.knacks,
                       ).map((issue) => (
                         <p className="sheet-warning" key={issue}>
                           {issue}
@@ -7426,6 +7530,24 @@ export function Earthdawn4eEditor({
                 {catalogKind === 'all' ? (
                   <fieldset className="earthdawn-compendium-kinds">
                     <legend>Catalog sections</legend>
+                    <SheetToolbar>
+                      <button
+                        type="button"
+                        className="secondary-button compact-inline-button"
+                        onClick={() =>
+                          setCompendiumKinds(new Set(compendiumCatalogKinds))
+                        }
+                      >
+                        Select all
+                      </button>
+                      <button
+                        type="button"
+                        className="secondary-button compact-inline-button"
+                        onClick={() => setCompendiumKinds(new Set())}
+                      >
+                        Clear all
+                      </button>
+                    </SheetToolbar>
                     {(
                       [
                         ['race', 'Races'],
@@ -7445,34 +7567,13 @@ export function Earthdawn4eEditor({
                       <label key={kind}>
                         <input
                           type="checkbox"
-                          checked={
-                            compendiumKinds.size === 0 ||
-                            compendiumKinds.has(kind)
-                          }
+                          checked={compendiumKinds.has(kind)}
                           onChange={(event) =>
                             setCompendiumKinds((current) => {
-                              const allKinds = new Set<EarthdawnCatalogKind>([
-                                'race',
-                                'discipline',
-                                'path',
-                                'devotion',
-                                'talent',
-                                'skill',
-                                'knack',
-                                'spell',
-                                'equipment',
-                                'weapon',
-                                'thread-item',
-                                'ability',
-                              ]);
-                              const next = current.size
-                                ? new Set(current)
-                                : allKinds;
+                              const next = new Set(current);
                               if (event.target.checked) next.add(kind);
                               else next.delete(kind);
-                              return next.size === allKinds.size
-                                ? new Set()
-                                : next;
+                              return next;
                             })
                           }
                         />
@@ -7870,13 +7971,11 @@ export function Earthdawn4eEditor({
                             definition.sourceId;
                           const addable =
                             (definition.verification === 'verified' ||
-                              definition.sourceId ===
-                                'ed4.user-currency-reference') &&
+                              isAddableReferenceSource(definition.sourceId)) &&
                             (draft.sources.enabledSourceIds.includes(
                               addableSourceId,
                             ) ||
-                              definition.sourceId ===
-                                'ed4.user-currency-reference');
+                              isAddableReferenceSource(definition.sourceId));
                           return (
                             <tr
                               key={definition.id}
@@ -8307,7 +8406,7 @@ export function Earthdawn4eEditor({
                                   : !repeatableDefinition(d) &&
                                     selectedDefinitionIds.has(d.id)) ||
                               (d.verification !== 'verified' &&
-                                d.sourceId !== 'ed4.user-currency-reference') ||
+                                !isAddableReferenceSource(d.sourceId)) ||
                               (playMode &&
                                 ![
                                   'spell',
@@ -8330,8 +8429,7 @@ export function Earthdawn4eEditor({
                                 : !draft.sources.enabledSourceIds.includes(
                                     selectedKnackVariant?.sourceId ??
                                       d.sourceId,
-                                  ) &&
-                                  d.sourceId !== 'ed4.user-currency-reference')
+                                  ) && !isAddableReferenceSource(d.sourceId))
                             }
                             onClick={() =>
                               addCatalog(
@@ -8372,12 +8470,11 @@ export function Earthdawn4eEditor({
                               className="secondary-button compact-inline-button"
                               disabled={
                                 (d.verification !== 'verified' &&
-                                  d.sourceId !==
-                                    'ed4.user-currency-reference') ||
+                                  !isAddableReferenceSource(d.sourceId)) ||
                                 (!draft.sources.enabledSourceIds.includes(
                                   d.sourceId,
                                 ) &&
-                                  d.sourceId !== 'ed4.user-currency-reference')
+                                  !isAddableReferenceSource(d.sourceId))
                               }
                               onClick={() =>
                                 addCatalog(
@@ -8397,7 +8494,9 @@ export function Earthdawn4eEditor({
                   })}
                   {!visibleCatalog.length ? (
                     <p className="catalog-empty-state">
-                      No entries match the current search and filters.
+                      {catalogKind === 'all' && compendiumKinds.size === 0
+                        ? 'Select one or more Catalog sections to browse.'
+                        : 'No entries match the current search and filters.'}
                     </p>
                   ) : null}
                 </div>

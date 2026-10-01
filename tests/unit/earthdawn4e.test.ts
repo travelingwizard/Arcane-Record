@@ -47,6 +47,7 @@ import {
   knackLearningQuote,
   legendTotals,
   isMatrixTalent,
+  canAssignSpellToMatrix,
   matrixCapacityUsed,
   matrixDeathRating,
   matrixIssues,
@@ -67,6 +68,7 @@ import {
   createCustomDisciplineDraft,
   customDisciplineRepository,
 } from '../../src/games/earthdawn4e/custom-discipline-repository';
+import { matrixSharingRules } from '../../src/games/earthdawn4e/matrix-sharing';
 
 describe('Earthdawn Fourth Edition module', () => {
   it('creates a valid local-first character and complete official source list', () => {
@@ -75,11 +77,11 @@ describe('Earthdawn Fourth Edition module', () => {
       mode: 'edit',
     });
     expect(earthdawn4eCharacterSchema.parse(character)).toEqual(character);
-    expect(earthdawnSources).toHaveLength(12);
+    expect(earthdawnSources).toHaveLength(13);
     expect(character.sources.enabledSourceIds).toEqual(
       earthdawnSources.map(({ id }) => id),
     );
-    expect(character.sources.defaultsVersion).toBe(1);
+    expect(character.sources.defaultsVersion).toBe(2);
     expect(earthdawnRaces).toHaveLength(8);
     expect(earthdawnDisciplines).toHaveLength(15);
     expect(Object.keys(coreTalentOptions)).toHaveLength(15);
@@ -90,7 +92,7 @@ describe('Earthdawn Fourth Edition module', () => {
       expect(coreTalentOptions[discipline.name]?.master).toHaveLength(8);
     }
     expect(earthdawnSpells).toHaveLength(464);
-    expect(earthdawnKnacks).toHaveLength(227);
+    expect(earthdawnKnacks).toHaveLength(238);
     expect(earthdawnThreadItems).toHaveLength(142);
     expect(earthdawnTalents).toHaveLength(450);
     expect(new Set(earthdawnTalents.map(({ id }) => id)).size).toBe(450);
@@ -134,13 +136,13 @@ describe('Earthdawn Fourth Edition module', () => {
           Boolean(threadItemMetadata.inferredKeyKnowledge),
       ),
     ).toBe(true);
-    expect(new Set(earthdawnKnacks.map(({ id }) => id)).size).toBe(227);
+    expect(new Set(earthdawnKnacks.map(({ id }) => id)).size).toBe(238);
     expect(
       earthdawnKnacks.reduce(
         (total, knack) => total + (knack.knackMetadata?.variants.length ?? 0),
         0,
       ),
-    ).toBe(243);
+    ).toBe(254);
     expect(
       new Set(
         earthdawnKnacks.flatMap(
@@ -148,7 +150,7 @@ describe('Earthdawn Fourth Edition module', () => {
             knackMetadata?.variants.map(({ key }) => key) ?? [],
         ),
       ).size,
-    ).toBe(243);
+    ).toBe(254);
     expect(
       new Set(
         earthdawnKnacks.flatMap(
@@ -164,6 +166,7 @@ describe('Earthdawn Fourth Edition module', () => {
         'ed4.travar',
         'ed4.iopos',
         'ed4.questors',
+        'ed4.user-matrix-reference',
       ]),
     );
     expect(
@@ -391,7 +394,7 @@ describe('Earthdawn Fourth Edition module', () => {
     expect(migrated.dice).toMatchObject({ tracking: true, historyLimit: 10 });
     expect(migrated.sources).toMatchObject({
       enabledSourceIds: earthdawnSources.map(({ id }) => id),
-      defaultsVersion: 1,
+      defaultsVersion: 2,
     });
     expect(migrated.magic.effects[0]).toMatchObject({
       target: 'Physical Defense',
@@ -575,6 +578,169 @@ describe('Earthdawn Fourth Edition module', () => {
       active: true,
     });
     expect(migrated.health.basicMode).toBe(true);
+  });
+  it('allows only source-defined spell groups to share non-Shared matrices', () => {
+    const character = createBlankEarthdawn4eCharacter();
+    const spell = (
+      name: string,
+      circle: number,
+      formKey?: string,
+      formLabel?: string,
+    ) => ({
+      id: crypto.randomUUID(),
+      definitionId: null,
+      sourceId: null,
+      source: null,
+      page: null,
+      unresolved: false,
+      name,
+      discipline: 'Illusionist',
+      circle,
+      threads: 0,
+      weaving: '',
+      casting: '',
+      range: '',
+      duration: '',
+      effect: '',
+      learned: true,
+      notes: '',
+      formKey,
+      formLabel,
+    });
+    const matrix = {
+      id: crypto.randomUUID(),
+      name: 'Standard Matrix',
+      type: 'standard' as const,
+      source: '',
+      rank: 8,
+      spellId: null,
+      spellIds: [] as string[],
+      prewovenThreads: 0,
+      damage: 0,
+      deathRating: 10,
+      active: true,
+      temporaryUntil: '',
+      restriction: '',
+      reattuning: { inProgress: false, difficulty: 0, strainPaid: 0 },
+      used: false,
+      notes: '',
+    };
+    const switchSpell = spell('Switch', 5);
+    const trueSwitch = spell('True Switch', 6);
+    const formExchange = spell('Form Exchange', 8);
+    const unrelated = spell('Unrelated Spell', 1);
+    character.magic.spells.push(
+      switchSpell,
+      trueSwitch,
+      formExchange,
+      unrelated,
+    );
+    matrix.spellIds = [switchSpell.id];
+    expect(
+      canAssignSpellToMatrix(
+        matrix,
+        trueSwitch,
+        character.magic.spells,
+        character.knacks,
+      ),
+    ).toBe(false);
+    character.knacks.push({
+      id: crypto.randomUUID(),
+      definitionId: null,
+      sourceId: null,
+      source: null,
+      page: null,
+      unresolved: false,
+      name: 'Squeeze Switch',
+      talentId: null,
+      minimumRank: 0,
+      action: '',
+      strain: 0,
+      notes: '',
+      variantKey: null,
+      association: 'Patterncraft',
+      description: '',
+      mechanicsText: '',
+      actionText: '',
+      strainText: '',
+      minimumRankKnown: false,
+    });
+    expect(
+      canAssignSpellToMatrix(
+        matrix,
+        trueSwitch,
+        character.magic.spells,
+        character.knacks,
+      ),
+    ).toBe(true);
+    matrix.spellIds.push(trueSwitch.id);
+    expect(
+      canAssignSpellToMatrix(
+        matrix,
+        unrelated,
+        character.magic.spells,
+        character.knacks,
+      ),
+    ).toBe(false);
+    expect(
+      canAssignSpellToMatrix(
+        matrix,
+        formExchange,
+        character.magic.spells,
+        character.knacks,
+      ),
+    ).toBe(false);
+    character.knacks.push({
+      ...character.knacks[0]!,
+      id: crypto.randomUUID(),
+      name: 'Squeeze True Switch',
+    });
+    expect(
+      canAssignSpellToMatrix(
+        matrix,
+        formExchange,
+        character.magic.spells,
+        character.knacks,
+      ),
+    ).toBe(true);
+    matrix.spellIds.push(formExchange.id);
+    expect(
+      matrixCapacityUsed(matrix, character.magic.spells, character.knacks),
+    ).toBe(8);
+
+    const air = spell('Resist Element', 1, 'air', 'Air');
+    const fire = spell('Resist Element', 1, 'fire', 'Fire');
+    const formMatrix = { ...matrix, rank: 1, spellIds: [air.id] };
+    character.magic.spells.push(air, fire);
+    expect(
+      canAssignSpellToMatrix(
+        formMatrix,
+        fire,
+        character.magic.spells,
+        character.knacks,
+      ),
+    ).toBe(true);
+
+    expect(matrixSharingRules.map(({ id }) => id)).toEqual(
+      expect.arrayContaining([
+        'ephemeral-bolt',
+        'missiles',
+        'purification',
+        'blazing-fists',
+        'encoded-communique',
+        'phantom-astral-spear',
+        'phantom-crow-tear',
+        'phantom-espagra-frenzy',
+        'phantom-fireball',
+        'phantom-flame',
+        'phantom-lightning',
+        'phantom-liquid-arrow',
+        'phantom-star-shower',
+        'switch-pair',
+        'true-switch-pair',
+        'switch-trio',
+      ]),
+    );
   });
   it('grants and advances the two free magician matrices', () => {
     const character = createBlankEarthdawn4eCharacter();

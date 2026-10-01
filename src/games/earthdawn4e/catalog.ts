@@ -161,6 +161,12 @@ export const earthdawnSources: EarthdawnSource[] = [
     shortTitle: 'Currency Reference',
     required: false,
   },
+  {
+    id: 'ed4.user-matrix-reference',
+    title: 'User-supplied Earthdawn Matrix Reference',
+    shortTitle: 'Matrix Reference',
+    required: false,
+  },
 ];
 const slug = (name: string) =>
   name
@@ -986,7 +992,7 @@ const shieldEntries = (
       }),
     }),
   );
-export const earthdawnKnacks: EarthdawnDefinition[] =
+const generatedEarthdawnKnacks: EarthdawnDefinition[] =
   earthdawnKnackReference.map((reference) => {
     const primary =
       reference.variants.find(({ sourceId }) => sourceId === 'ed4.companion') ??
@@ -1009,6 +1015,60 @@ export const earthdawnKnacks: EarthdawnDefinition[] =
       knackMetadata: { variants: reference.variants },
     };
   });
+const matrixSharingKnackNames = [
+  'Encoded Communique',
+  'Squeeze Phantom Astral Spear',
+  'Squeeze Phantom Crow Tear',
+  'Squeeze Phantom Espagra Frenzy',
+  'Squeeze Phantom Fireball',
+  'Squeeze Phantom Flame',
+  'Squeeze Phantom Lightning',
+  'Squeeze Phantom Liquid Arrow',
+  'Squeeze Phantom Star Shower',
+  'Squeeze Switch',
+  'Squeeze True Switch',
+] as const;
+const matrixSharingKnacks: EarthdawnDefinition[] = matrixSharingKnackNames.map(
+  (name) => {
+    const sourceId = 'ed4.user-matrix-reference';
+    const description = `${name} enables the specific spell-matrix sharing combination described by the supplied Earthdawn matrix reference.`;
+    return {
+      id: `${sourceId}.knack.${slug(name)}`,
+      kind: 'knack',
+      name,
+      summary: description,
+      mechanics:
+        'Exact Rank, action, Strain, page, and advancement requirements are unavailable; handle learning manually or through recorded GM Override.',
+      requirements: ['Patterncraft; exact Rank unavailable'],
+      aliases: [],
+      sourceId,
+      source: 'User-supplied Earthdawn Matrix Reference',
+      page: null,
+      verification: 'reference-only',
+      knackMetadata: {
+        variants: [
+          {
+            key: `${sourceId}:${slug(name)}:patterncraft`,
+            association: 'Patterncraft',
+            description,
+            mechanicsText:
+              'Exact Rank, action, Strain, page, and advancement requirements are unavailable.',
+            minimumRank: null,
+            actionText: '',
+            strainText: '',
+            strainValue: null,
+            sourceId,
+            page: null,
+          },
+        ],
+      },
+    };
+  },
+);
+export const earthdawnKnacks: EarthdawnDefinition[] = [
+  ...generatedEarthdawnKnacks,
+  ...matrixSharingKnacks,
+];
 const companionThreadItems: EarthdawnDefinition[] = companionThreadItemRows.map(
   ([name, page]) => ({
     ...entry(
