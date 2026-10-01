@@ -30,7 +30,7 @@ export const exaltedTraitDefinitionSchema = z.object({
   source: sourceSchema,
   edition: z.literal('Exalted First Edition'),
   appliesTo: z
-    .array(z.enum(['solar', 'dragon-blooded', 'abyssal', 'sidereal']))
+    .array(z.enum(['solar', 'dragon-blooded', 'abyssal', 'sidereal', 'lunar']))
     .min(1),
   notes: z.array(z.string()),
   reviewStatus: z.enum(['source-checked', 'needs-review']),
@@ -38,21 +38,23 @@ export const exaltedTraitDefinitionSchema = z.object({
 
 /**
  * Every entry in this shared catalog must apply to at least one of the
- * three splats that currently draw from it (Dragon-Blooded, Abyssal, or
- * Sidereal). A handful of entries apply only to Abyssal (e.g. Death-Taint)
- * or only to Sidereal (e.g. Greater Curse (Sidereal)), because the source
- * chapter explicitly restricts them away from Dragon-Blooded (and, for the
- * Sidereal-only entries, away from Abyssal too).
+ * four splats that currently draw from it (Dragon-Blooded, Abyssal,
+ * Sidereal, or Lunar). A handful of entries apply only to one splat (e.g.
+ * Death-Taint for Abyssal; Chimera and Limited Forms for Lunar; Greater
+ * Curse (Sidereal) for Sidereal), because the source chapter explicitly
+ * restricts them away from Dragon-Blooded (and, for the splat-exclusive
+ * entries, away from every other drawing splat too).
  */
 export const dragonBloodedTraitDefinitionSchema =
   exaltedTraitDefinitionSchema.refine(
     (definition) =>
       definition.appliesTo.includes('dragon-blooded') ||
       definition.appliesTo.includes('abyssal') ||
-      definition.appliesTo.includes('sidereal'),
+      definition.appliesTo.includes('sidereal') ||
+      definition.appliesTo.includes('lunar'),
     {
       message:
-        'Shared catalog definitions must apply to Dragon-Blooded, Abyssal, or Sidereal.',
+        'Shared catalog definitions must apply to Dragon-Blooded, Abyssal, Sidereal, or Lunar.',
     },
   );
 
@@ -79,12 +81,12 @@ const catalogSchema = z
     characterType: z.literal('shared'),
     catalogType: z.literal('merits-and-flaws'),
     counts: z.object({
-      total: z.literal(89),
+      total: z.literal(92),
       merits: z.literal(43),
-      flaws: z.literal(46),
+      flaws: z.literal(49),
     }),
     sourcePolicy: z.string().min(1),
-    entries: z.array(dragonBloodedTraitDefinitionSchema).length(89),
+    entries: z.array(dragonBloodedTraitDefinitionSchema).length(92),
     excludedForDragonBlooded: z.array(excludedTraitSchema),
   })
   .superRefine((catalog, context) => {
@@ -166,6 +168,20 @@ export const abyssalOnlyTraits = dragonBloodedTraits.filter((definition) =>
  */
 export const siderealOnlyTraits = dragonBloodedTraits.filter((definition) =>
   definition.appliesTo.includes('sidereal'),
+);
+
+/**
+ * The subset of this shared catalog that actually applies to Lunar
+ * characters, mirroring `siderealOnlyTraits` exactly. Includes both the
+ * broadly-shared entries (e.g. Selective Conception) and the Lunar-only
+ * entries (Chimera, Limited Forms, Greater Curse (Solar/Lunar)) whose
+ * `appliesTo` excludes Dragon-Blooded, Abyssal, and Sidereal, plus the two
+ * entries renamed from their former "(Sidereal)" suffix once Lunar's own
+ * inventory confirmed they are genuinely Celestial-Exalted-wide (Terrestrial
+ * Bloodline (Celestial Exalted), Known Anathema (Celestial Exalted)).
+ */
+export const lunarOnlyTraits = dragonBloodedTraits.filter((definition) =>
+  definition.appliesTo.includes('lunar'),
 );
 export const excludedDragonBloodedTraitNames = new Set(
   dragonBloodedTraitCatalog.excludedForDragonBlooded.map(({ name }) => name),
@@ -317,38 +333,47 @@ export function isLegalDragonBloodedTraitCost(
  * is just the special case where that list happens to be a subset of the
  * base range (e.g. Destiny's `[1, 2]` out of the base `[1, 2, 3, 4, 5]`).
  * Keyed by definition id, then by the non-Dragon-Blooded sheet type.
+ * Lunar's own two entries (Ambidextrous, Double-Jointed) are genuine cost
+ * discounts named for Lunars directly in the source text -- not a
+ * reinterpretation, unlike Abyssal/Sidereal's overrides above.
  */
 const sharedCostOverrides: Record<
   string,
-  Partial<Record<'abyssal' | 'sidereal', number[]>>
+  Partial<Record<'abyssal' | 'sidereal' | 'lunar', number[]>>
 > = {
   destiny: { abyssal: [1, 2], sidereal: [1, 2] },
   lucky: { sidereal: [1, 2, 3] },
   'permanent-caste-mark': { sidereal: [1] },
   'prescient-dreamer': { sidereal: [2] },
+  ambidextrous: { lunar: [1] },
+  'double-jointed': { lunar: [1, 2] },
 };
 
 /**
  * Splat-agnostic wrapper around `isLegalDragonBloodedTraitCost` for the
- * shared catalog. Dragon-Blooded behavior is unchanged; Abyssal and
- * Sidereal additionally enforce `sharedCostOverrides` where one exists for
+ * shared catalog. Dragon-Blooded behavior is unchanged; Abyssal, Sidereal,
+ * and Lunar additionally enforce `sharedCostOverrides` where one exists for
  * the definition, which fully replaces (not just narrows) the base
  * Dragon-Blooded-derived legal cost set for that sheet type/definition.
  */
 export function isLegalSharedTraitCost(
   definition: DragonBloodedTraitDefinition,
   chosenCost: number,
-  // Widened to every non-Solar `ExaltedSheetType` (not just the three that
+  // Widened to every non-Solar `ExaltedSheetType` (not just the four that
   // actually draw from this shared catalog today) so callers in
   // `schema.ts` can pass `character.sheetType` directly after that widened
-  // to seven planned families. Lunar/Alchemical/Fair Folk never reach the
+  // to seven planned families. Alchemical/Fair Folk never reach the
   // `sharedCostOverrides` branch below in practice, since `appliesTo`
   // never includes them and `schema.ts` only calls this once a matching
   // `definition` has already been found for the sheet type.
   sheetType: Exclude<ExaltedSheetType, 'solar'>,
 ) {
   if (!Number.isInteger(chosenCost)) return false;
-  if (sheetType === 'abyssal' || sheetType === 'sidereal') {
+  if (
+    sheetType === 'abyssal' ||
+    sheetType === 'sidereal' ||
+    sheetType === 'lunar'
+  ) {
     const override = sharedCostOverrides[definition.id]?.[sheetType];
     if (override !== undefined) return override.includes(chosenCost);
   }
@@ -360,22 +385,26 @@ export function isLegalSharedTraitCost(
  * `isLegalSharedTraitCost`'s legality check), for UI consumers whose cost
  * dropdown/formula input is driven by a `TraitCostPolicy` rather than a
  * pass/fail check. Dragon-Blooded gets the exact same policy as
- * `getDragonBloodedTraitCostPolicy` (byte-for-byte unchanged); Abyssal and
- * Sidereal each get their own `sharedCostOverrides` entry (if one exists
- * for the definition) as a complete `options`-kind replacement policy, so
- * the UI's own dropdown (not just schema validation) only ever offers
- * legal choices for that sheet type — e.g. Destiny narrows from
- * `[1, 2, 3, 4, 5]` to `[1, 2]` for both Abyssal and Sidereal, while
- * Permanent Caste Mark replaces Sidereal's policy with the wholly
- * out-of-base-range `[1]`. `formula`/`open` policies, and definitions with
- * no override entry, pass through `getDragonBloodedTraitCostPolicy`
- * unchanged.
+ * `getDragonBloodedTraitCostPolicy` (byte-for-byte unchanged); Abyssal,
+ * Sidereal, and Lunar each get their own `sharedCostOverrides` entry (if
+ * one exists for the definition) as a complete `options`-kind replacement
+ * policy, so the UI's own dropdown (not just schema validation) only ever
+ * offers legal choices for that sheet type — e.g. Destiny narrows from
+ * `[1, 2, 3, 4, 5]` to `[1, 2]` for both Abyssal and Sidereal, Permanent
+ * Caste Mark replaces Sidereal's policy with the wholly out-of-base-range
+ * `[1]`, and Ambidextrous collapses Lunar's policy to the flat `[1]`.
+ * `formula`/`open` policies, and definitions with no override entry, pass
+ * through `getDragonBloodedTraitCostPolicy` unchanged.
  */
 export function getSharedTraitCostPolicy(
   definition: DragonBloodedTraitDefinition,
   sheetType: Exclude<ExaltedSheetType, 'solar'>,
 ): TraitCostPolicy {
-  if (sheetType === 'abyssal' || sheetType === 'sidereal') {
+  if (
+    sheetType === 'abyssal' ||
+    sheetType === 'sidereal' ||
+    sheetType === 'lunar'
+  ) {
     const override = sharedCostOverrides[definition.id]?.[sheetType];
     if (override !== undefined) return { kind: 'options', options: override };
   }

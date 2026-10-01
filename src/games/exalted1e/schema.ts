@@ -7,6 +7,7 @@ import {
   exaltedSectionGroupIds,
   exaltedSheetTypes,
   exaltedVirtues,
+  lunarBackgrounds,
   siderealBackgrounds,
   solarBackgrounds,
   type ExaltedSectionGroupId,
@@ -109,23 +110,26 @@ const abyssalBackgroundIds = new Set<string>(
 const siderealBackgroundIds = new Set<string>(
   siderealBackgrounds.map((background) => background.id),
 );
+const lunarBackgroundIds = new Set<string>(
+  lunarBackgrounds.map((background) => background.id),
+);
 /**
  * Every `ExaltedSheetType` (now all seven planned families, since
  * `exaltedSheetTypes` widened to re-export `exaltedCharacterTypes` from
  * `profiles.ts`) gets a real, explicit entry here -- an empty `Set()` for
- * Lunar/Alchemical/Fair Folk, which have no promoted Backgrounds catalog
- * yet, rather than a `null`/unrestricted fallback. This keeps the
- * `superRefine` check below correctly rejecting any Background selection
- * for those three families, instead of silently accepting arbitrary
- * strings, matching the same explicit-empty-set precedent already used
- * for `charmIdsBySheetType`.
+ * Alchemical/Fair Folk, which have no promoted Backgrounds catalog yet,
+ * rather than a `null`/unrestricted fallback. This keeps the `superRefine`
+ * check below correctly rejecting any Background selection for those two
+ * families, instead of silently accepting arbitrary strings, matching the
+ * same explicit-empty-set precedent already used for `charmIdsBySheetType`.
+ * Lunar (Phase 1a) now has a real 13-entry `lunarBackgrounds` catalog.
  */
 const backgroundIdsBySheetType: Record<ExaltedSheetType, Set<string>> = {
   solar: solarBackgroundIds,
   'dragon-blooded': dragonBloodedBackgroundIds,
   abyssal: abyssalBackgroundIds,
   sidereal: siderealBackgroundIds,
-  lunar: new Set<string>(),
+  lunar: lunarBackgroundIds,
   alchemical: new Set<string>(),
   'fair-folk': new Set<string>(),
 };
@@ -587,10 +591,10 @@ export const exalted1eCharacterSchema = z
       const definitionCounts = new Map<string, number>();
       selections.forEach((selection, index) => {
         // Solar has its own dedicated catalog; every other sheet type
-        // (Dragon-Blooded, Abyssal, Sidereal today; Lunar, Alchemical,
-        // and Fair Folk once/if they ever draw from this catalog) looks
-        // up the shared catalog (`sharedTraitById`), gated by each
-        // entry's own `appliesTo` list. No early-return for unimplemented
+        // (Dragon-Blooded, Abyssal, Sidereal, Lunar today; Alchemical and
+        // Fair Folk once/if they ever draw from this catalog) looks up
+        // the shared catalog (`sharedTraitById`), gated by each entry's
+        // own `appliesTo` list. No early-return for unimplemented
         // families is needed here: `appliesTo` simply never includes
         // them yet, so the lookup below naturally rejects any selection
         // for those sheet types as an unknown definition.
@@ -602,11 +606,11 @@ export const exalted1eCharacterSchema = z
           definition !== undefined &&
           // `appliesTo` is typed over the narrower set of sheet types this
           // shared catalog actually covers (solar/dragon-blooded/abyssal/
-          // sidereal); widened to a plain string comparison so this
+          // sidereal/lunar); widened to a plain string comparison so this
           // compiles against the full seven-member `ExaltedSheetType`
-          // without narrowing `character.sheetType` first. Lunar/
-          // Alchemical/Fair Folk simply never appear in any entry's
-          // `appliesTo`, so this naturally evaluates to `false` for them.
+          // without narrowing `character.sheetType` first. Alchemical/
+          // Fair Folk simply never appear in any entry's `appliesTo`, so
+          // this naturally evaluates to `false` for them.
           (definition.appliesTo as readonly string[]).includes(
             character.sheetType,
           );

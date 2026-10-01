@@ -9,6 +9,7 @@ import {
   getSharedTraitCostPolicy,
   isLegalDragonBloodedTraitCost,
   isLegalSharedTraitCost,
+  lunarOnlyTraits,
   matchesDragonBloodedTraitSearch,
   siderealOnlyTraits,
 } from '../../src/games/exalted1e/reference/dragonblooded-merits-flaws';
@@ -23,8 +24,8 @@ const dragonBloodedOnlyTraits = dragonBloodedTraits.filter((definition) =>
 
 describe('Dragon-Blooded Merits and Flaws catalog', () => {
   it('loads all selectable entries with unique stable IDs', () => {
-    expect(dragonBloodedTraits).toHaveLength(89);
-    expect(dragonBloodedTraitIds.size).toBe(89);
+    expect(dragonBloodedTraits).toHaveLength(92);
+    expect(dragonBloodedTraitIds.size).toBe(92);
     expect(dragonBloodedOnlyTraits).toHaveLength(80);
     expect(
       dragonBloodedOnlyTraits.filter(({ kind }) => kind === 'merit'),
@@ -257,5 +258,68 @@ describe('siderealOnlyTraits (shared catalog subset for Sidereal)', () => {
         (definition) => definition.id === 'selective-conception',
       ),
     ).toBe(true);
+  });
+});
+
+describe('lunarOnlyTraits (shared catalog subset for Lunar)', () => {
+  it('includes only entries whose appliesTo covers Lunar', () => {
+    expect(lunarOnlyTraits.length).toBeGreaterThan(0);
+    for (const definition of lunarOnlyTraits) {
+      expect(definition.appliesTo).toContain('lunar');
+    }
+  });
+
+  it('has 87 entries, matching Lunar Phase 1a promotion', () => {
+    expect(lunarOnlyTraits).toHaveLength(87);
+    expect(lunarOnlyTraits.filter(({ kind }) => kind === 'merit')).toHaveLength(
+      40,
+    );
+    expect(lunarOnlyTraits.filter(({ kind }) => kind === 'flaw')).toHaveLength(
+      47,
+    );
+  });
+
+  it('includes the wholly new Lunar-only entries (Chimera, Limited Forms, Greater Curse)', () => {
+    const lunarOnlyIds = new Set(lunarOnlyTraits.map(({ id }) => id));
+    for (const id of ['chimera', 'limited-forms', 'greater-curse-lunar']) {
+      expect(lunarOnlyIds.has(id)).toBe(true);
+    }
+  });
+
+  it('excludes Dragon-Blooded-only entries that do not apply to Lunar (Prodigy, Legendary Breeding)', () => {
+    for (const id of ['prodigy', 'taints-warning', 'legendary-breeding']) {
+      expect(lunarOnlyTraits.some((definition) => definition.id === id)).toBe(
+        false,
+      );
+    }
+  });
+
+  it('includes the two entries renamed from their former "(Sidereal)"-only naming once reclassified as Celestial-Exalted-wide', () => {
+    const lunarOnlyIds = new Set(lunarOnlyTraits.map(({ id }) => id));
+    for (const id of [
+      'terrestrial-bloodline-sidereal',
+      'known-anathema-sidereal',
+    ]) {
+      expect(lunarOnlyIds.has(id)).toBe(true);
+      const definition = dragonBloodedTraitById.get(id)!;
+      expect(definition.appliesTo).toContain('sidereal');
+      expect(definition.appliesTo).toContain('lunar');
+    }
+  });
+
+  it("overrides Ambidextrous's cost to a flat 1 point and Double-Jointed's to 1 or 2 points for Lunar", () => {
+    const ambidextrous = dragonBloodedTraitById.get('ambidextrous')!;
+    expect(getSharedTraitCostPolicy(ambidextrous, 'lunar')).toEqual({
+      kind: 'options',
+      options: [1],
+    });
+    expect(isLegalSharedTraitCost(ambidextrous, 1, 'lunar')).toBe(true);
+
+    const doubleJointed = dragonBloodedTraitById.get('double-jointed')!;
+    expect(getSharedTraitCostPolicy(doubleJointed, 'lunar')).toEqual({
+      kind: 'options',
+      options: [1, 2],
+    });
+    expect(isLegalSharedTraitCost(doubleJointed, 3, 'lunar')).toBe(false);
   });
 });

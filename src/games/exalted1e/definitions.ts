@@ -463,11 +463,41 @@ export const siderealBackgrounds = [
   { id: 'sifu', label: 'Sifu' },
 ] as const;
 
+/**
+ * Backgrounds available to Lunar characters. Exalted: The Lunars' Chapter
+ * Four ('Altered Backgrounds' / 'New Backgrounds') reuses all ten of
+ * Solar's shared, splat-neutral ids verbatim -- five of them (Artifact,
+ * Backing, Followers, Manse, Mentor) get their own dedicated "altered"
+ * inventory row describing how the Background plays differently for a
+ * Lunar (e.g. Mentor is re-flavored around closeness to the character's
+ * Silver Pact elder-mentor), while the other five (Allies, Contacts,
+ * Familiar, Influence, Resources) are confirmed unaltered by the source
+ * text -- plus three wholly new ids the same chapter adds: Cult, Heart's
+ * Blood, and Renown (a bonus-point grant into the separate Renown Trait;
+ * Casteless Lunars may not take it).
+ */
+export const lunarBackgrounds = [
+  { id: 'allies', label: 'Allies' },
+  { id: 'artifact', label: 'Artifact' },
+  { id: 'backing', label: 'Backing' },
+  { id: 'contacts', label: 'Contacts' },
+  { id: 'familiar', label: 'Familiar' },
+  { id: 'followers', label: 'Followers' },
+  { id: 'influence', label: 'Influence' },
+  { id: 'manse', label: 'Manse' },
+  { id: 'mentor', label: 'Mentor' },
+  { id: 'resources', label: 'Resources' },
+  { id: 'cult', label: 'Cult' },
+  { id: 'hearts-blood', label: "Heart's Blood" },
+  { id: 'renown', label: 'Renown' },
+] as const;
+
 export type ExaltedBackgroundId =
   | (typeof solarBackgrounds)[number]['id']
   | (typeof dragonBloodedBackgrounds)[number]['id']
   | (typeof abyssalBackgrounds)[number]['id']
-  | (typeof siderealBackgrounds)[number]['id'];
+  | (typeof siderealBackgrounds)[number]['id']
+  | (typeof lunarBackgrounds)[number]['id'];
 
 export const abilityById = new Map(
   exaltedAbilities.map((ability) => [ability.id, ability]),
