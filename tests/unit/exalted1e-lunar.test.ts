@@ -594,8 +594,35 @@ describe('Exalted First Edition Lunar (schema-only; not yet UI-selectable)', () 
     });
   });
 
-  describe('Spells (still unimplemented pending a future Lunar Sorcery spell catalog phase)', () => {
-    it('rejects any spell selection on a Lunar sheet (no spell catalog exists yet)', () => {
+  describe('Spells (real Lunar Sorcery spell catalog, Phase 1d)', () => {
+    it('validates a blank Lunar character with zero spell selections', () => {
+      const character = createBlankExaltedCharacter('lunar');
+      expect(character.powers.spells).toEqual([]);
+      expect(() => exalted1eCharacterSchema.parse(character)).not.toThrow();
+    });
+
+    it('accepts a legal, promoted Sorcery spell id (reused from the shared Dragon-Blooded catalog)', () => {
+      const character = createBlankExaltedCharacter('lunar');
+      const parsed = exalted1eCharacterSchema.parse({
+        ...character,
+        powers: {
+          charms: [],
+          spells: [
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'internal-flame',
+              unresolvedReference: null,
+              notes: '',
+            },
+          ],
+        },
+      });
+      expect(parsed.powers.spells.map((s) => s.definitionId)).toEqual([
+        'internal-flame',
+      ]);
+    });
+
+    it('rejects an unknown spell id', () => {
       const character = createBlankExaltedCharacter('lunar');
       expect(() =>
         exalted1eCharacterSchema.parse({
@@ -612,7 +639,51 @@ describe('Exalted First Edition Lunar (schema-only; not yet UI-selectable)', () 
             ],
           },
         }),
-      ).toThrow(/no lunar spell catalog exists yet/i);
+      ).toThrow(/unknown lunar spell definition/i);
+    });
+
+    it('rejects a still-unreviewed Sorcery spell id (e.g. Bone Lion), since it is not yet promoted', () => {
+      const character = createBlankExaltedCharacter('lunar');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            charms: [],
+            spells: [
+              {
+                id: crypto.randomUUID(),
+                definitionId: 'bone-lion',
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+          },
+        }),
+      ).toThrow(/unknown lunar spell definition/i);
+    });
+
+    it("rejects a Dragon-Blooded-legal Terrestrial spell id that Lunar's own inventory never included", () => {
+      // dragonBloodedSpellIds (Terrestrial-only, 99 ids) is a superset of
+      // Lunar's own 86-row inventory -- the Lunar branch must not
+      // silently fall through to the Dragon-Blooded check below it and
+      // wrongly accept a spell Lunar's own source text never lists.
+      const character = createBlankExaltedCharacter('lunar');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            charms: [],
+            spells: [
+              {
+                id: crypto.randomUUID(),
+                definitionId: 'assassin-s-fatal-touch',
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+          },
+        }),
+      ).toThrow(/unknown lunar spell definition/i);
     });
   });
 

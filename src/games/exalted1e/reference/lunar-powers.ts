@@ -1,7 +1,10 @@
 import { z } from 'zod';
 import charmData from './lunar-charms.json';
 import type { CharmComboRules } from '../shared/combos/types';
-import type { PowerReviewStatus } from './dragonblooded-powers';
+import {
+  sharedSorcerySpellById,
+  type PowerReviewStatus,
+} from './dragonblooded-powers';
 
 /**
  * Lunar's own Charm-category organizing principle (Exalted: The Lunars,
@@ -276,3 +279,153 @@ export const lunarCharmById = new Map(
   lunarCharms.map((definition) => [definition.id, definition]),
 );
 export const lunarCharmIds = new Set(lunarCharmById.keys());
+
+/**
+ * Phase 1d: the 73 Sorcery spell ids (disposition `selectable` AND
+ * verificationState `reviewed`) that Lunar's own inventory confirms, out
+ * of 86 total spell rows found there (84 from the Savant and Sorcerer/
+ * Book of Three Circles pass, plus 2 added by a later Blood and Salt
+ * pass: Song of the Lintha, Water's Ally). Every one of them turned out
+ * to already exist, name-for-name and mechanics-for-mechanics, in the
+ * existing shared `dragonblooded-sorcery.json` catalog (see
+ * `sharedSorcerySpellById` in `dragonblooded-powers.ts`) -- exactly the
+ * same good outcome, and (since Lunar and Sidereal both inventory the
+ * same Savant and Sorcerer chapter) the exact same 13 excluded rows,
+ * that Sidereal's own Phase 2b found for its 73 spells (see
+ * `siderealSorcerySpellIds`/`siderealUnreviewedExcludedSpellIds` in
+ * `sidereal-powers.ts`). No new spell rows were appended to
+ * `dragonblooded-sorcery.json` this phase, and no Lunar-only spell
+ * catalog file was created; this is simply the subset of the shared
+ * catalog that this promotion pass confirmed Lunar has access to via its
+ * own `terrestrial-circle-sorcery`/`celestial-circle-sorcery` enabling
+ * Charms (see `lunarCharms` above). Every id below is asserted, at
+ * module load time, to actually exist in the shared catalog, so a future
+ * refactor of `dragonblooded-sorcery.json` cannot silently break this
+ * list.
+ */
+export const lunarSorcerySpellIds = new Set<string>([
+  'becoming-the-wood-friend',
+  'between-the-minute-and-the-hour',
+  'blood-lash',
+  'burning-eyes-of-the-offender',
+  'calling-the-wind-s-kiss',
+  'cantata-of-empty-voices',
+  'cloud-trapeze',
+  'commanding-the-beasts',
+  'conjuring-the-azure-chariot',
+  'corrupted-words',
+  'curse-of-slavish-humility',
+  'disguise-of-the-new-face',
+  'emerald-circle-banishment',
+  'eternal-crystalline-encasement',
+  'eye-of-alliance',
+  'flight-of-separation',
+  'flight-of-the-brilliant-raptor',
+  'flying-guillotine',
+  'food-from-the-aerial-table',
+  'force-of-lifes-summer',
+  'fugue-of-truth',
+  'geyser-of-corruption',
+  'hideous-confusion-of-tongues',
+  'hypnotic-piping',
+  'incantation-of-spiritual-discretion',
+  'insidious-tendrils-of-hate',
+  'internal-flame',
+  'ivory-orchid-pavilion',
+  'lightning-spider',
+  'magma-kraken',
+  'manifestations-of-vigorous-design',
+  'mast-shattering-spell',
+  'mercurys-deliverance',
+  'mists-of-eventide',
+  'outside-worlds-within',
+  'paralyzing-contradiction',
+  'peacock-shadow-eyes',
+  'personal-tempest',
+  'private-plaza-of-downcast-eyes',
+  'river-of-blood',
+  'rolling-earth-carpet',
+  'shadow-summons',
+  'shadow-theft',
+  'shadows-of-the-ancient-past',
+  'silent-words-of-dreams-and-nightmares',
+  'sleep-of-stony-safety',
+  'song-of-the-lintha',
+  'sorcerer-s-irresistible-puppetry',
+  'spirit-of-might',
+  'spirit-sword',
+  'sting-of-the-ice-hornet',
+  'summon-the-army-of-the-wild',
+  'summoning-the-heart-of-darkness',
+  'the-battles-end',
+  'the-faithful-ally',
+  'the-ravenous-fire',
+  'the-sacred-tongue',
+  'the-spawning-of-monsters',
+  'the-tree-s-many-branches',
+  'theft-of-memory',
+  'threefold-binding-of-the-heart',
+  'thunder-wolf-s-howl',
+  'torrential-cascade',
+  'unbreakable-bones-of-stone',
+  'unconquerable-self',
+  'unity-of-dreams',
+  'unstoppable-fountain-of-the-depths',
+  'viridian-mantle-of-underwater-journeys',
+  'virtuous-guardian-of-flame',
+  'voices-of-distant-regard',
+  'water-s-ally',
+  'wheel-of-the-turning-heavens',
+  'whirlwind-of-fate',
+]);
+
+for (const id of lunarSorcerySpellIds) {
+  if (!sharedSorcerySpellById.has(id)) {
+    throw new Error(
+      `lunarSorcerySpellIds references unknown shared Sorcery spell id: ${id}`,
+    );
+  }
+}
+
+/**
+ * 13 disposition-`selectable` Sorcery spell rows (8 Terrestrial + 5
+ * Celestial Circle, all from Savant and Sorcerer) excluded from this
+ * promotion pass because their inventory `verificationState` is still
+ * `unreviewed` -- their full rules-text paragraphs were not legibly
+ * captured in the source pass; headers/costs/prerequisites are confirmed.
+ * Promoting any of these would fail `scripts/audit-exalted-sources.mjs`'s
+ * visual-review gate, exactly like the Abyssal unreviewed-Charm/spell
+ * exclusions resolved in that family's Phase 1e, and identical (same
+ * underlying source chapter, same review pass) to Sidereal's own
+ * `siderealUnreviewedExcludedSpellIds`. Follow-up: promote once a future
+ * inventory pass captures their full mechanics text and flips
+ * `verificationState` to `reviewed`.
+ */
+export const lunarUnreviewedExcludedSpellIds = [
+  'dance-of-the-smoke-cobras',
+  'the-horse-that-travels-earth-and-water',
+  'hound-of-the-five-winds',
+  'plague-of-bronze-snakes',
+  'ritual-of-elemental-empowerment',
+  'sprouting-shackles-of-doom',
+  'the-spy-who-walks-in-darkness',
+  'summoning-the-lesser-minions-of-the-eyeless-face',
+  'bone-lion',
+  'imbue-amalgam',
+  'the-princes-of-the-fallen-tower',
+  'servant-of-infallible-location',
+  'swift-spirit-of-winged-transportation',
+] as const;
+
+for (const id of lunarUnreviewedExcludedSpellIds) {
+  if (!sharedSorcerySpellById.has(id)) {
+    throw new Error(
+      `lunarUnreviewedExcludedSpellIds references unknown shared Sorcery spell id: ${id}`,
+    );
+  }
+  if (lunarSorcerySpellIds.has(id)) {
+    throw new Error(
+      `lunarUnreviewedExcludedSpellIds id "${id}" is also present in lunarSorcerySpellIds -- it should be excluded, not promoted.`,
+    );
+  }
+}

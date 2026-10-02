@@ -189,13 +189,15 @@ describe('auditFamily against the real repository (current state)', () => {
     // script's own promotion check forbids promoting), as counted
     // directly from `src/games/exalted1e/reference/lunar-*.json` by this
     // audit script. This differs from `certification/lunar.json`'s own
-    // `catalog.promotedEntries` (326), which also includes the 100
-    // Phase 1a Backgrounds/Merits-Flaws rows, none of which live in a
-    // `lunar-`-prefixed catalog file (Backgrounds live in `definitions.ts`;
-    // Merits/Flaws live in the shared `dragonblooded-merits-flaws.json`),
-    // so this audit script's file-glob does not count them -- matching
-    // Abyssal's own 333-vs-505 and Sidereal's own 203-vs-370 precedent
-    // above.
+    // `catalog.promotedEntries` (399), which also includes the 100
+    // Phase 1a Backgrounds/Merits-Flaws rows (none of which live in a
+    // `lunar-`-prefixed catalog file -- Backgrounds live in `definitions.ts`;
+    // Merits/Flaws live in the shared `dragonblooded-merits-flaws.json`)
+    // and the 73 Phase 1d Sorcery spells (which also reuse the shared
+    // `dragonblooded-sorcery.json` rather than a `lunar-`-prefixed file;
+    // see `lunarSorcerySpellIds` in `lunar-powers.ts`), so this audit
+    // script's file-glob does not count either -- matching Abyssal's own
+    // 333-vs-505 and Sidereal's own 203-vs-370 precedent above.
     expect(report.promotedEntries).toBe(226);
     expect(report.catalogChecksum).toHaveLength(8);
     expect(report.catalogChecksum).toMatch(/^[0-9a-f]{8}$/);

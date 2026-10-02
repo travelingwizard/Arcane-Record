@@ -33,7 +33,7 @@ import {
   siderealSorcerySpellIds,
 } from './reference/sidereal-powers';
 import { siderealAstrologyCollegeIds } from './reference/sidereal-astrology';
-import { lunarCharmIds } from './reference/lunar-powers';
+import { lunarCharmIds, lunarSorcerySpellIds } from './reference/lunar-powers';
 import { solarCharmIds } from './reference/solar-charms';
 import {
   getSolarTraitRepeatLimit,
@@ -575,13 +575,34 @@ export const exalted1eCharacterSchema = z
         }
         return;
       }
+      if (character.sheetType === 'lunar') {
+        // Phase 1d: Lunar's 73 promoted Sorcery spells (of 86 inventoried;
+        // the other 13 are still `verificationState: 'unreviewed'` -- see
+        // `lunarUnreviewedExcludedSpellIds`), all of them already present,
+        // name-for-name, in the shared Dragon-Blooded Sorcery catalog --
+        // see `lunarSorcerySpellIds` in `./reference/lunar-powers`,
+        // reachable via Lunar's own `terrestrial-circle-sorcery`/
+        // `celestial-circle-sorcery` enabling Charms. Without this
+        // branch, Lunar would silently fall through to the Dragon-Blooded
+        // check below and wrongly accept every Dragon-Blooded Terrestrial
+        // spell id as if it were legal for Lunar -- the exact bug class
+        // already found and fixed for Sidereal before its own catalog
+        // existed (see git history).
+        if (!lunarSorcerySpellIds.has(selection.definitionId)) {
+          context.addIssue({
+            code: 'custom',
+            message: 'Unknown Lunar spell definition.',
+            path: ['powers', 'spells', index, 'definitionId'],
+          });
+        }
+        return;
+      }
       if (
-        character.sheetType === 'lunar' ||
         character.sheetType === 'alchemical' ||
         character.sheetType === 'fair-folk'
       ) {
         // PLACEHOLDER pending each family's own spell/power-catalog phase.
-        // Without this branch, these three would silently fall through to
+        // Without this branch, these two would silently fall through to
         // the Dragon-Blooded check below and wrongly accept Dragon-Blooded
         // Terrestrial spell ids as if they were legal -- the exact bug
         // class already found and fixed for Sidereal before its own
