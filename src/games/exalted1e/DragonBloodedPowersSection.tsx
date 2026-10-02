@@ -13,6 +13,7 @@ import {
   type AbyssalNecromancySpellDefinition,
 } from './reference/abyssal-powers';
 import type { SiderealCharmDefinition } from './reference/sidereal-powers';
+import type { LunarCharmDefinition } from './reference/lunar-powers';
 import {
   getAbyssalPowerExperienceCost,
   getDragonBloodedPowerExperienceCost,
@@ -35,22 +36,31 @@ const categoryLabels: Record<DragonBloodedCharmDefinition['category'], string> =
 
 /**
  * Widened Charm/spell definition union so this shared component can serve
- * Solar, Dragon-Blooded, Abyssal, and Sidereal alike. `AbyssalCharmDefinition`/
- * `SiderealCharmDefinition` are already structurally assignable to
- * `DragonBloodedCharmDefinition` (each has every field plus its own
- * `caste`/`systemId`/etc., so neither needs an adapter), but
- * `AbyssalNecromancySpellDefinition` genuinely conflicts with
+ * Solar, Dragon-Blooded, Abyssal, Sidereal, and Lunar alike.
+ * `AbyssalCharmDefinition`/`SiderealCharmDefinition` are already
+ * structurally assignable to `DragonBloodedCharmDefinition` (each has every
+ * field plus its own `caste`/`systemId`/etc., so neither needs an adapter),
+ * but `AbyssalNecromancySpellDefinition` genuinely conflicts with
  * `TerrestrialSpellDefinition` on `circle`/`alternateCircleName` (Necromancy
  * circles vs. Sorcery circles), so it must be included explicitly. Sidereal
  * has no spell type of its own -- its Sorcery access is entirely the shared
  * `TerrestrialSpellDefinition` catalog (see `siderealSorcerySpellIds`).
+ * `LunarCharmDefinition` differs from the other three Charm shapes in one
+ * field (`ability: string | null`, nullable, rather than `string` -- see
+ * that type's own doc comment for why no single Ability governs a whole
+ * Lunar Charm-category); every downstream read of `.ability` already
+ * tolerates a `null`/empty value (the Ability filter dropdown below filters
+ * out falsy values before rendering options). Lunar, like Sidereal, has no
+ * spell type of its own -- its Sorcery access is entirely the shared
+ * `TerrestrialSpellDefinition` catalog (see `lunarSorcerySpellIds`).
  */
 export type ExaltedPowerDefinition =
   | DragonBloodedCharmDefinition
   | TerrestrialSpellDefinition
   | AbyssalCharmDefinition
   | AbyssalNecromancySpellDefinition
-  | SiderealCharmDefinition;
+  | SiderealCharmDefinition
+  | LunarCharmDefinition;
 
 const DEFAULT_SORCERY_ADVISORY =
   'Advisory: standard Dragon-Blooded sorcery requires the Terrestrial Circle Sorcery Charm (Occult 3, Essence 3). Spell selection remains available because this is an editable sheet, not a rules engine.';
@@ -69,8 +79,8 @@ function charmCaste(definition: ExaltedPowerDefinition): string | null {
 }
 
 /**
- * Abyssal and Sidereal Charm/spell definitions both carry a literal
- * `exaltType` field ('abyssal'/'sidereal') that Dragon-Blooded/Solar
+ * Abyssal, Sidereal, and Lunar Charm/spell definitions each carry a literal
+ * `exaltType` field ('abyssal'/'sidereal'/'lunar') that Dragon-Blooded/Solar
  * definitions never have; checking its actual value (not just presence)
  * routes XP-cost math to the right family's rule set: Dragon-Blooded's
  * favored-Aspect-Ability-group cost function for anything without
@@ -79,7 +89,13 @@ function charmCaste(definition: ExaltedPowerDefinition): string | null {
  * when it is `'sidereal'`. Solar definitions also lack `exaltType`, but the
  * Solar branch never passes `character`, so this function is only ever
  * reached with `character` defined for Dragon-Blooded/Abyssal/Sidereal
- * callers today.
+ * callers today. Lunar's own `Exalted1eEditor.tsx` call site deliberately
+ * omits `character`/`onLearnWithExperience` (no real Lunar XP-cost math
+ * exists yet -- it's deferred to a dedicated XP-rules phase, since Lunar's
+ * favored-Charm/Caste-Attribute discount structure differs from both
+ * Abyssal's and Sidereal's), so the `'lunar'` branch below exists only to
+ * keep this function's `exaltType`-widened union exhaustive at the type
+ * level; it should never actually execute.
  */
 function getPowerExperienceCost(
   character: Exalted1eCharacter,
@@ -88,6 +104,11 @@ function getPowerExperienceCost(
   if ('exaltType' in definition) {
     if (definition.exaltType === 'abyssal') {
       return getAbyssalPowerExperienceCost(character, definition);
+    }
+    if (definition.exaltType === 'lunar') {
+      throw new Error(
+        'getPowerExperienceCost: Lunar XP-cost math is not implemented yet; Lunar must not pass `character`/`onLearnWithExperience` to ExaltedPowersSection.',
+      );
     }
     return getSiderealPowerExperienceCost(character, definition);
   }
@@ -237,9 +258,16 @@ export function ExaltedPowersSection({
               ): entry is
                 | DragonBloodedCharmDefinition
                 | AbyssalCharmDefinition
-                | SiderealCharmDefinition => entry.kind === 'charm',
+                | SiderealCharmDefinition
+                | LunarCharmDefinition => entry.kind === 'charm',
             )
-            .map(({ ability }) => ability),
+            // Lunar's own `ability` is always `null` (no single Ability
+            // governs a whole Charm-category there -- see
+            // `LunarCharmDefinition`'s doc comment); filter out
+            // falsy values so the Ability filter below doesn't offer a
+            // meaningless blank option for Lunar's catalog.
+            .map(({ ability }) => ability)
+            .filter((ability): ability is string => Boolean(ability)),
         ),
       ).sort(),
     [allDefinitions],
@@ -606,10 +634,23 @@ export function ExaltedPowersSection({
                       </div>
                       {charm ? (
                         <div>
-                          <dt>Ability / Style</dt>
+                          {/*
+                           * Lunar Charms carry no `ability` (see
+                           * `LunarCharmDefinition`'s own doc comment on
+                           * why no single Ability governs a whole
+                           * Charm-category there) -- show the genuinely
+                           * organizing `charmCategory` field instead of a
+                           * blank "Ability / Style" row.
+                           */}
+                          <dt>
+                            {'charmCategory' in charm
+                              ? 'Charm category'
+                              : 'Ability / Style'}
+                          </dt>
                           <dd>
-                            {charm.ability}
-                            {charm.style ? ` · ${charm.style}` : ''}
+                            {'charmCategory' in charm
+                              ? charm.charmCategory
+                              : `${charm.ability}${charm.style ? ` · ${charm.style}` : ''}`}
                           </dd>
                         </div>
                       ) : null}

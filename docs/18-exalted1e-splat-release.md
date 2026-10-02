@@ -1146,9 +1146,43 @@ Curse + 2 Shapechanging rules + 86 Sorcery spells, counting the 13
 still-unreviewed spells in the denominator, matching Abyssal's own
 precedent). `promotedEntries` rose from 326 to 399; the remaining 13-row
 gap is honestly attributable to the unreviewed spells above, not further
-Lunar-specific schema work. Remaining Lunar work: the general Lunar
-editor UI branch (Caste/Tribe identity, Charms/Backgrounds/Merits-Flaws/
-Sorcery pickers), XP-cost rules, and the full rules/creator/migration/
+Lunar-specific schema work.
+
+Lunar's editor-UI phase wired every catalog promoted in Phases 1a-1d into
+`Exalted1eEditor.tsx` for the first time. The Identity section gained an
+`isLunar` branch rendering a constrained Caste `<select>` (Full Moon/
+Changing Moon/No Moon/Casteless, sourced from
+`getExaltedCreationRules('lunar').castes`, writing to the same generic
+`identity.caste` field Abyssal/Sidereal already use) -- no "Tribe" field was
+added, since 1st-edition Lunars have no such mechanic (confirmed absent
+from _Exalted: The Lunars_ itself, not merely unreviewed). The Backgrounds
+picker now shows the real 13-entry `lunarBackgrounds` catalog instead of an
+empty list, and the Merits & Flaws section wires `ExaltedMeritsFlawsSection`
+to `lunarOnlyTraits` with the same shared cost-policy/repeat-limit/search/
+approval helpers Abyssal and Sidereal already use (all generic across sheet
+types since Phase 1a). The Charms & Sorcery section gained a new
+`lunarPowerDefinitions` constant (219 Charms + 73 reachable Sorcery spells,
+mirroring `abyssalPowerDefinitions`/`siderealPowerDefinitions`'s own
+module-scope pattern) and an `isLunar` branch rendering
+`ExaltedPowersSection` with Caste filtering off (Lunar Charms are organized
+by `charmCategory`, not Caste); the shared `ExaltedPowerDefinition` union
+was widened to include `LunarCharmDefinition` for the first time, and a new
+"Charm category" detail row replaces the blank "Ability / Style" row
+Lunar's null `ability`/`style` fields would otherwise have produced.
+Deliberately **not** wired this phase: `character`/`onLearnWithExperience`
+(XP-based direct purchase). `getPowerExperienceCost` in
+`DragonBloodedPowersSection.tsx` dispatches every non-Abyssal `exaltType` to
+`getSiderealPowerExperienceCost`, which would have silently applied
+Sidereal's favored-Auspicious-Ability discount math to Lunar Charms; a
+defensive `'lunar'` branch now throws there instead (it should never
+execute, since Lunar's own call site omits `character`/
+`onLearnWithExperience` entirely) pending a real
+`getLunarPowerExperienceCost` in a dedicated future XP-rules phase. "Add
+Without Spending XP" remains fully available for Lunar in the meantime.
+This phase added no new catalog rows, so `promotableEntries`/
+`promotedEntries` are unchanged at 412/399. Remaining Lunar work: Lunar
+XP-cost rules (favored-Charm/Caste-Attribute discount logic), the 13
+still-unreviewed Sorcery spells, and the full rules/creator/migration/
 browser test evidence this project's certification gate requires.
 
 ## Next steps (require source material per book)

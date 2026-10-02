@@ -27,6 +27,7 @@ import {
   exaltedSections,
   exaltedAttributeGroups,
   exaltedVirtues,
+  lunarBackgrounds,
   siderealAbilityGroups,
   siderealBackgrounds,
   solarAbilityGroups,
@@ -70,15 +71,18 @@ import {
   siderealCharms,
   siderealSorcerySpellIds,
 } from './reference/sidereal-powers';
+import { lunarCharms, lunarSorcerySpellIds } from './reference/lunar-powers';
 import {
   abyssalOnlyTraits,
   getSharedTraitCostPolicy,
   getSharedTraitRepeatLimit,
+  lunarOnlyTraits,
   matchesDragonBloodedTraitSearch,
   siderealOnlyTraits,
   storytellerApprovalTraitIds,
 } from './reference/dragonblooded-merits-flaws';
 import { getExaltedCharacterProfile } from './profiles';
+import { getExaltedCreationRules } from './family-rules';
 import { ExaltedCreationPanel } from './ExaltedCreationPanel';
 import { ExaltedFamilyStatePanel } from './ExaltedFamilyStatePanel';
 
@@ -114,6 +118,23 @@ const siderealPowerDefinitions: readonly ExaltedPowerDefinition[] = [
   ...siderealCharms,
   ...Array.from(sharedSorcerySpellById.values()).filter(({ id }) =>
     siderealSorcerySpellIds.has(id),
+  ),
+];
+
+/**
+ * Lunar's Charms & Sorcery catalog for `ExaltedPowersSection`: all 219
+ * promoted Lunar Charms (Phase 1b) plus exactly the 73 shared Sorcery
+ * spells `lunarSorcerySpellIds` confirms Lunar can reach (Phase 1d) --
+ * filtered the same way `siderealPowerDefinitions` is, since Lunar's own
+ * spell-reachability list was likewise verified row-by-row rather than
+ * assumed identical to Solar/Dragon-Blooded's full Sorcery access.
+ * Computed once at module scope since every source collection is a static
+ * import.
+ */
+const lunarPowerDefinitions: readonly ExaltedPowerDefinition[] = [
+  ...lunarCharms,
+  ...Array.from(sharedSorcerySpellById.values()).filter(({ id }) =>
+    lunarSorcerySpellIds.has(id),
   ),
 ];
 
@@ -182,16 +203,16 @@ export function Exalted1eEditor({
                 abilityIds: exaltedAbilities.map(({ id }) => id),
               },
             ];
-  // Lunar, Alchemical, and Fair Folk deliberately render an empty
-  // Backgrounds picker rather than `getExaltedFamilyBackgrounds`'s catalog
+  // Alchemical and Fair Folk deliberately render an empty Backgrounds
+  // picker rather than `getExaltedFamilyBackgrounds`'s catalog
   // (`./family-catalogs.ts`): that catalog is OCR-derived and has not been
   // through this project's page-cited inventory/verification process (see
   // `docs/references/exalted1e/*/inventory/`), and `schema.ts`'s
   // `backgroundIdsBySheetType` correctly rejects every id in it for these
-  // three families today. Showing it here would let someone add a
+  // two families today. Showing it here would let someone add a
   // Background the sheet then can't validate. Revisit per-family once each
-  // earns a real promoted catalog. Sidereal now has its own real,
-  // page-cited Backgrounds catalog (Phase 2a).
+  // earns a real promoted catalog. Sidereal and Lunar now have their own
+  // real, page-cited Backgrounds catalogs (Phases 2a and 1a respectively).
   const backgroundDefinitions: readonly { id: string; label: string }[] =
     isSolar
       ? solarBackgrounds
@@ -201,7 +222,9 @@ export function Exalted1eEditor({
           ? abyssalBackgrounds
           : isSidereal
             ? siderealBackgrounds
-            : [];
+            : isLunar
+              ? lunarBackgrounds
+              : [];
   const backgroundById = new Map(
     backgroundDefinitions.map((background) => [background.id, background]),
   );
@@ -621,14 +644,47 @@ export function Exalted1eEditor({
                       ))}
                     </select>
                   </SheetField>
+                ) : isLunar ? (
+                  // Lunars have exactly 3 player Castes plus a Casteless
+                  // state (Full Moon/Changing Moon/No Moon/Casteless -- see
+                  // `exaltedFamilyCreationRules.lunar.castes` in
+                  // `./family-rules`), each linked to a triad of
+                  // Attributes rather than Abilities the way Solar/Dragon-
+                  // Blooded/Abyssal/Sidereal Castes are. A constrained
+                  // <select> mirrors Abyssal/Sidereal's own pattern above
+                  // and stores a plain string in the same generic
+                  // `identity.caste` field, decoupled from the guided
+                  // creator's own `identity.familyIdentity` writes exactly
+                  // as Abyssal/Sidereal already are. 1st-edition Lunars
+                  // have no "Tribe" mechanic -- confirmed absent from
+                  // *Exalted: The Lunars* itself during certification, not
+                  // merely unreviewed -- so no second identity field is
+                  // added here (and `lunar`'s `ExaltedCharacterProfile` has
+                  // no `organizationLabel`, so the generic fallback below
+                  // would not have rendered one anyway).
+                  <SheetField label="Caste">
+                    <select
+                      value={draft.identity.caste}
+                      onChange={(event) =>
+                        updateIdentity('caste', event.target.value)
+                      }
+                    >
+                      <option value="">Choose a Caste</option>
+                      {getExaltedCreationRules('lunar').castes.map((caste) => (
+                        <option key={caste.id} value={caste.name}>
+                          {caste.name}
+                        </option>
+                      ))}
+                    </select>
+                  </SheetField>
                 ) : (
-                  // Lunar, Alchemical, and Fair Folk have no dedicated
-                  // identity UI of their own yet -- fall back to the
-                  // generic family-identity/organization fields driven by
-                  // each family's `ExaltedCharacterProfile` (see
-                  // `./profiles`), matching this file's existing
-                  // placeholder-until-implemented precedent (compare the
-                  // Abilities/Backgrounds fallbacks below).
+                  // Alchemical and Fair Folk have no dedicated identity UI
+                  // of their own yet -- fall back to the generic family-
+                  // identity/organization fields driven by each family's
+                  // `ExaltedCharacterProfile` (see `./profiles`), matching
+                  // this file's existing placeholder-until-implemented
+                  // precedent (compare the Abilities/Backgrounds fallbacks
+                  // below).
                   <>
                     <SheetField label={profile.identityLabel}>
                       <input
@@ -1358,7 +1414,11 @@ export function Exalted1eEditor({
                 id="exalted-merits-flaws-content"
                 hidden={!meritsFlawsExpanded}
               >
-                {isSolar || isDragonBlooded || isAbyssal || isSidereal ? (
+                {isSolar ||
+                isDragonBlooded ||
+                isAbyssal ||
+                isSidereal ||
+                isLunar ? (
                   <ExaltedMeritsFlawsSection
                     traits={draft.meritsFlaws}
                     derangements={draft.derangements}
@@ -1369,7 +1429,9 @@ export function Exalted1eEditor({
                           ? abyssalOnlyTraits
                           : isSidereal
                             ? siderealOnlyTraits
-                            : undefined
+                            : isLunar
+                              ? lunarOnlyTraits
+                              : undefined
                     }
                     getCostPolicy={
                       isSolar
@@ -1384,26 +1446,29 @@ export function Exalted1eEditor({
                           : isSidereal
                             ? (definition) =>
                                 getSharedTraitCostPolicy(definition, 'sidereal')
-                            : undefined
+                            : isLunar
+                              ? (definition) =>
+                                  getSharedTraitCostPolicy(definition, 'lunar')
+                              : undefined
                     }
                     getRepeatLimit={
                       isSolar
                         ? getSolarTraitRepeatLimit
-                        : isAbyssal || isSidereal
+                        : isAbyssal || isSidereal || isLunar
                           ? getSharedTraitRepeatLimit
                           : undefined
                     }
                     matchesSearch={
                       isSolar
                         ? matchesSolarTraitSearch
-                        : isAbyssal || isSidereal
+                        : isAbyssal || isSidereal || isLunar
                           ? matchesDragonBloodedTraitSearch
                           : undefined
                     }
                     approvalTraitIds={
                       isSolar
                         ? solarStorytellerApprovalTraitIds
-                        : isAbyssal || isSidereal
+                        : isAbyssal || isSidereal || isLunar
                           ? storytellerApprovalTraitIds
                           : undefined
                     }
@@ -1414,7 +1479,9 @@ export function Exalted1eEditor({
                           ? 'abyssal-trait-catalog'
                           : isSidereal
                             ? 'sidereal-trait-catalog'
-                            : undefined
+                            : isLunar
+                              ? 'lunar-trait-catalog'
+                              : undefined
                     }
                     catalogDescription={
                       isSolar
@@ -1423,7 +1490,9 @@ export function Exalted1eEditor({
                           ? "Record Abyssal Merits and Flaws from the shared Exalted Player's Guide catalog. Abyssal-specific cost caps (e.g. Destiny) are applied; requirements remain advisory."
                           : isSidereal
                             ? "Record Sidereal Merits and Flaws from the shared Exalted Player's Guide catalog. Sidereal-specific cost caps (e.g. Destiny, Lucky, Permanent Caste Mark, Prescient Dreamer) are applied; requirements remain advisory."
-                            : undefined
+                            : isLunar
+                              ? "Record Lunar Merits and Flaws from the shared Exalted Player's Guide catalog, plus Lunar-only entries (Chimera, Limited Forms, Greater Curse). Lunar-specific cost caps (Ambidextrous, Double-Jointed) are applied; requirements remain advisory."
+                              : undefined
                     }
                     onChange={(meritsFlaws) =>
                       update((current) => ({ ...current, meritsFlaws }))
@@ -1433,11 +1502,10 @@ export function Exalted1eEditor({
                     }
                   />
                 ) : (
-                  // Lunar, Alchemical, and Fair Folk have no promoted
-                  // Merits/Flaws catalog yet (`schema.ts` rejects any
-                  // selection outright for these types today). Show an
-                  // honest placeholder notice rather than a non-functional
-                  // catalog UI.
+                  // Alchemical and Fair Folk have no promoted Merits/Flaws
+                  // catalog yet (`schema.ts` rejects any selection outright
+                  // for these types today). Show an honest placeholder
+                  // notice rather than a non-functional catalog UI.
                   <p className="sheet-notice">
                     The {sheetName} Merit and Flaw inventory is being
                     source-verified. Existing unresolved records remain
@@ -1535,7 +1603,7 @@ export function Exalted1eEditor({
                     ? 'Charms & Sorcery'
                     : isAbyssal
                       ? 'Charms & Spells'
-                      : isSidereal
+                      : isSidereal || isLunar
                         ? 'Charms & Sorcery'
                         : 'Powers'}
               </h2>
@@ -1613,13 +1681,45 @@ export function Exalted1eEditor({
                   }
                   onLearnWithExperience={learnPowerWithExperience}
                 />
+              ) : isLunar ? (
+                // Lunar's real, page-cited 219-Charm catalog (Phase 1b)
+                // plus its 73 confirmed-reachable shared Sorcery spells
+                // (Phase 1d). Deliberately omits `character`/
+                // `onLearnWithExperience`, unlike Abyssal/Sidereal's own
+                // wiring above: `getPowerExperienceCost` in
+                // `DragonBloodedPowersSection.tsx` dispatches every
+                // non-Abyssal `exaltType` (including Lunar's own) to
+                // `getSiderealPowerExperienceCost`, which would silently
+                // apply Sidereal's favored-Auspicious-Ability discount math
+                // to Lunar Charms -- the same bug class already found and
+                // fixed once before Sidereal had its own catalog. XP-based
+                // direct purchase stays disabled for Lunar until a real
+                // `getLunarPowerExperienceCost` (favored-Charm/Caste-
+                // Attribute discount logic) lands in a dedicated XP-rules
+                // phase; "Add Without Spending XP" remains fully available
+                // in the meantime. No Caste filter is offered either, since
+                // Lunar Charms are organized by `charmCategory`
+                // (Shapechanging/Body Enhancement/etc.), not by Caste.
+                <ExaltedPowersSection
+                  powers={draft.powers}
+                  definitions={lunarPowerDefinitions}
+                  catalogId="lunar-power-catalog"
+                  catalogDescription="Choose from 219 Lunar Charms (Shapechanging, Body Enhancement, and combat/social/knowledge categories) and 73 Sorcery spells confirmed reachable from the shared Terrestrial/Celestial Circle catalog. Requirements are advisory; entries retain their cited book and page and are marked for source review."
+                  showElementFilter={false}
+                  showCategory={false}
+                  spellsTabLabel="Sorcery"
+                  sorceryAdvisory="Advisory: standard Lunar sorcery requires the matching Terrestrial/Celestial Circle Sorcery Charm (learnable only by No Moon Lunars) before spells of that Circle are castable. Spell selection remains available because this is an editable sheet, not a rules engine."
+                  onChange={(powers) =>
+                    update((current) => ({ ...current, powers }))
+                  }
+                />
               ) : (
-                // Lunar, Alchemical, and Fair Folk have no production
-                // Charm/spell catalog wired into `schema.ts` yet.
-                // Deliberately does NOT fall back to
-                // `getExaltedFamilyPowers`'s OCR-derived Alchemical/Fair
-                // Folk catalogs (`./reference/family-powers.ts`) for the
-                // same reason `backgroundDefinitions` above skips
+                // Alchemical and Fair Folk have no production Charm/spell
+                // catalog wired into `schema.ts` yet. Deliberately does not
+                // fall back to `getExaltedFamilyPowers`'s OCR-derived
+                // Alchemical/Fair Folk catalogs
+                // (`./reference/family-powers.ts`) for the same reason
+                // `backgroundDefinitions` above skips
                 // `getExaltedFamilyBackgrounds` -- that data hasn't been
                 // through this project's page-cited verification process,
                 // and `schema.ts` correctly rejects every id in it today.
