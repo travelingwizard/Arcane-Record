@@ -78,7 +78,7 @@ describe('Exalted production verification gate', () => {
       'Source verification required:',
     );
     expect(variants.get('lunar')?.unavailableRequirement).toContain(
-      'Shapechanging/Forms',
+      "Heart's Blood Form stat catalog",
     );
   });
 });

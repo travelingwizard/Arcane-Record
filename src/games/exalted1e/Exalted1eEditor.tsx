@@ -154,6 +154,7 @@ export function Exalted1eEditor({
   const isDragonBlooded = draft.sheetType === 'dragon-blooded';
   const isAbyssal = draft.sheetType === 'abyssal';
   const isSidereal = draft.sheetType === 'sidereal';
+  const isLunar = draft.sheetType === 'lunar';
   const profile = getExaltedCharacterProfile(draft.sheetType);
   const activeSections = useMemo(() => [...exaltedSections], []);
   const sheetName = profile.shortName;
@@ -1271,8 +1272,43 @@ export function Exalted1eEditor({
                     />
                   </div>
                 ) : null}
+                {/*
+                 * Lunar's Great Curse (Exalted: The Lunars, Chapter Four)
+                 * is mechanically identical to Solar/Dragon-Blooded's
+                 * Limit Trait -- a 0-10 tracker that culminates in a
+                 * scene-long Limit Break -- so it reuses the same `limit`
+                 * field verbatim, matching Abyssal's own Resonance
+                 * precedent above, and just relabels the box and notes
+                 * textarea. See `LunarShapechangingPanel.tsx` for the
+                 * primary-Virtue-linked thrall reference this Limit
+                 * rating gates.
+                 */}
+                {isLunar ? (
+                  <div>
+                    <h3>Great Curse</h3>
+                    <DotRating
+                      label="Great Curse"
+                      value={draft.limit.rating}
+                      max={10}
+                      showBreakAfterFive
+                      variant="boxes"
+                      onChange={(rating) =>
+                        update((current) => ({
+                          ...current,
+                          limit: { ...current.limit, rating },
+                        }))
+                      }
+                    />
+                  </div>
+                ) : null}
                 <label>
-                  <span>{isAbyssal ? 'Resonance notes' : 'Virtue Flaw'}</span>
+                  <span>
+                    {isAbyssal
+                      ? 'Resonance notes'
+                      : isLunar
+                        ? 'Great Curse notes'
+                        : 'Virtue Flaw'}
+                  </span>
                   <textarea
                     value={draft.limit.virtueFlaw}
                     onChange={(event) =>

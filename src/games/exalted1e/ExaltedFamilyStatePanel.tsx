@@ -3,10 +3,10 @@ import {
   SheetCard,
   SheetField,
   SheetFieldGrid,
-  SheetNotice,
 } from '../../components/layout/SheetPrimitives';
 import type { Exalted1eCharacter } from './schema';
 import { alchemicalCharms } from './reference/family-powers';
+import { LunarShapechangingPanel } from './LunarShapechangingPanel';
 import { SiderealAstrologyPanel } from './SiderealAstrologyPanel';
 
 interface Props {
@@ -44,53 +44,38 @@ export function ExaltedFamilyStatePanel({ character, onChange }: Props) {
 
   if (state.type === 'lunar') {
     return (
-      <SheetCard density="compact">
-        <h3>Lunar state</h3>
-        <SheetFieldGrid columns={2}>
-          <SheetField label="Tell">
-            <input
-              value={state.tell}
-              disabled={!buildMode}
-              onChange={(event) =>
-                replaceState({ ...state, tell: event.target.value })
-              }
-            />
-          </SheetField>
-          <label className="choice-row">
-            <input
-              type="checkbox"
-              checked={state.tattooed}
-              disabled={!buildMode}
-              onChange={(event) =>
-                replaceState({ ...state, tattooed: event.target.checked })
-              }
-            />
-            <span>Moonsilver tattoos</span>
-          </label>
-          <SheetField label="Active Heart’s Blood form">
-            <select
-              value={state.activeFormId ?? ''}
-              onChange={(event) =>
-                replaceState({
-                  ...state,
-                  activeFormId: event.target.value || null,
-                })
-              }
-            >
-              <option value="">Natural form</option>
-              {state.heartBloodForms.map((form) => (
-                <option key={form.id} value={form.id}>
-                  {form.name || 'Unnamed form'}
-                </option>
-              ))}
-            </select>
-          </SheetField>
-        </SheetFieldGrid>
-        <SheetNotice>
-          Form Traits remain player-recorded until the complete shapeshifting
-          power catalog has passed source verification.
-        </SheetNotice>
-      </SheetCard>
+      <>
+        <SheetCard density="compact">
+          <h3>Lunar state</h3>
+          <SheetFieldGrid columns={2}>
+            <SheetField label="Tell">
+              <input
+                value={state.tell}
+                disabled={!buildMode}
+                onChange={(event) =>
+                  replaceState({ ...state, tell: event.target.value })
+                }
+              />
+            </SheetField>
+            <label className="choice-row">
+              <input
+                type="checkbox"
+                checked={state.tattooed}
+                disabled={!buildMode}
+                onChange={(event) =>
+                  replaceState({ ...state, tattooed: event.target.checked })
+                }
+              />
+              <span>Moonsilver tattoos</span>
+            </label>
+          </SheetFieldGrid>
+        </SheetCard>
+        <LunarShapechangingPanel
+          state={state}
+          buildMode={buildMode}
+          onChange={replaceState}
+        />
+      </>
     );
   }
 

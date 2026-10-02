@@ -1,4 +1,4 @@
-import type { ExaltedAbilityId } from './definitions';
+import type { ExaltedAbilityId, ExaltedVirtueId } from './definitions';
 
 export const exaltedCharacterTypes = [
   'solar',
@@ -229,6 +229,7 @@ export function createDefaultFamilyState(type: ExaltedCharacterType) {
         tattooed: false,
         heartBloodForms: [] as { id: string; name: string; notes: string }[],
         activeFormId: null,
+        primaryVirtueId: null as ExaltedVirtueId | null,
       };
     case 'abyssal':
       return { type: 'abyssal' as const, resonance: 0, liege: '', whispers: 0 };

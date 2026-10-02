@@ -1,0 +1,67 @@
+[
+  {
+    "id": "the-great-curse",
+    "name": "The Great Curse",
+    "virtueId": null,
+    "summary": "The Lunar analog of the Limit Trait: born from their shapeshifting ability, the Great Curse floods a Lunar's mind with animal instinct whenever she acts against her primary Virtue or fails a Willpower roll against the full moon's light, tracked as Limit (0-10) that culminates in a scene-long Limit Break dictated by her primary Virtue.",
+    "mechanics": "Whenever a Lunar acts against her primary Virtue, that suppression of human instinct gives power to her inner beast and adds one point to her Limit. In addition, the player of a Lunar must make a Willpower roll whenever her character is first struck by the light of the full moon; on a failure, add one point to Limit, and on a botch, the Lunar automatically suffers Limit Break, overcome by her animal nature for the rest of the night (returning to normal only at daybreak). On a success, the character resists the Great Curse's effects for one hour per success rolled. When a character's Limit reaches 10, she suffers Limit Break: Limit automatically drops to zero, but for the remainder of the scene her inner beast is loosed upon the world and her human nature is suppressed. A character's primary Virtue dictates the nature of her inner beast; while in the Curse's thrall, a Lunar acts without thinking, heeding her instincts utterly.",
+    "compatibility": "All Lunar castes.",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 109,
+      "pdfPage": 112
+    }
+  },
+  {
+    "id": "curse-of-the-whipped-dog",
+    "name": "Curse of the Whipped Dog",
+    "virtueId": "compassion",
+    "summary": "The Great Curse's Compassion-linked inner beast: a Lunar in its thrall is stricken with indecision, cannot resist authority, refuses leadership responsibility, and can only defend herself rather than take risky or difficult action on her own.",
+    "mechanics": "A Lunar Exalted in the thrall of the Whipped Dog is stricken with indecision and doubt. He capitulates in the face of adversity and cannot resist authority. The Whipped Dog refuses to take any sort of leadership responsibility, instead following the rest of the pack; with no confidence in his own abilities, he shies away from any potentially difficult undertaking. While under the Whipped Dog's control, the character can make no difficult decision nor take any risky action on his own -- he becomes a follower, not a leader. Others may order the character to perform tasks, but the Whipped Dog will quickly abandon a task if confronted with hardship. The character will defend himself if attacked, but will try to remove himself from the confrontation as quickly as possible.",
+    "compatibility": "Lunars whose primary Virtue is Compassion, while suffering Limit Break from the Great Curse.",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 109,
+      "pdfPage": 112
+    }
+  },
+  {
+    "id": "curse-of-the-heartless-weasel",
+    "name": "Curse of the Heartless Weasel",
+    "virtueId": "conviction",
+    "summary": "The Great Curse's Conviction-linked inner beast: a Lunar in its thrall is a creature of pure selfishness, deaf to others' suffering, unforgiving toward any who challenge her, and unable to expend effort or incur risk to help anyone but herself.",
+    "mechanics": "A Lunar Exalted in the thrall of the Heartless Weasel is a creature of pure selfishness. He is deaf to the cries of others, and consideration for how his actions may impact those around him never enters his mind. He will slaughter innocents who fall in his path as easily as his most bitter foe. Forgiveness is alien to the character, and any who dare challenge him will die. While under the beast's thrall, the character can incur no risk and expend no effort to aid others; if an action he takes for his own benefit also happens to benefit others, so be it, but their needs or wants simply do not occur to him.",
+    "compatibility": "Lunars whose primary Virtue is Conviction, while suffering Limit Break from the Great Curse.",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 109,
+      "pdfPage": 112
+    }
+  },
+  {
+    "id": "curse-of-the-drunken-monkey",
+    "name": "Curse of the Drunken Monkey",
+    "virtueId": "temperance",
+    "summary": "The Great Curse's Temperance-linked inner beast: a Lunar in its thrall is a creature of impulse and ignorance, a slave to her desires who acts without thinking and gorges her appetites without restraint or regard for consequence.",
+    "mechanics": "A Lunar Exalted in the thrall of the Drunken Monkey is a creature of impulse and ignorance. He is a slave to his desires, unable to control himself or resist temptation. The Drunken Monkey acts without thinking and never considers the consequences of his actions -- he gorges his appetites without restraint and throws himself into the most dangerous of situations without pause. The very idea of self-control is alien to the character while under this thrall.",
+    "compatibility": "Lunars whose primary Virtue is Temperance, while suffering Limit Break from the Great Curse.",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 110,
+      "pdfPage": 113
+    }
+  },
+  {
+    "id": "curse-of-the-raging-bull",
+    "name": "Curse of the Raging Bull",
+    "virtueId": "valor",
+    "summary": "The Great Curse's Valor-linked inner beast: a Lunar in its thrall is an immensely quick-tempered fighting animal who cannot fail Valor checks (even by spending Willpower), attacks anything that startles or inconveniences her, loses most capacity for speech, and must resist an urge to stop and feast on a slain foe's heart's blood.",
+    "mechanics": "A Lunar Exalted in the thrall of the Raging Bull is a fighting animal. He is immensely quick-tempered, willing to fight anyone for any reason and unwilling to back down from any fight. While this thrall is active, the character cannot fail Valor checks, even by expending Willpower. He will also, like an angry bull, attempt to fight anything that inconveniences or even startles him. A character under the Raging Bull's thrall is almost autistic in his inability to communicate and will rarely say more than single words. When a Lunar in the Raging Bull's thrall kills a foe, his player must make a Willpower roll at difficulty 1 for him to avoid immediately stopping to feast on the foe's heart's blood, taking at least one full turn to do so if the roll fails.",
+    "compatibility": "Lunars whose primary Virtue is Valor, while suffering Limit Break from the Great Curse.",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 110,
+      "pdfPage": 113
+    }
+  }
+]

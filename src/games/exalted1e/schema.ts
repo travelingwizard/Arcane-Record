@@ -189,6 +189,18 @@ const familyStateSchema = z.discriminatedUnion('type', [
       z.object({ id: z.string().uuid(), name: z.string(), notes: z.string() }),
     ),
     activeFormId: z.string().uuid().nullable(),
+    // The Virtue that governs this character's inner beast when the Great
+    // Curse's Limit (the generic `limit.rating` field above, relabeled
+    // "Great Curse" for Lunar in Exalted1eEditor.tsx) reaches Limit Break
+    // -- see `./reference/lunar-great-curse.json`'s four Virtue-linked
+    // thralls (Whipped Dog/Compassion, Heartless Weasel/Conviction,
+    // Drunken Monkey/Temperance, Raging Bull/Valor). `null` until the
+    // player declares one; this is a player/Storyteller narrative choice
+    // per the source text, not automatically derived from the character's
+    // highest Virtue rating.
+    primaryVirtueId: z
+      .enum(exaltedVirtues.map((virtue) => virtue.id))
+      .nullable(),
   }),
   z.object({
     type: z.literal('abyssal'),
@@ -987,6 +999,25 @@ export function prepareExalted1eCharacterData(
         recordCandidate = {
           ...recordCandidate,
           familyState: { ...familyState, colleges, destinies },
+        };
+      }
+    }
+    if (fromVersion < 11) {
+      // Lunar's Great Curse/Shapechanging phase added `primaryVirtueId`
+      // (the Virtue that governs which of the four Great Curse thralls --
+      // see `./reference/lunar-great-curse.json` -- a character's inner
+      // beast expresses) to `familyState.lunar`, after Lunar's own
+      // `familyState` had already shipped without it back in Phase 1a.
+      // Backfill `null` (undeclared) for any pre-existing Lunar record.
+      const familyState = recordCandidate.familyState as
+        Record<string, unknown> | undefined;
+      if (
+        familyState?.type === 'lunar' &&
+        !('primaryVirtueId' in familyState)
+      ) {
+        recordCandidate = {
+          ...recordCandidate,
+          familyState: { ...familyState, primaryVirtueId: null },
         };
       }
     }

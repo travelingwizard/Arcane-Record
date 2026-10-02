@@ -29,6 +29,7 @@ describe('Exalted First Edition Lunar (schema-only; not yet UI-selectable)', () 
       tattooed: false,
       heartBloodForms: [],
       activeFormId: null,
+      primaryVirtueId: null,
     });
   });
 
@@ -667,6 +668,36 @@ describe('Exalted First Edition Lunar (schema-only; not yet UI-selectable)', () 
       expect(migrated.derangements).toEqual([]);
       expect(migrated.experienceLedger).toEqual([]);
       expect(migrated.downtimeAdvancement).toEqual([]);
+      expect(exalted1eCharacterSchema.parse(migrated)).toEqual(migrated);
+    });
+
+    it('migrates a legacy Lunar familyState (schema version 11: Great Curse/Shapechanging) by backfilling primaryVirtueId: null', () => {
+      const character = createBlankExaltedCharacter('lunar');
+      const legacy = {
+        ...character,
+        familyState: {
+          type: 'lunar',
+          tell: 'A faint stripe of grey in otherwise black hair.',
+          tattooed: true,
+          heartBloodForms: [
+            { id: crypto.randomUUID(), name: 'Grey Wolf', notes: '' },
+          ],
+          activeFormId: null,
+          // No `primaryVirtueId` key at all -- recorded before Phase 1c
+          // added the field.
+        },
+      } as unknown as Record<string, unknown>;
+
+      const migrated = migrateExalted1eCharacter(legacy, 10);
+      expect(migrated.sheetType).toBe('lunar');
+      if (migrated.familyState.type !== 'lunar') {
+        throw new Error('Expected a Lunar familyState after migration.');
+      }
+      expect(migrated.familyState.tell).toBe(
+        'A faint stripe of grey in otherwise black hair.',
+      );
+      expect(migrated.familyState.heartBloodForms).toHaveLength(1);
+      expect(migrated.familyState.primaryVirtueId).toBeNull();
       expect(exalted1eCharacterSchema.parse(migrated)).toEqual(migrated);
     });
   });

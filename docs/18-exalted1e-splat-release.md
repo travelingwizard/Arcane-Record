@@ -190,13 +190,13 @@ real, creatable sheet.
 
 ## Status per family
 
-| Family     | Source manifest                                                                                                                                                         | Inventory rows | Promoted                                                                      | Certification                                                                                                                          |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)    | 598            | 319 of 390 promotable (Backgrounds + Merits/Flaws + Charms, Phase 1a/1b)      | Locked, all dimensions `not-run`                                                                                                       |
-| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 505 of 505 promotable (catalog dimension complete, Phase 1e)                  | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
-| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 370 of 370 promotable (catalog dimension complete, Phase: Astrology/Colleges) | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
-| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 0                                                                             | Locked, all dimensions `not-run`                                                                                                       |
-| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 365            | 0                                                                             | Locked, all dimensions `not-run`                                                                                                       |
+| Family     | Source manifest                                                                                                                                                         | Inventory rows | Promoted                                                                                  | Certification                                                                                                                          |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)    | 598            | 326 of 390 promotable (Backgrounds + Merits/Flaws + Charms + Great Curse, Phase 1a/1b/1c) | Locked, all dimensions `not-run`                                                                                                       |
+| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 505 of 505 promotable (catalog dimension complete, Phase 1e)                              | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
+| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 370 of 370 promotable (catalog dimension complete, Phase: Astrology/Colleges)             | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
+| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 0                                                                                         | Locked, all dimensions `not-run`                                                                                                       |
+| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 365            | 0                                                                                         | Locked, all dimensions `not-run`                                                                                                       |
 
 Lunar's 582 rows cover the core innate powers, every Charm category in
 Chapter Five (Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat
@@ -1084,10 +1084,44 @@ in schema.ts now resolves to the real 219-entry `lunarCharmIds` set
 (previously an empty placeholder); Sorcery spells remain a placeholder
 rejection, since this phase promoted Charms only, not the 84 Terrestrial/
 Celestial Circle spell rows already inventoried (a separate future
-sub-phase). `promotedEntries` rose from 100 to 319. Remaining Lunar work:
-the Sorcery spell catalog, the Great Curse/Shapechanging-Forms subsystem,
-an editor UI branch, XP-cost rules, and the full rules/creator/migration/
-browser test evidence this project's certification gate requires.
+sub-phase). `promotedEntries` rose from 100 to 319.
+
+Lunar Phase 1c built the Great Curse/Shapechanging-Forms subsystem. The
+Great Curse's 5 rows (the overview plus the four Virtue-linked inner-beast
+thralls -- Whipped Dog/Compassion, Heartless Weasel/Conviction, Drunken
+Monkey/Temperance, Raging Bull/Valor) are now a promoted
+`lunar-great-curse.json` catalog, and 2 of the Lunar Shapechanging rules
+(the innate 3-mote Shapechanging power and The Tell) are now a promoted
+`lunar-shapechanging-rules.json` catalog; the third rules row, a Regions
+sidebar, was deliberately left unpromoted since its inventory disposition
+is `reference-only` (GM guidance, not a selectable or calculated Trait),
+which this project's own governance model forbids promoting --
+`audit:exalted-sources` enforces this and failed loudly on the first
+attempt, exactly as intended. Since the Great Curse is mechanically
+identical to the Solar/Dragon-Blooded Limit Trait, it reuses the existing
+generic `limit` field verbatim (matching Abyssal's own Resonance
+precedent) rather than adding a new schema field; `Exalted1eEditor.tsx`'s
+Traits section gained an `isLunar` branch relabeling the same Limit dots
+and notes textarea "Great Curse"/"Great Curse notes". `familyState.lunar`
+gained one genuinely new field, `primaryVirtueId` (nullable, one of the
+four Virtue ids -- a player/Storyteller narrative declaration of which
+Virtue governs the inner beast, not auto-derived from the highest Virtue
+rating), requiring `EXALTED1E_SCHEMA_VERSION` to bump from 10 to 11 with a
+migration backfilling `null` for pre-existing Lunar records. A new
+`LunarShapechangingPanel.tsx` component (mirroring
+`SiderealAstrologyPanel.tsx`) renders a Heart's Blood Forms manager (full
+add/edit/remove CRUD for known animal forms, replacing the prior
+placeholder-only active-form dropdown), a Great Curse card (primary-Virtue
+selector plus all five Great Curse rows as browsable reference), and a
+Shapechanging rules reference card. Per-species Heart's Blood Form stat
+bonuses remain player-recorded free text, not a closed per-species stat
+catalog, since the source imposes no fixed list of eligible animals -- an
+honestly-labeled gap, not a silent omission. `promotedEntries` rose from
+319 to 326. Remaining Lunar work: the Sorcery spell catalog, the general
+Lunar editor UI branch (Caste/Tribe identity, Charms/Backgrounds/
+Merits-Flaws pickers), XP-cost rules, and the full rules/creator/
+migration/browser test evidence this project's certification gate
+requires.
 
 ## Next steps (require source material per book)
 

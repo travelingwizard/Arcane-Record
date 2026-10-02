@@ -180,17 +180,23 @@ describe('auditFamily against the real repository (current state)', () => {
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);
     expect(report.inventoryRows).toBeGreaterThan(0);
-    // 219 = the promoted Charms in lunar-charms.json, as counted directly
-    // from `src/games/exalted1e/reference/lunar-*.json` by this audit
-    // script. This differs from `certification/lunar.json`'s own
-    // `catalog.promotedEntries` (319), which also includes the 100
+    // 226 = 219 promoted Charms (lunar-charms.json) + 5 promoted Great
+    // Curse rows (lunar-great-curse.json: the overview plus the four
+    // Virtue-linked thralls) + 2 promoted Shapechanging rules rows
+    // (lunar-shapechanging-rules.json: the innate Shapechanging power and
+    // The Tell -- the Regions sidebar is deliberately excluded, since its
+    // inventory `disposition` is `reference-only`, which this audit
+    // script's own promotion check forbids promoting), as counted
+    // directly from `src/games/exalted1e/reference/lunar-*.json` by this
+    // audit script. This differs from `certification/lunar.json`'s own
+    // `catalog.promotedEntries` (326), which also includes the 100
     // Phase 1a Backgrounds/Merits-Flaws rows, none of which live in a
     // `lunar-`-prefixed catalog file (Backgrounds live in `definitions.ts`;
     // Merits/Flaws live in the shared `dragonblooded-merits-flaws.json`),
     // so this audit script's file-glob does not count them -- matching
     // Abyssal's own 333-vs-505 and Sidereal's own 203-vs-370 precedent
     // above.
-    expect(report.promotedEntries).toBe(219);
+    expect(report.promotedEntries).toBe(226);
     expect(report.catalogChecksum).toHaveLength(8);
     expect(report.catalogChecksum).toMatch(/^[0-9a-f]{8}$/);
   });

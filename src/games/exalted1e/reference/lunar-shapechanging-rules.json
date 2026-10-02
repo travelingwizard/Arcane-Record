@@ -1,0 +1,26 @@
+[
+  {
+    "id": "lunar-shapechanging",
+    "name": "Lunar Shapechanging",
+    "summary": "Innate power (not a Charm): for 3 motes of Essence, a Lunar can assume the shape of any animal whose heart's blood she has drunk or lapped as it died.",
+    "mechanics": "Simple dice action; the Lunar's player cannot split her dice pool for extra actions while using it. Reverting to the Lunar's last true form is reflexive and can happen even before the Exalt's initiative in the turn. For the heart's blood to count as tasted, the beast must die, the Lunar must kill it (or strike the killing blow if several Lunars take part in the hunt), and drink its blood as it dies. The animal changed into can be no smaller than a large housecat and no larger than an elk unless special Charms extend the size range. Lunars cannot shapeshift into constructs, Wyld offspring, or other humans, and cannot assume the shape of non-natural beasts. A Lunar who shifts into an animal gains its Strength, Stamina, natural attacks/abilities, and natural senses, but keeps his own Attributes and health levels if the animal is smaller/similar-sized; if larger or built for a different locomotion (flight, swimming), the Lunar keeps his own scale but gains the new mode of movement. Shapechanging into a beast form does not itself count against the number of Charms usable that turn, but 3 motes remain committed until the character returns to a true form.",
+    "compatibility": "All Lunar castes.",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 118,
+      "pdfPage": 121
+    }
+  },
+  {
+    "id": "the-tell",
+    "name": "The Tell",
+    "summary": "Every Lunar has an unchanging physical oddity called the Tell, left over from the tattooing/scarification ritual that fixes her Caste. How severe the Tell is depends on how many times the character has purchased Deadly Beastman Transformation.",
+    "mechanics": "1-2 purchases of Deadly Beastman Transformation: small Tells (odd hair color, hair with a gray/black stripe, a discolored eyebrow, a prominent birthmark, a missing eye). More purchases: the Tell grows, often manifesting traits of the Lunar's favored (totem) animal — wolf ears, goat hooves, tiger-like paws, or blatant traits such as backward-bending fingers, extra eyes, or cyclopeanism. It is the nature of the Tell to try to conceal itself from those who don't know to look for it and reveal itself to those who do, an automatic effect of Exaltation, not something the character controls directly. A character who has not taken Deadly Beastman Transformation has a small Tell that conceals itself well. A Lunar whose Tell combines the traits of several animals (from changing totem animal) is known as a chimera.",
+    "compatibility": "All Lunar castes.",
+    "citation": {
+      "bookId": "exalted-the-lunars",
+      "printedPage": 120,
+      "pdfPage": 123
+    }
+  }
+]
