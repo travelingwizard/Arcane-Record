@@ -1,37 +1,15 @@
 import { describe, expect, it } from 'vitest';
-import {
-  lunarSorcerySpellIds,
-  lunarUnreviewedExcludedSpellIds,
-} from '../../src/games/exalted1e/reference/lunar-powers';
+import { lunarSorcerySpellIds } from '../../src/games/exalted1e/reference/lunar-powers';
 import { sharedSorcerySpellById } from '../../src/games/exalted1e/reference/dragonblooded-powers';
 import { auditFamily } from '../../scripts/audit-exalted-sources.mjs';
 
-describe('Lunar Sorcery spell catalog (Phase 1d)', () => {
-  it('promotes exactly 73 Sorcery spell ids, all distinct', () => {
-    expect(lunarSorcerySpellIds.size).toBe(73);
+describe('Lunar Sorcery spell catalog (Phase 1d; fully closed by the unreviewed_spells follow-up phase)', () => {
+  it('promotes exactly 86 Sorcery spell ids, all distinct', () => {
+    expect(lunarSorcerySpellIds.size).toBe(86);
   });
 
-  it('excludes exactly 13 still-unreviewed Sorcery spell ids, disjoint from the promoted set', () => {
-    expect(lunarUnreviewedExcludedSpellIds).toHaveLength(13);
-    expect(new Set(lunarUnreviewedExcludedSpellIds).size).toBe(13);
-    for (const id of lunarUnreviewedExcludedSpellIds) {
-      expect(lunarSorcerySpellIds.has(id)).toBe(false);
-    }
-  });
-
-  it('combines promoted and excluded ids to exactly the 86 Sorcery rows inventoried for Lunar', () => {
-    const combined = new Set([
-      ...lunarSorcerySpellIds,
-      ...lunarUnreviewedExcludedSpellIds,
-    ]);
-    expect(combined.size).toBe(86);
-  });
-
-  it('resolves every promoted and excluded id against the real shared Sorcery catalog', () => {
+  it('resolves every promoted id against the real shared Sorcery catalog', () => {
     for (const id of lunarSorcerySpellIds) {
-      expect(sharedSorcerySpellById.has(id)).toBe(true);
-    }
-    for (const id of lunarUnreviewedExcludedSpellIds) {
       expect(sharedSorcerySpellById.has(id)).toBe(true);
     }
   });
@@ -50,11 +28,43 @@ describe('Lunar Sorcery spell catalog (Phase 1d)', () => {
     expect(lunarSorcerySpellIds.has('water-s-ally')).toBe(true);
   });
 
+  it('promotes the 13 previously-unreviewed summon-type spell rows (unreviewed_spells follow-up phase)', () => {
+    // These were held back from Phase 1d pending a direct visual
+    // (rendered-page) re-check of their embedded creature stat blocks and
+    // boxed tables -- see `lunar.json`'s certification notes for the full
+    // page-by-page verification record. The re-check found zero
+    // discrepancies from the existing transcription; all 13 are now
+    // ordinary promoted entries like any other row, and the exclusion
+    // list export (`lunarUnreviewedExcludedSpellIds`) that used to hold
+    // them was removed once empty, mirroring Abyssal's own Phase 1e
+    // precedent for the identical kind of gap.
+    for (const id of [
+      'dance-of-the-smoke-cobras',
+      'the-horse-that-travels-earth-and-water',
+      'hound-of-the-five-winds',
+      'plague-of-bronze-snakes',
+      'ritual-of-elemental-empowerment',
+      'sprouting-shackles-of-doom',
+      'the-spy-who-walks-in-darkness',
+      'summoning-the-lesser-minions-of-the-eyeless-face',
+      'bone-lion',
+      'imbue-amalgam',
+      'the-princes-of-the-fallen-tower',
+      'servant-of-infallible-location',
+      'swift-spirit-of-winged-transportation',
+    ]) {
+      expect(lunarSorcerySpellIds.has(id)).toBe(true);
+      expect(sharedSorcerySpellById.has(id)).toBe(true);
+    }
+  });
+
   it("passes the real source audit's promoted-catalog cross-check with zero issues", () => {
     // Sorcery spells reuse the shared dragonblooded-sorcery.json catalog
     // rather than a lunar-*.json file, so this audit script's file-glob
-    // count is unaffected by this phase -- see exalted1e-source-audit.test.ts
-    // for the full explanation of the 226-vs-399 distinction.
+    // count is unaffected by this phase (and by the unreviewed_spells
+    // follow-up phase that closed the last 13-spell gap) -- see
+    // exalted1e-source-audit.test.ts for the full explanation of the
+    // 226-vs-412 distinction.
     const report = auditFamily('lunar');
     expect(report.issues).toEqual([]);
     expect(report.promotedEntries).toBeGreaterThanOrEqual(226);

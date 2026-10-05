@@ -69,25 +69,32 @@ describe('Exalted production verification gate', () => {
     expect(canCreateProductionExaltedCharacter('abyssal')).toBe(false);
   });
 
-  it('keeps Lunar blocked on its remaining catalog gap even though rules/creator/migration tests now pass', () => {
+  it('keeps Lunar blocked even though every test dimension and its catalog dimension now pass', () => {
     // The "rules_creator_tests" follow-up phase added real guided-creation
     // UI coverage (see `exalted-creation-panel.test.tsx`'s Lunar block)
     // alongside the rules/migration coverage `exalted1e-lunar.test.ts`
     // already had since Phases 1a-1d, so all three of those dimensions
-    // now pass. Unlike Abyssal above, Lunar's catalog dimension still
-    // fails on its own: 13 of its 86 Sorcery spell rows remain
-    // `unreviewed` (see `lunarUnreviewedExcludedSpellIds`), so
-    // `promotedEntries` (399) has not yet reached `promotableEntries`
-    // (412), and `checksum` is still empty -- this is a second,
-    // independent reason Lunar stays locked, on top of `browserTests`/
-    // `certifiedAt` staying unset like every other family.
+    // pass. The later "unreviewed_spells" follow-up phase then closed
+    // Lunar's remaining catalog gap too: the last 13 of its 86 Sorcery
+    // spell rows were visually re-checked against the source PDF (zero
+    // discrepancies found) and promoted, so `promotedEntries` (412) now
+    // equals `promotableEntries` (412) and `checksum` is a real non-empty
+    // hash -- Lunar's situation is now identical in kind to Abyssal's
+    // above. It still fails the overall gate for the same two reasons
+    // Abyssal does: `browserTests` cannot run until the family is
+    // unlocked, and `certifiedAt` deliberately stays null pending Phase
+    // 6's rule that all five planned families reach `certifiedAt !== null`
+    // together.
+    expect(certificationRecords.lunar.catalog.promotedEntries).toBe(
+      certificationRecords.lunar.catalog.promotableEntries,
+    );
+    expect(certificationRecords.lunar.catalog.unresolvedEntries).toBe(0);
+    expect(certificationRecords.lunar.catalog.checksum.length).toBeGreaterThan(
+      0,
+    );
     expect(certificationRecords.lunar.rulesTests).toBe('pass');
     expect(certificationRecords.lunar.creatorTests).toBe('pass');
     expect(certificationRecords.lunar.migrationTests).toBe('pass');
-    expect(certificationRecords.lunar.catalog.promotedEntries).toBeLessThan(
-      certificationRecords.lunar.catalog.promotableEntries,
-    );
-    expect(certificationRecords.lunar.catalog.checksum).toBe('');
     expect(certificationRecords.lunar.browserTests).not.toBe('pass');
     expect(certificationRecords.lunar.certifiedAt).toBeNull();
     expect(isFamilyAvailable('lunar')).toBe(false);

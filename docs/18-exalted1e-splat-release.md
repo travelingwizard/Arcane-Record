@@ -1236,6 +1236,48 @@ errors), format check, the full unit+integration suite (871 tests, up from
 a production build. Lunar remains fully locked out of `definition.tsx`'s
 user-facing `variants` list.
 
+A follow-up "rules_creator_tests" phase then closed Lunar's remaining
+test-dimension gap. `tests/unit/exalted1e-lunar.test.ts` turned out to
+already have comprehensive rules-and-migration coverage dating back to
+Phases 1a-1d; the only genuinely new gap was the "creator tests" dimension
+(guided-creation UI coverage), closed by a new Lunar `describe` block in
+`tests/integration/exalted-creation-panel.test.tsx` (mirroring the existing
+Abyssal/Sidereal blocks) covering the Casteless creation profile, all four
+Caste identities, unresolved-requirement surfacing, the creation-source
+citation, the Casteless variant's narrower powers budget, and the
+manual-sheet no-render case. `rulesTests`/`creatorTests`/`migrationTests`
+were flipped from `'not-run'` to `'pass'` in `certification/lunar.json`;
+the catalog dimension (399/412 promoted) and `browserTests`/`certifiedAt`
+were unchanged, so Lunar remained locked.
+
+A later "unreviewed_spells" phase closed that remaining catalog gap. The
+13 Sorcery spell rows held back since Phase 1d (8 Terrestrial + 5 Celestial
+Circle summon-type spells from _Savant and Sorcerer_, all with embedded
+creature stat blocks) were visually re-checked against the source PDF --
+each cited page was rendered and compared line-by-line against the
+existing transcribed mechanics text, confirming an exact match with zero
+discrepancies. Each row's `verificationState` was flipped from
+`'unreviewed'` to `'reviewed'`, and all 13 ids moved from the now-removed
+`lunarUnreviewedExcludedSpellIds` export into `lunarSorcerySpellIds` in
+`lunar-powers.ts` (mirroring Abyssal's own Phase 1e precedent of deleting
+an exclusion-list export once empty). `promotedEntries` rose from 399 to
+412, now exactly matching `promotableEntries`; `checksum` was populated for
+the first time with the real value from `scripts/audit-exalted-sources.mjs`
+(unchanged by this phase's own edits, since Sorcery spells reuse the shared
+`dragonblooded-sorcery.json` catalog file rather than a `lunar-*.json` file
+the audit script's glob can see). With all three test dimensions and the
+catalog dimension now passing, Lunar's situation is identical in kind to
+Abyssal's and Sidereal's: it stays locked solely because `browserTests`
+cannot run before the family is unlocked and because `certifiedAt`
+deliberately stays null pending the rule that all five planned families
+reach `certifiedAt !== null` together. Full verification passed: typecheck,
+lint (0 errors), format check, the full unit+integration suite (878 tests),
+the Exalted e2e smoke specs, `audit:exalted-sources` (0 issues), and a
+production build. Lunar remains fully locked out of `definition.tsx`'s
+user-facing `variants` list. Sidereal's own identical 13-row gap
+(`siderealUnreviewedExcludedSpellIds`, same source pages) was left
+untouched this phase as a separate family's scope.
+
 ## Next steps (require source material per book)
 
 1. Project owner supplies scanned pages, OCR text, or transcriptions for one

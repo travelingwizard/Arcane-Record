@@ -281,7 +281,7 @@ export const lunarCharmById = new Map(
 export const lunarCharmIds = new Set(lunarCharmById.keys());
 
 /**
- * Phase 1d: the 73 Sorcery spell ids (disposition `selectable` AND
+ * Phase 1d: the 86 Sorcery spell ids (disposition `selectable` AND
  * verificationState `reviewed`) that Lunar's own inventory confirms, out
  * of 86 total spell rows found there (84 from the Savant and Sorcerer/
  * Book of Three Circles pass, plus 2 added by a later Blood and Salt
@@ -289,24 +289,43 @@ export const lunarCharmIds = new Set(lunarCharmById.keys());
  * to already exist, name-for-name and mechanics-for-mechanics, in the
  * existing shared `dragonblooded-sorcery.json` catalog (see
  * `sharedSorcerySpellById` in `dragonblooded-powers.ts`) -- exactly the
- * same good outcome, and (since Lunar and Sidereal both inventory the
- * same Savant and Sorcerer chapter) the exact same 13 excluded rows,
- * that Sidereal's own Phase 2b found for its 73 spells (see
- * `siderealSorcerySpellIds`/`siderealUnreviewedExcludedSpellIds` in
- * `sidereal-powers.ts`). No new spell rows were appended to
- * `dragonblooded-sorcery.json` this phase, and no Lunar-only spell
- * catalog file was created; this is simply the subset of the shared
- * catalog that this promotion pass confirmed Lunar has access to via its
- * own `terrestrial-circle-sorcery`/`celestial-circle-sorcery` enabling
- * Charms (see `lunarCharms` above). Every id below is asserted, at
- * module load time, to actually exist in the shared catalog, so a future
- * refactor of `dragonblooded-sorcery.json` cannot silently break this
- * list.
+ * same good outcome that Sidereal's own Phase 2b found for its spells
+ * (see `siderealSorcerySpellIds` in `sidereal-powers.ts`). No new spell
+ * rows were appended to `dragonblooded-sorcery.json` this phase, and no
+ * Lunar-only spell catalog file was created; this is simply the subset of
+ * the shared catalog that this promotion pass confirmed Lunar has access
+ * to via its own `terrestrial-circle-sorcery`/`celestial-circle-sorcery`
+ * enabling Charms (see `lunarCharms` above). Every id below is asserted,
+ * at module load time, to actually exist in the shared catalog, so a
+ * future refactor of `dragonblooded-sorcery.json` cannot silently break
+ * this list.
+ *
+ * Historical note (`unreviewed_spells` follow-up phase): 13 of these 86
+ * ids (8 Terrestrial + 5 Celestial Circle, all summon-type spells with
+ * embedded creature stat blocks -- Dance of the Smoke Cobras, The Horse
+ * That Travels Earth and Water, Hound of the Five Winds, Plague of Bronze
+ * Snakes, Ritual of Elemental Empowerment, Sprouting Shackles of Doom,
+ * The Spy Who Walks in Darkness, Summoning the Lesser Minions of the
+ * Eyeless Face, Bone Lion, Imbue Amalgam, The Princes of the Fallen
+ * Tower, Servant of Infallible Location, Swift Spirit of Winged
+ * Transportation) were originally held back in a `lunarUnreviewedExcludedSpellIds`
+ * export pending a direct visual (rendered-page) re-check of their
+ * embedded stat blocks/tables, per this project's OCR/extraction
+ * verification rule -- identical (same underlying Savant and Sorcerer
+ * chapter, same review pass) to the 13 rows Sidereal's own
+ * `siderealUnreviewedExcludedSpellIds` held back for the same reason. A
+ * direct visual re-check of the cited printed pp. 104-136 (PDF 105-138)
+ * against the source PDF confirmed every one of the 13 stat blocks/tables
+ * matches the existing transcription exactly, with zero discrepancies; all
+ * 13 are promoted here like any other row, and the now-empty exclusion
+ * list export was removed -- see `tests/unit/lunar-sorcery-catalog.test.ts`
+ * for the coverage that replaced it.
  */
 export const lunarSorcerySpellIds = new Set<string>([
   'becoming-the-wood-friend',
   'between-the-minute-and-the-hour',
   'blood-lash',
+  'bone-lion',
   'burning-eyes-of-the-offender',
   'calling-the-wind-s-kiss',
   'cantata-of-empty-voices',
@@ -315,6 +334,7 @@ export const lunarSorcerySpellIds = new Set<string>([
   'conjuring-the-azure-chariot',
   'corrupted-words',
   'curse-of-slavish-humility',
+  'dance-of-the-smoke-cobras',
   'disguise-of-the-new-face',
   'emerald-circle-banishment',
   'eternal-crystalline-encasement',
@@ -327,7 +347,9 @@ export const lunarSorcerySpellIds = new Set<string>([
   'fugue-of-truth',
   'geyser-of-corruption',
   'hideous-confusion-of-tongues',
+  'hound-of-the-five-winds',
   'hypnotic-piping',
+  'imbue-amalgam',
   'incantation-of-spiritual-discretion',
   'insidious-tendrils-of-hate',
   'internal-flame',
@@ -342,9 +364,12 @@ export const lunarSorcerySpellIds = new Set<string>([
   'paralyzing-contradiction',
   'peacock-shadow-eyes',
   'personal-tempest',
+  'plague-of-bronze-snakes',
   'private-plaza-of-downcast-eyes',
+  'ritual-of-elemental-empowerment',
   'river-of-blood',
   'rolling-earth-carpet',
+  'servant-of-infallible-location',
   'shadow-summons',
   'shadow-theft',
   'shadows-of-the-ancient-past',
@@ -354,14 +379,20 @@ export const lunarSorcerySpellIds = new Set<string>([
   'sorcerer-s-irresistible-puppetry',
   'spirit-of-might',
   'spirit-sword',
+  'sprouting-shackles-of-doom',
   'sting-of-the-ice-hornet',
   'summon-the-army-of-the-wild',
   'summoning-the-heart-of-darkness',
+  'summoning-the-lesser-minions-of-the-eyeless-face',
+  'swift-spirit-of-winged-transportation',
   'the-battles-end',
   'the-faithful-ally',
+  'the-horse-that-travels-earth-and-water',
+  'the-princes-of-the-fallen-tower',
   'the-ravenous-fire',
   'the-sacred-tongue',
   'the-spawning-of-monsters',
+  'the-spy-who-walks-in-darkness',
   'the-tree-s-many-branches',
   'theft-of-memory',
   'threefold-binding-of-the-heart',
@@ -383,49 +414,6 @@ for (const id of lunarSorcerySpellIds) {
   if (!sharedSorcerySpellById.has(id)) {
     throw new Error(
       `lunarSorcerySpellIds references unknown shared Sorcery spell id: ${id}`,
-    );
-  }
-}
-
-/**
- * 13 disposition-`selectable` Sorcery spell rows (8 Terrestrial + 5
- * Celestial Circle, all from Savant and Sorcerer) excluded from this
- * promotion pass because their inventory `verificationState` is still
- * `unreviewed` -- their full rules-text paragraphs were not legibly
- * captured in the source pass; headers/costs/prerequisites are confirmed.
- * Promoting any of these would fail `scripts/audit-exalted-sources.mjs`'s
- * visual-review gate, exactly like the Abyssal unreviewed-Charm/spell
- * exclusions resolved in that family's Phase 1e, and identical (same
- * underlying source chapter, same review pass) to Sidereal's own
- * `siderealUnreviewedExcludedSpellIds`. Follow-up: promote once a future
- * inventory pass captures their full mechanics text and flips
- * `verificationState` to `reviewed`.
- */
-export const lunarUnreviewedExcludedSpellIds = [
-  'dance-of-the-smoke-cobras',
-  'the-horse-that-travels-earth-and-water',
-  'hound-of-the-five-winds',
-  'plague-of-bronze-snakes',
-  'ritual-of-elemental-empowerment',
-  'sprouting-shackles-of-doom',
-  'the-spy-who-walks-in-darkness',
-  'summoning-the-lesser-minions-of-the-eyeless-face',
-  'bone-lion',
-  'imbue-amalgam',
-  'the-princes-of-the-fallen-tower',
-  'servant-of-infallible-location',
-  'swift-spirit-of-winged-transportation',
-] as const;
-
-for (const id of lunarUnreviewedExcludedSpellIds) {
-  if (!sharedSorcerySpellById.has(id)) {
-    throw new Error(
-      `lunarUnreviewedExcludedSpellIds references unknown shared Sorcery spell id: ${id}`,
-    );
-  }
-  if (lunarSorcerySpellIds.has(id)) {
-    throw new Error(
-      `lunarUnreviewedExcludedSpellIds id "${id}" is also present in lunarSorcerySpellIds -- it should be excluded, not promoted.`,
     );
   }
 }

@@ -88,13 +88,16 @@ describe('exalted1e verification gate', () => {
           : family === 'sidereal'
             ? 370
             : family === 'lunar'
-              ? 399
+              ? 412
               : 0,
       );
-      if (family === 'abyssal' || family === 'sidereal') {
+      if (family === 'abyssal' || family === 'sidereal' || family === 'lunar') {
         // Cross-check against the audit script's own live computation
         // rather than hardcoding the hash, so this test can't silently go
-        // stale if the promoted catalog changes.
+        // stale if the promoted catalog changes. Lunar's catalog
+        // dimension closed this same way as Abyssal's/Sidereal's own did,
+        // via the `unreviewed_spells` follow-up phase (see
+        // `lunar.json`'s notes).
         expect(record.catalog.checksum).toBe(
           auditFamily(family).catalogChecksum,
         );
@@ -113,34 +116,34 @@ describe('exalted1e verification gate', () => {
     }
   });
 
-  it('reflects Lunar source intake in progress without unlocking the family', () => {
+  it('reflects Lunar with its catalog dimension now fully resolved without unlocking the family', () => {
     const record = certificationRecords.lunar;
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
-    // 399 = 100 (13 Backgrounds + 87 shared Merits/Flaws catalog rows now
-    // carrying 'lunar' in appliesTo, Phase 1a) + 219 Charms (Phase 1b:
+    // 412 = 13 Backgrounds + 87 shared Merits/Flaws catalog rows now
+    // carrying 'lunar' in appliesTo (Phase 1a) + 219 Charms (Phase 1b:
     // every Chapter Five Charm-page row except the 10 Beastman
     // Transformation "gift" sub-options, plus the Storyteller's
     // Companion's 5 Sample Charms) + 5 Great Curse rows + 2 Shapechanging
-    // rules rows (Phase 1c) + 73 Sorcery spells (Phase 1d: 55 Terrestrial
-    // + 31 Celestial Circle rows already present in the shared Dragon-
-    // Blooded Sorcery catalog, minus 13 still-`unreviewed` rows -- see
-    // `lunarUnreviewedExcludedSpellIds` in `lunar-powers.ts`). A per-
-    // species Heart's Blood Form stat catalog remains unpromoted (the
-    // source imposes no closed species list, so it stays player-recorded
-    // free text by design, not a gap). `promotableEntries` (412) was
-    // recomputed this phase from a prior 390 preliminary estimate (13
-    // Backgrounds + 87 Merits/Flaws + 219 Charms + 5 Great Curse + 2
-    // Shapechanging rules + 86 Sorcery spells, counting the 13 still-
-    // unreviewed spells in the denominator, matching Abyssal's own
-    // precedent of keeping not-yet-reviewed-but-real rows counted rather
-    // than silently dropping them). Even once the catalog dimension is
-    // eventually fully satisfied, `isFamilyAvailable` must stay false:
-    // `browserTests` can't run before the family is unlocked, and Phase
-    // 6's rule requires all five families to reach `certifiedAt !== null`
-    // together.
-    expect(record.catalog.promotedEntries).toBe(399);
+    // rules rows (Phase 1c) + 86 Sorcery spells (Phase 1d promoted 73 of
+    // 86; the `unreviewed_spells` follow-up phase then promoted the
+    // remaining 13 summon-type rows, all from Savant and Sorcerer, after
+    // a direct visual rendered-page re-check of their embedded creature
+    // stat blocks/tables confirmed zero discrepancies from the existing
+    // transcription -- see `lunar.json`'s certification notes). A per-
+    // species Heart's Blood Form stat catalog remains intentionally
+    // unpromoted (the source imposes no closed species list, so it stays
+    // player-recorded free text by design, not a gap). `promotedEntries`
+    // (412) now exactly equals `promotableEntries` (412), so
+    // `catalogDimensionPasses` returns true for Lunar for the first time.
+    // Even with the catalog dimension fully satisfied, `isFamilyAvailable`
+    // must stay false: `browserTests` can't run before the family is
+    // unlocked, and Phase 6's rule requires all five families to reach
+    // `certifiedAt !== null` together -- exactly mirroring Abyssal's and
+    // Sidereal's own already-resolved catalog dimensions.
+    expect(record.catalog.promotedEntries).toBe(412);
     expect(record.catalog.promotableEntries).toBe(412);
     expect(record.catalog.unresolvedEntries).toBe(0);
+    expect(record.catalog.checksum.length).toBeGreaterThan(0);
     expect(isFamilyAvailable('lunar')).toBe(false);
   });
 
@@ -299,10 +302,10 @@ describe('exalted1e verification gate', () => {
     }
   });
 
-  it('describes Lunar as locked on its remaining catalog gap despite its now-passing test dimensions', () => {
+  it('describes Lunar as locked with its now-complete catalog dimension despite its passing test dimensions', () => {
     const status = getFamilyCertificationStatus('lunar');
     expect(status.available).toBe(false);
-    expect(status.blockReason).toContain('399/412 promoted');
+    expect(status.blockReason).toContain('412/412 promoted');
     expect(status.blockReason).toContain('0 unresolved');
     expect(status.blockReason).toContain('rules tests pass');
     expect(status.blockReason).toContain('creator tests pass');

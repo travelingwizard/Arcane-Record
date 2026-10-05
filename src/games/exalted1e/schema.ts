@@ -576,11 +576,12 @@ export const exalted1eCharacterSchema = z
         return;
       }
       if (character.sheetType === 'lunar') {
-        // Phase 1d: Lunar's 73 promoted Sorcery spells (of 86 inventoried;
-        // the other 13 are still `verificationState: 'unreviewed'` -- see
-        // `lunarUnreviewedExcludedSpellIds`), all of them already present,
-        // name-for-name, in the shared Dragon-Blooded Sorcery catalog --
-        // see `lunarSorcerySpellIds` in `./reference/lunar-powers`,
+        // Phase 1d: Lunar's 86 promoted Sorcery spells (all 86
+        // inventoried, including the 13 that were originally held back as
+        // `verificationState: 'unreviewed'` until the `unreviewed_spells`
+        // follow-up phase's visual re-check), all of them already
+        // present, name-for-name, in the shared Dragon-Blooded Sorcery
+        // catalog -- see `lunarSorcerySpellIds` in `./reference/lunar-powers`,
         // reachable via Lunar's own `terrestrial-circle-sorcery`/
         // `celestial-circle-sorcery` enabling Charms. Without this
         // branch, Lunar would silently fall through to the Dragon-Blooded

@@ -642,24 +642,25 @@ describe('Exalted First Edition Lunar (schema-only; not yet UI-selectable)', () 
       ).toThrow(/unknown lunar spell definition/i);
     });
 
-    it('rejects a still-unreviewed Sorcery spell id (e.g. Bone Lion), since it is not yet promoted', () => {
+    it('accepts the 13 previously-unreviewed summon-type spells (e.g. Bone Lion), now promoted after the unreviewed_spells follow-up phase visually re-confirmed their stat blocks', () => {
       const character = createBlankExaltedCharacter('lunar');
-      expect(() =>
-        exalted1eCharacterSchema.parse({
-          ...character,
-          powers: {
-            charms: [],
-            spells: [
-              {
-                id: crypto.randomUUID(),
-                definitionId: 'bone-lion',
-                unresolvedReference: null,
-                notes: '',
-              },
-            ],
-          },
-        }),
-      ).toThrow(/unknown lunar spell definition/i);
+      const parsed = exalted1eCharacterSchema.parse({
+        ...character,
+        powers: {
+          charms: [],
+          spells: [
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'bone-lion',
+              unresolvedReference: null,
+              notes: '',
+            },
+          ],
+        },
+      });
+      expect(parsed.powers.spells.map((s) => s.definitionId)).toEqual([
+        'bone-lion',
+      ]);
     });
 
     it("rejects a Dragon-Blooded-legal Terrestrial spell id that Lunar's own inventory never included", () => {
