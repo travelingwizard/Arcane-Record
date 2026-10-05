@@ -18,6 +18,7 @@ import {
   getAbyssalPowerExperienceCost,
   getDragonBloodedPowerExperienceCost,
   getExperienceTotals,
+  getLunarPowerExperienceCost,
   getSiderealPowerExperienceCost,
 } from './shared/advancement/rules';
 import { exaltedAbilities } from './definitions';
@@ -85,17 +86,14 @@ function charmCaste(definition: ExaltedPowerDefinition): string | null {
  * routes XP-cost math to the right family's rule set: Dragon-Blooded's
  * favored-Aspect-Ability-group cost function for anything without
  * `exaltType`, Abyssal's favored-Caste/Favored-Ability cost function when
- * it is `'abyssal'`, or Sidereal's favored-Auspicious-Ability cost function
- * when it is `'sidereal'`. Solar definitions also lack `exaltType`, but the
- * Solar branch never passes `character`, so this function is only ever
- * reached with `character` defined for Dragon-Blooded/Abyssal/Sidereal
- * callers today. Lunar's own `Exalted1eEditor.tsx` call site deliberately
- * omits `character`/`onLearnWithExperience` (no real Lunar XP-cost math
- * exists yet -- it's deferred to a dedicated XP-rules phase, since Lunar's
- * favored-Charm/Caste-Attribute discount structure differs from both
- * Abyssal's and Sidereal's), so the `'lunar'` branch below exists only to
- * keep this function's `exaltType`-widened union exhaustive at the type
- * level; it should never actually execute.
+ * it is `'abyssal'`, Sidereal's favored-Auspicious-Ability cost function
+ * when it is `'sidereal'`, or Lunar's favored-Ability-in-requirements cost
+ * function (see `getLunarPowerExperienceCost`'s own doc comment for why
+ * that check differs from every other family's) when it is `'lunar'`.
+ * Solar definitions also lack `exaltType`, but the Solar branch never
+ * passes `character`, so this function is only ever reached with
+ * `character` defined for Dragon-Blooded/Abyssal/Sidereal/Lunar callers
+ * today.
  */
 function getPowerExperienceCost(
   character: Exalted1eCharacter,
@@ -106,9 +104,7 @@ function getPowerExperienceCost(
       return getAbyssalPowerExperienceCost(character, definition);
     }
     if (definition.exaltType === 'lunar') {
-      throw new Error(
-        'getPowerExperienceCost: Lunar XP-cost math is not implemented yet; Lunar must not pass `character`/`onLearnWithExperience` to ExaltedPowersSection.',
-      );
+      return getLunarPowerExperienceCost(character, definition);
     }
     return getSiderealPowerExperienceCost(character, definition);
   }

@@ -6,8 +6,10 @@ import {
   getDragonBloodedEssenceExperienceCost,
   getDragonBloodedPowerExperienceCost,
   getExperienceTotals,
+  getLunarPowerExperienceCost,
   getSiderealPowerExperienceCost,
   isAbyssalAbilityFavored,
+  isLunarAbilityFavored,
   isSiderealAbilityFavored,
 } from '../../src/games/exalted1e/shared/advancement/rules';
 import {
@@ -20,6 +22,7 @@ import {
   abyssalNecromancySpellById,
 } from '../../src/games/exalted1e/reference/abyssal-powers';
 import { siderealCharmById } from '../../src/games/exalted1e/reference/sidereal-powers';
+import { lunarCharmById } from '../../src/games/exalted1e/reference/lunar-powers';
 
 describe('shared Exalted records and Dragon-Blooded advancement', () => {
   it('keeps native, permanent, temporary, and custom languages distinct', () => {
@@ -238,6 +241,66 @@ describe('shared Exalted records and Dragon-Blooded advancement', () => {
     character.favoredAbilities = [];
     character.identity.caste = 'Journeys';
     expect(getSiderealPowerExperienceCost(character, spell)).toMatchObject({
+      cost: 12,
+      favored: false,
+      explanation: 'Unfavored new spell',
+    });
+  });
+
+  it('applies Lunar favored-Ability-in-requirements Charm/spell XP costs (XP-rules phase)', () => {
+    const character = createBlankExaltedCharacter('lunar');
+    // Tentacles (Exalted Storyteller's Companion Sample Charm) requires
+    // Brawl 3 -- an Ability, unlike most Lunar Charms' Attribute-only
+    // requirements. Lunar has no Caste-Ability link at all (its three
+    // Castes are Attribute-linked, not Ability-linked), so unlike
+    // Abyssal/Sidereal above, only the character's own chosen
+    // `favoredAbilities` can make a Charm Favored here -- there is no
+    // second "uncommitted Caste" case to test.
+    const charm = lunarCharmById.get('tentacles')!;
+    expect(charm.minimumRequirements).toEqual([{ trait: 'Brawl', rating: 3 }]);
+
+    character.favoredAbilities = [];
+    expect(isLunarAbilityFavored(character, 'Brawl')).toBe(false);
+    expect(getLunarPowerExperienceCost(character, charm)).toMatchObject({
+      cost: 12,
+      favored: false,
+      explanation: 'Unfavored new Charm',
+    });
+
+    character.favoredAbilities = ['brawl'];
+    expect(isLunarAbilityFavored(character, 'Brawl')).toBe(true);
+    expect(getLunarPowerExperienceCost(character, charm)).toMatchObject({
+      cost: 10,
+      favored: true,
+      explanation: 'Favored new Charm',
+    });
+
+    // An Attribute-only Charm (Hide of the Cunning Hunter, Manipulation 1)
+    // never resolves to Favored, no matter which Abilities are chosen as
+    // Favored -- Attribute labels like "Manipulation" never match any
+    // real Ability id.
+    const attributeOnlyCharm = lunarCharmById.get(
+      'hide-of-the-cunning-hunter',
+    )!;
+    expect(attributeOnlyCharm.minimumRequirements).toEqual([
+      { trait: 'Manipulation', rating: 1 },
+    ]);
+    character.favoredAbilities = ['brawl', 'survival', 'occult'];
+    expect(
+      getLunarPowerExperienceCost(character, attributeOnlyCharm),
+    ).toMatchObject({ cost: 12, favored: false });
+
+    // Sorcery spells are always costed off Occult, mirroring Abyssal's
+    // Necromancy-spell and Sidereal's Sorcery-spell convention.
+    const spell = sharedSorcerySpellById.get('internal-flame')!;
+    character.favoredAbilities = ['occult'];
+    expect(getLunarPowerExperienceCost(character, spell)).toMatchObject({
+      cost: 10,
+      favored: true,
+      explanation: 'Favored new spell',
+    });
+    character.favoredAbilities = [];
+    expect(getLunarPowerExperienceCost(character, spell)).toMatchObject({
       cost: 12,
       favored: false,
       explanation: 'Unfavored new spell',

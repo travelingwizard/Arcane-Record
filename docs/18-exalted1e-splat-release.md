@@ -1185,6 +1185,57 @@ XP-cost rules (favored-Charm/Caste-Attribute discount logic), the 13
 still-unreviewed Sorcery spells, and the full rules/creator/migration/
 browser test evidence this project's certification gate requires.
 
+Lunar's XP-rules phase then implemented the real `getLunarPowerExperienceCost`/
+`isLunarAbilityFavored` functions in `shared/advancement/rules.ts` and wired
+`character`/`onLearnWithExperience` into the Charms & Sorcery section's
+`isLunar` branch, replacing the defensive placeholder from the prior phase.
+No Lunar-specific numeric override to the standard core-rulebook Charm-cost
+table (10 XP Favored, 12 XP Unfavored) exists in _Exalted: The Lunars_ --
+the same situation Abyssal's and Sidereal's own books left their cost
+functions in -- so this reuses those base figures; Lunar has no
+Immaculate-Martial-Art-style surcharge tier. Determining "favored" required
+a genuine design decision, since Lunar Charms carry no single governing
+Ability (`ability: null` on every `LunarCharmDefinition`; Charms are
+organized by `charmCategory` instead, and `minimumRequirements` freely mix
+Attributes and Abilities within the same category) and Lunar's three
+Castes are Attribute-linked rather than Ability-linked (so there is no
+Caste-Ability fallback the way Abyssal/Sidereal have). Absent any source
+text describing a Lunar-specific Charm-cost framework, this gap was
+surfaced directly to the project owner rather than guessed at; the
+approved design is: a Charm is Favored if ANY of its `minimumRequirements`
+traits matches one of the character's own 5 chosen Favored Abilities (the
+same `favoredAbilities` field every splat already uses), via the same
+`normalizedAbilityId` label-matching helper every other family's
+`isXAbilityFavored` already relies on. Charms whose requirements are
+Attribute-only (e.g. "Manipulation 2") naturally resolve to Unfavored,
+since Attribute labels never match a real Ability id in
+`favoredAbilities` -- no separate Attribute-only branch was needed.
+Sorcery spells are keyed off Occult, the same convention
+Dragon-Blooded/Abyssal/Sidereal already use. A pre-existing architectural
+quirk in `getPowerExperienceCost` was discovered but deliberately left
+unfixed as out of scope: the shared `TerrestrialSpellDefinition` type used
+by every family's Sorcery spells has no `exaltType` field, so shared
+spells (Abyssal's, Sidereal's, and now Lunar's) actually fall through to
+`getDragonBloodedPowerExperienceCost` rather than their own family's cost
+function; for Lunar specifically this produces a mathematically identical
+result to `getLunarPowerExperienceCost` (Lunar's `identity.aspect` is
+always empty, collapsing the DB fallback to a pure
+`favoredAbilities.includes('occult')` check), so
+`getLunarPowerExperienceCost`'s own spell-handling branch, while
+technically unreachable via this dispatcher path today, was kept for
+structural consistency with Abyssal's/Sidereal's own cost functions, which
+have the identical dead-code situation. Test coverage added: a new unit
+test exercising `isLunarAbilityFavored`/`getLunarPowerExperienceCost`
+directly against real catalog Charms and a shared Sorcery spell, and a new
+4-test "Learning Charms with XP" block in the Lunar powers-editor
+integration test (mirroring Sidereal's own `XpHarness` pattern). This
+phase added no new catalog rows, so `promotableEntries`/`promotedEntries`
+remain unchanged at 412/399. Full verification passed: typecheck, lint (0
+errors), format check, the full unit+integration suite (871 tests, up from
+867), the Exalted e2e smoke specs, `audit:exalted-sources` (unchanged), and
+a production build. Lunar remains fully locked out of `definition.tsx`'s
+user-facing `variants` list.
+
 ## Next steps (require source material per book)
 
 1. Project owner supplies scanned pages, OCR text, or transcriptions for one

@@ -8,6 +8,7 @@ import type {
   AbyssalNecromancySpellDefinition,
 } from '../../reference/abyssal-powers';
 import type { SiderealCharmDefinition } from '../../reference/sidereal-powers';
+import type { LunarCharmDefinition } from '../../reference/lunar-powers';
 import {
   abyssalAbilityGroups,
   dragonBloodedAbilityGroups,
@@ -209,5 +210,73 @@ export function getSiderealPowerExperienceCost(
     cost,
     favored,
     explanation: `${favored ? 'Favored/Auspicious' : 'Unfavored'} new ${power.kind === 'spell' ? 'spell' : 'Charm'}`,
+  };
+}
+
+/**
+ * Lunar has no Caste-Ability link at all (its three player Castes are
+ * Attribute-linked, not Ability-linked -- see `exaltedFamilyCreationRules.
+ * lunar.castes` in `family-rules.ts`), so unlike every other family's
+ * `isXAbilityFavored` above, there is no Caste-derived Ability group to
+ * fall back on here; favored status for a Lunar Ability label comes
+ * entirely from the character's own 5 chosen Favored Abilities
+ * (`favoredAbilities`, the same standard mechanic every Exalted family
+ * uses -- confirmed present for Lunar by the inventoried source's own
+ * Prodigy-Merit row, which states Prodigy is unavailable to "Solars,
+ * Abyssals or Lunars" because those splats "already have these limits as
+ * part of their Exalted status").
+ */
+export function isLunarAbilityFavored(
+  character: Exalted1eCharacter,
+  abilityLabel: string,
+) {
+  const abilityId = normalizedAbilityId(abilityLabel);
+  return character.favoredAbilities.some(
+    (id) => normalizedAbilityId(id) === abilityId,
+  );
+}
+
+/**
+ * Lunar Charm/Sorcery-spell purchase costs. No Lunar-specific numeric
+ * override to the standard Exalted 1st Edition core-rulebook Charm-cost
+ * table (10 XP Favored, 12 XP Unfavored) was found anywhere in Exalted:
+ * The Lunars' own source material -- the same situation Abyssal's and
+ * Sidereal's own books left their own cost functions in, above -- so
+ * this reuses those same base figures. Lunar has no Immaculate-Martial-
+ * Art-style surcharge Charm category, so there is no higher tier here,
+ * mirroring Abyssal/Sidereal.
+ *
+ * Determining "favored" is the genuinely new part: Lunar Charms carry no
+ * single governing Ability (`ability: null` on every `LunarCharmDefinition`
+ * -- see that type's own doc comment for why no single Ability governs a
+ * whole Charm-category there); their `minimumRequirements` instead mix
+ * Attributes and Abilities freely within the same category. Absent any
+ * source text describing a Lunar-specific Charm-cost framework (unlike
+ * Abyssal's/Sidereal's own chargen rows, which at least gesture toward
+ * "follows Solar guidelines"), this project's own judgment call (made
+ * explicitly, with the project owner, given the source-text gap) is: a
+ * Charm is Favored if ANY of its `minimumRequirements` traits is one of
+ * the character's own chosen Favored Abilities. Charms whose requirements
+ * are Attribute-only (e.g. "Minimum Stamina 3") naturally resolve to
+ * Unfavored, since Attribute labels like "Stamina" never match any real
+ * Ability id in `favoredAbilities`; no separate Attribute-only branch is
+ * needed. Sorcery spells are keyed off Occult, the same convention
+ * Dragon-Blooded/Abyssal/Sidereal already use.
+ */
+export function getLunarPowerExperienceCost(
+  character: Exalted1eCharacter,
+  power: LunarCharmDefinition | TerrestrialSpellDefinition,
+) {
+  const favored =
+    power.kind === 'charm'
+      ? power.minimumRequirements.some(({ trait }) =>
+          isLunarAbilityFavored(character, trait),
+        )
+      : isLunarAbilityFavored(character, 'Occult');
+  const cost = favored ? 10 : 12;
+  return {
+    cost,
+    favored,
+    explanation: `${favored ? 'Favored' : 'Unfavored'} new ${power.kind === 'spell' ? 'spell' : 'Charm'}`,
   };
 }

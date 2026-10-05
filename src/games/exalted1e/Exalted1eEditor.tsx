@@ -1684,24 +1684,23 @@ export function Exalted1eEditor({
               ) : isLunar ? (
                 // Lunar's real, page-cited 219-Charm catalog (Phase 1b)
                 // plus its 73 confirmed-reachable shared Sorcery spells
-                // (Phase 1d). Deliberately omits `character`/
-                // `onLearnWithExperience`, unlike Abyssal/Sidereal's own
-                // wiring above: `getPowerExperienceCost` in
-                // `DragonBloodedPowersSection.tsx` dispatches every
-                // non-Abyssal `exaltType` (including Lunar's own) to
-                // `getSiderealPowerExperienceCost`, which would silently
-                // apply Sidereal's favored-Auspicious-Ability discount math
-                // to Lunar Charms -- the same bug class already found and
-                // fixed once before Sidereal had its own catalog. XP-based
-                // direct purchase stays disabled for Lunar until a real
-                // `getLunarPowerExperienceCost` (favored-Charm/Caste-
-                // Attribute discount logic) lands in a dedicated XP-rules
-                // phase; "Add Without Spending XP" remains fully available
-                // in the meantime. No Caste filter is offered either, since
-                // Lunar Charms are organized by `charmCategory`
-                // (Shapechanging/Body Enhancement/etc.), not by Caste.
+                // (Phase 1d). Now wires `character`/`onLearnWithExperience`
+                // too (XP-rules phase), using `getLunarPowerExperienceCost`'s
+                // favored-Ability-in-requirements math (see
+                // `shared/advancement/rules.ts`) -- Lunar Charms carry no
+                // single governing Ability the way Abyssal's/Sidereal's do,
+                // so that function checks the character's chosen Favored
+                // Abilities against each Charm's own `minimumRequirements`
+                // instead of a single `ability` field; this was an explicit
+                // source-text-absent design decision made with the project
+                // owner, since Exalted: The Lunars never restates a
+                // Charm-cost framework of its own. No Caste filter is
+                // offered, since Lunar Charms are organized by
+                // `charmCategory` (Shapechanging/Body Enhancement/etc.),
+                // not by Caste.
                 <ExaltedPowersSection
                   powers={draft.powers}
+                  character={draft}
                   definitions={lunarPowerDefinitions}
                   catalogId="lunar-power-catalog"
                   catalogDescription="Choose from 219 Lunar Charms (Shapechanging, Body Enhancement, and combat/social/knowledge categories) and 73 Sorcery spells confirmed reachable from the shared Terrestrial/Celestial Circle catalog. Requirements are advisory; entries retain their cited book and page and are marked for source review."
@@ -1712,6 +1711,7 @@ export function Exalted1eEditor({
                   onChange={(powers) =>
                     update((current) => ({ ...current, powers }))
                   }
+                  onLearnWithExperience={learnPowerWithExperience}
                 />
               ) : (
                 // Alchemical and Fair Folk have no production Charm/spell
