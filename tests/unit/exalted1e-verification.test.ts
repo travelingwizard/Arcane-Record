@@ -47,16 +47,17 @@ describe('exalted1e verification gate', () => {
     for (const family of plannedExaltedFamilies) {
       const record = certificationRecords[family];
       expect(record.certifiedAt).toBeNull();
-      // Abyssal (Phase 1e) and Sidereal (Phase 2d) are the two exceptions:
+      // Abyssal (Phase 1e), Sidereal (Phase 2d), and Lunar (the
+      // "rules_creator_tests" follow-up phase) are the three exceptions:
       // their rules/creator/migration test dimensions now have real,
       // passing coverage (see `exalted-shared-records.test.ts`'s XP-cost
       // tests, `exalted-creation-panel.test.tsx`, and each family's own
       // schema-migration test) -- but `browserTests` still can't run
-      // before either family is unlocked, and each still has real catalog
-      // gaps of its own (see each record's own `blockers`), so both remain
-      // fully locked regardless. Every other family stays 'not-run' on all
-      // four test dimensions.
-      if (family === 'abyssal' || family === 'sidereal') {
+      // before any family is unlocked, and each still has real catalog
+      // gaps of its own (see each record's own `blockers`), so all three
+      // remain fully locked regardless. Every other family stays
+      // 'not-run' on all four test dimensions.
+      if (family === 'abyssal' || family === 'sidereal' || family === 'lunar') {
         expect(record.rulesTests).toBe('pass');
         expect(record.creatorTests).toBe('pass');
         expect(record.migrationTests).toBe('pass');
@@ -278,12 +279,13 @@ describe('exalted1e verification gate', () => {
       expect(status.blockReason).toContain(
         `catalog ${promotedEntries}/${promotableEntries} promoted (${totalInventoryRows} total inventory rows), ${unresolvedEntries} unresolved`,
       );
-      // Abyssal (Phase 1e) and Sidereal (Phase 2d) are the two families
+      // Abyssal (Phase 1e), Sidereal (Phase 2d), and Lunar (the
+      // "rules_creator_tests" follow-up phase) are the three families
       // whose rules/creator/migration dimensions now pass (see the
-      // previous test's comment); every other family, and both families'
-      // own still-not-run browser dimension, keeps the generic 'not-run'
-      // wording.
-      if (family === 'abyssal' || family === 'sidereal') {
+      // previous test's comment); every other family, and all three
+      // families' own still-not-run browser dimension, keeps the generic
+      // 'not-run' wording.
+      if (family === 'abyssal' || family === 'sidereal' || family === 'lunar') {
         expect(status.blockReason).toContain('rules tests pass');
         expect(status.blockReason).toContain('creator tests pass');
         expect(status.blockReason).toContain('migration tests pass');
@@ -297,12 +299,15 @@ describe('exalted1e verification gate', () => {
     }
   });
 
-  it('describes a locked family with inventory in progress by its promotion count, not "catalog not started"', () => {
+  it('describes Lunar as locked on its remaining catalog gap despite its now-passing test dimensions', () => {
     const status = getFamilyCertificationStatus('lunar');
     expect(status.available).toBe(false);
     expect(status.blockReason).toContain('399/412 promoted');
     expect(status.blockReason).toContain('0 unresolved');
-    expect(status.blockReason).toContain('rules tests not-run');
+    expect(status.blockReason).toContain('rules tests pass');
+    expect(status.blockReason).toContain('creator tests pass');
+    expect(status.blockReason).toContain('migration tests pass');
+    expect(status.blockReason).toContain('browser tests not-run');
   });
 
   it('describes Abyssal as locked with its now-complete catalog dimension despite its passing test dimensions', () => {

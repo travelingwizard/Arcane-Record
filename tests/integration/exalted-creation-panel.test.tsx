@@ -28,6 +28,10 @@ function siderealDraft(): Exalted1eCharacter {
   return createBlankExaltedCharacter('sidereal', 'draft');
 }
 
+function lunarDraft(): Exalted1eCharacter {
+  return createBlankExaltedCharacter('lunar', 'draft');
+}
+
 describe('ExaltedCreationPanel (Abyssal guided creation, Phase 1e)', () => {
   it('offers the Abyssal-only "Fugitive" creation profile alongside Standard', () => {
     render(<Harness initial={abyssalDraft()} />);
@@ -181,6 +185,91 @@ describe('ExaltedCreationPanel (Sidereal guided creation, Phase 2d)', () => {
   it('does not render at all for a manual (non-guided) Sidereal sheet', () => {
     const { container } = render(
       <Harness initial={createBlankExaltedCharacter('sidereal', 'manual')} />,
+    );
+    expect(container).toBeEmptyDOMElement();
+  });
+});
+
+/**
+ * "creator tests" certification dimension for Lunar: exercises the same
+ * shared `ExaltedCreationPanel` with a Lunar draft, mirroring the Abyssal
+ * and Sidereal blocks above. Lunar's own "Casteless" rulesVariant is
+ * distinct from the "Casteless" *identity* option in the Caste selector
+ * below -- the former is a chargen-budget variant (tighter Attribute
+ * budgets and fewer Charms, see `family-rules.ts`'s override for
+ * `type === 'lunar' && variant === 'casteless'`), the latter is one of
+ * the four selectable family-identity values 1st-edition Lunars have
+ * (Full Moon/Changing Moon/No Moon/Casteless), both confirmed distinct
+ * mechanics by the inventoried source.
+ */
+describe('ExaltedCreationPanel (Lunar guided creation, XP-rules phase follow-up)', () => {
+  it('offers the Lunar-only "Casteless" creation profile alongside Standard', () => {
+    render(<Harness initial={lunarDraft()} />);
+    const select = screen.getByLabelText('Creation profile');
+    const optionLabels = within(select)
+      .getAllByRole('option')
+      .map((option) => option.textContent);
+    expect(optionLabels).toEqual(['Standard', 'Casteless']);
+  });
+
+  it('lists all four Lunar Castes (including the Casteless identity) in the Caste selector, sourced from the verified creation rules', () => {
+    render(<Harness initial={lunarDraft()} />);
+    const select = screen.getByLabelText('Caste');
+    const optionLabels = within(select)
+      .getAllByRole('option')
+      .map((option) => option.textContent);
+    expect(optionLabels).toEqual([
+      'Choose…',
+      'Full Moon',
+      'Changing Moon',
+      'No Moon',
+      'Casteless',
+    ]);
+  });
+
+  it('surfaces unresolved creation-budget requirements for a blank Lunar draft and gates Finalize on them', () => {
+    render(<Harness initial={lunarDraft()} />);
+    expect(screen.getByText(/requirements? remaining/)).toBeVisible();
+    expect(screen.getByText(/Choose a Caste\./)).toBeVisible();
+    expect(
+      screen.getByText(/Allocate exactly 25 initial Ability dots/),
+    ).toBeVisible();
+    expect(
+      screen.getByText(/Allocate Attribute categories as 9\/7\/5/),
+    ).toBeVisible();
+    expect(
+      screen.queryByRole('button', { name: 'Finalize character' }),
+    ).toBeDisabled();
+  });
+
+  it('clears the Caste-selection requirement once a verified Lunar Caste is chosen', async () => {
+    const user = userEvent.setup();
+    render(<Harness initial={lunarDraft()} />);
+    expect(screen.getByText(/Choose a Caste\./)).toBeVisible();
+    await user.selectOptions(screen.getByLabelText('Caste'), 'full-moon');
+    expect(screen.queryByText(/Choose a Caste\./)).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(/not in the verified catalog/),
+    ).not.toBeInTheDocument();
+  });
+
+  it('cites Exalted: The Lunars p. 92 (PDF 95) as the creation-rules source', () => {
+    render(<Harness initial={lunarDraft()} />);
+    expect(screen.getByLabelText('Creation source')).toHaveValue(
+      'lunars, p. 92 (PDF 95)',
+    );
+  });
+
+  it("shows the Casteless-variant powers budget (6) rather than Standard's (9)", () => {
+    const draft = lunarDraft();
+    draft.creation.rulesVariant = 'casteless';
+    render(<Harness initial={draft} />);
+    expect(screen.getByText(/powers 6\./)).toBeVisible();
+  });
+
+  it('does not render at all for a manual (non-guided) Lunar sheet', () => {
+    const { container } = render(
+      <Harness initial={createBlankExaltedCharacter('lunar', 'manual')} />,
     );
     expect(container).toBeEmptyDOMElement();
   });
