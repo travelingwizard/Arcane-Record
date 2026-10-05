@@ -38,6 +38,7 @@ import {
   type EarthdawnCatalogKind,
   type EarthdawnDefinition,
 } from './catalog';
+import { displayCatalogText } from './catalog-audit';
 import { EarthdawnCreator } from './EarthdawnCreator';
 import {
   attributeStep,
@@ -78,7 +79,9 @@ import {
   questorTier,
   reconcileFreeMatrices,
   reconcileDisciplineTalents,
+  advancementTargetExists,
   refundableLedgerEntry,
+  refundBlockReason,
   skillRankCost,
   spellLearningCost,
   threadRankCost,
@@ -410,23 +413,28 @@ const catalogTableColumns = (
       {
         key: 'attribute',
         label: 'Attribute',
-        value: (definition) => definition.talentMetadata?.attributeText ?? '',
+        value: (definition) =>
+          displayCatalogText(definition.talentMetadata?.attributeText),
       },
       {
         key: 'action',
         label: 'Action',
-        value: (definition) => definition.talentMetadata?.actionText ?? '',
+        value: (definition) =>
+          displayCatalogText(definition.talentMetadata?.actionText),
       },
       {
         key: 'strain',
         label: 'Strain',
-        value: (definition) => definition.talentMetadata?.strainText ?? '',
+        value: (definition) =>
+          displayCatalogText(definition.talentMetadata?.strainText),
       },
       {
         key: 'effect',
         label: 'Effect',
         value: (definition) =>
-          definition.talentMetadata?.effectText ?? definition.summary,
+          displayCatalogText(
+            definition.talentMetadata?.effectText ?? definition.summary,
+          ),
       },
       source,
     ];
@@ -1413,7 +1421,9 @@ export function Earthdawn4eEditor({
               action: d.talentMetadata?.actionText ?? '',
               strain: 0,
               attributeText: d.talentMetadata?.attributeText ?? '',
-              effectText: d.talentMetadata?.effectText ?? d.summary,
+              effectText: displayCatalogText(
+                d.talentMetadata?.effectText ?? d.summary,
+              ),
               descriptionText: d.talentMetadata?.descriptionText ?? d.summary,
               actionText: d.talentMetadata?.actionText ?? '',
               strainText: d.talentMetadata?.strainText ?? '',
@@ -1544,7 +1554,30 @@ export function Earthdawn4eEditor({
                       amount: gmOverride
                         ? 0
                         : -spellLearningCost(selectedSpellChoice?.circle ?? 1),
-                      targetId: d.id,
+                      targetId: base.id,
+                      definitionId: d.id,
+                      variantKey: selectedSpellChoice?.key ?? null,
+                      formKey: selectedSpellChoice?.formKey ?? null,
+                      origin: gmOverride ? 'override' : 'catalog',
+                      originDisciplineId:
+                        c.disciplines.find(
+                          ({ name }) =>
+                            name === selectedSpellChoice?.variant.discipline,
+                        )?.id ?? null,
+                      costCircle: selectedSpellChoice?.circle ?? 1,
+                      dependsOnEntryIds: c.advancement.ledger
+                        .filter(
+                          ({ type, targetId, reversesId }) =>
+                            type === 'discipline' &&
+                            targetId ===
+                              c.disciplines.find(
+                                ({ name }) =>
+                                  name ===
+                                  selectedSpellChoice?.variant.discipline,
+                              )?.id &&
+                            !reversesId,
+                        )
+                        .map(({ id }) => id),
                       targetName: d.name,
                       beforeRating: 0,
                       afterRating: 1,
@@ -1620,7 +1653,28 @@ export function Earthdawn4eEditor({
                     createLegendEntry({
                       type: 'knack',
                       amount: gmOverride ? 0 : -quote!.legendCost,
-                      targetId: d.id,
+                      targetId: base.id,
+                      definitionId: d.id,
+                      variantKey: selectedKnackVariant.key,
+                      origin: gmOverride ? 'override' : 'catalog',
+                      originDisciplineId:
+                        c.disciplines.find(
+                          ({ name }) =>
+                            name === selectedKnackVariant.discipline,
+                        )?.id ?? null,
+                      costCircle: minimumRank,
+                      dependsOnEntryIds: c.advancement.ledger
+                        .filter(
+                          ({ type, targetId, reversesId }) =>
+                            type === 'discipline' &&
+                            targetId ===
+                              c.disciplines.find(
+                                ({ name }) =>
+                                  name === selectedKnackVariant.discipline,
+                              )?.id &&
+                            !reversesId,
+                        )
+                        .map(({ id }) => id),
                       targetName: d.name,
                       beforeRating: 0,
                       afterRating: 1,
@@ -1863,6 +1917,10 @@ export function Earthdawn4eEditor({
                     type: 'discipline',
                     amount: -cost,
                     targetId: recordId,
+                    definitionId: discipline.id,
+                    origin: 'discipline',
+                    originDisciplineId: recordId,
+                    costCircle: 1,
                     targetName: discipline.name,
                     beforeRating: 0,
                     afterRating: 1,
@@ -1913,6 +1971,7 @@ export function Earthdawn4eEditor({
       const entry = current.advancement.ledger.find(
         ({ id }) => id === entryId,
       )!;
+      if (!advancementTargetExists(current, entry)) return current;
       const beforeRating = entry.beforeRating ?? 0;
       let next = current;
       if (entry.type === 'talent')
@@ -1976,19 +2035,13 @@ export function Earthdawn4eEditor({
           ...next,
           magic: {
             ...next.magic,
-            spells: next.magic.spells.filter(
-              ({ id, definitionId }) =>
-                id !== entry.targetId && definitionId !== entry.targetId,
-            ),
+            spells: next.magic.spells.filter(({ id }) => id !== entry.targetId),
           },
         };
       if (entry.type === 'knack')
         next = {
           ...next,
-          knacks: next.knacks.filter(
-            ({ id, definitionId }) =>
-              id !== entry.targetId && definitionId !== entry.targetId,
-          ),
+          knacks: next.knacks.filter(({ id }) => id !== entry.targetId),
         };
       if (entry.type === 'discipline') {
         const removed = next.disciplines.find(
@@ -2052,6 +2105,13 @@ export function Earthdawn4eEditor({
               beforeRating: entry.afterRating,
               afterRating: entry.beforeRating,
               sourceCitation: entry.sourceCitation,
+              definitionId: entry.definitionId,
+              variantKey: entry.variantKey,
+              formKey: entry.formKey,
+              origin: entry.origin,
+              originDisciplineId: entry.originDisciplineId,
+              costCircle: entry.costCircle,
+              dependsOnEntryIds: [entry.id],
               description: `Refund: ${entry.description || entry.targetName}`,
               reversesId: entry.id,
             }),
@@ -2400,14 +2460,24 @@ export function Earthdawn4eEditor({
                 (catalogSource === 'all' || sourceId === catalogSource) &&
                 draft.sources.enabledSourceIds.includes(sourceId),
             )
-          : draft.sources.enabledSourceIds.includes(definition.sourceId) ||
-            isAddableReferenceSource(definition.sourceId) ||
-            definition.spellMetadata?.variants.some(({ sourceId }) =>
-              draft.sources.enabledSourceIds.includes(sourceId),
-            ));
+          : definition.spellMetadata
+            ? definition.spellMetadata.variants.some(
+                ({ sourceId }) =>
+                  (catalogSource === 'all' || sourceId === catalogSource) &&
+                  draft.sources.enabledSourceIds.includes(sourceId),
+              )
+            : definition.talentMetadata?.sourceIds.length
+              ? definition.talentMetadata.sourceIds.some(
+                  (sourceId) =>
+                    (catalogSource === 'all' || sourceId === catalogSource) &&
+                    draft.sources.enabledSourceIds.includes(sourceId),
+                )
+              : draft.sources.enabledSourceIds.includes(definition.sourceId) ||
+                isAddableReferenceSource(definition.sourceId));
       const query = catalogSearch.trim().toLocaleLowerCase();
       const searchMatches =
-        `${definition.name} ${definition.aliases.join(' ')} ${definition.summary} ${definition.source} ${definition.page ?? ''} ${definition.requirements.join(' ')} ${definition.skillCategory ?? ''} ${definition.talentMetadata?.attributeText ?? ''} ${definition.talentMetadata?.actionText ?? ''} ${definition.talentMetadata?.descriptionText ?? ''} ${definition.talentMetadata?.requirementsText ?? ''} ${definition.threadItemMetadata?.itemType ?? ''} ${definition.threadItemMetadata?.inferredKeyKnowledge ?? ''} ${definition.spellMetadata?.effectText ?? ''} ${definition.spellMetadata?.threadsText ?? ''} ${definition.spellMetadata?.difficultyText ?? ''} ${definition.spellMetadata?.variants.map((variant) => `${variant.discipline} ${variant.circleText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.pageStart ?? ''}`).join(' ') ?? ''} ${definition.knackMetadata?.variants.map((variant) => `${variant.association} ${variant.description} ${variant.mechanicsText} ${variant.actionText} ${variant.strainText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.page ?? ''}`).join(' ') ?? ''}`
+        `${definition.name} ${definition.aliases.join(' ')} ${definition.summary} ${definition.source} ${definition.page ?? ''} ${definition.requirements.join(' ')} ${definition.skillCategory ?? ''} ${definition.talentMetadata?.attributeText ?? ''} ${definition.talentMetadata?.actionText ?? ''} ${definition.talentMetadata?.effectText ?? ''} ${definition.talentMetadata?.descriptionText ?? ''} ${definition.talentMetadata?.requirementsText ?? ''} ${definition.threadItemMetadata?.itemType ?? ''} ${definition.threadItemMetadata?.inferredKeyKnowledge ?? ''} ${definition.spellMetadata?.effectText ?? ''} ${definition.spellMetadata?.threadsText ?? ''} ${definition.spellMetadata?.difficultyText ?? ''} ${definition.spellMetadata?.variants.map((variant) => `${variant.discipline} ${variant.circleText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.pageStart ?? ''}`).join(' ') ?? ''} ${definition.knackMetadata?.variants.map((variant) => `${variant.association} ${variant.description} ${variant.mechanicsText} ${variant.actionText} ${variant.strainText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.page ?? ''}`).join(' ') ?? ''}`
+          .replace(/not in source/gi, '')
           .toLocaleLowerCase()
           .includes(query);
       return (
@@ -2555,6 +2625,19 @@ export function Earthdawn4eEditor({
                             type: 'circle',
                             amount: 0,
                             targetId: d.id,
+                            definitionId: definition.id,
+                            origin: 'discipline',
+                            originDisciplineId: d.id,
+                            costCircle: nextCircle,
+                            dependsOnEntryIds: current.advancement.ledger
+                              .filter(
+                                ({ targetId, type, reversesId }) =>
+                                  targetId === d.id &&
+                                  (type === 'discipline' ||
+                                    type === 'circle') &&
+                                  !reversesId,
+                              )
+                              .map(({ id }) => id),
                             targetName: d.name,
                             beforeRating: d.circle,
                             afterRating: nextCircle,
@@ -3743,6 +3826,24 @@ export function Earthdawn4eEditor({
                                   amount: -cost,
                                   earnedAmount: 0,
                                   targetId: talent.id,
+                                  definitionId: talent.definitionId,
+                                  origin: versatility
+                                    ? 'versatility'
+                                    : 'discipline',
+                                  originDisciplineId:
+                                    draft.disciplines[disciplineIndex]?.id ??
+                                    null,
+                                  costCircle,
+                                  dependsOnEntryIds: current.advancement.ledger
+                                    .filter(
+                                      ({ type, targetId, reversesId }) =>
+                                        type === 'discipline' &&
+                                        targetId ===
+                                          draft.disciplines[disciplineIndex]
+                                            ?.id &&
+                                        !reversesId,
+                                    )
+                                    .map(({ id }) => id),
                                   targetName: talent.name,
                                   beforeRating: talent.rank,
                                   afterRating: nextRank,
@@ -6878,18 +6979,33 @@ export function Earthdawn4eEditor({
                                 {entry.voidedAt ? (
                                   <small> · {entry.voidReason}</small>
                                 ) : null}
-                                {refundableLedgerEntry(
-                                  draft.advancement.ledger,
-                                  entry.id,
-                                ) ? (
-                                  <button
-                                    type="button"
-                                    className="text-button"
-                                    onClick={() => refundPurchase(entry.id)}
-                                  >
-                                    Refund
-                                  </button>
-                                ) : null}
+                                {entry.amount < 0 && entry.type !== 'refund'
+                                  ? (() => {
+                                      const missingTarget =
+                                        !advancementTargetExists(draft, entry);
+                                      const reason = missingTarget
+                                        ? 'This legacy transaction does not identify one exact character record.'
+                                        : refundBlockReason(
+                                            draft.advancement.ledger,
+                                            entry.id,
+                                          );
+                                      return (
+                                        <button
+                                          type="button"
+                                          className="text-button"
+                                          disabled={Boolean(reason)}
+                                          title={
+                                            reason ?? 'Reverse this purchase'
+                                          }
+                                          onClick={() =>
+                                            refundPurchase(entry.id)
+                                          }
+                                        >
+                                          Refund
+                                        </button>
+                                      );
+                                    })()
+                                  : null}
                               </td>
                             </tr>
                           ))}

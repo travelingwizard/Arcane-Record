@@ -6,6 +6,10 @@ The supplemental spell-matrix catalog contains source-backed spell and knack rec
 
 The runtime inventory is generated in `src/games/earthdawn4e/source-inventory.ts`. Each production catalog definition has a unique inventory row, stable ID, source ID, printed-page citation, verification state, and disposition. The audit fails when a catalog entry is missing from the inventory, uses an unknown source, duplicates an inventory ID, or lacks a selectable citation.
 
+The deterministic catalog-quality audit in `src/games/earthdawn4e/catalog-audit.ts` additionally checks the 479 spells, 238 canonical knacks with 255 variants, 450 talents, skill catalog, equipment, weapons, and 142 thread items for duplicate stable IDs, normalized-name collisions, duplicate aliases, invalid sources, malformed pages, broken variant keys, empty required identity fields, and contradictory source data. Variant-level source filtering is retained for canonical spells and knacks that appear in more than one book.
+
+Unavailable metadata is permitted only when the source input genuinely omits it: a missing page on a clearly labeled reference-only record, unresolved conditional action/Strain or requirements text, and absent extended spell fields. Historical `Not in source` values are treated as internal unavailable sentinels and are excluded from cards, tables, search indexes, and newly copied character snapshots. The audit reports their presence so the remaining gaps can be replaced only when authoritative citations are available.
+
 ## Production coverage
 
 - Eight Player’s Guide races and their starting values and racial abilities.

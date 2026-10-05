@@ -1,6 +1,49 @@
 import { expect, test } from '@playwright/test';
 import { createHighCircleMatrixFixture } from '../fixtures/earthdawn-high-circle';
+import {
+  createMatrixBrowserFixture,
+  matrixBrowserCases,
+} from '../fixtures/earthdawn-matrix-browser';
 import { expectMageAlignedFieldGrid } from './support/sheet-alignment';
+
+async function seedEarthdawnCharacter(
+  page: import('@playwright/test').Page,
+  id: string,
+  name: string,
+  data: ReturnType<typeof createHighCircleMatrixFixture>,
+) {
+  data.identity.name = name;
+  await page.goto('/');
+  await page.evaluate(
+    async ({ characterData, characterId, characterName }) => {
+      await new Promise<void>((resolve, reject) => {
+        const request = indexedDB.open('arcane-ledger');
+        request.onerror = () => reject(request.error);
+        request.onsuccess = () => {
+          const database = request.result;
+          const transaction = database.transaction('characters', 'readwrite');
+          transaction.objectStore('characters').put({
+            id: characterId,
+            systemId: 'earthdawn4e',
+            systemVersion: 13,
+            name: characterName,
+            createdAt: '2026-10-05T12:00:00.000Z',
+            updatedAt: '2026-10-05T12:00:00.000Z',
+            data: characterData,
+          });
+          transaction.oncomplete = () => {
+            database.close();
+            resolve();
+          };
+          transaction.onerror = () => reject(transaction.error);
+        };
+      });
+    },
+    { characterData: data, characterId: id, characterName: name },
+  );
+  await page.reload();
+  await page.getByRole('button', { name: `Open ${name}` }).click();
+}
 
 test('confirms squeezed matrix blood magic and preserves native group warnings', async ({
   page,
@@ -52,6 +95,14 @@ test('confirms squeezed matrix blood magic and preserves native group warnings',
   const picker = squeezedMatrix.getByLabel('Add compatible spell');
   page.once('dialog', async (dialog) => {
     expect(dialog.message()).toContain('2 Blood Magic Damage');
+    await dialog.dismiss();
+  });
+  await picker.selectOption({ label: 'True Switch · Illusionist Circle 6' });
+  await expect(squeezedMatrix.getByText(/True Switch · Circle 6/)).toHaveCount(
+    0,
+  );
+  page.once('dialog', async (dialog) => {
+    expect(dialog.message()).toContain('2 Blood Magic Damage');
     await dialog.accept();
   });
   await picker.selectOption({ label: 'True Switch · Illusionist Circle 6' });
@@ -92,6 +143,23 @@ test('confirms squeezed matrix blood magic and preserves native group warnings',
     .click();
   await expect(squeezedMatrix.getByText(/Switch · Circle/)).toHaveCount(0);
 
+  for (const matrixName of ['External Matrix', 'Divided Matrix']) {
+    const restrictedCard = page
+      .locator('.earthdawn-matrix-card')
+      .filter({ hasText: matrixName });
+    await restrictedCard
+      .getByLabel('Attuned spell')
+      .selectOption({ label: 'Switch · Illusionist Circle 5' });
+    await expect(
+      restrictedCard.getByLabel('Add compatible spell'),
+    ).not.toContainText('True Switch');
+    await restrictedCard
+      .locator('.earthdawn-matrix-attuned-list li')
+      .filter({ hasText: 'Switch' })
+      .getByRole('button', { name: 'Remove' })
+      .click();
+  }
+
   const sharedMatrix = page
     .locator('.earthdawn-matrix-card')
     .filter({ hasText: 'Mixed Shared Matrix' });
@@ -108,6 +176,166 @@ test('confirms squeezed matrix blood magic and preserves native group warnings',
       () => document.documentElement.scrollWidth > window.innerWidth,
     ),
   ).toBe(false);
+});
+
+test('contains Earthdawn rules UI at desktop, tablet, narrow, and zoom-equivalent widths', async ({
+  page,
+}) => {
+  await seedEarthdawnCharacter(
+    page,
+    '99999999-9999-4999-8999-999999999999',
+    'Responsive Matrix Adept',
+    createHighCircleMatrixFixture(),
+  );
+
+  for (const viewport of [
+    { width: 1440, height: 1000 },
+    { width: 768, height: 900 },
+    { width: 640, height: 800 }, // 1280px display at effective 200% zoom.
+    { width: 320, height: 800 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await expect(
+      page.getByRole('heading', {
+        name: 'Characteristics & Health',
+        exact: true,
+      }),
+    ).toBeVisible();
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= window.innerWidth,
+      ),
+    ).toBe(true);
+  }
+
+  await page.getByRole('button', { name: 'Compendium' }).click();
+  const catalog = page.getByRole('dialog', { name: 'Earthdawn catalog' });
+  await expect(catalog).toBeVisible();
+  await catalog
+    .getByRole('button', { name: 'Show catalog as a table' })
+    .click();
+  const tableScroller = catalog.locator('.earthdawn-catalog-table-wrap');
+  await expect(tableScroller).toBeVisible();
+  const bounds = await catalog.evaluate((node) => {
+    const rect = node.getBoundingClientRect();
+    return {
+      left: rect.left,
+      right: rect.right,
+      viewport: window.innerWidth,
+      pageWidth: document.documentElement.scrollWidth,
+    };
+  });
+  expect(bounds.left).toBeGreaterThanOrEqual(0);
+  expect(bounds.right).toBeLessThanOrEqual(bounds.viewport);
+  expect(bounds.pageWidth).toBeLessThanOrEqual(bounds.viewport);
+  expect(
+    await tableScroller.evaluate(
+      (node) => node.scrollWidth >= node.clientWidth && node.clientWidth > 0,
+    ),
+  ).toBe(true);
+  await catalog.getByRole('button', { name: 'Close catalog' }).click();
+  await expect(page.getByRole('button', { name: 'Compendium' })).toBeFocused();
+});
+
+test('assigns every registered matrix-sharing combination through the UI', async ({
+  page,
+}) => {
+  test.setTimeout(120_000);
+  const { character, expectedBloodMagicDamage } = createMatrixBrowserFixture();
+  let confirmationCount = 0;
+  page.on('dialog', async (dialog) => {
+    if (/Blood Magic Damage/.test(dialog.message())) confirmationCount += 1;
+    await dialog.accept();
+  });
+
+  await page.goto('/');
+  await page.evaluate(async (characterData) => {
+    await new Promise<void>((resolve, reject) => {
+      const request = indexedDB.open('arcane-ledger');
+      request.onerror = () => reject(request.error);
+      request.onsuccess = () => {
+        const database = request.result;
+        const transaction = database.transaction('characters', 'readwrite');
+        transaction.objectStore('characters').put({
+          id: '66666666-6666-4666-8666-666666666666',
+          systemId: 'earthdawn4e',
+          systemVersion: 14,
+          name: 'Matrix Browser Coverage',
+          createdAt: '2026-10-05T12:00:00.000Z',
+          updatedAt: '2026-10-05T12:00:00.000Z',
+          data: characterData,
+        });
+        transaction.oncomplete = () => {
+          database.close();
+          resolve();
+        };
+        transaction.onerror = () => reject(transaction.error);
+      };
+    });
+  }, character);
+  await page.reload();
+  await page
+    .getByRole('button', { name: 'Open Matrix Browser Coverage' })
+    .click();
+  await page
+    .getByRole('heading', { name: 'Spells & Matrices' })
+    .scrollIntoViewIfNeeded();
+
+  for (const testCase of matrixBrowserCases) {
+    const card = page.locator('.earthdawn-matrix-card').filter({
+      has: page.getByText(`${testCase.id} Matrix`, { exact: true }),
+    });
+    const expectedCount = testCase.spellName
+      ? testCase.forms.length
+      : testCase.members.length;
+    for (let index = 1; index < expectedCount; index += 1) {
+      const picker = card.getByLabel('Add compatible spell');
+      const value = await picker.locator('option').nth(1).getAttribute('value');
+      expect(value, `compatible option for ${testCase.id}`).toBeTruthy();
+      await picker.selectOption(value!);
+      await expect(
+        card.locator('.earthdawn-matrix-attuned-list li'),
+      ).toHaveCount(index + 1);
+    }
+  }
+
+  expect(confirmationCount).toBeGreaterThanOrEqual(10);
+  await expect
+    .poll(() =>
+      page.evaluate(async () => {
+        return new Promise<{ bloodMagicDamage: number; filled: number }>(
+          (resolve, reject) => {
+            const request = indexedDB.open('arcane-ledger');
+            request.onerror = () => reject(request.error);
+            request.onsuccess = () => {
+              const database = request.result;
+              const transaction = database.transaction(
+                'characters',
+                'readonly',
+              );
+              const get = transaction
+                .objectStore('characters')
+                .get('66666666-6666-4666-8666-666666666666');
+              get.onsuccess = () => {
+                resolve({
+                  bloodMagicDamage: get.result.data.health.bloodMagicDamage,
+                  filled: get.result.data.magic.matrices.filter(
+                    (matrix: { spellIds: string[] }) =>
+                      matrix.spellIds.length > 1,
+                  ).length,
+                });
+                database.close();
+              };
+              get.onerror = () => reject(get.error);
+            };
+          },
+        );
+      }),
+    )
+    .toEqual({
+      bloodMagicDamage: expectedBloodMagicDamage,
+      filled: matrixBrowserCases.length,
+    });
 });
 
 test('creates an Earthdawn adept and exposes source and dice tools', async ({
@@ -570,7 +798,7 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   await expect(
     page.getByText(/required talent\(s\) will be added/),
   ).toBeVisible();
-  await page.getByRole('button', { name: 'Cancel' }).click();
+  await page.getByRole('button', { name: 'Cancel' }).click({ force: true });
   await expect(page.getByLabel('Warrior Circle')).toHaveValue('1');
   await page.getByLabel('Legend Points').fill('1000');
   await page.getByLabel('Reason').fill('First adventure');

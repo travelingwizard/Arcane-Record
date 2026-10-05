@@ -2288,8 +2288,10 @@
 }
 
 .earthdawn-catalog-table-wrap {
+  min-width: 0;
   max-width: 100%;
   overflow: auto;
+  overscroll-behavior-inline: contain;
   border: 1px solid var(--rule-light);
 }
 
@@ -5806,6 +5808,23 @@
   margin-bottom: var(--space-3);
 }
 
+.earthdawn-matrix-heading > *,
+.earthdawn-matrix-attuned-list li > *,
+.catalog-dialog-header > * {
+  min-width: 0;
+}
+
+.earthdawn-matrix-heading > :first-child,
+.earthdawn-matrix-attuned-list li > :first-child {
+  overflow-wrap: anywhere;
+}
+
+.earthdawn-matrix-heading > button,
+.earthdawn-matrix-attuned-list li > button,
+.catalog-dialog-header > button {
+  flex: none;
+}
+
 .earthdawn-matrix-card {
   display: grid;
 }
@@ -5899,6 +5918,10 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
+}
+
+.earthdawn-matrix-attuned-list li > span {
+  overflow-wrap: anywhere;
 }
 
 .earthdawn-compendium-kinds {

@@ -31,11 +31,16 @@ import { auditEarthdawnSourceInventory } from '../../src/games/earthdawn4e/sourc
 import { earthdawnTalentDescriptionRows } from '../../src/games/earthdawn4e/talent-descriptions';
 import { earthdawnSpellbookSupplement } from '../../src/games/earthdawn4e/spellbook-supplement';
 import {
+  auditEarthdawnCatalog,
+  displayCatalogText,
+} from '../../src/games/earthdawn4e/catalog-audit';
+import {
   EARTHDAWN_PORTRAIT_MAX_BYTES,
   processEarthdawnPortrait,
 } from '../../src/games/earthdawn4e/portrait';
 import {
   appendRoll,
+  advancementTargetExists,
   attributeIncreaseCost,
   attributeTraining,
   createLegendEntry,
@@ -61,6 +66,7 @@ import {
   reconcileDisciplineTalents,
   reconcileRace,
   refundableLedgerEntry,
+  refundBlockReason,
   spellLearningCost,
   threadRankCost,
   walletTotalCopper,
@@ -337,6 +343,15 @@ describe('Earthdawn Fourth Edition module', () => {
         ).size,
       ).toBeGreaterThanOrEqual(8);
     }
+  });
+  it('audits catalog identities, variants, citations, and unavailable sentinels', () => {
+    const audit = auditEarthdawnCatalog();
+    expect(audit.errors).toEqual([]);
+    expect(audit.definitions).toBe(earthdawnCatalog.length);
+    expect(audit.variants).toBeGreaterThan(700);
+    expect(audit.unavailableFields).toBeGreaterThan(0);
+    expect(displayCatalogText('Not in source (Step is rank)')).toBe('');
+    expect(displayCatalogText('Standard action')).toBe('Standard action');
   });
   it('manages decimal coinage with automatic change', () => {
     const character = createBlankEarthdawn4eCharacter();
@@ -1107,6 +1122,65 @@ describe('Earthdawn Fourth Edition module', () => {
     expect(
       refundableLedgerEntry([award, purchase, dependent], purchase.id),
     ).toBe(false);
+    expect(refundBlockReason([award, purchase, dependent], purchase.id)).toBe(
+      'Avoid Blow has a later advancement.',
+    );
+
+    const prerequisite = createLegendEntry({
+      type: 'discipline',
+      amount: -500,
+      targetId: crypto.randomUUID(),
+      targetName: 'Illusionist',
+      description: 'Begin Illusionist',
+    });
+    const child = createLegendEntry({
+      type: 'talent',
+      amount: -300,
+      targetId: crypto.randomUUID(),
+      targetName: 'Spellcasting',
+      description: 'Advance Spellcasting',
+      dependsOnEntryIds: [prerequisite.id],
+    });
+    expect(refundableLedgerEntry([prerequisite, child], prerequisite.id)).toBe(
+      false,
+    );
+    expect(refundBlockReason([prerequisite, child], prerequisite.id)).toBe(
+      'Spellcasting depends on this purchase.',
+    );
+
+    const exactSpell = {
+      ...createHighCircleMatrixFixture().magic.spells[0]!,
+      id: crypto.randomUUID(),
+      definitionId: 'shared-definition',
+      formKey: 'air',
+    };
+    const siblingSpell = {
+      ...exactSpell,
+      id: crypto.randomUUID(),
+      formKey: 'fire',
+    };
+    const targetCharacter = createBlankEarthdawn4eCharacter();
+    targetCharacter.magic.spells.push(exactSpell, siblingSpell);
+    const exactPurchase = createLegendEntry({
+      type: 'spell',
+      amount: -100,
+      targetId: exactSpell.id,
+      targetName: exactSpell.name,
+      description: 'Learn Air form',
+      definitionId: 'shared-definition',
+      formKey: 'air',
+    });
+    const legacyPurchase = createLegendEntry({
+      type: 'spell',
+      amount: -100,
+      targetId: 'shared-definition',
+      targetName: exactSpell.name,
+      description: 'Legacy spell purchase',
+    });
+    expect(advancementTargetExists(targetCharacter, exactPurchase)).toBe(true);
+    expect(advancementTargetExists(targetCharacter, legacyPurchase)).toBe(
+      false,
+    );
   });
   it('supports tracking and non-tracking dice history with FIFO limits', () => {
     const character = createBlankEarthdawn4eCharacter();

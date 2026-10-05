@@ -873,11 +873,66 @@ export function refundableLedgerEntry(
   if (entry.amount >= 0 || entry.type === 'refund' || !entry.targetId)
     return false;
   if (ledger.some(({ reversesId }) => reversesId === entry.id)) return false;
+  if (
+    ledger
+      .slice(index + 1)
+      .some(({ dependsOnEntryIds }) => dependsOnEntryIds.includes(entry.id))
+  )
+    return false;
   return !ledger
     .slice(index + 1)
     .some(
       ({ targetId, type }) => targetId === entry.targetId && type !== 'refund',
     );
+}
+
+export function refundBlockReason(
+  ledger: readonly LedgerEntry[],
+  entryId: string,
+) {
+  const index = ledger.findIndex(({ id }) => id === entryId);
+  if (index < 0) return 'The original transaction is unavailable.';
+  const entry = ledger[index]!;
+  if (entry.amount >= 0 || entry.type === 'refund' || !entry.targetId)
+    return 'This transaction is not a refundable purchase.';
+  if (ledger.some(({ reversesId }) => reversesId === entry.id))
+    return 'This transaction has already been refunded.';
+  const dependent = ledger
+    .slice(index + 1)
+    .find(({ dependsOnEntryIds }) => dependsOnEntryIds.includes(entry.id));
+  if (dependent)
+    return `${dependent.targetName || dependent.description} depends on this purchase.`;
+  const later = ledger
+    .slice(index + 1)
+    .find(
+      ({ targetId, type }) => targetId === entry.targetId && type !== 'refund',
+    );
+  return later
+    ? `${later.targetName || later.description} has a later advancement.`
+    : null;
+}
+
+export function advancementTargetExists(
+  character: Earthdawn4eCharacter,
+  entry: LedgerEntry,
+) {
+  if (!entry.targetId) return false;
+  if (entry.type === 'talent')
+    return character.talents.some(({ id }) => id === entry.targetId);
+  if (entry.type === 'skill')
+    return character.skills.some(({ id }) => id === entry.targetId);
+  if (entry.type === 'spell')
+    return character.magic.spells.some(({ id }) => id === entry.targetId);
+  if (entry.type === 'knack')
+    return character.knacks.some(({ id }) => id === entry.targetId);
+  if (entry.type === 'thread')
+    return character.magic.effects.some(({ id }) => id === entry.targetId);
+  if (entry.type === 'discipline' || entry.type === 'circle')
+    return character.disciplines.some(({ id }) => id === entry.targetId);
+  if (entry.type === 'attribute')
+    return entry.targetId.startsWith('attribute:');
+  if (entry.type === 'questor') return true;
+  return false;
 }
 
 export function appendRoll(
@@ -914,6 +969,13 @@ export function createLegendEntry(
     training: '',
     sourceCitation: '',
     reversesId: null,
+    definitionId: null,
+    variantKey: null,
+    formKey: null,
+    origin: null,
+    originDisciplineId: null,
+    costCircle: null,
+    dependsOnEntryIds: [],
     manual: false,
     voidedAt: null,
     voidReason: '',

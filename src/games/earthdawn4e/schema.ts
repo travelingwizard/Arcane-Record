@@ -520,6 +520,16 @@ export const earthdawn4eCharacterSchema = z.object({
         sourceCitation: z.string(),
         description: z.string(),
         reversesId: z.string().nullable(),
+        definitionId: z.string().nullable().default(null),
+        variantKey: z.string().nullable().default(null),
+        formKey: z.string().nullable().default(null),
+        origin: z
+          .enum(['discipline', 'versatility', 'catalog', 'custom', 'override'])
+          .nullable()
+          .default(null),
+        originDisciplineId: z.string().nullable().default(null),
+        costCircle: z.number().int().min(1).max(15).nullable().default(null),
+        dependsOnEntryIds: z.array(z.string()).default([]),
         manual: z.boolean(),
         voidedAt: z.string().datetime().nullable(),
         voidReason: z.string(),
@@ -770,6 +780,31 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
         typeof value.description === 'string' ? value.description : '',
       reversesId:
         typeof value.reversesId === 'string' ? value.reversesId : null,
+      definitionId:
+        typeof value.definitionId === 'string' ? value.definitionId : null,
+      variantKey:
+        typeof value.variantKey === 'string' ? value.variantKey : null,
+      formKey: typeof value.formKey === 'string' ? value.formKey : null,
+      origin: [
+        'discipline',
+        'versatility',
+        'catalog',
+        'custom',
+        'override',
+      ].includes(String(value.origin))
+        ? value.origin
+        : null,
+      originDisciplineId:
+        typeof value.originDisciplineId === 'string'
+          ? value.originDisciplineId
+          : null,
+      costCircle:
+        typeof value.costCircle === 'number' ? value.costCircle : null,
+      dependsOnEntryIds: Array.isArray(value.dependsOnEntryIds)
+        ? value.dependsOnEntryIds.filter(
+            (item): item is string => typeof item === 'string',
+          )
+        : [],
       manual: Boolean(value.manual),
       voidedAt: typeof value.voidedAt === 'string' ? value.voidedAt : null,
       voidReason: typeof value.voidReason === 'string' ? value.voidReason : '',
@@ -792,6 +827,13 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
       sourceCitation: '',
       description: 'Preserved Total Legend Points from the prior schema.',
       reversesId: null,
+      definitionId: null,
+      variantKey: null,
+      formKey: null,
+      origin: null,
+      originDisciplineId: null,
+      costCircle: null,
+      dependsOnEntryIds: [],
       manual: true,
       voidedAt: null,
       voidReason: '',
@@ -813,6 +855,13 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
         sourceCitation: '',
         description: 'Preserved Current Legend Points from the prior schema.',
         reversesId: null,
+        definitionId: null,
+        variantKey: null,
+        formKey: null,
+        origin: null,
+        originDisciplineId: null,
+        costCircle: null,
+        dependsOnEntryIds: [],
         manual: true,
         voidedAt: null,
         voidReason: '',
