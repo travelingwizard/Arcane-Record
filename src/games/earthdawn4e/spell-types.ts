@@ -18,6 +18,14 @@ export interface EarthdawnSpellReference {
   weavingDifficulty?: number;
   reattuningDifficulty?: number;
   castingDifficulty?: number;
+  castingText?: string;
+  rangeText?: string;
+  durationText?: string;
+  area?: string;
+  keywords?: readonly string[];
+  detailedEffects?: string;
+  successLevels?: string;
+  extraThreads?: string;
   aliases: readonly string[];
   legacyPlayerGuideId: boolean;
   variants: readonly EarthdawnSpellVariant[];

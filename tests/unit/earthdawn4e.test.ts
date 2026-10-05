@@ -29,6 +29,7 @@ import { importStepsCharacter } from '../../src/games/earthdawn4e/steps-import';
 import { coreTalentOptions } from '../../src/games/earthdawn4e/discipline-progressions';
 import { auditEarthdawnSourceInventory } from '../../src/games/earthdawn4e/source-inventory';
 import { earthdawnTalentDescriptionRows } from '../../src/games/earthdawn4e/talent-descriptions';
+import { earthdawnSpellbookSupplement } from '../../src/games/earthdawn4e/spellbook-supplement';
 import {
   EARTHDAWN_PORTRAIT_MAX_BYTES,
   processEarthdawnPortrait,
@@ -68,7 +69,11 @@ import {
   createCustomDisciplineDraft,
   customDisciplineRepository,
 } from '../../src/games/earthdawn4e/custom-discipline-repository';
-import { matrixSharingRules } from '../../src/games/earthdawn4e/matrix-sharing';
+import {
+  matchingSharingRule,
+  matrixSharingRules,
+} from '../../src/games/earthdawn4e/matrix-sharing';
+import { createHighCircleMatrixFixture } from '../fixtures/earthdawn-high-circle';
 
 describe('Earthdawn Fourth Edition module', () => {
   it('creates a valid local-first character and complete official source list', () => {
@@ -91,7 +96,7 @@ describe('Earthdawn Fourth Edition module', () => {
       expect(coreTalentOptions[discipline.name]?.warden).toHaveLength(10);
       expect(coreTalentOptions[discipline.name]?.master).toHaveLength(8);
     }
-    expect(earthdawnSpells).toHaveLength(464);
+    expect(earthdawnSpells).toHaveLength(479);
     expect(earthdawnKnacks).toHaveLength(238);
     expect(earthdawnThreadItems).toHaveLength(142);
     expect(earthdawnTalents).toHaveLength(450);
@@ -137,12 +142,13 @@ describe('Earthdawn Fourth Edition module', () => {
       ),
     ).toBe(true);
     expect(new Set(earthdawnKnacks.map(({ id }) => id)).size).toBe(238);
+    expect(earthdawnSpellbookSupplement).toHaveLength(15);
     expect(
       earthdawnKnacks.reduce(
         (total, knack) => total + (knack.knackMetadata?.variants.length ?? 0),
         0,
       ),
-    ).toBe(254);
+    ).toBe(255);
     expect(
       new Set(
         earthdawnKnacks.flatMap(
@@ -150,7 +156,7 @@ describe('Earthdawn Fourth Edition module', () => {
             knackMetadata?.variants.map(({ key }) => key) ?? [],
         ),
       ).size,
-    ).toBe(254);
+    ).toBe(255);
     expect(
       new Set(
         earthdawnKnacks.flatMap(
@@ -166,9 +172,82 @@ describe('Earthdawn Fourth Edition module', () => {
         'ed4.travar',
         'ed4.iopos',
         'ed4.questors',
-        'ed4.user-matrix-reference',
+        'ed4.deeper-secrets',
       ]),
     );
+    expect(
+      earthdawnSpells.find(({ name }) => name === 'True Blazing Fists of Rage'),
+    ).toMatchObject({
+      page: 59,
+      sourceId: 'ed4.deeper-secrets',
+      spellMetadata: {
+        effectText: expect.stringContaining('WIL+4 Mystic damage'),
+        keywords: ['Illusion'],
+      },
+    });
+    expect(
+      earthdawnKnacks.find(({ name }) => name === 'Encoded Communique'),
+    ).toMatchObject({
+      verification: 'verified',
+      page: 399,
+      knackMetadata: {
+        variants: expect.arrayContaining([
+          expect.objectContaining({
+            sourceId: 'ed4.deeper-secrets',
+            page: 399,
+            minimumRank: 5,
+            disciplineCircle: 7,
+          }),
+          expect.objectContaining({
+            sourceId: 'ed4.mystic-paths',
+            page: 248,
+          }),
+        ]),
+      },
+    });
+    const squeezeExpectations = [
+      ['Squeeze Phantom Astral Spear', 1, 5, 5, 1, 392],
+      ['Squeeze Phantom Crow Tear', 1, 5, 5, 1, 393],
+      ['Squeeze Phantom Espagra Frenzy', 8, 10, 10, 1, 393],
+      ['Squeeze Phantom Fireball', 5, 7, 7, 1, 394],
+      ['Squeeze Phantom Flame', 2, 5, 5, 1, 394],
+      ['Squeeze Phantom Lightning', 4, 6, 6, 1, 394],
+      ['Squeeze Phantom Liquid Arrow', 2, 5, 5, 1, 394],
+      ['Squeeze Phantom Star Shower', 7, 9, 9, 1, 395],
+      ['Squeeze Switch', 5, 7, 7, 2, 399],
+      ['Squeeze True Switch', 6, 9, 9, 2, 400],
+    ] as const;
+    for (const [
+      name,
+      knackCircle,
+      minimumRank,
+      disciplineCircle,
+      bloodMagicDamage,
+      page,
+    ] of squeezeExpectations) {
+      expect(
+        earthdawnKnacks.find((knack) => knack.name === name),
+      ).toMatchObject({
+        verification: 'verified',
+        sourceId: 'ed4.deeper-secrets',
+        page,
+        knackMetadata: {
+          variants: [
+            expect.objectContaining({
+              knackCircle,
+              minimumRank,
+              discipline: 'Illusionist',
+              disciplineCircle,
+              bloodMagicDamage,
+              matrixRestriction: 'squeeze',
+              actionText: 'Passive (spell matrix attunement)',
+              sourceId: 'ed4.deeper-secrets',
+              page,
+            }),
+          ],
+        },
+      });
+    }
     expect(
       earthdawnKnacks.find(({ name }) => name === 'Craft True Pattern'),
     ).toMatchObject({
@@ -201,7 +280,7 @@ describe('Earthdawn Fourth Edition module', () => {
         )!.mechanics,
       ).eligibility,
     ).toHaveLength(12);
-    expect(new Set(earthdawnSpells.map(({ id }) => id)).size).toBe(464);
+    expect(new Set(earthdawnSpells.map(({ id }) => id)).size).toBe(479);
     expect(earthdawnTalentDescriptionRows).toHaveLength(244);
     expect(
       earthdawnTalents.find(({ name }) => name === 'Acrobatic Defense')
@@ -538,6 +617,7 @@ describe('Earthdawn Fourth Edition module', () => {
       reattuning: { inProgress: false, difficulty: 0, strainPaid: 0 },
       used: true,
       notes: '',
+      divided: false,
     };
     expect(matrixCapacityUsed(matrix, character.magic.spells)).toBe(3);
     expect(matrixIssues(matrix, character.magic.spells, 2)).toContain(
@@ -624,6 +704,7 @@ describe('Earthdawn Fourth Edition module', () => {
       reattuning: { inProgress: false, difficulty: 0, strainPaid: 0 },
       used: false,
       notes: '',
+      divided: false,
     };
     const switchSpell = spell('Switch', 5);
     const trueSwitch = spell('True Switch', 6);
@@ -739,6 +820,93 @@ describe('Earthdawn Fourth Edition module', () => {
         'switch-pair',
         'true-switch-pair',
         'switch-trio',
+      ]),
+    );
+  });
+  it('verifies every matrix-sharing rule and the high-Circle migration fixture', () => {
+    const fixture = createHighCircleMatrixFixture();
+    expect(earthdawn4eCharacterSchema.parse(fixture)).toEqual(fixture);
+    expect(
+      earthdawn4eCharacterSchema.parse(JSON.parse(JSON.stringify(fixture))),
+    ).toEqual(fixture);
+    expect(
+      fixture.magic.spells.some(
+        ({ name, formKey }) => name === 'Resist Element' && formKey == null,
+      ),
+    ).toBe(true);
+    expect(
+      matrixCapacityUsed(
+        fixture.magic.matrices[1]!,
+        fixture.magic.spells,
+        fixture.knacks,
+      ),
+    ).toBe(11);
+
+    const spell = (name: string) => ({
+      ...fixture.magic.spells[0]!,
+      id: crypto.randomUUID(),
+      name,
+      circle: 1,
+      formKey: null,
+      formLabel: null,
+    });
+    const knack = (name: string) => ({
+      ...fixture.knacks[0]!,
+      id: crypto.randomUUID(),
+      name,
+    });
+    for (const rule of matrixSharingRules) {
+      const spells = rule.members.map(spell);
+      const knacks = (rule.requiredKnacks ?? []).map(knack);
+      const matrix = {
+        ...fixture.magic.matrices[0]!,
+        id: crypto.randomUUID(),
+        spellIds: spells.map(({ id }) => id),
+      };
+      expect(matchingSharingRule(spells, knacks, matrix)?.id).toBe(rule.id);
+      if (rule.kind === 'squeeze') {
+        expect(
+          matchingSharingRule(spells, knacks, {
+            ...matrix,
+            type: 'shared',
+          }),
+        ).toBeNull();
+        expect(
+          matchingSharingRule(spells, knacks, {
+            ...matrix,
+            type: 'object',
+            originType: 'item',
+          }),
+        ).toBeNull();
+        expect(
+          matchingSharingRule(spells, knacks, {
+            ...matrix,
+            divided: true,
+          }),
+        ).toBeNull();
+      }
+    }
+
+    const switchSpellForIssue = spell('Switch');
+    const trueSwitchForIssue = spell('True Switch');
+    const unrelatedForIssue = spell('Unrelated Spell');
+    const spellsForIssue = [
+      switchSpellForIssue,
+      trueSwitchForIssue,
+      unrelatedForIssue,
+    ];
+    const importedShared = {
+      ...fixture.magic.matrices[1]!,
+      spellIds: [
+        switchSpellForIssue.id,
+        trueSwitchForIssue.id,
+        unrelatedForIssue.id,
+      ],
+    };
+    expect(matrixIssues(importedShared, spellsForIssue, 15, [])).toEqual(
+      expect.arrayContaining([
+        'Missing matrix-sharing knack: Squeeze Switch.',
+        'Squeeze knacks cannot be used with Shared, divided, or external spell matrices.',
       ]),
     );
   });

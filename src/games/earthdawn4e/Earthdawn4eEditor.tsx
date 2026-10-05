@@ -85,7 +85,11 @@ import {
   talentRankCost,
   walletTotalCopper,
 } from './rules';
-import { formsForSpell } from './matrix-sharing';
+import {
+  formsForSpell,
+  matchingSharingRule,
+  sharingRuleWithoutPrerequisites,
+} from './matrix-sharing';
 import {
   EARTHDAWN4E_SCHEMA_VERSION,
   earthdawn4eSectionGroups,
@@ -1215,6 +1219,37 @@ export function Earthdawn4eEditor({
           talent.rank >= minimumRank &&
           talent.disciplineSources.length > 0,
       );
+      const structuredTalentRequirements =
+        selectedKnackVariant.requiredTalentRanks ?? [];
+      const missingStructuredTalents = structuredTalentRequirements.filter(
+        (requirement) =>
+          !draft.talents.some(
+            (talent) =>
+              talent.name.localeCompare(requirement.name, undefined, {
+                sensitivity: 'base',
+              }) === 0 && talent.rank >= requirement.rank,
+          ),
+      );
+      const missingSpells = (selectedKnackVariant.requiredSpells ?? []).filter(
+        (required) =>
+          !draft.magic.spells.some(
+            (spell) =>
+              spell.name.localeCompare(required, undefined, {
+                sensitivity: 'base',
+              }) === 0,
+          ),
+      );
+      const disciplineEligible =
+        !selectedKnackVariant.discipline ||
+        draft.disciplines.some(
+          (discipline) =>
+            discipline.name === selectedKnackVariant.discipline &&
+            discipline.circle >= (selectedKnackVariant.disciplineCircle ?? 1),
+        );
+      const structuredEligible =
+        missingStructuredTalents.length === 0 &&
+        missingSpells.length === 0 &&
+        disciplineEligible;
       const quote =
         minimumRank == null ? null : knackLearningQuote(minimumRank);
       reviewAdvancement(
@@ -1226,14 +1261,22 @@ export function Earthdawn4eEditor({
             ? `${quote.trainingDays} day(s), four hours per day, with an instructor; only one knack may be learned at a time.`
             : 'The workbook does not provide a numeric Rank requirement. Record this purchase manually or use a documented GM Override.',
           sourceCitation: knackVariantCitation(selectedKnackVariant),
-          blocked: !gmOverride && (minimumRank == null || !eligibleTalent),
+          blocked:
+            !gmOverride &&
+            (minimumRank == null || !eligibleTalent || !structuredEligible),
           warning: gmOverride
             ? `GM Override: ${draft.creation.overrides.find(({ code }) => code === 'creator-global-override')?.reason || 'recorded override'}`
             : minimumRank == null
               ? 'Automatic pricing is unavailable because no numeric Rank requirement was supplied.'
-              : eligibleTalent
-                ? undefined
-                : `Requires ${talents.join(' or ')} at rank ${minimumRank}, learned through a Discipline.`,
+              : !eligibleTalent
+                ? `Requires ${talents.join(' or ')} at rank ${minimumRank}, learned through a Discipline.`
+                : missingStructuredTalents.length
+                  ? `Missing ${missingStructuredTalents.map(({ name, rank }) => `${name} Rank ${rank}`).join(' and ')}.`
+                  : missingSpells.length
+                    ? `Missing known spell${missingSpells.length === 1 ? '' : 's'}: ${missingSpells.join(', ')}.`
+                    : !disciplineEligible
+                      ? `Requires ${selectedKnackVariant.discipline} Circle ${selectedKnackVariant.disciplineCircle}.`
+                      : undefined,
         },
         () =>
           addCatalog(
@@ -1415,6 +1458,7 @@ export function Earthdawn4eEditor({
                     notes: 'Linked to a matrix Talent.',
                     originType: 'talent' as const,
                     talentId: base.id,
+                    divided: false,
                   },
                 ],
               }
@@ -1458,9 +1502,12 @@ export function Earthdawn4eEditor({
                 circle: selectedSpellChoice?.circle ?? 1,
                 threads: d.spellMetadata?.threadsValue ?? 0,
                 weaving: d.spellMetadata?.difficultyText ?? '',
-                casting: d.spellMetadata?.difficultyText ?? '',
-                range: '',
-                duration: '',
+                casting:
+                  d.spellMetadata?.castingText ??
+                  d.spellMetadata?.difficultyText ??
+                  '',
+                range: d.spellMetadata?.rangeText ?? '',
+                duration: d.spellMetadata?.durationText ?? '',
                 effect: d.spellMetadata?.effectText ?? '',
                 learned: true,
                 variantKey: selectedSpellChoice?.key ?? null,
@@ -1474,11 +1521,14 @@ export function Earthdawn4eEditor({
                 reattuningDifficulty:
                   d.spellMetadata?.reattuningDifficulty ?? null,
                 castingDifficulty: d.spellMetadata?.castingDifficulty ?? null,
-                area: '',
-                keywords: [],
-                detailedEffects: d.spellMetadata?.description ?? d.summary,
-                successLevels: '',
-                extraThreads: '',
+                area: d.spellMetadata?.area ?? '',
+                keywords: [...(d.spellMetadata?.keywords ?? [])],
+                detailedEffects:
+                  d.spellMetadata?.detailedEffects ??
+                  d.spellMetadata?.description ??
+                  d.summary,
+                successLevels: d.spellMetadata?.successLevels ?? '',
+                extraThreads: d.spellMetadata?.extraThreads ?? '',
                 formKey: selectedSpellChoice?.formKey ?? null,
                 formLabel: selectedSpellChoice?.formLabel ?? null,
               },
@@ -1551,6 +1601,15 @@ export function Earthdawn4eEditor({
               actionText: selectedKnackVariant.actionText,
               strainText: selectedKnackVariant.strainText,
               minimumRankKnown: selectedKnackVariant.minimumRank != null,
+              knackCircle: selectedKnackVariant.knackCircle ?? null,
+              discipline: selectedKnackVariant.discipline ?? '',
+              disciplineCircle: selectedKnackVariant.disciplineCircle ?? null,
+              requiredSpells: [...(selectedKnackVariant.requiredSpells ?? [])],
+              requiredTalentRanks: [
+                ...(selectedKnackVariant.requiredTalentRanks ?? []),
+              ],
+              bloodMagicDamage: selectedKnackVariant.bloodMagicDamage ?? 0,
+              matrixRestriction: selectedKnackVariant.matrixRestriction ?? null,
             },
           ],
           advancement:
@@ -4027,6 +4086,7 @@ export function Earthdawn4eEditor({
                               notes: '',
                               originType: 'custom',
                               talentId: null,
+                              divided: false,
                             },
                           ],
                         },
@@ -4315,6 +4375,29 @@ export function Earthdawn4eEditor({
                               />
                               <span>Matrix in use</span>
                             </label>
+                            <label className="sheet-choice-card">
+                              <input
+                                type="checkbox"
+                                checked={matrix.divided}
+                                onChange={(event) =>
+                                  update((c) => ({
+                                    ...c,
+                                    magic: {
+                                      ...c.magic,
+                                      matrices: c.magic.matrices.map((item) =>
+                                        item.id === matrix.id
+                                          ? {
+                                              ...item,
+                                              divided: event.target.checked,
+                                            }
+                                          : item,
+                                      ),
+                                    },
+                                  }))
+                                }
+                              />
+                              <span>Divided matrix</span>
+                            </label>
                           </SheetFieldGrid>
                           <SheetFieldGrid columns={2}>
                             <SheetField label="Restriction / keyword">
@@ -4437,8 +4520,36 @@ export function Earthdawn4eEditor({
                           onChange={(event) => {
                             const spellId = event.target.value;
                             if (!spellId) return;
+                            const candidate = draft.magic.spells.find(
+                              ({ id }) => id === spellId,
+                            );
+                            if (!candidate) return;
+                            const assigned = draft.magic.spells.filter(
+                              (spell) => matrix.spellIds.includes(spell.id),
+                            );
+                            const rule = matchingSharingRule(
+                              [...assigned, candidate],
+                              draft.knacks,
+                              matrix,
+                            );
+                            const bloodMagicDamage =
+                              rule?.kind === 'squeeze'
+                                ? (rule.bloodMagicDamage ?? 0)
+                                : 0;
+                            if (
+                              bloodMagicDamage > 0 &&
+                              !window.confirm(
+                                `Place ${[...assigned, candidate].map(({ name }) => name).join(' and ')} in ${matrix.name} using ${rule?.requiredKnacks?.join(' and ')}? This inflicts ${bloodMagicDamage} Blood Magic Damage.`,
+                              )
+                            )
+                              return;
                             update((c) => ({
                               ...c,
+                              health: {
+                                ...c.health,
+                                bloodMagicDamage:
+                                  c.health.bloodMagicDamage + bloodMagicDamage,
+                              },
                               magic: {
                                 ...c.magic,
                                 matrices: c.magic.matrices.map((item) =>
@@ -4512,7 +4623,22 @@ export function Earthdawn4eEditor({
                                 </span>
                                 <button
                                   className="text-button"
-                                  onClick={() =>
+                                  onClick={() => {
+                                    const assigned = draft.magic.spells.filter(
+                                      (item) =>
+                                        matrix.spellIds.includes(item.id),
+                                    );
+                                    const rule =
+                                      sharingRuleWithoutPrerequisites(assigned);
+                                    const removeWholeGroup =
+                                      rule?.kind === 'squeeze';
+                                    if (
+                                      removeWholeGroup &&
+                                      !window.confirm(
+                                        `Removing ${spell.name} removes every spell in this squeezed matrix. Continue?`,
+                                      )
+                                    )
+                                      return;
                                     update((c) => ({
                                       ...c,
                                       magic: {
@@ -4522,11 +4648,13 @@ export function Earthdawn4eEditor({
                                             item.id === matrix.id
                                               ? {
                                                   ...item,
-                                                  spellIds:
-                                                    item.spellIds.filter(
-                                                      (id) => id !== spellId,
-                                                    ),
+                                                  spellIds: removeWholeGroup
+                                                    ? []
+                                                    : item.spellIds.filter(
+                                                        (id) => id !== spellId,
+                                                      ),
                                                   spellId:
+                                                    removeWholeGroup ||
                                                     item.spellId === spellId
                                                       ? null
                                                       : item.spellId,
@@ -4534,8 +4662,8 @@ export function Earthdawn4eEditor({
                                               : item,
                                         ),
                                       },
-                                    }))
-                                  }
+                                    }));
+                                  }}
                                 >
                                   Remove
                                 </button>

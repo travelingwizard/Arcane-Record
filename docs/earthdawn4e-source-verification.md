@@ -1,6 +1,8 @@
 # Earthdawn Fourth Edition source verification
 
-The Player’s Guide is the required rules authority. Optional sources are disabled for new records until a player enables them in Earthdawn Settings. Existing records from disabled sources remain visible.
+The Player’s Guide remains the required rules authority. New and migrated characters enable every installed Earthdawn catalog source by default; players may disable individual books in Earthdawn Settings. Existing records from disabled sources remain visible.
+
+The supplemental spell-matrix catalog contains source-backed spell and knack records from the supplied Player’s Guide, _The Adept’s Journey: Mystic Paths_, and _Magic: Deeper Secrets_ references. Fields explicitly absent from those inputs remain unavailable and are never replaced with invented rules text.
 
 The runtime inventory is generated in `src/games/earthdawn4e/source-inventory.ts`. Each production catalog definition has a unique inventory row, stable ID, source ID, printed-page citation, verification state, and disposition. The audit fails when a catalog entry is missing from the inventory, uses an unknown source, duplicates an inventory ID, or lacks a selectable citation.
 
@@ -11,8 +13,8 @@ The runtime inventory is generated in `src/games/earthdawn4e/source-inventory.ts
 - Verified required Discipline talents and complete Novice, Journeyman, Warden, and Master talent-option lists for all fifteen core Disciplines.
 - Twelve Passions with Mad Passions hidden by default and approval-gated.
 - The complete Questor progression lists for all twelve Passions: each unique devotion records every eligible Passion, minimum tier/rank, and progression-page citation. The catalog hides devotions unavailable to the selected patron and current Questor rank unless unavailable options are explicitly shown.
-- All 216 Player’s Guide spells for Elementalist, Illusionist, Nethermancer, and Wizard across Circles 1–8. Names, Discipline ownership, Circle, and printed-page citations were layout-extracted, reconciled against the source headings, and visually sampled at every Discipline/Circle boundary. Runtime summaries remain concise metadata rather than copied spell text.
-- All 142 Companion knack headings, associated talents, minimum ranks, and printed-page citations from pp. 77–117. The layout-extracted inventory was visually sampled across the full chapter, with the final enchanting entries manually reconciled. Knack learning uses the required-rank Novice talent cost, rank-based training duration, and the published typical instructor fee.
+- A 479-spell canonical catalog, including all 216 Player’s Guide spells for Elementalist, Illusionist, Nethermancer, and Wizard across Circles 1–8 plus the verified cross-source and spell-matrix supplements. Names, Discipline ownership, Circle, searchable mechanics, and printed-page citations are preserved. Runtime summaries remain concise metadata rather than copied spell text.
+- A 238-knack canonical catalog with 255 source/association variants. This includes all 142 Companion knack headings plus verified cross-source variants, Encoded Communiqué, and the ten Squeeze knacks. Knack learning uses the required Patterncraft rank with the existing Novice talent-cost, training-duration, and instructor-fee progression; Discipline, spell, and Talent prerequisites remain separate eligibility checks.
 - A merged catalog of 142 thread items: the existing 50 Companion records plus the supplied 138-row cross-source workbook, reconciled by stable identity. Workbook key-knowledge suggestions remain visibly labeled as inferred and never drive rules calculations.
 - A merged 450-entry talent catalog. The supplied 318-row workbook enriches matching definitions with descriptions and game terms while the prior Attribute, action, Strain, effect, citation, and advancement data remains intact.
 - The existing skill catalog enriched by the supplied 65-row workbook, including searchable General, Knowledge, Artisan, and Language classifications and source/page citations.

@@ -1,5 +1,114 @@
 import { expect, test } from '@playwright/test';
+import { createHighCircleMatrixFixture } from '../fixtures/earthdawn-high-circle';
 import { expectMageAlignedFieldGrid } from './support/sheet-alignment';
+
+test('confirms squeezed matrix blood magic and preserves native group warnings', async ({
+  page,
+}) => {
+  const data = createHighCircleMatrixFixture();
+  const switchMatrix = data.magic.matrices.find(
+    ({ name }) => name === 'Squeezed Switch Matrix',
+  )!;
+  const switchSpell = data.magic.spells.find(({ name }) => name === 'Switch')!;
+  switchMatrix.spellId = switchSpell.id;
+  switchMatrix.spellIds = [switchSpell.id];
+
+  await page.goto('/');
+  await page.evaluate(async (characterData) => {
+    await new Promise<void>((resolve, reject) => {
+      const request = indexedDB.open('arcane-ledger');
+      request.onerror = () => reject(request.error);
+      request.onsuccess = () => {
+        const database = request.result;
+        const transaction = database.transaction('characters', 'readwrite');
+        transaction.objectStore('characters').put({
+          id: '77777777-7777-4777-8777-777777777777',
+          systemId: 'earthdawn4e',
+          systemVersion: 13,
+          name: 'Matrix Verification Adept',
+          createdAt: '2026-10-05T12:00:00.000Z',
+          updatedAt: '2026-10-05T12:00:00.000Z',
+          data: characterData,
+        });
+        transaction.oncomplete = () => {
+          database.close();
+          resolve();
+        };
+        transaction.onerror = () => reject(transaction.error);
+      };
+    });
+  }, data);
+  await page.reload();
+  await page
+    .getByRole('button', { name: 'Open Matrix Verification Adept' })
+    .click();
+  await page
+    .getByRole('heading', { name: 'Spells & Matrices' })
+    .scrollIntoViewIfNeeded();
+
+  const squeezedMatrix = page
+    .locator('.earthdawn-matrix-card')
+    .filter({ hasText: 'Squeezed Switch Matrix' });
+  const picker = squeezedMatrix.getByLabel('Add compatible spell');
+  page.once('dialog', async (dialog) => {
+    expect(dialog.message()).toContain('2 Blood Magic Damage');
+    await dialog.accept();
+  });
+  await picker.selectOption({ label: 'True Switch · Illusionist Circle 6' });
+  await expect(
+    squeezedMatrix.getByText(/True Switch · Circle 6/),
+  ).toBeVisible();
+  await expect
+    .poll(async () =>
+      page.evaluate(async () => {
+        return new Promise<number>((resolve, reject) => {
+          const request = indexedDB.open('arcane-ledger');
+          request.onerror = () => reject(request.error);
+          request.onsuccess = () => {
+            const database = request.result;
+            const transaction = database.transaction('characters', 'readonly');
+            const get = transaction
+              .objectStore('characters')
+              .get('77777777-7777-4777-8777-777777777777');
+            get.onsuccess = () => {
+              resolve(get.result.data.health.bloodMagicDamage);
+              database.close();
+            };
+            get.onerror = () => reject(get.error);
+          };
+        });
+      }),
+    )
+    .toBe(2);
+
+  page.once('dialog', async (dialog) => {
+    expect(dialog.message()).toContain('removes every spell');
+    await dialog.accept();
+  });
+  await squeezedMatrix
+    .locator('li')
+    .filter({ hasText: 'True Switch' })
+    .getByRole('button', { name: 'Remove' })
+    .click();
+  await expect(squeezedMatrix.getByText(/Switch · Circle/)).toHaveCount(0);
+
+  const sharedMatrix = page
+    .locator('.earthdawn-matrix-card')
+    .filter({ hasText: 'Mixed Shared Matrix' });
+  await expect(
+    sharedMatrix.getByText(/Only one Fog Ghost spell may be active/),
+  ).toBeVisible();
+  await expect(
+    sharedMatrix.getByText(/Only one Shadow Hunter spell may be active/),
+  ).toBeVisible();
+
+  await page.setViewportSize({ width: 320, height: 800 });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth > window.innerWidth,
+    ),
+  ).toBe(false);
+});
 
 test('creates an Earthdawn adept and exposes source and dice tools', async ({
   page,

@@ -224,6 +224,15 @@ export const earthdawn4eCharacterSchema = z.object({
       actionText: z.string().default(''),
       strainText: z.string().default(''),
       minimumRankKnown: z.boolean().default(true),
+      knackCircle: z.number().int().min(1).max(15).nullable().optional(),
+      discipline: z.string().optional(),
+      disciplineCircle: z.number().int().min(1).max(15).nullable().optional(),
+      requiredSpells: z.array(z.string()).optional(),
+      requiredTalentRanks: z
+        .array(z.object({ name: z.string(), rank: nonnegative }))
+        .optional(),
+      bloodMagicDamage: nonnegative.optional(),
+      matrixRestriction: z.enum(['squeeze']).nullable().optional(),
     }),
   ),
   abilities: z.array(
@@ -304,6 +313,7 @@ export const earthdawn4eCharacterSchema = z.object({
           .enum(['talent', 'free-discipline', 'item', 'temporary', 'custom'])
           .optional(),
         talentId: uuid.nullable().optional(),
+        divided: z.boolean().default(false),
       }),
     ),
     effects: z.array(

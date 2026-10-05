@@ -9,6 +9,16 @@ export interface EarthdawnKnackVariant {
   strainValue: number | null;
   sourceId: string;
   page: number | null;
+  knackCircle?: number;
+  discipline?: string;
+  disciplineCircle?: number;
+  requiredSpells?: readonly string[];
+  requiredTalentRanks?: readonly {
+    name: string;
+    rank: number;
+  }[];
+  bloodMagicDamage?: number;
+  matrixRestriction?: 'squeeze';
 }
 
 export interface EarthdawnKnackReference {

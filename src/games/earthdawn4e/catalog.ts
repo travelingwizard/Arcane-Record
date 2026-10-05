@@ -201,6 +201,7 @@ import {
   coreTalentOptions,
 } from './discipline-progressions';
 import { earthdawnSpellReference } from './spell-reference';
+import { earthdawnSpellbookSupplement } from './spellbook-supplement';
 import { earthdawnKnackReference } from './knack-reference';
 import {
   questorDevotionProgressions,
@@ -633,8 +634,13 @@ export const earthdawnQuestorDefinitions: EarthdawnDefinition[] =
     };
   });
 
+const allEarthdawnSpellReferences = [
+  ...earthdawnSpellReference,
+  ...earthdawnSpellbookSupplement,
+] as const;
+
 export const earthdawnSpells: EarthdawnDefinition[] =
-  earthdawnSpellReference.map((rawSpell) => {
+  allEarthdawnSpellReferences.map((rawSpell) => {
     const spell: EarthdawnSpellReference = rawSpell;
     const preferredVariant =
       (spell.legacyPlayerGuideId
@@ -661,6 +667,14 @@ export const earthdawnSpells: EarthdawnDefinition[] =
         weavingDifficulty: spell.weavingDifficulty,
         reattuningDifficulty: spell.reattuningDifficulty,
         castingDifficulty: spell.castingDifficulty,
+        castingText: spell.castingText,
+        rangeText: spell.rangeText,
+        durationText: spell.durationText,
+        area: spell.area,
+        keywords: spell.keywords,
+        detailedEffects: spell.detailedEffects,
+        successLevels: spell.successLevels,
+        extraThreads: spell.extraThreads,
         effectText: spell.effectText,
       }),
       requirements: spell.variants.map(
@@ -1015,58 +1029,194 @@ const generatedEarthdawnKnacks: EarthdawnDefinition[] =
       knackMetadata: { variants: reference.variants },
     };
   });
-const matrixSharingKnackNames = [
-  'Encoded Communique',
-  'Squeeze Phantom Astral Spear',
-  'Squeeze Phantom Crow Tear',
-  'Squeeze Phantom Espagra Frenzy',
-  'Squeeze Phantom Fireball',
-  'Squeeze Phantom Flame',
-  'Squeeze Phantom Lightning',
-  'Squeeze Phantom Liquid Arrow',
-  'Squeeze Phantom Star Shower',
-  'Squeeze Switch',
-  'Squeeze True Switch',
+const matrixSharingKnackRows = [
+  [
+    'Squeeze Phantom Astral Spear',
+    1,
+    5,
+    5,
+    1,
+    392,
+    ['Phantom Astral Spear', 'Astral Spear'],
+  ],
+  [
+    'Squeeze Phantom Crow Tear',
+    1,
+    5,
+    5,
+    1,
+    393,
+    ['Phantom Crow Tear', 'Invoke Crow Tear'],
+  ],
+  [
+    'Squeeze Phantom Espagra Frenzy',
+    8,
+    10,
+    10,
+    1,
+    393,
+    ['Phantom Espagra Frenzy', 'Invoke Espagra Frenzy'],
+  ],
+  [
+    'Squeeze Phantom Fireball',
+    5,
+    7,
+    7,
+    1,
+    394,
+    ['Phantom Fireball', 'Fireball'],
+  ],
+  ['Squeeze Phantom Flame', 2, 5, 5, 1, 394, ['Phantom Flame', 'Flash Flame']],
+  [
+    'Squeeze Phantom Lightning',
+    4,
+    6,
+    6,
+    1,
+    394,
+    ['Phantom Lightning', 'Lightning Bolt'],
+  ],
+  [
+    'Squeeze Phantom Liquid Arrow',
+    2,
+    5,
+    5,
+    1,
+    394,
+    ['Phantom Liquid Arrow', 'Liquid Arrow'],
+  ],
+  [
+    'Squeeze Phantom Star Shower',
+    7,
+    9,
+    9,
+    1,
+    395,
+    ['Phantom Star Shower', 'Star Shower'],
+  ],
+  ['Squeeze Switch', 5, 7, 7, 2, 399, ['Switch', 'True Switch']],
+  ['Squeeze True Switch', 6, 9, 9, 2, 400, ['True Switch', 'Form Exchange']],
 ] as const;
-const matrixSharingKnacks: EarthdawnDefinition[] = matrixSharingKnackNames.map(
-  (name) => {
-    const sourceId = 'ed4.user-matrix-reference';
-    const description = `${name} enables the specific spell-matrix sharing combination described by the supplied Earthdawn matrix reference.`;
+const matrixSharingKnacks: EarthdawnDefinition[] = matrixSharingKnackRows.map(
+  ([
+    name,
+    knackCircle,
+    minimumRank,
+    disciplineCircle,
+    damage,
+    page,
+    requiredSpells,
+  ]) => {
+    const sourceId = 'ed4.deeper-secrets';
+    const description = `${name} passively allows its paired spells to be squeezed into one eligible spell matrix.`;
     return {
-      id: `${sourceId}.knack.${slug(name)}`,
+      id: `ed4.user-matrix-reference.knack.${slug(name)}`,
       kind: 'knack',
       name,
       summary: description,
       mechanics:
-        'Exact Rank, action, Strain, page, and advancement requirements are unavailable; handle learning manually or through recorded GM Override.',
-      requirements: ['Patterncraft; exact Rank unavailable'],
+        `${damage} Blood Magic Damage is suffered when placing the paired spells. ` +
+        'Cannot be used with Shared Matrices, divided matrices, or external spell matrix objects. Removing either spell removes the entire squeezed group.',
+      requirements: [
+        `Patterncraft Rank ${minimumRank}`,
+        `Illusionist Circle ${disciplineCircle}`,
+        ...requiredSpells.map((spell) => `Know ${spell}`),
+      ],
       aliases: [],
       sourceId,
-      source: 'User-supplied Earthdawn Matrix Reference',
-      page: null,
-      verification: 'reference-only',
+      source: earthdawnSources.find(({ id }) => id === sourceId)!.title,
+      page,
+      verification: 'verified',
       knackMetadata: {
         variants: [
           {
-            key: `${sourceId}:${slug(name)}:patterncraft`,
+            key: `ed4.user-matrix-reference:${slug(name)}:patterncraft`,
             association: 'Patterncraft',
             description,
             mechanicsText:
-              'Exact Rank, action, Strain, page, and advancement requirements are unavailable.',
-            minimumRank: null,
-            actionText: '',
-            strainText: '',
-            strainValue: null,
+              `${damage} Blood Magic Damage is suffered during placement. ` +
+              'Not compatible with Shared, divided, or external matrices. Removing one spell removes all spells in the squeezed group.',
+            minimumRank,
+            actionText: 'Passive (spell matrix attunement)',
+            strainText: `${damage} Blood Magic Damage when placing paired spells`,
+            strainValue: damage,
             sourceId,
-            page: null,
+            page,
+            knackCircle,
+            discipline: 'Illusionist',
+            disciplineCircle,
+            requiredSpells,
+            requiredTalentRanks: [{ name: 'Patterncraft', rank: minimumRank }],
+            bloodMagicDamage: damage,
+            matrixRestriction: 'squeeze',
           },
         ],
       },
     };
   },
 );
+const encodedCommunique: EarthdawnDefinition = (() => {
+  const name = 'Encoded Communique';
+  const description =
+    'When casting Send Message with one thread, the message is automatically encrypted as Encrypt against anyone except the intended recipient. Encrypt and Send Message may share a spell matrix.';
+  const variant = (sourceId: string, page: number, key: string) => ({
+    key,
+    association: 'Patterncraft',
+    description,
+    mechanicsText:
+      'Passive improved spell knack. Costs 1 Strain when used. Requires Patterncraft Rank 5, Messenger Rank 3, Encrypt, Send Message, and Illusionist Circle 7.',
+    minimumRank: 5,
+    actionText: 'Passive (when casting Send Message)',
+    strainText: '1',
+    strainValue: 1,
+    sourceId,
+    page,
+    knackCircle: 1,
+    discipline: 'Illusionist',
+    disciplineCircle: 7,
+    requiredSpells: ['Encrypt', 'Send Message'],
+    requiredTalentRanks: [
+      { name: 'Patterncraft', rank: 5 },
+      { name: 'Messenger', rank: 3 },
+    ],
+  });
+  const primary = variant(
+    'ed4.deeper-secrets',
+    399,
+    'ed4.user-matrix-reference:encoded-communique:patterncraft',
+  );
+  return {
+    id: 'ed4.user-matrix-reference.knack.encoded-communique',
+    kind: 'knack',
+    name,
+    summary: description,
+    mechanics: primary.mechanicsText,
+    requirements: [
+      'Patterncraft Rank 5',
+      'Messenger Rank 3',
+      'Know Encrypt and Send Message',
+      'Illusionist Circle 7',
+    ],
+    aliases: ['Encoded Communiqué'],
+    sourceId: primary.sourceId,
+    source: earthdawnSources.find(({ id }) => id === primary.sourceId)!.title,
+    page: primary.page,
+    verification: 'verified',
+    knackMetadata: {
+      variants: [
+        primary,
+        variant(
+          'ed4.mystic-paths',
+          248,
+          'ed4.mystic-paths:encoded-communique:patterncraft',
+        ),
+      ],
+    },
+  };
+})();
 export const earthdawnKnacks: EarthdawnDefinition[] = [
   ...generatedEarthdawnKnacks,
+  encodedCommunique,
   ...matrixSharingKnacks,
 ];
 const companionThreadItems: EarthdawnDefinition[] = companionThreadItemRows.map(

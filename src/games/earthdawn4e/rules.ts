@@ -9,6 +9,9 @@ import type { Earthdawn4eCharacter } from './schema';
 import {
   matchingSharingRule,
   missingSharingPrerequisites,
+  matrixGroupWarnings,
+  sharingRuleWithoutPrerequisites,
+  squeezeSharingRules,
 } from './matrix-sharing';
 
 export type EarthdawnMatrix = Earthdawn4eCharacter['magic']['matrices'][number];
@@ -60,6 +63,7 @@ export function matrixCapacityUsed(
         matchingSharingRule(
           indexes.map((index) => remaining[index]!),
           knacks,
+          matrix,
         )
       )
         groupedIndexes = indexes;
@@ -85,7 +89,10 @@ export function canAssignSpellToMatrix(
   const assigned = spells.filter((spell) => matrix.spellIds.includes(spell.id));
   if (!assigned.length) return true;
   const prospective = [...assigned, candidate];
-  if (matrix.type !== 'shared' && !matchingSharingRule(prospective, knacks))
+  if (
+    matrix.type !== 'shared' &&
+    !matchingSharingRule(prospective, knacks, matrix)
+  )
     return false;
   const prospectiveMatrix = {
     ...matrix,
@@ -105,12 +112,27 @@ export function matrixIssues(
   if (
     matrix.type !== 'shared' &&
     assigned.length > 1 &&
-    !matchingSharingRule(assigned, knacks)
+    !matchingSharingRule(assigned, knacks, matrix)
   )
     issues.push('These spells are not an allowed matrix-sharing combination.');
   const missing = missingSharingPrerequisites(assigned, knacks);
   if (missing.length)
     issues.push(`Missing matrix-sharing knack: ${missing.join(' and ')}.`);
+  const assignedRule = sharingRuleWithoutPrerequisites(assigned);
+  const containsSqueezedGroup =
+    assignedRule?.kind === 'squeeze' ||
+    squeezeSharingRules(assigned).length > 0;
+  if (
+    containsSqueezedGroup &&
+    (matrix.type === 'shared' ||
+      matrix.type === 'object' ||
+      matrix.originType === 'item' ||
+      matrix.divided)
+  )
+    issues.push(
+      'Squeeze knacks cannot be used with Shared, divided, or external spell matrices.',
+    );
+  issues.push(...matrixGroupWarnings(assigned));
   if (matrixCapacityUsed(matrix, spells, knacks) > matrix.rank)
     issues.push('Assigned spell Circles exceed the matrix Rank.');
   if (assigned.some((spell) => spell.circle > highestCircle))
@@ -188,6 +210,7 @@ export function reconcileFreeMatrices(character: Earthdawn4eCharacter) {
       notes: 'Granted by magician Discipline progression.',
       originType: 'free-discipline' as const,
       talentId: null,
+      divided: false,
     };
   });
   const matrices = [...upgradedMatrices, ...additions];
@@ -268,6 +291,7 @@ export function reconcileFreeMatrices(character: Earthdawn4eCharacter) {
       ...matrix,
       originType: 'free-discipline' as const,
       talentId: talent.id,
+      divided: false,
     };
   });
   return {
