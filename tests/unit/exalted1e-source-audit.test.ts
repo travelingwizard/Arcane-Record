@@ -189,15 +189,17 @@ describe('auditFamily against the real repository (current state)', () => {
     // script's own promotion check forbids promoting), as counted
     // directly from `src/games/exalted1e/reference/lunar-*.json` by this
     // audit script. This differs from `certification/lunar.json`'s own
-    // `catalog.promotedEntries` (399), which also includes the 100
+    // `catalog.promotedEntries` (412), which also includes the 100
     // Phase 1a Backgrounds/Merits-Flaws rows (none of which live in a
     // `lunar-`-prefixed catalog file -- Backgrounds live in `definitions.ts`;
     // Merits/Flaws live in the shared `dragonblooded-merits-flaws.json`)
-    // and the 73 Phase 1d Sorcery spells (which also reuse the shared
-    // `dragonblooded-sorcery.json` rather than a `lunar-`-prefixed file;
-    // see `lunarSorcerySpellIds` in `lunar-powers.ts`), so this audit
-    // script's file-glob does not count either -- matching Abyssal's own
-    // 333-vs-505 and Sidereal's own 203-vs-370 precedent above.
+    // and all 86 Sorcery spells (Phase 1d's 73 plus the 13 the
+    // `unreviewed_spells` follow-up phase later promoted), which also
+    // reuse the shared `dragonblooded-sorcery.json` rather than a
+    // `lunar-`-prefixed file (see `lunarSorcerySpellIds` in
+    // `lunar-powers.ts`), so this audit script's file-glob does not count
+    // either -- matching Abyssal's own 333-vs-505 and Sidereal's own
+    // 203-vs-383 precedent above.
     expect(report.promotedEntries).toBe(226);
     expect(report.catalogChecksum).toHaveLength(8);
     expect(report.catalogChecksum).toMatch(/^[0-9a-f]{8}$/);
@@ -237,14 +239,15 @@ describe('auditFamily against the real repository (current state)', () => {
     // Colleges) in sidereal-astrology-rules.json, as counted directly
     // from `src/games/exalted1e/reference/sidereal-*.json` by this audit
     // script. This differs from `certification/sidereal.json`'s own
-    // `catalog.promotedEntries` (370), which also includes the 94
-    // Phase 2a Backgrounds/Merits/Flaws rows and the 73 Phase 2b Sorcery
-    // spell rows, none of which live in a `sidereal-`-prefixed catalog
-    // file (Backgrounds/Merits/Flaws live in `definitions.ts`/the shared
-    // `dragonblooded-merits-flaws.json`; the 73 Sorcery spells are a
-    // subset of the shared `dragonblooded-sorcery.json`), so this audit
-    // script's file-glob does not count them -- matching Abyssal's own
-    // 328-vs-500 precedent above.
+    // `catalog.promotedEntries` (383), which also includes the 94
+    // Phase 2a Backgrounds/Merits/Flaws rows and all 86 Sorcery spell rows
+    // (Phase 2b's 73 plus the 13 the `sidereal_unreviewed_spells`
+    // follow-up phase later promoted), none of which live in a
+    // `sidereal-`-prefixed catalog file (Backgrounds/Merits/Flaws live in
+    // `definitions.ts`/the shared `dragonblooded-merits-flaws.json`; the
+    // Sorcery spells are a subset of the shared
+    // `dragonblooded-sorcery.json`), so this audit script's file-glob does
+    // not count them -- matching Abyssal's own 328-vs-500 precedent above.
     expect(report.promotedEntries).toBe(203);
     expect(report.catalogChecksum).toHaveLength(8);
     expect(report.catalogChecksum).toMatch(/^[0-9a-f]{8}$/);

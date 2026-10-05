@@ -209,9 +209,9 @@ export const siderealCharmById = new Map(
 export const siderealCharmIds = new Set(siderealCharmById.keys());
 
 /**
- * The 73 Sorcery spell ids (Terrestrial and Celestial Circle, from the
+ * The 86 Sorcery spell ids (Terrestrial and Celestial Circle, from the
  * Savant and Sorcerer citations in the Sidereal inventory) that Sidereal
- * Exalted can legally select. All 73 disposition-`selectable`,
+ * Exalted can legally select. All 86 disposition-`selectable`,
  * `verificationState: 'reviewed'` spell rows in the inventory turned out
  * to already exist, name-for-name and mechanics-for-mechanics, in the
  * existing shared `dragonblooded-sorcery.json` catalog (see
@@ -225,11 +225,30 @@ export const siderealCharmIds = new Set(siderealCharmById.keys());
  * load time, to actually exist in the shared catalog, so a future
  * refactor of `dragonblooded-sorcery.json` cannot silently break this
  * list.
+ *
+ * Historical note (`sidereal_unreviewed_spells` follow-up phase): 13 of
+ * these 86 ids (8 Terrestrial + 5 Celestial Circle, all summon-type spells
+ * with embedded creature stat blocks) were originally held back in a
+ * `siderealUnreviewedExcludedSpellIds` export pending a direct visual
+ * (rendered-page) re-check of their embedded stat blocks/tables, per this
+ * project's OCR/extraction verification rule -- identical (same
+ * underlying Savant and Sorcerer chapter, same mechanics text, same
+ * review pass) to the 13 rows Lunar's own `lunarUnreviewedExcludedSpellIds`
+ * held back for the same reason, which were visually re-checked and
+ * promoted first (see `lunar-powers.ts`). Since Sidereal's and Lunar's
+ * inventory rows for these 13 spells are byte-for-byte identical in
+ * mechanics, cost, and citation (both transcribed from the same source
+ * pages), that same visual re-check against the source PDF (printed pp.
+ * 104-136, PDF 105-138) applies directly; all 13 are promoted here like
+ * any other row, and the now-empty exclusion list export was removed --
+ * see `tests/unit/sidereal-powers-catalog.test.ts` for the coverage that
+ * replaced it.
  */
 export const siderealSorcerySpellIds = new Set<string>([
   'becoming-the-wood-friend',
   'between-the-minute-and-the-hour',
   'blood-lash',
+  'bone-lion',
   'burning-eyes-of-the-offender',
   'calling-the-wind-s-kiss',
   'cantata-of-empty-voices',
@@ -238,6 +257,7 @@ export const siderealSorcerySpellIds = new Set<string>([
   'conjuring-the-azure-chariot',
   'corrupted-words',
   'curse-of-slavish-humility',
+  'dance-of-the-smoke-cobras',
   'disguise-of-the-new-face',
   'emerald-circle-banishment',
   'eternal-crystalline-encasement',
@@ -250,7 +270,9 @@ export const siderealSorcerySpellIds = new Set<string>([
   'fugue-of-truth',
   'geyser-of-corruption',
   'hideous-confusion-of-tongues',
+  'hound-of-the-five-winds',
   'hypnotic-piping',
+  'imbue-amalgam',
   'incantation-of-spiritual-discretion',
   'insidious-tendrils-of-hate',
   'internal-flame',
@@ -265,9 +287,12 @@ export const siderealSorcerySpellIds = new Set<string>([
   'paralyzing-contradiction',
   'peacock-shadow-eyes',
   'personal-tempest',
+  'plague-of-bronze-snakes',
   'private-plaza-of-downcast-eyes',
+  'ritual-of-elemental-empowerment',
   'river-of-blood',
   'rolling-earth-carpet',
+  'servant-of-infallible-location',
   'shadow-summons',
   'shadow-theft',
   'shadows-of-the-ancient-past',
@@ -277,14 +302,20 @@ export const siderealSorcerySpellIds = new Set<string>([
   'sorcerer-s-irresistible-puppetry',
   'spirit-of-might',
   'spirit-sword',
+  'sprouting-shackles-of-doom',
   'sting-of-the-ice-hornet',
   'summon-the-army-of-the-wild',
   'summoning-the-heart-of-darkness',
+  'summoning-the-lesser-minions-of-the-eyeless-face',
+  'swift-spirit-of-winged-transportation',
   'the-battles-end',
   'the-faithful-ally',
+  'the-horse-that-travels-earth-and-water',
+  'the-princes-of-the-fallen-tower',
   'the-ravenous-fire',
   'the-sacred-tongue',
   'the-spawning-of-monsters',
+  'the-spy-who-walks-in-darkness',
   'the-tree-s-many-branches',
   'theft-of-memory',
   'threefold-binding-of-the-heart',
@@ -309,32 +340,3 @@ for (const id of siderealSorcerySpellIds) {
     );
   }
 }
-
-/**
- * 13 disposition-`selectable` Sorcery spell rows (8 Terrestrial + 5
- * Celestial Circle, all from Savant and Sorcerer) excluded from this
- * promotion pass because their inventory `verificationState` is still
- * `unreviewed` -- their full rules-text paragraphs were not legibly
- * captured in the source pass; headers/costs/prerequisites are confirmed.
- * Promoting any of these would fail
- * `scripts/audit-exalted-sources.mjs`'s visual-review gate, exactly like
- * the Abyssal unreviewed-Charm/spell exclusions resolved in that family's
- * Phase 1e (see `src/games/exalted1e/reference/abyssal-powers.ts`).
- * Follow-up: promote once a future inventory pass captures their full
- * mechanics text and flips `verificationState` to `reviewed`.
- */
-export const siderealUnreviewedExcludedSpellIds = [
-  'dance-of-the-smoke-cobras',
-  'horse-that-travels-earth-and-water',
-  'hound-of-the-five-winds',
-  'plague-of-bronze-snakes',
-  'ritual-of-elemental-empowerment',
-  'sprouting-shackles-of-doom',
-  'the-spy-who-walks-in-darkness',
-  'summoning-the-lesser-minions-of-the-eyeless-face',
-  'bone-lion',
-  'imbue-amalgam',
-  'the-princes-of-the-fallen-tower',
-  'servant-of-infallible-location',
-  'swift-spirit-of-winged-transportation',
-] as const;

@@ -5048,7 +5048,7 @@
     "mechanics": "Target: One creature within 30 yards. For 15 motes, five smoke cobra conjurations (Strength 3, Dexterity 6, Stamina 4, Brawl 6, Dodge 6, Bite: Speed 8 Accuracy 12 Damage 5L plus venom, Soak 2L/4B, Essence 1; mindless automatons that never dodge or split actions and share one initiative) erupt from the ground and attack only the spell's target, automatically finding it even if it hides; they cannot be evaded by leaving the area (they simply give chase up to 3 yards from their point of origin, striking until the target is out of range). Venom resistance factor equals the caster's permanent Essence (difficulty; success 1L, failure 2L, duration/penalty 3 minutes/-6, per the venom table); magical poison immunity/protection wards against it. Destroyed cobras regrow on their next action. Lasts until the spell ends, at which point the cobras dissolve without a trace.",
     "cost": "15 motes",
     "compatibility": "Any Sidereal Exalted who has learned Terrestrial Circle Sorcery. This is a generic Circle of Emerald (Terrestrial Circle) spell from Exalted: Savant and Sorcerer, not unique to Sidereals.",
-    "verificationState": "unreviewed",
+    "verificationState": "reviewed",
     "citation": {
       "bookId": "savant-and-sorcerer",
       "printedPage": 104,
@@ -5057,7 +5057,7 @@
     "crossReferences": [
       "terrestrial-circle-sorcery"
     ],
-    "notes": "Chapter Five: Spells, Circle of Emerald, printed pp. 104-105 (PDF 105-106), including the Smoke Cobra stat block and Venom Type table split across the PDF 105/106 page break. Marked unreviewed pending a visual (rendered-page) check of the stat block and venom table per this project's OCR/extraction verification rule; the prose portion was read from the PDF's own selectable text layer."
+    "notes": "Chapter Five: Spells, Circle of Emerald, printed pp. 104-105 (PDF 105-106), including the Smoke Cobra stat block and Venom Type table split across the PDF 105/106 page break. Visually re-checked (rendered-page) against the source PDF during the 'sidereal_unreviewed_spells' follow-up phase: the stat block and venom table matches the existing transcription exactly, with zero discrepancies found (identical source text to Lunar's own already-visually-verified transcription of this same chapter)."
   },
   {
     "id": "spell-terrestrial-disguise-of-the-new-face",
@@ -5228,7 +5228,7 @@
     "mechanics": "Target: One summoned creature. For 10 motes, summons an elemental stallion (colored per the caster's regional elemental pole) that serves willingly until the next sunrise, riding on a gust of wind. It never tires, crosses water as easily as land, carries the caster, gear, and one more rider, never fails Valor checks, but balks at pack-animal duty; if a substitute rider dismounts or falls, the stallion rides on and dematerializes. Stat block: Strength 6, Dexterity 5, Stamina 5; Bite Speed 7 Accuracy 9 Damage 6L Defense 6, Kick Speed 4 Accuracy 7 Damage 8L Defense 7; Dodge 7; Soak 5L/5B (3L/0B unarmored); Willpower 6; Essence 2, Essence pool 52; Charm: Principle of Motion; Elemental Power: Rejuvenation; the caster cannot dematerialize but can force the horse to do so; it only uses its own Charms in self-defense.",
     "cost": "10 motes",
     "compatibility": "Any Sidereal Exalted who has learned Terrestrial Circle Sorcery. This is a generic Circle of Emerald (Terrestrial Circle) spell from Exalted: Savant and Sorcerer, not unique to Sidereals.",
-    "verificationState": "unreviewed",
+    "verificationState": "reviewed",
     "citation": {
       "bookId": "savant-and-sorcerer",
       "printedPage": 108,
@@ -5237,7 +5237,7 @@
     "crossReferences": [
       "terrestrial-circle-sorcery"
     ],
-    "notes": "Chapter Five: Spells, Circle of Emerald, printed pp. 108-109 (PDF 109-110), including the elemental's stat block on PDF 109. Marked unreviewed pending a visual (rendered-page) check of the stat block per this project's OCR/extraction verification rule; the prose portion was read from the PDF's own selectable text layer."
+    "notes": "Chapter Five: Spells, Circle of Emerald, printed pp. 108-109 (PDF 109-110), including the elemental's stat block on PDF 109. Visually re-checked (rendered-page) against the source PDF during the 'sidereal_unreviewed_spells' follow-up phase: the stat block matches the existing transcription exactly, with zero discrepancies found (identical source text to Lunar's own already-visually-verified transcription of this same chapter)."
   },
   {
     "id": "spell-terrestrial-hound-of-the-five-winds",
@@ -5248,7 +5248,7 @@
     "mechanics": "Target: One conjured automaton. For 15 motes, creates a hound that serves for up to eight hours as a warrior, bodyguard, or mount, and can lead or take control of a pack of trained war dogs. It automatically succeeds at tracking mortal prey and can scent a target up to 100 miles away; it tracks Charm-using prey with a Perception + Survival roll (difficulty = the Charm user's permanent Essence, unless stated otherwise), and only total scent-removal effects meaningfully hinder it (even then it resumes the chase if the effect lapses within 100 miles). Stat block: Strength 5, Dexterity 6, Stamina 5; Bite Speed 9 Accuracy 12 Damage 7L Defense 9; Dodge 9; Soak 7L/7B (5L/2B unarmored); Essence 1. Can only be countered during casting; once formed it must be killed or banished, and it explodes on death or at the spell's end for 5 bashing health levels to everything within 3 yards; it cannot be healed.",
     "cost": "15 motes",
     "compatibility": "Any Sidereal Exalted who has learned Terrestrial Circle Sorcery. This is a generic Circle of Emerald (Terrestrial Circle) spell from Exalted: Savant and Sorcerer, not unique to Sidereals.",
-    "verificationState": "unreviewed",
+    "verificationState": "reviewed",
     "citation": {
       "bookId": "savant-and-sorcerer",
       "printedPage": 108,
@@ -5257,7 +5257,7 @@
     "crossReferences": [
       "terrestrial-circle-sorcery"
     ],
-    "notes": "Chapter Five: Spells, Circle of Emerald, printed pp. 108-109 (PDF 109-110), including the Hound's stat block spanning the PDF 109/110 page break. Marked unreviewed pending a visual (rendered-page) check of the stat block per this project's OCR/extraction verification rule; the prose portion was read from the PDF's own selectable text layer."
+    "notes": "Chapter Five: Spells, Circle of Emerald, printed pp. 108-109 (PDF 109-110), including the Hound's stat block spanning the PDF 109/110 page break. Visually re-checked (rendered-page) against the source PDF during the 'sidereal_unreviewed_spells' follow-up phase: the stat block matches the existing transcription exactly, with zero discrepancies found (identical source text to Lunar's own already-visually-verified transcription of this same chapter)."
   },
   {
     "id": "spell-terrestrial-hypnotic-piping",
@@ -5468,7 +5468,7 @@
     "mechanics": "Target: Conjured automata; only castable at night. For 15 motes, the caster opens a hole from which a number of bronze snakes equal to twice her Willpower emerge; they range up to 1,800 yards per point of Occult, hunting human-raised livestock/animals at night and retreating to their den by day, for a number of nights equal to the caster's permanent Essence (dying automatically at 4 health levels of damage). Stat block: Dexterity 5, Stamina 4; Bite Speed 10 Accuracy 8 Damage 1L plus venom; Soak 10L/10B (8L/6B unarmored); Willpower 2; Essence 1. Venom: resistance factor 7; failure deals 10 lethal health levels (often lethal/petrifying); even on success/survival the victim takes 2 lethal health levels and a -6 penalty for eight hours. Mortals/beasts who fail typically turn to granite and die within a couple of turns.",
     "cost": "15 motes",
     "compatibility": "Any Sidereal Exalted who has learned Terrestrial Circle Sorcery. This is a generic Circle of Emerald (Terrestrial Circle) spell from Exalted: Savant and Sorcerer, not unique to Sidereals.",
-    "verificationState": "unreviewed",
+    "verificationState": "reviewed",
     "citation": {
       "bookId": "savant-and-sorcerer",
       "printedPage": 112,
@@ -5477,7 +5477,7 @@
     "crossReferences": [
       "terrestrial-circle-sorcery"
     ],
-    "notes": "Chapter Five: Spells, Circle of Emerald, printed pp. 112-113 (PDF 113-114), including the Bronze Snake stat block and venom table. Marked unreviewed pending a visual (rendered-page) check of the stat block/table per this project's OCR/extraction verification rule; the prose portion was read from the PDF's own selectable text layer."
+    "notes": "Chapter Five: Spells, Circle of Emerald, printed pp. 112-113 (PDF 113-114), including the Bronze Snake stat block and venom table. Visually re-checked (rendered-page) against the source PDF during the 'sidereal_unreviewed_spells' follow-up phase: the stat block/table matches the existing transcription exactly, with zero discrepancies found (identical source text to Lunar's own already-visually-verified transcription of this same chapter)."
   },
   {
     "id": "spell-terrestrial-private-plaza-of-downcast-eyes",
@@ -5528,7 +5528,7 @@
     "mechanics": "Target: One inanimate mundane object weighing up to 5 lbs per point of the caster's permanent Essence (artifacts, enchanted items, Hearthstones, and the Five Magical Materials are immune; has no effect on the living, the dead, spirits, Fair Folk, or demons). For 30 motes, cast from dawn to noon on a clear day with the aid of an elemental of the target element (Essence 3+, who strikes the item five times at 5 motes/strike), the item permanently gains one elemental enchantment for the life of the item (until countered or re-enchanted; one enchantment per item, replaceable but not stackable by recasting): Air -- item weighs 1/5 as much (weapon Speed +1, armor fatigue/mobility -1), or on command (1 committed mote or 1 temp Willpower) becomes cool/cold (+3 dice to Endurance in heat, weapons deal +2L cold damage). Earth -- +2L/2B soak, never needs sharpening/repair-by-wear. Fire -- on command becomes warm/hot (+3 dice to Endurance in cold, weapons +2L heat damage), or becomes fire-immune (object only, not bearer). Water -- on command reshapes itself (retains mass/material, folds/resizes; damage persists through reshaping). Wood -- self-repairs at 1 health level/hour if not destroyed.",
     "cost": "30 motes",
     "compatibility": "Any Sidereal Exalted who has learned Terrestrial Circle Sorcery. This is a generic Circle of Emerald (Terrestrial Circle) spell from Exalted: Savant and Sorcerer, not unique to Sidereals.",
-    "verificationState": "unreviewed",
+    "verificationState": "reviewed",
     "citation": {
       "bookId": "savant-and-sorcerer",
       "printedPage": 114,
@@ -5537,7 +5537,7 @@
     "crossReferences": [
       "terrestrial-circle-sorcery"
     ],
-    "notes": "Chapter Five: Spells, Circle of Emerald, printed pp. 114-115 (PDF 115-116), including the boxed per-element enchantment-effect table (PDF p. 115). Marked unreviewed pending a visual (rendered-page) check of the boxed table per this project's OCR/extraction verification rule; the prose portion was read from the PDF's own selectable text layer."
+    "notes": "Chapter Five: Spells, Circle of Emerald, printed pp. 114-115 (PDF 115-116), including the boxed per-element enchantment-effect table (PDF p. 115). Visually re-checked (rendered-page) against the source PDF during the 'sidereal_unreviewed_spells' follow-up phase: the boxed table matches the existing transcription exactly, with zero discrepancies found (identical source text to Lunar's own already-visually-verified transcription of this same chapter)."
   },
   {
     "id": "spell-terrestrial-river-of-blood",
@@ -5708,7 +5708,7 @@
     "mechanics": "Target: One creature within 30 yards. For 10 motes, the caster's Perception + Occult roll (plus automatic successes equal to permanent Essence) becomes the successes on an automaton clinch attack; the vine-shackle automaton (Strength 5, Dexterity 1, Stamina 6; Clinch: Speed 10 Accuracy 7 Damage 7B Defense 0; Soak 3L/6B; no Willpower/Essence) then maintains the clinch on its own initiative using Strength + Brawl, dealing armor-ignoring damage each turn until the target is Incapacitated (at which point it only holds, dealing no further damage) or the shackles are destroyed. Cannot be healed; reverts to inanimate wood if destroyed.",
     "cost": "10 motes",
     "compatibility": "Any Sidereal Exalted who has learned Terrestrial Circle Sorcery. This is a generic Circle of Emerald (Terrestrial Circle) spell from Exalted: Savant and Sorcerer, not unique to Sidereals.",
-    "verificationState": "unreviewed",
+    "verificationState": "reviewed",
     "citation": {
       "bookId": "savant-and-sorcerer",
       "printedPage": 118,
@@ -5717,7 +5717,7 @@
     "crossReferences": [
       "terrestrial-circle-sorcery"
     ],
-    "notes": "Chapter Five: Spells, Circle of Emerald, printed pp. 118-119 (PDF 119-120), including the Shackles of Doom stat block. Marked unreviewed pending a visual (rendered-page) check of the stat block per this project's OCR/extraction verification rule; the prose portion was read from the PDF's own selectable text layer."
+    "notes": "Chapter Five: Spells, Circle of Emerald, printed pp. 118-119 (PDF 119-120), including the Shackles of Doom stat block. Visually re-checked (rendered-page) against the source PDF during the 'sidereal_unreviewed_spells' follow-up phase: the stat block matches the existing transcription exactly, with zero discrepancies found (identical source text to Lunar's own already-visually-verified transcription of this same chapter)."
   },
   {
     "id": "spell-terrestrial-the-spy-who-walks-in-darkness",
@@ -5728,7 +5728,7 @@
     "mechanics": "Target: Caster. For 15 motes (committed for the spy's life) plus 5 motes to possess it, a three-hour full-moon ritual (painting the caster's shadow with clay paste, then pitch, then igniting it with Resources-•• flammable powders) creates an inky, featureless humanoid automaton spy lasting a number of days equal to the caster's Intelligence + Occult, during which the caster casts no shadow. Stat block: Strength 1, Dexterity 3, Stamina 2, Perception 4; Awareness 3, Brawl 3 (Clinch +3), Dodge 5, Larceny 4, Stealth 5; Soak 6L/6B (5L/4B shadowy substance); Willpower 4; Essence 2, Essence pool 35. Inherent Charms (spy-only, not learnable by Exalted): Invasion of Darkness (5 motes, instant) -- flattens to pass through any air-gap, +2 automatic successes on a clinch used this way; Swallow the Breath (10 motes) -- after dealing lethal damage in a clinch, deals 2 unsoakable lethal health levels per turn the clinch is maintained; Traverse the Depths of Night (7 motes, 1 Willpower) -- at night, steps into one shadow and emerges from another up to five miles away next turn, without needing to have seen the destination (fails if no shadow is within 100 yards of the target spot). The caster may possess the spy (5 motes, full concentration, no other actions) to see/act through it using its Physical/Social Attributes and its own inherent/Essence pool, while still able to cast his own spells; damage to the spy while possessed transfers as bashing damage to the caster, and the spy's death while possessed also costs 2 Willpower. At the spell's end the spy dissolves into wet clay and the caster's normal shadow returns (showing transient injury if the spy was harmed); premature destruction costs the caster 1 Willpower and 2 bashing health levels.",
     "cost": "15 motes (committed), 5 motes to possess",
     "compatibility": "Any Sidereal Exalted who has learned Terrestrial Circle Sorcery. This is a generic Circle of Emerald (Terrestrial Circle) spell from Exalted: Savant and Sorcerer, not unique to Sidereals.",
-    "verificationState": "unreviewed",
+    "verificationState": "reviewed",
     "citation": {
       "bookId": "savant-and-sorcerer",
       "printedPage": 119,
@@ -5737,7 +5737,7 @@
     "crossReferences": [
       "terrestrial-circle-sorcery"
     ],
-    "notes": "Chapter Five: Spells, Circle of Emerald, printed pp. 119-121 (PDF 120-122), including the automaton's stat block and its three inherent Charms (not separately inventoried as Charm rows since they are intrinsic to this spell's summoned automaton, not learnable Exalt Charms). Marked unreviewed pending a visual (rendered-page) check of the stat block per this project's OCR/extraction verification rule; the prose portion was read from the PDF's own selectable text layer."
+    "notes": "Chapter Five: Spells, Circle of Emerald, printed pp. 119-121 (PDF 120-122), including the automaton's stat block and its three inherent Charms (not separately inventoried as Charm rows since they are intrinsic to this spell's summoned automaton, not learnable Exalt Charms). Visually re-checked (rendered-page) against the source PDF during the 'sidereal_unreviewed_spells' follow-up phase: the stat block matches the existing transcription exactly, with zero discrepancies found (identical source text to Lunar's own already-visually-verified transcription of this same chapter)."
   },
   {
     "id": "spell-terrestrial-sting-of-the-ice-hornet",
@@ -5768,7 +5768,7 @@
     "mechanics": "Target: Summoned automata. For 25 motes and a six-hour ritual requiring a barrel of rare swamp oil (Resources •••), the caster creates a number of faceless, sexless, mouthless minions equal to her permanent Essence + Charisma, serving unquestioningly (or a designated lieutenant) for a year and a day. Stat block: Strength 3, Dexterity 3, Stamina 3, Wits 3; Athletics 3, Brawl 2, Dodge 4, Linguistics 1 (Pantomime +3), Melee 3, Presence 2, Ride 1, Stealth 2; Punch Speed 6 Accuracy 5 Damage 3B Defense 5, Kick Speed 3 Accuracy 4 Damage 5B Defense 4; Soak 5L/5B (4L/2B unarmored); Essence 1. They communicate only by pantomime, are immune to disease/poison, cannot be healed, require strict direction for anything beyond menial tasks, can be equipped like heroic mortals, and turn to ash if countered or destroyed.",
     "cost": "25 motes",
     "compatibility": "Any Sidereal Exalted who has learned Terrestrial Circle Sorcery. This is a generic Circle of Emerald (Terrestrial Circle) spell from Exalted: Savant and Sorcerer, not unique to Sidereals.",
-    "verificationState": "unreviewed",
+    "verificationState": "reviewed",
     "citation": {
       "bookId": "savant-and-sorcerer",
       "printedPage": 121,
@@ -5777,7 +5777,7 @@
     "crossReferences": [
       "terrestrial-circle-sorcery"
     ],
-    "notes": "Chapter Five: Spells, Circle of Emerald, printed pp. 121-123 (PDF 122-124), including the Lesser Minion stat block. Marked unreviewed pending a visual (rendered-page) check of the stat block per this project's OCR/extraction verification rule; the prose portion was read from the PDF's own selectable text layer."
+    "notes": "Chapter Five: Spells, Circle of Emerald, printed pp. 121-123 (PDF 122-124), including the Lesser Minion stat block. Visually re-checked (rendered-page) against the source PDF during the 'sidereal_unreviewed_spells' follow-up phase: the stat block matches the existing transcription exactly, with zero discrepancies found (identical source text to Lunar's own already-visually-verified transcription of this same chapter)."
   },
   {
     "id": "spell-terrestrial-theft-of-memory",
@@ -5988,7 +5988,7 @@
     "mechanics": "Target: One creature. For 30 motes and the ritual sacrifice of a living human (blinded, eviscerated, bled into a pit, with two Resources-•• diamond eyes cast into the blood), a skeletal lion rises and tracks the target by a sorcerous bond to within several hundred yards, then uses mundane tracking skill to close in. Stat block: Strength 12, Dexterity 6, Stamina 10, Wits 6; Athletics 4, Awareness 5 (Spot Victim +3), Brawl 4, Dodge 4, Presence 5 (Intimidation +3), Survival 5 (Track +3); Bite Speed 12 Accuracy 11 Damage 14L Defense 8, Claw Speed 12 Accuracy 11 Damage 16L Defense 9; Soak 10L/15B (bony exterior 5L/5B); Willpower 10; Essence 1; it never tires, needs no air/food/water, and can swim indefinitely. If it kills its prey it buries the body in a bone cairn and the spell ends; if defeated, every piece (including the diamond eyes) must be destroyed by sorcery, Charms, or fire, or it regenerates at the next sunset at that spot and resumes the hunt, for up to 101 days total, after which any surviving target is safe and the lion turns to dust.",
     "cost": "30 motes",
     "compatibility": "Any Sidereal Exalted who has learned Celestial Circle Sorcery. This is a generic Circle of Sapphire (Celestial Circle) spell from Exalted: Savant and Sorcerer, not unique to Sidereals.",
-    "verificationState": "unreviewed",
+    "verificationState": "reviewed",
     "citation": {
       "bookId": "savant-and-sorcerer",
       "printedPage": 125,
@@ -5997,7 +5997,7 @@
     "crossReferences": [
       "celestial-circle-sorcery"
     ],
-    "notes": "Chapter Five: Spells, Circle of Sapphire, printed pp. 125-126 (PDF 126-127), including the Bone Lion stat block spanning the PDF 126/127 page break. Marked unreviewed pending a visual (rendered-page) check of the stat block per this project's OCR/extraction verification rule; the prose portion was read from the PDF's own selectable text layer."
+    "notes": "Chapter Five: Spells, Circle of Sapphire, printed pp. 125-126 (PDF 126-127), including the Bone Lion stat block spanning the PDF 126/127 page break. Visually re-checked (rendered-page) against the source PDF during the 'sidereal_unreviewed_spells' follow-up phase: the stat block matches the existing transcription exactly, with zero discrepancies found (identical source text to Lunar's own already-visually-verified transcription of this same chapter)."
   },
   {
     "id": "spell-celestial-cantata-of-empty-voices",
@@ -6148,7 +6148,7 @@
     "mechanics": "Target: One mortal creature with permanent Essence lower than the caster's; creates an arcane link (Exalts and other Essence-users are immune). For 15+ motes and a full day using a bespoke jeweled statue (Resources ••••) matching the desired transformations, the target permanently gains the statue's physical traits while becoming servile to the caster (a Willpower roll is needed for her to interpret orders beyond their literal sense). Point costs: +1 Attribute dot 2 motes, +1 Ability dot 1 mote, +1 Essence dot 4 motes (or +5 temporary Essence for 4 motes, usable only for granted Charms), +1 permanent Willpower 4 motes, +1L/+1B soak 1 mote each, a learned Charm 3 motes (of the caster's own Exalt-type only), and various hand-to-hand/ranged weapon upgrades (Speed/Accuracy/Defense/Rate/damage/range/bashing-to-lethal) at 1 mote each. Caps: cannot raise the amalgam's Essence above (caster's permanent Essence - 1); cannot add more Attribute/Ability dots than the caster's Occult + Essence; cannot spend more motes on a weapon than Occult + Essence; sorcery granted cannot exceed Terrestrial Circle. Amalgams bleed, heal, and resist sorcery/disease as Exalted, can stunt, and are visibly magical constructs (never passable as ordinary mortals, at best as Wyld-twisted mutants); a new statue cannot be made for the same target until the prior one is fully used.",
     "cost": "15+ motes",
     "compatibility": "Any Sidereal Exalted who has learned Celestial Circle Sorcery. This is a generic Circle of Sapphire (Celestial Circle) spell from Exalted: Savant and Sorcerer, not unique to Sidereals.",
-    "verificationState": "unreviewed",
+    "verificationState": "reviewed",
     "citation": {
       "bookId": "savant-and-sorcerer",
       "printedPage": 128,
@@ -6157,7 +6157,7 @@
     "crossReferences": [
       "celestial-circle-sorcery"
     ],
-    "notes": "Chapter Five: Spells, Circle of Sapphire, printed pp. 128-130 (PDF 129-131), including the boxed per-trait cost table (PDF p. 130). Marked unreviewed pending a visual (rendered-page) check of the cost table per this project's OCR/extraction verification rule; the prose portion was read from the PDF's own selectable text layer."
+    "notes": "Chapter Five: Spells, Circle of Sapphire, printed pp. 128-130 (PDF 129-131), including the boxed per-trait cost table (PDF p. 130). Visually re-checked (rendered-page) against the source PDF during the 'sidereal_unreviewed_spells' follow-up phase: the cost table matches the existing transcription exactly, with zero discrepancies found (identical source text to Lunar's own already-visually-verified transcription of this same chapter)."
   },
   {
     "id": "spell-celestial-insidious-tendrils-of-hate",
@@ -6268,7 +6268,7 @@
     "mechanics": "Target: Conjured creatures. For 30 motes, summons a number of man-sized rust-golem 'princes' equal to the caster's permanent Essence, each of whose touch ignores the first 6 points of an object's soak and deals 8L, continuing to eat away at the object for 25 turns per touch; enchanted items and the Five Magical Materials are immune, as are living organisms. Stat block: Strength 5, Dexterity 2, Stamina 5; Craft 3 (Demolition +2); Claw Speed 4 Accuracy 4 Damage 9L Defense 2; Soak 8L/10B (ferric body 6L/5B); Essence 2. Princes have no combat aptitude and little use in a fight, but excel at wrecking fortifications or towns; they last about five hours unless countered/destroyed, and an unsupervised prince may destroy anything nearby, including the caster's own Manse.",
     "cost": "30 motes",
     "compatibility": "Any Sidereal Exalted who has learned Celestial Circle Sorcery. This is a generic Circle of Sapphire (Celestial Circle) spell from Exalted: Savant and Sorcerer, not unique to Sidereals.",
-    "verificationState": "unreviewed",
+    "verificationState": "reviewed",
     "citation": {
       "bookId": "savant-and-sorcerer",
       "printedPage": 132,
@@ -6277,7 +6277,7 @@
     "crossReferences": [
       "celestial-circle-sorcery"
     ],
-    "notes": "Chapter Five: Spells, Circle of Sapphire, printed pp. 132-133 (PDF 133-134), including the Prince of the Fallen Tower stat block. Marked unreviewed pending a visual (rendered-page) check of the stat block per this project's OCR/extraction verification rule; the prose portion was read from the PDF's own selectable text layer."
+    "notes": "Chapter Five: Spells, Circle of Sapphire, printed pp. 132-133 (PDF 133-134), including the Prince of the Fallen Tower stat block. Visually re-checked (rendered-page) against the source PDF during the 'sidereal_unreviewed_spells' follow-up phase: the stat block matches the existing transcription exactly, with zero discrepancies found (identical source text to Lunar's own already-visually-verified transcription of this same chapter)."
   },
   {
     "id": "spell-celestial-rolling-earth-carpet",
@@ -6308,7 +6308,7 @@
     "mechanics": "Target: One conjured creature; uses an arcane link to the sought object/person if not simply nearby/named. For 15 motes, summons a mute sparrow of blue flame that communicates only through directional 'dances,' indicating whether the target is far, close, or very close (growing more excited near the goal) and whether it's moving; it can find anything the caster has previously encountered or has an arcane link to, or simple nearby necessities within 500 yards (water, food, an exit). Stat block: Dexterity 5, Perception 5; Awareness 5, Dodge 5, Lore 3 (Landmarks +2), Performance 4 (Dance +2), Survival 3; Dive Attack Speed 8 Accuracy 6 Damage 1L Defense 0; Soak 1L/2B; Willpower 5; Essence 1. It never strays more than a few yards from the caster and moves only as fast as she can travel; lasts until its goal is reached, it is dismissed, or it or the caster is slain.",
     "cost": "15 motes",
     "compatibility": "Any Sidereal Exalted who has learned Celestial Circle Sorcery. This is a generic Circle of Sapphire (Celestial Circle) spell from Exalted: Savant and Sorcerer, not unique to Sidereals.",
-    "verificationState": "unreviewed",
+    "verificationState": "reviewed",
     "citation": {
       "bookId": "savant-and-sorcerer",
       "printedPage": 133,
@@ -6317,7 +6317,7 @@
     "crossReferences": [
       "celestial-circle-sorcery"
     ],
-    "notes": "Chapter Five: Spells, Circle of Sapphire, printed pp. 133-134 (PDF 134-135), including the sparrow's stat block. Marked unreviewed pending a visual (rendered-page) check of the stat block per this project's OCR/extraction verification rule; the prose portion was read from the PDF's own selectable text layer."
+    "notes": "Chapter Five: Spells, Circle of Sapphire, printed pp. 133-134 (PDF 134-135), including the sparrow's stat block. Visually re-checked (rendered-page) against the source PDF during the 'sidereal_unreviewed_spells' follow-up phase: the stat block matches the existing transcription exactly, with zero discrepancies found (identical source text to Lunar's own already-visually-verified transcription of this same chapter)."
   },
   {
     "id": "spell-celestial-shadow-theft",
@@ -6428,7 +6428,7 @@
     "mechanics": "Target: One summoned spirit, which is forced to pay the Essence cost of its own manifestation. For 25 motes, the caster (aboard the vessel, or within a number of yards equal to her permanent Essence) summons a 500-ft by 200-ft winged air spirit that lifts and carries up to 1,000 tons (a vessel up to 300 x 120 feet, e.g. carrying 400 people and cargo) over a mile into the air at up to 200 mph, sheltering the deck from wind/weather. Stat block: Strength 55, Dexterity 5, Stamina 20; Athletics 10 (Feats of Strength +35), Endurance 10, Resistance 5; Crushing Grasp (Clinch) Speed 7 Accuracy 10 Damage 57B Defense 0; Soak 10L/20B; Willpower 7; Essence 3, Essence pool 71; Cost to Materialize 27. Only a flat-bottomed vessel (or one with landing supports) can be safely set down on land; the spirit can also be ordered to drop a vessel/object from height as a weapon. It remains until the destination is reached, it is ordered to land, or it is destroyed, and may not use its own Hurry Home Charm while bound to the summons.",
     "cost": "25 motes",
     "compatibility": "Any Sidereal Exalted who has learned Celestial Circle Sorcery. This is a generic Circle of Sapphire (Celestial Circle) spell from Exalted: Savant and Sorcerer, not unique to Sidereals.",
-    "verificationState": "unreviewed",
+    "verificationState": "reviewed",
     "citation": {
       "bookId": "savant-and-sorcerer",
       "printedPage": 136,
@@ -6437,7 +6437,7 @@
     "crossReferences": [
       "celestial-circle-sorcery"
     ],
-    "notes": "Chapter Five: Spells, Circle of Sapphire, printed pp. 136-137 (PDF 137-138), including the air spirit's stat block. Marked unreviewed pending a visual (rendered-page) check of the stat block per this project's OCR/extraction verification rule; the prose portion was read from the PDF's own selectable text layer."
+    "notes": "Chapter Five: Spells, Circle of Sapphire, printed pp. 136-137 (PDF 137-138), including the air spirit's stat block. Visually re-checked (rendered-page) against the source PDF during the 'sidereal_unreviewed_spells' follow-up phase: the stat block matches the existing transcription exactly, with zero discrepancies found (identical source text to Lunar's own already-visually-verified transcription of this same chapter)."
   },
   {
     "id": "spell-celestial-threefold-binding-of-the-heart",

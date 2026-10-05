@@ -312,14 +312,16 @@ export const lunarCharmIds = new Set(lunarCharmById.keys());
  * export pending a direct visual (rendered-page) re-check of their
  * embedded stat blocks/tables, per this project's OCR/extraction
  * verification rule -- identical (same underlying Savant and Sorcerer
- * chapter, same review pass) to the 13 rows Sidereal's own
- * `siderealUnreviewedExcludedSpellIds` held back for the same reason. A
- * direct visual re-check of the cited printed pp. 104-136 (PDF 105-138)
- * against the source PDF confirmed every one of the 13 stat blocks/tables
- * matches the existing transcription exactly, with zero discrepancies; all
- * 13 are promoted here like any other row, and the now-empty exclusion
- * list export was removed -- see `tests/unit/lunar-sorcery-catalog.test.ts`
- * for the coverage that replaced it.
+ * chapter, same review pass) to the 13 rows Sidereal's own inventory held
+ * back for the same reason (since resolved too, in a follow-up
+ * `sidereal_unreviewed_spells` phase -- see `siderealSorcerySpellIds` in
+ * `sidereal-powers.ts`). A direct visual re-check of the cited printed pp.
+ * 104-136 (PDF 105-138) against the source PDF confirmed every one of the
+ * 13 stat blocks/tables matches the existing transcription exactly, with
+ * zero discrepancies; all 13 are promoted here like any other row, and the
+ * now-empty exclusion list export was removed -- see
+ * `tests/unit/lunar-sorcery-catalog.test.ts` for the coverage that
+ * replaced it.
  */
 export const lunarSorcerySpellIds = new Set<string>([
   'becoming-the-wood-friend',

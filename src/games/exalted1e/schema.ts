@@ -556,16 +556,17 @@ export const exalted1eCharacterSchema = z
         return;
       }
       if (character.sheetType === 'sidereal') {
-        // Phase 2b: Sidereal's 73 promoted Sorcery spells (all of them
-        // already present, name-for-name, in the shared Dragon-Blooded
-        // Sorcery catalog -- see `siderealSorcerySpellIds` in
-        // `./reference/sidereal-powers`). The Astrology/Colleges system
+        // Phase 2b: Sidereal's 86 promoted Sorcery spells (all 86
+        // inventoried, including the 13 that were originally held back as
+        // `verificationState: 'unreviewed'` until the
+        // `sidereal_unreviewed_spells` follow-up phase's visual re-check),
+        // all of them already present, name-for-name, in the shared
+        // Dragon-Blooded Sorcery catalog -- see `siderealSorcerySpellIds`
+        // in `./reference/sidereal-powers`. The Astrology/Colleges system
         // remains out of scope for this phase. Without this branch,
         // Sidereal would silently fall through to the Dragon-Blooded
         // check below and wrongly accept every Dragon-Blooded Terrestrial
-        // spell id (including the 13 unreviewed Savant and Sorcerer rows
-        // this phase deliberately excluded) as if it were legal for
-        // Sidereal.
+        // spell id as if it were legal for Sidereal.
         if (!siderealSorcerySpellIds.has(selection.definitionId)) {
           context.addIssue({
             code: 'custom',

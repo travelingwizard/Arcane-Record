@@ -107,7 +107,7 @@ const abyssalPowerDefinitions: readonly ExaltedPowerDefinition[] = [
  * Sidereal's Charms & Sorcery catalog for `ExaltedPowersSection`: all 193
  * promoted Sidereal Charms (152 Caste-and-Auspicious-Ability Charms across
  * 25 trees, plus 41 Charms across three named secret Martial Arts styles)
- * plus exactly the 73 shared Sorcery spells `siderealSorcerySpellIds`
+ * plus exactly the 86 shared Sorcery spells `siderealSorcerySpellIds`
  * confirms Sidereal can reach -- unlike Abyssal's own catalog above, this
  * is filtered rather than including every shared Sorcery spell, since
  * Sidereal's spell-reachability list was verified page-by-page rather than

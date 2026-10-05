@@ -18,7 +18,7 @@ import type { Exalted1eCharacter } from '../../src/games/exalted1e/schema';
 // Mirrors the exact `siderealPowerDefinitions` wiring built in
 // `Exalted1eEditor.tsx`'s Sidereal branch (Phase 2d): all 193 promoted
 // Charms (152 Caste-and-Auspicious-Ability + 41 Martial Arts style) plus
-// exactly the 73 shared Sorcery spells `siderealSorcerySpellIds` confirms
+// exactly the 86 shared Sorcery spells `siderealSorcerySpellIds` confirms
 // Sidereal can reach.
 const siderealPowerDefinitions: readonly ExaltedPowerDefinition[] = [
   ...siderealCharms,

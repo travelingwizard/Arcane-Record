@@ -566,24 +566,25 @@ describe('Exalted First Edition Sidereal (schema-only; not yet UI-selectable)', 
       ).toThrow();
     });
 
-    it('rejects a still-unreviewed Sorcery spell id on a Sidereal sheet (excluded pending visual verification)', () => {
+    it('accepts the 13 previously-unreviewed summon-type spells (e.g. Bone Lion) on a Sidereal sheet, now promoted after the sidereal_unreviewed_spells follow-up phase visually re-confirmed their stat blocks', () => {
       const character = createBlankExaltedCharacter('sidereal');
-      expect(() =>
-        exalted1eCharacterSchema.parse({
-          ...character,
-          powers: {
-            charms: [],
-            spells: [
-              {
-                id: crypto.randomUUID(),
-                definitionId: 'bone-lion',
-                unresolvedReference: null,
-                notes: '',
-              },
-            ],
-          },
-        }),
-      ).toThrow();
+      const parsed = exalted1eCharacterSchema.parse({
+        ...character,
+        powers: {
+          charms: [],
+          spells: [
+            {
+              id: crypto.randomUUID(),
+              definitionId: 'bone-lion',
+              unresolvedReference: null,
+              notes: '',
+            },
+          ],
+        },
+      });
+      expect(parsed.powers.spells.map((s) => s.definitionId)).toEqual([
+        'bone-lion',
+      ]);
     });
 
     it('rejects a Dragon-Blooded-only Terrestrial Circle Sorcery spell id that Sidereal has no matching promoted entry for (regression guard: previously fell through and wrongly accepted any Dragon-Blooded Terrestrial spell id)', () => {

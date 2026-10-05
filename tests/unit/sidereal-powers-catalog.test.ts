@@ -5,7 +5,6 @@ import {
   siderealCharmIds,
   siderealCharms,
   siderealSorcerySpellIds,
-  siderealUnreviewedExcludedSpellIds,
 } from '../../src/games/exalted1e/reference/sidereal-powers';
 import { sharedSorcerySpellById } from '../../src/games/exalted1e/reference/dragonblooded-powers';
 
@@ -118,17 +117,40 @@ describe('Sidereal Charm and Sorcery-spell catalogs (Phase 2b)', () => {
     }
   });
 
-  it('exposes 73 shared Sorcery spell ids that all resolve in the shared Dragon-Blooded catalog', () => {
-    expect(siderealSorcerySpellIds.size).toBe(73);
+  it('exposes 86 shared Sorcery spell ids that all resolve in the shared Dragon-Blooded catalog', () => {
+    expect(siderealSorcerySpellIds.size).toBe(86);
     for (const id of siderealSorcerySpellIds) {
       expect(sharedSorcerySpellById.has(id)).toBe(true);
     }
   });
 
-  it('deliberately excludes the 13 still-unreviewed Sorcery spell rows', () => {
-    expect(siderealUnreviewedExcludedSpellIds).toHaveLength(13);
-    for (const id of siderealUnreviewedExcludedSpellIds) {
-      expect(siderealSorcerySpellIds.has(id)).toBe(false);
+  it('promotes the 13 previously-unreviewed summon-type spell rows (sidereal_unreviewed_spells follow-up phase)', () => {
+    // These were held back pending a direct visual (rendered-page)
+    // re-check of their embedded creature stat blocks and boxed tables --
+    // see `sidereal.json`'s certification notes. Since Sidereal's and
+    // Lunar's inventory rows for these 13 spells are byte-for-byte
+    // identical in mechanics/cost/citation (same source pages), the
+    // re-check already performed for Lunar's identical rows applies
+    // directly; zero discrepancies were found. The exclusion list export
+    // (`siderealUnreviewedExcludedSpellIds`) that used to hold them was
+    // removed once empty, mirroring Abyssal's own Phase 1e precedent.
+    for (const id of [
+      'dance-of-the-smoke-cobras',
+      'the-horse-that-travels-earth-and-water',
+      'hound-of-the-five-winds',
+      'plague-of-bronze-snakes',
+      'ritual-of-elemental-empowerment',
+      'sprouting-shackles-of-doom',
+      'the-spy-who-walks-in-darkness',
+      'summoning-the-lesser-minions-of-the-eyeless-face',
+      'bone-lion',
+      'imbue-amalgam',
+      'the-princes-of-the-fallen-tower',
+      'servant-of-infallible-location',
+      'swift-spirit-of-winged-transportation',
+    ]) {
+      expect(siderealSorcerySpellIds.has(id)).toBe(true);
+      expect(sharedSorcerySpellById.has(id)).toBe(true);
     }
   });
 
