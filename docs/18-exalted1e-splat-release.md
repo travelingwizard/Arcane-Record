@@ -195,7 +195,7 @@ real, creatable sheet.
 | Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)    | 598            | 412 of 412 promotable (catalog dimension complete, `unreviewed_spells` follow-up)          | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
 | Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 505 of 505 promotable (catalog dimension complete, Phase 1e)                               | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
 | Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 383 of 383 promotable (catalog dimension complete, `sidereal_unreviewed_spells` follow-up) | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
-| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 0                                                                                          | Locked, all dimensions `not-run`                                                                                                       |
+| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 77 of 207 promotable (Backgrounds + Merits/Flaws, Phase 1a)                                | Locked, all dimensions `not-run`                                                                                                       |
 | Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 365            | 0                                                                                          | Locked, all dimensions `not-run`                                                                                                       |
 
 Lunar's 582 rows cover the core innate powers, every Charm category in
@@ -1302,6 +1302,58 @@ production build. Lunar remains fully locked out of `definition.tsx`'s
 user-facing `variants` list. Sidereal's own identical 13-row gap
 (`siderealUnreviewedExcludedSpellIds`, same source pages) was left
 untouched this phase as a separate family's scope.
+
+With Lunar, Abyssal, and Sidereal's own catalog dimensions all complete,
+work then moved to Alchemical's own Phase 1a (schema wiring plus Backgrounds
+and Merits/Flaws catalog promotion), mirroring each of those three families'
+own starting phase. `'alchemical'` was added to `exaltedSheetTypes` in
+`definitions.ts`, making it a legal, schema-validated stored `sheetType` for
+the first time, without adding it to `definition.tsx`'s `variants` -- it
+remains unreachable through the character-creation UI. Six Background ids
+were promoted into a new `alchemicalBackgrounds` export: the two wholly new
+ids Class and Vats from Exalted: The Autochthonians' Chapter Two "Expanded
+Backgrounds," plus the four altered shared ids Artifact, Backing, Familiar,
+and Manse. Followers, Influence, and Resources were deliberately left out,
+since that same chapter explicitly states they are subsumed into Class for
+ordinary Autochthonians. Allies, Contacts, and Mentor were also left out --
+not because the source excludes them, but because it never mentions them in
+either direction at all, unlike Lunar's own Background section, which
+affirmatively confirms its unaltered shared ids remain available; absent a
+source that actually settles the question, this project's rule against
+fabricating unconfirmed mechanics holds them back as an explicit open
+blocker rather than guessing. Separately, 71 shared `dragonblooded-merits-flaws.json`
+catalog entries were extended with `'alchemical'` in `appliesTo`, resolving
+70 of the universal Exalted Players Guide `pg-merit-*`/`pg-flaw-*` rows the
+Alchemical inventory had already cross-checked against this family's
+construct nature one-for-one (the lone exception, the single inventoried
+"Favor" row, maps onto the catalog's existing `favor-merit`/`favor-flaw`
+split pair, accounting for the 70-rows-to-71-entries difference). No wholly
+new Alchemical-only catalog entries were needed: every row the inventory's
+own judgment-call notes adapted for this family (chassis damage instead of
+flesh scarring, Class instead of Resources, a benefactor instead of
+parents, and so on) kept its underlying mechanic and point cost unchanged,
+reframing flavor text only -- confirmed directly for the Destiny Merit,
+whose own "Destiny and Exaltation" sidebar names Alchemical Exalted as
+uncapped, meaning it correctly falls through to the shared Dragon-Blooded
+1-5 point range with no `sharedCostOverrides` entry required, unlike
+Abyssal's and Sidereal's own narrower overrides for the same Merit.
+`certification/alchemical.json`'s `promotedEntries` rose from 0 to 77 (6
+Backgrounds + 71 Merits/Flaws); `promotableEntries` (207) is unchanged, a
+still-approximate estimate pending later phases that promote Alchemical's
+Charms (94 rows), Weaving Protocols (49 rows), and Alchemy Formulae.
+`rulesTests`/`creatorTests`/`migrationTests`/`browserTests` and
+`certifiedAt` all remain untouched (`'not-run'`/`null`), exactly matching
+how Lunar's, Abyssal's, and Sidereal's own Phase 1a/2a left those same
+fields alone. A new `tests/unit/exalted1e-alchemical.test.ts` suite covers
+the blank-character shape, Backgrounds (including the three deliberately
+excluded ids), the shared Merits/Flaws catalog (including the Favor
+split-pair and the Destiny no-override case), the Charms/spells
+placeholder rejections, and schema migration, mirroring Lunar's own
+Phase 1a test file structure. Full verification passed: typecheck, lint,
+format check, the full unit+integration suite, the Exalted e2e smoke
+specs, `audit:exalted-sources`, and a production build. Alchemical remains
+fully locked out of `definition.tsx`'s user-facing `variants` list; Fair
+Folk's own equivalent Phase 1a remains unstarted.
 
 ## Next steps (require source material per book)
 

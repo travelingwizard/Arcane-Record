@@ -13,10 +13,10 @@ export const EXALTED1E_SCHEMA_VERSION = 11 as const;
  * `definition.tsx`'s `variants` array only lists the two production
  * families, and `schema.ts`'s per-family Background/Charm/Merit-Flaw/Spell
  * validation only actually accepts real selections for the families with a
- * promoted catalog (today: Solar, Dragon-Blooded, Abyssal, Sidereal for
- * Backgrounds/Merits-Flaws; Abyssal and Sidereal for Charms/spells) --
- * every other combination is explicitly rejected, never silently
- * unrestricted. See `plannedExaltedFamilies` below and
+ * promoted catalog (today: Solar, Dragon-Blooded, Abyssal, Sidereal, Lunar,
+ * Alchemical for Backgrounds/Merits-Flaws; Abyssal, Sidereal, and Lunar for
+ * Charms/spells) -- every other combination is explicitly rejected, never
+ * silently unrestricted. See `plannedExaltedFamilies` below and
  * `src/games/exalted1e/verification.ts` for the family-level release gate
  * that keeps all five locked in the UI until they each separately earn it.
  */
@@ -492,12 +492,48 @@ export const lunarBackgrounds = [
   { id: 'renown', label: 'Renown' },
 ] as const;
 
+/**
+ * Backgrounds available to Alchemical characters. Exalted: The
+ * Autochthonians' Chapter Two ('Expanded Backgrounds', see
+ * `docs/references/exalted1e/alchemical/inventory/exalted-the-autochthonians.json`)
+ * is narrower and more prescriptive than the other four families' own
+ * Background sections: it explicitly adds two wholly new ids -- Class (which
+ * folds the shared Followers/Influence/Resources ids into a single
+ * socioeconomic rating, explicitly replacing all three for ordinary
+ * Autochthonians) and Vats (access to a home Vat Complex's refit queue and
+ * spare-Charm retainer slots) -- and explicitly alters four reused shared
+ * ids for this family's construct nature: Artifact (triple value per dot,
+ * reachable to ••••• at character creation), Backing (keyed to a named
+ * Tripartite branch/Sodality instead of a generic power bloc), Familiar (a
+ * requisitioned construct servitor instead of a living animal), and Manse
+ * (wholly unavailable until a story reaches Creation, since Autochthonia
+ * itself has none). Followers, Influence, and Resources are explicitly
+ * EXCLUDED for ordinary Autochthonians (subsumed into Class) per that same
+ * chapter -- see `followers-influence-resources-subsumed` in the inventory.
+ * Allies, Contacts, and Mentor are deliberately left OUT of this list: unlike
+ * Lunar's own Background section (which the inventory confirms explicitly
+ * states its unaltered shared ids remain available), Exalted: The
+ * Autochthonians never mentions these three ids at all in either direction,
+ * so including them would be an unconfirmed guess rather than a
+ * page-cited fact. Revisit if a later source (e.g. the Autochthonians'
+ * own later chapters, or a cross-splat supplement) settles the question.
+ */
+export const alchemicalBackgrounds = [
+  { id: 'artifact', label: 'Artifact' },
+  { id: 'backing', label: 'Backing' },
+  { id: 'class', label: 'Class' },
+  { id: 'familiar', label: 'Familiar' },
+  { id: 'manse', label: 'Manse' },
+  { id: 'vats', label: 'Vats' },
+] as const;
+
 export type ExaltedBackgroundId =
   | (typeof solarBackgrounds)[number]['id']
   | (typeof dragonBloodedBackgrounds)[number]['id']
   | (typeof abyssalBackgrounds)[number]['id']
   | (typeof siderealBackgrounds)[number]['id']
-  | (typeof lunarBackgrounds)[number]['id'];
+  | (typeof lunarBackgrounds)[number]['id']
+  | (typeof alchemicalBackgrounds)[number]['id'];
 
 export const abilityById = new Map(
   exaltedAbilities.map((ability) => [ability.id, ability]),

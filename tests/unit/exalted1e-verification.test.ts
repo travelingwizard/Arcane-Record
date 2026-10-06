@@ -91,7 +91,9 @@ describe('exalted1e verification gate', () => {
             ? 383
             : family === 'lunar'
               ? 412
-              : 0,
+              : family === 'alchemical'
+                ? 77
+                : 0,
       );
       if (family === 'abyssal' || family === 'sidereal' || family === 'lunar') {
         // Cross-check against the audit script's own live computation
@@ -200,10 +202,13 @@ describe('exalted1e verification gate', () => {
     expect(isFamilyAvailable('sidereal')).toBe(false);
   });
 
-  it('reflects Alchemical source intake in progress without unlocking the family', () => {
+  it('reflects Alchemical Phase 1a catalog promotion without unlocking the family', () => {
     const record = certificationRecords.alchemical;
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
-    expect(record.catalog.promotedEntries).toBe(0);
+    expect(record.catalog.promotedEntries).toBe(77);
+    expect(record.catalog.promotedEntries).toBeLessThan(
+      record.catalog.promotableEntries,
+    );
     expect(isFamilyAvailable('alchemical')).toBe(false);
   });
 

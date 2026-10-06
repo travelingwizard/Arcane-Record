@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   abyssalOnlyTraits,
+  alchemicalOnlyTraits,
   dragonBloodedTraitById,
   dragonBloodedTraitIds,
   dragonBloodedTraits,
@@ -321,5 +322,54 @@ describe('lunarOnlyTraits (shared catalog subset for Lunar)', () => {
       options: [1, 2],
     });
     expect(isLegalSharedTraitCost(doubleJointed, 3, 'lunar')).toBe(false);
+  });
+});
+
+describe('alchemicalOnlyTraits (shared catalog subset for Alchemical)', () => {
+  it('includes only entries whose appliesTo covers Alchemical', () => {
+    expect(alchemicalOnlyTraits.length).toBeGreaterThan(0);
+    for (const definition of alchemicalOnlyTraits) {
+      expect(definition.appliesTo).toContain('alchemical');
+    }
+  });
+
+  it('has 71 entries, matching Alchemical Phase 1a promotion', () => {
+    expect(alchemicalOnlyTraits).toHaveLength(71);
+    expect(
+      alchemicalOnlyTraits.filter(({ kind }) => kind === 'merit'),
+    ).toHaveLength(34);
+    expect(
+      alchemicalOnlyTraits.filter(({ kind }) => kind === 'flaw'),
+    ).toHaveLength(37);
+  });
+
+  it('includes the Favor Merit/Flaw split pair (derived from the single inventoried "Favor" row)', () => {
+    const alchemicalOnlyIds = new Set(alchemicalOnlyTraits.map(({ id }) => id));
+    expect(alchemicalOnlyIds.has('favor-merit')).toBe(true);
+    expect(alchemicalOnlyIds.has('favor-flaw')).toBe(true);
+  });
+
+  it('creates no wholly new Alchemical-only entries (every row maps onto an existing shared entry)', () => {
+    for (const definition of alchemicalOnlyTraits) {
+      expect(definition.appliesTo.length).toBeGreaterThan(1);
+    }
+  });
+
+  it('excludes entries that do not apply to Alchemical (Selective Conception, Prodigy)', () => {
+    for (const id of ['selective-conception', 'prodigy']) {
+      expect(
+        alchemicalOnlyTraits.some((definition) => definition.id === id),
+      ).toBe(false);
+    }
+  });
+
+  it('uses the shared Dragon-Blooded-derived 1-5 point range for Destiny, with no Alchemical-specific override (unlike Abyssal/Sidereal)', () => {
+    const destiny = dragonBloodedTraitById.get('destiny')!;
+    expect(destiny.appliesTo).toContain('alchemical');
+    expect(getSharedTraitCostPolicy(destiny, 'alchemical')).toEqual({
+      kind: 'options',
+      options: [1, 2, 3, 4, 5],
+    });
+    expect(isLegalSharedTraitCost(destiny, 5, 'alchemical')).toBe(true);
   });
 });

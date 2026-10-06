@@ -30,7 +30,16 @@ export const exaltedTraitDefinitionSchema = z.object({
   source: sourceSchema,
   edition: z.literal('Exalted First Edition'),
   appliesTo: z
-    .array(z.enum(['solar', 'dragon-blooded', 'abyssal', 'sidereal', 'lunar']))
+    .array(
+      z.enum([
+        'solar',
+        'dragon-blooded',
+        'abyssal',
+        'sidereal',
+        'lunar',
+        'alchemical',
+      ]),
+    )
     .min(1),
   notes: z.array(z.string()),
   reviewStatus: z.enum(['source-checked', 'needs-review']),
@@ -182,6 +191,20 @@ export const siderealOnlyTraits = dragonBloodedTraits.filter((definition) =>
  */
 export const lunarOnlyTraits = dragonBloodedTraits.filter((definition) =>
   definition.appliesTo.includes('lunar'),
+);
+
+/**
+ * The subset of this shared catalog that actually applies to Alchemical
+ * characters, mirroring `lunarOnlyTraits` exactly. Unlike Abyssal/Sidereal/
+ * Lunar, Alchemical's Phase 1a promotion created no wholly new Alchemical-
+ * only entries -- every one of the 70 `pg-merit-*`/`pg-flaw-*` inventory
+ * rows the Exalted: The Autochthonians/Exalted Players Guide cross-check
+ * confirmed applicable maps onto an existing entry already shared by at
+ * least one other splat (including the two-entry `favor-merit`/`favor-flaw`
+ * split pair for the single inventoried "Favor" row).
+ */
+export const alchemicalOnlyTraits = dragonBloodedTraits.filter((definition) =>
+  definition.appliesTo.includes('alchemical'),
 );
 export const excludedDragonBloodedTraitNames = new Set(
   dragonBloodedTraitCatalog.excludedForDragonBlooded.map(({ name }) => name),
@@ -335,7 +358,12 @@ export function isLegalDragonBloodedTraitCost(
  * Keyed by definition id, then by the non-Dragon-Blooded sheet type.
  * Lunar's own two entries (Ambidextrous, Double-Jointed) are genuine cost
  * discounts named for Lunars directly in the source text -- not a
- * reinterpretation, unlike Abyssal/Sidereal's overrides above.
+ * reinterpretation, unlike Abyssal/Sidereal's overrides above. Alchemical
+ * has no entry here at all: its Phase 1a inventory cross-check found every
+ * one of its 70 applicable rows keeps the shared Dragon-Blooded-derived
+ * cost range unchanged (even Destiny, where the source explicitly names
+ * Alchemical Exalted as uncapped -- i.e. using the same full range as the
+ * Dragon-Blooded base case, not a narrower override).
  */
 const sharedCostOverrides: Record<
   string,
@@ -359,13 +387,16 @@ const sharedCostOverrides: Record<
 export function isLegalSharedTraitCost(
   definition: DragonBloodedTraitDefinition,
   chosenCost: number,
-  // Widened to every non-Solar `ExaltedSheetType` (not just the four that
+  // Widened to every non-Solar `ExaltedSheetType` (not just the five that
   // actually draw from this shared catalog today) so callers in
   // `schema.ts` can pass `character.sheetType` directly after that widened
-  // to seven planned families. Alchemical/Fair Folk never reach the
+  // to seven planned families. Fair Folk never reaches the
   // `sharedCostOverrides` branch below in practice, since `appliesTo`
-  // never includes them and `schema.ts` only calls this once a matching
-  // `definition` has already been found for the sheet type.
+  // never includes it yet and `schema.ts` only calls this once a matching
+  // `definition` has already been found for the sheet type. Alchemical does
+  // appear in `appliesTo` (Phase 1a), but always falls through to the base
+  // Dragon-Blooded-derived cost below, since no entry has an
+  // Alchemical-specific override.
   sheetType: Exclude<ExaltedSheetType, 'solar'>,
 ) {
   if (!Number.isInteger(chosenCost)) return false;

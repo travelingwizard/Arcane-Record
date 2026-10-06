@@ -259,7 +259,14 @@ describe('auditFamily against the real repository (current state)', () => {
     // transcribed mechanics), lives in `./reference/ocr-drafts/` so it
     // falls outside this audit script's `${family}-*.json` promoted-
     // catalog glob, exactly like Lunar's own pre-Phase-1b draft (see the
-    // comment above) -- Alchemical has no real promoted catalog yet.
+    // comment above). This also means Phase 1a's 77 promoted Backgrounds/
+    // Merits-Flaws entries (`certification/alchemical.json`'s own broader
+    // `catalog.promotedEntries`) do not show up here either: Backgrounds
+    // live in `definitions.ts` and Merits/Flaws are a subset of the shared
+    // `dragonblooded-merits-flaws.json`, neither of which is an
+    // `alchemical-`-prefixed catalog file, matching Sidereal's and
+    // Abyssal's own identical precedent above. Alchemical still has no
+    // family-prefixed promoted catalog file at all.
     const report = auditFamily('alchemical');
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);
