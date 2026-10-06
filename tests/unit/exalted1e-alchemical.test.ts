@@ -24,9 +24,11 @@ describe('Exalted First Edition Alchemical (schema-only; not yet UI-selectable)'
     expect(character.combos).toEqual([]);
     expect(character.familyState).toEqual({
       type: 'alchemical',
-      clarity: 0,
+      clarityPermanent: 0,
+      clarityTemporary: 0,
       installedCharmIds: [],
-      charmSlots: 0,
+      dedicatedSlots: 0,
+      generalSlots: 0,
     });
   });
 
@@ -512,6 +514,128 @@ describe('Exalted First Edition Alchemical (schema-only; not yet UI-selectable)'
     });
   });
 
+  describe('Clarity and Charm Slots (familyState)', () => {
+    it('accepts permanent plus temporary Clarity totaling exactly 10', () => {
+      const character = createBlankExaltedCharacter('alchemical');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          familyState: {
+            ...character.familyState,
+            clarityPermanent: 4,
+            clarityTemporary: 6,
+          },
+        }),
+      ).not.toThrow();
+    });
+
+    it('rejects permanent plus temporary Clarity exceeding 10', () => {
+      const character = createBlankExaltedCharacter('alchemical');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          familyState: {
+            ...character.familyState,
+            clarityPermanent: 6,
+            clarityTemporary: 6,
+          },
+        }),
+      ).toThrow(/cannot exceed 10/i);
+    });
+
+    it('requires at least 1 dot of permanent Clarity per dot of Essence above 5 (Inhuman Essence)', () => {
+      const character = createBlankExaltedCharacter('alchemical');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          essence: { ...character.essence, rating: 6 },
+          familyState: { ...character.familyState, clarityPermanent: 0 },
+        }),
+      ).toThrow(/Permanent Clarity must be at least 1/i);
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          essence: { ...character.essence, rating: 6 },
+          familyState: { ...character.familyState, clarityPermanent: 1 },
+        }),
+      ).not.toThrow();
+    });
+
+    it('does not require any permanent Clarity for Essence 5 or below', () => {
+      const character = createBlankExaltedCharacter('alchemical');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          essence: { ...character.essence, rating: 5 },
+          familyState: { ...character.familyState, clarityPermanent: 0 },
+        }),
+      ).not.toThrow();
+    });
+
+    it('accepts an installed Charm id that resolves to the real promoted Charm catalog, within slot capacity', () => {
+      const character = createBlankExaltedCharacter('alchemical');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          familyState: {
+            ...character.familyState,
+            installedCharmIds: ['man-machine-weaving-engine'],
+            generalSlots: 1,
+          },
+        }),
+      ).not.toThrow();
+    });
+
+    it('rejects an unresolvable installed Charm id', () => {
+      const character = createBlankExaltedCharacter('alchemical');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          familyState: {
+            ...character.familyState,
+            installedCharmIds: ['anything'],
+            generalSlots: 1,
+          },
+        }),
+      ).toThrow(/Unknown Alchemical Charm definition/i);
+    });
+
+    it('rejects installing the same Charm id twice', () => {
+      const character = createBlankExaltedCharacter('alchemical');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          familyState: {
+            ...character.familyState,
+            installedCharmIds: [
+              'man-machine-weaving-engine',
+              'man-machine-weaving-engine',
+            ],
+            generalSlots: 2,
+          },
+        }),
+      ).toThrow(/cannot be installed more than once/i);
+    });
+
+    it('rejects installing more Charms than the total of Dedicated plus General Slots', () => {
+      const character = createBlankExaltedCharacter('alchemical');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          familyState: {
+            ...character.familyState,
+            installedCharmIds: [
+              'man-machine-weaving-engine',
+              'auxiliary-essence-storage-unit',
+            ],
+            dedicatedSlots: 0,
+            generalSlots: 1,
+          },
+        }),
+      ).toThrow(/cannot exceed the total of Dedicated plus General/i);
+    });
+  });
+
   describe('Schema migration', () => {
     it('migrates an old-shape Alchemical record (missing shared collections added in later schema versions) into a fully valid, re-parseable character', () => {
       const character = createBlankExaltedCharacter('alchemical');
@@ -566,6 +690,58 @@ describe('Exalted First Edition Alchemical (schema-only; not yet UI-selectable)'
       expect(migrated.experienceLedger).toEqual([]);
       expect(migrated.downtimeAdvancement).toEqual([]);
       expect(exalted1eCharacterSchema.parse(migrated)).toEqual(migrated);
+    });
+
+    it('migrates a pre-Phase familyState.alchemical record (flat clarity/charmSlots, schema version < 12) into the real permanent/temporary Clarity and Dedicated/General Slot pairs', () => {
+      const character = createBlankExaltedCharacter('alchemical');
+      const legacy = {
+        ...character,
+        familyState: {
+          type: 'alchemical',
+          clarity: 3,
+          installedCharmIds: [],
+          charmSlots: 8,
+        },
+      } as unknown as Record<string, unknown>;
+      const migrated = migrateExalted1eCharacter(legacy, 11);
+      expect(migrated.familyState).toEqual({
+        type: 'alchemical',
+        clarityPermanent: 0,
+        clarityTemporary: 3,
+        installedCharmIds: [],
+        dedicatedSlots: 0,
+        generalSlots: 8,
+      });
+      expect(exalted1eCharacterSchema.parse(migrated)).toEqual(migrated);
+    });
+
+    it('does not re-run the Clarity/Charm-Slot migration on a record that already has the new shape', () => {
+      const character = createBlankExaltedCharacter('alchemical');
+      const legacy = {
+        ...character,
+        familyState: {
+          type: 'alchemical',
+          clarityPermanent: 2,
+          clarityTemporary: 5,
+          installedCharmIds: [],
+          dedicatedSlots: 3,
+          generalSlots: 4,
+        },
+      } as unknown as Record<string, unknown>;
+      // fromVersion 11 (not 5): migrating from any version below 8 always
+      // resets familyState to `createDefaultFamilyState` first (see the
+      // `fromVersion < 8` step above), which would trivially "pass" this
+      // guard test for the wrong reason. 11 exercises only the `< 12` step
+      // this test actually targets.
+      const migrated = migrateExalted1eCharacter(legacy, 11);
+      expect(migrated.familyState).toEqual({
+        type: 'alchemical',
+        clarityPermanent: 2,
+        clarityTemporary: 5,
+        installedCharmIds: [],
+        dedicatedSlots: 3,
+        generalSlots: 4,
+      });
     });
   });
 });

@@ -250,9 +250,11 @@ export function createDefaultFamilyState(type: ExaltedCharacterType) {
     case 'alchemical':
       return {
         type: 'alchemical' as const,
-        clarity: 0,
+        clarityPermanent: 0,
+        clarityTemporary: 0,
         installedCharmIds: [] as string[],
-        charmSlots: 0,
+        dedicatedSlots: 0,
+        generalSlots: 0,
       };
     case 'fair-folk':
       return {

@@ -257,9 +257,45 @@ const familyStateSchema = z.discriminatedUnion('type', [
   }),
   z.object({
     type: z.literal('alchemical'),
-    clarity: z.number().int().min(0).max(10),
+    // Clarity replaces the Limit Trait entirely for this splat (Exalted:
+    // The Autochthonians, p. 69). Tracked as separate permanent/temporary
+    // ratings, exactly like the source itself, rather than a single
+    // flattened number: permanent Clarity is "effectively irreversible"
+    // (gained from raising Essence above 5 or installing certain Charms,
+    // and locked in place for as long as that condition holds), while
+    // temporary Clarity fluctuates session to session (Suppressing
+    // Virtues/Forsaking Humanity gains; Human Contact/Embracing Virtue
+    // losses) -- see `clarityPermanent`'s own cross-check against
+    // `essence.rating` below. Their sum (the character's effective total
+    // Clarity for the social/behavioral effects table) can never exceed
+    // 10 -- enforced in the main `superRefine` below rather than here,
+    // since Zod object schemas can't cross-check two sibling fields on
+    // their own.
+    clarityPermanent: z.number().int().min(0).max(10),
+    clarityTemporary: z.number().int().min(0).max(10),
+    // Ids of Charms currently surgically installed (occupying a Charm
+    // Slot right now), cross-checked against `alchemicalCharmIds` and
+    // against `dedicatedSlots + generalSlots` capacity in the main
+    // `superRefine` below. Charms owned but held in reserve (the
+    // "Panoply," per `alchemical-charm-slots-panoplies-arrays`) are
+    // intentionally NOT tracked here -- this app has no separate
+    // Panoply-inventory UI yet, so an owned-but-uninstalled Charm simply
+    // isn't recorded as a selection at all this phase, exactly like every
+    // other family's "not yet modeled" gaps are left as an honest absence
+    // rather than a guessed placeholder.
     installedCharmIds: z.array(z.string()),
-    charmSlots: z.number().int().min(0).max(99),
+    // General Slots accept any Charm; Dedicated Slots only accept Charms
+    // tied to a Favored or Caste Attribute (per the same source section).
+    // This app does not yet enforce the Favored/Caste-Attribute
+    // restriction itself (that would require cross-referencing
+    // `creation.favoredAttributeIds`/`identity.caste` against each
+    // installed Charm's own governing Attribute, a distinct subsystem
+    // deferred to a future phase) -- only the combined capacity
+    // (`installedCharmIds.length <= dedicatedSlots + generalSlots`) is
+    // validated below. Submodules and Arrays' own reduced-installation-
+    // cost bookkeeping remain likewise out of scope.
+    dedicatedSlots: z.number().int().min(0).max(99),
+    generalSlots: z.number().int().min(0).max(99),
   }),
   z.object({
     type: z.literal('fair-folk'),
@@ -665,6 +701,73 @@ export const exalted1eCharacterSchema = z
         });
       }
     });
+    if (character.familyState.type === 'alchemical') {
+      // Clarity, Charm-Slot, and installed-Charm tracking (see
+      // `familyStateSchema`'s own `'alchemical'` branch above for the
+      // full rationale on what is and isn't modeled this phase).
+      const {
+        clarityPermanent,
+        clarityTemporary,
+        installedCharmIds,
+        dedicatedSlots,
+        generalSlots,
+      } = character.familyState;
+      if (clarityPermanent + clarityTemporary > 10) {
+        context.addIssue({
+          code: 'custom',
+          message:
+            'Permanent plus temporary Clarity cannot exceed 10 (Exalted: The Autochthonians, p. 69).',
+          path: ['familyState', 'clarityTemporary'],
+        });
+      }
+      // Inhuman Essence (gaining-clarity, p. 69-70): 1 dot of permanent
+      // Clarity for every dot of Essence rated above 5. This is simple,
+      // fixed arithmetic directly off an existing stored field, unlike
+      // the Virtue-suppression/human-contact gain-and-loss triggers
+      // (which depend on play-session events this app has no way to
+      // observe), so it is the one Clarity rule enforced as a real
+      // schema invariant rather than left to the player's own bookkeeping.
+      const minimumPermanentClarity = Math.max(0, character.essence.rating - 5);
+      if (clarityPermanent < minimumPermanentClarity) {
+        context.addIssue({
+          code: 'custom',
+          message: `Permanent Clarity must be at least ${minimumPermanentClarity} for an Essence rating of ${character.essence.rating} (Inhuman Essence, Exalted: The Autochthonians, p. 69).`,
+          path: ['familyState', 'clarityPermanent'],
+        });
+      }
+      const installedIdCounts = new Map<string, number>();
+      installedCharmIds.forEach((definitionId, index) => {
+        installedIdCounts.set(
+          definitionId,
+          (installedIdCounts.get(definitionId) ?? 0) + 1,
+        );
+        if (!alchemicalCharmIds.has(definitionId)) {
+          context.addIssue({
+            code: 'custom',
+            message: 'Unknown Alchemical Charm definition.',
+            path: ['familyState', 'installedCharmIds', index],
+          });
+        }
+      });
+      installedCharmIds.forEach((definitionId, index) => {
+        if ((installedIdCounts.get(definitionId) ?? 0) > 1) {
+          context.addIssue({
+            code: 'custom',
+            message:
+              'The same Charm cannot be installed more than once (owning a second copy -- e.g. one copy inside an Array and one outside it -- requires a distinct catalog entry, not a duplicate id).',
+            path: ['familyState', 'installedCharmIds', index],
+          });
+        }
+      });
+      if (installedCharmIds.length > dedicatedSlots + generalSlots) {
+        context.addIssue({
+          code: 'custom',
+          message:
+            'Installed Charms cannot exceed the total of Dedicated plus General Charm Slots.',
+          path: ['familyState', 'installedCharmIds'],
+        });
+      }
+    }
     const validateTraitSelections = (
       kind: ExaltedTraitKind,
       selections: typeof character.meritsFlaws.merits,
@@ -1079,6 +1182,50 @@ export function prepareExalted1eCharacterData(
         recordCandidate = {
           ...recordCandidate,
           familyState: { ...familyState, primaryVirtueId: null },
+        };
+      }
+    }
+    if (fromVersion < 12) {
+      // Alchemical's Clarity/Charm-Slot phase split the single flattened
+      // `clarity`/`charmSlots` fields (shipped empty/unused in Phase 1a,
+      // never exposed through any UI) into the real permanent/temporary
+      // Clarity pair and the real Dedicated/General Slot pair the source
+      // itself describes. There is no meaningful way to infer which half
+      // of the old single `clarity` number was "permanent" versus
+      // "temporary" after the fact, so the full old value is kept as
+      // temporary Clarity (the half that can still be freely adjusted by
+      // the player) rather than discarded, while permanent Clarity starts
+      // at 0 -- the safe default for a Trait described as "effectively
+      // irreversible," never silently fabricated. Likewise, the old
+      // single `charmSlots` count is kept as General Slots (the more
+      // permissive of the two Slot types, since this app cannot verify
+      // after the fact whether any already-recorded installed Charms
+      // would have legally occupied a Dedicated Slot), with Dedicated
+      // Slots starting at 0.
+      const familyState = recordCandidate.familyState as
+        Record<string, unknown> | undefined;
+      if (
+        familyState?.type === 'alchemical' &&
+        !('clarityPermanent' in familyState)
+      ) {
+        const legacyClarity =
+          typeof familyState.clarity === 'number' ? familyState.clarity : 0;
+        const legacyCharmSlots =
+          typeof familyState.charmSlots === 'number'
+            ? familyState.charmSlots
+            : 0;
+        const nextFamilyState: Record<string, unknown> = {
+          ...familyState,
+          clarityPermanent: 0,
+          clarityTemporary: legacyClarity,
+          dedicatedSlots: 0,
+          generalSlots: legacyCharmSlots,
+        };
+        delete nextFamilyState.clarity;
+        delete nextFamilyState.charmSlots;
+        recordCandidate = {
+          ...recordCandidate,
+          familyState: nextFamilyState,
         };
       }
     }

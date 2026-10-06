@@ -1537,6 +1537,99 @@ Phase 1a as approximate) to a precise 214 (6 Backgrounds + 71 Merits/Flaws
   Charm-Slot/Panoply/Array installation tracking, and any editor UI wiring
   for this family all remain out of scope, deferred to a future phase.
 
+**Correction to the "`Exalted1eEditor.tsx` remains untouched" claim repeated
+across Phases 1a-1c:** that statement was accurate only for _creating_ a new
+Alchemical character, never for _editing_ one that already exists.
+`ExaltedFamilyStatePanel.tsx`, a shared component `Exalted1eEditor.tsx`
+renders unconditionally for every Exalted character regardless of
+`sheetType`, already had a full (if stale-catalog-referencing) Alchemical
+branch wired in before any of these phases began, built against the
+unverified OCR draft in `./reference/family-powers` instead of the real
+`alchemical-powers.ts` catalog and referencing a non-existent
+`installationCost` field. This had to be fixed in the phase below
+regardless, since that phase's `familyState` field renames would otherwise
+have left the file non-compiling.
+
+Alchemical's next phase (Clarity Trait plus Charm-Slot/Panoply/Array
+installation tracking) redesigns `familyState`'s Alchemical shape from a
+single flat `clarity: number` (0-10) and a single `charmSlots: number`
+(0-99) into five fields: `clarityPermanent` (0-10, described in _Exalted:
+The Autochthonians_ p. 69 as effectively irreversible, gained only from
+Essence above 5 or certain installed Charms) and `clarityTemporary` (0-10,
+fluctuating via Virtue-suppression gains and human-contact/embracing-
+Virtue losses -- session-level trigger events this app cannot observe or
+automate), replacing the single ambiguous `clarity` number; and
+`dedicatedSlots` (0-99) and `generalSlots` (0-99), replacing the single
+`charmSlots` number, modeling the source's real distinction that Dedicated
+Slots only accept Charms tied to a Favored/Caste Attribute while General
+Slots accept any Charm. New invariants enforced in `schema.ts`'s main
+`superRefine`: `clarityPermanent + clarityTemporary` may never exceed 10
+(the Trait's real fixed maximum); `clarityPermanent` must be at least
+`max(0, essence.rating - 5)`, the one Clarity rule precise enough to
+enforce as fixed arithmetic off an already-stored field (Inhuman Essence,
+p. 69) without simulating the unobservable Virtue/human-contact triggers;
+every `installedCharmIds` entry must resolve to a real `alchemicalCharmIds`
+id with no duplicates; and `installedCharmIds.length` may never exceed
+`dedicatedSlots + generalSlots`. Deliberately out of scope, matching this
+project's anti-overengineering stance: the Dedicated-Slot Favored/Caste-
+Attribute eligibility restriction itself (would require cross-referencing
+`creation.favoredAttributeIds`/`identity.caste` against each Charm's
+governing Attribute, a creator-phase feature Alchemical does not have
+yet); Submodule reduced-installation-cost bookkeeping; and the Panoply
+(owned-but-uninstalled reserve Charms) concept, since this app has no
+separate Panoply-inventory UI anywhere.
+
+`EXALTED1E_SCHEMA_VERSION` bumped 11 -> 12 with a guarded migration step
+(skipped if `clarityPermanent` already exists on the record, so an
+already-migrated record is never silently clobbered back to defaults):
+legacy `clarity` maps to the new `clarityTemporary`, leaving
+`clarityPermanent` at a safe default of 0 (there is no way to know after
+the fact which part of an old flat number was meant to be the irreversible
+share); legacy `charmSlots` maps to the new `generalSlots`, the more
+permissive slot type, leaving `dedicatedSlots` at 0 (there is no way to
+verify after the fact whether an already-recorded installed Charm would
+have legally occupied a Dedicated Slot). `profiles.ts`'s
+`createDefaultFamilyState` for `'alchemical'` was updated to the new
+five-field shape; a blank character still starts all four numeric fields
+at 0 (not the canonical starting 4+4 Slots), matching this project's "no
+false choices until a real creator phase exists" convention used
+elsewhere (e.g. Sidereal's blank `colleges: {}`).
+
+Fixing the pre-existing `ExaltedFamilyStatePanel.tsx` Alchemical branch was
+done by extracting a new, catalog-accurate `AlchemicalInstallationPanel.tsx`
+component, following the same per-family sub-panel pattern already
+established by `LunarShapechangingPanel.tsx` and
+`SiderealAstrologyPanel.tsx`: two mutually-clamped `DotRating` controls for
+Permanent/Temporary Clarity (each passes `max={10 - theOtherRating}` so
+their sum can never visually or functionally exceed 10), Dedicated/General
+Slot number inputs (disabled outside build mode; Clarity dots stay
+editable in Play mode since both its gain and loss are explicitly session-
+driven per the source text), a slot/mote usage summary, and an
+owned-Charms-only checkbox list (sourced from the real `alchemicalCharmById`
+map, not the stale OCR draft) that disables further installs once
+`dedicatedSlots + generalSlots` capacity is reached.
+
+Full verification passed: a cache-busted clean `tsc -b --force` (a plain
+`tsc --noEmit -p .` was returning false-positive clean results against a
+stale `node_modules/.tmp/*.tsbuildinfo` cache after the `familyState` field
+renames), `npm run lint`, the full unit+integration suite (970 tests; 2
+unrelated pre-existing test-runner timeouts in `ars-magica-editor.test.tsx`
+and `mage20-module-editor.test.tsx`, neither touched this phase, both
+confirmed passing in isolation -- a resource-contention artifact of
+running the full suite in parallel, not a regression), the full 87-spec
+Playwright e2e suite, `audit:exalted-sources` (0 issues; its own narrower
+promoted-row count rose 96 -> 137, the same already-established gap
+against `certification/alchemical.json`'s `promotedEntries` seen on every
+other certified-catalog-dimension family), and a production build. New
+coverage: 9 new tests in `exalted1e-alchemical.test.ts` (7 for the
+Clarity-sum/Inhuman-Essence/installed-Charm-id invariants, 2 for the
+version-12 migration's real-legacy-data mapping and its already-migrated
+guard) plus a new 8-test `tests/integration/alchemical-installation-panel.test.tsx`
+exercising the extracted panel directly. Alchemical remains locked exactly
+as before: `certifiedAt` stays null, and Phase 6's all-five-families-
+together rule still prohibits adding Alchemical to `definition.tsx`'s
+`variants` list on its own.
+
 ## Next steps (require source material per book)
 
 1. Project owner supplies scanned pages, OCR text, or transcriptions for one

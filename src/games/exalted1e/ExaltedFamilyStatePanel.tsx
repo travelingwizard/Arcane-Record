@@ -5,7 +5,7 @@ import {
   SheetFieldGrid,
 } from '../../components/layout/SheetPrimitives';
 import type { Exalted1eCharacter } from './schema';
-import { alchemicalCharms } from './reference/family-powers';
+import { AlchemicalInstallationPanel } from './AlchemicalInstallationPanel';
 import { LunarShapechangingPanel } from './LunarShapechangingPanel';
 import { SiderealAstrologyPanel } from './SiderealAstrologyPanel';
 
@@ -161,70 +161,13 @@ export function ExaltedFamilyStatePanel({ character, onChange }: Props) {
   }
 
   if (state.type === 'alchemical') {
-    const ownedIds = new Set(
-      character.powers.charms.map(({ definitionId }) => definitionId),
-    );
-    const installed = state.installedCharmIds.filter((id) => ownedIds.has(id));
-    const definitions = new Map(
-      alchemicalCharms.map((charm) => [charm.id, charm]),
-    );
-    const committedInstallationMotes = installed.reduce((total, id) => {
-      const match = definitions.get(id)?.installationCost?.match(/\d+/);
-      return total + (match ? Number.parseInt(match[0], 10) : 0);
-    }, 0);
     return (
-      <SheetCard density="compact">
-        <h3>Alchemical installation</h3>
-        <SheetFieldGrid columns={2}>
-          <SheetField label="Clarity">
-            <DotRating
-              label="Clarity"
-              value={state.clarity}
-              max={10}
-              onChange={(clarity) => replaceState({ ...state, clarity })}
-            />
-          </SheetField>
-          <SheetField label="Charm slots">
-            <input
-              type="number"
-              min={0}
-              value={state.charmSlots}
-              disabled={!buildMode}
-              onChange={(event) =>
-                replaceState({
-                  ...state,
-                  charmSlots: Number.parseInt(event.target.value, 10) || 0,
-                })
-              }
-            />
-          </SheetField>
-        </SheetFieldGrid>
-        <p>
-          {installed.length} installed · {state.charmSlots} recorded slots ·{' '}
-          {committedInstallationMotes} installation motes
-        </p>
-        {character.powers.charms.map((charm) => (
-          <label className="choice-row" key={charm.id}>
-            <input
-              type="checkbox"
-              checked={state.installedCharmIds.includes(charm.definitionId)}
-              onChange={(event) =>
-                replaceState({
-                  ...state,
-                  installedCharmIds: event.target.checked
-                    ? [...state.installedCharmIds, charm.definitionId]
-                    : state.installedCharmIds.filter(
-                        (id) => id !== charm.definitionId,
-                      ),
-                })
-              }
-            />
-            <span>
-              {definitions.get(charm.definitionId)?.name ?? charm.definitionId}
-            </span>
-          </label>
-        ))}
-      </SheetCard>
+      <AlchemicalInstallationPanel
+        character={character}
+        state={state}
+        buildMode={buildMode}
+        onChange={replaceState}
+      />
     );
   }
 
