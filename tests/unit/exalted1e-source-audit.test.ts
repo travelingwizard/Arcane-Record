@@ -254,25 +254,27 @@ describe('auditFamily against the real repository (current state)', () => {
   });
 
   it('reports Alchemical as pending-certification with its real inventory rows and zero audit errors', () => {
-    // `alchemical-charms.json`, an OCR extraction with a majority of
-    // entries sharing an identical generic description (not real
-    // transcribed mechanics), lives in `./reference/ocr-drafts/` so it
-    // falls outside this audit script's `${family}-*.json` promoted-
-    // catalog glob, exactly like Lunar's own pre-Phase-1b draft (see the
-    // comment above). This also means Phase 1a's 77 promoted Backgrounds/
-    // Merits-Flaws entries (`certification/alchemical.json`'s own broader
-    // `catalog.promotedEntries`) do not show up here either: Backgrounds
-    // live in `definitions.ts` and Merits/Flaws are a subset of the shared
-    // `dragonblooded-merits-flaws.json`, neither of which is an
-    // `alchemical-`-prefixed catalog file, matching Sidereal's and
-    // Abyssal's own identical precedent above. Alchemical still has no
-    // family-prefixed promoted catalog file at all.
+    // 96 = the 96 real, page-cited, visually-reviewed Charms promoted in
+    // `alchemical-charms.json` (Phase 1b), as counted directly from
+    // `src/games/exalted1e/reference/alchemical-*.json` by this audit
+    // script. The stale `./reference/ocr-drafts/alchemical-charms.json`
+    // draft (87 rows, a majority sharing an identical generic description,
+    // not real transcribed mechanics) remains outside this glob and
+    // unwired, exactly as before. This differs from
+    // `certification/alchemical.json`'s own `catalog.promotedEntries`
+    // (173), which also includes Phase 1a's 77 Backgrounds/Merits-Flaws
+    // rows, none of which live in an `alchemical-`-prefixed catalog file
+    // (Backgrounds live in `definitions.ts`; Merits/Flaws are a subset of
+    // the shared `dragonblooded-merits-flaws.json`), so this audit
+    // script's file-glob does not count them -- matching Sidereal's and
+    // Abyssal's own identical precedent above.
     const report = auditFamily('alchemical');
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);
     expect(report.inventoryRows).toBeGreaterThan(0);
-    expect(report.promotedEntries).toBe(0);
-    expect(report.catalogChecksum).toBe('');
+    expect(report.promotedEntries).toBe(96);
+    expect(report.catalogChecksum).toHaveLength(8);
+    expect(report.catalogChecksum).toMatch(/^[0-9a-f]{8}$/);
   });
 
   it('reports Fair Folk as pending-certification with its real inventory rows and zero audit errors', () => {

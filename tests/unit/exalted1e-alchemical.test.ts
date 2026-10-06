@@ -329,7 +329,7 @@ describe('Exalted First Edition Alchemical (schema-only; not yet UI-selectable)'
     });
   });
 
-  describe('Charms and spells (still unimplemented pending a future Alchemical Charm catalog phase)', () => {
+  describe('Charms (Phase 1b: 96-row Chapter Three catalog) and spells (no Sorcery system for this splat)', () => {
     it('validates a blank Alchemical character with zero Charm/Combo/spell selections', () => {
       const character = createBlankExaltedCharacter('alchemical');
       expect(character.powers.charms).toEqual([]);
@@ -338,7 +338,32 @@ describe('Exalted First Edition Alchemical (schema-only; not yet UI-selectable)'
       expect(() => exalted1eCharacterSchema.parse(character)).not.toThrow();
     });
 
-    it('rejects any Charm selection on an Alchemical sheet (no catalog exists yet)', () => {
+    it.each([
+      'transitory-augmentation-of-attribute',
+      'tactical-analysis-engrams',
+      'man-machine-weaving-engine',
+      'god-machine-weaving-engine',
+    ])('accepts the real promoted Charm %s', (definitionId) => {
+      const character = createBlankExaltedCharacter('alchemical');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            charms: [
+              {
+                id: crypto.randomUUID(),
+                definitionId,
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+            spells: [],
+          },
+        }),
+      ).not.toThrow();
+    });
+
+    it('rejects an unresolvable Charm selection on an Alchemical sheet', () => {
       const character = createBlankExaltedCharacter('alchemical');
       expect(() =>
         exalted1eCharacterSchema.parse({
@@ -348,6 +373,46 @@ describe('Exalted First Edition Alchemical (schema-only; not yet UI-selectable)'
               {
                 id: crypto.randomUUID(),
                 definitionId: 'anything',
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+            spells: [],
+          },
+        }),
+      ).toThrow();
+    });
+
+    it('rejects a Lunar-only Charm (Hide of the Cunning Hunter) for an Alchemical sheet', () => {
+      const character = createBlankExaltedCharacter('alchemical');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            charms: [
+              {
+                id: crypto.randomUUID(),
+                definitionId: 'hide-of-the-cunning-hunter',
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+            spells: [],
+          },
+        }),
+      ).toThrow();
+    });
+
+    it('rejects an Alchemical-only Charm (Tactical Analysis Engrams) for a Lunar sheet', () => {
+      const character = createBlankExaltedCharacter('lunar');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            charms: [
+              {
+                id: crypto.randomUUID(),
+                definitionId: 'tactical-analysis-engrams',
                 unresolvedReference: null,
                 notes: '',
               },

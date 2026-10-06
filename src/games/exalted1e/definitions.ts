@@ -14,8 +14,9 @@ export const EXALTED1E_SCHEMA_VERSION = 11 as const;
  * families, and `schema.ts`'s per-family Background/Charm/Merit-Flaw/Spell
  * validation only actually accepts real selections for the families with a
  * promoted catalog (today: Solar, Dragon-Blooded, Abyssal, Sidereal, Lunar,
- * Alchemical for Backgrounds/Merits-Flaws; Abyssal, Sidereal, and Lunar for
- * Charms/spells) -- every other combination is explicitly rejected, never
+ * Alchemical for Backgrounds/Merits-Flaws; Abyssal, Sidereal, Lunar, and
+ * Alchemical for Charms/spells) -- every other combination is explicitly
+ * rejected, never
  * silently unrestricted. See `plannedExaltedFamilies` below and
  * `src/games/exalted1e/verification.ts` for the family-level release gate
  * that keeps all five locked in the UI until they each separately earn it.

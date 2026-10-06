@@ -195,7 +195,7 @@ real, creatable sheet.
 | Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)    | 598            | 412 of 412 promotable (catalog dimension complete, `unreviewed_spells` follow-up)          | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
 | Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 505 of 505 promotable (catalog dimension complete, Phase 1e)                               | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
 | Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 383 of 383 promotable (catalog dimension complete, `sidereal_unreviewed_spells` follow-up) | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
-| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 77 of 207 promotable (Backgrounds + Merits/Flaws, Phase 1a)                                | Locked, all dimensions `not-run`                                                                                                       |
+| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 173 of 207 promotable (Backgrounds + Merits/Flaws, Phase 1a; Charms, Phase 1b)             | Locked, all dimensions `not-run`                                                                                                       |
 | Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 365            | 0                                                                                          | Locked, all dimensions `not-run`                                                                                                       |
 
 Lunar's 582 rows cover the core innate powers, every Charm category in
@@ -1354,6 +1354,76 @@ format check, the full unit+integration suite, the Exalted e2e smoke
 specs, `audit:exalted-sources`, and a production build. Alchemical remains
 fully locked out of `definition.tsx`'s user-facing `variants` list; Fair
 Folk's own equivalent Phase 1a remains unstarted.
+
+Alchemical's Phase 1b (Charms catalog promotion) then promoted all 96 of
+the Chapter Three Charm rows (pp. 89-141/PDF 90-142) -- the 94 Charms
+spread across the nine named trees (General 2, Close Combat 15, Ranged
+Combat 11, Might and Mobility 14, Social 12, Stealth and Disguise 9,
+Sensory and Spiritual 10, Medical 11, Cognitive 9, Essence and Weaving 3)
+plus confirming the General Charms count already included above -- into a
+new `src/games/exalted1e/reference/alchemical-charms.json` catalog and an
+`alchemical-powers.ts` reference module, mirroring `lunar-powers.ts`. The
+5 "framing" rows under the same Chapter Three heading pattern that
+describe systems rather than purchasable Charms (Charm Slots/Panoplies/
+Submodules/Arrays, Designing New Charms, Limitations and Effect,
+Alchemical Martial Artists, Identifying Charms) were deliberately
+excluded, matching this project's rule against promoting reference-
+only/calculated rows into a selectable catalog. Unlike every other
+already-promoted splat, Alchemical Charms are each keyed to a governing
+**Attribute** rather than an Ability -- confirmed directly from the Charm
+Slots framing row's own text, which states that "Dedicated" Charm Slots
+(the ones carrying a Caste/Favored installation discount) only accept
+Charms tied to a Favored or Caste _Attribute_, never an Ability. The
+catalog's `minimumRequirements` field therefore names the governing
+Attribute directly (e.g. `{ trait: 'Dexterity', rating: 3 }`) and `ability`
+stays `null` throughout, exactly like Lunar's own nullable `ability` field;
+a new `charmCategory` field records each Charm's tree. The sole exception,
+Perfected Lotus Matrix, is explicitly keyed to the Martial Arts Ability
+instead -- its own text states this is exactly why it can never be
+Favored/Caste for any Alchemical and must occupy a General Slot -- captured
+without any schema change by simply naming `'Martial Arts'` as the
+`minimumRequirements` trait. Two Charms (Transitory/Sustained Augmentation
+of (Attribute)) are each really nine separately-purchased Charms, one per
+Attribute, and one (Synthesis Wave Emitter) is really six Charms in one
+family (five Magical Materials plus adamant); all three are kept as single
+templated catalog rows rather than fabricating near-duplicate rows the
+source never actually tabulates separately, matching how the source itself
+presents them. Alchemicals do not build ad hoc Combos the way other splats
+do; instead, per the Charm Slots framing row, any Attribute-based Charm may
+be bundled with others into a permanently surgically-installed "Array" at
+a reduced combined installation cost, granting automatic access to every
+legal Combo among its members. `comboRules.eligible` therefore represents
+Array-eligibility (this family's real Combo-analog) rather than ordinary
+ad hoc Combo-eligibility, defaulting to `true` for every Charm except the
+four explicitly barred by their own text or by the framing row's blanket
+exclusion of supernatural martial arts Charms from Arrays (Perfected Lotus
+Matrix, Auxiliary Essence Storage Unit, Man-Machine Weaving Engine,
+God-Machine Weaving Engine); the Array mechanic itself (reduced-cost
+calculation, unit install/remove) is deferred to a future phase, exactly
+like Lunar's own deferred Great Curse/Shapechanging-Forms subsystem. The
+two Essence and Weaving "engine" Charms are promoted here as the gateway
+Charms into the still-out-of-scope Weaving Protocol subsystem (each
+Charm's own description cross-references the catalog directly); installing
+either permanently grants 1 dot of Clarity and neither can ever be removed,
+captured verbatim in text rather than a new schema field, since this phase
+does not yet model Clarity mechanically. `charmIdsBySheetType.alchemical`
+in `schema.ts` now resolves to the real 96-entry `alchemicalCharmIds` set
+(was an empty placeholder); Sorcery spells remain correctly rejected since
+Alchemical has no Sorcery access by design. `certification/alchemical.json`'s
+`promotedEntries` rose from 77 to 173 (77 Phase 1a + 96 Phase 1b Charms),
+and its `checksum` was populated for the first time with the real value
+from `scripts/audit-exalted-sources.mjs` (`9006867c`), since
+`alchemical-charms.json` is the first `alchemical-`-prefixed catalog file
+this family has ever had. A new 14-test `alchemical-charms-catalog.test.ts`
+suite covers catalog shape, category distribution, prerequisite
+resolution, the templated-Attribute-row/Martial-Arts-exception cases, and
+Array-eligibility; `exalted1e-alchemical.test.ts` gained real Charm
+accept/reject coverage replacing the old placeholder-rejection test. Full
+verification passed: typecheck, lint, format check, the full
+unit+integration suite, the Exalted e2e smoke specs,
+`audit:exalted-sources`, and a production build. `Exalted1eEditor.tsx`
+remains untouched this phase, exactly as Phase 1a left it; Alchemical
+stays fully locked out of `definition.tsx`'s user-facing `variants` list.
 
 ## Next steps (require source material per book)
 

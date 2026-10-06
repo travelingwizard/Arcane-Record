@@ -35,6 +35,7 @@ import {
 } from './reference/sidereal-powers';
 import { siderealAstrologyCollegeIds } from './reference/sidereal-astrology';
 import { lunarCharmIds, lunarSorcerySpellIds } from './reference/lunar-powers';
+import { alchemicalCharmIds } from './reference/alchemical-powers';
 import { solarCharmIds } from './reference/solar-charms';
 import {
   getSolarTraitRepeatLimit,
@@ -486,7 +487,15 @@ export const exalted1eCharacterSchema = z
       // subsystem and the 10 Beastman Transformation "gift" sub-options
       // remain out of scope for this phase.
       lunar: lunarCharmIds,
-      alchemical: new Set<string>(),
+      // Phase 1b: 96 Chapter Three Charms (General, Close Combat, Ranged
+      // Combat, Might and Mobility, Social, Stealth and Disguise, Sensory
+      // and Spiritual, Medical, Cognitive, Essence and Weaving) -- see
+      // `alchemicalCharmIds` in `./reference/alchemical-powers`. The
+      // Weaving Protocol/Alchemy Formulae subsystem (gated behind the two
+      // Essence and Weaving "engine" Charms promoted here) and the
+      // Slot/Array/Panoply installation-tracking mechanics remain out of
+      // scope for this phase.
+      alchemical: alchemicalCharmIds,
       'fair-folk': new Set<string>(),
     };
     character.combos.forEach((combo, index) => {

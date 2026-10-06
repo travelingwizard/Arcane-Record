@@ -92,16 +92,25 @@ describe('exalted1e verification gate', () => {
             : family === 'lunar'
               ? 412
               : family === 'alchemical'
-                ? 77
+                ? 173
                 : 0,
       );
-      if (family === 'abyssal' || family === 'sidereal' || family === 'lunar') {
+      if (
+        family === 'abyssal' ||
+        family === 'sidereal' ||
+        family === 'lunar' ||
+        family === 'alchemical'
+      ) {
         // Cross-check against the audit script's own live computation
         // rather than hardcoding the hash, so this test can't silently go
         // stale if the promoted catalog changes. Lunar's catalog
         // dimension closed this same way as Abyssal's/Sidereal's own did,
         // via the `unreviewed_spells` follow-up phase (see
-        // `lunar.json`'s notes).
+        // `lunar.json`'s notes). Alchemical's own checksum first became
+        // non-empty in Phase 1b, once `alchemical-charms.json` became the
+        // family's first `alchemical-`-prefixed catalog file; its catalog
+        // dimension still fails overall (173 of 207 promotable), unlike
+        // Abyssal/Sidereal/Lunar's fully-closed catalogs.
         expect(record.catalog.checksum).toBe(
           auditFamily(family).catalogChecksum,
         );
@@ -202,10 +211,10 @@ describe('exalted1e verification gate', () => {
     expect(isFamilyAvailable('sidereal')).toBe(false);
   });
 
-  it('reflects Alchemical Phase 1a catalog promotion without unlocking the family', () => {
+  it('reflects Alchemical Phase 1a/1b catalog promotion without unlocking the family', () => {
     const record = certificationRecords.alchemical;
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
-    expect(record.catalog.promotedEntries).toBe(77);
+    expect(record.catalog.promotedEntries).toBe(173);
     expect(record.catalog.promotedEntries).toBeLessThan(
       record.catalog.promotableEntries,
     );
