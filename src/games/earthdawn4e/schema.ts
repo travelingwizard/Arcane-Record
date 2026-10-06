@@ -118,6 +118,8 @@ export const earthdawn4eCharacterSchema = z.object({
     status: z.enum(['draft', 'finalized', 'manual']),
     currentStep: z.number().int().min(0).max(7),
     profile: z.enum(['adept', 'adept-questor', 'questor']),
+    specializedPathId: z.string().nullable().default(null),
+    specializedPathRank: z.number().int().min(0).max(10).default(0),
     enforceRules: z.boolean(),
     overrides: z.array(
       z.object({
@@ -902,6 +904,11 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
       ...creation,
       currentStep: Math.min(7, Number(creation.currentStep ?? 0)),
       profile: creation.profile ?? 'adept',
+      specializedPathId:
+        typeof creation.specializedPathId === 'string'
+          ? creation.specializedPathId
+          : null,
+      specializedPathRank: Number(creation.specializedPathRank ?? 0),
       overrides:
         creation.enforceRules === false &&
         !(
@@ -924,8 +931,8 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
       skillPoints: {
         ...(isRecord(creation.skillPoints) ? creation.skillPoints : {}),
         language: isRecord(creation.skillPoints)
-          ? Number(creation.skillPoints.language ?? 0)
-          : 0,
+          ? Number(creation.skillPoints.language ?? 3)
+          : 3,
       },
     },
     disciplines: (Array.isArray(data.disciplines) ? data.disciplines : []).map(

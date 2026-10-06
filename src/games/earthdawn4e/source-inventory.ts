@@ -63,8 +63,8 @@ const boundaryRows: EarthdawnInventoryRow[] = [
     'questors-nonadept',
     'ed4.questors',
     'Non-Adept Questor initial skill allocation',
-    'unresolved',
-    'The source permits the framework but does not supply a complete replacement starting allocation; a specific GM-approved profile is required.',
+    'calculated',
+    'Uses the supplied standard allocation: two Knowledge, one Artisan, three Language, and eight freely allocated skill ranks; no starting Discipline talents or matrices.',
   ],
   [
     'questors-mad-passions',

@@ -11,6 +11,7 @@ import {
   earthdawnThreadItems,
 } from '../../src/games/earthdawn4e/catalog';
 import { createBlankEarthdawn4eCharacter } from '../../src/games/earthdawn4e/create-character';
+import { earthdawnPathProfiles } from '../../src/games/earthdawn4e/path-profiles';
 import {
   attributeStep,
   addKarmaDie,
@@ -82,6 +83,36 @@ import {
 import { createHighCircleMatrixFixture } from '../fixtures/earthdawn-high-circle';
 
 describe('Earthdawn Fourth Edition module', () => {
+  it('records the supplied guided Mystic Path profiles without treating military branches as Paths', () => {
+    expect(earthdawnPathProfiles.map(({ id }) => id)).toEqual([
+      'outcast',
+      'windmaster',
+      'tail-dancer',
+    ]);
+    expect(
+      earthdawnPathProfiles.find(({ id }) => id === 'outcast'),
+    ).toMatchObject({
+      initiationCost: 200,
+      maximumRank: 5,
+      talentCostTier: 'journeyman',
+    });
+    expect(
+      earthdawnPathProfiles.find(({ id }) => id === 'windmaster'),
+    ).toMatchObject({
+      race: 'Windling',
+      bloodMagicDamage: 2,
+      requiredTalentRanks: { 'Melee Weapons': 5 },
+    });
+    expect(
+      earthdawnPathProfiles.find(({ id }) => id === 'tail-dancer'),
+    ).toMatchObject({
+      race: 'T’skrang',
+      requiredTalentRanks: { Dancing: 5, 'Melee Weapons': 5 },
+    });
+    expect(
+      earthdawnPathProfiles.some(({ name }) => name.includes('Silver Branch')),
+    ).toBe(false);
+  });
   it('creates a valid local-first character and complete official source list', () => {
     const character = createBlankEarthdawn4eCharacter({
       status: 'manual',

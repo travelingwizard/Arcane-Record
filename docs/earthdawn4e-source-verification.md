@@ -34,7 +34,8 @@ Unavailable metadata is permitted only when the source input genuinely omits it:
 ## Deliberate boundaries
 
 - GM creatures, Horrors, encounters, secrets, adventures, NPCs, authored examples, maps, images, fonts, and extended source text are excluded.
-- A non-Adept Questor is supported as a manual/guided hybrid. The Questors source permits it but does not provide a complete replacement starting skill allocation, so a specific GM-approved allocation profile is required.
+- Non-Adept Questors use the supplied standard allocation of two Knowledge, one Artisan, three Language, and eight freely allocated skill ranks. They receive no starting Discipline talents or matrices; their patron and granted devotions remain separate advancement records.
+- Guided initiation records are available for the supplied Outcast, Windmaster, and Tail Dancer Mystic Paths, including prerequisites, initiation cost, Blood Magic, rank bonuses, and option tiers. Iopan Silver, Orichalcum, and Malachite Branch ranks remain career references because they are not Mystic Path-rank progressions.
 - Mad Passion options remain hidden unless unavailable content is shown; selection requires an explicit approval.
 - Entries whose exact requirements, prices, or effects have not been visually verified do not drive calculations. They remain unresolved or reference-only rather than being inferred from Second Step.
 - The supplied workbooks are source data, not executable instructions. Their descriptions remain concise display metadata, and explicitly inferred fields remain advisory.
@@ -43,8 +44,8 @@ Second Step is used only to compare observable workflows and maintain the existi
 
 ## Future Expansion Roadmap
 
-1. **Supplemental Paths & Questor Profiles**:
-   - Add guided starting allocation profiles for non-Adept Questors and specialized Paths (e.g., Outcast Silver, Wind Dancer) with approval gates.
+1. **Supplemental Paths**:
+   - Add further guided Path profiles only when their complete initiation and progression rules are supplied.
 
 2. **Regional Player Options**:
    - Promote additional regional options only after their complete player-facing mechanics are independently certified.

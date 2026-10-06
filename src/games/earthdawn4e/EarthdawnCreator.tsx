@@ -17,6 +17,7 @@ import {
   type EarthdawnDefinition,
 } from './catalog';
 import { attributeModifierCosts, deriveCharacter, stepDice } from './engine';
+import { earthdawnPathProfiles } from './path-profiles';
 import {
   questorTier,
   reconcileRace,
@@ -170,6 +171,9 @@ export function EarthdawnCreator({
     ({ id }) => id === character.identity.raceId,
   );
   const selected = character.disciplines[0];
+  const selectedPath = earthdawnPathProfiles.find(
+    ({ id }) => id === character.creation.specializedPathId,
+  );
   const discipline = earthdawnDisciplines.find(
     ({ id }) => id === selected?.disciplineId,
   );
@@ -250,9 +254,27 @@ export function EarthdawnCreator({
       ),
     [character.sources.enabledSourceIds, equipmentFilter, equipmentSearch],
   );
-  const nonAdeptIssue = 'Record a GM-approved non-Adept Questor skill profile.';
+  const freeSkillRanksSpent =
+    skillRanks.general +
+    Math.max(0, skillRanks.knowledge - 2) +
+    Math.max(0, skillRanks.artisan - 1) +
+    Math.max(0, skillRanks.language - 3);
   const violations = [
     spent > 25 && `Attribute allocation exceeds 25 points by ${spent - 25}.`,
+    selectedPath &&
+      (selected?.circle ?? 0) < selectedPath.minimumCircle &&
+      `${selectedPath.name} requires Circle ${selectedPath.minimumCircle}.`,
+    selectedPath?.race &&
+      race?.name !== selectedPath.race &&
+      `${selectedPath.name} requires ${selectedPath.race}.`,
+    ...(selectedPath
+      ? Object.entries(selectedPath.requiredTalentRanks).map(
+          ([name, rank]) =>
+            character.talents.every(
+              (talent) => talent.name !== name || talent.rank < rank,
+            ) && `${selectedPath.name} requires ${name} Rank ${rank}.`,
+        )
+      : []),
     character.creation.profile !== 'questor' &&
       talentRanks > 8 &&
       `Talent allocation exceeds 8 free ranks by ${talentRanks - 8}.`,
@@ -260,23 +282,13 @@ export function EarthdawnCreator({
       discipline &&
       optionalTalentCount > (selected?.circle ?? 1) &&
       `Talent Options exceed the Circle limit by ${optionalTalentCount - (selected?.circle ?? 1)}.`,
-    character.creation.profile !== 'questor' &&
-      skillRanks.general > character.creation.skillPoints.general &&
-      `General skills exceed the ${character.creation.skillPoints.general}-rank allocation by ${skillRanks.general - character.creation.skillPoints.general}.`,
-    character.creation.profile !== 'questor' &&
-      skillRanks.knowledge > character.creation.skillPoints.knowledge &&
-      `Knowledge skills exceed the ${character.creation.skillPoints.knowledge}-rank allocation by ${skillRanks.knowledge - character.creation.skillPoints.knowledge}.`,
-    character.creation.profile !== 'questor' &&
-      skillRanks.artisan > character.creation.skillPoints.artisan &&
-      `Artisan skills exceed the ${character.creation.skillPoints.artisan}-rank allocation by ${skillRanks.artisan - character.creation.skillPoints.artisan}.`,
+    freeSkillRanksSpent > 8 &&
+      `Free skill allocation exceeds 8 ranks by ${freeSkillRanksSpent - 8}.`,
     equipmentSpent > character.wealth.startingSilver &&
       `Equipment spending exceeds starting wealth by ${equipmentSpent - character.wealth.startingSilver} silver.`,
     character.creation.profile === 'questor' &&
-      character.questor.patronId &&
-      !character.creation.overrides.some(
-        ({ code }) => code === nonAdeptIssue,
-      ) &&
-      nonAdeptIssue,
+      !character.questor.patronId &&
+      'Select a patron Passion for the non-Adept Questor.',
   ].filter(Boolean) as string[];
   const advisories = [
     !discipline &&
@@ -284,10 +296,12 @@ export function EarthdawnCreator({
       'No Discipline selected.',
     !race && 'No race selected.',
     !character.identity.name.trim() && 'Name is blank.',
-    talentRanks < 8 && `${8 - talentRanks} free Talent ranks remain unspent.`,
+    character.creation.profile !== 'questor' &&
+      talentRanks < 8 &&
+      `${8 - talentRanks} free Talent ranks remain unspent.`,
     optionalTalentCount < (selected?.circle ?? 0) &&
       `${(selected?.circle ?? 0) - optionalTalentCount} Talent Option slot(s) remain unused.`,
-    ...(['general', 'knowledge', 'artisan'] as const)
+    ...(['knowledge', 'artisan', 'language'] as const)
       .filter(
         (category) =>
           skillRanks[category] < character.creation.skillPoints[category],
@@ -296,6 +310,8 @@ export function EarthdawnCreator({
         (category) =>
           `${character.creation.skillPoints[category] - skillRanks[category]} ${skillCategoryLabels[category]} skill rank(s) remain unspent.`,
       ),
+    freeSkillRanksSpent < 8 &&
+      `${8 - freeSkillRanksSpent} freely allocated skill rank(s) remain.`,
   ].filter(Boolean) as string[];
   const patchCreation = (patch: Partial<Earthdawn4eCharacter['creation']>) =>
     update((current) => ({
@@ -760,6 +776,104 @@ export function EarthdawnCreator({
               ) : null}
             </details>
           ))}
+        </div>
+      ) : null}
+      {discipline && selected && selected.circle >= 5 ? (
+        <div className="earthdawn-tier-disclosures">
+          <h3>Specialized Mystic Path</h3>
+          <p>
+            Optional Path initiation is reviewed separately from Discipline
+            advancement. Rank 1 records the initiation; later bonuses apply at
+            their listed Path ranks.
+          </p>
+          <div className="sheet-choice-grid earthdawn-choice-grid">
+            {earthdawnPathProfiles.map((path) => {
+              const raceEligible = !path.race || race?.name === path.race;
+              const missingTalents = Object.entries(path.requiredTalentRanks)
+                .filter(([name, rank]) =>
+                  character.talents.every(
+                    (talent) => talent.name !== name || talent.rank < rank,
+                  ),
+                )
+                .map(([name, rank]) => `${name} Rank ${rank}`);
+              const eligible = raceEligible && missingTalents.length === 0;
+              return (
+                <button
+                  type="button"
+                  key={path.id}
+                  className="earthdawn-creator-choice-card"
+                  aria-pressed={
+                    character.creation.specializedPathId === path.id
+                  }
+                  disabled={character.creation.enforceRules && !eligible}
+                  onClick={() =>
+                    patchCreation({
+                      specializedPathId: path.id,
+                      specializedPathRank: 1,
+                    })
+                  }
+                >
+                  <strong>{path.name}</strong>
+                  <small>{path.summary}</small>
+                  <small>
+                    {path.initiationCost} LP · {path.talentCostTier} Path ·
+                    maximum Rank {path.maximumRank}
+                  </small>
+                  <small>
+                    Requires Circle {path.minimumCircle}
+                    {path.race ? `, ${path.race}` : ''}
+                    {missingTalents.length
+                      ? `, ${missingTalents.join(', ')}`
+                      : ''}
+                    {path.bloodMagicDamage
+                      ? ` · ${path.bloodMagicDamage} Blood Magic Damage`
+                      : ''}
+                  </small>
+                </button>
+              );
+            })}
+            {character.creation.specializedPathId ? (
+              <button
+                type="button"
+                className="earthdawn-creator-choice-card"
+                onClick={() =>
+                  patchCreation({
+                    specializedPathId: null,
+                    specializedPathRank: 0,
+                  })
+                }
+              >
+                <strong>No specialized Path</strong>
+                <small>Remove the pending Path initiation.</small>
+              </button>
+            ) : null}
+          </div>
+          {earthdawnPathProfiles
+            .filter(({ id }) => id === character.creation.specializedPathId)
+            .map((path) => (
+              <details className="sheet-card sheet-card--compact" key={path.id}>
+                <summary>{path.name} progression</summary>
+                <p>{path.ordeal}</p>
+                <p>
+                  Rank bonuses:{' '}
+                  {Object.entries(path.rankBonuses)
+                    .map(
+                      ([rank, bonuses]) =>
+                        `Rank ${rank}: ${bonuses.join(', ')}`,
+                    )
+                    .join('; ')}
+                </p>
+                {path.optionTiers.map((tier) => (
+                  <p key={tier.minimumRank}>
+                    <strong>
+                      Rank {tier.minimumRank}+ · {tier.costTier} options:
+                    </strong>{' '}
+                    {tier.talents.join(', ')}
+                  </p>
+                ))}
+                <p>{path.advancement}</p>
+              </details>
+            ))}
         </div>
       ) : null}
     </section>,
