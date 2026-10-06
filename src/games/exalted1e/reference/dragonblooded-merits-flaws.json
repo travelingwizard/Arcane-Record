@@ -27,7 +27,13 @@
         "page": 18
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded", "abyssal", "sidereal", "lunar"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal",
+        "sidereal",
+        "lunar",
+        "fair-folk"
+      ],
       "notes": [
         "Abyssal-specific: deathknights retain fertility, and siring or bearing a child with a living lover is a listed Litany of Sins trigger worth 4 Resonance (see the Abyssal Resonance rules), so this Merit lets a deathknight choose exactly when to risk that particular taint."
       ],
@@ -54,7 +60,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Sidereal-specific: the source's discounted 1-point cost for the two-point (omniambidextrous) version is Lunar-specific and does not extend to Sidereal, who pay the full standard 1-/2-point cost.",
@@ -83,7 +90,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -109,7 +117,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Sidereal-specific: the source's discounted 2-point cost for the greater (uncanny-contortionist) version is Lunar-specific and does not extend to Sidereal, who pay the full standard 1-/3-point cost.",
@@ -138,7 +147,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "High Abyssal relevance: the source text names 'deathknights with corpse-like flesh' as one of the two groups (with ghosts) for whom this Merit is particularly common."
@@ -166,7 +176,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Sidereal-specific: the source's Lunar-specific clause about the bonus health level carrying into all of a Lunar's forms (via Prey's Skin Disguise) does not apply to Sidereal, who have no innate shapechanging power; otherwise transfers unchanged at the standard 4-/6-point cost."
@@ -194,7 +205,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -220,7 +232,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -246,7 +259,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -267,7 +281,13 @@
         "page": 20
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded", "abyssal", "sidereal", "lunar"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal",
+        "sidereal",
+        "lunar",
+        "fair-folk"
+      ],
       "notes": [
         "Abyssal-specific: the source's Lunar-Tell flavor example and its cross-reference to Exalted: The Lunars do not apply; the underlying Wyld-mutation framework (core Exalted pp. 280-281) is otherwise splat-neutral and applies to a deathknight unchanged."
       ],
@@ -294,7 +314,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -320,7 +341,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -346,7 +368,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -367,7 +390,7 @@
         "page": 20
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded", "sidereal"],
+      "appliesTo": ["dragon-blooded", "sidereal", "fair-folk"],
       "notes": [
         "Sidereal-specific judgment call: the source's exclusion list names only Solar, Abyssal, and Lunar (who already have Ability-favoring built into their Exalted status) plus, for a separate reason, Alchemical; Sidereal is not named among the exclusions, so this Merit is included for Sidereal at the standard 3-point cost (not the discounted 2-point Dragon King/God-Blooded tier), reading the exclusion list textually rather than thematically -- consistent with how the Fair Folk derivation pass also included this Merit for the same reason."
       ],
@@ -394,7 +417,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -420,7 +444,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -446,7 +471,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -472,7 +498,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Abyssal-specific: taking a willing lover from among the living is itself a listed Litany of Sins trigger (1 Resonance per night of intimacy), so True Love for a living partner means a deathknight is knowingly accepting ongoing Resonance risk for the relationship."
@@ -500,7 +527,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -526,7 +554,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -552,7 +581,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -578,7 +608,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -599,7 +630,13 @@
         "page": 22
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded", "abyssal", "lunar", "alchemical"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal",
+        "lunar",
+        "alchemical",
+        "fair-folk"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -624,7 +661,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Abyssal-specific: the higher-value Celestial-favor tiers describe Yu-Shan's courts, but a deathknight could equally hold an equivalent-value favor from a Deathlord, a ghost court, or a Malfean-adjacent spirit within the Underworld's own hierarchy."
@@ -652,7 +690,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -680,7 +719,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Abyssal-specific: Abyssals have two Manse-equivalent Backgrounds instead of one (the altered Manse Background for the living world, and the new Underworld Manse Background for the Underworld); either can host a Hidden Manse."
@@ -708,7 +748,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -734,7 +775,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -760,7 +802,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -786,7 +829,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Sidereal-specific: Sidereal Exalted learn two divinatory rituals per purchase instead of the normal one, since Sidereal astrology already grants ordinary divination rituals and this Merit represents crude analogs via other methods; the standard 1-point-per-purchase cost is unchanged."
@@ -814,7 +858,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Abyssal-specific: Midnight Caste is named among the castes who are innate priests of their patron, granting the same free 1-point version and a discounted 6-point high-priest upgrade (vs. the normal 7); this catalog does not yet model that caste-conditional discount, so a Midnight Caste Abyssal should currently pay the standard cost until it is added.",
@@ -843,7 +888,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Abyssal-specific cost cap: the source's 'Destiny and Exaltation' sidebar names Abyssal Exaltation explicitly and caps post-Exaltation Destiny at 1-2 points for Abyssals, unlike the normal 1-5 range.",
@@ -872,7 +918,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Sidereal-specific cost cap: Sidereal Exalted use a different luck-pool formula (pool equals points invested plus two, capped at a pool of five), so a Sidereal pays a maximum of 3 points for the largest pool and cannot have a pool smaller than 3; legal Sidereal costs are therefore 1-3, not the normal 1-5 range."
@@ -920,7 +967,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -996,7 +1044,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Abyssal-specific: a deathknight's visions may also be flavored as an echo of the Malfeans' own dread foresight bleeding up through Resonance-tainted Essence, alongside the ordinary divine-gift framing; thematically adjacent to (but mechanically distinct from) the Whispers Background.",
@@ -1025,7 +1074,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1069,7 +1119,13 @@
         "page": 20
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded", "abyssal", "sidereal", "lunar"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal",
+        "sidereal",
+        "lunar",
+        "fair-folk"
+      ],
       "notes": [
         "Abyssal-specific: the source's Lunar-Tell flavor example and its cross-reference to Exalted: The Lunars do not apply; the underlying Wyld-mutation framework (core Exalted pp. 280-281) is otherwise splat-neutral and applies to a deathknight unchanged."
       ],
@@ -1096,7 +1152,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1122,7 +1179,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1143,7 +1201,13 @@
         "page": 30
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded", "abyssal", "sidereal", "lunar"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal",
+        "sidereal",
+        "lunar",
+        "fair-folk"
+      ],
       "notes": [
         "Abyssal-specific: since deathknights can still conceive with living lovers at a steep Resonance cost, Sterile forecloses a specific documented Resonance risk for an Abyssal rather than being pure flavor."
       ],
@@ -1170,7 +1234,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1196,7 +1261,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "High Abyssal relevance: the source text names 'ghosts and Abyssals' as the two groups who typically manifest this Flaw at its most extreme, 6-point tier."
@@ -1224,7 +1290,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1250,7 +1317,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1276,7 +1344,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Abyssal-specific reading: since deathknights are already dead, Dying is best read for an Abyssal as a curse-driven progression toward the character's own final unmaking rather than literal terminal illness; a Storyteller-narration judgment call, since the source does not address undead PCs directly."
@@ -1304,7 +1373,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Sidereal-specific: the source's Lunar-specific clause about the size reduction carrying into all of a Lunar's forms (via Prey's Skin Disguise/Lunar Shapechanging) does not apply to Sidereal, who have no innate shapechanging power; otherwise transfers unchanged at the standard 3-point cost."
@@ -1332,7 +1402,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Abyssal-specific: the source explicitly allows Abyssal Exalted to take this Flaw (with Storyteller approval) to represent a rotted or death-twisted visage, and cross-references Exalted: The Abyssals for an alternate, no-bonus-point version a Storyteller may substitute instead.",
@@ -1361,7 +1432,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1387,7 +1459,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1413,7 +1486,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1439,7 +1513,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1465,7 +1540,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1491,7 +1567,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Abyssal-specific: the source's special 1-point clause for Celestial Exalted with no memory of past incarnations is scoped to Solar/Lunar/Sidereal and does not extend to Abyssal; the base 1/2/5-point Amnesia Flaw transfers normally.",
@@ -1520,7 +1597,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1546,7 +1624,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Abyssal-specific: the source's restriction against altering or ameliorating the Great Curse is read for Abyssals as applying to Resonance and the Abyssal Curse instead, since that is this splat's own Great-Curse analog.",
@@ -1575,7 +1654,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Abyssal-specific: the source's cross-reference to Exalted: The Lunars for Wyld-addiction rules does not apply to Abyssal; the generic 1-point discount for Exalted constitutions still applies."
@@ -1603,7 +1683,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1629,7 +1710,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1655,7 +1737,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1681,7 +1764,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1707,7 +1791,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1733,7 +1818,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1759,7 +1845,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1785,7 +1872,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Abyssal-specific: a Deathlord assigning a deathknight a disciple (via the Liege Background) is this splat's natural hook for this Flaw, mirroring the Sidereal/Immaculate hierarchy the source calls out as this Flaw's most common home.",
@@ -1814,7 +1902,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1840,7 +1929,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1866,7 +1956,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Abyssal-specific: Resonance already inflicts a similar Social penalty as it rises; the two can stack for a deathknight who is both innately Disturbing and running a high Resonance total."
@@ -1889,7 +1980,13 @@
         "page": 38
       },
       "edition": "Exalted First Edition",
-      "appliesTo": ["dragon-blooded", "abyssal", "sidereal", "lunar"],
+      "appliesTo": [
+        "dragon-blooded",
+        "abyssal",
+        "sidereal",
+        "lunar",
+        "fair-folk"
+      ],
       "notes": [],
       "reviewStatus": "source-checked"
     },
@@ -1914,7 +2011,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Abyssal-specific: the higher-value Celestial-favor tiers describe Yu-Shan's courts, but a deathknight could equally owe an equivalent-value favor to a Deathlord, a ghost court, or a Malfean-adjacent spirit within the Underworld's own hierarchy."
@@ -1942,7 +2040,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Abyssal-specific: the source's own worked example uses an Abyssal character and cross-references Exalted: The Abyssals' altered Artifact Background costs directly; apply this Flaw's cap against the altered dot-tier table, not the core-Exalted per-dot system."
@@ -1970,7 +2069,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -1996,7 +2096,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -2022,7 +2123,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "High Abyssal relevance: the source names Abyssals as having their own distinct fate-tracking cosmology for this Flaw, unreachable even by the Maidens; only Sidereals are exempted, for an unrelated reason. Commonly paired with the Destiny Merit.",
@@ -2051,7 +2153,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [],
       "reviewStatus": "source-checked"
@@ -2103,7 +2206,8 @@
         "abyssal",
         "sidereal",
         "lunar",
-        "alchemical"
+        "alchemical",
+        "fair-folk"
       ],
       "notes": [
         "Abyssal-specific: lets a newly-Exalted deathknight start at Essence 1 instead of this splat's normal starting Essence of 2, withholding up to five Charms (no experience cost, full training time still required) until Essence is raised in play."

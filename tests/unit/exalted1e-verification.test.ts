@@ -95,7 +95,9 @@ describe('exalted1e verification gate', () => {
               ? 412
               : family === 'alchemical'
                 ? 214
-                : 0,
+                : family === 'fair-folk'
+                  ? 88
+                  : 0,
       );
       if (
         family === 'abyssal' ||
@@ -232,10 +234,25 @@ describe('exalted1e verification gate', () => {
     expect(isFamilyAvailable('alchemical')).toBe(false);
   });
 
-  it('reflects Fair Folk source intake in progress without unlocking the family', () => {
+  it('reflects Fair Folk Phase 1a catalog promotion without unlocking the family', () => {
     const record = certificationRecords['fair-folk'];
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
-    expect(record.catalog.promotedEntries).toBe(0);
+    // 88 = 13 Backgrounds (fairFolkBackgrounds) + 75 shared Merits/Flaws
+    // catalog entries now carrying 'fair-folk' in appliesTo (73 inventoried
+    // pg-merit-*/pg-flaw-* rows resolving one-for-one, except the two dual
+    // merit/flaw split pairs -- mutation-merit/mutation-flaw and
+    // favor-merit/favor-flaw -- each counted twice at the catalog-entry
+    // level). This is far short of the 279 preliminary `promotableEntries`
+    // estimate (flagged as approximate pending this family's own Charm/
+    // Grace/Bedlam catalog phases), and the catalog checksum stays empty:
+    // neither Backgrounds (which live in `definitions.ts`) nor Merits/
+    // Flaws (a subset of the shared `dragonblooded-merits-flaws.json`)
+    // live in a `fair-folk-`-prefixed catalog file this audit script's
+    // glob would hash, exactly matching Alchemical's own Phase 1a
+    // precedent (checksum stayed empty until its later Phase 1b added a
+    // real `alchemical-`-prefixed file).
+    expect(record.catalog.promotedEntries).toBe(88);
+    expect(record.catalog.checksum).toBe('');
     expect(isFamilyAvailable('fair-folk')).toBe(false);
   });
 

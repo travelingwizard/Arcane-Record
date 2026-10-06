@@ -6,6 +6,7 @@ import {
   dragonBloodedTraitIds,
   dragonBloodedTraits,
   excludedDragonBloodedTraitNames,
+  fairFolkOnlyTraits,
   getDragonBloodedTraitCostPolicy,
   getSharedTraitCostPolicy,
   isLegalDragonBloodedTraitCost,
@@ -371,5 +372,84 @@ describe('alchemicalOnlyTraits (shared catalog subset for Alchemical)', () => {
       options: [1, 2, 3, 4, 5],
     });
     expect(isLegalSharedTraitCost(destiny, 5, 'alchemical')).toBe(true);
+  });
+});
+
+describe('fairFolkOnlyTraits (shared catalog subset for Fair Folk)', () => {
+  it('includes only entries whose appliesTo covers Fair Folk', () => {
+    expect(fairFolkOnlyTraits.length).toBeGreaterThan(0);
+    for (const definition of fairFolkOnlyTraits) {
+      expect(definition.appliesTo).toContain('fair-folk');
+    }
+  });
+
+  it('has 75 entries, matching Fair Folk Phase 1a promotion (73 inventoried rows, with the Mutation and Favor dual merit/flaw pairs each counted twice)', () => {
+    expect(fairFolkOnlyTraits).toHaveLength(75);
+    expect(
+      fairFolkOnlyTraits.filter(({ kind }) => kind === 'merit'),
+    ).toHaveLength(36);
+    expect(
+      fairFolkOnlyTraits.filter(({ kind }) => kind === 'flaw'),
+    ).toHaveLength(39);
+  });
+
+  it('includes both dual merit/flaw split pairs (Mutation and Favor)', () => {
+    const fairFolkOnlyIds = new Set(fairFolkOnlyTraits.map(({ id }) => id));
+    for (const id of [
+      'mutation-merit',
+      'mutation-flaw',
+      'favor-merit',
+      'favor-flaw',
+    ]) {
+      expect(fairFolkOnlyIds.has(id)).toBe(true);
+    }
+  });
+
+  it('creates no wholly new Fair-Folk-only entries (every row maps onto an existing shared entry)', () => {
+    for (const definition of fairFolkOnlyTraits) {
+      expect(definition.appliesTo.length).toBeGreaterThan(1);
+    }
+  });
+
+  it('includes Prodigy by analogy to Dragon-Blooded/Sidereal (unlike Alchemical, which excludes it)', () => {
+    const prodigy = dragonBloodedTraitById.get('prodigy')!;
+    expect(prodigy.appliesTo).toContain('fair-folk');
+    expect(prodigy.appliesTo).not.toContain('alchemical');
+  });
+
+  it('excludes entries that do not apply to Fair Folk (the 15 Celestial-Exalted/blood-lineage/Sorcery-gated names, 17 catalog entries after the Eternal Vow/Greater Curse splits)', () => {
+    for (const id of [
+      'terrestrial-bloodline-sidereal',
+      'past-lives',
+      'sworn-brotherhood',
+      'taints-warning',
+      'legendary-breeding',
+      'eternal-vow-merit',
+      'eternal-vow-flaw',
+      'brigids-heir',
+      'limited-forms',
+      'known-anathema-sidereal',
+      'chimera',
+      'permanent-caste-mark',
+      'greater-curse-lunar',
+      'greater-curse-sidereal',
+      'beacon-of-power',
+      'death-taint',
+      'throwback',
+    ]) {
+      expect(
+        fairFolkOnlyTraits.some((definition) => definition.id === id),
+      ).toBe(false);
+    }
+  });
+
+  it('uses the shared Dragon-Blooded-derived 1-5 point range for Destiny, with no Fair-Folk-specific override (unlike Abyssal/Sidereal)', () => {
+    const destiny = dragonBloodedTraitById.get('destiny')!;
+    expect(destiny.appliesTo).toContain('fair-folk');
+    expect(getSharedTraitCostPolicy(destiny, 'fair-folk')).toEqual({
+      kind: 'options',
+      options: [1, 2, 3, 4, 5],
+    });
+    expect(isLegalSharedTraitCost(destiny, 5, 'fair-folk')).toBe(true);
   });
 });

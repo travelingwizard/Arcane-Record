@@ -196,7 +196,7 @@ real, creatable sheet.
 | Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 505 of 505 promotable (catalog dimension complete, Phase 1e)                                                                                               | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
 | Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 383 of 383 promotable (catalog dimension complete, `sidereal_unreviewed_spells` follow-up)                                                                 | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
 | Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 214 of 214 promotable (catalog dimension complete: Backgrounds + Merits/Flaws, Phase 1a; Charms, Phase 1b; Weaving Protocols + Alchemy Formulae, Phase 1c) | Locked, all dimensions `not-run`                                                                                                       |
-| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 365            | 0                                                                                                                                                          | Locked, all dimensions `not-run`                                                                                                       |
+| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 365            | 88 of 279 promotable (Backgrounds + Merits/Flaws, Phase 1a)                                                                                                | Locked, all dimensions `not-run`                                                                                                       |
 
 Lunar's 582 rows cover the core innate powers, every Charm category in
 Chapter Five (Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat
@@ -1628,6 +1628,97 @@ guard) plus a new 8-test `tests/integration/alchemical-installation-panel.test.t
 exercising the extracted panel directly. Alchemical remains locked exactly
 as before: `certifiedAt` stays null, and Phase 6's all-five-families-
 together rule still prohibits adding Alchemical to `definition.tsx`'s
+`variants` list on its own.
+
+Fair Folk's Phase 1a (Backgrounds plus Merits/Flaws catalog promotion)
+mirrors Lunar/Abyssal/Sidereal/Alchemical's own starting phase exactly.
+Unlike those four families, `'fair-folk'` was already a legal,
+schema-validated stored `sheetType` before this phase -- it was added
+when this project's five-family schema foundation was first scaffolded,
+rather than by any later per-family promotion phase, so this phase did
+not need to touch `exaltedCharacterTypes`. `fairFolkBackgrounds` in
+`definitions.ts` (13 ids) resolves the inventory's own determination:
+five wholly new ids (Birth, Freehold, Gossamer, Retinue, Style, from
+Chapter Four's "New Backgrounds" section); six altered shared ids kept
+with raksha-specific mechanics (Artifact, Familiar, Manse, Backing,
+Contacts, Influence -- the last three explicitly described as rare but
+not excluded, scoped only to standing among mortals in Creation rather
+than among the Fair Folk themselves); and two unaltered shared ids,
+Allies and Mentor, **included** rather than held back, since the Common
+Raksha Character Creation summary affirmatively names "a dot of Allies,
+Contacts or Mentor" as a real option a commoner's zero free Background
+dots make hard-won -- the same kind of textual confirmation Lunar's own
+Background section relies on, unlike Alchemical's silence-based exclusion
+of the same three ids. Followers and Resources are excluded outright per
+the source's own "Raksha do not use these Backgrounds" instruction.
+`backgroundIdsBySheetType['fair-folk']` in `schema.ts` now resolves to
+this real 13-entry set (was an empty placeholder).
+
+For Merits/Flaws, `dragonblooded-merits-flaws.ts`'s `appliesTo` enum was
+widened to include `'fair-folk'`, added to 75 shared catalog entries (73
+inventoried `pg-merit-*`/`pg-flaw-*` rows resolving one-for-one, except
+the two dual merit/flaw split pairs -- `mutation-merit`/`mutation-flaw`
+and `favor-merit`/`favor-flaw` -- each counted twice at the catalog-entry
+level); a new `fairFolkOnlyTraits` export mirrors `alchemicalOnlyTraits`.
+No new Fair-Folk-only entries or `sharedCostOverrides` were needed -- every
+applicable row keeps its underlying shared cost unchanged, confirmed
+directly for Destiny (the source's "Destiny and Exaltation" sidebar caps
+only Celestial/Abyssal/Infernal Exaltation, a process raksha never
+undergo, so Destiny correctly falls through to the uncapped 1-5 shared
+range). Several included rows required reinterpretation for a raksha's
+own non-Exalted framework, each judgment call documented verbatim in that
+row's own `notes` field in the Fair Folk inventory rather than duplicated
+into the shared catalog file (matching Alchemical's own precedent): Large
+Size/Small keyed to the universal Assumption-type shapeshifting Charm
+tree instead of Lunar forms; Cache/Debt keyed to the Gossamer
+Background's own documented "effective Resources" dot table instead of
+the excluded Resources Background; Vice/Callous cross-referenced to
+Bedlam (this splat's Limit-Trait analog) instead of the Great Curse;
+Unskilled's floor reframed around Caste Abilities instead of Favored
+Abilities; Prodigy included by analogy to Dragon-Blooded/Sidereal (whose
+Caste/Favored Ability structure closely parallels a raksha's own) despite
+being excluded for Solar/Abyssal/Lunar by name and for Alchemical by a
+separate, Attribute-favoring rationale; Destiny/Dark Fate/Unbidden Oracle
+included as selectable despite a flagged Loom-of-Fate conceptual tension,
+since raksha are canonically native to the Wyld outside Creation's Loom
+of Fate and the source text itself states no eligibility restriction; and
+Mutation/Weak Essence flagged as unusually strong, barely-adapted fits,
+since raksha are literally Wyld-stuff given shape and every raksha starts
+at Essence 2 exactly as Weak Essence's own "other magical beings" clause
+requires.
+
+`promotedEntries` grew from 0 to 88 (13 Backgrounds + 75 Merits/Flaws);
+`checksum` stays empty, matching Alchemical's own Phase 1a precedent
+exactly -- neither Backgrounds (which live in `definitions.ts`) nor
+Merits/Flaws (a subset of the shared `dragonblooded-merits-flaws.json`)
+live in a `fair-folk-`-prefixed catalog file this project's
+`scripts/audit-exalted-sources.mjs` glob would hash; the checksum will
+only become non-empty once a future phase adds a real `fair-folk-*.json`
+catalog file (e.g. Charms or Graces). Fair Folk's Charms/spells remain
+correctly rejected via the existing placeholder branches in `schema.ts`'s
+`powers.spells`/`charmIdsBySheetType` (out of scope this phase).
+
+**Correction to this document's and the certification record's prior
+framing:** `Exalted1eEditor.tsx`'s shared `ExaltedFamilyStatePanel.tsx`
+component already renders a basic Fair Folk Graces/Active-Assumption/
+Feeding-Notes/Oaths panel unconditionally for any Fair-Folk-typed
+character record (the implicit final branch of that component's
+`sheetType` switch, predating this phase) -- "unreachable through the
+character-creation UI" is and was only ever true for _creating_ a
+brand-new Fair Folk record via `definition.tsx`'s `variants` list, never
+for _editing_ one that already exists, exactly the same nuance already
+corrected for Alchemical above.
+
+Full verification passed: typecheck, lint, format check, the full
+unit+integration suite (including a new 48-test
+`exalted1e-fair-folk.test.ts` and the extended
+`dragonblooded-merits-flaws-catalog.test.ts`), the Exalted e2e smoke
+specs, `audit:exalted-sources` (0 issues; its own narrower promoted-row
+count stays 0 for Fair Folk, matching Alchemical's own Phase 1a -- neither
+family's Backgrounds/Merits-Flaws promotion lives in a file-glob-scanned
+catalog file), and a production build. Fair Folk remains locked exactly
+as before: `certifiedAt` stays null, and Phase 6's all-five-families-
+together rule still prohibits adding Fair Folk to `definition.tsx`'s
 `variants` list on its own.
 
 ## Next steps (require source material per book)

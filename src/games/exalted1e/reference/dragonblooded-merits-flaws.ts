@@ -38,6 +38,7 @@ export const exaltedTraitDefinitionSchema = z.object({
         'sidereal',
         'lunar',
         'alchemical',
+        'fair-folk',
       ]),
     )
     .min(1),
@@ -47,12 +48,15 @@ export const exaltedTraitDefinitionSchema = z.object({
 
 /**
  * Every entry in this shared catalog must apply to at least one of the
- * four splats that currently draw from it (Dragon-Blooded, Abyssal,
- * Sidereal, or Lunar). A handful of entries apply only to one splat (e.g.
- * Death-Taint for Abyssal; Chimera and Limited Forms for Lunar; Greater
- * Curse (Sidereal) for Sidereal), because the source chapter explicitly
- * restricts them away from Dragon-Blooded (and, for the splat-exclusive
- * entries, away from every other drawing splat too).
+ * six splats that currently draw from it (Dragon-Blooded, Abyssal,
+ * Sidereal, Lunar, Alchemical, or Fair Folk). A handful of entries apply
+ * only to one splat (e.g. Death-Taint for Abyssal; Chimera and Limited
+ * Forms for Lunar; Greater Curse (Sidereal) for Sidereal), because the
+ * source chapter explicitly restricts them away from Dragon-Blooded (and,
+ * for the splat-exclusive entries, away from every other drawing splat
+ * too). No entry is Alchemical- or Fair-Folk-exclusive today -- both
+ * families' own promotion phases found every applicable row maps onto an
+ * entry at least one other splat already shares.
  */
 export const dragonBloodedTraitDefinitionSchema =
   exaltedTraitDefinitionSchema.refine(
@@ -60,10 +64,12 @@ export const dragonBloodedTraitDefinitionSchema =
       definition.appliesTo.includes('dragon-blooded') ||
       definition.appliesTo.includes('abyssal') ||
       definition.appliesTo.includes('sidereal') ||
-      definition.appliesTo.includes('lunar'),
+      definition.appliesTo.includes('lunar') ||
+      definition.appliesTo.includes('alchemical') ||
+      definition.appliesTo.includes('fair-folk'),
     {
       message:
-        'Shared catalog definitions must apply to Dragon-Blooded, Abyssal, Sidereal, or Lunar.',
+        'Shared catalog definitions must apply to Dragon-Blooded, Abyssal, Sidereal, Lunar, Alchemical, or Fair Folk.',
     },
   );
 
@@ -77,8 +83,9 @@ const excludedTraitSchema = z.object({
  * This catalog originally covered only Dragon-Blooded (`characterType:
  * 'dragon-blooded'`), but it is the transcription of the Exalted Player's
  * Guide's universal Merits & Flaws chapter, which several splats draw from
- * via the per-entry `appliesTo` field. Abyssal and Sidereal now share it
- * too, so `characterType` is `'shared'` to reflect that honestly; the
+ * via the per-entry `appliesTo` field. Abyssal, Sidereal, Lunar,
+ * Alchemical, and Fair Folk now all share it too, so `characterType` is
+ * `'shared'` to reflect that honestly; the
  * literal is kept (rather than dropped) so a future accidental revert to a
  * single-splat-only file would fail loudly.
  */
@@ -205,6 +212,31 @@ export const lunarOnlyTraits = dragonBloodedTraits.filter((definition) =>
  */
 export const alchemicalOnlyTraits = dragonBloodedTraits.filter((definition) =>
   definition.appliesTo.includes('alchemical'),
+);
+
+/**
+ * The subset of this shared catalog that actually applies to Fair Folk
+ * (raksha) characters, mirroring `alchemicalOnlyTraits` exactly. Fair
+ * Folk's own Phase 1a promotion created no wholly new Fair-Folk-only
+ * entries either -- every one of the 73 applicable `pg-merit-*`/
+ * `pg-flaw-*` inventory rows (37 merits + 36 flaws) maps onto an existing
+ * entry already shared by at least one other splat, including the two
+ * dual merit/flaw split pairs (`mutation-merit`/`mutation-flaw`,
+ * `favor-merit`/`favor-flaw`). Several included entries required
+ * reinterpretation for a raksha's own non-Exalted framework rather than a
+ * simple re-citation -- Large Size/Small keyed to Assumption-type
+ * shapeshifting Charms instead of Lunar forms; Cache/Debt keyed to the
+ * Gossamer Background instead of Resources (which raksha exclude
+ * entirely); Vice/Callous cross-referenced to Bedlam instead of the Great
+ * Curse; Unskilled's floor reframed around Caste Abilities instead of
+ * Favored Abilities -- each judgment call documented verbatim in that
+ * row's own `notes` field in the Fair Folk inventory (not duplicated into
+ * this shared catalog file, matching Alchemical's own precedent of
+ * keeping splat-specific adaptation prose in each family's own inventory
+ * rather than this shared file).
+ */
+export const fairFolkOnlyTraits = dragonBloodedTraits.filter((definition) =>
+  definition.appliesTo.includes('fair-folk'),
 );
 export const excludedDragonBloodedTraitNames = new Set(
   dragonBloodedTraitCatalog.excludedForDragonBlooded.map(({ name }) => name),
@@ -387,16 +419,15 @@ const sharedCostOverrides: Record<
 export function isLegalSharedTraitCost(
   definition: DragonBloodedTraitDefinition,
   chosenCost: number,
-  // Widened to every non-Solar `ExaltedSheetType` (not just the five that
-  // actually draw from this shared catalog today) so callers in
-  // `schema.ts` can pass `character.sheetType` directly after that widened
-  // to seven planned families. Fair Folk never reaches the
-  // `sharedCostOverrides` branch below in practice, since `appliesTo`
-  // never includes it yet and `schema.ts` only calls this once a matching
-  // `definition` has already been found for the sheet type. Alchemical does
-  // appear in `appliesTo` (Phase 1a), but always falls through to the base
+  // Widened to every non-Solar `ExaltedSheetType` (not just the three that
+  // have a `sharedCostOverrides` entry) so callers in `schema.ts` can pass
+  // `character.sheetType` directly after that widened to seven planned
+  // families. Alchemical and Fair Folk both appear in `appliesTo` (Phase
+  // 1a for each), but both always fall through to the base
   // Dragon-Blooded-derived cost below, since no entry has an
-  // Alchemical-specific override.
+  // Alchemical- or Fair-Folk-specific override: each family's own
+  // inventory cross-check found every applicable row keeps the shared
+  // cost range unchanged.
   sheetType: Exclude<ExaltedSheetType, 'solar'>,
 ) {
   if (!Number.isInteger(chosenCost)) return false;

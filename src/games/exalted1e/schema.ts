@@ -8,6 +8,7 @@ import {
   exaltedSectionGroupIds,
   exaltedSheetTypes,
   exaltedVirtues,
+  fairFolkBackgrounds,
   lunarBackgrounds,
   siderealBackgrounds,
   solarBackgrounds,
@@ -122,17 +123,20 @@ const lunarBackgroundIds = new Set<string>(
 const alchemicalBackgroundIds = new Set<string>(
   alchemicalBackgrounds.map((background) => background.id),
 );
+const fairFolkBackgroundIds = new Set<string>(
+  fairFolkBackgrounds.map((background) => background.id),
+);
 /**
  * Every `ExaltedSheetType` (now all seven planned families, since
  * `exaltedSheetTypes` widened to re-export `exaltedCharacterTypes` from
- * `profiles.ts`) gets a real, explicit entry here -- an empty `Set()` for
- * Fair Folk, which has no promoted Backgrounds catalog yet, rather than a
- * `null`/unrestricted fallback. This keeps the `superRefine` check below
- * correctly rejecting any Background selection for that family, instead of
- * silently accepting arbitrary strings, matching the same
- * explicit-empty-set precedent already used for `charmIdsBySheetType`.
- * Lunar (Phase 1a) and Alchemical (Phase 1a) now each have a real promoted
- * Backgrounds catalog.
+ * `profiles.ts`) gets a real, explicit entry here -- an empty `Set()`
+ * only for a family with no promoted Backgrounds catalog yet (none,
+ * currently), rather than a `null`/unrestricted fallback. This keeps the
+ * `superRefine` check below correctly rejecting any Background selection
+ * for that family, instead of silently accepting arbitrary strings,
+ * matching the same explicit-empty-set precedent already used for
+ * `charmIdsBySheetType`. Lunar, Abyssal, Sidereal, Alchemical, and now
+ * Fair Folk (Phase 1a) each have a real promoted Backgrounds catalog.
  */
 const backgroundIdsBySheetType: Record<ExaltedSheetType, Set<string>> = {
   solar: solarBackgroundIds,
@@ -141,7 +145,7 @@ const backgroundIdsBySheetType: Record<ExaltedSheetType, Set<string>> = {
   sidereal: siderealBackgroundIds,
   lunar: lunarBackgroundIds,
   alchemical: alchemicalBackgroundIds,
-  'fair-folk': new Set<string>(),
+  'fair-folk': fairFolkBackgroundIds,
 };
 
 /** Human-readable label used in validation messages for each sheet type. */
@@ -776,13 +780,14 @@ export const exalted1eCharacterSchema = z
       const definitionCounts = new Map<string, number>();
       selections.forEach((selection, index) => {
         // Solar has its own dedicated catalog; every other sheet type
-        // (Dragon-Blooded, Abyssal, Sidereal, Lunar, Alchemical today; Fair
-        // Folk once/if it ever draws from this catalog) looks up the shared
-        // catalog (`sharedTraitById`), gated by each entry's own
-        // `appliesTo` list. No early-return for unimplemented families is
-        // needed here: `appliesTo` simply never includes them yet, so the
-        // lookup below naturally rejects any selection for those sheet
-        // types as an unknown definition.
+        // (Dragon-Blooded, Abyssal, Sidereal, Lunar, Alchemical, and now
+        // Fair Folk -- Phase 1a) looks up the shared catalog
+        // (`sharedTraitById`), gated by each entry's own `appliesTo`
+        // list. No early-return for unimplemented families is needed
+        // here: `appliesTo` simply never includes a family until its own
+        // promotion phase adds it, so the lookup below naturally rejects
+        // any selection for a not-yet-promoted sheet type as an unknown
+        // definition.
         const definition =
           character.sheetType === 'solar'
             ? solarTraitById.get(selection.definitionId)
@@ -791,11 +796,10 @@ export const exalted1eCharacterSchema = z
           definition !== undefined &&
           // `appliesTo` is typed over the narrower set of sheet types this
           // shared catalog actually covers (solar/dragon-blooded/abyssal/
-          // sidereal/lunar/alchemical); widened to a plain string
-          // comparison so this compiles against the full seven-member
-          // `ExaltedSheetType` without narrowing `character.sheetType`
-          // first. Fair Folk simply never appears in any entry's
-          // `appliesTo`, so this naturally evaluates to `false` for it.
+          // sidereal/lunar/alchemical/fair-folk); widened to a plain
+          // string comparison so this compiles against the full
+          // seven-member `ExaltedSheetType` without narrowing
+          // `character.sheetType` first.
           (definition.appliesTo as readonly string[]).includes(
             character.sheetType,
           );

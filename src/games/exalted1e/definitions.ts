@@ -14,9 +14,11 @@ export const EXALTED1E_SCHEMA_VERSION = 12 as const;
  * families, and `schema.ts`'s per-family Background/Charm/Merit-Flaw/Spell
  * validation only actually accepts real selections for the families with a
  * promoted catalog (today: Solar, Dragon-Blooded, Abyssal, Sidereal, Lunar,
- * Alchemical for Backgrounds/Merits-Flaws; Abyssal, Sidereal, Lunar, and
- * Alchemical for Charms/spells) -- every other combination is explicitly
- * rejected, never
+ * Alchemical, and -- as of Fair Folk Phase 1a -- Fair Folk itself, all for
+ * Backgrounds/Merits-Flaws; Abyssal, Sidereal, Lunar, and Alchemical only
+ * for Charms/spells, since Fair Folk's own Grace Charm trees remain
+ * unpromoted and fall through to an explicit rejection placeholder) --
+ * every other combination is explicitly rejected, never
  * silently unrestricted. See `plannedExaltedFamilies` below and
  * `src/games/exalted1e/verification.ts` for the family-level release gate
  * that keeps all five locked in the UI until they each separately earn it.
@@ -528,13 +530,61 @@ export const alchemicalBackgrounds = [
   { id: 'vats', label: 'Vats' },
 ] as const;
 
+/**
+ * Backgrounds available to Fair Folk (raksha) characters. Exalted: The
+ * Fair Folk's Chapter Four ('Expanded Backgrounds'/'New Backgrounds', see
+ * `docs/references/exalted1e/fair-folk/inventory/exalted-the-fair-folk.json`)
+ * adds five wholly new ids -- Birth (free starting Charms by quality of
+ * Wyld genesis), Freehold (access to a raksha enclave's bonefire and
+ * Cysts), Gossamer (a raksha's wealth/influence rating, explicitly
+ * replacing Resources), Retinue (bound common-raksha servants, explicitly
+ * replacing Followers), and Style (a self-awarded stunt-die pool) -- and
+ * explicitly alters six reused shared ids for this family's non-Exalted,
+ * Wyld-native nature: Artifact (raksha rarely hold Magical-Material
+ * artifacts, instead questing for or self-forging glamour spells,
+ * behemoths, adjurations and Ring-shaping tools), Familiar (scraps of
+ * dream -- poppets, manikins, homunculi -- rather than living animals),
+ * Manse (raksha cannot build Manses but can own/attune to existing ones in
+ * Creation, with a carried Hearthstone's own listed power inert to them),
+ * and Backing/Contacts/Influence (kept but explicitly rare, and scoped
+ * only to standing among mortals in Creation, never among the Fair Folk
+ * themselves -- contrast the new Freehold/Gossamer/Retinue ids, which play
+ * that role within Rakshastan). Followers and Resources are explicitly
+ * EXCLUDED outright, not merely altered -- the source states plainly
+ * "Raksha do not use these Backgrounds" -- see
+ * `followers-and-resources-excluded-fair-folk` in the inventory. Allies and
+ * Mentor are INCLUDED, unaltered: unlike Alchemical's own Background
+ * section (silent on these three ids in either direction), the Common
+ * Raksha Character Creation summary explicitly lists "a dot of Allies,
+ * Contacts or Mentor" among the Background options a commoner's zero free
+ * dots make especially hard-won, affirmatively confirming all three remain
+ * available -- the same kind of textual confirmation Lunar's own Background
+ * section already relies on (see `lunarBackgrounds`'s own doc comment).
+ */
+export const fairFolkBackgrounds = [
+  { id: 'allies', label: 'Allies' },
+  { id: 'artifact', label: 'Artifact' },
+  { id: 'backing', label: 'Backing' },
+  { id: 'contacts', label: 'Contacts' },
+  { id: 'familiar', label: 'Familiar' },
+  { id: 'influence', label: 'Influence' },
+  { id: 'manse', label: 'Manse' },
+  { id: 'mentor', label: 'Mentor' },
+  { id: 'birth', label: 'Birth' },
+  { id: 'freehold', label: 'Freehold' },
+  { id: 'gossamer', label: 'Gossamer' },
+  { id: 'retinue', label: 'Retinue' },
+  { id: 'style', label: 'Style' },
+] as const;
+
 export type ExaltedBackgroundId =
   | (typeof solarBackgrounds)[number]['id']
   | (typeof dragonBloodedBackgrounds)[number]['id']
   | (typeof abyssalBackgrounds)[number]['id']
   | (typeof siderealBackgrounds)[number]['id']
   | (typeof lunarBackgrounds)[number]['id']
-  | (typeof alchemicalBackgrounds)[number]['id'];
+  | (typeof alchemicalBackgrounds)[number]['id']
+  | (typeof fairFolkBackgrounds)[number]['id'];
 
 export const abilityById = new Map(
   exaltedAbilities.map((ability) => [ability.id, ability]),

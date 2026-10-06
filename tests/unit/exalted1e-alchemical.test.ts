@@ -309,7 +309,7 @@ describe('Exalted First Edition Alchemical (schema-only; not yet UI-selectable)'
       ).toThrow();
     });
 
-    it('rejects a shared Merit/Flaw selection for a Fair Folk sheet (appliesTo never includes it)', () => {
+    it("rejects a Lunar-only entry (Chimera) for a Fair Folk sheet (appliesTo excludes it; see exalted1e-fair-folk.test.ts for Fair Folk's own 75-entry-applicable coverage)", () => {
       const character = createBlankExaltedCharacter('fair-folk');
       expect(() =>
         exalted1eCharacterSchema.parse({
@@ -319,8 +319,8 @@ describe('Exalted First Edition Alchemical (schema-only; not yet UI-selectable)'
             flaws: [
               {
                 id: crypto.randomUUID(),
-                definitionId: 'addiction',
-                chosenCost: 1,
+                definitionId: 'chimera',
+                chosenCost: 3,
                 choiceLabel: '',
                 notes: '',
               },
