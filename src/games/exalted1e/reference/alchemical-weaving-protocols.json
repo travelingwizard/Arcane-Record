@@ -1,0 +1,1028 @@
+[
+  {
+    "id": "automaton-override-protocol",
+    "name": "Automaton Override Protocol",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A Man-Machine Protocol that lets an Alchemical seize remote control of golems, zombies, and other automata (and low-Essence spirit machines), overriding any prior programming or summoner and directing the targets to act on the weaver's behalf instead.",
+    "description": "The weaver focuses her Essence and speaks a command phrase; a whorl of bright-green arcane symbols flows from her mouth or soulgem into the target automaton, suspending its prior commands. For 5 motes she takes control of one automaton; for 15 motes she may take control of (Essence x 2) automata or technological devices within a 10-yard radius. The protocol can affect golems, zombies, ordinary automata, and items of advanced technology (First Age ships, skyships, weapons), plus spirit machines/mechanical wildlife (such as custodians) whose Essence rating is 2 or less; it has no effect on natural creatures, elementals, or machine spirits of Essence 3 or higher. It can be countered by Emerald Countermagic, by Essence Draining Defense, or by any Alchemical with permanent Essence exceeding the weaver's by 2 or more. Only the invoking Alchemical has override authority; if a higher-Essence Exalt originally summoned the target, the two make a contested Willpower roll to determine who keeps control, with control-wresting potentially stranding a rider inside the automaton if it was a piloted vehicle such as a summoned warstrider.",
+    "cost": "1 Willpower (per the Man-Machine Protocols framing) plus 5 or 15 motes.",
+    "minimumClarity": 3,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 147,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 147",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "binding-filament-system",
+    "name": "Binding Filament System",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A Man-Machine Protocol (also known by the alternate name Her Glistening Silvery Strands) that instantly wraps a target in extraordinarily tough silvery metallic filament, restraining them indefinitely unless they tear free at a painful cost.",
+    "description": "On completion, the target is wrapped in fine strands of silvery filament. A very strong individual can attempt to break free as a feat of strength requiring a Strength + Athletics total of 10, but doing so causes the strands to act as garrotes, inflicting lethal damage equal to the weaver's Essence (soakable) on the escapee.",
+    "cost": "1 Willpower plus 10 motes.",
+    "minimumClarity": 0,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 147,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 147",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "crystal-lotus-of-repose",
+    "name": "Crystal Lotus of Repose",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A Man-Machine Protocol that traps a target in a crystalline, lotus-flower-shaped protective containment; the book states it is otherwise identical to the Terrestrial Circle sorcery spell Sleep of Stony Safety.",
+    "description": "Except for its crystal, lotus-flower-shaped containment (rather than stone), this protocol's effect is identical to the sorcery spell Sleep of Stony Safety (Savant & Sorcerer, p. 117) - an external supplement outside this inventory's scope.",
+    "cost": "1 Willpower (cost/target/duration otherwise as Sleep of Stony Safety, not independently restated here).",
+    "minimumClarity": 2,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": "sleep-of-stony-safety",
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 147,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 147",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "docility-assurance-field",
+    "name": "Docility Assurance Field",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A Man-Machine Protocol that binds a target in a mesh of luminous filaments which does not impede movement but inflicts damage on the target every time they spend Essence, for the duration of a scene or hour.",
+    "description": "The target is bound in a shifting mesh of light that in no way impairs mobility, but any time the target spends Essence, they take damage: the weaver chooses at the time of weaving either one bashing health level per mote spent or one lethal health level per 2 motes spent (a single mote spent alone causes no damage under the lethal option). This damage can only be soaked with the target's Essence rating. The field does not interfere with non-Essence activities or with Essence already committed before the field was woven. This protocol cannot target a being of greater Essence than the weaver.",
+    "cost": "1 Willpower plus 25 motes.",
+    "minimumClarity": 0,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 147,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 147",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "driving-the-shadow-machine",
+    "name": "Driving the Shadow Machine",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A Man-Machine Protocol that conjures a silent, perfectly camouflaging flying vehicle of roiling shadow (a 'tenebrapede') that the weaver and companions can ride at high speed, well-protected from attacks and the elements.",
+    "description": "The protocol brings into being an incorporeal, Essence-and-light-feeding pocket of shadow that can carry 200 pounds of cargo/passengers per point of the weaver's permanent Essence. It is perfectly silent, goes wherever the Alchemical wills, offers a fully clear 180-degree view from within (while appearing as darkness from outside), and flies at 200 mph (nearly 600 yards/turn). It has 25 health levels and a soak of 25L/35B, provides 90% hard cover to riders, and only a single attack can be made against it or its occupants per turn unless the attacker matches its flight speed; attacking out from it is similarly restricted. It protects occupants/cargo from all but the most extreme climates. If its travel time elapses before reaching the destination, it lands at the nearest city or safe area and gives one minute to unload before fading; otherwise it persists until reaching its destination, being landed early, or being dispelled.",
+    "cost": "1 Willpower plus 20 motes.",
+    "minimumClarity": 2,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 148,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 148",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "elsewhere-evoking-asana",
+    "name": "Elsewhere-Evoking Asana",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A Man-Machine Protocol requiring a seated meditative posture that manifests a sphere of the great Void surrounding the weaver: an airless, gravity-free, fire-snuffing, extremely cold defensive field that also serves as a form of spiritual communion with Autochthon's exile.",
+    "description": "While maintained, the weaver is surrounded by a sphere of cold, airless void with radius (Essence x 5) feet. All fire is snuffed, air-breathers inside suffocate, visibility is as heavy snow at night, and damage from the cold equals standing in a bonfire. There is no up or down inside the field; characters need three or more successes on a Dexterity + Athletics roll to propel themselves through it, and once moving they float until they exit (then fall) or fail to muster enough coordination to move at all. Objects/attacks entering the sphere lose all momentum instantly. The weaver, maintaining the posture, floats at the center immune to all the field's effects except the visibility penalty, and regains Essence as though meditating. Ending the posture ends the protocol instantly.",
+    "cost": "1 Willpower plus 20 motes.",
+    "minimumClarity": 5,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 148,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 148-149",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "entropy-manipulation-protocol",
+    "name": "Entropy Manipulation Protocol",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A Man-Machine Protocol favored by Alchemicals venturing into the gremlin-infested Far Reaches: it temporarily knocks all nearby automata offline, dealing damage and forcing them inert for the rest of the scene.",
+    "description": "All gremlins, golems, zombies, and other automata within (Essence x 10) yards take the weaver's Essence in bashing damage and fall inert; at the start of the next scene they resume functioning, though they may be confused about their situation and may not necessarily resume their prior task. The protocol does not shut down warstriders or other powered armor outright, but deadens unshielded limbs: it imposes a -2 mobility penalty on Artifact ••• armor, reduced by 1 for each additional Artifact dot, so Artifact ••••• armor is unaffected.",
+    "cost": "1 Willpower plus 25 motes.",
+    "minimumClarity": 4,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 149,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 149",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "essence-reallocation-protocol",
+    "name": "Essence Reallocation Protocol",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A reflexive Man-Machine Protocol, functionally an Alchemical counterpart to Emerald Countermagic, that counters an incoming Terrestrial Circle Sorcery spell, Man-Machine Protocol, or Shadowlands Circle Necromancy effect and siphons the cancelled effect's Essence into the weaver's own reservoir.",
+    "description": "As a reflexive protocol, it counters a single incoming Terrestrial Circle Sorcery spell, Man-Machine Protocol, or Shadowlands Circle Necromancy effect, absorbing all of the Essence out of the cancelled effect and channeling it into the weaver's own Essence pool. If the absorbed Essence would push the weaver over her maximum, her metal Charms flare and spark for a moment as they shunt away the excess.",
+    "cost": "1 Willpower plus 25 motes.",
+    "minimumClarity": 0,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 149,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 149-150",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "lightning-elemental-concatenation-protocol",
+    "name": "Lightning Elemental Concatenation Protocol",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A Man-Machine Protocol the book states is identical to the Creation sorcery spell Lightning Spider, suspected to have been given to Creation's sorcerers by Autochthon himself.",
+    "description": "Identical in effect to the sorcery spell Lightning Spider (an external Exalted core/supplement spell not itself inventoried here).",
+    "cost": "1 Willpower (cost/target/duration otherwise as Lightning Spider, not independently restated here).",
+    "minimumClarity": 0,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": "lightning-spider",
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 150,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 150",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "the-makers-basic-defense-array",
+    "name": "The Maker's Basic Defense Array",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A Man-Machine Protocol that surrounds the weaver with hundreds of whirling polished metal spheres forming a shape-changing defensive sphere, functioning as armor that knocks aside incoming blows and can shatter ordinary weapons.",
+    "description": "The sphere moves with the weaver and can reshape to fit tight spaces. It has an effective hardness of 5 and adds 10L/10B to the weaver's soak. Any weapon not made of the Magical Materials that strikes the array is checked against a single die roll each time: normal weapons shatter on a roll of 7 or less, exceptional weapons on 5 or less, while perfect weapons are immune. Even undamaged, the attacker's player must make a Dexterity + Melee roll (difficulty 2) to avoid having the weapon knocked from their grasp. Unarmed attackers instead suffer 10 dice of soakable bashing damage.",
+    "cost": "1 Willpower plus 20 motes.",
+    "minimumClarity": 3,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 150,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 150",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "the-makers-instantaneous-forge",
+    "name": "The Maker's Instantaneous Forge",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A Man-Machine Protocol, distantly related to the effect that animates Alchemicals themselves, that conjures a shell out of the ground and binds an Autochthonian elemental into it, creating a temporary automaton servant (a 'golem') that serves the weaver faithfully for a limited time.",
+    "description": "Casting this protocol causes a golem's shell to appear from the ground; the weaver's power binds an Autochthonian elemental (assigned by the Divine Ministers) into the shell to animate it, and while bound the elemental has no will of its own and performs only the weaver's will. The resulting golem's Traits, appearance, and two unique Charms depend on the type of elemental bound (crystal, lightning, metal, oil, or smoke - see the six per-element golem stat block rows). Those two golem-specific Charms cannot be learned by Exalts who could otherwise learn Charms outside their native Exaltation. A summoned golem serves for (summoner's Essence) weeks before merging back into the substance of the Maker; a weaver may have as many such golems active at once as she has points of Essence.",
+    "cost": "1 Willpower plus 20 motes.",
+    "minimumClarity": 0,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 150,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 150-151",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "optimized-component-integration-protocol",
+    "name": "Optimized Component Integration Protocol",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A Man-Machine Protocol that turns the weaver and a group of willing participants into a model of perfect cooperative efficiency on a single shared task, granting bonus dice scaling with group size.",
+    "description": "The weaver and all willing participants within a 10-foot radius become models of perfect cooperation and interdependence. So long as they work on one shared task (typically an extended action such as building a device or opening a tunnel), all benefiting members gain one bonus die per additional group member, up to a maximum of (Wits + Essence) individuals worth of bonus dice (e.g., a five-member group grants each member four bonus dice). The protocol ends early if the group finishes the task before the duration expires.",
+    "cost": "1 Willpower plus 5 motes per target.",
+    "minimumClarity": 5,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 153,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 153",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "phlogiston-web",
+    "name": "Phlogiston Web",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A Man-Machine Protocol that expels an enormous net of blazing, sticky solid fire ('phlogiston') from the weaver's body, covering a large area and burning anything caught within it every turn.",
+    "description": "The web covers 100 square feet per point of the weaver's permanent Essence, in dimensions of the sorcerer's choosing (e.g., an Essence-4 weaver could make a 20'x20' or 10'x40' web). It inflicts (weaver's Essence + 4) lethal health levels per turn to anything caught in it. Cutting free requires a weapon of the Magical Materials and four successes on a Strength + Melee roll; breaking free by pure strength requires a Strength + Athletics roll at difficulty 5. Characters immune to fire take no damage from the protocol.",
+    "cost": "1 Willpower plus 15 motes.",
+    "minimumClarity": 0,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 154,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 154",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "plague-of-bronze-snakes",
+    "name": "Plague of Bronze Snakes",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A Man-Machine Protocol identical to a Savant & Sorcerer spell of the same underlying effect, except that the snakes wriggle out of the Alchemical sorcerer's own body when the protocol is woven.",
+    "description": "Except for the snakes emerging from the weaver's own body rather than however the sorcery version manifests them, this protocol is the same as the spell found on p. 112 of Savant and Sorcerer (an external supplement not inventoried here).",
+    "cost": "1 Willpower (cost/target/duration otherwise as the Savant & Sorcerer spell, not independently restated here).",
+    "minimumClarity": 0,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": "plague-of-bronze-snakes",
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 154,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 154-155",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "probability-degradation-matrix",
+    "name": "Probability Degradation Matrix",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A Man-Machine Protocol that turns fate itself against a group of enemies, saturating the area with bad luck, driving away weak familiars and hostile spirits, and imposing a lasting penalty on every affected foe's dice rolls.",
+    "description": "Enemy familiars with a Familiar rating below 3 flee the area of effect; hostile spirits with permanent Essence below 2 must succeed on a simple Valor roll or flee as well (fleeing at full movement for two turns per point of the weaver's Essence, not returning until the protocol ends). Allies are unaffected, but for the duration every roll made by an afflicted enemy has its target number increased by one, 10s count as only a single success, and every die that rolls a 1 negates one success.",
+    "cost": "1 Willpower plus 15 motes.",
+    "minimumClarity": 5,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 154,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 154",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "sonic-hammer-vocalization",
+    "name": "Sonic Hammer Vocalization",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A Man-Machine Protocol in which the weaver emits a devastatingly shrill wail that shakes bone, rattles teeth, shatters glass, and drowns out all other sound; otherwise identical to a named Savant & Sorcerer sorcery spell.",
+    "description": "Items of glass or crystal in the area suffer 10 levels of bashing damage, and hearing over the noise is impossible. In all other respects, this protocol is identical to the spell Thunder Wolf's Howl (Savant & Sorcerer, p. 122, an external supplement not inventoried here).",
+    "cost": "1 Willpower plus 12 motes.",
+    "minimumClarity": 0,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": "thunder-wolf-s-howl",
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 154,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 154",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "soul-archiving-protocol",
+    "name": "Soul Archiving Protocol",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A rare, classified Man-Machine Protocol that recaptures a loose ghost's soul into a soulgem when it has escaped after being left too long on its corpse, preserving Autochthon's soul-recycling efficiency; controversial and restricted, requiring high Backing from the Luminors to learn.",
+    "description": "The weaver weaves the protocol while holding out the target soulgem, then makes a contested Willpower + Essence roll against the ghost; if the ghost's will is strong, the weaver may spend 5 motes per additional die added to her pool. A ghost captured this way remains safely in the soulgem with no chance of escape until the death of its next incarnation. The protocol controverts Luminor dogma and is a closely guarded secret; learning it requires Backing of at least 4 from the Luminors.",
+    "cost": "1 Willpower plus 10+ motes.",
+    "minimumClarity": 0,
+    "maximumClarity": null,
+    "requirementsText": "learning requires Backing 4+ from the Luminors",
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 154,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 154-155",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "static-essence-absorption-protocol",
+    "name": "Static Essence Absorption Protocol",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A Man-Machine Protocol used to police excessive Essence build-up in Autochthonia, letting the weaver drain stored or committed Essence out of a Hearthstone, Essence-containing gem, or attuned item and into her own reservoir, temporarily disabling the drained item.",
+    "description": "The weaver drains (Essence x 2) motes of Essence from one device that gathers/stores Essence (a Hearthstone or Essence-containing gem) or from an item with committed Essence (an attuned weapon); the drained Essence flows to the weaver as a glistening tendril. A drained Hearthstone stops working for (6 - Manse rating) hours; drained Essence-containing gems must be recharged, and weapons with committed Essence must be reattuned before their wielder regains attunement benefits. The protocol treats all Essence sources the same (Hearthstone, sorcery/necromancy commitment, etc.) and cannot drain an Essence-user's own Essence pools directly.",
+    "cost": "1 Willpower plus 5 motes.",
+    "minimumClarity": 2,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 155,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 155",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "summon-autochthonian-elemental",
+    "name": "Summon Autochthonian Elemental",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A Man-Machine Protocol that functions exactly like Creation's Terrestrial Circle sorcery spell Summon Elemental, but restricted to the elemental types native to Autochthonia (crystal, lightning, metal, oil, smoke, and steam).",
+    "description": "Identical to Summon Elemental (Exalted core, p. 219), except that only the six Autochthonian elemental types (crystal, lightning, metal, oil, smoke, steam) can be summoned with it. See Exalted: The Autochthonians pp. 173-178 for more on Autochthonian elementals (not yet inventoried).",
+    "cost": "1 Willpower plus 10+ motes.",
+    "minimumClarity": 0,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": "summon-elemental",
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 155,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 155",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "summon-machine-spirit",
+    "name": "Summon Machine Spirit",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A Man-Machine Protocol very similar to Summon Elemental, but calling forth a machine spirit rather than an elemental; large machine spirits often send subroutine spirits to serve in their place rather than answering personally.",
+    "description": "Functions like Summon Elemental (Exalted core, p. 219): the weaver designates the desired machine spirit by any criteria and contests it via the same Willpower contest, but captures a machine spirit instead of an elemental. Machine spirits serving the Great Maker are often dedicated to a single function and dislike multi-tasking, so larger spirits frequently dispatch subroutine spirits in their stead (comparable to how greater elementals delegate, per Savant and Sorcerer p. 75).",
+    "cost": "1 Willpower plus 15+ motes.",
+    "minimumClarity": 0,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 155,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 155-156",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "theoplastic-engineering-protocol",
+    "name": "Theoplastic Engineering Protocol",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A Man-Machine Protocol that lets an Alchemical directly reshape Autochthon's living techno-organic landscape (or, in Creation, ordinary earth and stone) by pointing and willing the material to flow, used for tunneling, terraforming, and pulling ore veins to the surface.",
+    "description": "The weaver points toward the material she wishes to work and it flows to accommodate her will, shifting up to 500 cubic feet of material per turn; groups working in concert can open entire new veins. Used in Creation, it can create trenches, mounds, dikes, berms, reservoirs, or pits in soft earth, or sculpt up to (Essence x 100) square feet of stone; repeated use can build tunnels, bridges, or small islands, and pull ore veins to the surface if they are no more than (Essence x 100) feet down and the weaver knows they are there. It can be used to immure an enemy, though slowly (5 turns), while the target can struggle free with a Strength + Athletics roll at escalating difficulty (base 2, +1 per turn the sorcerer continues shaping). The book speculates, untested, that it might also reshape the Underworld's Labyrinth or Malfeas's landscape, both being Primordial flesh as well.",
+    "cost": "1 Willpower plus 15 motes.",
+    "minimumClarity": 0,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 155,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 155",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "vat-surrogate-reweaving-technique",
+    "name": "Vat Surrogate Reweaving Technique",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "A Man-Machine Protocol that lets an Alchemical instantaneously swap one of her installed Charms for another Charm she has on retainer at the Vats, bypassing the normal downtime or travel needed to visit the Vats in person.",
+    "description": "If the weaver has Charms held on retainer at the Vats (per the Vats Background), this protocol lets her instantaneously exchange one of her currently installed Charms for one of those retained Charms, without needing downtime or a physical visit to the Vats.",
+    "cost": "1 Willpower plus 10 motes.",
+    "minimumClarity": 4,
+    "maximumClarity": null,
+    "requirementsText": "requires the Vats Background with Charms on retainer",
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 155,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 155",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "vision-transmitting-protocol",
+    "name": "Vision Transmitting Protocol",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "man-machine",
+    "summary": "The final catalogued Man-Machine Protocol: the weaver spits forth a growing crystal dodecahedron into which she speaks a message; the crystal functions like the Terrestrial spell Infallible Messenger but also visually transmits the speaker's image and background to the recipient.",
+    "description": "The weaver spits out a fist-sized crystal dodecahedron that grows to about the size of a human head as she finishes shaping the Essence, then speaks her message into it. The protocol otherwise functions exactly like the Terrestrial Circle spell Infallible Messenger (Exalted core, p. 218), except the recipient can also see the speaker's image in the crystal (and may glimpse background events) as well as hear the message.",
+    "cost": "1 Willpower plus 10 motes.",
+    "minimumClarity": 0,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": "infallible-messenger",
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 155,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 155-156",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "auspicious-reformatting-mudra",
+    "name": "Auspicious Reformatting Mudra",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "god-machine",
+    "summary": "A God-Machine Protocol that lets an Alchemical fundamentally reweave an automaton or machine's pattern, assigning it an entirely different destiny: mending it, transforming it into a different device or familiar, or breaking it down entirely.",
+    "description": "With a series of hand gestures, the weaver reweaves a target automaton's pattern. If the weaver's Essence is greater than or equal to the target's, the effect is automatic; otherwise the player makes a contested Essence roll against the machine spirit. This can mend/reactivate a broken machine spirit, transform it into something else entirely (e.g., a gremlin into a custodian, or reduce it to inert parts), or reconfigure a machine spirit with up to half the weaver's Essence (rounded up) into a device with an Artifact rating equal to half the Alchemical's Essence (rounded up), or into an Autochthonian familiar with a rating equal to the weaver's Essence. Transforming one artifact into another of equal power instead requires an Intelligence + Lore roll needing successes equal to the artifact's rating. At Essence 7+, the weaver may reconfigure multiple targets simultaneously for +5 motes per additional target (all within line of sight), though used this way it can only alter automata's programming/behavior rather than rebuild their forms, and no target may have permanent Essence greater than 3.",
+    "cost": "1 Willpower plus (rating affected x 10) motes; +5 motes per additional simultaneous target at Essence 7+.",
+    "minimumClarity": 6,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 156,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 156",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "destiny-optimizing-meditation",
+    "name": "Destiny-Optimizing Meditation",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "god-machine",
+    "summary": "A God-Machine Protocol in which the weaver communes with the Core of the Machine God to discern the optimal path toward her current goal, adding automatic successes to every roll for the protocol's duration.",
+    "description": "For the duration, the weaver adds (Essence rating) automatic successes to every roll she makes.",
+    "cost": "1 Willpower plus 20 motes.",
+    "minimumClarity": 6,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 156,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 156",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "essence-matrix-inversion-procedure",
+    "name": "Essence Matrix Inversion Procedure",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "god-machine",
+    "summary": "A God-Machine Protocol prepared up to a day in advance that makes the weaver's Essence flow matrix highly reflective, turning almost all incoming sorcery, necromancy, protocols, and Essence weapon attacks back on whoever launched them.",
+    "description": "While active, all incoming protocols, sorcery spells, and necromancy effects targeting the sorcerer (or any area of effect including her) - except Solar Circle Sorcery and Void Circle Necromancy - are instantly reflected back at their caster; Essence weapon effects (implosion bows, Essence cannons, etc.) are likewise reflected back at the attacking weapon. A Perception + Investigation roll (difficulty 4) can spot a faint mirage-like ripple around the weaver, and anyone who can see Essence flows notices foot-long quills of blue light radiating from her body.",
+    "cost": "1 Willpower plus 10 motes.",
+    "minimumClarity": 0,
+    "maximumClarity": null,
+    "requirementsText": "must be prepared up to one day in advance",
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 156,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 156",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "executive-filature-protocol",
+    "name": "Executive Filature Protocol",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "god-machine",
+    "summary": "A dark, powerful God-Machine Protocol that unweaves a target being's pattern Trait by Trait, ultimately erasing her from existence entirely and purging all memory of her incarnation; historically used, left deliberately unfinished, to reduce exiles to helpless wrecks before abandoning them in the Reaches.",
+    "description": "The weaver must stay within her Essence in feet of the target and can do nothing else while maintaining the effect; being interrupted terminates it (unwoven Traits are not restored, though the weaver can spend 5 motes per dot to reweave them within a day if the target hasn't faded entirely). The first turn inflicts wracking anxiety and panic on the target; afterward, the target loses one Attribute dot per turn, highest first. Once all Attributes reach 1, the target begins losing health levels, growing progressively transparent; when the final health level is removed, the target fades from the pattern entirely and her soulgem clatters to the ground, purged of all memory of that incarnation. In Creation, souls destroyed this way fall instantly into Lethe. Weavers typically must obtain this protocol from the Divine Ministers or the design weavers themselves.",
+    "cost": "1 Willpower plus 5 motes plus 1 mote per turn maintained.",
+    "minimumClarity": 6,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 156,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 156-157",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "homuncular-drone-deployment",
+    "name": "Homuncular Drone Deployment",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "god-machine",
+    "summary": "A God-Machine Protocol that lets the weaver detach her own forearms and deploy them as flying attack drones, letting her strike targets out of reach at the cost of temporary health levels per drone committed.",
+    "description": "The weaver is down one health level per drone deployed until the limbs return and re-fuse with her body. Drones use the sorcerer's own Traits but gain her Essence rating in Brawl and retain the benefits of brawling aids; they hover at twice the weaver's movement rate, and she always knows their location. Each drone has 3 health levels; if one is destroyed, the character remains permanently down one health level until she returns to the Vats for a replacement limb or is healed of the aggravated damage by an appropriate Charm.",
+    "cost": "1 Willpower plus 5 motes and one committed health level per drone.",
+    "minimumClarity": 2,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 157,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 157",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "incarnation-of-bestial-malice",
+    "name": "Incarnation of Bestial Malice",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "god-machine",
+    "summary": "A God-Machine Protocol comparable to a Lunar war form: the weaver transforms into a terrifying chimeric or vegetative nightmare creature entirely unlike anything native to Autochthonia, gaining enormous natural weapons, hardness, soak, and boosted Strength/Stamina, temporarily losing her mechanical nature altogether.",
+    "description": "The character becomes an enormous (a ton or more), living monstrous form - a chimera of unfamiliar beasts (yeddim, tyrant lizard, stryx, or others), a vegetative form (bark, thorns, prehensile vines), or a mix, agreed with the Storyteller beforehand; the mechanical nature disappears though some bulky Charms may show as vestigial metallic studs. The form gains an effective hardness of 10 and 10 additional soak against both bashing and lethal; Strength and Stamina each increase by 2 (even past 5). Brawl/Martial Arts/Melee attacks with claws gain +3 speed, +1 accuracy, and deal Strength + 6 lethal damage (Strength + 8 lethal in a clinch), with reach extended to (Essence) yards. Natural weapons are treated as roughly Artifact •• Magical-Material weapons without the Material bonus. Armor and weapons are incompatible with the form (buried within the character's bulk for the duration). Normal movement rate is retained, and the character can grow gills to breathe underwater; for +5 motes, she also grows wings enabling flight at three times land speed.",
+    "cost": "1 Willpower plus 30 or 35 motes (+5 more for flight).",
+    "minimumClarity": 2,
+    "maximumClarity": 7,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 157,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 157-158",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "instantaneous-transfer-protocol",
+    "name": "Instantaneous Transfer Protocol",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "god-machine",
+    "summary": "A God-Machine Protocol identical to the Terrestrial spell Travel Without Distance, except the Alchemical sinks physically into the substance of the Great Maker in one location and emerges from the ground at her destination an instant later.",
+    "description": "Identical to Travel Without Distance (Exalted core, p. 221), except the means of travel is sinking into and re-emerging from the substance of Autochthon rather than however the sorcery version works.",
+    "cost": "1 Willpower (cost/target/duration otherwise as Travel Without Distance, not independently restated here).",
+    "minimumClarity": 0,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 157,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 157",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "machine-soul-essence-baffle",
+    "name": "Machine-Soul Essence Baffle",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "god-machine",
+    "summary": "A God-Machine Protocol in which the weaver assumes a sacred asana at the center of an area to render it proof against sorcery and protocols, attuning the space to her own Essence flow and expanding her soul to fill it; the book states this is equivalent to the sorcery effect Mercury's Deliverance.",
+    "description": "The weaver assumes an asana sacred to the Divine Ministers at the exact center of the target area, chants to attune the area to her own Essence flow to the exclusion of all others, then expands her soul out of her soulgem to fill the spherical space. In all other respects this is equivalent to Mercury's Deliverance (Savant and Sorcerer, p. 131, an external supplement not inventoried here).",
+    "cost": "1 Willpower plus 30 motes.",
+    "minimumClarity": 2,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": "mercurys-deliverance",
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 157,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 157-158",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "the-makers-advanced-defense-array",
+    "name": "The Maker's Advanced Defense Array",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "god-machine",
+    "summary": "The God-Machine-tier upgrade of The Maker's Basic Defense Array: the weaver is surrounded by a sphere of whirling adamant shuriken instead of metal spheres, offering much stronger armor and a chance to sever an attacker's limb.",
+    "description": "The array has an effective hardness of 10 and adds 20L/20B to the weaver's soak. Each time a weapon hits the array, the Storyteller rolls one die: weapons not made of the Magical Materials shatter on a result of 1-9, while weapons of the Magical Materials shatter only on a 1. Even undamaged, the attacker's player must succeed on a Dexterity + Melee roll (difficulty 3) to avoid having the weapon knocked from their grasp. Unarmed Brawl or Martial Arts attackers suffer 10 dice of soakable lethal damage, and if an attacker takes more than two health levels of damage from this, the attacking limb is severed. In bright light, the weaver is surrounded by a vivid storm of rainbow-colored refracted light.",
+    "cost": "1 Willpower plus 25 motes.",
+    "minimumClarity": 0,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 158,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 158",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "maser-palm-technique",
+    "name": "Maser Palm Technique",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "god-machine",
+    "summary": "A God-Machine Protocol equivalent to the Creation sorcery spell Blood of Boiling Oil, except that the target's blood simply boils and denatures in her veins rather than becoming oil.",
+    "description": "Equivalent to the spell Blood of Boiling Oil (Exalted core, p. 220), except the target's blood boils and denatures directly rather than transforming into oil first.",
+    "cost": "1 Willpower (cost/target/duration otherwise as Blood of Boiling Oil, not independently restated here).",
+    "minimumClarity": 0,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 158,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 158",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "passenger-hosting-protocol",
+    "name": "Passenger Hosting Protocol",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "god-machine",
+    "summary": "A God-Machine Protocol that interweaves the weaver's pattern with willing companions, letting them occupy the same physical space and share a telepathic link, with only the weaver able to act while all passengers' Strength/Stamina/Soak/Resistance stack onto hers and damage is split evenly.",
+    "description": "Up to (half the weaver's permanent Essence, rounded up) willing individuals may step into and occupy the same space as the weaver. All parties are telepathically linked for the duration; passengers think independently but only the weaver can act. The passengers' Strength, Stamina, Soak, and Resistance stack on top of the weaver's, with no external way to tell the sorcerer is more than one individual. All damage taken is split evenly between the weaver and all passengers. A spirit passenger must first Materialize to participate. A sorcerer using this protocol cannot be possessed.",
+    "cost": "1 Willpower plus 15 motes per passenger.",
+    "minimumClarity": 3,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 158,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 158",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "pattern-suspension-protocol",
+    "name": "Pattern Suspension Protocol",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "god-machine",
+    "summary": "A God-Machine Protocol known to both Alchemical weavers and design weavers alike, described as the Alchemical version of Eternal Crystalline Encasement, wrapping a target object in a scintillating cocoon of spun diamond fiber that suspends its pattern until a matching pearl of gem-stuff touches the cocoon.",
+    "description": "Except for the crystalline-filament cocoon (sprayed from the weaver's fingertips) replacing whatever medium the sorcery version uses, this protocol is mechanically identical to Eternal Crystalline Encasement (Savant and Sorcerer, p. 127, an external supplement not inventoried here). The weaver spins a pearl of tightly woven gem-stuff strands that must touch the cocoon to end the protocol and resume the object's pattern function.",
+    "cost": "1 Willpower (cost/target/duration otherwise as Eternal Crystalline Encasement, not independently restated here).",
+    "minimumClarity": 0,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": "eternal-crystalline-encasement",
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 158,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 158",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "radiant-matrix-transmutation",
+    "name": "Radiant Matrix Transmutation",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "god-machine",
+    "summary": "A powerful God-Machine Protocol that transmutes solids and liquids in a large radius into beautiful faceted elemental crystal, petrifying creatures caught within it and healing blight zones or reclaiming shadowlands within Autochthon's own substance.",
+    "description": "The weaver assumes a divinely authorized asana; a wave of order radiates outward at 10 feet per turn, transmuting solids/liquids (except things already made of crystal, such as Hearthstones or adamant items) into faceted elemental crystal. Artifacts resist crystallizing for (Artifact rating) turns, or 10 turns if rated N/A; artifacts forged by the Maker himself (such as the Eye of Autochthon) are wholly immune. Creatures in the radius are transmuted too, usually from the feet up, taking the weaver's Essence in aggravated damage per turn within the area; creatures reduced to Incapacitated by this become crystal statues of themselves (any crystal must be cut away before Medicine Charms can heal the damage, or crystal slivers remain in the regenerated flesh). This protocol empowers Autochthon wherever it is used, healing blight zones and reclaiming any sectors that have become shadowlands.",
+    "cost": "1 Willpower plus 35 motes.",
+    "minimumClarity": 6,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 158,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 158-159",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "transcendent-consciousness-protocol",
+    "name": "Transcendent Consciousness Protocol",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "god-machine",
+    "summary": "A God-Machine Protocol that dramatically expands all five of the weaver's senses to fill a 60-yard sphere, letting her sense and instantly process everything happening within it (including through solid barriers), making her impossible to surprise.",
+    "description": "Within the 60-yard-diameter sphere, the weaver feels everything as if touching it, sees everything as if closely examining it, and hears everything as if it were the only sound - solid objects are no barrier, so she can sense activity 30 yards below her, on the far side of a wall, or flowing through the Maker's veins in the area. She instantly processes all sensory data received, aiding reconnaissance, eavesdropping, and perimeter monitoring, and cannot be surprised (an invisible intruder can still be sensed by weight on the floor, air displacement, heartbeat, or scent). The player gains the Exalt's Essence rating as automatic successes on all Perception rolls within the 30-yard radius (i.e. within the sphere).",
+    "cost": "1 Willpower plus 15 motes.",
+    "minimumClarity": 4,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 159,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 159",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "transcendent-pattern-weaving-protocol",
+    "name": "Transcendent Pattern-Weaving Protocol",
+    "systemId": "exalted1e",
+    "moduleId": "alchemical",
+    "exaltType": "alchemical",
+    "kind": "weaving-protocol",
+    "echelon": "god-machine",
+    "summary": "The single Alchemical protocol that works only in the Wyld (and nowhere else): an extraordinarily rare, extremely high-Clarity God-Machine Protocol that lets a truly powerful Alchemical spin order directly out of the Wyld's chaos, permanently reclaiming territory from it, at the cost of enraging every nearby Fair Folk and holding a rare potential to transform a raksha noble into one of the Mountain Folk.",
+    "description": "The weaver steps into the swirling Wyld and executes a long prayer and complex mudra; each hour spent praying and weaving, she formats a 20-yard radius of reality around her, for as many hours as she has points of Stamina. Fair Folk caught in the area of effect take aggravated damage equal to the weaver's permanent Essence. The protocol causes an unpleasant strangling sensation in every Fair Folk within a radius in miles equal to the weaver's Essence (doubled in the Deep Wyld), making completing a long weaving unlikely without provoking a hostile response. By weaving pattern directly from the substance of a targeted Fair Folk noble (rather than merely catching him in the effect area), the sorcerer can instead attempt to reformat him into one of the Mountain Folk: the raksha's player must win a contested Willpower + Essence roll against the weaver or be transformed into one of the Jadeborn, an inert, memoryless jade-egg soul awaiting a Mountain Folk Charm (Jade's Egg Hatched, Exalted: The Fair Folk p. 271) to quicken it.",
+    "cost": "1 Willpower plus 20 motes.",
+    "minimumClarity": 10,
+    "maximumClarity": null,
+    "requirementsText": null,
+    "equivalentSorcerySpellId": null,
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 159,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 159",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  }
+]

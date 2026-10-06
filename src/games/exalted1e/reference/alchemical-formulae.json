@@ -1,0 +1,59 @@
+[
+  {
+    "id": "sweet-sleep-surrogate-syrup",
+    "name": "Sweet Sleep Surrogate Syrup",
+    "summary": "An Autochthonian alchemical formula unique to this book: a cloyingly sweet syrup distilled from molds and fungi that lets a 30-second nap grant all the benefits of a full night's sleep, widely stockpiled by cities to squeeze extra shifts out of Populat laborers.",
+    "description": "A single dose grants all the benefits of a full night's rest - including feeling well-rested and a Conviction roll to regain Willpower - in a 30-second nap. It has no effect on Essence recovery, and a worker using it still needs one full night of true sleep every (Stamina x 2) nights or begins suffering sleep-deprivation penalties.",
+    "requirementsText": "Alchemy ••; Intelligence + Occult roll (difficulty 3); Minimum Backing ••.",
+    "compatibility": "Any character with the Alchemy formula and appropriate Backing; in practice used mainly on mortal Populat laborers.",
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 161,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 161",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "friction-banishing-preparation",
+    "name": "Friction Banishing Preparation",
+    "summary": "A mineral-oil-derived Autochthonian alchemical formula that perfectly eliminates friction between two surfaces, prized industrially for silencing grinding machinery but equally usable as an improvised hazard that turns a patch of floor into a nearly unwalkable slick.",
+    "description": "A single vial coats a 10-by-10-foot patch of floor. The treated patch requires a successful Perception + Alertness roll (difficulty 1) to spot. Standing still on it requires a difficulty 4 Dexterity + Athletics roll; walking across it, or moving or standing up without something to hold onto, is difficulty 6. It can be neutralized with a simple Alchemy •/Backing • counter-agent, or left to degrade in open air after about a week.",
+    "requirementsText": "Alchemy •••; Intelligence + Occult roll (difficulty 4); Minimum Backing •••.",
+    "compatibility": "Any character with the Alchemy formula and appropriate Backing; also used industrially to ease machinery.",
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 161,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 161",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "the-makers-inertial-bile",
+    "name": "The Maker's Inertial Bile",
+    "summary": "The most tightly restricted Autochthonian alchemical formula in the book: an acrid pale-gray fluid harvested from wild machine spirits that instantly halts and exorcises any spirit or animating force from a machine, automaton, or gremlin on contact - a substance the Tripartite polices as a serious crime for ordinary citizens to possess.",
+    "description": "A single phial, shattered against any device, instantaneously stops a machine or automaton and exorcises any spirit or animating force from it - including gremlins, zombies, golems, corpses possessed by nemissaries, and automata summoned via protocols or spells (e.g. bone lions, bronze snakes). Important Tripartite officials keep a phial or two on hand for deactivating runaway factory machinery or exorcising marauding gremlins, but mere possession of the fluid by a member of the Populat is a crime worthy of severe downward mobility or, more probably, exile.",
+    "requirementsText": "Alchemy •••••; Intelligence + Occult roll (difficulty 8); Minimum Backing •••••.",
+    "compatibility": "Any character with the Alchemy formula and appropriate Backing; effectively restricted to senior Tripartite officials in practice.",
+    "sources": [
+      {
+        "bookId": "exalted-the-autochthonians",
+        "bookLabel": "Exalted: The Autochthonians",
+        "page": 161,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Autochthonians, p. 161",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  }
+]

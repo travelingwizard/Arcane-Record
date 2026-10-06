@@ -70,16 +70,18 @@ describe('exalted1e verification gate', () => {
       }
       // All five families have started source intake (inventory rows > 0).
       // Abyssal (Phase 1e), Sidereal (Phase: Astrology/Colleges plus the
-      // later `sidereal_unreviewed_spells` follow-up), and Lunar (the
-      // `unreviewed_spells` follow-up) have now each had every one of
-      // their promotable rows promoted to real production catalogs
-      // (Abyssal: 505 of 505 -- Backgrounds, universal Merits/Flaws
-      // chapter, all 227 Chapter Five Charms, all 106 Necromancy spells,
-      // and 86 Sorcery spells; Sidereal: 383 of 383 -- 12 Backgrounds + 82
-      // Merits/Flaws + 193 Charms + 86 Sorcery spells + 10
-      // Astrology/Colleges procedural-rules rows; Lunar: 412 of 412 -- see
+      // later `sidereal_unreviewed_spells` follow-up), Lunar (the
+      // `unreviewed_spells` follow-up), and now Alchemical (Phase 1c) have
+      // each had every one of their promotable rows promoted to real
+      // production catalogs (Abyssal: 505 of 505 -- Backgrounds, universal
+      // Merits/Flaws chapter, all 227 Chapter Five Charms, all 106
+      // Necromancy spells, and 86 Sorcery spells; Sidereal: 383 of 383 --
+      // 12 Backgrounds + 82 Merits/Flaws + 193 Charms + 86 Sorcery spells +
+      // 10 Astrology/Colleges procedural-rules rows; Lunar: 412 of 412;
+      // Alchemical: 214 of 214 -- 6 Backgrounds + 71 Merits/Flaws + 96
+      // Charms + 38 Weaving Protocols + 3 Alchemy Formulae -- see
       // `SplatCatalogEvidence.promotableEntries`), so `catalogDimensionPasses`
-      // now returns true for all three. Even with a fully satisfied
+      // now returns true for all four. Even with a fully satisfied
       // catalog dimension, `certifiedAt` stays null and every family stays
       // locked: `browserTests` can't run before a family is unlocked, and
       // Phase 6's rule requires all five families to reach
@@ -92,7 +94,7 @@ describe('exalted1e verification gate', () => {
             : family === 'lunar'
               ? 412
               : family === 'alchemical'
-                ? 173
+                ? 214
                 : 0,
       );
       if (
@@ -109,8 +111,10 @@ describe('exalted1e verification gate', () => {
         // `lunar.json`'s notes). Alchemical's own checksum first became
         // non-empty in Phase 1b, once `alchemical-charms.json` became the
         // family's first `alchemical-`-prefixed catalog file; its catalog
-        // dimension still fails overall (173 of 207 promotable), unlike
-        // Abyssal/Sidereal/Lunar's fully-closed catalogs.
+        // dimension fully closed in Phase 1c (214 of 214 promotable), once
+        // `alchemical-weaving-protocols.json`/`alchemical-formulae.json`
+        // joined it under the same glob -- matching Abyssal/Sidereal/
+        // Lunar's own fully-closed catalogs.
         expect(record.catalog.checksum).toBe(
           auditFamily(family).catalogChecksum,
         );
@@ -211,13 +215,20 @@ describe('exalted1e verification gate', () => {
     expect(isFamilyAvailable('sidereal')).toBe(false);
   });
 
-  it('reflects Alchemical Phase 1a/1b catalog promotion without unlocking the family', () => {
+  it('reflects Alchemical Phase 1a/1b/1c catalog promotion without unlocking the family', () => {
     const record = certificationRecords.alchemical;
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
-    expect(record.catalog.promotedEntries).toBe(173);
-    expect(record.catalog.promotedEntries).toBeLessThan(
+    expect(record.catalog.promotedEntries).toBe(214);
+    // Phase 1c closed Alchemical's catalog dimension (214 of 214
+    // promotable, same as Abyssal/Sidereal/Lunar's own fully-closed
+    // catalogs), but `certifiedAt` stays null and the family stays locked:
+    // all four test dimensions are still `'not-run'`, and Phase 6's rule
+    // requires all five planned families to reach `certifiedAt !== null`
+    // together.
+    expect(record.catalog.promotedEntries).toBe(
       record.catalog.promotableEntries,
     );
+    expect(record.certifiedAt).toBeNull();
     expect(isFamilyAvailable('alchemical')).toBe(false);
   });
 

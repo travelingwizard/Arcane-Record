@@ -190,13 +190,13 @@ real, creatable sheet.
 
 ## Status per family
 
-| Family     | Source manifest                                                                                                                                                         | Inventory rows | Promoted                                                                                   | Certification                                                                                                                          |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
-| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)    | 598            | 412 of 412 promotable (catalog dimension complete, `unreviewed_spells` follow-up)          | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
-| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 505 of 505 promotable (catalog dimension complete, Phase 1e)                               | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
-| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 383 of 383 promotable (catalog dimension complete, `sidereal_unreviewed_spells` follow-up) | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
-| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 173 of 207 promotable (Backgrounds + Merits/Flaws, Phase 1a; Charms, Phase 1b)             | Locked, all dimensions `not-run`                                                                                                       |
-| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 365            | 0                                                                                          | Locked, all dimensions `not-run`                                                                                                       |
+| Family     | Source manifest                                                                                                                                                         | Inventory rows | Promoted                                                                                                                                                   | Certification                                                                                                                          |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)    | 598            | 412 of 412 promotable (catalog dimension complete, `unreviewed_spells` follow-up)                                                                          | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
+| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 505 of 505 promotable (catalog dimension complete, Phase 1e)                                                                                               | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
+| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 383 of 383 promotable (catalog dimension complete, `sidereal_unreviewed_spells` follow-up)                                                                 | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
+| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 214 of 214 promotable (catalog dimension complete: Backgrounds + Merits/Flaws, Phase 1a; Charms, Phase 1b; Weaving Protocols + Alchemy Formulae, Phase 1c) | Locked, all dimensions `not-run`                                                                                                       |
+| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 365            | 0                                                                                                                                                          | Locked, all dimensions `not-run`                                                                                                       |
 
 Lunar's 582 rows cover the core innate powers, every Charm category in
 Chapter Five (Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat
@@ -1424,6 +1424,118 @@ unit+integration suite, the Exalted e2e smoke specs,
 `audit:exalted-sources`, and a production build. `Exalted1eEditor.tsx`
 remains untouched this phase, exactly as Phase 1a left it; Alchemical
 stays fully locked out of `definition.tsx`'s user-facing `variants` list.
+
+Alchemical's Phase 1c (Weaving Protocol/Alchemy Formulae promotion) closed
+its remaining catalog gap, adding `src/games/exalted1e/reference/alchemical-weaving-protocols.json`
+(38 rows) and `alchemical-formulae.json` (3 rows), both validated through
+new Zod schemas added to the existing `alchemical-powers.ts` module rather
+than new standalone files, mirroring `lunar-powers.ts`'s single-module
+convention. Of the 49 total Chapter Four Weaving Protocol rows (printed
+pp. 142-159/PDF 143-160), only the 38 `disposition: 'selectable'` rows were
+promoted: excluded are 5 reference-only framing rows describing the
+subsystem itself and 6 `gm-only` full NPC/creature stat blocks for the
+elemental Golems/automata summoned exclusively by the single selectable
+protocol "The Maker's Instantaneous Forge" -- both exclusions matching
+this project's established rule against promoting framing/sidebar text or
+GM-only creature stat blocks into a player-facing selectable catalog.
+Unlike every other already-promoted splat's spell system, Weaving
+Protocols are gated by a fixed **Minimum Clarity** rating (parsed directly
+from each row's own "Minimum Clarity N" sentence into a new
+`minimumClarity` field) rather than Essence + an Ability, with one row
+(Incarnation of Bestial Malice) also carrying a Maximum Clarity 7 cap
+captured in a parallel `maximumClarity` field, and Transcendent Pattern
+Weaving Protocol requiring Minimum Clarity 10, the highest gate in the
+catalog (and the one protocol confirmed to work only in the Wyld). Any
+extra non-Clarity requirement text (Vats-Background-with-Charms-on-
+retainer, Backing 4+, one-day-advance-preparation, and similar cases) is
+preserved verbatim in a new `requirementsText` field rather than
+discarded. A new `echelon` field (`'man-machine'`/`'god-machine'`) records
+which of the two Weaving Engine Charms (promoted in Phase 1b) is needed,
+splitting 23 Man-Machine and 15 God-Machine Protocols, matching the
+inventory's own Chapter Four structure.
+
+Because every Weaving Protocol has the same fixed-cost/fixed-gate/
+discrete-effect shape as an ordinary Sorcery spell (unlike Sidereal's
+fully freeform Astrology Resplendent Effects, which stay an unautomated
+`sidereal-astrology.ts` reference panel), Weaving Protocols are validated
+as real, schema-checked selections through the same `powers.spells`
+bucket Sorcery/Necromancy spells already use, via a new
+`alchemicalWeavingProtocolIds` Set checked in `schema.ts` -- replacing the
+prior shared Alchemical/Fair-Folk placeholder branch (which incorrectly
+claimed Alchemical "has no Sorcery/spell system at all... expected to
+remain permanent") with a real Alchemical-specific branch, while leaving
+Fair Folk's own placeholder branch intact and correctly labeled. Several
+protocols explicitly defer their full cost/target/duration to a named
+Sorcery spell rather than restating it; cross-checked every such name
+against the shared `dragonblooded-sorcery.json` catalog and captured the
+match in a new `equivalentSorcerySpellId` field (asserted at module load
+time to resolve to a real shared-catalog id, exactly like
+`lunarSorcerySpellIds`'s own load-time assertion): Crystal Lotus of Repose
+(Sleep of Stony Safety), Lightning Elemental Concatenation Protocol
+(Lightning Spider), Sonic Hammer Vocalization (Thunder Wolf's Howl),
+Summon Autochthonian Elemental (Summon Elemental), Vision-Transmitting
+Protocol (Infallible Messenger), Machine-Soul Essence Baffle (Mercury's
+Deliverance), Pattern Suspension Protocol (Eternal Crystalline
+Encasement), and Plague of Bronze Snakes (Plague of Bronze Snakes -- same
+name, same Savant and Sorcerer p. 112 citation as the shared catalog's
+existing entry; a genuine confirmed match, not an id collision, even
+though the two rows happen to share the same literal id string -- each
+stays a fully independent catalog entry with its own id/name/summary).
+Left `null` for two further protocols that likewise name a specific spell
+they defer to (Maser Palm Technique to "Blood of Boiling Oil",
+Instantaneous Transfer Protocol to "Travel Without Distance") because
+neither spell exists in the shared catalog today, apparently drawn from
+the Exalted core rulebook's own spell list rather than Savant and
+Sorcerer/Book of Three Circles; rather than guess at an id or fabricate a
+new spell entry, these two keep their deferred-mechanics text in
+`description` only. Also left `null` for Summon Machine Spirit despite it
+naming Summon Elemental, since its own text says it only "functions like"
+that spell while summoning a genuinely different kind of being -- a
+narrative comparison, not a true mechanical defer like the 8 confirmed
+matches.
+
+The 3 Alchemy Formulae rows (Sweet Sleep Surrogate Syrup, Friction-
+Banishing Preparation, The Maker's Inertial Bile, printed p. 161/PDF 162)
+are each gated by an "Alchemy" dot rating plus a Minimum Backing rating
+plus an Intelligence + Occult roll -- none of which this app's character
+schema models as a trait anywhere, and this app has no dice-rolling engine
+to automate the roll either way. Building a dedicated new trait field to
+validate purchase of just 3 rows would be overengineering relative to
+every other family's precedent, so `alchemicalFormulae` stays a small
+browsable reference catalog (Zod-validated for shape, but never wired
+into `powers.spells` or any other character-selection schema), matching
+`sidereal-astrology-rules.json`'s own precedent of counting toward
+`promotedEntries` via the audit script's `${family}-*.json` glob despite
+being unautomated reference text.
+
+`certification/alchemical.json`'s `promotableEntries` is recomputed this
+phase from the prior 207 preliminary keyword-based estimate (flagged since
+Phase 1a as approximate) to a precise 214 (6 Backgrounds + 71 Merits/Flaws
+
+- 96 Charms + 38 Weaving Protocols + 3 Alchemy Formulae), now exactly
+  matching `promotedEntries`, which rose from 173 to 214; `checksum` was
+  recomputed to `1d839847` now that `alchemical-weaving-protocols.json` and
+  `alchemical-formulae.json` have joined `alchemical-charms.json` under the
+  family's own `alchemical-*.json` glob -- closing Alchemical's catalog
+  dimension (214 of 214), same as Abyssal/Sidereal/Lunar's own fully-closed
+  catalogs. Even with the catalog dimension fully satisfied, `certifiedAt`
+  stays null and Alchemical stays fully locked: all four test dimensions are
+  still `'not-run'`, and Phase 6's rule requires all five planned families to
+  reach `certifiedAt !== null` together. A new 13-test
+  `alchemical-weaving-protocols-catalog.test.ts` suite covers catalog shape,
+  the Man-Machine/God-Machine split, Clarity-gate parsing (including the
+  Minimum/Maximum pair and the highest-gate row), preserved extra
+  requirement text, and the `equivalentSorcerySpellId` cross-references
+  (both confirmed and deliberately-`null` cases); `exalted1e-alchemical.test.ts`
+  gained real Weaving Protocol accept/reject coverage through `powers.spells`,
+  replacing the old blanket spell-rejection placeholder test. Full
+  verification passed: typecheck, lint, format check, the full
+  unit+integration suite (952 tests), the Exalted e2e smoke specs,
+  `audit:exalted-sources`, and a production build. `Exalted1eEditor.tsx`
+  remains untouched this phase too; Alchemical stays fully locked out of
+  `definition.tsx`'s user-facing `variants` list. The Clarity Trait,
+  Charm-Slot/Panoply/Array installation tracking, and any editor UI wiring
+  for this family all remain out of scope, deferred to a future phase.
 
 ## Next steps (require source material per book)
 

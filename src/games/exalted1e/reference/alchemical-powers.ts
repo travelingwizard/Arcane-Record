@@ -1,7 +1,12 @@
 import { z } from 'zod';
 import charmData from './alchemical-charms.json';
+import weavingProtocolData from './alchemical-weaving-protocols.json';
+import formulaeData from './alchemical-formulae.json';
 import type { CharmComboRules } from '../shared/combos/types';
-import type { PowerReviewStatus } from './dragonblooded-powers';
+import {
+  sharedSorcerySpellById,
+  type PowerReviewStatus,
+} from './dragonblooded-powers';
 
 /**
  * Alchemical's own Charm-tree organizing principle (Exalted: The
@@ -222,3 +227,213 @@ export const alchemicalCharmById = new Map(
   alchemicalCharms.map((definition) => [definition.id, definition]),
 );
 export const alchemicalCharmIds = new Set(alchemicalCharmById.keys());
+
+/**
+ * Phase 1c: Alchemical's Weaving Protocol subsystem (Exalted: The
+ * Autochthonians, Chapter Four, printed pp. 142-159 / PDF 143-160). Unlike
+ * every other splat's Sorcery/Necromancy (freeform Circle + spell list)
+ * or Sidereal's Astrology (freeform Effect Roll/Scope/Duration/Power, left
+ * entirely unautomated in `sidereal-astrology.ts`), every Weaving Protocol
+ * has a fixed Essence/Willpower cost, a fixed Minimum (and occasionally
+ * Maximum) Clarity gate, and a fully described discrete effect -- the same
+ * shape of thing as an ordinary Sorcery spell, just gated by Clarity
+ * instead of Essence + Ability. It is therefore wired into the same real,
+ * schema-validated `powers.spells` bucket Sorcery/Necromancy spells
+ * already use (see `schema.ts`'s `alchemicalWeavingProtocolIds` check),
+ * not left as unautomated reference data.
+ *
+ * Only the 38 `disposition: 'selectable'` rows are promoted here, out of
+ * 49 total Weaving Protocol rows in the inventory: excluded are 5
+ * `reference-only` framing rows that describe the subsystem itself rather
+ * than a purchasable protocol (`alchemical-protocols-overview`,
+ * `what-works-where-sidebar`, `man-machine-protocols-framing`,
+ * `spells-that-crossed-over-sidebar`, `god-machine-protocols-framing`),
+ * and 6 `gm-only` rows that are full NPC/creature stat blocks for the
+ * elemental Golems/automata summoned exclusively by the single selectable
+ * protocol `the-makers-instantaneous-forge` (`engine-golem-steam-automaton`,
+ * `glass-golem-crystal-automaton`, `magnet-golem-lightning-automaton`,
+ * `oil-golem-oil-automaton`, `smudge-golem-smoke-automaton`,
+ * `steel-golem-metal-automaton`) -- matching this project's established
+ * convention of never promoting framing/sidebar text or GM-only creature
+ * stat blocks into a player-facing selectable catalog.
+ *
+ * `echelon` records whether a protocol is woven via the
+ * `man-machine-weaving-engine` or `god-machine-weaving-engine` Charm (see
+ * each Charm's own `description`), matching the two halves of the
+ * inventory's own Chapter Four split (24 Man-Machine + 14 God-Machine).
+ * `minimumClarity`/`maximumClarity` are parsed directly from each row's own
+ * "Minimum Clarity N[; Maximum Clarity N]." requirements sentence (every
+ * row has a Minimum; only `incarnation-of-bestial-malice` also has a
+ * Maximum). Any requirement text beyond the Clarity gate itself (e.g.
+ * `vat-surrogate-reweaving-technique`'s Vats-Background-with-Charms-on-
+ * retainer requirement, `soul-archiving-protocol`'s Backing 4+ requirement,
+ * `essence-matrix-inversion-procedure`'s one-day-advance-preparation
+ * requirement) is preserved verbatim in `requirementsText` rather than
+ * discarded.
+ *
+ * `equivalentSorcerySpellId` is a direct cross-reference to
+ * `sharedSorcerySpellById` (`dragonblooded-sorcery.json`) for the 8
+ * protocols whose own mechanics text explicitly defers its full cost/
+ * target/duration to a named Sorcery spell ("identical to", "equivalent
+ * to", or "the same as" the named spell) rather than restating it --
+ * `crystal-lotus-of-repose` (Sleep of Stony Safety),
+ * `lightning-elemental-concatenation-protocol` (Lightning Spider),
+ * `sonic-hammer-vocalization` (Thunder Wolf's Howl),
+ * `summon-autochthonian-elemental` (Summon Elemental),
+ * `vision-transmitting-protocol` (Infallible Messenger),
+ * `machine-soul-essence-baffle` (Mercury's Deliverance),
+ * `pattern-suspension-protocol` (Eternal Crystalline Encasement), and
+ * `plague-of-bronze-snakes` (Plague of Bronze Snakes -- same name, same
+ * Savant and Sorcerer page 112 citation as the shared catalog's own entry;
+ * a genuine confirmed match, not an id collision). It is left `null` for
+ * two further protocols that likewise defer to a named spell
+ * (`maser-palm-technique` to "Blood of Boiling Oil",
+ * `instantaneous-transfer-protocol` to "Travel Without Distance") because
+ * neither name exists in the shared catalog today -- both are apparently
+ * drawn from the Exalted core rulebook's own Terrestrial Circle spell
+ * list, which this project's shared Sorcery catalog does not yet cover
+ * (it was built from Savant and Sorcerer/Book of Three Circles); rather
+ * than guess at an id or fabricate a spell entry, these two keep their
+ * full deferred-mechanics text in `description` only. `summon-machine-
+ * spirit` deliberately also stays `null` despite mentioning Summon
+ * Elemental by name, since its own text says it only "functions like"
+ * that spell while summoning a genuinely different kind of being (a
+ * machine spirit, not an elemental) -- a narrative comparison, not a true
+ * mechanical defer, unlike the 8 confirmed matches above.
+ *
+ * Unlike Lunar/Sidereal/Abyssal's shared-catalog filtering (which splices
+ * existing `sharedSorcerySpellById` entries directly into the editor's
+ * power list), Alchemical's own protocol rows are NOT replaced by their
+ * `equivalentSorcerySpellId` target -- each keeps its own id, name,
+ * summary, and Alchemical-specific cost/Clarity gate, exactly as the
+ * source itself presents them as protocols in their own right that merely
+ * reuse an existing spell's effect text.
+ */
+const alchemicalWeavingEchelons = ['man-machine', 'god-machine'] as const;
+export type AlchemicalWeavingEchelon =
+  (typeof alchemicalWeavingEchelons)[number];
+
+const alchemicalWeavingProtocolSchema = z.object({
+  id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+  name: z.string().min(1),
+  systemId: z.literal('exalted1e'),
+  moduleId: z.literal('alchemical'),
+  exaltType: z.literal('alchemical'),
+  kind: z.literal('weaving-protocol'),
+  echelon: z.enum(alchemicalWeavingEchelons),
+  summary: z.string().min(1),
+  description: z.string().min(1),
+  cost: z.string().nullable(),
+  minimumClarity: z.number().int().min(0).max(10),
+  maximumClarity: z.number().int().min(0).max(10).nullable(),
+  requirementsText: z.string().nullable(),
+  equivalentSorcerySpellId: z.string().nullable(),
+  sources: z.array(sourceSchema).min(1),
+  sourceDisplay: z.string().min(1),
+  reviewStatus: reviewStatusSchema,
+  reviewFlags: z.array(z.string()),
+});
+
+export type AlchemicalWeavingProtocolDefinition = z.infer<
+  typeof alchemicalWeavingProtocolSchema
+>;
+
+const alchemicalWeavingProtocolCatalogSchema = z
+  .array(alchemicalWeavingProtocolSchema)
+  .length(38)
+  .superRefine((protocols, context) => {
+    const ids = protocols.map(({ id }) => id);
+    if (new Set(ids).size !== ids.length) {
+      context.addIssue({
+        code: 'custom',
+        message: 'Alchemical Weaving Protocol ids must be unique.',
+      });
+    }
+    protocols.forEach((protocol, index) => {
+      if (
+        protocol.maximumClarity !== null &&
+        protocol.maximumClarity < protocol.minimumClarity
+      ) {
+        context.addIssue({
+          code: 'custom',
+          message: `Alchemical Weaving Protocol "${protocol.id}" has a maximumClarity below its minimumClarity.`,
+          path: [index, 'maximumClarity'],
+        });
+      }
+      if (
+        protocol.equivalentSorcerySpellId !== null &&
+        !sharedSorcerySpellById.has(protocol.equivalentSorcerySpellId)
+      ) {
+        context.addIssue({
+          code: 'custom',
+          message: `Alchemical Weaving Protocol "${protocol.id}" references an unknown shared Sorcery spell id "${protocol.equivalentSorcerySpellId}".`,
+          path: [index, 'equivalentSorcerySpellId'],
+        });
+      }
+    });
+  });
+
+export const alchemicalWeavingProtocols: AlchemicalWeavingProtocolDefinition[] =
+  alchemicalWeavingProtocolCatalogSchema.parse(weavingProtocolData);
+export const alchemicalWeavingProtocolById = new Map(
+  alchemicalWeavingProtocols.map((definition) => [definition.id, definition]),
+);
+export const alchemicalWeavingProtocolIds = new Set(
+  alchemicalWeavingProtocolById.keys(),
+);
+
+/**
+ * Phase 1c: Alchemical's 3 Alchemy Formulae (Exalted: The Autochthonians,
+ * printed p. 161 / PDF 162) -- `sweet-sleep-surrogate-syrup`,
+ * `friction-banishing-preparation`, and `the-makers-inertial-bile`. Unlike
+ * Weaving Protocols, each Formula is gated by an "Alchemy" dot rating
+ * (••/•••/•••••) plus a Minimum Backing rating plus an Intelligence +
+ * Occult roll at a fixed difficulty -- none of which this app's character
+ * schema models as a trait anywhere (there is no "Alchemy" Ability/Trait
+ * field, and this app has no dice-rolling engine to automate an
+ * Intelligence + Occult roll, exactly the same gap that keeps Sidereal's
+ * own Astrology Resplendent Effects an unautomated reference catalog --
+ * see `sidereal-astrology.ts`'s own doc comment). Building a dedicated new
+ * trait field to validate purchase of just 3 rows would be overengineering
+ * relative to every other family's precedent, so these stay a small
+ * browsable reference catalog, never wired into `powers.spells` or any
+ * other character-selection schema -- matching `sidereal-astrology-rules
+ * .json`'s own precedent of counting toward `promotedEntries` via the
+ * audit script's `${family}-*.json` glob despite being unautomated
+ * reference text, not a real validated selection.
+ */
+const alchemicalFormulaSchema = z.object({
+  id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+  name: z.string().min(1),
+  summary: z.string().min(1),
+  description: z.string().min(1),
+  requirementsText: z.string().nullable(),
+  compatibility: z.string().nullable(),
+  sources: z.array(sourceSchema).min(1),
+  sourceDisplay: z.string().min(1),
+  reviewStatus: reviewStatusSchema,
+  reviewFlags: z.array(z.string()),
+});
+
+export type AlchemicalFormulaDefinition = z.infer<
+  typeof alchemicalFormulaSchema
+>;
+
+const alchemicalFormulaCatalogSchema = z
+  .array(alchemicalFormulaSchema)
+  .length(3)
+  .superRefine((formulae, context) => {
+    const ids = formulae.map(({ id }) => id);
+    if (new Set(ids).size !== ids.length) {
+      context.addIssue({
+        code: 'custom',
+        message: 'Alchemical Formula ids must be unique.',
+      });
+    }
+  });
+
+export const alchemicalFormulae: AlchemicalFormulaDefinition[] =
+  alchemicalFormulaCatalogSchema.parse(formulaeData);
+export const alchemicalFormulaById = new Map(
+  alchemicalFormulae.map((definition) => [definition.id, definition]),
+);

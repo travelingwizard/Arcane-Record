@@ -254,15 +254,17 @@ describe('auditFamily against the real repository (current state)', () => {
   });
 
   it('reports Alchemical as pending-certification with its real inventory rows and zero audit errors', () => {
-    // 96 = the 96 real, page-cited, visually-reviewed Charms promoted in
-    // `alchemical-charms.json` (Phase 1b), as counted directly from
+    // 137 = the 96 real, page-cited, visually-reviewed Charms promoted in
+    // `alchemical-charms.json` (Phase 1b) plus the 38 Weaving Protocols in
+    // `alchemical-weaving-protocols.json` and the 3 Alchemy Formulae in
+    // `alchemical-formulae.json` (both Phase 1c), as counted directly from
     // `src/games/exalted1e/reference/alchemical-*.json` by this audit
     // script. The stale `./reference/ocr-drafts/alchemical-charms.json`
     // draft (87 rows, a majority sharing an identical generic description,
     // not real transcribed mechanics) remains outside this glob and
     // unwired, exactly as before. This differs from
     // `certification/alchemical.json`'s own `catalog.promotedEntries`
-    // (173), which also includes Phase 1a's 77 Backgrounds/Merits-Flaws
+    // (214), which also includes Phase 1a's 77 Backgrounds/Merits-Flaws
     // rows, none of which live in an `alchemical-`-prefixed catalog file
     // (Backgrounds live in `definitions.ts`; Merits/Flaws are a subset of
     // the shared `dragonblooded-merits-flaws.json`), so this audit
@@ -272,7 +274,7 @@ describe('auditFamily against the real repository (current state)', () => {
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);
     expect(report.inventoryRows).toBeGreaterThan(0);
-    expect(report.promotedEntries).toBe(96);
+    expect(report.promotedEntries).toBe(137);
     expect(report.catalogChecksum).toHaveLength(8);
     expect(report.catalogChecksum).toMatch(/^[0-9a-f]{8}$/);
   });

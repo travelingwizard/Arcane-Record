@@ -329,7 +329,7 @@ describe('Exalted First Edition Alchemical (schema-only; not yet UI-selectable)'
     });
   });
 
-  describe('Charms (Phase 1b: 96-row Chapter Three catalog) and spells (no Sorcery system for this splat)', () => {
+  describe('Charms (Phase 1b: 96-row Chapter Three catalog) and Weaving Protocols (Phase 1c: 38-row Chapter Four catalog)', () => {
     it('validates a blank Alchemical character with zero Charm/Combo/spell selections', () => {
       const character = createBlankExaltedCharacter('alchemical');
       expect(character.powers.charms).toEqual([]);
@@ -423,7 +423,35 @@ describe('Exalted First Edition Alchemical (schema-only; not yet UI-selectable)'
       ).toThrow();
     });
 
-    it('rejects any spell selection on an Alchemical sheet (no Sorcery system exists for this splat)', () => {
+    it.each([
+      'automaton-override-protocol',
+      'crystal-lotus-of-repose',
+      'the-makers-instantaneous-forge',
+      'transcendent-pattern-weaving-protocol',
+    ])(
+      'accepts the real promoted Weaving Protocol %s via powers.spells',
+      (definitionId) => {
+        const character = createBlankExaltedCharacter('alchemical');
+        expect(() =>
+          exalted1eCharacterSchema.parse({
+            ...character,
+            powers: {
+              charms: [],
+              spells: [
+                {
+                  id: crypto.randomUUID(),
+                  definitionId,
+                  unresolvedReference: null,
+                  notes: '',
+                },
+              ],
+            },
+          }),
+        ).not.toThrow();
+      },
+    );
+
+    it('rejects an unresolvable spell selection on an Alchemical sheet', () => {
       const character = createBlankExaltedCharacter('alchemical');
       expect(() =>
         exalted1eCharacterSchema.parse({
@@ -440,7 +468,47 @@ describe('Exalted First Edition Alchemical (schema-only; not yet UI-selectable)'
             ],
           },
         }),
-      ).toThrow(/no alchemical spell catalog exists yet/i);
+      ).toThrow(/unknown alchemical weaving protocol/i);
+    });
+
+    it('rejects a Dragon-Blooded Terrestrial Sorcery spell id on an Alchemical sheet (no Sorcery access for this splat)', () => {
+      const character = createBlankExaltedCharacter('alchemical');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            charms: [],
+            spells: [
+              {
+                id: crypto.randomUUID(),
+                definitionId: 'sleep-of-stony-safety',
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+          },
+        }),
+      ).toThrow(/unknown alchemical weaving protocol/i);
+    });
+
+    it('rejects an Alchemical-only Weaving Protocol (Crystal Lotus of Repose) for a Lunar sheet', () => {
+      const character = createBlankExaltedCharacter('lunar');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            charms: [],
+            spells: [
+              {
+                id: crypto.randomUUID(),
+                definitionId: 'crystal-lotus-of-repose',
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+          },
+        }),
+      ).toThrow();
     });
   });
 

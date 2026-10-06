@@ -35,7 +35,10 @@ import {
 } from './reference/sidereal-powers';
 import { siderealAstrologyCollegeIds } from './reference/sidereal-astrology';
 import { lunarCharmIds, lunarSorcerySpellIds } from './reference/lunar-powers';
-import { alchemicalCharmIds } from './reference/alchemical-powers';
+import {
+  alchemicalCharmIds,
+  alchemicalWeavingProtocolIds,
+} from './reference/alchemical-powers';
 import { solarCharmIds } from './reference/solar-charms';
 import {
   getSolarTraitRepeatLimit,
@@ -490,9 +493,12 @@ export const exalted1eCharacterSchema = z
       // Phase 1b: 96 Chapter Three Charms (General, Close Combat, Ranged
       // Combat, Might and Mobility, Social, Stealth and Disguise, Sensory
       // and Spiritual, Medical, Cognitive, Essence and Weaving) -- see
-      // `alchemicalCharmIds` in `./reference/alchemical-powers`. The
-      // Weaving Protocol/Alchemy Formulae subsystem (gated behind the two
-      // Essence and Weaving "engine" Charms promoted here) and the
+      // `alchemicalCharmIds` in `./reference/alchemical-powers`. Phase 1c
+      // promoted the Weaving Protocol subsystem gated behind the two
+      // Essence and Weaving "engine" Charms promoted here -- see
+      // `alchemicalWeavingProtocolIds`, checked in the `powers.spells`
+      // branch below rather than here. The Alchemy Formulae catalog
+      // (unautomated reference data; see `alchemicalFormulae`) and the
       // Slot/Array/Panoply installation-tracking mechanics remain out of
       // scope for this phase.
       alchemical: alchemicalCharmIds,
@@ -613,19 +619,37 @@ export const exalted1eCharacterSchema = z
         }
         return;
       }
-      if (
-        character.sheetType === 'alchemical' ||
-        character.sheetType === 'fair-folk'
-      ) {
-        // PLACEHOLDER pending each family's own spell/power-catalog phase.
-        // Without this branch, these two would silently fall through to
+      if (character.sheetType === 'alchemical') {
+        // Phase 1c: Alchemical has no Sorcery system, but its own Weaving
+        // Protocol subsystem (Exalted: The Autochthonians, Chapter Four)
+        // has the same shape as a spell -- fixed Essence/Willpower cost,
+        // fixed Clarity gate, fully described discrete effect -- so it is
+        // validated through this same `powers.spells` bucket rather than
+        // getting its own new top-level array. See
+        // `alchemicalWeavingProtocolIds` in `./reference/alchemical-powers`
+        // for the 38 promoted protocols (woven via the
+        // `man-machine-weaving-engine`/`god-machine-weaving-engine`
+        // Charms). Alchemy Formulae (3 rows) are deliberately NOT checked
+        // here: they are an unautomated reference catalog gated by an
+        // "Alchemy" trait this app does not model anywhere, matching
+        // Sidereal's own Astrology Resplendent Effects precedent -- see
+        // `alchemicalFormulae` in `./reference/alchemical-powers`.
+        if (!alchemicalWeavingProtocolIds.has(selection.definitionId)) {
+          context.addIssue({
+            code: 'custom',
+            message: 'Unknown Alchemical Weaving Protocol definition.',
+            path: ['powers', 'spells', index, 'definitionId'],
+          });
+        }
+        return;
+      }
+      if (character.sheetType === 'fair-folk') {
+        // PLACEHOLDER pending Fair Folk's own spell/power-catalog phase.
+        // Without this branch, Fair Folk would silently fall through to
         // the Dragon-Blooded check below and wrongly accept Dragon-Blooded
         // Terrestrial spell ids as if they were legal -- the exact bug
         // class already found and fixed for Sidereal before its own
-        // catalog existed (see git history). Alchemical in particular has
-        // no Sorcery/spell system at all per the source rules, so this
-        // rejection is expected to remain permanent for that family, not
-        // just a temporary placeholder.
+        // catalog existed (see git history).
         context.addIssue({
           code: 'custom',
           message: `No ${sheetTypeLabels[character.sheetType]} spell catalog exists yet.`,
