@@ -235,6 +235,99 @@ test('contains Earthdawn rules UI at desktop, tablet, narrow, and zoom-equivalen
   ).toBe(true);
   await catalog.getByRole('button', { name: 'Close catalog' }).click();
   await expect(page.getByRole('button', { name: 'Compendium' })).toBeFocused();
+
+  await page.getByRole('button', { name: 'Basic Rules' }).click();
+  const rules = page.getByRole('dialog', { name: 'Basic Rules reference' });
+  const healingRule = rules
+    .locator('details')
+    .filter({ hasText: '7. Healing Aids' });
+  await healingRule.locator('summary').click();
+  await expect(healingRule.locator('.earthdawn-rule-table-wrap')).toBeVisible();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= window.innerWidth,
+    ),
+  ).toBe(true);
+  const rulesBounds = await rules.evaluate((node) => {
+    const rect = node.getBoundingClientRect();
+    return { left: rect.left, right: rect.right, viewport: window.innerWidth };
+  });
+  expect(rulesBounds.left).toBeGreaterThanOrEqual(0);
+  expect(rulesBounds.right).toBeLessThanOrEqual(rulesBounds.viewport);
+  await rules.getByRole('button', { name: 'Close rules' }).click();
+});
+
+test('opens isolated, ordered Basic Rules and Character Creation references', async ({
+  page,
+}) => {
+  await seedEarthdawnCharacter(
+    page,
+    '97979797-9797-4979-8979-979797979797',
+    'Rules Reader',
+    createHighCircleMatrixFixture(),
+  );
+
+  const basicRulesButton = page.getByRole('button', { name: 'Basic Rules' });
+  await basicRulesButton.click();
+  const basicRules = page.getByRole('dialog', {
+    name: 'Basic Rules reference',
+  });
+  await expect(
+    basicRules.getByRole('searchbox', { name: 'Search Basic Rules' }),
+  ).toBeFocused();
+  await expect(basicRules.locator('details')).toHaveCount(10);
+  await expect(basicRules.locator('summary strong')).toHaveText([
+    '1. Resolve a Test',
+    '2. Combat Procedure',
+    '3. Karma',
+    '4. Damage, Wounds, and Recovery',
+    '5. Spellcasting Methods',
+    '6. Thread Items',
+    '7. Healing Aids',
+    '8. Alchemy and Custom Enchanting',
+    '9. Blood Charms',
+    '10. Keep Play Moving',
+  ]);
+  await expect(basicRules.locator('details[open]')).toHaveCount(0);
+  const firstRule = basicRules.locator('details').nth(0);
+  const secondRule = basicRules.locator('details').nth(1);
+  await firstRule.locator('summary').click();
+  await secondRule.locator('summary').click();
+  await expect(firstRule).toHaveAttribute('open', '');
+  await expect(secondRule).toHaveAttribute('open', '');
+  await basicRules.getByRole('searchbox').fill('Last Chance Salve');
+  await expect(basicRules.locator('details')).toHaveCount(1);
+  await expect(basicRules.getByText('7. Healing Aids')).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(basicRulesButton).toBeFocused();
+
+  const creationButton = page.getByRole('button', {
+    name: 'Character Creation',
+  });
+  await creationButton.click();
+  const creationRules = page.getByRole('dialog', {
+    name: 'Character Creation reference',
+  });
+  await expect(creationRules.locator('details')).toHaveCount(10);
+  await expect(creationRules.locator('summary strong')).toHaveText([
+    '1. Choose a Discipline',
+    '2. Choose a Race',
+    '3. Generate Attributes',
+    '4. Determine Characteristics',
+    '5. Record Racial Abilities',
+    '6. Assign Talent Ranks',
+    '7. Choose Spells',
+    '8. Assign Skill Ranks',
+    '9. Equip the Character',
+    '10. Finish the Character',
+  ]);
+  await creationRules.getByRole('searchbox').fill('25 Attribute Points');
+  const attributeRule = creationRules.locator('details');
+  await expect(attributeRule).toHaveCount(1);
+  await attributeRule.locator('summary').click();
+  await expect(attributeRule.getByText('+8')).toBeVisible();
+  await creationRules.getByRole('button', { name: 'Close rules' }).click();
+  await expect(creationButton).toBeFocused();
 });
 
 test('assigns every registered matrix-sharing combination through the UI', async ({
@@ -564,15 +657,8 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   await expect(
     compendium.getByText('Select one or more Catalog sections to browse.'),
   ).toBeVisible();
-  await compendium.getByLabel('Basic Rules').check();
-  await compendium.getByRole('searchbox').fill('25 Attribute Points');
-  const attributeRule = compendium
-    .locator('.catalog-card')
-    .filter({ hasText: 'Generate Attributes' });
-  await expect(attributeRule).toBeVisible();
-  await attributeRule.getByText('Complete rule').click();
-  await expect(attributeRule.getByText(/\+8: 15/)).toBeVisible();
-  await compendium.getByLabel('Basic Rules').uncheck();
+  await expect(compendium.getByLabel('Basic Rules')).toHaveCount(0);
+  await expect(compendium.getByLabel('Character Creation')).toHaveCount(0);
   await compendium.getByLabel('Knacks').check();
   await compendium.getByRole('searchbox').fill('Assess Intentions');
   await expect(

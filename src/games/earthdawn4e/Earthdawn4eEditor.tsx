@@ -180,7 +180,6 @@ type CatalogSort = {
   direction: 'asc' | 'desc';
 };
 const compendiumCatalogKinds: readonly EarthdawnCatalogKind[] = [
-  'basic-rule',
   'race',
   'discipline',
   'path',
@@ -318,6 +317,50 @@ const mechanicsValue = (definition: EarthdawnDefinition, key: string) => {
     return '';
   }
 };
+const RuleBlocks = ({ definition }: { definition: EarthdawnDefinition }) => (
+  <div className="earthdawn-rule-content">
+    {definition.ruleMetadata?.blocks.map((block, index) => {
+      if (block.type === 'list')
+        return (
+          <ol key={index}>
+            {block.items.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ol>
+        );
+      if (block.type === 'table')
+        return (
+          <div className="earthdawn-rule-table-wrap" key={index}>
+            <table>
+              <thead>
+                <tr>
+                  {block.columns.map((column) => (
+                    <th key={column} scope="col">
+                      {column}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {block.rows.map((row, rowIndex) => (
+                  <tr key={rowIndex}>
+                    {row.map((cell, cellIndex) => (
+                      <td key={cellIndex}>{cell}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        );
+      return (
+        <p className={`earthdawn-rule-${block.type}`} key={index}>
+          {block.text}
+        </p>
+      );
+    })}
+  </div>
+);
 const catalogTableColumns = (
   kind: EarthdawnCatalogKind | 'all' | null,
 ): CatalogTableColumn[] => {
@@ -337,7 +380,7 @@ const catalogTableColumns = (
     label: 'Description',
     value: (definition) => definition.summary,
   };
-  if (kind === 'basic-rule')
+  if (kind === 'basic-rule' || kind === 'creation-rule')
     return [
       name,
       summary,
@@ -2349,11 +2392,32 @@ export function Earthdawn4eEditor({
     devotion: ['Browse Devotions', 'Browse eligible Questor devotions.'],
     ability: ['Browse Abilities', 'Browse source-backed abilities.'],
     'basic-rule': [
-      'Browse Basic Rules',
-      'Review searchable Earthdawn procedures and character-creation rules.',
+      'Basic Rules',
+      'Review searchable Earthdawn play procedures and reference tables.',
+    ],
+    'creation-rule': [
+      'Character Creation',
+      'Review the ten steps for creating a First Circle character.',
     ],
   };
   const tableColumns = catalogTableColumns(catalogKind);
+  const ruleDialogOpen =
+    catalogKind === 'basic-rule' || catalogKind === 'creation-rule';
+  const visibleRules = ruleDialogOpen
+    ? earthdawnCatalog
+        .filter((definition) => {
+          if (definition.kind !== catalogKind) return false;
+          const query = catalogSearch.trim().toLocaleLowerCase();
+          return `${definition.name} ${definition.aliases.join(' ')} ${definition.summary} ${definition.mechanics} ${definition.source} ${definition.page ?? ''}`
+            .toLocaleLowerCase()
+            .includes(query);
+        })
+        .sort(
+          (left, right) =>
+            (left.ruleMetadata?.order ?? Number.MAX_SAFE_INTEGER) -
+            (right.ruleMetadata?.order ?? Number.MAX_SAFE_INTEGER),
+        )
+    : [];
   const visibleCatalog = earthdawnCatalog
     .filter((definition) => {
       if (definition.kind === 'devotion' && !draft.sources.showUnavailable) {
@@ -2926,6 +2990,18 @@ export function Earthdawn4eEditor({
               onClick={() => openCatalog('all')}
             >
               Compendium
+            </button>
+            <button
+              className="secondary-button"
+              onClick={() => openCatalog('basic-rule')}
+            >
+              Basic Rules
+            </button>
+            <button
+              className="secondary-button"
+              onClick={() => openCatalog('creation-rule')}
+            >
+              Character Creation
             </button>
             <AppearanceSettings gameLabel="Earthdawn 4e">
               <label className="appearance-switch">
@@ -7733,7 +7809,71 @@ export function Earthdawn4eEditor({
             </div>
           </div>
         ) : null}
-        {catalogKind ? (
+        {ruleDialogOpen ? (
+          <div
+            className="catalog-overlay"
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${catalogTitles[catalogKind][0]} reference`}
+          >
+            <div
+              className="catalog-dialog earthdawn-rules-dialog"
+              ref={catalogDialogRef}
+            >
+              <div className="catalog-dialog-header">
+                <div>
+                  <p className="sheet-eyebrow">Earthdawn rules reference</p>
+                  <h2>{catalogTitles[catalogKind][0]}</h2>
+                  <p>{catalogTitles[catalogKind][1]}</p>
+                </div>
+                <button className="secondary-button" onClick={closeCatalog}>
+                  Close rules
+                </button>
+              </div>
+              <div className="earthdawn-rules-toolbar">
+                <label>
+                  <span>Search {catalogTitles[catalogKind][0]}</span>
+                  <input
+                    type="search"
+                    autoFocus
+                    value={catalogSearch}
+                    onChange={(event) => setCatalogSearch(event.target.value)}
+                    placeholder="Search titles, rules, tables, or citations"
+                  />
+                </label>
+                <p aria-live="polite">
+                  {visibleRules.length} result
+                  {visibleRules.length === 1 ? '' : 's'}
+                </p>
+              </div>
+              <div className="earthdawn-rule-list">
+                {visibleRules.map((definition) => (
+                  <details
+                    className="sheet-card earthdawn-rule-card"
+                    key={definition.id}
+                  >
+                    <summary>
+                      <span>
+                        <strong>{definition.name}</strong>
+                        <small>{definition.summary}</small>
+                      </span>
+                    </summary>
+                    <RuleBlocks definition={definition} />
+                    <small className="earthdawn-rule-citation">
+                      {definition.source}
+                      {definition.page ? `, p. ${definition.page}` : ''}
+                    </small>
+                  </details>
+                ))}
+                {!visibleRules.length ? (
+                  <p className="catalog-empty-state">
+                    No rules match this search.
+                  </p>
+                ) : null}
+              </div>
+            </div>
+          </div>
+        ) : catalogKind ? (
           <div
             className="catalog-overlay"
             role="dialog"
@@ -7810,7 +7950,6 @@ export function Earthdawn4eEditor({
                     </SheetToolbar>
                     {(
                       [
-                        ['basic-rule', 'Basic Rules'],
                         ['race', 'Races'],
                         ['discipline', 'Disciplines'],
                         ['path', 'Paths'],
@@ -8105,9 +8244,7 @@ export function Earthdawn4eEditor({
                       </select>
                     </SheetField>
                   ) : null}
-                  {catalogKind !== 'all' &&
-                  catalogKind !== 'race' &&
-                  catalogKind !== 'basic-rule' ? (
+                  {catalogKind !== 'all' && catalogKind !== 'race' ? (
                     <button
                       type="button"
                       className="secondary-button compact-inline-button"

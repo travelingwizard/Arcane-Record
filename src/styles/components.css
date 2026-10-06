@@ -2333,6 +2333,126 @@
   text-align: left;
 }
 
+.earthdawn-rules-dialog {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.earthdawn-rules-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--space-3);
+}
+
+.earthdawn-rules-toolbar label {
+  display: grid;
+  min-width: 0;
+  gap: var(--space-1);
+}
+
+.earthdawn-rules-toolbar p {
+  margin: 0 0 0.7rem;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+}
+
+.earthdawn-rule-list {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-3);
+}
+
+.earthdawn-rule-card {
+  min-width: 0;
+  padding: 0;
+}
+
+.earthdawn-rule-card > summary {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+  cursor: pointer;
+}
+
+.earthdawn-rule-card > summary:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: -3px;
+}
+
+.earthdawn-rule-card > summary span {
+  display: grid;
+  min-width: 0;
+  gap: 0.2rem;
+}
+
+.earthdawn-rule-card > summary small,
+.earthdawn-rule-citation {
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+}
+
+.earthdawn-rule-content {
+  display: grid;
+  min-width: 0;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-top: 1px solid var(--rule-light);
+  overflow-wrap: anywhere;
+}
+
+.earthdawn-rule-content :is(p, ol) {
+  margin: 0;
+}
+
+.earthdawn-rule-note,
+.earthdawn-rule-warning {
+  padding: var(--space-3);
+  border-inline-start: 3px solid var(--accent);
+  background: var(--surface-glaze);
+}
+
+.earthdawn-rule-warning {
+  border-inline-start-color: var(--danger);
+}
+
+.earthdawn-rule-table-wrap {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+.earthdawn-rule-table-wrap table {
+  width: 100%;
+  min-width: max-content;
+  border-collapse: collapse;
+}
+
+.earthdawn-rule-table-wrap :is(th, td) {
+  padding: 0.45rem 0.65rem;
+  border: 1px solid var(--rule-light);
+  text-align: start;
+  vertical-align: top;
+}
+
+.earthdawn-rule-citation {
+  display: block;
+  padding: 0 var(--space-4) var(--space-4);
+}
+
+@media (max-width: 36rem) {
+  .earthdawn-rules-toolbar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .earthdawn-rules-toolbar p {
+    margin: 0;
+  }
+}
+
 .earthdawn-catalog-view-button[aria-pressed='true'] {
   border-color: var(--umber);
   color: var(--umber-deep);

@@ -12,7 +12,10 @@ import {
 } from '../../src/games/earthdawn4e/catalog';
 import { createBlankEarthdawn4eCharacter } from '../../src/games/earthdawn4e/create-character';
 import { earthdawnPathProfiles } from '../../src/games/earthdawn4e/path-profiles';
-import { earthdawnBasicRules } from '../../src/games/earthdawn4e/basic-rules';
+import {
+  earthdawnBasicRules,
+  earthdawnCreationRules,
+} from '../../src/games/earthdawn4e/basic-rules';
 import {
   attributeStep,
   addKarmaDie,
@@ -84,14 +87,29 @@ import {
 import { createHighCircleMatrixFixture } from '../fixtures/earthdawn-high-circle';
 
 describe('Earthdawn Fourth Edition module', () => {
-  it('provides the ten searchable character-creation rules', () => {
+  it('provides separate, numerically ordered play and creation rules', () => {
     expect(earthdawnBasicRules).toHaveLength(10);
     expect(earthdawnBasicRules.map(({ kind }) => kind)).toEqual(
       Array(10).fill('basic-rule'),
     );
-    expect(earthdawnBasicRules[2]?.mechanics).toContain('+8: 15');
-    expect(earthdawnBasicRules[7]?.mechanics).toContain(
-      'eight ranks across General, Knowledge, Artisan, or Language',
+    expect(
+      earthdawnBasicRules.map(({ ruleMetadata }) => ruleMetadata?.order),
+    ).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    expect(earthdawnBasicRules[0]?.mechanics).toContain('DN + 15 to +19');
+    expect(earthdawnBasicRules[6]?.mechanics).toContain('Last Chance Salve');
+
+    expect(earthdawnCreationRules).toHaveLength(10);
+    expect(earthdawnCreationRules.map(({ kind }) => kind)).toEqual(
+      Array(10).fill('creation-rule'),
+    );
+    expect(
+      earthdawnCreationRules.map(({ ruleMetadata }) => ruleMetadata?.order),
+    ).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    expect(earthdawnCreationRules[2]?.mechanics).toContain(
+      '+8 Total cost 1 2 3 5 7 9 12 15',
+    );
+    expect(earthdawnCreationRules[7]?.mechanics).toContain(
+      '8 additional ranks across General, Knowledge, Artisan, or Language',
     );
   });
   it('records the supplied guided Mystic Path profiles without treating military branches as Paths', () => {
