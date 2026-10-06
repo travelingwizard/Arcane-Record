@@ -1,5 +1,6 @@
 import type { EarthdawnSpellReference } from './spell-types';
 import type { EarthdawnKnackVariant } from './knack-types';
+import { earthdawnBasicRules } from './basic-rules';
 
 export type EarthdawnCatalogKind =
   | 'race'
@@ -13,7 +14,8 @@ export type EarthdawnCatalogKind =
   | 'thread-item'
   | 'path'
   | 'devotion'
-  | 'ability';
+  | 'ability'
+  | 'basic-rule';
 
 export interface EarthdawnSource {
   id: string;
@@ -1357,6 +1359,7 @@ const currencyReferenceEntries: EarthdawnDefinition[] = [
   }),
 }));
 const earthdawnCatalogRows: EarthdawnDefinition[] = [
+  ...earthdawnBasicRules,
   ...earthdawnRaces,
   ...earthdawnDisciplines,
   ...earthdawnQuestorDefinitions,

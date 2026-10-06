@@ -564,6 +564,15 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   await expect(
     compendium.getByText('Select one or more Catalog sections to browse.'),
   ).toBeVisible();
+  await compendium.getByLabel('Basic Rules').check();
+  await compendium.getByRole('searchbox').fill('25 Attribute Points');
+  const attributeRule = compendium
+    .locator('.catalog-card')
+    .filter({ hasText: 'Generate Attributes' });
+  await expect(attributeRule).toBeVisible();
+  await attributeRule.getByText('Complete rule').click();
+  await expect(attributeRule.getByText(/\+8: 15/)).toBeVisible();
+  await compendium.getByLabel('Basic Rules').uncheck();
   await compendium.getByLabel('Knacks').check();
   await compendium.getByRole('searchbox').fill('Assess Intentions');
   await expect(

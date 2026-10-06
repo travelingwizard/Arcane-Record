@@ -180,6 +180,7 @@ type CatalogSort = {
   direction: 'asc' | 'desc';
 };
 const compendiumCatalogKinds: readonly EarthdawnCatalogKind[] = [
+  'basic-rule',
   'race',
   'discipline',
   'path',
@@ -336,6 +337,17 @@ const catalogTableColumns = (
     label: 'Description',
     value: (definition) => definition.summary,
   };
+  if (kind === 'basic-rule')
+    return [
+      name,
+      summary,
+      {
+        key: 'rule',
+        label: 'Rule details',
+        value: (definition) => definition.mechanics,
+      },
+      source,
+    ];
   if (kind === 'race')
     return [
       name,
@@ -2336,6 +2348,10 @@ export function Earthdawn4eEditor({
     path: ['Browse Paths', 'Browse verified Paths.'],
     devotion: ['Browse Devotions', 'Browse eligible Questor devotions.'],
     ability: ['Browse Abilities', 'Browse source-backed abilities.'],
+    'basic-rule': [
+      'Browse Basic Rules',
+      'Review searchable Earthdawn procedures and character-creation rules.',
+    ],
   };
   const tableColumns = catalogTableColumns(catalogKind);
   const visibleCatalog = earthdawnCatalog
@@ -2476,7 +2492,7 @@ export function Earthdawn4eEditor({
                 isAddableReferenceSource(definition.sourceId));
       const query = catalogSearch.trim().toLocaleLowerCase();
       const searchMatches =
-        `${definition.name} ${definition.aliases.join(' ')} ${definition.summary} ${definition.source} ${definition.page ?? ''} ${definition.requirements.join(' ')} ${definition.skillCategory ?? ''} ${definition.talentMetadata?.attributeText ?? ''} ${definition.talentMetadata?.actionText ?? ''} ${definition.talentMetadata?.effectText ?? ''} ${definition.talentMetadata?.descriptionText ?? ''} ${definition.talentMetadata?.requirementsText ?? ''} ${definition.threadItemMetadata?.itemType ?? ''} ${definition.threadItemMetadata?.inferredKeyKnowledge ?? ''} ${definition.spellMetadata?.effectText ?? ''} ${definition.spellMetadata?.threadsText ?? ''} ${definition.spellMetadata?.difficultyText ?? ''} ${definition.spellMetadata?.variants.map((variant) => `${variant.discipline} ${variant.circleText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.pageStart ?? ''}`).join(' ') ?? ''} ${definition.knackMetadata?.variants.map((variant) => `${variant.association} ${variant.description} ${variant.mechanicsText} ${variant.actionText} ${variant.strainText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.page ?? ''}`).join(' ') ?? ''}`
+        `${definition.name} ${definition.aliases.join(' ')} ${definition.summary} ${definition.mechanics} ${definition.source} ${definition.page ?? ''} ${definition.requirements.join(' ')} ${definition.skillCategory ?? ''} ${definition.talentMetadata?.attributeText ?? ''} ${definition.talentMetadata?.actionText ?? ''} ${definition.talentMetadata?.effectText ?? ''} ${definition.talentMetadata?.descriptionText ?? ''} ${definition.talentMetadata?.requirementsText ?? ''} ${definition.threadItemMetadata?.itemType ?? ''} ${definition.threadItemMetadata?.inferredKeyKnowledge ?? ''} ${definition.spellMetadata?.effectText ?? ''} ${definition.spellMetadata?.threadsText ?? ''} ${definition.spellMetadata?.difficultyText ?? ''} ${definition.spellMetadata?.variants.map((variant) => `${variant.discipline} ${variant.circleText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.pageStart ?? ''}`).join(' ') ?? ''} ${definition.knackMetadata?.variants.map((variant) => `${variant.association} ${variant.description} ${variant.mechanicsText} ${variant.actionText} ${variant.strainText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.page ?? ''}`).join(' ') ?? ''}`
           .replace(/not in source/gi, '')
           .toLocaleLowerCase()
           .includes(query);
@@ -7794,6 +7810,7 @@ export function Earthdawn4eEditor({
                     </SheetToolbar>
                     {(
                       [
+                        ['basic-rule', 'Basic Rules'],
                         ['race', 'Races'],
                         ['discipline', 'Disciplines'],
                         ['path', 'Paths'],
@@ -8088,7 +8105,9 @@ export function Earthdawn4eEditor({
                       </select>
                     </SheetField>
                   ) : null}
-                  {catalogKind !== 'all' && catalogKind !== 'race' ? (
+                  {catalogKind !== 'all' &&
+                  catalogKind !== 'race' &&
+                  catalogKind !== 'basic-rule' ? (
                     <button
                       type="button"
                       className="secondary-button compact-inline-button"
@@ -8301,57 +8320,61 @@ export function Earthdawn4eEditor({
                                 ) : null}
                               </td>
                               <td>
-                                <div className="catalog-table-actions">
-                                  <button
-                                    type="button"
-                                    className="primary-button compact-inline-button"
-                                    disabled={
-                                      selected ||
-                                      !addable ||
-                                      (definition.kind === 'knack' &&
-                                        !selectedKnackVariant)
-                                    }
-                                    onClick={() =>
-                                      addCatalog(
-                                        definition.id,
-                                        false,
-                                        undefined,
-                                        'gain',
-                                        selectedKnackVariant?.key,
-                                      )
-                                    }
-                                  >
-                                    {selected
-                                      ? 'Selected'
-                                      : spellbookMode &&
-                                          definition.kind === 'spell'
-                                        ? 'Learn'
-                                        : ['equipment', 'weapon'].includes(
-                                              definition.kind,
-                                            )
-                                          ? 'Gain'
-                                          : 'Add'}
-                                  </button>
-                                  {['equipment', 'weapon'].includes(
-                                    definition.kind,
-                                  ) && !selected ? (
+                                {definition.kind !== 'basic-rule' ? (
+                                  <div className="catalog-table-actions">
                                     <button
                                       type="button"
-                                      className="secondary-button compact-inline-button"
-                                      disabled={!addable}
+                                      className="primary-button compact-inline-button"
+                                      disabled={
+                                        selected ||
+                                        !addable ||
+                                        (definition.kind === 'knack' &&
+                                          !selectedKnackVariant)
+                                      }
                                       onClick={() =>
                                         addCatalog(
                                           definition.id,
                                           false,
                                           undefined,
-                                          'purchase',
+                                          'gain',
+                                          selectedKnackVariant?.key,
                                         )
                                       }
                                     >
-                                      Purchase
+                                      {selected
+                                        ? 'Selected'
+                                        : spellbookMode &&
+                                            definition.kind === 'spell'
+                                          ? 'Learn'
+                                          : ['equipment', 'weapon'].includes(
+                                                definition.kind,
+                                              )
+                                            ? 'Gain'
+                                            : 'Add'}
                                     </button>
-                                  ) : null}
-                                </div>
+                                    {['equipment', 'weapon'].includes(
+                                      definition.kind,
+                                    ) && !selected ? (
+                                      <button
+                                        type="button"
+                                        className="secondary-button compact-inline-button"
+                                        disabled={!addable}
+                                        onClick={() =>
+                                          addCatalog(
+                                            definition.id,
+                                            false,
+                                            undefined,
+                                            'purchase',
+                                          )
+                                        }
+                                      >
+                                        Purchase
+                                      </button>
+                                    ) : null}
+                                  </div>
+                                ) : (
+                                  <span>Reference</span>
+                                )}
                               </td>
                             </tr>
                           );
@@ -8639,100 +8662,109 @@ export function Earthdawn4eEditor({
                             ))}
                           </dl>
                         ) : null}
-                        <div className="catalog-card__actions">
-                          <button
-                            className="primary-button compact-inline-button"
-                            disabled={
-                              (d.kind === 'spell'
-                                ? choiceSelected || !selectedChoice
-                                : d.kind === 'knack'
-                                  ? knackChoiceSelected || !selectedKnackVariant
-                                  : !repeatableDefinition(d) &&
-                                    selectedDefinitionIds.has(d.id)) ||
-                              (d.verification !== 'verified' &&
-                                !isAddableReferenceSource(d.sourceId)) ||
-                              (playMode &&
-                                ![
-                                  'spell',
-                                  'devotion',
-                                  'thread-item',
-                                  'knack',
-                                  'race',
-                                  'talent',
-                                  'skill',
-                                  'equipment',
-                                  'weapon',
-                                  'ability',
-                                  'path',
-                                ].includes(d.kind)) ||
-                              (d.kind === 'spell'
-                                ? !selectedChoice ||
-                                  !draft.sources.enabledSourceIds.includes(
-                                    selectedChoice.variant.sourceId,
-                                  )
-                                : !draft.sources.enabledSourceIds.includes(
-                                    selectedKnackVariant?.sourceId ??
-                                      d.sourceId,
-                                  ) && !isAddableReferenceSource(d.sourceId))
-                            }
-                            onClick={() =>
-                              addCatalog(
-                                d.id,
-                                false,
-                                selectedChoice,
-                                'gain',
-                                selectedKnackVariant?.key,
-                              )
-                            }
-                          >
-                            {d.kind === 'spell'
-                              ? choiceSelected
-                                ? 'Known'
-                                : spellbookMode
-                                  ? `Learn · ${spellLearningCost(selectedChoice?.circle ?? 1)} LP`
-                                  : 'Add variant'
-                              : d.kind === 'knack'
-                                ? knackChoiceSelected
-                                  ? 'Selected'
-                                  : 'Add'
-                                : d.kind === 'race'
-                                  ? selectedDefinitionIds.has(d.id)
-                                    ? 'Selected'
-                                    : draft.identity.raceId
-                                      ? 'Change to this Race'
-                                      : 'Select Race'
-                                  : !repeatableDefinition(d) &&
-                                      selectedDefinitionIds.has(d.id)
-                                    ? 'Selected'
-                                    : ['equipment', 'weapon'].includes(d.kind)
-                                      ? 'Gain'
-                                      : 'Add'}
-                          </button>
-                          {['equipment', 'weapon'].includes(d.kind) &&
-                          !selectedDefinitionIds.has(d.id) ? (
+                        {d.kind === 'basic-rule' ? (
+                          <details>
+                            <summary>Complete rule</summary>
+                            <p>{d.mechanics}</p>
+                          </details>
+                        ) : null}
+                        {d.kind !== 'basic-rule' ? (
+                          <div className="catalog-card__actions">
                             <button
-                              className="secondary-button compact-inline-button"
+                              className="primary-button compact-inline-button"
                               disabled={
+                                (d.kind === 'spell'
+                                  ? choiceSelected || !selectedChoice
+                                  : d.kind === 'knack'
+                                    ? knackChoiceSelected ||
+                                      !selectedKnackVariant
+                                    : !repeatableDefinition(d) &&
+                                      selectedDefinitionIds.has(d.id)) ||
                                 (d.verification !== 'verified' &&
                                   !isAddableReferenceSource(d.sourceId)) ||
-                                (!draft.sources.enabledSourceIds.includes(
-                                  d.sourceId,
-                                ) &&
-                                  !isAddableReferenceSource(d.sourceId))
+                                (playMode &&
+                                  ![
+                                    'spell',
+                                    'devotion',
+                                    'thread-item',
+                                    'knack',
+                                    'race',
+                                    'talent',
+                                    'skill',
+                                    'equipment',
+                                    'weapon',
+                                    'ability',
+                                    'path',
+                                  ].includes(d.kind)) ||
+                                (d.kind === 'spell'
+                                  ? !selectedChoice ||
+                                    !draft.sources.enabledSourceIds.includes(
+                                      selectedChoice.variant.sourceId,
+                                    )
+                                  : !draft.sources.enabledSourceIds.includes(
+                                      selectedKnackVariant?.sourceId ??
+                                        d.sourceId,
+                                    ) && !isAddableReferenceSource(d.sourceId))
                               }
                               onClick={() =>
                                 addCatalog(
                                   d.id,
                                   false,
                                   selectedChoice,
-                                  'purchase',
+                                  'gain',
+                                  selectedKnackVariant?.key,
                                 )
                               }
                             >
-                              Purchase
+                              {d.kind === 'spell'
+                                ? choiceSelected
+                                  ? 'Known'
+                                  : spellbookMode
+                                    ? `Learn · ${spellLearningCost(selectedChoice?.circle ?? 1)} LP`
+                                    : 'Add variant'
+                                : d.kind === 'knack'
+                                  ? knackChoiceSelected
+                                    ? 'Selected'
+                                    : 'Add'
+                                  : d.kind === 'race'
+                                    ? selectedDefinitionIds.has(d.id)
+                                      ? 'Selected'
+                                      : draft.identity.raceId
+                                        ? 'Change to this Race'
+                                        : 'Select Race'
+                                    : !repeatableDefinition(d) &&
+                                        selectedDefinitionIds.has(d.id)
+                                      ? 'Selected'
+                                      : ['equipment', 'weapon'].includes(d.kind)
+                                        ? 'Gain'
+                                        : 'Add'}
                             </button>
-                          ) : null}
-                        </div>
+                            {['equipment', 'weapon'].includes(d.kind) &&
+                            !selectedDefinitionIds.has(d.id) ? (
+                              <button
+                                className="secondary-button compact-inline-button"
+                                disabled={
+                                  (d.verification !== 'verified' &&
+                                    !isAddableReferenceSource(d.sourceId)) ||
+                                  (!draft.sources.enabledSourceIds.includes(
+                                    d.sourceId,
+                                  ) &&
+                                    !isAddableReferenceSource(d.sourceId))
+                                }
+                                onClick={() =>
+                                  addCatalog(
+                                    d.id,
+                                    false,
+                                    selectedChoice,
+                                    'purchase',
+                                  )
+                                }
+                              >
+                                Purchase
+                              </button>
+                            ) : null}
+                          </div>
+                        ) : null}
                       </SheetCard>
                     );
                   })}

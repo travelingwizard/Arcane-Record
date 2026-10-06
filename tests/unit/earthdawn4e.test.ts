@@ -12,6 +12,7 @@ import {
 } from '../../src/games/earthdawn4e/catalog';
 import { createBlankEarthdawn4eCharacter } from '../../src/games/earthdawn4e/create-character';
 import { earthdawnPathProfiles } from '../../src/games/earthdawn4e/path-profiles';
+import { earthdawnBasicRules } from '../../src/games/earthdawn4e/basic-rules';
 import {
   attributeStep,
   addKarmaDie,
@@ -83,6 +84,16 @@ import {
 import { createHighCircleMatrixFixture } from '../fixtures/earthdawn-high-circle';
 
 describe('Earthdawn Fourth Edition module', () => {
+  it('provides the ten searchable character-creation rules', () => {
+    expect(earthdawnBasicRules).toHaveLength(10);
+    expect(earthdawnBasicRules.map(({ kind }) => kind)).toEqual(
+      Array(10).fill('basic-rule'),
+    );
+    expect(earthdawnBasicRules[2]?.mechanics).toContain('+8: 15');
+    expect(earthdawnBasicRules[7]?.mechanics).toContain(
+      'eight ranks across General, Knowledge, Artisan, or Language',
+    );
+  });
   it('records the supplied guided Mystic Path profiles without treating military branches as Paths', () => {
     expect(earthdawnPathProfiles.map(({ id }) => id)).toEqual([
       'outcast',
