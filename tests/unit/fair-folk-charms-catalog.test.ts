@@ -6,20 +6,20 @@ import {
   fairFolkCharms,
 } from '../../src/games/exalted1e/reference/fair-folk-powers';
 
-describe('Fair Folk Charm catalog (Phase 1b + Phase 1c)', () => {
+describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d)', () => {
   it('loads all promoted Charm rows with unique stable IDs', () => {
-    expect(fairFolkCharms).toHaveLength(44);
-    expect(fairFolkCharmIds.size).toBe(44);
-    expect(fairFolkCharmById.size).toBe(44);
+    expect(fairFolkCharms).toHaveLength(51);
+    expect(fairFolkCharmIds.size).toBe(51);
+    expect(fairFolkCharmById.size).toBe(51);
   });
 
-  it('assigns every Charm a valid category from the four documented Fair Folk Charm categories', () => {
+  it('assigns every Charm a valid category from the six documented Fair Folk Charm categories', () => {
     for (const charm of fairFolkCharms) {
       expect(fairFolkCharmCategories).toContain(charm.charmCategory);
     }
   });
 
-  it('distributes Charms across the four categories with the expected counts', () => {
+  it('distributes Charms across the six categories with the expected counts', () => {
     const categoryCounts = new Map<string, number>();
     for (const charm of fairFolkCharms) {
       categoryCounts.set(
@@ -31,12 +31,14 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c)', () => {
     expect(categoryCounts.get('Assumption')).toBe(8);
     expect(categoryCounts.get('Glamour Charms')).toBe(14);
     expect(categoryCounts.get('Mutation Charms')).toBe(3);
+    expect(categoryCounts.get('Dodge Charms')).toBe(4);
+    expect(categoryCounts.get('Resistance Charms')).toBe(3);
     expect(
       Array.from(categoryCounts.values()).reduce(
         (sum, count) => sum + count,
         0,
       ),
-    ).toBe(44);
+    ).toBe(51);
   });
 
   it('resolves every prerequisiteCharms entry to another id in the same catalog (no dangling references)', () => {
@@ -62,7 +64,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c)', () => {
     }
   });
 
-  it('keys every Grace Forging/Glamour Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption Charm to no Grace minimum at all', () => {
+  it('keys every Grace Forging/Glamour/Dodge/Resistance Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption Charm to no Grace minimum at all', () => {
     for (const charm of fairFolkCharms) {
       if (
         charm.charmCategory === 'Grace Forging' ||
@@ -75,6 +77,12 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c)', () => {
       } else if (charm.charmCategory === 'Mutation Charms') {
         expect(charm.minimumRequirements).toHaveLength(1);
         expect(charm.minimumRequirements[0]?.trait).toBe('Sword');
+      } else if (
+        charm.charmCategory === 'Dodge Charms' ||
+        charm.charmCategory === 'Resistance Charms'
+      ) {
+        expect(charm.minimumRequirements).toHaveLength(1);
+        expect(charm.minimumRequirements[0]?.trait).toBe('Heart');
       } else {
         expect(charm.minimumRequirements).toEqual([]);
       }
@@ -213,6 +221,40 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c)', () => {
       expect(charm).toBeDefined();
       expect(charm?.prerequisiteCharms).toEqual([]);
       expect(charm?.prerequisiteText).toBe('None');
+    }
+  });
+
+  it("chains the Heart's Dodge Charms tree (Ill-Approving Eyes root converging through two branches into Howling Dream Consumption Prana)", () => {
+    expect(
+      fairFolkCharmById.get('ill-approving-eyes')?.prerequisiteCharms,
+    ).toEqual([]);
+    for (const id of [
+      'assertion-of-a-greater-vision',
+      'sapphire-emptiness-kata',
+    ]) {
+      expect(fairFolkCharmById.get(id)?.prerequisiteCharms).toEqual([
+        'ill-approving-eyes',
+      ]);
+    }
+    expect(
+      fairFolkCharmById.get('howling-dream-consumption-prana')
+        ?.prerequisiteCharms,
+    ).toEqual(
+      expect.arrayContaining([
+        'assertion-of-a-greater-vision',
+        'sapphire-emptiness-kata',
+      ]),
+    );
+  });
+
+  it("chains the Heart's Resistance Charms tree (Writhing Ego Evasion root branching into two independent leaves)", () => {
+    expect(
+      fairFolkCharmById.get('writhing-ego-evasion')?.prerequisiteCharms,
+    ).toEqual([]);
+    for (const id of ['swallowed-grace-defense', 'pyre-of-dreams-defense']) {
+      expect(fairFolkCharmById.get(id)?.prerequisiteCharms).toEqual([
+        'writhing-ego-evasion',
+      ]);
     }
   });
 

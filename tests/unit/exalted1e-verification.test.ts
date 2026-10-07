@@ -96,7 +96,7 @@ describe('exalted1e verification gate', () => {
               : family === 'alchemical'
                 ? 214
                 : family === 'fair-folk'
-                  ? 143
+                  ? 150
                   : 0,
       );
       if (
@@ -123,8 +123,8 @@ describe('exalted1e verification gate', () => {
         // `fair-folk-bedlam.json` became the family's first
         // `fair-folk-`-prefixed catalog files (30 of 279 promotable);
         // Phase 1c grew `fair-folk-charms.json` from 19 to 44 rows (55 of
-        // 279 promotable now -- the catalog dimension stays far from
-        // closed).
+        // 279 promotable); Phase 1d grew it again to 51 rows (62 of 279
+        // promotable now -- the catalog dimension stays far from closed).
         expect(record.catalog.checksum).toBe(
           auditFamily(family).catalogChecksum,
         );
@@ -242,10 +242,10 @@ describe('exalted1e verification gate', () => {
     expect(isFamilyAvailable('alchemical')).toBe(false);
   });
 
-  it('reflects Fair Folk Phase 1a/1b/1c catalog promotion without unlocking the family', () => {
+  it('reflects Fair Folk Phase 1a/1b/1c/1d catalog promotion without unlocking the family', () => {
     const record = certificationRecords['fair-folk'];
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
-    // 143 = Phase 1a's 88 (13 Backgrounds (fairFolkBackgrounds) + 75 shared
+    // 150 = Phase 1a's 88 (13 Backgrounds (fairFolkBackgrounds) + 75 shared
     // Merits/Flaws catalog entries now carrying 'fair-folk' in appliesTo --
     // 73 inventoried pg-merit-*/pg-flaw-* rows resolving one-for-one,
     // except the two dual merit/flaw split pairs -- mutation-merit/
@@ -256,7 +256,9 @@ describe('exalted1e verification gate', () => {
     // Phase 1c's 25 more Charms (the 14-row Glamour Charms section, the
     // remaining 8-row Greater Arts of Glamour tail including
     // Behemoth-Forging Meditation, and the 3 standalone Pox/Affliction/
-    // Blight Charms), extending fair-folk-charms.json from 19 to 44 rows.
+    // Blight Charms) plus Phase 1d's 7 more Charms (the Heart Grace's
+    // Dodge Charms and Resistance Charms, its only combat-flavored
+    // Charm trees), extending fair-folk-charms.json from 19 to 51 rows.
     // This is far short of the 279 preliminary `promotableEntries`
     // estimate (flagged as approximate pending this family's own
     // remaining Charm/Sorcery/Artifact catalog phases). Phase 1b's three
@@ -264,9 +266,10 @@ describe('exalted1e verification gate', () => {
     // audit script's glob picked up, so the catalog checksum is no longer
     // empty -- exactly matching Alchemical's own Phase 1a -> 1b transition
     // (checksum stayed empty until its own Phase 1b added a real
-    // `alchemical-`-prefixed file); Phase 1c changed the checksum again
-    // simply by growing the same `fair-folk-charms.json` file.
-    expect(record.catalog.promotedEntries).toBe(143);
+    // `alchemical-`-prefixed file); Phase 1c and Phase 1d each changed the
+    // checksum again simply by growing the same `fair-folk-charms.json`
+    // file.
+    expect(record.catalog.promotedEntries).toBe(150);
     expect(record.catalog.checksum.length).toBeGreaterThan(0);
     expect(isFamilyAvailable('fair-folk')).toBe(false);
   });

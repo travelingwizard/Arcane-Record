@@ -1688,5 +1688,274 @@
     "reviewFlags": [
       "The specific blight effect is a fixed table entry chosen by the player at purchase, defined in Exalted core/Exalted: The Lunars rather than in this book -- flagged here rather than transcribed."
     ]
+  },
+  {
+    "id": "ill-approving-eyes",
+    "name": "Ill-Approving Eyes",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Dodge Charms",
+    "summary": "The root Charm of the Heart's Dodge Charms tree: a scalable, mote-for-dice bonus to dodging any shaping attack the raksha can see coming, capped by her own shaping Trait plus Dodge.",
+    "description": "The character's brooding Essence looks down on the game of worlds the Fair Folk play and is unimpressed, declaring with short, sharp gestures of fate the impotence of others' events. For each mote spent, this Charm adds two dice to an attempt to dodge a shaping attack the raksha can anticipate, though the total dice added cannot exceed the raksha's shaping Trait + Dodge. The raksha's player must declare how many motes to spend before the opponent's player rolls the shaping attack.",
+    "cost": "1 mote per 2 dice",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Heart",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 157,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 157",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "assertion-of-a-greater-vision",
+    "name": "Assertion of a Greater Vision",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Dodge Charms",
+    "summary": "A cheap, full-power dodge: the raksha denies an anticipated shaping attack as a meaningless background event beneath her own great work of fate, letting her dodge it with her complete shaping Trait + Dodge pool.",
+    "description": "Setting his name upon local reality, the character denies the world-shaping of others as paltry shadows and dreams -- the events may happen, but they are meaningless background images behind the raksha's own great work of fate. This Charm lets the raksha dodge a single anticipated shaping attack with his full shaping Trait + Dodge dice pool (in Exalted Power Combat, add his Essence to that pool as well). The raksha's player must spend the Charm's cost before the opponent's player makes the attack roll.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Heart",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["ill-approving-eyes"],
+    "prerequisiteText": "Ill-Approving Eyes",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 157,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 157",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "sapphire-emptiness-kata",
+    "name": "Sapphire Emptiness Kata",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Dodge Charms",
+    "summary": "A companion branch to Assertion of a Greater Vision: rather than dodging outright, the raksha simply declares an anticipated shaping attack will not land, raising its difficulty by her Dodge rating.",
+    "description": "As an opponent works her shaping, the raksha declares, 'This shall not be' -- and it is not. This Charm increases the difficulty to hit the raksha with a single anticipated, dodgeable shaping attack by an amount equal to the raksha's Dodge rating. The raksha's player must invoke this Charm before the opponent's player makes the attack roll.",
+    "cost": "6 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Heart",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["ill-approving-eyes"],
+    "prerequisiteText": "Ill-Approving Eyes",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 157,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 157",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "howling-dream-consumption-prana",
+    "name": "Howling Dream Consumption Prana",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Dodge Charms",
+    "summary": "The capstone Dodge Charm: for the rest of the story the raksha can reflexively dodge every shaping attack directed at her using her full shaping Trait + Dodge pool, as she opens the mouths of her Graces to devour her enemies' shaped world.",
+    "description": "The raksha opens the mouths of her Graces, and inside them is the hunger of the void; she eats the world shaped by her enemies. For the remainder of the story, this Charm lets the character reflexively dodge all shaping attacks using her full shaping Trait + Dodge dice pool (in Exalted Power Combat, add her Essence to this pool as well) -- not merely a single anticipated attack, as with its two prerequisite Charms.",
+    "cost": "5 motes, 1 Willpower",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Heart",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [
+      "assertion-of-a-greater-vision",
+      "sapphire-emptiness-kata"
+    ],
+    "prerequisiteText": "Assertion of a Greater Vision, Sapphire Emptiness Kata",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 158,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 158",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "writhing-ego-evasion",
+    "name": "Writhing Ego Evasion",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Resistance Charms",
+    "summary": "The root Charm of the Heart's Resistance Charms tree: converts spent motes directly into extra soak (via an effective Willpower boost) against a shaping attack, capped by the raksha's own Temperance.",
+    "description": "Desperate for freedom and the integrity of self, the raksha writhes her way out of the trap of another's shaping. This Charm increases her Willpower by one for every mote spent, purely for the purpose of calculating her soak against that attack. The raksha cannot spend more motes on this Charm in a single use than her Temperance rating.",
+    "cost": "1 mote per soak",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Heart",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 158,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 158",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "swallowed-grace-defense",
+    "name": "Swallowed Grace Defense",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Resistance Charms",
+    "summary": "A branch of the Resistance tree that lets the raksha metaphysically swallow her own Graces to seal out an attacker entirely, if the incoming shaping attack's pre-soak damage is weak enough.",
+    "description": "The raksha metaphysically gulps her Graces into herself, sealing them over with Essence to keep an enemy at bay. She invokes this Charm when someone uses shaping to attack her; if the attacker's pre-soak damage on that attack is less than the raksha's Willpower rating, this Charm lets her ignore the attack entirely.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Heart",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["writhing-ego-evasion"],
+    "prerequisiteText": "Writhing Ego Evasion",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 158,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 158",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "pyre-of-dreams-defense",
+    "name": "Pyre of Dreams Defense",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Resistance Charms",
+    "summary": "The other branch of the Resistance tree: a hard damage cap invoked after a shaping attack already hits, scattering the pain into fiery, disastrous images that limit the attack to two damage successes no matter how many dice the attacker rolled.",
+    "description": "The raksha's pain at a shaping attack scatters images of fire and disaster through the dream. This Charm caps the damage successes of a successful attack that hits the raksha at two, regardless of how many dice the enemy rolled for damage; this cap cannot be further lowered by other Charms or effects. The raksha must invoke this Charm after the attack hits her but before its damage is rolled.",
+    "cost": "5 motes, 1 Willpower",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Heart",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["writhing-ego-evasion"],
+    "prerequisiteText": "Writhing Ego Evasion",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 159,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 159",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
   }
 ]

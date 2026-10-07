@@ -280,10 +280,11 @@ describe('auditFamily against the real repository (current state)', () => {
   });
 
   it('reports Fair Folk as pending-certification with its real inventory rows and zero audit errors', () => {
-    // 55 = the 44 real, page-cited, visually-reviewed Charms promoted in
+    // 62 = the 51 real, page-cited, visually-reviewed Charms promoted in
     // `fair-folk-charms.json` (19 Grace-Forging/Assumption from Phase 1b,
-    // plus 25 Glamour/Grace-Forging/Mutation Charms from Phase 1c), the 6
-    // Graces rows in `fair-folk-graces.json`, and the 5 Bedlam rows in
+    // 25 Glamour/Grace-Forging/Mutation Charms from Phase 1c, and 7
+    // Dodge/Resistance Charms from Phase 1d), the 6 Graces rows in
+    // `fair-folk-graces.json`, and the 5 Bedlam rows in
     // `fair-folk-bedlam.json` (all Phase 1b), as counted directly from
     // `src/games/exalted1e/reference/fair-folk-*.json` by this audit
     // script. The stale `./reference/ocr-drafts/fair-folk-charms.json`
@@ -291,7 +292,7 @@ describe('auditFamily against the real repository (current state)', () => {
     // match this family's real inventory) remains outside this glob and
     // unwired, exactly matching Alchemical's own identical precedent
     // above. This differs from `certification/fair-folk.json`'s own
-    // `catalog.promotedEntries` (143), which also includes Phase 1a's 88
+    // `catalog.promotedEntries` (150), which also includes Phase 1a's 88
     // Backgrounds/Merits-Flaws rows, none of which live in a
     // `fair-folk-`-prefixed catalog file (Backgrounds live in
     // `definitions.ts`; Merits/Flaws are a subset of the shared
@@ -302,7 +303,7 @@ describe('auditFamily against the real repository (current state)', () => {
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);
     expect(report.inventoryRows).toBeGreaterThan(0);
-    expect(report.promotedEntries).toBe(55);
+    expect(report.promotedEntries).toBe(62);
     expect(report.catalogChecksum).toHaveLength(8);
     expect(report.catalogChecksum).toMatch(/^[0-9a-f]{8}$/);
   });
