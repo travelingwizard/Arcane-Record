@@ -6549,5 +6549,157 @@
     "sourceDisplay": "Exalted: The Fair Folk, p. 166",
     "reviewStatus": "source-checked",
     "reviewFlags": []
+  },
+  {
+    "id": "shiftless-untamed-beauty",
+    "name": "Shiftless Untamed Beauty",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Addiction Charms",
+    "summary": "Makes the raksha's presence addictive to Creation-born characters who fail a Willpower + Temperance roll, granting the raksha a Social bonus success against addicts and drawing them back to her after time apart.",
+    "description": "The raksha invests herself with the chaotic majesty of the Wyld -- with its beauty, sometimes its nightmarish horror, but always the raw seductive power of the primordial cauldron of dream. This Charm makes the raksha's presence addictive: players of Creation-born characters who interact with her must make a successful Willpower + Temperance roll against difficulty 2 once per scene, or their characters become addicted. The raksha gets one bonus success on normal Social dice actions against those addicted to her. After each full month apart, addicts' players must succeed at a Willpower roll or their characters feel drawn to return; those drawn to return cannot regain Willpower (save through stunts and Charms) until they spend time with the raksha again. Breaking the addiction requires three consecutive successful Willpower rolls. This Charm is a work of glamour and does not affect characters with Temperance + Essence greater than the raksha's Cup.",
+    "cost": "8 motes, 1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 166,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 166",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "maddening-summons",
+    "name": "Maddening Summons",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Addiction Charms",
+    "summary": "Calls an addicted or formerly addicted character back to the raksha's side via a contested Cup-shaping action, inflicting a derangement on current addicts until they return or break their addiction.",
+    "description": "A Fair One can call addicted or formerly addicted characters to his side. The raksha chooses a target who has spent time addicted to the raksha and invokes this Charm. The raksha's player rolls Conviction + Performance as a Cup-shaping action against a difficulty of the target's Essence. On a success, this Charm fills the dreams of the target with images of the raksha, his location and his desire for the target to return. Current addicts suffer a derangement of the raksha's choice (delusions, mood swings or obsession) until they break their addiction or return to the raksha's side; former addicts notice the dreams but can ignore them without ill effect. This Charm is a work of glamour and does not affect characters with Temperance + Essence greater than the raksha's Performance, nor characters who do not dream or whose dreams are spoken for by some other effect.",
+    "cost": "5 motes, 1 gossamer",
+    "duration": "One story",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 167,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 167",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "compelling-presence",
+    "name": "Compelling Presence",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Addiction Charms",
+    "summary": "Instantly addicts a target unless he beats a Willpower + Temperance roll against the raksha's Essence, and thereafter forces addicted attackers to spend an extra Willpower point to take hostile action against her.",
+    "description": "The raksha shapes herself to match her target's personal dreams and nightmares. This Charm instantly addicts the target, as with Shiftless Untamed Beauty, unless the target's player can successfully roll Willpower + Temperance against a difficulty of the raksha's Essence. Further, characters addicted by means of this Charm cannot attack the raksha without spending an extra Willpower point in each turn in which the addict wishes to take hostile action. The raksha can only use this power against a given target once per turn. This Charm is a work of glamour and does not affect characters with Temperance + Essence greater than the raksha's Cup.",
+    "cost": "10 motes, 1 Willpower, 1 gossamer",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["shiftless-untamed-beauty"],
+    "prerequisiteText": "Shiftless Untamed Beauty",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 167,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 167",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "whispers-behind-the-eyes",
+    "name": "Whispers Behind the Eyes",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Addiction Charms",
+    "summary": "The capstone of the Addiction Charms tree: opens a one-way telepathic channel into an addict's mind for the rest of the story, letting the raksha speak to them directly.",
+    "description": "Those addicted to the Fair Folk sometimes hear strange mad whispers, the patina of Wyld taint on their minds resonating with the raksha's will. The raksha can use this Charm and a Cup-shaping action to open a channel to an addict's mind, through which -- for the rest of the story -- she can speak. This Charm is a work of glamour and does not affect characters with Temperance + Essence greater than the raksha's Performance.",
+    "cost": "3 motes, 1 gossamer",
+    "duration": "One story",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["compelling-presence", "maddening-summons"],
+    "prerequisiteText": "Compelling Presence, Maddening Summons",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 167,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 167",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
   }
 ]

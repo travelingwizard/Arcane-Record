@@ -178,6 +178,16 @@ import type { PowerReviewStatus } from './dragonblooded-powers';
  * section (which begins immediately after Demesne-Farming Art on the
  * same page), not a member of the Feeding Charms tree itself -- it is
  * left for a future phase alongside its own Addiction Charms siblings.
+ * Phase 1m promotes that very tree: the real `'Addiction Charms'`
+ * section (4 entries, pp. 166-167) has two parallel roots, Shiftless
+ * Untamed Beauty and Maddening Summons, converging at the capstone
+ * Whispers Behind the Eyes via Compelling Presence. The immediately
+ * adjacent "World-Shaping Charms" (10 entries, two roots -- Gladdening
+ * Visage and Heaven Rains Wisdom -- converging at twin capstones
+ * Abiding Gift/Curse of Definition) and "Virtue-Shaping Charms" (5
+ * entries, rooted at Unsightly Rigor Approach, capped by Torn
+ * Spirit-Mending Technique) sections, both diagrammed on the same page
+ * range, remain unpromoted and are left for future phases.
  */
 export const fairFolkCharmCategories = [
   'Grace Forging',
@@ -197,6 +207,7 @@ export const fairFolkCharmCategories = [
   'Elemental Influence',
   'Emotional Influence',
   'Feeding Charms',
+  'Addiction Charms',
 ] as const;
 export type FairFolkCharmCategory = (typeof fairFolkCharmCategories)[number];
 
@@ -236,8 +247,8 @@ const reviewStatusSchema: z.ZodType<PowerReviewStatus> = z.enum([
  * Methodology, Beguilement, Undetectable Lie), Sword for the Mutation
  * Charms (Pox, Affliction, Blight)/Sword Combat Charms, Heart for the
  * Dodge/Resistance Charms/Name Charms, Cup for the rest of the Cup
- * Combat Charms/Feeding Charms, Ring for the rest of Ring Combat
- * Charms/All-Consuming
+ * Combat Charms/Feeding Charms/Addiction Charms, Ring for the rest of
+ * Ring Combat Charms/All-Consuming
  * God-Monster Style, Staff for Laughing Monster Style/Society-Forging
  * Charms, and (uniquely) a different Grace per Charm within
  * Bedlam-Influencing Charms (Heart for its root, then one of
@@ -275,7 +286,7 @@ const fairFolkCharmSchema = z.object({
 });
 
 /**
- * 172 of the many Charm rows found in Fair Folk's Chapter Five inventory
+ * 176 of the many Charm rows found in Fair Folk's Chapter Five inventory
  * range. Phase 1b's 19: the 6 "Forging the (Grace) Grace" Charms (Heart,
  * Cup, Ring, Staff, Sword, and the exotic sixth Way Grace), the 4 parallel
  * Freehold-anchor Charms that branch off Forging the Arcane Redoubt
@@ -316,7 +327,10 @@ const fairFolkCharmSchema = z.object({
  * Beauty, which shares the same page range, was deliberately excluded
  * from this phase: it is actually the root of the next, separate
  * "Addiction Charms" section, not a member of the Feeding Charms tree.
- * Every one is
+ * Phase 1m adds 4 more: the real "Addiction Charms" section itself
+ * (pp. 166-167 -- two parallel roots, Shiftless Untamed Beauty and
+ * Maddening Summons, converging at the capstone Whispers Behind the
+ * Eyes via Compelling Presence). Every one is
  * `disposition: 'selectable'` and `verificationState: 'reviewed'` in
  * the inventory. Phase 1c's own `shape-forged-servant` and
  * `awakened-dream-manufacture` resolved Phase 1b's
@@ -338,13 +352,13 @@ const fairFolkCharmSchema = z.object({
  * cross-reference in descriptive text, not a `prerequisiteCharms`
  * dependency, since Extinction of Desire's own gating is unrelated).
  * Phase 1d's, Phase 1e's, Phase 1f's, Phase 1g's, Phase 1h's, Phase
- * 1i's, Phase 1j's, and Phase 1l's own new Charms have no such gap of
- * their own: every prerequisite they cite resolves cleanly within
- * these same self-contained trees.
+ * 1i's, Phase 1j's, Phase 1l's, and Phase 1m's own new Charms have no
+ * such gap of their own: every prerequisite they cite resolves cleanly
+ * within these same self-contained trees.
  */
 const fairFolkCharmCatalogSchema = z
   .array(fairFolkCharmSchema)
-  .length(172)
+  .length(176)
   .superRefine((charms, context) => {
     const ids = charms.map(({ id }) => id);
     if (new Set(ids).size !== ids.length) {
@@ -400,8 +414,9 @@ const defaultComboRules: CharmComboRules = {
  * kind, and neither did Phase 1i's own 12 new Charms (the remaining
  * Mutation Charms), Phase 1j's own 7 new Charms (Name Charms and
  * Bedlam-Influencing Charms), Phase 1k's own 13 new Charms (Mad God
- * Mien, Elemental Influence, Emotional Influence), or Phase 1l's own 9
- * new Charms (Feeding Charms). Every Charm without
+ * Mien, Elemental Influence, Emotional Influence), Phase 1l's own 9
+ * new Charms (Feeding Charms), or Phase 1m's own 4 new Charms
+ * (Addiction Charms). Every Charm without
  * an entry in this map still falls through to `defaultComboRules`
  * (Combo-eligible, no restrictions) -- an honest reflection of what
  * source review found, not an assumption that no such restriction or
