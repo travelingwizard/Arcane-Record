@@ -6,11 +6,11 @@ import {
   fairFolkCharms,
 } from '../../src/games/exalted1e/reference/fair-folk-powers';
 
-describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f + Phase 1g + Phase 1h)', () => {
+describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f + Phase 1g + Phase 1h + Phase 1i)', () => {
   it('loads all promoted Charm rows with unique stable IDs', () => {
-    expect(fairFolkCharms).toHaveLength(131);
-    expect(fairFolkCharmIds.size).toBe(131);
-    expect(fairFolkCharmById.size).toBe(131);
+    expect(fairFolkCharms).toHaveLength(143);
+    expect(fairFolkCharmIds.size).toBe(143);
+    expect(fairFolkCharmById.size).toBe(143);
   });
 
   it('assigns every Charm a valid category from the twelve documented Fair Folk Charm categories', () => {
@@ -30,7 +30,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     expect(categoryCounts.get('Grace Forging')).toBe(19);
     expect(categoryCounts.get('Assumption')).toBe(8);
     expect(categoryCounts.get('Glamour Charms')).toBe(14);
-    expect(categoryCounts.get('Mutation Charms')).toBe(3);
+    expect(categoryCounts.get('Mutation Charms')).toBe(15);
     expect(categoryCounts.get('Dodge Charms')).toBe(4);
     expect(categoryCounts.get('Resistance Charms')).toBe(3);
     expect(categoryCounts.get('Cup Combat Charms')).toBe(19);
@@ -44,7 +44,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         (sum, count) => sum + count,
         0,
       ),
-    ).toBe(131);
+    ).toBe(143);
   });
 
   it('resolves every prerequisiteCharms entry to another id in the same catalog (no dangling references)', () => {
@@ -635,6 +635,36 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     }
   });
 
+  it('chains the remaining Mutation Charms (Hundred-Hand Style -> Millipede Mind -> two-way branch) and keeps the other 8 Mutation Charms independently purchasable with no prerequisites', () => {
+    expect(
+      fairFolkCharmById.get('hundred-hand-style')?.prerequisiteCharms,
+    ).toEqual([]);
+    expect(fairFolkCharmById.get('millipede-mind')?.prerequisiteCharms).toEqual(
+      ['hundred-hand-style'],
+    );
+    expect(
+      fairFolkCharmById.get('grace-of-the-infinite-revolving-spheres')
+        ?.prerequisiteCharms,
+    ).toEqual(['millipede-mind']);
+    expect(
+      fairFolkCharmById.get('harmonious-primordial-spirit')?.prerequisiteCharms,
+    ).toEqual(['millipede-mind']);
+
+    for (const id of [
+      'long-arm-technique',
+      'gossamer-wing-flight',
+      'hiding-the-wylds-touch',
+      'armament-of-flesh',
+      'surpassing-excellence',
+      'glorious-hero-form',
+      'racing-dragon-speed',
+      'root-of-the-perfected-lotus',
+    ]) {
+      expect(fairFolkCharmById.get(id)?.prerequisiteCharms).toEqual([]);
+      expect(fairFolkCharmById.get(id)?.charmCategory).toBe('Mutation Charms');
+    }
+  });
+
   it('assigns Combo-eligibility rules to every Charm, defaulting to eligible with no restrictions/specialRules except the two explicit overrides found so far', () => {
     for (const charm of fairFolkCharms) {
       expect(charm.comboRules).toBeDefined();
@@ -690,6 +720,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         'laughing-monster-stance',
         'monstrous-conceit',
         'pox-charm',
+        'racing-dragon-speed',
         'spirit-twisting-obsession-stance',
         'swift-wings-of-song',
         'tainted-creature-command',

@@ -5040,5 +5040,463 @@
     "sourceDisplay": "Exalted: The Fair Folk, p. 202",
     "reviewStatus": "source-checked",
     "reviewFlags": []
+  },
+  {
+    "id": "hundred-hand-style",
+    "name": "Hundred-Hand Style",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Mutation Charms",
+    "summary": "Attunes the raksha's shape to the harmony of principles so mind and body function as many rather than one, reducing multiple-action penalties by 1 (to a minimum of 0).",
+    "description": "The raksha attunes her shape to the harmony of principles, so that her mind and body function as many rather than one. This Charm is favored by raksha with extra arms, heads or personalities, but these things are not necessary to receive the Charm's primary benefit. Activating this Charm reduces multiple action penalties by 1, to a minimum of 0.",
+    "cost": "4 motes, 2 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 203,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 203",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "millipede-mind",
+    "name": "Millipede Mind",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Mutation Charms",
+    "summary": "Divides control of the raksha's mind and body among her five Graces, reducing multiple-action penalties by 2 (to a minimum of 0); stacks with its own prerequisite, Hundred-Hand Style.",
+    "description": "The raksha divides control of her mind and body among her Graces, so that five distinct principles guide her every action. Activating this Charm reduces multiple action penalties by 2, to a minimum of 0. The raksha can benefit from this Charm and its prerequisite simultaneously.",
+    "cost": "8 motes, 4 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["hundred-hand-style"],
+    "prerequisiteText": "Hundred-Hand Style",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 203,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 203",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "grace-of-the-infinite-revolving-spheres",
+    "name": "Grace of the Infinite Revolving Spheres",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Mutation Charms",
+    "summary": "Lets the raksha flow through the interwoven desires of her five component Graces so that, when splitting her dice pool, her first five actions suffer no multiple-action penalties; stacks with its prerequisites.",
+    "description": "The raksha flows smoothly through the interwoven desires of his five component Graces. If he splits his dice pool, the first five actions suffer no multiple-action penalties. The raksha can benefit from this Charm and its prerequisites simultaneously.",
+    "cost": "10 motes, 1 Willpower, 4 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["millipede-mind"],
+    "prerequisiteText": "Millipede Mind",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 203,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 203",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "harmonious-primordial-spirit",
+    "name": "Harmonious Primordial Spirit",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Mutation Charms",
+    "summary": "Embeds one of the raksha's own Graces in a consenting common raksha, turning it into a bound spiritual-extension servant with heroic-commoner qualities that shares use of the embedded Grace with the original owner.",
+    "description": "The raksha embeds one of her Graces in a consenting common raksha, replacing his own version of that Grace. The creature becomes a bound subsidiary entity, a spiritual extension of the raksha's body, with the qualities and abilities of a heroic commoner. The servant serves the raksha loyally and at all times knows her will. The activating raksha still has access to the Grace while this Charm is in effect, and the subsidiary raksha also uses this Grace for Charms and damage.",
+    "cost": "4 motes, 1 gossamer, 1 experience point",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["millipede-mind"],
+    "prerequisiteText": "Millipede Mind",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 203,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 203",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "long-arm-technique",
+    "name": "Long-Arm Technique",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Mutation Charms",
+    "summary": "Lets the raksha's limbs unfold like flowing geysers of flesh on attack, extending her reach by two yards per gossamer spent and letting her strike mounted opponents without penalty.",
+    "description": "Raksha with this Charm are never quite so far from their victims as they might appear. Fair Folk under this Charm's influence look normal until they attack, when their limbs stretch and unfold like flowing geysers of flesh. For each gossamer spent, this Charm adds two yards to the raksha's reach. Raksha with this Charm active can strike opponents on horseback without penalty.",
+    "cost": "1 mote, 1 gossamer per 2 yards",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 203,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 203",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "gossamer-wing-flight",
+    "name": "Gossamer Wing Flight",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Mutation Charms",
+    "summary": "Shapes wings from mixed Wyld and Creation substance, letting the raksha fly at normal speed (half speed to ascend, double to dive), though the wings impose a Dexterity penalty while airborne unless the Charm is purchased a second time.",
+    "description": "The raksha forms wings for himself, shaping them from the mixed substances of the Wyld and Creation. Nobles often build their wings from the appropriate element; commoners base theirs on the wings of birds or insects. The raksha's wingspan is at least equal to his height, and he cannot fly if he cannot spread his wings; he can fly at normal speed, ascend at half speed, or dive at twice his normal speed. Gossamer wings are clumsy, and the character suffers a +2 difficulty penalty on all Dexterity-based normal dice actions while airborne; the player can eliminate this penalty by purchasing this Charm a second time. Raksha using either version of this Charm may make fly-by attacks (see the Exalted Players Guide, p. 201).",
+    "cost": "4 motes, 1 Willpower, 2 gossamer",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 203,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 203",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "hiding-the-wylds-touch",
+    "name": "Hiding the Wyld's Touch",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Mutation Charms",
+    "summary": "Makes the raksha's body language and manner unnaturally human and familiar, granting two automatic successes on normal Social dice actions, though it does not hide an inhuman appearance -- it only makes others notice the 'person within.'",
+    "description": "The raksha's body language and manner of expression are unnaturally human and familiar -- the monster moves and speaks like an amalgam of old friends, family and lovers. This Charm gives two automatic successes on normal Social dice actions. If the raksha is also hideously inhuman in appearance or behavior, this Charm does not force others to disregard this fact -- they simply find themselves noticing the 'person within.'",
+    "cost": "10 motes, 1 Willpower, 4 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 204,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 204",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "armament-of-flesh",
+    "name": "Armament of Flesh",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Mutation Charms",
+    "summary": "A permanent mutation granting understated but potent natural weaponry (fangs, nails or horns) sharp enough to puncture steel, usable with the raksha's normal Brawl or Martial Arts dice pools.",
+    "description": "The raksha develops understated but potent natural weaponry. Her small fangs, pointed nails or thin elegant horns are sharp enough to puncture steel. This affliction gives the raksha a natural attack with Speed -3, Accuracy +1, Defense -1, Damage +4L and Rate 4; she can use this attack with her normal Brawl or Martial Arts attack dice pools. The raksha can shape more blatant and obvious weaponry if desired -- subtlety is simply the standard.",
+    "cost": "2 mutation points",
+    "duration": "Permanent",
+    "type": "Special",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 204,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 204",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "surpassing-excellence",
+    "name": "Surpassing Excellence",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Mutation Charms",
+    "summary": "A permanent mutation adding a two-die specialty (not counted against the raksha's specialty limit) to any one Ability, purchasable up to once per dot of the raksha's Sword.",
+    "description": "In a place between worlds, the raksha forges herself like a weapon, using the elemental Essence of Creation to empower one of her Abilities. This pox adds a permanent two-die specialty to any one Ability, which does not count against her specialty limit. Raksha can use this Charm to purchase inhumanly keen senses -- for example, a two-die Keen Eyesight specialty on Awareness gives benefits commensurate with the Eye Color pox (see Exalted core, p. 280, or Exalted: The Lunars, p. 212). Players can purchase this Charm up to once per dot of the raksha's Sword.",
+    "cost": "1 mutation point",
+    "duration": "Permanent",
+    "type": "Special",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 204,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 204",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "glorious-hero-form",
+    "name": "Glorious Hero Form",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Mutation Charms",
+    "summary": "A permanent mutation binding the raksha to Caturbhuja, the shinma that breaks the borders of the possible and impossible, permanently raising a chosen pair (or single) of Attributes; purchasable up to once per dot of the raksha's Sword.",
+    "description": "The raksha binds herself to the principle Caturbhuja, the shinma that breaks the borders of the possible and impossible; she transcends even the perfection of the raksha. This affliction permanently increases her Attributes in one of the following ways (chosen at purchase): one dot of Strength and one dot of Stamina; one dot of Intelligence and one dot of Perception; one dot of Charisma and one dot of Appearance; one dot of Dexterity; one dot of Wits; or one dot of Manipulation. Players can purchase this Charm up to once per dot of the raksha's Sword.",
+    "cost": "2 mutation points",
+    "duration": "Permanent",
+    "type": "Special",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 205,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 205",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "racing-dragon-speed",
+    "name": "Racing Dragon Speed",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Mutation Charms",
+    "summary": "A permanent mutation imbuing the raksha's body with the speed of wind, fire or waves, adding five yards to running speed; unusually purchasable up to once per dot of the raksha's Compassion rather than her Sword.",
+    "description": "The raksha imbues her body with the speed of the wind, the fire or the waves. This Charm permanently adds five yards to the raksha's running speed. Players can purchase this Charm up to once per dot of the raksha's Compassion.",
+    "cost": "1 mutation point",
+    "duration": "Permanent",
+    "type": "Special",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 205,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 205",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "This Charm's own repurchase cap is keyed to the raksha's Compassion rating rather than her Sword (unlike every other repurchasable Charm in this section, which caps on Sword), confirmed against the rendered page image -- flagged as a genuine outlier, not a transcription error. No schema field tracks per-Charm repurchase caps of any kind."
+    ]
+  },
+  {
+    "id": "root-of-the-perfected-lotus",
+    "name": "Root of the Perfected Lotus",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Mutation Charms",
+    "summary": "A permanent mutation that sinks the raksha into the flows of Creation's Essence, granting her the destiny, spirit and attitude to learn Martial Arts Charms as a Dragon-Blooded.",
+    "description": "The raksha sinks into the flows of the Essence of Creation, shaping in herself the destiny, spirit and attitude necessary to practice supernatural martial arts. This allows her to learn Martial Arts Charms as a Dragon-Blooded.",
+    "cost": "4 mutation points",
+    "duration": "Permanent",
+    "type": "Special",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 205,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 205",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
   }
 ]

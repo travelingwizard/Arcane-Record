@@ -24,8 +24,9 @@ import type { PowerReviewStatus } from './dragonblooded-powers';
  * (pp. 187-192, including the Sword-crossover capstone Behemoth-Forging
  * Meditation), plus `'Mutation Charms'` (the book's own section name,
  * pp. 202-203 -- just the 3 independently purchasable, prerequisite-free
- * Pox/Affliction/Blight Charms; the other ~12 Mutation Charms form a
- * separate combat-Charm tree and remain unpromoted). A few Phase 1c
+ * Pox/Affliction/Blight Charms; the section's other 12 rows, a mostly
+ * independent combat-Charm collection, were promoted later in Phase
+ * 1i). A few Phase 1c
  * Charms (Tainted Creature Command, Monstrous Conceit, Akshata Sexual
  * Methodology) are diagrammed under the Ring's trees but explicitly gate
  * on Minimum Staff instead, per the source's own cross-Grace crossover
@@ -105,7 +106,29 @@ import type { PowerReviewStatus } from './dragonblooded-powers';
  * example, Glamour Sorcery, Heart's own Name Charms and the cross-Grace
  * Bedlam-Influencing Charms, and the two sibling Assumption sub-trees)
  * remains unpromoted -- this phase completes all five Graces' own
- * combat-flavored Charm trees.
+ * combat-flavored Charm trees. Phase 1i returns to the Mutation Charms
+ * section Phase 1c left half-finished, promoting its remaining 12 rows
+ * (pp. 203-205) into the same `'Mutation Charms'` category
+ * Pox/Affliction/Blight already occupy -- no new category was needed.
+ * Unlike every other Charm group promoted so far, most of this
+ * collection is NOT a single connected dependency graph: only
+ * Hundred-Hand Style -> Millipede Mind -> (Grace of the Infinite
+ * Revolving Spheres / Harmonious Primordial Spirit) forms a short
+ * linear chain with a two-way branch at its end; the other 8 Charms
+ * (Long-Arm Technique, Gossamer Wing Flight, Hiding the Wyld's Touch,
+ * Armament of Flesh, Surpassing Excellence, Glorious Hero Form, Racing
+ * Dragon Speed, Root of the Perfected Lotus) each cite "Prerequisite
+ * Charms: None" and stand entirely independent of one another and of
+ * the Hundred-Hand Style chain. The last five of those independent
+ * Charms (Armament of Flesh onward) are also mechanically distinct
+ * from the rest of this catalog: they cost mutation points rather than
+ * motes/gossamer and are `Duration: Permanent`/`Type: Special` rather
+ * than the section's usual Reflexive/One-story pattern, matching their
+ * already-promoted Pox/Affliction/Blight siblings' own cost/duration
+ * shape exactly. Racing Dragon Speed carries a `reviewFlags` note for a
+ * genuine anomaly confirmed against the source's own page image: its
+ * repurchase cap is keyed to the raksha's Compassion rating, not her
+ * Sword like every other repurchasable Charm in this section.
  */
 export const fairFolkCharmCategories = [
   'Grace Forging',
@@ -190,7 +213,7 @@ const fairFolkCharmSchema = z.object({
 });
 
 /**
- * 131 of the many Charm rows found in Fair Folk's Chapter Five inventory
+ * 143 of the many Charm rows found in Fair Folk's Chapter Five inventory
  * range. Phase 1b's 19: the 6 "Forging the (Grace) Grace" Charms (Heart,
  * Cup, Ring, Staff, Sword, and the exotic sixth Way Grace), the 4 parallel
  * Freehold-anchor Charms that branch off Forging the Arcane Redoubt
@@ -210,11 +233,14 @@ const fairFolkCharmSchema = z.object({
  * full "Laughing Monster Style" tree (10 entries, pp. 193-195) plus the
  * small, separate "Society-Forging Charms" tree (2 entries, pp. 195-196)
  * -- the Staff Grace's entire remaining combat/society-building
- * repertoire. Phase 1h adds 27 more: the full "Sword Combat Charms"
+ * repertoire. Phase 1h added 27 more: the full "Sword Combat Charms"
  * section (pp. 196-202), including its own nested World-Devouring
  * Warlord Style sub-tree -- the fifth and final per-Grace Combat Charm
- * tree. Every one is `disposition: 'selectable'` and `verificationState:
- * 'reviewed'` in the inventory. Phase 1c's own `shape-forged-servant` and
+ * tree. Phase 1i adds 12 more: the remaining "Mutation Charms" rows
+ * (pp. 203-205) left unpromoted since Phase 1c, a mostly independent
+ * collection rather than a single connected tree. Every one is
+ * `disposition: 'selectable'` and `verificationState: 'reviewed'` in
+ * the inventory. Phase 1c's own `shape-forged-servant` and
  * `awakened-dream-manufacture` resolved Phase 1b's
  * `forging-the-heart-grace` prerequisite gap, so its `prerequisiteCharms`
  * was updated to `['shape-forged-servant']` accordingly. Phase 1f
@@ -226,14 +252,14 @@ const fairFolkCharmSchema = z.object({
  * was updated from `['glamour-charm']` to `['undetectable-lie',
  * 'glamour-charm']` and its now-stale "not itself promoted" `reviewFlags`
  * note was removed (its separate, still-true cross-Grace Staff-gating
- * note was kept). Phase 1d's, Phase 1e's, Phase 1f's, Phase 1g's, and
- * Phase 1h's own new Charms have no such gap of their own: every
- * prerequisite they cite resolves cleanly within these same
+ * note was kept). Phase 1d's, Phase 1e's, Phase 1f's, Phase 1g's, Phase
+ * 1h's, and Phase 1i's own new Charms have no such gap of their own:
+ * every prerequisite they cite resolves cleanly within these same
  * self-contained trees.
  */
 const fairFolkCharmCatalogSchema = z
   .array(fairFolkCharmSchema)
-  .length(131)
+  .length(143)
   .superRefine((charms, context) => {
     const ids = charms.map(({ id }) => id);
     if (new Set(ids).size !== ids.length) {
@@ -286,10 +312,11 @@ const defaultComboRules: CharmComboRules = {
  * `specialRules` for positive synergy text, reserving `restrictions` for
  * outright prohibitions). Phase 1h's own 27 new Charms (the full Sword
  * Combat Charms section) contained no explicit Combo sentence of either
- * kind. Every Charm without an entry in this map still falls through to
- * `defaultComboRules` (Combo-eligible, no restrictions) -- an honest
- * reflection of what source review found, not an assumption that no such
- * restriction or interaction exists anywhere in the book.
+ * kind, and neither did Phase 1i's own 12 new Charms (the remaining
+ * Mutation Charms). Every Charm without an entry in this map still falls
+ * through to `defaultComboRules` (Combo-eligible, no restrictions) -- an
+ * honest reflection of what source review found, not an assumption that
+ * no such restriction or interaction exists anywhere in the book.
  */
 const explicitComboRules: Record<string, Partial<CharmComboRules>> = {
   'thousand-tiny-hooks-technique': {
