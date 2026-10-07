@@ -6,20 +6,20 @@ import {
   fairFolkCharms,
 } from '../../src/games/exalted1e/reference/fair-folk-powers';
 
-describe('Fair Folk Charm catalog (Phase 1b)', () => {
+describe('Fair Folk Charm catalog (Phase 1b + Phase 1c)', () => {
   it('loads all promoted Charm rows with unique stable IDs', () => {
-    expect(fairFolkCharms).toHaveLength(19);
-    expect(fairFolkCharmIds.size).toBe(19);
-    expect(fairFolkCharmById.size).toBe(19);
+    expect(fairFolkCharms).toHaveLength(44);
+    expect(fairFolkCharmIds.size).toBe(44);
+    expect(fairFolkCharmById.size).toBe(44);
   });
 
-  it('assigns every Charm a valid category from the two documented Fair Folk Charm categories', () => {
+  it('assigns every Charm a valid category from the four documented Fair Folk Charm categories', () => {
     for (const charm of fairFolkCharms) {
       expect(fairFolkCharmCategories).toContain(charm.charmCategory);
     }
   });
 
-  it('distributes Charms across the two categories with the expected counts', () => {
+  it('distributes Charms across the four categories with the expected counts', () => {
     const categoryCounts = new Map<string, number>();
     for (const charm of fairFolkCharms) {
       categoryCounts.set(
@@ -27,14 +27,16 @@ describe('Fair Folk Charm catalog (Phase 1b)', () => {
         (categoryCounts.get(charm.charmCategory) ?? 0) + 1,
       );
     }
-    expect(categoryCounts.get('Grace Forging')).toBe(11);
+    expect(categoryCounts.get('Grace Forging')).toBe(19);
     expect(categoryCounts.get('Assumption')).toBe(8);
+    expect(categoryCounts.get('Glamour Charms')).toBe(14);
+    expect(categoryCounts.get('Mutation Charms')).toBe(3);
     expect(
       Array.from(categoryCounts.values()).reduce(
         (sum, count) => sum + count,
         0,
       ),
-    ).toBe(19);
+    ).toBe(44);
   });
 
   it('resolves every prerequisiteCharms entry to another id in the same catalog (no dangling references)', () => {
@@ -60,24 +62,54 @@ describe('Fair Folk Charm catalog (Phase 1b)', () => {
     }
   });
 
-  it('keys every Grace Forging Charm to a Ring Grace minimum of 0 or 2, and every Assumption Charm to no Grace minimum at all', () => {
+  it('keys every Grace Forging/Glamour Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption Charm to no Grace minimum at all', () => {
     for (const charm of fairFolkCharms) {
-      if (charm.charmCategory === 'Grace Forging') {
+      if (
+        charm.charmCategory === 'Grace Forging' ||
+        charm.charmCategory === 'Glamour Charms'
+      ) {
         expect(charm.minimumRequirements).toHaveLength(1);
-        expect(charm.minimumRequirements[0]?.trait).toBe('Ring');
-        expect([0, 2]).toContain(charm.minimumRequirements[0]?.rating);
+        expect(['Ring', 'Staff']).toContain(
+          charm.minimumRequirements[0]?.trait,
+        );
+      } else if (charm.charmCategory === 'Mutation Charms') {
+        expect(charm.minimumRequirements).toHaveLength(1);
+        expect(charm.minimumRequirements[0]?.trait).toBe('Sword');
       } else {
         expect(charm.minimumRequirements).toEqual([]);
       }
     }
   });
 
-  it("keeps forging-the-heart-grace's real prerequisite (Shape-Forged Servant) as advisory text only, since it falls outside this phase's 19-entry scope", () => {
+  it('gates the three cross-Grace crossover Charms on Minimum Staff despite being diagrammed under the Ring tree', () => {
+    const crossoverStaffMinimums: [string, number][] = [
+      ['tainted-creature-command', 3],
+      ['monstrous-conceit', 4],
+      ['akshata-sexual-methodology', 2],
+    ];
+    for (const [id, rating] of crossoverStaffMinimums) {
+      const charm = fairFolkCharmById.get(id);
+      expect(charm).toBeDefined();
+      expect(charm?.minimumRequirements).toEqual([{ trait: 'Staff', rating }]);
+    }
+  });
+
+  it("resolves forging-the-heart-grace's real prerequisite (Shape-Forged Servant) now that Phase 1c promotes it into the same catalog", () => {
     const heartGrace = fairFolkCharmById.get('forging-the-heart-grace');
     expect(heartGrace).toBeDefined();
-    expect(heartGrace?.prerequisiteCharms).toEqual([]);
+    expect(heartGrace?.prerequisiteCharms).toEqual(['shape-forged-servant']);
     expect(heartGrace?.prerequisiteText).toBe('Shape-Forged Servant');
-    expect(heartGrace?.reviewFlags.length).toBeGreaterThan(0);
+    expect(heartGrace?.reviewFlags).toEqual([]);
+  });
+
+  it("keeps monstrous-conceit's other real prerequisite (Undetectable Lie) as advisory text only, since it falls outside this catalog's scope entirely", () => {
+    const monstrousConceit = fairFolkCharmById.get('monstrous-conceit');
+    expect(monstrousConceit).toBeDefined();
+    expect(monstrousConceit?.prerequisiteCharms).toEqual(['glamour-charm']);
+    expect(monstrousConceit?.prerequisiteText).toBe(
+      'Undetectable Lie, Glamour',
+    );
+    expect(monstrousConceit?.reviewFlags.length).toBeGreaterThan(0);
   });
 
   it('chains the five parallel Freehold-anchor Charms off Forging the Arcane Redoubt and its paired Grace-Forging Charm', () => {
@@ -111,6 +143,79 @@ describe('Fair Folk Charm catalog (Phase 1b)', () => {
     ).toEqual(['assumption-of-the-citys-heart']);
   });
 
+  it('chains the Glamour Charms tree (Essence-/Gossamer-Forging Art roots converging on Glamour)', () => {
+    expect(
+      fairFolkCharmById.get('principle-of-worlds')?.prerequisiteCharms,
+    ).toEqual(['essence-forging-art']);
+    expect(
+      fairFolkCharmById.get('gossamer-forging-art')?.prerequisiteCharms,
+    ).toEqual(['essence-forging-art']);
+    expect(
+      fairFolkCharmById.get('translucent-dream-sheathing-technology')
+        ?.prerequisiteCharms,
+    ).toEqual(
+      expect.arrayContaining(['gossamer-forging-art', 'principle-of-worlds']),
+    );
+    expect(fairFolkCharmById.get('glamour-charm')?.prerequisiteCharms).toEqual(
+      expect.arrayContaining([
+        'translucent-dream-sheathing-technology',
+        'shape-forged-servant',
+      ]),
+    );
+    expect(
+      fairFolkCharmById.get('shape-forged-servant')?.prerequisiteCharms,
+    ).toEqual(['awakened-dream-manufacture']);
+  });
+
+  it('chains the Greater Arts of Glamour tail Charms (Gaping Virtue Mouth branches, Great Works/Unshaped Transformation line, Behemoth-Forging Meditation capstone)', () => {
+    expect(
+      fairFolkCharmById.get('gaping-virtue-mouth')?.prerequisiteCharms,
+    ).toEqual(
+      expect.arrayContaining([
+        'forging-the-cup-grace',
+        'forging-the-ring-grace',
+        'forging-the-staff-grace',
+        'forging-the-sword-grace',
+      ]),
+    );
+    for (const id of [
+      'iron-nightmare-muzzle',
+      'ecstatic-reproduction-style',
+      'akshata-sexual-methodology',
+    ]) {
+      expect(fairFolkCharmById.get(id)?.prerequisiteCharms).toEqual([
+        'gaping-virtue-mouth',
+      ]);
+    }
+    expect(
+      fairFolkCharmById.get('great-works-of-the-grace')?.prerequisiteCharms,
+    ).toEqual(['forging-the-heart-grace']);
+    expect(
+      fairFolkCharmById.get('unshaped-grace-transformation')
+        ?.prerequisiteCharms,
+    ).toEqual(['great-works-of-the-grace']);
+    expect(
+      fairFolkCharmById.get('extinction-of-desire')?.prerequisiteCharms,
+    ).toEqual(['unshaped-grace-transformation']);
+    expect(
+      fairFolkCharmById.get('behemoth-forging-meditation')?.prerequisiteCharms,
+    ).toEqual(
+      expect.arrayContaining([
+        'shape-forged-servant',
+        'unshaped-grace-transformation',
+      ]),
+    );
+  });
+
+  it('keeps the three Pox/Affliction/Blight Charms independently purchasable with no prerequisites', () => {
+    for (const id of ['pox-charm', 'affliction-charm', 'blight-charm']) {
+      const charm = fairFolkCharmById.get(id);
+      expect(charm).toBeDefined();
+      expect(charm?.prerequisiteCharms).toEqual([]);
+      expect(charm?.prerequisiteText).toBe('None');
+    }
+  });
+
   it('assigns Combo-eligibility rules to every Charm, defaulting to eligible with no explicit overrides this phase', () => {
     for (const charm of fairFolkCharms) {
       expect(charm.comboRules).toBeDefined();
@@ -126,7 +231,7 @@ describe('Fair Folk Charm catalog (Phase 1b)', () => {
     }
   });
 
-  it('marks every Charm source-checked with no outstanding ordinary review gaps beyond the two explicitly flagged ones', () => {
+  it('marks every Charm source-checked with no outstanding ordinary review gaps beyond the explicitly flagged ones', () => {
     for (const charm of fairFolkCharms) {
       expect(charm.reviewStatus).toBe('source-checked');
     }
@@ -135,12 +240,22 @@ describe('Fair Folk Charm catalog (Phase 1b)', () => {
     );
     expect(flagged.map((charm) => charm.id).sort()).toEqual(
       [
+        'affliction-charm',
+        'akshata-sexual-methodology',
         'assumption-of-dreams-and-passion',
         'assumption-of-elemental-shape',
         'assumption-of-the-lands-heart',
         'assumption-of-the-wyld-tainted-land',
-        'forging-the-heart-grace',
+        'blight-charm',
+        'burden-ghost-glamour',
+        'extinction-of-desire',
         'forging-the-way-grace',
+        'glamour-charm',
+        'great-works-of-the-grace',
+        'monstrous-conceit',
+        'pox-charm',
+        'tainted-creature-command',
+        'unshaped-grace-transformation',
       ].sort(),
     );
   });

@@ -16,9 +16,14 @@
     "cost": "20 motes, 1 gossamer, plus 1 gossamer per mutation point",
     "duration": "Instant",
     "type": "Simple",
-    "minimumRequirements": [{ "trait": "Ring", "rating": 0 }],
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 0
+      }
+    ],
     "minimumEssence": 1,
-    "prerequisiteCharms": [],
+    "prerequisiteCharms": ["shape-forged-servant"],
     "prerequisiteText": "Shape-Forged Servant",
     "sources": [
       {
@@ -30,9 +35,7 @@
     ],
     "sourceDisplay": "Exalted: The Fair Folk, p. 185",
     "reviewStatus": "source-checked",
-    "reviewFlags": [
-      "Prerequisite Charm 'Shape-Forged Servant' is not itself promoted into this Phase 1b catalog (part of the broader, still-unpromoted Glamour Charms section); advisory text only, not schema-enforced."
-    ]
+    "reviewFlags": []
   },
   {
     "id": "forging-the-cup-grace",
@@ -51,7 +54,12 @@
     "cost": "10 motes, 1 gossamer",
     "duration": "Instant",
     "type": "Simple",
-    "minimumRequirements": [{ "trait": "Ring", "rating": 0 }],
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 0
+      }
+    ],
     "minimumEssence": 1,
     "prerequisiteCharms": ["forging-the-heart-grace"],
     "prerequisiteText": "Forging the Heart Grace",
@@ -84,7 +92,12 @@
     "cost": "10 motes, 1 gossamer",
     "duration": "Instant",
     "type": "Simple",
-    "minimumRequirements": [{ "trait": "Ring", "rating": 0 }],
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 0
+      }
+    ],
     "minimumEssence": 1,
     "prerequisiteCharms": ["forging-the-heart-grace"],
     "prerequisiteText": "Forging the Heart Grace",
@@ -117,7 +130,12 @@
     "cost": "10 motes, 1 gossamer",
     "duration": "Instant",
     "type": "Simple",
-    "minimumRequirements": [{ "trait": "Ring", "rating": 0 }],
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 0
+      }
+    ],
     "minimumEssence": 1,
     "prerequisiteCharms": ["forging-the-heart-grace"],
     "prerequisiteText": "Forging the Heart Grace",
@@ -150,7 +168,12 @@
     "cost": "10 motes, 1 gossamer",
     "duration": "Instant",
     "type": "Simple",
-    "minimumRequirements": [{ "trait": "Ring", "rating": 0 }],
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 0
+      }
+    ],
     "minimumEssence": 1,
     "prerequisiteCharms": ["forging-the-heart-grace"],
     "prerequisiteText": "Forging the Heart Grace",
@@ -183,7 +206,12 @@
     "cost": "10 motes, 1 gossamer",
     "duration": "Instant",
     "type": "Simple",
-    "minimumRequirements": [{ "trait": "Ring", "rating": 0 }],
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 0
+      }
+    ],
     "minimumEssence": 1,
     "prerequisiteCharms": ["forging-the-heart-grace"],
     "prerequisiteText": "Forging the Heart Grace",
@@ -218,7 +246,12 @@
     "cost": "25 motes, 3 gossamer",
     "duration": "Instant",
     "type": "Simple",
-    "minimumRequirements": [{ "trait": "Ring", "rating": 2 }],
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 2
+      }
+    ],
     "minimumEssence": 2,
     "prerequisiteCharms": ["forging-the-heart-grace"],
     "prerequisiteText": "Forging the Heart Grace",
@@ -251,7 +284,12 @@
     "cost": "20 motes, 2 gossamer",
     "duration": "Instant",
     "type": "Simple",
-    "minimumRequirements": [{ "trait": "Ring", "rating": 2 }],
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 2
+      }
+    ],
     "minimumEssence": 2,
     "prerequisiteCharms": [
       "forging-the-sword-grace",
@@ -287,7 +325,12 @@
     "cost": "20 motes, 2 gossamer",
     "duration": "Instant",
     "type": "Simple",
-    "minimumRequirements": [{ "trait": "Ring", "rating": 2 }],
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 2
+      }
+    ],
     "minimumEssence": 2,
     "prerequisiteCharms": [
       "forging-the-cup-grace",
@@ -323,7 +366,12 @@
     "cost": "20 motes, 2 gossamer",
     "duration": "Instant",
     "type": "Simple",
-    "minimumRequirements": [{ "trait": "Ring", "rating": 2 }],
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 2
+      }
+    ],
     "minimumEssence": 2,
     "prerequisiteCharms": [
       "forging-the-ring-grace",
@@ -359,7 +407,12 @@
     "cost": "20 motes, 2 gossamer",
     "duration": "Instant",
     "type": "Simple",
-    "minimumRequirements": [{ "trait": "Ring", "rating": 2 }],
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 2
+      }
+    ],
     "minimumEssence": 2,
     "prerequisiteCharms": [
       "forging-the-staff-grace",
@@ -648,6 +701,992 @@
     "reviewStatus": "source-checked",
     "reviewFlags": [
       "The source explicitly frames this whole sub-tree as a worked example of the type of personalized non-elemental Assumption-type Charm line a raksha can develop, not the only possible one."
+    ]
+  },
+  {
+    "id": "essence-forging-art",
+    "name": "Essence-Forging Art",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Glamour Charms",
+    "summary": "The root Glamour Charm: crafts a serviceable, fine or exceptional item directly from the Wyld's substance, limited in scale and unable to create artifacts or anything usable to benefit shaping actions.",
+    "description": "The Fair Folk use this art to craft substance from the Wyld. The raksha chooses whether to create a serviceable, fine or exceptional item, and his player rolls Intelligence + Craft (Glamour) as a Ring-shaping action against a difficulty of 1 (serviceable: a normal good-quality item, possibly with a purely cosmetic Wyld quirk at the cost of natural effectiveness), 2 (fine: +1 to one weapon statistic, or +1L/+1B armor soak, with an optional touch of the Wyld such as living eyes or unusual sensory traits) or 3 (exceptional: three +1s split across weapon statistics, or two +1s for armor soak/mobility/fatigue, with aesthetic perfection and Wyld touches). On success, this Charm produces the desired creation. It cannot create artifacts, nor anything large enough for two characters to fight on or in without environmental penalties. Possessions created cannot enter Creation unless the raksha uses an atypical effect such as Elemental Invocation. Tools and weapons crafted with this Charm cannot benefit shaping actions.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 181,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 181",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "principle-of-worlds",
+    "name": "Principle of Worlds",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Glamour Charms",
+    "summary": "Carves a serviceable, fine or exceptional territory (home, vehicle or region up to roughly 30 miles across) out of the Wyld.",
+    "description": "The raksha takes up the crafter's art and carves out landscapes from the Wyld. The raksha chooses whether to create a serviceable, fine or exceptional territory, and her player rolls Intelligence + Craft (Glamour) as a Ring-shaping action against a difficulty of 1 (serviceable: a simple landscape, home or small vehicle), 2 (fine: an unusual tailored landscape, a palatial home, or a large vehicle, with cosmetic touches of the Wyld) or 3 (exceptional: an aesthetically perfect region of significant extent, a great fortress or city, or a First Age-caliber war machine, including complex regional phenomena). On a success, this Charm produces the desired creation. Territories are roughly one journey and one waypoint across, so Creation-born using Charms to traverse them are limited to 30 miles in diameter, often much smaller. Territories cannot enter Creation unless the raksha uses an atypical effect such as Elemental Invocation.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["essence-forging-art"],
+    "prerequisiteText": "Essence-Forging Art",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 181,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 181",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "workers-gift",
+    "name": "Worker's Gift",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Glamour Charms",
+    "summary": "A repeatable Charm granting bonus gossamer whenever the raksha gains Willpower from fulfilling her nature, purchasable up to her Ring rating with cumulative effects.",
+    "description": "Through their efforts and dedication, the Workers in the Wyld produce gossamer. This Charm gives the raksha 2 bonus gossamer whenever she gains Willpower from fulfilling her nature. Players can purchase this Charm a number of times equal to the raksha's Ring, and the effects are cumulative.",
+    "cost": "1 mutation point",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 181,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 181",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "style-improving-spirit",
+    "name": "Style-Improving Spirit",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Glamour Charms",
+    "summary": "Raises the raksha's Style Background by one dot each time it is used, once per story.",
+    "description": "Tuning her nature in the forge of the Wyld, the raksha gains power over her own definition. Her Style Background improves by one dot each time she uses this Charm, and she can use it once per story.",
+    "cost": "1 experience point",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["workers-gift"],
+    "prerequisiteText": "Worker's Gift",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 181,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 181",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "gossamer-forging-art",
+    "name": "Gossamer-Forging Art",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Glamour Charms",
+    "summary": "Spends gossamer equal to an item's mundane Resources cost to craft a permanent gossamer wonder over the course of a story, with better statistics than an ordinary exceptional item and no special Charm needed to use it in Creation.",
+    "description": "Raksha who spend gossamer equal to the mundane Resources cost of the item they wish to create can make truly wondrous works of craft. The raksha's player rolls Intelligence + Craft (Glamour) as a Ring-shaping action. If successful, the raksha must leave the motes committed for a full story as she nurtures the craftwork within her Essence pattern; this Charm creates the desired wonder at the story's end. Gossamer weapons add +1 to accuracy, damage and defense, +2 to their rate, and subtract one dot from their Strength minimum. Gossamer armor has neither fatigue nor mobility penalty. Gossamer tools carry dreams of perfection, adding an automatic success to rolls involving their use; these tool benefits replace the exceptional-item benefits of Essence-Forging Art and never apply to artifacts. This Charm shares Essence-Forging Art's scale limits. Gossamer-forged items are works of permanent glamour, and the raksha can invoke them in Creation without special Charms.",
+    "cost": "5 motes, 1 gossamer per Resources dot",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["essence-forging-art"],
+    "prerequisiteText": "Essence-Forging Art",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 182,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 182",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "translucent-dream-sheathing-technology",
+    "name": "Translucent Dream Sheathing Technology",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Glamour Charms",
+    "summary": "Traps a shaping effort in a permanent web of Essence, will and gossamer, turning a moment's work into a lasting hazardous item or territory (a sleeping castle, a room no one can open) with a scaling difficulty table and an optional Permanence upgrade that lets it enter Creation unaided.",
+    "description": "The raksha traps a shaping effort in a web of Essence, will and gossamer, transforming it from a moment's work to a permanent possession -- hazardous regions no one ventures into, cabinets no one opens, castles that put every visitor to sleep. This Charm either creates or targets an exceptional item or territory (it can target, but not create, gossamer items). The raksha chooses a serviceable, fine or exceptional effect, and her player rolls Intelligence + Craft (Glamour) as a Ring-shaping action; on success the motes must stay committed for a full story while she finishes the craftwork. A serviceable effect (difficulty 1) can be overcome with a Charm, stunt or Wyld stunt and otherwise imposes the penalties/benefits of an Essence 1 shaping roll on violation or cooperation. A fine effect (difficulty 2) doubles that to a two-die environmental penalty, or can instead produce a one-dot-hazard regional effect. An exceptional effect (difficulty 3) triples it to a three-die environmental penalty, or a two-dot-hazard regional effect. Paying an extra point of difficulty for Permanence lets the result enter Creation without special Charms, treated there as a permanent glamour; without it, the creation needs an atypical effect such as Elemental Invocation to function in Creation at all, even on an item that could otherwise enter normally.",
+    "cost": "5 motes, 1 gossamer per difficulty point",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["gossamer-forging-art", "principle-of-worlds"],
+    "prerequisiteText": "Gossamer-Forging Art, Principle of Worlds",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 182,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 182",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "crafters-arsenal",
+    "name": "Crafter's Arsenal",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Glamour Charms",
+    "summary": "Forges a permanent shaping weapon over a story, with difficulty set by the Gossamer Background rating needed to buy it and increased for fine or exceptional quality.",
+    "description": "In the workshops of the Wyld, the raksha forges a shaping weapon. The raksha's player rolls Intelligence + Craft (Glamour) as a Ring-shaping action. The base difficulty of the roll equals the Gossamer Background rating necessary to purchase the item; the difficulty increases by 2 to make a fine shaping weapon and by 4 to make an exceptional one -- so an exceptional curdling dream bow would be a difficulty 8 task. If successful, the raksha must leave the motes committed for a full story as she nurtures the craftwork within her Essence pattern. This Charm creates the desired wonder at the story's end.",
+    "cost": "5 motes, 1 or more gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["gossamer-forging-art"],
+    "prerequisiteText": "Gossamer-Forging Art",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 182,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 182",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "glamour-charm",
+    "name": "Glamour",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Glamour Charms",
+    "summary": "A faster, unstable cousin of the crafting Charms it depends on: creates a servant, item, or territory instantly rather than over a story, but only as a temporary work of glamour that vanishes at the end of its duration and needs a 'seed' of Creation's substance to manifest there at all.",
+    "description": "The raksha focuses her Essence and wrests gossamer into unstable shapes of glamour, without taking the time to properly accustom the gossamer to shape -- what is made is quickly unmade as its own Wyld nature tears it apart. This Charm creates something from gossamer and Essence, using the rules for Shape-Forged Servant (living creatures), Gossamer-Forging Art (gossamer objects) or Translucent Dream Sheathing Technology (enchanted territories or objects), but differs in that the creation completes instantly, vanishes at the end of the Charm's duration, and is a work of glamour rather than a permanent one (no effect on creatures with Wits + Essence higher than the raksha's Intelligence). In Creation, each creation needs a seed of Creation's substance: servants are transformed out of an insect or simple animal, items out of a mundane item, and regions/homes/vehicles are enchantments laid over existing regions, shelters or transport. This Charm normally lasts one scene per success on the raksha's Intelligence + Craft (Glamour) roll; ignoring the seed requirement and crafting from nothingness instead limits it to one turn per success; using particularly apt seeds (Storyteller's judgment) can extend it to one day per success.",
+    "cost": "5 motes, 1 or more gossamer",
+    "duration": "One scene, turn or day per success",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [
+      "translucent-dream-sheathing-technology",
+      "shape-forged-servant"
+    ],
+    "prerequisiteText": "Translucent Dream Sheathing Technology, Shape-Forged Servant",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 182,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 182",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "Named identically to the broader 'glamour' concept used throughout this book (works of glamour, permanent glamour, Glamour Sorcery); id disambiguated as glamour-charm to avoid collision."
+    ]
+  },
+  {
+    "id": "awakened-dream-manufacture",
+    "name": "Awakened Dream Manufacture",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Glamour Charms",
+    "summary": "The root of the servant-crafting line: forges a basic, fine or exceptional mindless servant with only the mildest self-awareness, no Willpower, Nature or volition of its own.",
+    "description": "Most of the servants of the raksha are forged in the same fashion as their tangible possessions; in some cases the tools, foodstuffs and homes of the raksha possess some measure of life. Servants created with this Charm are patterns and dreams with only the mildest self-awareness -- no Willpower Trait, no Nature, no volition -- serving as dictated by their raksha owner. Drawing on the secrets of his own Ring, the raksha forges an awakened dream. He chooses whether to create a basic, fine or exceptional servant, and his player rolls Intelligence + Craft (Glamour) as a Ring-shaping action against a difficulty of 1 (basic: the Traits of a typical citizen, a horse-caliber combat animal, or a mannikin), 2 (fine: an elite soldier, a war dog-caliber combat animal, or a poppet -- the Storyteller can optionally allow other one-dot hazards) or 3 (exceptional: a tyrant lizard-caliber combat animal or a homunculus -- the Storyteller can optionally allow other two-dot hazards). Servants based on human Traits also gain a three-dot Craft or Performance Ability of the raksha's choice.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 183,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 183",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "poppet-integrating-spirit",
+    "name": "Poppet-Integrating Spirit",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Glamour Charms",
+    "summary": "Binds a small Wyld creature to the raksha as a familiar, destroying the target's own Heart Grace and increasing the raksha's Familiar Background by one dot per use.",
+    "description": "The raksha binds a small creature of the Wyld -- a normal or mutated creature with a base form of, at most, Hazard Rating 2 -- to herself. If the creature has a Heart Grace, its Heart Trait cannot exceed 1. This Charm creates a familiar, destroying the target's Heart Grace and binding the creature to the raksha's Heart instead. This Charm increases the raksha's Familiar Background by one dot each time it is used; the raksha's control remains incomplete until she raises her Familiar Background to the point necessary to have the creature. The gossamer cost represents the additional effort needed to bind a mutated familiar. The raksha can bind a creature of her own creation.",
+    "cost": "10 motes, 1 experience point, 1 gossamer per mutation point",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["shape-forged-servant"],
+    "prerequisiteText": "Shape-Forged Servant",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 184,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 184",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "shape-forged-servant",
+    "name": "Shape-Forged Servant",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Glamour Charms",
+    "summary": "Forges a mutation-bearing servant over the course of a story, held for a time outside world and Wyld alike in the gateway Nirakara, gaining one mutation point per gossamer spent.",
+    "description": "The raksha forges a servant in the gateway Nirakara, holding it away from world and Wyld as she gives it certain characteristics of shape and form. The raksha chooses whether to create a basic, fine or exceptional servant, and her player rolls Intelligence + Craft (Glamour) as a Ring-shaping action against the difficulties listed under Awakened Dream Manufacture. If successful, the raksha must leave the motes committed for a full story as she nurtures the budding creature of shape in her Essence pattern. The completed servant has one mutation point for each gossamer spent, up to the raksha's Craft (Glamour) rating in gossamer. The servant cannot enter Creation without a permanent Assumption-type Charm, unless the raksha uses an atypical effect such as Elemental Invocation. Shape-forged servants are works of permanent glamour.",
+    "cost": "5 motes, 1 gossamer per mutation point",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["awakened-dream-manufacture"],
+    "prerequisiteText": "Awakened Dream Manufacture",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 184,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 184",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "tainted-creature-command",
+    "name": "Tainted Creature Command",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Glamour Charms",
+    "summary": "A Staff-shaping crossover Charm: asserts dominance over lesser creatures of chaos (mutated humans/animals, artificial Wyld beings, and low-Essence common raksha), forcing submission or stripped mutations.",
+    "description": "Wrapping herself in a shimmering cloak of Wyld energy, the raksha asserts dominance over the lesser creatures of chaos: humans and animals with Wyld mutations; mannikins, poppets, homunculi and other natural beasts of the Wyld; and common raksha whose Essence is less than half the character's own. This Charm forces a successful Willpower roll from such creatures, subtracting any points of mutation they possess, or else they submit to the raksha's authority. This Charm is a work of glamour and does not affect creatures whose Wits + Essence exceeds the character's Charisma; Exalted and other Creation-born Essence channelers are also immune. This is a Staff-shaping Charm.",
+    "cost": "8 motes, 1 Willpower, 0 gossamer",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Staff",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["shape-forged-servant"],
+    "prerequisiteText": "Shape-Forged Servant",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 184,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 184",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "Explicitly gated on Staff ('Minimum Staff: 3') despite branching directly off the Ring tree's Shape-Forged Servant and self-declared 'a Staff-shaping Charm' -- a cross-Grace crossover pattern the source uses repeatedly."
+    ]
+  },
+  {
+    "id": "monstrous-conceit",
+    "name": "Monstrous Conceit",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Glamour Charms",
+    "summary": "A Staff-shaping crossover Charm sitting in the Ring tree's Glamour Charms diagram: forges something directly within a consenting target's mind, functioning as an uncommitted, single-target version of Glamour.",
+    "description": "The raksha forges something within a consenting target's mind. This Charm functions exactly as Glamour, except that the motes are not committed, the glamour can interact only with the target, and the raksha is treated as having spent a number of gossamer points on the glamour equal to her Essence.",
+    "cost": "5 motes, 0 gossamer",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Staff",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["glamour-charm"],
+    "prerequisiteText": "Undetectable Lie, Glamour",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 185,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 185",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "Prerequisite Charm 'Undetectable Lie' is not itself promoted into this phase's catalog (part of the still-unpromoted Ring Combat Charms section); advisory text only, not schema-enforced.",
+      "Explicitly gated on Staff ('Minimum Staff: 4') despite sitting in the Ring tree's Glamour Charms diagram, continuing the cross-Grace crossover pattern this source uses repeatedly."
+    ]
+  },
+  {
+    "id": "burden-ghost-glamour",
+    "name": "Burden Ghost Glamour",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Glamour Charms",
+    "summary": "Disincarnates a mechanical burden (encumbrance) from a bound creature, sending it scuttling off into the Wyld in ghostly insectile form, at the cost of consuming an owned Wyld artifact of sufficient level.",
+    "description": "The raksha disincarnates a burden (in the mechanical sense of an encumbrance) from the creature bound to it; the burden takes on a ghostly insectile form and scuttles off into the Wyld. To power its work, this Charm utterly consumes a Wyld artifact that the raksha owns. Used to lift a character's burden, the artifact must have an Artifact level equal to or above the target's Ring; to lift a waypoint burden in a Freehold or Demesne, the artifact must have a level equal to or greater than the Freehold or Demesne level. This Charm is a work of glamour and does not affect Creation-born characters whose Intelligence + Essence exceeds the raksha's Willpower.",
+    "cost": "10 motes, 1 Willpower, 0 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["glamour-charm"],
+    "prerequisiteText": "Glamour",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 185,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 185",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "References Wyld artifacts (pp. 207-208), a mechanic not yet promoted into any catalog -- mentioned here only as plain text in the source, no fabricated cross-reference."
+    ]
+  },
+  {
+    "id": "gaping-virtue-mouth",
+    "name": "Gaping Virtue Mouth",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Grace Forging",
+    "summary": "Pries open one of a character's Graces, transforming it into an abstract fanged feeding maw keyed to that Grace's Virtue, granting the character access to the Cup's feeding Charms and natural Essence regeneration in the Wyld or a Freehold, at the cost of treating that Grace as a Major Grace for Charm experience purposes.",
+    "description": "The raksha interacts with a character and pries open one of that character's Graces, transforming it into a fanged feeding maw that hungers for the emanations of its Virtue. The mouth and teeth exist only in an abstract sense, typically visible only to effects such as All-Encompassing Sorcerer's Sight and in the anima banner of Exalted who acquire a feeding Grace. Characters with a feeding Grace gain access to the feeding Charms of the Cup and can regain Essence naturally in the Wyld or a Freehold; feeding Graces are also treated as Major Graces for the purposes of Charm experience costs. The maximum number of feeding Graces a character can possess equals her Heart rating minus one.",
+    "cost": "20 motes, 1 gossamer, 1 experience point",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [
+      "forging-the-cup-grace",
+      "forging-the-ring-grace",
+      "forging-the-staff-grace",
+      "forging-the-sword-grace"
+    ],
+    "prerequisiteText": "Forging the Cup Grace, Forging the Ring Grace, Forging the Staff Grace, Forging the Sword Grace",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 187,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 187",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "iron-nightmare-muzzle",
+    "name": "Iron Nightmare Muzzle",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Grace Forging",
+    "summary": "A Ring-shaping attack that seals shut an enemy's Virtue mouth instead of dealing normal damage, doubling that Grace's Charm costs until the target can reopen it.",
+    "description": "The raksha seals over a Grace, closing an enemy's Virtue mouth. The raksha's player makes a Ring-shaping attack against a target no more than one waypoint away. On a success, instead of the normal damage, this Charm seals one of the target's Major Graces so that he can no longer feed from it, doubling the mote cost for all Charms of that Grace until the target can reopen the Virtue maw (for example, with Gaping Virtue Mouth). The Grace remains a feeding Grace -- it is simply not usable.",
+    "cost": "5 motes, 1 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["gaping-virtue-mouth"],
+    "prerequisiteText": "Gaping Virtue Mouth",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 187,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 187",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "ecstatic-reproduction-style",
+    "name": "Ecstatic Reproduction Style",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Grace Forging",
+    "summary": "A ritual act of communion with the Wyld's mad, amorphous desires that creates a new raksha child, born into servitude with its Heart Grace already in the Charm-user's hand.",
+    "description": "The raksha performs an act of communion with the mad, amorphous desires and substance of the Wyld. From the delicate shaping of the raksha and the blind primordial urges of chaos, a child is made -- a raksha, prince or servant of the Wyld, born into servitude with the child's Heart Grace in the Charm-user's hand. To use this Charm, the raksha's player rolls Intelligence + Craft (Glamour) as a non-extended action; creating a common raksha is difficulty 5, a heroic commoner difficulty 7, and a noble difficulty 9. On a success, this Charm creates the desired raksha with all five Graces, an appropriate number of them feeding Graces, and the Charm user owns and is attuned to all of them. Botching produces a deformed or suboptimal child -- often an enemy raksha or monster who owns his own Graces.",
+    "cost": "20 motes, 5 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["gaping-virtue-mouth"],
+    "prerequisiteText": "Gaping Virtue Mouth",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 187,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 187",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "akshata-sexual-methodology",
+    "name": "Akshata Sexual Methodology",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Grace Forging",
+    "summary": "A Staff-shaping crossover Charm evoking the Staff shinma Nirvikalpa: draws the Essence of two consenting Fair Folk into the raksha and manipulates it to create an oath-bound child, with each parent holding one of the child's Graces.",
+    "description": "This Charm evokes the aspect of the Staff shinma, Nirvikalpa, letting the raksha draw the Essence of two consenting Fair Folk into himself and manipulate it to create a child. Each parent makes an oath to the other, and the Akshata (the raksha performing the Charm) makes a third oath in the child's name; the child is bound by the Akshata's oath, and the parents' oaths remain sacrosanct only as long as the child exists -- many Wyld treaties are sealed by such oath-children. The parents can contribute motes, gossamer and experience points to the Charm's cost. Each parent holds one of the child's Graces, and the child possesses its own Heart, Ring and Sword. If either parent is raksha, the child is raksha; if either is noble, the child is noble. The children of the unshaped are often prodigies. This is a Staff-shaping Charm.",
+    "cost": "40 motes, 5 gossamer, 2 experience points",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Staff",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["gaping-virtue-mouth"],
+    "prerequisiteText": "Gaping Virtue Mouth",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 188,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 188",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "Explicitly gated on Staff ('Minimum Staff: 2') despite branching off a Ring-tree Charm and self-declared 'a Staff-shaping Charm' -- the same cross-Grace crossover pattern as Tainted Creature Command and Monstrous Conceit."
+    ]
+  },
+  {
+    "id": "great-works-of-the-grace",
+    "name": "Great Works of the (Grace)",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Grace Forging",
+    "summary": "The Ring's mightiest art of artifact creation: an extended crafting Charm, actually four separate Charms, that forges a fellow raksha's Grace into a permanent artifact of a type keyed to that Grace -- a glamour sorcery spell from a Cup Grace, a Wyld artifact from a Ring Grace, an adjuration from a Staff Grace, or a behemoth from a Sword Grace.",
+    "description": "This is actually four separate Charms, each forging a specific type of artifact from a specific Grace: Great Works of the Cup forges a glamour sorcery spell from a Cup Grace; Great Works of the Ring forges a Wyld artifact from a Ring Grace; Great Works of the Staff forges an adjuration from a Staff Grace; Great Works of the Sword forges a behemoth from a Sword Grace. A common raksha's Grace becomes a one-dot artifact; noble Graces can become two- or three-dot artifacts. The artifact remains the raksha's own Grace, simply gaining new potence, and characters attuned to it can still reflexively exert the appropriate Curse on the creature. The raksha chooses the artifact's nature, power level and properties, acquires a suitable Grace, and rolls Intelligence + Craft (Glamour) as an extended Ring-shaping action (difficulty 3 for an Artifact 1, 4 for an Artifact 2, 5 for an Artifact 3), leaving the motes committed for a full story per roll. Accumulating 10 successes (Artifact 1), 30 successes (Artifact 2) or 60 successes (Artifact 3) transforms the Grace into the desired artifact as a work of permanent glamour.",
+    "cost": "20 motes, 3 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["forging-the-heart-grace"],
+    "prerequisiteText": "Forging the Heart Grace",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 191,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 191",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "Consolidates the four named variants (Great Works of the Cup/Ring/Staff/Sword) into one catalog row, matching the inventory's own established precedent for multi-variant single-header Charms.",
+      "References glamour sorcery, Wyld artifacts, adjurations and behemoths as the artifact types this Charm creates; none of those subsystems (other than Behemoth-Forging Meditation, promoted this phase) has a promoted catalog yet, so those product types stay descriptive text only, not cross-referenced ids."
+    ]
+  },
+  {
+    "id": "unshaped-grace-transformation",
+    "name": "Unshaped (Grace) Transformation",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Grace Forging",
+    "summary": "Reshapes an existing artifact born of a Great Works of the (Grace) Charm into a different Storyteller-authorized design of the raksha's choosing -- actually four separate Charms, one per Grace-derived artifact type -- and can also repair damaged artifacts or slain behemoths at reduced difficulty.",
+    "description": "Molding the Essence and gossamer of an artifact as if it were fine clay, the raksha reshapes existing artifacts to her whims. This is actually four Charms: Unshaped Cup Transformation changes the nature of a glamour sorcery spell; Unshaped Ring Transformation changes the nature of a Wyld artifact; Unshaped Staff Transformation changes the nature of an inactive adjuration; Unshaped Sword Transformation redefines a behemoth. The raksha chooses the artifact's nature, power level and properties, acquires a suitable artifact of the same level, and rolls Intelligence + Craft (Glamour) as an extended Ring-shaping action, with difficulty equal to the artifact's dot rating (this Charm can manipulate Wyld-forged artifacts up to level 5), leaving the motes committed for a full story per roll. Accumulating 3 successes (Artifact 1), 5 (Artifact 2), 10 (Artifact 3), 30 (Artifact 4) or 60 (Artifact 5) reshapes the artifact into a Storyteller-authorized artifact of the raksha's own design. This Charm can also repair damaged artifacts or slain behemoths; if only repairing damage, each roll's difficulty is reduced by one.",
+    "cost": "20 motes, 3 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["great-works-of-the-grace"],
+    "prerequisiteText": "Great Works of the (Matching Grace)",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 191,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 191",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "Consolidates the four named variants (Unshaped Cup/Ring/Staff/Sword Transformation) into one catalog row, matching great-works-of-the-grace and the inventory's own established precedent."
+    ]
+  },
+  {
+    "id": "behemoth-forging-meditation",
+    "name": "Behemoth-Forging Meditation",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Grace Forging",
+    "summary": "A Sword-crossover capstone that twists a visiting Creation-born creature's nature with mutation points, potentially turning it into a minor behemoth a raksha can attune to and wield as a Sword-shaping weapon.",
+    "description": "Twisting the nature of a visiting Creation-born creature, the raksha imposes one or more mutations. The raksha's player rolls Intelligence + Craft (Glamour); this Charm changes the target's cosmetic appearance and adds 1 mutation point to the target for every two successes rolled. Essence 1 targets affected by this Charm become minor behemoths -- raksha can attune to them and control them as Sword-shaping weapons. Most have the weapon qualities of basic non-artifact weapons (horrors, mutant warleaders and similar), requiring only a 1-mote attunement to command; mutants with 10 or more points of mutation qualify as one-dot fey beasts. This Charm is a work of glamour and does not affect creatures whose Stamina + Essence exceeds the raksha's Intelligence. Tattooed Lunar Exalted are also immune.",
+    "cost": "20 motes, 3 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "shape-forged-servant",
+      "unshaped-grace-transformation"
+    ],
+    "prerequisiteText": "Shape-Forged Servant, Unshaped Sword Transformation",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 192,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 192",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "extinction-of-desire",
+    "name": "Extinction of Desire",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Grace Forging",
+    "summary": "The raksha achieves the enlightenment of Nirvishesha by remaking herself as an unbreakable artifact, extinguishing her own volition and self-awareness and delivering her absolute loyalty into the hands of the first raksha to attune to her.",
+    "description": "The raksha achieves the enlightenment of Nirvishesha and remakes herself as an artifact. Her Heart and Ring Graces turn to dust, and her reflection in her Heart screams in endless agony before fading into foul smoke. This Charm extinguishes the raksha's volition and awareness of self; she can no longer spend Willpower or use the Charms of the Ring. She does not suffer the Curse of Meekness and does not cease to exist -- instead she delivers her will utterly into the hands of the first raksha to attune to her (a 1-mote commitment and six scenes of interaction, functioning only if no other character is attuned). The attuned character can command her as if in possession of her Heart Grace, with absolute loyalty. Raksha affected by this Charm ignore the effects of shaping damage, gain an additional 6L/6B soak against mortal attacks, become unbreakable (automatically converting lethal damage to bashing before soak, unless the attack could damage one of the Five Magical Materials), can be repaired as a damaged three-dot artifact if killed in Creation, and gain the benefits of Mad God Mien.",
+    "cost": "1 mutation point",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["unshaped-grace-transformation"],
+    "prerequisiteText": "Unshaped Ring Transformation",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 192,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 192",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "Explicitly does not suffer the Curse of Meekness despite extinguishing Ring; see curse-of-meekness for the ordinary broken-Grace rule this Charm overrides.",
+      "References 'Mad God Mien' (an Assumption-type Charm, pp. 150-151) by name; not yet promoted into any catalog, so left as descriptive text only."
+    ]
+  },
+  {
+    "id": "pox-charm",
+    "name": "Pox",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Mutation Charms",
+    "summary": "A repeatable Charm of Shape that manifests a Wyld pox of the player's choice (per the pox lists in Exalted core or Exalted: The Lunars), useful in the design of behemoths.",
+    "description": "The raksha manifests a Wyld pox (see Exalted core, p. 280, or Exalted: The Lunars, p. 212) chosen at the time of the Charm's purchase. Players can purchase this Charm more than once, choosing a new pox each time.",
+    "cost": "2 motes, 1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 202,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 202",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "The specific pox effect is a fixed table entry chosen by the player at purchase, defined in Exalted core/Exalted: The Lunars rather than in this book -- flagged here rather than transcribed, since this catalog covers Exalted: The Fair Folk's own text only."
+    ]
+  },
+  {
+    "id": "affliction-charm",
+    "name": "Affliction",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Mutation Charms",
+    "summary": "A repeatable Charm of Shape that manifests a Wyld affliction of the player's choice (per the affliction lists in Exalted core or Exalted: The Lunars).",
+    "description": "The raksha manifests a Wyld affliction (see Exalted core, p. 280, or Exalted: The Lunars, pp. 212-215) chosen at the time of the Charm's purchase. Players can purchase this Charm more than once, choosing a new affliction each time.",
+    "cost": "4 motes, 2 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 202,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 202",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "The specific affliction effect is a fixed table entry chosen by the player at purchase, defined in Exalted core/Exalted: The Lunars rather than in this book -- flagged here rather than transcribed."
+    ]
+  },
+  {
+    "id": "blight-charm",
+    "name": "Blight",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Mutation Charms",
+    "summary": "A repeatable Charm of Shape that manifests a Wyld blight of the player's choice (per the blight lists in Exalted core or Exalted: The Lunars).",
+    "description": "The raksha manifests a Wyld blight (see Exalted core, pp. 280-281, or Exalted: The Lunars, pp. 215-218) chosen at the time of the Charm's purchase. Players can purchase this Charm more than once, choosing a new blight each time.",
+    "cost": "10 motes, 4 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 203,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 203",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "The specific blight effect is a fixed table entry chosen by the player at purchase, defined in Exalted core/Exalted: The Lunars rather than in this book -- flagged here rather than transcribed."
     ]
   }
 ]

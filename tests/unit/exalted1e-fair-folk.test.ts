@@ -611,7 +611,7 @@ describe('Exalted First Edition Fair Folk Phase 1a/1b (Backgrounds + Merits/Flaw
     });
   });
 
-  describe('Charms (Phase 1b: 19 Grace-Forging/Assumption Charms promoted)', () => {
+  describe('Charms (Phase 1b + 1c: 44 Grace-Forging/Assumption/Glamour/Mutation Charms promoted)', () => {
     it('validates a blank Fair Folk character with zero Charm/Combo/spell selections', () => {
       const character = createBlankExaltedCharacter('fair-folk');
       expect(character.powers.charms).toEqual([]);
@@ -663,7 +663,7 @@ describe('Exalted First Edition Fair Folk Phase 1a/1b (Backgrounds + Merits/Flaw
       },
     );
 
-    it('rejects a Charm not in the 19-entry Phase 1b catalog (a Charm from a still-unpromoted Fair Folk Charm group)', () => {
+    it('rejects a Charm not in the 44-entry catalog (a Charm from a still-unpromoted Fair Folk Charm group)', () => {
       const character = createBlankExaltedCharacter('fair-folk');
       expect(() =>
         exalted1eCharacterSchema.parse({
