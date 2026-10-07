@@ -3,10 +3,15 @@ import { createBlankExaltedCharacter } from '../../src/games/exalted1e/create-ch
 import {
   exaltedSheetTypes,
   fairFolkBackgrounds,
+  fairFolkGraces,
 } from '../../src/games/exalted1e/definitions';
-import { exalted1eCharacterSchema } from '../../src/games/exalted1e/schema';
+import {
+  exalted1eCharacterSchema,
+  migrateExalted1eCharacter,
+} from '../../src/games/exalted1e/schema';
+import { fairFolkCharmIds } from '../../src/games/exalted1e/reference/fair-folk-powers';
 
-describe('Exalted First Edition Fair Folk Phase 1a (Backgrounds + Merits/Flaws; schema-only, not yet UI-selectable)', () => {
+describe('Exalted First Edition Fair Folk Phase 1a/1b (Backgrounds + Merits/Flaws + Graces/Bedlam/Charms; schema-only, not yet UI-selectable)', () => {
   it('registers fair-folk as a legal stored sheetType', () => {
     expect(exaltedSheetTypes).toContain('fair-folk');
   });
@@ -25,6 +30,7 @@ describe('Exalted First Edition Fair Folk Phase 1a (Backgrounds + Merits/Flaws; 
       feedingNotes: '',
       activeAssumption: '',
       oaths: [],
+      bedlamVirtueId: null,
     });
   });
 
@@ -436,7 +442,176 @@ describe('Exalted First Edition Fair Folk Phase 1a (Backgrounds + Merits/Flaws; 
     });
   });
 
-  describe('Charms and spells (unimplemented this phase)', () => {
+  describe('Graces (Phase 1b)', () => {
+    it('exposes exactly the expected 5 fairFolkGraces ids, each with a virtueId (or null for Heart)', () => {
+      expect(fairFolkGraces.map((grace) => grace.id)).toEqual([
+        'cup',
+        'ring',
+        'staff',
+        'sword',
+        'heart',
+      ]);
+      expect(fairFolkGraces.find((g) => g.id === 'cup')?.virtueId).toBe(
+        'compassion',
+      );
+      expect(fairFolkGraces.find((g) => g.id === 'ring')?.virtueId).toBe(
+        'temperance',
+      );
+      expect(fairFolkGraces.find((g) => g.id === 'staff')?.virtueId).toBe(
+        'conviction',
+      );
+      expect(fairFolkGraces.find((g) => g.id === 'sword')?.virtueId).toBe(
+        'valor',
+      );
+      expect(fairFolkGraces.find((g) => g.id === 'heart')?.virtueId).toBeNull();
+    });
+
+    it.each(['cup', 'ring', 'staff', 'sword', 'heart'])(
+      'accepts a rating for the real Grace id %s',
+      (graceId) => {
+        const character = createBlankExaltedCharacter('fair-folk');
+        expect(() =>
+          exalted1eCharacterSchema.parse({
+            ...character,
+            familyState: {
+              ...character.familyState,
+              graces: { [graceId]: 3 },
+            },
+          }),
+        ).not.toThrow();
+      },
+    );
+
+    it('rejects an unknown Grace id (the record accepted any string key before Phase 1b)', () => {
+      const character = createBlankExaltedCharacter('fair-folk');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          familyState: {
+            ...character.familyState,
+            graces: { bogus: 3 },
+          },
+        }),
+      ).toThrow(/unknown fair folk grace/i);
+    });
+
+    it('rejects a Grace rating above 5', () => {
+      const character = createBlankExaltedCharacter('fair-folk');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          familyState: {
+            ...character.familyState,
+            graces: { cup: 6 },
+          },
+        }),
+      ).toThrow();
+    });
+  });
+
+  describe('Bedlam (Phase 1b)', () => {
+    it('accepts a null bedlamVirtueId (not currently in bedlam)', () => {
+      const character = createBlankExaltedCharacter('fair-folk');
+      if (character.familyState.type !== 'fair-folk') {
+        throw new Error('expected a fair-folk familyState');
+      }
+      expect(character.familyState.bedlamVirtueId).toBeNull();
+      expect(() => exalted1eCharacterSchema.parse(character)).not.toThrow();
+    });
+
+    it.each(['compassion', 'conviction', 'temperance', 'valor'])(
+      'accepts %s as the active bedlamVirtueId',
+      (virtueId) => {
+        const character = createBlankExaltedCharacter('fair-folk');
+        expect(() =>
+          exalted1eCharacterSchema.parse({
+            ...character,
+            familyState: {
+              ...character.familyState,
+              bedlamVirtueId: virtueId,
+            },
+          }),
+        ).not.toThrow();
+      },
+    );
+
+    it('rejects an unknown bedlamVirtueId', () => {
+      const character = createBlankExaltedCharacter('fair-folk');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          familyState: {
+            ...character.familyState,
+            bedlamVirtueId: 'bogus',
+          },
+        }),
+      ).toThrow();
+    });
+  });
+
+  describe('Phase 1b familyState migration (fromVersion < 13)', () => {
+    it('backfills bedlamVirtueId and drops stray non-Grace keys from a pre-Phase-1b fair-folk familyState record', () => {
+      const character = createBlankExaltedCharacter('fair-folk');
+      const legacy = {
+        ...character,
+        familyState: {
+          type: 'fair-folk',
+          graces: { cup: 2, bogus: 4 },
+          feedingNotes: 'Feeds on cherished slaves.',
+          activeAssumption: 'Elemental Shape',
+          oaths: [],
+        },
+      } as unknown as Record<string, unknown>;
+      // fromVersion 12 (not 5): migrating from any version below 8 always
+      // resets familyState to `createDefaultFamilyState` first, which
+      // would trivially "pass" this guard test for the wrong reason. 12
+      // exercises only the `< 13` step this test actually targets.
+      const migrated = migrateExalted1eCharacter(legacy, 12);
+      expect(migrated.familyState).toEqual({
+        type: 'fair-folk',
+        graces: { cup: 2 },
+        feedingNotes: 'Feeds on cherished slaves.',
+        activeAssumption: 'Elemental Shape',
+        oaths: [],
+        bedlamVirtueId: null,
+      });
+      expect(exalted1eCharacterSchema.parse(migrated)).toEqual(migrated);
+    });
+
+    it('does not alter an already-migrated fair-folk familyState record', () => {
+      const character = createBlankExaltedCharacter('fair-folk');
+      const legacy = {
+        ...character,
+        familyState: {
+          type: 'fair-folk',
+          graces: { ring: 3, heart: 2 },
+          feedingNotes: '',
+          activeAssumption: '',
+          oaths: [],
+          bedlamVirtueId: 'valor',
+        },
+      } as unknown as Record<string, unknown>;
+      const migrated = migrateExalted1eCharacter(legacy, 12);
+      expect(migrated.familyState).toEqual({
+        type: 'fair-folk',
+        graces: { ring: 3, heart: 2 },
+        feedingNotes: '',
+        activeAssumption: '',
+        oaths: [],
+        bedlamVirtueId: 'valor',
+      });
+      expect(exalted1eCharacterSchema.parse(migrated)).toEqual(migrated);
+    });
+
+    it('leaves a non-fair-folk familyState record untouched by the fromVersion < 13 step', () => {
+      const character = createBlankExaltedCharacter('dragon-blooded');
+      const migrated = migrateExalted1eCharacter(character, 12);
+      expect(migrated.familyState).toEqual(character.familyState);
+      expect(exalted1eCharacterSchema.parse(migrated)).toEqual(migrated);
+    });
+  });
+
+  describe('Charms (Phase 1b: 19 Grace-Forging/Assumption Charms promoted)', () => {
     it('validates a blank Fair Folk character with zero Charm/Combo/spell selections', () => {
       const character = createBlankExaltedCharacter('fair-folk');
       expect(character.powers.charms).toEqual([]);
@@ -445,7 +620,50 @@ describe('Exalted First Edition Fair Folk Phase 1a (Backgrounds + Merits/Flaws; 
       expect(() => exalted1eCharacterSchema.parse(character)).not.toThrow();
     });
 
-    it('rejects any Charm selection for Fair Folk (charmIdsBySheetType stays an empty placeholder Set this phase)', () => {
+    it('accepts a real Fair Folk Charm selection (Forging the Heart Grace)', () => {
+      const character = createBlankExaltedCharacter('fair-folk');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            ...character.powers,
+            charms: [
+              {
+                id: crypto.randomUUID(),
+                definitionId: 'forging-the-heart-grace',
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+          },
+        }),
+      ).not.toThrow();
+    });
+
+    it.each([...fairFolkCharmIds])(
+      'accepts the promoted Charm %s in a Combo',
+      (charmId) => {
+        const character = createBlankExaltedCharacter('fair-folk');
+        expect(() =>
+          exalted1eCharacterSchema.parse({
+            ...character,
+            combos: [
+              {
+                id: crypto.randomUUID(),
+                name: 'Test Combo',
+                charmIds: [charmId],
+                description: '',
+                tacticalSummary: '',
+                notes: '',
+                createdAt: new Date().toISOString(),
+              },
+            ],
+          }),
+        ).not.toThrow();
+      },
+    );
+
+    it('rejects a Charm not in the 19-entry Phase 1b catalog (a Charm from a still-unpromoted Fair Folk Charm group)', () => {
       const character = createBlankExaltedCharacter('fair-folk');
       expect(() =>
         exalted1eCharacterSchema.parse({
@@ -465,7 +683,47 @@ describe('Exalted First Edition Fair Folk Phase 1a (Backgrounds + Merits/Flaws; 
       ).toThrow();
     });
 
-    it('rejects any spell selection for Fair Folk (explicit placeholder rejection pending Grace Charms/Glamour Sorcery promotion)', () => {
+    it('rejects a Dragon-Blooded Charm id for a Fair Folk sheet', () => {
+      const character = createBlankExaltedCharacter('fair-folk');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            ...character.powers,
+            charms: [
+              {
+                id: crypto.randomUUID(),
+                definitionId: 'language-learning-ritual',
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+          },
+        }),
+      ).toThrow();
+    });
+
+    it('rejects a Fair Folk Charm id for a Dragon-Blooded sheet', () => {
+      const character = createBlankExaltedCharacter('dragon-blooded');
+      expect(() =>
+        exalted1eCharacterSchema.parse({
+          ...character,
+          powers: {
+            ...character.powers,
+            charms: [
+              {
+                id: crypto.randomUUID(),
+                definitionId: 'forging-the-heart-grace',
+                unresolvedReference: null,
+                notes: '',
+              },
+            ],
+          },
+        }),
+      ).toThrow();
+    });
+
+    it('rejects any spell selection for Fair Folk (explicit placeholder rejection pending Glamour Sorcery promotion)', () => {
       const character = createBlankExaltedCharacter('fair-folk');
       expect(() =>
         exalted1eCharacterSchema.parse({

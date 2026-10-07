@@ -1,0 +1,86 @@
+[
+  {
+    "id": "graces-overview",
+    "name": "The Graces (general rules)",
+    "graceId": null,
+    "virtueId": null,
+    "summary": "Raksha have no true form; in the Wyld they are 'a flowing, viscous agglutination of Essence patterns' that coagulates around five fixed points of self. The Heart is the pith, holding Willpower and Nature; the Cup catches Compassion, the Ring is the symbol of Temperance, the Staff is the focus for Conviction, and the Sword is the icon of Valor. A common raksha chooses one of the four Virtue Graces as her Major Grace; a noble chooses two.",
+    "mechanics": "A common raksha chooses one of the four Virtue Graces as her Major Grace (the driving Grace that feeds her); a noble chooses two. The other Graces are Minor and exist as counterpoint, dissipating rather than empowering. General forging rules: a raksha can forge a Cup, Ring, Staff or Sword Grace for any consenting creature (including one dominated by beguilement or Heart-possession) with a scene of effort while the creature is present; this gives the recipient the Grace Trait (starting at 1), the matching shaping damage track, a shaping action, and the ability to learn that Grace's Charms -- Eclipse Caste Solar, Moonshadow Caste Abyssal, Fae-Blooded and Lunar Exalted can also learn a Grace's Charms this way at double the normal experience and mote cost (Storytellers may extend this to other Creation-born protagonists as an optional rule). A forged Grace is a possession of the raksha who crafted it, not of the creature whose Virtue it holds; it can in principle be owned by one raksha, invoked/banished by a second, physically held by a third and attuned to by a fourth. Grace artifacts resist damage like the Five Magical Materials. If a character's Grace is broken or destroyed, it inflicts the matching Bedlam curse (see fair-folk-bedlam.json) permanently on a raksha (recoverable only if a smith has every remaining piece of the shattered Grace) but only for one or two stories on a Creation-born victim.",
+    "compatibility": "All raksha; extendable to Creation-born characters via Grace-forging Charms.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 106,
+      "pdfPage": 107
+    }
+  },
+  {
+    "id": "cup-grace",
+    "name": "The Cup Grace",
+    "graceId": "cup",
+    "virtueId": "compassion",
+    "summary": "The Cup Grace feeds on Compassion and represents Desirability; it is the Grace of parasites and symbiotes, letting a raksha make her service to others pleasing -- and, at the highest ratings, necessary and irresistible.",
+    "mechanics": "The Cup Grace feeds on Compassion and represents Desirability. It encourages others' Compassion and undermines their Temperance. Rating table: no dots (x) -- fundamentally alien, like a spider or chthonic god; may be beautiful or sympathetic but others cannot truly understand you, a mad god of the Wyld. 1 dot -- your motivations and aesthetic are comprehensible but disturbing; there is nothing in you others can love or need except through artifice or fate's work. 2 dots -- skilled at seeming comprehensible, sane and interesting; others grow comfortable around you without effort on your part. 3 dots -- strangers sometimes find you worth their succor; others feel good in your presence, Fair Folk or Creation-born alike. 4 dots -- your Essence is naturally harmonious with others'; you attract love, friendship and devotion through your own compassionate acts. 5 dots -- you are alien to none; birds come to your hand, mortals love you, and even spiders and chthonic gods crawl on you with a comfortable sense of kinship.",
+    "compatibility": "Any raksha; Major Grace for the Entertainer caste, Minor Grace otherwise.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 106,
+      "pdfPage": 107
+    }
+  },
+  {
+    "id": "ring-grace",
+    "name": "The Ring Grace",
+    "graceId": "ring",
+    "virtueId": "temperance",
+    "summary": "The Ring Grace feeds on Temperance and represents Self-Awareness. A raksha's Ring flows from her Temperance to define the circumstances of her Valor.",
+    "mechanics": "The Ring Grace feeds on Temperance and represents Self-Awareness. A raksha's Ring flows from her Temperance to define the circumstances of her Valor. Rating table: no dots (x) -- aware of yourself, at best, as a dream; a transient notion, a soap bubble, a toy of chaos that will leave nothing behind. 1 dot -- shaped yourself to raksha standards; fluid and strange, but a few consistent threads give a sense of self. 2 dots -- your sense of your own nature drives you; integrity of self comparable to the Creation-born. 3 dots -- a point of stability in the Wyld, a bastion of decision and self. 4 dots -- the laws of your nature are a madness and a power; others cannot change you. 5 dots -- self-contained and complete; you will go on as you always have even if the Wyld and the world turn to dust and ash around you.",
+    "compatibility": "Any raksha; Major Grace for the Worker caste, Minor Grace otherwise.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 107,
+      "pdfPage": 108
+    }
+  },
+  {
+    "id": "staff-grace",
+    "name": "The Staff Grace",
+    "graceId": "staff",
+    "virtueId": "conviction",
+    "summary": "The Staff Grace feeds on Conviction and represents Social Power, letting the Fair Folk shape the social order around them; a raksha's Staff flows from her Conviction to define the circumstances of her Compassion. Because they have a Staff Grace, raksha cannot voluntarily break their sworn word.",
+    "mechanics": "The Staff Grace feeds on Conviction and represents Social Power, letting the Fair Folk shape the social order around them; a raksha's Staff flows from her Conviction to define the circumstances of her Compassion. Because they have a Staff Grace, raksha cannot voluntarily break their sworn word; their only recourse against an impossible oath is to shatter their own Staff Grace and destroy part of themselves. Rating table: no dots (x) -- Creation-born and other raksha are nothing more than objects and forces to you, not people. 1 dot -- you grasp that others consider themselves people with an identity comparable to your own, and may come to agree. 2 dots -- you understand the necessities and convictions that drive others and where those meet or conflict with your own. 3 dots -- you have a cold appreciation for the motivations of your enemies. 4 dots -- you recognize in others the twisted, mutated form of your own desires. 5 dots -- you understand the essential principles of dedication and conviction and can ruthlessly manipulate their manifestations in yourself and others.",
+    "compatibility": "Any raksha; Major Grace for the Diplomat caste, Minor Grace otherwise.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 108,
+      "pdfPage": 109
+    }
+  },
+  {
+    "id": "sword-grace",
+    "name": "The Sword Grace",
+    "graceId": "sword",
+    "virtueId": "valor",
+    "summary": "The Sword Grace feeds on Valor and represents Greatness. A raksha's Sword makes her a symbol of terror and glory, encouraging others' Valor but overwhelming their Convictions.",
+    "mechanics": "The Sword Grace feeds on Valor and represents Greatness. A raksha's Sword makes her a symbol of terror and glory, encouraging others' Valor but overwhelming their Convictions. Rating table: no dots (x) -- your identity is not important, even to yourself. 1 dot -- you are a thing that can do harm. 2 dots -- you cast a shadow of death and dissolution, and these things shy from you. 3 dots -- you are an agency of fear, death and power. 4 dots -- you are a thing others dread, a dream of ice, horror and blood. 5 dots -- you are a dream of glory and endings, imposing and terrible even in the Wyld.",
+    "compatibility": "Any raksha; Major Grace for the Warrior caste, Minor Grace otherwise.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 108,
+      "pdfPage": 109
+    }
+  },
+  {
+    "id": "heart-grace",
+    "name": "The Heart Grace",
+    "graceId": "heart",
+    "virtueId": null,
+    "summary": "The Heart Grace channels a raksha's Willpower and Essence and allows the Fair Folk to exist; the greater the Heart Grace, the more real the raksha. Its rating is fixed by raksha status rather than freely raised with bonus points.",
+    "mechanics": "The Heart Grace channels a raksha's Willpower and Essence and allows the Fair Folk to exist; the greater the Heart Grace, the more real the raksha. It traditionally manifests as an unbreakable, sacrosanct adamant egg -- unless the raksha has lost all four Virtue Graces to others and every one of those holders withdraws protection, at which point it becomes as fragile as glass. Under the Curse of Namelessness, a raksha cannot even see or touch her own Heart Grace. Rating table (fixed, cannot be raised with bonus points): x (1 for ordinary common raksha) -- contingent on another creature's dreams, most likely an extra. 1 (heroic common raksha) -- independent and self-willed, able to shape the Wyld but not make shaping attacks. 2 (heroic commoners who can make shaping attacks) -- a heroic raksha. 3 (noble raksha) -- a noble. 4 (powerful nobles, 200+ experience points) -- one of the great leaders of the Fair Folk. 5 (the unshaped) -- an unshaped monster. Only characters with Heart 2+ can participate in shaping combat.",
+    "compatibility": "All raksha; the one Grace every raksha possesses regardless of caste.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 108,
+      "pdfPage": 109
+    }
+  }
+]

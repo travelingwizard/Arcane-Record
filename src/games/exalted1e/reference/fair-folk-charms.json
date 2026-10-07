@@ -1,0 +1,653 @@
+[
+  {
+    "id": "forging-the-heart-grace",
+    "name": "Forging the Heart Grace",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Grace Forging",
+    "summary": "The root Charm of the 'Greater Arts of Glamour' -- many noble raksha perform it at the moment of their own birth, literally shaping themselves from the substance of the Wyld and simultaneously creating their own unbreakable Heart Grace, the artifact that houses a creature's Willpower, Nature and volition.",
+    "description": "This Charm functions as Shape-Forged Servant, but in addition to crafting a creature, it creates an artifact inextricably bound to that creature -- to own one is to own the other. The artifact is the Heart Grace: it is unbreakable, it cannot be stolen except through shaping combat, and it contains a miniature reflection that mimics the creature's activities, letting others observe the creature through it (and, if the Heart Grace is something that opens and closes, use Charms and effects on the creature via the reflection). It also contains the creature's Willpower, giving the creature a Willpower Trait, a Nature, volition and a Heart Trait of 1. Since the Heart Grace cannot be stolen, attuning to it requires first creating, purchasing or winning one; attunement itself takes six scenes of handling and a 1-mote commitment, erasing any previous raksha's attunement, and buys the utter and absolute loyalty and service of the creature associated with that Heart. This loyalty fades if someone else attunes the Heart or if it goes unattuned for a year and a day. Raksha without this Charm were created as property, finding freedom only at the sufferance of their masters or upon their owners' deaths.",
+    "cost": "20 motes, 1 gossamer, plus 1 gossamer per mutation point",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [{ "trait": "Ring", "rating": 0 }],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Shape-Forged Servant",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 185,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 185",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "Prerequisite Charm 'Shape-Forged Servant' is not itself promoted into this Phase 1b catalog (part of the broader, still-unpromoted Glamour Charms section); advisory text only, not schema-enforced."
+    ]
+  },
+  {
+    "id": "forging-the-cup-grace",
+    "name": "Forging the Cup Grace",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Grace Forging",
+    "summary": "Teaches a consenting creature to please others in the manner of the Fair Folk, consuming gossamer to craft it a Cup Grace artifact; anyone attuned to that Cup Grace can reflexively strip it away, reducing the creature's Cup to 0 and inflicting the Curse of Alienation.",
+    "description": "This Charm consumes a supply of gossamer and creates an artifact with the normal qualities of a finely crafted weapon, suit of armor or tool, in addition to the standard Grace qualities. Raksha and other Essence users can attune to a creature's Cup Grace with six scenes of handling and a 1-mote commitment, erasing any previous raksha's attunement. A character attuned to a creature's Cup Grace can reflexively strip away the creature's comprehensible facade, lowering its Cup to 0 and imposing the Curse of Alienation; breaking or destroying the Cup Grace also inflicts these effects. The raksha who creates a Cup Grace is its initial owner.",
+    "cost": "10 motes, 1 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [{ "trait": "Ring", "rating": 0 }],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["forging-the-heart-grace"],
+    "prerequisiteText": "Forging the Heart Grace",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 185,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 185",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "forging-the-ring-grace",
+    "name": "Forging the Ring Grace",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Grace Forging",
+    "summary": "Teaches a consenting creature to see itself as the Fair Folk do, consuming gossamer to craft it a Ring Grace artifact; anyone attuned to that Ring Grace can reflexively strip away the creature's sense of self, reducing its Ring to 0 and inflicting the Curse of Meekness.",
+    "description": "This Charm consumes a supply of gossamer and creates an artifact with the normal qualities of a finely crafted weapon, suit of armor or tool, in addition to the standard Grace qualities. Raksha and other Essence users can attune to a creature's Ring Grace with six scenes of handling and a 1-mote commitment, erasing any previous raksha's attunement. A character attuned to a creature's Ring Grace can reflexively strip away the creature's sense of self, lowering its Ring to 0 and imposing the Curse of Meekness; breaking or destroying the Ring Grace also inflicts these effects. The raksha who creates a Ring Grace is its initial owner.",
+    "cost": "10 motes, 1 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [{ "trait": "Ring", "rating": 0 }],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["forging-the-heart-grace"],
+    "prerequisiteText": "Forging the Heart Grace",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 186,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 186",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "forging-the-staff-grace",
+    "name": "Forging the Staff Grace",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Grace Forging",
+    "summary": "Teaches a consenting creature the ways of Fair Folk diplomacy, consuming gossamer to craft it a Staff Grace artifact; anyone attuned to that Staff Grace can reflexively strip away the creature's understanding of others, reducing its Staff to 0 and inflicting the Curse of Hubris.",
+    "description": "This Charm consumes a supply of gossamer and creates an artifact with the normal qualities of a finely crafted weapon, suit of armor or tool, in addition to the standard Grace qualities. Raksha and other Essence users can attune to a creature's Staff Grace with six scenes of handling and a 1-mote commitment, erasing any previous raksha's attunement. A character attuned to a creature's Staff Grace can reflexively strip away the creature's understanding of others, lowering its Staff to 0 and imposing the Curse of Hubris; breaking or destroying the Staff Grace also inflicts these effects. The raksha who creates a Staff Grace is its initial owner.",
+    "cost": "10 motes, 1 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [{ "trait": "Ring", "rating": 0 }],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["forging-the-heart-grace"],
+    "prerequisiteText": "Forging the Heart Grace",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 186,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 186",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "forging-the-sword-grace",
+    "name": "Forging the Sword Grace",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Grace Forging",
+    "summary": "Makes a consenting creature as terrifying as the raksha herself, consuming gossamer to craft it a Sword Grace artifact that also shields the creature's own Heart Grace from theft by anyone who does not hold the Sword; anyone attuned to the Sword Grace can reflexively strip the creature of its epic mien, reducing its Sword to 0 and inflicting the Curse of Namelessness.",
+    "description": "This Charm consumes a supply of gossamer and creates an artifact with the normal qualities of a finely crafted weapon, suit of armor or tool, in addition to the standard Grace qualities. Raksha and other Essence users can attune to a creature's Sword Grace with six scenes of handling and a 1-mote commitment, erasing any previous raksha's attunement. A character attuned to a creature's Sword Grace can reflexively strip the creature of its epic mien, lowering its Sword to 0 and imposing the Curse of Namelessness; breaking or destroying the Sword Grace also inflicts these effects. While a Sword Grace exists, its creature's Heart Grace cannot be broken or stolen (whether by shaping combat or mortal theft) by anyone who does not also own the creature's Sword Grace -- raksha sometimes give their Sword Grace to others to safeguard for exactly this reason, though most hesitate to grant such power. The raksha who creates a Sword Grace is its initial owner.",
+    "cost": "10 motes, 1 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [{ "trait": "Ring", "rating": 0 }],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["forging-the-heart-grace"],
+    "prerequisiteText": "Forging the Heart Grace",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 186,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 186",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "forging-the-way-grace",
+    "name": "Forging the Way Grace",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Grace Forging",
+    "summary": "Crafts a Way Grace -- the sixth, exotic shinma Nirupadhika -- as an artifact for a consenting creature, teaching it to tame Nirupadhika and use its shaping actions to speed travel through the Wyld; requires the raksha to already know Forging the Heart Grace.",
+    "description": "Crafting the Way Grace for a consenting creature, the raksha teaches the target to tame Nirupadhika. This Charm consumes a supply of gossamer and creates an artifact; the artifact has the normal qualities of a finely crafted weapon, suit of armor, or tool, in addition to the standard Grace qualities, and it creates a Way Trait for the creature. Raksha and other Essence users can attune to a creature's Way Grace: this requires six scenes of handling and a 1-mote commitment, which erases any previous raksha's attunement. Characters attuned to a creature's Way Grace can reflexively strip away the creature's connection to Nirupadhika, lowering its Way to 0; the Curse associated with this reduction is left to the Storyteller to determine. Raksha with a Way Grace can use their shaping actions to speed their travel through the Wyld -- a single success on a Dexterity + Sail Way-shaping action moves them one journey through the Wyld.",
+    "cost": "10 motes, 1 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [{ "trait": "Ring", "rating": 0 }],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["forging-the-heart-grace"],
+    "prerequisiteText": "Forging the Heart Grace",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 211,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 211",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "The Way is a sixth, exotic shinma outside the five core Graces; its own Curse-on-strip is explicitly left to the Storyteller by the source text, unlike the four core Grace-Forging Charms' fixed Curse pairings."
+    ]
+  },
+  {
+    "id": "forging-the-arcane-redoubt",
+    "name": "Forging the Arcane Redoubt",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Grace Forging",
+    "summary": "Embeds a consenting creature's Heart Grace in an uncapped Demesne, immolating the creature into dormancy and converting the Demesne into a Freehold anchored by an eternal 'bonefire' that others can attune to for reflexive Freehold-wide awareness and automatic shaping successes.",
+    "description": "The raksha embeds a consenting creature's Heart Grace in the center of an uncapped Demesne. Over the course of a story, it begins to burn until the Heart immolates and becomes a pillar of silver, heatless bonefire; the creature associated with that Heart turns to dust and ash, ceasing to exist until the bonefire dies, at which point the creature returns to life. Building the bonefire turns the Demesne into a Freehold, creating a Cyst or a set of pennants; the Freehold fills with Wyld taint and the Demesne becomes part of the Middlemarches of Rakshastan. The bonefire must be fed dross (a mix of Essence and gossamer) -- 20 motes and 1 gossamer per story -- or it dies and all its effects fail. To attune to a bonefire, a character casts her own Heart into the fire (with the owner's consent if she does not own it herself); for the next six scenes the Heart is vulnerable to theft by normal dice actions or vexation, though reaching into the fire to claim it inflicts one level of aggravated damage. Once the Heart has spent six scenes in the fire, the character is attuned, gaining three benefits: she can 'enflesh' herself within the Freehold as a whole, becoming reflexively aware of everything that transpires there and able to use shaping actions as if present at any waypoint; she receives her Essence in automatic successes on all shaping rolls within the Freehold; and she can reflexively spy on any creature carrying a pennant or Cyst for the Freehold, and can wither or regrow any pennant or Cyst over the course of a story. Raksha outside the Freehold must hold a pennant or Cyst to realize these benefits. Multiple raksha can place their Hearts in the bonefire, dividing the benefits among them and holding power in turn for a duration the bonefire's creator sets (a day, week, month, season, year or story).",
+    "cost": "25 motes, 3 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [{ "trait": "Ring", "rating": 2 }],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["forging-the-heart-grace"],
+    "prerequisiteText": "Forging the Heart Grace",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 188,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 188",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "forging-the-stronghold",
+    "name": "Forging the Stronghold",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Grace Forging",
+    "summary": "Embeds a Sword Grace in a Freehold waypoint, turning it into the Freehold's masculine/martial 'Stronghold' anchor -- protecting against physical invasion, letting the Freehold claim additional waypoints, and granting the attuned character territorial control over the Freehold's physical structure.",
+    "description": "The raksha embeds a Sword Grace in the spiritual structure of a Freehold waypoint; that Sword Grace and waypoint transform into a 'Stronghold' -- the center and focus of the Freehold's active, aggressive strength, always with masculine or martial symbolism (a fortress, marshalling yard, maypole or mountain peak). Its existence protects the Freehold against physical invasion, and the Freehold gains a Sword Trait (Stronghold Trait) equal to the creature's Sword. A Freehold with a Stronghold can claim possession of additional waypoints, directly controlling a number equal to 10 times its Stronghold Trait. Attuning to a Stronghold requires six scenes of effort and a 1-mote commitment (erasing any previous attunement); the attuning character must have undisputed physical control over the territory, driving out anyone who might object. The attuned character controls the Freehold's physical territory: he can rearrange journeys between waypoints with a difficulty 3 Sword-shaping action (though he cannot isolate a waypoint or reduce the total number of journeys), can enflesh himself in the Freehold's physical structure (gaining awareness of all Sword shaping there, applicable Sword defenses against shaping attacks on the Freehold's waypoints, and the ability to make Sword-shaping actions as if present anywhere in the Freehold). The Stronghold remains the creature's own Sword Grace, and the attuned character can reflexively inflict the Curse of Namelessness on that creature.",
+    "cost": "20 motes, 2 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [{ "trait": "Ring", "rating": 2 }],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [
+      "forging-the-sword-grace",
+      "forging-the-arcane-redoubt"
+    ],
+    "prerequisiteText": "Forging the Sword Grace, Forging the Arcane Redoubt",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 189,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 189",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "forging-the-glory",
+    "name": "Forging the Glory",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Grace Forging",
+    "summary": "Embeds a Cup Grace in a Freehold waypoint, turning it into the Freehold's radiant 'Glory' anchor -- suffusing the Freehold with beguiling beauty that can compel visitors to linger and submit, and granting the attuned character control over the Freehold's emotional ambience.",
+    "description": "The raksha embeds a Cup Grace in the spiritual structure of a Freehold waypoint; that Cup Grace and waypoint transform into a 'Glory' -- the center and focus of the Freehold's majesty, radiating a subtle beauty that makes the place magical and wondrous even for mortals tortured within it. The Freehold gains a Cup Trait (Glory Trait) equal to the creature's Cup. A Freehold with a Glory radiates beguilement: characters who relax their mental defenses and accept the Freehold's hospitality must make a Willpower roll (difficulty 1 for raksha, 2 for Creation-born, 3 for Creation-born prisoners) or suffer a beguilement effect compelling them to linger, show no resistance to the raksha, and consent to the raksha's Charms; this effect is a work of glamour with no effect on characters of Wits + Essence 7 or higher. Attuning to a Glory requires an uninterrupted six-scene performance and a 1-mote commitment (erasing any previous attunement); the process fails if the attuning character is driven away or the performance is interrupted. The attuned character controls the Freehold's emotional ambience: she can prevent raksha from regaining Essence naturally there with a difficulty 3 Cup-shaping action, and can enflesh herself in its spiritual structure (gaining awareness of all Cup shaping there, applicable Cup defenses against shaping attacks on the Freehold's waypoints, and the ability to make Cup-shaping actions as if present anywhere in the Freehold). The Glory remains the creature's own Cup Grace, and the attuned character can reflexively inflict the Curse of Alienation on that creature.",
+    "cost": "20 motes, 2 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [{ "trait": "Ring", "rating": 2 }],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [
+      "forging-the-cup-grace",
+      "forging-the-arcane-redoubt"
+    ],
+    "prerequisiteText": "Forging the Cup Grace, Forging the Arcane Redoubt",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 189,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 189",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "forging-the-fountainhead",
+    "name": "Forging the Fountainhead",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Grace Forging",
+    "summary": "Embeds a Ring Grace in a Freehold waypoint, turning it into the Freehold's self-aware 'Fountainhead' anchor -- a living creature witnessing everything within the Freehold -- and granting the attuned character reflexive perception of the whole Freehold.",
+    "description": "The raksha embeds a Ring Grace in the spiritual structure of a Freehold waypoint; that Ring Grace and waypoint transform into a 'Fountainhead' -- the center and focus of the Freehold's definition, with feminine or passive symbolism (a well, lake, garden, grotto, mosaic, room-sized mirror or hollow). Its existence gives the Freehold self-awareness and identity, and the Freehold gains a Ring Trait (Fountainhead Trait) equal to the creature's Ring; a Freehold with a Fountainhead is itself a living creature, abstractly and distantly conscious but able to witness everything within it. Attuning to a Fountainhead requires six scenes of effort and a 1-mote commitment (erasing any previous attunement); a majority of the Freehold's Worker raksha must participate, giving their strength to the project. The attuned character defines the Freehold and commands its awareness: she can reflexively sense everything happening anywhere in the Freehold or near any of its pennants or Cysts, can use applicable Ring defenses against shaping attacks on the Freehold's waypoints, and can make Ring-shaping actions as if present anywhere in the Freehold. The Fountainhead remains the creature's own Ring Grace, and the attuned character can reflexively inflict the Curse of Meekness on that creature.",
+    "cost": "20 motes, 2 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [{ "trait": "Ring", "rating": 2 }],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [
+      "forging-the-ring-grace",
+      "forging-the-arcane-redoubt"
+    ],
+    "prerequisiteText": "Forging the Ring Grace, Forging the Arcane Redoubt",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 190,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 190",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "forging-the-throne-room",
+    "name": "Forging the Throne Room",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Grace Forging",
+    "summary": "Embeds a Staff Grace in a Freehold waypoint, turning it into the Freehold's 'Throne Room' anchor for court and society -- letting nobles bind themselves in fealty to the Freehold and its lord -- and granting the attuned character control over the Freehold's social fabric.",
+    "description": "The raksha embeds a Staff Grace in the spiritual structure of a Freehold waypoint; that Staff Grace and waypoint transform into a 'Throne Room' -- a place of court and deliberations, the central focus for the Freehold's society, able to marshal and shape the convictions of others. The Freehold gains a Staff Trait (Throne Room Trait) equal to the creature's Staff. A Freehold's Throne Room allows raksha to bind themselves in fealty to the Freehold and its lord, with the oaths binding the Freehold applying to all such characters until they or the current lord rejects that fealty. Attuning to a Throne Room requires six scenes of effort and a 1-mote commitment (erasing any previous attunement); during the attuning story, the character must meaningfully interact with every noble sworn to the Freehold (gift exchanges, sexual liaisons and plotting together all count, but casual conversation or strictly hostile encounters do not). The attuned character controls the Freehold's social fabric: she can take one oath or adjuration per story on the Freehold's behalf, and can enflesh herself in its social structure (gaining awareness of all Staff shaping there, applicable Staff defenses against shaping attacks on the Freehold's territory, and the ability to make Staff-shaping actions as if present anywhere in the Freehold). The Throne Room remains the creature's own Staff Grace, and the attuned character can reflexively inflict the Curse of Hubris on that creature.",
+    "cost": "20 motes, 2 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [{ "trait": "Ring", "rating": 2 }],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [
+      "forging-the-staff-grace",
+      "forging-the-arcane-redoubt"
+    ],
+    "prerequisiteText": "Forging the Staff Grace, Forging the Arcane Redoubt",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 190,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 190",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "assumption-of-elemental-shape",
+    "name": "Assumption of Elemental Shape",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Assumption",
+    "summary": "The most common gateway Assumption-type Charm: lets a raksha pass through the shinma Nirakara and exist as a shaped creature within Creation, in one of five elemental variants (Air/Earth/Fire/Water/Wood) each granting a distinct minor elemental resistance or sense.",
+    "description": "This Charm allows a raksha to pass through the gateway Nirakara and exist as a shaped creature within Creation. This Charm is actually five different Charms, each offering a different benefit: Assumption of Elemental Shape (Air) -- the raksha suffers no ill effects from cold and may walk on snow or ice as if it were solid, stable ground; (Earth) -- the raksha can see clearly in the deepest darkness; (Fire) -- the raksha suffers no ill effects from heat or non-magical flame; (Water) -- the raksha can swim at normal movement rates, breathe water as well as air, and otherwise exist comfortably in an aquatic environment; (Wood) -- the raksha can balance on even the thinnest branch and entirely ignores any natural poison with a single success on a Stamina + Resistance roll. This is an Assumption-type Charm.",
+    "cost": "10 motes, 1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 149,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 149",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "Consolidated the five elemental (Air/Earth/Fire/Water/Wood) variants into one catalog row, matching the inventory's own established precedent for multi-variant single-header Charms."
+    ]
+  },
+  {
+    "id": "assumption-of-cerements-and-bone",
+    "name": "Assumption of Cerements and Bone",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Assumption",
+    "summary": "A second independent gateway Assumption-type Charm: lets the raksha pass through Nirakara and exist as a shaped creature within the Underworld, treated as dead for all effects while still materially present.",
+    "description": "This Charm allows a raksha to pass through the gateway Nirakara and exist as a shaped creature within the Underworld. Raksha with this Charm active are material in Creation but, otherwise, are treated as dead for all effects -- they can receive Essence from burnt offerings, Deathlords can feed on them for power, and so forth. This is an Assumption-type Charm.",
+    "cost": "10 motes, 1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 149,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 149",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "assumption-of-the-persons-heart",
+    "name": "Assumption of the Person's Heart",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Assumption",
+    "summary": "Lets the raksha pass through Nirakara and exist as a minor Wyld taint on a single visible creature of Creation, optionally sharing the benefits of her mutations and active Charms with that creature (for gossamer) if it consents.",
+    "description": "This Charm allows a raksha to pass through the gateway Nirakara and exist as a minor Wyld taint on a creature of Creation. The creature must be visible when she uses this Charm. If this is her only active Assumption-type Charm, the raksha exists in Creation as an extension of that creature -- she cannot exist outside its presence, and she involuntarily becomes a dematerialized but manifest spirit when the creature becomes unconscious or someone attempts to forcibly separate her from it. If she has another Assumption-type Charm active, she can leave its presence and does not dematerialize (voluntarily or otherwise) in either circumstance. If the creature consents, this Charm allows the raksha to share the benefits of her mutations and active Charms with it, costing 1 gossamer for each mutation point or gossamer point of Charms shared (for example, spending 1 gossamer to extend Assumption of Elemental Shape (Water) to a shipwrecked sailor); she can withdraw these gifts at any time. This Charm is a work of glamour and cannot taint creatures whose Stamina + Essence exceeds the raksha's Charisma. This is an Assumption-type Charm.",
+    "cost": "10 motes, 2 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["assumption-of-elemental-shape"],
+    "prerequisiteText": "Assumption of Elemental Shape (any variant)",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 149,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 149",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "assumption-of-the-lands-heart",
+    "name": "Assumption of the Land's Heart",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Assumption",
+    "summary": "Lets the raksha pass through Nirakara and exist as a subliminal Wyld taint on a hamlet-sized region, sinking her Heart Grace into the land and 'programming' it to trigger works of glamour on specified conditions -- at the cost of losing her own volition and ability to spend Willpower while the Charm lasts.",
+    "description": "This Charm allows the raksha to pass through the gateway Nirakara and exist as a subliminal Wyld taint on a region of Creation sized to house and feed up to 25 people. The raksha sinks her Heart Grace into the region; mystically separated from her Heart Grace, she cannot spend Willpower and exists without volition, though she can respond to events, defend herself, answer questions and perform repetitive tasks without initiating new courses of action. This Charm lets the raksha 'program' her Heart Grace to trigger works of glamour (such as Fearsome Mien or Beguilement) based on conditions she specifies against any appropriate target within the region; she can access this information consciously with a successful difficulty 5 Intelligence + Lore roll. Discovering the nature of the taint requires a successful difficulty 3 Perception + Occult roll, and tracking it back to the raksha requires a successful difficulty 5 Perception + Occult roll (Charms such as All-Encompassing Sorcerer's Sight allow automatic success). This is an Assumption-type Charm.",
+    "cost": "10 motes, 2 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["assumption-of-elemental-shape"],
+    "prerequisiteText": "Assumption of Elemental Shape (any variant)",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 150,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 150",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "Cross-references Fearsome Mien and Beguilement (both Charms outside this Phase 1b's 19-entry scope) by name only, as illustrative examples; advisory text only, not schema-enforced."
+    ]
+  },
+  {
+    "id": "assumption-of-the-citys-heart",
+    "name": "Assumption of the City's Heart",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Assumption",
+    "summary": "Functions as Assumption of the Land's Heart but blankets a city-sized region (up to 1,000 people); if invoked together with Assumption of the Land's Heart, the overlapping central region becomes a place of power where the raksha's Heart can invoke permanent glamours.",
+    "description": "This Charm functions as Assumption of the Land's Heart, but blankets a larger region -- a place sized to support up to 1,000 people. Fair Folk can invoke this Charm together with Assumption of the Land's Heart; the central region where both overlap becomes a place of power, where the raksha's Heart can invoke permanent glamours as well as works of glamour. This is an Assumption-type Charm.",
+    "cost": "10 motes, 1 Willpower, 4 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["assumption-of-the-lands-heart"],
+    "prerequisiteText": "Assumption of the Land's Heart",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 150,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 150",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "assumption-of-the-living-kingdom",
+    "name": "Assumption of the Living Kingdom",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Assumption",
+    "summary": "Functions as Assumption of the Land's Heart but blankets a small-kingdom-sized region (up to 100,000 people); if invoked together with Assumption of the Land's Heart, the raksha regains the ability to commune with her Heart and take self-directed actions (though still not spend Willpower) while inside the overlapping central region.",
+    "description": "This Charm functions as Assumption of the Land's Heart, but blankets a much larger region -- a small kingdom, able to support 100,000 people. Fair Folk can invoke this Charm together with Assumption of the Land's Heart; the central region where both overlap becomes a place of power. So long as she remains within that central region, the raksha can commune with her Heart and make decisions; she cannot spend Willpower (although the Heart can), but she can take self-directed actions. This is an Assumption-type Charm.",
+    "cost": "15 motes, 1 Willpower, 6 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["assumption-of-the-lands-heart"],
+    "prerequisiteText": "Assumption of the Land's Heart",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 150,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 150",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "assumption-of-the-wyld-tainted-land",
+    "name": "Assumption of the Wyld-Tainted Land",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Assumption",
+    "summary": "As the Wyld recedes from a region, lets the raksha take a fading Bordermarches area with her through Nirakara, functioning as the larger Assumption-of-the-Land's-Heart-line Charms but additionally infusing the region with enough ambient Wyld energy for the raksha to shape it, at +5 difficulty.",
+    "description": "As the Wyld recedes from a region, a raksha can take the land with her through the gateway Nirakara. This Charm functions as Assumption of the City's Heart, except the region chosen must be a section of Bordermarches fading into Creation. In addition to the other effects, this Charm creates a powerful tainted land, infused with sufficient ambient Wyld energy for the raksha to shape it, albeit at +5 difficulty. This is an Assumption-type Charm.",
+    "cost": "15 motes, 1 Willpower, 6 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["assumption-of-the-citys-heart"],
+    "prerequisiteText": "Assumption of the City's Heart",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 150,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 150",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "The source's own text calls this Charm's prerequisite line 'Assumption of the Kingdom's Heart,' a name that appears nowhere else in the book; treated as a naming slip for Assumption of the City's Heart (confirmed by both the Prerequisite Charms line and the chapter's own tree diagram) rather than silently corrected -- flagged here per the inventory's own note."
+    ]
+  },
+  {
+    "id": "assumption-of-dreams-and-passion",
+    "name": "Assumption of Dreams and Passion",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Assumption",
+    "summary": "A worked example of a personalized, non-elemental Assumption-type Charm tree: lets the raksha pass through Nirakara and exist as a shaped creature by filling his spirit with dream-derived emotional Essence, adding his highest feeding Grace in dice to Social rolls that provoke a chosen emotion.",
+    "description": "This Charm allows a raksha to pass through the gateway Nirakara and exist as a shaped creature within Creation. The raksha fills his spirit with the raw dream-derived Essence of an emotion or passion. This Charm adds the raksha's highest feeding Grace in dice to Social rolls where provoking that emotion is useful. The raksha chooses the emotion in question when invoking this Charm. This is an Assumption-type Charm.",
+    "cost": "10 motes, 1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 154,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 154",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "The source explicitly frames this whole sub-tree as a worked example of the type of personalized non-elemental Assumption-type Charm line a raksha can develop, not the only possible one."
+    ]
+  }
+]

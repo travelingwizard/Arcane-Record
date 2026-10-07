@@ -280,18 +280,30 @@ describe('auditFamily against the real repository (current state)', () => {
   });
 
   it('reports Fair Folk as pending-certification with its real inventory rows and zero audit errors', () => {
-    // `fair-folk-charms.json`, an OCR extraction with several garbled ids
-    // that don't match this family's real inventory, lives in
-    // `./reference/ocr-drafts/` so it falls outside this audit script's
-    // `${family}-*.json` promoted-catalog glob, exactly like Lunar's own
-    // pre-Phase-1b draft (see the comment above) -- Fair Folk has no real
-    // promoted catalog yet.
+    // 30 = the 19 real, page-cited, visually-reviewed Grace-Forging/
+    // Assumption Charms promoted in `fair-folk-charms.json`, the 6 Graces
+    // rows in `fair-folk-graces.json`, and the 5 Bedlam rows in
+    // `fair-folk-bedlam.json` (all Phase 1b), as counted directly from
+    // `src/games/exalted1e/reference/fair-folk-*.json` by this audit
+    // script. The stale `./reference/ocr-drafts/fair-folk-charms.json`
+    // draft (a raw OCR extraction with several garbled ids that don't
+    // match this family's real inventory) remains outside this glob and
+    // unwired, exactly matching Alchemical's own identical precedent
+    // above. This differs from `certification/fair-folk.json`'s own
+    // `catalog.promotedEntries` (118), which also includes Phase 1a's 88
+    // Backgrounds/Merits-Flaws rows, none of which live in a
+    // `fair-folk-`-prefixed catalog file (Backgrounds live in
+    // `definitions.ts`; Merits/Flaws are a subset of the shared
+    // `dragonblooded-merits-flaws.json`), so this audit script's file-glob
+    // does not count them -- matching Sidereal's, Abyssal's, and
+    // Alchemical's own identical precedent above.
     const report = auditFamily('fair-folk');
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);
     expect(report.inventoryRows).toBeGreaterThan(0);
-    expect(report.promotedEntries).toBe(0);
-    expect(report.catalogChecksum).toBe('');
+    expect(report.promotedEntries).toBe(30);
+    expect(report.catalogChecksum).toHaveLength(8);
+    expect(report.catalogChecksum).toMatch(/^[0-9a-f]{8}$/);
   });
 
   it('computes a stable catalog checksum for Abyssal that changes if the promoted catalog changes', () => {

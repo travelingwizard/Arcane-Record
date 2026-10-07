@@ -1,0 +1,72 @@
+[
+  {
+    "id": "bedlam-overview",
+    "name": "Bedlam (general rules)",
+    "virtueId": null,
+    "graceId": null,
+    "summary": "Bedlam is the Fair Folk's equivalent of a psychological break: like other Exalted, raksha can channel each Virtue a limited number of times per story, and spending a Virtue's last channel throws the raksha automatically into bedlam, rolling that Virtue at +2 difficulty until she works off the associated Curse.",
+    "mechanics": "Raksha can channel each Virtue a number of times per story equal to that Virtue's rating; spending a channel is the same mechanic as for the Exalted. Spending a Virtue's last channel triggers bedlam automatically. While in bedlam, a raksha rolls the relevant Virtue or Virtues at +2 difficulty. Bedlam ends, restoring all of a raksha's expended Virtue channels, only when the raksha's Virtue-specific recovery condition is met or at the natural end of a story. Lures: any Virtue rated 3 or higher must have a Lure attached -- a specific circumstance (chosen from the book's list or invented with the Storyteller) that forces the raksha to channel that Virtue if at all possible, at most once per scene, and only when the raksha actually behaves in the relevant fashion. Lures represent 'the uttermost temptation of shape' -- the raksha's favorite aspect of the Virtue, whose overindulgence risks burning out the last of her sanity and sending her into bedlam.",
+    "compatibility": "All raksha; every raksha with a Virtue at 3+ must select a Lure for at least one such Virtue at character creation.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 112,
+      "pdfPage": 113
+    }
+  },
+  {
+    "id": "curse-of-hubris",
+    "name": "Curse of Hubris",
+    "virtueId": "compassion",
+    "graceId": "staff",
+    "summary": "Compassion's bedlam Curse: the raksha acts as Compassion 0 / Staff 0, suffering a +2 difficulty penalty to influence or understand others (including Cup/Staff reality-shaping); recovers only after committing a number of cruel, genuinely self-risking ('regrettable') acts equal to her Compassion.",
+    "mechanics": "Curse of Hubris: acts as Compassion 0 / Staff 0, a +2 difficulty penalty to influence or understand others (including Cup/Staff reality-shaping); recovers only after committing a number of cruel, genuinely self-risking ('regrettable') acts equal to her Compassion -- slaughtering strangers does not count, but hurting a cherished slave or humiliating a dangerous rival does. Sample Lures: giving help when asked, romantic love, creating beauty, serving justice. Breaking a character's Staff Grace also inflicts this Curse (see fair-folk-graces.json's forging rules).",
+    "compatibility": "All raksha; triggered by spending Compassion's last channel for the story, or by losing the Staff Grace.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 113,
+      "pdfPage": 114
+    }
+  },
+  {
+    "id": "curse-of-namelessness",
+    "name": "Curse of Namelessness",
+    "virtueId": "conviction",
+    "graceId": "sword",
+    "summary": "Conviction's bedlam Curse: the raksha acts as Conviction 0 / Sword 0, forgetting her own name, identity, nature and oaths (though they still bind her), suffering +2 difficulty to Lore rolls and to any attempt to interrogate her; recovers only after betraying herself a number of times equal to her Conviction.",
+    "mechanics": "Curse of Namelessness: acts as Conviction 0 / Sword 0; forgets her own name, identity, nature and oaths (though they still bind her), +2 difficulty to Lore rolls and to any attempt to interrogate her; recovers only after betraying herself a number of times equal to her Conviction. Sample Lures: seizing power over other raksha, fighting against the odds, making commitments or oaths. Breaking a character's Sword Grace also inflicts this Curse (see fair-folk-graces.json's forging rules).",
+    "compatibility": "All raksha; triggered by spending Conviction's last channel for the story, or by losing the Sword Grace.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 113,
+      "pdfPage": 114
+    }
+  },
+  {
+    "id": "curse-of-alienation",
+    "name": "Curse of Alienation",
+    "virtueId": "temperance",
+    "graceId": "cup",
+    "summary": "Temperance's bedlam Curse: the raksha acts as Temperance 0 / Cup 0, suffering a +2 difficulty penalty to influence or serve others (including Cup/Staff reality-shaping); recovers only after committing acts of regrettable excess equal to her Temperance.",
+    "mechanics": "Curse of Alienation: acts as Temperance 0 / Cup 0, +2 difficulty to influence or serve others (including Cup/Staff reality-shaping); recovers only after committing acts of regrettable excess equal to her Temperance. Sample Lures: resisting a specific temptation (drugs, sex, dancing), refusing a properly phrased request, hiding one's opinion. Breaking a character's Cup Grace also inflicts this Curse (see fair-folk-graces.json's forging rules).",
+    "compatibility": "All raksha; triggered by spending Temperance's last channel for the story, or by losing the Cup Grace.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 113,
+      "pdfPage": 114
+    }
+  },
+  {
+    "id": "curse-of-meekness",
+    "name": "Curse of Meekness (also called the Curse of Terror)",
+    "virtueId": "valor",
+    "graceId": "ring",
+    "summary": "Valor's bedlam Curse: the raksha acts as Valor 0 / Ring 0, suffering a flat two-die environmental penalty on all rolls; recovers only once fear or passivity has humiliated or harmed her a number of times equal to her Valor.",
+    "mechanics": "Curse of Meekness/Terror: acts as Valor 0 / Ring 0, a flat two-die environmental penalty on all rolls; recovers only once fear or passivity has humiliated or harmed her a number of times equal to her Valor. Sample Lures: feats of heroism, facing down terrible things, fighting duels, fighting in great battles. Breaking a character's Ring Grace also inflicts this Curse (see fair-folk-graces.json's forging rules).",
+    "compatibility": "All raksha; triggered by spending Valor's last channel for the story, or by losing the Ring Grace.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 113,
+      "pdfPage": 114
+    }
+  }
+]

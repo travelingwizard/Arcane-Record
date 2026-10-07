@@ -259,7 +259,7 @@ export function createDefaultFamilyState(type: ExaltedCharacterType) {
     case 'fair-folk':
       return {
         type: 'fair-folk' as const,
-        graces: {},
+        graces: {} as Record<string, number>,
         feedingNotes: '',
         activeAssumption: '',
         oaths: [] as {
@@ -268,6 +268,7 @@ export function createDefaultFamilyState(type: ExaltedCharacterType) {
           state: string;
           notes: string;
         }[],
+        bedlamVirtueId: null as ExaltedVirtueId | null,
       };
   }
 }

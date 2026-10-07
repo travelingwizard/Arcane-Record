@@ -158,7 +158,7 @@
     "name": "The Graces (general rules)",
     "disposition": "calculated",
     "summary": "The Graces are the five fixed Traits -- Cup, Ring, Staff, Sword and Heart -- that give a raksha's otherwise shapeless Essence a stable self; a raksha's Charms are keyed to Grace ratings rather than to Attributes or Abilities, and a Grace can be forged onto (or stolen from, or broken to curse) any consenting creature, raksha or Creation-born alike.",
-    "mechanics": "Raksha have no true form; in the Wyld they are 'a flowing, viscous agglutination of Essence patterns' that coagulates around five fixed points of self. The Heart is the pith, holding Willpower and Nature; the Cup catches Compassion, the Ring is the symbol of Temperance, the Staff is the focus for Conviction, and the Sword is the icon of Valor. A common raksha chooses one of the four Virtue Graces as her Major Grace (the driving Grace that feeds her); a noble chooses two. The other Graces are Minor and exist as counterpoint, dissipating rather than empowering. General forging rules: a raksha can forge a Cup, Ring, Staff or Sword Grace for any consenting creature (including one dominated by beguilement or Heart-possession) with a scene of effort while the creature is present; this gives the recipient the Grace Trait (starting at 1), the matching shaping damage track, a shaping action, and the ability to learn that Grace's Charms -- Eclipse Caste Solar, Moonshadow Caste Abyssal, Fae-Blooded and Lunar Exalted can also learn a Grace's Charms this way at double the normal experience and mote cost (Storytellers may extend this to other Creation-born protagonists as an optional rule). A forged Grace is a possession of the raksha who crafted it, not of the creature whose Virtue it holds; it can in principle be owned by one raksha, invoked/banished by a second, physically held by a third and attuned to by a fourth. Grace artifacts resist damage like the Five Magical Materials. If a character's Grace is broken or destroyed, it inflicts the matching Bedlam curse (see virtue-bedlam-curses) permanently on a raksha (recoverable only if a smith has every remaining piece of the shattered Grace) but only for one or two stories on a Creation-born victim.",
+    "mechanics": "Raksha have no true form; in the Wyld they are 'a flowing, viscous agglutination of Essence patterns' that coagulates around five fixed points of self. The Heart is the pith, holding Willpower and Nature; the Cup catches Compassion, the Ring is the symbol of Temperance, the Staff is the focus for Conviction, and the Sword is the icon of Valor. A common raksha chooses one of the four Virtue Graces as her Major Grace (the driving Grace that feeds her); a noble chooses two. The other Graces are Minor and exist as counterpoint, dissipating rather than empowering. General forging rules: a raksha can forge a Cup, Ring, Staff or Sword Grace for any consenting creature (including one dominated by beguilement or Heart-possession) with a scene of effort while the creature is present; this gives the recipient the Grace Trait (starting at 1), the matching shaping damage track, a shaping action, and the ability to learn that Grace's Charms -- Eclipse Caste Solar, Moonshadow Caste Abyssal, Fae-Blooded and Lunar Exalted can also learn a Grace's Charms this way at double the normal experience and mote cost (Storytellers may extend this to other Creation-born protagonists as an optional rule). A forged Grace is a possession of the raksha who crafted it, not of the creature whose Virtue it holds; it can in principle be owned by one raksha, invoked/banished by a second, physically held by a third and attuned to by a fourth. Grace artifacts resist damage like the Five Magical Materials. If a character's Grace is broken or destroyed, it inflicts the matching Bedlam curse (see curse-of-hubris, curse-of-namelessness, curse-of-alienation, curse-of-meekness) permanently on a raksha (recoverable only if a smith has every remaining piece of the shattered Grace) but only for one or two stories on a Creation-born victim.",
     "compatibility": "All raksha; extendable to Creation-born characters via Grace-forging Charms.",
     "verificationState": "reviewed",
     "citation": {
@@ -172,7 +172,10 @@
       "staff-grace",
       "sword-grace",
       "heart-grace",
-      "virtue-bedlam-curses"
+      "curse-of-hubris",
+      "curse-of-namelessness",
+      "curse-of-alienation",
+      "curse-of-meekness"
     ],
     "notes": "Chapter Four: Traits, 'Graces and Gossamer' / 'The Anatomy of a Raksha' / 'The Graces' / 'General Rules for Graces' sidebar, pp. 105-106 (PDF 106-107)."
   },
@@ -258,7 +261,7 @@
     "name": "The Heart Grace",
     "disposition": "calculated",
     "summary": "The Heart channels a raksha's Willpower and Essence and is the one Grace every raksha has, fixed rather than freely bought; its rating is effectively a measure of how 'real' and powerful the raksha is, from an extra bound to a master's dreams up to an unshaped monster.",
-    "mechanics": "The Heart Grace channels a raksha's Willpower and Essence and allows the Fair Folk to exist; the greater the Heart Grace, the more real the raksha. It traditionally manifests as an unbreakable, sacrosanct adamant egg -- unless the raksha has lost all four Virtue Graces to others and every one of those holders withdraws protection, at which point it becomes as fragile as glass. Under the curse of namelessness (see virtue-bedlam-curses), a raksha cannot even see or touch her own Heart Grace. Rating table (fixed, cannot be raised with bonus points): x (1 for ordinary common raksha) -- contingent on another creature's dreams, most likely an extra. 1 (heroic common raksha) -- independent and self-willed, able to shape the Wyld but not make shaping attacks. 2 (heroic commoners who can make shaping attacks) -- a heroic raksha. 3 (noble raksha) -- a noble. 4 (powerful nobles, 200+ experience points) -- one of the great leaders of the Fair Folk. 5 (the unshaped) -- an unshaped monster. Only characters with Heart 2+ can participate in shaping combat (see shaping-combat-basics).",
+    "mechanics": "The Heart Grace channels a raksha's Willpower and Essence and allows the Fair Folk to exist; the greater the Heart Grace, the more real the raksha. It traditionally manifests as an unbreakable, sacrosanct adamant egg -- unless the raksha has lost all four Virtue Graces to others and every one of those holders withdraws protection, at which point it becomes as fragile as glass. Under the curse of namelessness (see curse-of-hubris, curse-of-namelessness, curse-of-alienation, curse-of-meekness), a raksha cannot even see or touch her own Heart Grace. Rating table (fixed, cannot be raised with bonus points): x (1 for ordinary common raksha) -- contingent on another creature's dreams, most likely an extra. 1 (heroic common raksha) -- independent and self-willed, able to shape the Wyld but not make shaping attacks. 2 (heroic commoners who can make shaping attacks) -- a heroic raksha. 3 (noble raksha) -- a noble. 4 (powerful nobles, 200+ experience points) -- one of the great leaders of the Fair Folk. 5 (the unshaped) -- an unshaped monster. Only characters with Heart 2+ can participate in shaping combat (see shaping-combat-basics).",
     "compatibility": "All raksha; the one Grace every raksha possesses regardless of caste.",
     "verificationState": "reviewed",
     "citation": {
@@ -268,7 +271,7 @@
     },
     "crossReferences": [
       "graces-overview",
-      "virtue-bedlam-curses",
+      "curse-of-namelessness",
       "shaping-combat-basics"
     ],
     "notes": "Chapter Four: Traits, 'The Heart Grace' / 'The Heart' section, p. 108 (PDF 109)."
@@ -278,7 +281,7 @@
     "name": "Bedlam (general rules)",
     "disposition": "calculated",
     "summary": "Bedlam is the Fair Folk's equivalent of a psychological break: like other Exalted, raksha can channel each Virtue a limited number of times per story, and spending a Virtue's last channel throws the raksha automatically into bedlam, rolling that Virtue at +2 difficulty until she works off the associated Curse.",
-    "mechanics": "Raksha can channel each Virtue a number of times per story equal to that Virtue's rating; spending a channel is the same mechanic as for the Exalted. Spending a Virtue's last channel triggers bedlam automatically. While in bedlam, a raksha rolls the relevant Virtue or Virtues at +2 difficulty. Bedlam ends, restoring all of a raksha's expended Virtue channels, only when the raksha's Virtue-specific recovery condition is met (see virtue-bedlam-curses) or at the natural end of a story. Lures: any Virtue rated 3 or higher must have a Lure attached -- a specific circumstance (chosen from the book's list or invented with the Storyteller) that forces the raksha to channel that Virtue if at all possible, at most once per scene, and only when the raksha actually behaves in the relevant fashion. Lures represent 'the uttermost temptation of shape' -- the raksha's favorite aspect of the Virtue, whose overindulgence risks burning out the last of her sanity and sending her into bedlam.",
+    "mechanics": "Raksha can channel each Virtue a number of times per story equal to that Virtue's rating; spending a channel is the same mechanic as for the Exalted. Spending a Virtue's last channel triggers bedlam automatically. While in bedlam, a raksha rolls the relevant Virtue or Virtues at +2 difficulty. Bedlam ends, restoring all of a raksha's expended Virtue channels, only when the raksha's Virtue-specific recovery condition is met (see curse-of-hubris, curse-of-namelessness, curse-of-alienation, curse-of-meekness) or at the natural end of a story. Lures: any Virtue rated 3 or higher must have a Lure attached -- a specific circumstance (chosen from the book's list or invented with the Storyteller) that forces the raksha to channel that Virtue if at all possible, at most once per scene, and only when the raksha actually behaves in the relevant fashion. Lures represent 'the uttermost temptation of shape' -- the raksha's favorite aspect of the Virtue, whose overindulgence risks burning out the last of her sanity and sending her into bedlam.",
     "compatibility": "All raksha; every raksha with a Virtue at 3+ must select a Lure for at least one such Virtue at character creation.",
     "verificationState": "reviewed",
     "citation": {
@@ -287,16 +290,59 @@
       "pdfPage": 113
     },
     "crossReferences": [
-      "virtue-bedlam-curses"
+      "curse-of-hubris",
+      "curse-of-namelessness",
+      "curse-of-alienation",
+      "curse-of-meekness"
     ],
-    "notes": "Chapter Four: Traits, 'Bedlam' / 'General Rules' section, p. 112 (PDF 113). This is the closest Fair Folk equivalent to a Limit Trait: rather than one universal gauge, each Virtue has its own channel-based bedlam trigger and its own recovery condition and Curse (see virtue-bedlam-curses)."
+    "notes": "Chapter Four: Traits, 'Bedlam' / 'General Rules' section, p. 112 (PDF 113). This is the closest Fair Folk equivalent to a Limit Trait: rather than one universal gauge, each Virtue has its own channel-based bedlam trigger and its own recovery condition and Curse (see curse-of-hubris, curse-of-namelessness, curse-of-alienation, curse-of-meekness)."
   },
   {
-    "id": "virtue-bedlam-curses",
-    "name": "The Four Bedlam Curses (Hubris, Namelessness, Alienation, Meekness)",
+    "id": "curse-of-hubris",
+    "name": "Curse of Hubris (Compassion / Staff)",
     "disposition": "calculated",
-    "summary": "Each of the four Virtues has its own named bedlam Curse, penalty and recovery condition: Compassion's Curse of Hubris, Conviction's Curse of Namelessness, Temperance's Curse of Alienation, and Valor's Curse of Meekness (also called the Curse of Terror), plus a short list of sample Lures for each Virtue.",
-    "mechanics": "Compassion -- Curse of Hubris: acts as Compassion 0 / Staff 0, a +2 difficulty penalty to influence or understand others (including Cup/Staff reality-shaping); recovers only after committing a number of cruel, genuinely self-risking ('regrettable') acts equal to her Compassion -- slaughtering strangers does not count, but hurting a cherished slave or humiliating a dangerous rival does. Lures: giving help when asked, romantic love, creating beauty, serving justice. Conviction -- Curse of Namelessness: acts as Conviction 0 / Sword 0; forgets her own name, identity, nature and oaths (though they still bind her), +2 difficulty to Lore rolls and to any attempt to interrogate her; recovers only after betraying herself a number of times equal to her Conviction. Lures: seizing power over other raksha, fighting against the odds, making commitments or oaths. Temperance -- Curse of Alienation: acts as Temperance 0 / Cup 0, +2 difficulty to influence or serve others (including Cup/Staff reality-shaping); recovers only after committing acts of regrettable excess equal to her Temperance. Lures: resisting a specific temptation (drugs, sex, dancing), refusing a properly phrased request, hiding one's opinion. Valor -- Curse of Meekness/Terror: acts as Valor 0 / Ring 0, a flat two-die environmental penalty on all rolls; recovers only once fear or passivity has humiliated or harmed her a number of times equal to her Valor. Lures: feats of heroism, facing down terrible things, fighting duels, fighting in great battles. Breaking a character's Grace also inflicts the matching Curse (see graces-overview).",
+    "summary": "Compassion's bedlam Curse: acts as Compassion 0 / Staff 0, a +2 difficulty penalty to influence or understand others (including Cup/Staff reality-shaping); recovers only after committing a number of cruel, genuinely self-risking ('regrettable') acts equal to her Compassion.",
+    "mechanics": "Compassion -- Curse of Hubris: acts as Compassion 0 / Staff 0, a +2 difficulty penalty to influence or understand others (including Cup/Staff reality-shaping); recovers only after committing a number of cruel, genuinely self-risking ('regrettable') acts equal to her Compassion -- slaughtering strangers does not count, but hurting a cherished slave or humiliating a dangerous rival does. Lures: giving help when asked, romantic love, creating beauty, serving justice. Breaking a character's Staff Grace also inflicts this Curse (see graces-overview).",
+    "compatibility": "All raksha; whichever Curse applies depends on which Virtue's last channel was spent.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 113,
+      "pdfPage": 114
+    },
+    "crossReferences": [
+      "bedlam-overview",
+      "staff-grace",
+      "graces-overview"
+    ],
+    "notes": "Chapter Four: Traits, bedlam section, p. 113 (PDF 114). Split from the single compound 'virtue-bedlam-curses' row (which packed all four Virtue-specific Curses together) into one row per Virtue/Curse, mirroring Lunar's own 'the-great-curse' / 'curse-of-the-*' split precedent in exalted-the-lunars.json. No new mechanics text invented -- each row's text is the same already-reviewed transcription, divided along the original's own per-Virtue paragraph breaks."
+  },
+  {
+    "id": "curse-of-namelessness",
+    "name": "Curse of Namelessness (Conviction / Sword)",
+    "disposition": "calculated",
+    "summary": "Conviction's bedlam Curse: acts as Conviction 0 / Sword 0; forgets her own name, identity, nature and oaths (though they still bind her), +2 difficulty to Lore rolls and to any attempt to interrogate her; recovers only after betraying herself a number of times equal to her Conviction.",
+    "mechanics": "Conviction -- Curse of Namelessness: acts as Conviction 0 / Sword 0; forgets her own name, identity, nature and oaths (though they still bind her), +2 difficulty to Lore rolls and to any attempt to interrogate her; recovers only after betraying herself a number of times equal to her Conviction. Lures: seizing power over other raksha, fighting against the odds, making commitments or oaths. Breaking a character's Sword Grace also inflicts this Curse (see graces-overview).",
+    "compatibility": "All raksha; whichever Curse applies depends on which Virtue's last channel was spent.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 113,
+      "pdfPage": 114
+    },
+    "crossReferences": [
+      "bedlam-overview",
+      "sword-grace",
+      "graces-overview"
+    ],
+    "notes": "Chapter Four: Traits, bedlam section, p. 113 (PDF 114). Split from the single compound 'virtue-bedlam-curses' row (which packed all four Virtue-specific Curses together) into one row per Virtue/Curse, mirroring Lunar's own 'the-great-curse' / 'curse-of-the-*' split precedent in exalted-the-lunars.json. No new mechanics text invented -- each row's text is the same already-reviewed transcription, divided along the original's own per-Virtue paragraph breaks."
+  },
+  {
+    "id": "curse-of-alienation",
+    "name": "Curse of Alienation (Temperance / Cup)",
+    "disposition": "calculated",
+    "summary": "Temperance's bedlam Curse: acts as Temperance 0 / Cup 0, +2 difficulty to influence or serve others (including Cup/Staff reality-shaping); recovers only after committing acts of regrettable excess equal to her Temperance.",
+    "mechanics": "Temperance -- Curse of Alienation: acts as Temperance 0 / Cup 0, +2 difficulty to influence or serve others (including Cup/Staff reality-shaping); recovers only after committing acts of regrettable excess equal to her Temperance. Lures: resisting a specific temptation (drugs, sex, dancing), refusing a properly phrased request, hiding one's opinion. Breaking a character's Cup Grace also inflicts this Curse (see graces-overview).",
     "compatibility": "All raksha; whichever Curse applies depends on which Virtue's last channel was spent.",
     "verificationState": "reviewed",
     "citation": {
@@ -307,12 +353,29 @@
     "crossReferences": [
       "bedlam-overview",
       "cup-grace",
-      "ring-grace",
-      "staff-grace",
-      "sword-grace",
       "graces-overview"
     ],
-    "notes": "Chapter Four: Traits, 'Compassion' / 'Conviction' / 'Temperance' / 'Valor' bedlam sections, p. 113 (PDF 114). Packed into one row, matching how the Abyssal inventory packed its 1-10 Resonance Manipulation Effects table into a single row."
+    "notes": "Chapter Four: Traits, bedlam section, p. 113 (PDF 114). Split from the single compound 'virtue-bedlam-curses' row (which packed all four Virtue-specific Curses together) into one row per Virtue/Curse, mirroring Lunar's own 'the-great-curse' / 'curse-of-the-*' split precedent in exalted-the-lunars.json. No new mechanics text invented -- each row's text is the same already-reviewed transcription, divided along the original's own per-Virtue paragraph breaks."
+  },
+  {
+    "id": "curse-of-meekness",
+    "name": "Curse of Meekness/Terror (Valor / Ring)",
+    "disposition": "calculated",
+    "summary": "Valor's bedlam Curse: acts as Valor 0 / Ring 0, a flat two-die environmental penalty on all rolls; recovers only once fear or passivity has humiliated or harmed her a number of times equal to her Valor.",
+    "mechanics": "Valor -- Curse of Meekness/Terror: acts as Valor 0 / Ring 0, a flat two-die environmental penalty on all rolls; recovers only once fear or passivity has humiliated or harmed her a number of times equal to her Valor. Lures: feats of heroism, facing down terrible things, fighting duels, fighting in great battles. Breaking a character's Ring Grace also inflicts this Curse (see graces-overview).",
+    "compatibility": "All raksha; whichever Curse applies depends on which Virtue's last channel was spent.",
+    "verificationState": "reviewed",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 113,
+      "pdfPage": 114
+    },
+    "crossReferences": [
+      "bedlam-overview",
+      "ring-grace",
+      "graces-overview"
+    ],
+    "notes": "Chapter Four: Traits, bedlam section, p. 113 (PDF 114). Split from the single compound 'virtue-bedlam-curses' row (which packed all four Virtue-specific Curses together) into one row per Virtue/Curse, mirroring Lunar's own 'the-great-curse' / 'curse-of-the-*' split precedent in exalted-the-lunars.json. No new mechanics text invented -- each row's text is the same already-reviewed transcription, divided along the original's own per-Virtue paragraph breaks."
   },
   {
     "id": "birth-background",
@@ -739,7 +802,10 @@
     "crossReferences": [
       "heart-grace",
       "bedlam-overview",
-      "virtue-bedlam-curses",
+      "curse-of-hubris",
+      "curse-of-namelessness",
+      "curse-of-alienation",
+      "curse-of-meekness",
       "ambrosial-ascension",
       "bedlam-masterworks",
       "driven-madness",
@@ -3334,9 +3400,9 @@
     "crossReferences": [
       "forging-the-heart-grace",
       "cup-grace",
-      "virtue-bedlam-curses"
+      "curse-of-alienation"
     ],
-    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 185 (PDF 186, spanning the column/page break into PDF 187). First of the four 'Forging the (Grace) Grace' Charms; each grants a Creation-born or other consenting character one of the raksha's own five Grace Traits as an artifact, and each corresponding Curse-on-strip pairs with the matching virtue-bedlam-curses entry (Cup -> Alienation)."
+    "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 185 (PDF 186, spanning the column/page break into PDF 187). First of the four 'Forging the (Grace) Grace' Charms; each grants a Creation-born or other consenting character one of the raksha's own five Grace Traits as an artifact, and each corresponding Curse-on-strip pairs with the matching per-Virtue Curse entry (Cup -> Alienation; see curse-of-alienation)."
   },
   {
     "id": "forging-the-ring-grace",
@@ -3356,7 +3422,7 @@
     "crossReferences": [
       "forging-the-heart-grace",
       "ring-grace",
-      "virtue-bedlam-curses"
+      "curse-of-meekness"
     ],
     "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 186 (PDF 187). Second of the four 'Forging the (Grace) Grace' Charms (Ring -> Curse of Meekness)."
   },
@@ -3378,7 +3444,7 @@
     "crossReferences": [
       "forging-the-heart-grace",
       "staff-grace",
-      "virtue-bedlam-curses"
+      "curse-of-hubris"
     ],
     "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 186 (PDF 187). Third of the four 'Forging the (Grace) Grace' Charms (Staff -> Curse of Hubris)."
   },
@@ -3400,7 +3466,7 @@
     "crossReferences": [
       "forging-the-heart-grace",
       "sword-grace",
-      "virtue-bedlam-curses"
+      "curse-of-namelessness"
     ],
     "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 186 (PDF 187, with the Prerequisite Charms line and mechanics text pushed to PDF 188 in the raw text-extraction order because the 'Greater Arts of Glamour 1' tree diagram is embedded mid-page; confirmed against the rendered page image that this is one continuous Charm, not two). Fourth and last of the four 'Forging the (Grace) Grace' Charms (Sword -> Curse of Namelessness)."
   },
@@ -3532,7 +3598,7 @@
       "forging-the-sword-grace",
       "forging-the-arcane-redoubt",
       "freehold-background",
-      "virtue-bedlam-curses"
+      "curse-of-namelessness"
     ],
     "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 189 (PDF 190). First of four parallel Freehold-anchor Charms branching off Forging the Arcane Redoubt (paired here with Forging the Sword Grace)."
   },
@@ -3555,7 +3621,7 @@
       "forging-the-cup-grace",
       "forging-the-arcane-redoubt",
       "freehold-background",
-      "virtue-bedlam-curses"
+      "curse-of-alienation"
     ],
     "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 189 (PDF 190, with the mechanics description continuing onto PDF 191). Second of four parallel Freehold-anchor Charms branching off Forging the Arcane Redoubt (paired here with Forging the Cup Grace)."
   },
@@ -3578,7 +3644,7 @@
       "forging-the-ring-grace",
       "forging-the-arcane-redoubt",
       "freehold-background",
-      "virtue-bedlam-curses"
+      "curse-of-meekness"
     ],
     "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 190 (PDF 191). Third of four parallel Freehold-anchor Charms branching off Forging the Arcane Redoubt (paired here with Forging the Ring Grace). Unlike the other three anchors, attunement here requires participation from a majority of the Freehold's Worker raksha rather than solitary effort."
   },
@@ -3601,7 +3667,7 @@
       "forging-the-staff-grace",
       "forging-the-arcane-redoubt",
       "freehold-background",
-      "virtue-bedlam-curses",
+      "curse-of-hubris",
       "oaths-mechanic"
     ],
     "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 190 (PDF 191, with the Prerequisite Charms line and mechanics text pushed to PDF 192 in the raw text-extraction order because the 'Greater Arts of Glamour 3' tree diagram is embedded mid-page; confirmed against the rendered page image that this is one continuous Charm). Fourth and last of four parallel Freehold-anchor Charms branching off Forging the Arcane Redoubt (paired here with Forging the Staff Grace); this and the other three anchor Charms complete the 'Greater Arts of Glamour 3' diagram."
@@ -3692,7 +3758,7 @@
       "unshaped-grace-transformation",
       "ring-grace",
       "heart-grace",
-      "virtue-bedlam-curses",
+      "curse-of-meekness",
       "mutation-mechanic"
     ],
     "notes": "Chapter Five: Raksha Magic, 'Nirvishesha, the Ring' -> 'Greater Arts of Glamour' sub-section, p. 192 (PDF 193). Final capstone of the diagrammed 'Greater Arts of Glamour 1' tree and the last Charm of the entire Ring Grace tree (shinma Nirvishesha), which is now complete across Ring Combat Charms, All-Consuming God-Monster Style, Body-Strengthening Charms, Creation-Based Crafting, the first Glamour Charms tree, and this Greater Arts of Glamour sub-section. 'Mad God Mien' (pp. 150-151/PDF 151-152) is referenced by name but not yet its own inventory row; flagged for a future pass through the Assumption-type (Nirakara, the Mask) Charm-tree material that pp. 150-151 sit within."
@@ -6595,7 +6661,7 @@
     "summary": "A moral weakness, sin, or failing that tempts the character above all others; when relevant, the character loses two dice from the affected Virtue for every point invested and may indulge in it over better judgment. Reinterpreted for raksha as interacting with Bedlam (this splat's Limit-Trait analog) rather than the Lunar-specific Great Curse, since raksha have no Great Curse at all.",
     "mechanics": "A character with this Flaw suffers a particular sin or failing that tempts him above all others -- a warrior of great Valor harboring a secret fear, an ascetic of great Temperance falling to carnal desire, deep Compassion masking cruelty or bigotry. In situations relevant to the sinful condition, the character loses two dice from the affected Virtue for every point invested, potentially reducing the pool to zero and forcing automatic indulgence over better judgment. Characters may not have more than one Vice; those with deeper moral deficiencies are Callous instead (see pg-flaw-callous). This Flaw may not alter or ameliorate a raksha's Bedlam, and Storytellers should ban any Vice that obviously attempts to circumvent that restriction.",
     "cost": "1- to 3-pt. Flaw",
-    "compatibility": "Any raksha, common or noble; may not alter or ameliorate Bedlam (see bedlam-overview, virtue-bedlam-curses), this splat's Limit-Trait analog, exactly as the original text bars it from altering the Great Curse for Solars/Lunars.",
+    "compatibility": "Any raksha, common or noble; may not alter or ameliorate Bedlam (see bedlam-overview, curse-of-hubris, curse-of-namelessness, curse-of-alienation, curse-of-meekness), this splat's Limit-Trait analog, exactly as the original text bars it from altering the Great Curse for Solars/Lunars.",
     "verificationState": "reviewed",
     "citation": {
       "bookId": "exalted-players-guide",
@@ -6604,9 +6670,12 @@
     },
     "crossReferences": [
       "bedlam-overview",
-      "virtue-bedlam-curses"
+      "curse-of-hubris",
+      "curse-of-namelessness",
+      "curse-of-alienation",
+      "curse-of-meekness"
     ],
-    "notes": "REINTERPRETATION: Lunar's row cross-references 'the-great-curse,' Lunars' own Limit-Trait analog, which this Flaw may not alter or ameliorate. Fair Folk have no Great Curse; their structurally closest equivalent is Bedlam (see bedlam-overview, virtue-bedlam-curses), a Virtue-channel-based break mechanic. The restriction was redirected there rather than dropped, preserving the original entry's intent (a Vice cannot be used to weaken or bypass a character's core psychological-break mechanic)."
+    "notes": "REINTERPRETATION: Lunar's row cross-references 'the-great-curse,' Lunars' own Limit-Trait analog, which this Flaw may not alter or ameliorate. Fair Folk have no Great Curse; their structurally closest equivalent is Bedlam (see bedlam-overview, curse-of-hubris, curse-of-namelessness, curse-of-alienation, curse-of-meekness), a Virtue-channel-based break mechanic. The restriction was redirected there rather than dropped, preserving the original entry's intent (a Vice cannot be used to weaken or bypass a character's core psychological-break mechanic)."
   },
   {
     "id": "pg-flaw-addiction",
@@ -6636,7 +6705,7 @@
     "summary": "Selfish pragmatism over scruples and integrity; gains two bonus points per point of Virtue forfeited during character creation, cannot start with a Willpower rating more than one point higher than the sum of the two highest Virtues, and cannot have the Paragon Nature. Reinterpreted for raksha as interacting with Bedlam's per-Virtue Curses rather than the Exalted Virtue Flaw system, since that is the closest raksha equivalent.",
     "mechanics": "A character with this Flaw believes in selfish pragmatism over scruples and integrity, gaining two bonus points for every dot of Virtues forfeited during character creation. Callous characters cannot forfeit their last dot of a Virtue and may not begin play with a Willpower rating more than one point higher than the sum of their two highest Virtues, until reaching 9 total Virtue dots, at which point the Flaw is lost at no cost. Characters with this Flaw may not have the Paragon Nature (see pg-merit-true-paragon).",
     "cost": "2- to 10-pt. Flaw",
-    "compatibility": "Any raksha, common or noble; a raksha with this Flaw already faces the ordinary Bedlam Curse tied to whichever Virtue's channels run out (see virtue-bedlam-curses), the closest raksha equivalent to the Exalted Virtue Flaw the original text cross-references.",
+    "compatibility": "Any raksha, common or noble; a raksha with this Flaw already faces the ordinary Bedlam Curse tied to whichever Virtue's channels run out (see curse-of-hubris, curse-of-namelessness, curse-of-alienation, curse-of-meekness), the closest raksha equivalent to the Exalted Virtue Flaw the original text cross-references.",
     "verificationState": "reviewed",
     "citation": {
       "bookId": "exalted-players-guide",
@@ -6645,9 +6714,12 @@
     },
     "crossReferences": [
       "pg-merit-true-paragon",
-      "virtue-bedlam-curses"
+      "curse-of-hubris",
+      "curse-of-namelessness",
+      "curse-of-alienation",
+      "curse-of-meekness"
     ],
-    "notes": "REINTERPRETATION: Lunar's row notes that Exalted with this Flaw suffer the standard Exalted Virtue Flaw tied to their highest Virtue. Fair Folk have no separate Virtue Flaw system; a raksha's Virtues already trigger Bedlam and its matching Curse (see virtue-bedlam-curses) whenever a Virtue's channels are exhausted, so this Flaw's practical effect on a raksha is simply that she is more likely to burn through her Virtue channels quickly given her forfeited dots -- no additional mechanic needed to be invented."
+    "notes": "REINTERPRETATION: Lunar's row notes that Exalted with this Flaw suffer the standard Exalted Virtue Flaw tied to their highest Virtue. Fair Folk have no separate Virtue Flaw system; a raksha's Virtues already trigger Bedlam and its matching Curse (see curse-of-hubris, curse-of-namelessness, curse-of-alienation, curse-of-meekness) whenever a Virtue's channels are exhausted, so this Flaw's practical effect on a raksha is simply that she is more likely to burn through her Virtue channels quickly given her forfeited dots -- no additional mechanic needed to be invented."
   },
   {
     "id": "pg-flaw-nightmares",

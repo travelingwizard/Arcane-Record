@@ -1,5 +1,5 @@
 export const EXALTED1E_SYSTEM_ID = 'exalted1e' as const;
-export const EXALTED1E_SCHEMA_VERSION = 12 as const;
+export const EXALTED1E_SCHEMA_VERSION = 13 as const;
 
 /**
  * Legal `sheetType` values for a STORED character. Re-exported from
@@ -15,10 +15,10 @@ export const EXALTED1E_SCHEMA_VERSION = 12 as const;
  * validation only actually accepts real selections for the families with a
  * promoted catalog (today: Solar, Dragon-Blooded, Abyssal, Sidereal, Lunar,
  * Alchemical, and -- as of Fair Folk Phase 1a -- Fair Folk itself, all for
- * Backgrounds/Merits-Flaws; Abyssal, Sidereal, Lunar, and Alchemical only
- * for Charms/spells, since Fair Folk's own Grace Charm trees remain
- * unpromoted and fall through to an explicit rejection placeholder) --
- * every other combination is explicitly rejected, never
+ * Backgrounds/Merits-Flaws; Abyssal, Sidereal, Lunar, Alchemical, and --
+ * as of Fair Folk Phase 1b -- Fair Folk itself (its own Grace-Forging and
+ * Assumption-type Charm trees; see `./reference/fair-folk-powers.ts`), all
+ * for Charms/spells) -- every other combination is explicitly rejected, never
  * silently unrestricted. See `plannedExaltedFamilies` below and
  * `src/games/exalted1e/verification.ts` for the family-level release gate
  * that keeps all five locked in the UI until they each separately earn it.
@@ -585,6 +585,40 @@ export type ExaltedBackgroundId =
   | (typeof lunarBackgrounds)[number]['id']
   | (typeof alchemicalBackgrounds)[number]['id']
   | (typeof fairFolkBackgrounds)[number]['id'];
+
+/**
+ * The five Graces every raksha possesses in place of Attributes/Abilities
+ * (Exalted: The Fair Folk, Chapter Four, "The Graces" -- see
+ * `graces-overview`/`cup-grace`/`ring-grace`/`staff-grace`/`sword-grace`/
+ * `heart-grace` in the inventory). Each Virtue Grace (`virtueId` non-null)
+ * feeds on one Virtue and, per the source's own explicit Curse-pairing
+ * text (cross-verified independently in both `virtue-bedlam-curses` and
+ * each `forging-the-(grace)-grace` Charm's own cross-reference), a
+ * *different* Virtue's bedlam Curse zeroes it out: Compassion's Curse of
+ * Hubris zeroes Staff, Conviction's Curse of Namelessness zeroes Sword,
+ * Temperance's Curse of Alienation zeroes Cup, and Valor's Curse of
+ * Meekness/Terror zeroes Ring -- see `./reference/fair-folk-bedlam.json`,
+ * whose entries carry this exact cross-Grace mapping. The Heart Grace
+ * (`virtueId: null`) channels Willpower/Nature/Essence instead of a
+ * Virtue, and its own rating is fixed by raksha status (ordinary common,
+ * heroic common, noble, etc.) rather than freely raised with bonus
+ * points -- see `./reference/fair-folk-graces.json` for the full
+ * descriptive rating tables. Used to validate `familyState.graces`' keys
+ * in `schema.ts` (any string key was accepted before Fair Folk Phase 1b);
+ * Major-versus-Minor Grace counts and the noble/common creation-track
+ * distinction remain unenforced this phase, matching every other family's
+ * precedent of deferring creation-rule enforcement to a later guided-
+ * creator phase.
+ */
+export const fairFolkGraces = [
+  { id: 'cup', label: 'Cup', virtueId: 'compassion' },
+  { id: 'ring', label: 'Ring', virtueId: 'temperance' },
+  { id: 'staff', label: 'Staff', virtueId: 'conviction' },
+  { id: 'sword', label: 'Sword', virtueId: 'valor' },
+  { id: 'heart', label: 'Heart', virtueId: null },
+] as const;
+
+export type FairFolkGraceId = (typeof fairFolkGraces)[number]['id'];
 
 export const abilityById = new Map(
   exaltedAbilities.map((ability) => [ability.id, ability]),

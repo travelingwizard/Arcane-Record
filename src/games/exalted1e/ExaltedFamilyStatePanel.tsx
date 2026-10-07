@@ -6,8 +6,10 @@ import {
 } from '../../components/layout/SheetPrimitives';
 import type { Exalted1eCharacter } from './schema';
 import { AlchemicalInstallationPanel } from './AlchemicalInstallationPanel';
+import { FairFolkGracesPanel } from './FairFolkGracesPanel';
 import { LunarShapechangingPanel } from './LunarShapechangingPanel';
 import { SiderealAstrologyPanel } from './SiderealAstrologyPanel';
+import { fairFolkGraces } from './definitions';
 
 interface Props {
   character: Exalted1eCharacter;
@@ -171,44 +173,53 @@ export function ExaltedFamilyStatePanel({ character, onChange }: Props) {
     );
   }
 
-  const graceIds = ['cup', 'ring', 'staff', 'sword', 'heart'] as const;
   return (
-    <SheetCard density="compact">
-      <h3>Fair Folk Graces</h3>
-      <SheetFieldGrid columns={3}>
-        {graceIds.map((graceId) => (
-          <SheetField key={graceId} label={graceId}>
-            <DotRating
-              label={graceId}
-              value={state.graces[graceId] ?? 0}
-              max={5}
-              disabled={!buildMode}
-              onChange={(rating) =>
+    <>
+      <SheetCard density="compact">
+        <h3>Fair Folk Graces</h3>
+        <SheetFieldGrid columns={3}>
+          {fairFolkGraces.map((grace) => (
+            <SheetField key={grace.id} label={grace.label}>
+              <DotRating
+                label={grace.label}
+                value={state.graces[grace.id] ?? 0}
+                max={5}
+                disabled={!buildMode}
+                onChange={(rating) =>
+                  replaceState({
+                    ...state,
+                    graces: { ...state.graces, [grace.id]: rating },
+                  })
+                }
+              />
+            </SheetField>
+          ))}
+          <SheetField label="Active assumption">
+            <input
+              value={state.activeAssumption}
+              onChange={(event) =>
                 replaceState({
                   ...state,
-                  graces: { ...state.graces, [graceId]: rating },
+                  activeAssumption: event.target.value,
                 })
               }
             />
           </SheetField>
-        ))}
-        <SheetField label="Active assumption">
-          <input
-            value={state.activeAssumption}
+        </SheetFieldGrid>
+        <SheetField label="Feeding notes">
+          <textarea
+            value={state.feedingNotes}
             onChange={(event) =>
-              replaceState({ ...state, activeAssumption: event.target.value })
+              replaceState({ ...state, feedingNotes: event.target.value })
             }
           />
         </SheetField>
-      </SheetFieldGrid>
-      <SheetField label="Feeding notes">
-        <textarea
-          value={state.feedingNotes}
-          onChange={(event) =>
-            replaceState({ ...state, feedingNotes: event.target.value })
-          }
-        />
-      </SheetField>
-    </SheetCard>
+      </SheetCard>
+      <FairFolkGracesPanel
+        state={state}
+        buildMode={buildMode}
+        onChange={replaceState}
+      />
+    </>
   );
 }

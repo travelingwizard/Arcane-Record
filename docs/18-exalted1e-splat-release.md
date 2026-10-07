@@ -196,7 +196,7 @@ real, creatable sheet.
 | Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 505 of 505 promotable (catalog dimension complete, Phase 1e)                                                                                               | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
 | Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 383 of 383 promotable (catalog dimension complete, `sidereal_unreviewed_spells` follow-up)                                                                 | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
 | Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 214 of 214 promotable (catalog dimension complete: Backgrounds + Merits/Flaws, Phase 1a; Charms, Phase 1b; Weaving Protocols + Alchemy Formulae, Phase 1c) | Locked, all dimensions `not-run`                                                                                                       |
-| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 365            | 88 of 279 promotable (Backgrounds + Merits/Flaws, Phase 1a)                                                                                                | Locked, all dimensions `not-run`                                                                                                       |
+| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 368            | 118 of 279 promotable (Backgrounds + Merits/Flaws, Phase 1a; Graces + Bedlam + Grace-Forging/Assumption Charms, Phase 1b)                                  | Locked, all dimensions `not-run`                                                                                                       |
 
 Lunar's 582 rows cover the core innate powers, every Charm category in
 Chapter Five (Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat
@@ -1718,6 +1718,105 @@ count stays 0 for Fair Folk, matching Alchemical's own Phase 1a -- neither
 family's Backgrounds/Merits-Flaws promotion lives in a file-glob-scanned
 catalog file), and a production build. Fair Folk remains locked exactly
 as before: `certifiedAt` stays null, and Phase 6's all-five-families-
+together rule still prohibits adding Fair Folk to `definition.tsx`'s
+`variants` list on its own.
+
+Fair Folk's Phase 1b (Graces, Bedlam, and the Grace-Forging/Assumption
+Charm trees) promotes 30 more entries (88 -> 118) across three new
+`fair-folk-`-prefixed catalog files -- the family's first, so its
+`checksum` is no longer empty. `fair-folk-graces.json` (6 rows:
+`graces-overview` plus one row each for Cup/Ring/Staff/Sword/Heart)
+transcribes each Grace's full rating table verbatim. A new
+`fairFolkGraces` export in `definitions.ts` documents the four Virtue
+Graces' feeding mapping (Cup feeds Compassion, Ring feeds Temperance,
+Staff feeds Conviction, Sword feeds Valor); Heart has no feeding Virtue
+and its rating is status-fixed by a raksha's standing (common/heroic
+common/noble/powerful noble/unshaped), not freely raised with bonus
+points. Major/Minor Grace-count enforcement (one Major Grace for a common
+raksha, two for a noble) and the noble/common creation-track split remain
+unenforced this phase.
+
+`fair-folk-bedlam.json` (5 rows: `bedlam-overview` plus one row per
+Virtue-specific Curse) required splitting the inventory's own single
+compound `virtue-bedlam-curses` row into four real per-Virtue inventory
+rows (`curse-of-hubris`/`curse-of-namelessness`/`curse-of-alienation`/
+`curse-of-meekness`, all still citing p. 113/PDF 114) before promotion,
+mirroring Lunar's own `the-great-curse`/`curse-of-the-*` inventory-level
+split precedent exactly -- no new mechanics text was invented, only the
+original's own per-Virtue paragraph breaks used as the split points, and
+every inventory row that cross-referenced the old compound id was
+rewired to the new split ids. That rewiring surfaced an important,
+independently cross-verified finding: **the Curse a broken Grace
+inflicts does not match that Grace's own feeding Virtue** -- breaking Cup
+inflicts the Curse of Alienation (Temperance's Curse, not Compassion's),
+breaking Ring inflicts the Curse of Meekness (Valor's, not Temperance's),
+breaking Staff inflicts the Curse of Hubris (Compassion's, not
+Conviction's), and breaking Sword inflicts the Curse of Namelessness
+(Conviction's, not Valor's) -- confirmed independently from both the
+Curses' own row text and each `forging-the-(grace)-grace` Charm's own
+cross-reference text. In `schema.ts`, `familyState`'s fair-folk branch
+adds a `bedlamVirtueId` field (nullable Virtue id) that tracks only the
+resulting _state_ of which Curse, if any, is currently active --
+Bedlam's own channel-counting trigger mechanic is explicitly
+session/scene-tracked play-table bookkeeping this app cannot observe,
+matching the established precedent (Alchemical's Clarity gain/loss
+triggers) of leaving such mechanics unmodeled rather than fabricating a
+way to track them.
+
+`fair-folk-charms.json` (19 rows) promotes two real, page-cited,
+Zod-validated Charm trees: "Grace Forging" (11 entries -- the six
+"Forging the (Grace) Grace" Charms, including the exotic sixth Way/
+shinma-Nirupadhika Grace, plus five parallel Freehold-anchor Charms --
+Arcane Redoubt, Stronghold, Glory, Fountainhead, Throne Room) and
+"Assumption" (8 entries -- the universal, Grace-independent gateway
+Charms rooted in shinma Nirakara that let a raksha exist as a shaped
+creature at all). `forging-the-heart-grace`'s own real prerequisite,
+Shape-Forged Servant, falls outside this phase's 19-entry scope, so it is
+kept honestly in `prerequisiteText` and a `reviewFlags` note rather than
+fabricated into `prerequisiteCharms` -- mirroring Alchemical's own
+`superRefine` enforcement, which requires every `prerequisiteCharms` id
+to resolve within the same catalog. Every Charm also carries a
+`comboRules` field, matching the field every other Exalted family's
+Charm schema requires: all 19 default to Combo-eligible with no
+restrictions, since this phase's own source review found no explicit
+per-Charm Combo-restriction sentence in any of their transcribed text --
+an honest reflection of what was found, not an assumption that no such
+restriction exists anywhere in the book.
+
+`charmIdsBySheetType['fair-folk']` in `schema.ts` now resolves to the
+real 19-entry set (was an empty placeholder); `familyState`'s `graces`
+field is now restricted to the five real Grace ids (was an unrestricted
+string-keyed record); spells remain correctly rejected (no Glamour
+Sorcery catalog exists yet). A new `fromVersion < 13` migration cleans
+any stray non-Grace keys out of an existing character's `graces` record
+and backfills `bedlamVirtueId: null`, mirroring Sidereal's/Lunar's/
+Alchemical's own prior field-addition migration precedents exactly;
+`EXALTED1E_SCHEMA_VERSION` bumped 12 -> 13. A new
+`FairFolkGracesPanel.tsx` component (mirroring
+`LunarShapechangingPanel.tsx`'s structure) renders a Bedlam Virtue
+selector bound to the new `bedlamVirtueId` field plus collapsible
+reference entries for all five Graces and all four Curses, wired into
+`ExaltedFamilyStatePanel.tsx` alongside its existing bare Graces-dots/
+Active-Assumption/Feeding-Notes/Oaths panel -- still reachable only by
+_editing_ an already-existing Fair-Folk-typed record, not by _creating_
+one, exactly as Phase 1a's own correction already established. No
+dedicated Charms-browsing UI branch was added to `Exalted1eEditor.tsx`'s
+shared `ExaltedPowersSection`, matching Alchemical's own identical,
+already-accepted precedent of deferring that UI even after its own
+Charms catalog was promoted.
+
+Full verification passed: typecheck, lint, format check, the full
+unit+integration suite (including a new 13-test
+`fair-folk-charms-catalog.test.ts`, the extended 87-test
+`exalted1e-fair-folk.test.ts` -- including Phase 1b's own
+`fromVersion < 13` migration coverage -- and a new 5-test
+`tests/integration/fair-folk-graces-panel.test.tsx` exercising the new
+panel directly), `scripts/audit-exalted-sources.mjs` (0 issues; its own
+narrower promoted-row count is now 30 for Fair Folk, counting only the
+three new `fair-folk-*.json` catalog files, not the Backgrounds/
+Merits-Flaws that live outside its file glob), the Exalted e2e smoke
+specs, and a production build. Fair Folk remains locked exactly as
+before: `certifiedAt` stays null, and Phase 6's all-five-families-
 together rule still prohibits adding Fair Folk to `definition.tsx`'s
 `variants` list on its own.
 

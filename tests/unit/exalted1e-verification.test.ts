@@ -96,14 +96,15 @@ describe('exalted1e verification gate', () => {
               : family === 'alchemical'
                 ? 214
                 : family === 'fair-folk'
-                  ? 88
+                  ? 118
                   : 0,
       );
       if (
         family === 'abyssal' ||
         family === 'sidereal' ||
         family === 'lunar' ||
-        family === 'alchemical'
+        family === 'alchemical' ||
+        family === 'fair-folk'
       ) {
         // Cross-check against the audit script's own live computation
         // rather than hardcoding the hash, so this test can't silently go
@@ -116,7 +117,12 @@ describe('exalted1e verification gate', () => {
         // dimension fully closed in Phase 1c (214 of 214 promotable), once
         // `alchemical-weaving-protocols.json`/`alchemical-formulae.json`
         // joined it under the same glob -- matching Abyssal/Sidereal/
-        // Lunar's own fully-closed catalogs.
+        // Lunar's own fully-closed catalogs. Fair Folk's own checksum
+        // first became non-empty in Phase 1b, once
+        // `fair-folk-charms.json`/`fair-folk-graces.json`/
+        // `fair-folk-bedlam.json` became the family's first
+        // `fair-folk-`-prefixed catalog files (30 of 279 promotable --
+        // the catalog dimension stays far from closed).
         expect(record.catalog.checksum).toBe(
           auditFamily(family).catalogChecksum,
         );
@@ -234,25 +240,27 @@ describe('exalted1e verification gate', () => {
     expect(isFamilyAvailable('alchemical')).toBe(false);
   });
 
-  it('reflects Fair Folk Phase 1a catalog promotion without unlocking the family', () => {
+  it('reflects Fair Folk Phase 1a/1b catalog promotion without unlocking the family', () => {
     const record = certificationRecords['fair-folk'];
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
-    // 88 = 13 Backgrounds (fairFolkBackgrounds) + 75 shared Merits/Flaws
-    // catalog entries now carrying 'fair-folk' in appliesTo (73 inventoried
-    // pg-merit-*/pg-flaw-* rows resolving one-for-one, except the two dual
-    // merit/flaw split pairs -- mutation-merit/mutation-flaw and
-    // favor-merit/favor-flaw -- each counted twice at the catalog-entry
-    // level). This is far short of the 279 preliminary `promotableEntries`
-    // estimate (flagged as approximate pending this family's own Charm/
-    // Grace/Bedlam catalog phases), and the catalog checksum stays empty:
-    // neither Backgrounds (which live in `definitions.ts`) nor Merits/
-    // Flaws (a subset of the shared `dragonblooded-merits-flaws.json`)
-    // live in a `fair-folk-`-prefixed catalog file this audit script's
-    // glob would hash, exactly matching Alchemical's own Phase 1a
-    // precedent (checksum stayed empty until its later Phase 1b added a
-    // real `alchemical-`-prefixed file).
-    expect(record.catalog.promotedEntries).toBe(88);
-    expect(record.catalog.checksum).toBe('');
+    // 118 = Phase 1a's 88 (13 Backgrounds (fairFolkBackgrounds) + 75 shared
+    // Merits/Flaws catalog entries now carrying 'fair-folk' in appliesTo --
+    // 73 inventoried pg-merit-*/pg-flaw-* rows resolving one-for-one,
+    // except the two dual merit/flaw split pairs -- mutation-merit/
+    // mutation-flaw and favor-merit/favor-flaw -- each counted twice at
+    // the catalog-entry level) plus Phase 1b's 30 (6 Graces rows in
+    // fair-folk-graces.json + 5 Bedlam rows in fair-folk-bedlam.json + 19
+    // Grace-Forging/Assumption Charms in fair-folk-charms.json). This is
+    // far short of the 279 preliminary `promotableEntries` estimate
+    // (flagged as approximate pending this family's own remaining Glamour
+    // Charm/Sorcery/Artifact catalog phases). Phase 1b's three new
+    // `fair-folk-`-prefixed catalog files are the first ones this audit
+    // script's glob picks up, so the catalog checksum is no longer empty
+    // -- exactly matching Alchemical's own Phase 1a -> 1b transition
+    // (checksum stayed empty until its own Phase 1b added a real
+    // `alchemical-`-prefixed file).
+    expect(record.catalog.promotedEntries).toBe(118);
+    expect(record.catalog.checksum.length).toBeGreaterThan(0);
     expect(isFamilyAvailable('fair-folk')).toBe(false);
   });
 

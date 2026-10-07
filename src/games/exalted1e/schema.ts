@@ -9,6 +9,7 @@ import {
   exaltedSheetTypes,
   exaltedVirtues,
   fairFolkBackgrounds,
+  fairFolkGraces,
   lunarBackgrounds,
   siderealBackgrounds,
   solarBackgrounds,
@@ -40,6 +41,7 @@ import {
   alchemicalCharmIds,
   alchemicalWeavingProtocolIds,
 } from './reference/alchemical-powers';
+import { fairFolkCharmIds } from './reference/fair-folk-powers';
 import { solarCharmIds } from './reference/solar-charms';
 import {
   getSolarTraitRepeatLimit,
@@ -303,7 +305,25 @@ const familyStateSchema = z.discriminatedUnion('type', [
   }),
   z.object({
     type: z.literal('fair-folk'),
-    graces: z.record(z.string(), z.number().int().min(0).max(5)),
+    // Keys are Grace ids from `fairFolkGraces` (cup/ring/staff/sword/
+    // heart) -- a plain `z.string()` key (rather than `z.enum(...)`) is
+    // deliberate, mirroring Sidereal's own `colleges` precedent above: Zod
+    // treats an enum-keyed `z.record` as requiring every enum member to
+    // be present, but this record only needs to carry whichever Graces a
+    // character has actually rated. Any string key was accepted before
+    // Fair Folk Phase 1b; the `.refine()` below closes that gap. Major-
+    // versus-Minor Grace counts and the noble/common creation-track
+    // distinction remain unenforced this phase -- see `fairFolkGraces`'s
+    // own doc comment in `definitions.ts`.
+    graces: z
+      .record(z.string(), z.number().int().min(0).max(5))
+      .refine(
+        (graces) =>
+          Object.keys(graces).every((id) =>
+            (fairFolkGraces.map((grace) => grace.id) as string[]).includes(id),
+          ),
+        { message: 'Unknown Fair Folk Grace id.' },
+      ),
     feedingNotes: z.string(),
     activeAssumption: z.string(),
     oaths: z.array(
@@ -314,6 +334,22 @@ const familyStateSchema = z.discriminatedUnion('type', [
         notes: z.string(),
       }),
     ),
+    // The Virtue whose last channel spent this story threw the raksha
+    // into bedlam (see `./reference/fair-folk-bedlam.json`'s overview plus
+    // its four Virtue-linked Curses -- Hubris/Namelessness/Alienation/
+    // Meekness), mirroring Lunar's own nullable `primaryVirtueId` field
+    // added in its own later phase. `null` means not currently in bedlam.
+    // Unlike Lunar's Great Curse Limit (a slowly climbing 0-10 meter this
+    // app tracks as a real number), Bedlam's own per-Virtue channel-
+    // spending count resets at the end of every story and depends on
+    // play-session events this app has no way to observe (the same
+    // "advisory, not schema-enforced" gap already accepted for
+    // Alchemical's Clarity gain/loss triggers) -- so only the resulting
+    // *state* (which Curse, if any, currently applies) is modeled, not
+    // the channel count that produces it.
+    bedlamVirtueId: z
+      .enum(exaltedVirtues.map((virtue) => virtue.id))
+      .nullable(),
   }),
 ]);
 
@@ -504,12 +540,13 @@ export const exalted1eCharacterSchema = z
         }
       });
     }
-    // Every `ExaltedSheetType` gets a real, explicit entry -- an empty
-    // `Set()` for Alchemical/Fair Folk, which have no promoted Charms
-    // catalog yet, exactly like `backgroundIdsBySheetType` above. A blank
-    // character of either of those two types validates cleanly (no
-    // Charms/Combos selected); any non-empty selection is explicitly
-    // rejected as unknown rather than silently accepted.
+    // Every `ExaltedSheetType` gets a real, explicit entry, exactly like
+    // `backgroundIdsBySheetType` above -- an empty `Set()` only for a
+    // family with no promoted Charms catalog yet (none, currently; both
+    // Alchemical and Fair Folk now have a real one). A blank character of
+    // any not-yet-promoted family still validates cleanly (no Charms/
+    // Combos selected); any non-empty selection is explicitly rejected as
+    // unknown rather than silently accepted.
     const charmIdsBySheetType: Record<ExaltedSheetType, ReadonlySet<string>> = {
       solar: solarCharmIds,
       'dragon-blooded': dragonBloodedCharmIds,
@@ -542,7 +579,16 @@ export const exalted1eCharacterSchema = z
       // Slot/Array/Panoply installation-tracking mechanics remain out of
       // scope for this phase.
       alchemical: alchemicalCharmIds,
-      'fair-folk': new Set<string>(),
+      // Phase 1b: 19 Chapter Five Charms -- the 6 "Forging the (Grace)
+      // Grace" Charms, the 5 parallel Freehold-anchor Charms (Arcane
+      // Redoubt plus Stronghold/Glory/Fountainhead/Throne Room), and the
+      // 8 Assumption-type Charms (the universal gateway tree); see
+      // `fairFolkCharmIds` in `./reference/fair-folk-powers`. Every other
+      // Chapter Five Charm group (Glamour Charms, Pox/Affliction/Blight
+      // Charms, Behemoth-Forging, Glamour Sorcery, and the two sibling
+      // Assumption sub-trees beyond the one worked Emotional Influence
+      // example) remains out of scope for this phase.
+      'fair-folk': fairFolkCharmIds,
     };
     character.combos.forEach((combo, index) => {
       if (new Set(combo.charmIds).size !== combo.charmIds.length) {
@@ -1230,6 +1276,43 @@ export function prepareExalted1eCharacterData(
         recordCandidate = {
           ...recordCandidate,
           familyState: nextFamilyState,
+        };
+      }
+    }
+    if (fromVersion < 13) {
+      // Fair Folk's Graces/Bedlam/Charms phase (Phase 1b) added
+      // `bedlamVirtueId` to `familyState.fair-folk` after it had already
+      // shipped without it back in Phase 1a (mirroring Lunar's own
+      // `primaryVirtueId` backfill above), and tightened `graces`' keys
+      // from "any string" to the five real Grace ids (mirroring
+      // Sidereal's own `colleges` key-cleanup above) -- drop any
+      // pre-existing Grace rating whose key is not a real Grace id, since
+      // there is no way to know what a stray legacy key meant.
+      const familyState = recordCandidate.familyState as
+        Record<string, unknown> | undefined;
+      if (familyState?.type === 'fair-folk') {
+        const validGraceIds = new Set<string>(
+          fairFolkGraces.map((grace) => grace.id),
+        );
+        const legacyGraces = (familyState.graces ?? {}) as Record<
+          string,
+          unknown
+        >;
+        const graces = Object.fromEntries(
+          Object.entries(legacyGraces).filter(([graceId]) =>
+            validGraceIds.has(graceId),
+          ),
+        );
+        recordCandidate = {
+          ...recordCandidate,
+          familyState: {
+            ...familyState,
+            graces,
+            bedlamVirtueId:
+              'bedlamVirtueId' in familyState
+                ? familyState.bedlamVirtueId
+                : null,
+          },
         };
       }
     }
