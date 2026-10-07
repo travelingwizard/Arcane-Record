@@ -3533,5 +3533,467 @@
     "sourceDisplay": "Exalted: The Fair Folk, p. 176",
     "reviewStatus": "source-checked",
     "reviewFlags": []
+  },
+  {
+    "id": "furiously-stalling-destiny",
+    "name": "Furiously Stalling Destiny",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Laughing Monster Style",
+    "summary": "The root Charm of the Staff's 'Laughing Monster Style' Charm tree: a diplomatic counterattack that lets the raksha protest a shaping contest by countering with his full Manipulation + Occult pool the moment an opponent attacks him.",
+    "description": "The raksha uses diplomatic techniques to protest the shaping contest. This Charm lets him issue a Staff-shaping counterattack with his full Manipulation + Occult dice pool against an opponent who has just used a shaping attack against him; the counterattack resolves after the opponent's attack roll but before that attack's damage effects are applied. He can only make one such counterattack per triggering attack, and he cannot use this Charm's counterattack to answer another counterattack. Supplemental Charms placed in a Combo with this Charm enhance the counterattack.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Staff",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 193,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 193",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "deeper-into-trouble-technique",
+    "name": "Deeper Into Trouble Technique",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Laughing Monster Style",
+    "summary": "Drives a shaping-attack target into fury, punishing him with a Willpower drain if his very next shaping attack targets someone other than the raksha.",
+    "description": "The raksha drives an opponent into fury. The raksha's player rolls Manipulation + Occult as a Staff-shaping attack; on a hit, damage applies normally, but the attack also infuriates the target, provoking him to lash out at the raksha specifically. If the target's next shaping attack action targets anyone other than the raksha, this Charm drains one of that target's temporary Willpower points.",
+    "cost": "3 motes",
+    "duration": "Until the victim's next attack",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Staff",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["furiously-stalling-destiny"],
+    "prerequisiteText": "Furiously Stalling Destiny",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 193,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 193",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "laughing-monster-stance",
+    "name": "Laughing Monster Stance",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Laughing Monster Style",
+    "summary": "The central Stance-type Charm of the Laughing Monster Style tree: lets the raksha reflexively redirect a missed shaping attack against any target of her choice, including the original attacker, for a full story.",
+    "description": "The raksha pours Essence into her Staff Grace, becoming the dweller in the between -- the laughing monster who dances through the cracks in society and twists oaths against their holders, confounding her enemies and turning their own efforts against them. If a shaping attack misses her while this Charm is active, she can reflexively spend 1 Willpower to redirect it against any target of her choice, including the original attacker; the attack is rerolled against the new target as though it had been aimed there from the start. This is a Stance-type Charm, and a character cannot have more than one Stance-type Charm active at a time.",
+    "cost": "6 motes",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Staff",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["deeper-into-trouble-technique"],
+    "prerequisiteText": "Deeper Into Trouble Technique",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 193,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 193",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "This is a Stance-type Charm; a character cannot have more than one Stance-type Charm active at a time (the same unmodeled mechanic already flagged for Spirit-Twisting Obsession Stance and All-Consuming God-Monster Stance -- no schema field tracks Stance-type exclusivity)."
+    ]
+  },
+  {
+    "id": "unitary-being-forge",
+    "name": "Unitary Being Forge",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Laughing Monster Style",
+    "summary": "One of three Charms branching from Laughing Monster Stance: turns an opponent's existing shaping wounds into bonus damage dice for the raksha's own attack.",
+    "description": "The raksha exploits an awkward situation for diplomatic advantage. His player rolls Manipulation + Occult as a Staff-shaping attack; on a success, this Charm adds one damage die for every point of Sword, Ring or Cup damage the opponent is currently suffering.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Staff",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["laughing-monster-stance"],
+    "prerequisiteText": "Laughing Monster Stance",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 193,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 193",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "inauspicious-moment-for-attack",
+    "name": "Inauspicious Moment for Attack",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Laughing Monster Style",
+    "summary": "A second Charm branching from Laughing Monster Stance: a scene-opening initiative attack that can lock a badly-timed opponent out of taking any shaping action that scene at all.",
+    "description": "With the arts of distraction and omen, the laughing monster slows the enemy's advance. The raksha must use this Charm at the very beginning of the scene; it reduces a chosen opponent's shaping initiative by twice the raksha's Essence. If this drops the opponent's shaping initiative below 1, that opponent cannot take a shaping action at all for the rest of the scene, though he can still activate reflexive effects.",
+    "cost": "1 mote",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Staff",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["laughing-monster-stance"],
+    "prerequisiteText": "Laughing Monster Stance",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 194,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 194",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "thieves-fall-out",
+    "name": "Thieves Fall Out",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Laughing Monster Style",
+    "summary": "The third Charm branching from Laughing Monster Stance: sets two named targets against each other, inflicting recurring unblockable Staff damage on the first whenever both occupy the same or adjacent waypoints.",
+    "description": "The raksha encourages enmity between two foes. She names two targets, and her player rolls Manipulation + Occult as a shaping action against a difficulty equal to the first target's Essence. On a success, this Charm inflicts one level of unblockable, undodgeable Staff damage on the first target for every scene in which the two named targets occupy the same waypoint or adjacent waypoints.",
+    "cost": "3 motes, 1 Willpower",
+    "duration": "Five scenes",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Staff",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["laughing-monster-stance"],
+    "prerequisiteText": "Laughing Monster Stance",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 194,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 194",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "shuffling-the-pieces",
+    "name": "Shuffling the Pieces",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Laughing Monster Style",
+    "summary": "Builds on Unitary Being Forge: instead of dealing her own damage, the raksha redistributes up to 10 levels of a target's existing Sword/Ring/Cup damage as healing, dumping an equal amount onto the target's Staff Grace instead.",
+    "description": "The raksha's words revise the world, so that the pounding march of armies, the stringent laws of the world and the harmonious strains of an Entertainer's vision become nothing more than diplomatic tools. Her player rolls Manipulation + Occult as a Staff-shaping attack; on a success, instead of applying her normal damage, she heals up to 10 total levels of the target's Sword, Ring and Cup damage (divided among those tracks however she chooses) and immediately inflicts that same total amount of damage on the target's Staff Grace. This lets the raksha use the Charm to 'heal' allies just as readily as to further damage enemies.",
+    "cost": "2 motes, 1 Willpower",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Staff",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["unitary-being-forge"],
+    "prerequisiteText": "Unitary Being Forge",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 194,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 194",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "subtle-hammer",
+    "name": "Subtle Hammer",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Laughing Monster Style",
+    "summary": "Builds on Inauspicious Moment for Attack: a nearly undefendable Staff-shaping attack that the opponent cannot parry or dodge without Charms, and whose extra successes count double toward damage.",
+    "description": "The Diplomat's work is subtle, and the opponent does not notice its danger until too late. The raksha makes a Staff-shaping attack; the opponent cannot parry or dodge it without the use of Charms, and the raksha doubles her extra successes for the purposes of determining damage.",
+    "cost": "5 motes, 1 Willpower",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Staff",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["inauspicious-moment-for-attack"],
+    "prerequisiteText": "Inauspicious Moment for Attack",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 194,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 194",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "poisoned-whispers",
+    "name": "Poisoned Whispers",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Laughing Monster Style",
+    "summary": "Builds on Thieves Fall Out: if a poisoned target attacks the raksha and misses, she can reflexively redirect that failed attack against any target of her choosing at no Willpower cost.",
+    "description": "The raksha poisons and twists the mind of a target. If that target attacks the raksha and misses during the scene this Charm is active, she can reflexively redirect the failed attack against any target of her choice -- including the original attacker -- without needing to spend a Willpower point to do so (unlike the similar redirection granted by Laughing Monster Stance).",
+    "cost": "8 motes",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Staff",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["thieves-fall-out"],
+    "prerequisiteText": "Thieves Fall Out",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 195,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 195",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "dancing-wind-monster-transformation",
+    "name": "Dancing Wind Monster Transformation",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Laughing Monster Style",
+    "summary": "The capstone Charm of the Laughing Monster Style tree: the raksha fades into invisible, laughing wind, leaving only the echo of her spiteful words as her enemies turn on each other, and gains a large automatic bonus on all her shaping dodges for the story.",
+    "description": "The raksha fades into the wind, laughing, invisible, leaving nothing but the echo of her spiteful words; bereft, her enemies must turn on one another. This Charm adds the raksha's Essence rating as automatic successes to all of her shaping dodge actions for the rest of the story.",
+    "cost": "6 motes",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Staff",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "shuffling-the-pieces",
+      "subtle-hammer",
+      "poisoned-whispers"
+    ],
+    "prerequisiteText": "Shuffling the Pieces, Subtle Hammer, Poisoned Whispers",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 195,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 195",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "oath-gossamer",
+    "name": "Oath Gossamer",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Society-Forging Charms",
+    "summary": "The root Charm of the Staff's separate 'Society-Forging Charms' tree, which raksha use to literally construct their society: binds the raksha to a consenting partner in a named relationship that generates gossamer for as long as it is actively pursued, at the cost of shattering the raksha's Staff Grace if she ends it permanently.",
+    "description": "The raksha binds himself to a consenting raksha in a gossamer-producing relationship, which can be any relationship the two agree to -- from true love to rivalry to bitterest hate. This Charm grants him 1 bonus gossamer in every story during which he actively pursues the named relationship. If he ever brings that relationship to a permanent end, this Charm instead breaks his Staff Grace and scatters its pieces.",
+    "cost": "4 gossamer",
+    "duration": "One century",
+    "type": "Special",
+    "minimumRequirements": [
+      {
+        "trait": "Staff",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 195,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 195",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "eight-corner-ring-binding",
+    "name": "Eight-Corner Ring Binding",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Society-Forging Charms",
+    "summary": "Scales Oath Gossamer up from a pair to a group of up to eight raksha, each declaring a relationship with every other member; breaking any one relationship shatters that member's Staff Grace and hands out its pieces to the rest of the ring.",
+    "description": "This Charm, the basic unit of pragmatic raksha alliance, binds a group of up to eight raksha into a ring; each member names a desired relationship with each of the others, exactly as with Oath Gossamer. At the end of every story, each raksha in the ring receives 1 bonus gossamer per relationship she actively pursued that story. If any raksha in the binding permanently ends one of her relationships, her Staff Grace shatters, and each of the other raksha in the ring receives one piece of it. Members can revise their declared relationships, but must announce the change a full story in advance.",
+    "cost": "1 gossamer per participant",
+    "duration": "One century",
+    "type": "Special",
+    "minimumRequirements": [
+      {
+        "trait": "Staff",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["oath-gossamer"],
+    "prerequisiteText": "Oath Gossamer",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 196,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 196",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
   }
 ]

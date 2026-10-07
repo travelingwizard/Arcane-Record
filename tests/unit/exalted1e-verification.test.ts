@@ -96,7 +96,7 @@ describe('exalted1e verification gate', () => {
               : family === 'alchemical'
                 ? 214
                 : family === 'fair-folk'
-                  ? 191
+                  ? 203
                   : 0,
       );
       if (
@@ -126,6 +126,7 @@ describe('exalted1e verification gate', () => {
         // 279 promotable); Phase 1d grew it again to 51 rows (62 of 279
         // promotable); Phase 1e grew it again to 70 rows (81 of 279
         // promotable); Phase 1f grew it again to 92 rows (103 of 279
+        // promotable); Phase 1g grew it again to 104 rows (115 of 279
         // promotable now -- the catalog dimension stays far from closed).
         expect(record.catalog.checksum).toBe(
           auditFamily(family).catalogChecksum,
@@ -244,10 +245,10 @@ describe('exalted1e verification gate', () => {
     expect(isFamilyAvailable('alchemical')).toBe(false);
   });
 
-  it('reflects Fair Folk Phase 1a/1b/1c/1d/1e/1f catalog promotion without unlocking the family', () => {
+  it('reflects Fair Folk Phase 1a/1b/1c/1d/1e/1f/1g catalog promotion without unlocking the family', () => {
     const record = certificationRecords['fair-folk'];
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
-    // 191 = Phase 1a's 88 (13 Backgrounds (fairFolkBackgrounds) + 75 shared
+    // 203 = Phase 1a's 88 (13 Backgrounds (fairFolkBackgrounds) + 75 shared
     // Merits/Flaws catalog entries now carrying 'fair-folk' in appliesTo --
     // 73 inventoried pg-merit-*/pg-flaw-* rows resolving one-for-one,
     // except the two dual merit/flaw split pairs -- mutation-merit/
@@ -262,19 +263,21 @@ describe('exalted1e verification gate', () => {
     // Dodge Charms and Resistance Charms, its only combat-flavored
     // Charm trees) plus Phase 1e's 19 more Charms (the full Cup Combat
     // Charms tree) plus Phase 1f's 22 more Charms (the full Ring Combat
-    // Charms tree and its sequel All-Consuming God-Monster Style),
-    // extending fair-folk-charms.json from 19 to 92 rows. This is far
-    // short of the 279 preliminary `promotableEntries` estimate (flagged
-    // as approximate pending this family's own remaining
+    // Charms tree and its sequel All-Consuming God-Monster Style) plus
+    // Phase 1g's 12 more Charms (the full Laughing Monster Style tree and
+    // the small Society-Forging Charms tree), extending
+    // fair-folk-charms.json from 19 to 104 rows. This is far short of the
+    // 279 preliminary `promotableEntries` estimate (flagged as
+    // approximate pending this family's own remaining
     // Charm/Sorcery/Artifact catalog phases). Phase 1b's three new
     // `fair-folk-`-prefixed catalog files were the first ones this audit
     // script's glob picked up, so the catalog checksum is no longer empty
     // -- exactly matching Alchemical's own Phase 1a -> 1b transition
     // (checksum stayed empty until its own Phase 1b added a real
-    // `alchemical-`-prefixed file); Phase 1c, Phase 1d, Phase 1e, and
-    // Phase 1f each changed the checksum again simply by growing the same
-    // `fair-folk-charms.json` file.
-    expect(record.catalog.promotedEntries).toBe(191);
+    // `alchemical-`-prefixed file); Phase 1c, Phase 1d, Phase 1e, Phase
+    // 1f, and Phase 1g each changed the checksum again simply by growing
+    // the same `fair-folk-charms.json` file.
+    expect(record.catalog.promotedEntries).toBe(203);
     expect(record.catalog.checksum.length).toBeGreaterThan(0);
     expect(isFamilyAvailable('fair-folk')).toBe(false);
   });

@@ -61,13 +61,24 @@ import type { PowerReviewStatus } from './dragonblooded-powers';
  * Lie is a Staff-shaping crossover terminal leaf, following the same
  * cross-Grace pattern as the Ring's own Tainted Creature Command/
  * Monstrous Conceit/Akshata Sexual Methodology and the Cup tree's
- * Beguilement; its `minimumRequirements` reflects Staff, not Ring. Every
- * other Charm group in the book's Chapter Five (the Staff's own Laughing
- * Monster Style; Sword Combat Charms; the rest of Mutation Charms,
- * Elemental/Emotional Influence beyond the one worked Assumption example,
- * Glamour Sorcery, Heart's own Name Charms and the cross-Grace
- * Bedlam-Influencing Charms, and the two sibling Assumption sub-trees)
- * remains unpromoted.
+ * Beguilement; its `minimumRequirements` reflects Staff, not Ring. Phase
+ * 1g promotes the fourth and fifth Grace's worth of combat-flavored
+ * Charms in one phase, since the Staff's own tree is small: `'Laughing
+ * Monster Style'` (10 entries, pp. 193-195 -- rooted in Furiously
+ * Stalling Destiny, through Deeper Into Trouble Technique into the
+ * Stance-type Laughing Monster Stance, which fans out into three
+ * parallel lines -- Unitary Being Forge -> Shuffling the Pieces;
+ * Inauspicious Moment for Attack -> Subtle Hammer; Thieves Fall Out ->
+ * Poisoned Whispers -- all three converging on the capstone Dancing Wind
+ * Monster Transformation) and `'Society-Forging Charms'` (2 entries, pp.
+ * 195-196 -- a small, separate two-Charm tree, Oath Gossamer feeding
+ * Eight-Corner Ring Binding, that raksha use to literally construct
+ * their society via gossamer-generating relationships). Every other
+ * Charm group in the book's Chapter Five (Sword Combat Charms; the rest
+ * of Mutation Charms, Elemental/Emotional Influence beyond the one
+ * worked Assumption example, Glamour Sorcery, Heart's own Name Charms
+ * and the cross-Grace Bedlam-Influencing Charms, and the two sibling
+ * Assumption sub-trees) remains unpromoted.
  */
 export const fairFolkCharmCategories = [
   'Grace Forging',
@@ -79,6 +90,8 @@ export const fairFolkCharmCategories = [
   'Cup Combat Charms',
   'Ring Combat Charms',
   'All-Consuming God-Monster Style',
+  'Laughing Monster Style',
+  'Society-Forging Charms',
 ] as const;
 export type FairFolkCharmCategory = (typeof fairFolkCharmCategories)[number];
 
@@ -117,8 +130,9 @@ const reviewStatusSchema: z.ZodType<PowerReviewStatus> = z.enum([
  * (Tainted Creature Command, Monstrous Conceit, Akshata Sexual
  * Methodology, Beguilement, Undetectable Lie), Sword for the Mutation
  * Charms (Pox, Affliction, Blight), Heart for the Dodge/Resistance
- * Charms, Cup for the rest of the Cup Combat Charms, and Ring for the
- * rest of Ring Combat Charms/All-Consuming God-Monster Style.
+ * Charms, Cup for the rest of the Cup Combat Charms, Ring for the rest of
+ * Ring Combat Charms/All-Consuming God-Monster Style, and Staff for
+ * Laughing Monster Style/Society-Forging Charms.
  */
 const fairFolkCharmSchema = z.object({
   id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
@@ -148,7 +162,7 @@ const fairFolkCharmSchema = z.object({
 });
 
 /**
- * 92 of the many Charm rows found in Fair Folk's Chapter Five inventory
+ * 104 of the many Charm rows found in Fair Folk's Chapter Five inventory
  * range. Phase 1b's 19: the 6 "Forging the (Grace) Grace" Charms (Heart,
  * Cup, Ring, Staff, Sword, and the exotic sixth Way Grace), the 4 parallel
  * Freehold-anchor Charms that branch off Forging the Arcane Redoubt
@@ -162,30 +176,33 @@ const fairFolkCharmSchema = z.object({
  * "Dodge Charms" (4 entries, pp. 157-158) and "Resistance Charms" (3
  * entries, pp. 158-159) -- its only combat-flavored Charm trees. Phase 1e
  * added 19 more: the full "Cup Combat Charms" tree (pp. 159-163). Phase
- * 1f adds 22 more: the full "Ring Combat Charms" tree (16 entries, pp.
+ * 1f added 22 more: the full "Ring Combat Charms" tree (16 entries, pp.
  * 171-175) plus its directly-continuing sequel, "All-Consuming
- * God-Monster Style" (6 entries, pp. 175-176), promoted together as one
- * phase. Every one is `disposition: 'selectable'` and `verificationState:
+ * God-Monster Style" (6 entries, pp. 175-176). Phase 1g adds 12 more: the
+ * full "Laughing Monster Style" tree (10 entries, pp. 193-195) plus the
+ * small, separate "Society-Forging Charms" tree (2 entries, pp. 195-196)
+ * -- the Staff Grace's entire remaining combat/society-building
+ * repertoire, promoted together as one phase since each is individually
+ * small. Every one is `disposition: 'selectable'` and `verificationState:
  * 'reviewed'` in the inventory. Phase 1c's own `shape-forged-servant` and
  * `awakened-dream-manufacture` resolved Phase 1b's
  * `forging-the-heart-grace` prerequisite gap, so its `prerequisiteCharms`
  * was updated to `['shape-forged-servant']` accordingly. Phase 1f
- * resolves a second such gap the same honest way: Phase 1c's
+ * resolved a second such gap the same honest way: Phase 1c's
  * `monstrous-conceit` cited a real prerequisite, Undetectable Lie, that
  * fell outside its own catalog's scope at the time (it lived in the
- * then-unpromoted "Ring Combat Charms" section); now that Phase 1f
- * promotes `undetectable-lie` itself, `monstrous-conceit`'s
- * `prerequisiteCharms` was updated from `['glamour-charm']` to
- * `['undetectable-lie', 'glamour-charm']` and its now-stale "not itself
- * promoted" `reviewFlags` note was removed (its separate, still-true
- * cross-Grace Staff-gating note was kept). Phase 1d's, Phase 1e's, and
- * Phase 1f's own new Charms have no such gap of their own: every
- * prerequisite they cite resolves cleanly within these same small,
- * self-contained trees.
+ * then-unpromoted "Ring Combat Charms" section); once Phase 1f promoted
+ * `undetectable-lie` itself, `monstrous-conceit`'s `prerequisiteCharms`
+ * was updated from `['glamour-charm']` to `['undetectable-lie',
+ * 'glamour-charm']` and its now-stale "not itself promoted" `reviewFlags`
+ * note was removed (its separate, still-true cross-Grace Staff-gating
+ * note was kept). Phase 1d's, Phase 1e's, Phase 1f's, and Phase 1g's own
+ * new Charms have no such gap of their own: every prerequisite they cite
+ * resolves cleanly within these same small, self-contained trees.
  */
 const fairFolkCharmCatalogSchema = z
   .array(fairFolkCharmSchema)
-  .length(92)
+  .length(104)
   .superRefine((charms, context) => {
     const ids = charms.map(({ id }) => id);
     if (new Set(ids).size !== ids.length) {
@@ -228,15 +245,27 @@ const defaultComboRules: CharmComboRules = {
  * Thousand Tiny Hooks Technique's own mechanics text states "it cannot be
  * placed in a combo with extra-action Charms," mirroring Lunar's own
  * `coiled-cobra-stance` precedent exactly. Phase 1f's own 22 new Charms
- * (Ring Combat Charms/All-Consuming God-Monster Style) contain no such
- * sentence, so none of them are added here; every Charm without an entry
- * in this map still falls through to `defaultComboRules` (Combo-eligible,
- * no restrictions) -- an honest reflection of what source review found,
- * not an assumption that no such restriction exists anywhere in the book.
+ * (Ring Combat Charms/All-Consuming God-Monster Style) contained no such
+ * sentence. Phase 1g's own source review found this catalog's first
+ * explicit, positive Combo-*interaction* sentence (as opposed to a
+ * restriction): Furiously Stalling Destiny's own mechanics text states
+ * "Supplemental Charms placed in a Combo with this Charm enhance the
+ * counterattack," modeled as a `specialRules` entry mirroring Abyssal's
+ * own `falling-scythe-attack`/`hundred-paces-bite` precedent (which uses
+ * `specialRules` for positive synergy text, reserving `restrictions` for
+ * outright prohibitions). Every Charm without an entry in this map still
+ * falls through to `defaultComboRules` (Combo-eligible, no restrictions)
+ * -- an honest reflection of what source review found, not an assumption
+ * that no such restriction or interaction exists anywhere in the book.
  */
 const explicitComboRules: Record<string, Partial<CharmComboRules>> = {
   'thousand-tiny-hooks-technique': {
     restrictions: ['Cannot be placed in a Combo with extra-action Charms.'],
+  },
+  'furiously-stalling-destiny': {
+    specialRules: [
+      'Supplemental Charms placed in a Combo with this Charm enhance the counterattack.',
+    ],
   },
 };
 

@@ -6,20 +6,20 @@ import {
   fairFolkCharms,
 } from '../../src/games/exalted1e/reference/fair-folk-powers';
 
-describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f)', () => {
+describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f + Phase 1g)', () => {
   it('loads all promoted Charm rows with unique stable IDs', () => {
-    expect(fairFolkCharms).toHaveLength(92);
-    expect(fairFolkCharmIds.size).toBe(92);
-    expect(fairFolkCharmById.size).toBe(92);
+    expect(fairFolkCharms).toHaveLength(104);
+    expect(fairFolkCharmIds.size).toBe(104);
+    expect(fairFolkCharmById.size).toBe(104);
   });
 
-  it('assigns every Charm a valid category from the nine documented Fair Folk Charm categories', () => {
+  it('assigns every Charm a valid category from the eleven documented Fair Folk Charm categories', () => {
     for (const charm of fairFolkCharms) {
       expect(fairFolkCharmCategories).toContain(charm.charmCategory);
     }
   });
 
-  it('distributes Charms across the nine categories with the expected counts', () => {
+  it('distributes Charms across the eleven categories with the expected counts', () => {
     const categoryCounts = new Map<string, number>();
     for (const charm of fairFolkCharms) {
       categoryCounts.set(
@@ -36,12 +36,14 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     expect(categoryCounts.get('Cup Combat Charms')).toBe(19);
     expect(categoryCounts.get('Ring Combat Charms')).toBe(16);
     expect(categoryCounts.get('All-Consuming God-Monster Style')).toBe(6);
+    expect(categoryCounts.get('Laughing Monster Style')).toBe(10);
+    expect(categoryCounts.get('Society-Forging Charms')).toBe(2);
     expect(
       Array.from(categoryCounts.values()).reduce(
         (sum, count) => sum + count,
         0,
       ),
-    ).toBe(92);
+    ).toBe(104);
   });
 
   it('resolves every prerequisiteCharms entry to another id in the same catalog (no dangling references)', () => {
@@ -67,14 +69,16 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     }
   });
 
-  it('keys every Grace Forging/Glamour/Dodge/Resistance/Cup-Combat/Ring-Combat Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption Charm to no Grace minimum at all', () => {
+  it('keys every Grace Forging/Glamour/Dodge/Resistance/Cup-Combat/Ring-Combat/Staff-Combat Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption Charm to no Grace minimum at all', () => {
     for (const charm of fairFolkCharms) {
       if (
         charm.charmCategory === 'Grace Forging' ||
         charm.charmCategory === 'Glamour Charms' ||
         charm.charmCategory === 'Cup Combat Charms' ||
         charm.charmCategory === 'Ring Combat Charms' ||
-        charm.charmCategory === 'All-Consuming God-Monster Style'
+        charm.charmCategory === 'All-Consuming God-Monster Style' ||
+        charm.charmCategory === 'Laughing Monster Style' ||
+        charm.charmCategory === 'Society-Forging Charms'
       ) {
         expect(charm.minimumRequirements).toHaveLength(1);
         expect(['Cup', 'Ring', 'Staff']).toContain(
@@ -438,7 +442,57 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     );
   });
 
-  it('assigns Combo-eligibility rules to every Charm, defaulting to eligible with no restrictions except the one explicit override found this phase', () => {
+  it('chains the Laughing Monster Style tree: Furiously Stalling Destiny root through the Stance-type Laughing Monster Stance, fanning into three parallel lines that converge on the capstone Dancing Wind Monster Transformation', () => {
+    expect(
+      fairFolkCharmById.get('furiously-stalling-destiny')?.prerequisiteCharms,
+    ).toEqual([]);
+    expect(
+      fairFolkCharmById.get('deeper-into-trouble-technique')
+        ?.prerequisiteCharms,
+    ).toEqual(['furiously-stalling-destiny']);
+    expect(
+      fairFolkCharmById.get('laughing-monster-stance')?.prerequisiteCharms,
+    ).toEqual(['deeper-into-trouble-technique']);
+    for (const id of [
+      'unitary-being-forge',
+      'inauspicious-moment-for-attack',
+      'thieves-fall-out',
+    ]) {
+      expect(fairFolkCharmById.get(id)?.prerequisiteCharms).toEqual([
+        'laughing-monster-stance',
+      ]);
+    }
+    expect(
+      fairFolkCharmById.get('shuffling-the-pieces')?.prerequisiteCharms,
+    ).toEqual(['unitary-being-forge']);
+    expect(fairFolkCharmById.get('subtle-hammer')?.prerequisiteCharms).toEqual([
+      'inauspicious-moment-for-attack',
+    ]);
+    expect(
+      fairFolkCharmById.get('poisoned-whispers')?.prerequisiteCharms,
+    ).toEqual(['thieves-fall-out']);
+    expect(
+      fairFolkCharmById.get('dancing-wind-monster-transformation')
+        ?.prerequisiteCharms,
+    ).toEqual(
+      expect.arrayContaining([
+        'shuffling-the-pieces',
+        'subtle-hammer',
+        'poisoned-whispers',
+      ]),
+    );
+  });
+
+  it('chains the small, separate Society-Forging Charms tree: Oath Gossamer feeding Eight-Corner Ring Binding', () => {
+    expect(fairFolkCharmById.get('oath-gossamer')?.prerequisiteCharms).toEqual(
+      [],
+    );
+    expect(
+      fairFolkCharmById.get('eight-corner-ring-binding')?.prerequisiteCharms,
+    ).toEqual(['oath-gossamer']);
+  });
+
+  it('assigns Combo-eligibility rules to every Charm, defaulting to eligible with no restrictions/specialRules except the two explicit overrides found so far', () => {
     for (const charm of fairFolkCharms) {
       expect(charm.comboRules).toBeDefined();
       expect(charm.comboRules.eligible).toBe(true);
@@ -448,6 +502,13 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         ]);
       } else {
         expect(charm.comboRules.restrictions).toEqual([]);
+      }
+      if (charm.id === 'furiously-stalling-destiny') {
+        expect(charm.comboRules.specialRules).toEqual([
+          'Supplemental Charms placed in a Combo with this Charm enhance the counterattack.',
+        ]);
+      } else {
+        expect(charm.comboRules.specialRules).toEqual([]);
       }
     }
   });
@@ -483,6 +544,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         'glamour-charm',
         'great-works-of-the-grace',
         'impinging-web-of-dream',
+        'laughing-monster-stance',
         'monstrous-conceit',
         'pox-charm',
         'spirit-twisting-obsession-stance',
