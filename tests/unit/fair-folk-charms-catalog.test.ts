@@ -6,20 +6,20 @@ import {
   fairFolkCharms,
 } from '../../src/games/exalted1e/reference/fair-folk-powers';
 
-describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d)', () => {
+describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e)', () => {
   it('loads all promoted Charm rows with unique stable IDs', () => {
-    expect(fairFolkCharms).toHaveLength(51);
-    expect(fairFolkCharmIds.size).toBe(51);
-    expect(fairFolkCharmById.size).toBe(51);
+    expect(fairFolkCharms).toHaveLength(70);
+    expect(fairFolkCharmIds.size).toBe(70);
+    expect(fairFolkCharmById.size).toBe(70);
   });
 
-  it('assigns every Charm a valid category from the six documented Fair Folk Charm categories', () => {
+  it('assigns every Charm a valid category from the seven documented Fair Folk Charm categories', () => {
     for (const charm of fairFolkCharms) {
       expect(fairFolkCharmCategories).toContain(charm.charmCategory);
     }
   });
 
-  it('distributes Charms across the six categories with the expected counts', () => {
+  it('distributes Charms across the seven categories with the expected counts', () => {
     const categoryCounts = new Map<string, number>();
     for (const charm of fairFolkCharms) {
       categoryCounts.set(
@@ -33,12 +33,13 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d)', () => {
     expect(categoryCounts.get('Mutation Charms')).toBe(3);
     expect(categoryCounts.get('Dodge Charms')).toBe(4);
     expect(categoryCounts.get('Resistance Charms')).toBe(3);
+    expect(categoryCounts.get('Cup Combat Charms')).toBe(19);
     expect(
       Array.from(categoryCounts.values()).reduce(
         (sum, count) => sum + count,
         0,
       ),
-    ).toBe(51);
+    ).toBe(70);
   });
 
   it('resolves every prerequisiteCharms entry to another id in the same catalog (no dangling references)', () => {
@@ -64,14 +65,15 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d)', () => {
     }
   });
 
-  it('keys every Grace Forging/Glamour/Dodge/Resistance Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption Charm to no Grace minimum at all', () => {
+  it('keys every Grace Forging/Glamour/Dodge/Resistance/Cup-Combat Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption Charm to no Grace minimum at all', () => {
     for (const charm of fairFolkCharms) {
       if (
         charm.charmCategory === 'Grace Forging' ||
-        charm.charmCategory === 'Glamour Charms'
+        charm.charmCategory === 'Glamour Charms' ||
+        charm.charmCategory === 'Cup Combat Charms'
       ) {
         expect(charm.minimumRequirements).toHaveLength(1);
-        expect(['Ring', 'Staff']).toContain(
+        expect(['Cup', 'Ring', 'Staff']).toContain(
           charm.minimumRequirements[0]?.trait,
         );
       } else if (charm.charmCategory === 'Mutation Charms') {
@@ -87,6 +89,14 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d)', () => {
         expect(charm.minimumRequirements).toEqual([]);
       }
     }
+  });
+
+  it('gates Beguilement on Minimum Staff despite being the terminal leaf of a Cup Combat Charms branch', () => {
+    const beguilement = fairFolkCharmById.get('beguilement');
+    expect(beguilement).toBeDefined();
+    expect(beguilement?.minimumRequirements).toEqual([
+      { trait: 'Staff', rating: 3 },
+    ]);
   });
 
   it('gates the three cross-Grace crossover Charms on Minimum Staff despite being diagrammed under the Ring tree', () => {
@@ -258,11 +268,91 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d)', () => {
     }
   });
 
-  it('assigns Combo-eligibility rules to every Charm, defaulting to eligible with no explicit overrides this phase', () => {
+  it('chains the Cup Combat Charms tree: two independent roots (Heart-Cutting Style, Subversion and Transformation Artifice) and the named Spirit-Twisting Obsession Style sub-tree', () => {
+    expect(
+      fairFolkCharmById.get('heart-cutting-style')?.prerequisiteCharms,
+    ).toEqual([]);
+    for (const id of [
+      'untouchable-performer-technique',
+      'dissonance-of-principles',
+    ]) {
+      expect(fairFolkCharmById.get(id)?.prerequisiteCharms).toEqual([
+        'heart-cutting-style',
+      ]);
+    }
+    expect(
+      fairFolkCharmById.get('swift-wings-of-song')?.prerequisiteCharms,
+    ).toEqual(['untouchable-performer-technique']);
+    expect(
+      fairFolkCharmById.get('furious-maelstrom-craft')?.prerequisiteCharms,
+    ).toEqual(['swift-wings-of-song']);
+    expect(
+      fairFolkCharmById.get('thousand-tiny-hooks-technique')
+        ?.prerequisiteCharms,
+    ).toEqual(['dissonance-of-principles']);
+    expect(fairFolkCharmById.get('beguilement')?.prerequisiteCharms).toEqual([
+      'thousand-tiny-hooks-technique',
+    ]);
+
+    expect(
+      fairFolkCharmById.get('subversion-and-transformation-artifice')
+        ?.prerequisiteCharms,
+    ).toEqual([]);
+    expect(
+      fairFolkCharmById.get('overriding-construct-of-fate')?.prerequisiteCharms,
+    ).toEqual(['subversion-and-transformation-artifice']);
+
+    expect(
+      fairFolkCharmById.get('elusive-object-of-desire')?.prerequisiteCharms,
+    ).toEqual([]);
+    expect(
+      fairFolkCharmById.get('art-of-corrosion')?.prerequisiteCharms,
+    ).toEqual(['elusive-object-of-desire']);
+    expect(
+      fairFolkCharmById.get('spirit-twisting-obsession-stance')
+        ?.prerequisiteCharms,
+    ).toEqual(['art-of-corrosion']);
+    for (const id of [
+      'decaying-principles',
+      'subtle-breath-of-ruin',
+      'encouraging-futile-struggle',
+    ]) {
+      expect(fairFolkCharmById.get(id)?.prerequisiteCharms).toEqual([
+        'spirit-twisting-obsession-stance',
+      ]);
+    }
+    expect(
+      fairFolkCharmById.get('twisting-spiral-of-collapse')?.prerequisiteCharms,
+    ).toEqual(['decaying-principles']);
+    expect(
+      fairFolkCharmById.get('insidious-distraction-technique')
+        ?.prerequisiteCharms,
+    ).toEqual(['subtle-breath-of-ruin']);
+    expect(
+      fairFolkCharmById.get('brilliant-glinting-lure')?.prerequisiteCharms,
+    ).toEqual(['encouraging-futile-struggle']);
+    expect(
+      fairFolkCharmById.get('eulogy-for-greatness-lost')?.prerequisiteCharms,
+    ).toEqual(
+      expect.arrayContaining([
+        'twisting-spiral-of-collapse',
+        'insidious-distraction-technique',
+        'brilliant-glinting-lure',
+      ]),
+    );
+  });
+
+  it('assigns Combo-eligibility rules to every Charm, defaulting to eligible with no restrictions except the one explicit override found this phase', () => {
     for (const charm of fairFolkCharms) {
       expect(charm.comboRules).toBeDefined();
       expect(charm.comboRules.eligible).toBe(true);
-      expect(charm.comboRules.restrictions).toEqual([]);
+      if (charm.id === 'thousand-tiny-hooks-technique') {
+        expect(charm.comboRules.restrictions).toEqual([
+          'Cannot be placed in a Combo with extra-action Charms.',
+        ]);
+      } else {
+        expect(charm.comboRules.restrictions).toEqual([]);
+      }
     }
   });
 
@@ -288,6 +378,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d)', () => {
         'assumption-of-elemental-shape',
         'assumption-of-the-lands-heart',
         'assumption-of-the-wyld-tainted-land',
+        'beguilement',
         'blight-charm',
         'burden-ghost-glamour',
         'extinction-of-desire',
@@ -296,6 +387,8 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d)', () => {
         'great-works-of-the-grace',
         'monstrous-conceit',
         'pox-charm',
+        'spirit-twisting-obsession-stance',
+        'swift-wings-of-song',
         'tainted-creature-command',
         'unshaped-grace-transformation',
       ].sort(),

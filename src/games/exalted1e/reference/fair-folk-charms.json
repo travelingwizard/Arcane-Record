@@ -1957,5 +1957,737 @@
     "sourceDisplay": "Exalted: The Fair Folk, p. 159",
     "reviewStatus": "source-checked",
     "reviewFlags": []
+  },
+  {
+    "id": "heart-cutting-style",
+    "name": "Heart-Cutting Style",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Cup Combat Charms",
+    "summary": "One of two roots of the Cup Combat Charms tree: after a successful Cup- or Staff-shaping attack, the raksha's artistry wrings extra emotional damage from witnesses by counting her attack's extra successes twice toward damage.",
+    "description": "The character practices such arts and aesthetics as to rend the witnesses' spirits and make them helpless with emotion. The raksha invokes this Charm after making a successful Cup-shaping or Staff-shaping attack. This Charm lets the raksha count extra successes twice for the purposes of determining damage.",
+    "cost": "1 mote",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 159,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 159",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "untouchable-performer-technique",
+    "name": "Untouchable Performer Technique",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Cup Combat Charms",
+    "summary": "Lets the Entertainer raksha parry any single attack using her Cup Grace, rolling Conviction + Performance + shaping weapon defense with her Cup added in extra dice.",
+    "description": "In the fashion of the Entertainer raksha, the character makes herself sacrosanct. She can parry any one attack with Cup shaping. Her player rolls Conviction + Performance + shaping weapon defense and adds her Cup in extra dice. This Charm cannot generate a defense from nothing -- there must be an initial dice pool for it to add to.",
+    "cost": "1 mote",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["heart-cutting-style"],
+    "prerequisiteText": "Heart-Cutting Style",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 159,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 159",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "dissonance-of-principles",
+    "name": "Dissonance of Principles",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Cup Combat Charms",
+    "summary": "A Cup- or Staff-shaping attack that replaces normal damage with scaling stunning damage, imposing a shaping-dice penalty on the target for three scenes.",
+    "description": "The raksha's art stuns and disorients his target, scattering patterns of cascading conceptual dissonance through the victim's mind. The raksha spends up to twice his Valor in motes and makes a Cup-shaping or Staff-shaping attack. If he hits, this Charm replaces his shaping damage with stunning damage, doing one level of stunning damage per mote spent; extra successes still add to damage as usual. Stunning damage is soaked only with Temperance. Each success on the damage roll imposes a -1 penalty to the target's shaping dice pools for the next three scenes. Stunning damage is not cumulative -- only the highest result counts, even if this would shorten the duration.",
+    "cost": "1 mote per die",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["heart-cutting-style"],
+    "prerequisiteText": "Heart-Cutting Style",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 159,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 159",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "thousand-tiny-hooks-technique",
+    "name": "Thousand Tiny Hooks Technique",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Cup Combat Charms",
+    "summary": "Turns a Cup- or Staff-shaping entanglement attack into a scaling grip that adds the raksha's Essence to both the entanglement's control dice and its damage, and can be invoked even while already entangled.",
+    "description": "Through her shaping arts, the raksha plants a thousand tiny hooks in the target's soul. The character makes a Cup-shaping or Staff-shaping entanglement attack, receiving the benefits of any readied clinch enhancers. This Charm adds her Essence in dice to the shaping dice pools to inflict, maintain, control and use the entanglement, and also adds her Essence to the damage of her entanglement-based shaping attacks. Although a simple Charm, it can be invoked while entangled; it cannot be placed in a combo with extra-action Charms.",
+    "cost": "3 motes",
+    "duration": "One scene",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["dissonance-of-principles"],
+    "prerequisiteText": "Dissonance of Principles",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 160,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 160",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "beguilement",
+    "name": "Beguilement",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Cup Combat Charms",
+    "summary": "A Staff-shaping crossover finale of this branch: makes the raksha's suggestions impossible to resist, functioning as a work of glamour that can manipulate a Creation-born target into almost any request short of direct suicide.",
+    "description": "The raksha becomes utterly charming, to the point where it is impossible to resist his suggestions. His player rolls Manipulation + Socialize as a Staff-shaping attack, adding the raksha's Charisma in dice to a successful attack's pre-soak damage. Used against creatures with no Staff Grace, this Charm functions as a work of glamour: if the attack succeeds, the target accepts any reasonably phrased suggestion or request as natural, though he will not directly kill himself (he can, however, be manipulated into lethal situations). This Charm does not work on targets whose Wits + Essence or Willpower exceed the raksha's Charisma. This is a Staff-shaping Charm.",
+    "cost": "5 motes, 3 gossamer",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Staff",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["thousand-tiny-hooks-technique"],
+    "prerequisiteText": "Thousand Tiny Hooks Technique",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 160,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 160",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "Explicitly gated on Staff ('Minimum Staff: 3') and self-declared 'a Staff-shaping Charm' despite being the terminal leaf of a Cup Combat Charms branch (requiring the Cup Charm Thousand Tiny Hooks Technique) -- the same cross-Grace crossover pattern as Tainted Creature Command/Monstrous Conceit/Akshata Sexual Methodology in the Ring's own trees."
+    ]
+  },
+  {
+    "id": "swift-wings-of-song",
+    "name": "Swift Wings of Song",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Cup Combat Charms",
+    "summary": "Lets the raksha automatically win shaping initiative over a single opponent by preempting the scene with a whisper of song, a splash of color, or the hint of an idea.",
+    "description": "Preempting initiative, the raksha sets the stage for her performance with a whisper of song, a splash of color or the hint of an idea. This Charm lets the raksha win shaping initiative automatically over a single opponent. Fair Folk cannot split their dice pool in the same turn they use this Charm. Two characters using this Charm in competition roll for initiative normally.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["untouchable-performer-technique"],
+    "prerequisiteText": "Untouchable Performer Technique",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 161,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 161",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "The tree diagram on p. 160 (PDF 161) labels this box 'Swift Winds of Song,' conflicting with this Charm's own printed header, 'Swift Wings of Song'; treated as a diagram-art typo rather than a distinct Charm, matching the inventory's own judgment call."
+    ]
+  },
+  {
+    "id": "furious-maelstrom-craft",
+    "name": "Furious Maelstrom Craft",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Cup Combat Charms",
+    "summary": "The capstone of the Heart-Cutting Style branch: an extra-action Cup- or Staff-shaping attack whose results apply against a number of enemies equal to twice the raksha's Essence.",
+    "description": "The raksha crafts a terrible wave of madness and desire that washes out across the local weave of fate. The raksha makes a Cup-shaping or Staff-shaping attack, applying the results against a number of enemies equal to twice her Essence.",
+    "cost": "5 motes, 1 Willpower",
+    "duration": "Instant",
+    "type": "Extra Action",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["swift-wings-of-song"],
+    "prerequisiteText": "Swift Wings of Song",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 161,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 161",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "subversion-and-transformation-artifice",
+    "name": "Subversion and Transformation Artifice",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Cup Combat Charms",
+    "summary": "The second root of the Cup Combat Charms tree: crafts a permanent-glamour shaping weapon (chimera, heart thorn, or harness) from Essence and gossamer, letting the raksha divide bonus points among its statistics.",
+    "description": "The raksha plans and constructs a shaping weapon for her art. This Charm crafts a chimera, a heart thorn, a harness of razored dreams or a harness of twisting words from Essence and gossamer. In addition to the weapon's base qualities, the raksha can divide a number of points equal to her Cup between its speed, accuracy, damage, defense and rate. The creation is a permanent glamour that lasts for one story.",
+    "cost": "3 motes, 1 gossamer",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 161,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 161",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "overriding-construct-of-fate",
+    "name": "Overriding Construct of Fate",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Cup Combat Charms",
+    "summary": "An unblockable Cup- or Staff-shaping attack that, on a hit, also knocks the opponent into an adjacent waypoint.",
+    "description": "The raksha learns to craft patterns of fate seamless enough to seal an opponent out of the ongoing story. The raksha makes a Cup-shaping or Staff-shaping attack. This Charm makes the attack unblockable. In addition, if the raksha hits, this Charm knocks the opponent into an adjacent waypoint.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["subversion-and-transformation-artifice"],
+    "prerequisiteText": "Subversion and Transformation Artifice",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 161,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 161",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "elusive-object-of-desire",
+    "name": "Elusive Object of Desire",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Cup Combat Charms",
+    "summary": "The root of the named 'Spirit-Twisting Obsession Style' sub-tree: adds the raksha's Cup in automatic successes to any roll to escape, dodge, or parry an entanglement.",
+    "description": "Desire is strongest for forbidden fruit, and Entertainers therefore the most elusive of the fey. This Charm adds the raksha's Cup in automatic successes to the roll to escape, dodge or parry an entanglement.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 161,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 161",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "art-of-corrosion",
+    "name": "Art of Corrosion",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Cup Combat Charms",
+    "summary": "Forces a target to channel a praised Virtue on an already-declared action, even one inappropriate to that Virtue, via a contested Cup-shaping roll against the target's Essence.",
+    "description": "The weave of shaped fate praises the target's Virtues, clothing him in an adamant armor of righteousness that gives every action a numinous glory -- yet even adamant can crumble. The raksha uses this Charm after the target's player declares a shaping or normal action but before the target's player rolls. The player rolls Conviction + Performance in a Cup-shaping attack against a difficulty equal to the target's Essence. On success, this Charm forces the target to channel the praised Virtue on the declared action, even on actions inappropriate to that Virtue. It does not function if the target has no more temporary Willpower or has used all available channels for that Virtue this story.",
+    "cost": "5 motes, 1 Willpower",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["elusive-object-of-desire"],
+    "prerequisiteText": "Elusive Object of Desire",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 161,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 161",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "spirit-twisting-obsession-stance",
+    "name": "Spirit-Twisting Obsession Stance",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Cup Combat Charms",
+    "summary": "A Stance-type Charm naming a single opponent and subtracting the raksha's permanent Essence from that opponent's shaping dice pools, including defensive pools, for as long as the Stance holds.",
+    "description": "The raksha pours Essence into her Cup Grace, becoming a living symbol of the corruption of self. She names a single opponent, who must be a participant in the current story. This Charm subtracts the raksha's permanent Essence from the targeted opponent's shaping dice pools, including defensive pools. This is a Stance-type Charm; characters cannot use more than one Stance-type Charm at a time.",
+    "cost": "6 motes",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["art-of-corrosion"],
+    "prerequisiteText": "Art of Corrosion",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 161,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 161",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "This is a Stance-type Charm; characters cannot use more than one Stance-type Charm at a time, per its own mechanics text -- captured here as a narrative note rather than modeled as a schema field, matching this phase's handling of Thousand Tiny Hooks Technique's own Combo-type carve-out."
+    ]
+  },
+  {
+    "id": "decaying-principles",
+    "name": "Decaying Principles",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Cup Combat Charms",
+    "summary": "A Cup-shaping attack, undodgeable unless the victim channels Temperance, that spreads the corruption of Spirit-Twisting Obsession Stance and erodes the target's held principles.",
+    "description": "The raksha's corruption spreads. The target finds herself losing the principles she once held dear. The raksha makes a Cup-shaping attack. This Charm makes the attack undodgeable unless the victim channels Temperance into a dodge; it can be parried normally.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["spirit-twisting-obsession-stance"],
+    "prerequisiteText": "Spirit-Twisting Obsession Stance",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 162,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 162",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "twisting-spiral-of-collapse",
+    "name": "Twisting Spiral of Collapse",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Cup Combat Charms",
+    "summary": "Increases the rate of the raksha's chosen shaping weapon by one as the target's spirit continues to decline; stacks with multiple invocations and works on entanglement weapons.",
+    "description": "The decline of the target's spirit hastens. This Charm increases the rate of the raksha's chosen shaping weapon by one. Multiple invocations of this Charm stack. Note that this Charm functions on entanglement weapons such as harnesses of razored dreams.",
+    "cost": "5 motes, 1 Willpower",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["decaying-principles"],
+    "prerequisiteText": "Decaying Principles",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 162,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 162",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "subtle-breath-of-ruin",
+    "name": "Subtle Breath of Ruin",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Cup Combat Charms",
+    "summary": "A Cup-shaping attack via Conviction + Larceny that, on a hit, nullifies its own damage but instead raises the difficulty of all the target's shaping actions by the raksha's Essence for the scene.",
+    "description": "While the raksha's arts distract the target, the target's life -- within the Wyld's false weave of fate -- collapses. The raksha's player rolls Conviction + Larceny as a Cup-shaping attack. If the attack hits, this Charm nullifies the damage of the attack and, instead, increases the difficulty of all the target's shaping actions by the raksha's Essence for the remainder of the scene.",
+    "cost": "3 motes, 1 Willpower",
+    "duration": "One scene",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["spirit-twisting-obsession-stance"],
+    "prerequisiteText": "Spirit-Twisting Obsession Stance",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 162,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 162",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "insidious-distraction-technique",
+    "name": "Insidious Distraction Technique",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Cup Combat Charms",
+    "summary": "Caps the victim's ability to split shaping actions to her Temperance for the scene, and limits dodge/parry actions from a full dodge or parry to Temperance as well.",
+    "description": "The raksha's presence and practices make concentration difficult for her victim. The raksha uses this Charm at the beginning of the scene. The Charm reduces the victim's ability to split her shaping action: the victim cannot split his shaping action into more actions than his Temperance. The victim receives only his Temperance in dodge or parry actions from a full dodge or full parry.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["subtle-breath-of-ruin"],
+    "prerequisiteText": "Subtle Breath of Ruin",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 163,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 163",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "encouraging-futile-struggle",
+    "name": "Encouraging Futile Struggle",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Cup Combat Charms",
+    "summary": "A Cup-shaping attack that, on success, reduces the target's shaping soak against that single attack by the target's own Willpower.",
+    "description": "The target attempts to shut out the madness or passion that the raksha invokes and, failing, sinks further into the Entertainer's web. The raksha makes a Cup-shaping attack. If it is successful, this Charm reduces the target's shaping soak against only this attack by the target's Willpower.",
+    "cost": "5 motes, 1 Willpower",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["spirit-twisting-obsession-stance"],
+    "prerequisiteText": "Spirit-Twisting Obsession Stance",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 163,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 163",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "brilliant-glinting-lure",
+    "name": "Brilliant Glinting Lure",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Cup Combat Charms",
+    "summary": "Reshapes the raksha into the perfect object of obsession, adding her Performance in dice to her next Cup-shaping action, including reflexive actions such as Art of Corrosion.",
+    "description": "The raksha reshapes herself into the perfect object of obsession. This Charm adds her Performance in dice to her next Cup-shaping action, including reflexive shaping actions such as Art of Corrosion. The raksha cannot use this Charm to construct a dice pool from nothing.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": ["encouraging-futile-struggle"],
+    "prerequisiteText": "Encouraging Futile Struggle",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 163,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 163",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "eulogy-for-greatness-lost",
+    "name": "Eulogy for Greatness Lost",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Cup Combat Charms",
+    "summary": "The capstone of the Spirit-Twisting Obsession Style tree: a Cup-shaping attack that transforms each post-soak damage die into a success, standing triumphant over the crumbled ruins of the target's life.",
+    "description": "The raksha stands triumphant over the crumbled ruins of the target's life. The raksha makes a Cup-shaping attack. This Charm transforms each post-soak damage die into a success.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "twisting-spiral-of-collapse",
+      "insidious-distraction-technique",
+      "brilliant-glinting-lure"
+    ],
+    "prerequisiteText": "Twisting Spiral of Collapse, Insidious Distraction Technique, Brilliant Glinting Lure",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 163,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 163",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
   }
 ]
