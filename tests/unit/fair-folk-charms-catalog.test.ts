@@ -6,20 +6,20 @@ import {
   fairFolkCharms,
 } from '../../src/games/exalted1e/reference/fair-folk-powers';
 
-describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f + Phase 1g + Phase 1h + Phase 1i)', () => {
+describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f + Phase 1g + Phase 1h + Phase 1i + Phase 1j)', () => {
   it('loads all promoted Charm rows with unique stable IDs', () => {
-    expect(fairFolkCharms).toHaveLength(143);
-    expect(fairFolkCharmIds.size).toBe(143);
-    expect(fairFolkCharmById.size).toBe(143);
+    expect(fairFolkCharms).toHaveLength(150);
+    expect(fairFolkCharmIds.size).toBe(150);
+    expect(fairFolkCharmById.size).toBe(150);
   });
 
-  it('assigns every Charm a valid category from the twelve documented Fair Folk Charm categories', () => {
+  it('assigns every Charm a valid category from the fourteen documented Fair Folk Charm categories', () => {
     for (const charm of fairFolkCharms) {
       expect(fairFolkCharmCategories).toContain(charm.charmCategory);
     }
   });
 
-  it('distributes Charms across the twelve categories with the expected counts', () => {
+  it('distributes Charms across the fourteen categories with the expected counts', () => {
     const categoryCounts = new Map<string, number>();
     for (const charm of fairFolkCharms) {
       categoryCounts.set(
@@ -39,12 +39,14 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     expect(categoryCounts.get('Laughing Monster Style')).toBe(10);
     expect(categoryCounts.get('Society-Forging Charms')).toBe(2);
     expect(categoryCounts.get('Sword Combat Charms')).toBe(27);
+    expect(categoryCounts.get('Name Charms')).toBe(2);
+    expect(categoryCounts.get('Bedlam-Influencing Charms')).toBe(5);
     expect(
       Array.from(categoryCounts.values()).reduce(
         (sum, count) => sum + count,
         0,
       ),
-    ).toBe(143);
+    ).toBe(150);
   });
 
   it('resolves every prerequisiteCharms entry to another id in the same catalog (no dangling references)', () => {
@@ -93,10 +95,20 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         expect(charm.minimumRequirements[0]?.trait).toBe('Sword');
       } else if (
         charm.charmCategory === 'Dodge Charms' ||
-        charm.charmCategory === 'Resistance Charms'
+        charm.charmCategory === 'Resistance Charms' ||
+        charm.charmCategory === 'Name Charms'
       ) {
         expect(charm.minimumRequirements).toHaveLength(1);
         expect(charm.minimumRequirements[0]?.trait).toBe('Heart');
+      } else if (charm.charmCategory === 'Bedlam-Influencing Charms') {
+        // Genuinely cross-Grace: the root (Spectacular Insanity) gates
+        // on Heart, but its four branches each gate on a different
+        // Grace (Cup/Ring/Staff/Sword) -- no single trait assumption
+        // holds for this category.
+        expect(charm.minimumRequirements).toHaveLength(1);
+        expect(['Heart', 'Cup', 'Ring', 'Staff', 'Sword']).toContain(
+          charm.minimumRequirements[0]?.trait,
+        );
       } else {
         expect(charm.minimumRequirements).toEqual([]);
       }
@@ -665,6 +677,43 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     }
   });
 
+  it('keeps the two Name Charms independently purchasable with no prerequisites (a two-Charm section, not a branching tree)', () => {
+    for (const id of ['imposition-of-law', 'bastion-of-the-self']) {
+      expect(fairFolkCharmById.get(id)?.prerequisiteCharms).toEqual([]);
+      expect(fairFolkCharmById.get(id)?.charmCategory).toBe('Name Charms');
+      expect(fairFolkCharmById.get(id)?.minimumRequirements).toEqual([
+        { trait: 'Heart', rating: expect.any(Number) },
+      ]);
+    }
+  });
+
+  it('chains the genuinely cross-Grace Bedlam-Influencing Charms tree: Spectacular Insanity (Heart) star-branching into four Charms each gated on a different Grace', () => {
+    expect(
+      fairFolkCharmById.get('spectacular-insanity')?.prerequisiteCharms,
+    ).toEqual([]);
+    expect(
+      fairFolkCharmById.get('spectacular-insanity')?.minimumRequirements,
+    ).toEqual([{ trait: 'Heart', rating: 2 }]);
+
+    const branches: Array<[string, string]> = [
+      ['ambrosial-ascension', 'Cup'],
+      ['bedlam-masterworks', 'Ring'],
+      ['driven-madness', 'Staff'],
+      ['raging-vortex-form', 'Sword'],
+    ];
+    for (const [id, trait] of branches) {
+      expect(fairFolkCharmById.get(id)?.prerequisiteCharms).toEqual([
+        'spectacular-insanity',
+      ]);
+      expect(fairFolkCharmById.get(id)?.minimumRequirements[0]?.trait).toBe(
+        trait,
+      );
+      expect(fairFolkCharmById.get(id)?.charmCategory).toBe(
+        'Bedlam-Influencing Charms',
+      );
+    }
+  });
+
   it('assigns Combo-eligibility rules to every Charm, defaulting to eligible with no restrictions/specialRules except the two explicit overrides found so far', () => {
     for (const charm of fairFolkCharms) {
       expect(charm.comboRules).toBeDefined();
@@ -709,6 +758,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         'assumption-of-elemental-shape',
         'assumption-of-the-lands-heart',
         'assumption-of-the-wyld-tainted-land',
+        'bastion-of-the-self',
         'beguilement',
         'blight-charm',
         'burden-ghost-glamour',
@@ -717,10 +767,12 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         'glamour-charm',
         'great-works-of-the-grace',
         'impinging-web-of-dream',
+        'imposition-of-law',
         'laughing-monster-stance',
         'monstrous-conceit',
         'pox-charm',
         'racing-dragon-speed',
+        'spectacular-insanity',
         'spirit-twisting-obsession-stance',
         'swift-wings-of-song',
         'tainted-creature-command',

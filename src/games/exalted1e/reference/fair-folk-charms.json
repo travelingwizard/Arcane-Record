@@ -5498,5 +5498,277 @@
     "sourceDisplay": "Exalted: The Fair Folk, p. 205",
     "reviewStatus": "source-checked",
     "reviewFlags": []
+  },
+  {
+    "id": "imposition-of-law",
+    "name": "Imposition of Law",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Name Charms",
+    "summary": "Opens the Heart Grace's Name Charms; lets the raksha declare a single Attribute+Ability+specialty combination (or an unrolled task) as a truth about herself that she cannot fail at, backed by her very identity.",
+    "description": "The player chooses an Attribute, an Ability and a specialty (or, with Storyteller permission, an otherwise-unrolled task such as 'fertility' or 'attracting the notice of the Realm') when purchasing this Charm. On any normal dice action rolling that Attribute+Ability combination within that specialty, the raksha gets automatic success (a minimum of one success after difficulty and defenses) unless a Charm or stunt actively opposes her; if opposed by a Charm or stunt, this Charm instead grants two bonus successes rather than automatic success. For example, a raksha built around Dexterity + Melee (Swords) still misses an attack if the target reflexively dodges with a Charm after already parrying, because the automatic-success guarantee only holds against undefended actions. A player may purchase this Charm once per dot of the raksha's Heart, choosing a different Attribute/Ability/specialty combination each time.",
+    "cost": "10 motes, 1 Willpower, 4 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Heart",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 155,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 155",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "First Charm of the Heart Grace tree; Name Charms is a two-Charm section (this Charm plus Bastion of the Self), not a branching tree -- neither cites a prerequisite. The source's own text also describes Name Charms as 'key to the construction of behemoths,' a still-unpromoted Fair Folk mechanic."
+    ]
+  },
+  {
+    "id": "bastion-of-the-self",
+    "name": "Bastion of the Self (Grace)",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Name Charms",
+    "summary": "A second Name Charm granting the raksha near-total immunity to one category of harm (physical, mental, social, or damaging) as long as the attacker relies on nothing but mundane dice; any Charm-, stunt-, or shaping-augmented attack instead merely gets harder to land.",
+    "description": "At purchase, the player picks one of four variants: Bastion of the Self (Cup) protects against normal attacks/effects that weaken the raksha and against Cup-shaping attacks; Bastion of the Self (Ring) protects against undue mental influence and Ring-shaping attacks; Bastion of the Self (Staff) protects against undue social influence and Staff-shaping attacks; Bastion of the Self (Sword) protects against normal damaging attacks and Sword-shaping attacks. Against any attack in the chosen category that uses no Charm, stunt, or shaping action, the raksha is simply immune -- the attack fails outright, letting her walk unharmed through an army of unaugmented spearmen. Against an attack in that category backed by even a one- or two-die stunt, a Charm, or a shaping action, this Charm does not grant immunity; it instead raises the difficulty of hitting the raksha by 2.",
+    "cost": "10 motes, 1 Willpower, 4 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Heart",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 156,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 156",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "The source's own compatibility line limits this Charm to a single purchase ('Players can purchase this Charm only once'), locking in only one of its four Grace-keyed variants (Cup/Ring/Staff/Sword), but then adds its own hedge that a raksha could 'presumably' learn it again later for a second variant, 'subject to Storyteller ruling' -- a genuine source-text ambiguity, not a transcription gap. No schema field tracks per-Charm repurchase limits of any kind."
+    ]
+  },
+  {
+    "id": "spectacular-insanity",
+    "name": "Spectacular Insanity",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Bedlam-Influencing Charms",
+    "summary": "The root Charm of the Bedlam-Influencing Charms tree (a tree that, unusually, draws its branches from all five Graces rather than just Heart); converts the raksha's entry into bedlam from a pure debility into a fuel source, paying out Willpower and gossamer instead.",
+    "description": "The raksha reshapes her Virtues as she passes through the gateway Nirakara, changing how her psyche responds to bedlam. Each time this Charm is active and the raksha enters bedlam, invoking it grants her Willpower and gossamer equal to the rating of whichever Virtue's last channel triggered the bedlam.",
+    "cost": "5 motes, 1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Heart",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 156,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 156",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "Root of the Bedlam-Influencing Charms tree -- unusually, this tree's four branches (Ambrosial Ascension, Bedlam Masterworks, Driven Madness, Raging Vortex Form) are each gated on a different Grace (Cup/Ring/Staff/Sword respectively) rather than all sharing this root Charm's own Heart gating, confirmed against the tree diagram on p. 157 (PDF 158). This Charm's own effect activates during the Bedlam mechanic, which (like the rest of Bedlam's channel-counting trigger) is session/scene-tracked play-table bookkeeping this app does not model."
+    ]
+  },
+  {
+    "id": "ambrosial-ascension",
+    "name": "Ambrosial Ascension",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Bedlam-Influencing Charms",
+    "summary": "A Cup-gated branch of the Bedlam-Influencing tree: while the raksha is in bedlam, she becomes an irresistibly beatific, terrifyingly beautiful figure that anyone trying to impede or attack her must overcome a Willpower roll just to bring themselves to act against.",
+    "description": "A raksha who enters bedlam with this Charm active radiates an angelic, beatific aspect -- glorious and unconquerable beauty undiminished by the ravening madness written across her face, making her an object every Creation-born character desires. While the raksha is in bedlam and this Charm is active, any character whose player wishes to impede or attack her must first succeed on a difficulty 2 Willpower roll; this roll need only be made once per turn for any given character, not once per action.",
+    "cost": "8 motes, 1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["spectacular-insanity"],
+    "prerequisiteText": "Spectacular Insanity",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 156,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 156",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "bedlam-masterworks",
+    "name": "Bedlam Masterworks",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Bedlam-Influencing Charms",
+    "summary": "A Ring-gated branch of the Bedlam-Influencing tree: when the raksha returns from bedlam, she brings back inexplicable mad craftworks -- artifacts containing recoverable gossamer -- as an involuntary side effect of her Ring's self-defining nature.",
+    "description": "As the raksha's bedlam fades, her player rolls Intelligence + Craft (Glamour); the resulting objects are craftworks of madness inexplicable even to the raksha whose spirit constructed them. Each success on the roll yields one incomprehensible artifact containing a single point of gossamer, which anyone can later shatter or ravish to claim that gossamer.",
+    "cost": "10 motes, 1 Willpower, 1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["spectacular-insanity"],
+    "prerequisiteText": "Spectacular Insanity",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 156,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 156",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "driven-madness",
+    "name": "Driven Madness",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Bedlam-Influencing Charms",
+    "summary": "A Staff-gated branch of the Bedlam-Influencing tree: the raksha shapes herself to the rigor of a binding oath, gaining bonus successes on Virtue rolls that help her keep it -- a benefit that persists even while she is in bedlam.",
+    "description": "The raksha shapes herself to the rigor of a binding oath. This Charm gives her three bonus successes on all non-shaping Virtue rolls that help her keep that oath, and this bonus continues to apply even while she is in bedlam, when her Virtue rolls would otherwise suffer the standard +2 bedlam difficulty penalty.",
+    "cost": "5 motes, 1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Staff",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["spectacular-insanity"],
+    "prerequisiteText": "Spectacular Insanity",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 156,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 156",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "raging-vortex-form",
+    "name": "Raging Vortex Form",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Bedlam-Influencing Charms",
+    "summary": "A Sword-gated branch of the Bedlam-Influencing tree: bedlam triggers a passage through Nirakara into monstrous shape, letting the raksha temporarily mutate herself with mutation points scaled to half her permanent Willpower for as long as bedlam lasts.",
+    "description": "At the dry base of the raksha's well of Virtue a monster lurks; bedlam can trigger a passage through Nirakara and the assumption of monstrous shape. Activating this Charm while in bedlam grants the raksha temporary mutation points equal to half her permanent Willpower, which can simulate the permanent effects of any raksha Charms without calcifying her (the normal Essence-plus-mutation-points cap does not force calcification here) and which last only until she leaves bedlam. The player chooses the specific mutations when purchasing the Charm and can only change that choice when the raksha's permanent Willpower rating itself changes.",
+    "cost": "10 motes, 1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["spectacular-insanity"],
+    "prerequisiteText": "Spectacular Insanity",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 157,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 157",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
   }
 ]

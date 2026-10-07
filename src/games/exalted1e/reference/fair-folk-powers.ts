@@ -128,7 +128,21 @@ import type { PowerReviewStatus } from './dragonblooded-powers';
  * shape exactly. Racing Dragon Speed carries a `reviewFlags` note for a
  * genuine anomaly confirmed against the source's own page image: its
  * repurchase cap is keyed to the raksha's Compassion rating, not her
- * Sword like every other repurchasable Charm in this section.
+ * Sword like every other repurchasable Charm in this section. Phase 1j
+ * adds 7 more: the Heart's own `'Name Charms'` (2 entries, pp. 155-156
+ * -- Imposition of Law and Bastion of the Self, a two-Charm section
+ * with no diagrammed tree of its own; neither cites a prerequisite)
+ * and the genuinely cross-Grace `'Bedlam-Influencing Charms'` (5
+ * entries, pp. 156-157 -- Spectacular Insanity as the Heart-gated
+ * root, star-branching into four Charms each gated on a *different*
+ * Grace: Ambrosial Ascension on Cup, Bedlam Masterworks on Ring,
+ * Driven Madness on Staff, and Raging Vortex Form on Sword). Unlike
+ * every prior "cross-Grace crossover" Charm (a single Charm diagrammed
+ * under one Grace's tree but gated on a different Grace, e.g.
+ * Beguilement, Undetectable Lie), Bedlam-Influencing Charms is a
+ * genuinely multi-Grace-keyed tree by design -- each branch's own
+ * `minimumRequirements` reflects its own differently-named Grace, with
+ * no single category-wide trait assumption possible.
  */
 export const fairFolkCharmCategories = [
   'Grace Forging',
@@ -143,6 +157,8 @@ export const fairFolkCharmCategories = [
   'Laughing Monster Style',
   'Society-Forging Charms',
   'Sword Combat Charms',
+  'Name Charms',
+  'Bedlam-Influencing Charms',
 ] as const;
 export type FairFolkCharmCategory = (typeof fairFolkCharmCategories)[number];
 
@@ -181,9 +197,12 @@ const reviewStatusSchema: z.ZodType<PowerReviewStatus> = z.enum([
  * (Tainted Creature Command, Monstrous Conceit, Akshata Sexual
  * Methodology, Beguilement, Undetectable Lie), Sword for the Mutation
  * Charms (Pox, Affliction, Blight)/Sword Combat Charms, Heart for the
- * Dodge/Resistance Charms, Cup for the rest of the Cup Combat Charms,
- * Ring for the rest of Ring Combat Charms/All-Consuming God-Monster
- * Style, and Staff for Laughing Monster Style/Society-Forging Charms.
+ * Dodge/Resistance Charms/Name Charms, Cup for the rest of the Cup
+ * Combat Charms, Ring for the rest of Ring Combat Charms/All-Consuming
+ * God-Monster Style, Staff for Laughing Monster Style/Society-Forging
+ * Charms, and (uniquely) a different Grace per Charm within
+ * Bedlam-Influencing Charms (Heart for its root, then one of
+ * Cup/Ring/Staff/Sword per branch).
  */
 const fairFolkCharmSchema = z.object({
   id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
@@ -213,7 +232,7 @@ const fairFolkCharmSchema = z.object({
 });
 
 /**
- * 143 of the many Charm rows found in Fair Folk's Chapter Five inventory
+ * 150 of the many Charm rows found in Fair Folk's Chapter Five inventory
  * range. Phase 1b's 19: the 6 "Forging the (Grace) Grace" Charms (Heart,
  * Cup, Ring, Staff, Sword, and the exotic sixth Way Grace), the 4 parallel
  * Freehold-anchor Charms that branch off Forging the Arcane Redoubt
@@ -236,11 +255,14 @@ const fairFolkCharmSchema = z.object({
  * repertoire. Phase 1h added 27 more: the full "Sword Combat Charms"
  * section (pp. 196-202), including its own nested World-Devouring
  * Warlord Style sub-tree -- the fifth and final per-Grace Combat Charm
- * tree. Phase 1i adds 12 more: the remaining "Mutation Charms" rows
+ * tree. Phase 1i added 12 more: the remaining "Mutation Charms" rows
  * (pp. 203-205) left unpromoted since Phase 1c, a mostly independent
- * collection rather than a single connected tree. Every one is
- * `disposition: 'selectable'` and `verificationState: 'reviewed'` in
- * the inventory. Phase 1c's own `shape-forged-servant` and
+ * collection rather than a single connected tree. Phase 1j adds 7
+ * more: the Heart's own "Name Charms" (2 entries, pp. 155-156) and the
+ * genuinely cross-Grace "Bedlam-Influencing Charms" (5 entries, pp.
+ * 156-157). Every one is `disposition: 'selectable'` and
+ * `verificationState: 'reviewed'` in the inventory. Phase 1c's own
+ * `shape-forged-servant` and
  * `awakened-dream-manufacture` resolved Phase 1b's
  * `forging-the-heart-grace` prerequisite gap, so its `prerequisiteCharms`
  * was updated to `['shape-forged-servant']` accordingly. Phase 1f
@@ -253,13 +275,13 @@ const fairFolkCharmSchema = z.object({
  * 'glamour-charm']` and its now-stale "not itself promoted" `reviewFlags`
  * note was removed (its separate, still-true cross-Grace Staff-gating
  * note was kept). Phase 1d's, Phase 1e's, Phase 1f's, Phase 1g's, Phase
- * 1h's, and Phase 1i's own new Charms have no such gap of their own:
- * every prerequisite they cite resolves cleanly within these same
- * self-contained trees.
+ * 1h's, Phase 1i's, and Phase 1j's own new Charms have no such gap of
+ * their own: every prerequisite they cite resolves cleanly within
+ * these same self-contained trees.
  */
 const fairFolkCharmCatalogSchema = z
   .array(fairFolkCharmSchema)
-  .length(143)
+  .length(150)
   .superRefine((charms, context) => {
     const ids = charms.map(({ id }) => id);
     if (new Set(ids).size !== ids.length) {
@@ -313,10 +335,12 @@ const defaultComboRules: CharmComboRules = {
  * outright prohibitions). Phase 1h's own 27 new Charms (the full Sword
  * Combat Charms section) contained no explicit Combo sentence of either
  * kind, and neither did Phase 1i's own 12 new Charms (the remaining
- * Mutation Charms). Every Charm without an entry in this map still falls
- * through to `defaultComboRules` (Combo-eligible, no restrictions) -- an
- * honest reflection of what source review found, not an assumption that
- * no such restriction or interaction exists anywhere in the book.
+ * Mutation Charms) or Phase 1j's own 7 new Charms (Name Charms and
+ * Bedlam-Influencing Charms). Every Charm without an entry in this map
+ * still falls through to `defaultComboRules` (Combo-eligible, no
+ * restrictions) -- an honest reflection of what source review found, not
+ * an assumption that no such restriction or interaction exists anywhere
+ * in the book.
  */
 const explicitComboRules: Record<string, Partial<CharmComboRules>> = {
   'thousand-tiny-hooks-technique': {
