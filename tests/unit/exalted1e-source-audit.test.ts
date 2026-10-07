@@ -280,34 +280,38 @@ describe('auditFamily against the real repository (current state)', () => {
   });
 
   it('reports Fair Folk as pending-certification with its real inventory rows and zero audit errors', () => {
-    // 161 = the 150 real, page-cited, visually-reviewed Charms promoted in
+    // 174 = the 163 real, page-cited, visually-reviewed Charms promoted in
     // `fair-folk-charms.json` (19 Grace-Forging/Assumption from Phase 1b,
     // 25 Glamour/Grace-Forging/Mutation Charms from Phase 1c, 7
     // Dodge/Resistance Charms from Phase 1d, 19 Cup Combat Charms from
     // Phase 1e, 22 Ring Combat Charms/All-Consuming God-Monster Style
     // Charms from Phase 1f, 12 Laughing Monster Style/Society-Forging
     // Charms from Phase 1g, 27 Sword Combat Charms from Phase 1h, 12
-    // more Mutation Charms from Phase 1i, and 7 Name/Bedlam-Influencing
-    // Charms from Phase 1j), the 6 Graces rows in `fair-folk-graces.json`,
-    // and the 5 Bedlam rows in `fair-folk-bedlam.json` (all Phase 1b), as
-    // counted directly from `src/games/exalted1e/reference/fair-folk-*.json`
-    // by this audit script. The stale
-    // `./reference/ocr-drafts/fair-folk-charms.json` draft (a raw OCR
-    // extraction with several garbled ids that don't match this family's
-    // real inventory) remains outside this glob and unwired, exactly
-    // matching Alchemical's own identical precedent above. This differs
-    // from `certification/fair-folk.json`'s own `catalog.promotedEntries`
-    // (249), which also includes Phase 1a's 88 Backgrounds/Merits-Flaws
-    // rows, none of which live in a `fair-folk-`-prefixed catalog file
-    // (Backgrounds live in `definitions.ts`; Merits/Flaws are a subset of
-    // the shared `dragonblooded-merits-flaws.json`), so this audit
-    // script's file-glob does not count them -- matching Sidereal's,
-    // Abyssal's, and Alchemical's own identical precedent above.
+    // more Mutation Charms from Phase 1i, 7 Name/Bedlam-Influencing
+    // Charms from Phase 1j, and 13 more Assumption/Elemental-Influence/
+    // Emotional-Influence Charms from Phase 1k -- Mad God Mien, the
+    // three-branch Elemental Influence tree converging at Mercurial
+    // Shape, and the two-branch Emotional Influence tree), the 6 Graces
+    // rows in `fair-folk-graces.json`, and the 5 Bedlam rows in
+    // `fair-folk-bedlam.json` (all Phase 1b), as counted directly from
+    // `src/games/exalted1e/reference/fair-folk-*.json` by this audit
+    // script. The stale `./reference/ocr-drafts/fair-folk-charms.json`
+    // draft (a raw OCR extraction with several garbled ids that don't
+    // match this family's real inventory) remains outside this glob and
+    // unwired, exactly matching Alchemical's own identical precedent
+    // above. This differs from `certification/fair-folk.json`'s own
+    // `catalog.promotedEntries` (262), which also includes Phase 1a's 88
+    // Backgrounds/Merits-Flaws rows, none of which live in a
+    // `fair-folk-`-prefixed catalog file (Backgrounds live in
+    // `definitions.ts`; Merits/Flaws are a subset of the shared
+    // `dragonblooded-merits-flaws.json`), so this audit script's
+    // file-glob does not count them -- matching Sidereal's, Abyssal's,
+    // and Alchemical's own identical precedent above.
     const report = auditFamily('fair-folk');
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);
     expect(report.inventoryRows).toBeGreaterThan(0);
-    expect(report.promotedEntries).toBe(161);
+    expect(report.promotedEntries).toBe(174);
     expect(report.catalogChecksum).toHaveLength(8);
     expect(report.catalogChecksum).toMatch(/^[0-9a-f]{8}$/);
   });

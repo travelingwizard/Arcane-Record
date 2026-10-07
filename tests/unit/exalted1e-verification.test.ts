@@ -96,7 +96,7 @@ describe('exalted1e verification gate', () => {
               : family === 'alchemical'
                 ? 214
                 : family === 'fair-folk'
-                  ? 249
+                  ? 262
                   : 0,
       );
       if (
@@ -130,6 +130,7 @@ describe('exalted1e verification gate', () => {
         // promotable); Phase 1h grew it again to 131 rows (142 of 279
         // promotable); Phase 1i grew it again to 143 rows (154 of 279
         // promotable); Phase 1j grew it again to 150 rows (161 of 279
+        // promotable); Phase 1k grew it again to 163 rows (174 of 279
         // promotable now -- the catalog dimension stays far from closed).
         expect(record.catalog.checksum).toBe(
           auditFamily(family).catalogChecksum,
@@ -248,10 +249,10 @@ describe('exalted1e verification gate', () => {
     expect(isFamilyAvailable('alchemical')).toBe(false);
   });
 
-  it('reflects Fair Folk Phase 1a/1b/1c/1d/1e/1f/1g/1h/1i/1j catalog promotion without unlocking the family', () => {
+  it('reflects Fair Folk Phase 1a/1b/1c/1d/1e/1f/1g/1h/1i/1j/1k catalog promotion without unlocking the family', () => {
     const record = certificationRecords['fair-folk'];
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
-    // 249 = Phase 1a's 88 (13 Backgrounds (fairFolkBackgrounds) + 75 shared
+    // 262 = Phase 1a's 88 (13 Backgrounds (fairFolkBackgrounds) + 75 shared
     // Merits/Flaws catalog entries now carrying 'fair-folk' in appliesTo --
     // 73 inventoried pg-merit-*/pg-flaw-* rows resolving one-for-one,
     // except the two dual merit/flaw split pairs -- mutation-merit/
@@ -274,8 +275,12 @@ describe('exalted1e verification gate', () => {
     // final per-Grace Combat Charm tree) plus Phase 1i's 12 more Charms
     // (the remaining Mutation Charms rows left unpromoted since Phase 1c)
     // plus Phase 1j's 7 more Charms (the Heart's own Name Charms and the
-    // genuinely cross-Grace Bedlam-Influencing Charms), extending
-    // fair-folk-charms.json from 19 to 150 rows. This is far short of the
+    // genuinely cross-Grace Bedlam-Influencing Charms) plus Phase 1k's 13
+    // more Charms (Mad God Mien joining the existing Assumption category,
+    // the three-branch Elemental Influence tree converging at Mercurial
+    // Shape, and the two-branch Emotional Influence tree -- completing
+    // the entire universal Assumption-type Charm section), extending
+    // fair-folk-charms.json from 19 to 163 rows. This is far short of the
     // 279 preliminary `promotableEntries` estimate (flagged as
     // approximate pending this family's own remaining
     // Charm/Sorcery/Artifact catalog phases). Phase 1b's three new
@@ -284,10 +289,10 @@ describe('exalted1e verification gate', () => {
     // -- exactly matching Alchemical's own Phase 1a -> 1b transition
     // (checksum stayed empty until its own Phase 1b added a real
     // `alchemical-`-prefixed file); Phase 1c, Phase 1d, Phase 1e, Phase
-    // 1f, Phase 1g, Phase 1h, Phase 1i, and Phase 1j each changed the
-    // checksum again simply by growing the same `fair-folk-charms.json`
-    // file.
-    expect(record.catalog.promotedEntries).toBe(249);
+    // 1f, Phase 1g, Phase 1h, Phase 1i, Phase 1j, and Phase 1k each
+    // changed the checksum again simply by growing the same
+    // `fair-folk-charms.json` file.
+    expect(record.catalog.promotedEntries).toBe(262);
     expect(record.catalog.checksum.length).toBeGreaterThan(0);
     expect(isFamilyAvailable('fair-folk')).toBe(false);
   });

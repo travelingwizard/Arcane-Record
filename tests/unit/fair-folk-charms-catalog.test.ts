@@ -6,20 +6,20 @@ import {
   fairFolkCharms,
 } from '../../src/games/exalted1e/reference/fair-folk-powers';
 
-describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f + Phase 1g + Phase 1h + Phase 1i + Phase 1j)', () => {
+describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f + Phase 1g + Phase 1h + Phase 1i + Phase 1j + Phase 1k)', () => {
   it('loads all promoted Charm rows with unique stable IDs', () => {
-    expect(fairFolkCharms).toHaveLength(150);
-    expect(fairFolkCharmIds.size).toBe(150);
-    expect(fairFolkCharmById.size).toBe(150);
+    expect(fairFolkCharms).toHaveLength(163);
+    expect(fairFolkCharmIds.size).toBe(163);
+    expect(fairFolkCharmById.size).toBe(163);
   });
 
-  it('assigns every Charm a valid category from the fourteen documented Fair Folk Charm categories', () => {
+  it('assigns every Charm a valid category from the sixteen documented Fair Folk Charm categories', () => {
     for (const charm of fairFolkCharms) {
       expect(fairFolkCharmCategories).toContain(charm.charmCategory);
     }
   });
 
-  it('distributes Charms across the fourteen categories with the expected counts', () => {
+  it('distributes Charms across the sixteen categories with the expected counts', () => {
     const categoryCounts = new Map<string, number>();
     for (const charm of fairFolkCharms) {
       categoryCounts.set(
@@ -28,7 +28,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
       );
     }
     expect(categoryCounts.get('Grace Forging')).toBe(19);
-    expect(categoryCounts.get('Assumption')).toBe(8);
+    expect(categoryCounts.get('Assumption')).toBe(9);
     expect(categoryCounts.get('Glamour Charms')).toBe(14);
     expect(categoryCounts.get('Mutation Charms')).toBe(15);
     expect(categoryCounts.get('Dodge Charms')).toBe(4);
@@ -41,12 +41,14 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     expect(categoryCounts.get('Sword Combat Charms')).toBe(27);
     expect(categoryCounts.get('Name Charms')).toBe(2);
     expect(categoryCounts.get('Bedlam-Influencing Charms')).toBe(5);
+    expect(categoryCounts.get('Elemental Influence')).toBe(7);
+    expect(categoryCounts.get('Emotional Influence')).toBe(5);
     expect(
       Array.from(categoryCounts.values()).reduce(
         (sum, count) => sum + count,
         0,
       ),
-    ).toBe(150);
+    ).toBe(163);
   });
 
   it('resolves every prerequisiteCharms entry to another id in the same catalog (no dangling references)', () => {
@@ -72,7 +74,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     }
   });
 
-  it('keys every Grace Forging/Glamour/Dodge/Resistance/Cup-Combat/Ring-Combat/Staff-Combat/Sword-Combat Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption Charm to no Grace minimum at all', () => {
+  it('keys every Grace Forging/Glamour/Dodge/Resistance/Cup-Combat/Ring-Combat/Staff-Combat/Sword-Combat Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption/Elemental-Influence/Emotional-Influence Charm to no Grace minimum at all', () => {
     for (const charm of fairFolkCharms) {
       if (
         charm.charmCategory === 'Grace Forging' ||
@@ -714,6 +716,93 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     }
   });
 
+  it('keeps Mad God Mien in the existing Assumption category with an unresolvable "Any Assumption-type Charm" prerequisite, and resolves extinction-of-desire\'s own stale cross-reference note now that it is promoted', () => {
+    const madGodMien = fairFolkCharmById.get('mad-god-mien');
+    expect(madGodMien?.charmCategory).toBe('Assumption');
+    expect(madGodMien?.prerequisiteCharms).toEqual([]);
+    expect(madGodMien?.prerequisiteText).toBe('Any Assumption-type Charm');
+
+    const extinctionOfDesire = fairFolkCharmById.get('extinction-of-desire');
+    expect(
+      extinctionOfDesire?.reviewFlags.some((flag) =>
+        flag.includes('not yet promoted'),
+      ),
+    ).toBe(false);
+  });
+
+  it('chains the Elemental Influence sub-tree: three branches off Assumption of Elemental Shape, converging at Mercurial Shape', () => {
+    expect(
+      fairFolkCharmById.get('sovereign-elemental-shape')?.prerequisiteCharms,
+    ).toEqual(['assumption-of-elemental-shape']);
+    expect(
+      fairFolkCharmById.get('element-weaving-style')?.prerequisiteCharms,
+    ).toEqual(['sovereign-elemental-shape']);
+    expect(
+      fairFolkCharmById.get('elemental-invocation')?.prerequisiteCharms,
+    ).toEqual(['element-weaving-style']);
+    expect(
+      fairFolkCharmById.get('world-angering-elemental-mastery')
+        ?.prerequisiteCharms,
+    ).toEqual(['assumption-of-elemental-shape']);
+    expect(
+      fairFolkCharmById.get('teeth-of-the-world')?.prerequisiteCharms,
+    ).toEqual(['world-angering-elemental-mastery']);
+    expect(
+      fairFolkCharmById.get('elemental-transformation')?.prerequisiteCharms,
+    ).toEqual(['assumption-of-elemental-shape']);
+    expect(
+      fairFolkCharmById.get('mercurial-shape')?.prerequisiteCharms,
+    ).toEqual(
+      expect.arrayContaining([
+        'sovereign-elemental-shape',
+        'elemental-transformation',
+      ]),
+    );
+    for (const id of [
+      'sovereign-elemental-shape',
+      'element-weaving-style',
+      'elemental-invocation',
+      'world-angering-elemental-mastery',
+      'teeth-of-the-world',
+      'elemental-transformation',
+      'mercurial-shape',
+    ]) {
+      expect(fairFolkCharmById.get(id)?.charmCategory).toBe(
+        'Elemental Influence',
+      );
+    }
+  });
+
+  it('chains the Emotional Influence sub-tree: two branches off Assumption of Dreams and Passion, with no convergence', () => {
+    expect(
+      fairFolkCharmById.get('elegant-muse-attitude')?.prerequisiteCharms,
+    ).toEqual(['assumption-of-dreams-and-passion']);
+    expect(
+      fairFolkCharmById.get('emotion-weaving-style')?.prerequisiteCharms,
+    ).toEqual(['elegant-muse-attitude']);
+    expect(
+      fairFolkCharmById.get('emotional-invocation')?.prerequisiteCharms,
+    ).toEqual(['emotion-weaving-style']);
+    expect(
+      fairFolkCharmById.get('unwanted-obsession-provocation-technique')
+        ?.prerequisiteCharms,
+    ).toEqual(['assumption-of-dreams-and-passion']);
+    expect(
+      fairFolkCharmById.get('essence-disrobing-passion')?.prerequisiteCharms,
+    ).toEqual(['unwanted-obsession-provocation-technique']);
+    for (const id of [
+      'elegant-muse-attitude',
+      'emotion-weaving-style',
+      'emotional-invocation',
+      'unwanted-obsession-provocation-technique',
+      'essence-disrobing-passion',
+    ]) {
+      expect(fairFolkCharmById.get(id)?.charmCategory).toBe(
+        'Emotional Influence',
+      );
+    }
+  });
+
   it('assigns Combo-eligibility rules to every Charm, defaulting to eligible with no restrictions/specialRules except the two explicit overrides found so far', () => {
     for (const charm of fairFolkCharms) {
       expect(charm.comboRules).toBeDefined();
@@ -762,6 +851,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         'beguilement',
         'blight-charm',
         'burden-ghost-glamour',
+        'elemental-invocation',
         'extinction-of-desire',
         'forging-the-way-grace',
         'glamour-charm',
@@ -769,6 +859,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         'impinging-web-of-dream',
         'imposition-of-law',
         'laughing-monster-stance',
+        'mad-god-mien',
         'monstrous-conceit',
         'pox-charm',
         'racing-dragon-speed',

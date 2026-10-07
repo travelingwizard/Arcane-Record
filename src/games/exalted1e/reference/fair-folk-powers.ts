@@ -142,7 +142,26 @@ import type { PowerReviewStatus } from './dragonblooded-powers';
  * Beguilement, Undetectable Lie), Bedlam-Influencing Charms is a
  * genuinely multi-Grace-keyed tree by design -- each branch's own
  * `minimumRequirements` reflects its own differently-named Grace, with
- * no single category-wide trait assumption possible.
+ * no single category-wide trait assumption possible. Phase 1k adds 13
+ * more, closing out the universal, Grace-independent "Assumption-Type
+ * Charms" section Phase 1b opened: Mad God Mien (1 entry, p. 150,
+ * joining the existing `'Assumption'` category -- its own Prerequisite
+ * Charms line reads "Any Assumption-type Charm" rather than naming a
+ * specific Charm, so `prerequisiteCharms` stays empty and the real
+ * requirement lives in `prerequisiteText`; this also resolves
+ * `extinction-of-desire`'s own stale "not yet promoted" cross-reference
+ * note from Phase 1c), the new `'Elemental Influence'` sub-tree (7
+ * entries, pp. 151-154 -- three branches off the already-promoted
+ * Assumption of Elemental Shape: Sovereign Elemental Shape -> Element-
+ * Weaving Style -> Elemental Invocation; World-Angering Elemental
+ * Mastery -> Teeth of the World; and Elemental Transformation, which
+ * converges with Sovereign Elemental Shape at the closing Mercurial
+ * Shape), and the new `'Emotional Influence'` sub-tree (5 entries, pp.
+ * 154-155 -- the Emotional-Essence analog, two branches off the
+ * already-promoted Assumption of Dreams and Passion: Elegant Muse
+ * Attitude -> Emotion-Weaving Style -> Emotional Invocation, and
+ * Unwanted Obsession Provocation Technique -> Essence-Disrobing
+ * Passion, with no convergence this time).
  */
 export const fairFolkCharmCategories = [
   'Grace Forging',
@@ -159,6 +178,8 @@ export const fairFolkCharmCategories = [
   'Sword Combat Charms',
   'Name Charms',
   'Bedlam-Influencing Charms',
+  'Elemental Influence',
+  'Emotional Influence',
 ] as const;
 export type FairFolkCharmCategory = (typeof fairFolkCharmCategories)[number];
 
@@ -202,7 +223,11 @@ const reviewStatusSchema: z.ZodType<PowerReviewStatus> = z.enum([
  * God-Monster Style, Staff for Laughing Monster Style/Society-Forging
  * Charms, and (uniquely) a different Grace per Charm within
  * Bedlam-Influencing Charms (Heart for its root, then one of
- * Cup/Ring/Staff/Sword per branch).
+ * Cup/Ring/Staff/Sword per branch). Elemental Influence and Emotional
+ * Influence are the exception: like the rest of the universal
+ * Assumption-type tree, every Charm in both sub-trees gates purely on
+ * Minimum Essence with no Grace requirement at all, so
+ * `minimumRequirements` stays empty for all 12 of their entries.
  */
 const fairFolkCharmSchema = z.object({
   id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
@@ -232,7 +257,7 @@ const fairFolkCharmSchema = z.object({
 });
 
 /**
- * 150 of the many Charm rows found in Fair Folk's Chapter Five inventory
+ * 163 of the many Charm rows found in Fair Folk's Chapter Five inventory
  * range. Phase 1b's 19: the 6 "Forging the (Grace) Grace" Charms (Heart,
  * Cup, Ring, Staff, Sword, and the exotic sixth Way Grace), the 4 parallel
  * Freehold-anchor Charms that branch off Forging the Arcane Redoubt
@@ -260,9 +285,13 @@ const fairFolkCharmSchema = z.object({
  * collection rather than a single connected tree. Phase 1j adds 7
  * more: the Heart's own "Name Charms" (2 entries, pp. 155-156) and the
  * genuinely cross-Grace "Bedlam-Influencing Charms" (5 entries, pp.
- * 156-157). Every one is `disposition: 'selectable'` and
- * `verificationState: 'reviewed'` in the inventory. Phase 1c's own
- * `shape-forged-servant` and
+ * 156-157). Phase 1k adds 13 more, closing out the universal
+ * Assumption-type section entirely: Mad God Mien (1 entry, p. 150,
+ * joining the existing "Assumption" category), the new "Elemental
+ * Influence" sub-tree (7 entries, pp. 151-154), and the new "Emotional
+ * Influence" sub-tree (5 entries, pp. 154-155). Every one is
+ * `disposition: 'selectable'` and `verificationState: 'reviewed'` in
+ * the inventory. Phase 1c's own `shape-forged-servant` and
  * `awakened-dream-manufacture` resolved Phase 1b's
  * `forging-the-heart-grace` prerequisite gap, so its `prerequisiteCharms`
  * was updated to `['shape-forged-servant']` accordingly. Phase 1f
@@ -274,14 +303,21 @@ const fairFolkCharmSchema = z.object({
  * was updated from `['glamour-charm']` to `['undetectable-lie',
  * 'glamour-charm']` and its now-stale "not itself promoted" `reviewFlags`
  * note was removed (its separate, still-true cross-Grace Staff-gating
- * note was kept). Phase 1d's, Phase 1e's, Phase 1f's, Phase 1g's, Phase
- * 1h's, Phase 1i's, and Phase 1j's own new Charms have no such gap of
- * their own: every prerequisite they cite resolves cleanly within
- * these same self-contained trees.
+ * note was kept). Phase 1k resolved a third such gap: Phase 1c's own
+ * `extinction-of-desire` referenced Mad God Mien by name ('gains the
+ * benefits of Mad God Mien') without a resolvable catalog entry at the
+ * time; once Phase 1k promoted `mad-god-mien` itself, that now-stale
+ * `reviewFlags` note was removed (this remains a narrative
+ * cross-reference in descriptive text, not a `prerequisiteCharms`
+ * dependency, since Extinction of Desire's own gating is unrelated).
+ * Phase 1d's, Phase 1e's, Phase 1f's, Phase 1g's, Phase 1h's, Phase
+ * 1i's, and Phase 1j's own new Charms have no such gap of their own:
+ * every prerequisite they cite resolves cleanly within these same
+ * self-contained trees.
  */
 const fairFolkCharmCatalogSchema = z
   .array(fairFolkCharmSchema)
-  .length(150)
+  .length(163)
   .superRefine((charms, context) => {
     const ids = charms.map(({ id }) => id);
     if (new Set(ids).size !== ids.length) {
@@ -335,12 +371,13 @@ const defaultComboRules: CharmComboRules = {
  * outright prohibitions). Phase 1h's own 27 new Charms (the full Sword
  * Combat Charms section) contained no explicit Combo sentence of either
  * kind, and neither did Phase 1i's own 12 new Charms (the remaining
- * Mutation Charms) or Phase 1j's own 7 new Charms (Name Charms and
- * Bedlam-Influencing Charms). Every Charm without an entry in this map
- * still falls through to `defaultComboRules` (Combo-eligible, no
- * restrictions) -- an honest reflection of what source review found, not
- * an assumption that no such restriction or interaction exists anywhere
- * in the book.
+ * Mutation Charms), Phase 1j's own 7 new Charms (Name Charms and
+ * Bedlam-Influencing Charms), or Phase 1k's own 13 new Charms (Mad God
+ * Mien, Elemental Influence, Emotional Influence). Every Charm without
+ * an entry in this map still falls through to `defaultComboRules`
+ * (Combo-eligible, no restrictions) -- an honest reflection of what
+ * source review found, not an assumption that no such restriction or
+ * interaction exists anywhere in the book.
  */
 const explicitComboRules: Record<string, Partial<CharmComboRules>> = {
   'thousand-tiny-hooks-technique': {

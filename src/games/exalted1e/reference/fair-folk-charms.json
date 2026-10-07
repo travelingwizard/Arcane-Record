@@ -1564,8 +1564,7 @@
     "sourceDisplay": "Exalted: The Fair Folk, p. 192",
     "reviewStatus": "source-checked",
     "reviewFlags": [
-      "Explicitly does not suffer the Curse of Meekness despite extinguishing Ring; see curse-of-meekness for the ordinary broken-Grace rule this Charm overrides.",
-      "References 'Mad God Mien' (an Assumption-type Charm, pp. 150-151) by name; not yet promoted into any catalog, so left as descriptive text only."
+      "Explicitly does not suffer the Curse of Meekness despite extinguishing Ring; see curse-of-meekness for the ordinary broken-Grace rule this Charm overrides."
     ]
   },
   {
@@ -5768,6 +5767,442 @@
       }
     ],
     "sourceDisplay": "Exalted: The Fair Folk, p. 157",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "mad-god-mien",
+    "name": "Mad God Mien",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Assumption",
+    "summary": "A permanent Charm layered onto any active Assumption-type Charm that makes the raksha wholly alien to Creation: raises the cost of all her Assumption-type Charms, hardens her against Charms that twist her body, and makes Creation-born powers treat her as an automaton immune to most direct mental influence -- undoable only by specific fate-binding powers.",
+    "description": "Some raksha learn to adopt shape while remaining wholly alien to Creation. As they pass through Nirakara and fill themselves with Creation's Essence, they twist it into the raw, mad structures of the Wyld. Learning this Charm permanently increases the cost of all Assumption-type Charms by 2 gossamer or 2 mutation points. This Charm adds 1 to the difficulty of Charms that twist or reshape the raksha's body. It also makes the Charms and powers of the Creation-born treat the raksha as an automaton and a creature outside of fate, immune to most direct mental influence effects; glamour sorcery cast with the permanent version of this Charm is immune to normal sorcerous countermagic. The effects of this Charm are a matter of structure rather than power -- it can be undone by powers that bind the raksha (or spell) into Creation, such as the Greater Sign of Jupiter (Exalted: The Sidereals) or Harmony with Reality Technique (Exalted: The Lunars).",
+    "cost": "None",
+    "duration": "Permanent",
+    "type": "Reflexive",
+    "minimumRequirements": [],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "Any Assumption-type Charm",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 150,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 150",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "This Charm's own Prerequisite Charms line reads 'Any Assumption-type Charm' rather than naming a specific Charm, so `prerequisiteCharms` is left empty (per the established superRefine enforcement, which only validates ids that are actually listed) and the real requirement is kept verbatim in `prerequisiteText` instead. extinction-of-desire (Ring Grace tree, promoted in Phase 1c) already references this Charm by name ('gains the benefits of Mad God Mien'); its own stale 'not yet promoted' reviewFlags note was removed now that this row resolves it (that reference remains descriptive narrative text, not a `prerequisiteCharms` dependency, since Extinction of Desire's own gating is entirely different)."
+    ]
+  },
+  {
+    "id": "sovereign-elemental-shape",
+    "name": "Sovereign Elemental Shape",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Elemental Influence",
+    "summary": "The root of the Elemental Influence Charms: lets the raksha reflexively grant a one-die Wyld bonus to a witnessed normal action when the target is defined as drawing on the element the raksha has assumed.",
+    "description": "The raksha can use the elements of Creation to assist others. This ability affects normal actions rather than shaping actions: Elemental Assistance -- for 1 mote, the raksha can reflexively grant a one-die Wyld bonus to a single witnessed action. The player of the raksha or his target must define how the target uses one of the five elements to assist him, and the raksha must have the Assumption of Elemental Shape for that element active. For example, an archer might gain the assistance of a raksha who has assumed elemental Earth by taking a firm stance and 'rooting herself in the ground.'",
+    "cost": "1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["assumption-of-elemental-shape"],
+    "prerequisiteText": "Assumption of Elemental Shape (Any)",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 151,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 151",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "element-weaving-style",
+    "name": "Element-Weaving Style",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Elemental Influence",
+    "summary": "Lets the raksha shape an assumed element by touch into complex, intricate forms without tools, via three Craft-based normal-action abilities for air/fire/water, wood, and earth/metal.",
+    "description": "The raksha can shape the element by touch, rapidly molding it into complex and intricate shapes without tools. These are normal actions rather than shaping actions: Compliant Element Shaping -- for 5 motes, a single Craft roll shapes air, fire or water; sculptures last a single lunar cycle; requires the matching Assumption of Elemental Shape (Air/Fire/Water) active. Compliant Woodland Shaping -- for 5 motes, a single Craft roll shapes wood as if with First Age tools (a -1 difficulty reduction replacing any tool penalty or benefit); requires Assumption of Elemental Shape (Wood) active. Compliant Mountain Shaping -- for 5 motes, a single Craft roll shapes earth and metal as if with First Age tools (same -1 difficulty reduction); requires Assumption of Elemental Shape (Earth) active.",
+    "cost": "1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["sovereign-elemental-shape"],
+    "prerequisiteText": "Sovereign Elemental Shape",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 151,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 151",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "elemental-invocation",
+    "name": "Elemental Invocation",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Elemental Influence",
+    "summary": "The capstone of the Sovereign Elemental Shape line: manifests a treasure of the Wyld in Creation, given shape and form appropriate to the raksha's assumed element, fading away at the end of the story.",
+    "description": "The raksha manifests in Creation one of the treasures of the Wyld. This Charm lets the raksha invoke a possession in Creation, giving it shape and form appropriate to an element whose Essence the raksha has absorbed through Assumption of Elemental Shape. For example, a raksha of air might summon a lethal hazard as a storm, and a raksha of water might call forth a servant in the shape of a siaka. It fades away again at the end of the story. This Charm can call forth even possessions and servants that cannot normally exist in Creation.",
+    "cost": "10 motes, 1 gossamer",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["element-weaving-style"],
+    "prerequisiteText": "Element-Weaving Style",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 152,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 152",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "References the 'Possession' Fair Folk Background/wealth concept (described elsewhere in the book, pp. 131-132) that does not yet have its own inventory row or catalog entry; left as descriptive text only, matching the established precedent for citing a not-yet-inventoried mechanic by name."
+    ]
+  },
+  {
+    "id": "world-angering-elemental-mastery",
+    "name": "World-Angering Elemental Mastery",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Elemental Influence",
+    "summary": "The hostile counterpart to Sovereign Elemental Shape: lets the raksha reflexively impose an environmental penalty equal to her Essence on a witnessed normal action of which she disapproves, using her assumed element.",
+    "description": "The raksha can use the elements of Creation to hinder others. This ability affects normal actions rather than shaping actions: Elemental Hindrance -- for 5 motes, the raksha can reflexively impose an environmental penalty equal to his Essence on a single witnessed action of which he disapproves. The raksha's player must define how his character uses one of the five elements to impose this penalty, and he must have the Assumption of Elemental Shape appropriate to that element active.",
+    "cost": "1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["assumption-of-elemental-shape"],
+    "prerequisiteText": "Assumption of Elemental Shape (Any)",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 152,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 152",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "teeth-of-the-world",
+    "name": "Teeth of the World",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Elemental Influence",
+    "summary": "The capstone of the World-Angering Elemental Mastery line: grants five elemental attack abilities (one per Assumption of Elemental Shape variant) that use normal Dexterity-based dice pools rather than shaping actions, each requiring the matching elemental assumption active.",
+    "description": "The raksha attacks others with the elements of Creation. These abilities affect normal actions rather than shaping actions: Wind Knives (Air) -- for 5 motes, an undodgeable hail/lightning/wind attack with base lethal damage of twice the raksha's Essence and a normal Dexterity + Archery pool, requiring the target within 1,000 yards and visible. Inciting the Ocean's Hunger (Water) -- for 5 motes, an unblockable attack turning a nearby water source against an enemy within five yards of it, base lethal damage twice the raksha's Essence, Dexterity + Brawl pool, target within 100 yards. Thrashing Dragon Fire Dance (Fire) -- for 5 motes, a normal Dexterity + Archery attack against an enemy within five yards of a significant blaze, base damage twice the raksha's Essence (or, without a blaze, a weaker 2L conjured-flame version for 5 motes), range 100 yards. Leaping Forest (Wood) -- for 5 motes, a normal Dexterity + Brawl attack (trees initiate clinches, small wooden objects leap) against an enemy within five yards of a tree or 30 yards of a small wooden object, base lethal damage twice the raksha's Essence, range 100 yards. World-Shaking Heart (Earth) -- for 5 motes, a normal Dexterity + Brawl attack with base damage twice the raksha's Essence and range 500 yards (does not affect targets more than five yards from the ground); alternately, with one success on a normal Dexterity + Brawl action, the raksha can shake the ground within 30 yards, forcing standers to roll Dexterity + Athletics or fall and dealing the raksha's Essence in dice of lethal damage to structures.",
+    "cost": "1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["world-angering-elemental-mastery"],
+    "prerequisiteText": "World-Angering Elemental Mastery",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 152,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 152",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "elemental-transformation",
+    "name": "Elemental Transformation",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Elemental Influence",
+    "summary": "A repeatable Charm letting the raksha adopt an alternate animal or elemental shape (designed with 3 mutation points, chosen at purchase), speaking to animals of that type and shapeshifting into it as a work of glamour with a two-die penalty on physical and social actions while transformed.",
+    "description": "The raksha masters the art of transformation, learning to adopt an alternate shape suited to her elemental Essence. The raksha can purchase this Charm more than once, learning an additional shape each time; if an animal shape is chosen, the raksha can speak to animals of that type whenever this Charm is active. This ability affects normal actions rather than shaping actions: Shapeshift -- for 10 motes and 1 Willpower, the raksha changes to the alternate form chosen at purchase (an animal or elemental body whose special abilities are designed with 3 mutation points -- for example, an eagle form built from Gossamer Wing Flight and keen vision via Surpassing Excellence, or a bear form with Armament of Flesh and the Large pox). This change is a work of glamour; it imposes a two-die penalty on the raksha's physical and social actions and grants the benefits of the mutations without spending actual mutation points. The raksha can still talk in the animal form.",
+    "cost": "1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["assumption-of-elemental-shape"],
+    "prerequisiteText": "Assumption of Elemental Shape (Any)",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 153,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 153",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "mercurial-shape",
+    "name": "Mercurial Shape",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Elemental Influence",
+    "summary": "Makes the raksha's shape a thing of quicksilver and change, letting her reflexively grant herself a two-die Wyld bonus on a normal action by defining how a mutable form achieves it.",
+    "description": "The raksha makes his shape a thing of quicksilver and change. This ability affects normal actions rather than shaping actions: Mutable Form -- for 5 motes, the raksha can reflexively give himself a two-die Wyld bonus. The raksha must define how he uses a mutable form to achieve this bonus -- for example, arms that lengthen and retract for a Larceny roll to steal an Exalt's sword, an ever-changing shape for a Survival roll to avoid pursuit, or a light effort of shapeshifting for a Larceny roll to create a disguise.",
+    "cost": "1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [
+      "sovereign-elemental-shape",
+      "elemental-transformation"
+    ],
+    "prerequisiteText": "Sovereign Elemental Shape, Elemental Transformation",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 153,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 153",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "elegant-muse-attitude",
+    "name": "Elegant Muse Attitude",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Emotional Influence",
+    "summary": "Lets the raksha reflexively grant a one-die Wyld bonus to a witnessed normal action by defining how the target draws on raksha-inspired passion.",
+    "description": "The raksha can use emotion to assist others. This ability affects normal actions rather than shaping actions: Emotional Assistance -- for 1 mote, the raksha can reflexively grant a one-die Wyld bonus to a single witnessed action. The player of the raksha or his target must define how the target uses raksha-inspired passion to assist himself. The raksha must have Assumption of Dreams and Passion active.",
+    "cost": "1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["assumption-of-dreams-and-passion"],
+    "prerequisiteText": "Assumption of Dreams and Passion",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 154,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 154",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "emotion-weaving-style",
+    "name": "Emotion-Weaving Style",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Emotional Influence",
+    "summary": "Lets the raksha reshape a target's Nature for a story by carving their mind with embedded emotional Essence, an artificial change the target can consciously ignore but finds uncomfortable to resist.",
+    "description": "The raksha uses the emotional Essence embedded in his alien soul to shape, mold and carve the minds of others. This ability affects normal actions rather than shaping actions: Great Craft of Minds -- the raksha spends 5 motes, and his player rolls Conviction + Performance as a normal action against a difficulty equal to the target's Essence. On a success, the raksha can change the target's Nature to a Nature of the raksha's choice; this change lasts for one story. The change is an artificial and artistic twisting of the target's spirit driven by emotional blocks set up within the target's mind -- targets can ignore its non-mechanical impact but find it uncomfortable to do so.",
+    "cost": "1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["elegant-muse-attitude"],
+    "prerequisiteText": "Elegant Muse Attitude",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 154,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 154",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "emotional-invocation",
+    "name": "Emotional Invocation",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Emotional Influence",
+    "summary": "The capstone of the Elegant Muse Attitude line: manifests a treasure of the Wyld in Creation, its shape and Essence filled with the emotion the raksha has assumed, giving it an odd and appealing character to onlookers.",
+    "description": "The raksha manifests in Creation one of the treasures of the Wyld. This Charm lets the raksha invoke a possession into Creation, filling the gaps in its shape and Essence with the emotion the raksha has assumed via Assumption of Dreams and Passion. For example, a raksha enshrouded in lust could summon a cabinet or a mutated siaka, but both would have an odd and sensual appeal for those who looked upon them.",
+    "cost": "10 motes, 1 gossamer",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["emotion-weaving-style"],
+    "prerequisiteText": "Emotion-Weaving Style",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 155,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 155",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "unwanted-obsession-provocation-technique",
+    "name": "Unwanted Obsession Provocation Technique",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Emotional Influence",
+    "summary": "The hostile counterpart to Elegant Muse Attitude: lets the raksha reflexively impose an environmental penalty equal to her Essence on a witnessed normal action of which she disapproves, using her assumed emotional mien.",
+    "description": "The raksha can use the emotional Essence flooding him to drive others to distraction. This ability affects normal actions rather than shaping actions: Emotional Hindrance -- for 5 motes, the raksha can reflexively impose an environmental penalty equal to his Essence on a single witnessed action of which he disapproves. The raksha's player must define how his character uses the emotional mien imposed by Assumption of Dreams and Passion to inflict this penalty.",
+    "cost": "1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["assumption-of-dreams-and-passion"],
+    "prerequisiteText": "Assumption of Dreams and Passion",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 155,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 155",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "essence-disrobing-passion",
+    "name": "Essence-Disrobing Passion",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Emotional Influence",
+    "summary": "The capstone of the Unwanted Obsession Provocation Technique line: an unparryable emotional attack that strips motes from a witnessed target and inflicts a stacking one-die penalty on their normal actions for the rest of the scene.",
+    "description": "The raksha attacks the Essence patterns of others with madly surging dreams. This ability affects normal actions rather than shaping actions: Mote-Scattering Storm -- for 5 motes, the raksha can overwhelm the thoughts and Essence of a witnessed target with unruly emotion. This is a normal action with a Conviction + Performance dice pool and a base difficulty equal to the target's permanent Essence; this attack is intangible and cannot be parried without Charms or stunts capable of deflecting such attacks. If the raksha succeeds, the target loses motes equal to the raksha's Essence and suffers a one-die environmental penalty on normal actions for the rest of the scene. This penalty is cumulative with the penalty for Emotional Hindrance but not with itself.",
+    "cost": "1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["unwanted-obsession-provocation-technique"],
+    "prerequisiteText": "Unwanted Obsession Provocation Technique",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 155,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 155",
     "reviewStatus": "source-checked",
     "reviewFlags": []
   }
