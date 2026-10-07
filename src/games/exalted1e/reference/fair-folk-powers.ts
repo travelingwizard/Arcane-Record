@@ -73,12 +73,39 @@ import type { PowerReviewStatus } from './dragonblooded-powers';
  * Monster Transformation) and `'Society-Forging Charms'` (2 entries, pp.
  * 195-196 -- a small, separate two-Charm tree, Oath Gossamer feeding
  * Eight-Corner Ring Binding, that raksha use to literally construct
- * their society via gossamer-generating relationships). Every other
- * Charm group in the book's Chapter Five (Sword Combat Charms; the rest
- * of Mutation Charms, Elemental/Emotional Influence beyond the one
- * worked Assumption example, Glamour Sorcery, Heart's own Name Charms
- * and the cross-Grace Bedlam-Influencing Charms, and the two sibling
- * Assumption sub-trees) remains unpromoted.
+ * their society via gossamer-generating relationships). Phase 1h
+ * promotes the fifth and final per-Grace Combat Charm tree: the Sword's
+ * own `'Sword Combat Charms'` (27 entries, pp. 196-202 -- the largest
+ * single Charm group promoted in any phase so far). Structurally it has
+ * three independent root lines (God-Humbling Victory Sword, branching
+ * three ways into Scourging Wind Raid -> Dream-Sacrificing Method,
+ * Unparalleled Terror Technique, and Pincer of Transcendent Time and
+ * Fate -> Endless Armies of the Storm; Host-Summoning Glory of Command,
+ * branching into Sundering the Gates of Death and Transient Work of
+ * Flesh and Bone; and Scattering the Foe, itself the shared root of two
+ * further sub-trees via Radiance of the Invincible Warrior and
+ * All-Inclusive Nightmare Defense) plus a named sub-tree introduced
+ * partway through, World-Devouring Warlord Style (rooted in Aegis of a
+ * Martial Destiny, converging at the Stance-type World-Devouring Warlord
+ * Stance, and capping the entire 27-Charm section with Preemptive
+ * Declaration of Victory). Unlike the Ring tree's All-Consuming
+ * God-Monster Style (its own top-level book section, hence its own
+ * `fairFolkCharmCategories` entry), World-Devouring Warlord Style is
+ * explicitly diagrammed as a sub-tree nested one level inside "Sword
+ * Combat Charms" itself (matching the Cup tree's own Spirit-Twisting
+ * Obsession Style precedent), so all 27 Charms share the single `'Sword
+ * Combat Charms'` category rather than splitting into two. Several
+ * Charms converge across the tree's otherwise-separate root lines
+ * (Rarefied Air of Inevitable Victory needs both Sundering the Gates of
+ * Death and Radiance of the Invincible Warrior; Gathering the Crows
+ * needs both Transient Work of Flesh and Bone and World-Devouring
+ * Warlord Stance), confirmed against the rendered page diagrams. Every
+ * other Charm group in the book's Chapter Five (the rest of Mutation
+ * Charms, Elemental/Emotional Influence beyond the one worked Assumption
+ * example, Glamour Sorcery, Heart's own Name Charms and the cross-Grace
+ * Bedlam-Influencing Charms, and the two sibling Assumption sub-trees)
+ * remains unpromoted -- this phase completes all five Graces' own
+ * combat-flavored Charm trees.
  */
 export const fairFolkCharmCategories = [
   'Grace Forging',
@@ -92,6 +119,7 @@ export const fairFolkCharmCategories = [
   'All-Consuming God-Monster Style',
   'Laughing Monster Style',
   'Society-Forging Charms',
+  'Sword Combat Charms',
 ] as const;
 export type FairFolkCharmCategory = (typeof fairFolkCharmCategories)[number];
 
@@ -129,10 +157,10 @@ const reviewStatusSchema: z.ZodType<PowerReviewStatus> = z.enum([
  * of cross-Grace crossover Charms diagrammed under the Ring's/Cup's trees
  * (Tainted Creature Command, Monstrous Conceit, Akshata Sexual
  * Methodology, Beguilement, Undetectable Lie), Sword for the Mutation
- * Charms (Pox, Affliction, Blight), Heart for the Dodge/Resistance
- * Charms, Cup for the rest of the Cup Combat Charms, Ring for the rest of
- * Ring Combat Charms/All-Consuming God-Monster Style, and Staff for
- * Laughing Monster Style/Society-Forging Charms.
+ * Charms (Pox, Affliction, Blight)/Sword Combat Charms, Heart for the
+ * Dodge/Resistance Charms, Cup for the rest of the Cup Combat Charms,
+ * Ring for the rest of Ring Combat Charms/All-Consuming God-Monster
+ * Style, and Staff for Laughing Monster Style/Society-Forging Charms.
  */
 const fairFolkCharmSchema = z.object({
   id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
@@ -162,7 +190,7 @@ const fairFolkCharmSchema = z.object({
 });
 
 /**
- * 104 of the many Charm rows found in Fair Folk's Chapter Five inventory
+ * 131 of the many Charm rows found in Fair Folk's Chapter Five inventory
  * range. Phase 1b's 19: the 6 "Forging the (Grace) Grace" Charms (Heart,
  * Cup, Ring, Staff, Sword, and the exotic sixth Way Grace), the 4 parallel
  * Freehold-anchor Charms that branch off Forging the Arcane Redoubt
@@ -178,12 +206,14 @@ const fairFolkCharmSchema = z.object({
  * added 19 more: the full "Cup Combat Charms" tree (pp. 159-163). Phase
  * 1f added 22 more: the full "Ring Combat Charms" tree (16 entries, pp.
  * 171-175) plus its directly-continuing sequel, "All-Consuming
- * God-Monster Style" (6 entries, pp. 175-176). Phase 1g adds 12 more: the
+ * God-Monster Style" (6 entries, pp. 175-176). Phase 1g added 12 more: the
  * full "Laughing Monster Style" tree (10 entries, pp. 193-195) plus the
  * small, separate "Society-Forging Charms" tree (2 entries, pp. 195-196)
  * -- the Staff Grace's entire remaining combat/society-building
- * repertoire, promoted together as one phase since each is individually
- * small. Every one is `disposition: 'selectable'` and `verificationState:
+ * repertoire. Phase 1h adds 27 more: the full "Sword Combat Charms"
+ * section (pp. 196-202), including its own nested World-Devouring
+ * Warlord Style sub-tree -- the fifth and final per-Grace Combat Charm
+ * tree. Every one is `disposition: 'selectable'` and `verificationState:
  * 'reviewed'` in the inventory. Phase 1c's own `shape-forged-servant` and
  * `awakened-dream-manufacture` resolved Phase 1b's
  * `forging-the-heart-grace` prerequisite gap, so its `prerequisiteCharms`
@@ -196,13 +226,14 @@ const fairFolkCharmSchema = z.object({
  * was updated from `['glamour-charm']` to `['undetectable-lie',
  * 'glamour-charm']` and its now-stale "not itself promoted" `reviewFlags`
  * note was removed (its separate, still-true cross-Grace Staff-gating
- * note was kept). Phase 1d's, Phase 1e's, Phase 1f's, and Phase 1g's own
- * new Charms have no such gap of their own: every prerequisite they cite
- * resolves cleanly within these same small, self-contained trees.
+ * note was kept). Phase 1d's, Phase 1e's, Phase 1f's, Phase 1g's, and
+ * Phase 1h's own new Charms have no such gap of their own: every
+ * prerequisite they cite resolves cleanly within these same
+ * self-contained trees.
  */
 const fairFolkCharmCatalogSchema = z
   .array(fairFolkCharmSchema)
-  .length(104)
+  .length(131)
   .superRefine((charms, context) => {
     const ids = charms.map(({ id }) => id);
     if (new Set(ids).size !== ids.length) {
@@ -253,10 +284,12 @@ const defaultComboRules: CharmComboRules = {
  * counterattack," modeled as a `specialRules` entry mirroring Abyssal's
  * own `falling-scythe-attack`/`hundred-paces-bite` precedent (which uses
  * `specialRules` for positive synergy text, reserving `restrictions` for
- * outright prohibitions). Every Charm without an entry in this map still
- * falls through to `defaultComboRules` (Combo-eligible, no restrictions)
- * -- an honest reflection of what source review found, not an assumption
- * that no such restriction or interaction exists anywhere in the book.
+ * outright prohibitions). Phase 1h's own 27 new Charms (the full Sword
+ * Combat Charms section) contained no explicit Combo sentence of either
+ * kind. Every Charm without an entry in this map still falls through to
+ * `defaultComboRules` (Combo-eligible, no restrictions) -- an honest
+ * reflection of what source review found, not an assumption that no such
+ * restriction or interaction exists anywhere in the book.
  */
 const explicitComboRules: Record<string, Partial<CharmComboRules>> = {
   'thousand-tiny-hooks-technique': {

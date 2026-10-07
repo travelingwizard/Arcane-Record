@@ -3995,5 +3995,1050 @@
     "sourceDisplay": "Exalted: The Fair Folk, p. 196",
     "reviewStatus": "source-checked",
     "reviewFlags": []
+  },
+  {
+    "id": "god-humbling-victory-sword",
+    "name": "God-Humbling Victory Sword",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "The root Sword Combat Charm: calls Nishkriya into the aspect of the raksha's Sword and fills the world with portents of victory, adding bonus dice to a single Sword- or Staff-shaping attack.",
+    "description": "The raksha calls Nishkriya into the aspect of her Sword and fills the world with portents of her victory. This Charm adds one or more dice to a single Sword-shaping or Staff-shaping attack.",
+    "cost": "1 mote per die",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 196,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 196",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "scourging-wind-raid",
+    "name": "Scourging Wind Raid",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "A lightning raid that lets the raksha steal a named possession from a target as part of a Sword- or Staff-shaping attack, at increased difficulty.",
+    "description": "In a lightning raid, the raksha steals the wealth of her foe. The raksha spends the motes for this Charm, names one of the target's possessions, and makes a Sword-shaping or Staff-shaping attack at +2 difficulty. If successful, this Charm co-opts ownership of that possession in addition to inflicting normal damage. The Charm cannot steal Graces, artifacts or Hearthstones, but it can steal shaping weapons, including readied weapons.",
+    "cost": "3 motes, 1 Willpower",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["god-humbling-victory-sword"],
+    "prerequisiteText": "God-Humbling Victory Sword",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 196,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 196",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "dream-sacrificing-method",
+    "name": "Dream Sacrificing Method",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "Lets the raksha negate incoming Sword-shaping attack damage by sacrificing gossamer equal to the damage successes, transferring that gossamer to the attacker.",
+    "description": "Even the living deities of battle must choose their sacrifices. The raksha invokes this Charm after an enemy rolls damage for a Sword-shaping attack. The raksha can negate this damage by sacrificing gossamer equal to the damage successes; this Charm negates the damage but transfers the gossamer into the attacker's hands.",
+    "cost": "3 motes, 1 Willpower",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["scourging-wind-raid"],
+    "prerequisiteText": "Scourging Wind Raid",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 196,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 196",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "unparalleled-terror-technique",
+    "name": "Unparalleled Terror Technique",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "Englamours an ordinary Sword- or Staff-shaping attack with the touch of nightmare, doubling extra successes for damage purposes if the attack succeeds.",
+    "description": "The raksha's Sword hungers for the fear of her foe. Her shaping englamours an ordinary blow with the touch of nightmare. This Charm augments a single Sword-shaping or Staff-shaping attack; if the attack succeeds, the raksha counts extra successes twice for purposes of dealing damage.",
+    "cost": "1 mote",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["god-humbling-victory-sword"],
+    "prerequisiteText": "God-Humbling Victory Sword",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 196,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 196",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "pincer-of-transcendent-time-and-fate",
+    "name": "Pincer of Transcendent Time and Fate",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "Takes on the aspect of Kala and Dharma, the paired weapons of Nishkriya that strike as one, letting the raksha launch two Sword- or Staff-shaping attacks at full dice pool using a single shaping action.",
+    "description": "The raksha's Sword takes on the aspect of Kala and Dharma, the paired weapons of Nishkriya that strike as one. This Charm uses the raksha's shaping action to launch two Sword-shaping or two Staff-shaping attacks at her full dice pool.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Extra Action",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["god-humbling-victory-sword"],
+    "prerequisiteText": "God-Humbling Victory Sword",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 197,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 197",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "endless-armies-of-the-storm",
+    "name": "Endless Armies of the Storm",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "Calls an endless host driven forth by flute and drum, letting the raksha make additional Sword- or Staff-shaping attacks (one per 3 motes spent, up to her permanent Essence) alongside her normal shaping action.",
+    "description": "The raksha opens her spirit with Nishkriya, the Sword, and calls an endless host. Driven forth by the sound of flute and drum, the limitless armies of the Wyld march. In addition to the raksha's normal shaping action, this Charm lets her make one Sword-shaping or Staff-shaping attack for each 3 motes of Essence spent, up to a limit of her permanent Essence.",
+    "cost": "3 motes per attack, 1 Willpower",
+    "duration": "Instant",
+    "type": "Extra Action",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["pincer-of-transcendent-time-and-fate"],
+    "prerequisiteText": "Pincer of Transcendent Time and Fate",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 197,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 197",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "host-summoning-glory-of-command",
+    "name": "Host-Summoning Glory of Command",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "The second independent root of the Sword Combat Charms tree: the raksha wears a visible mantle of martial greatness, letting her draw armies, monsters and champions into an ongoing story and instantly ready a Sword- or Staff-shaping weapon before her initiative.",
+    "description": "The raksha wears the mantle of greatness, visibly displaying her terrible aptitude for war. She can draw her armies, monsters and champions into an ongoing story without further explanation of their presence. This Charm instantly readies a Sword-shaping or Staff-shaping weapon; the raksha can use this Charm before her initiative.",
+    "cost": "1 mote",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 197,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 197",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "sundering-the-gates-of-death",
+    "name": "Sundering the Gates of Death",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "Lets the raksha instantly re-ready a slain or scattered Sword- or Staff-shaping weapon (army, behemoth or even her own body) before her initiative, though it cannot restore the permanently slain.",
+    "description": "The raksha commands death, and it is not her master. If her army is slain or scattered, she can call it back; if her behemoth is slain or driven away, she can restore it; even should an enemy shatter her bones and leave her bloody and broken on the field, she can restore herself and continue the fight. This Charm instantly readies a Sword-shaping or Staff-shaping weapon, even if that weapon has been slain or otherwise driven from the battle; the raksha can use it before her initiative. This Charm cannot restore the permanently slain.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["host-summoning-glory-of-command"],
+    "prerequisiteText": "Host-Summoning Glory of Command",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 197,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 197",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "transient-work-of-flesh-and-bone",
+    "name": "Transient Work of Flesh and Bone",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "Shapes a behemoth or a host of warriors out of gossamer as a Sword-shaping weapon, built from the raksha's own Sword Grace and Willpower, though the work of glamour cannot affect Creation-born residents above a Wits + Essence threshold.",
+    "description": "The raksha shapes a behemoth or a host of warriors from gossamer. This Charm forms a shaping weapon of the Sword; the player divides twice the raksha's Sword Grace between the weapon's speed, accuracy, damage and defense, and its rate equals the raksha's permanent Willpower. The weapon formed is a monster (a fey beast) or a small army (a unit of 500 extras using the elite troop Traits from Exalted core, p. 278). Either way the result is a work of glamour: it cannot attack, defend or soak against residents of Creation whose Wits + Essence exceeds the raksha's Valor.",
+    "cost": "6 motes, 1 gossamer",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["host-summoning-glory-of-command"],
+    "prerequisiteText": "Host-Summoning Glory of Command",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 197,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 197",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "scattering-the-foe",
+    "name": "Scattering the Foe",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "The root of two further Sword Combat Charm branches: takes on the aspect of Shikhari, the hammer that scatters armies, letting the raksha buy dice to block a Sword- or Staff-shaping attack even from nothing, provided she is aware of it.",
+    "description": "The raksha's sword takes on the aspect of Shikhari, the hammer that scatters armies. An enemy attack shatters against the raksha's battle prowess. This Charm allows the raksha to buy dice for blocking Sword or Staff attacks -- she can improve a normal shaping parry or build a shaping dice pool from nothing. She must be aware of the attack.",
+    "cost": "1 mote per 2 dice",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 197,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 197",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "radiance-of-the-invincible-warrior",
+    "name": "Radiance of the Invincible Warrior",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "Binds back fear and death from the raksha's assembled forces, letting her parry any one Sword or Staff attack with her full dice pool provided she is aware of it.",
+    "description": "The raksha's Sword Grace binds back fear and death, so that they come only grudgingly to her assembled forces. This Charm lets the raksha parry any one Sword or Staff attack with her full dice pool. She must be aware of the attack.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["scattering-the-foe"],
+    "prerequisiteText": "Scattering the Foe",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 197,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 197",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "waypoint-sealing-technique",
+    "name": "Waypoint-Sealing Technique",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "Takes up the Raghava aspect of the Sword's defensive posture, letting the raksha seal an opponent out of a waypoint she occupies or controls with an undodgeable Sword-shaping attack.",
+    "description": "Taking up the powerful defensive position typified by the Raghava aspect of the Sword, the raksha seals an opponent out of a waypoint. The raksha uses this Charm as an opponent enters a waypoint she occupies or controls, and her player rolls Dexterity + Melee as an undodgeable Sword-shaping attack. If she achieves even one success, the opponent cannot enter the waypoint this scene and loses that portion of her movement.",
+    "cost": "3 motes, 1 Willpower",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["radiance-of-the-invincible-warrior"],
+    "prerequisiteText": "Radiance of the Invincible Warrior",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 198,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 198",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "The 'Sword Combat Charms 2' tree diagram labels this Charm 'Waypoint Sealing Stance,' but its own printed header and stat block both read 'Waypoint-Sealing Technique' with Type: Reflexive (not a Stance-type Charm); treated as a diagram/header naming mismatch, matching the Swift Wings of Song/Impinging Web of Dream precedent."
+    ]
+  },
+  {
+    "id": "unconquerable-truth",
+    "name": "Unconquerable Truth",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "Invokes truths of the raksha that no weaving of fate can master, letting her parry any one Sword- or Staff-shaping attack with her full dice pool plus six bonus successes, even against a normally unblockable attack.",
+    "description": "There are some warriors who cannot be defeated; there are some generals whom no mind can outmaneuver; there are truths of the raksha that no paltry weaving of fate and story can master. This Charm lets the raksha parry any one Sword- or Staff-shaping attack with her full dice pool, adding six bonus successes, even if that attack is normally unblockable.",
+    "cost": "3 motes, 1 Willpower",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["radiance-of-the-invincible-warrior"],
+    "prerequisiteText": "Radiance of the Invincible Warrior",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 198,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 198",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "rarefied-air-of-inevitable-victory",
+    "name": "Rarefied Air of Inevitable Victory",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "The raksha masters the destiny of war for a full story, reflexively parrying any Sword or Staff attack against her with her full dice pool even without being aware of it.",
+    "description": "The raksha masters the destiny of war. Cast itself at her though it might, the enemy cannot keep her forces down -- they endure the most horrific assaults, they regroup after the most terrible of blows, and not all the greatest nightmares of the Wyld can keep the raksha from her appointed goal. This Charm allows the raksha to reflexively parry any Sword or Staff attack against her with her full dice pool; she need not be aware of the attack. This paramount skill lasts until the end of the story.",
+    "cost": "5 motes, 1 Willpower",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "sundering-the-gates-of-death",
+      "radiance-of-the-invincible-warrior"
+    ],
+    "prerequisiteText": "Sundering the Gates of Death, Radiance of the Invincible Warrior",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 198,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 198",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "defining-the-parameters-of-battle",
+    "name": "Defining the Parameters of Battle",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "Writes the raksha's own invincibility into the pattern of the world for a full story, letting her spend gossamer to parry any Sword-, Staff-, or even mortal attack with her full dice pool plus six bonus successes.",
+    "description": "The raksha writes her own invincibility into the pattern of the world. While this glamour endures, no Sword shaping can defy the essential truths of her nature: she can spend 1 gossamer to parry any one Sword- or Staff-shaping attack with her full dice pool plus six bonus successes, even if that attack is normally unblockable. In addition, she can spend 1 gossamer to parry any mortal attack with her full Dexterity + Melee pool plus six bonus successes, even if normally unblockable; this defense is a work of glamour and does not function against mortals with Wits + Essence greater than the raksha's Stamina.",
+    "cost": "5 motes, 1 Willpower, 1 gossamer",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "unconquerable-truth",
+      "rarefied-air-of-inevitable-victory"
+    ],
+    "prerequisiteText": "Unconquerable Truth, Rarefied Air of Inevitable Victory",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 198,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 198",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "all-inclusive-nightmare-defense",
+    "name": "All-Inclusive Nightmare Defense",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "Unleashes fear and doubt on the raksha's enemies after a successful parry, disarming the attacker's Sword- or Staff-shaping weapon from readiness by routing or killing the forces behind it.",
+    "description": "The raksha unleashes fear and doubt upon her enemies, dispersing and driving back the weapons of the Sword. To use this Charm, she must successfully parry a Sword attack and receive extra successes equal to or exceeding the attacker's permanent Essence. This Charm removes the enemy's Sword-shaping or Staff-shaping weapon from readiness, normally by routing or killing the enemy's forces.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["scattering-the-foe"],
+    "prerequisiteText": "Scattering the Foe",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 199,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 199",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "tension-building-warriors-advance",
+    "name": "Tension-Building Warrior's Advance",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "Takes on the aspect of the supreme divine emissary of death, supplementing a Sword or Staff attack by raising the difficulty of all shaping parries against it and, on success, stripping the enemy's shaping weapon from readiness; cannot be used for surprise attacks.",
+    "description": "The footsteps of the raksha ring loudly in the air. He takes on the aspect of the supreme divine emissary of death; as nothing can stand against him, nothing will. This Charm supplements a Sword or Staff attack, adding the raksha's Essence to the difficulty of all shaping parries against it. If the attack succeeds, the Charm also removes the enemy's shaping weapon from readiness. This Charm cannot be used for surprise attacks.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["all-inclusive-nightmare-defense"],
+    "prerequisiteText": "All-Inclusive Nightmare Defense",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 199,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 199",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "fearsome-mien",
+    "name": "Fearsome Mien",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "A work of glamour that weaves a terrifying aura after a successful Sword attack, imposing a two-die dice-pool penalty on all Creation-born enemies interacting with the raksha for a scene.",
+    "description": "The raksha can weave a glamour that terrifies creatures of Creation. This requires a successful Sword attack. This Charm imposes a two-die penalty to the dice pools of all Creation-born enemies interacting with the character. This is a work of glamour, and it has no effect on creatures with Valor + Essence greater than the raksha's highest Sword Ability (Archery, Athletics, Brawl, Melee or Presence).",
+    "cost": "5 motes, 1 Willpower, 2 gossamer",
+    "duration": "One scene",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["tension-building-warriors-advance"],
+    "prerequisiteText": "Tension-Building Warrior's Advance",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 199,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 199",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "aegis-of-a-martial-destiny",
+    "name": "Aegis of a Martial Destiny",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "The root Charm of World-Devouring Warlord Style, a named sub-tree of Sword Combat Charms telling the story of an emissary of death and fear who rises to cast the world into his shadow: establishes the raksha's motivation for battle early in the story, augmenting a shaping Dodge action with automatic successes equal to her Sword.",
+    "description": "Early in the story, the raksha establishes her motivation for battle. She cannot use this Charm if she has taken an aggressive shaping action this story. The raksha uses this Charm to augment a shaping Dodge action; this Charm adds her Sword in automatic successes to her Dodge roll.",
+    "cost": "1 mote",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 200,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 200",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "antagonist-naming-technique",
+    "name": "Antagonist-Naming Technique",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "Defines the raksha and a chosen (existing) antagonist as the principal characters of the story, preventing shaping actions that would remove either of them as active characters -- for example, killing the raksha would have to somehow also bring her back to life.",
+    "description": "The raksha defines herself and an antagonist of her choice as the principal characters of the story; the antagonist must exist. This Charm prevents the use of shaping actions that remove the raksha or her named antagonist as active characters in the story. For example, no one can use a shaping action to kill the raksha without also in some fashion bringing her back to life.",
+    "cost": "2 motes",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["aegis-of-a-martial-destiny"],
+    "prerequisiteText": "Aegis of a Martial Destiny",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 200,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 200",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "thematic-stunting-methodology",
+    "name": "Thematic Stunting Methodology",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "Defines desirable premises of the story and genre for a full story, adding five extra dice to the raksha's stunt pool.",
+    "description": "The raksha defines desirable premises of the story and genre. This adds five extra dice to her stunt pool.",
+    "cost": "5 motes",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["aegis-of-a-martial-destiny"],
+    "prerequisiteText": "Aegis of a Martial Destiny",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 200,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 200",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "world-devouring-warlord-stance",
+    "name": "World-Devouring Warlord Stance",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "A Stance-type Charm pouring Essence into the raksha's Sword Grace, adding her permanent Essence to initiative, Sword attack pools, Sword defense pools, and the raw pre-soak damage of Sword attacks; only one Stance-type Charm can be active at a time.",
+    "description": "The raksha pours Essence into her Sword Grace. Flush with the power of the Sword, she becomes a devotee of battle and assumes the stance of an all-devouring warlord. This Charm adds the raksha's permanent Essence to her initiative, her Sword attack pools, her Sword defense pools, and the raw (pre-soak) damage of Sword attacks. This is a Stance-type Charm; characters cannot use more than one Stance-type Charm at a time.",
+    "cost": "6 motes",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [
+      "antagonist-naming-technique",
+      "thematic-stunting-methodology"
+    ],
+    "prerequisiteText": "Antagonist-Naming Technique, Thematic Stunting Methodology",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 200,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 200",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "This is a Stance-type Charm; characters cannot use more than one Stance-type Charm at a time (the same unmodeled mechanic already flagged for Spirit-Twisting Obsession Stance, All-Consuming God-Monster Stance, and Laughing Monster Stance -- no schema field tracks Stance-type exclusivity)."
+    ]
+  },
+  {
+    "id": "gathering-the-crows",
+    "name": "Gathering the Crows",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "Summons a greater host of literal-extra troops to swell the raksha's army, cumulatively increasing the defense quality of her chosen shaping weapon by one per invocation.",
+    "description": "The raksha summons servants and minions. Each invocation of this Charm calls forth a greater host to support her in war. Most of the troops are literal extras -- they don't ever interact with enemies directly, but they swell the raksha's army ominously. This Charm increases the defense quality of her chosen shaping weapon by one, and multiple invocations of this Charm are cumulative.",
+    "cost": "3 motes",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [
+      "transient-work-of-flesh-and-bone",
+      "world-devouring-warlord-stance"
+    ],
+    "prerequisiteText": "Transient Work of Flesh and Bone, World-Devouring Warlord Stance",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 200,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 200",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "army-supporting-behemoth-invocation",
+    "name": "Army-Supporting Behemoth Invocation",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "Summons monsters, horrors and war machines to support the raksha's army, cumulatively increasing the damage of her chosen shaping weapon by one per invocation.",
+    "description": "The raksha summons monsters, horrors and war machines to serve with his army. Each use of this Charm supports his forces with another great monster or a handful of smaller beasts. This Charm increases the damage of her chosen shaping weapon by one, and multiple invocations of this Charm are cumulative.",
+    "cost": "5 motes",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["world-devouring-warlord-stance"],
+    "prerequisiteText": "World-Devouring Warlord Stance",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 201,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 201",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "avatar-of-war",
+    "name": "Avatar of War",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "Closing her ears to screams and blandishments alike, the raksha marches to war: an immediate full-dice-pool Sword counterattack against any character attacking her with a shaping action, resolved before the original attack's damage is determined.",
+    "description": "Closing her ears to screams and blandishments alike, the raksha marches to war. This Charm lets her immediately execute a Sword attack at her full dice pool against any character attacking her with a shaping action. This counterattack is resolved after the original attack is rolled but before its damage is determined.",
+    "cost": "3 motes, 1 Willpower",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [
+      "gathering-the-crows",
+      "army-supporting-behemoth-invocation"
+    ],
+    "prerequisiteText": "Gathering the Crows, Army-Supporting Behemoth Invocation",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 201,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 201",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "harmony-of-fortune-and-hate",
+    "name": "Harmony of Fortune and Hate",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "Bends hostile weather, ill fortune and unpleasant terrain against the enemy's will to fight, cumulatively increasing the difficulty of defending against the raksha's Sword attacks (up to a maximum equal to her Essence).",
+    "description": "The pattern of events develops inexorably in the raksha's favor. Hostile weather, strokes of ill fortune and unpleasant terrain eat away at the enemy's will and power to fight. Each use of this Charm increases the difficulty of defense against the raksha's Sword attacks by one; multiple invocations of this Charm stack, up to a maximum increased difficulty equal to the raksha's Essence.",
+    "cost": "5 motes",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["world-devouring-warlord-stance"],
+    "prerequisiteText": "World-Devouring Warlord Stance",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 201,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 201",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "preemptive-declaration-of-victory",
+    "name": "Preemptive Declaration of Victory",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Sword Combat Charms",
+    "summary": "The capstone of World-Devouring Warlord Style: a Sword attack that converts damage dice directly into successes and, on success, forces all shaped creatures in combat with the raksha to succeed at a Valor roll or surrender in a five-die-penalized rout for the rest of the scene.",
+    "description": "Crushing her enemy underfoot, the raksha declares victory. The raksha makes a Sword attack; if she succeeds, this Charm converts the damage dice directly into successes. The damage of this attack can affect the creatures of Creation: if the Sword attack succeeds, all shaped creatures directly or indirectly in combat with the character realize themselves defeated, and their players must succeed at a Valor roll or the characters lay down their arms in resigned surrender. For the rest of the scene, the defeated suffer a five-die penalty on all combat actions. This Charm is a work of glamour and has no effect on creatures with Valor + Essence greater than the raksha's highest Sword Ability (Archery, Athletics, Brawl, Melee or Presence).",
+    "cost": "5 motes, 1 gossamer",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Sword",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["avatar-of-war", "harmony-of-fortune-and-hate"],
+    "prerequisiteText": "Avatar of War, Harmony of Fortune and Hate",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 202,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 202",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
   }
 ]

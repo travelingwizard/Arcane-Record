@@ -6,20 +6,20 @@ import {
   fairFolkCharms,
 } from '../../src/games/exalted1e/reference/fair-folk-powers';
 
-describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f + Phase 1g)', () => {
+describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f + Phase 1g + Phase 1h)', () => {
   it('loads all promoted Charm rows with unique stable IDs', () => {
-    expect(fairFolkCharms).toHaveLength(104);
-    expect(fairFolkCharmIds.size).toBe(104);
-    expect(fairFolkCharmById.size).toBe(104);
+    expect(fairFolkCharms).toHaveLength(131);
+    expect(fairFolkCharmIds.size).toBe(131);
+    expect(fairFolkCharmById.size).toBe(131);
   });
 
-  it('assigns every Charm a valid category from the eleven documented Fair Folk Charm categories', () => {
+  it('assigns every Charm a valid category from the twelve documented Fair Folk Charm categories', () => {
     for (const charm of fairFolkCharms) {
       expect(fairFolkCharmCategories).toContain(charm.charmCategory);
     }
   });
 
-  it('distributes Charms across the eleven categories with the expected counts', () => {
+  it('distributes Charms across the twelve categories with the expected counts', () => {
     const categoryCounts = new Map<string, number>();
     for (const charm of fairFolkCharms) {
       categoryCounts.set(
@@ -38,12 +38,13 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     expect(categoryCounts.get('All-Consuming God-Monster Style')).toBe(6);
     expect(categoryCounts.get('Laughing Monster Style')).toBe(10);
     expect(categoryCounts.get('Society-Forging Charms')).toBe(2);
+    expect(categoryCounts.get('Sword Combat Charms')).toBe(27);
     expect(
       Array.from(categoryCounts.values()).reduce(
         (sum, count) => sum + count,
         0,
       ),
-    ).toBe(104);
+    ).toBe(131);
   });
 
   it('resolves every prerequisiteCharms entry to another id in the same catalog (no dangling references)', () => {
@@ -69,7 +70,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     }
   });
 
-  it('keys every Grace Forging/Glamour/Dodge/Resistance/Cup-Combat/Ring-Combat/Staff-Combat Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption Charm to no Grace minimum at all', () => {
+  it('keys every Grace Forging/Glamour/Dodge/Resistance/Cup-Combat/Ring-Combat/Staff-Combat/Sword-Combat Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption Charm to no Grace minimum at all', () => {
     for (const charm of fairFolkCharms) {
       if (
         charm.charmCategory === 'Grace Forging' ||
@@ -84,7 +85,10 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         expect(['Cup', 'Ring', 'Staff']).toContain(
           charm.minimumRequirements[0]?.trait,
         );
-      } else if (charm.charmCategory === 'Mutation Charms') {
+      } else if (
+        charm.charmCategory === 'Mutation Charms' ||
+        charm.charmCategory === 'Sword Combat Charms'
+      ) {
         expect(charm.minimumRequirements).toHaveLength(1);
         expect(charm.minimumRequirements[0]?.trait).toBe('Sword');
       } else if (
@@ -492,6 +496,145 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     ).toEqual(['oath-gossamer']);
   });
 
+  it('chains the Sword Combat Charms tree: three independent root lines (God-Humbling Victory Sword, Host-Summoning Glory of Command, Scattering the Foe) converging via cross-tree prerequisites', () => {
+    expect(
+      fairFolkCharmById.get('god-humbling-victory-sword')?.prerequisiteCharms,
+    ).toEqual([]);
+    for (const id of [
+      'scourging-wind-raid',
+      'unparalleled-terror-technique',
+      'pincer-of-transcendent-time-and-fate',
+    ]) {
+      expect(fairFolkCharmById.get(id)?.prerequisiteCharms).toEqual([
+        'god-humbling-victory-sword',
+      ]);
+    }
+    expect(
+      fairFolkCharmById.get('dream-sacrificing-method')?.prerequisiteCharms,
+    ).toEqual(['scourging-wind-raid']);
+    expect(
+      fairFolkCharmById.get('endless-armies-of-the-storm')?.prerequisiteCharms,
+    ).toEqual(['pincer-of-transcendent-time-and-fate']);
+
+    expect(
+      fairFolkCharmById.get('host-summoning-glory-of-command')
+        ?.prerequisiteCharms,
+    ).toEqual([]);
+    for (const id of [
+      'sundering-the-gates-of-death',
+      'transient-work-of-flesh-and-bone',
+    ]) {
+      expect(fairFolkCharmById.get(id)?.prerequisiteCharms).toEqual([
+        'host-summoning-glory-of-command',
+      ]);
+    }
+
+    expect(
+      fairFolkCharmById.get('scattering-the-foe')?.prerequisiteCharms,
+    ).toEqual([]);
+    expect(
+      fairFolkCharmById.get('radiance-of-the-invincible-warrior')
+        ?.prerequisiteCharms,
+    ).toEqual(['scattering-the-foe']);
+    for (const id of ['waypoint-sealing-technique', 'unconquerable-truth']) {
+      expect(fairFolkCharmById.get(id)?.prerequisiteCharms).toEqual([
+        'radiance-of-the-invincible-warrior',
+      ]);
+    }
+    expect(
+      fairFolkCharmById.get('rarefied-air-of-inevitable-victory')
+        ?.prerequisiteCharms,
+    ).toEqual(
+      expect.arrayContaining([
+        'sundering-the-gates-of-death',
+        'radiance-of-the-invincible-warrior',
+      ]),
+    );
+    expect(
+      fairFolkCharmById.get('defining-the-parameters-of-battle')
+        ?.prerequisiteCharms,
+    ).toEqual(
+      expect.arrayContaining([
+        'unconquerable-truth',
+        'rarefied-air-of-inevitable-victory',
+      ]),
+    );
+
+    expect(
+      fairFolkCharmById.get('all-inclusive-nightmare-defense')
+        ?.prerequisiteCharms,
+    ).toEqual(['scattering-the-foe']);
+    expect(
+      fairFolkCharmById.get('tension-building-warriors-advance')
+        ?.prerequisiteCharms,
+    ).toEqual(['all-inclusive-nightmare-defense']);
+    expect(fairFolkCharmById.get('fearsome-mien')?.prerequisiteCharms).toEqual([
+      'tension-building-warriors-advance',
+    ]);
+  });
+
+  it('chains the World-Devouring Warlord Style sub-tree (nested inside Sword Combat Charms, not a separate category), converging on the capstone Preemptive Declaration of Victory', () => {
+    expect(
+      fairFolkCharmById.get('aegis-of-a-martial-destiny')?.prerequisiteCharms,
+    ).toEqual([]);
+    for (const id of [
+      'antagonist-naming-technique',
+      'thematic-stunting-methodology',
+    ]) {
+      expect(fairFolkCharmById.get(id)?.prerequisiteCharms).toEqual([
+        'aegis-of-a-martial-destiny',
+      ]);
+    }
+    expect(
+      fairFolkCharmById.get('world-devouring-warlord-stance')
+        ?.prerequisiteCharms,
+    ).toEqual(
+      expect.arrayContaining([
+        'antagonist-naming-technique',
+        'thematic-stunting-methodology',
+      ]),
+    );
+    expect(
+      fairFolkCharmById.get('gathering-the-crows')?.prerequisiteCharms,
+    ).toEqual(
+      expect.arrayContaining([
+        'transient-work-of-flesh-and-bone',
+        'world-devouring-warlord-stance',
+      ]),
+    );
+    expect(
+      fairFolkCharmById.get('army-supporting-behemoth-invocation')
+        ?.prerequisiteCharms,
+    ).toEqual(['world-devouring-warlord-stance']);
+    expect(
+      fairFolkCharmById.get('harmony-of-fortune-and-hate')?.prerequisiteCharms,
+    ).toEqual(['world-devouring-warlord-stance']);
+    expect(fairFolkCharmById.get('avatar-of-war')?.prerequisiteCharms).toEqual(
+      expect.arrayContaining([
+        'gathering-the-crows',
+        'army-supporting-behemoth-invocation',
+      ]),
+    );
+    expect(
+      fairFolkCharmById.get('preemptive-declaration-of-victory')
+        ?.prerequisiteCharms,
+    ).toEqual(
+      expect.arrayContaining(['avatar-of-war', 'harmony-of-fortune-and-hate']),
+    );
+    // World-Devouring Warlord Style is a sub-tree nested inside "Sword
+    // Combat Charms," not its own top-level category (unlike the Ring
+    // tree's All-Consuming God-Monster Style).
+    for (const id of [
+      'aegis-of-a-martial-destiny',
+      'world-devouring-warlord-stance',
+      'preemptive-declaration-of-victory',
+    ]) {
+      expect(fairFolkCharmById.get(id)?.charmCategory).toBe(
+        'Sword Combat Charms',
+      );
+    }
+  });
+
   it('assigns Combo-eligibility rules to every Charm, defaulting to eligible with no restrictions/specialRules except the two explicit overrides found so far', () => {
     for (const charm of fairFolkCharms) {
       expect(charm.comboRules).toBeDefined();
@@ -552,6 +695,8 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         'tainted-creature-command',
         'undetectable-lie',
         'unshaped-grace-transformation',
+        'waypoint-sealing-technique',
+        'world-devouring-warlord-stance',
       ].sort(),
     );
   });
