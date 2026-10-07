@@ -6205,5 +6205,349 @@
     "sourceDisplay": "Exalted: The Fair Folk, p. 155",
     "reviewStatus": "source-checked",
     "reviewFlags": []
+  },
+  {
+    "id": "ravishing-the-created-form",
+    "name": "Ravishing the Created Form",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Feeding Charms",
+    "summary": "The root of the Feeding Charms tree: touches a consenting Creation-born target and rolls a feeding Grace as a Cup-shaping attack to permanently drain Willpower or a Virtue dot, recovering 10 motes of temporary Essence per Trait point drained.",
+    "description": "Fair Folk in Creation devour the Willpower and Virtues of mortals to live. To use this Charm, a raksha touches a consenting Creation-born target, and her player rolls a feeding Grace as a Cup-shaping attack. Instead of the normal damage, this Charm reduces the target's permanent Willpower or the target's relevant Virtue (the raksha's choice), by up to one dot per success, to a minimum of 0. This does not increase the raksha's own Traits, but lets the raksha recover 10 motes of temporary Essence for each Trait point the target loses. This Charm is a work of glamour. It cannot feed from creatures whose Willpower + Essence exceeds the raksha's Willpower. Raksha cannot drain Exalted Virtues below the minimums imposed by the Great Curse.",
+    "cost": "1 Willpower, 0 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 163,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 163",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "soul-carving-artifice",
+    "name": "Soul-Carving Artifice",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Feeding Charms",
+    "summary": "Extends ravishment into Creation itself, letting the raksha and a consenting target share a daydream vision that functions as a 10-waypoint Middlemarches space, with anything created inside it fading when the Charm ends.",
+    "description": "The raksha can ravish others in Creation as in the Wyld. Soul-Carving Artifice lets them shape the Virtues of mortals to their needs and allows them to contest with one another in the thin and dreamless air of the Primordials' world. This Charm creates a daydream or vision shared by the raksha and a consenting target, imposing a one-die distraction penalty on normal dice actions for both. The raksha and target can use shaping actions to change the vision as if it were a 10-waypoint space of the Middlemarches of the Wyld. Anything created in this daydream fades entirely when the Charm's effects end. This Charm is a work of glamour and does not affect characters with Wits + Essence greater than the raksha's Performance.",
+    "cost": "3 motes, 1 Willpower, 0 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["ravishing-the-created-form"],
+    "prerequisiteText": "Ravishing the Created Form",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 163,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 163",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "devouring-wings-of-the-wyld",
+    "name": "Devouring Wings of the Wyld",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Feeding Charms",
+    "summary": "Grants a winged raksha the Hypnotic Wings ability, which penalizes onlookers' normal actions and lets the raksha permanently devour a Virtue dot from any Creation-born character who botches a Virtue roll while interacting with her.",
+    "description": "The shifting patterns of the raksha's wings draw in the soul of those who look upon them. This Charm grants an ability affecting normal actions rather than shaping actions. Hypnotic Wings: the raksha must have wings to use this ability. When she spreads them, every character who can see the wings suffers a +1 difficulty on all normal dice actions. If a Creation-born character's player botches a Virtue roll while interacting with a raksha with hypnotic wings spread, the raksha can permanently and reflexively devour one dot of that target's Virtue, gaining 10 motes of Essence. Raksha can purchase functional wings with Gossamer Wing Flight or an artifact; nonfunctional wings are available to any raksha who wishes them. This Charm is a work of glamour, but it affects the raksha rather than the witnesses, so seeing through it has no effect.",
+    "cost": "5 motes, 2 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["soul-carving-artifice"],
+    "prerequisiteText": "Soul-Carving Artifice",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 164,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 164",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "References Gossamer Wing Flight (a Ring Combat Charms tree Charm, already promoted in Phase 1h) only as one of two ways a raksha might acquire functional wings in the first place; this Charm's own prerequisite is Soul-Carving Artifice, not Gossamer Wing Flight, so no `prerequisiteCharms` change is warranted -- the reference is descriptive narrative text only."
+    ]
+  },
+  {
+    "id": "heart-stealing-kiss",
+    "name": "Heart-Stealing Kiss",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Feeding Charms",
+    "summary": "A touch-triggered ravishment: after landing a normal Brawl or Martial Arts touch, the raksha feeds as Ravishing the Created Form but gains 2 motes per drained point and the drained Trait heals faster (one dot per day).",
+    "description": "The raksha ravishes one of the Creation-born by touch. The raksha can only use this Charm after touching the target with a normal dice action, often requiring a Dexterity + Brawl or Dexterity + Martial Arts roll. The raksha then feeds from the target; this Charm functions as Ravishing the Created Form, save that the raksha gains 2 motes per drained Virtue or Willpower point and the drained Virtues or Willpower heal at one dot per day (rather than the normal, slower rate).",
+    "cost": "3 motes, 1 Willpower, 1 gossamer",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["ravishing-the-created-form"],
+    "prerequisiteText": "Ravishing the Created Form",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 164,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 164",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "extruded-stomach-feeding",
+    "name": "Extruded Stomach Feeding",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Feeding Charms",
+    "summary": "Lets the raksha feed as Ravishing the Created Form using any Grace rather than only a feeding Grace, inverting her Essence pattern to drink through a spiritual 'stomach' visible only to spirits, raksha, and Essence-sighted observers.",
+    "description": "The raksha inverts her Essence pattern and uses a Minor Grace to drink from her target. She typically remains elegant to mortal eyes, but spirits, raksha and characters using effects such as All-Encompassing Sorcerer's Sight can see the raksha's spiritual 'stomach' pour out her mouth and fix its fanged maw to the target's soul. This Charm functions exactly as Ravishing the Created Form, save that the raksha can feed using any Grace.",
+    "cost": "1 Willpower, 0 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["ravishing-the-created-form"],
+    "prerequisiteText": "Ravishing the Created Form",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 166,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 166",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "soul-consuming-hunger",
+    "name": "Soul-Consuming Hunger",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Feeding Charms",
+    "summary": "A Cup-only shaping attack against the target's Essence that, on success, utterly annihilates a consenting target instead of dealing normal damage, recovering 10 motes of Essence per Virtue or Willpower point the target possessed.",
+    "description": "Gaping wide the four mouths of her Graces, the raksha swallows a consenting target's soul. The raksha's player rolls her character's Cup Grace (and Cup Grace only) as a Cup-shaping attack against a difficulty of the target's Essence. On a success, instead of normal damage, this Charm utterly annihilates the target. The raksha recovers 10 motes of Essence for each Virtue point or Willpower point the target possessed, to the limits of her normal Essence pool. This Charm is a work of glamour; it cannot be used to feed from creatures whose Willpower + Essence exceeds the raksha's permanent Willpower.",
+    "cost": "1 Willpower, 1 health level, 0 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["soul-carving-artifice", "extruded-stomach-feeding"],
+    "prerequisiteText": "Soul-Carving Artifice, Extruded Stomach Feeding",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 166,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 166",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "banquet-of-crumbs",
+    "name": "Banquet of Crumbs",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Feeding Charms",
+    "summary": "Lets the raksha recover 1 mote of Essence per success by rolling a feeding Grace as a Cup-shaping action after exposure to strong, appropriate emotions -- with no satiety, but at no gossamer cost.",
+    "description": "The raksha can sup on the ambient Virtue of Creation, though they find no satiety in it. After exposure to strong, appropriate emotions, the raksha can invoke this Charm and roll a feeding Grace as a Cup-shaping action. This Charm recovers 1 mote of the raksha's Essence per success.",
+    "cost": "0 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["soul-carving-artifice", "extruded-stomach-feeding"],
+    "prerequisiteText": "Soul-Carving Artifice, Extruded Stomach Feeding",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 166,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 166",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "oneiromantic-conjuration",
+    "name": "Oneiromantic Conjuration",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Feeding Charms",
+    "summary": "Transforms motes into 1 gossamer by using a dreaming mortal's dream as a crucible; requires access to a dreaming mortal to use.",
+    "description": "The raksha can use a mortal's dream as a crucible, transforming motes into gossamer. The raksha must have access to a dreaming mortal to use this Charm. This Charm creates 1 gossamer.",
+    "cost": "10 motes, 0 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["banquet-of-crumbs"],
+    "prerequisiteText": "Banquet of Crumbs",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 166,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 166",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "demesne-farming-art",
+    "name": "Demesne-Farming Art",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Feeding Charms",
+    "summary": "The capstone of the Feeding Charms tree: prunes an uncapped Demesne's wild power for gossamer equal to its rating, though a given Demesne only offers gossamer once per story this way.",
+    "description": "The raksha prunes the wild power of an uncapped Demesne, creating gossamer from the clippings. The raksha must visit an uncapped Demesne to use this technique. This Charm creates gossamer equal to the Demesne's rating. A given Demesne only offers gossamer once per story.",
+    "cost": "10 motes, 0 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["oneiromantic-conjuration"],
+    "prerequisiteText": "Oneiromantic Conjuration",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 166,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 166",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
   }
 ]

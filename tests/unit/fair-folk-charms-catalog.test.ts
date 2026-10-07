@@ -6,20 +6,20 @@ import {
   fairFolkCharms,
 } from '../../src/games/exalted1e/reference/fair-folk-powers';
 
-describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f + Phase 1g + Phase 1h + Phase 1i + Phase 1j + Phase 1k)', () => {
+describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f + Phase 1g + Phase 1h + Phase 1i + Phase 1j + Phase 1k + Phase 1l)', () => {
   it('loads all promoted Charm rows with unique stable IDs', () => {
-    expect(fairFolkCharms).toHaveLength(163);
-    expect(fairFolkCharmIds.size).toBe(163);
-    expect(fairFolkCharmById.size).toBe(163);
+    expect(fairFolkCharms).toHaveLength(172);
+    expect(fairFolkCharmIds.size).toBe(172);
+    expect(fairFolkCharmById.size).toBe(172);
   });
 
-  it('assigns every Charm a valid category from the sixteen documented Fair Folk Charm categories', () => {
+  it('assigns every Charm a valid category from the seventeen documented Fair Folk Charm categories', () => {
     for (const charm of fairFolkCharms) {
       expect(fairFolkCharmCategories).toContain(charm.charmCategory);
     }
   });
 
-  it('distributes Charms across the sixteen categories with the expected counts', () => {
+  it('distributes Charms across the seventeen categories with the expected counts', () => {
     const categoryCounts = new Map<string, number>();
     for (const charm of fairFolkCharms) {
       categoryCounts.set(
@@ -43,12 +43,13 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     expect(categoryCounts.get('Bedlam-Influencing Charms')).toBe(5);
     expect(categoryCounts.get('Elemental Influence')).toBe(7);
     expect(categoryCounts.get('Emotional Influence')).toBe(5);
+    expect(categoryCounts.get('Feeding Charms')).toBe(9);
     expect(
       Array.from(categoryCounts.values()).reduce(
         (sum, count) => sum + count,
         0,
       ),
-    ).toBe(163);
+    ).toBe(172);
   });
 
   it('resolves every prerequisiteCharms entry to another id in the same catalog (no dangling references)', () => {
@@ -74,12 +75,13 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     }
   });
 
-  it('keys every Grace Forging/Glamour/Dodge/Resistance/Cup-Combat/Ring-Combat/Staff-Combat/Sword-Combat Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption/Elemental-Influence/Emotional-Influence Charm to no Grace minimum at all', () => {
+  it('keys every Grace Forging/Glamour/Dodge/Resistance/Cup-Combat/Feeding/Ring-Combat/Staff-Combat/Sword-Combat Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption/Elemental-Influence/Emotional-Influence Charm to no Grace minimum at all', () => {
     for (const charm of fairFolkCharms) {
       if (
         charm.charmCategory === 'Grace Forging' ||
         charm.charmCategory === 'Glamour Charms' ||
         charm.charmCategory === 'Cup Combat Charms' ||
+        charm.charmCategory === 'Feeding Charms' ||
         charm.charmCategory === 'Ring Combat Charms' ||
         charm.charmCategory === 'All-Consuming God-Monster Style' ||
         charm.charmCategory === 'Laughing Monster Style' ||
@@ -803,6 +805,54 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     }
   });
 
+  it('chains the Feeding Charms tree: rooted at Ravishing the Created Form, converging at Soul-Consuming Hunger/Banquet of Crumbs, ending at the capstone Demesne-Farming Art', () => {
+    expect(
+      fairFolkCharmById.get('ravishing-the-created-form')?.prerequisiteCharms,
+    ).toEqual([]);
+    expect(
+      fairFolkCharmById.get('soul-carving-artifice')?.prerequisiteCharms,
+    ).toEqual(['ravishing-the-created-form']);
+    expect(
+      fairFolkCharmById.get('devouring-wings-of-the-wyld')?.prerequisiteCharms,
+    ).toEqual(['soul-carving-artifice']);
+    expect(
+      fairFolkCharmById.get('heart-stealing-kiss')?.prerequisiteCharms,
+    ).toEqual(['ravishing-the-created-form']);
+    expect(
+      fairFolkCharmById.get('extruded-stomach-feeding')?.prerequisiteCharms,
+    ).toEqual(['ravishing-the-created-form']);
+    expect(
+      fairFolkCharmById.get('soul-consuming-hunger')?.prerequisiteCharms,
+    ).toEqual(['soul-carving-artifice', 'extruded-stomach-feeding']);
+    expect(
+      fairFolkCharmById.get('banquet-of-crumbs')?.prerequisiteCharms,
+    ).toEqual(['soul-carving-artifice', 'extruded-stomach-feeding']);
+    expect(
+      fairFolkCharmById.get('oneiromantic-conjuration')?.prerequisiteCharms,
+    ).toEqual(['banquet-of-crumbs']);
+    expect(
+      fairFolkCharmById.get('demesne-farming-art')?.prerequisiteCharms,
+    ).toEqual(['oneiromantic-conjuration']);
+    for (const id of [
+      'ravishing-the-created-form',
+      'soul-carving-artifice',
+      'devouring-wings-of-the-wyld',
+      'heart-stealing-kiss',
+      'extruded-stomach-feeding',
+      'soul-consuming-hunger',
+      'banquet-of-crumbs',
+      'oneiromantic-conjuration',
+      'demesne-farming-art',
+    ]) {
+      expect(fairFolkCharmById.get(id)?.charmCategory).toBe('Feeding Charms');
+    }
+    // Shiftless Untamed Beauty shares the same page range but is
+    // actually the root of the next, separate Addiction Charms
+    // section -- it must stay out of this catalog's scope entirely
+    // until a future phase promotes it.
+    expect(fairFolkCharmById.get('shiftless-untamed-beauty')).toBeUndefined();
+  });
+
   it('assigns Combo-eligibility rules to every Charm, defaulting to eligible with no restrictions/specialRules except the two explicit overrides found so far', () => {
     for (const charm of fairFolkCharms) {
       expect(charm.comboRules).toBeDefined();
@@ -851,6 +901,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         'beguilement',
         'blight-charm',
         'burden-ghost-glamour',
+        'devouring-wings-of-the-wyld',
         'elemental-invocation',
         'extinction-of-desire',
         'forging-the-way-grace',
