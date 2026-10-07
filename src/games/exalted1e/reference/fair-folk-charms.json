@@ -1190,7 +1190,7 @@
       }
     ],
     "minimumEssence": 3,
-    "prerequisiteCharms": ["glamour-charm"],
+    "prerequisiteCharms": ["undetectable-lie", "glamour-charm"],
     "prerequisiteText": "Undetectable Lie, Glamour",
     "sources": [
       {
@@ -1203,7 +1203,6 @@
     "sourceDisplay": "Exalted: The Fair Folk, p. 185",
     "reviewStatus": "source-checked",
     "reviewFlags": [
-      "Prerequisite Charm 'Undetectable Lie' is not itself promoted into this phase's catalog (part of the still-unpromoted Ring Combat Charms section); advisory text only, not schema-enforced.",
       "Explicitly gated on Staff ('Minimum Staff: 4') despite sitting in the Ring tree's Glamour Charms diagram, continuing the cross-Grace crossover pattern this source uses repeatedly."
     ]
   },
@@ -2687,6 +2686,851 @@
       }
     ],
     "sourceDisplay": "Exalted: The Fair Folk, p. 163",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "flesh-carved-world",
+    "name": "Flesh-Carved World",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Ring Combat Charms",
+    "summary": "One of two roots of the Ring Combat Charms tree: a simple mote-for-dice bonus to a Ring- or Staff-shaping attack, as the raksha unwraps her spirit and imposes its order on the world.",
+    "description": "The character unwraps her spirit and imposes its order on the world; the law of the self becomes the law of the cosmos. This Charm adds one die to a Ring-shaping or Staff-shaping attack for each mote spent.",
+    "cost": "1 mote per die",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 171,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 171",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "shuddering-wyld-inference",
+    "name": "Shuddering Wyld Inference",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Ring Combat Charms",
+    "summary": "Lets the raksha make a blind ranged Ring- or Staff-shaping attack without penalty, useful for attacking individuals on distant waypoints as patterns of Wyld motion ripple against her Essence.",
+    "description": "The self and the world are one, and patterns of motion in the Wyld are reflected in waves of change rippling and scraping against the raksha's Essence. This Charm lets the raksha make a blind ranged Ring-shaping or Staff-shaping attack without penalty. This Charm is very important for attacking individuals on distant waypoints.",
+    "cost": "1 mote",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["flesh-carved-world"],
+    "prerequisiteText": "Flesh-Carved World",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 171,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 171",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "waypoint-knife",
+    "name": "Waypoint Knife",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Ring Combat Charms",
+    "summary": "Forms an Essence-and-dream knife and, via a successful Intelligence + Craft (Glamour) Ring-shaping attack, swallows an unoccupied waypoint into the Wyld, compressing space so anyone entering it must immediately move on for the rest of the story.",
+    "description": "The raksha forms a knife of Essence and dream and, with it, cuts a waypoint out of the Wyld. The raksha spends the motes for this Charm and targets an unoccupied waypoint within the maximum range of his shaping weapon, and his player rolls Intelligence + Craft (Glamour) as a Ring-shaping attack. On a success, he swallows that waypoint in the substance of the Wyld; the fabric of space compresses, and for the rest of the story, everyone who enters that waypoint can and must immediately move on to another without spending movement.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["shuddering-wyld-inference"],
+    "prerequisiteText": "Shuddering Wyld Inference",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 171,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 171",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "minds-grip-rigor",
+    "name": "Mind's Grip Rigor",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Ring Combat Charms",
+    "summary": "Forces principle on the Wyld with an iron grip of will, granting either two guaranteed bonus successes on a noncombat Ring- or Staff-shaping action, or six bonus attack successes at half value for damage purposes.",
+    "description": "The raksha forces principle on the Wyld, her mind locking the bucking, wrestling tides of chaos in an iron grip of will. She can take a Ring-shaping or Staff-shaping action with complete certainty of success. This Charm gives two bonus successes on noncombat Ring-shaping or Staff-shaping actions. It adds six bonus successes to an attack, but halves extra successes for the purposes of computing damage.",
+    "cost": "4 motes, 1 Willpower",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["shuddering-wyld-inference"],
+    "prerequisiteText": "Shuddering Wyld Inference",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 171,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 171",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "creators-fugue",
+    "name": "Creator's Fugue",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Ring Combat Charms",
+    "summary": "Grants one extra Ring- or Staff-shaping attack for every 3 motes spent (up to the raksha's permanent Essence in extra attacks), declared on initiative before the attack action.",
+    "description": "In a mad fugue of creation, the raksha dreams principle upon principle into the shifting void. On his initiative, before taking an attack action, the raksha invokes this Charm and declares the desired number of extra attacks. This Charm gives one extra Ring-shaping or Staff-shaping attack for each 3 motes spent, up to a maximum number of extra attacks equal to the raksha's permanent Essence.",
+    "cost": "3 motes per extra attack",
+    "duration": "Instant",
+    "type": "Extra Action",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["flesh-carved-world"],
+    "prerequisiteText": "Flesh-Carved World",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 172,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 172",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "impinging-web-of-dream",
+    "name": "Impinging Web of Dream",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Ring Combat Charms",
+    "summary": "Weaves the target into a rigid net of shape, granting the raksha a number of extra Ring- or Staff-shaping attacks equal to her Essence, all of which must target the same victim.",
+    "description": "Weaving the world in an Essence and gossamer-fueled trance, the raksha binds her target in a seething web of shape; the soft and yielding substance of the Wyld becomes a rigid net. This Charm gives the raksha a number of extra Ring-shaping or Staff-shaping attacks equal to her Essence. She must make all of her attacks against the same target.",
+    "cost": "4 motes, 1 Willpower",
+    "duration": "Instant",
+    "type": "Extra Action",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["creators-fugue"],
+    "prerequisiteText": "Creator's Fugue",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 173,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 173",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "The Ring Combat Charms tree diagram on p. 173 labels this Charm 'Impinging Web of Dreams' (plural), but the Charm's own printed header reads 'Impinging Web of Dream' (singular); treated as the same Charm, not a distinct entry, matching the Swift Wings of Song precedent in the Cup Combat Charms tree."
+    ]
+  },
+  {
+    "id": "crippling-destiny-burden",
+    "name": "Crippling Destiny Burden",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Ring Combat Charms",
+    "summary": "A Ring- or Staff-shaping attack from up to one waypoint away that inflicts a stacking -1 environmental penalty on all the target's Sword-shaping actions (per level of damage dealt) until the end of the story.",
+    "description": "To resist the raw physical power of the martial raksha, Workers and Diplomats often write destinies for the Warriors into the fabric of their created worlds. The burden of such a destiny and its expectations weighs on the target's spirit, distracting him from the victory conditions of the shaping contest. The character makes a Ring-shaping or Staff-shaping attack, from a maximum distance of one waypoint, his player rolling damage normally. For each level of damage this attack inflicts, this Charm inflicts a -1 environmental penalty on all the target's Sword-shaping actions until the end of the story.",
+    "cost": "3 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["flesh-carved-world"],
+    "prerequisiteText": "Flesh-Carved World",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 173,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 173",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "wyld-curdling-attack",
+    "name": "Wyld-Curdling Attack",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Ring Combat Charms",
+    "summary": "The second root of the Ring Combat Charms tree: adds the raksha's Essence in dice to the damage of a successful Ring- or Staff-shaping attack by congealing the Wyld into a horrid trap of form.",
+    "description": "The raksha's shaping congeals the Wyld, stiffening it into a horrid trap of form. This Charm adds dice equal to the raksha's Essence to the damage of a successful Ring-shaping or Staff-shaping attack.",
+    "cost": "2 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 173,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 173",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "endless-yawning-void",
+    "name": "Endless Yawning Void",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Ring Combat Charms",
+    "summary": "Surrounds the raksha's Essence in a coruscating aura of time, adding two dice to a Ring- or Staff-shaping action's dice pool and, for attacks, two damage dice per mote spent (up to the raksha's permanent Essence in motes); every raksha within 20 waypoints senses its use.",
+    "description": "Fair Folk who use this Charm surround their Essence in a coruscating aura of time. Every raksha within 20 waypoints is instantly aware of this Charm's use as the cold touch of causality and rigor rasps against their Hearts. The target finds himself wrapped in layers of dream and the inevitable progression of events, the march of time escorting him inevitably toward his doom or trapping him in an eternity of repetition. This Charm adds two dice to the shaping dice pool for a Ring-shaping or Staff-shaping action. In addition, if that action is a shaping attack, this Charm adds two dice to the damage for each mote spent, and the raksha can spend up to his permanent Essence in motes. This Charm has a minimum cost of 1 mote.",
+    "cost": "1 mote per 2 health levels damage",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["wyld-curdling-attack"],
+    "prerequisiteText": "Wyld-Curdling Attack",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 173,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 173",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "luminous-exhalation",
+    "name": "Luminous Exhalation",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Ring Combat Charms",
+    "summary": "Lets the raksha exhale a fine mist of Essence that Ring-shaping weapons can use as gossamer, allowing a single Ring- or Staff-shaping attack without the need for gossamer ammunition per use.",
+    "description": "The weakness of ranged Ring-shaping attacks is their dependence on ammunition. This Charm lets the raksha exhale a fine mist of Essence that Ring-shaping weapons can use as gossamer. Each use allows a single Ring-shaping or Staff-shaping attack without the need for gossamer ammunition.",
+    "cost": "1 mote per attack",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["wyld-curdling-attack"],
+    "prerequisiteText": "Wyld-Curdling Attack",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 174,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 174",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "twisting-serpent-shape",
+    "name": "Twisting Serpent Shape",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Ring Combat Charms",
+    "summary": "Lets the raksha make a single Ring- or Staff-shaping attack without gossamer ammunition, using her readied ranged shaping weapon's accuracy but a base damage of Perception + 10 at a fixed 10-waypoint range.",
+    "description": "The raksha curls the local weave of fate in on itself, building a twisting world of circular reasoning and self-justifying propositions that, with the raw writhing vitality of a living thing, shapes itself to ensure its continued existence. The Essence of the raksha's shaping weapon and the Essence of the world are mirrors of one another. This Charm allows the raksha to make a single Ring-shaping or Staff-shaping attack without gossamer ammunition. This attack uses the accuracy of his readied shaping weapon, which must have a nonzero waypoint range. The base damage of the attack is the raksha's Perception + 10, and the range of the attack is 10 waypoints' distance.",
+    "cost": "4 motes",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["wyld-curdling-attack"],
+    "prerequisiteText": "Wyld-Curdling Attack",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 174,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 174",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "gaping-wound-lens",
+    "name": "Gaping Wound Lens",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Ring Combat Charms",
+    "summary": "Rips open the raksha's Essence pattern to form a permanent lens usable for either Ring- or Staff-shaping ranged attacks, with accuracy/rate equal to Essence, 10-waypoint range, and no Perception/Charisma damage cap.",
+    "description": "The raksha rips open his Essence pattern, using the bleeding hollow this forms as a lens. This lens has accuracy and rate equal to the raksha's permanent Essence and a range of 10 waypoints. The raksha can use his gaping wound lens to make either Ring-shaping or Staff-shaping attacks; these have a base damage of Perception + Essence or Charisma + Essence, respectively. This lens has no Perception or Charisma maximum.",
+    "cost": "5 motes, 1 Willpower",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["wyld-curdling-attack"],
+    "prerequisiteText": "Wyld-Curdling Attack",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 174,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 174",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "pounding-dream-harmony",
+    "name": "Pounding Dream Harmony",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Ring Combat Charms",
+    "summary": "Sets forth many shaping principles in subtle harmony: on a successful Ring- or Staff-shaping attack, lets the raksha ignore up to one point of the enemy's soak per mote spent.",
+    "description": "The raksha speaks the law of the world not in words, but in chorus. She sets forth not one, but many principles in subtle harmony and arrangement. The raksha spends the motes for this Charm and makes a Ring-shaping or Staff-shaping attack. If this attack succeeds, this Charm lets her ignore up to one point of the enemy's soak for each mote spent.",
+    "cost": "1 mote per soak reduction",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["wyld-curdling-attack"],
+    "prerequisiteText": "Wyld-Curdling Attack",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 174,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 174",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "sorrowful-firmament-resonance",
+    "name": "Sorrowful Firmament Resonance",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Ring Combat Charms",
+    "summary": "Sings Nirvishesha's Sayujya aspect to sink the raksha's will into the Wyld's substrata: an undodgeable (though parriable) Ring- or Staff-shaping attack against a target within three waypoints, its effect felt by every local waypoint and raksha's spirit within 10 waypoints.",
+    "description": "Singing the sonorous lament of Nirvishesha's Sayujya aspect, the raksha sinks her will into the substrata of the Wyld. She makes a Ring-shaping or Staff-shaping attack against a target no more than three waypoints away. There is no escape from this attack -- parrying is possible with stunts and Charms, but dodging is impossible. Every local waypoint and every raksha's spirit, within a 10 waypoints' distance, shivers with her song.",
+    "cost": "5 motes",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["waypoint-knife", "pounding-dream-harmony"],
+    "prerequisiteText": "Waypoint Knife, Pounding Dream Harmony",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 174,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 174",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "undetectable-lie",
+    "name": "Undetectable Lie",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Ring Combat Charms",
+    "summary": "A Staff-shaping crossover finale of the Ring Combat Charms tree: defines the law of the world in such compelling terms that even Creation-born targets accept one statement as absolute truth, converting post-soak damage into automatic successes.",
+    "description": "The raksha defines the law of the world in such compelling terms that not even the Creation-born can refuse belief. Her player rolls Manipulation + Socialize as a Staff-shaping attack, converting the post-soak damage dice into automatic successes. Used against creatures with no Staff Grace, this Charm functions as a work of glamour: the target accepts any one statement of the raksha's as absolute truth. It takes one scene before the target is receptive to contradictory evidence, and even then most targets remember it as a distortion in the world rather than their senses. This power does not work on targets whose Wits + Essence is greater than the raksha's Manipulation. This is a Staff-shaping Charm.",
+    "cost": "5 motes, 1 Willpower, 3 gossamer",
+    "duration": "Instant",
+    "type": "Supplemental",
+    "minimumRequirements": [
+      {
+        "trait": "Staff",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["sorrowful-firmament-resonance"],
+    "prerequisiteText": "Sorrowful Firmament Resonance",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 175,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 175",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "Explicitly gated on Minimum Staff (not Ring) and self-declared 'a Staff-shaping Charm' despite terminating a Ring Combat Charms branch -- the same cross-Grace crossover pattern already seen in the Ring's own Tainted Creature Command/Monstrous Conceit/Akshata Sexual Methodology and the Cup tree's Beguilement."
+    ]
+  },
+  {
+    "id": "these-dreams-are-clay",
+    "name": "These Dreams Are Clay",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Ring Combat Charms",
+    "summary": "The last Charm of the Ring Combat Charms tree: massages the unformed Wyld into 1 unstable gossamer that fades at the end of the next scene, usable only in the Middlemarches or deeper Wyld regions.",
+    "description": "The craft of the Workers brings forth gossamer from the Wyld. Massaging the unformed shapeless world with his hands, a raksha in the Middlemarches or deeper regions of the Wyld can create 1 gossamer from Essence. Gossamer created by this Charm is unstable and fades at the end of the next scene.",
+    "cost": "5 motes",
+    "duration": "Instant",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["luminous-exhalation"],
+    "prerequisiteText": "Luminous Exhalation",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 175,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 175",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "wyld-communion",
+    "name": "Wyld Communion",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "All-Consuming God-Monster Style",
+    "summary": "The root Charm of the All-Consuming God-Monster Style: meditating on the Wyld's own birth-principles, the raksha adds one extra die to all of her stunts while in the Wyld.",
+    "description": "The raksha meditates on the Wyld, dredging forth and harmonizing with the strange Essence of the principles that gave the Wyld birth. This Charm improves all her stunts by one die (for example, a one-die stunt would add two dice to her pool). This functions only in the Wyld.",
+    "cost": "5 motes, 0 gossamer",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 175,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 175",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "spirit-flaying-meditation",
+    "name": "Spirit-Flaying Meditation",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "All-Consuming God-Monster Style",
+    "summary": "Strives for harmony with a greater principle by cutting a Charm or Trait out of the raksha's own soul, at no other compensation.",
+    "description": "Striving for harmony with a greater principle, the raksha cuts a Charm or Trait out of her own soul. This Charm removes one of the raksha's Charms from the character sheet or lowers one of her own Traits by one. Raksha who lose a Charm also lose any permanent mutations gained through purchase of that Charm. The raksha receives no other compensation for the loss.",
+    "cost": "1 Willpower, 1 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["wyld-communion"],
+    "prerequisiteText": "Wyld Communion",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 176,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 176",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "being-nonbeing-approach",
+    "name": "Being-Nonbeing Approach",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "All-Consuming God-Monster Style",
+    "summary": "Elides the raksha from the shaped world into undirected immanent power, raising the difficulty of targeting her with shaping actions and boosting her Stealth against non-Essence-sighted observers.",
+    "description": "The raksha elides herself from the shaped world, becoming undirected immanent power inherent in the nature of existence. The raksha's player rolls Intelligence + Martial Arts. On a success, this Charm increases the difficulty of targeting her with shaping actions by one. The Creation-born can still make out her shadowy form in some specific location within the world, but successful use of this Charm also adds her highest feeding Virtue in dice to normal Stealth dice actions unless those attempting to see her have All-Encompassing Sorcerer's Sight or some other form of Essence sense.",
+    "cost": "1 mote, 2 gossamer",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["spirit-flaying-meditation"],
+    "prerequisiteText": "Spirit-Flaying Meditation",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 176,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 176",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "all-consuming-god-monster-stance",
+    "name": "All-Consuming God-Monster Stance",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "All-Consuming God-Monster Style",
+    "summary": "The style's central Stance-type Charm: transforms the raksha's Essence into a purchasable 'God-Monster Body' that grants a menu of special gifts (three on first purchase, two per subsequent purchase), incompatible with Assumption-type Charms unless the raksha also takes the Calling Upon the Dragon's Ire gift.",
+    "description": "The raksha strives for transcendence, making herself a channel for the deepest madness of the Wyld and hammering herself into a shape defined by imperatives that predate reason and existence. This Charm transforms the raksha's Essence, giving her what the Fair Folk call a 'God-Monster Body.' The first purchase grants three gifts, chosen immediately; each subsequent purchase grants two more gifts. Gifts exist only while this Charm is in force, many have prerequisite gifts that must be taken first, and no gift can be taken more than once. Raksha can purchase this Charm only once, but unshaped can buy it a number of times equal to half their Essence. Sample gifts (a non-exhaustive menu per the sourcebook's own sidebar) include: Advaita Harmony (three extra Virtue dots split freely, and Virtues can be violated without spending Willpower, while in God-Monster form); Calling Upon the Dragon's Ire (lets an Assumption-type Charm and this Charm run simultaneously -- required for any raksha with an Assumption-type mutation who wants this Stance); Chain-Defying Art (heals one level of shaping damage per scene), upgradable to Untouchable Infinite Spirit (heals all of one chosen shaping damage track plus one point of each other type per scene, replacing Chain-Defying Art's benefit); Fearsome Radiance (low-Valor attackers/defenders suffer +1 difficulty against the raksha), extendable to World-Devourer's Shadow (low-Essence characters' players must pass a difficulty-1 Valor roll once per scene even to attempt attacking the raksha, on top of the Fearsome Radiance penalty); Graces of the Wyld (immunity to the Curses of Alienation, Hubris, Namelessness and Meekness while in God-Monster form); Heart-Stopping Numinous Power (+2 effective Essence in God-Monster form); Lumbering Feet of God (travel three waypoints per scene or sprint six); Terrible Shaping Suasion (+2 dice on all shaping rolls in God-Monster form); and Unshapeable Transcendent Essence (adds Essence to shaping soak), extendable to Miasma of Principle (also adds Essence to natural lethal and bashing soak, cumulative with Unshapeable Transcendent Essence). This Charm is specifically incompatible with Assumption-type Charms unless the raksha takes Calling Upon the Dragon's Ire. This is a Stance-type Charm; characters cannot use more than one Stance-type Charm at a time.",
+    "cost": "10 motes, 1 Willpower, 0 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["spirit-flaying-meditation"],
+    "prerequisiteText": "Spirit-Flaying Meditation",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 176,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 176",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "This is a Stance-type Charm; characters cannot use more than one Stance-type Charm at a time (the same unmodeled mechanic flagged for Spirit-Twisting Obsession Stance in the Cup Combat Charms tree -- no schema field tracks Stance-type exclusivity). Also explicitly incompatible with Assumption-type Charms unless the raksha also takes the Calling Upon the Dragon's Ire gift. The 'description' field paraphrases and condenses the sourcebook's own 'Sample God-Monster Body Gifts' sidebar rather than reproducing every gift verbatim, per the inventory's own note."
+    ]
+  },
+  {
+    "id": "nature-eliminating-knife",
+    "name": "Nature-Eliminating Knife",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "All-Consuming God-Monster Style",
+    "summary": "Utterly destroys one of the raksha's own Graces, wherever it dwells, permanently adding the 'Graces of the Wyld' gift (or any other gift of her choice, if she already has it) to her God-Monster Body.",
+    "description": "This Charm utterly destroys one of its user's own Graces, no matter in whose hands it dwells. Invoking this Charm permanently adds the 'Graces of the Wyld' gift to the raksha's God-Monster Body or, if the raksha's God-Monster Body already has this gift, adds any other gift of the raksha's choice.",
+    "cost": "1 Willpower, 1 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["all-consuming-god-monster-stance"],
+    "prerequisiteText": "All-Consuming God-Monster Stance",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 176,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 176",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "chimera-exultation",
+    "name": "Chimera Exultation",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "All-Consuming God-Monster Style",
+    "summary": "The style's capstone: assuming a God-Monster Body, the raksha destroys her own Heart Grace and vanishes in a flare of pearlescent light, utterly annihilating herself as a Storyteller-controlled plot device.",
+    "description": "Assuming a God-Monster Body, the raksha destroys her Heart Grace and vanishes in a flare of pearlescent light. This Charm utterly destroys the raksha who uses it, driving the radiance of the raksha's will and desire into the substrata of the Wyld. This Charm is a plot device, having such limited or limitless effects as the Storyteller desires.",
+    "cost": "1 Willpower, 1 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 5
+      }
+    ],
+    "minimumEssence": 4,
+    "prerequisiteCharms": [
+      "being-nonbeing-approach",
+      "nature-eliminating-knife"
+    ],
+    "prerequisiteText": "Being-Nonbeing Approach, Nature-Eliminating Knife",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 176,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 176",
     "reviewStatus": "source-checked",
     "reviewFlags": []
   }

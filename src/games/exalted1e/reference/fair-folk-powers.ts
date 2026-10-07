@@ -43,14 +43,31 @@ import type { PowerReviewStatus } from './dragonblooded-powers';
  * this tree, Beguilement, is a Staff-shaping crossover terminal leaf,
  * following the same cross-Grace pattern as the Ring tree's Tainted
  * Creature Command/Monstrous Conceit/Akshata Sexual Methodology; its
- * `minimumRequirements` reflects Staff, not Cup. Every other Charm group
- * in the book's Chapter Five (the other three Graces' combat trees --
- * Ring Combat Charms plus its sequel All-Consuming God-Monster Style; the
- * Staff's Laughing Monster Style; Sword Combat Charms -- the rest of
- * Mutation Charms, Elemental/Emotional Influence beyond the one worked
- * Assumption example, Glamour Sorcery, Heart's own Name Charms and the
- * cross-Grace Bedlam-Influencing Charms, and the two sibling Assumption
- * sub-trees) remains unpromoted.
+ * `minimumRequirements` reflects Staff, not Cup. Phase 1f promotes the
+ * third: `'Ring Combat Charms'` (16 entries, pp. 171-175 -- two
+ * independent roots, Flesh-Carved World and Wyld-Curdling Attack,
+ * converging at Sorrowful Firmament Resonance, which then branches into
+ * the Staff-shaping crossover terminal leaf Undetectable Lie and,
+ * separately, into the tree's own last Charm, These Dreams Are Clay) and
+ * its directly-continuing sequel tree, `'All-Consuming God-Monster
+ * Style'` (6 entries, pp. 175-176 -- rooted in Wyld Communion, branching
+ * at Spirit-Flaying Meditation into Being-Nonbeing Approach and the
+ * Stance-type All-Consuming God-Monster Stance, the latter leading to
+ * Nature-Eliminating Knife, with Being-Nonbeing Approach and
+ * Nature-Eliminating Knife converging on the capstone Chimera
+ * Exultation), promoted together as a single continuous 22-Charm phase
+ * per an explicit decision made ahead of time (the book itself runs the
+ * two sections together with no intervening Grace change). Undetectable
+ * Lie is a Staff-shaping crossover terminal leaf, following the same
+ * cross-Grace pattern as the Ring's own Tainted Creature Command/
+ * Monstrous Conceit/Akshata Sexual Methodology and the Cup tree's
+ * Beguilement; its `minimumRequirements` reflects Staff, not Ring. Every
+ * other Charm group in the book's Chapter Five (the Staff's own Laughing
+ * Monster Style; Sword Combat Charms; the rest of Mutation Charms,
+ * Elemental/Emotional Influence beyond the one worked Assumption example,
+ * Glamour Sorcery, Heart's own Name Charms and the cross-Grace
+ * Bedlam-Influencing Charms, and the two sibling Assumption sub-trees)
+ * remains unpromoted.
  */
 export const fairFolkCharmCategories = [
   'Grace Forging',
@@ -60,6 +77,8 @@ export const fairFolkCharmCategories = [
   'Dodge Charms',
   'Resistance Charms',
   'Cup Combat Charms',
+  'Ring Combat Charms',
+  'All-Consuming God-Monster Style',
 ] as const;
 export type FairFolkCharmCategory = (typeof fairFolkCharmCategories)[number];
 
@@ -96,9 +115,10 @@ const reviewStatusSchema: z.ZodType<PowerReviewStatus> = z.enum([
  * Ring for Glamour Charms/Grace Forging Charms, but Staff for the handful
  * of cross-Grace crossover Charms diagrammed under the Ring's/Cup's trees
  * (Tainted Creature Command, Monstrous Conceit, Akshata Sexual
- * Methodology, Beguilement), Sword for the Mutation Charms (Pox,
- * Affliction, Blight), Heart for the Dodge/Resistance Charms, and Cup for
- * the rest of the Cup Combat Charms.
+ * Methodology, Beguilement, Undetectable Lie), Sword for the Mutation
+ * Charms (Pox, Affliction, Blight), Heart for the Dodge/Resistance
+ * Charms, Cup for the rest of the Cup Combat Charms, and Ring for the
+ * rest of Ring Combat Charms/All-Consuming God-Monster Style.
  */
 const fairFolkCharmSchema = z.object({
   id: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
@@ -128,7 +148,7 @@ const fairFolkCharmSchema = z.object({
 });
 
 /**
- * 70 of the many Charm rows found in Fair Folk's Chapter Five inventory
+ * 92 of the many Charm rows found in Fair Folk's Chapter Five inventory
  * range. Phase 1b's 19: the 6 "Forging the (Grace) Grace" Charms (Heart,
  * Cup, Ring, Staff, Sword, and the exotic sixth Way Grace), the 4 parallel
  * Freehold-anchor Charms that branch off Forging the Arcane Redoubt
@@ -141,25 +161,31 @@ const fairFolkCharmSchema = z.object({
  * Blight Charms (pp. 202-203). Phase 1d added 7 more: the Heart Grace's
  * "Dodge Charms" (4 entries, pp. 157-158) and "Resistance Charms" (3
  * entries, pp. 158-159) -- its only combat-flavored Charm trees. Phase 1e
- * adds 19 more: the full "Cup Combat Charms" tree (pp. 159-163). Every
- * one is `disposition: 'selectable'` and `verificationState: 'reviewed'`
- * in the inventory. Phase 1c's own `shape-forged-servant` and
+ * added 19 more: the full "Cup Combat Charms" tree (pp. 159-163). Phase
+ * 1f adds 22 more: the full "Ring Combat Charms" tree (16 entries, pp.
+ * 171-175) plus its directly-continuing sequel, "All-Consuming
+ * God-Monster Style" (6 entries, pp. 175-176), promoted together as one
+ * phase. Every one is `disposition: 'selectable'` and `verificationState:
+ * 'reviewed'` in the inventory. Phase 1c's own `shape-forged-servant` and
  * `awakened-dream-manufacture` resolved Phase 1b's
  * `forging-the-heart-grace` prerequisite gap, so its `prerequisiteCharms`
- * was updated to `['shape-forged-servant']` accordingly. One Charm
- * (`monstrous-conceit`) cites a real prerequisite (`Undetectable Lie`)
- * that falls outside this catalog's scope entirely (it lives in the
- * still-unpromoted "Ring Combat Charms" section) -- left out of
- * `prerequisiteCharms` (which only ever names ids resolvable within this
- * same catalog, checked below) and kept as free text in
- * `prerequisiteText`/`reviewFlags` instead, rather than fabricating a
- * resolution or silently dropping the citation. Phase 1d's and Phase
- * 1e's own Charms have no such gap: every prerequisite they cite resolves
- * cleanly within these same small, self-contained trees.
+ * was updated to `['shape-forged-servant']` accordingly. Phase 1f
+ * resolves a second such gap the same honest way: Phase 1c's
+ * `monstrous-conceit` cited a real prerequisite, Undetectable Lie, that
+ * fell outside its own catalog's scope at the time (it lived in the
+ * then-unpromoted "Ring Combat Charms" section); now that Phase 1f
+ * promotes `undetectable-lie` itself, `monstrous-conceit`'s
+ * `prerequisiteCharms` was updated from `['glamour-charm']` to
+ * `['undetectable-lie', 'glamour-charm']` and its now-stale "not itself
+ * promoted" `reviewFlags` note was removed (its separate, still-true
+ * cross-Grace Staff-gating note was kept). Phase 1d's, Phase 1e's, and
+ * Phase 1f's own new Charms have no such gap of their own: every
+ * prerequisite they cite resolves cleanly within these same small,
+ * self-contained trees.
  */
 const fairFolkCharmCatalogSchema = z
   .array(fairFolkCharmSchema)
-  .length(70)
+  .length(92)
   .superRefine((charms, context) => {
     const ids = charms.map(({ id }) => id);
     if (new Set(ids).size !== ids.length) {
@@ -201,12 +227,12 @@ const defaultComboRules: CharmComboRules = {
  * review found this catalog's first explicit Combo-restriction sentence:
  * Thousand Tiny Hooks Technique's own mechanics text states "it cannot be
  * placed in a combo with extra-action Charms," mirroring Lunar's own
- * `coiled-cobra-stance` precedent exactly. No other Charm promoted so far
- * (Phase 1b's 19, Phase 1c's 25, Phase 1d's 7, or Phase 1e's other 18)
- * contains such a sentence, so every other Charm still falls through to
- * `defaultComboRules` (Combo-eligible, no restrictions) -- an honest
- * reflection of what source review found, not an assumption that no such
- * restriction exists anywhere in the book.
+ * `coiled-cobra-stance` precedent exactly. Phase 1f's own 22 new Charms
+ * (Ring Combat Charms/All-Consuming God-Monster Style) contain no such
+ * sentence, so none of them are added here; every Charm without an entry
+ * in this map still falls through to `defaultComboRules` (Combo-eligible,
+ * no restrictions) -- an honest reflection of what source review found,
+ * not an assumption that no such restriction exists anywhere in the book.
  */
 const explicitComboRules: Record<string, Partial<CharmComboRules>> = {
   'thousand-tiny-hooks-technique': {

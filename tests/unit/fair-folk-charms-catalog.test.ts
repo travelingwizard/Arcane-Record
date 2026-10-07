@@ -6,20 +6,20 @@ import {
   fairFolkCharms,
 } from '../../src/games/exalted1e/reference/fair-folk-powers';
 
-describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e)', () => {
+describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f)', () => {
   it('loads all promoted Charm rows with unique stable IDs', () => {
-    expect(fairFolkCharms).toHaveLength(70);
-    expect(fairFolkCharmIds.size).toBe(70);
-    expect(fairFolkCharmById.size).toBe(70);
+    expect(fairFolkCharms).toHaveLength(92);
+    expect(fairFolkCharmIds.size).toBe(92);
+    expect(fairFolkCharmById.size).toBe(92);
   });
 
-  it('assigns every Charm a valid category from the seven documented Fair Folk Charm categories', () => {
+  it('assigns every Charm a valid category from the nine documented Fair Folk Charm categories', () => {
     for (const charm of fairFolkCharms) {
       expect(fairFolkCharmCategories).toContain(charm.charmCategory);
     }
   });
 
-  it('distributes Charms across the seven categories with the expected counts', () => {
+  it('distributes Charms across the nine categories with the expected counts', () => {
     const categoryCounts = new Map<string, number>();
     for (const charm of fairFolkCharms) {
       categoryCounts.set(
@@ -34,12 +34,14 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e)', 
     expect(categoryCounts.get('Dodge Charms')).toBe(4);
     expect(categoryCounts.get('Resistance Charms')).toBe(3);
     expect(categoryCounts.get('Cup Combat Charms')).toBe(19);
+    expect(categoryCounts.get('Ring Combat Charms')).toBe(16);
+    expect(categoryCounts.get('All-Consuming God-Monster Style')).toBe(6);
     expect(
       Array.from(categoryCounts.values()).reduce(
         (sum, count) => sum + count,
         0,
       ),
-    ).toBe(70);
+    ).toBe(92);
   });
 
   it('resolves every prerequisiteCharms entry to another id in the same catalog (no dangling references)', () => {
@@ -65,12 +67,14 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e)', 
     }
   });
 
-  it('keys every Grace Forging/Glamour/Dodge/Resistance/Cup-Combat Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption Charm to no Grace minimum at all', () => {
+  it('keys every Grace Forging/Glamour/Dodge/Resistance/Cup-Combat/Ring-Combat Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption Charm to no Grace minimum at all', () => {
     for (const charm of fairFolkCharms) {
       if (
         charm.charmCategory === 'Grace Forging' ||
         charm.charmCategory === 'Glamour Charms' ||
-        charm.charmCategory === 'Cup Combat Charms'
+        charm.charmCategory === 'Cup Combat Charms' ||
+        charm.charmCategory === 'Ring Combat Charms' ||
+        charm.charmCategory === 'All-Consuming God-Monster Style'
       ) {
         expect(charm.minimumRequirements).toHaveLength(1);
         expect(['Cup', 'Ring', 'Staff']).toContain(
@@ -99,6 +103,14 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e)', 
     ]);
   });
 
+  it('gates Undetectable Lie on Minimum Staff despite being the terminal leaf of a Ring Combat Charms branch', () => {
+    const undetectableLie = fairFolkCharmById.get('undetectable-lie');
+    expect(undetectableLie).toBeDefined();
+    expect(undetectableLie?.minimumRequirements).toEqual([
+      { trait: 'Staff', rating: 4 },
+    ]);
+  });
+
   it('gates the three cross-Grace crossover Charms on Minimum Staff despite being diagrammed under the Ring tree', () => {
     const crossoverStaffMinimums: [string, number][] = [
       ['tainted-creature-command', 3],
@@ -120,14 +132,19 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e)', 
     expect(heartGrace?.reviewFlags).toEqual([]);
   });
 
-  it("keeps monstrous-conceit's other real prerequisite (Undetectable Lie) as advisory text only, since it falls outside this catalog's scope entirely", () => {
+  it("resolves monstrous-conceit's other real prerequisite (Undetectable Lie) now that Phase 1f promotes it into the same catalog", () => {
     const monstrousConceit = fairFolkCharmById.get('monstrous-conceit');
     expect(monstrousConceit).toBeDefined();
-    expect(monstrousConceit?.prerequisiteCharms).toEqual(['glamour-charm']);
+    expect(monstrousConceit?.prerequisiteCharms).toEqual(
+      expect.arrayContaining(['undetectable-lie', 'glamour-charm']),
+    );
     expect(monstrousConceit?.prerequisiteText).toBe(
       'Undetectable Lie, Glamour',
     );
-    expect(monstrousConceit?.reviewFlags.length).toBeGreaterThan(0);
+    // The stale "not itself promoted" note was removed, but the separate
+    // cross-Grace Staff-gating note was kept, so this Charm still carries
+    // exactly one reviewFlags entry.
+    expect(monstrousConceit?.reviewFlags).toHaveLength(1);
   });
 
   it('chains the five parallel Freehold-anchor Charms off Forging the Arcane Redoubt and its paired Grace-Forging Charm', () => {
@@ -342,6 +359,85 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e)', 
     );
   });
 
+  it('chains the Ring Combat Charms tree: two independent roots (Flesh-Carved World, Wyld-Curdling Attack) converging at Sorrowful Firmament Resonance, then branching into the Staff-crossover Undetectable Lie and the tree-closing These Dreams Are Clay', () => {
+    expect(
+      fairFolkCharmById.get('flesh-carved-world')?.prerequisiteCharms,
+    ).toEqual([]);
+    for (const id of [
+      'shuddering-wyld-inference',
+      'creators-fugue',
+      'crippling-destiny-burden',
+    ]) {
+      expect(fairFolkCharmById.get(id)?.prerequisiteCharms).toEqual([
+        'flesh-carved-world',
+      ]);
+    }
+    for (const id of ['waypoint-knife', 'minds-grip-rigor']) {
+      expect(fairFolkCharmById.get(id)?.prerequisiteCharms).toEqual([
+        'shuddering-wyld-inference',
+      ]);
+    }
+    expect(
+      fairFolkCharmById.get('impinging-web-of-dream')?.prerequisiteCharms,
+    ).toEqual(['creators-fugue']);
+
+    expect(
+      fairFolkCharmById.get('wyld-curdling-attack')?.prerequisiteCharms,
+    ).toEqual([]);
+    for (const id of [
+      'endless-yawning-void',
+      'luminous-exhalation',
+      'twisting-serpent-shape',
+      'gaping-wound-lens',
+      'pounding-dream-harmony',
+    ]) {
+      expect(fairFolkCharmById.get(id)?.prerequisiteCharms).toEqual([
+        'wyld-curdling-attack',
+      ]);
+    }
+    expect(
+      fairFolkCharmById.get('these-dreams-are-clay')?.prerequisiteCharms,
+    ).toEqual(['luminous-exhalation']);
+
+    expect(
+      fairFolkCharmById.get('sorrowful-firmament-resonance')
+        ?.prerequisiteCharms,
+    ).toEqual(
+      expect.arrayContaining(['waypoint-knife', 'pounding-dream-harmony']),
+    );
+    expect(
+      fairFolkCharmById.get('undetectable-lie')?.prerequisiteCharms,
+    ).toEqual(['sorrowful-firmament-resonance']);
+  });
+
+  it('chains All-Consuming God-Monster Style: Wyld Communion root branching through Spirit-Flaying Meditation into the Stance-type All-Consuming God-Monster Stance and Being-Nonbeing Approach, converging on the capstone Chimera Exultation', () => {
+    expect(fairFolkCharmById.get('wyld-communion')?.prerequisiteCharms).toEqual(
+      [],
+    );
+    expect(
+      fairFolkCharmById.get('spirit-flaying-meditation')?.prerequisiteCharms,
+    ).toEqual(['wyld-communion']);
+    for (const id of [
+      'being-nonbeing-approach',
+      'all-consuming-god-monster-stance',
+    ]) {
+      expect(fairFolkCharmById.get(id)?.prerequisiteCharms).toEqual([
+        'spirit-flaying-meditation',
+      ]);
+    }
+    expect(
+      fairFolkCharmById.get('nature-eliminating-knife')?.prerequisiteCharms,
+    ).toEqual(['all-consuming-god-monster-stance']);
+    expect(
+      fairFolkCharmById.get('chimera-exultation')?.prerequisiteCharms,
+    ).toEqual(
+      expect.arrayContaining([
+        'being-nonbeing-approach',
+        'nature-eliminating-knife',
+      ]),
+    );
+  });
+
   it('assigns Combo-eligibility rules to every Charm, defaulting to eligible with no restrictions except the one explicit override found this phase', () => {
     for (const charm of fairFolkCharms) {
       expect(charm.comboRules).toBeDefined();
@@ -374,6 +470,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e)', 
       [
         'affliction-charm',
         'akshata-sexual-methodology',
+        'all-consuming-god-monster-stance',
         'assumption-of-dreams-and-passion',
         'assumption-of-elemental-shape',
         'assumption-of-the-lands-heart',
@@ -385,11 +482,13 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e)', 
         'forging-the-way-grace',
         'glamour-charm',
         'great-works-of-the-grace',
+        'impinging-web-of-dream',
         'monstrous-conceit',
         'pox-charm',
         'spirit-twisting-obsession-stance',
         'swift-wings-of-song',
         'tainted-creature-command',
+        'undetectable-lie',
         'unshaped-grace-transformation',
       ].sort(),
     );
