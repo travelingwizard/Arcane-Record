@@ -10,6 +10,7 @@ import type { Exalted1eCharacter } from './schema';
 import gracesData from './reference/fair-folk-graces.json';
 import bedlamData from './reference/fair-folk-bedlam.json';
 import glamourSorceryData from './reference/fair-folk-glamour-sorcery.json';
+import adjurationsData from './reference/fair-folk-adjurations.json';
 
 type FairFolkFamilyState = Extract<
   Exalted1eCharacter['familyState'],
@@ -49,9 +50,21 @@ interface GlamourSorceryEntry {
   citation: { bookId: string; printedPage: number; pdfPage: number };
 }
 
+interface AdjurationEntry {
+  id: string;
+  name: string;
+  oathTier: string | null;
+  artifactLevel: number | null;
+  summary: string;
+  mechanics: string;
+  compatibility: string;
+  citation: { bookId: string; printedPage: number; pdfPage: number };
+}
+
 const graceEntries = gracesData as GraceEntry[];
 const bedlamEntries = bedlamData as BedlamEntry[];
 const glamourSorceryEntries = glamourSorceryData as GlamourSorceryEntry[];
+const adjurationEntries = adjurationsData as AdjurationEntry[];
 
 interface Props {
   state: FairFolkFamilyState;
@@ -63,25 +76,27 @@ interface Props {
  * Fair Folk's own Bedlam (the Limit-Trait analog -- see
  * `./reference/fair-folk-bedlam.json`'s overview plus its four Virtue-
  * linked Curses), a browsable reference for the five Graces (see
- * `./reference/fair-folk-graces.json`), and (Phase 1r) a browsable
- * reference for Glamour Sorcery (see
- * `./reference/fair-folk-glamour-sorcery.json`). Matches
+ * `./reference/fair-folk-graces.json`), a browsable reference for Glamour
+ * Sorcery (Phase 1r, see `./reference/fair-folk-glamour-sorcery.json`),
+ * and (Phase 1s) a browsable reference for Adjurations/Oaths (see
+ * `./reference/fair-folk-adjurations.json`). Matches
  * `LunarShapechangingPanel`'s own split: the Grace dots themselves stay in
  * `ExaltedFamilyStatePanel`'s existing inline `DotRating` grid, while this
  * panel owns the Bedlam Virtue declaration (`familyState.bedlamVirtueId`)
- * plus browsable reference text for Graces, Curses, and Glamour Sorcery.
- * This app has no dice-rolling engine anywhere, so Bedlam's own per-Virtue
- * channel-spending count is not tracked numerically here (see
- * `bedlamVirtueId`'s own doc comment in `schema.ts`) -- only the resulting
- * Curse state a player declares by hand. Glamour Sorcery is reference-only
- * for the same deferred-feature reason: it is a point-buy "build a custom
- * spell with mutation points, bought via the Artifact Background" system
- * rather than a fixed list of named spells, so there is no
- * `definitionId`-style pick to make yet -- a future phase would need a new
- * character-data structure (linking an Artifact Background entry to a
- * chosen Circle tier and its spent mutation points) before this could
- * become a real selection UI, matching the project's "keep deferred
- * features visibly labeled as previews or placeholders" rule.
+ * plus browsable reference text for Graces, Curses, Glamour Sorcery, and
+ * Adjurations. This app has no dice-rolling engine anywhere, so Bedlam's
+ * own per-Virtue channel-spending count is not tracked numerically here
+ * (see `bedlamVirtueId`'s own doc comment in `schema.ts`) -- only the
+ * resulting Curse state a player declares by hand. Glamour Sorcery and
+ * Adjurations are both reference-only for the same deferred-feature
+ * reason: each is a point-buy "build a custom spell/oath with mutation
+ * points, bought via the Artifact Background" system rather than a fixed
+ * list of named picks, so there is no `definitionId`-style selection to
+ * make yet for either -- a future phase would need a new character-data
+ * structure (linking an Artifact Background entry to a chosen tier and
+ * its spent mutation points) before either could become a real selection
+ * UI, matching the project's "keep deferred features visibly labeled as
+ * previews or placeholders" rule.
  */
 export function FairFolkGracesPanel({ state, buildMode, onChange }: Props) {
   const activeCurse = state.bedlamVirtueId
@@ -253,6 +268,51 @@ export function FairFolkGracesPanel({ state, buildMode, onChange }: Props) {
           ))}
         {glamourSorceryEntries
           .filter((entry) => entry.circleTier !== null)
+          .map((entry) => (
+            <details className="exalted-compact-record" key={entry.id}>
+              <summary>
+                <strong>{entry.name}</strong>{' '}
+                <SheetBadge tone="neutral">
+                  Artifact {entry.artifactLevel ?? 'N/A'}
+                </SheetBadge>
+              </summary>
+              <div className="exalted-record-fields">
+                <p>{entry.summary}</p>
+                <p className="section-note">{entry.mechanics}</p>
+                <p className="section-note">
+                  Compatibility: {entry.compatibility}
+                </p>
+              </div>
+            </details>
+          ))}
+      </SheetCard>
+
+      <SheetCard density="compact">
+        <h3>Adjurations reference</h3>
+        <SheetNotice>
+          Reference text only -- Adjurations are another point-buy system (a
+          raksha buys an Artifact Background dot per oath tier, then swears an
+          unbreakable, specific promise that grants a custom set of mutations
+          within that tier&rsquo;s own mutation-point budget) rather than a
+          fixed list of named oaths. Arcane Record has no data structure yet for
+          a character&rsquo;s own sworn Adjurations; this app does not track
+          them.
+        </SheetNotice>
+        {adjurationEntries
+          .filter((entry) => entry.oathTier === null)
+          .map((entry) => (
+            <details className="exalted-compact-record" key={entry.id}>
+              <summary>
+                <strong>{entry.name}</strong>
+              </summary>
+              <div className="exalted-record-fields">
+                <p>{entry.summary}</p>
+                <p className="section-note">{entry.mechanics}</p>
+              </div>
+            </details>
+          ))}
+        {adjurationEntries
+          .filter((entry) => entry.oathTier !== null)
           .map((entry) => (
             <details className="exalted-compact-record" key={entry.id}>
               <summary>

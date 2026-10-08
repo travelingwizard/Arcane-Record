@@ -100,7 +100,19 @@ describe('FairFolkGracesPanel (Phase 1b)', () => {
     expect(screen.getByText('Desire Circle Spell')).toBeInTheDocument();
     expect(screen.getByText('Samadhi Circle Spell')).toBeInTheDocument();
     expect(screen.getByText('Shinma Circle Spell')).toBeInTheDocument();
-    expect(screen.getByText('Artifact 1')).toBeInTheDocument();
-    expect(screen.getByText('Artifact 5')).toBeInTheDocument();
+    expect(screen.getAllByText('Artifact 1').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Artifact 5').length).toBeGreaterThan(0);
+  });
+
+  it('renders the Adjurations reference section with all five oath tiers (Phase 1s)', () => {
+    render(<Harness initialCharacter={baseCharacter()} />);
+    expect(screen.getByText('Adjurations reference')).toBeInTheDocument();
+    expect(screen.getByText('Samhara Oath (Sword oath)')).toBeInTheDocument();
+    expect(screen.getByText('Sthiti Oath (Ring oath)')).toBeInTheDocument();
+    expect(screen.getByText('Anugraha Oath (Cup oath)')).toBeInTheDocument();
+    expect(screen.getByText('Tirobhava Oath (Staff oath)')).toBeInTheDocument();
+    expect(screen.getByText('Srishti Oath (Heart oath)')).toBeInTheDocument();
+    expect(screen.getAllByText('Artifact 1').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Artifact 5').length).toBeGreaterThan(0);
   });
 });

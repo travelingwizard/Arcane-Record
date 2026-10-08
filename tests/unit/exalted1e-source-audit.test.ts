@@ -280,7 +280,7 @@ describe('auditFamily against the real repository (current state)', () => {
   });
 
   it('reports Fair Folk as pending-certification with its real inventory rows and zero audit errors', () => {
-    // 219 = the 201 real, page-cited, visually-reviewed Charms promoted in
+    // 226 = the 201 real, page-cited, visually-reviewed Charms promoted in
     // `fair-folk-charms.json` (19 Grace-Forging/Assumption from Phase 1b,
     // 25 Glamour/Grace-Forging/Mutation Charms from Phase 1c, 7
     // Dodge/Resistance Charms from Phase 1d, 19 Cup Combat Charms from
@@ -314,21 +314,27 @@ describe('auditFamily against the real repository (current state)', () => {
     // gated on the exotic sixth Way Grace -- this closes out this
     // family's entire real Charm section)), the 6 Graces rows in
     // `fair-folk-graces.json`, the 5 Bedlam rows in
-    // `fair-folk-bedlam.json` (all Phase 1b), and the 7 Glamour Sorcery
+    // `fair-folk-bedlam.json` (all Phase 1b), the 7 Glamour Sorcery
     // rows in `fair-folk-glamour-sorcery.json` from Phase 1r (the
     // overview and countermagic-sidebar framework rows plus all 5
     // Circle tiers -- Waking/Dreaming/Desire/Samadhi/Shinma -- promoted
     // as reference-only documentation, since Glamour Sorcery is a
     // point-buy "build a custom spell with mutation points, bought via
     // the Artifact Background" system rather than a fixed spell list,
-    // with no `definitionId`-style pick to make yet), as counted
+    // with no `definitionId`-style pick to make yet), and the 7
+    // Adjurations rows in `fair-folk-adjurations.json` from Phase 1s
+    // (the general Oaths-mechanic row, the Adjurations-overview
+    // framework row, and all 5 oath tiers -- Samhara/Sthiti/Anugraha/
+    // Tirobhava/Srishti -- promoted the same reference-only way, since
+    // Adjurations are structurally the same point-buy system as Glamour
+    // Sorcery, just bound to oaths instead of spells), as counted
     // directly from `src/games/exalted1e/reference/fair-folk-*.json` by
     // this audit script. The stale `./reference/ocr-drafts/fair-folk-charms.json`
     // draft (a raw OCR extraction with several garbled ids that don't
     // match this family's real inventory) remains outside this glob and
     // unwired, exactly matching Alchemical's own identical precedent
     // above. This differs from `certification/fair-folk.json`'s own
-    // `catalog.promotedEntries` (307), which also includes Phase 1a's 88
+    // `catalog.promotedEntries` (314), which also includes Phase 1a's 88
     // Backgrounds/Merits-Flaws rows, none of which live in a
     // `fair-folk-`-prefixed catalog file (Backgrounds live in
     // `definitions.ts`; Merits/Flaws are a subset of the shared
@@ -339,7 +345,7 @@ describe('auditFamily against the real repository (current state)', () => {
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);
     expect(report.inventoryRows).toBeGreaterThan(0);
-    expect(report.promotedEntries).toBe(219);
+    expect(report.promotedEntries).toBe(226);
     expect(report.catalogChecksum).toHaveLength(8);
     expect(report.catalogChecksum).toMatch(/^[0-9a-f]{8}$/);
   });

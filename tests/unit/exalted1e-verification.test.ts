@@ -96,7 +96,7 @@ describe('exalted1e verification gate', () => {
               : family === 'alchemical'
                 ? 214
                 : family === 'fair-folk'
-                  ? 307
+                  ? 314
                   : 0,
       );
       if (
@@ -147,9 +147,17 @@ describe('exalted1e verification gate', () => {
         // Circle tiers, promoted as reference-only documentation since
         // Glamour Sorcery is a point-buy "build a custom spell" system
         // with no fixed spell list to pick from), bringing the narrow
-        // audit total to 219 of 313 promotable; the catalog dimension
+        // audit total to 219; Phase 1s added a new
+        // `fair-folk-adjurations.json` catalog file (7 rows: the
+        // general Oaths-mechanic row, the Adjurations-overview
+        // framework row, and all 5 oath tiers, promoted the same
+        // reference-only way since Adjurations are structurally the
+        // same point-buy system as Glamour Sorcery), bringing the
+        // narrow audit total to 226 of 317 promotable (`promotableEntries`
+        // corrected again, 313 -> 317, in this same phase -- see
+        // `fair-folk.json`'s own notes for why); the catalog dimension
         // stays far from closed on the remaining non-Charm systems
-        // (Adjurations/Oaths, Behemoths-as-Background, Wyld Artifacts).
+        // (Behemoths-as-Background, Wyld Artifacts).
         expect(record.catalog.checksum).toBe(
           auditFamily(family).catalogChecksum,
         );
@@ -267,10 +275,10 @@ describe('exalted1e verification gate', () => {
     expect(isFamilyAvailable('alchemical')).toBe(false);
   });
 
-  it('reflects Fair Folk Phase 1a/1b/1c/1d/1e/1f/1g/1h/1i/1j/1k/1l/1m/1n/1o/1p/1q/1r catalog promotion without unlocking the family', () => {
+  it('reflects Fair Folk Phase 1a/1b/1c/1d/1e/1f/1g/1h/1i/1j/1k/1l/1m/1n/1o/1p/1q/1r/1s catalog promotion without unlocking the family', () => {
     const record = certificationRecords['fair-folk'];
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
-    // 307 = Phase 1a's 88 (13 Backgrounds (fairFolkBackgrounds) + 75 shared
+    // 314 = Phase 1a's 88 (13 Backgrounds (fairFolkBackgrounds) + 75 shared
     // Merits/Flaws catalog entries now carrying 'fair-folk' in appliesTo --
     // 73 inventoried pg-merit-*/pg-flaw-* rows resolving one-for-one,
     // except the two dual merit/flaw split pairs -- mutation-merit/
@@ -328,23 +336,38 @@ describe('exalted1e verification gate', () => {
     // as reference text only, since Glamour Sorcery is a point-buy
     // "build a custom spell with mutation points, bought via the
     // Artifact Background" system rather than a fixed spell list, with
-    // no `definitionId`-style pick to make yet). This is still short
-    // of the 313 `promotableEntries` estimate (a bottom-up recount
-    // performed in Phase 1n once real promotion exceeded the old
-    // Phase 1a-era preliminary estimate of 279; flagged as approximate
-    // pending this family's own remaining Artifact/Oath/Behemoth catalog
-    // phases). Phase 1b's three new `fair-folk-`-prefixed catalog files
-    // were the first ones this audit script's glob picked up, so the
-    // catalog checksum is no longer empty -- exactly matching
-    // Alchemical's own Phase 1a -> 1b transition (checksum stayed empty
-    // until its own Phase 1b added a real `alchemical-`-prefixed file);
-    // Phase 1c, Phase 1d, Phase 1e, Phase 1f, Phase 1g, Phase 1h, Phase
-    // 1i, Phase 1j, Phase 1k, Phase 1l, Phase 1m, Phase 1n, Phase 1o,
-    // Phase 1p, and Phase 1q each changed the checksum again simply by
-    // growing the same `fair-folk-charms.json` file; Phase 1r changed it
-    // again by adding the fourth `fair-folk-`-prefixed file,
-    // `fair-folk-glamour-sorcery.json`.
-    expect(record.catalog.promotedEntries).toBe(307);
+    // no `definitionId`-style pick to make yet) plus Phase 1s's 7 more
+    // reference-only rows in a brand-new fair-folk-adjurations.json
+    // (the general Oaths-mechanic row, the Adjurations-overview
+    // framework row, and all 5 oath tiers -- Samhara/Sthiti/Anugraha/
+    // Tirobhava/Srishti -- promoted the same reference-text-only way,
+    // since Adjurations are structurally the same point-buy system as
+    // Glamour Sorcery, just bound to oaths instead of spells). This is
+    // still short
+    // of the 317 `promotableEntries` estimate (corrected twice now: a
+    // bottom-up recount in Phase 1n, 279 -> 313, once real promotion
+    // exceeded the old Phase 1a-era preliminary estimate; then again in
+    // Phase 1s, 313 -> 317, once promoting Glamour Sorcery's and
+    // Adjurations' own framework/overview rows -- `glamour-sorcery-overview`/
+    // `glamour-sorcery-countermagic` in Phase 1r and `oaths-mechanic`/
+    // `adjurations-overview` in Phase 1s -- revealed the Phase 1n recount
+    // had only counted each system's selectable tier rows (5 apiece), not
+    // their own 2 framework rows, unlike Graces/Bedlam's own `-overview`
+    // rows, which the Phase 1n recount did fold into their 6/5 totals;
+    // flagged as approximate pending this family's own remaining Wyld
+    // Artifacts/Behemoth-as-Background catalog phases). Phase 1b's three
+    // new `fair-folk-`-prefixed catalog files were the first ones this
+    // audit script's glob picked up, so the catalog checksum is no longer
+    // empty -- exactly matching Alchemical's own Phase 1a -> 1b transition
+    // (checksum stayed empty until its own Phase 1b added a real
+    // `alchemical-`-prefixed file); Phase 1c, Phase 1d, Phase 1e, Phase 1f,
+    // Phase 1g, Phase 1h, Phase 1i, Phase 1j, Phase 1k, Phase 1l, Phase 1m,
+    // Phase 1n, Phase 1o, Phase 1p, and Phase 1q each changed the checksum
+    // again simply by growing the same `fair-folk-charms.json` file; Phase
+    // 1r changed it again by adding the fourth `fair-folk-`-prefixed file,
+    // `fair-folk-glamour-sorcery.json`; Phase 1s changed it again by
+    // adding the fifth, `fair-folk-adjurations.json`.
+    expect(record.catalog.promotedEntries).toBe(314);
     expect(record.catalog.checksum.length).toBeGreaterThan(0);
     expect(isFamilyAvailable('fair-folk')).toBe(false);
   });

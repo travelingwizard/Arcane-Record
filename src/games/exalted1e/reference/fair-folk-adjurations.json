@@ -1,0 +1,100 @@
+[
+  {
+    "id": "oaths-mechanic",
+    "name": "Oaths",
+    "oathTier": null,
+    "artifactLevel": null,
+    "summary": "Oaths become woven into a raksha's own Essence pattern the moment she swears them: she cannot break one voluntarily, and an involuntary breach brings a catastrophic botch down on her exactly as if an Eclipse Caste Solar had sanctified the vow -- though a raksha's native cunning usually lets her find a technical loophole at some cost.",
+    "mechanics": "Players and Storytellers are not expected to draft airtight legal contracts; on the rare occasions where finding a loophole is genuinely fun, treat it as a stunt or plot point, otherwise simply assume a raksha can find some way around the letter of her oath. Circumventing the spirit of a promise imposes an environmental penalty on the raksha's normal and shaping actions while she does so, abstractly representing the effort of working around her own vow: a hastily given, accidental promise (a slip of the tongue) carries a zero-die penalty (though the other party can use it as stunt fodder), while an oath deliberately extorted without Charms by a bargaining opponent carries a penalty equal to that opponent's Essence. The book explicitly encourages players and Storytellers to have raksha simply abide by their oaths' stated terms whenever possible, since it is usually more fun that way. See staff-grace for why a raksha cannot break an oath at all without shattering part of her own Staff Grace.",
+    "compatibility": "All raksha; the environmental penalty scales differently depending on how the oath was made.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 133,
+      "pdfPage": 134
+    }
+  },
+  {
+    "id": "adjurations-overview",
+    "name": "Adjurations (overview)",
+    "oathTier": null,
+    "artifactLevel": null,
+    "summary": "The 'world-shaping oaths' that bind raksha society together: artifacts of the Fair Folk shaped from Graces and bound to the aspects of Nirvikalpa (the Staff), which empower whoever swears to them and then manipulate the oathtaker and the world itself to ensure their own fulfillment.",
+    "mechanics": "Adjurations have an Artifact level ranging from one to five, with certain lost oaths qualifying as Artifact N/A. Swearing to an adjuration requires a commitment of 1 mote per level, and the character cannot voluntarily stop committing Essence to it -- she must fulfill the oath before she can reclaim the investment. A raksha sworn to an adjuration cannot voluntarily break that oath; breaking it involuntarily causes the character to suffer a catastrophic botch at the most poetically appropriate moment, exactly as though an Eclipse Caste Solar had sanctified the oath. The environmental penalty for working around the adjuration is usually equal to its Artifact level. When a raksha attuned to a Throne Room swears to an adjuration on behalf of a Freehold, the Freehold holds the benefit in common, and the lord of the Freehold can reflexively assign it to any consenting character in fealty to him. Adjurations are weapons in Staff-shaping combat. Each of the five oath tiers (Samhara/Sword, Sthiti/Ring, Anugraha/Cup, Tirobhava/Staff, Srishti/Heart -- see samhara-oath, sthiti-oath, anugraha-oath, tirobhava-oath, srishti-oath) grants its own mutation-point budget, shaping-weapon stat defaults, and thematic promise structure, corresponding to Artifact levels one through five respectively.",
+    "compatibility": "Any raksha (or Lunar Exalted) with Artifact Background dots to spend, willing to accept an unbreakable oath in exchange for its granted mutations.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 208,
+      "pdfPage": 209
+    }
+  },
+  {
+    "id": "samhara-oath",
+    "name": "Samhara Oath (Sword oath)",
+    "oathTier": "samhara",
+    "artifactLevel": 1,
+    "summary": "A one-dot adjuration sworn in the name of Nishkriya, the Sword -- oaths made in the shadow of endings and the knowledge that all things die, often manifesting as raven shadows that hover near the raksha and drive others into commitments through fear.",
+    "mechanics": "In shaping combat, a samhara oath has qualities similar to a normal one-dot artifact weapon -- typically Speed +7, Accuracy +2, Damage +9, Defense +3, Rate 2, and piercing damage. Each samhara oath contains a specific promise and up to 2 mutation points of powers; a raksha who attunes to the oath by swearing to that promise receives the associated mutations until the oath is broken or fulfilled. An unwise oath can put a raksha in Bedlam or calcify him. Example given: the raksha Dasasya swore, 'I shall not set foot again on land until I have slain the Unconquered Sun,' gaining the 2-point mutation Gossamer Wing Flight. Also called a Sword oath or one-dot oath.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a one-dot adjuration.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 208,
+      "pdfPage": 209
+    }
+  },
+  {
+    "id": "sthiti-oath",
+    "name": "Sthiti Oath (Ring oath)",
+    "oathTier": "sthiti",
+    "artifactLevel": 2,
+    "summary": "A two-dot adjuration sworn in honor of the shinma of the Ring -- oaths recognizing that the self exists only in context with the other, often manifesting as coronas of light around those who sanctify their integrity with commitments.",
+    "mechanics": "In shaping combat, a sthiti oath has qualities similar to a normal two-dot artifact weapon -- typically Speed +6, Accuracy +0, Damage +13, Defense -1, Rate 1, and piercing damage. Each sthiti oath contains a specific promise and up to 3 mutation points of powers; a raksha who attunes to the oath by swearing to that promise receives the associated mutations until the oath is broken or fulfilled. Example given: the raksha Ayo swore, 'Until Calibration takes this burden from me, I shall not sleep without weapon in hand,' gaining the mutation version of Ordinary Object Conjuration (needing only to beckon and roll Conviction + Performance at three successes to summon an excellent straight sword to her hand). Also called a Ring oath or two-dot oath.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a two-dot adjuration.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 209,
+      "pdfPage": 210
+    }
+  },
+  {
+    "id": "anugraha-oath",
+    "name": "Anugraha Oath (Cup oath)",
+    "oathTier": "anugraha",
+    "artifactLevel": 3,
+    "summary": "A three-dot adjuration sworn in the name of Dharma, the Cup -- oaths made in joy or hunger, out of desire for their outcome, often manifesting as will-o'-wisps or siren scraps of music that lure others into commitments through beauty.",
+    "mechanics": "In shaping combat, an anugraha oath has qualities similar to a normal three-dot artifact weapon -- typically a piercing weapon with Speed +10, Accuracy +0, Damage +9, Defense +1, and Rate 3. Each anugraha oath contains a specific promise and up to 4 mutation points of powers; a raksha who attunes to the oath by swearing to that promise receives the associated mutations until the oath is broken or fulfilled, but halves the total mutation point cost (rounding up). Example given: the raksha Nishumba swore to dedicate himself for a year and a day to the devastation of his enemies, taking on a monstrous two-headed goblin body via the Huge Wyld affliction and 2 mutation points of Oath Gossamer. Also called a Cup oath or three-dot oath.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a three-dot adjuration.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 209,
+      "pdfPage": 210
+    }
+  },
+  {
+    "id": "tirobhava-oath",
+    "name": "Tirobhava Oath (Staff oath)",
+    "oathTier": "tirobhava",
+    "artifactLevel": 4,
+    "summary": "A four-dot adjuration sworn in the name of Nirvikalpa, the Staff -- oaths sworn because oaths are bindings, and in bindings there is power, often manifesting as a staff wrapped with the terrible power of law.",
+    "mechanics": "In shaping combat, a tirobhava oath has qualities similar to a normal four-dot artifact weapon -- typically Speed +10, Accuracy +0, Damage +9, Defense +1, Rate 3, piercing damage, and a minor special power. Each tirobhava oath contains a specific promise and up to 6 mutation points of powers; a raksha who attunes to the oath by swearing to that promise receives the associated mutations until the oath is broken or fulfilled, but halves the total mutation point cost (rounding up). Example given: the raksha Madhu, who dwelt in the endless ocean, swore, 'Let any catch me on the land, and they may slay me,' gaining Assumption of the Living Kingdom paired with an Assumption of the Land's Heart he personally knew; a Solar prince eventually covered the sea in obsidian shards and dredged him up to force his submission to destruction. Also called a Staff oath or four-dot oath.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a four-dot adjuration.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 209,
+      "pdfPage": 210
+    }
+  },
+  {
+    "id": "srishti-oath",
+    "name": "Srishti Oath (Heart oath)",
+    "oathTier": "srishti",
+    "artifactLevel": 5,
+    "summary": "A five-dot adjuration sworn in the name of Nirguna, the Heart -- the truest and deepest oaths of the raksha, sworn for as little as a single mutation point.",
+    "mechanics": "In shaping combat, a srishti oath has qualities similar to a normal four-dot artifact weapon -- typically Speed +10, Accuracy +0, Damage +9, Defense +1, Rate 3, piercing damage, and a major special power. Its benefits are built on up to 4 points of mutations, but the raksha may swear to the oath for a single mutation point. Example given: Hiranya swore to serve the shinma Nirvikalpa with endless austerities, and the oath's strength was such that neither man nor beast could kill him -- not with a weapon or without one, not by day nor night, not indoors nor outdoors, and not on the earth nor in the sky -- granting the benefit Bastion of the Self with partial immunity to mortal damage and the arts of the Sword; the monstrous raksha Nara-simha nonetheless caught him at the threshold in the twilight hour and strangled him on his lap, a three-die Wyld stunt that broke the oath and caused Hiranya to botch his own reflexive counterattack, snapping his own Sword Grace. Also called a Heart oath or five-dot oath.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a five-dot adjuration.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 210,
+      "pdfPage": 211
+    }
+  }
+]
