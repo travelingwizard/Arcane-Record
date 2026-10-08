@@ -6,20 +6,20 @@ import {
   fairFolkCharms,
 } from '../../src/games/exalted1e/reference/fair-folk-powers';
 
-describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f + Phase 1g + Phase 1h + Phase 1i + Phase 1j + Phase 1k + Phase 1l + Phase 1m + Phase 1n)', () => {
+describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f + Phase 1g + Phase 1h + Phase 1i + Phase 1j + Phase 1k + Phase 1l + Phase 1m + Phase 1n + Phase 1o)', () => {
   it('loads all promoted Charm rows with unique stable IDs', () => {
-    expect(fairFolkCharms).toHaveLength(187);
-    expect(fairFolkCharmIds.size).toBe(187);
-    expect(fairFolkCharmById.size).toBe(187);
+    expect(fairFolkCharms).toHaveLength(192);
+    expect(fairFolkCharmIds.size).toBe(192);
+    expect(fairFolkCharmById.size).toBe(192);
   });
 
-  it('assigns every Charm a valid category from the nineteen documented Fair Folk Charm categories', () => {
+  it('assigns every Charm a valid category from the twenty documented Fair Folk Charm categories', () => {
     for (const charm of fairFolkCharms) {
       expect(fairFolkCharmCategories).toContain(charm.charmCategory);
     }
   });
 
-  it('distributes Charms across the nineteen categories with the expected counts', () => {
+  it('distributes Charms across the twenty categories with the expected counts', () => {
     const categoryCounts = new Map<string, number>();
     for (const charm of fairFolkCharms) {
       categoryCounts.set(
@@ -46,12 +46,13 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     expect(categoryCounts.get('Feeding Charms')).toBe(9);
     expect(categoryCounts.get('Addiction Charms')).toBe(4);
     expect(categoryCounts.get('World-Shaping Charms')).toBe(11);
+    expect(categoryCounts.get('Virtue-Shaping Charms')).toBe(5);
     expect(
       Array.from(categoryCounts.values()).reduce(
         (sum, count) => sum + count,
         0,
       ),
-    ).toBe(187);
+    ).toBe(192);
   });
 
   it('resolves every prerequisiteCharms entry to another id in the same catalog (no dangling references)', () => {
@@ -77,7 +78,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     }
   });
 
-  it('keys every Grace Forging/Glamour/Dodge/Resistance/Cup-Combat/Feeding/Addiction/World-Shaping/Ring-Combat/Staff-Combat/Sword-Combat Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption/Elemental-Influence/Emotional-Influence Charm to no Grace minimum at all', () => {
+  it('keys every Grace Forging/Glamour/Dodge/Resistance/Cup-Combat/Feeding/Addiction/World-Shaping/Virtue-Shaping/Ring-Combat/Staff-Combat/Sword-Combat Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption/Elemental-Influence/Emotional-Influence Charm to no Grace minimum at all', () => {
     for (const charm of fairFolkCharms) {
       if (
         charm.charmCategory === 'Grace Forging' ||
@@ -86,6 +87,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         charm.charmCategory === 'Feeding Charms' ||
         charm.charmCategory === 'Addiction Charms' ||
         charm.charmCategory === 'World-Shaping Charms' ||
+        charm.charmCategory === 'Virtue-Shaping Charms' ||
         charm.charmCategory === 'Ring Combat Charms' ||
         charm.charmCategory === 'All-Consuming God-Monster Style' ||
         charm.charmCategory === 'Laughing Monster Style' ||
@@ -943,9 +945,46 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         'World-Shaping Charms',
       );
     }
-    // The adjacent Virtue-Shaping Charms section, diagrammed on the
-    // same page range, remains unpromoted.
-    expect(fairFolkCharmById.get('unsightly-rigor-approach')).toBeUndefined();
+  });
+
+  it('chains the Virtue-Shaping Charms tree: rooted at Unsightly Rigor Approach, branching into Wyld Prince Resilience and Manacles of Virtue, the latter continuing to Chaotic Soul Sledgehammer and the capstone Torn Spirit-Mending Technique', () => {
+    expect(
+      fairFolkCharmById.get('unsightly-rigor-approach')?.prerequisiteCharms,
+    ).toEqual([]);
+    expect(
+      fairFolkCharmById.get('wyld-prince-resilience')?.prerequisiteCharms,
+    ).toEqual(['unsightly-rigor-approach']);
+    expect(
+      fairFolkCharmById.get('manacles-of-virtue')?.prerequisiteCharms,
+    ).toEqual(['unsightly-rigor-approach']);
+    expect(
+      fairFolkCharmById.get('chaotic-soul-sledgehammer')?.prerequisiteCharms,
+    ).toEqual(['manacles-of-virtue']);
+    expect(
+      fairFolkCharmById.get('torn-spirit-mending-technique')
+        ?.prerequisiteCharms,
+    ).toEqual(['manacles-of-virtue']);
+    expect(
+      fairFolkCharmById.get('unsightly-rigor-approach')?.minimumRequirements,
+    ).toEqual([{ trait: 'Cup', rating: 1 }]);
+    expect(
+      fairFolkCharmById.get('torn-spirit-mending-technique')
+        ?.minimumRequirements,
+    ).toEqual([{ trait: 'Cup', rating: 4 }]);
+    for (const id of [
+      'unsightly-rigor-approach',
+      'wyld-prince-resilience',
+      'manacles-of-virtue',
+      'chaotic-soul-sledgehammer',
+      'torn-spirit-mending-technique',
+    ]) {
+      expect(fairFolkCharmById.get(id)?.charmCategory).toBe(
+        'Virtue-Shaping Charms',
+      );
+    }
+    // This closes out every real Charm-shaped inventory row on the
+    // Cup's own page range (pp. 159-171); the Cup Grace tree is now
+    // entirely promoted.
   });
 
   it('assigns Combo-eligibility rules to every Charm, defaulting to eligible with no restrictions/specialRules except the two explicit overrides found so far', () => {
@@ -1016,8 +1055,10 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         'spirit-twisting-obsession-stance',
         'swift-wings-of-song',
         'tainted-creature-command',
+        'torn-spirit-mending-technique',
         'undetectable-lie',
         'unshaped-grace-transformation',
+        'unsightly-rigor-approach',
         'waypoint-sealing-technique',
         'world-devouring-warlord-stance',
       ].sort(),

@@ -7133,5 +7133,199 @@
     "sourceDisplay": "Exalted: The Fair Folk, p. 169",
     "reviewStatus": "source-checked",
     "reviewFlags": []
+  },
+  {
+    "id": "unsightly-rigor-approach",
+    "name": "Unsightly Rigor Approach",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Virtue-Shaping Charms",
+    "summary": "The root of the Virtue-Shaping Charms tree: temporarily bolsters one of the raksha's own Virtues or Graces by one per success on a Conviction + Medicine Cup-shaping action, capped at her Essence and renewable each scene.",
+    "description": "The raksha bolsters one of her Virtues or Graces with artificial rigor. Her player rolls the raksha's Conviction + Medicine in a Cup-shaping action, temporarily improving that Virtue or Grace by one for each success received. The raksha cannot add more than her Essence to a Virtue or Grace with any combination of Charms. This Charm lasts until the raksha's next shaping action, but the raksha can maintain it for additional scenes by spending 5 motes at the beginning of each scene.",
+    "cost": "5 motes per scene, 0 gossamer",
+    "duration": "Varies",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 170,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 170",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "This Charm's own section opens by noting these Charms are 'also useful for glamour sorcery' (pp. 205-207), a system not yet promoted into any catalog; left as descriptive text only, matching the established precedent for citing a not-yet-inventoried mechanic by name."
+    ]
+  },
+  {
+    "id": "wyld-prince-resilience",
+    "name": "Wyld Prince Resilience",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Virtue-Shaping Charms",
+    "summary": "A mutation-point purchase adding two health levels to all of the raksha's shaping damage tracks per purchase, up to a number of purchases equal to her Cup.",
+    "description": "Raksha can shape themselves to better resist shaping damage. Each purchase of this Charm adds two health levels to all of the raksha's shaping damage tracks, and players can purchase this Charm a number of times equal to the raksha's Cup.",
+    "cost": "1 mutation point",
+    "duration": "Instant",
+    "type": "Special",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["unsightly-rigor-approach"],
+    "prerequisiteText": "Unsightly Rigor Approach",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 170,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 170",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "manacles-of-virtue",
+    "name": "Manacles of Virtue",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Virtue-Shaping Charms",
+    "summary": "Imposes an artificially heightened Virtue on another character interacted with this scene, adding one dot per success (capped at the target's Essence) via a Conviction + Medicine Cup-shaping action; raksha cannot feed off these artificial Virtues.",
+    "description": "The raksha imposes an artificially heightened Virtue on some other character. She chooses a Virtue, then chooses a target with whom she must have interacted this scene. She invokes this Charm, and her player rolls Conviction + Medicine in a Cup-shaping action; this adds one dot to the target's Virtue for each success. The Fair Folk cannot improve a target's Virtues by more than the target's Essence with any combination of effects. This Charm is a work of glamour and does not affect characters whose Wits + Essence exceeds the raksha's Medicine. Raksha cannot feed off these artificial Virtues.",
+    "cost": "1 gossamer",
+    "duration": "One scene",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["unsightly-rigor-approach"],
+    "prerequisiteText": "Unsightly Rigor Approach",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 170,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 170",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "chaotic-soul-sledgehammer",
+    "name": "Chaotic Soul Sledgehammer",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Virtue-Shaping Charms",
+    "summary": "Damages the roots of a named Virtue on a successful contested Cup-shaping attack, instantly costing the target one channel of that Virtue and imposing +1 difficulty on that Virtue's rolls for the rest of the story.",
+    "description": "The raksha strikes a sledgehammer blow to another creature's Essence pattern, damaging the roots of one of the four Virtues. The raksha names a Virtue, and his player rolls a Cup-shaping attack against a difficulty of the target's Essence. If it succeeds, the target instantly loses one channel of that Virtue, and for the rest of the story, the target's rolls for that Virtue are at +1 difficulty. This Charm is a work of glamour and does not affect characters whose Wits + Essence exceeds the raksha's Medicine.",
+    "cost": "3 gossamer",
+    "duration": "One story",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["manacles-of-virtue"],
+    "prerequisiteText": "Manacles of Virtue",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 170,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 170",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "torn-spirit-mending-technique",
+    "name": "Torn Spirit Mending Technique",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Virtue-Shaping Charms",
+    "summary": "The capstone of the Virtue-Shaping Charms tree: restores a target's damaged Virtues/Willpower or removes a permanent ravishment, powered by consuming an owned glamour sorcery spell of Artifact level equal to or above the target's Cup.",
+    "description": "Snipping and tugging at a wounded target's Essence, the raksha redresses the effects of ravishment. This Charm can restore damaged Virtues and Willpower to their previous maximum, or remove a permanent ravishment. To power its work, this Charm utterly consumes a glamour sorcery spell that the raksha owns; used to cure a character's ravishment, the spell must have Artifact level equal to or above the target's Cup. This Charm is a work of glamour and does not affect Creation-born characters whose wounded Trait + Essence exceeds the raksha's Willpower.",
+    "cost": "10 motes, 1 Willpower, 0 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": ["manacles-of-virtue"],
+    "prerequisiteText": "Manacles of Virtue",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 171,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 171",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "This Charm's own mechanics text says it 'utterly consumes a glamour sorcery spell that the raksha owns' (Artifact level equal to or above the target's Cup) to power its effect -- a resource dependency on glamour sorcery, a system not yet promoted into any catalog. This is a consumed-resource requirement in descriptive text, not a `prerequisiteCharms` dependency."
+    ]
   }
 ]

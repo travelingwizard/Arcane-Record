@@ -96,7 +96,7 @@ describe('exalted1e verification gate', () => {
               : family === 'alchemical'
                 ? 214
                 : family === 'fair-folk'
-                  ? 286
+                  ? 291
                   : 0,
       );
       if (
@@ -133,8 +133,13 @@ describe('exalted1e verification gate', () => {
         // promotable); Phase 1k grew it again to 163 rows (174 of 279
         // promotable); Phase 1l grew it again to 172 rows (183 of 279
         // promotable); Phase 1m grew it again to 176 rows (187 of 279
-        // promotable); Phase 1n grew it again to 187 rows (198 of 279
-        // promotable now -- the catalog dimension stays far from closed).
+        // promotable); Phase 1n grew it again to 187 rows (198 of 313
+        // promotable -- `promotableEntries` was corrected from a
+        // Phase 1a-era preliminary estimate of 279 to a bottom-up
+        // recount of 313 in this same phase, once real promotion
+        // exceeded the old estimate); Phase 1o grew it again to 192
+        // rows (203 of 313 promotable now -- the catalog dimension
+        // stays far from closed).
         expect(record.catalog.checksum).toBe(
           auditFamily(family).catalogChecksum,
         );
@@ -252,10 +257,10 @@ describe('exalted1e verification gate', () => {
     expect(isFamilyAvailable('alchemical')).toBe(false);
   });
 
-  it('reflects Fair Folk Phase 1a/1b/1c/1d/1e/1f/1g/1h/1i/1j/1k/1l/1m/1n catalog promotion without unlocking the family', () => {
+  it('reflects Fair Folk Phase 1a/1b/1c/1d/1e/1f/1g/1h/1i/1j/1k/1l/1m/1n/1o catalog promotion without unlocking the family', () => {
     const record = certificationRecords['fair-folk'];
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
-    // 286 = Phase 1a's 88 (13 Backgrounds (fairFolkBackgrounds) + 75 shared
+    // 291 = Phase 1a's 88 (13 Backgrounds (fairFolkBackgrounds) + 75 shared
     // Merits/Flaws catalog entries now carrying 'fair-folk' in appliesTo --
     // 73 inventoried pg-merit-*/pg-flaw-* rows resolving one-for-one,
     // except the two dual merit/flaw split pairs -- mutation-merit/
@@ -292,19 +297,26 @@ describe('exalted1e verification gate', () => {
     // Charms (the World-Shaping Charms tree -- two independent roots,
     // Gladdening Visage and Heaven Rains Wisdom, converging through
     // three shared prerequisites onto twin capstones Abiding Gift/Curse
-    // of Definition), extending fair-folk-charms.json from 19 to 187
-    // rows. This is far short of the 279 preliminary `promotableEntries`
-    // estimate (flagged as approximate pending this family's own
-    // remaining Charm/Sorcery/Artifact catalog phases). Phase 1b's three
-    // new `fair-folk-`-prefixed catalog files were the first ones this
+    // of Definition) plus Phase 1o's 5 more Charms (the Virtue-Shaping
+    // Charms tree -- rooted at Unsightly Rigor Approach, branching into
+    // Wyld Prince Resilience and Manacles of Virtue, the latter
+    // continuing to Chaotic Soul Sledgehammer and the capstone Torn
+    // Spirit-Mending Technique, closing out the entire Cup Grace tree),
+    // extending fair-folk-charms.json from 19 to 192 rows. This is
+    // still short of the 313 `promotableEntries` estimate (a bottom-up
+    // recount performed in Phase 1n once real promotion exceeded the
+    // old Phase 1a-era preliminary estimate of 279; flagged as
+    // approximate pending this family's own remaining
+    // Charm/Sorcery/Artifact catalog phases). Phase 1b's three new
+    // `fair-folk-`-prefixed catalog files were the first ones this
     // audit script's glob picked up, so the catalog checksum is no
     // longer empty -- exactly matching Alchemical's own Phase 1a -> 1b
     // transition (checksum stayed empty until its own Phase 1b added a
     // real `alchemical-`-prefixed file); Phase 1c, Phase 1d, Phase 1e,
     // Phase 1f, Phase 1g, Phase 1h, Phase 1i, Phase 1j, Phase 1k, Phase
-    // 1l, Phase 1m, and Phase 1n each changed the checksum again simply
-    // by growing the same `fair-folk-charms.json` file.
-    expect(record.catalog.promotedEntries).toBe(286);
+    // 1l, Phase 1m, Phase 1n, and Phase 1o each changed the checksum
+    // again simply by growing the same `fair-folk-charms.json` file.
+    expect(record.catalog.promotedEntries).toBe(291);
     expect(record.catalog.checksum.length).toBeGreaterThan(0);
     expect(isFamilyAvailable('fair-folk')).toBe(false);
   });
