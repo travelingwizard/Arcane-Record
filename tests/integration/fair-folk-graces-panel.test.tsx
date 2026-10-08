@@ -115,4 +115,15 @@ describe('FairFolkGracesPanel (Phase 1b)', () => {
     expect(screen.getAllByText('Artifact 1').length).toBeGreaterThan(0);
     expect(screen.getAllByText('Artifact 5').length).toBeGreaterThan(0);
   });
+
+  it('renders the Behemoths reference section with all three behemoth tiers (Phase 1t)', () => {
+    render(<Harness initialCharacter={baseCharacter()} />);
+    expect(screen.getByText('Behemoths reference')).toBeInTheDocument();
+    expect(screen.getByText('Fey Beast')).toBeInTheDocument();
+    expect(screen.getByText('Daikaiju')).toBeInTheDocument();
+    expect(screen.getByText('Deep Wyld Horror')).toBeInTheDocument();
+    expect(screen.getByText('Artifact 1-2')).toBeInTheDocument();
+    expect(screen.getAllByText('Artifact 3').length).toBeGreaterThan(0);
+    expect(screen.getByText('Artifact 4-5')).toBeInTheDocument();
+  });
 });

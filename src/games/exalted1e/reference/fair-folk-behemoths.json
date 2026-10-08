@@ -1,0 +1,58 @@
+[
+  {
+    "id": "behemoths-overview",
+    "name": "Behemoths (overview and Behemoth Powers)",
+    "behemothTier": null,
+    "artifactLevel": null,
+    "summary": "Monstrous artifacts forged from raksha Graces and bound to the aspects of Nishkriya (the Sword), purchased through the Artifact Background and dominated/attuned much like any other artifact; they exist to make a point, manifesting the attitude of the raksha (or unshaped) who creates them, and use the base Traits of their attuned creature handler.",
+    "mechanics": "Behemoths have an Artifact level ranging from one to five, with the greatest monsters of the far reaches qualifying as Artifact N/A. Dominating a behemoth requires a commitment of 3 motes per level plus several hours of bonding time per day; nobles typically have creature handlers attune behemoths on their behalf. Behemoths are weapons in Sword-shaping combat. Behemoth Powers: a behemoth uses the base Traits of its attuned creature handler, specifically excluding Backgrounds and most Merits and Flaws, but including Virtues -- a Compassionate raksha's behemoths tend to be sympathetic monsters, while a Valorous raksha's are terrible, fearless foes. Each behemoth tier (Fey Beast, Daikaiju, Deep Wyld Horror -- see fey-beast, daikaiju, deep-wyld-horror) grants its own mutation-point budget and shaping/Sword-combat stat defaults, corresponding to increasing Artifact levels; ishiika documents a unique, story-specific Artifact N/A behemoth as a worked example of the top of the scale rather than a build a player follows.",
+    "compatibility": "Any raksha with Artifact Background dots to spend, or a creature handler attuned on a noble's behalf.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 210,
+      "pdfPage": 211
+    }
+  },
+  {
+    "id": "fey-beast",
+    "name": "Fey Beast",
+    "behemothTier": "fey-beast",
+    "artifactLevel": "1-2",
+    "summary": "The least of the Wyld horrors a raksha marshals in battle -- a one- or two-dot behemoth built around a guaranteed natural weapon (Knife-Hand Dream plus Armament of Flesh) with a handful of mutation points left over to fit its theme.",
+    "mechanics": "In shaping combat, a fey beast has qualities similar to a normal one-dot artifact weapon -- by default Speed -5, Accuracy +1, Damage +4, Defense +4, and Rate 2. Build a one-dot fey beast on up to 9 mutation points, or a two-dot fey beast on 11; 1 of those mutation points must go to Knife-Hand Dream and 2 to Armament of Flesh, giving the creature a natural attack with Speed -3, Accuracy +1, Damage +4L, Defense +1, and Rate 4 (it can also parry lethal attacks while unarmed). The remaining 6 (or 8) mutation points fit the creature's theme. Example given: a long-necked, sharp-beaked, scaled riding bird with Knife-Hand Dream, Armament of Flesh, Gossamer Wing Flight, Glorious Hero Form, and the Wyld affliction Thick Skin, using its handler's Traits but adding flight, 3L/3B soak, three dice on Survival rolls, a dot each of Strength and Stamina, and a beak-based natural attack.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a one- or two-dot behemoth.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 211,
+      "pdfPage": 212
+    }
+  },
+  {
+    "id": "daikaiju",
+    "name": "Daikaiju",
+    "behemothTier": "daikaiju",
+    "artifactLevel": "3",
+    "summary": "A three-dot behemoth at the heart of a raksha's army -- a monster of terrible prowess with heavy natural armor, weaponized natural attacks, and a generous mutation-point budget.",
+    "mechanics": "In shaping combat, a daikaiju has qualities similar to a normal two- or three-dot artifact weapon -- by default Speed +10, Accuracy +3, Damage +12, Defense +0, and Rate 4. Daikaiju have 12L/12B armor, which stacks with armor from mutations. Their natural weaponry uses the attack modifiers of an exceptional mundane weapon (for example, great elephantine legs used as exceptional sledges with bonus accuracy, damage, and defense). Daikaiju receive 12 mutation points to spend as desired. Example given: a white hybroc dwelling in an eternal blizzard, with feathers like exceptional throwing knives (improved Rate, melee damage, and ranged damage, cast off at the nadir of a wingbeat), Imposition of Law for automatic success on Presence (Intimidation) rolls, Bastion of the Self for immunity to normal damage, Gossamer Wing Flight, and the Wyld affliction Huge (increasing Strength and Stamina by two dots over its handler's and adding two extra low health levels).",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a three-dot behemoth.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 211,
+      "pdfPage": 212
+    }
+  },
+  {
+    "id": "deep-wyld-horror",
+    "name": "Deep Wyld Horror",
+    "behemothTier": "deep-wyld-horror",
+    "artifactLevel": "4-5",
+    "summary": "A four- or five-dot behemoth serving as a raksha's terror weapon -- the heaviest-armored and most mutation-rich of the named behemoth tiers, with natural weaponry equivalent to an attuned Magical Material artifact.",
+    "mechanics": "In Sword combat, a Deep Wyld horror has qualities appropriate to a four- or five-dot artifact; in shaping combat, it defaults to Speed +10, Accuracy +3, Damage +12, Defense +0, Rate 4, and possesses a special power of some sort. Deep Wyld horrors have 20L/20B armor, which stacks with armor from mutations. Their natural weaponry uses the modifiers for an attuned one- or two-dot artifact weapon, complete with Magical Material bonus. Deep Wyld horrors receive 15 mutation points to spend as desired. Example given: a soul-eating monstrous boar whose writhing barbed spines have the weapon qualities of an attuned soulsteel dire lance (Speed +12, Accuracy +3, Damage +9L, Defense +3, Rate 3, extra damage on a charge, and the ability to drink its handler's Essence in motes from any creature it damages), built as an indefatigable hunter with two picks of Imposition of Law, the Giant blight, the Enhanced Smell and Hearing pox, and Glorious Hero Form.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a four- or five-dot behemoth.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 212,
+      "pdfPage": 213
+    }
+  }
+]
