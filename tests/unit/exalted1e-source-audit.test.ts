@@ -280,7 +280,7 @@ describe('auditFamily against the real repository (current state)', () => {
   });
 
   it('reports Fair Folk as pending-certification with its real inventory rows and zero audit errors', () => {
-    // 187 = the 176 real, page-cited, visually-reviewed Charms promoted in
+    // 198 = the 187 real, page-cited, visually-reviewed Charms promoted in
     // `fair-folk-charms.json` (19 Grace-Forging/Assumption from Phase 1b,
     // 25 Glamour/Grace-Forging/Mutation Charms from Phase 1c, 7
     // Dodge/Resistance Charms from Phase 1d, 19 Cup Combat Charms from
@@ -294,11 +294,14 @@ describe('auditFamily against the real repository (current state)', () => {
     // Shape, and the two-branch Emotional Influence tree), 9 more
     // Feeding Charms from Phase 1l (the Cup's own tree, rooted at
     // Ravishing the Created Form and ending at the capstone
-    // Demesne-Farming Art), and 4 more Addiction Charms from Phase 1m
-    // (two parallel roots, Shiftless Untamed Beauty and Maddening
-    // Summons, converging at the capstone Whispers Behind the Eyes via
-    // Compelling Presence)), the 6 Graces rows in
-    // `fair-folk-graces.json`, and the 5 Bedlam rows in
+    // Demesne-Farming Art), 4 more Addiction Charms from Phase 1m (two
+    // parallel roots, Shiftless Untamed Beauty and Maddening Summons,
+    // converging at the capstone Whispers Behind the Eyes via
+    // Compelling Presence), and 11 more World-Shaping Charms from
+    // Phase 1n (two independent roots, Gladdening Visage and Heaven
+    // Rains Wisdom, converging through three shared prerequisites onto
+    // twin capstones Abiding Gift/Curse of Definition)), the 6 Graces
+    // rows in `fair-folk-graces.json`, and the 5 Bedlam rows in
     // `fair-folk-bedlam.json` (all Phase 1b), as counted directly from
     // `src/games/exalted1e/reference/fair-folk-*.json` by this audit
     // script. The stale `./reference/ocr-drafts/fair-folk-charms.json`
@@ -306,7 +309,7 @@ describe('auditFamily against the real repository (current state)', () => {
     // match this family's real inventory) remains outside this glob and
     // unwired, exactly matching Alchemical's own identical precedent
     // above. This differs from `certification/fair-folk.json`'s own
-    // `catalog.promotedEntries` (275), which also includes Phase 1a's 88
+    // `catalog.promotedEntries` (286), which also includes Phase 1a's 88
     // Backgrounds/Merits-Flaws rows, none of which live in a
     // `fair-folk-`-prefixed catalog file (Backgrounds live in
     // `definitions.ts`; Merits/Flaws are a subset of the shared
@@ -317,7 +320,7 @@ describe('auditFamily against the real repository (current state)', () => {
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);
     expect(report.inventoryRows).toBeGreaterThan(0);
-    expect(report.promotedEntries).toBe(187);
+    expect(report.promotedEntries).toBe(198);
     expect(report.catalogChecksum).toHaveLength(8);
     expect(report.catalogChecksum).toMatch(/^[0-9a-f]{8}$/);
   });

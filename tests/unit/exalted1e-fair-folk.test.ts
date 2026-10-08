@@ -611,7 +611,7 @@ describe('Exalted First Edition Fair Folk Phase 1a/1b (Backgrounds + Merits/Flaw
     });
   });
 
-  describe('Charms (Phase 1b + 1c + 1d + 1e + 1f + 1g + 1h + 1i + 1j + 1k + 1l + 1m: 176 Grace-Forging/Assumption/Glamour/Mutation/Dodge/Resistance/Cup-Combat/Feeding/Addiction/Ring-Combat/Staff-Combat/Sword-Combat/Name/Bedlam-Influencing/Elemental-Influence/Emotional-Influence Charms promoted)', () => {
+  describe('Charms (Phase 1b + 1c + 1d + 1e + 1f + 1g + 1h + 1i + 1j + 1k + 1l + 1m + 1n: 187 Grace-Forging/Assumption/Glamour/Mutation/Dodge/Resistance/Cup-Combat/Feeding/Addiction/World-Shaping/Ring-Combat/Staff-Combat/Sword-Combat/Name/Bedlam-Influencing/Elemental-Influence/Emotional-Influence Charms promoted)', () => {
     it('validates a blank Fair Folk character with zero Charm/Combo/spell selections', () => {
       const character = createBlankExaltedCharacter('fair-folk');
       expect(character.powers.charms).toEqual([]);
@@ -663,7 +663,7 @@ describe('Exalted First Edition Fair Folk Phase 1a/1b (Backgrounds + Merits/Flaw
       },
     );
 
-    it('rejects a Charm not in the 176-entry catalog (a Charm from a still-unpromoted Fair Folk Charm group)', () => {
+    it('rejects a Charm not in the 187-entry catalog (a Charm from a still-unpromoted Fair Folk Charm group)', () => {
       const character = createBlankExaltedCharacter('fair-folk');
       expect(() =>
         exalted1eCharacterSchema.parse({
@@ -673,7 +673,7 @@ describe('Exalted First Edition Fair Folk Phase 1a/1b (Backgrounds + Merits/Flaw
             charms: [
               {
                 id: crypto.randomUUID(),
-                definitionId: 'gladdening-visage',
+                definitionId: 'unsightly-rigor-approach',
                 unresolvedReference: null,
                 notes: '',
               },

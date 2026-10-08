@@ -6701,5 +6701,437 @@
     "sourceDisplay": "Exalted: The Fair Folk, p. 167",
     "reviewStatus": "source-checked",
     "reviewFlags": []
+  },
+  {
+    "id": "gladdening-visage",
+    "name": "Gladdening Visage",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "World-Shaping Charms",
+    "summary": "One of the two roots of the World-Shaping Charms tree: makes the raksha appear human (if she looks human) or a natural, beneficent little god (if she does not) to observing creatures of Creation.",
+    "description": "The raksha makes herself more appealing to the creatures of Creation. If she looks essentially human, this Charm makes others identify her as human. If she does not, they recognize her as a natural and beneficent little god. This Charm is a work of glamour and has no effect on creatures with Perception + Essence greater than the raksha's Performance.",
+    "cost": "1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 167,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 167",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "This Charm's own section opens by describing World-Shaping Charms as 'the core Charms for glamour sorcery' (pp. 205-207), a system not yet promoted into any catalog; left as descriptive text only, matching the established precedent for citing a not-yet-inventoried mechanic by name."
+    ]
+  },
+  {
+    "id": "adored-by-all-the-worlds",
+    "name": "Adored by All the Worlds",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "World-Shaping Charms",
+    "summary": "Attracts temporary Allies or Followers dots (up to the raksha's Essence, divided as she chooses) via a Cup-shaping action, weaving a fate of serenity, loyalty, and pleasure.",
+    "description": "The raksha weaves a fate of serenity, loyalty and pleasure, thereby attracting tangible support in the form of allies and followers. The raksha's player rolls Conviction + Performance as a Cup-shaping action. This Charm gives the raksha one temporary dot of Allies or Followers per success, to a maximum of his Essence; the raksha can divide successes between Allies and Followers as he chooses. He does not choose his specific allies or followers, but they are always appropriate to his situation. This Charm is a work of glamour and cannot attract allies or followers whose Perception + Essence exceeds the raksha's Performance.",
+    "cost": "2 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["gladdening-visage"],
+    "prerequisiteText": "Gladdening Visage",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 167,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 167",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "abandoned-by-all-creatures-curse",
+    "name": "Abandoned by All Creatures Curse",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "World-Shaping Charms",
+    "summary": "Distances a target from his supporters, temporarily reducing his Allies, Followers, or Mentor dots (divided as the raksha chooses) by one dot per success on a contested Cup-shaping action.",
+    "description": "The raksha weaves fates of confusion and dissent, distancing a creature of Creation from his supporters. The raksha interacts with the target, and then her player rolls Conviction + Larceny as a Cup-shaping action. This Charm temporarily reduces the target's Allies, Followers or Mentor by one dot per success, divided among the Backgrounds as the raksha chooses; her supporters drift away -- distracted, occupied, angry, kidnapped or otherwise unable to come to the character's aid. This is a work of glamour; it cannot drive away creatures whose Wits + Essence exceeds the raksha's Stealth. If the target has Wits + Essence exceeding the raksha's Stealth, he can use stunts or Charms to hunt down lost associates and convince them their anger or preoccupation is illusory.",
+    "cost": "3 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["gladdening-visage"],
+    "prerequisiteText": "Gladdening Visage",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 167,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 167",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "spite-summoning-malediction",
+    "name": "Spite-Summoning Malediction",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "World-Shaping Charms",
+    "summary": "A Staff-shaping crossover of the World-Shaping tree: attracts one meaningful enemy per success (or a smaller number of deadlier foes) against a target, functioning as a work of glamour treated like an Enemy Flaw or reversed Allies Background.",
+    "description": "The raksha wields rumors, lies and the natural human desire to blame others for their troubles against an enemy. The raksha interacts with the target, and then her player rolls Manipulation + Socialize as a Staff-shaping action. This Charm attracts the enmity of powerful forces to the target -- treat this as an Enemy Flaw or reversed Allies Background of a level equal to the number of successes rolled. This Charm is a work of glamour and cannot attract hostile action from creatures whose Wits + Essence exceed the raksha's Socialize; if the target has Wits + Essence exceeding the raksha's Socialize, he can use stunts or Charms to help his new enemies realize they have no true quarrel. This is a Staff-shaping Charm.",
+    "cost": "3 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Staff",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["gladdening-visage"],
+    "prerequisiteText": "Gladdening Visage",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 167,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 167",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "Like Beguilement/Undetectable Lie/Prince and Pauper Approach elsewhere in this catalog, this Charm is explicitly Staff-gated ('Minimum Staff: 3') and self-declared 'a Staff-shaping Charm' despite branching directly off the Cup Charm Gladdening Visage -- the same cross-Grace crossover pattern. Its `minimumRequirements` reflects Staff, not Cup."
+    ]
+  },
+  {
+    "id": "heaven-rains-wisdom",
+    "name": "Heaven Rains Wisdom",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "World-Shaping Charms",
+    "summary": "The second root of the World-Shaping Charms tree: removes the difficulty penalty for using Lore or Occult to understand Creation, replacing it with a bonus success (though it does not aid geomantic architecture rolls).",
+    "description": "The raksha makes the mysteries of Creation apparent. This Charm removes the difficulty penalty for using Lore or Occult to understand the things of Creation, replacing it with a bonus success on Lore and Occult rolls. It does not affect the rolls to design or modify geomantic architecture.",
+    "cost": "1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 167,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 167",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "the-naming-of-secrets",
+    "name": "The Naming of Secrets",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "World-Shaping Charms",
+    "summary": "Grants temporary Contacts dots (up to the raksha's Essence, 1 gossamer each) as Creation speaks its truths to her via a Conviction + Investigation Cup-shaping action.",
+    "description": "The raksha unravels the fates of secrets, and Creation speaks its truths to her. The raksha's player rolls Conviction + Investigation as a Cup-shaping action. This Charm gives the raksha one temporary dot of Contacts per success, to a maximum of the raksha's Essence, for a cost of 1 gossamer each. The raksha does not choose the major contacts, but they are always appropriate for the situation in which she finds herself.",
+    "cost": "2 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["heaven-rains-wisdom"],
+    "prerequisiteText": "Heaven Rains Wisdom",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 167,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 167",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "fall-of-night-shadows-the-truth",
+    "name": "Fall of Night Shadows the Truth",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "World-Shaping Charms",
+    "summary": "Deepens mysteries around a situation or thing, raising the difficulty of Contacts/Connections rolls by one and of Investigation, Lore, Occult, and Socialize rolls by the raksha's successes, to discover more about it.",
+    "description": "The raksha deepens mysteries. She interacts with a situation or thing she wishes to veil in secrecy, and then her player must succeed on a Cup-shaping roll using Conviction + Stealth. This Charm adds one to the difficulty of Contacts or Connections rolls to discover more about the thing or situation veiled, and adds the raksha's successes to the difficulty of Investigation, Lore, Occult and Socialize rolls to discover more. This Charm is a work of glamour and does not affect creatures whose Intelligence + Essence exceeds the raksha's Stealth.",
+    "cost": "3 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["heaven-rains-wisdom"],
+    "prerequisiteText": "Heaven Rains Wisdom",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 168,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 168",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "unlimited-resplendence",
+    "name": "Unlimited Resplendence",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "World-Shaping Charms",
+    "summary": "Grants temporary Influence or Backing dots (up to the raksha's Essence, divided as she chooses) by weaving power from secrets and serenity via a Conviction + Performance Cup-shaping action.",
+    "description": "The raksha weaves from secrets and serenity the fates of power. The raksha's player rolls Conviction + Performance as a Cup-shaping action. This Charm gives the raksha one temporary dot of Influence or Backing per success, to a maximum of the raksha's Essence; the raksha can divide successes between Influence and Backing as she chooses, and can choose general regional influence or influence within a specific organization (Storytellers familiar with the Connections Background from Exalted: The Dragon-Blooded can treat specific Influence as Connections). This Charm is a work of glamour, and the new Backgrounds give the raksha no sway over characters whose Perception + Essence exceeds the raksha's Performance.",
+    "cost": "2 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["heaven-rains-wisdom"],
+    "prerequisiteText": "Heaven Rains Wisdom",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 168,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 168",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "prince-and-pauper-approach",
+    "name": "Prince and Pauper Approach",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "World-Shaping Charms",
+    "summary": "A Staff-shaping crossover of the World-Shaping tree: makes a target's influence ring subtly false, raising by 2 the difficulty of Social rolls that rely on Influence, Backing, or Connections Backgrounds.",
+    "description": "The raksha shatters a mortal's influence, making the victim's power ring subtly false to all those the victim would impress. The raksha interacts with the target, and her player rolls Manipulation + Socialize as a Staff-shaping action. If she succeeds, this Charm increases the difficulty of all Social rolls by 2 when the target attempts to make use of influence-related Backgrounds such as Influence, Backing and Connections. This Charm is a work of glamour and has no effect when the target interacts with someone whose Wits + Essence exceeds the raksha's Socialize. This is a Staff-shaping Charm.",
+    "cost": "3 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Staff",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["heaven-rains-wisdom"],
+    "prerequisiteText": "Heaven Rains Wisdom",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 168,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 168",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "Like Beguilement/Undetectable Lie/Spite-Summoning Malediction elsewhere in this catalog, this Charm is explicitly Staff-gated ('Minimum Staff: 3') and self-declared 'a Staff-shaping Charm' despite branching directly off the Cup Charm Heaven Rains Wisdom -- the same cross-Grace crossover pattern. Its `minimumRequirements` reflects Staff, not Cup."
+    ]
+  },
+  {
+    "id": "abiding-gift",
+    "name": "Abiding Gift",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "World-Shaping Charms",
+    "summary": "Imposes a blessing on a chosen Attribute+Ability+specialty: automatic success on such rolls (minimum one, after difficulty/defenses) unless opposed by a Charm or stunt, in which case it instead grants two bonus successes.",
+    "description": "The raksha imposes a blessing on someone -- some mundane task he will always succeed at. She chooses an Attribute, Ability and specialty when purchasing this Charm. This Charm only affects normal dice actions rolling that Attribute + Ability combination under that specialty, giving the target automatic success on such rolls (a minimum of one success, after taking difficulty and any defenses into account) unless opposed by Charms or stunts. If someone opposes the target with Charms or stunts, this Charm does not give automatic success; it gives two bonus successes on the roll instead.",
+    "cost": "10 motes, 1 Willpower, 3 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "abandoned-by-all-creatures-curse",
+      "fall-of-night-shadows-the-truth",
+      "prince-and-pauper-approach"
+    ],
+    "prerequisiteText": "Abandoned by All Creatures Curse, Fall of Night Shadows the Truth, Prince and Pauper Approach",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 168,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 168",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "curse-of-definition",
+    "name": "Curse of Definition",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "World-Shaping Charms",
+    "summary": "The blessing's dark mirror: imposes a curse on someone -- some mundane or Ability-based task he will always fail at -- unless he uses a Charm or stunt, in which case this instead imposes a +2 difficulty penalty.",
+    "description": "The raksha imposes a curse on someone -- some mundane task he will always fail at. This can include use of Abilities or have a more mundane definition such as 'waking up' or 'drinking water.' The raksha chooses an Attribute, Ability and specialty when purchasing this Charm; it only affects normal dice actions rolling that Attribute + Ability combination under that specialty. This Charm ensures the victim's player automatically fails such rolls unless the victim uses a Charm or a stunt, in which case this Charm imposes a +2 difficulty penalty instead of failure. This Charm is a work of glamour and has no effect on creatures whose Wits + Essence exceeds the raksha's Stealth.",
+    "cost": "10 motes, 1 Willpower, 5 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Cup",
+        "rating": 4
+      }
+    ],
+    "minimumEssence": 3,
+    "prerequisiteCharms": [
+      "abandoned-by-all-creatures-curse",
+      "fall-of-night-shadows-the-truth",
+      "prince-and-pauper-approach"
+    ],
+    "prerequisiteText": "Abandoned by All Creatures Curse, Fall of Night Shadows the Truth, Prince and Pauper Approach",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 169,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 169",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
   }
 ]

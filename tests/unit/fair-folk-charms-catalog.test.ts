@@ -6,20 +6,20 @@ import {
   fairFolkCharms,
 } from '../../src/games/exalted1e/reference/fair-folk-powers';
 
-describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f + Phase 1g + Phase 1h + Phase 1i + Phase 1j + Phase 1k + Phase 1l + Phase 1m)', () => {
+describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f + Phase 1g + Phase 1h + Phase 1i + Phase 1j + Phase 1k + Phase 1l + Phase 1m + Phase 1n)', () => {
   it('loads all promoted Charm rows with unique stable IDs', () => {
-    expect(fairFolkCharms).toHaveLength(176);
-    expect(fairFolkCharmIds.size).toBe(176);
-    expect(fairFolkCharmById.size).toBe(176);
+    expect(fairFolkCharms).toHaveLength(187);
+    expect(fairFolkCharmIds.size).toBe(187);
+    expect(fairFolkCharmById.size).toBe(187);
   });
 
-  it('assigns every Charm a valid category from the eighteen documented Fair Folk Charm categories', () => {
+  it('assigns every Charm a valid category from the nineteen documented Fair Folk Charm categories', () => {
     for (const charm of fairFolkCharms) {
       expect(fairFolkCharmCategories).toContain(charm.charmCategory);
     }
   });
 
-  it('distributes Charms across the eighteen categories with the expected counts', () => {
+  it('distributes Charms across the nineteen categories with the expected counts', () => {
     const categoryCounts = new Map<string, number>();
     for (const charm of fairFolkCharms) {
       categoryCounts.set(
@@ -45,12 +45,13 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     expect(categoryCounts.get('Emotional Influence')).toBe(5);
     expect(categoryCounts.get('Feeding Charms')).toBe(9);
     expect(categoryCounts.get('Addiction Charms')).toBe(4);
+    expect(categoryCounts.get('World-Shaping Charms')).toBe(11);
     expect(
       Array.from(categoryCounts.values()).reduce(
         (sum, count) => sum + count,
         0,
       ),
-    ).toBe(176);
+    ).toBe(187);
   });
 
   it('resolves every prerequisiteCharms entry to another id in the same catalog (no dangling references)', () => {
@@ -76,7 +77,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     }
   });
 
-  it('keys every Grace Forging/Glamour/Dodge/Resistance/Cup-Combat/Feeding/Addiction/Ring-Combat/Staff-Combat/Sword-Combat Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption/Elemental-Influence/Emotional-Influence Charm to no Grace minimum at all', () => {
+  it('keys every Grace Forging/Glamour/Dodge/Resistance/Cup-Combat/Feeding/Addiction/World-Shaping/Ring-Combat/Staff-Combat/Sword-Combat Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption/Elemental-Influence/Emotional-Influence Charm to no Grace minimum at all', () => {
     for (const charm of fairFolkCharms) {
       if (
         charm.charmCategory === 'Grace Forging' ||
@@ -84,6 +85,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         charm.charmCategory === 'Cup Combat Charms' ||
         charm.charmCategory === 'Feeding Charms' ||
         charm.charmCategory === 'Addiction Charms' ||
+        charm.charmCategory === 'World-Shaping Charms' ||
         charm.charmCategory === 'Ring Combat Charms' ||
         charm.charmCategory === 'All-Consuming God-Monster Style' ||
         charm.charmCategory === 'Laughing Monster Style' ||
@@ -871,9 +873,78 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     ]) {
       expect(fairFolkCharmById.get(id)?.charmCategory).toBe('Addiction Charms');
     }
-    // The adjacent World-Shaping Charms and Virtue-Shaping Charms
-    // sections, diagrammed on the same page range, remain unpromoted.
-    expect(fairFolkCharmById.get('gladdening-visage')).toBeUndefined();
+  });
+
+  it('chains the World-Shaping Charms tree: two independent roots (Gladdening Visage, Heaven Rains Wisdom) converging through three shared prerequisites onto twin capstones Abiding Gift/Curse of Definition', () => {
+    expect(
+      fairFolkCharmById.get('gladdening-visage')?.prerequisiteCharms,
+    ).toEqual([]);
+    expect(
+      fairFolkCharmById.get('adored-by-all-the-worlds')?.prerequisiteCharms,
+    ).toEqual(['gladdening-visage']);
+    expect(
+      fairFolkCharmById.get('abandoned-by-all-creatures-curse')
+        ?.prerequisiteCharms,
+    ).toEqual(['gladdening-visage']);
+    expect(
+      fairFolkCharmById.get('spite-summoning-malediction')?.prerequisiteCharms,
+    ).toEqual(['gladdening-visage']);
+    expect(
+      fairFolkCharmById.get('heaven-rains-wisdom')?.prerequisiteCharms,
+    ).toEqual([]);
+    expect(
+      fairFolkCharmById.get('the-naming-of-secrets')?.prerequisiteCharms,
+    ).toEqual(['heaven-rains-wisdom']);
+    expect(
+      fairFolkCharmById.get('fall-of-night-shadows-the-truth')
+        ?.prerequisiteCharms,
+    ).toEqual(['heaven-rains-wisdom']);
+    expect(
+      fairFolkCharmById.get('unlimited-resplendence')?.prerequisiteCharms,
+    ).toEqual(['heaven-rains-wisdom']);
+    expect(
+      fairFolkCharmById.get('prince-and-pauper-approach')?.prerequisiteCharms,
+    ).toEqual(['heaven-rains-wisdom']);
+    const sharedPrereqs = [
+      'abandoned-by-all-creatures-curse',
+      'fall-of-night-shadows-the-truth',
+      'prince-and-pauper-approach',
+    ];
+    expect(fairFolkCharmById.get('abiding-gift')?.prerequisiteCharms).toEqual(
+      sharedPrereqs,
+    );
+    expect(
+      fairFolkCharmById.get('curse-of-definition')?.prerequisiteCharms,
+    ).toEqual(sharedPrereqs);
+    // Spite-Summoning Malediction and Prince and Pauper Approach are
+    // both Staff-shaping crossover terminal leaves despite branching
+    // off Cup Charms, the same cross-Grace pattern already seen in
+    // Beguilement/Undetectable Lie/Bedlam-Influencing Charms.
+    expect(
+      fairFolkCharmById.get('spite-summoning-malediction')?.minimumRequirements,
+    ).toEqual([{ trait: 'Staff', rating: 3 }]);
+    expect(
+      fairFolkCharmById.get('prince-and-pauper-approach')?.minimumRequirements,
+    ).toEqual([{ trait: 'Staff', rating: 3 }]);
+    for (const id of [
+      'gladdening-visage',
+      'adored-by-all-the-worlds',
+      'abandoned-by-all-creatures-curse',
+      'spite-summoning-malediction',
+      'heaven-rains-wisdom',
+      'the-naming-of-secrets',
+      'fall-of-night-shadows-the-truth',
+      'unlimited-resplendence',
+      'prince-and-pauper-approach',
+      'abiding-gift',
+      'curse-of-definition',
+    ]) {
+      expect(fairFolkCharmById.get(id)?.charmCategory).toBe(
+        'World-Shaping Charms',
+      );
+    }
+    // The adjacent Virtue-Shaping Charms section, diagrammed on the
+    // same page range, remains unpromoted.
     expect(fairFolkCharmById.get('unsightly-rigor-approach')).toBeUndefined();
   });
 
@@ -929,6 +1000,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         'elemental-invocation',
         'extinction-of-desire',
         'forging-the-way-grace',
+        'gladdening-visage',
         'glamour-charm',
         'great-works-of-the-grace',
         'impinging-web-of-dream',
@@ -937,7 +1009,9 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         'mad-god-mien',
         'monstrous-conceit',
         'pox-charm',
+        'prince-and-pauper-approach',
         'racing-dragon-speed',
+        'spite-summoning-malediction',
         'spectacular-insanity',
         'spirit-twisting-obsession-stance',
         'swift-wings-of-song',
