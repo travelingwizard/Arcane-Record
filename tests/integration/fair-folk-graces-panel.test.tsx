@@ -91,4 +91,16 @@ describe('FairFolkGracesPanel (Phase 1b)', () => {
     render(<Harness initialCharacter={character} />);
     expect(screen.getByText('3 dots')).toBeInTheDocument();
   });
+
+  it('renders the Glamour Sorcery reference section with all five Circle tiers (Phase 1r)', () => {
+    render(<Harness initialCharacter={baseCharacter()} />);
+    expect(screen.getByText('Glamour Sorcery reference')).toBeInTheDocument();
+    expect(screen.getByText('Waking Circle Spell')).toBeInTheDocument();
+    expect(screen.getByText('Dreaming Circle Spell')).toBeInTheDocument();
+    expect(screen.getByText('Desire Circle Spell')).toBeInTheDocument();
+    expect(screen.getByText('Samadhi Circle Spell')).toBeInTheDocument();
+    expect(screen.getByText('Shinma Circle Spell')).toBeInTheDocument();
+    expect(screen.getByText('Artifact 1')).toBeInTheDocument();
+    expect(screen.getByText('Artifact 5')).toBeInTheDocument();
+  });
 });

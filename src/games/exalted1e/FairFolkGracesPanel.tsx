@@ -9,6 +9,7 @@ import { exaltedVirtues, fairFolkGraces } from './definitions';
 import type { Exalted1eCharacter } from './schema';
 import gracesData from './reference/fair-folk-graces.json';
 import bedlamData from './reference/fair-folk-bedlam.json';
+import glamourSorceryData from './reference/fair-folk-glamour-sorcery.json';
 
 type FairFolkFamilyState = Extract<
   Exalted1eCharacter['familyState'],
@@ -37,8 +38,20 @@ interface BedlamEntry {
   citation: { bookId: string; printedPage: number; pdfPage: number };
 }
 
+interface GlamourSorceryEntry {
+  id: string;
+  name: string;
+  circleTier: string | null;
+  artifactLevel: number | null;
+  summary: string;
+  mechanics: string;
+  compatibility: string;
+  citation: { bookId: string; printedPage: number; pdfPage: number };
+}
+
 const graceEntries = gracesData as GraceEntry[];
 const bedlamEntries = bedlamData as BedlamEntry[];
+const glamourSorceryEntries = glamourSorceryData as GlamourSorceryEntry[];
 
 interface Props {
   state: FairFolkFamilyState;
@@ -49,16 +62,26 @@ interface Props {
 /**
  * Fair Folk's own Bedlam (the Limit-Trait analog -- see
  * `./reference/fair-folk-bedlam.json`'s overview plus its four Virtue-
- * linked Curses) and a browsable reference for the five Graces (see
- * `./reference/fair-folk-graces.json`). Matches `LunarShapechangingPanel`'s
- * own split: the Grace dots themselves stay in `ExaltedFamilyStatePanel`'s
- * existing inline `DotRating` grid, while this panel owns the Bedlam
- * Virtue declaration (`familyState.bedlamVirtueId`) plus browsable
- * reference text for both Graces and Curses. This app has no dice-rolling
- * engine anywhere, so Bedlam's own per-Virtue channel-spending count is
- * not tracked numerically here (see `bedlamVirtueId`'s own doc comment in
- * `schema.ts`) -- only the resulting Curse state a player declares by
- * hand.
+ * linked Curses), a browsable reference for the five Graces (see
+ * `./reference/fair-folk-graces.json`), and (Phase 1r) a browsable
+ * reference for Glamour Sorcery (see
+ * `./reference/fair-folk-glamour-sorcery.json`). Matches
+ * `LunarShapechangingPanel`'s own split: the Grace dots themselves stay in
+ * `ExaltedFamilyStatePanel`'s existing inline `DotRating` grid, while this
+ * panel owns the Bedlam Virtue declaration (`familyState.bedlamVirtueId`)
+ * plus browsable reference text for Graces, Curses, and Glamour Sorcery.
+ * This app has no dice-rolling engine anywhere, so Bedlam's own per-Virtue
+ * channel-spending count is not tracked numerically here (see
+ * `bedlamVirtueId`'s own doc comment in `schema.ts`) -- only the resulting
+ * Curse state a player declares by hand. Glamour Sorcery is reference-only
+ * for the same deferred-feature reason: it is a point-buy "build a custom
+ * spell with mutation points, bought via the Artifact Background" system
+ * rather than a fixed list of named spells, so there is no
+ * `definitionId`-style pick to make yet -- a future phase would need a new
+ * character-data structure (linking an Artifact Background entry to a
+ * chosen Circle tier and its spent mutation points) before this could
+ * become a real selection UI, matching the project's "keep deferred
+ * features visibly labeled as previews or placeholders" rule.
  */
 export function FairFolkGracesPanel({ state, buildMode, onChange }: Props) {
   const activeCurse = state.bedlamVirtueId
@@ -203,6 +226,50 @@ export function FairFolkGracesPanel({ state, buildMode, onChange }: Props) {
               </details>
             );
           })}
+      </SheetCard>
+
+      <SheetCard density="compact">
+        <h3>Glamour Sorcery reference</h3>
+        <SheetNotice>
+          Reference text only -- Glamour Sorcery is a point-buy system (a raksha
+          buys an Artifact Background dot per Circle tier, then builds a custom
+          spell within that tier&rsquo;s own mutation-point budget) rather than
+          a fixed spell list. Arcane Record has no data structure yet for a
+          character&rsquo;s own custom-built Glamour Sorcery spells; this app
+          does not track them.
+        </SheetNotice>
+        {glamourSorceryEntries
+          .filter((entry) => entry.circleTier === null)
+          .map((entry) => (
+            <details className="exalted-compact-record" key={entry.id}>
+              <summary>
+                <strong>{entry.name}</strong>
+              </summary>
+              <div className="exalted-record-fields">
+                <p>{entry.summary}</p>
+                <p className="section-note">{entry.mechanics}</p>
+              </div>
+            </details>
+          ))}
+        {glamourSorceryEntries
+          .filter((entry) => entry.circleTier !== null)
+          .map((entry) => (
+            <details className="exalted-compact-record" key={entry.id}>
+              <summary>
+                <strong>{entry.name}</strong>{' '}
+                <SheetBadge tone="neutral">
+                  Artifact {entry.artifactLevel ?? 'N/A'}
+                </SheetBadge>
+              </summary>
+              <div className="exalted-record-fields">
+                <p>{entry.summary}</p>
+                <p className="section-note">{entry.mechanics}</p>
+                <p className="section-note">
+                  Compatibility: {entry.compatibility}
+                </p>
+              </div>
+            </details>
+          ))}
       </SheetCard>
     </>
   );

@@ -1,0 +1,100 @@
+[
+  {
+    "id": "glamour-sorcery-overview",
+    "name": "Glamour Sorcery (overview)",
+    "circleTier": null,
+    "artifactLevel": null,
+    "summary": "The raksha's great spells: artifacts forged from raksha Graces and bound to the aspects of Dharma (the Cup), purchased through the Artifact Background and used as poisons, drugs and tools of ravishment that undermine or change the Essence patterns of those they touch.",
+    "mechanics": "Glamour sorcery spells are artifacts, not Charms: a raksha (or Lunar Exalted) buys one with Artifact Background dots, then attunes to it with a commitment of 3 motes per Artifact level plus several scenes of ritual maintenance each day (many nobles delegate this upkeep to a common lorekeeper). The spell uses its lorekeeper's Traits when determining its abilities; the lorekeeper is not necessarily the raksha who holds spiritual ownership of the spell (having created, purchased, or won it) -- it is the owner who spends the motes and gossamer to summon the spell into Creation. Glamour Sorcery spells can be used as weapons in Cup-shaping combat. Each spell tier (Waking, Dreaming, Desire, Samadhi, Shinma Circle -- see waking-circle-spell, dreaming-circle-spell, desire-circle-spell, samadhi-circle-spell, shinma-circle-spell) has its own build-point budget, invocation cost, and Cup-shaping-weapon stat defaults; every tier requires at least one Assumption-type Charm mutation (typically Assumption of Elemental Shape) among its build points, tying the spell's tangible form back to the universal Assumption-type Charm tree.",
+    "compatibility": "Any raksha (or Lunar Exalted) with Artifact Background dots to spend; the specific spell built with a tier's mutation points is chosen by its creator/owner within that tier's rules.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 205,
+      "pdfPage": 206
+    }
+  },
+  {
+    "id": "glamour-sorcery-countermagic",
+    "name": "Glamour Sorcery and Countermagic (sidebar)",
+    "circleTier": null,
+    "artifactLevel": null,
+    "summary": "A boxed sidebar mapping each glamour-sorcery spell tier to an equivalent tier of Creation sorcery for countermagic purposes, and explaining how targeting a spell's physical manifestation with countermagic of equal or greater level can suppress or permanently unmake it.",
+    "mechanics": "For countermagic purposes, Waking and Dreaming Circle spells count as Terrestrial Circle Sorcery, Desire and Samadhi Circle spells count as Celestial Circle Sorcery, and Shinma Circle spells count as Solar Circle Sorcery. Every glamour-sorcery spell has a physical manifestation, usually as sturdy as an artifact made from one of the Five Magical Materials. Countermagic of equal level targeted at that manifestation makes it go inert, dispelling all its effects for the rest of that story (the raksha cannot use that spell again until a new story begins); countermagic of greater level shatters the manifestation outright, destroying the spell entirely and unmaking all its effects permanently. Specifically: Emerald Countermagic shatters Waking Circle spells; Sapphire Countermagic shatters Waking, Dreaming, and Desire Circle spells; and Adamant Countermagic, targeting the manifestation directly, utterly destroys any raksha spell not protected by Mad God Mien.",
+    "compatibility": "Any Creation-born sorcerer with access to Terrestrial-, Celestial-, or Solar-Circle-tier countermagic; any raksha whose glamour sorcery spells lack Mad God Mien's protection.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 206,
+      "pdfPage": 207
+    }
+  },
+  {
+    "id": "waking-circle-spell",
+    "name": "Waking Circle Spell",
+    "circleTier": "waking",
+    "artifactLevel": 1,
+    "summary": "The pettiest tier of glamour sorcery -- more the caffeine or sugar of the Wyld than its cocaine -- built as a one-dot artifact whose tangible effects are crafted almost entirely from mutation points.",
+    "mechanics": "In Cup-shaping combat, a Waking Circle spell has qualities similar to a normal one-dot artifact weapon -- by default a piercing clinch enhancer with Speed -5, Accuracy +1, Damage +4, Defense +4, and Rate 1. Invoking the spell in Creation takes one scene, 10 motes, and 1 gossamer; once invoked it remains invoked for a full story, and the motes spent to invoke it are not committed. Build the spell's tangible effects as an object with 10 mutation points, exactly 1 of which must go to an Assumption-type Charm mutation (normally Assumption of Elemental Shape). The remaining 9 mutation points craft the spell's other effects. Example given: a leering wooden mask with the permanent versions of Assumption of Elemental Shape (Wood) and the Hateful Coin Curse; looking at the mask forces an Intelligence + Bureaucracy roll from its lorekeeper, stripping the viewer one dot of Resources per success unless the viewer's Wits + Essence exceeds the lorekeeper's Bureaucracy.",
+    "compatibility": "Any raksha or Lunar Exalted with Artifact Background dots to spend on a one-dot artifact.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 205,
+      "pdfPage": 206
+    }
+  },
+  {
+    "id": "dreaming-circle-spell",
+    "name": "Dreaming Circle Spell",
+    "circleTier": "dreaming",
+    "artifactLevel": 2,
+    "summary": "A two-dot glamour-sorcery tier crafted from the substance of dream, disruptive to elements of pattern; most offer a positive pharmaceutical effect to their user or a disruptive poison to their victims, alongside normal one-dot-artifact-weapon combat qualities.",
+    "mechanics": "In shaping combat, a Dreaming Circle spell has qualities similar to a normal one-dot artifact weapon. In addition, most offer either a pharmaceutical effect (usually +2 dice to a shaping Ability) or a poison effect (usually forcing a Stamina + Resistance check at difficulty 3 each time the shaping weapon damages a target, lest the target suffer an extra point of Cup damage). Invoking the spell in Creation takes one scene, 15 motes, and 1 gossamer; once invoked it remains invoked for a full story, and the motes are not committed. Build the spell's tangible effects with 11 mutation points, 1 or 2 of which must go to Assumption-type Charm mutations (normally Assumption of Elemental Shape or Assumption of the Land's Heart); the rest craft the spell's other effects. Example given: a spherical gem with the permanent versions of Assumption of the Land's Heart and Fall of Night Shadows the Truth, which blankets a hamlet-sized region so that its people naturally conceal and forget their own suffering, believing they live in a utopia; a lorekeeper's Conviction + Stealth successes raise the difficulty of any Investigation/Lore/Occult/Socialize roll to learn about that pain, though characters with Intelligence + Essence exceeding the lorekeeper's Stealth cannot be shielded this way.",
+    "compatibility": "Any raksha or Lunar Exalted with Artifact Background dots to spend on a two-dot artifact.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 206,
+      "pdfPage": 207
+    }
+  },
+  {
+    "id": "desire-circle-spell",
+    "name": "Desire Circle Spell",
+    "circleTier": "desire",
+    "artifactLevel": 3,
+    "summary": "A three-dot glamour-sorcery tier crafted to influence the deep, shifting undermind urges behind both dreams and nightmares; strong enough that even characters who would normally be immune to a work of glamour still suffer its effects unless they use a stunt or Charm to see through it.",
+    "mechanics": "In shaping combat, a Desire Circle spell has qualities similar to a normal two- or three-dot artifact weapon, defaulting to Speed +6, Accuracy +1, Damage +8, Defense +1, and Rate 5. Invoking the spell in Creation takes two scenes, 20 motes, and 2 gossamer; once invoked it remains invoked until some condition inherent to the spell is met (up to one year and one day if that condition is simply the passage of time), and the motes are not committed. Build the spell's tangible effects with 13 mutation points, 1 to 4 of which must go to Assumption-type Charm mutations (normally Assumption of Elemental Shape, Assumption of the Land's Heart, or Assumption of the City's Heart); the rest craft the spell's other effects. Unlike lesser tiers, Desire Circle effects overcome characters whose Traits would normally render them immune to a work of glamour -- they still suffer its effects unless they use a stunt or Charm (not necessarily a Wyld-specific defense) to see through it. Example given: a labyrinth drawn on gilt paper with the permanent versions of Assumption of the City's Heart and Undetectable Lie, which sinks its power into a city and convinces characters with Wits + Essence up to the lorekeeper's Manipulation that they are 'hopelessly lost' from the moment they enter, wandering in circles even with their destination in plain sight; characters above that threshold would normally be immune but, because this is a Desire Circle effect, must still use a stunt or Charm to escape it.",
+    "compatibility": "Any raksha or Lunar Exalted with Artifact Background dots to spend on a three-dot artifact.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 206,
+      "pdfPage": 207
+    }
+  },
+  {
+    "id": "samadhi-circle-spell",
+    "name": "Samadhi Circle Spell",
+    "circleTier": "samadhi",
+    "artifactLevel": 4,
+    "summary": "A four-dot glamour-sorcery tier -- also called a 'True Self Spell' -- crafted to influence the endless primordial dreams of the Wyld, the Graces, and the mortal soul; only a raksha who owns his own Heart Grace can cast one.",
+    "mechanics": "In shaping combat, a Samadhi Circle spell has qualities appropriate to a three- or four-dot artifact weapon, defaulting to Speed +6, Accuracy +1, Damage +8, Defense +1, Rate 5, and a special power (such as the ability to ready the spell without a shaping action). Invoking the spell in Creation takes two scenes, 25 motes, and 2 gossamer; once invoked it remains invoked until some condition inherent to the spell is met (up to one year and one day if that condition is time-based), and the motes are not committed. Build the spell's tangible effects with 15 mutation points, 1 to 6 of which must go to Assumption-type Charm mutations; the rest craft the spell's other effects. As with the Desire Circle, seeing through a Samadhi Circle work of glamour requires an appropriate Charm or stunt. Example given: a spell that creates a tainted land and slowly gathers an army of Wyld addicts as the Wyld recedes from Creation -- its permanent Assumption of the Wyld-Tainted Land takes force and creates the tainted region, the permanent version of Shiftless Untamed Beauty makes the land itself addictive, the permanent version of Adored By All the Worlds draws a few more Wyld-loyalist followers to the region each scene, the permanent version of Ordinary Object Conjuration forges one suit of armor from the sky each scene, and Mad God Mien protects the whole result from standard countermagic.",
+    "compatibility": "Any raksha (or Lunar Exalted) who owns his own Heart Grace, with Artifact Background dots to spend on a four-dot artifact.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 207,
+      "pdfPage": 208
+    }
+  },
+  {
+    "id": "shinma-circle-spell",
+    "name": "Shinma Circle Spell",
+    "circleTier": "shinma",
+    "artifactLevel": 5,
+    "summary": "The most terrifying tier of glamour sorcery: a five-dot spell crafted to influence the substance before dreams, the primal substrata of the Wyld, and the stuff from which the shinma, the Primordials, and certain of the unshaped were made.",
+    "mechanics": "In shaping combat, a Shinma Circle spell has qualities appropriate to a four- or five-dot artifact weapon, defaulting to Speed +6, Accuracy +1, Damage +8, Defense +1, Rate 5, and a major special power (such as a mote-fueled persistent defense or the ability to fight on its own). Invoking the spell in Creation takes three scenes, 30 motes, and 3 gossamer; once invoked it remains invoked until some condition inherent to the spell is met (up to one century if that condition is time-based), and the motes are not committed. Build the spell's tangible effects with up to 18 mutation points, at least 1 of which must go to an Assumption-type Charm mutation; the rest craft the spell's other effects. An appropriate Charm or stunt is needed to see through a Shinma Circle work of glamour, as with the Samadhi and Desire Circles. These player-facing build rules apply only to player-created Shinma Circle spells or to spells the Storyteller creates for casual unshaped use; Shinma Circle spells that exist purely for story purposes can have additional or unusual abilities and are sometimes effectively legendary (N/A) artifacts in power.",
+    "compatibility": "Any raksha or Lunar Exalted with Artifact Background dots to spend on a five-dot artifact; story-purpose Shinma Circle spells above this budget are Storyteller-only.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 207,
+      "pdfPage": 208
+    }
+  }
+]

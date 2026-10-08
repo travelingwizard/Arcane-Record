@@ -96,7 +96,7 @@ describe('exalted1e verification gate', () => {
               : family === 'alchemical'
                 ? 214
                 : family === 'fair-folk'
-                  ? 300
+                  ? 307
                   : 0,
       );
       if (
@@ -141,8 +141,15 @@ describe('exalted1e verification gate', () => {
         // rows (203 of 313 promotable); Phase 1p grew it again to 200
         // rows (211 of 313 promotable); Phase 1q grew it again to 201
         // rows (212 of 313 promotable now -- this closes out this
-        // family's entire real Charm section; the catalog dimension
-        // stays far from closed on the remaining non-Charm systems).
+        // family's entire real Charm section); Phase 1r added a new
+        // `fair-folk-glamour-sorcery.json` catalog file (7 rows: the
+        // overview + countermagic-sidebar framework rows plus all 5
+        // Circle tiers, promoted as reference-only documentation since
+        // Glamour Sorcery is a point-buy "build a custom spell" system
+        // with no fixed spell list to pick from), bringing the narrow
+        // audit total to 219 of 313 promotable; the catalog dimension
+        // stays far from closed on the remaining non-Charm systems
+        // (Adjurations/Oaths, Behemoths-as-Background, Wyld Artifacts).
         expect(record.catalog.checksum).toBe(
           auditFamily(family).catalogChecksum,
         );
@@ -260,10 +267,10 @@ describe('exalted1e verification gate', () => {
     expect(isFamilyAvailable('alchemical')).toBe(false);
   });
 
-  it('reflects Fair Folk Phase 1a/1b/1c/1d/1e/1f/1g/1h/1i/1j/1k/1l/1m/1n/1o/1p/1q catalog promotion without unlocking the family', () => {
+  it('reflects Fair Folk Phase 1a/1b/1c/1d/1e/1f/1g/1h/1i/1j/1k/1l/1m/1n/1o/1p/1q/1r catalog promotion without unlocking the family', () => {
     const record = certificationRecords['fair-folk'];
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
-    // 300 = Phase 1a's 88 (13 Backgrounds (fairFolkBackgrounds) + 75 shared
+    // 307 = Phase 1a's 88 (13 Backgrounds (fairFolkBackgrounds) + 75 shared
     // Merits/Flaws catalog entries now carrying 'fair-folk' in appliesTo --
     // 73 inventoried pg-merit-*/pg-flaw-* rows resolving one-for-one,
     // except the two dual merit/flaw split pairs -- mutation-merit/
@@ -314,22 +321,30 @@ describe('exalted1e verification gate', () => {
     // Perfect Reckoning Technique, the last Charm in Chapter Five,
     // gated on the exotic sixth Way Grace -- this closes out this
     // family's entire real Charm section), extending
-    // fair-folk-charms.json from 19 to 201 rows. This is still short
+    // fair-folk-charms.json from 19 to 201 rows, plus Phase 1r's 7 new
+    // reference-only rows in a brand-new fair-folk-glamour-sorcery.json
+    // (the overview and countermagic-sidebar framework rows plus all 5
+    // Circle tiers -- Waking/Dreaming/Desire/Samadhi/Shinma -- promoted
+    // as reference text only, since Glamour Sorcery is a point-buy
+    // "build a custom spell with mutation points, bought via the
+    // Artifact Background" system rather than a fixed spell list, with
+    // no `definitionId`-style pick to make yet). This is still short
     // of the 313 `promotableEntries` estimate (a bottom-up recount
     // performed in Phase 1n once real promotion exceeded the old
     // Phase 1a-era preliminary estimate of 279; flagged as approximate
-    // pending this family's own remaining Sorcery/Artifact/Oath/
-    // Behemoth catalog phases). Phase 1b's three new
-    // `fair-folk-`-prefixed catalog files were the first ones this
-    // audit script's glob picked up, so the catalog checksum is no
-    // longer empty -- exactly matching Alchemical's own Phase 1a -> 1b
-    // transition (checksum stayed empty until its own Phase 1b added a
-    // real `alchemical-`-prefixed file); Phase 1c, Phase 1d, Phase 1e,
-    // Phase 1f, Phase 1g, Phase 1h, Phase 1i, Phase 1j, Phase 1k, Phase
-    // 1l, Phase 1m, Phase 1n, Phase 1o, Phase 1p, and Phase 1q each
-    // changed the checksum again simply by growing the same
-    // `fair-folk-charms.json` file.
-    expect(record.catalog.promotedEntries).toBe(300);
+    // pending this family's own remaining Artifact/Oath/Behemoth catalog
+    // phases). Phase 1b's three new `fair-folk-`-prefixed catalog files
+    // were the first ones this audit script's glob picked up, so the
+    // catalog checksum is no longer empty -- exactly matching
+    // Alchemical's own Phase 1a -> 1b transition (checksum stayed empty
+    // until its own Phase 1b added a real `alchemical-`-prefixed file);
+    // Phase 1c, Phase 1d, Phase 1e, Phase 1f, Phase 1g, Phase 1h, Phase
+    // 1i, Phase 1j, Phase 1k, Phase 1l, Phase 1m, Phase 1n, Phase 1o,
+    // Phase 1p, and Phase 1q each changed the checksum again simply by
+    // growing the same `fair-folk-charms.json` file; Phase 1r changed it
+    // again by adding the fourth `fair-folk-`-prefixed file,
+    // `fair-folk-glamour-sorcery.json`.
+    expect(record.catalog.promotedEntries).toBe(307);
     expect(record.catalog.checksum.length).toBeGreaterThan(0);
     expect(isFamilyAvailable('fair-folk')).toBe(false);
   });
