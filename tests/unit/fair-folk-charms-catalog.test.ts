@@ -6,20 +6,20 @@ import {
   fairFolkCharms,
 } from '../../src/games/exalted1e/reference/fair-folk-powers';
 
-describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f + Phase 1g + Phase 1h + Phase 1i + Phase 1j + Phase 1k + Phase 1l + Phase 1m + Phase 1n + Phase 1o + Phase 1p)', () => {
+describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f + Phase 1g + Phase 1h + Phase 1i + Phase 1j + Phase 1k + Phase 1l + Phase 1m + Phase 1n + Phase 1o + Phase 1p + Phase 1q: the entire 201-row Charm section is complete)', () => {
   it('loads all promoted Charm rows with unique stable IDs', () => {
-    expect(fairFolkCharms).toHaveLength(200);
-    expect(fairFolkCharmIds.size).toBe(200);
-    expect(fairFolkCharmById.size).toBe(200);
+    expect(fairFolkCharms).toHaveLength(201);
+    expect(fairFolkCharmIds.size).toBe(201);
+    expect(fairFolkCharmById.size).toBe(201);
   });
 
-  it('assigns every Charm a valid category from the twenty-two documented Fair Folk Charm categories', () => {
+  it('assigns every Charm a valid category from the twenty-three documented Fair Folk Charm categories', () => {
     for (const charm of fairFolkCharms) {
       expect(fairFolkCharmCategories).toContain(charm.charmCategory);
     }
   });
 
-  it('distributes Charms across the twenty-two categories with the expected counts', () => {
+  it('distributes Charms across the twenty-three categories with the expected counts', () => {
     const categoryCounts = new Map<string, number>();
     for (const charm of fairFolkCharms) {
       categoryCounts.set(
@@ -49,12 +49,13 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     expect(categoryCounts.get('Virtue-Shaping Charms')).toBe(5);
     expect(categoryCounts.get('Body-Strengthening Charms')).toBe(5);
     expect(categoryCounts.get('Creation-Based Crafting')).toBe(3);
+    expect(categoryCounts.get('Way Charms')).toBe(1);
     expect(
       Array.from(categoryCounts.values()).reduce(
         (sum, count) => sum + count,
         0,
       ),
-    ).toBe(200);
+    ).toBe(201);
   });
 
   it('resolves every prerequisiteCharms entry to another id in the same catalog (no dangling references)', () => {
@@ -123,6 +124,12 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         expect(['Heart', 'Cup', 'Ring', 'Staff', 'Sword']).toContain(
           charm.minimumRequirements[0]?.trait,
         );
+      } else if (charm.charmCategory === 'Way Charms') {
+        // The sole exception gated on the exotic sixth "Way" Grace
+        // rather than any of the five ordinary Graces.
+        expect(charm.minimumRequirements).toEqual([
+          { trait: 'Way', rating: 3 },
+        ]);
       } else {
         expect(charm.minimumRequirements).toEqual([]);
       }
@@ -1048,9 +1055,20 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         'Ring',
       );
     }
-    // This closes out this family's entire remaining real
-    // Charm-shaped inventory section (201 total rows, all now
-    // promoted).
+  });
+
+  it('promotes the standalone Way Charms entry: Perfect Reckoning Technique, the last Charm in Chapter Five, gated on the exotic sixth Way Grace', () => {
+    const perfectReckoning = fairFolkCharmById.get(
+      'perfect-reckoning-technique',
+    );
+    expect(perfectReckoning).toBeDefined();
+    expect(perfectReckoning?.prerequisiteCharms).toEqual([]);
+    expect(perfectReckoning?.charmCategory).toBe('Way Charms');
+    expect(perfectReckoning?.minimumRequirements).toEqual([
+      { trait: 'Way', rating: 3 },
+    ]);
+    // This closes out this family's entire real Charm-shaped inventory
+    // section: all 201 rows are now promoted.
   });
 
   it('assigns Combo-eligibility rules to every Charm, defaulting to eligible with no restrictions/specialRules except the two explicit overrides found so far', () => {
@@ -1114,6 +1132,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         'mad-god-mien',
         'monstrous-conceit',
         'ox-body-technique',
+        'perfect-reckoning-technique',
         'pox-charm',
         'prince-and-pauper-approach',
         'racing-dragon-speed',

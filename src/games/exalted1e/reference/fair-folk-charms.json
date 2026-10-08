@@ -7633,5 +7633,45 @@
     "sourceDisplay": "Exalted: The Fair Folk, p. 181",
     "reviewStatus": "source-checked",
     "reviewFlags": []
+  },
+  {
+    "id": "perfect-reckoning-technique",
+    "name": "Perfect Reckoning Technique",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Way Charms",
+    "summary": "The raksha sees for a moment through Nirupadhika's eyes, letting her plot a course to any landmark in the Wyld or Creation that she already knows.",
+    "description": "The raksha sees for a moment through Nirupadhika's eyes. This Charm lets her plot a course to any landmark in the Wyld or Creation that she knows.",
+    "cost": "4 motes, 1 gossamer",
+    "duration": "Instant",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Way",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 211,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 211",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "The last Charm in Chapter Five: Raksha Magic before Chapter Six: The Mountain Folk begins; its own notes confirm the immediately following printed page is a full-page illustration with no chapter text, marking the true end of the chapter. Gated on the exotic sixth 'Way' Grace rather than Cup/Ring/Staff/Sword/Heart, matching Forging the Way Grace (already promoted, Grace Forging) as this family's only other Way-gated Charm."
+    ]
   }
 ]

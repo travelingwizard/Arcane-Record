@@ -280,7 +280,7 @@ describe('auditFamily against the real repository (current state)', () => {
   });
 
   it('reports Fair Folk as pending-certification with its real inventory rows and zero audit errors', () => {
-    // 211 = the 200 real, page-cited, visually-reviewed Charms promoted in
+    // 212 = the 201 real, page-cited, visually-reviewed Charms promoted in
     // `fair-folk-charms.json` (19 Grace-Forging/Assumption from Phase 1b,
     // 25 Glamour/Grace-Forging/Mutation Charms from Phase 1c, 7
     // Dodge/Resistance Charms from Phase 1d, 19 Cup Combat Charms from
@@ -305,12 +305,14 @@ describe('auditFamily against the real repository (current state)', () => {
     // Approach, branching into Wyld Prince Resilience and Manacles of
     // Virtue, the latter continuing to Chaotic Soul Sledgehammer and
     // the capstone Torn Spirit-Mending Technique -- this closes out
-    // the entire Cup Grace tree), and 8 more Body-Strengthening
+    // the entire Cup Grace tree), 8 more Body-Strengthening
     // Charms/Creation-Based Crafting Charms from Phase 1p (a 4-Charm
     // Body-Strengthening chain plus the standalone Ox-Body Technique,
     // and a Creation-Based Crafting tree rooted at Ordinary Object
-    // Conjuration -- this closes out this family's entire remaining
-    // real Charm section)), the 6 Graces rows in
+    // Conjuration), and 1 more Way Charm from Phase 1q (the standalone
+    // Perfect Reckoning Technique, the last Charm in Chapter Five,
+    // gated on the exotic sixth Way Grace -- this closes out this
+    // family's entire real Charm section)), the 6 Graces rows in
     // `fair-folk-graces.json`, and the 5 Bedlam rows in
     // `fair-folk-bedlam.json` (all Phase 1b), as counted directly from
     // `src/games/exalted1e/reference/fair-folk-*.json` by this audit
@@ -319,7 +321,7 @@ describe('auditFamily against the real repository (current state)', () => {
     // match this family's real inventory) remains outside this glob and
     // unwired, exactly matching Alchemical's own identical precedent
     // above. This differs from `certification/fair-folk.json`'s own
-    // `catalog.promotedEntries` (299), which also includes Phase 1a's 88
+    // `catalog.promotedEntries` (300), which also includes Phase 1a's 88
     // Backgrounds/Merits-Flaws rows, none of which live in a
     // `fair-folk-`-prefixed catalog file (Backgrounds live in
     // `definitions.ts`; Merits/Flaws are a subset of the shared
@@ -330,7 +332,7 @@ describe('auditFamily against the real repository (current state)', () => {
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);
     expect(report.inventoryRows).toBeGreaterThan(0);
-    expect(report.promotedEntries).toBe(211);
+    expect(report.promotedEntries).toBe(212);
     expect(report.catalogChecksum).toHaveLength(8);
     expect(report.catalogChecksum).toMatch(/^[0-9a-f]{8}$/);
   });

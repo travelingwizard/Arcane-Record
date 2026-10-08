@@ -212,8 +212,14 @@ import type { PowerReviewStatus } from './dragonblooded-powers';
  * standalone, unconnected Ox-Body Technique) and `'Creation-Based
  * Crafting'` (3 entries -- rooted at Ordinary Object Conjuration,
  * branching in parallel into Limitless Wealth Conjuration Technique
- * and Hateful Coin Curse). Both are Ring-gated, not Cup-gated, closing
- * out this family's entire remaining real Charm section.
+ * and Hateful Coin Curse). Both are Ring-gated, not Cup-gated. Phase
+ * 1q promotes the one real Charm row left anywhere in this family's
+ * inventory: `'Way Charms'` (1 entry -- Perfect Reckoning Technique,
+ * p. 211, the last Charm in Chapter Five: Raksha Magic, gated on the
+ * exotic sixth "Way" Grace rather than Cup/Ring/Staff/Sword/Heart,
+ * matching Forging the Way Grace as this family's only other
+ * Way-gated Charm). With this phase, every real Charm-shaped
+ * inventory row in the entire 201-row Charm section is promoted.
  */
 export const fairFolkCharmCategories = [
   'Grace Forging',
@@ -238,6 +244,7 @@ export const fairFolkCharmCategories = [
   'Virtue-Shaping Charms',
   'Body-Strengthening Charms',
   'Creation-Based Crafting',
+  'Way Charms',
 ] as const;
 export type FairFolkCharmCategory = (typeof fairFolkCharmCategories)[number];
 
@@ -269,7 +276,9 @@ const reviewStatusSchema: z.ZodType<PowerReviewStatus> = z.enum([
  * Folk today, exactly as for Lunar/Abyssal/Alchemical. `minimumRequirements`
  * is empty for every Assumption-type Charm (that tree is explicitly
  * prerequisite-free relative to the five Grace shinma per the source's
- * own framing text), and otherwise carries the Grace trait and rating
+ * own framing text), and otherwise carries the Grace trait (including
+ * the exotic sixth "Way" Grace for Forging the Way Grace and the
+ * standalone Perfect Reckoning Technique) and rating
  * actually named in each Charm's own requirements text -- almost always
  * Ring for Glamour Charms/Grace Forging Charms, but Staff for the handful
  * of cross-Grace crossover Charms diagrammed under the Ring's/Cup's trees
@@ -282,7 +291,8 @@ const reviewStatusSchema: z.ZodType<PowerReviewStatus> = z.enum([
  * Charms/Virtue-Shaping Charms, Ring for the rest of Ring Combat
  * Charms/All-Consuming God-Monster Style/Body-Strengthening
  * Charms/Creation-Based Crafting, Staff for Laughing Monster Style/Society-Forging
- * Charms, and (uniquely) a different Grace per Charm within
+ * Charms, Way for the single-entry Way Charms category, and
+ * (uniquely) a different Grace per Charm within
  * Bedlam-Influencing Charms (Heart for its root, then one of
  * Cup/Ring/Staff/Sword per branch). Elemental Influence and Emotional
  * Influence are the exception: like the rest of the universal
@@ -318,7 +328,7 @@ const fairFolkCharmSchema = z.object({
 });
 
 /**
- * 200 of the many Charm rows found in Fair Folk's Chapter Five inventory
+ * All 201 of the real Charm rows found in Fair Folk's Chapter Five inventory
  * range. Phase 1b's 19: the 6 "Forging the (Grace) Grace" Charms (Heart,
  * Cup, Ring, Staff, Sword, and the exotic sixth Way Grace), the 4 parallel
  * Freehold-anchor Charms that branch off Forging the Arcane Redoubt
@@ -371,14 +381,17 @@ const fairFolkCharmSchema = z.object({
  * 170-171 -- rooted at Unsightly Rigor Approach, branching into Wyld
  * Prince Resilience and Manacles of Virtue, the latter continuing to
  * Chaotic Soul Sledgehammer and the capstone Torn Spirit-Mending
- * Technique). Phase 1p adds 8 more, closing out this family's entire
- * remaining real Charm section: the "Body-Strengthening Charms" (5
+ * Technique). Phase 1p adds 8 more: the "Body-Strengthening Charms" (5
  * entries, pp. 178-180 -- a 4-Charm chain, Knife-Hand Dream ->
  * Opalescent Gossamer Raiment -> Blade-Turning Skin -> Inviolable
  * Presence, plus the standalone Ox-Body Technique) and "Creation-Based
  * Crafting" (3 entries, pp. 180-181 -- rooted at Ordinary Object
  * Conjuration, branching in parallel into Limitless Wealth Conjuration
- * Technique and Hateful Coin Curse) sections. Every one is
+ * Technique and Hateful Coin Curse) sections. Phase 1q adds the final
+ * 1: the standalone "Way Charms" entry, Perfect Reckoning Technique
+ * (p. 211, gated on the exotic sixth "Way" Grace), the last Charm in
+ * Chapter Five: Raksha Magic. With Phase 1q, this family's entire real
+ * Charm section (all 201 rows) is promoted. Every one is
  * `disposition: 'selectable'` and `verificationState: 'reviewed'` in
  * the inventory. Phase 1c's own `shape-forged-servant` and
  * `awakened-dream-manufacture` resolved Phase 1b's
@@ -401,13 +414,13 @@ const fairFolkCharmSchema = z.object({
  * dependency, since Extinction of Desire's own gating is unrelated).
  * Phase 1d's, Phase 1e's, Phase 1f's, Phase 1g's, Phase 1h's, Phase
  * 1i's, Phase 1j's, Phase 1l's, Phase 1m's, Phase 1n's, Phase 1o's,
- * and Phase 1p's own new Charms have no such gap of their own: every
- * prerequisite they cite resolves cleanly within these same
+ * Phase 1p's, and Phase 1q's own new Charms have no such gap of their
+ * own: every prerequisite they cite resolves cleanly within these same
  * self-contained trees.
  */
 const fairFolkCharmCatalogSchema = z
   .array(fairFolkCharmSchema)
-  .length(200)
+  .length(201)
   .superRefine((charms, context) => {
     const ids = charms.map(({ id }) => id);
     if (new Set(ids).size !== ids.length) {
@@ -466,8 +479,9 @@ const defaultComboRules: CharmComboRules = {
  * Mien, Elemental Influence, Emotional Influence), Phase 1l's own 9
  * new Charms (Feeding Charms), Phase 1m's own 4 new Charms (Addiction
  * Charms), Phase 1n's own 11 new Charms (World-Shaping Charms), Phase
- * 1o's own 5 new Charms (Virtue-Shaping Charms), or Phase 1p's own 8
- * new Charms (Body-Strengthening Charms, Creation-Based Crafting).
+ * 1o's own 5 new Charms (Virtue-Shaping Charms), Phase 1p's own 8 new
+ * Charms (Body-Strengthening Charms, Creation-Based Crafting), or
+ * Phase 1q's own 1 new Charm (Way Charms).
  * Every Charm without
  * an entry in this map still falls through to `defaultComboRules`
  * (Combo-eligible, no restrictions) -- an honest reflection of what

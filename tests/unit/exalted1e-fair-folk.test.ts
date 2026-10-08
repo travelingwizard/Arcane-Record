@@ -611,7 +611,7 @@ describe('Exalted First Edition Fair Folk Phase 1a/1b (Backgrounds + Merits/Flaw
     });
   });
 
-  describe('Charms (Phase 1b + 1c + 1d + 1e + 1f + 1g + 1h + 1i + 1j + 1k + 1l + 1m + 1n + 1o + 1p: 200 Grace-Forging/Assumption/Glamour/Mutation/Dodge/Resistance/Cup-Combat/Feeding/Addiction/World-Shaping/Virtue-Shaping/Body-Strengthening/Creation-Based-Crafting/Ring-Combat/Staff-Combat/Sword-Combat/Name/Bedlam-Influencing/Elemental-Influence/Emotional-Influence Charms promoted -- the entire Fair Folk Charm section is now complete)', () => {
+  describe('Charms (Phase 1b + 1c + 1d + 1e + 1f + 1g + 1h + 1i + 1j + 1k + 1l + 1m + 1n + 1o + 1p + 1q: 201 Grace-Forging/Assumption/Glamour/Mutation/Dodge/Resistance/Cup-Combat/Feeding/Addiction/World-Shaping/Virtue-Shaping/Body-Strengthening/Creation-Based-Crafting/Way/Ring-Combat/Staff-Combat/Sword-Combat/Name/Bedlam-Influencing/Elemental-Influence/Emotional-Influence Charms promoted -- the entire Fair Folk Charm section is now complete)', () => {
     it('validates a blank Fair Folk character with zero Charm/Combo/spell selections', () => {
       const character = createBlankExaltedCharacter('fair-folk');
       expect(character.powers.charms).toEqual([]);
@@ -663,7 +663,12 @@ describe('Exalted First Edition Fair Folk Phase 1a/1b (Backgrounds + Merits/Flaw
       },
     );
 
-    it('rejects a Charm not in the 200-entry catalog (a Charm from a still-unpromoted Fair Folk Charm group)', () => {
+    it('rejects a definitionId not in the 201-entry Charm catalog (a real Fair Folk inventory id from an unpromoted non-Charm system, Glamour Sorcery)', () => {
+      // The entire 201-row real Charm section is now promoted (Phase
+      // 1q's Perfect Reckoning Technique was the last one), so this
+      // negative-validation case now uses a real, still-unpromoted
+      // non-Charm Fair Folk inventory id instead: a Glamour Sorcery
+      // Circle tier, a system with no catalog file of its own yet.
       const character = createBlankExaltedCharacter('fair-folk');
       expect(() =>
         exalted1eCharacterSchema.parse({
@@ -673,7 +678,7 @@ describe('Exalted First Edition Fair Folk Phase 1a/1b (Backgrounds + Merits/Flaw
             charms: [
               {
                 id: crypto.randomUUID(),
-                definitionId: 'perfect-reckoning-technique',
+                definitionId: 'waking-circle-spell',
                 unresolvedReference: null,
                 notes: '',
               },
