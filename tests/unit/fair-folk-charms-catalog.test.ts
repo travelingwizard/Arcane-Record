@@ -6,20 +6,20 @@ import {
   fairFolkCharms,
 } from '../../src/games/exalted1e/reference/fair-folk-powers';
 
-describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f + Phase 1g + Phase 1h + Phase 1i + Phase 1j + Phase 1k + Phase 1l + Phase 1m + Phase 1n + Phase 1o)', () => {
+describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + Phase 1f + Phase 1g + Phase 1h + Phase 1i + Phase 1j + Phase 1k + Phase 1l + Phase 1m + Phase 1n + Phase 1o + Phase 1p)', () => {
   it('loads all promoted Charm rows with unique stable IDs', () => {
-    expect(fairFolkCharms).toHaveLength(192);
-    expect(fairFolkCharmIds.size).toBe(192);
-    expect(fairFolkCharmById.size).toBe(192);
+    expect(fairFolkCharms).toHaveLength(200);
+    expect(fairFolkCharmIds.size).toBe(200);
+    expect(fairFolkCharmById.size).toBe(200);
   });
 
-  it('assigns every Charm a valid category from the twenty documented Fair Folk Charm categories', () => {
+  it('assigns every Charm a valid category from the twenty-two documented Fair Folk Charm categories', () => {
     for (const charm of fairFolkCharms) {
       expect(fairFolkCharmCategories).toContain(charm.charmCategory);
     }
   });
 
-  it('distributes Charms across the twenty categories with the expected counts', () => {
+  it('distributes Charms across the twenty-two categories with the expected counts', () => {
     const categoryCounts = new Map<string, number>();
     for (const charm of fairFolkCharms) {
       categoryCounts.set(
@@ -47,12 +47,14 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     expect(categoryCounts.get('Addiction Charms')).toBe(4);
     expect(categoryCounts.get('World-Shaping Charms')).toBe(11);
     expect(categoryCounts.get('Virtue-Shaping Charms')).toBe(5);
+    expect(categoryCounts.get('Body-Strengthening Charms')).toBe(5);
+    expect(categoryCounts.get('Creation-Based Crafting')).toBe(3);
     expect(
       Array.from(categoryCounts.values()).reduce(
         (sum, count) => sum + count,
         0,
       ),
-    ).toBe(192);
+    ).toBe(200);
   });
 
   it('resolves every prerequisiteCharms entry to another id in the same catalog (no dangling references)', () => {
@@ -78,7 +80,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     }
   });
 
-  it('keys every Grace Forging/Glamour/Dodge/Resistance/Cup-Combat/Feeding/Addiction/World-Shaping/Virtue-Shaping/Ring-Combat/Staff-Combat/Sword-Combat Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption/Elemental-Influence/Emotional-Influence Charm to no Grace minimum at all', () => {
+  it('keys every Grace Forging/Glamour/Dodge/Resistance/Cup-Combat/Feeding/Addiction/World-Shaping/Virtue-Shaping/Body-Strengthening/Creation-Based-Crafting/Ring-Combat/Staff-Combat/Sword-Combat Charm to the Grace trait and rating actually named in its own requirements text, and every Assumption/Elemental-Influence/Emotional-Influence Charm to no Grace minimum at all', () => {
     for (const charm of fairFolkCharms) {
       if (
         charm.charmCategory === 'Grace Forging' ||
@@ -88,6 +90,8 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         charm.charmCategory === 'Addiction Charms' ||
         charm.charmCategory === 'World-Shaping Charms' ||
         charm.charmCategory === 'Virtue-Shaping Charms' ||
+        charm.charmCategory === 'Body-Strengthening Charms' ||
+        charm.charmCategory === 'Creation-Based Crafting' ||
         charm.charmCategory === 'Ring Combat Charms' ||
         charm.charmCategory === 'All-Consuming God-Monster Style' ||
         charm.charmCategory === 'Laughing Monster Style' ||
@@ -987,6 +991,68 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
     // entirely promoted.
   });
 
+  it('chains the Body-Strengthening Charms tree: a 4-Charm chain (Knife-Hand Dream -> Opalescent Gossamer Raiment -> Blade-Turning Skin -> Inviolable Presence) plus the standalone, unconnected Ox-Body Technique', () => {
+    expect(
+      fairFolkCharmById.get('knife-hand-dream')?.prerequisiteCharms,
+    ).toEqual([]);
+    expect(
+      fairFolkCharmById.get('opalescent-gossamer-raiment')?.prerequisiteCharms,
+    ).toEqual(['knife-hand-dream']);
+    expect(
+      fairFolkCharmById.get('blade-turning-skin')?.prerequisiteCharms,
+    ).toEqual(['opalescent-gossamer-raiment']);
+    expect(
+      fairFolkCharmById.get('inviolable-presence')?.prerequisiteCharms,
+    ).toEqual(['blade-turning-skin']);
+    // Diagrammed as a standalone box with no connecting arrows to the
+    // rest of the tree -- purchasable independently.
+    expect(
+      fairFolkCharmById.get('ox-body-technique')?.prerequisiteCharms,
+    ).toEqual([]);
+    for (const id of [
+      'knife-hand-dream',
+      'opalescent-gossamer-raiment',
+      'blade-turning-skin',
+      'inviolable-presence',
+      'ox-body-technique',
+    ]) {
+      expect(fairFolkCharmById.get(id)?.charmCategory).toBe(
+        'Body-Strengthening Charms',
+      );
+      expect(fairFolkCharmById.get(id)?.minimumRequirements[0]?.trait).toBe(
+        'Ring',
+      );
+    }
+  });
+
+  it('chains the Creation-Based Crafting tree: rooted at Ordinary Object Conjuration, branching in parallel into Limitless Wealth Conjuration Technique and Hateful Coin Curse', () => {
+    expect(
+      fairFolkCharmById.get('ordinary-object-conjuration')?.prerequisiteCharms,
+    ).toEqual([]);
+    expect(
+      fairFolkCharmById.get('limitless-wealth-conjuration-technique')
+        ?.prerequisiteCharms,
+    ).toEqual(['ordinary-object-conjuration']);
+    expect(
+      fairFolkCharmById.get('hateful-coin-curse')?.prerequisiteCharms,
+    ).toEqual(['ordinary-object-conjuration']);
+    for (const id of [
+      'ordinary-object-conjuration',
+      'limitless-wealth-conjuration-technique',
+      'hateful-coin-curse',
+    ]) {
+      expect(fairFolkCharmById.get(id)?.charmCategory).toBe(
+        'Creation-Based Crafting',
+      );
+      expect(fairFolkCharmById.get(id)?.minimumRequirements[0]?.trait).toBe(
+        'Ring',
+      );
+    }
+    // This closes out this family's entire remaining real
+    // Charm-shaped inventory section (201 total rows, all now
+    // promoted).
+  });
+
   it('assigns Combo-eligibility rules to every Charm, defaulting to eligible with no restrictions/specialRules except the two explicit overrides found so far', () => {
     for (const charm of fairFolkCharms) {
       expect(charm.comboRules).toBeDefined();
@@ -1047,6 +1113,7 @@ describe('Fair Folk Charm catalog (Phase 1b + Phase 1c + Phase 1d + Phase 1e + P
         'laughing-monster-stance',
         'mad-god-mien',
         'monstrous-conceit',
+        'ox-body-technique',
         'pox-charm',
         'prince-and-pauper-approach',
         'racing-dragon-speed',

@@ -204,7 +204,16 @@ import type { PowerReviewStatus } from './dragonblooded-powers';
  * Manacles of Virtue; Manacles of Virtue continues to Chaotic Soul
  * Sledgehammer and the capstone Torn Spirit-Mending Technique). With
  * this phase, every real Charm-shaped inventory row on the Cup's own
- * page range (pp. 159-171) is promoted.
+ * page range (pp. 159-171) is promoted. Phase 1p promotes the Ring's
+ * own "Nirvishesha, the Ring" (pp. 178-181) leftovers beyond its
+ * already-promoted combat trees: `'Body-Strengthening Charms'` (5
+ * entries -- a 4-Charm chain, Knife-Hand Dream -> Opalescent Gossamer
+ * Raiment -> Blade-Turning Skin -> Inviolable Presence, plus the
+ * standalone, unconnected Ox-Body Technique) and `'Creation-Based
+ * Crafting'` (3 entries -- rooted at Ordinary Object Conjuration,
+ * branching in parallel into Limitless Wealth Conjuration Technique
+ * and Hateful Coin Curse). Both are Ring-gated, not Cup-gated, closing
+ * out this family's entire remaining real Charm section.
  */
 export const fairFolkCharmCategories = [
   'Grace Forging',
@@ -227,6 +236,8 @@ export const fairFolkCharmCategories = [
   'Addiction Charms',
   'World-Shaping Charms',
   'Virtue-Shaping Charms',
+  'Body-Strengthening Charms',
+  'Creation-Based Crafting',
 ] as const;
 export type FairFolkCharmCategory = (typeof fairFolkCharmCategories)[number];
 
@@ -268,8 +279,9 @@ const reviewStatusSchema: z.ZodType<PowerReviewStatus> = z.enum([
  * Charms (Pox, Affliction, Blight)/Sword Combat Charms, Heart for the
  * Dodge/Resistance Charms/Name Charms, Cup for the rest of the Cup
  * Combat Charms/Feeding Charms/Addiction Charms/World-Shaping
- * Charms/Virtue-Shaping Charms, Ring for the rest of Ring Combat Charms/All-Consuming
- * God-Monster Style, Staff for Laughing Monster Style/Society-Forging
+ * Charms/Virtue-Shaping Charms, Ring for the rest of Ring Combat
+ * Charms/All-Consuming God-Monster Style/Body-Strengthening
+ * Charms/Creation-Based Crafting, Staff for Laughing Monster Style/Society-Forging
  * Charms, and (uniquely) a different Grace per Charm within
  * Bedlam-Influencing Charms (Heart for its root, then one of
  * Cup/Ring/Staff/Sword per branch). Elemental Influence and Emotional
@@ -306,7 +318,7 @@ const fairFolkCharmSchema = z.object({
 });
 
 /**
- * 192 of the many Charm rows found in Fair Folk's Chapter Five inventory
+ * 200 of the many Charm rows found in Fair Folk's Chapter Five inventory
  * range. Phase 1b's 19: the 6 "Forging the (Grace) Grace" Charms (Heart,
  * Cup, Ring, Staff, Sword, and the exotic sixth Way Grace), the 4 parallel
  * Freehold-anchor Charms that branch off Forging the Arcane Redoubt
@@ -359,7 +371,14 @@ const fairFolkCharmSchema = z.object({
  * 170-171 -- rooted at Unsightly Rigor Approach, branching into Wyld
  * Prince Resilience and Manacles of Virtue, the latter continuing to
  * Chaotic Soul Sledgehammer and the capstone Torn Spirit-Mending
- * Technique). Every one is
+ * Technique). Phase 1p adds 8 more, closing out this family's entire
+ * remaining real Charm section: the "Body-Strengthening Charms" (5
+ * entries, pp. 178-180 -- a 4-Charm chain, Knife-Hand Dream ->
+ * Opalescent Gossamer Raiment -> Blade-Turning Skin -> Inviolable
+ * Presence, plus the standalone Ox-Body Technique) and "Creation-Based
+ * Crafting" (3 entries, pp. 180-181 -- rooted at Ordinary Object
+ * Conjuration, branching in parallel into Limitless Wealth Conjuration
+ * Technique and Hateful Coin Curse) sections. Every one is
  * `disposition: 'selectable'` and `verificationState: 'reviewed'` in
  * the inventory. Phase 1c's own `shape-forged-servant` and
  * `awakened-dream-manufacture` resolved Phase 1b's
@@ -381,14 +400,14 @@ const fairFolkCharmSchema = z.object({
  * cross-reference in descriptive text, not a `prerequisiteCharms`
  * dependency, since Extinction of Desire's own gating is unrelated).
  * Phase 1d's, Phase 1e's, Phase 1f's, Phase 1g's, Phase 1h's, Phase
- * 1i's, Phase 1j's, Phase 1l's, Phase 1m's, Phase 1n's, and Phase
- * 1o's own new Charms have no such gap of their own: every
+ * 1i's, Phase 1j's, Phase 1l's, Phase 1m's, Phase 1n's, Phase 1o's,
+ * and Phase 1p's own new Charms have no such gap of their own: every
  * prerequisite they cite resolves cleanly within these same
  * self-contained trees.
  */
 const fairFolkCharmCatalogSchema = z
   .array(fairFolkCharmSchema)
-  .length(192)
+  .length(200)
   .superRefine((charms, context) => {
     const ids = charms.map(({ id }) => id);
     if (new Set(ids).size !== ids.length) {
@@ -446,8 +465,9 @@ const defaultComboRules: CharmComboRules = {
  * Bedlam-Influencing Charms), Phase 1k's own 13 new Charms (Mad God
  * Mien, Elemental Influence, Emotional Influence), Phase 1l's own 9
  * new Charms (Feeding Charms), Phase 1m's own 4 new Charms (Addiction
- * Charms), Phase 1n's own 11 new Charms (World-Shaping Charms), or
- * Phase 1o's own 5 new Charms (Virtue-Shaping Charms).
+ * Charms), Phase 1n's own 11 new Charms (World-Shaping Charms), Phase
+ * 1o's own 5 new Charms (Virtue-Shaping Charms), or Phase 1p's own 8
+ * new Charms (Body-Strengthening Charms, Creation-Based Crafting).
  * Every Charm without
  * an entry in this map still falls through to `defaultComboRules`
  * (Combo-eligible, no restrictions) -- an honest reflection of what

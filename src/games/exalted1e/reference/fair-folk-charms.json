@@ -7327,5 +7327,311 @@
     "reviewFlags": [
       "This Charm's own mechanics text says it 'utterly consumes a glamour sorcery spell that the raksha owns' (Artifact level equal to or above the target's Cup) to power its effect -- a resource dependency on glamour sorcery, a system not yet promoted into any catalog. This is a consumed-resource requirement in descriptive text, not a `prerequisiteCharms` dependency."
     ]
+  },
+  {
+    "id": "knife-hand-dream",
+    "name": "Knife-Hand Dream",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Body-Strengthening Charms",
+    "summary": "The root Body-Strengthening Charm: reinforces the raksha's body with elemental Essence so she can deal and parry lethal damage barehanded.",
+    "description": "The raksha reinforces her body with elemental Essence. This Charm allows her to do lethal damage barehanded. She can also parry lethal blows barehanded as if wielding a weapon.",
+    "cost": "1 mote, 1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 178,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 178",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "opalescent-gossamer-raiment",
+    "name": "Opalescent Gossamer Raiment",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Body-Strengthening Charms",
+    "summary": "Strengthens the dream of the raksha's flesh against Creation's weapons, adding +1 to natural bashing and lethal soak; a faint opalescent skin sheen can mark her as a raksha to a keen observer.",
+    "description": "The raksha strengthens the dream of his flesh against the weapons of Creation. In firelight, his skin glimmers with the faintest opalescent sheen, and a difficulty 3 Perception + Occult roll identifies this as a mark of the raksha. This Charm adds one to his natural bashing soak and one to his natural lethal soak.",
+    "cost": "1 mote, 1 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["knife-hand-dream"],
+    "prerequisiteText": "Knife-Hand Dream",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 179,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 179",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "blade-turning-skin",
+    "name": "Blade-Turning Skin",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Body-Strengthening Charms",
+    "summary": "The raksha's delicate skin casts off her enemies' blades, adding +2 to natural bashing and lethal soak (stacking with its prerequisites), with a more visible telltale sheen than Opalescent Gossamer Raiment.",
+    "description": "The raksha's soft and delicate skin casts off the blades of her enemies. In firelight or moonlight, its peculiar and beautiful highlights reveal her as a raksha to those characters whose players make a successful difficulty 5 Perception + Occult roll. This Charm adds two to her natural bashing soak and two to her natural lethal soak. The raksha can benefit from this Charm and its prerequisites simultaneously.",
+    "cost": "1 mote, 2 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["opalescent-gossamer-raiment"],
+    "prerequisiteText": "Opalescent Gossamer Raiment",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 180,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 180",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "inviolable-presence",
+    "name": "Inviolable Presence",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Body-Strengthening Charms",
+    "summary": "The capstone Body-Strengthening Charm: a thin, ice-like layer of dream protects the raksha, adding +4 to natural bashing and lethal soak (stacking with its prerequisites), at the cost of unmistakably marking her as a raksha to any onlooker.",
+    "description": "The thinnest layer of dream, like ice or clear adamant, protects the raksha from others' touch. Any who see the character can recognize him as a raksha. This Charm adds four to his natural bashing soak and four to his natural lethal soak. The raksha can benefit from this Charm and its prerequisites simultaneously.",
+    "cost": "1 mote, 4 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["blade-turning-skin"],
+    "prerequisiteText": "Blade-Turning Skin",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 180,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 180",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "ox-body-technique",
+    "name": "Ox-Body Technique",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Body-Strengthening Charms",
+    "summary": "Raksha purchase additional health levels as if buying a Charm, choosing each purchase's flavor (a free -0 level, a paired -1/-2 level, or a permanent -2 level) up to a number of purchases equal to the raksha's Ring rating.",
+    "description": "Raksha can shape themselves for additional resilience, purchasing additional health levels as if they were a Charm. Each Ox-Body Technique Charm can provide one of the following, chosen at the time of purchase: one -0 health level, costing 1 gossamer per story to activate; one -1 and -2 health level, costing 1 gossamer per story to activate; or one permanent -2 health level with no gossamer or mutation cost. Players can purchase this Charm up to once per dot of the raksha's Ring. Additional health levels for use specifically in shaping combat are available separately through Wyld Prince Resilience.",
+    "cost": "Special (see mechanics)",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 1
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 180,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 180",
+    "reviewStatus": "source-checked",
+    "reviewFlags": [
+      "Diagrammed as a standalone box with no connecting arrows to the rest of the Body-Strengthening Charms tree (visually confirmed on p. 178/PDF 179) -- purchasable independently of Knife-Hand Dream and its line, hence `prerequisiteCharms: []`. Its own text explicitly cross-references Wyld Prince Resilience (already promoted, Virtue-Shaping Charms) by name for shaping-combat health levels specifically -- a narrative cross-reference in descriptive text, not a `prerequisiteCharms` dependency, since the two Charms are otherwise unrelated and independently purchasable."
+    ]
+  },
+  {
+    "id": "ordinary-object-conjuration",
+    "name": "Ordinary Object Conjuration",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Creation-Based Crafting",
+    "summary": "The root Creation-Based Crafting Charm: forges a permanent glamour of a mundane item from gossamer, with a Resources value capped by the raksha's rolled successes.",
+    "description": "The raksha forges an ordinary item from gossamer. The raksha's player rolls Intelligence + Craft (Glamour) as a Ring-shaping action. This Charm creates the permanent glamour of a mundane object. Its Resources value cannot be greater than the number of successes rolled.",
+    "cost": "1 gossamer",
+    "duration": "Permanent",
+    "type": "Simple",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 2
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": [],
+    "prerequisiteText": "None",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 180,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 180",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "limitless-wealth-conjuration-technique",
+    "name": "Limitless Wealth Conjuration Technique",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Creation-Based Crafting",
+    "summary": "Forges temporary wealth from glamour, granting up to Essence dots of temporary Resources for the story; canny buyers with enough Wits or Bureaucracy plus Essence can recognize the treasure as glamour-forged gilt.",
+    "description": "The raksha forges wealth from glamour. The raksha's player rolls Intelligence + Bureaucracy as a Ring-shaping action. This Charm gives the raksha one temporary dot of Resources per success, to a maximum of the raksha's Essence. She may immediately upgrade her lifestyle and living conditions to the new condition without needing to actually purchase the trappings. Such wealth is raksha gold, disappearing at the end of the story. Canny buyers, whose Bureaucracy + Essence or Wits + Essence exceeds the raksha's Bureaucracy, recognize her treasure as glamour-forged gilt.",
+    "cost": "2 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 1,
+    "prerequisiteCharms": ["ordinary-object-conjuration"],
+    "prerequisiteText": "Ordinary Object Conjuration",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 180,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 180",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
+  },
+  {
+    "id": "hateful-coin-curse",
+    "name": "Hateful Coin Curse",
+    "systemId": "exalted1e",
+    "moduleId": "fair-folk",
+    "exaltType": "fair-folk",
+    "kind": "charm",
+    "category": "native",
+    "element": null,
+    "ability": null,
+    "style": null,
+    "charmCategory": "Creation-Based Crafting",
+    "summary": "A work-of-glamour curse that unravels a target's fortunes: temporarily strips Resources dots and raises the difficulty of the target's mercantile dealings, unless the target or the other party is too Essence-sharp to be fooled.",
+    "description": "The raksha unravels the fates of serenity and wealth. The raksha interacts with the target, and then her player rolls Intelligence + Bureaucracy as a Ring-shaping action. Money slips through the target's fingers -- his clothes grow tattered, no one will take his coin, debtors will not pay, servants forget their contracts, and even the finest house lets in the cold, rain, wind and burglars. This Charm temporarily reduces the target's Resources by one dot per success and adds 2 to the difficulty of all the target's mercantile transactions. This is a work of glamour: it does not affect creatures whose Wits + Essence exceeds the raksha's Bureaucracy, and the mercantile-transaction penalty does not apply when either the target or the merchant they deal with has Wits + Essence exceeding the raksha's Bureaucracy.",
+    "cost": "3 gossamer",
+    "duration": "One story",
+    "type": "Reflexive",
+    "minimumRequirements": [
+      {
+        "trait": "Ring",
+        "rating": 3
+      }
+    ],
+    "minimumEssence": 2,
+    "prerequisiteCharms": ["ordinary-object-conjuration"],
+    "prerequisiteText": "Ordinary Object Conjuration",
+    "sources": [
+      {
+        "bookId": "exalted-the-fair-folk",
+        "bookLabel": "Exalted: The Fair Folk",
+        "page": 181,
+        "sourceKind": "uploaded"
+      }
+    ],
+    "sourceDisplay": "Exalted: The Fair Folk, p. 181",
+    "reviewStatus": "source-checked",
+    "reviewFlags": []
   }
 ]
