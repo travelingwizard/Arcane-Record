@@ -2915,6 +2915,33 @@ Wyld Artifacts, which is expected to stay deliberately excluded as
 free-text `possessions` entries rather than a strict catalog, matching
 the existing Solar/Dragon-Blooded named-Artifact precedent.
 
+Fair Folk's Phase 1u (Wyld Artifacts decision) is a documentation-only
+phase with no new catalog file and no `promotedEntries` change.
+`wyld-artifacts-overview`, `resonant-chorus-bow`,
+`hundred-color-shaping-lens`, and `artifact-waypoint` (pp. 207-209)
+were re-read in full and confirmed to be three fixed, concrete-statted
+named items — e.g. the Resonant Chorus Bow's Accuracy +2, Damage 15,
+Rate 2, unlimited Perception, 6-waypoint range, and 3-mote commitment
+— rather than a point-buy "build a custom X" tier system like Glamour
+Sorcery, Adjurations, or Behemoths. This is structurally identical to
+how Solar's and Dragon-Blooded's own named Artifacts already work in
+this app, so Wyld Artifacts stay deliberately excluded from both
+`promotableEntries` and any `fair-folk-*.json` catalog file; raksha
+players record them as free-text `possessions` entries instead.
+
+With this decision finalized, Fair Folk's `promotedEntries` (318)
+exactly equaling `promotableEntries` (318) is not a temporary
+milestone but its intended final catalog-dimension state —
+`catalogDimensionPasses` now returns `true` for Fair Folk exactly as
+it already does for Lunar, Abyssal, Sidereal, and Alchemical, making
+**all five planned families catalog-complete for the first time**.
+`certifiedAt` stays null regardless: Phase 6's all-five-families-
+together rule and the still-`not-run` rules/creator/migration/browser
+test dimensions keep Fair Folk exactly as locked as before. No
+schema, catalog, or application code changed this phase — only
+`certification/fair-folk.json`'s own blockers text, this document, and
+an explanatory comment in `exalted1e-verification.test.ts`.
+
 ## Next steps (require source material per book)
 
 1. Project owner supplies scanned pages, OCR text, or transcriptions for one

@@ -71,21 +71,34 @@ describe('exalted1e verification gate', () => {
       // All five families have started source intake (inventory rows > 0).
       // Abyssal (Phase 1e), Sidereal (Phase: Astrology/Colleges plus the
       // later `sidereal_unreviewed_spells` follow-up), Lunar (the
-      // `unreviewed_spells` follow-up), and now Alchemical (Phase 1c) have
-      // each had every one of their promotable rows promoted to real
-      // production catalogs (Abyssal: 505 of 505 -- Backgrounds, universal
-      // Merits/Flaws chapter, all 227 Chapter Five Charms, all 106
-      // Necromancy spells, and 86 Sorcery spells; Sidereal: 383 of 383 --
-      // 12 Backgrounds + 82 Merits/Flaws + 193 Charms + 86 Sorcery spells +
-      // 10 Astrology/Colleges procedural-rules rows; Lunar: 412 of 412;
-      // Alchemical: 214 of 214 -- 6 Backgrounds + 71 Merits/Flaws + 96
-      // Charms + 38 Weaving Protocols + 3 Alchemy Formulae -- see
-      // `SplatCatalogEvidence.promotableEntries`), so `catalogDimensionPasses`
-      // now returns true for all four. Even with a fully satisfied
-      // catalog dimension, `certifiedAt` stays null and every family stays
-      // locked: `browserTests` can't run before a family is unlocked, and
-      // Phase 6's rule requires all five families to reach
-      // `certifiedAt !== null` together.
+      // `unreviewed_spells` follow-up), Alchemical (Phase 1c), and now
+      // Fair Folk (Phase 1t) have each had every one of their promotable
+      // rows promoted to real production catalogs (Abyssal: 505 of 505 --
+      // Backgrounds, universal Merits/Flaws chapter, all 227 Chapter Five
+      // Charms, all 106 Necromancy spells, and 86 Sorcery spells;
+      // Sidereal: 383 of 383 -- 12 Backgrounds + 82 Merits/Flaws + 193
+      // Charms + 86 Sorcery spells + 10 Astrology/Colleges
+      // procedural-rules rows; Lunar: 412 of 412; Alchemical: 214 of 214
+      // -- 6 Backgrounds + 71 Merits/Flaws + 96 Charms + 38 Weaving
+      // Protocols + 3 Alchemy Formulae; Fair Folk: 318 of 318 -- 13
+      // Backgrounds + 75 Merits/Flaws + 201 Charms + 6 Graces + 5 Bedlam
+      // rows + 7 Glamour Sorcery rows + 7 Adjurations rows + 4 Behemoths
+      // rows -- see `SplatCatalogEvidence.promotableEntries`), so
+      // `catalogDimensionPasses` now returns true for all five. Fair
+      // Folk's own remaining named system, Wyld Artifacts (3 fixed,
+      // concrete-statted items -- Resonant Chorus Bow/Hundred Color
+      // Shaping Lens/Artifact Waypoint -- unlike Glamour Sorcery's/
+      // Adjurations'/Behemoths' own point-buy "build a custom X" tiers),
+      // is deliberately excluded from `promotableEntries` by design
+      // (Phase 1u), matching the existing Solar/Dragon-Blooded precedent
+      // of representing named Artifacts as free-text `possessions`
+      // entries rather than a strict `definitionId` catalog -- so Fair
+      // Folk's catalog dimension is not merely temporarily complete, it
+      // is intentionally as complete as it is ever meant to get. Even
+      // with a fully satisfied catalog dimension, `certifiedAt` stays
+      // null and every family stays locked: `browserTests` can't run
+      // before a family is unlocked, and Phase 6's rule requires all
+      // five families to reach `certifiedAt !== null` together.
       expect(record.catalog.promotedEntries).toBe(
         family === 'abyssal'
           ? 505
