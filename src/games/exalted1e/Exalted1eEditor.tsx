@@ -1750,25 +1750,26 @@ export function Exalted1eEditor({
                 />
               ) : isFairFolk ? (
                 // Fair Folk's real, page-cited 201-Charm catalog (Phases
-                // 1b-1q). Phase 2a wires the catalog itself into the
-                // editor but deliberately does NOT pass `character`/
-                // `onLearnWithExperience` yet -- Fair Folk Charms carry no
-                // single governing Ability or Caste at all (see
-                // `FairFolkCharmDefinition`'s own doc comment: every
-                // Charm's `minimumRequirements` names a Grace rating, not
-                // an Ability), so a correct XP-cost function needs its own
-                // favored-Grace-or-Virtue design decision, deferred to a
-                // later phase exactly as Lunar's own XP-rules phase came
-                // after its editor-UI phase. "Add Without Spending XP"
-                // remains fully available in the meantime. No Caste
-                // filter or Sorcery/spells tab is offered: Fair Folk
-                // Charms are organized by `charmCategory`
-                // (Grace-Forging/Assumption/Glamour/etc.), not by Caste,
-                // and Glamour Sorcery has no `definitionId`-style spell
-                // catalog of its own (see `fairFolkPowerDefinitions`'s own
-                // doc comment above).
+                // 1b-1q). Phase 2a wired the catalog itself into the
+                // editor; Phase 2b now wires `character`/
+                // `onLearnWithExperience` too, using
+                // `getFairFolkPowerExperienceCost`'s flat 6 XP cost (see
+                // `shared/advancement/rules.ts`) -- unlike every other
+                // family here, Exalted: The Fair Folk's own "Fair Folk
+                // Experience and Training Time" sidebar (p. 321) states a
+                // new Charm's cost outright with no Favored/Unfavored
+                // split at all, so no favored-Grace-or-Virtue judgment
+                // call (originally anticipated when Phase 2a deferred this
+                // work) was actually needed once the source text itself
+                // was checked. No Caste filter or Sorcery/spells tab is
+                // offered: Fair Folk Charms are organized by
+                // `charmCategory` (Grace-Forging/Assumption/Glamour/etc.),
+                // not by Caste, and Glamour Sorcery has no
+                // `definitionId`-style spell catalog of its own (see
+                // `fairFolkPowerDefinitions`'s own doc comment above).
                 <ExaltedPowersSection
                   powers={draft.powers}
+                  character={draft}
                   definitions={fairFolkPowerDefinitions}
                   catalogId="fair-folk-power-catalog"
                   catalogDescription="Choose from 201 Fair Folk Charms (Grace-Forging, Assumption, Glamour, Mutation, and five per-Grace Combat/Name/Feeding/Addiction/World-Shaping Charm trees). Requirements are advisory; entries retain their cited book and page and are marked for source review."
@@ -1778,6 +1779,7 @@ export function Exalted1eEditor({
                   onChange={(powers) =>
                     update((current) => ({ ...current, powers }))
                   }
+                  onLearnWithExperience={learnPowerWithExperience}
                 />
               ) : (
                 // Alchemical has no production Charm/spell catalog wired

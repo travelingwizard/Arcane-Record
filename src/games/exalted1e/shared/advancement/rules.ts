@@ -9,6 +9,7 @@ import type {
 } from '../../reference/abyssal-powers';
 import type { SiderealCharmDefinition } from '../../reference/sidereal-powers';
 import type { LunarCharmDefinition } from '../../reference/lunar-powers';
+import type { FairFolkCharmDefinition } from '../../reference/fair-folk-powers';
 import {
   abyssalAbilityGroups,
   dragonBloodedAbilityGroups,
@@ -278,5 +279,43 @@ export function getLunarPowerExperienceCost(
     cost,
     favored,
     explanation: `${favored ? 'Favored' : 'Unfavored'} new ${power.kind === 'spell' ? 'spell' : 'Charm'}`,
+  };
+}
+
+/**
+ * Fair Folk Charm purchase cost (Phase 2b). Unlike every other family's
+ * own `getXPowerExperienceCost` above, this takes no `character` argument
+ * at all and has no Favored/Unfavored branch to resolve -- Exalted: The
+ * Fair Folk's own "Fair Folk Experience and Training Time" sidebar
+ * (Chapter Seven, printed p. 321/PDF 322) states the full Fair Folk
+ * post-creation cost table explicitly, and unlike its Caste/Common
+ * Ability split ("Caste or Common Ability increase costs current rating x
+ * 2; other Ability increase costs current rating x 3") or its Major/Minor
+ * Grace split (Major Grace x3, Minor Grace x6 per rating), the New Trait
+ * row for Charms states a single flat figure with no such split: "a new
+ * Charm costs 6." This was confirmed directly from the source text, not
+ * inferred by analogy -- unlike Lunar's own favored-Ability-in-
+ * requirements design decision above, which the source material never
+ * restates at all, Fair Folk's own book settles the question outright, so
+ * no favored-Grace-or-Virtue judgment call is needed or made here. (Fair
+ * Folk's four base castes do each privilege one of the four Virtue-fed
+ * Graces -- Diplomat/Staff/Conviction, Entertainer/Cup/Compassion,
+ * Warrior/Sword/Valor, Worker/Ring/Temperance, per their own Chapter Four
+ * "Controlling Grace" text -- but that caste-Grace link only discounts
+ * Grace *ratings* themselves and Caste Abilities, per the cost table
+ * above; it never discounts a new *Charm's* flat 6 XP price.) A flat,
+ * non-Favored-split Charm cost is not unique to Fair Folk in this
+ * project's own source material -- `quoteExaltedAdvancement`'s own
+ * `'alchemical'` branch in `family-rules.ts` likewise costs `charm: 6`
+ * flat, though Alchemical has no editor-UI Charm-browsing wiring yet
+ * (and so no `getAlchemicalPowerExperienceCost` function exists to
+ * mirror); this function is independently confirmed against
+ * `quoteExaltedAdvancement`'s own already-tested `'fair-folk'` branch,
+ * which costs the same flat `charm: 6`.
+ */
+export function getFairFolkPowerExperienceCost(power: FairFolkCharmDefinition) {
+  return {
+    cost: 6,
+    explanation: `New Charm (flat cost; ${power.name} carries no Favored/Unfavored split -- see the Fair Folk Experience table, p. 321)`,
   };
 }

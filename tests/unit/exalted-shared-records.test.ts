@@ -6,6 +6,7 @@ import {
   getDragonBloodedEssenceExperienceCost,
   getDragonBloodedPowerExperienceCost,
   getExperienceTotals,
+  getFairFolkPowerExperienceCost,
   getLunarPowerExperienceCost,
   getSiderealPowerExperienceCost,
   isAbyssalAbilityFavored,
@@ -23,6 +24,7 @@ import {
 } from '../../src/games/exalted1e/reference/abyssal-powers';
 import { siderealCharmById } from '../../src/games/exalted1e/reference/sidereal-powers';
 import { lunarCharmById } from '../../src/games/exalted1e/reference/lunar-powers';
+import { fairFolkCharmById } from '../../src/games/exalted1e/reference/fair-folk-powers';
 
 describe('shared Exalted records and Dragon-Blooded advancement', () => {
   it('keeps native, permanent, temporary, and custom languages distinct', () => {
@@ -305,6 +307,26 @@ describe('shared Exalted records and Dragon-Blooded advancement', () => {
       favored: false,
       explanation: 'Unfavored new spell',
     });
+  });
+
+  it('charges Fair Folk a flat 6 XP for any new Charm, with no Favored/Unfavored split (Phase 2b)', () => {
+    // Exalted: The Fair Folk's own "Fair Folk Experience and Training
+    // Time" sidebar (p. 321) states a new Charm's cost outright ("a new
+    // Charm costs 6") with no Favored/Unfavored split, unlike its own
+    // Caste/Common-vs-other-Ability split or Major/Minor Grace split for
+    // ratings. Confirm the cost stays flat regardless of which Charm, and
+    // that the function needs no `character` argument at all.
+    const grace = fairFolkCharmById.get('forging-the-heart-grace')!;
+    expect(getFairFolkPowerExperienceCost(grace)).toMatchObject({
+      cost: 6,
+    });
+    const shape = fairFolkCharmById.get('assumption-of-elemental-shape')!;
+    expect(getFairFolkPowerExperienceCost(shape)).toMatchObject({
+      cost: 6,
+    });
+    expect(getFairFolkPowerExperienceCost(shape).explanation).toContain(
+      'Assumption of Elemental Shape',
+    );
   });
 
   it('migrates shared collections empty without inferring historical XP', () => {

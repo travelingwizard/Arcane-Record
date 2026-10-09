@@ -19,6 +19,7 @@ import {
   getAbyssalPowerExperienceCost,
   getDragonBloodedPowerExperienceCost,
   getExperienceTotals,
+  getFairFolkPowerExperienceCost,
   getLunarPowerExperienceCost,
   getSiderealPowerExperienceCost,
 } from './shared/advancement/rules';
@@ -96,23 +97,15 @@ function charmCaste(definition: ExaltedPowerDefinition): string | null {
  * favored-Aspect-Ability-group cost function for anything without
  * `exaltType`, Abyssal's favored-Caste/Favored-Ability cost function when
  * it is `'abyssal'`, Sidereal's favored-Auspicious-Ability cost function
- * when it is `'sidereal'`, or Lunar's favored-Ability-in-requirements cost
+ * when it is `'sidereal'`, Lunar's favored-Ability-in-requirements cost
  * function (see `getLunarPowerExperienceCost`'s own doc comment for why
- * that check differs from every other family's) when it is `'lunar'`.
- * Solar definitions also lack `exaltType`, but the Solar branch never
- * passes `character`, so this function is only ever reached with
- * `character` defined for Dragon-Blooded/Abyssal/Sidereal/Lunar callers
- * today. Fair Folk's own `exaltType: 'fair-folk'` definitions throw
- * instead of dispatching anywhere: Fair Folk Charms carry no single
- * governing Ability or Caste at all (every `minimumRequirements` entry
- * names a Grace rating instead -- see `FairFolkCharmDefinition`'s own doc
- * comment), so a correct XP-cost function needs its own favored-Grace-or-
- * Virtue design decision that has not been made yet, deferred to a later
- * phase exactly as Lunar's own XP-rules phase came after its editor-UI
- * phase. This branch should never actually execute, since Fair Folk's own
- * `Exalted1eEditor.tsx` call site (Phase 2a) omits `character`/
- * `onLearnWithExperience` entirely, matching Lunar's own pre-XP-rules-
- * phase precedent exactly.
+ * that check differs from every other family's) when it is `'lunar'`, or
+ * Fair Folk's flat-cost function (see `getFairFolkPowerExperienceCost`'s
+ * own doc comment for why it alone takes no `character` argument at all)
+ * when it is `'fair-folk'`. Solar definitions also lack `exaltType`, but
+ * the Solar branch never passes `character`, so this function is only
+ * ever reached with `character` defined for Dragon-Blooded/Abyssal/
+ * Sidereal/Lunar/Fair-Folk callers today.
  */
 function getPowerExperienceCost(
   character: Exalted1eCharacter,
@@ -126,9 +119,7 @@ function getPowerExperienceCost(
       return getLunarPowerExperienceCost(character, definition);
     }
     if (definition.exaltType === 'fair-folk') {
-      throw new Error(
-        "Fair Folk XP-cost math is not implemented yet (Phase 2a wires the Charm catalog into the editor without XP-based purchase; see getPowerExperienceCost's own doc comment).",
-      );
+      return getFairFolkPowerExperienceCost(definition);
     }
     return getSiderealPowerExperienceCost(character, definition);
   }
