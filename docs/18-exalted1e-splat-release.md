@@ -196,7 +196,7 @@ real, creatable sheet.
 | Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 505 of 505 promotable (catalog dimension complete, Phase 1e)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
 | Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 383 of 383 promotable (catalog dimension complete, `sidereal_unreviewed_spells` follow-up)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
 | Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 214 of 214 promotable (catalog dimension complete: Backgrounds + Merits/Flaws, Phase 1a; Charms, Phase 1b; Weaving Protocols + Alchemy Formulae, Phase 1c)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Locked, all dimensions `not-run`                                                                                                       |
-| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 368            | 318 of 318 promotable (catalog dimension complete: Backgrounds + Merits/Flaws, Phase 1a; Graces + Bedlam + Grace-Forging/Assumption Charms, Phase 1b; Glamour Charms + remaining Greater Arts of Glamour + Pox/Affliction/Blight Charms, Phase 1c; Heart Dodge + Resistance Charms, Phase 1d; Cup Combat Charms, Phase 1e; Ring Combat Charms + All-Consuming God-Monster Style, Phase 1f; Laughing Monster Style + Society-Forging Charms, Phase 1g; Sword Combat Charms, Phase 1h; remaining Mutation Charms, Phase 1i; Name + Bedlam-Influencing Charms, Phase 1j; Mad God Mien + Elemental Influence + Emotional Influence, Phase 1k; Feeding Charms, Phase 1l; Addiction Charms, Phase 1m; World-Shaping Charms, Phase 1n; Virtue-Shaping Charms, Phase 1o; Body-Strengthening Charms + Creation-Based Crafting, Phase 1p; Way Charms, Phase 1q -- entire Charm section complete; Glamour Sorcery reference catalog, Phase 1r; Adjurations reference catalog, Phase 1s; Behemoths reference catalog, Phase 1t) | Locked, all dimensions `not-run`                                                                                                       |
+| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 368            | 318 of 318 promotable (catalog dimension complete: Backgrounds + Merits/Flaws, Phase 1a; Graces + Bedlam + Grace-Forging/Assumption Charms, Phase 1b; Glamour Charms + remaining Greater Arts of Glamour + Pox/Affliction/Blight Charms, Phase 1c; Heart Dodge + Resistance Charms, Phase 1d; Cup Combat Charms, Phase 1e; Ring Combat Charms + All-Consuming God-Monster Style, Phase 1f; Laughing Monster Style + Society-Forging Charms, Phase 1g; Sword Combat Charms, Phase 1h; remaining Mutation Charms, Phase 1i; Name + Bedlam-Influencing Charms, Phase 1j; Mad God Mien + Elemental Influence + Emotional Influence, Phase 1k; Feeding Charms, Phase 1l; Addiction Charms, Phase 1m; World-Shaping Charms, Phase 1n; Virtue-Shaping Charms, Phase 1o; Body-Strengthening Charms + Creation-Based Crafting, Phase 1p; Way Charms, Phase 1q -- entire Charm section complete; Glamour Sorcery reference catalog, Phase 1r; Adjurations reference catalog, Phase 1s; Behemoths reference catalog, Phase 1t) | Locked; editor UI wired (Phase 2a), rules/creator/migration tests `not-run`                                                            |
 
 Lunar's 582 rows cover the core innate powers, every Charm category in
 Chapter Five (Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat
@@ -2941,6 +2941,37 @@ test dimensions keep Fair Folk exactly as locked as before. No
 schema, catalog, or application code changed this phase — only
 `certification/fair-folk.json`'s own blockers text, this document, and
 an explanatory comment in `exalted1e-verification.test.ts`.
+
+Fair Folk's Phase 2a (editor UI branch) begins the separate
+rules/creator/migration test-dimension track, mirroring how Lunar
+split that work into an editor-UI phase, then an XP-rules phase, then
+a `rules_creator_tests` phase rather than doing it all at once. This
+phase wires Fair Folk into `Exalted1eEditor.tsx` for the first time: a
+real `isFairFolk` branch renders the 13-entry `fairFolkBackgrounds`
+catalog in Backgrounds, the 75-entry `fairFolkOnlyTraits` subset of
+the shared Exalted Player's Guide catalog in Merits & Flaws, and the
+full 201-entry `fairFolkCharms` catalog in Charms (no Caste filter,
+since Fair Folk Charms are organized by `charmCategory`; no
+Sorcery/spells tab, since Glamour Sorcery has no `definitionId`-style
+catalog). `FairFolkCharmDefinition` was added to
+`ExaltedPowerDefinition`'s widened union in
+`DragonBloodedPowersSection.tsx` (structurally identical to
+`LunarCharmDefinition`'s own shape, needing no adapter). Deliberately
+does NOT wire XP-based direct Charm purchase yet: Fair Folk Charms
+carry no single governing Ability or Caste (every
+`minimumRequirements` entry names a Grace rating instead), so a
+correct XP-cost function needs its own favored-Grace-or-Virtue design
+decision deferred to a later phase — `getPowerExperienceCost` throws
+defensively for `fair-folk` definitions, matching Lunar's own
+pre-XP-rules-phase placeholder, and should never actually execute
+since this phase's call site omits that prop entirely. "Add Without
+Spending XP" remains fully available. Two new integration test files
+(`fair-folk-merits-flaws-editor.test.tsx`,
+`fair-folk-powers-editor.test.tsx`) exercise this wiring directly,
+mirroring Lunar's own harness-test pattern. `rulesTests`/
+`creatorTests`/`migrationTests` all stay `not-run`: this phase is UI
+wiring only, not the full rules/XP-cost/guided-creation-panel work
+every other unlocked-catalog family needed before earning a `pass`.
 
 ## Next steps (require source material per book)
 

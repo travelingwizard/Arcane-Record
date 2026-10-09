@@ -27,6 +27,7 @@ import {
   exaltedSections,
   exaltedAttributeGroups,
   exaltedVirtues,
+  fairFolkBackgrounds,
   lunarBackgrounds,
   siderealAbilityGroups,
   siderealBackgrounds,
@@ -72,8 +73,10 @@ import {
   siderealSorcerySpellIds,
 } from './reference/sidereal-powers';
 import { lunarCharms, lunarSorcerySpellIds } from './reference/lunar-powers';
+import { fairFolkCharms } from './reference/fair-folk-powers';
 import {
   abyssalOnlyTraits,
+  fairFolkOnlyTraits,
   getSharedTraitCostPolicy,
   getSharedTraitRepeatLimit,
   lunarOnlyTraits,
@@ -138,6 +141,21 @@ const lunarPowerDefinitions: readonly ExaltedPowerDefinition[] = [
   ),
 ];
 
+/**
+ * Fair Folk's Charms catalog for `ExaltedPowersSection` (Phase 2a): all 201
+ * promoted Fair Folk Charms. Unlike Abyssal/Sidereal/Lunar's own power
+ * definitions above, this has no shared-Sorcery-spell half appended --
+ * Fair Folk's own magic (Glamour Sorcery) is a point-buy "build a custom
+ * spell with mutation points, bought via the Artifact Background" system
+ * with no `definitionId`-style catalog of its own (see
+ * `FairFolkGracesPanel.tsx`'s reference-only card), not a fixed spell list
+ * like Sorcery/Necromancy, so `showSpells={false}` is passed at the call
+ * site below rather than offering an always-empty spells tab.
+ */
+const fairFolkPowerDefinitions: readonly ExaltedPowerDefinition[] = [
+  ...fairFolkCharms,
+];
+
 const AUTOSAVE_DELAY_MS = 550;
 
 function clampInteger(value: string, maximum = 999) {
@@ -176,6 +194,7 @@ export function Exalted1eEditor({
   const isAbyssal = draft.sheetType === 'abyssal';
   const isSidereal = draft.sheetType === 'sidereal';
   const isLunar = draft.sheetType === 'lunar';
+  const isFairFolk = draft.sheetType === 'fair-folk';
   const profile = getExaltedCharacterProfile(draft.sheetType);
   const activeSections = useMemo(() => [...exaltedSections], []);
   const sheetName = profile.shortName;
@@ -203,16 +222,17 @@ export function Exalted1eEditor({
                 abilityIds: exaltedAbilities.map(({ id }) => id),
               },
             ];
-  // Alchemical and Fair Folk deliberately render an empty Backgrounds
-  // picker rather than `getExaltedFamilyBackgrounds`'s catalog
-  // (`./family-catalogs.ts`): that catalog is OCR-derived and has not been
-  // through this project's page-cited inventory/verification process (see
+  // Alchemical deliberately renders an empty Backgrounds picker rather
+  // than `getExaltedFamilyBackgrounds`'s catalog (`./family-catalogs.ts`):
+  // that catalog is OCR-derived and has not been through this project's
+  // page-cited inventory/verification process (see
   // `docs/references/exalted1e/*/inventory/`), and `schema.ts`'s
-  // `backgroundIdsBySheetType` correctly rejects every id in it for these
-  // two families today. Showing it here would let someone add a
-  // Background the sheet then can't validate. Revisit per-family once each
-  // earns a real promoted catalog. Sidereal and Lunar now have their own
-  // real, page-cited Backgrounds catalogs (Phases 2a and 1a respectively).
+  // `backgroundIdsBySheetType` correctly rejects every id in it for that
+  // family today. Showing it here would let someone add a Background the
+  // sheet then can't validate. Revisit once it earns a real promoted
+  // catalog. Sidereal, Lunar, and now Fair Folk (Phase 2a) have their own
+  // real, page-cited Backgrounds catalogs (Phases 2a, 1a, and 1a
+  // respectively).
   const backgroundDefinitions: readonly { id: string; label: string }[] =
     isSolar
       ? solarBackgrounds
@@ -224,7 +244,9 @@ export function Exalted1eEditor({
             ? siderealBackgrounds
             : isLunar
               ? lunarBackgrounds
-              : [];
+              : isFairFolk
+                ? fairFolkBackgrounds
+                : [];
   const backgroundById = new Map(
     backgroundDefinitions.map((background) => [background.id, background]),
   );
@@ -1418,7 +1440,8 @@ export function Exalted1eEditor({
                 isDragonBlooded ||
                 isAbyssal ||
                 isSidereal ||
-                isLunar ? (
+                isLunar ||
+                isFairFolk ? (
                   <ExaltedMeritsFlawsSection
                     traits={draft.meritsFlaws}
                     derangements={draft.derangements}
@@ -1431,7 +1454,9 @@ export function Exalted1eEditor({
                             ? siderealOnlyTraits
                             : isLunar
                               ? lunarOnlyTraits
-                              : undefined
+                              : isFairFolk
+                                ? fairFolkOnlyTraits
+                                : undefined
                     }
                     getCostPolicy={
                       isSolar
@@ -1449,26 +1474,32 @@ export function Exalted1eEditor({
                             : isLunar
                               ? (definition) =>
                                   getSharedTraitCostPolicy(definition, 'lunar')
-                              : undefined
+                              : isFairFolk
+                                ? (definition) =>
+                                    getSharedTraitCostPolicy(
+                                      definition,
+                                      'fair-folk',
+                                    )
+                                : undefined
                     }
                     getRepeatLimit={
                       isSolar
                         ? getSolarTraitRepeatLimit
-                        : isAbyssal || isSidereal || isLunar
+                        : isAbyssal || isSidereal || isLunar || isFairFolk
                           ? getSharedTraitRepeatLimit
                           : undefined
                     }
                     matchesSearch={
                       isSolar
                         ? matchesSolarTraitSearch
-                        : isAbyssal || isSidereal || isLunar
+                        : isAbyssal || isSidereal || isLunar || isFairFolk
                           ? matchesDragonBloodedTraitSearch
                           : undefined
                     }
                     approvalTraitIds={
                       isSolar
                         ? solarStorytellerApprovalTraitIds
-                        : isAbyssal || isSidereal || isLunar
+                        : isAbyssal || isSidereal || isLunar || isFairFolk
                           ? storytellerApprovalTraitIds
                           : undefined
                     }
@@ -1481,7 +1512,9 @@ export function Exalted1eEditor({
                             ? 'sidereal-trait-catalog'
                             : isLunar
                               ? 'lunar-trait-catalog'
-                              : undefined
+                              : isFairFolk
+                                ? 'fair-folk-trait-catalog'
+                                : undefined
                     }
                     catalogDescription={
                       isSolar
@@ -1492,7 +1525,9 @@ export function Exalted1eEditor({
                             ? "Record Sidereal Merits and Flaws from the shared Exalted Player's Guide catalog. Sidereal-specific cost caps (e.g. Destiny, Lucky, Permanent Caste Mark, Prescient Dreamer) are applied; requirements remain advisory."
                             : isLunar
                               ? "Record Lunar Merits and Flaws from the shared Exalted Player's Guide catalog, plus Lunar-only entries (Chimera, Limited Forms, Greater Curse). Lunar-specific cost caps (Ambidextrous, Double-Jointed) are applied; requirements remain advisory."
-                              : undefined
+                              : isFairFolk
+                                ? "Record Fair Folk Merits and Flaws from the shared Exalted Player's Guide catalog, reinterpreted for a raksha's own non-Exalted framework (e.g. Vice/Callous key to Bedlam, not the Great Curse). No Fair-Folk-specific cost cap applies; requirements remain advisory."
+                                : undefined
                     }
                     onChange={(meritsFlaws) =>
                       update((current) => ({ ...current, meritsFlaws }))
@@ -1502,10 +1537,10 @@ export function Exalted1eEditor({
                     }
                   />
                 ) : (
-                  // Alchemical and Fair Folk have no promoted Merits/Flaws
-                  // catalog yet (`schema.ts` rejects any selection outright
-                  // for these types today). Show an honest placeholder
-                  // notice rather than a non-functional catalog UI.
+                  // Alchemical has no promoted Merits/Flaws catalog yet
+                  // (`schema.ts` rejects any selection outright for that
+                  // family today). Show an honest placeholder notice rather
+                  // than a non-functional catalog UI.
                   <p className="sheet-notice">
                     The {sheetName} Merit and Flaw inventory is being
                     source-verified. Existing unresolved records remain
@@ -1597,7 +1632,7 @@ export function Exalted1eEditor({
             >
               <p className="eyebrow">{`${sheetName} powers`}</p>
               <h2 id="exalted-charms-sorcery-heading" tabIndex={-1}>
-                {isSolar
+                {isSolar || isFairFolk
                   ? 'Charms'
                   : isDragonBlooded
                     ? 'Charms & Sorcery'
@@ -1713,13 +1748,43 @@ export function Exalted1eEditor({
                   }
                   onLearnWithExperience={learnPowerWithExperience}
                 />
+              ) : isFairFolk ? (
+                // Fair Folk's real, page-cited 201-Charm catalog (Phases
+                // 1b-1q). Phase 2a wires the catalog itself into the
+                // editor but deliberately does NOT pass `character`/
+                // `onLearnWithExperience` yet -- Fair Folk Charms carry no
+                // single governing Ability or Caste at all (see
+                // `FairFolkCharmDefinition`'s own doc comment: every
+                // Charm's `minimumRequirements` names a Grace rating, not
+                // an Ability), so a correct XP-cost function needs its own
+                // favored-Grace-or-Virtue design decision, deferred to a
+                // later phase exactly as Lunar's own XP-rules phase came
+                // after its editor-UI phase. "Add Without Spending XP"
+                // remains fully available in the meantime. No Caste
+                // filter or Sorcery/spells tab is offered: Fair Folk
+                // Charms are organized by `charmCategory`
+                // (Grace-Forging/Assumption/Glamour/etc.), not by Caste,
+                // and Glamour Sorcery has no `definitionId`-style spell
+                // catalog of its own (see `fairFolkPowerDefinitions`'s own
+                // doc comment above).
+                <ExaltedPowersSection
+                  powers={draft.powers}
+                  definitions={fairFolkPowerDefinitions}
+                  catalogId="fair-folk-power-catalog"
+                  catalogDescription="Choose from 201 Fair Folk Charms (Grace-Forging, Assumption, Glamour, Mutation, and five per-Grace Combat/Name/Feeding/Addiction/World-Shaping Charm trees). Requirements are advisory; entries retain their cited book and page and are marked for source review."
+                  showSpells={false}
+                  showElementFilter={false}
+                  showCategory={false}
+                  onChange={(powers) =>
+                    update((current) => ({ ...current, powers }))
+                  }
+                />
               ) : (
-                // Alchemical and Fair Folk have no production Charm/spell
-                // catalog wired into `schema.ts` yet. Deliberately does not
-                // fall back to `getExaltedFamilyPowers`'s OCR-derived
-                // Alchemical/Fair Folk catalogs
-                // (`./reference/family-powers.ts`) for the same reason
-                // `backgroundDefinitions` above skips
+                // Alchemical has no production Charm/spell catalog wired
+                // into `schema.ts` yet. Deliberately does not fall back to
+                // `getExaltedFamilyPowers`'s OCR-derived Alchemical
+                // catalog (`./reference/family-powers.ts`) for the same
+                // reason `backgroundDefinitions` above skips
                 // `getExaltedFamilyBackgrounds` -- that data hasn't been
                 // through this project's page-cited verification process,
                 // and `schema.ts` correctly rejects every id in it today.

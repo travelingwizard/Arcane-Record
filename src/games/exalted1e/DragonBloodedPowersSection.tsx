@@ -14,6 +14,7 @@ import {
 } from './reference/abyssal-powers';
 import type { SiderealCharmDefinition } from './reference/sidereal-powers';
 import type { LunarCharmDefinition } from './reference/lunar-powers';
+import type { FairFolkCharmDefinition } from './reference/fair-folk-powers';
 import {
   getAbyssalPowerExperienceCost,
   getDragonBloodedPowerExperienceCost,
@@ -54,6 +55,13 @@ const categoryLabels: Record<DragonBloodedCharmDefinition['category'], string> =
  * out falsy values before rendering options). Lunar, like Sidereal, has no
  * spell type of its own -- its Sorcery access is entirely the shared
  * `TerrestrialSpellDefinition` catalog (see `lunarSorcerySpellIds`).
+ * `FairFolkCharmDefinition` (Phase 2a) matches `LunarCharmDefinition`'s
+ * shape field-for-field (nullable `ability`/`element`/`style`, plus its
+ * own `charmCategory` grouping field) and needs no adapter either; Fair
+ * Folk has no spell type of its own at all -- Glamour Sorcery is a
+ * point-buy "build a custom spell" system with no `definitionId`-style
+ * catalog (see `FairFolkGracesPanel.tsx`'s own reference-only card), not a
+ * fixed spell list like Sorcery/Necromancy.
  */
 export type ExaltedPowerDefinition =
   | DragonBloodedCharmDefinition
@@ -61,7 +69,8 @@ export type ExaltedPowerDefinition =
   | AbyssalCharmDefinition
   | AbyssalNecromancySpellDefinition
   | SiderealCharmDefinition
-  | LunarCharmDefinition;
+  | LunarCharmDefinition
+  | FairFolkCharmDefinition;
 
 const DEFAULT_SORCERY_ADVISORY =
   'Advisory: standard Dragon-Blooded sorcery requires the Terrestrial Circle Sorcery Charm (Occult 3, Essence 3). Spell selection remains available because this is an editable sheet, not a rules engine.';
@@ -93,7 +102,17 @@ function charmCaste(definition: ExaltedPowerDefinition): string | null {
  * Solar definitions also lack `exaltType`, but the Solar branch never
  * passes `character`, so this function is only ever reached with
  * `character` defined for Dragon-Blooded/Abyssal/Sidereal/Lunar callers
- * today.
+ * today. Fair Folk's own `exaltType: 'fair-folk'` definitions throw
+ * instead of dispatching anywhere: Fair Folk Charms carry no single
+ * governing Ability or Caste at all (every `minimumRequirements` entry
+ * names a Grace rating instead -- see `FairFolkCharmDefinition`'s own doc
+ * comment), so a correct XP-cost function needs its own favored-Grace-or-
+ * Virtue design decision that has not been made yet, deferred to a later
+ * phase exactly as Lunar's own XP-rules phase came after its editor-UI
+ * phase. This branch should never actually execute, since Fair Folk's own
+ * `Exalted1eEditor.tsx` call site (Phase 2a) omits `character`/
+ * `onLearnWithExperience` entirely, matching Lunar's own pre-XP-rules-
+ * phase precedent exactly.
  */
 function getPowerExperienceCost(
   character: Exalted1eCharacter,
@@ -105,6 +124,11 @@ function getPowerExperienceCost(
     }
     if (definition.exaltType === 'lunar') {
       return getLunarPowerExperienceCost(character, definition);
+    }
+    if (definition.exaltType === 'fair-folk') {
+      throw new Error(
+        "Fair Folk XP-cost math is not implemented yet (Phase 2a wires the Charm catalog into the editor without XP-based purchase; see getPowerExperienceCost's own doc comment).",
+      );
     }
     return getSiderealPowerExperienceCost(character, definition);
   }
@@ -255,7 +279,8 @@ export function ExaltedPowersSection({
                 | DragonBloodedCharmDefinition
                 | AbyssalCharmDefinition
                 | SiderealCharmDefinition
-                | LunarCharmDefinition => entry.kind === 'charm',
+                | LunarCharmDefinition
+                | FairFolkCharmDefinition => entry.kind === 'charm',
             )
             // Lunar's own `ability` is always `null` (no single Ability
             // governs a whole Charm-category there -- see
