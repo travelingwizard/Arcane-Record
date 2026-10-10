@@ -47,17 +47,24 @@ describe('exalted1e verification gate', () => {
     for (const family of plannedExaltedFamilies) {
       const record = certificationRecords[family];
       expect(record.certifiedAt).toBeNull();
-      // Abyssal (Phase 1e), Sidereal (Phase 2d), and Lunar (the
-      // "rules_creator_tests" follow-up phase) are the three exceptions:
-      // their rules/creator/migration test dimensions now have real,
-      // passing coverage (see `exalted-shared-records.test.ts`'s XP-cost
-      // tests, `exalted-creation-panel.test.tsx`, and each family's own
+      // Abyssal (Phase 1e), Sidereal (Phase 2d), Lunar (the
+      // "rules_creator_tests" follow-up phase), and now Fair Folk (Phase
+      // 2a editor UI + Phase 2b XP-cost rules + Phase 2c guided-creation
+      // coverage) are the four exceptions: their rules/creator/migration
+      // test dimensions now have real, passing coverage (see
+      // `exalted-shared-records.test.ts`'s XP-cost tests,
+      // `exalted-creation-panel.test.tsx`, and each family's own
       // schema-migration test) -- but `browserTests` still can't run
       // before any family is unlocked, and each still has real catalog
-      // gaps of its own (see each record's own `blockers`), so all three
+      // gaps of its own (see each record's own `blockers`), so all four
       // remain fully locked regardless. Every other family stays
       // 'not-run' on all four test dimensions.
-      if (family === 'abyssal' || family === 'sidereal' || family === 'lunar') {
+      if (
+        family === 'abyssal' ||
+        family === 'sidereal' ||
+        family === 'lunar' ||
+        family === 'fair-folk'
+      ) {
         expect(record.rulesTests).toBe('pass');
         expect(record.creatorTests).toBe('pass');
         expect(record.migrationTests).toBe('pass');
@@ -475,13 +482,18 @@ describe('exalted1e verification gate', () => {
       expect(status.blockReason).toContain(
         `catalog ${promotedEntries}/${promotableEntries} promoted (${totalInventoryRows} total inventory rows), ${unresolvedEntries} unresolved`,
       );
-      // Abyssal (Phase 1e), Sidereal (Phase 2d), and Lunar (the
-      // "rules_creator_tests" follow-up phase) are the three families
-      // whose rules/creator/migration dimensions now pass (see the
-      // previous test's comment); every other family, and all three
-      // families' own still-not-run browser dimension, keeps the generic
-      // 'not-run' wording.
-      if (family === 'abyssal' || family === 'sidereal' || family === 'lunar') {
+      // Abyssal (Phase 1e), Sidereal (Phase 2d), Lunar (the
+      // "rules_creator_tests" follow-up phase), and Fair Folk (Phase
+      // 2a-2c) are the four families whose rules/creator/migration
+      // dimensions now pass (see the previous test's comment); every
+      // other family, and all four families' own still-not-run browser
+      // dimension, keeps the generic 'not-run' wording.
+      if (
+        family === 'abyssal' ||
+        family === 'sidereal' ||
+        family === 'lunar' ||
+        family === 'fair-folk'
+      ) {
         expect(status.blockReason).toContain('rules tests pass');
         expect(status.blockReason).toContain('creator tests pass');
         expect(status.blockReason).toContain('migration tests pass');
@@ -528,6 +540,25 @@ describe('exalted1e verification gate', () => {
     expect(status.blockReason).toContain('383/383 promoted');
     expect(status.blockReason).toContain('0 unresolved');
     expect(status.blockReason).toContain('rules tests pass');
+    expect(status.blockReason).toContain('browser tests not-run');
+  });
+
+  it('describes Fair Folk as locked with its now-complete catalog dimension despite its passing test dimensions', () => {
+    // Fair Folk's catalog dimension closed out in Phase 1u (318/318, no
+    // Wyld Artifacts gap left to fill), and rulesTests/creatorTests/
+    // migrationTests all pass after Phase 2a (editor UI branch), Phase 2b
+    // (flat-cost XP rules, no Favored/Unfavored split needed per the
+    // source's own Experience table), and Phase 2c (guided-creation-panel
+    // coverage for the Standard/Common/Heroic-commoner tracks and the
+    // Second-Caste rule) -- the family stays locked only for browserTests
+    // (not-run) and Phase 6's all-five-together rule.
+    const status = getFamilyCertificationStatus('fair-folk');
+    expect(status.available).toBe(false);
+    expect(status.blockReason).toContain('318/318 promoted');
+    expect(status.blockReason).toContain('0 unresolved');
+    expect(status.blockReason).toContain('rules tests pass');
+    expect(status.blockReason).toContain('creator tests pass');
+    expect(status.blockReason).toContain('migration tests pass');
     expect(status.blockReason).toContain('browser tests not-run');
   });
 
