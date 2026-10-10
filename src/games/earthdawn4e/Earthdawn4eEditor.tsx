@@ -704,6 +704,8 @@ export function Earthdawn4eEditor({
   onBack,
   onRecordChanged,
 }: GameCharacterEditorProps<Earthdawn4eCharacter>) {
+  const revisionRef = useRef(0);
+  const saveQueueRef = useRef(Promise.resolve(true));
   const [draft, setDraft] = useState(character),
     [saveStatus, setSaveStatus] = useState<SaveStatus>('saved'),
     [catalogSearch, setCatalogSearch] = useState(''),
@@ -820,23 +822,27 @@ export function Earthdawn4eEditor({
   const activeSections = useMemo(() => [...earthdawn4eSections], []),
     isNarrowLayout = useMediaQuery('(max-width: 69.999rem)');
   const save = useCallback(
-    async (candidate: Earthdawn4eCharacter) => {
+    (candidate: Earthdawn4eCharacter) => {
+      const revision = revisionRef.current;
       setSaveStatus('saving');
-      try {
-        const data = earthdawn4eCharacterSchema.parse(candidate);
-        const stored = await repository.save({
-          ...record,
-          name: data.identity.name,
-          systemVersion: EARTHDAWN4E_SCHEMA_VERSION,
-          data,
-        });
-        onRecordChanged(stored);
-        setSaveStatus('saved');
-        return true;
-      } catch {
-        setSaveStatus('error');
-        return false;
-      }
+      saveQueueRef.current = saveQueueRef.current.then(async () => {
+        try {
+          const data = earthdawn4eCharacterSchema.parse(candidate);
+          const stored = await repository.save({
+            ...record,
+            name: data.identity.name,
+            systemVersion: EARTHDAWN4E_SCHEMA_VERSION,
+            data,
+          });
+          onRecordChanged(stored);
+          setSaveStatus(revisionRef.current === revision ? 'saved' : 'unsaved');
+          return true;
+        } catch {
+          setSaveStatus('error');
+          return false;
+        }
+      });
+      return saveQueueRef.current;
     },
     [onRecordChanged, record, repository],
   );
@@ -972,9 +978,13 @@ export function Earthdawn4eEditor({
   };
   const update = useCallback(
     (fn: (value: Earthdawn4eCharacter) => Earthdawn4eCharacter) => {
-      setDraft((current) =>
-        earthdawn4eCharacterSchema.parse(reconcileFreeMatrices(fn(current))),
-      );
+      setDraft((current) => {
+        const next = earthdawn4eCharacterSchema.parse(
+          reconcileFreeMatrices(fn(current)),
+        );
+        revisionRef.current += 1;
+        return next;
+      });
       setSaveStatus('unsaved');
     },
     [],

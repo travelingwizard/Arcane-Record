@@ -44,6 +44,8 @@ export function createBlankEarthdawn4eCharacter(
       overrides: [],
       attributePoints: {},
       talentPoints: {},
+      finalizationVersion: 0,
+      purchaseTotalCopper: 0,
       skillPoints: { general: 8, knowledge: 2, artisan: 1, language: 3 },
       finalizedAt: null,
     },

@@ -85,8 +85,216 @@ import {
   matrixSharingRules,
 } from '../../src/games/earthdawn4e/matrix-sharing';
 import { createHighCircleMatrixFixture } from '../fixtures/earthdawn-high-circle';
+import {
+  finalizeEarthdawnCreation,
+  reviewEarthdawnCreation,
+} from '../../src/games/earthdawn4e/creator-rules';
 
 describe('Earthdawn Fourth Edition module', () => {
+  it('finalizes creator purchases exactly once and grants the free starting kit', () => {
+    const character = reconcileRace(
+      createBlankEarthdawn4eCharacter(),
+      earthdawnRaces.find(({ name }) => name === 'Human')!,
+    );
+    character.creation.enforceRules = false;
+    character.creation.overrides.push({
+      id: crypto.randomUUID(),
+      code: 'creator-global-override',
+      reason: 'Test incomplete allocations.',
+      createdAt: '2026-10-10T12:00:00.000Z',
+    });
+    character.equipment.push({
+      id: crypto.randomUUID(),
+      definitionId: null,
+      sourceId: null,
+      source: null,
+      page: null,
+      unresolved: false,
+      name: 'Copper test item',
+      type: 'equipment',
+      description: '',
+      category: 'equipment',
+      quantity: 3,
+      value: '7 cp',
+      costSilver: 0.7,
+      price: { amount: 7, denomination: 'cp' },
+      weight: 0,
+      inUse: false,
+      physicalArmor: 0,
+      mysticArmor: 0,
+      physicalDefense: 0,
+      mysticDefense: 0,
+      initiativePenalty: 0,
+      shatterThreshold: 0,
+      forgedBonus: 0,
+      availability: '',
+      size: 0,
+      modifiers: [],
+      metadataOverrides: [],
+      details: {},
+      notes: '',
+      creationOwned: true,
+      creationAcquisition: 'purchase',
+      creationPriceCopper: 7,
+      creationFitting: null,
+    });
+    const finished = finalizeEarthdawnCreation(character, {
+      now: '2026-10-10T12:00:00.000Z',
+      override: true,
+    });
+    expect(finished.wealth).toMatchObject({ gold: 9, silver: 7, copper: 9 });
+    expect(finished.creation.purchaseTotalCopper).toBe(21);
+    expect(finished.creation.finalizationVersion).toBe(1);
+    expect(() => earthdawn4eCharacterSchema.parse(finished)).not.toThrow();
+    expect(
+      finished.equipment
+        .filter(
+          ({ creationAcquisition }) => creationAcquisition === 'starting-kit',
+        )
+        .map(({ name }) => name),
+    ).toEqual(
+      expect.arrayContaining([
+        'Adventurer’s Kit',
+        'Artisan Tools',
+        'Starting Clothing',
+        'One Week of Trail Rations',
+      ]),
+    );
+    expect(finalizeEarthdawnCreation(finished)).toBe(finished);
+  });
+
+  it('grants a grimoire only to a qualifying magician Discipline', () => {
+    const wizard = earthdawnDisciplines.find(({ name }) => name === 'Wizard')!;
+    const magician = createBlankEarthdawn4eCharacter();
+    magician.creation.enforceRules = false;
+    magician.disciplines.push({
+      id: crypto.randomUUID(),
+      definitionId: wizard.id,
+      sourceId: wizard.sourceId,
+      source: wizard.source,
+      page: wizard.page,
+      unresolved: false,
+      disciplineId: wizard.id,
+      name: wizard.name,
+      circle: 1,
+      startedAtCircle: 1,
+      questor: false,
+      custom: false,
+    });
+    const finished = finalizeEarthdawnCreation(magician, { override: true });
+    expect(finished.equipment.some(({ name }) => name === 'Grimoire')).toBe(
+      true,
+    );
+    expect(
+      finished.equipment.find(({ name }) => name === 'Grimoire'),
+    ).toMatchObject({
+      creationAcquisition: 'starting-kit',
+      creationPriceCopper: 0,
+    });
+  });
+
+  it('persists attribute allocations and initializes Karma from unused points', () => {
+    const character = reconcileRace(
+      createBlankEarthdawn4eCharacter(),
+      earthdawnRaces.find(({ name }) => name === 'Windling')!,
+    );
+    character.attributes.dexterity.purchased = 4;
+    character.creation.enforceRules = false;
+    const finished = finalizeEarthdawnCreation(character, { override: true });
+    expect(finished.creation.attributePoints.dexterity).toBe(4);
+    expect(finished.health.karmaMaximum).toBe(26);
+    expect(finished.health.karmaCurrent).toBe(26);
+  });
+
+  it.each(earthdawnRaces.map((race) => [race.name, race] as const))(
+    'initializes %s Karma from its racial modifier and unused points',
+    (_name, race) => {
+      const character = reconcileRace(createBlankEarthdawn4eCharacter(), race);
+      character.creation.enforceRules = false;
+      const finished = finalizeEarthdawnCreation(character, {
+        override: true,
+      });
+      expect(finished.health.karmaMaximum).toBe(race.karmaModifier + 25);
+      expect(finished.health.karmaCurrent).toBe(finished.health.karmaMaximum);
+    },
+  );
+
+  it('clamps a GM-approved creator overspend to a valid zero wallet', () => {
+    const character = createBlankEarthdawn4eCharacter();
+    character.wealth = {
+      ...character.wealth,
+      gold: 0,
+      silver: 0,
+      copper: 4,
+      startingSilver: 0.4,
+    };
+    character.equipment.push({
+      id: crypto.randomUUID(),
+      definitionId: null,
+      sourceId: null,
+      source: null,
+      page: null,
+      unresolved: true,
+      name: 'Costly item',
+      type: 'equipment',
+      description: '',
+      category: 'equipment',
+      quantity: 1,
+      value: '5 cp',
+      costSilver: 0.5,
+      price: { amount: 5, denomination: 'cp' },
+      weight: 0,
+      inUse: false,
+      physicalArmor: 0,
+      mysticArmor: 0,
+      physicalDefense: 0,
+      mysticDefense: 0,
+      initiativePenalty: 0,
+      shatterThreshold: 0,
+      forgedBonus: 0,
+      availability: '',
+      size: 0,
+      modifiers: [],
+      metadataOverrides: [],
+      details: {},
+      notes: '',
+    });
+    const finished = finalizeEarthdawnCreation(character, { override: true });
+    expect(finished.wealth).toMatchObject({ gold: 0, silver: 0, copper: 0 });
+    expect(
+      finished.equipment.find(({ name }) => name === 'Costly item'),
+    ).toMatchObject({
+      creationOwned: true,
+      creationAcquisition: 'purchase',
+      creationPriceCopper: 5,
+    });
+  });
+
+  it('blocks over-budget spells and skills while advising under-allocation', () => {
+    const character = createBlankEarthdawn4eCharacter();
+    character.skills.push({
+      id: crypto.randomUUID(),
+      definitionId: null,
+      sourceId: null,
+      source: null,
+      page: null,
+      unresolved: true,
+      name: 'Overtrained',
+      rank: 4,
+      freeRank: 4,
+      attribute: 'perception',
+      bonus: 0,
+      notes: '',
+      category: 'general',
+      action: '',
+      strain: 0,
+      creationOwned: true,
+    });
+    const review = reviewEarthdawnCreation(character);
+    expect(review.blockers).toContain('Overtrained exceeds starting Rank 3.');
+    expect(review.advisories).toContain('No race selected.');
+  });
+
   it('provides separate, numerically ordered play and creation rules', () => {
     expect(earthdawnBasicRules).toHaveLength(10);
     expect(earthdawnBasicRules.map(({ kind }) => kind)).toEqual(

@@ -131,6 +131,8 @@ export const earthdawn4eCharacterSchema = z.object({
     ),
     attributePoints: z.record(z.string(), z.number().int().min(-2).max(8)),
     talentPoints: z.record(z.string(), nonnegative),
+    finalizationVersion: nonnegative.default(0),
+    purchaseTotalCopper: nonnegative.default(0),
     skillPoints: z.object({
       general: nonnegative,
       knowledge: nonnegative,
@@ -276,6 +278,7 @@ export const earthdawn4eCharacterSchema = z.object({
         extraThreads: z.string().optional(),
         formKey: z.string().nullable().optional(),
         formLabel: z.string().nullable().optional(),
+        creationOwned: z.boolean().optional(),
       }),
     ),
     matrices: z.array(
@@ -382,6 +385,16 @@ export const earthdawn4eCharacterSchema = z.object({
         })
         .default({}),
       notes: z.string(),
+      creationOwned: z.boolean().optional(),
+      creationAcquisition: z
+        .enum(['purchase', 'starting-kit'])
+        .nullable()
+        .optional(),
+      creationPriceCopper: nonnegative.nullable().optional(),
+      creationFitting: z
+        .enum(['standard', 'tail-opening', 'full-tail'])
+        .nullable()
+        .optional(),
     }),
   ),
   weapons: z.array(
@@ -415,6 +428,16 @@ export const earthdawn4eCharacterSchema = z.object({
         .default([]),
       metadataOverrides: z.array(z.string()).default([]),
       notes: z.string(),
+      creationOwned: z.boolean().optional(),
+      creationAcquisition: z
+        .enum(['purchase', 'starting-kit'])
+        .nullable()
+        .optional(),
+      creationPriceCopper: nonnegative.nullable().optional(),
+      creationFitting: z
+        .enum(['standard', 'tail-opening', 'full-tail'])
+        .nullable()
+        .optional(),
     }),
   ),
   wealth: z.object({

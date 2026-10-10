@@ -567,6 +567,21 @@ test('uses compact catalogs, reasoned GM override, and completes a partial chara
     page.getByRole('switch', { name: /Earthdawn Edit and Play mode/ }),
   ).toBeChecked();
   await expect(page.getByRole('heading', { name: 'Identity' })).toBeVisible();
+  await expect(page.getByText('Adventurer’s Kit', { exact: true })).toHaveCount(
+    1,
+  );
+  await expect(page.getByText(/0 cp \(0 gp · 0 sp · 0 cp\)/)).toBeVisible();
+  await expect(page.locator('.save-status')).toHaveText(
+    'Saved in this browser',
+    {
+      timeout: 5000,
+    },
+  );
+  await page.reload();
+  await expect(page.getByText('Adventurer’s Kit', { exact: true })).toHaveCount(
+    1,
+  );
+  await expect(page.getByText(/0 cp \(0 gp · 0 sp · 0 cp\)/)).toBeVisible();
   await page.setViewportSize({ width: 1440, height: 1000 });
   const dashboardBounds = await page.evaluate(() => {
     const health = document

@@ -13,16 +13,26 @@ import {
   earthdawnDisciplines,
   earthdawnPassions,
   earthdawnRaces,
+  earthdawnSources,
   type EarthdawnAttributeId,
   type EarthdawnDefinition,
 } from './catalog';
 import { attributeModifierCosts, deriveCharacter, stepDice } from './engine';
+import {
+  creatorAttributeAllocation,
+  creatorEquipmentCategory,
+  creatorTalentAllocation,
+  finalizeEarthdawnCreation,
+  reviewEarthdawnCreation,
+} from './creator-rules';
 import { earthdawnPathProfiles } from './path-profiles';
 import {
   questorTier,
   reconcileRace,
   reconcileDisciplineTalents,
+  reconcileFreeMatrices,
   requiredTalents,
+  walletFromCopper,
 } from './rules';
 import type { Earthdawn4eCharacter } from './schema';
 
@@ -61,23 +71,7 @@ const parseMechanics = (definition: EarthdawnDefinition) => {
 };
 const numericMechanic = (mechanics: Record<string, unknown>, key: string) =>
   typeof mechanics[key] === 'number' ? (mechanics[key] as number) : 0;
-const equipmentCategory = (
-  definition: EarthdawnDefinition,
-): EquipmentCategory => {
-  if (definition.kind === 'weapon') return 'weapon';
-  const mechanics = parseMechanics(definition);
-  if (
-    typeof mechanics.physicalDefense === 'number' ||
-    typeof mechanics.mysticDefense === 'number'
-  )
-    return 'shield';
-  if (
-    typeof mechanics.physicalArmor === 'number' ||
-    typeof mechanics.mysticArmor === 'number'
-  )
-    return 'armor';
-  return 'equipment';
-};
+const equipmentCategory = creatorEquipmentCategory;
 
 function CreatorDialog({
   title,
@@ -212,15 +206,21 @@ export function EarthdawnCreator({
       ],
     ),
   ) as Record<'general' | 'knowledge' | 'artisan' | 'language', number>;
-  const equipmentSpent =
-    character.equipment.reduce(
-      (sum, item) => sum + item.costSilver * item.quantity,
-      0,
-    ) +
-    character.weapons.reduce(
-      (sum, item) => sum + item.costSilver * item.quantity,
-      0,
-    );
+  const creationReview = reviewEarthdawnCreation(character);
+  const purchaseQuote = creationReview.quote;
+  const displayCopper = (copper: number) => {
+    const safe = Math.abs(Math.trunc(copper));
+    const value = `${Math.floor(safe / 100)} gp · ${Math.floor((safe % 100) / 10)} sp · ${safe % 10} cp`;
+    return copper < 0 ? `−${value}` : value;
+  };
+  const plannedStartingGrants = [
+    'Adventurer’s Kit',
+    'Artisan Tools',
+    'Dagger',
+    'Starting Clothing',
+    'One Week of Trail Rations',
+    ...(discipline?.spellcaster ? ['Grimoire'] : []),
+  ];
   const globalOverride = character.creation.overrides.find(
     ({ code }) => code === 'creator-global-override',
   );
@@ -254,65 +254,53 @@ export function EarthdawnCreator({
       ),
     [character.sources.enabledSourceIds, equipmentFilter, equipmentSearch],
   );
-  const freeSkillRanksSpent =
-    skillRanks.general +
-    Math.max(0, skillRanks.knowledge - 2) +
-    Math.max(0, skillRanks.artisan - 1) +
-    Math.max(0, skillRanks.language - 3);
-  const violations = [
-    spent > 25 && `Attribute allocation exceeds 25 points by ${spent - 25}.`,
-    selectedPath &&
-      (selected?.circle ?? 0) < selectedPath.minimumCircle &&
-      `${selectedPath.name} requires Circle ${selectedPath.minimumCircle}.`,
-    selectedPath?.race &&
-      race?.name !== selectedPath.race &&
-      `${selectedPath.name} requires ${selectedPath.race}.`,
-    ...(selectedPath
-      ? Object.entries(selectedPath.requiredTalentRanks).map(
-          ([name, rank]) =>
-            character.talents.every(
-              (talent) => talent.name !== name || talent.rank < rank,
-            ) && `${selectedPath.name} requires ${name} Rank ${rank}.`,
-        )
-      : []),
-    character.creation.profile !== 'questor' &&
-      talentRanks > 8 &&
-      `Talent allocation exceeds 8 free ranks by ${talentRanks - 8}.`,
-    character.creation.profile !== 'questor' &&
-      discipline &&
-      optionalTalentCount > (selected?.circle ?? 1) &&
-      `Talent Options exceed the Circle limit by ${optionalTalentCount - (selected?.circle ?? 1)}.`,
-    freeSkillRanksSpent > 8 &&
-      `Free skill allocation exceeds 8 ranks by ${freeSkillRanksSpent - 8}.`,
-    equipmentSpent > character.wealth.startingSilver &&
-      `Equipment spending exceeds starting wealth by ${equipmentSpent - character.wealth.startingSilver} silver.`,
-    character.creation.profile === 'questor' &&
-      !character.questor.patronId &&
-      'Select a patron Passion for the non-Adept Questor.',
-  ].filter(Boolean) as string[];
-  const advisories = [
-    !discipline &&
-      character.creation.profile !== 'questor' &&
-      'No Discipline selected.',
-    !race && 'No race selected.',
-    !character.identity.name.trim() && 'Name is blank.',
-    character.creation.profile !== 'questor' &&
-      talentRanks < 8 &&
-      `${8 - talentRanks} free Talent ranks remain unspent.`,
-    optionalTalentCount < (selected?.circle ?? 0) &&
-      `${(selected?.circle ?? 0) - optionalTalentCount} Talent Option slot(s) remain unused.`,
-    ...(['knowledge', 'artisan', 'language'] as const)
+  const spellChoices = useMemo(() => {
+    if (!discipline) return [];
+    return earthdawnCatalog
       .filter(
-        (category) =>
-          skillRanks[category] < character.creation.skillPoints[category],
+        (entry) =>
+          entry.kind === 'spell' &&
+          entry.spellMetadata &&
+          entry.name
+            .toLocaleLowerCase()
+            .includes(spellSearch.toLocaleLowerCase()),
       )
-      .map(
-        (category) =>
-          `${character.creation.skillPoints[category] - skillRanks[category]} ${skillCategoryLabels[category]} skill rank(s) remain unspent.`,
-      ),
-    freeSkillRanksSpent < 8 &&
-      `${8 - freeSkillRanksSpent} freely allocated skill rank(s) remain.`,
-  ].filter(Boolean) as string[];
+      .flatMap((spell) =>
+        (spell.spellMetadata?.variants ?? [])
+          .filter(
+            (variant) =>
+              variant.discipline === discipline.name &&
+              variant.circleMin <= (selected?.circle ?? 1) &&
+              character.sources.enabledSourceIds.includes(variant.sourceId),
+          )
+          .flatMap((variant) =>
+            Array.from(
+              {
+                length:
+                  Math.min(variant.circleMax, selected?.circle ?? 1) -
+                  variant.circleMin +
+                  1,
+              },
+              (_, index) => {
+                const circle = variant.circleMin + index;
+                return {
+                  spell,
+                  variant,
+                  circle,
+                  variantKey: `${variant.sourceId}|${variant.discipline}|${circle}`,
+                };
+              },
+            ),
+          ),
+      );
+  }, [
+    character.sources.enabledSourceIds,
+    discipline,
+    selected?.circle,
+    spellSearch,
+  ]);
+  const violations = creationReview.blockers;
+  const advisories = creationReview.advisories;
   const patchCreation = (patch: Partial<Earthdawn4eCharacter['creation']>) =>
     update((current) => ({
       ...current,
@@ -386,6 +374,46 @@ export function EarthdawnCreator({
   const addEquipment = (definition: EarthdawnDefinition) =>
     update((current) => {
       const mechanics = parseMechanics(definition);
+      const category = equipmentCategory(definition);
+      let costMultiplier =
+        category === 'armor'
+          ? (current.raceSnapshot?.armorCostMultiplier ?? 1)
+          : definition.kind === 'weapon' &&
+              current.identity.raceName === 'Windling'
+            ? 1.25
+            : 1;
+      let weightMultiplier =
+        category === 'armor'
+          ? (current.raceSnapshot?.armorWeightMultiplier ?? 1)
+          : 1;
+      let fitting: 'standard' | 'tail-opening' | 'full-tail' | null = null;
+      if (category === 'armor' && current.identity.raceName === 'T’skrang') {
+        const response = window.prompt(
+          'T’skrang fitting: enter “standard”, “tail opening”, or “full tail”.',
+          'tail opening',
+        );
+        if (response == null) return current;
+        const normalized = response.trim().toLocaleLowerCase();
+        fitting =
+          normalized === 'full tail'
+            ? 'full-tail'
+            : normalized === 'tail opening'
+              ? 'tail-opening'
+              : 'standard';
+        if (fitting === 'tail-opening') costMultiplier *= 1.1;
+        if (fitting === 'full-tail') {
+          costMultiplier *= 1.25;
+          weightMultiplier *= 1.1;
+        }
+      }
+      const denomination = definition.price?.denomination ?? 'sp';
+      const denominator =
+        denomination === 'cp' ? 1 : denomination === 'gp' ? 100 : 10;
+      const creationPriceCopper = Math.round(
+        (definition.price?.amount ?? Math.round(definition.costSilver ?? 0)) *
+          denominator *
+          costMultiplier,
+      );
       const base = {
         id: crypto.randomUUID(),
         definitionId: definition.id,
@@ -395,6 +423,10 @@ export function EarthdawnCreator({
         unresolved: false,
         name: definition.name,
         notes: '',
+        creationOwned: true,
+        creationAcquisition: 'purchase' as const,
+        creationPriceCopper,
+        creationFitting: fitting,
       };
       if (definition.kind === 'weapon')
         return {
@@ -412,7 +444,7 @@ export function EarthdawnCreator({
                 amount: Math.round(definition.costSilver ?? 0),
                 denomination: 'sp' as const,
               },
-              weight: numericMechanic(mechanics, 'weight'),
+              weight: numericMechanic(mechanics, 'weight') * weightMultiplier,
               inUse: false,
               weaponType: definition.equipmentMetadata?.weaponType ?? 'melee',
               size: definition.equipmentMetadata?.size ?? 0,
@@ -432,7 +464,7 @@ export function EarthdawnCreator({
           ...current.equipment,
           {
             ...base,
-            type: equipmentCategory(definition),
+            type: category,
             description: definition.summary,
             category: definition.equipmentMetadata?.category ?? 'equipment',
             quantity: 1,
@@ -442,7 +474,7 @@ export function EarthdawnCreator({
               amount: Math.round(definition.costSilver ?? 0),
               denomination: 'sp' as const,
             },
-            weight: numericMechanic(mechanics, 'weight'),
+            weight: numericMechanic(mechanics, 'weight') * weightMultiplier,
             inUse: false,
             physicalArmor: numericMechanic(mechanics, 'physicalArmor'),
             mysticArmor: numericMechanic(mechanics, 'mysticArmor'),
@@ -465,19 +497,9 @@ export function EarthdawnCreator({
     : !globalOverride?.reason.trim();
   const finalize = () => {
     if (completionBlocked) return;
-    update((current) => ({
-      ...current,
-      creation: {
-        ...current.creation,
-        status: 'finalized',
-        finalizedAt: new Date().toISOString(),
-      },
-      sheetLayout: { ...current.sheetLayout, mode: 'play' },
-      health: {
-        ...current.health,
-        karmaCurrent: current.health.karmaMaximum + Math.max(0, 25 - spent),
-      },
-    }));
+    update((current) =>
+      finalizeEarthdawnCreation(current, { override: overrideActive }),
+    );
   };
   const overridePanel = (
     <SheetCard density="compact" className="earthdawn-override-card">
@@ -509,12 +531,32 @@ export function EarthdawnCreator({
   );
   const chooseDiscipline = (id: string | null) =>
     update((current) => {
+      const previousId = current.disciplines[0]?.disciplineId;
+      const cleaned = {
+        ...current,
+        talents: current.talents.filter(
+          (talent) =>
+            !(talent.creationOwned && talent.originDisciplineId === previousId),
+        ),
+        magic: {
+          ...current.magic,
+          spells: current.magic.spells.filter((spell) => !spell.creationOwned),
+          matrices: current.magic.matrices.filter(
+            (matrix) => matrix.originType !== 'free-discipline',
+          ),
+        },
+        creation: {
+          ...current.creation,
+          specializedPathId: null,
+          specializedPathRank: 0,
+        },
+      };
       if (!id)
         return {
-          ...current,
+          ...cleaned,
           disciplines: [
             {
-              id: crypto.randomUUID(),
+              id: current.disciplines[0]?.id ?? crypto.randomUUID(),
               definitionId: null,
               sourceId: null,
               source: null,
@@ -544,14 +586,77 @@ export function EarthdawnCreator({
         questor: false,
         custom: false,
       };
-      return {
-        ...current,
+      return reconcileFreeMatrices({
+        ...cleaned,
         disciplines: [record],
         talents: reconcileDisciplineTalents(
-          current.talents,
+          cleaned.talents,
           definition,
           record.circle,
         ),
+      });
+    });
+  const changeProfile = (
+    profile: Earthdawn4eCharacter['creation']['profile'],
+  ) =>
+    update((current) => {
+      if (
+        profile === 'adept' &&
+        current.questor.patronId &&
+        !window.confirm(
+          'Changing to Adept will clear the inactive Questor patron. Continue?',
+        )
+      )
+        return current;
+      if (profile === 'questor') {
+        const removedTalentIds = new Set(
+          current.talents
+            .filter(
+              (talent) =>
+                talent.creationOwned && talent.originDisciplineId != null,
+            )
+            .map(({ id }) => id),
+        );
+        return {
+          ...current,
+          disciplines: [],
+          talents: current.talents.filter(
+            (talent) =>
+              !(talent.creationOwned && talent.originDisciplineId != null),
+          ),
+          magic: {
+            ...current.magic,
+            spells: current.magic.spells.filter(
+              (spell) => !spell.creationOwned,
+            ),
+            matrices: current.magic.matrices.filter(
+              (matrix) =>
+                matrix.originType !== 'free-discipline' &&
+                !removedTalentIds.has(matrix.talentId ?? ''),
+            ),
+          },
+          creation: {
+            ...current.creation,
+            profile,
+            specializedPathId: null,
+            specializedPathRank: 0,
+          },
+        };
+      }
+      return {
+        ...current,
+        questor:
+          profile === 'adept'
+            ? {
+                ...current.questor,
+                patronId: null,
+                patronName: '',
+                rank: 0,
+                tier: 'none',
+                outOfFavor: false,
+              }
+            : current.questor,
+        creation: { ...current.creation, profile },
       };
     });
   const screens = [
@@ -579,7 +684,7 @@ export function EarthdawnCreator({
             key={value}
             className="earthdawn-creator-choice-card"
             aria-pressed={character.creation.profile === value}
-            onClick={() => patchCreation({ profile: value })}
+            onClick={() => changeProfile(value)}
           >
             <strong>{name}</strong>
             <small>{summary}</small>
@@ -621,19 +726,22 @@ export function EarthdawnCreator({
                   value={selected.circle}
                   onChange={(event) => {
                     const circle = Number(event.target.value);
-                    update((current) => ({
-                      ...current,
-                      disciplines: current.disciplines.map((item, index) =>
-                        index === 0 ? { ...item, circle } : item,
-                      ),
-                      talents: discipline
-                        ? reconcileDisciplineTalents(
-                            current.talents,
-                            discipline,
-                            circle,
-                          )
-                        : current.talents,
-                    }));
+                    update((current) => {
+                      const next = {
+                        ...current,
+                        disciplines: current.disciplines.map((item, index) =>
+                          index === 0 ? { ...item, circle } : item,
+                        ),
+                        talents: discipline
+                          ? reconcileDisciplineTalents(
+                              current.talents,
+                              discipline,
+                              circle,
+                            )
+                          : current.talents,
+                      };
+                      return discipline ? reconcileFreeMatrices(next) : next;
+                    });
                   }}
                 >
                   {Array.from({ length: 15 }, (_, index) => (
@@ -778,17 +886,36 @@ export function EarthdawnCreator({
           ))}
         </div>
       ) : null}
+    </section>,
+    <section key="race">
+      <h2>Race and Racial Abilities</h2>
+      <div className="sheet-choice-grid earthdawn-choice-grid">
+        {earthdawnRaces.map((entry) => (
+          <button
+            type="button"
+            key={entry.id}
+            className="earthdawn-creator-choice-card"
+            aria-pressed={race?.id === entry.id}
+            onClick={() => update((current) => reconcileRace(current, entry))}
+          >
+            <strong>{entry.name}</strong>
+            <small>{entry.summary}</small>
+            <small className="earthdawn-choice-card__meta">
+              <b>Racial abilities</b>
+              {entry.abilities.join(', ')}
+            </small>
+          </button>
+        ))}
+      </div>
       {discipline && selected && selected.circle >= 5 ? (
         <div className="earthdawn-tier-disclosures">
           <h3>Specialized Mystic Path</h3>
           <p>
-            Optional Path initiation is reviewed separately from Discipline
-            advancement. Rank 1 records the initiation; later bonuses apply at
-            their listed Path ranks.
+            Race is now known, so restricted Paths can be evaluated before
+            selection. Initiation remains subject to the completion review.
           </p>
           <div className="sheet-choice-grid earthdawn-choice-grid">
             {earthdawnPathProfiles.map((path) => {
-              const raceEligible = !path.race || race?.name === path.race;
               const missingTalents = Object.entries(path.requiredTalentRanks)
                 .filter(([name, rank]) =>
                   character.talents.every(
@@ -796,7 +923,9 @@ export function EarthdawnCreator({
                   ),
                 )
                 .map(([name, rank]) => `${name} Rank ${rank}`);
-              const eligible = raceEligible && missingTalents.length === 0;
+              const eligible =
+                (!path.race || race?.name === path.race) &&
+                missingTalents.length === 0;
               return (
                 <button
                   type="button"
@@ -825,9 +954,6 @@ export function EarthdawnCreator({
                     {missingTalents.length
                       ? `, ${missingTalents.join(', ')}`
                       : ''}
-                    {path.bloodMagicDamage
-                      ? ` · ${path.bloodMagicDamage} Blood Magic Damage`
-                      : ''}
                   </small>
                 </button>
               );
@@ -848,55 +974,23 @@ export function EarthdawnCreator({
               </button>
             ) : null}
           </div>
-          {earthdawnPathProfiles
-            .filter(({ id }) => id === character.creation.specializedPathId)
-            .map((path) => (
-              <details className="sheet-card sheet-card--compact" key={path.id}>
-                <summary>{path.name} progression</summary>
-                <p>{path.ordeal}</p>
-                <p>
-                  Rank bonuses:{' '}
-                  {Object.entries(path.rankBonuses)
-                    .map(
-                      ([rank, bonuses]) =>
-                        `Rank ${rank}: ${bonuses.join(', ')}`,
-                    )
-                    .join('; ')}
-                </p>
-                {path.optionTiers.map((tier) => (
-                  <p key={tier.minimumRank}>
-                    <strong>
-                      Rank {tier.minimumRank}+ · {tier.costTier} options:
-                    </strong>{' '}
-                    {tier.talents.join(', ')}
-                  </p>
-                ))}
-                <p>{path.advancement}</p>
-              </details>
-            ))}
+          {selectedPath ? (
+            <details className="sheet-card sheet-card--compact">
+              <summary>{selectedPath.name} progression</summary>
+              <p>{selectedPath.ordeal}</p>
+              <p>
+                Rank bonuses:{' '}
+                {Object.entries(selectedPath.rankBonuses)
+                  .map(
+                    ([rank, bonuses]) => `Rank ${rank}: ${bonuses.join(', ')}`,
+                  )
+                  .join('; ') || 'No Rank 1 bonus'}
+              </p>
+              <p>{selectedPath.advancement}</p>
+            </details>
+          ) : null}
         </div>
       ) : null}
-    </section>,
-    <section key="race">
-      <h2>Race and Racial Abilities</h2>
-      <div className="sheet-choice-grid earthdawn-choice-grid">
-        {earthdawnRaces.map((entry) => (
-          <button
-            type="button"
-            key={entry.id}
-            className="earthdawn-creator-choice-card"
-            aria-pressed={race?.id === entry.id}
-            onClick={() => update((current) => reconcileRace(current, entry))}
-          >
-            <strong>{entry.name}</strong>
-            <small>{entry.summary}</small>
-            <small className="earthdawn-choice-card__meta">
-              <b>Racial abilities</b>
-              {entry.abilities.join(', ')}
-            </small>
-          </button>
-        ))}
-      </div>
     </section>,
     <section key="attributes">
       <h2>Attributes and Characteristics</h2>
@@ -915,18 +1009,27 @@ export function EarthdawnCreator({
                 aria-label={`${labels[id as keyof typeof labels]} modifier`}
                 value={attribute.purchased}
                 onChange={(event) =>
-                  update((current) => ({
-                    ...current,
-                    attributes: {
-                      ...current.attributes,
-                      [id]: {
-                        ...current.attributes[
-                          id as keyof typeof current.attributes
-                        ],
-                        purchased: Number(event.target.value),
+                  update((current) => {
+                    const next = {
+                      ...current,
+                      attributes: {
+                        ...current.attributes,
+                        [id]: {
+                          ...current.attributes[
+                            id as keyof typeof current.attributes
+                          ],
+                          purchased: Number(event.target.value),
+                        },
                       },
-                    },
-                  }))
+                    };
+                    return {
+                      ...next,
+                      creation: {
+                        ...next.creation,
+                        attributePoints: creatorAttributeAllocation(next),
+                      },
+                    };
+                  })
                 }
               >
                 {Object.entries(attributeModifierCosts).map(
@@ -1017,18 +1120,27 @@ export function EarthdawnCreator({
                     maximum,
                     Math.max(0, Number(event.target.value)),
                   );
-                  update((current) => ({
-                    ...current,
-                    talents: current.talents.map((item) =>
-                      item.id === talent.id
-                        ? {
-                            ...item,
-                            freeRank: rank,
-                            rank,
-                          }
-                        : item,
-                    ),
-                  }));
+                  update((current) => {
+                    const next = {
+                      ...current,
+                      talents: current.talents.map((item) =>
+                        item.id === talent.id
+                          ? {
+                              ...item,
+                              freeRank: rank,
+                              rank,
+                            }
+                          : item,
+                      ),
+                    };
+                    return {
+                      ...next,
+                      creation: {
+                        ...next.creation,
+                        talentPoints: creatorTalentAllocation(next),
+                      },
+                    };
+                  });
                 }}
               />
             </SheetField>
@@ -1089,8 +1201,8 @@ export function EarthdawnCreator({
                           }
                           onClick={() =>
                             update((current) => {
-                              if (chosen)
-                                return {
+                              if (chosen) {
+                                const next = {
                                   ...current,
                                   talents: current.talents.filter(
                                     (talent) =>
@@ -1102,12 +1214,20 @@ export function EarthdawnCreator({
                                       ),
                                   ),
                                 };
+                                return {
+                                  ...next,
+                                  creation: {
+                                    ...next.creation,
+                                    talentPoints: creatorTalentAllocation(next),
+                                  },
+                                };
+                              }
                               const definition = earthdawnCatalog.find(
                                 (entry) =>
                                   entry.kind === 'talent' &&
                                   entry.name === name,
                               );
-                              return {
+                              const next = {
                                 ...current,
                                 talents: [
                                   ...current.talents,
@@ -1133,7 +1253,7 @@ export function EarthdawnCreator({
                                     name,
                                     rank: 0,
                                     freeRank: 0,
-                                    attribute: 'dexterity',
+                                    attribute: 'dexterity' as const,
                                     bonus: 0,
                                     notes: '',
                                     action: '',
@@ -1165,6 +1285,13 @@ export function EarthdawnCreator({
                                   },
                                 ],
                               };
+                              return {
+                                ...next,
+                                creation: {
+                                  ...next.creation,
+                                  talentPoints: creatorTalentAllocation(next),
+                                },
+                              };
                             })
                           }
                         >
@@ -1189,77 +1316,96 @@ export function EarthdawnCreator({
             />
           </SheetField>
           <div className="earthdawn-compact-choice-grid">
-            {earthdawnCatalog
-              .filter(
-                (entry) =>
-                  entry.kind === 'spell' &&
-                  entry.requirements.some((requirement) =>
-                    requirement.startsWith(discipline.name),
-                  ) &&
-                  Number(
-                    entry.requirements[0]?.match(/Circle (\d+)/)?.[1] ?? 99,
-                  ) <= (selected?.circle ?? 1) &&
-                  entry.name
-                    .toLocaleLowerCase()
-                    .includes(spellSearch.toLocaleLowerCase()),
-              )
-              .map((spell) => {
-                const chosen = character.magic.spells.some(
-                  ({ definitionId }) => definitionId === spell.id,
-                );
-                return (
-                  <button
-                    type="button"
-                    key={spell.id}
-                    aria-pressed={chosen}
-                    onClick={() =>
-                      update((current) => ({
-                        ...current,
-                        magic: {
-                          ...current.magic,
-                          spells: chosen
-                            ? current.magic.spells.filter(
-                                ({ definitionId }) => definitionId !== spell.id,
-                              )
-                            : [
-                                ...current.magic.spells,
-                                {
-                                  id: crypto.randomUUID(),
-                                  definitionId: spell.id,
-                                  sourceId: spell.sourceId,
-                                  source: spell.source,
-                                  page: spell.page,
-                                  unresolved: false,
-                                  name: spell.name,
-                                  discipline: discipline.name,
-                                  circle: Number(
-                                    spell.requirements[0]?.match(
-                                      /Circle (\d+)/,
-                                    )?.[1] ?? 1,
-                                  ),
-                                  threads: 0,
-                                  weaving: '',
-                                  casting: '',
-                                  range: '',
-                                  duration: '',
-                                  effect: '',
-                                  learned: true,
-                                  notes: '',
-                                },
-                              ],
-                        },
-                      }))
-                    }
-                  >
-                    <strong>{spell.name}</strong>
-                    <small>
-                      Circle{' '}
-                      {spell.requirements[0]?.match(/Circle (\d+)/)?.[1] ?? 1} ·
-                      p. {spell.page}
-                    </small>
-                  </button>
-                );
-              })}
+            {spellChoices.map(({ spell, variant, circle, variantKey }) => {
+              const metadata = spell.spellMetadata;
+              const chosen = character.magic.spells.some(
+                (known) =>
+                  known.definitionId === spell.id &&
+                  (known.variantKey ?? null) === variantKey,
+              );
+              return (
+                <button
+                  type="button"
+                  key={`${spell.id}:${variantKey}`}
+                  aria-pressed={chosen}
+                  onClick={() =>
+                    update((current) => ({
+                      ...current,
+                      magic: {
+                        ...current.magic,
+                        spells: chosen
+                          ? current.magic.spells.filter(
+                              (known) =>
+                                known.definitionId !== spell.id ||
+                                (known.variantKey ?? null) !== variantKey,
+                            )
+                          : [
+                              ...current.magic.spells,
+                              {
+                                id: crypto.randomUUID(),
+                                definitionId: spell.id,
+                                sourceId: variant.sourceId,
+                                source:
+                                  earthdawnCatalog.find(
+                                    (entry) =>
+                                      entry.sourceId === variant.sourceId,
+                                  )?.source ?? spell.source,
+                                page: variant.pageStart ?? spell.page,
+                                unresolved: false,
+                                name: spell.name,
+                                discipline: discipline.name,
+                                circle,
+                                threads: metadata?.threadsValue ?? 0,
+                                weaving: metadata?.difficultyText ?? '',
+                                casting:
+                                  metadata?.castingText ??
+                                  metadata?.difficultyText ??
+                                  '',
+                                range: metadata?.rangeText ?? '',
+                                duration: metadata?.durationText ?? '',
+                                effect: metadata?.effectText ?? '',
+                                learned: true,
+                                notes: '',
+                                variantKey,
+                                variantSourceId: variant.sourceId,
+                                variantPageEnd: variant.pageEnd ?? null,
+                                description:
+                                  metadata?.description ?? spell.summary,
+                                threadsText: metadata?.threadsText ?? '',
+                                difficultyText: metadata?.difficultyText ?? '',
+                                weavingDifficulty:
+                                  metadata?.weavingDifficulty ?? null,
+                                reattuningDifficulty:
+                                  metadata?.reattuningDifficulty ?? null,
+                                castingDifficulty:
+                                  metadata?.castingDifficulty ?? null,
+                                area: metadata?.area ?? '',
+                                keywords: [...(metadata?.keywords ?? [])],
+                                detailedEffects:
+                                  metadata?.detailedEffects ??
+                                  metadata?.description ??
+                                  '',
+                                successLevels: metadata?.successLevels ?? '',
+                                extraThreads: metadata?.extraThreads ?? '',
+                                formKey: null,
+                                formLabel: null,
+                                creationOwned: true,
+                              },
+                            ],
+                      },
+                    }))
+                  }
+                >
+                  <strong>{spell.name}</strong>
+                  <small>
+                    Circle {circle} ·{' '}
+                    {earthdawnSources.find(({ id }) => id === variant.sourceId)
+                      ?.shortTitle ?? variant.sourceId}{' '}
+                    · p. {variant.pageStart ?? 'unavailable'}
+                  </small>
+                </button>
+              );
+            })}
           </div>
         </SheetCard>
       ) : null}
@@ -1375,21 +1521,26 @@ export function EarthdawnCreator({
                 <input
                   type="number"
                   min="0"
+                  max={character.creation.enforceRules ? 3 : 15}
                   value={skill.freeRank}
-                  onChange={(event) =>
+                  onChange={(event) => {
+                    const requested = Math.max(0, Number(event.target.value));
+                    const rank = character.creation.enforceRules
+                      ? Math.min(3, requested)
+                      : requested;
                     update((current) => ({
                       ...current,
                       skills: current.skills.map((item) =>
                         item.id === skill.id
                           ? {
                               ...item,
-                              freeRank: Math.max(0, Number(event.target.value)),
-                              rank: Math.max(0, Number(event.target.value)),
+                              freeRank: rank,
+                              rank,
                             }
                           : item,
                       ),
-                    }))
-                  }
+                    }));
+                  }}
                 />
               </SheetField>
             </SheetFieldGrid>
@@ -1430,27 +1581,35 @@ export function EarthdawnCreator({
             type="number"
             value={character.wealth.startingSilver}
             onChange={(event) =>
-              update((current) => ({
-                ...current,
-                wealth: {
-                  ...current.wealth,
-                  startingSilver: Number(event.target.value),
-                },
-              }))
+              update((current) => {
+                const startingSilver = Math.max(0, Number(event.target.value));
+                return {
+                  ...current,
+                  wealth: {
+                    ...walletFromCopper(
+                      Math.round(startingSilver * 10),
+                      current.wealth,
+                    ),
+                    startingSilver,
+                  },
+                };
+              })
             }
           />
         </SheetField>
       </SheetFieldGrid>
       <div className="sheet-stat-grid earthdawn-derived-grid">
         <span>
-          Starting silver <strong>{character.wealth.startingSilver}</strong>
+          Starting wallet{' '}
+          <strong>{displayCopper(purchaseQuote.startingCopper)}</strong>
         </span>
         <span>
-          Spent <strong>{equipmentSpent}</strong>
+          Paid purchases{' '}
+          <strong>{displayCopper(purchaseQuote.totalCopper)}</strong>
         </span>
         <span>
-          Balance{' '}
-          <strong>{character.wealth.startingSilver - equipmentSpent}</strong>
+          Final wallet{' '}
+          <strong>{displayCopper(purchaseQuote.remainingCopper)}</strong>
         </span>
       </div>
       {overridePanel}
@@ -1473,8 +1632,12 @@ export function EarthdawnCreator({
               <div>
                 <strong>{item.name}</strong>
                 <small>
-                  {item.type} · {item.costSilver} sp each · p.{' '}
-                  {item.page ?? '—'}
+                  {item.type} ·{' '}
+                  {displayCopper(
+                    item.creationPriceCopper ??
+                      Math.round(item.costSilver * 10),
+                  )}{' '}
+                  each · p. {item.page ?? '—'}
                 </small>
                 <small>
                   Weight {item.weight} · PA {item.physicalArmor} · MA{' '}
@@ -1505,7 +1668,12 @@ export function EarthdawnCreator({
                   }
                 />
               </SheetField>
-              <strong>{item.costSilver * item.quantity} sp</strong>
+              <strong>
+                {displayCopper(
+                  (item.creationPriceCopper ??
+                    Math.round(item.costSilver * 10)) * item.quantity,
+                )}
+              </strong>
               <button
                 type="button"
                 className="secondary-button compact-button"
@@ -1534,7 +1702,12 @@ export function EarthdawnCreator({
                 <div>
                   <strong>{item.name}</strong>
                   <small>
-                    Weapon · {item.costSilver} sp each · p. {item.page ?? '—'}
+                    Weapon ·{' '}
+                    {displayCopper(
+                      item.creationPriceCopper ??
+                        Math.round(item.costSilver * 10),
+                    )}{' '}
+                    each · p. {item.page ?? '—'}
                   </small>
                   <small>
                     Damage {item.damageStep} · STR {item.strengthMinimum} · Size{' '}
@@ -1566,7 +1739,12 @@ export function EarthdawnCreator({
                     }
                   />
                 </SheetField>
-                <strong>{item.costSilver * item.quantity} sp</strong>
+                <strong>
+                  {displayCopper(
+                    (item.creationPriceCopper ??
+                      Math.round(item.costSilver * 10)) * item.quantity,
+                  )}
+                </strong>
                 <button
                   type="button"
                   className="secondary-button compact-button"
@@ -1586,7 +1764,7 @@ export function EarthdawnCreator({
           );
         })}
       </div>
-      {equipmentSpent > character.wealth.startingSilver ? (
+      {purchaseQuote.remainingCopper < 0 ? (
         <SheetNotice tone="warning">
           Starting funds are negative. Enable GM Override to complete this
           character while overspent.
@@ -1649,9 +1827,26 @@ export function EarthdawnCreator({
         </span>
         <span>
           Wealth balance{' '}
-          <strong>{character.wealth.startingSilver - equipmentSpent} sp</strong>
+          <strong>{displayCopper(purchaseQuote.remainingCopper)}</strong>
         </span>
       </div>
+      <SheetCard density="compact">
+        <h4>Paid purchases</h4>
+        <p>
+          {purchaseQuote.purchases.length
+            ? purchaseQuote.purchases
+                .map(
+                  ({ name, quantity, totalCopper }) =>
+                    `${name} ×${quantity} (${displayCopper(totalCopper)})`,
+                )
+                .join(' · ')
+            : 'No paid equipment selected.'}
+        </p>
+        <h4>Free starting grants</h4>
+        <p>{plannedStartingGrants.join(' · ')}</p>
+        <h4>Final wallet</h4>
+        <p>{displayCopper(Math.max(0, purchaseQuote.remainingCopper))}</p>
+      </SheetCard>
       {violations.length ? (
         <SheetNotice tone={overrideActive ? 'warning' : 'danger'}>
           <strong>Official-rule violations:</strong> {violations.join(' ')}
