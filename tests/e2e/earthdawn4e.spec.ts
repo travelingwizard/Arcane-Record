@@ -45,6 +45,38 @@ async function seedEarthdawnCharacter(
   await page.getByRole('button', { name: `Open ${name}` }).click();
 }
 
+async function openEarthdawnCreator(page: import('@playwright/test').Page) {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Create Character' }).click();
+  await page.getByRole('button', { name: 'Choose Earthdawn 4e' }).click();
+  await page.getByRole('button', { name: 'Build Character' }).click();
+}
+
+async function applyCreatorChange(
+  page: import('@playwright/test').Page,
+  title: string,
+) {
+  const dialog = page.getByRole('dialog', { name: title });
+  await expect(dialog).toBeVisible();
+  await dialog.getByRole('button', { name: 'Apply change' }).click();
+}
+
+async function finishCreatorFromRaceStep(
+  page: import('@playwright/test').Page,
+  name: string,
+) {
+  for (let index = 0; index < 5; index += 1)
+    await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByLabel('name').fill(name);
+  const review = page.locator('.earthdawn-creator').getByText(/Final wallet/);
+  await expect(review).toBeVisible();
+  await page.getByRole('button', { name: 'Complete Character' }).click();
+  await expect(page.getByRole('heading', { name: 'Identity' })).toBeVisible();
+  await expect(page.locator('.save-status')).toHaveText(
+    'Saved in this browser',
+  );
+}
+
 test('confirms squeezed matrix blood magic and preserves native group warnings', async ({
   page,
 }) => {
@@ -458,6 +490,10 @@ test('creates an Earthdawn adept and exposes source and dice tools', async ({
     summaryDisplay: 'block',
   });
   await adeptPath.click();
+  await page
+    .getByRole('dialog', { name: 'Review character profile change' })
+    .getByRole('button', { name: 'Apply change' })
+    .click();
   await page.getByRole('button', { name: 'Next' }).click();
   const warrior = page.getByRole('button', { name: /Warrior/ });
   await expect(
@@ -472,9 +508,17 @@ test('creates an Earthdawn adept and exposes source and dice tools', async ({
     summaryDisplay: 'block',
   });
   await warrior.click();
+  await page
+    .getByRole('dialog', { name: 'Review Discipline change' })
+    .getByRole('button', { name: 'Apply change' })
+    .click();
   await page.getByRole('button', { name: 'Next' }).click();
   const human = page.getByRole('button', { name: /Human/ });
   await human.click();
+  await page
+    .getByRole('dialog', { name: 'Review Race change' })
+    .getByRole('button', { name: 'Apply change' })
+    .click();
   await expect(human).toHaveAttribute('aria-pressed', 'true');
   await page.getByRole('button', { name: 'Next' }).click();
   await page.getByRole('button', { name: 'Next' }).click();
@@ -507,6 +551,184 @@ test('creates an Earthdawn adept and exposes source and dice tools', async ({
     .getByRole('button', { name: 'Next' })
     .evaluate((button) => button.getBoundingClientRect().height);
   expect(nextButtonHeight).toBeGreaterThanOrEqual(44);
+});
+
+test('playtests Warrior, Wizard, non-Adept Questor, and Windmaster creation through final sheets', async ({
+  page,
+}) => {
+  await openEarthdawnCreator(page);
+  await expect(page.getByLabel('Creation budgets')).toContainText('Attributes');
+  await expect(page.getByLabel('Creation budgets')).toContainText(
+    'Silver budget',
+  );
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('button', { name: /Warrior/ }).click();
+  await applyCreatorChange(page, 'Review Discipline change');
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('button', { name: /Human/ }).click();
+  await applyCreatorChange(page, 'Review Race change');
+  await finishCreatorFromRaceStep(page, 'Warrior Playtest');
+  await expect(page.getByLabel('Discipline name')).toHaveValue('Warrior');
+  await expect(page.getByText('Human', { exact: true }).first()).toBeVisible();
+
+  await openEarthdawnCreator(page);
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('button', { name: /Wizard/ }).click();
+  await applyCreatorChange(page, 'Review Discipline change');
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('button', { name: /Elf/ }).click();
+  await applyCreatorChange(page, 'Review Race change');
+  await finishCreatorFromRaceStep(page, 'Wizard Playtest');
+  await expect(page.getByText('Grimoire', { exact: true })).toBeVisible();
+  await expect(page.getByText(/Standard Matrix/).first()).toBeVisible();
+
+  await openEarthdawnCreator(page);
+  await page.getByRole('button', { name: /Non-Adept Questor/ }).click();
+  await applyCreatorChange(page, 'Review character profile change');
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('button', { name: /Chorrolis/ }).click();
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('button', { name: /Dwarf/ }).click();
+  await applyCreatorChange(page, 'Review Race change');
+  await finishCreatorFromRaceStep(page, 'Questor Playtest');
+  await expect(page.getByLabel('passion', { exact: true })).toHaveValue(
+    'Chorrolis',
+  );
+  await expect(page.getByText(/Standard Matrix/)).toHaveCount(0);
+
+  await openEarthdawnCreator(page);
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('button', { name: /Warrior/ }).click();
+  await applyCreatorChange(page, 'Review Discipline change');
+  await page.getByLabel('Starting Circle').selectOption('5');
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('button', { name: /^Windling / }).click();
+  await applyCreatorChange(page, 'Review Race change');
+  for (let index = 0; index < 4; index += 1)
+    await page.getByRole('button', { name: 'Next' }).click();
+  await page
+    .getByLabel('GM Override reason')
+    .fill('Windmaster playtest prerequisites approved');
+  await page.getByRole('switch', { name: 'GM Override' }).check();
+  for (let index = 0; index < 4; index += 1)
+    await page.getByRole('button', { name: 'Previous' }).click();
+  await page.getByRole('button', { name: /Windmaster/ }).click();
+  for (let index = 0; index < 5; index += 1)
+    await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByLabel('name').fill('Windmaster Playtest');
+  await expect(
+    page.getByText(/Windmaster Path initiation costs/),
+  ).toBeVisible();
+  await page.getByRole('button', { name: 'Complete Character' }).click();
+  await expect
+    .poll(() =>
+      page.evaluate(async () => {
+        const request = indexedDB.open('arcane-ledger');
+        return new Promise<boolean>((resolve, reject) => {
+          request.onerror = () => reject(request.error);
+          request.onsuccess = () => {
+            const database = request.result;
+            const transaction = database.transaction('characters', 'readonly');
+            const getAll = transaction.objectStore('characters').getAll();
+            getAll.onerror = () => reject(getAll.error);
+            getAll.onsuccess = () => {
+              const record = getAll.result.find(
+                ({ name }: { name: string }) => name === 'Windmaster Playtest',
+              );
+              resolve(
+                Boolean(
+                  record?.data?.abilities?.some(
+                    ({ name }: { name: string }) => name === 'Windmaster Path',
+                  ),
+                ),
+              );
+              database.close();
+            };
+          };
+        });
+      }),
+    )
+    .toBe(true);
+  await expect(
+    page.getByText('Windling', { exact: true }).first(),
+  ).toBeVisible();
+});
+
+test('previews and applies all eight Race reconciliations without page overflow', async ({
+  page,
+}) => {
+  await openEarthdawnCreator(page);
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('button', { name: 'Next' }).click();
+  for (const race of [
+    'Dwarf',
+    'Elf',
+    'Human',
+    'Obsidiman',
+    'Ork',
+    'Troll',
+    'T’skrang',
+    'Windling',
+  ]) {
+    const choice = page.getByRole('button', {
+      name: new RegExp(`^${race.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')} `),
+    });
+    await choice.click();
+    const preview = page.getByRole('dialog', { name: 'Review Race change' });
+    await expect(preview.getByRole('heading', { name: 'Added' })).toBeVisible();
+    await expect(
+      preview.getByRole('heading', { name: 'Removed' }),
+    ).toBeVisible();
+    await preview.getByRole('button', { name: 'Apply change' }).click();
+    await expect(choice).toHaveAttribute('aria-pressed', 'true');
+  }
+  await page.setViewportSize({ width: 320, height: 760 });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth > window.innerWidth,
+    ),
+  ).toBe(false);
+});
+
+test('uses a three-choice T’skrang fitting review with adjusted cost and weight', async ({
+  page,
+}) => {
+  await openEarthdawnCreator(page);
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByRole('button', { name: /^T’skrang / }).click();
+  await applyCreatorChange(page, 'Review Race change');
+  for (let index = 0; index < 4; index += 1)
+    await page.getByRole('button', { name: 'Next' }).click();
+  await page
+    .getByRole('button', { name: 'Browse Equipment and Weapons' })
+    .click();
+  const catalog = page.getByRole('dialog', {
+    name: 'Browse Equipment and Weapons',
+  });
+  await catalog.getByRole('button', { name: 'Armor' }).click();
+  const armor = catalog.getByRole('article').first();
+  const armorName = await armor.locator('strong').first().innerText();
+  await armor.getByRole('button', { name: 'Add' }).click();
+  const fitting = page.getByRole('dialog', {
+    name: `Choose fitting for ${armorName}`,
+  });
+  await expect(fitting.getByText('Standard', { exact: true })).toBeVisible();
+  await expect(
+    fitting.getByText('Tail opening', { exact: true }),
+  ).toBeVisible();
+  await expect(
+    fitting.getByText('Covered tail', { exact: true }),
+  ).toBeVisible();
+  const tailOpening = fitting
+    .getByRole('article')
+    .filter({ hasText: 'Tail opening' });
+  await expect(tailOpening).toContainText('Cost ×1.1');
+  await tailOpening.getByRole('button', { name: 'Choose' }).click();
+  await catalog.getByRole('button', { name: 'Close' }).click();
+  await expect(
+    page.getByText('Fitting: tail opening', { exact: true }),
+  ).toBeVisible();
 });
 
 test('uses compact catalogs, reasoned GM override, and completes a partial character', async ({
@@ -582,6 +804,18 @@ test('uses compact catalogs, reasoned GM override, and completes a partial chara
     1,
   );
   await expect(page.getByText(/0 cp \(0 gp · 0 sp · 0 cp\)/)).toBeVisible();
+  await page
+    .getByRole('switch', { name: /Earthdawn Edit and Play mode/ })
+    .uncheck();
+  await page.getByRole('button', { name: 'Settings' }).click();
+  page.once('dialog', (dialog) => dialog.accept());
+  await page.getByRole('button', { name: 'Reopen Character Builder' }).click();
+  await expect(page.locator('.earthdawn-creator')).toBeVisible();
+  await page.getByRole('button', { name: 'Close Settings' }).click();
+  await page.getByRole('button', { name: 'Complete Character' }).click();
+  await expect(page.getByText('Adventurer’s Kit', { exact: true })).toHaveCount(
+    1,
+  );
   await page.setViewportSize({ width: 1440, height: 1000 });
   const dashboardBounds = await page.evaluate(() => {
     const health = document

@@ -133,6 +133,29 @@ export const earthdawn4eCharacterSchema = z.object({
     talentPoints: z.record(z.string(), nonnegative),
     finalizationVersion: nonnegative.default(0),
     purchaseTotalCopper: nonnegative.default(0),
+    finalizationSnapshot: z
+      .object({
+        finalizedAt: z.string().datetime(),
+        walletCopperBefore: nonnegative,
+        grantedEquipmentIds: z.array(uuid),
+        grantedWeaponIds: z.array(uuid),
+        activityEntryIds: z.array(uuid),
+        pathAbilityId: uuid.nullable(),
+        karmaCurrentBefore: nonnegative,
+        karmaMaximumBefore: nonnegative,
+        bloodMagicDamageBefore: nonnegative,
+      })
+      .nullable()
+      .default(null),
+    revisionHistory: z
+      .array(
+        z.object({
+          id: uuid,
+          reopenedAt: z.string().datetime(),
+          priorFinalizedAt: z.string().datetime(),
+        }),
+      )
+      .default([]),
     skillPoints: z.object({
       general: nonnegative,
       knowledge: nonnegative,
@@ -392,7 +415,7 @@ export const earthdawn4eCharacterSchema = z.object({
         .optional(),
       creationPriceCopper: nonnegative.nullable().optional(),
       creationFitting: z
-        .enum(['standard', 'tail-opening', 'full-tail'])
+        .enum(['standard', 'tail-opening', 'full-tail', 'windling-balanced'])
         .nullable()
         .optional(),
     }),
@@ -435,7 +458,7 @@ export const earthdawn4eCharacterSchema = z.object({
         .optional(),
       creationPriceCopper: nonnegative.nullable().optional(),
       creationFitting: z
-        .enum(['standard', 'tail-opening', 'full-tail'])
+        .enum(['standard', 'tail-opening', 'full-tail', 'windling-balanced'])
         .nullable()
         .optional(),
     }),

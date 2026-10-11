@@ -10,6 +10,10 @@ The deterministic catalog-quality audit in `src/games/earthdawn4e/catalog-audit.
 
 Unavailable metadata is permitted only when the source input genuinely omits it: a missing page on a clearly labeled reference-only record, unresolved conditional action/Strain or requirements text, and absent extended spell fields. Historical `Not in source` values are treated as internal unavailable sentinels and are excluded from cards, tables, search indexes, and newly copied character snapshots. The audit reports their presence so the remaining gaps can be replaced only when authoritative citations are available.
 
+## Character-creation starting kit
+
+The free starting-kit workflow grants Artisan Tools, Starting Clothing, one week of Trail Rations, and a Grimoire for qualifying magicians. The checked-in catalog and publicly available official FASA reference pages do not expose sufficiently precise Fourth Edition statistics and page citations for those four generic grants. They therefore remain explicitly unresolved, zero-cost creation records. Adventurer’s Kit and Dagger use their verified catalog definitions. No price, weight, page, or mechanical benefit is inferred for an unresolved grant.
+
 ## Production coverage
 
 - Eight Player’s Guide races and their starting values and racial abilities.

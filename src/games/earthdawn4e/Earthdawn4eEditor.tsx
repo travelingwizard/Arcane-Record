@@ -41,6 +41,13 @@ import {
 import { displayCatalogText } from './catalog-audit';
 import { EarthdawnCreator } from './EarthdawnCreator';
 import {
+  creatorEquipmentAdjustment,
+  creatorRequiresTskrangFitting,
+  creatorWeaponSizeCompatibility,
+  type CreatorFitting,
+  reopenEarthdawnCreation,
+} from './creator-rules';
+import {
   attributeStep,
   addKarmaDie,
   attributeModifierCosts,
@@ -761,6 +768,10 @@ export function Earthdawn4eEditor({
       id: string;
       category: 'armor' | 'shield';
     } | null>(null),
+    [pendingFittingPurchase, setPendingFittingPurchase] = useState<{
+      definitionId: string;
+      acquisition: 'gain' | 'purchase';
+    } | null>(null),
     [catalogView, setCatalogView] = useState<CatalogView>('cards'),
     [catalogSort, setCatalogSort] = useState<CatalogSort>({
       key: 'name',
@@ -1125,6 +1136,7 @@ export function Earthdawn4eEditor({
     requestedSpellChoice?: SpellChoice,
     acquisition: 'gain' | 'purchase' = 'gain',
     requestedKnackVariantKey?: string,
+    fitting: CreatorFitting = null,
   ) => {
     const d = earthdawnDefinitionById.get(definitionId)!;
     if (d.kind === 'discipline') {
@@ -1235,40 +1247,28 @@ export function Earthdawn4eEditor({
     );
     if (alreadySelected && !repeatableDefinition(d)) return;
     const equipmentPurchase = ['equipment', 'weapon'].includes(d.kind);
-    let raceMultiplier =
-      d.equipmentMetadata?.category === 'armor'
-        ? (draft.raceSnapshot?.armorCostMultiplier ?? 1)
-        : d.kind === 'weapon' && draft.identity.raceName === 'Windling'
-          ? 1.25
-          : 1;
-    let raceWeightMultiplier =
-      d.equipmentMetadata?.category === 'armor'
-        ? (draft.raceSnapshot?.armorWeightMultiplier ?? 1)
-        : 1;
+    const resolvedFitting: CreatorFitting =
+      d.kind === 'weapon' &&
+      draft.identity.raceName === 'Windling' &&
+      (d.equipmentMetadata?.size ?? 0) > 2
+        ? 'windling-balanced'
+        : fitting;
     if (
       equipmentPurchase &&
       acquisition === 'purchase' &&
-      d.equipmentMetadata?.category === 'armor' &&
-      draft.identity.raceName === 'T’skrang'
+      creatorRequiresTskrangFitting(d) &&
+      draft.identity.raceName === 'T’skrang' &&
+      !resolvedFitting
     ) {
-      const fitting = window.prompt(
-        'T’skrang fitting: enter "standard", "tail opening", or "full tail".',
-        'tail opening',
-      );
-      if (fitting == null) return;
-      if (fitting.trim().toLocaleLowerCase() === 'tail opening')
-        raceMultiplier *= 1.1;
-      if (fitting.trim().toLocaleLowerCase() === 'full tail') {
-        raceMultiplier *= 1.25;
-        raceWeightMultiplier *= 1.1;
-      }
+      setPendingFittingPurchase({ definitionId, acquisition });
+      return;
     }
-    const purchaseCopper = Math.round(
-      moneyToCopper(
-        d.price?.amount ?? Math.round(d.costSilver ?? 0),
-        d.price?.denomination ?? 'sp',
-      ) * raceMultiplier,
+    const equipmentAdjustment = creatorEquipmentAdjustment(
+      d,
+      draft.identity.raceName,
+      resolvedFitting,
     );
+    const purchaseCopper = equipmentAdjustment.adjustedCopper;
     if (
       equipmentPurchase &&
       acquisition === 'purchase' &&
@@ -1832,6 +1832,8 @@ export function Earthdawn4eEditor({
             ...c.weapons,
             {
               ...base,
+              creationFitting: resolvedFitting,
+              creationPriceCopper: purchaseCopper,
               strengthMinimum: mechanics.strengthMinimum ?? 0,
               damageStep: mechanics.damageStep ?? 0,
               range: mechanics.range ?? '',
@@ -1841,7 +1843,7 @@ export function Earthdawn4eEditor({
                 amount: Math.round(d.costSilver ?? 0),
                 denomination: 'sp' as const,
               },
-              weight: mechanics.weight ?? 0,
+              weight: equipmentAdjustment.adjustedWeight,
               inUse: false,
               weaponType: d.equipmentMetadata?.weaponType ?? 'melee',
               size: d.equipmentMetadata?.size ?? 0,
@@ -1877,6 +1879,8 @@ export function Earthdawn4eEditor({
           ...c.equipment,
           {
             ...base,
+            creationFitting: resolvedFitting,
+            creationPriceCopper: purchaseCopper,
             type: d.kind,
             description: d.summary,
             category: d.equipmentMetadata?.category ?? d.kind,
@@ -1887,7 +1891,7 @@ export function Earthdawn4eEditor({
               amount: Math.round(d.costSilver ?? 0),
               denomination: 'sp' as const,
             },
-            weight: (mechanics.weight ?? 0) * raceWeightMultiplier,
+            weight: equipmentAdjustment.adjustedWeight,
             inUse: false,
             physicalArmor: mechanics.physicalArmor ?? 0,
             mysticArmor: mechanics.mysticArmor ?? 0,
@@ -3114,12 +3118,20 @@ export function Earthdawn4eEditor({
               {draft.creation.status !== 'draft' && !playMode ? (
                 <button
                   className="secondary-button"
-                  onClick={() =>
-                    update((c) => ({
-                      ...c,
-                      creation: { ...c.creation, status: 'draft' },
-                    }))
+                  disabled={!draft.creation.finalizationSnapshot}
+                  title={
+                    draft.creation.finalizationSnapshot
+                      ? 'Restore the pre-finalization wallet and free grants before revising creation.'
+                      : 'Legacy characters do not have a safe creation rollback snapshot.'
                   }
+                  onClick={() => {
+                    if (
+                      window.confirm(
+                        'Reopen character creation? The saved pre-finalization wallet and grants will be restored so the character can be finalized again safely.',
+                      )
+                    )
+                      update((c) => reopenEarthdawnCreation(c));
+                  }}
                 >
                   Reopen Character Builder
                 </button>
@@ -5973,22 +5985,46 @@ export function Earthdawn4eEditor({
                               <input
                                 type="checkbox"
                                 checked={weapon.inUse}
-                                onChange={(event) =>
+                                onChange={(event) => {
+                                  const next = event.target.checked;
+                                  const compatibility =
+                                    creatorWeaponSizeCompatibility(
+                                      draft.identity.raceName,
+                                      weapon.size,
+                                      weapon.creationFitting ?? null,
+                                    );
+                                  if (
+                                    next &&
+                                    !compatibility.compatible &&
+                                    draft.creation.enforceRules
+                                  ) {
+                                    setMoneyError(compatibility.reason);
+                                    return;
+                                  }
+                                  setMoneyError('');
                                   update((current) => ({
                                     ...current,
                                     weapons: current.weapons.map((item) =>
                                       item.id === weapon.id
-                                        ? {
-                                            ...item,
-                                            inUse: event.target.checked,
-                                          }
+                                        ? { ...item, inUse: next }
                                         : item,
                                     ),
-                                  }))
-                                }
+                                  }));
+                                }}
                               />
                               <span>Carried / equipped</span>
                             </label>
+                            {weapon.size > 0 ? (
+                              <small>
+                                {
+                                  creatorWeaponSizeCompatibility(
+                                    draft.identity.raceName,
+                                    weapon.size,
+                                    weapon.creationFitting ?? null,
+                                  ).reason
+                                }
+                              </small>
+                            ) : null}
                           </div>
                         ) : (
                           <SheetFieldGrid columns={3}>
@@ -6073,19 +6109,32 @@ export function Earthdawn4eEditor({
                               <input
                                 type="checkbox"
                                 checked={weapon.inUse}
-                                onChange={(event) =>
+                                onChange={(event) => {
+                                  const next = event.target.checked;
+                                  const compatibility =
+                                    creatorWeaponSizeCompatibility(
+                                      draft.identity.raceName,
+                                      weapon.size,
+                                      weapon.creationFitting ?? null,
+                                    );
+                                  if (
+                                    next &&
+                                    !compatibility.compatible &&
+                                    draft.creation.enforceRules
+                                  ) {
+                                    setMoneyError(compatibility.reason);
+                                    return;
+                                  }
+                                  setMoneyError('');
                                   update((current) => ({
                                     ...current,
                                     weapons: current.weapons.map((item) =>
                                       item.id === weapon.id
-                                        ? {
-                                            ...item,
-                                            inUse: event.target.checked,
-                                          }
+                                        ? { ...item, inUse: next }
                                         : item,
                                     ),
-                                  }))
-                                }
+                                  }));
+                                }}
                               />
                               <span>Carried / equipped</span>
                             </label>
@@ -7549,6 +7598,90 @@ export function Earthdawn4eEditor({
             </OrderedSheetSections>
           )}
         </div>
+        {pendingFittingPurchase
+          ? (() => {
+              const definition = earthdawnDefinitionById.get(
+                pendingFittingPurchase.definitionId,
+              );
+              if (!definition) return null;
+              return (
+                <div
+                  className="catalog-overlay"
+                  role="dialog"
+                  aria-modal="true"
+                  aria-label="Choose T’skrang fitting"
+                >
+                  <div className="catalog-dialog earthdawn-equip-dialog">
+                    <div className="catalog-dialog-header">
+                      <div>
+                        <p className="sheet-eyebrow">Equipment fitting</p>
+                        <h2>Choose fitting for {definition.name}</h2>
+                        <p>
+                          Review the adjusted price and weight before
+                          purchasing.
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        className="secondary-button"
+                        onClick={() => setPendingFittingPurchase(null)}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                    <div className="earthdawn-dialog-results">
+                      {(
+                        [
+                          ['standard', 'Standard'],
+                          ['tail-opening', 'Tail opening'],
+                          ['full-tail', 'Covered tail'],
+                        ] as const
+                      ).map(([fitting, label]) => {
+                        const quote = creatorEquipmentAdjustment(
+                          definition,
+                          'T’skrang',
+                          fitting,
+                        );
+                        return (
+                          <SheetCard key={fitting} density="compact">
+                            <div>
+                              <strong>{label}</strong>
+                              <small>
+                                {quote.baseCopper} cp base →{' '}
+                                {quote.adjustedCopper} cp adjusted
+                              </small>
+                              <small>
+                                Weight {quote.baseWeight} →{' '}
+                                {quote.adjustedWeight}
+                              </small>
+                            </div>
+                            <button
+                              type="button"
+                              className="secondary-button compact-inline-button"
+                              onClick={() => {
+                                const pending = pendingFittingPurchase;
+                                setPendingFittingPurchase(null);
+                                addCatalog(
+                                  pending.definitionId,
+                                  false,
+                                  undefined,
+                                  pending.acquisition,
+                                  undefined,
+                                  fitting,
+                                );
+                              }}
+                            >
+                              Choose
+                            </button>
+                          </SheetCard>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              );
+            })()
+          : null}
         {pendingEquip ? (
           <div
             className="catalog-overlay"

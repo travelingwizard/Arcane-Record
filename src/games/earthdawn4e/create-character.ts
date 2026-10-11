@@ -46,6 +46,8 @@ export function createBlankEarthdawn4eCharacter(
       talentPoints: {},
       finalizationVersion: 0,
       purchaseTotalCopper: 0,
+      finalizationSnapshot: null,
+      revisionHistory: [],
       skillPoints: { general: 8, knowledge: 2, artisan: 1, language: 3 },
       finalizedAt: null,
     },

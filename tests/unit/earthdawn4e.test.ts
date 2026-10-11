@@ -86,11 +86,109 @@ import {
 } from '../../src/games/earthdawn4e/matrix-sharing';
 import { createHighCircleMatrixFixture } from '../fixtures/earthdawn-high-circle';
 import {
+  creatorEquipmentAdjustment,
+  creatorWeaponSizeCompatibility,
   finalizeEarthdawnCreation,
+  reopenEarthdawnCreation,
   reviewEarthdawnCreation,
 } from '../../src/games/earthdawn4e/creator-rules';
 
 describe('Earthdawn Fourth Edition module', () => {
+  it.each([
+    ['Dwarf', 1, 'one-handed', true],
+    ['Dwarf', 5, 'two-handed', true],
+    ['Dwarf', 6, 'incompatible', false],
+    ['Elf', 6, 'two-handed', true],
+    ['Human', 7, 'incompatible', false],
+    ['Obsidiman', 1, 'incompatible', false],
+    ['Obsidiman', 7, 'two-handed', true],
+    ['Ork', 3, 'one-handed', true],
+    ['Troll', 2, 'one-handed', true],
+    ['T’skrang', 2, 'tail-compatible', true],
+    ['T’skrang', 6, 'two-handed', true],
+    ['Windling', 1, 'one-handed', true],
+    ['Windling', 2, 'two-handed', true],
+    ['Windling', 3, 'incompatible', false],
+  ] as const)('validates %s Size %i as %s', (race, size, mode, compatible) => {
+    expect(creatorWeaponSizeCompatibility(race, size)).toMatchObject({
+      mode,
+      compatible,
+    });
+  });
+
+  it('treats a stored Windling balance as legal and reports unknown sizes honestly', () => {
+    expect(
+      creatorWeaponSizeCompatibility('Windling', 5, 'windling-balanced'),
+    ).toMatchObject({ compatible: true, mode: 'balanced' });
+    expect(creatorWeaponSizeCompatibility('Human', 0)).toMatchObject({
+      compatible: true,
+      mode: 'unknown',
+    });
+  });
+
+  it('quotes racial armor, T’skrang fittings, Windling balancing, and magic exemptions', () => {
+    const armor = {
+      ...earthdawnCatalog.find(
+        (entry) => entry.equipmentMetadata?.category === 'armor',
+      )!,
+      price: { amount: 100, denomination: 'sp' as const },
+      mechanics: JSON.stringify({ weight: 20, physicalArmor: 3 }),
+    };
+    expect(creatorEquipmentAdjustment(armor, 'Troll')).toMatchObject({
+      baseCopper: 1000,
+      adjustedCopper: 1250,
+      adjustedWeight: 25,
+    });
+    expect(creatorEquipmentAdjustment(armor, 'Windling')).toMatchObject({
+      adjustedCopper: 750,
+      adjustedWeight: 4,
+    });
+    expect(
+      creatorEquipmentAdjustment(armor, 'T’skrang', 'tail-opening'),
+    ).toMatchObject({ adjustedCopper: 1100, adjustedWeight: 20 });
+    expect(
+      creatorEquipmentAdjustment(armor, 'T’skrang', 'full-tail'),
+    ).toMatchObject({ adjustedCopper: 1250, adjustedWeight: 22 });
+
+    const weapon = {
+      ...armor,
+      kind: 'weapon' as const,
+      equipmentMetadata: {
+        ...armor.equipmentMetadata!,
+        category: 'weapon',
+      },
+    };
+    expect(
+      creatorEquipmentAdjustment(weapon, 'Windling', 'windling-balanced'),
+    ).toMatchObject({ adjustedCopper: 1250, costMultiplier: 1.25 });
+
+    const meal = {
+      ...armor,
+      name: 'Inn Meal',
+      equipmentMetadata: {
+        ...armor.equipmentMetadata!,
+        category: 'food service',
+      },
+    };
+    expect(creatorEquipmentAdjustment(meal, 'Windling')).toMatchObject({
+      adjustedCopper: 500,
+      costMultiplier: 0.5,
+    });
+
+    const magicArmor = {
+      ...armor,
+      equipmentMetadata: {
+        ...armor.equipmentMetadata!,
+        category: 'magic armor',
+      },
+    };
+    expect(creatorEquipmentAdjustment(magicArmor, 'Troll')).toMatchObject({
+      adjustedCopper: 1000,
+      adjustedWeight: 20,
+      exempt: true,
+    });
+  });
+
   it('finalizes creator purchases exactly once and grants the free starting kit', () => {
     const character = reconcileRace(
       createBlankEarthdawn4eCharacter(),
@@ -161,6 +259,61 @@ describe('Earthdawn Fourth Edition module', () => {
       ]),
     );
     expect(finalizeEarthdawnCreation(finished)).toBe(finished);
+  });
+
+  it('reopens from the finalization snapshot and can finalize again exactly once', () => {
+    const character = reconcileRace(
+      createBlankEarthdawn4eCharacter(),
+      earthdawnRaces.find(({ name }) => name === 'Human')!,
+    );
+    character.creation.enforceRules = false;
+    const finished = finalizeEarthdawnCreation(character, {
+      now: '2026-10-10T12:00:00.000Z',
+      override: true,
+    });
+    const postCreationNote = {
+      id: crypto.randomUUID(),
+      kind: 'general' as const,
+      title: 'Kept after reopen',
+      body: 'Manual post-creation record.',
+      createdAt: '2026-10-10T12:05:00.000Z',
+      updatedAt: '2026-10-10T12:05:00.000Z',
+      sessionDate: '',
+      collapsed: false,
+    };
+    finished.notes.entries.push(postCreationNote);
+    const reopened = reopenEarthdawnCreation(
+      finished,
+      '2026-10-10T13:00:00.000Z',
+    );
+    expect(reopened.creation.status).toBe('draft');
+    expect(reopened.creation.finalizationVersion).toBe(0);
+    expect(reopened.creation.revisionHistory).toHaveLength(1);
+    expect(walletTotalCopper(reopened.wealth)).toBe(
+      walletTotalCopper(character.wealth),
+    );
+    expect(
+      reopened.equipment.some(
+        ({ creationAcquisition }) => creationAcquisition === 'starting-kit',
+      ),
+    ).toBe(false);
+    expect(reopened.notes.entries).toContainEqual(postCreationNote);
+
+    const revised = finalizeEarthdawnCreation(reopened, {
+      now: '2026-10-10T14:00:00.000Z',
+      override: true,
+    });
+    expect(revised.creation.revisionHistory).toHaveLength(1);
+    expect(revised.wealth).toEqual(finished.wealth);
+    expect(finalizeEarthdawnCreation(revised)).toBe(revised);
+    expect(() => earthdawn4eCharacterSchema.parse(revised)).not.toThrow();
+  });
+
+  it('refuses to invent a rollback for legacy finalized characters', () => {
+    const legacy = createBlankEarthdawn4eCharacter({ status: 'finalized' });
+    expect(() => reopenEarthdawnCreation(legacy)).toThrow(
+      /no safe creation snapshot/i,
+    );
   });
 
   it('grants a grimoire only to a qualifying magician Discipline', () => {

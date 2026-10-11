@@ -17,6 +17,9 @@ import type { Earthdawn4eCharacter } from './schema';
 
 export const CREATOR_FINALIZATION_VERSION = 1;
 
+export type CreatorFitting =
+  'standard' | 'tail-opening' | 'full-tail' | 'windling-balanced' | null;
+
 type EquipmentCategory = 'equipment' | 'weapon' | 'armor' | 'shield';
 
 const parseMechanics = (definition: EarthdawnDefinition) => {
@@ -49,6 +52,160 @@ export function creatorEquipmentCategory(
   )
     return 'armor';
   return 'equipment';
+}
+
+const priceCopper = (definition: EarthdawnDefinition) =>
+  moneyToCopper(
+    definition.price?.amount ?? Math.round(definition.costSilver ?? 0),
+    definition.price?.denomination ?? 'sp',
+  );
+
+const isPhysicalMagicItem = (definition: EarthdawnDefinition) => {
+  const category =
+    definition.equipmentMetadata?.category.toLocaleLowerCase() ?? '';
+  return (
+    category.includes('magic') ||
+    category.includes('charm') ||
+    category.includes('thread item')
+  );
+};
+
+const isClothing = (definition: EarthdawnDefinition) => {
+  const haystack =
+    `${definition.equipmentMetadata?.category ?? ''} ${definition.name}`.toLocaleLowerCase();
+  return haystack.includes('clothing') || haystack.includes('garb');
+};
+
+export const creatorRequiresTskrangFitting = (
+  definition: EarthdawnDefinition,
+) =>
+  !isPhysicalMagicItem(definition) &&
+  (creatorEquipmentCategory(definition) === 'armor' || isClothing(definition));
+
+const isMeal = (definition: EarthdawnDefinition) => {
+  const haystack =
+    `${definition.equipmentMetadata?.category ?? ''} ${definition.name}`.toLocaleLowerCase();
+  return (
+    haystack.includes('meal') ||
+    haystack.includes('food service') ||
+    haystack.includes('inn meal')
+  );
+};
+
+export function creatorEquipmentAdjustment(
+  definition: EarthdawnDefinition,
+  raceName: string,
+  fitting: CreatorFitting = null,
+) {
+  const category = creatorEquipmentCategory(definition);
+  const mechanics = parseMechanics(definition);
+  const baseCopper = priceCopper(definition);
+  const baseWeight = numericMechanic(mechanics, 'weight');
+  let costMultiplier = 1;
+  let weightMultiplier = 1;
+  const notes: string[] = [];
+  const physicalMagic = isPhysicalMagicItem(definition);
+  const armorOrClothing = category === 'armor' || isClothing(definition);
+  if (!physicalMagic && armorOrClothing) {
+    if (raceName === 'Troll' || raceName === 'Obsidiman') {
+      costMultiplier = 1.25;
+      weightMultiplier = 1.25;
+      notes.push('Large-race armor/clothing adjustment');
+    } else if (raceName === 'Windling') {
+      costMultiplier = 0.75;
+      weightMultiplier = 0.2;
+      notes.push('Windling armor/clothing adjustment');
+    } else if (raceName === 'T’skrang') {
+      if (fitting === 'tail-opening') {
+        costMultiplier = 1.1;
+        notes.push('Tail opening');
+      } else if (fitting === 'full-tail') {
+        costMultiplier = 1.25;
+        weightMultiplier = 1.1;
+        notes.push('Covered tail');
+      }
+    }
+  }
+  if (!physicalMagic && raceName === 'Windling' && isMeal(definition)) {
+    costMultiplier = 0.5;
+    notes.push('Windling meal rate');
+  }
+  if (
+    !physicalMagic &&
+    definition.kind === 'weapon' &&
+    raceName === 'Windling' &&
+    fitting === 'windling-balanced'
+  ) {
+    costMultiplier = 1.25;
+    notes.push('Windling custom balancing');
+  }
+  return {
+    baseCopper,
+    baseWeight,
+    adjustedCopper: Math.round(baseCopper * costMultiplier),
+    adjustedWeight: baseWeight * weightMultiplier,
+    costMultiplier,
+    weightMultiplier,
+    notes,
+    exempt: physicalMagic,
+  };
+}
+
+const weaponSizeRanges: Record<
+  string,
+  { one: [number, number]; two: [number, number]; tail?: [number, number] }
+> = {
+  Dwarf: { one: [1, 3], two: [4, 5] },
+  Elf: { one: [1, 3], two: [4, 6] },
+  Human: { one: [1, 3], two: [4, 6] },
+  Obsidiman: { one: [2, 4], two: [5, 7] },
+  Ork: { one: [1, 3], two: [4, 6] },
+  Troll: { one: [2, 4], two: [5, 7] },
+  'T’skrang': { one: [1, 3], two: [4, 6], tail: [1, 2] },
+  Windling: { one: [1, 1], two: [2, 2] },
+};
+
+export function creatorWeaponSizeCompatibility(
+  raceName: string,
+  size: number,
+  fitting: CreatorFitting = null,
+) {
+  const ranges = weaponSizeRanges[raceName];
+  if (raceName === 'Windling' && fitting === 'windling-balanced')
+    return {
+      compatible: true,
+      mode: 'balanced' as const,
+      reason: `Size ${size || 'unknown'} weapon is custom-balanced for a Windling.`,
+    };
+  if (!ranges || size <= 0)
+    return {
+      compatible: true,
+      mode: 'unknown' as const,
+      reason: 'Weapon size unavailable.',
+    };
+  if (ranges.tail && size >= ranges.tail[0] && size <= ranges.tail[1])
+    return {
+      compatible: true,
+      mode: 'tail-compatible' as const,
+      reason: `Size ${size} may be used one-handed or attached to a t’skrang tail.`,
+    };
+  if (size >= ranges.one[0] && size <= ranges.one[1])
+    return {
+      compatible: true,
+      mode: 'one-handed' as const,
+      reason: `Size ${size} may be used one-handed.`,
+    };
+  if (size >= ranges.two[0] && size <= ranges.two[1])
+    return {
+      compatible: true,
+      mode: 'two-handed' as const,
+      reason: `Size ${size} requires two hands.`,
+    };
+  return {
+    compatible: false,
+    mode: 'incompatible' as const,
+    reason: `${raceName} cannot normally use a Size ${size} weapon. A recorded GM Override is required.`,
+  };
 }
 
 export function creatorAttributeAllocation(character: Earthdawn4eCharacter) {
@@ -226,6 +383,16 @@ export function reviewEarthdawnCreation(character: Earthdawn4eCharacter) {
       `Equipment spending exceeds starting wealth by ${-quote.remainingCopper} copper.`,
     );
 
+  for (const weapon of character.weapons) {
+    const compatibility = creatorWeaponSizeCompatibility(
+      character.identity.raceName,
+      weapon.size,
+      weapon.creationFitting ?? null,
+    );
+    if (!compatibility.compatible)
+      blockers.push(`${weapon.name}: ${compatibility.reason}`);
+  }
+
   const race = earthdawnRaces.find(
     ({ id }) => id === character.identity.raceId,
   );
@@ -265,6 +432,21 @@ export function reviewEarthdawnCreation(character: Earthdawn4eCharacter) {
     attributePointsSpent: spent,
     talentRanks,
     skillRanks,
+    freeSkillRanksSpent,
+    mandatorySkillRanksRemaining: {
+      knowledge: Math.max(
+        0,
+        character.creation.skillPoints.knowledge - skillRanks.knowledge,
+      ),
+      artisan: Math.max(
+        0,
+        character.creation.skillPoints.artisan - skillRanks.artisan,
+      ),
+      language: Math.max(
+        0,
+        character.creation.skillPoints.language - skillRanks.language,
+      ),
+    },
   };
 }
 
@@ -489,6 +671,11 @@ export function finalizeEarthdawnCreation(
           },
         ]
       : character.abilities;
+  const pathAbilityId =
+    abilities.find(
+      ({ definitionId }) =>
+        definitionId === (path ? `creator-path:${path.id}` : ''),
+    )?.id ?? null;
   const ledger = [...character.activity.ledger];
   if (character.activity.tracking) {
     ledger.push(
@@ -543,6 +730,23 @@ export function finalizeEarthdawnCreation(
         ),
     );
   }
+  const grantedEquipmentIds = kit.equipment
+    .filter(
+      (item) =>
+        item.creationAcquisition === 'starting-kit' &&
+        !character.equipment.some(({ id }) => id === item.id),
+    )
+    .map(({ id }) => id);
+  const grantedWeaponIds = kit.weapons
+    .filter(
+      (item) =>
+        item.creationAcquisition === 'starting-kit' &&
+        !character.weapons.some(({ id }) => id === item.id),
+    )
+    .map(({ id }) => id);
+  const activityEntryIds = ledger
+    .slice(character.activity.ledger.length)
+    .map(({ id }) => id);
   return {
     ...character,
     creation: {
@@ -551,6 +755,21 @@ export function finalizeEarthdawnCreation(
       finalizedAt: now,
       finalizationVersion: CREATOR_FINALIZATION_VERSION,
       purchaseTotalCopper: review.quote.totalCopper,
+      finalizationSnapshot: {
+        finalizedAt: now,
+        walletCopperBefore: review.quote.startingCopper,
+        grantedEquipmentIds,
+        grantedWeaponIds,
+        activityEntryIds,
+        pathAbilityId:
+          pathAbilityId &&
+          !character.abilities.some(({ id }) => id === pathAbilityId)
+            ? pathAbilityId
+            : null,
+        karmaCurrentBefore: character.health.karmaCurrent,
+        karmaMaximumBefore: character.health.karmaMaximum,
+        bloodMagicDamageBefore: character.health.bloodMagicDamage,
+      },
       attributePoints: creatorAttributeAllocation(character),
       talentPoints: creatorTalentAllocation(character),
     },
@@ -567,5 +786,59 @@ export function finalizeEarthdawnCreation(
         character.health.bloodMagicDamage + (path?.bloodMagicDamage ?? 0),
     },
     sheetLayout: { ...character.sheetLayout, mode: 'play' as const },
+  };
+}
+
+export function reopenEarthdawnCreation(
+  character: Earthdawn4eCharacter,
+  now = new Date().toISOString(),
+) {
+  const snapshot = character.creation.finalizationSnapshot;
+  if (!snapshot)
+    throw new Error(
+      'This legacy character has no safe creation snapshot and cannot be automatically rolled back.',
+    );
+  const grantedEquipment = new Set(snapshot.grantedEquipmentIds);
+  const grantedWeapons = new Set(snapshot.grantedWeaponIds);
+  const finalizationActivity = new Set(snapshot.activityEntryIds);
+  return {
+    ...character,
+    creation: {
+      ...character.creation,
+      status: 'draft' as const,
+      finalizedAt: null,
+      finalizationVersion: 0,
+      purchaseTotalCopper: 0,
+      finalizationSnapshot: null,
+      revisionHistory: [
+        ...character.creation.revisionHistory,
+        {
+          id: crypto.randomUUID(),
+          reopenedAt: now,
+          priorFinalizedAt: snapshot.finalizedAt,
+        },
+      ],
+    },
+    wealth: walletFromCopper(snapshot.walletCopperBefore, character.wealth),
+    equipment: character.equipment.filter(
+      ({ id }) => !grantedEquipment.has(id),
+    ),
+    weapons: character.weapons.filter(({ id }) => !grantedWeapons.has(id)),
+    abilities: snapshot.pathAbilityId
+      ? character.abilities.filter(({ id }) => id !== snapshot.pathAbilityId)
+      : character.abilities,
+    activity: {
+      ...character.activity,
+      ledger: character.activity.ledger.filter(
+        ({ id }) => !finalizationActivity.has(id),
+      ),
+    },
+    health: {
+      ...character.health,
+      karmaCurrent: snapshot.karmaCurrentBefore,
+      karmaMaximum: snapshot.karmaMaximumBefore,
+      bloodMagicDamage: snapshot.bloodMagicDamageBefore,
+    },
+    sheetLayout: { ...character.sheetLayout, mode: 'edit' as const },
   };
 }
