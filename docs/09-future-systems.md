@@ -3,12 +3,13 @@
 Game modules register through `GameSystemRegistry`. Mage 20 is registered under
 the stable outer ID `mage20`; its definitions remain under
 `src/systems/mage-m20` and its adapter under `src/games/mage20`.
-Exalted First Edition is registered as `exalted1e` with stable `solar` and
-`dragon-blooded` sheet variants. Lunar, Abyssal, Sidereal, Alchemical, and
-Fair Folk are planned but not implemented: no schema, catalog, creator, or
-editor exists for them yet. They appear only as locked "Unavailable" cards on
-the Exalted create page, generated from checked-in certification evidence
-rather than a hand-written label. See
+Exalted First Edition is registered as `exalted1e` with seven sheet variants:
+`solar` and `dragon-blooded` (the original foundation), plus `lunar`,
+`abyssal`, `sidereal`, `alchemical`, and `fair-folk`, each with its own
+schema, catalog, creator stage, and editor. All seven are now certified and
+available as real, creatable "Character sheet" cards on the Exalted create
+page, generated from checked-in certification evidence rather than a
+hand-written label. See
 [18. Exalted First Edition — planned splat release model](18-exalted1e-splat-release.md)
 for the certification gate, the source-inventory process, and the
 `audit:exalted-sources` script that enforces it.
