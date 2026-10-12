@@ -74,7 +74,13 @@ export const splatCertificationRecordSchema = z.object({
    * display in the create-character UI (see `getExaltedVerificationRequirement`
    * in `../verification.ts`). Purely descriptive — never consulted by the
    * pass/fail gate itself, which only trusts the structured dimensions
-   * above. Empty once certified.
+   * above, and no longer read once `certifiedAt` is set (see
+   * `getExaltedVerificationRequirement`'s own early return). Kept populated
+   * even after certification as a historical record of the family's own
+   * per-phase evidence trail, matching this project's own convention of
+   * never deleting a certification record's narrative history; new
+   * blocker-reason entries simply stop being added once a family reaches
+   * `certifiedAt !== null`.
    */
   blockers: z.array(z.string()).default([]),
   notes: z.string(),

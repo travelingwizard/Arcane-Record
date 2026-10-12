@@ -11,7 +11,10 @@ describe('game system registry', () => {
     expect(gameSystemRegistry.get('mage-m20')).toBeUndefined();
   });
 
-  it('registers the Exalted 1e family and keeps unverified variants unavailable', () => {
+  it('registers the Exalted 1e family with all seven variants now available', () => {
+    // Phase 6's single final commit certified all five planned families
+    // (Lunar, Abyssal, Sidereal, Alchemical, Fair Folk) together, so no
+    // variant carries an `unavailableRequirement` anymore.
     const system = gameSystemRegistry.get('exalted1e');
     expect(system?.name).toBe('Exalted First Edition');
     expect(system?.variants?.map((variant) => variant.id)).toEqual([
@@ -27,7 +30,7 @@ describe('game system registry', () => {
       system?.variants
         ?.filter(({ unavailableRequirement }) => unavailableRequirement)
         .map(({ id }) => id),
-    ).toEqual(['lunar', 'abyssal', 'sidereal', 'alchemical', 'fair-folk']);
+    ).toEqual([]);
     expect(system?.sectionGroups.map(({ id }) => id)).toEqual([
       'character',
       'exalted',

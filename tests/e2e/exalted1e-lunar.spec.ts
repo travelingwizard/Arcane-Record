@@ -12,17 +12,17 @@ import { EXALTED1E_SCHEMA_VERSION } from '../../src/games/exalted1e/definitions'
  * (`exalted-creation-panel.test.tsx`, `lunar-powers-editor.test.tsx`, etc.)
  * can provide.
  *
- * Lunar is still locked (`unavailableRequirement` is set, so the "Choose
- * Lunar Exalted" button on `/create` stays disabled -- see
- * `exalted.spec.ts`'s own assertion of that fact), so this spec cannot
- * reach the character through the normal "Create Character" screen. It
- * instead injects a `'draft'`-status Lunar record directly into IndexedDB
- * and opens it via the character library's real "Open <name>" button,
+ * Lunar is now certified and available through the normal "Create
+ * Character" screen's real "Choose Lunar" button (see `exalted.spec.ts`'s
+ * own exercise of that exact flow, added in Phase 6's final
+ * all-five-together unlock commit). This spec still reaches the character
+ * by injecting a `'draft'`-status Lunar record directly into IndexedDB
+ * and opening it via the character library's real "Open <name>" button,
  * exactly mirroring `exalted1e-module.spec.ts`'s own established
- * direct-injection precedent -- bypassing only the disabled top-level
- * button, not any real feature code. Every control this spec drives after
- * that point is the same production UI a player would use once the family
- * unlocks.
+ * direct-injection precedent, since that approach was already written and
+ * gives a stable, independent fixture; every control this spec drives
+ * after that point is the same production UI a player reaches through the
+ * normal creation flow.
  */
 test('builds, saves, and persists a real Lunar Exalted sheet through guided creation (Phase 6 browser-test evidence)', async ({
   page,

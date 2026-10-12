@@ -24,22 +24,54 @@ test('creates and persists Solar and Dragon-Blooded foundation sheets', async ({
   await expect(
     page.getByRole('heading', { name: 'Dragon-Blooded' }),
   ).toBeVisible();
-  // The five planned-but-uncertified splats must appear as locked variant
-  // cards on this same screen (see `exalted1eDefinition.variants`, gated by
-  // `unavailableRequirement`), never implying they are creatable yet.
-  for (const family of [
-    'Lunar Exalted',
-    'Abyssal Exalted',
-    'Sidereal Exalted',
-    'Alchemical Exalted',
-    'Fair Folk',
-  ]) {
-    await expect(page.getByRole('heading', { name: family })).toBeVisible();
+  // Phase 6's single final commit certified all five planned families
+  // together (Lunar, Abyssal, Sidereal, Alchemical, Fair Folk -- see
+  // `exalted1e-verification.test.ts`'s and `exalted1e-family-rules.test.ts`'s
+  // own coverage of the certification data itself). Every one of their
+  // variant cards on this same screen (see `exalted1eDefinition.variants`)
+  // must now show as a real, creatable "Character sheet", not
+  // "Unavailable", with no disabled "Source verification required" button
+  // left anywhere on the page.
+  for (const [family, shortName] of [
+    ['Lunar Exalted', 'Lunar'],
+    ['Abyssal Exalted', 'Abyssal'],
+    ['Sidereal Exalted', 'Sidereal'],
+    ['Alchemical Exalted', 'Alchemical'],
+    ['Fair Folk', 'Fair Folk'],
+  ] as const) {
+    const card = page
+      .locator('.game-system-card')
+      .filter({ has: page.getByRole('heading', { name: family }) });
+    await expect(card.getByText('Character sheet')).toBeVisible();
+    await expect(card.getByText('Unavailable')).toHaveCount(0);
+    await expect(
+      card.getByRole('button', { name: `Choose ${shortName}` }),
+    ).toBeEnabled();
   }
-  await expect(page.getByText('Unavailable').first()).toBeVisible();
+  await expect(page.getByText('Unavailable')).toHaveCount(0);
   await expect(
-    page.getByRole('button', { name: 'Source verification required' }).first(),
-  ).toBeDisabled();
+    page.getByRole('button', { name: 'Source verification required' }),
+  ).toHaveCount(0);
+
+  // Exercise one newly-unlocked family's real "Choose X" creation flow
+  // through the button itself, proving the end-to-end unlock actually
+  // works and not just that the certification data says it should.
+  // Lunar's own guided-creation wizard, family-state panels, and Charms/
+  // Merits & Flaws catalogs already have dedicated, thorough coverage via
+  // direct-IndexedDB-injection in `exalted1e-lunar.spec.ts`; this check
+  // only needs to confirm the real button really opens a real, working
+  // Lunar sheet.
+  await page.getByRole('button', { name: 'Choose Lunar' }).click();
+  await expect(page).toHaveURL(/\/characters\//);
+  await expect(page.getByRole('button', { name: 'Settings' })).toBeVisible();
+  await expect(
+    page.locator('.exalted-creation-panel').getByText('Choose a Caste.'),
+  ).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: 'Charms & Sorcery' }),
+  ).toBeVisible();
+  await page.getByRole('button', { name: /Character library/ }).click();
+  await chooseExalted(page);
 
   await page.getByRole('button', { name: 'Choose Solar' }).click();
   await expect(page).toHaveURL(/\/characters\//);

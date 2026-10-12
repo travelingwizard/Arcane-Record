@@ -2,18 +2,22 @@
 
 ## Status
 
-**Source inventory in progress; no schema/catalog/creator yet.** Solar and
-Dragon-Blooded (`docs/17-exalted-1e-foundation.md`) remain the only
-implemented, playable Exalted 1e sheets. Lunar, Abyssal, Sidereal,
-Alchemical, and Fair Folk all now have primary-source inventories checked in
-under `docs/references/exalted1e/<family>/` (see the status table below),
-but none of the five has a production schema, promoted catalog, creator
-stage, editor, or passing rules/creator/migration/browser tests yet. This
-document defines the process and release gate that governs the rest of that
-work — it is a plan for what remains, not a record of a finished feature.
+**All five planned families are certified and available for character
+creation.** Solar and Dragon-Blooded (`docs/17-exalted-1e-foundation.md`)
+were always the first implemented, playable Exalted 1e sheets. Lunar,
+Abyssal, Sidereal, Alchemical, and Fair Folk have each since gained a
+primary-source inventory, a production schema, a fully-promoted catalog, a
+creator stage, an editor, and passing rules/creator/migration/browser
+tests (see the status table below); Phase 6's single final commit then set
+`certifiedAt` on all five certification records simultaneously, once every
+one of them had reached that same point on its own real evidence (see
+"Phase 6: the all-five-together unlock" near the end of this document).
+This document still defines the process and release gate that governed
+that work, now as a record of how it was done rather than a plan for what
+remains.
 
-All five families ship together, or not at all. No family unlocks in the
-create list ahead of the other four.
+All five families shipped together, exactly as planned: no family unlocked
+in the create list ahead of the other four.
 
 ## Why this document exists
 
@@ -168,10 +172,15 @@ produce the human-readable status strings consumed by
 `src/games/exalted1e/definition.tsx`, which builds the "Unavailable" create-page
 cards for each locked family directly from this evidence (see the
 `unavailableSheetChoices` pattern already used by Call of Cthulhu 7E's Keeper
-workspace card). Today every family is locked with every field at its honest
-default (`not-run` / `0` / `null`), which is why every card reads "Locked
-pending certification" with `not-run`/`0` status text instead of a hand-written
-sentence.
+workspace card). Each family started out locked with every field at its
+honest default (`not-run` / `0` / `null`), which is why every card originally
+read "Locked pending certification" with `not-run`/`0` status text instead of
+a hand-written sentence. As of Phase 6's single final commit, all five
+planned families' certification records independently satisfy every
+dimension and share the same `certifiedAt` timestamp, so none of their cards
+carry an `unavailableRequirement` any longer — every one of the seven
+`ExaltedCharacterType`s is now a real, creatable "Character sheet" on
+`/create`.
 
 **Design note on the checksum:** `verification.ts` trusts the checksum stored
 in the certification record; it does not recompute catalog hashes inside the
@@ -183,20 +192,23 @@ exist — a future addition to the script, once there is a catalog to check.
 Removing "Locked pending certification" for a family means editing that
 family's certification JSON with real evidence (test results, catalog
 counts, a real checksum) — never flipping a hand-maintained boolean in code.
-No family may be partially unlocked; all five certification records must
-independently reach `certifiedAt !== null` before any of the five sheet
-types are added to `exaltedSheetTypes` in `definitions.ts` and exposed as a
-real, creatable sheet.
+No family was partially unlocked: all five certification records
+independently reached `certifiedAt !== null` on their own evidence (each
+with its own `tests/e2e/exalted1e-*.spec.ts`, added one family at a time
+across Phase 6), and only once every one of them had done so did a single
+final commit set `certifiedAt` on all five records simultaneously — see
+"Phase 6: the all-five-together unlock" below for that commit's own
+accounting.
 
 ## Status per family
 
-| Family     | Source manifest                                                                                                                                                         | Inventory rows | Promoted                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Certification                                                                                                                                                                     |
-| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)    | 598            | 412 of 412 promotable (catalog dimension complete, `unreviewed_spells` follow-up)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Locked; catalog/rules/creator/migration/browser tests all pass (Phase 6 browser-test evidence), `certifiedAt` deliberately `null` pending all five families together              |
-| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 505 of 505 promotable (catalog dimension complete, Phase 1e)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Locked; catalog/rules/creator/migration/browser tests all pass (Phase 6 browser-test evidence), `certifiedAt` deliberately `null` pending all five families together              |
-| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 383 of 383 promotable (catalog dimension complete, `sidereal_unreviewed_spells` follow-up)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Locked; catalog/rules/creator/migration/browser tests all pass (Phase 6 browser-test evidence), `certifiedAt` deliberately `null` pending all five families together              |
-| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 214 of 214 promotable (catalog dimension complete: Backgrounds + Merits/Flaws, Phase 1a; Charms, Phase 1b; Weaving Protocols + Alchemy Formulae, Phase 1c)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Locked; catalog/rules/creator/migration/browser tests all pass (Phase 2a-2c, Phase 6 browser-test evidence), `certifiedAt` deliberately `null` pending all five families together |
-| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 368            | 318 of 318 promotable (catalog dimension complete: Backgrounds + Merits/Flaws, Phase 1a; Graces + Bedlam + Grace-Forging/Assumption Charms, Phase 1b; Glamour Charms + remaining Greater Arts of Glamour + Pox/Affliction/Blight Charms, Phase 1c; Heart Dodge + Resistance Charms, Phase 1d; Cup Combat Charms, Phase 1e; Ring Combat Charms + All-Consuming God-Monster Style, Phase 1f; Laughing Monster Style + Society-Forging Charms, Phase 1g; Sword Combat Charms, Phase 1h; remaining Mutation Charms, Phase 1i; Name + Bedlam-Influencing Charms, Phase 1j; Mad God Mien + Elemental Influence + Emotional Influence, Phase 1k; Feeding Charms, Phase 1l; Addiction Charms, Phase 1m; World-Shaping Charms, Phase 1n; Virtue-Shaping Charms, Phase 1o; Body-Strengthening Charms + Creation-Based Crafting, Phase 1p; Way Charms, Phase 1q -- entire Charm section complete; Glamour Sorcery reference catalog, Phase 1r; Adjurations reference catalog, Phase 1s; Behemoths reference catalog, Phase 1t) | Locked; catalog/rules/creator/migration/browser tests all pass (Phase 2a-2c, Phase 6 browser-test evidence), `certifiedAt` deliberately `null` pending all five families together |
+| Family     | Source manifest                                                                                                                                                         | Inventory rows | Promoted                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Certification                                                                                                                                                                |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)    | 598            | 412 of 412 promotable (catalog dimension complete, `unreviewed_spells` follow-up)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | **Certified** (Phase 6's final all-five-together unlock commit); catalog/rules/creator/migration/browser tests all pass, `certifiedAt` set, available for character creation |
+| Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 505 of 505 promotable (catalog dimension complete, Phase 1e)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | **Certified** (Phase 6's final all-five-together unlock commit); catalog/rules/creator/migration/browser tests all pass, `certifiedAt` set, available for character creation |
+| Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 383 of 383 promotable (catalog dimension complete, `sidereal_unreviewed_spells` follow-up)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | **Certified** (Phase 6's final all-five-together unlock commit); catalog/rules/creator/migration/browser tests all pass, `certifiedAt` set, available for character creation |
+| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 214 of 214 promotable (catalog dimension complete: Backgrounds + Merits/Flaws, Phase 1a; Charms, Phase 1b; Weaving Protocols + Alchemy Formulae, Phase 1c)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | **Certified** (Phase 6's final all-five-together unlock commit); catalog/rules/creator/migration/browser tests all pass, `certifiedAt` set, available for character creation |
+| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 368            | 318 of 318 promotable (catalog dimension complete: Backgrounds + Merits/Flaws, Phase 1a; Graces + Bedlam + Grace-Forging/Assumption Charms, Phase 1b; Glamour Charms + remaining Greater Arts of Glamour + Pox/Affliction/Blight Charms, Phase 1c; Heart Dodge + Resistance Charms, Phase 1d; Cup Combat Charms, Phase 1e; Ring Combat Charms + All-Consuming God-Monster Style, Phase 1f; Laughing Monster Style + Society-Forging Charms, Phase 1g; Sword Combat Charms, Phase 1h; remaining Mutation Charms, Phase 1i; Name + Bedlam-Influencing Charms, Phase 1j; Mad God Mien + Elemental Influence + Emotional Influence, Phase 1k; Feeding Charms, Phase 1l; Addiction Charms, Phase 1m; World-Shaping Charms, Phase 1n; Virtue-Shaping Charms, Phase 1o; Body-Strengthening Charms + Creation-Based Crafting, Phase 1p; Way Charms, Phase 1q -- entire Charm section complete; Glamour Sorcery reference catalog, Phase 1r; Adjurations reference catalog, Phase 1s; Behemoths reference catalog, Phase 1t) | **Certified** (Phase 6's final all-five-together unlock commit); catalog/rules/creator/migration/browser tests all pass, `certifiedAt` set, available for character creation |
 
 Lunar's 582 rows cover the core innate powers, every Charm category in
 Chapter Five (Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat
@@ -3337,20 +3349,48 @@ in exactly the same position Abyssal/Sidereal/Lunar already occupy:
 catalog complete, all three test dimensions passing, locked only by
 `browserTests`/Phase 6.
 
-## Next steps (require source material per book)
+## Phase 6: the all-five-together unlock
 
-1. Project owner supplies scanned pages, OCR text, or transcriptions for one
-   book at a time, starting with whichever family's core book is available
-   first.
-2. Create/extend that family's `source-manifest.json` and one inventory file
-   per book under `inventory/`.
-3. Run `npm run audit:exalted-sources` and fix reported issues.
-4. Visually review each `unreviewed` row against the rendered source page;
-   set `verificationState: 'reviewed'` only after that comparison.
-5. Promote reviewed, `selectable`/`calculated` rows into a production
-   catalog file, following the existing `reference/*.json` + `.ts` wrapper
-   pattern.
-6. Only after **all five families** have complete schemas, rules, creation
-   stages, advancement wiring, and passing rules/creator/migration/browser
-   tests, update every certification record with real evidence and set
-   `certifiedAt`. Update this document's status table at the same time.
+Phase 6 closed the certification gate's last remaining dimension,
+`browserTests`, one family at a time: Lunar first (`tests/e2e/
+exalted1e-lunar.spec.ts`), then Abyssal, then Sidereal, then Alchemical,
+then Fair Folk fifth and last — each with its own real, rendered-browser
+Playwright spec exercising that family's guided-creation wizard,
+family-specific state panels, Charms/Merits & Flaws catalogs, and IndexedDB
+persistence. Each of those five commits flipped only that one family's own
+`browserTests` field from `'not-run'` to `'pass'`; `certifiedAt` stayed
+`null` on every record throughout, by design — a family never became
+available just because it alone had passed every dimension, including
+several (Abyssal, Sidereal, Alchemical, Fair Folk) that had every other
+dimension passing well before their own `browserTests` closed.
+
+Only once all five planned families had real, passing evidence on every
+dimension (catalog, rules, creator, migration, browser) did a single final
+commit set `certifiedAt` on all five certification records simultaneously.
+That same commit removed every `unavailableRequirement` from
+`exalted1eDefinition.variants` (a pure consequence of
+`getExaltedVerificationRequirement` now returning `undefined` for each
+family — no `definition.tsx` code changed), updated the unit tests that had
+asserted the five families stayed locked (`exalted1e-verification.test.ts`,
+`exalted1e-family-rules.test.ts`, `exalted1e-definition.test.ts`,
+`exalted1e-profiles.test.ts`, `game-system-registry.test.ts`), and rewrote
+`exalted.spec.ts`'s own lock assertions to instead confirm every one of the
+five families now shows as a real, enabled "Character sheet" card and to
+exercise Lunar's own real "Choose Lunar" button end to end (the five
+dedicated per-family specs keep their own direct-IndexedDB-injection
+fixtures, which remain valid and are now additionally joined by that one
+real-button exercise in `exalted.spec.ts`). `certification/schema.ts`'s
+`blockers` field keeps every family's own per-phase evidence trail rather
+than being cleared on certification, matching this project's existing
+convention of never deleting a certification record's narrative history.
+
+## Next steps
+
+All five planned families (Lunar, Abyssal, Sidereal, Alchemical, Fair Folk)
+are now certified and available for character creation alongside Solar and
+Dragon-Blooded, closing out this document's original scope. Any further
+work on Exalted First Edition — later editions, additional supplements for
+an already-certified family, new splats beyond these seven, or married
+features like Wyld Artifacts' own catalog — starts a new phase with its own
+real source material and its own certification record, following the same
+inventory → audit → review → promote → certify pattern documented above.

@@ -10,6 +10,7 @@ import {
   validateExaltedCreation,
 } from '../../src/games/exalted1e/family-rules';
 import { exaltedCharacterTypes } from '../../src/games/exalted1e/profiles';
+import { plannedExaltedFamilies } from '../../src/games/exalted1e/definitions';
 import {
   alchemicalCharms,
   fairFolkCharms,
@@ -22,105 +23,63 @@ import {
 } from '../../src/games/exalted1e/verification';
 
 describe('Exalted production verification gate', () => {
-  it('requires every verification dimension before a family can create records', () => {
-    expect(canCreateProductionExaltedCharacter('solar')).toBe(true);
-    expect(canCreateProductionExaltedCharacter('dragon-blooded')).toBe(true);
-
-    for (const family of exaltedCharacterTypes.filter(
-      (type) => type !== 'solar' && type !== 'dragon-blooded',
-    )) {
-      expect(canCreateProductionExaltedCharacter(family)).toBe(false);
-      expect(certificationRecords[family].blockers.length).toBeGreaterThan(0);
-      expect(getExaltedVerificationRequirement(family)).toMatch(
-        /^Source verification required:/,
-      );
+  it('allows every Exalted character type to create production records, now that all five planned families are certified', () => {
+    // Phase 6's single final commit set `certifiedAt` on all five
+    // planned families' certification records simultaneously, once
+    // every one of them had real, passing evidence on every testable
+    // dimension (catalog, rules, creator, migration, browser) -- see
+    // `exalted1e-verification.test.ts`'s own
+    // "certifies every planned family now that all five have reached
+    // certifiedAt together" test for the full per-dimension accounting.
+    // Solar and Dragon-Blooded predate this evidence-based gate entirely
+    // and were always available.
+    for (const family of exaltedCharacterTypes) {
+      expect(canCreateProductionExaltedCharacter(family)).toBe(true);
+      expect(getExaltedVerificationRequirement(family)).toBeUndefined();
     }
   });
 
-  it('keeps an incomplete family blocked even where every other dimension has passed', () => {
-    // Abyssal (Phase 1e) is the furthest along of the five planned
-    // families: its rules/creator/migration test dimensions all pass now
-    // (real coverage added this phase -- see
-    // `exalted-shared-records.test.ts`'s XP-cost tests,
-    // `exalted-creation-panel.test.tsx`, and `exalted1e-abyssal.test.ts`'s
-    // migration test), and its catalog dimension is now fully satisfied
-    // too (505/505 promoted, 0 unresolved, a real non-empty checksum -- the
-    // 5 previously source-access-blocked rows were resolved this same
-    // phase). Phase 6's own per-family incremental browser-test pass
-    // (following Lunar's precedent) then closed `browserTests` too --
-    // `tests/e2e/exalted1e-abyssal.spec.ts` provides real, rendered-browser
-    // evidence of the guided-creation wizard, the Abyssal state panel, the
-    // Charms catalog, and the shared trait catalog's Abyssal-only
-    // wiring. It still fails the overall gate for exactly one reason:
-    // `certifiedAt` deliberately stays null pending Phase 6's own rule
-    // that all five planned families reach `certifiedAt !== null`
-    // together -- a family never becomes available just because every
-    // other dimension has passed; the final certification flip must
-    // happen for all five at once.
-    expect(certificationRecords.abyssal.catalog.promotedEntries).toBe(
-      certificationRecords.abyssal.catalog.promotableEntries,
-    );
-    expect(certificationRecords.abyssal.catalog.unresolvedEntries).toBe(0);
-    expect(
-      certificationRecords.abyssal.catalog.checksum.length,
-    ).toBeGreaterThan(0);
-    expect(certificationRecords.abyssal.rulesTests).toBe('pass');
-    expect(certificationRecords.abyssal.creatorTests).toBe('pass');
-    expect(certificationRecords.abyssal.migrationTests).toBe('pass');
-    expect(certificationRecords.abyssal.browserTests).toBe('pass');
-    expect(certificationRecords.abyssal.certifiedAt).toBeNull();
-    expect(isFamilyAvailable('abyssal')).toBe(false);
-    expect(canCreateProductionExaltedCharacter('abyssal')).toBe(false);
-  });
-
-  it('keeps Lunar blocked even though every test dimension (including browserTests) and its catalog dimension now pass', () => {
-    // The "rules_creator_tests" follow-up phase added real guided-creation
-    // UI coverage (see `exalted-creation-panel.test.tsx`'s Lunar block)
-    // alongside the rules/migration coverage `exalted1e-lunar.test.ts`
-    // already had since Phases 1a-1d, so all three of those dimensions
-    // pass. The "unreviewed_spells" follow-up phase then closed Lunar's
-    // remaining catalog gap too: the last 13 of its 86 Sorcery spell rows
-    // were visually re-checked against the source PDF (zero discrepancies
-    // found) and promoted, so `promotedEntries` (412) now equals
-    // `promotableEntries` (412) and `checksum` is a real non-empty hash.
-    // Phase 6 (per-family incremental browser-test pass) then closed the
-    // last testable dimension too: `tests/e2e/exalted1e-lunar.spec.ts`
-    // provides real, rendered-browser evidence of the guided-creation
-    // wizard, the Lunar-specific family-state panels, the Charms/Merits &
-    // Flaws catalogs, and IndexedDB persistence (see `lunar.json`'s own
-    // `blockers` for the full description). Lunar now fails the overall
-    // gate for exactly one reason: `certifiedAt` deliberately stays null
-    // pending Phase 6's own rule that all five planned families reach
-    // `certifiedAt !== null` together -- a family never becomes available
-    // just because every other dimension has passed; the final
-    // certification flip must happen for all five at once.
-    expect(certificationRecords.lunar.catalog.promotedEntries).toBe(
-      certificationRecords.lunar.catalog.promotableEntries,
-    );
-    expect(certificationRecords.lunar.catalog.unresolvedEntries).toBe(0);
-    expect(certificationRecords.lunar.catalog.checksum.length).toBeGreaterThan(
-      0,
-    );
-    expect(certificationRecords.lunar.rulesTests).toBe('pass');
-    expect(certificationRecords.lunar.creatorTests).toBe('pass');
-    expect(certificationRecords.lunar.migrationTests).toBe('pass');
-    expect(certificationRecords.lunar.browserTests).toBe('pass');
-    expect(certificationRecords.lunar.certifiedAt).toBeNull();
-    expect(isFamilyAvailable('lunar')).toBe(false);
-    expect(canCreateProductionExaltedCharacter('lunar')).toBe(false);
+  it('certifies all five planned families together, each with a fully-passing record', () => {
+    // Abyssal (Phase 1e), Lunar (the "rules_creator_tests" and
+    // "unreviewed_spells" follow-up phases), Sidereal (Phase 2d and the
+    // `sidereal_unreviewed_spells` follow-up), Alchemical (Phase 2a-2c),
+    // and Fair Folk (Phase 1u catalog close-out plus Phase 2a-2c) each
+    // independently closed every dimension except `browserTests` and
+    // `certifiedAt` well before Phase 6. Phase 6 then closed
+    // `browserTests` for each family in turn, one real
+    // `tests/e2e/exalted1e-*.spec.ts` at a time, and only once every one
+    // of the five had real, passing evidence on every dimension did
+    // Phase 6's own single final commit set `certifiedAt` on all five
+    // records together -- never one at a time, even though several
+    // families individually satisfied every other dimension long before
+    // that final commit.
+    for (const family of plannedExaltedFamilies) {
+      const record = certificationRecords[family];
+      expect(record.catalog.promotedEntries).toBe(
+        record.catalog.promotableEntries,
+      );
+      expect(record.catalog.unresolvedEntries).toBe(0);
+      expect(record.catalog.checksum.length).toBeGreaterThan(0);
+      expect(record.rulesTests).toBe('pass');
+      expect(record.creatorTests).toBe('pass');
+      expect(record.migrationTests).toBe('pass');
+      expect(record.browserTests).toBe('pass');
+      expect(record.certifiedAt).not.toBeNull();
+      expect(isFamilyAvailable(family)).toBe(true);
+      expect(canCreateProductionExaltedCharacter(family)).toBe(true);
+    }
   });
 
   it('binds the creation route to the verification result', () => {
     const variants = new Map(
       exalted1eDefinition.variants?.map((variant) => [variant.id, variant]),
     );
-    expect(variants.get('solar')?.unavailableRequirement).toBeUndefined();
-    expect(variants.get('alchemical')?.unavailableRequirement).toContain(
-      'Source verification required:',
-    );
-    expect(variants.get('lunar')?.unavailableRequirement).toContain(
-      "Heart's Blood Form stat catalog",
-    );
+    // Every variant -- Solar/Dragon-Blooded (never gated) and all five
+    // planned families (gated, but now certified) -- is unconditionally
+    // creatable: `unavailableRequirement` is undefined for all seven.
+    for (const type of exaltedCharacterTypes) {
+      expect(variants.get(type)?.unavailableRequirement).toBeUndefined();
+    }
   });
 });
 

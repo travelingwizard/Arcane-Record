@@ -57,14 +57,19 @@ describe('Exalted character-family profiles', () => {
     },
   );
 
-  it('keeps unverified families unavailable in production creation', () => {
+  it('makes every planned family available in production creation now that all five are certified', () => {
+    // Phase 6's single final commit certified all five planned families
+    // (Lunar, Abyssal, Sidereal, Alchemical, Fair Folk) together, so none
+    // of them carry an `unavailableRequirement` anymore -- see
+    // `exalted1e-verification.test.ts`/`exalted1e-family-rules.test.ts`
+    // for the certification data itself.
     const variants = exalted1eDefinition.variants ?? [];
     expect(variants.map(({ id }) => id)).toEqual(exaltedCharacterTypes);
     expect(
       variants
         .filter(({ unavailableRequirement }) => unavailableRequirement)
         .map(({ id }) => id),
-    ).toEqual(['lunar', 'abyssal', 'sidereal', 'alchemical', 'fair-folk']);
+    ).toEqual([]);
   });
 
   it('migrates a v7 Solar without inferring creation history', () => {

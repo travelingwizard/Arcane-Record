@@ -11,7 +11,7 @@
   "creatorTests": "pass",
   "migrationTests": "pass",
   "browserTests": "pass",
-  "certifiedAt": null,
+  "certifiedAt": "2026-10-12T00:00:00.000Z",
   "blockers": [
     "Backgrounds, Merits/Flaws, Charms, the Great Curse, the Shapechanging rules reference, and all 86 Sorcery spells have now been promoted to a production catalog (412 of 412 recomputed promotable, 0 unresolved, a real non-empty checksum) -- the last 13 Sorcery spells were held back pending a visual re-check of their embedded stat blocks/tables and were promoted this phase once that re-check confirmed them (see notes); a per-species Heart's Blood Form stat catalog remains intentionally unimplemented (player-recorded free text by design, not a closed species list -- the source imposes none).",
     "Exalted1eEditor.tsx now has a full isLunar branch (Caste select, Backgrounds, Merits & Flaws, Charms & Sorcery) covering every catalog promoted above, including real XP-cost math and direct XP-based Charm/spell purchase (XP-rules phase) -- see notes for the favored-Ability-in-requirements design, a source-text-absent judgment call made explicitly with the project owner.",

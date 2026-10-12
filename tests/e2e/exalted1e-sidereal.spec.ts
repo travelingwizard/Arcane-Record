@@ -10,10 +10,12 @@ import { EXALTED1E_SCHEMA_VERSION } from '../../src/games/exalted1e/definitions'
  * Charms/Sorcery catalog, and IndexedDB persistence -- all exercised in
  * an actual browser engine, which is the dimension no jsdom-based
  * integration test can provide. See `tests/e2e/exalted1e-lunar.spec.ts`
- * for the full rationale behind the direct-IndexedDB-injection approach
- * (Sidereal is still locked, so the "Choose Sidereal Exalted" button on
- * `/create` stays disabled -- see `exalted.spec.ts`'s own assertion of
- * that fact).
+ * for the full rationale behind the direct-IndexedDB-injection approach,
+ * which this spec keeps using even now that Sidereal is certified and
+ * available through the normal "Create Character" screen's real "Choose
+ * Sidereal" button (see `exalted.spec.ts`'s own exercise of that exact
+ * flow for Lunar, added in Phase 6's final all-five-together unlock
+ * commit).
  */
 test('builds, saves, and persists a real Sidereal Exalted sheet through guided creation (Phase 6 browser-test evidence)', async ({
   page,

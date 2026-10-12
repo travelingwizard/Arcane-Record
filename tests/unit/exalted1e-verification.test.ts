@@ -4,6 +4,7 @@ import { plannedExaltedFamilies } from '../../src/games/exalted1e/definitions';
 import {
   canCreateProductionExaltedCharacter,
   describeCatalog,
+  describeFamilyStatus,
   evaluateCertification,
   getAllFamilyCertificationStatuses,
   getFamilyCertificationStatus,
@@ -38,16 +39,27 @@ function passingRecordFor(
 }
 
 describe('exalted1e verification gate', () => {
-  it('locks every planned family by default', () => {
+  it('certifies every planned family now that all five have reached certifiedAt together', () => {
+    // Phase 6's own per-family incremental browser-test pass closed the
+    // last testable dimension for all five planned families one at a
+    // time (Lunar, then Abyssal, then Sidereal, then Alchemical, then
+    // Fair Folk -- each with its own real `tests/e2e/exalted1e-*.spec.ts`
+    // evidence). Only once every family had real, passing evidence on
+    // every dimension did Phase 6's single final commit set
+    // `certifiedAt` on all five records simultaneously, per this
+    // project's own all-five-together unlock rule -- a family never
+    // became available just because it alone had passed every other
+    // dimension; see each record's own `blockers` for that full
+    // per-family history.
     for (const family of plannedExaltedFamilies) {
-      expect(isFamilyAvailable(family)).toBe(false);
+      expect(isFamilyAvailable(family)).toBe(true);
     }
   });
 
-  it('reports honest test evidence and an empty checksum for every planned family, even where inventory intake, catalog promotion, or test-dimension work has started', () => {
+  it('reports full, real test evidence and a non-empty checksum for every planned family', () => {
     for (const family of plannedExaltedFamilies) {
       const record = certificationRecords[family];
-      expect(record.certifiedAt).toBeNull();
+      expect(record.certifiedAt).not.toBeNull();
       // Abyssal (Phase 1e), Sidereal (Phase 2d), Lunar (the
       // "rules_creator_tests" follow-up phase), Fair Folk (Phase 2a
       // editor UI + Phase 2b XP-cost rules + Phase 2c guided-creation
@@ -55,36 +67,20 @@ describe('exalted1e verification gate', () => {
       // families whose rules/creator/migration test dimensions have real,
       // passing coverage (see `exalted-shared-records.test.ts`'s XP-cost
       // tests, `exalted-creation-panel.test.tsx`, and each family's own
-      // schema-migration test). `browserTests` now passes for all five
+      // schema-migration test). `browserTests` passes for all five
       // planned families too, via Phase 6's own per-family incremental
       // pass (`tests/e2e/exalted1e-lunar.spec.ts`,
       // `tests/e2e/exalted1e-abyssal.spec.ts`,
       // `tests/e2e/exalted1e-sidereal.spec.ts`,
       // `tests/e2e/exalted1e-alchemical.spec.ts`,
-      // `tests/e2e/exalted1e-fair-folk.spec.ts`, each of which bypasses
+      // `tests/e2e/exalted1e-fair-folk.spec.ts`, each of which bypassed
       // only the disabled "Choose <Family> Exalted" button, not any real
-      // feature code -- see each record's own `blockers`). Every family
-      // still remains fully locked regardless, purely by Phase 6's own
-      // all-five-together `certifiedAt` rule (see each record's own
-      // `blockers`), pending a single final all-five-together unlock
-      // commit.
-      if (
-        family === 'abyssal' ||
-        family === 'sidereal' ||
-        family === 'lunar' ||
-        family === 'fair-folk' ||
-        family === 'alchemical'
-      ) {
-        expect(record.rulesTests).toBe('pass');
-        expect(record.creatorTests).toBe('pass');
-        expect(record.migrationTests).toBe('pass');
-        expect(record.browserTests).toBe('pass');
-      } else {
-        expect(record.rulesTests).toBe('not-run');
-        expect(record.creatorTests).toBe('not-run');
-        expect(record.migrationTests).toBe('not-run');
-        expect(record.browserTests).toBe('not-run');
-      }
+      // feature code, while that family was still locked -- see each
+      // record's own `blockers`).
+      expect(record.rulesTests).toBe('pass');
+      expect(record.creatorTests).toBe('pass');
+      expect(record.migrationTests).toBe('pass');
+      expect(record.browserTests).toBe('pass');
       // All five families have started source intake (inventory rows > 0).
       // Abyssal (Phase 1e), Sidereal (Phase: Astrology/Colleges plus the
       // later `sidereal_unreviewed_spells` follow-up), Lunar (the
@@ -111,11 +107,9 @@ describe('exalted1e verification gate', () => {
       // of representing named Artifacts as free-text `possessions`
       // entries rather than a strict `definitionId` catalog -- so Fair
       // Folk's catalog dimension is not merely temporarily complete, it
-      // is intentionally as complete as it is ever meant to get. Even
-      // with a fully satisfied catalog dimension, `certifiedAt` stays
-      // null and every family stays locked: `browserTests` can't run
-      // before a family is unlocked, and Phase 6's rule requires all
-      // five families to reach `certifiedAt !== null` together.
+      // is intentionally as complete as it is ever meant to get. Every
+      // family's catalog dimension is now fully satisfied, matching
+      // Phase 6's own all-five-together `certifiedAt` rule above.
       expect(record.catalog.promotedEntries).toBe(
         family === 'abyssal'
           ? 505
@@ -125,17 +119,9 @@ describe('exalted1e verification gate', () => {
               ? 412
               : family === 'alchemical'
                 ? 214
-                : family === 'fair-folk'
-                  ? 318
-                  : 0,
+                : 318,
       );
-      if (
-        family === 'abyssal' ||
-        family === 'sidereal' ||
-        family === 'lunar' ||
-        family === 'alchemical' ||
-        family === 'fair-folk'
-      ) {
+      {
         // Cross-check against the audit script's own live computation
         // rather than hardcoding the hash, so this test can't silently go
         // stale if the promoted catalog changes. Lunar's catalog
@@ -199,8 +185,6 @@ describe('exalted1e verification gate', () => {
           auditFamily(family).catalogChecksum,
         );
         expect(record.catalog.checksum.length).toBeGreaterThan(0);
-      } else {
-        expect(record.catalog.checksum).toBe('');
       }
     }
   });
@@ -213,7 +197,7 @@ describe('exalted1e verification gate', () => {
     }
   });
 
-  it('reflects Lunar with its catalog dimension now fully resolved without unlocking the family', () => {
+  it('reflects Lunar with its catalog dimension now fully resolved and the family now certified', () => {
     const record = certificationRecords.lunar;
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
     // 412 = 13 Backgrounds + 87 shared Merits/Flaws catalog rows now
@@ -232,20 +216,19 @@ describe('exalted1e verification gate', () => {
     // player-recorded free text by design, not a gap). `promotedEntries`
     // (412) now exactly equals `promotableEntries` (412), so
     // `catalogDimensionPasses` returns true for Lunar for the first time.
-    // `browserTests` now passes too (Phase 6's own per-family incremental
-    // pass; see the dedicated "describes Lunar as locked" test below).
-    // Even with every testable dimension satisfied, `isFamilyAvailable`
-    // must stay false: Phase 6's rule requires all five families to reach
-    // `certifiedAt !== null` together -- exactly mirroring Abyssal's and
-    // Sidereal's own already-resolved catalog dimensions.
+    // `browserTests` also passes (Phase 6's own per-family incremental
+    // pass; see the dedicated "describes Lunar as certified" test below).
+    // With every testable dimension satisfied for every planned family,
+    // Phase 6's own single final commit set `certifiedAt` on all five
+    // records together, so `isFamilyAvailable('lunar')` now returns true.
     expect(record.catalog.promotedEntries).toBe(412);
     expect(record.catalog.promotableEntries).toBe(412);
     expect(record.catalog.unresolvedEntries).toBe(0);
     expect(record.catalog.checksum.length).toBeGreaterThan(0);
-    expect(isFamilyAvailable('lunar')).toBe(false);
+    expect(isFamilyAvailable('lunar')).toBe(true);
   });
 
-  it('reflects Abyssal source intake in progress without unlocking the family', () => {
+  it('reflects Abyssal with its catalog dimension fully resolved and the family now certified', () => {
     const record = certificationRecords.abyssal;
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
     // 505 = the 80 universal Players Guide Merits/Flaws rows, the 6 new
@@ -259,17 +242,17 @@ describe('exalted1e verification gate', () => {
     // far short of the raw `totalInventoryRows` (700), most of which is
     // free-text-by-design Artifacts/Hearthstones/Warstriders/nemissary
     // content that is never meant to become a catalog entry. `browserTests`
-    // now passes too (Phase 6's own per-family incremental pass; see the
-    // dedicated "describes Abyssal as locked" test below) -- but even with
-    // every testable dimension satisfied, `isFamilyAvailable` must stay
-    // false, since Phase 6's own all-five-together rule remains.
+    // also passes (Phase 6's own per-family incremental pass; see the
+    // dedicated "describes Abyssal as certified" test below), and Phase
+    // 6's single final commit set `certifiedAt` on all five records
+    // together, so `isFamilyAvailable('abyssal')` now returns true.
     expect(record.catalog.promotedEntries).toBe(505);
     expect(record.catalog.promotableEntries).toBe(505);
     expect(record.catalog.unresolvedEntries).toBe(0);
-    expect(isFamilyAvailable('abyssal')).toBe(false);
+    expect(isFamilyAvailable('abyssal')).toBe(true);
   });
 
-  it('reflects Sidereal source intake in progress without unlocking the family', () => {
+  it('reflects Sidereal with its catalog dimension fully resolved and the family now certified', () => {
     const record = certificationRecords.sidereal;
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
     // 383 = 12 Backgrounds (siderealBackgrounds) + 82 shared Merits/Flaws
@@ -286,37 +269,37 @@ describe('exalted1e verification gate', () => {
     // Astrology/Colleges procedural-rules rows
     // (sidereal-astrology-rules.json) -- this now equals the 383
     // `promotableEntries`, and is far short of the raw
-    // `totalInventoryRows` (583). `browserTests` now passes too (Phase 6's
+    // `totalInventoryRows` (583). `browserTests` also passes (Phase 6's
     // own per-family incremental pass; see the dedicated "describes
-    // Sidereal as locked" test below) -- but even with every testable
-    // dimension satisfied, `isFamilyAvailable('sidereal')` must stay
-    // false, since Phase 6's own all-five-together rule remains.
+    // Sidereal as certified" test below), and Phase 6's single final
+    // commit set `certifiedAt` on all five records together, so
+    // `isFamilyAvailable('sidereal')` now returns true.
     expect(record.catalog.promotedEntries).toBe(383);
     expect(record.catalog.promotableEntries).toBe(383);
     expect(record.catalog.unresolvedEntries).toBe(0);
-    expect(isFamilyAvailable('sidereal')).toBe(false);
+    expect(isFamilyAvailable('sidereal')).toBe(true);
   });
 
-  it('reflects Alchemical Phase 1a/1b/1c catalog promotion without unlocking the family', () => {
+  it('reflects Alchemical Phase 1a/1b/1c catalog promotion with the family now certified', () => {
     const record = certificationRecords.alchemical;
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
     expect(record.catalog.promotedEntries).toBe(214);
     // Phase 1c closed Alchemical's catalog dimension (214 of 214
     // promotable, same as Abyssal/Sidereal/Lunar's own fully-closed
-    // catalogs). rulesTests/creatorTests/migrationTests now all pass too
-    // (Phase 2a-2c), and `browserTests` now passes as well (Phase 6's own
+    // catalogs). rulesTests/creatorTests/migrationTests all pass too
+    // (Phase 2a-2c), and `browserTests` passes as well (Phase 6's own
     // per-family incremental pass; see the dedicated "describes Alchemical
-    // as locked" test below) -- but `certifiedAt` stays null and the
-    // family stays locked: Phase 6's rule requires all five planned
-    // families to reach `certifiedAt !== null` together.
+    // as certified" test below). Phase 6's single final commit set
+    // `certifiedAt` on all five records together, so the family is now
+    // certified.
     expect(record.catalog.promotedEntries).toBe(
       record.catalog.promotableEntries,
     );
-    expect(record.certifiedAt).toBeNull();
-    expect(isFamilyAvailable('alchemical')).toBe(false);
+    expect(record.certifiedAt).not.toBeNull();
+    expect(isFamilyAvailable('alchemical')).toBe(true);
   });
 
-  it('reflects Fair Folk Phase 1a/1b/1c/1d/1e/1f/1g/1h/1i/1j/1k/1l/1m/1n/1o/1p/1q/1r/1s/1t catalog promotion without unlocking the family', () => {
+  it('reflects Fair Folk Phase 1a/1b/1c/1d/1e/1f/1g/1h/1i/1j/1k/1l/1m/1n/1o/1p/1q/1r/1s/1t catalog promotion with the family now certified', () => {
     const record = certificationRecords['fair-folk'];
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
     // 318 = Phase 1a's 88 (13 Backgrounds (fairFolkBackgrounds) + 75 shared
@@ -420,7 +403,7 @@ describe('exalted1e verification gate', () => {
     // again by adding the sixth, `fair-folk-behemoths.json`.
     expect(record.catalog.promotedEntries).toBe(318);
     expect(record.catalog.checksum.length).toBeGreaterThan(0);
-    expect(isFamilyAvailable('fair-folk')).toBe(false);
+    expect(isFamilyAvailable('fair-folk')).toBe(true);
   });
 
   it('every checked-in certification record validates against the schema', () => {
@@ -483,174 +466,147 @@ describe('exalted1e verification gate', () => {
     expect(evaluateCertification(zeroRowRecord)).toBe(false);
   });
 
-  it('describes each real planned family locked with concrete promotion-count evidence, not a generic message', () => {
+  it('describes each real planned family as certified, not with a generic message', () => {
+    // Phase 6's single final commit set `certifiedAt` on all five
+    // planned families' certification records simultaneously, once every
+    // one of them had real, passing evidence on every testable dimension
+    // (catalog, rules, creator, migration, browser). `getFamilyCertificationStatus`
+    // now reports each family `available` with a null `blockReason` --
+    // `describeFamilyStatus` itself only returns dimension-by-dimension
+    // wording while a family is still locked, so once certified the
+    // concrete per-family promotion-count evidence instead lives in each
+    // of the five dedicated "describes <Family> as certified" tests
+    // below and in `exalted1e-family-rules.test.ts`'s own
+    // "certifies all five planned families together" test.
     for (const family of plannedExaltedFamilies) {
       const status = getFamilyCertificationStatus(family);
-      const {
-        totalInventoryRows,
-        promotableEntries,
-        promotedEntries,
-        unresolvedEntries,
-      } = certificationRecords[family].catalog;
-      expect(status.available).toBe(false);
-      expect(status.blockReason).toContain(
-        `catalog ${promotedEntries}/${promotableEntries} promoted (${totalInventoryRows} total inventory rows), ${unresolvedEntries} unresolved`,
+      expect(status.available).toBe(true);
+      expect(status.blockReason).toBeNull();
+      expect(describeFamilyStatus(family)).toBe(
+        `Certified ${certificationRecords[family].certifiedAt}.`,
       );
-      // Abyssal (Phase 1e), Sidereal (Phase 2d), Lunar (the
-      // "rules_creator_tests" follow-up phase), Fair Folk (Phase 2a-2c),
-      // and Alchemical (the same Phase 2a-2c arc) are the five families
-      // whose rules/creator/migration dimensions now pass (see the
-      // previous test's comment). Lunar, Abyssal, Sidereal, Alchemical,
-      // and (as of Phase 6's fifth and final per-family pass) Fair Folk
-      // all now have a passing browser dimension too -- all five planned
-      // families have passed every testable dimension, though
-      // `certifiedAt` stays null on every record until Phase 6's own
-      // single final all-five-together unlock commit.
-      if (
-        family === 'abyssal' ||
-        family === 'sidereal' ||
-        family === 'lunar' ||
-        family === 'fair-folk' ||
-        family === 'alchemical'
-      ) {
-        expect(status.blockReason).toContain('rules tests pass');
-        expect(status.blockReason).toContain('creator tests pass');
-        expect(status.blockReason).toContain('migration tests pass');
-        expect(status.blockReason).toContain('browser tests pass');
-      } else {
-        expect(status.blockReason).toContain('rules tests not-run');
-        expect(status.blockReason).toContain('creator tests not-run');
-        expect(status.blockReason).toContain('migration tests not-run');
-        expect(status.blockReason).toContain('browser tests not-run');
-      }
     }
   });
 
-  it('describes Lunar as locked with its now-complete catalog dimension and its real browser-test evidence, despite every testable dimension passing', () => {
-    // Lunar is the first of the five planned families with real
+  it('describes Lunar as certified, with its now-complete catalog dimension and its real browser-test evidence', () => {
+    // Lunar was the first of the five planned families to earn real
     // browser-test evidence (Phase 6's own per-family incremental pass,
     // `tests/e2e/exalted1e-lunar.spec.ts`) -- every testable dimension
-    // (catalog, rules, creator, migration, browser) now passes, yet
-    // `isFamilyAvailable`/`canCreateProductionExaltedCharacter` must still
-    // return false: `certifiedAt` deliberately stays null pending Phase
-    // 6's own rule that all five planned families reach
-    // `certifiedAt !== null` together.
-    const status = getFamilyCertificationStatus('lunar');
-    expect(status.available).toBe(false);
-    expect(status.blockReason).toContain('412/412 promoted');
-    expect(status.blockReason).toContain('0 unresolved');
-    expect(status.blockReason).toContain('rules tests pass');
-    expect(status.blockReason).toContain('creator tests pass');
-    expect(status.blockReason).toContain('migration tests pass');
-    expect(status.blockReason).toContain('browser tests pass');
-    expect(isFamilyAvailable('lunar')).toBe(false);
-    expect(canCreateProductionExaltedCharacter('lunar')).toBe(false);
+    // (catalog, rules, creator, migration, browser) passes, and once all
+    // five planned families reached that same point, Phase 6's single
+    // final commit set `certifiedAt` on every record together, making
+    // `isFamilyAvailable`/`canCreateProductionExaltedCharacter` both true.
+    const record = certificationRecords.lunar;
+    expect(record.catalog.promotedEntries).toBe(412);
+    expect(record.catalog.promotableEntries).toBe(412);
+    expect(record.catalog.unresolvedEntries).toBe(0);
+    expect(record.rulesTests).toBe('pass');
+    expect(record.creatorTests).toBe('pass');
+    expect(record.migrationTests).toBe('pass');
+    expect(record.browserTests).toBe('pass');
+    expect(record.certifiedAt).not.toBeNull();
+    expect(isFamilyAvailable('lunar')).toBe(true);
+    expect(canCreateProductionExaltedCharacter('lunar')).toBe(true);
   });
 
-  it('describes Abyssal as locked with its now-complete catalog dimension and its real browser-test evidence, despite every testable dimension passing', () => {
-    // Abyssal is the second of the five planned families with real
+  it('describes Abyssal as certified, with its now-complete catalog dimension and its real browser-test evidence', () => {
+    // Abyssal was the second of the five planned families to earn real
     // browser-test evidence (Phase 6's own per-family incremental pass,
-    // `tests/e2e/exalted1e-abyssal.spec.ts`) -- every testable dimension
-    // now passes, yet `isFamilyAvailable`/`canCreateProductionExaltedCharacter`
-    // must still return false: `certifiedAt` deliberately stays null
-    // pending Phase 6's own all-five-together rule.
-    const status = getFamilyCertificationStatus('abyssal');
-    expect(status.available).toBe(false);
-    expect(status.blockReason).toContain('505/505 promoted');
-    expect(status.blockReason).toContain('0 unresolved');
-    expect(status.blockReason).toContain('rules tests pass');
-    expect(status.blockReason).toContain('creator tests pass');
-    expect(status.blockReason).toContain('migration tests pass');
-    expect(status.blockReason).toContain('browser tests pass');
-    expect(isFamilyAvailable('abyssal')).toBe(false);
-    expect(canCreateProductionExaltedCharacter('abyssal')).toBe(false);
+    // `tests/e2e/exalted1e-abyssal.spec.ts`); Phase 6's single final
+    // commit then set `certifiedAt` on every record together.
+    const record = certificationRecords.abyssal;
+    expect(record.catalog.promotedEntries).toBe(505);
+    expect(record.catalog.promotableEntries).toBe(505);
+    expect(record.catalog.unresolvedEntries).toBe(0);
+    expect(record.rulesTests).toBe('pass');
+    expect(record.creatorTests).toBe('pass');
+    expect(record.migrationTests).toBe('pass');
+    expect(record.browserTests).toBe('pass');
+    expect(record.certifiedAt).not.toBeNull();
+    expect(isFamilyAvailable('abyssal')).toBe(true);
+    expect(canCreateProductionExaltedCharacter('abyssal')).toBe(true);
   });
 
-  it('describes Sidereal as locked with its now-complete catalog dimension and its real browser-test evidence, despite every testable dimension passing', () => {
-    // Sidereal is the third of the five planned families with real
+  it('describes Sidereal as certified, with its now-complete catalog dimension and its real browser-test evidence', () => {
+    // Sidereal was the third of the five planned families to earn real
     // browser-test evidence (Phase 6's own per-family incremental pass,
-    // `tests/e2e/exalted1e-sidereal.spec.ts`) -- like Abyssal, Sidereal's
-    // catalog dimension is also fully resolved (383 of 383 promotable
-    // rows, including its own Astrology/Colleges system's 10
-    // procedural-rules rows and all 86 Sorcery spells after the
-    // `sidereal_unreviewed_spells` follow-up phase), and
-    // rulesTests/creatorTests/migrationTests all pass (Phase 2d). Every
-    // testable dimension now passes, yet
-    // `isFamilyAvailable`/`canCreateProductionExaltedCharacter` must still
-    // return false: `certifiedAt` deliberately stays null pending Phase
-    // 6's own all-five-together rule.
-    const status = getFamilyCertificationStatus('sidereal');
-    expect(status.available).toBe(false);
-    expect(status.blockReason).toContain('383/383 promoted');
-    expect(status.blockReason).toContain('0 unresolved');
-    expect(status.blockReason).toContain('rules tests pass');
-    expect(status.blockReason).toContain('creator tests pass');
-    expect(status.blockReason).toContain('migration tests pass');
-    expect(status.blockReason).toContain('browser tests pass');
-    expect(isFamilyAvailable('sidereal')).toBe(false);
-    expect(canCreateProductionExaltedCharacter('sidereal')).toBe(false);
+    // `tests/e2e/exalted1e-sidereal.spec.ts`), with its own
+    // Astrology/Colleges system's 10 procedural-rules rows and all 86
+    // Sorcery spells (after the `sidereal_unreviewed_spells` follow-up
+    // phase) among its 383 promoted rows; Phase 6's single final commit
+    // then set `certifiedAt` on every record together.
+    const record = certificationRecords.sidereal;
+    expect(record.catalog.promotedEntries).toBe(383);
+    expect(record.catalog.promotableEntries).toBe(383);
+    expect(record.catalog.unresolvedEntries).toBe(0);
+    expect(record.rulesTests).toBe('pass');
+    expect(record.creatorTests).toBe('pass');
+    expect(record.migrationTests).toBe('pass');
+    expect(record.browserTests).toBe('pass');
+    expect(record.certifiedAt).not.toBeNull();
+    expect(isFamilyAvailable('sidereal')).toBe(true);
+    expect(canCreateProductionExaltedCharacter('sidereal')).toBe(true);
   });
 
-  it('describes Fair Folk as locked with its now-complete catalog dimension and its real browser-test evidence, despite every testable dimension passing', () => {
-    // Fair Folk is the fifth and final of the five planned families with
+  it('describes Fair Folk as certified, with its now-complete catalog dimension and its real browser-test evidence', () => {
+    // Fair Folk was the fifth and final of the five planned families to
+    // earn real browser-test evidence (Phase 6's own per-family
+    // incremental pass, `tests/e2e/exalted1e-fair-folk.spec.ts`); its
+    // catalog dimension closed out in Phase 1u (318/318, no Wyld
+    // Artifacts gap left to fill), and rulesTests/creatorTests/
+    // migrationTests all pass after Phase 2a (editor UI branch), Phase
+    // 2b (flat-cost XP rules, no Favored/Unfavored split needed per the
+    // source's own Experience table), and Phase 2c (guided-creation-panel
+    // coverage for the Standard/Common/Heroic-commoner tracks and the
+    // Second-Caste rule). With Fair Folk's own evidence complete, every
+    // one of the five planned families had passed every testable
+    // dimension, and Phase 6's single final commit set `certifiedAt` on
+    // all five records simultaneously.
+    const record = certificationRecords['fair-folk'];
+    expect(record.catalog.promotedEntries).toBe(318);
+    expect(record.catalog.promotableEntries).toBe(318);
+    expect(record.catalog.unresolvedEntries).toBe(0);
+    expect(record.rulesTests).toBe('pass');
+    expect(record.creatorTests).toBe('pass');
+    expect(record.migrationTests).toBe('pass');
+    expect(record.browserTests).toBe('pass');
+    expect(record.certifiedAt).not.toBeNull();
+    expect(isFamilyAvailable('fair-folk')).toBe(true);
+    expect(canCreateProductionExaltedCharacter('fair-folk')).toBe(true);
+  });
+
+  it('describes Alchemical as certified, with its now-complete catalog dimension and its real browser-test evidence', () => {
+    // Alchemical was the fourth of the five planned families to earn
     // real browser-test evidence (Phase 6's own per-family incremental
-    // pass, `tests/e2e/exalted1e-fair-folk.spec.ts`) -- its catalog
-    // dimension closed out in Phase 1u (318/318, no Wyld Artifacts gap
-    // left to fill), and rulesTests/creatorTests/migrationTests all pass
-    // after Phase 2a (editor UI branch), Phase 2b (flat-cost XP rules, no
-    // Favored/Unfavored split needed per the source's own Experience
+    // pass, `tests/e2e/exalted1e-alchemical.spec.ts`); its catalog
+    // dimension closed out in Phase 1c (214/214, Backgrounds +
+    // Merits/Flaws + Charms + Weaving Protocols + Alchemy Formulae all
+    // promoted), and rulesTests/creatorTests/migrationTests all pass
+    // after Phase 2a (editor UI branch), Phase 2b (flat/echelon-keyed
+    // XP-cost rules, per Exalted: The Autochthonians' own Experience
     // table), and Phase 2c (guided-creation-panel coverage for the
-    // Standard/Common/Heroic-commoner tracks and the Second-Caste rule).
-    // Every testable dimension now passes for all five planned families,
-    // yet `isFamilyAvailable`/`canCreateProductionExaltedCharacter` must
-    // still return false: `certifiedAt` deliberately stays null on every
-    // record pending Phase 6's own single final all-five-together unlock
-    // commit.
-    const status = getFamilyCertificationStatus('fair-folk');
-    expect(status.available).toBe(false);
-    expect(status.blockReason).toContain('318/318 promoted');
-    expect(status.blockReason).toContain('0 unresolved');
-    expect(status.blockReason).toContain('rules tests pass');
-    expect(status.blockReason).toContain('creator tests pass');
-    expect(status.blockReason).toContain('migration tests pass');
-    expect(status.blockReason).toContain('browser tests pass');
-    expect(isFamilyAvailable('fair-folk')).toBe(false);
-    expect(canCreateProductionExaltedCharacter('fair-folk')).toBe(false);
+    // five-Caste, three-Favored-Attribute creation flow); Phase 6's
+    // single final commit then set `certifiedAt` on every record
+    // together.
+    const record = certificationRecords.alchemical;
+    expect(record.catalog.promotedEntries).toBe(214);
+    expect(record.catalog.promotableEntries).toBe(214);
+    expect(record.catalog.unresolvedEntries).toBe(0);
+    expect(record.rulesTests).toBe('pass');
+    expect(record.creatorTests).toBe('pass');
+    expect(record.migrationTests).toBe('pass');
+    expect(record.browserTests).toBe('pass');
+    expect(record.certifiedAt).not.toBeNull();
+    expect(isFamilyAvailable('alchemical')).toBe(true);
+    expect(canCreateProductionExaltedCharacter('alchemical')).toBe(true);
   });
 
-  it('describes Alchemical as locked with its now-complete catalog dimension and its real browser-test evidence, despite every testable dimension passing', () => {
-    // Alchemical is the fourth of the five planned families with real
-    // browser-test evidence (Phase 6's own per-family incremental pass,
-    // `tests/e2e/exalted1e-alchemical.spec.ts`) -- its catalog dimension
-    // closed out in Phase 1c (214/214, Backgrounds + Merits/Flaws +
-    // Charms + Weaving Protocols + Alchemy Formulae all promoted), and
-    // rulesTests/creatorTests/migrationTests all pass after Phase 2a
-    // (editor UI branch), Phase 2b (flat/echelon-keyed XP-cost rules, per
-    // Exalted: The Autochthonians' own Experience table), and Phase 2c
-    // (guided-creation-panel coverage for the five-Caste,
-    // three-Favored-Attribute creation flow). Every testable dimension
-    // now passes, yet
-    // `isFamilyAvailable`/`canCreateProductionExaltedCharacter` must
-    // still return false: `certifiedAt` deliberately stays null pending
-    // Phase 6's own all-five-together rule.
-    const status = getFamilyCertificationStatus('alchemical');
-    expect(status.available).toBe(false);
-    expect(status.blockReason).toContain('214/214 promoted');
-    expect(status.blockReason).toContain('0 unresolved');
-    expect(status.blockReason).toContain('rules tests pass');
-    expect(status.blockReason).toContain('creator tests pass');
-    expect(status.blockReason).toContain('migration tests pass');
-    expect(status.blockReason).toContain('browser tests pass');
-    expect(isFamilyAvailable('alchemical')).toBe(false);
-    expect(canCreateProductionExaltedCharacter('alchemical')).toBe(false);
-  });
-
-  it('returns one status entry per planned family', () => {
+  it('returns one status entry per planned family, all now available', () => {
     const statuses = getAllFamilyCertificationStatuses();
     expect(statuses.map((status) => status.family)).toEqual([
       ...plannedExaltedFamilies,
     ]);
-    expect(statuses.every((status) => !status.available)).toBe(true);
+    expect(statuses.every((status) => status.available)).toBe(true);
   });
 
   describe('evaluateCertification against a hypothetical fully-passing record (fixture only, not real evidence)', () => {

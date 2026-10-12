@@ -269,6 +269,12 @@ if (isRunAsCli()) {
   }
 
   console.log(
-    '\naudit:exalted-sources: no inventory errors. All five splats remain locked pending source material and certification (see docs/18-exalted1e-splat-release.md).',
+    '\naudit:exalted-sources: no inventory errors. This script only audits each ' +
+      "family's raw source inventory and family-prefixed promoted catalog " +
+      'files on disk -- it does not read certification/*.json and does not ' +
+      'by itself determine whether a family is available for character ' +
+      'creation. See docs/18-exalted1e-splat-release.md and ' +
+      '../src/games/exalted1e/verification.ts for that gate; as of Phase 6, ' +
+      'all five planned families have been certified and are available.',
   );
 }
