@@ -69,22 +69,27 @@ describe('Exalted production verification gate', () => {
     expect(canCreateProductionExaltedCharacter('abyssal')).toBe(false);
   });
 
-  it('keeps Lunar blocked even though every test dimension and its catalog dimension now pass', () => {
+  it('keeps Lunar blocked even though every test dimension (including browserTests) and its catalog dimension now pass', () => {
     // The "rules_creator_tests" follow-up phase added real guided-creation
     // UI coverage (see `exalted-creation-panel.test.tsx`'s Lunar block)
     // alongside the rules/migration coverage `exalted1e-lunar.test.ts`
     // already had since Phases 1a-1d, so all three of those dimensions
-    // pass. The later "unreviewed_spells" follow-up phase then closed
-    // Lunar's remaining catalog gap too: the last 13 of its 86 Sorcery
-    // spell rows were visually re-checked against the source PDF (zero
-    // discrepancies found) and promoted, so `promotedEntries` (412) now
-    // equals `promotableEntries` (412) and `checksum` is a real non-empty
-    // hash -- Lunar's situation is now identical in kind to Abyssal's
-    // above. It still fails the overall gate for the same two reasons
-    // Abyssal does: `browserTests` cannot run until the family is
-    // unlocked, and `certifiedAt` deliberately stays null pending Phase
-    // 6's rule that all five planned families reach `certifiedAt !== null`
-    // together.
+    // pass. The "unreviewed_spells" follow-up phase then closed Lunar's
+    // remaining catalog gap too: the last 13 of its 86 Sorcery spell rows
+    // were visually re-checked against the source PDF (zero discrepancies
+    // found) and promoted, so `promotedEntries` (412) now equals
+    // `promotableEntries` (412) and `checksum` is a real non-empty hash.
+    // Phase 6 (per-family incremental browser-test pass) then closed the
+    // last testable dimension too: `tests/e2e/exalted1e-lunar.spec.ts`
+    // provides real, rendered-browser evidence of the guided-creation
+    // wizard, the Lunar-specific family-state panels, the Charms/Merits &
+    // Flaws catalogs, and IndexedDB persistence (see `lunar.json`'s own
+    // `blockers` for the full description). Lunar now fails the overall
+    // gate for exactly one reason: `certifiedAt` deliberately stays null
+    // pending Phase 6's own rule that all five planned families reach
+    // `certifiedAt !== null` together -- a family never becomes available
+    // just because every other dimension has passed; the final
+    // certification flip must happen for all five at once.
     expect(certificationRecords.lunar.catalog.promotedEntries).toBe(
       certificationRecords.lunar.catalog.promotableEntries,
     );
@@ -95,7 +100,7 @@ describe('Exalted production verification gate', () => {
     expect(certificationRecords.lunar.rulesTests).toBe('pass');
     expect(certificationRecords.lunar.creatorTests).toBe('pass');
     expect(certificationRecords.lunar.migrationTests).toBe('pass');
-    expect(certificationRecords.lunar.browserTests).not.toBe('pass');
+    expect(certificationRecords.lunar.browserTests).toBe('pass');
     expect(certificationRecords.lunar.certifiedAt).toBeNull();
     expect(isFamilyAvailable('lunar')).toBe(false);
     expect(canCreateProductionExaltedCharacter('lunar')).toBe(false);
