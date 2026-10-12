@@ -15,6 +15,7 @@ import {
 import type { SiderealCharmDefinition } from './reference/sidereal-powers';
 import type { LunarCharmDefinition } from './reference/lunar-powers';
 import type { FairFolkCharmDefinition } from './reference/fair-folk-powers';
+import type { AlchemicalCharmDefinition } from './reference/alchemical-powers';
 import {
   getAbyssalPowerExperienceCost,
   getDragonBloodedPowerExperienceCost,
@@ -63,7 +64,34 @@ const categoryLabels: Record<DragonBloodedCharmDefinition['category'], string> =
  * point-buy "build a custom spell" system with no `definitionId`-style
  * catalog (see `FairFolkGracesPanel.tsx`'s own reference-only card), not a
  * fixed spell list like Sorcery/Necromancy.
+ * `AlchemicalCharmDefinition` (Alchemical Phase 2a) likewise matches
+ * `LunarCharmDefinition`'s shape field-for-field and needs no adapter.
+ * Alchemical's other catalog, Weaving Protocols, has a genuinely different
+ * shape (Clarity-gated rather than Ability/Essence-gated), so rather than
+ * widen `DragonBloodedCharmDefinition`/`TerrestrialSpellDefinition`
+ * themselves, `Exalted1eEditor.tsx`'s own adapter converts each one into
+ * an `AlchemicalWeavingProtocolPower` (declared just below): the base
+ * `DragonBloodedPowerDefinition` interface narrowed to `kind:
+ * 'weaving-protocol'`, carrying only the fields every generic rendering
+ * code path below actually needs. Narrowing `kind` to its own distinct
+ * literal (rather than reusing the base interface's wider
+ * `'charm' | 'spell' | 'weaving-protocol'` as-is) keeps every existing
+ * `definition.kind === 'charm'` check below correctly excluding it, the
+ * same way `DragonBloodedCharmDefinition`'s own `kind: 'charm'` narrowing
+ * already works. See the adapter's own doc comment for the full field
+ * mapping.
  */
+export interface AlchemicalWeavingProtocolPower extends DragonBloodedPowerDefinition {
+  kind: 'weaving-protocol';
+  // Declared (unlike every other field this interface adds nothing for)
+  // so `getPowerExperienceCost`'s `'exaltType' in definition` check
+  // correctly narrows this type into its `'alchemical'` defensive-throw
+  // branch instead of silently falling through to the final
+  // Dragon-Blooded-cost branch, which cannot structurally accept it (see
+  // that function's own doc comment).
+  exaltType: 'alchemical';
+}
+
 export type ExaltedPowerDefinition =
   | DragonBloodedCharmDefinition
   | TerrestrialSpellDefinition
@@ -71,7 +99,9 @@ export type ExaltedPowerDefinition =
   | AbyssalNecromancySpellDefinition
   | SiderealCharmDefinition
   | LunarCharmDefinition
-  | FairFolkCharmDefinition;
+  | FairFolkCharmDefinition
+  | AlchemicalCharmDefinition
+  | AlchemicalWeavingProtocolPower;
 
 const DEFAULT_SORCERY_ADVISORY =
   'Advisory: standard Dragon-Blooded sorcery requires the Terrestrial Circle Sorcery Charm (Occult 3, Essence 3). Spell selection remains available because this is an editable sheet, not a rules engine.';
@@ -105,7 +135,17 @@ function charmCaste(definition: ExaltedPowerDefinition): string | null {
  * when it is `'fair-folk'`. Solar definitions also lack `exaltType`, but
  * the Solar branch never passes `character`, so this function is only
  * ever reached with `character` defined for Dragon-Blooded/Abyssal/
- * Sidereal/Lunar/Fair-Folk callers today.
+ * Sidereal/Lunar/Fair-Folk callers today. Alchemical Charms also carry
+ * `exaltType: 'alchemical'`, but Alchemical's own editor call site (Phase
+ * 2a) deliberately omits `character`/`onLearnWithExperience` entirely --
+ * matching every other family's own pre-XP-rules-phase placeholder (Lunar,
+ * Fair Folk) -- so the `'alchemical'` branch below throws defensively
+ * rather than silently falling through to Sidereal's unrelated
+ * favored-Auspicious-Ability cost math. A future XP-rules phase should
+ * design Alchemical's own real cost function (its Experience table is
+ * keyed to Favored/Caste Attributes, not Favored Abilities or Castes, so
+ * it needs its own math, not a borrowed one) and replace this throw with a
+ * real dispatch, exactly like Fair Folk's own Phase 2a -> Phase 2b history.
  */
 function getPowerExperienceCost(
   character: Exalted1eCharacter,
@@ -121,6 +161,11 @@ function getPowerExperienceCost(
     if (definition.exaltType === 'fair-folk') {
       return getFairFolkPowerExperienceCost(definition);
     }
+    if (definition.exaltType === 'alchemical') {
+      throw new Error(
+        "Alchemical XP-cost rules are not yet implemented (Phase 2a defers this to a future XP-rules phase); this branch should never execute since the editor's own Alchemical call site omits character/onLearnWithExperience entirely.",
+      );
+    }
     return getSiderealPowerExperienceCost(character, definition);
   }
   return getDragonBloodedPowerExperienceCost(character, definition);
@@ -134,6 +179,12 @@ function getPowerExperienceCost(
  * (should not happen for any current catalog, but keeps this function total).
  */
 function spellCircleLabel(definition: ExaltedPowerDefinition): string {
+  // Alchemical's adapted Weaving Protocols (Phase 2a; see
+  // `Exalted1eEditor.tsx`'s own adapter) carry `kind: 'weaving-protocol'`
+  // with neither `alternateCircleName` nor `circle` -- checked first so
+  // they get their own real label instead of falling through to the
+  // generic "Spell" fallback meant for an unexpected/future shape.
+  if (definition.kind === 'weaving-protocol') return 'Weaving Protocol';
   const alternateCircleName =
     'alternateCircleName' in definition ? definition.alternateCircleName : null;
   if (alternateCircleName) return alternateCircleName;
@@ -249,7 +300,12 @@ export function ExaltedPowersSection({
     [suppliedDefinitions],
   );
   const definitions = allDefinitions.filter(({ kind }) =>
-    activeKind === 'charms' ? kind === 'charm' : kind === 'spell',
+    // 'spells' tab also carries Alchemical's adapted 'weaving-protocol'
+    // kind (Phase 2a) alongside ordinary 'spell' kinds -- "anything that
+    // isn't a Charm" rather than a literal 'spell' check, since both kinds
+    // belong to the same `powers.spells` schema bucket (see
+    // `alchemicalWeavingProtocolIds` in `schema.ts`).
+    activeKind === 'charms' ? kind === 'charm' : kind !== 'charm',
   );
   const selections = powers[activeKind];
   const selectedIds = new Set(
@@ -271,7 +327,8 @@ export function ExaltedPowersSection({
                 | AbyssalCharmDefinition
                 | SiderealCharmDefinition
                 | LunarCharmDefinition
-                | FairFolkCharmDefinition => entry.kind === 'charm',
+                | FairFolkCharmDefinition
+                | AlchemicalCharmDefinition => entry.kind === 'charm',
             )
             // Lunar's own `ability` is always `null` (no single Ability
             // governs a whole Charm-category there -- see
@@ -429,7 +486,9 @@ export function ExaltedPowersSection({
                     <p className="eyebrow">
                       {definition.kind === 'charm'
                         ? 'Charm'
-                        : `${spellCircleLabel(definition)} spell`}
+                        : definition.kind === 'weaving-protocol'
+                          ? spellCircleLabel(definition)
+                          : `${spellCircleLabel(definition)} spell`}
                     </p>
                     <h3>{definition.name}</h3>
                   </div>

@@ -3,9 +3,13 @@ import {
   SheetCard,
   SheetField,
   SheetFieldGrid,
+  SheetNotice,
 } from '../../components/layout/SheetPrimitives';
 import type { Exalted1eCharacter } from './schema';
-import { alchemicalCharmById } from './reference/alchemical-powers';
+import {
+  alchemicalCharmById,
+  alchemicalFormulae,
+} from './reference/alchemical-powers';
 
 type AlchemicalFamilyState = Extract<
   Exalted1eCharacter['familyState'],
@@ -68,96 +72,127 @@ export function AlchemicalInstallationPanel({
   }, 0);
 
   return (
-    <SheetCard density="compact">
-      <h3>Alchemical installation</h3>
-      <p className="section-note">
-        Clarity (Exalted: The Autochthonians, p. 69) replaces the Limit Trait
-        for this splat. Permanent Clarity is effectively irreversible (gained
-        from Essence above 5 or certain installed Charms); temporary Clarity
-        fluctuates with play. Their sum can never exceed 10.
-      </p>
-      <SheetFieldGrid columns={2}>
-        <SheetField label="Permanent Clarity">
-          <DotRating
-            label="Permanent Clarity"
-            value={state.clarityPermanent}
-            max={10 - state.clarityTemporary}
-            onChange={(clarityPermanent) =>
-              onChange({ ...state, clarityPermanent })
-            }
-          />
-        </SheetField>
-        <SheetField label="Temporary Clarity">
-          <DotRating
-            label="Temporary Clarity"
-            value={state.clarityTemporary}
-            max={10 - state.clarityPermanent}
-            onChange={(clarityTemporary) =>
-              onChange({ ...state, clarityTemporary })
-            }
-          />
-        </SheetField>
-        <SheetField label="Dedicated Slots">
-          <input
-            type="number"
-            min={0}
-            value={state.dedicatedSlots}
-            disabled={!buildMode}
-            onChange={(event) =>
-              onChange({
-                ...state,
-                dedicatedSlots: Number.parseInt(event.target.value, 10) || 0,
-              })
-            }
-          />
-        </SheetField>
-        <SheetField label="General Slots">
-          <input
-            type="number"
-            min={0}
-            value={state.generalSlots}
-            disabled={!buildMode}
-            onChange={(event) =>
-              onChange({
-                ...state,
-                generalSlots: Number.parseInt(event.target.value, 10) || 0,
-              })
-            }
-          />
-        </SheetField>
-      </SheetFieldGrid>
-      <p>
-        {installed.length} of {totalSlots} Slots installed ·{' '}
-        {committedInstallationMotes} installation motes committed
-      </p>
-      {character.powers.charms.map((charm) => {
-        const isInstalled = state.installedCharmIds.includes(
-          charm.definitionId,
-        );
-        return (
-          <label className="choice-row" key={charm.id}>
+    <>
+      <SheetCard density="compact">
+        <h3>Alchemical installation</h3>
+        <p className="section-note">
+          Clarity (Exalted: The Autochthonians, p. 69) replaces the Limit Trait
+          for this splat. Permanent Clarity is effectively irreversible (gained
+          from Essence above 5 or certain installed Charms); temporary Clarity
+          fluctuates with play. Their sum can never exceed 10.
+        </p>
+        <SheetFieldGrid columns={2}>
+          <SheetField label="Permanent Clarity">
+            <DotRating
+              label="Permanent Clarity"
+              value={state.clarityPermanent}
+              max={10 - state.clarityTemporary}
+              onChange={(clarityPermanent) =>
+                onChange({ ...state, clarityPermanent })
+              }
+            />
+          </SheetField>
+          <SheetField label="Temporary Clarity">
+            <DotRating
+              label="Temporary Clarity"
+              value={state.clarityTemporary}
+              max={10 - state.clarityPermanent}
+              onChange={(clarityTemporary) =>
+                onChange({ ...state, clarityTemporary })
+              }
+            />
+          </SheetField>
+          <SheetField label="Dedicated Slots">
             <input
-              type="checkbox"
-              checked={isInstalled}
-              disabled={!isInstalled && atCapacity}
+              type="number"
+              min={0}
+              value={state.dedicatedSlots}
+              disabled={!buildMode}
               onChange={(event) =>
                 onChange({
                   ...state,
-                  installedCharmIds: event.target.checked
-                    ? [...state.installedCharmIds, charm.definitionId]
-                    : state.installedCharmIds.filter(
-                        (id) => id !== charm.definitionId,
-                      ),
+                  dedicatedSlots: Number.parseInt(event.target.value, 10) || 0,
                 })
               }
             />
-            <span>
-              {alchemicalCharmById.get(charm.definitionId)?.name ??
-                charm.definitionId}
-            </span>
-          </label>
-        );
-      })}
-    </SheetCard>
+          </SheetField>
+          <SheetField label="General Slots">
+            <input
+              type="number"
+              min={0}
+              value={state.generalSlots}
+              disabled={!buildMode}
+              onChange={(event) =>
+                onChange({
+                  ...state,
+                  generalSlots: Number.parseInt(event.target.value, 10) || 0,
+                })
+              }
+            />
+          </SheetField>
+        </SheetFieldGrid>
+        <p>
+          {installed.length} of {totalSlots} Slots installed ·{' '}
+          {committedInstallationMotes} installation motes committed
+        </p>
+        {character.powers.charms.map((charm) => {
+          const isInstalled = state.installedCharmIds.includes(
+            charm.definitionId,
+          );
+          return (
+            <label className="choice-row" key={charm.id}>
+              <input
+                type="checkbox"
+                checked={isInstalled}
+                disabled={!isInstalled && atCapacity}
+                onChange={(event) =>
+                  onChange({
+                    ...state,
+                    installedCharmIds: event.target.checked
+                      ? [...state.installedCharmIds, charm.definitionId]
+                      : state.installedCharmIds.filter(
+                          (id) => id !== charm.definitionId,
+                        ),
+                  })
+                }
+              />
+              <span>
+                {alchemicalCharmById.get(charm.definitionId)?.name ??
+                  charm.definitionId}
+              </span>
+            </label>
+          );
+        })}
+      </SheetCard>
+
+      <SheetCard density="compact">
+        <h3>Alchemy Formulae reference</h3>
+        <SheetNotice>
+          Reference text only -- each Formula requires an &ldquo;Alchemy&rdquo;
+          dot rating plus a Minimum Backing rating plus an Intelligence + Occult
+          roll, none of which this app models as a trait or can automate via a
+          dice roll (the same gap that keeps Sidereal&rsquo;s own Astrology
+          Resplendent Effects an unautomated reference catalog). Arcane Record
+          does not track which Formulae a character knows.
+        </SheetNotice>
+        {alchemicalFormulae.map((formula) => (
+          <details className="exalted-compact-record" key={formula.id}>
+            <summary>
+              <strong>{formula.name}</strong>
+            </summary>
+            <div className="exalted-record-fields">
+              <p>{formula.summary}</p>
+              <p className="section-note">{formula.description}</p>
+              {formula.requirementsText ? (
+                <p className="section-note">
+                  Requirements: {formula.requirementsText}
+                </p>
+              ) : null}
+              <p className="section-note">{formula.sourceDisplay}</p>
+            </div>
+          </details>
+        ))}
+      </SheetCard>
+    </>
   );
 }

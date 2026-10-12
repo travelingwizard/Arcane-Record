@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { useState } from 'react';
 import { describe, expect, it } from 'vitest';
@@ -202,5 +202,35 @@ describe('AlchemicalInstallationPanel (Clarity and Charm-Slot tracking)', () => 
     expect(
       screen.getByRole('group', { name: 'Permanent Clarity: 0 out of 10' }),
     ).not.toHaveAttribute('aria-disabled');
+  });
+});
+
+describe('AlchemicalInstallationPanel (Alchemy Formulae reference, Phase 2a)', () => {
+  it('shows all 3 Alchemy Formulae as reference-only, collapsed entries', async () => {
+    const user = userEvent.setup();
+    render(<Harness initialCharacter={baseCharacter()} />);
+    expect(
+      screen.getByRole('heading', { name: 'Alchemy Formulae reference' }),
+    ).toBeInTheDocument();
+    const summary = screen.getByText("The Maker's Inertial Bile");
+    expect(summary).toBeInTheDocument();
+    expect(screen.getByText('Sweet Sleep Surrogate Syrup')).toBeInTheDocument();
+    expect(
+      screen.getByText('Friction Banishing Preparation'),
+    ).toBeInTheDocument();
+    const details = summary.closest('details')!;
+    await user.click(summary);
+    expect(details).toHaveAttribute('open');
+    expect(within(details).getByText(/p\. 161/)).toBeInTheDocument();
+  });
+
+  it('never offers an "Add" or purchase control for Formulae, since this app does not model the Alchemy trait or automate dice rolls', () => {
+    render(<Harness initialCharacter={baseCharacter()} />);
+    const card = screen
+      .getByRole('heading', { name: 'Alchemy Formulae reference' })
+      .closest('article')!;
+    expect(
+      within(card).queryByRole('button', { name: /Add/ }),
+    ).not.toBeInTheDocument();
   });
 });

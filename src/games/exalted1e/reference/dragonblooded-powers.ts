@@ -8,7 +8,14 @@ export type PowerReviewStatus =
 export interface DragonBloodedPowerDefinition {
   id: string;
   name: string;
-  kind: 'charm' | 'spell';
+  // 'weaving-protocol' (Alchemical Phase 2a) is a genuinely different
+  // shape from 'charm'/'spell' at the source -- gated by Clarity, not
+  // Ability/Essence -- so `Exalted1eEditor.tsx` adapts each
+  // `AlchemicalWeavingProtocolDefinition` into this same base shape
+  // (synthesizing a `minimumRequirements` entry from `minimumClarity`)
+  // rather than widening this interface's own fields. See that adapter's
+  // own doc comment for the full mapping.
+  kind: 'charm' | 'spell' | 'weaving-protocol';
   summary: string;
   description: string;
   cost: string | null;

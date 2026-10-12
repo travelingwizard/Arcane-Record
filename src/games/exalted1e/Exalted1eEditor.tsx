@@ -19,6 +19,7 @@ import {
   abilityById,
   abyssalAbilityGroups,
   abyssalBackgrounds,
+  alchemicalBackgrounds,
   dragonBloodedAbilityGroups,
   dragonBloodedBackgrounds,
   EXALTED1E_SCHEMA_VERSION,
@@ -42,6 +43,7 @@ import {
 import { exalted1eCharacterSchema, type Exalted1eCharacter } from './schema';
 import {
   ExaltedPowersSection,
+  type AlchemicalWeavingProtocolPower,
   type ExaltedPowerDefinition,
 } from './DragonBloodedPowersSection';
 import { ExaltedMeritsFlawsSection } from './DragonBloodedMeritsFlawsSection';
@@ -75,7 +77,13 @@ import {
 import { lunarCharms, lunarSorcerySpellIds } from './reference/lunar-powers';
 import { fairFolkCharms } from './reference/fair-folk-powers';
 import {
+  alchemicalCharms,
+  alchemicalWeavingProtocols,
+  type AlchemicalWeavingProtocolDefinition,
+} from './reference/alchemical-powers';
+import {
   abyssalOnlyTraits,
+  alchemicalOnlyTraits,
   fairFolkOnlyTraits,
   getSharedTraitCostPolicy,
   getSharedTraitRepeatLimit,
@@ -156,6 +164,95 @@ const fairFolkPowerDefinitions: readonly ExaltedPowerDefinition[] = [
   ...fairFolkCharms,
 ];
 
+/**
+ * Adapts an `AlchemicalWeavingProtocolDefinition` (Alchemical Phase 2a)
+ * into `AlchemicalWeavingProtocolPower` -- `ExaltedPowerDefinition`'s
+ * shared Charm/spell rendering shape, narrowed to `kind:
+ * 'weaving-protocol'` (see that type's own doc comment in
+ * `DragonBloodedPowersSection.tsx`) -- so
+ * `ExaltedPowersSection` can display Weaving Protocols in its "spells" tab
+ * without that shared component needing to know Alchemical's own distinct
+ * subsystem shape. Weaving Protocols are gated by a Clarity rating (plus
+ * an enabling Charm, Man-Machine or God-Machine Weaving Engine), not by an
+ * Ability/Essence combination like every Charm/Sorcery-spell this
+ * component otherwise renders -- so there is no literal
+ * `minimumRequirements`/`minimumEssence`/`prerequisiteCharms` to copy, and
+ * this function synthesizes the closest honest equivalent instead of
+ * fabricating one:
+ * - `minimumRequirements` becomes a single synthetic entry naming
+ *   "Clarity" as the trait and `minimumClarity` as the rating, reusing the
+ *   same free-text `trait` field Perfected Lotus Matrix already uses for
+ *   its own non-Attribute "Martial Arts" governing trait (see
+ *   `alchemicalCharmSchema`'s own doc comment in `alchemical-powers.ts`).
+ * - `maximumClarity`, which has no equivalent concept in
+ *   `minimumRequirements`, is folded into `prerequisiteText` (alongside
+ *   any existing `requirementsText`) rather than silently dropped.
+ * - `minimumEssence`/`prerequisiteCharms`/`duration`/`type` have no
+ *   source-text equivalent for a Weaving Protocol and stay `null`/`[]`.
+ * - `exaltType: 'alchemical'` IS kept (literal, required by
+ *   `AlchemicalWeavingProtocolPower`'s own type): `getPowerExperienceCost`
+ *   dispatches on it, routing an adapted protocol into Alchemical's own
+ *   defensive-throw branch (XP-cost rules not wired this phase -- see that
+ *   function's own doc comment) rather than letting it slip through to
+ *   the unrelated Dragon-Blooded-cost fallback. Unreachable either way
+ *   this phase, since the call site below passes neither `character` nor
+ *   `onLearnWithExperience`.
+ * `kind` is kept `'weaving-protocol'` (not relabeled `'spell'`) so
+ * `spellCircleLabel`/`learnPowerWithExperience`'s Charm-vs-spell bucket
+ * split can still tell a real Weaving Protocol apart from an actual
+ * Sorcery/Necromancy spell.
+ */
+function alchemicalWeavingProtocolAsPower(
+  protocol: AlchemicalWeavingProtocolDefinition,
+): AlchemicalWeavingProtocolPower {
+  return {
+    id: protocol.id,
+    name: protocol.name,
+    kind: 'weaving-protocol',
+    exaltType: 'alchemical',
+    summary: protocol.summary,
+    description: protocol.description,
+    cost: protocol.cost,
+    duration: null,
+    type: null,
+    minimumRequirements: [
+      { trait: 'Clarity', rating: protocol.minimumClarity },
+    ],
+    minimumEssence: null,
+    prerequisiteCharms: [],
+    prerequisiteText:
+      [
+        protocol.maximumClarity !== null
+          ? `Maximum Clarity ${protocol.maximumClarity}.`
+          : null,
+        protocol.requirementsText,
+      ]
+        .filter((text): text is string => Boolean(text))
+        .join(' ') || null,
+    sourceDisplay: protocol.sourceDisplay,
+    reviewStatus: protocol.reviewStatus,
+    reviewFlags: protocol.reviewFlags,
+  };
+}
+
+/**
+ * Alchemical's Charms & Weaving Protocols catalog for
+ * `ExaltedPowersSection` (Phase 2a): all 96 promoted Alchemical Charms plus
+ * all 38 promoted Weaving Protocols, the latter adapted via
+ * `alchemicalWeavingProtocolAsPower` above. The 3 Alchemy Formulae stay
+ * deliberately excluded -- each is gated by an "Alchemy" dot rating this
+ * app does not model as a trait anywhere, plus a dice roll this app has no
+ * engine to automate (matching Sidereal Astrology's own Resplendent
+ * Effects precedent); they remain a small browsable reference catalog
+ * surfaced instead via `AlchemicalInstallationPanel.tsx`'s own
+ * reference-only card, not wired into any character-selection schema (see
+ * `alchemicalFormulae`'s own doc comment in `./reference/alchemical-powers`).
+ */
+const alchemicalPowerDefinitions: readonly ExaltedPowerDefinition[] = [
+  ...alchemicalCharms,
+  ...alchemicalWeavingProtocols.map(alchemicalWeavingProtocolAsPower),
+];
+
 const AUTOSAVE_DELAY_MS = 550;
 
 function clampInteger(value: string, maximum = 999) {
@@ -195,6 +292,7 @@ export function Exalted1eEditor({
   const isSidereal = draft.sheetType === 'sidereal';
   const isLunar = draft.sheetType === 'lunar';
   const isFairFolk = draft.sheetType === 'fair-folk';
+  const isAlchemical = draft.sheetType === 'alchemical';
   const profile = getExaltedCharacterProfile(draft.sheetType);
   const activeSections = useMemo(() => [...exaltedSections], []);
   const sheetName = profile.shortName;
@@ -222,17 +320,11 @@ export function Exalted1eEditor({
                 abilityIds: exaltedAbilities.map(({ id }) => id),
               },
             ];
-  // Alchemical deliberately renders an empty Backgrounds picker rather
-  // than `getExaltedFamilyBackgrounds`'s catalog (`./family-catalogs.ts`):
-  // that catalog is OCR-derived and has not been through this project's
-  // page-cited inventory/verification process (see
-  // `docs/references/exalted1e/*/inventory/`), and `schema.ts`'s
-  // `backgroundIdsBySheetType` correctly rejects every id in it for that
-  // family today. Showing it here would let someone add a Background the
-  // sheet then can't validate. Revisit once it earns a real promoted
-  // catalog. Sidereal, Lunar, and now Fair Folk (Phase 2a) have their own
-  // real, page-cited Backgrounds catalogs (Phases 2a, 1a, and 1a
-  // respectively).
+  // Sidereal, Lunar, Fair Folk (Phase 2a), and now Alchemical (Phase 2a)
+  // all have their own real, page-cited Backgrounds catalogs, each already
+  // schema-validated via `schema.ts`'s `backgroundIdsBySheetType`. The
+  // final `[]` fallback below is defensive only: all seven planned sheet
+  // types are now covered by a real branch above it.
   const backgroundDefinitions: readonly { id: string; label: string }[] =
     isSolar
       ? solarBackgrounds
@@ -246,7 +338,9 @@ export function Exalted1eEditor({
               ? lunarBackgrounds
               : isFairFolk
                 ? fairFolkBackgrounds
-                : [];
+                : isAlchemical
+                  ? alchemicalBackgrounds
+                  : [];
   const backgroundById = new Map(
     backgroundDefinitions.map((background) => [background.id, background]),
   );
@@ -1441,7 +1535,8 @@ export function Exalted1eEditor({
                 isAbyssal ||
                 isSidereal ||
                 isLunar ||
-                isFairFolk ? (
+                isFairFolk ||
+                isAlchemical ? (
                   <ExaltedMeritsFlawsSection
                     traits={draft.meritsFlaws}
                     derangements={draft.derangements}
@@ -1456,7 +1551,9 @@ export function Exalted1eEditor({
                               ? lunarOnlyTraits
                               : isFairFolk
                                 ? fairFolkOnlyTraits
-                                : undefined
+                                : isAlchemical
+                                  ? alchemicalOnlyTraits
+                                  : undefined
                     }
                     getCostPolicy={
                       isSolar
@@ -1480,26 +1577,44 @@ export function Exalted1eEditor({
                                       definition,
                                       'fair-folk',
                                     )
-                                : undefined
+                                : isAlchemical
+                                  ? (definition) =>
+                                      getSharedTraitCostPolicy(
+                                        definition,
+                                        'alchemical',
+                                      )
+                                  : undefined
                     }
                     getRepeatLimit={
                       isSolar
                         ? getSolarTraitRepeatLimit
-                        : isAbyssal || isSidereal || isLunar || isFairFolk
+                        : isAbyssal ||
+                            isSidereal ||
+                            isLunar ||
+                            isFairFolk ||
+                            isAlchemical
                           ? getSharedTraitRepeatLimit
                           : undefined
                     }
                     matchesSearch={
                       isSolar
                         ? matchesSolarTraitSearch
-                        : isAbyssal || isSidereal || isLunar || isFairFolk
+                        : isAbyssal ||
+                            isSidereal ||
+                            isLunar ||
+                            isFairFolk ||
+                            isAlchemical
                           ? matchesDragonBloodedTraitSearch
                           : undefined
                     }
                     approvalTraitIds={
                       isSolar
                         ? solarStorytellerApprovalTraitIds
-                        : isAbyssal || isSidereal || isLunar || isFairFolk
+                        : isAbyssal ||
+                            isSidereal ||
+                            isLunar ||
+                            isFairFolk ||
+                            isAlchemical
                           ? storytellerApprovalTraitIds
                           : undefined
                     }
@@ -1514,7 +1629,9 @@ export function Exalted1eEditor({
                               ? 'lunar-trait-catalog'
                               : isFairFolk
                                 ? 'fair-folk-trait-catalog'
-                                : undefined
+                                : isAlchemical
+                                  ? 'alchemical-trait-catalog'
+                                  : undefined
                     }
                     catalogDescription={
                       isSolar
@@ -1527,7 +1644,9 @@ export function Exalted1eEditor({
                               ? "Record Lunar Merits and Flaws from the shared Exalted Player's Guide catalog, plus Lunar-only entries (Chimera, Limited Forms, Greater Curse). Lunar-specific cost caps (Ambidextrous, Double-Jointed) are applied; requirements remain advisory."
                               : isFairFolk
                                 ? "Record Fair Folk Merits and Flaws from the shared Exalted Player's Guide catalog, reinterpreted for a raksha's own non-Exalted framework (e.g. Vice/Callous key to Bedlam, not the Great Curse). No Fair-Folk-specific cost cap applies; requirements remain advisory."
-                                : undefined
+                                : isAlchemical
+                                  ? "Record Alchemical Merits and Flaws from the shared Exalted Player's Guide catalog, reinterpreted for a vat-built construct's own framework (e.g. chassis damage instead of flesh scarring, Class instead of Resources). No Alchemical-specific cost cap applies -- the Players Guide names Alchemical Exalted explicitly uncapped for Destiny; requirements remain advisory."
+                                  : undefined
                     }
                     onChange={(meritsFlaws) =>
                       update((current) => ({ ...current, meritsFlaws }))
@@ -1537,10 +1656,11 @@ export function Exalted1eEditor({
                     }
                   />
                 ) : (
-                  // Alchemical has no promoted Merits/Flaws catalog yet
-                  // (`schema.ts` rejects any selection outright for that
-                  // family today). Show an honest placeholder notice rather
-                  // than a non-functional catalog UI.
+                  // Defensive fallback only: all seven planned sheet types
+                  // are covered by a real branch above (Alchemical joined
+                  // in Phase 2a). Kept as an honest placeholder in case a
+                  // future eighth family is ever added without updating
+                  // this branch.
                   <p className="sheet-notice">
                     The {sheetName} Merit and Flaw inventory is being
                     source-verified. Existing unresolved records remain
@@ -1640,7 +1760,9 @@ export function Exalted1eEditor({
                       ? 'Charms & Spells'
                       : isSidereal || isLunar
                         ? 'Charms & Sorcery'
-                        : 'Powers'}
+                        : isAlchemical
+                          ? 'Charms & Weaving Protocols'
+                          : 'Powers'}
               </h2>
               {isSolar ? (
                 <ExaltedPowersSection
@@ -1781,15 +1903,45 @@ export function Exalted1eEditor({
                   }
                   onLearnWithExperience={learnPowerWithExperience}
                 />
+              ) : isAlchemical ? (
+                // Alchemical's real, page-cited 96-Charm catalog plus its
+                // 38-entry Weaving Protocol catalog (Phase 2a), the latter
+                // adapted into the shared Charm/spell rendering shape by
+                // `alchemicalWeavingProtocolAsPower` above (Weaving
+                // Protocols are gated by Clarity, not Ability/Essence, so
+                // they don't natively fit that shape). Deliberately does
+                // NOT wire `character`/`onLearnWithExperience` yet --
+                // Alchemical's own Experience table is keyed to
+                // Favored/Caste Attributes, not Favored Abilities or
+                // Castes like every other family's cost math, so a correct
+                // XP-cost function needs its own design decision deferred
+                // to a future phase, exactly like Fair Folk's own Phase 2a
+                // -> Phase 2b split. No Caste filter is offered: Alchemical
+                // Charms are organized by `charmCategory`
+                // (Close Combat/Social/Cognitive/etc.), not by Caste. The 3
+                // Alchemy Formulae are deliberately excluded from this
+                // picker -- see `alchemicalPowerDefinitions`'s own doc
+                // comment above; they remain a reference-only card in
+                // `AlchemicalInstallationPanel.tsx`.
+                <ExaltedPowersSection
+                  powers={draft.powers}
+                  definitions={alchemicalPowerDefinitions}
+                  catalogId="alchemical-power-catalog"
+                  catalogDescription="Choose from 96 Alchemical Charms (nine Attribute-keyed trees plus General Charms) and 38 Weaving Protocols (Man-Machine and God-Machine echelons, each gated by a Minimum Clarity rating and requiring its own enabling Charm). The 3 Alchemy Formulae are not included here -- they require an Alchemy trait rating and an Intelligence + Occult roll this app does not model, and remain a separate reference card below. Requirements are advisory; entries retain their cited book and page and are marked for source review."
+                  showElementFilter={false}
+                  showCategory={false}
+                  spellsTabLabel="Weaving Protocols"
+                  sorceryAdvisory="Advisory: Weaving Protocols require the Man-Machine or God-Machine Weaving Engine Charm, plus meeting each protocol's own Minimum (and sometimes Maximum) Clarity rating. This banner always shows for Alchemical since the shared Terrestrial Circle Sorcery gate it otherwise checks for doesn't apply here; selection remains available because this is an editable sheet, not a rules engine."
+                  onChange={(powers) =>
+                    update((current) => ({ ...current, powers }))
+                  }
+                />
               ) : (
-                // Alchemical has no production Charm/spell catalog wired
-                // into `schema.ts` yet. Deliberately does not fall back to
-                // `getExaltedFamilyPowers`'s OCR-derived Alchemical
-                // catalog (`./reference/family-powers.ts`) for the same
-                // reason `backgroundDefinitions` above skips
-                // `getExaltedFamilyBackgrounds` -- that data hasn't been
-                // through this project's page-cited verification process,
-                // and `schema.ts` correctly rejects every id in it today.
+                // Defensive fallback only: all seven planned sheet types
+                // are covered by a real branch above (Alchemical joined in
+                // Phase 2a). Kept as an honest placeholder in case a future
+                // eighth family is ever added without updating this
+                // branch.
                 <p className="sheet-notice">
                   The {sheetName} power catalog is unavailable until its source
                   inventory and cross-references pass verification. No
