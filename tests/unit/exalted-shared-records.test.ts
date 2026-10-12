@@ -3,6 +3,7 @@ import { createBlankExaltedCharacter } from '../../src/games/exalted1e/create-ch
 import { migrateExalted1eCharacter } from '../../src/games/exalted1e/schema';
 import {
   getAbyssalPowerExperienceCost,
+  getAlchemicalPowerExperienceCost,
   getDragonBloodedEssenceExperienceCost,
   getDragonBloodedPowerExperienceCost,
   getExperienceTotals,
@@ -25,6 +26,7 @@ import {
 import { siderealCharmById } from '../../src/games/exalted1e/reference/sidereal-powers';
 import { lunarCharmById } from '../../src/games/exalted1e/reference/lunar-powers';
 import { fairFolkCharmById } from '../../src/games/exalted1e/reference/fair-folk-powers';
+import { alchemicalCharmById } from '../../src/games/exalted1e/reference/alchemical-powers';
 
 describe('shared Exalted records and Dragon-Blooded advancement', () => {
   it('keeps native, permanent, temporary, and custom languages distinct', () => {
@@ -327,6 +329,44 @@ describe('shared Exalted records and Dragon-Blooded advancement', () => {
     expect(getFairFolkPowerExperienceCost(shape).explanation).toContain(
       'Assumption of Elemental Shape',
     );
+  });
+
+  it('charges Alchemical a flat 6 XP for any new Charm placed on retainer, and an echelon-keyed 12/14 XP for Weaving Protocols (Phase 2b)', () => {
+    // Exalted: The Autochthonians' own "Bonus Points and Experience Costs"
+    // table (Chapter Two, p. 64) states a flat, non-Favored-split "a new
+    // Charm placed on retainer at the Vats (without a Slot to house it) =
+    // 6" figure, and separate flat "new Man Machine Weaving Protocol = 12;
+    // new God Machine Weaving Protocol = 14" figures. Confirm all three
+    // stay flat regardless of which specific Charm/Protocol, and cross-
+    // check against `quoteExaltedAdvancement`'s own already-tested
+    // 'alchemical' branch in `family-rules.ts` (same source table, same
+    // page, independently parameterized).
+    const engrams = alchemicalCharmById.get('tactical-analysis-engrams')!;
+    expect(getAlchemicalPowerExperienceCost(engrams)).toMatchObject({
+      cost: 6,
+    });
+    const lotus = alchemicalCharmById.get('perfected-lotus-matrix')!;
+    expect(getAlchemicalPowerExperienceCost(lotus)).toMatchObject({
+      cost: 6,
+    });
+    expect(
+      getAlchemicalPowerExperienceCost({
+        kind: 'weaving-protocol',
+        echelon: 'man-machine',
+      }).cost,
+    ).toBe(12);
+    expect(
+      getAlchemicalPowerExperienceCost({
+        kind: 'weaving-protocol',
+        echelon: 'god-machine',
+      }).cost,
+    ).toBe(14);
+    expect(
+      getAlchemicalPowerExperienceCost({
+        kind: 'weaving-protocol',
+        echelon: 'man-machine',
+      }).explanation,
+    ).toContain('Man Machine');
   });
 
   it('migrates shared collections empty without inferring historical XP', () => {

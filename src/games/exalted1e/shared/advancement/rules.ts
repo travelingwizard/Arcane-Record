@@ -10,11 +10,16 @@ import type {
 import type { SiderealCharmDefinition } from '../../reference/sidereal-powers';
 import type { LunarCharmDefinition } from '../../reference/lunar-powers';
 import type { FairFolkCharmDefinition } from '../../reference/fair-folk-powers';
+import type {
+  AlchemicalCharmDefinition,
+  AlchemicalWeavingEchelon,
+} from '../../reference/alchemical-powers';
 import {
   abyssalAbilityGroups,
   dragonBloodedAbilityGroups,
   siderealAbilityGroups,
 } from '../../definitions';
+import { quoteExaltedAdvancement } from '../../family-rules';
 
 export function getExperienceTotals(
   ledger: Exalted1eCharacter['experienceLedger'],
@@ -317,5 +322,67 @@ export function getFairFolkPowerExperienceCost(power: FairFolkCharmDefinition) {
   return {
     cost: 6,
     explanation: `New Charm (flat cost; ${power.name} carries no Favored/Unfavored split -- see the Fair Folk Experience table, p. 321)`,
+  };
+}
+
+/**
+ * Alchemical Charm/Weaving Protocol purchase cost (Phase 2b). Like Fair
+ * Folk's own flat-cost function above, this takes no `character` argument:
+ * Exalted: The Autochthonians' own "Bonus Points and Experience Costs"
+ * table (Chapter Two, printed p. 64/PDF 65) states flat, non-Favored-split
+ * figures for every relevant row, not a Favored/Unfavored split like
+ * Dragon-Blooded/Abyssal/Sidereal/Lunar's own Ability-keyed tables.
+ *
+ * Two genuinely different costs apply, both reused directly from
+ * `quoteExaltedAdvancement`'s own already-tested `'alchemical'` branch in
+ * `family-rules.ts` (not restated as separate literals here, so the two
+ * functions can never drift apart):
+ * - A Charm: the source table's own flat `charm: 6` figure, captioned
+ *   "a new Charm placed on retainer at the Vats (without a Slot to house
+ *   it)." This is the only Charm-purchase path this single-definition
+ *   "Learn with XP" affordance can represent honestly -- the table's other,
+ *   larger Charm-acquisition path ("new General Charm Slot = 12" / "new
+ *   Dedicated Charm Slot = 10," each of which *also* includes one free
+ *   qualifying Charm) is a distinct Slot-purchase-with-bundled-Charm
+ *   workflow, tied to `AlchemicalInstallationPanel.tsx`'s own Dedicated/
+ *   General Slot counters rather than to this per-Charm picker, and stays
+ *   explicitly deferred (see that table row's own `charm-slot-general`/
+ *   `charm-slot-dedicated` entries, already quoted elsewhere but not wired
+ *   to any purchase button yet). The table's separate "new Martial Arts
+ *   Charm = 11" row likewise does not apply to any of the 96 Charms
+ *   promoted here: only `perfected-lotus-matrix` itself is Martial-Arts-
+ *   keyed in this catalog (gating entry into the Martial Arts subsystem),
+ *   and the actual supernatural Martial Arts Charms the 11 XP figure prices
+ *   are a distinct, not-yet-promoted catalog stored within it (see that
+ *   Charm's own `comboRules` doc comment in `alchemical-powers.ts`).
+ * - A Weaving Protocol: `echelon`-keyed, matching the source table's own
+ *   "new Man Machine Weaving Protocol = 12; new God Machine Weaving
+ *   Protocol = 14" split -- the only Favored-style distinction Alchemical's
+ *   Experience table draws for Charms/Protocols, and it tracks which
+ *   enabling engine Charm a protocol needs, not any Favored/Unfavored
+ *   status.
+ */
+export function getAlchemicalPowerExperienceCost(
+  power:
+    | AlchemicalCharmDefinition
+    | { kind: 'weaving-protocol'; echelon: AlchemicalWeavingEchelon },
+) {
+  if (power.kind === 'weaving-protocol') {
+    const target =
+      power.echelon === 'man-machine'
+        ? ('weaving-protocol-man-machine' as const)
+        : ('weaving-protocol-god-machine' as const);
+    const quote = quoteExaltedAdvancement('alchemical', target, 0);
+    const label = power.echelon === 'man-machine' ? 'Man Machine' : 'God Machine';
+    return {
+      cost: quote?.cost ?? (power.echelon === 'man-machine' ? 12 : 14),
+      explanation: `New ${label} Weaving Protocol (flat cost; see the Alchemical Experience table, Exalted: The Autochthonians p. 64)`,
+    };
+  }
+  const quote = quoteExaltedAdvancement('alchemical', 'charm', 0);
+  return {
+    cost: quote?.cost ?? 6,
+    explanation:
+      'New Charm placed on retainer at the Vats, without a Slot to house it (flat cost; see the Alchemical Experience table, Exalted: The Autochthonians p. 64). Acquiring a Charm bundled with a new Charm Slot purchase is a separate, not-yet-wired workflow.',
   };
 }

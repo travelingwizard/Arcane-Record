@@ -15,9 +15,13 @@ import {
 import type { SiderealCharmDefinition } from './reference/sidereal-powers';
 import type { LunarCharmDefinition } from './reference/lunar-powers';
 import type { FairFolkCharmDefinition } from './reference/fair-folk-powers';
-import type { AlchemicalCharmDefinition } from './reference/alchemical-powers';
+import type {
+  AlchemicalCharmDefinition,
+  AlchemicalWeavingEchelon,
+} from './reference/alchemical-powers';
 import {
   getAbyssalPowerExperienceCost,
+  getAlchemicalPowerExperienceCost,
   getDragonBloodedPowerExperienceCost,
   getExperienceTotals,
   getFairFolkPowerExperienceCost,
@@ -85,11 +89,18 @@ export interface AlchemicalWeavingProtocolPower extends DragonBloodedPowerDefini
   kind: 'weaving-protocol';
   // Declared (unlike every other field this interface adds nothing for)
   // so `getPowerExperienceCost`'s `'exaltType' in definition` check
-  // correctly narrows this type into its `'alchemical'` defensive-throw
-  // branch instead of silently falling through to the final
-  // Dragon-Blooded-cost branch, which cannot structurally accept it (see
-  // that function's own doc comment).
+  // correctly narrows this type into its `'alchemical'` dispatch branch
+  // (see `getAlchemicalPowerExperienceCost`, Phase 2b) instead of silently
+  // falling through to the final Dragon-Blooded-cost branch, which cannot
+  // structurally accept it (see that function's own doc comment).
   exaltType: 'alchemical';
+  // Phase 2b: carries the source protocol's own Man-Machine/God-Machine
+  // echelon through the adapter so `getAlchemicalPowerExperienceCost` can
+  // apply the correct flat 12/14 XP figure (see that function's own doc
+  // comment) without `rules.ts` needing to import this presentational
+  // adapter type itself (which would create a circular import back into
+  // this file).
+  echelon: AlchemicalWeavingEchelon;
 }
 
 export type ExaltedPowerDefinition =
@@ -135,17 +146,12 @@ function charmCaste(definition: ExaltedPowerDefinition): string | null {
  * when it is `'fair-folk'`. Solar definitions also lack `exaltType`, but
  * the Solar branch never passes `character`, so this function is only
  * ever reached with `character` defined for Dragon-Blooded/Abyssal/
- * Sidereal/Lunar/Fair-Folk callers today. Alchemical Charms also carry
- * `exaltType: 'alchemical'`, but Alchemical's own editor call site (Phase
- * 2a) deliberately omits `character`/`onLearnWithExperience` entirely --
- * matching every other family's own pre-XP-rules-phase placeholder (Lunar,
- * Fair Folk) -- so the `'alchemical'` branch below throws defensively
- * rather than silently falling through to Sidereal's unrelated
- * favored-Auspicious-Ability cost math. A future XP-rules phase should
- * design Alchemical's own real cost function (its Experience table is
- * keyed to Favored/Caste Attributes, not Favored Abilities or Castes, so
- * it needs its own math, not a borrowed one) and replace this throw with a
- * real dispatch, exactly like Fair Folk's own Phase 2a -> Phase 2b history.
+ * Sidereal/Lunar/Fair-Folk callers today. Alchemical Charms and adapted
+ * Weaving Protocols also carry `exaltType: 'alchemical'`; as of Phase 2b
+ * they route to `getAlchemicalPowerExperienceCost`'s own flat, echelon-
+ * aware cost table (see that function's own doc comment for why it, like
+ * Fair Folk's, takes no `character` argument) rather than falling through
+ * to Sidereal's unrelated favored-Auspicious-Ability cost math.
  */
 function getPowerExperienceCost(
   character: Exalted1eCharacter,
@@ -162,9 +168,7 @@ function getPowerExperienceCost(
       return getFairFolkPowerExperienceCost(definition);
     }
     if (definition.exaltType === 'alchemical') {
-      throw new Error(
-        "Alchemical XP-cost rules are not yet implemented (Phase 2a defers this to a future XP-rules phase); this branch should never execute since the editor's own Alchemical call site omits character/onLearnWithExperience entirely.",
-      );
+      return getAlchemicalPowerExperienceCost(definition);
     }
     return getSiderealPowerExperienceCost(character, definition);
   }
@@ -750,7 +754,13 @@ export function ExaltedPowersSection({
                       >
                         {selected
                           ? 'Selected'
-                          : `Learn ${definition.kind === 'charm' ? 'Charm' : 'Spell'} (${xp.cost} XP)`}
+                          : `Learn ${
+                              definition.kind === 'charm'
+                                ? 'Charm'
+                                : definition.kind === 'weaving-protocol'
+                                  ? 'Weaving Protocol'
+                                  : 'Spell'
+                            } (${xp.cost} XP)`}
                       </button>
                     ) : null}
                     <button

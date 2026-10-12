@@ -631,7 +631,9 @@ export type ExaltedAdvancementTarget =
   | 'astrological-college-new'
   | 'astrological-college-increase'
   | 'charm-slot-general'
-  | 'charm-slot-dedicated';
+  | 'charm-slot-dedicated'
+  | 'weaving-protocol-man-machine'
+  | 'weaving-protocol-god-machine';
 
 export function quoteExaltedAdvancement(
   type: ExaltedCharacterType,
@@ -719,6 +721,8 @@ export function quoteExaltedAdvancement(
       charm: 6,
       'charm-slot-general': 12,
       'charm-slot-dedicated': 10,
+      'weaving-protocol-man-machine': 12,
+      'weaving-protocol-god-machine': 14,
     };
     const cost = costs[target];
     return cost == null

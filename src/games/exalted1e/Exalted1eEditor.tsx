@@ -191,16 +191,15 @@ const fairFolkPowerDefinitions: readonly ExaltedPowerDefinition[] = [
  *   source-text equivalent for a Weaving Protocol and stay `null`/`[]`.
  * - `exaltType: 'alchemical'` IS kept (literal, required by
  *   `AlchemicalWeavingProtocolPower`'s own type): `getPowerExperienceCost`
- *   dispatches on it, routing an adapted protocol into Alchemical's own
- *   defensive-throw branch (XP-cost rules not wired this phase -- see that
- *   function's own doc comment) rather than letting it slip through to
- *   the unrelated Dragon-Blooded-cost fallback. Unreachable either way
- *   this phase, since the call site below passes neither `character` nor
- *   `onLearnWithExperience`.
+ *   dispatches on it, routing an adapted protocol into
+ *   `getAlchemicalPowerExperienceCost` (Phase 2b) rather than letting it
+ *   slip through to the unrelated Dragon-Blooded-cost fallback.
  * `kind` is kept `'weaving-protocol'` (not relabeled `'spell'`) so
  * `spellCircleLabel`/`learnPowerWithExperience`'s Charm-vs-spell bucket
  * split can still tell a real Weaving Protocol apart from an actual
- * Sorcery/Necromancy spell.
+ * Sorcery/Necromancy spell. `echelon` is carried through unchanged
+ * (Phase 2b) so `getAlchemicalPowerExperienceCost` can apply the correct
+ * flat 12/14 XP figure.
  */
 function alchemicalWeavingProtocolAsPower(
   protocol: AlchemicalWeavingProtocolDefinition,
@@ -210,6 +209,7 @@ function alchemicalWeavingProtocolAsPower(
     name: protocol.name,
     kind: 'weaving-protocol',
     exaltType: 'alchemical',
+    echelon: protocol.echelon,
     summary: protocol.summary,
     description: protocol.description,
     cost: protocol.cost,
@@ -1909,22 +1909,24 @@ export function Exalted1eEditor({
                 // adapted into the shared Charm/spell rendering shape by
                 // `alchemicalWeavingProtocolAsPower` above (Weaving
                 // Protocols are gated by Clarity, not Ability/Essence, so
-                // they don't natively fit that shape). Deliberately does
-                // NOT wire `character`/`onLearnWithExperience` yet --
-                // Alchemical's own Experience table is keyed to
-                // Favored/Caste Attributes, not Favored Abilities or
-                // Castes like every other family's cost math, so a correct
-                // XP-cost function needs its own design decision deferred
-                // to a future phase, exactly like Fair Folk's own Phase 2a
-                // -> Phase 2b split. No Caste filter is offered: Alchemical
-                // Charms are organized by `charmCategory`
-                // (Close Combat/Social/Cognitive/etc.), not by Caste. The 3
-                // Alchemy Formulae are deliberately excluded from this
-                // picker -- see `alchemicalPowerDefinitions`'s own doc
-                // comment above; they remain a reference-only card in
+                // they don't natively fit that shape). Phase 2b wires
+                // `character`/`onLearnWithExperience`, using
+                // `getAlchemicalPowerExperienceCost`'s flat, non-Favored-
+                // split cost table (6 XP for a Charm placed on retainer at
+                // the Vats; 12/14 XP for a Man-Machine/God-Machine Weaving
+                // Protocol -- see that function's own doc comment for why
+                // the Charm-Slot-with-bundled-free-Charm purchase path
+                // stays a separate, not-yet-wired workflow). No Caste
+                // filter is offered: Alchemical Charms are organized by
+                // `charmCategory` (Close Combat/Social/Cognitive/etc.), not
+                // by Caste. The 3 Alchemy Formulae are deliberately
+                // excluded from this picker -- see
+                // `alchemicalPowerDefinitions`'s own doc comment above;
+                // they remain a reference-only card in
                 // `AlchemicalInstallationPanel.tsx`.
                 <ExaltedPowersSection
                   powers={draft.powers}
+                  character={draft}
                   definitions={alchemicalPowerDefinitions}
                   catalogId="alchemical-power-catalog"
                   catalogDescription="Choose from 96 Alchemical Charms (nine Attribute-keyed trees plus General Charms) and 38 Weaving Protocols (Man-Machine and God-Machine echelons, each gated by a Minimum Clarity rating and requiring its own enabling Charm). The 3 Alchemy Formulae are not included here -- they require an Alchemy trait rating and an Intelligence + Occult roll this app does not model, and remain a separate reference card below. Requirements are advisory; entries retain their cited book and page and are marked for source review."
@@ -1935,6 +1937,7 @@ export function Exalted1eEditor({
                   onChange={(powers) =>
                     update((current) => ({ ...current, powers }))
                   }
+                  onLearnWithExperience={learnPowerWithExperience}
                 />
               ) : (
                 // Defensive fallback only: all seven planned sheet types
