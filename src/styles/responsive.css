@@ -636,7 +636,8 @@
 
   .exalted-advantage-grid .dot-rating,
   .exalted-limit-grid .dot-rating,
-  .exalted-clarity-grid .dot-rating {
+  .exalted-clarity-grid .dot-rating,
+  .exalted-attribute-row .dot-rating {
     width: 100%;
     min-width: 0;
     flex-wrap: wrap;
@@ -645,7 +646,8 @@
 
   .exalted-advantage-grid .dot-rating__break,
   .exalted-limit-grid .dot-rating__break,
-  .exalted-clarity-grid .dot-rating__break {
+  .exalted-clarity-grid .dot-rating__break,
+  .exalted-attribute-row .dot-rating__break {
     height: 0;
     flex-basis: 100%;
   }

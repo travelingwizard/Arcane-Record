@@ -851,7 +851,10 @@ export function Exalted1eEditor({
                   <div className="exalted-rating-group" key={group.id}>
                     <h3>{group.label}</h3>
                     {group.traits.map((trait) => (
-                      <div className="exalted-rating-row" key={trait.id}>
+                      <div
+                        className="exalted-rating-row exalted-attribute-row"
+                        key={trait.id}
+                      >
                         <strong>{trait.label}</strong>
                         <DotRating
                           label={trait.label}
@@ -863,6 +866,7 @@ export function Exalted1eEditor({
                               : 1
                           }
                           max={draft.sheetType === 'fair-folk' ? 7 : 5}
+                          showBreakAfterFive={draft.sheetType === 'fair-folk'}
                           onChange={(rating) =>
                             updateAttribute(group.id, trait.id, rating)
                           }

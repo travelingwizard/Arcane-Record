@@ -5239,6 +5239,7 @@
 .empty-inline {
   color: var(--ink-soft);
   line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 
 .exalted-background-add {

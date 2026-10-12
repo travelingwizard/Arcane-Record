@@ -55,21 +55,19 @@ describe('exalted1e verification gate', () => {
       // families whose rules/creator/migration test dimensions have real,
       // passing coverage (see `exalted-shared-records.test.ts`'s XP-cost
       // tests, `exalted-creation-panel.test.tsx`, and each family's own
-      // schema-migration test). `browserTests` still can't run for any
-      // family before it is unlocked -- except Lunar, Abyssal, Sidereal,
-      // and Alchemical, the first four families to get real browser-test
-      // evidence via Phase 6's own per-family incremental pass
-      // (`tests/e2e/exalted1e-lunar.spec.ts`,
+      // schema-migration test). `browserTests` now passes for all five
+      // planned families too, via Phase 6's own per-family incremental
+      // pass (`tests/e2e/exalted1e-lunar.spec.ts`,
       // `tests/e2e/exalted1e-abyssal.spec.ts`,
       // `tests/e2e/exalted1e-sidereal.spec.ts`,
-      // `tests/e2e/exalted1e-alchemical.spec.ts`, each of which bypasses
+      // `tests/e2e/exalted1e-alchemical.spec.ts`,
+      // `tests/e2e/exalted1e-fair-folk.spec.ts`, each of which bypasses
       // only the disabled "Choose <Family> Exalted" button, not any real
       // feature code -- see each record's own `blockers`). Every family
-      // still has real catalog gaps of its own (see each record's own
-      // `blockers`) or, for Lunar/Abyssal/Sidereal/Alchemical, Phase 6's
-      // own all-five-together rule, so all five remain fully locked
-      // regardless. Only Fair Folk stays 'not-run' on all four test
-      // dimensions.
+      // still remains fully locked regardless, purely by Phase 6's own
+      // all-five-together `certifiedAt` rule (see each record's own
+      // `blockers`), pending a single final all-five-together unlock
+      // commit.
       if (
         family === 'abyssal' ||
         family === 'sidereal' ||
@@ -80,14 +78,7 @@ describe('exalted1e verification gate', () => {
         expect(record.rulesTests).toBe('pass');
         expect(record.creatorTests).toBe('pass');
         expect(record.migrationTests).toBe('pass');
-        expect(record.browserTests).toBe(
-          family === 'lunar' ||
-            family === 'abyssal' ||
-            family === 'sidereal' ||
-            family === 'alchemical'
-            ? 'pass'
-            : 'not-run',
-        );
+        expect(record.browserTests).toBe('pass');
       } else {
         expect(record.rulesTests).toBe('not-run');
         expect(record.creatorTests).toBe('not-run');
@@ -509,10 +500,12 @@ describe('exalted1e verification gate', () => {
       // "rules_creator_tests" follow-up phase), Fair Folk (Phase 2a-2c),
       // and Alchemical (the same Phase 2a-2c arc) are the five families
       // whose rules/creator/migration dimensions now pass (see the
-      // previous test's comment). Lunar is also the first family with a
-      // passing browser dimension (Phase 6's own per-family incremental
-      // pass); every other family keeps the generic 'not-run' wording for
-      // browser tests.
+      // previous test's comment). Lunar, Abyssal, Sidereal, Alchemical,
+      // and (as of Phase 6's fifth and final per-family pass) Fair Folk
+      // all now have a passing browser dimension too -- all five planned
+      // families have passed every testable dimension, though
+      // `certifiedAt` stays null on every record until Phase 6's own
+      // single final all-five-together unlock commit.
       if (
         family === 'abyssal' ||
         family === 'sidereal' ||
@@ -523,14 +516,7 @@ describe('exalted1e verification gate', () => {
         expect(status.blockReason).toContain('rules tests pass');
         expect(status.blockReason).toContain('creator tests pass');
         expect(status.blockReason).toContain('migration tests pass');
-        expect(status.blockReason).toContain(
-          family === 'lunar' ||
-            family === 'abyssal' ||
-            family === 'sidereal' ||
-            family === 'alchemical'
-            ? 'browser tests pass'
-            : 'browser tests not-run',
-        );
+        expect(status.blockReason).toContain('browser tests pass');
       } else {
         expect(status.blockReason).toContain('rules tests not-run');
         expect(status.blockReason).toContain('creator tests not-run');
@@ -605,15 +591,21 @@ describe('exalted1e verification gate', () => {
     expect(canCreateProductionExaltedCharacter('sidereal')).toBe(false);
   });
 
-  it('describes Fair Folk as locked with its now-complete catalog dimension despite its passing test dimensions', () => {
-    // Fair Folk's catalog dimension closed out in Phase 1u (318/318, no
-    // Wyld Artifacts gap left to fill), and rulesTests/creatorTests/
-    // migrationTests all pass after Phase 2a (editor UI branch), Phase 2b
-    // (flat-cost XP rules, no Favored/Unfavored split needed per the
-    // source's own Experience table), and Phase 2c (guided-creation-panel
-    // coverage for the Standard/Common/Heroic-commoner tracks and the
-    // Second-Caste rule) -- the family stays locked only for browserTests
-    // (not-run) and Phase 6's all-five-together rule.
+  it('describes Fair Folk as locked with its now-complete catalog dimension and its real browser-test evidence, despite every testable dimension passing', () => {
+    // Fair Folk is the fifth and final of the five planned families with
+    // real browser-test evidence (Phase 6's own per-family incremental
+    // pass, `tests/e2e/exalted1e-fair-folk.spec.ts`) -- its catalog
+    // dimension closed out in Phase 1u (318/318, no Wyld Artifacts gap
+    // left to fill), and rulesTests/creatorTests/migrationTests all pass
+    // after Phase 2a (editor UI branch), Phase 2b (flat-cost XP rules, no
+    // Favored/Unfavored split needed per the source's own Experience
+    // table), and Phase 2c (guided-creation-panel coverage for the
+    // Standard/Common/Heroic-commoner tracks and the Second-Caste rule).
+    // Every testable dimension now passes for all five planned families,
+    // yet `isFamilyAvailable`/`canCreateProductionExaltedCharacter` must
+    // still return false: `certifiedAt` deliberately stays null on every
+    // record pending Phase 6's own single final all-five-together unlock
+    // commit.
     const status = getFamilyCertificationStatus('fair-folk');
     expect(status.available).toBe(false);
     expect(status.blockReason).toContain('318/318 promoted');
@@ -621,7 +613,9 @@ describe('exalted1e verification gate', () => {
     expect(status.blockReason).toContain('rules tests pass');
     expect(status.blockReason).toContain('creator tests pass');
     expect(status.blockReason).toContain('migration tests pass');
-    expect(status.blockReason).toContain('browser tests not-run');
+    expect(status.blockReason).toContain('browser tests pass');
+    expect(isFamilyAvailable('fair-folk')).toBe(false);
+    expect(canCreateProductionExaltedCharacter('fair-folk')).toBe(false);
   });
 
   it('describes Alchemical as locked with its now-complete catalog dimension and its real browser-test evidence, despite every testable dimension passing', () => {

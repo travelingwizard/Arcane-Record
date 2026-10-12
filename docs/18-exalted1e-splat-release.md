@@ -196,7 +196,7 @@ real, creatable sheet.
 | Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 505 of 505 promotable (catalog dimension complete, Phase 1e)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Locked; catalog/rules/creator/migration/browser tests all pass (Phase 6 browser-test evidence), `certifiedAt` deliberately `null` pending all five families together              |
 | Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 383 of 383 promotable (catalog dimension complete, `sidereal_unreviewed_spells` follow-up)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Locked; catalog/rules/creator/migration/browser tests all pass (Phase 6 browser-test evidence), `certifiedAt` deliberately `null` pending all five families together              |
 | Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 214 of 214 promotable (catalog dimension complete: Backgrounds + Merits/Flaws, Phase 1a; Charms, Phase 1b; Weaving Protocols + Alchemy Formulae, Phase 1c)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Locked; catalog/rules/creator/migration/browser tests all pass (Phase 2a-2c, Phase 6 browser-test evidence), `certifiedAt` deliberately `null` pending all five families together |
-| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 368            | 318 of 318 promotable (catalog dimension complete: Backgrounds + Merits/Flaws, Phase 1a; Graces + Bedlam + Grace-Forging/Assumption Charms, Phase 1b; Glamour Charms + remaining Greater Arts of Glamour + Pox/Affliction/Blight Charms, Phase 1c; Heart Dodge + Resistance Charms, Phase 1d; Cup Combat Charms, Phase 1e; Ring Combat Charms + All-Consuming God-Monster Style, Phase 1f; Laughing Monster Style + Society-Forging Charms, Phase 1g; Sword Combat Charms, Phase 1h; remaining Mutation Charms, Phase 1i; Name + Bedlam-Influencing Charms, Phase 1j; Mad God Mien + Elemental Influence + Emotional Influence, Phase 1k; Feeding Charms, Phase 1l; Addiction Charms, Phase 1m; World-Shaping Charms, Phase 1n; Virtue-Shaping Charms, Phase 1o; Body-Strengthening Charms + Creation-Based Crafting, Phase 1p; Way Charms, Phase 1q -- entire Charm section complete; Glamour Sorcery reference catalog, Phase 1r; Adjurations reference catalog, Phase 1s; Behemoths reference catalog, Phase 1t) | Locked; catalog/rules/creator/migration tests all pass (Phase 2a-2c), `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6                              |
+| Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 368            | 318 of 318 promotable (catalog dimension complete: Backgrounds + Merits/Flaws, Phase 1a; Graces + Bedlam + Grace-Forging/Assumption Charms, Phase 1b; Glamour Charms + remaining Greater Arts of Glamour + Pox/Affliction/Blight Charms, Phase 1c; Heart Dodge + Resistance Charms, Phase 1d; Cup Combat Charms, Phase 1e; Ring Combat Charms + All-Consuming God-Monster Style, Phase 1f; Laughing Monster Style + Society-Forging Charms, Phase 1g; Sword Combat Charms, Phase 1h; remaining Mutation Charms, Phase 1i; Name + Bedlam-Influencing Charms, Phase 1j; Mad God Mien + Elemental Influence + Emotional Influence, Phase 1k; Feeding Charms, Phase 1l; Addiction Charms, Phase 1m; World-Shaping Charms, Phase 1n; Virtue-Shaping Charms, Phase 1o; Body-Strengthening Charms + Creation-Based Crafting, Phase 1p; Way Charms, Phase 1q -- entire Charm section complete; Glamour Sorcery reference catalog, Phase 1r; Adjurations reference catalog, Phase 1s; Behemoths reference catalog, Phase 1t) | Locked; catalog/rules/creator/migration/browser tests all pass (Phase 2a-2c, Phase 6 browser-test evidence), `certifiedAt` deliberately `null` pending all five families together |
 
 Lunar's 582 rows cover the core innate powers, every Charm category in
 Chapter Five (Shapechanging I/II/III, Body Enhancement I/II, Unarmed Combat
@@ -1432,6 +1432,59 @@ errors), a production build, and the Exalted e2e smoke specs plus the
 Lunar, Abyssal, Sidereal, and new Alchemical specs (7 specs, all
 passing, including running in parallel with no IndexedDB id
 collisions).
+
+Fair Folk came last, the fifth and final family to receive real
+`browserTests` evidence, completing Phase 6's per-family incremental pass.
+A new `tests/e2e/exalted1e-fair-folk.spec.ts` follows the exact same
+direct-IndexedDB-injection pattern as Lunar's, Abyssal's, Sidereal's, and
+Alchemical's own specs: it injects a `'draft'`-status Fair Folk record
+directly into IndexedDB and opens it via the character library's real
+"Open \<name\>" button, bypassing only the disabled "Choose Fair Folk
+Exalted" button on `/create`, never any real feature code. From there every
+control the spec drives -- the real guided-creation wizard, including its
+noble-raksha-only "Second Caste" `<select>` and the `second-caste`
+distinct-Caste validation rule; the inline Fair Folk Graces card's
+`DotRating`s, "Active assumption," and "Feeding notes" fields;
+`FairFolkGracesPanel`'s own Bedlam Virtue declaration plus its four
+reference-only cards (Graces, Glamour Sorcery, Adjurations, Behemoths); the
+shared Backgrounds and Merits & Flaws catalogs ("Internal Compass"); and
+the real 201-entry promoted Fair Folk Charms catalog ("Essence-Forging
+Art") -- is the same production UI a player will use once the family
+unlocks. This phase also fixed two genuine pre-existing defects this new
+browser coverage caught for the first time. First, `getByLabel` broke on
+the "Feeding notes" `<textarea>` once it held a real value: Chromium
+serializes a filled `<textarea>`'s live value as its own child text node,
+which folds into its wrapping `<label>`'s computed DOM text and breaks
+exact-name label matching even though the element's true _accessible_ name
+stays correct -- worked around in the spec itself (not an app bug) by using
+`getByRole('textbox', ...)` for that field, the same way combobox name
+collisions are worked around elsewhere in these specs. Second, and a real
+app-code fix: Fair Folk's own Attributes render with `max={7}` dots (raksha
+run higher than every other family's `max={5}`), but `Exalted1eEditor.tsx`
+had neither the `showBreakAfterFive` prop nor a matching responsive
+wrapping rule for that wider control, and the Charms section's own
+`catalogDescription` text contains a long, slash-joined compound word with
+no spaces (`Combat/Name/Feeding/Addiction/World-Shaping`) that overflowed a
+320px viewport by itself, since the shared `.section-note` CSS class had no
+`overflow-wrap` rule at all -- fixed by adding `showBreakAfterFive`
+(conditioned on `sheetType === 'fair-folk'`) plus a new
+`.exalted-attribute-row` class wired into `responsive.css`'s existing
+`<=35rem` wrap rules alongside `.exalted-advantage-grid`/
+`.exalted-limit-grid`/`.exalted-clarity-grid`, and by adding this project's
+own established `overflow-wrap: anywhere` convention (already used
+throughout `components.css`/`responsive.css`/`mage-creator.css`) to
+`.section-note` and its sibling `.empty-inline` -- a fix that benefits
+every family's own catalog description text, not just Fair Folk's.
+`certification/fair-folk.json`'s `browserTests` flipped from `'not-run'`
+to `'pass'`; `certifiedAt` stays `null` on purpose, since Phase 6's own
+rule requires all five families to reach `certifiedAt !== null` together,
+and with Fair Folk's evidence, all five now have real, passing
+`browserTests` coverage -- only the single final all-five-together unlock
+commit remains. Full verification battery run: typecheck, the full
+unit+integration suite, lint (0 errors), a production build, and the
+Exalted e2e smoke specs plus the Lunar, Abyssal, Sidereal, Alchemical, and
+new Fair Folk specs (8 specs, all passing, including running in parallel
+with no IndexedDB id collisions).
 
 With Lunar, Abyssal, and Sidereal's own catalog dimensions all complete,
 work then moved to Alchemical's own Phase 1a (schema wiring plus Backgrounds
