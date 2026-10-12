@@ -56,17 +56,19 @@ describe('exalted1e verification gate', () => {
       // passing coverage (see `exalted-shared-records.test.ts`'s XP-cost
       // tests, `exalted-creation-panel.test.tsx`, and each family's own
       // schema-migration test). `browserTests` still can't run for any
-      // family before it is unlocked -- except Lunar and Abyssal, the
-      // first two families to get real browser-test evidence via Phase 6's
-      // own per-family incremental pass
+      // family before it is unlocked -- except Lunar, Abyssal, and
+      // Sidereal, the first three families to get real browser-test
+      // evidence via Phase 6's own per-family incremental pass
       // (`tests/e2e/exalted1e-lunar.spec.ts`,
-      // `tests/e2e/exalted1e-abyssal.spec.ts`, each of which bypasses only
-      // the disabled "Choose <Family> Exalted" button, not any real
+      // `tests/e2e/exalted1e-abyssal.spec.ts`,
+      // `tests/e2e/exalted1e-sidereal.spec.ts`, each of which bypasses
+      // only the disabled "Choose <Family> Exalted" button, not any real
       // feature code -- see each record's own `blockers`). Every family
       // still has real catalog gaps of its own (see each record's own
-      // `blockers`) or, for Lunar/Abyssal, Phase 6's own all-five-together
-      // rule, so all five remain fully locked regardless. Every other
-      // family stays 'not-run' on all four test dimensions.
+      // `blockers`) or, for Lunar/Abyssal/Sidereal, Phase 6's own
+      // all-five-together rule, so all five remain fully locked
+      // regardless. Every other family stays 'not-run' on all four test
+      // dimensions.
       if (
         family === 'abyssal' ||
         family === 'sidereal' ||
@@ -78,7 +80,9 @@ describe('exalted1e verification gate', () => {
         expect(record.creatorTests).toBe('pass');
         expect(record.migrationTests).toBe('pass');
         expect(record.browserTests).toBe(
-          family === 'lunar' || family === 'abyssal' ? 'pass' : 'not-run',
+          family === 'lunar' || family === 'abyssal' || family === 'sidereal'
+            ? 'pass'
+            : 'not-run',
         );
       } else {
         expect(record.rulesTests).toBe('not-run');
@@ -287,11 +291,11 @@ describe('exalted1e verification gate', () => {
     // Astrology/Colleges procedural-rules rows
     // (sidereal-astrology-rules.json) -- this now equals the 383
     // `promotableEntries`, and is far short of the raw
-    // `totalInventoryRows` (583). Even with the catalog dimension fully
-    // satisfied, `isFamilyAvailable('sidereal')` must stay false:
-    // `browserTests` can't run before the family is unlocked, and Phase
-    // 6's rule requires all five families to reach `certifiedAt !== null`
-    // together.
+    // `totalInventoryRows` (583). `browserTests` now passes too (Phase 6's
+    // own per-family incremental pass; see the dedicated "describes
+    // Sidereal as locked" test below) -- but even with every testable
+    // dimension satisfied, `isFamilyAvailable('sidereal')` must stay
+    // false, since Phase 6's own all-five-together rule remains.
     expect(record.catalog.promotedEntries).toBe(383);
     expect(record.catalog.promotableEntries).toBe(383);
     expect(record.catalog.unresolvedEntries).toBe(0);
@@ -516,7 +520,7 @@ describe('exalted1e verification gate', () => {
         expect(status.blockReason).toContain('creator tests pass');
         expect(status.blockReason).toContain('migration tests pass');
         expect(status.blockReason).toContain(
-          family === 'lunar' || family === 'abyssal'
+          family === 'lunar' || family === 'abyssal' || family === 'sidereal'
             ? 'browser tests pass'
             : 'browser tests not-run',
         );
@@ -569,20 +573,29 @@ describe('exalted1e verification gate', () => {
     expect(canCreateProductionExaltedCharacter('abyssal')).toBe(false);
   });
 
-  it('describes Sidereal as locked with its now-complete catalog dimension despite its passing test dimensions', () => {
+  it('describes Sidereal as locked with its now-complete catalog dimension and its real browser-test evidence, despite every testable dimension passing', () => {
+    // Sidereal is the third of the five planned families with real
+    // browser-test evidence (Phase 6's own per-family incremental pass,
+    // `tests/e2e/exalted1e-sidereal.spec.ts`) -- like Abyssal, Sidereal's
+    // catalog dimension is also fully resolved (383 of 383 promotable
+    // rows, including its own Astrology/Colleges system's 10
+    // procedural-rules rows and all 86 Sorcery spells after the
+    // `sidereal_unreviewed_spells` follow-up phase), and
+    // rulesTests/creatorTests/migrationTests all pass (Phase 2d). Every
+    // testable dimension now passes, yet
+    // `isFamilyAvailable`/`canCreateProductionExaltedCharacter` must still
+    // return false: `certifiedAt` deliberately stays null pending Phase
+    // 6's own all-five-together rule.
     const status = getFamilyCertificationStatus('sidereal');
     expect(status.available).toBe(false);
-    // Like Abyssal, Sidereal's catalog dimension is now fully resolved
-    // (383 of 383 promotable rows, including its own Astrology/Colleges
-    // system's 10 procedural-rules rows and all 86 Sorcery spells after
-    // the `sidereal_unreviewed_spells` follow-up phase), and
-    // rulesTests/creatorTests/migrationTests all pass (Phase 2d) -- the
-    // family stays locked only for browserTests (not-run) and Phase 6's
-    // all-five-together rule.
     expect(status.blockReason).toContain('383/383 promoted');
     expect(status.blockReason).toContain('0 unresolved');
     expect(status.blockReason).toContain('rules tests pass');
-    expect(status.blockReason).toContain('browser tests not-run');
+    expect(status.blockReason).toContain('creator tests pass');
+    expect(status.blockReason).toContain('migration tests pass');
+    expect(status.blockReason).toContain('browser tests pass');
+    expect(isFamilyAvailable('sidereal')).toBe(false);
+    expect(canCreateProductionExaltedCharacter('sidereal')).toBe(false);
   });
 
   it('describes Fair Folk as locked with its now-complete catalog dimension despite its passing test dimensions', () => {
