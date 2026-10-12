@@ -36,6 +36,10 @@ function fairFolkDraft(): Exalted1eCharacter {
   return createBlankExaltedCharacter('fair-folk', 'draft');
 }
 
+function alchemicalDraft(): Exalted1eCharacter {
+  return createBlankExaltedCharacter('alchemical', 'draft');
+}
+
 describe('ExaltedCreationPanel (Abyssal guided creation, Phase 1e)', () => {
   it('offers the Abyssal-only "Fugitive" creation profile alongside Standard', () => {
     render(<Harness initial={abyssalDraft()} />);
@@ -417,6 +421,141 @@ describe('ExaltedCreationPanel (Fair Folk guided creation, Phase 2c)', () => {
   it('does not render at all for a manual (non-guided) Fair Folk sheet', () => {
     const { container } = render(
       <Harness initial={createBlankExaltedCharacter('fair-folk', 'manual')} />,
+    );
+    expect(container).toBeEmptyDOMElement();
+  });
+});
+
+/**
+ * Phase 2c "creator tests" dimension: like Fair Folk's own Phase 2c, this
+ * phase's job is adding real, rendered-UI test coverage of guided-creation
+ * logic that already existed (the Caste/Favored-Attribute wiring here, and
+ * `validateExaltedCreation`'s own 'alchemical' branch in family-rules.ts),
+ * not building new creation-flow code -- Alchemical's Attribute-keyed
+ * Castes (rather than Ability-keyed, like every other family) and its
+ * "choose three Favored Attributes distinct from the three Caste
+ * Attributes" mechanic were both added in this project's original
+ * five-family schema/rules scaffold, before any Alchemical catalog-
+ * promotion phase began.
+ */
+describe('ExaltedCreationPanel (Alchemical guided creation, Phase 2c)', () => {
+  it('lists all five Alchemical Castes in the Caste selector, sourced from the verified creation rules', () => {
+    render(<Harness initial={alchemicalDraft()} />);
+    const select = screen.getByLabelText('Caste');
+    const optionLabels = within(select)
+      .getAllByRole('option')
+      .map((option) => option.textContent);
+    expect(optionLabels).toEqual([
+      'Choose…',
+      'Orichalcum',
+      'Moonsilver',
+      'Jade',
+      'Starmetal',
+      'Soulsteel',
+    ]);
+  });
+
+  it('offers no Creation profile selector, since Alchemical has no documented creation variant', () => {
+    render(<Harness initial={alchemicalDraft()} />);
+    expect(screen.queryByLabelText('Creation profile')).not.toBeInTheDocument();
+  });
+
+  it('offers a Favored Attributes checkbox for all nine Attributes, capped at three selections', async () => {
+    const user = userEvent.setup();
+    render(<Harness initial={alchemicalDraft()} />);
+    expect(
+      screen.getByRole('group', {
+        name: 'Favored Attributes (choose three outside Caste)',
+      }),
+    ).toBeInTheDocument();
+    for (const label of [
+      'Strength',
+      'Dexterity',
+      'Stamina',
+      'Charisma',
+      'Manipulation',
+      'Appearance',
+      'Perception',
+      'Intelligence',
+      'Wits',
+    ]) {
+      expect(screen.getByRole('checkbox', { name: label })).toBeInTheDocument();
+    }
+    // Checking a fourth box keeps only the three most recently checked.
+    await user.click(screen.getByRole('checkbox', { name: 'Dexterity' }));
+    await user.click(screen.getByRole('checkbox', { name: 'Perception' }));
+    await user.click(screen.getByRole('checkbox', { name: 'Wits' }));
+    await user.click(screen.getByRole('checkbox', { name: 'Stamina' }));
+    expect(screen.getByRole('checkbox', { name: 'Dexterity' })).not.toBeChecked();
+    expect(screen.getByRole('checkbox', { name: 'Perception' })).toBeChecked();
+    expect(screen.getByRole('checkbox', { name: 'Wits' })).toBeChecked();
+    expect(screen.getByRole('checkbox', { name: 'Stamina' })).toBeChecked();
+  });
+
+  it('surfaces unresolved creation-budget requirements for a blank Alchemical draft, and gates Finalize on them', () => {
+    render(<Harness initial={alchemicalDraft()} />);
+    expect(screen.getByText(/requirements? remaining/)).toBeVisible();
+    expect(screen.getByText(/Choose a Caste\./)).toBeVisible();
+    expect(
+      screen.getByText(/Allocate exactly 23 initial Ability dots/),
+    ).toBeVisible();
+    expect(
+      screen.queryByRole('button', { name: 'Finalize character' }),
+    ).toBeDisabled();
+  });
+
+  it('once a Caste is chosen, requires three Favored Attributes distinct from the Caste Attributes and the Caste 9/Favored 6/remaining 4 budget', async () => {
+    const user = userEvent.setup();
+    render(<Harness initial={alchemicalDraft()} />);
+    // Orichalcum's Caste Attributes are Strength/Charisma/Intelligence.
+    await user.selectOptions(screen.getByLabelText('Caste'), 'orichalcum');
+    expect(
+      screen.getByText(
+        /Choose three Favored Attributes distinct from the three Caste Attributes\./,
+      ),
+    ).toBeVisible();
+    expect(
+      screen.getByText(/Allocate Alchemical Attributes as Caste 9, Favored 6, remaining 4/),
+    ).toBeVisible();
+  });
+
+  it('clears the favored-attributes requirement once three Attributes distinct from the Caste are chosen, but not when one overlaps the Caste', async () => {
+    const user = userEvent.setup();
+    render(<Harness initial={alchemicalDraft()} />);
+    await user.selectOptions(screen.getByLabelText('Caste'), 'orichalcum');
+    // Charisma overlaps Orichalcum's own Caste Attributes.
+    await user.click(screen.getByRole('checkbox', { name: 'Charisma' }));
+    await user.click(screen.getByRole('checkbox', { name: 'Dexterity' }));
+    await user.click(screen.getByRole('checkbox', { name: 'Perception' }));
+    expect(
+      screen.getByText(
+        /Choose three Favored Attributes distinct from the three Caste Attributes\./,
+      ),
+    ).toBeVisible();
+    await user.click(screen.getByRole('checkbox', { name: 'Charisma' }));
+    await user.click(screen.getByRole('checkbox', { name: 'Wits' }));
+    expect(
+      screen.queryByText(
+        /Choose three Favored Attributes distinct from the three Caste Attributes\./,
+      ),
+    ).not.toBeInTheDocument();
+  });
+
+  it('cites Exalted: The Autochthonians p. 63 (PDF 64) as the creation-rules source', () => {
+    render(<Harness initial={alchemicalDraft()} />);
+    expect(screen.getByLabelText('Creation source')).toHaveValue(
+      'autochthonians, p. 63 (PDF 64)',
+    );
+  });
+
+  it('shows the Alchemical-specific Attribute budget summary ("Caste 9, Favored 6, remaining 4") instead of the generic priority-budget line', () => {
+    render(<Harness initial={alchemicalDraft()} />);
+    expect(screen.getByText('Caste 9, Favored 6, remaining 4.')).toBeVisible();
+  });
+
+  it('does not render at all for a manual (non-guided) Alchemical sheet', () => {
+    const { container } = render(
+      <Harness initial={createBlankExaltedCharacter('alchemical', 'manual')} />,
     );
     expect(container).toBeEmptyDOMElement();
   });

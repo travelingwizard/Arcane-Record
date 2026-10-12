@@ -48,22 +48,24 @@ describe('exalted1e verification gate', () => {
       const record = certificationRecords[family];
       expect(record.certifiedAt).toBeNull();
       // Abyssal (Phase 1e), Sidereal (Phase 2d), Lunar (the
-      // "rules_creator_tests" follow-up phase), and now Fair Folk (Phase
-      // 2a editor UI + Phase 2b XP-cost rules + Phase 2c guided-creation
-      // coverage) are the four exceptions: their rules/creator/migration
-      // test dimensions now have real, passing coverage (see
+      // "rules_creator_tests" follow-up phase), Fair Folk (Phase 2a
+      // editor UI + Phase 2b XP-cost rules + Phase 2c guided-creation
+      // coverage), and now Alchemical (the same Phase 2a-2c arc) are the
+      // five exceptions: their rules/creator/migration test dimensions
+      // now have real, passing coverage (see
       // `exalted-shared-records.test.ts`'s XP-cost tests,
       // `exalted-creation-panel.test.tsx`, and each family's own
       // schema-migration test) -- but `browserTests` still can't run
       // before any family is unlocked, and each still has real catalog
-      // gaps of its own (see each record's own `blockers`), so all four
+      // gaps of its own (see each record's own `blockers`), so all five
       // remain fully locked regardless. Every other family stays
       // 'not-run' on all four test dimensions.
       if (
         family === 'abyssal' ||
         family === 'sidereal' ||
         family === 'lunar' ||
-        family === 'fair-folk'
+        family === 'fair-folk' ||
+        family === 'alchemical'
       ) {
         expect(record.rulesTests).toBe('pass');
         expect(record.creatorTests).toBe('pass');
@@ -291,8 +293,10 @@ describe('exalted1e verification gate', () => {
     expect(record.catalog.promotedEntries).toBe(214);
     // Phase 1c closed Alchemical's catalog dimension (214 of 214
     // promotable, same as Abyssal/Sidereal/Lunar's own fully-closed
-    // catalogs), but `certifiedAt` stays null and the family stays locked:
-    // all four test dimensions are still `'not-run'`, and Phase 6's rule
+    // catalogs). rulesTests/creatorTests/migrationTests now all pass too
+    // (Phase 2a-2c, see the dedicated "describes Alchemical as locked"
+    // test below), but `certifiedAt` stays null and the family stays
+    // locked: `browserTests` is still `'not-run'`, and Phase 6's rule
     // requires all five planned families to reach `certifiedAt !== null`
     // together.
     expect(record.catalog.promotedEntries).toBe(
@@ -483,16 +487,18 @@ describe('exalted1e verification gate', () => {
         `catalog ${promotedEntries}/${promotableEntries} promoted (${totalInventoryRows} total inventory rows), ${unresolvedEntries} unresolved`,
       );
       // Abyssal (Phase 1e), Sidereal (Phase 2d), Lunar (the
-      // "rules_creator_tests" follow-up phase), and Fair Folk (Phase
-      // 2a-2c) are the four families whose rules/creator/migration
-      // dimensions now pass (see the previous test's comment); every
-      // other family, and all four families' own still-not-run browser
-      // dimension, keeps the generic 'not-run' wording.
+      // "rules_creator_tests" follow-up phase), Fair Folk (Phase 2a-2c),
+      // and Alchemical (the same Phase 2a-2c arc) are the five families
+      // whose rules/creator/migration dimensions now pass (see the
+      // previous test's comment); every other family, and all five
+      // families' own still-not-run browser dimension, keeps the generic
+      // 'not-run' wording.
       if (
         family === 'abyssal' ||
         family === 'sidereal' ||
         family === 'lunar' ||
-        family === 'fair-folk'
+        family === 'fair-folk' ||
+        family === 'alchemical'
       ) {
         expect(status.blockReason).toContain('rules tests pass');
         expect(status.blockReason).toContain('creator tests pass');
@@ -555,6 +561,26 @@ describe('exalted1e verification gate', () => {
     const status = getFamilyCertificationStatus('fair-folk');
     expect(status.available).toBe(false);
     expect(status.blockReason).toContain('318/318 promoted');
+    expect(status.blockReason).toContain('0 unresolved');
+    expect(status.blockReason).toContain('rules tests pass');
+    expect(status.blockReason).toContain('creator tests pass');
+    expect(status.blockReason).toContain('migration tests pass');
+    expect(status.blockReason).toContain('browser tests not-run');
+  });
+
+  it('describes Alchemical as locked with its now-complete catalog dimension despite its passing test dimensions', () => {
+    // Alchemical's catalog dimension closed out in Phase 1c (214/214,
+    // Backgrounds + Merits/Flaws + Charms + Weaving Protocols + Alchemy
+    // Formulae all promoted), and rulesTests/creatorTests/migrationTests
+    // all pass after Phase 2a (editor UI branch), Phase 2b (flat/
+    // echelon-keyed XP-cost rules, per Exalted: The Autochthonians' own
+    // Experience table), and Phase 2c (guided-creation-panel coverage for
+    // the five-Caste, three-Favored-Attribute creation flow) -- the
+    // family stays locked only for browserTests (not-run) and Phase 6's
+    // all-five-together rule.
+    const status = getFamilyCertificationStatus('alchemical');
+    expect(status.available).toBe(false);
+    expect(status.blockReason).toContain('214/214 promoted');
     expect(status.blockReason).toContain('0 unresolved');
     expect(status.blockReason).toContain('rules tests pass');
     expect(status.blockReason).toContain('creator tests pass');

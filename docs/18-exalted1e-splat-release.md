@@ -195,7 +195,7 @@ real, creatable sheet.
 | Lunar      | Created (Exalted: The Lunars + Exalted Players Guide + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)    | 598            | 412 of 412 promotable (catalog dimension complete, `unreviewed_spells` follow-up)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6               |
 | Abyssal    | Created (Exalted: The Abyssals + Book of Bone and Ebony + Savant and Sorcerer + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt) | 700            | 505 of 505 promotable (catalog dimension complete, Phase 1e)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6               |
 | Sidereal   | Created (Exalted: The Sidereals + Savant and Sorcerer + Book of Three Circles + Exalted Storyteller's Companion + Savage Seas + Exalted Players Guide + Blood and Salt) | 583            | 383 of 383 promotable (catalog dimension complete, `sidereal_unreviewed_spells` follow-up)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Locked; catalog/rules/creator/migration tests all pass, `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6               |
-| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 214 of 214 promotable (catalog dimension complete: Backgrounds + Merits/Flaws, Phase 1a; Charms, Phase 1b; Weaving Protocols + Alchemy Formulae, Phase 1c)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Locked; editor UI wired (Phase 2a), XP-cost rules wired (Phase 2b), rules/creator/migration tests `not-run`                                          |
+| Alchemical | Created (Exalted: The Autochthonians + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                          | 305            | 214 of 214 promotable (catalog dimension complete: Backgrounds + Merits/Flaws, Phase 1a; Charms, Phase 1b; Weaving Protocols + Alchemy Formulae, Phase 1c)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Locked; catalog/rules/creator/migration tests all pass (Phase 2a-2c), `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
 | Fair Folk  | Created (Exalted: The Fair Folk + Exalted Players Guide + Exalted Storyteller's Companion + Savage Seas + Blood and Salt)                                               | 368            | 318 of 318 promotable (catalog dimension complete: Backgrounds + Merits/Flaws, Phase 1a; Graces + Bedlam + Grace-Forging/Assumption Charms, Phase 1b; Glamour Charms + remaining Greater Arts of Glamour + Pox/Affliction/Blight Charms, Phase 1c; Heart Dodge + Resistance Charms, Phase 1d; Cup Combat Charms, Phase 1e; Ring Combat Charms + All-Consuming God-Monster Style, Phase 1f; Laughing Monster Style + Society-Forging Charms, Phase 1g; Sword Combat Charms, Phase 1h; remaining Mutation Charms, Phase 1i; Name + Bedlam-Influencing Charms, Phase 1j; Mad God Mien + Elemental Influence + Emotional Influence, Phase 1k; Feeding Charms, Phase 1l; Addiction Charms, Phase 1m; World-Shaping Charms, Phase 1n; Virtue-Shaping Charms, Phase 1o; Body-Strengthening Charms + Creation-Based Crafting, Phase 1p; Way Charms, Phase 1q -- entire Charm section complete; Glamour Sorcery reference catalog, Phase 1r; Adjurations reference catalog, Phase 1s; Behemoths reference catalog, Phase 1t) | Locked; catalog/rules/creator/migration tests all pass (Phase 2a-2c), `browserTests` `not-run` and `certifiedAt` deliberately `null` pending Phase 6 |
 
 Lunar's 582 rows cover the core innate powers, every Charm category in
@@ -1711,6 +1711,48 @@ to for any non-Charm kind. `rulesTests`/`creatorTests`/`migrationTests`
 all stay `not-run`: Phase 2c (guided-creation-panel coverage) remains the
 last step before those dimensions can flip to pass, exactly like Fair
 Folk's own Phase 2b -> Phase 2c history.
+
+Alchemical's Phase 2c (guided-creation-panel coverage) closes out
+`rulesTests`/`creatorTests`/`migrationTests`, mirroring Fair Folk's own
+Phase 2c and the Abyssal/Sidereal/Lunar `rules_creator_tests` precedent
+before it. Before writing any code, the pre-existing `ExaltedCreationPanel.tsx`
+and `validateExaltedCreation` (`family-rules.ts`) were checked for existing
+Alchemical wiring: both already fully implement the Attribute-keyed five-
+Caste creation flow (Orichalcum/Moonsilver/Jade/Starmetal/Soulsteel, each
+with three `associatedAttributeIds`), the "choose three Favored Attributes
+distinct from the three Caste Attributes" checkbox grid, the favored-
+attributes validation rule, and the Caste 9/Favored 6/remaining 4
+attribute-budget check -- all added in this project's original five-
+family schema/rules scaffold, before any Alchemical catalog-promotion
+phase began. This phase's job was therefore adding real, rendered-UI test
+coverage of already-built logic, not building new creation-flow code: a
+new 9-test `ExaltedCreationPanel (Alchemical guided creation, Phase 2c)`
+describe block in `exalted-creation-panel.test.tsx` exercises the five-
+Caste selector, the absence of a Creation-profile selector (Alchemical has
+no documented creation variant, unlike Lunar/Abyssal/Sidereal/Fair Folk),
+the nine-checkbox Favored-Attributes grid capped at three selections, the
+family-identity/ability-budget/favored-attributes/attribute-budget
+validation messages and their Finalize-gating, the favored-attributes rule
+clearing once three Caste-distinct Attributes are chosen, the
+"autochthonians, p. 63 (PDF 64)" creation-source citation, the Alchemical-
+specific "Caste 9, Favored 6, remaining 4" budget summary line, and non-
+rendering for a manual (non-guided) sheet. All 9 passed on first run,
+confirming the pre-existing wiring behaves correctly. `rulesTests` passes
+via Phase 2b's `getAlchemicalPowerExperienceCost` coverage plus
+`quoteExaltedAdvancement`'s own already-tested `'alchemical'` branch;
+`migrationTests` passes via the pre-existing version-12 Clarity/Charm-Slot
+migration coverage in `exalted1e-alchemical.test.ts` (added during the
+earlier `familyState` redesign phase, predating this session).
+`exalted1e-verification.test.ts` was updated to add Alchemical alongside
+Abyssal/Sidereal/Lunar/Fair Folk in its per-family dimension-status
+assertions, plus a new dedicated "describes Alchemical as locked with its
+now-complete catalog dimension despite its passing test dimensions" test.
+Alchemical remains fully locked regardless: `certifiedAt` stays `null` and
+`browserTests` stays `not-run`, pending Phase 6's rule that all five
+planned families reach `certifiedAt !== null` together -- with this phase,
+Alchemical now sits in exactly the same position Abyssal/Sidereal/Lunar/
+Fair Folk already occupy: catalog complete, all three test dimensions
+passing, locked only by `browserTests`/Phase 6.
 
 Fair Folk's Phase 1a (Backgrounds plus Merits/Flaws catalog promotion)
 mirrors Lunar/Abyssal/Sidereal/Alchemical's own starting phase exactly.
