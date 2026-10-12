@@ -56,13 +56,15 @@ describe('exalted1e verification gate', () => {
       // passing coverage (see `exalted-shared-records.test.ts`'s XP-cost
       // tests, `exalted-creation-panel.test.tsx`, and each family's own
       // schema-migration test). `browserTests` still can't run for any
-      // family before it is unlocked -- except Lunar, the first family to
-      // get real browser-test evidence via Phase 6's own per-family
-      // incremental pass (`tests/e2e/exalted1e-lunar.spec.ts`, which
-      // bypasses only the disabled "Choose Lunar Exalted" button, not any
-      // real feature code -- see `lunar.json`'s own `blockers`). Every
-      // family still has real catalog gaps of its own (see each record's
-      // own `blockers`) or, for Lunar, Phase 6's own all-five-together
+      // family before it is unlocked -- except Lunar and Abyssal, the
+      // first two families to get real browser-test evidence via Phase 6's
+      // own per-family incremental pass
+      // (`tests/e2e/exalted1e-lunar.spec.ts`,
+      // `tests/e2e/exalted1e-abyssal.spec.ts`, each of which bypasses only
+      // the disabled "Choose <Family> Exalted" button, not any real
+      // feature code -- see each record's own `blockers`). Every family
+      // still has real catalog gaps of its own (see each record's own
+      // `blockers`) or, for Lunar/Abyssal, Phase 6's own all-five-together
       // rule, so all five remain fully locked regardless. Every other
       // family stays 'not-run' on all four test dimensions.
       if (
@@ -76,7 +78,7 @@ describe('exalted1e verification gate', () => {
         expect(record.creatorTests).toBe('pass');
         expect(record.migrationTests).toBe('pass');
         expect(record.browserTests).toBe(
-          family === 'lunar' ? 'pass' : 'not-run',
+          family === 'lunar' || family === 'abyssal' ? 'pass' : 'not-run',
         );
       } else {
         expect(record.rulesTests).toBe('not-run');
@@ -257,10 +259,11 @@ describe('exalted1e verification gate', () => {
     // Charm/spell rows, all resolved by direct source re-check). This is
     // far short of the raw `totalInventoryRows` (700), most of which is
     // free-text-by-design Artifacts/Hearthstones/Warstriders/nemissary
-    // content that is never meant to become a catalog entry -- and even a
-    // fully-satisfied catalog dimension must not unlock the family, since
-    // `browserTests` and Phase 6's all-five-together rule remain.
-    // `isFamilyAvailable('abyssal')` must stay false.
+    // content that is never meant to become a catalog entry. `browserTests`
+    // now passes too (Phase 6's own per-family incremental pass; see the
+    // dedicated "describes Abyssal as locked" test below) -- but even with
+    // every testable dimension satisfied, `isFamilyAvailable` must stay
+    // false, since Phase 6's own all-five-together rule remains.
     expect(record.catalog.promotedEntries).toBe(505);
     expect(record.catalog.promotableEntries).toBe(505);
     expect(record.catalog.unresolvedEntries).toBe(0);
@@ -513,7 +516,9 @@ describe('exalted1e verification gate', () => {
         expect(status.blockReason).toContain('creator tests pass');
         expect(status.blockReason).toContain('migration tests pass');
         expect(status.blockReason).toContain(
-          family === 'lunar' ? 'browser tests pass' : 'browser tests not-run',
+          family === 'lunar' || family === 'abyssal'
+            ? 'browser tests pass'
+            : 'browser tests not-run',
         );
       } else {
         expect(status.blockReason).toContain('rules tests not-run');
@@ -545,13 +550,23 @@ describe('exalted1e verification gate', () => {
     expect(canCreateProductionExaltedCharacter('lunar')).toBe(false);
   });
 
-  it('describes Abyssal as locked with its now-complete catalog dimension despite its passing test dimensions', () => {
+  it('describes Abyssal as locked with its now-complete catalog dimension and its real browser-test evidence, despite every testable dimension passing', () => {
+    // Abyssal is the second of the five planned families with real
+    // browser-test evidence (Phase 6's own per-family incremental pass,
+    // `tests/e2e/exalted1e-abyssal.spec.ts`) -- every testable dimension
+    // now passes, yet `isFamilyAvailable`/`canCreateProductionExaltedCharacter`
+    // must still return false: `certifiedAt` deliberately stays null
+    // pending Phase 6's own all-five-together rule.
     const status = getFamilyCertificationStatus('abyssal');
     expect(status.available).toBe(false);
     expect(status.blockReason).toContain('505/505 promoted');
     expect(status.blockReason).toContain('0 unresolved');
     expect(status.blockReason).toContain('rules tests pass');
-    expect(status.blockReason).toContain('browser tests not-run');
+    expect(status.blockReason).toContain('creator tests pass');
+    expect(status.blockReason).toContain('migration tests pass');
+    expect(status.blockReason).toContain('browser tests pass');
+    expect(isFamilyAvailable('abyssal')).toBe(false);
+    expect(canCreateProductionExaltedCharacter('abyssal')).toBe(false);
   });
 
   it('describes Sidereal as locked with its now-complete catalog dimension despite its passing test dimensions', () => {

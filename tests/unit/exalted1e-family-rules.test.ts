@@ -46,13 +46,17 @@ describe('Exalted production verification gate', () => {
     // migration test), and its catalog dimension is now fully satisfied
     // too (505/505 promoted, 0 unresolved, a real non-empty checksum -- the
     // 5 previously source-access-blocked rows were resolved this same
-    // phase). It still fails the overall gate because `browserTests`
-    // cannot run until the family is unlocked, and because `certifiedAt`
-    // deliberately stays null pending Phase 6's rule that all five planned
-    // families reach `certifiedAt !== null` together -- a family never
-    // becomes available just because most (or even all but one) of its
-    // dimensions have passed; every one must, including the final
-    // certification flip.
+    // phase). Phase 6's own per-family incremental browser-test pass
+    // (following Lunar's precedent) then closed `browserTests` too --
+    // `tests/e2e/exalted1e-abyssal.spec.ts` provides real, rendered-browser
+    // evidence of the guided-creation wizard, the Abyssal state panel, the
+    // Charms catalog, and the shared trait catalog's Abyssal-only
+    // wiring. It still fails the overall gate for exactly one reason:
+    // `certifiedAt` deliberately stays null pending Phase 6's own rule
+    // that all five planned families reach `certifiedAt !== null`
+    // together -- a family never becomes available just because every
+    // other dimension has passed; the final certification flip must
+    // happen for all five at once.
     expect(certificationRecords.abyssal.catalog.promotedEntries).toBe(
       certificationRecords.abyssal.catalog.promotableEntries,
     );
@@ -63,7 +67,7 @@ describe('Exalted production verification gate', () => {
     expect(certificationRecords.abyssal.rulesTests).toBe('pass');
     expect(certificationRecords.abyssal.creatorTests).toBe('pass');
     expect(certificationRecords.abyssal.migrationTests).toBe('pass');
-    expect(certificationRecords.abyssal.browserTests).not.toBe('pass');
+    expect(certificationRecords.abyssal.browserTests).toBe('pass');
     expect(certificationRecords.abyssal.certifiedAt).toBeNull();
     expect(isFamilyAvailable('abyssal')).toBe(false);
     expect(canCreateProductionExaltedCharacter('abyssal')).toBe(false);
