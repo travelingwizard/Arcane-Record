@@ -81,12 +81,13 @@ export function AlchemicalInstallationPanel({
           from Essence above 5 or certain installed Charms); temporary Clarity
           fluctuates with play. Their sum can never exceed 10.
         </p>
-        <SheetFieldGrid columns={2}>
+        <SheetFieldGrid columns={2} className="exalted-clarity-grid">
           <SheetField label="Permanent Clarity">
             <DotRating
               label="Permanent Clarity"
               value={state.clarityPermanent}
               max={10 - state.clarityTemporary}
+              showBreakAfterFive
               onChange={(clarityPermanent) =>
                 onChange({ ...state, clarityPermanent })
               }
@@ -97,6 +98,7 @@ export function AlchemicalInstallationPanel({
               label="Temporary Clarity"
               value={state.clarityTemporary}
               max={10 - state.clarityPermanent}
+              showBreakAfterFive
               onChange={(clarityTemporary) =>
                 onChange({ ...state, clarityTemporary })
               }
