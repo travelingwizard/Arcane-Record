@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DotRating } from '../../components/controls/DotRating';
 import {
   SheetCard,
@@ -9,6 +9,7 @@ import {
   SheetToolbar,
 } from '../../components/layout/SheetPrimitives';
 import type { GameCharacterEditorProps } from '../game-system';
+import type { StoredCharacterRepository } from '../../storage/stored-character-repository';
 import { CatalogSourceSettings } from '../shared/CatalogSourceSettings';
 import { LocalSheet, TextField, useLocalSheet } from '../shared/LocalSheet';
 import { wr20Arcanoi, wr20Thorns } from './catalog';
@@ -20,6 +21,7 @@ import {
   wr20SectionGroups,
   wr20Sections,
 } from './definitions';
+import { Wr20ShadowLinkService } from './link-service';
 import { creationIssues, evaluateRoll, ledgerTotals } from './rules';
 import {
   wr20CharacterSchema,
@@ -200,8 +202,125 @@ function TenBoxTrack({
   );
 }
 
+function ShadowLinkControl({
+  value,
+  repository,
+  locked,
+  onChange,
+  onCreate,
+}: {
+  value: Wr20Character;
+  repository: StoredCharacterRepository;
+  locked: boolean;
+  onChange: (value: Wr20Character) => void;
+  onCreate: () => void;
+}) {
+  const [options, setOptions] = useState<Array<{ id: string; name: string }>>(
+    [],
+  );
+  const [selected, setSelected] = useState(
+    value.shadow.kind === 'linked' ? value.shadow.shadowId : '',
+  );
+  const [unavailable, setUnavailable] = useState(false);
+  useEffect(() => {
+    setSelected(value.shadow.kind === 'linked' ? value.shadow.shadowId : '');
+  }, [value.shadow]);
+  useEffect(() => {
+    // Re-list on every `shadow` change too (not just mount), so a Shadow
+    // created or linked elsewhere -- including by "Create linked Shadow"
+    // just below -- shows up without requiring a reload.
+    void new Wr20ShadowLinkService(repository)
+      .list()
+      .then((records) =>
+        setOptions(
+          records.map((record) => ({ id: record.id, name: record.name })),
+        ),
+      );
+  }, [repository, value.shadow]);
+  useEffect(() => {
+    if (value.shadow.kind !== 'linked') {
+      setUnavailable(false);
+      return;
+    }
+    let cancelled = false;
+    void new Wr20ShadowLinkService(repository)
+      .resolve(value.shadow.shadowId)
+      .then((found) => {
+        if (!cancelled) setUnavailable(!found);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [repository, value.shadow]);
+  return (
+    <SheetCard>
+      <h3>Linked Shadow sheet</h3>
+      {value.shadow.kind === 'linked' && unavailable && (
+        <SheetNotice tone="warning">
+          The linked Shadow is unavailable in this browser. Import it separately
+          and link it below, or unlink and create a new one.
+        </SheetNotice>
+      )}
+      {value.shadow.kind === 'linked' && !unavailable && (
+        <p>
+          The Shadow is separately persisted and may be opened from the
+          character library.
+        </p>
+      )}
+      <SheetField label="Shadow record">
+        <select
+          disabled={locked}
+          value={selected}
+          onChange={(event) => setSelected(event.target.value)}
+        >
+          <option value="">No linked Shadow</option>
+          {options.map((option) => (
+            <option key={option.id} value={option.id}>
+              {option.name}
+            </option>
+          ))}
+        </select>
+      </SheetField>
+      <SheetToolbar>
+        <button
+          className="secondary-button"
+          disabled={locked || !selected}
+          onClick={() =>
+            void new Wr20ShadowLinkService(repository)
+              .link(value, selected)
+              .then(onChange)
+          }
+        >
+          Link existing Shadow
+        </button>
+        <button
+          className="secondary-button"
+          disabled={locked || value.shadow.kind === 'none'}
+          onClick={() => {
+            setSelected('');
+            void new Wr20ShadowLinkService(repository)
+              .unlink(value)
+              .then(onChange);
+          }}
+        >
+          Unlink
+        </button>
+        <button className="primary-button" disabled={locked} onClick={onCreate}>
+          Create linked Shadow
+        </button>
+      </SheetToolbar>
+      <small>
+        The Shadow is a separately persisted record. Links remain in this
+        browser: export and import each sheet, then re-link here if needed.
+      </small>
+    </SheetCard>
+  );
+}
+
 export function Wr20Editor(props: GameCharacterEditorProps<Wr20Character>) {
-  const sheet = useLocalSheet(props, wr20CharacterSchema);
+  const sheet = useLocalSheet(props, wr20CharacterSchema, (value) =>
+    new Wr20ShadowLinkService(props.repository).prepareExport(value),
+  );
   const c = sheet.draft;
   const locked = c.mode === 'play';
   const issues = creationIssues(c);
@@ -453,26 +572,13 @@ export function Wr20Editor(props: GameCharacterEditorProps<Wr20Character>) {
       </SheetFieldGrid>
     ),
     shadow: (
-      <SheetCard>
-        <h3>Linked Shadow sheet</h3>
-        {c.shadow.kind === 'linked' ? (
-          <>
-            <p>Linked record: {c.shadow.shadowId}</p>
-            <p>
-              The Shadow is separately persisted and may be opened from the
-              character library.
-            </p>
-          </>
-        ) : (
-          <button
-            className="primary-button"
-            disabled={locked}
-            onClick={() => void createShadow()}
-          >
-            Create linked Shadow
-          </button>
-        )}
-      </SheetCard>
+      <ShadowLinkControl
+        value={c}
+        repository={props.repository}
+        locked={locked}
+        onChange={update}
+        onCreate={() => void createShadow()}
+      />
     ),
     society: (
       <SheetFieldGrid columns={3}>

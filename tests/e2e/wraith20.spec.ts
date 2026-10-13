@@ -24,6 +24,40 @@ test('offers Wraith, Medium, Spectre, and separate Shadow sheets', async ({
   ).toBeVisible();
 });
 
+test('creates, unlinks, and relinks a Shadow from the character sheet', async ({
+  page,
+}) => {
+  await page.goto('/create/wraith20');
+  await page
+    .getByRole('button', { name: 'Choose Psyche sheet', exact: true })
+    .click();
+  await page
+    .getByRole('button', { name: 'Choose Wraith', exact: true })
+    .click();
+  await page.getByRole('link', { name: 'Shadow' }).click();
+  await page.getByRole('button', { name: 'Create linked Shadow' }).click();
+  await expect(page.getByText('Saved in this browser')).toBeVisible();
+  await expect(
+    page.getByText('The Shadow is separately persisted'),
+  ).toBeVisible();
+  await expect(page.getByText('The linked Shadow is unavailable')).toHaveCount(
+    0,
+  );
+  await page.getByRole('button', { name: 'Unlink' }).click();
+  await expect(page.getByText('Saved in this browser')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Unlink' })).toBeDisabled();
+  await expect(page.getByLabel('Shadow record')).toHaveValue('');
+  await page
+    .getByLabel('Shadow record')
+    .selectOption({ label: 'Untitled — Shadow' });
+  await page.getByRole('button', { name: 'Link existing Shadow' }).click();
+  await expect(page.getByText('Saved in this browser')).toBeVisible();
+  await expect(
+    page.getByText('The Shadow is separately persisted'),
+  ).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Unlink' })).toBeEnabled();
+});
+
 test('keeps a blank Medium sheet usable at 320px', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 800 });
   await page.goto('/create/wraith20');

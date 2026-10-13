@@ -1,5 +1,6 @@
 import type { GameSystemDefinition } from '../game-system';
 import { createWr20Character, createWr20Shadow } from './create-character';
+import { Wr20ShadowLinkService } from './link-service';
 import { Wr20Editor, Wr20ShadowEditor } from './Wr20Editor';
 import {
   WR20_SCHEMA_VERSION,
@@ -73,6 +74,15 @@ export const wr20Definition: GameSystemDefinition<Wr20Character> = {
     name: c.name ? `${c.name} (Copy)` : 'Untitled Wraith (Copy)',
     shadow: { kind: 'none' },
   }),
+  prepareExport: (character, repository) =>
+    new Wr20ShadowLinkService(repository).prepareExport(character),
+  getDeleteWarning: async (recordId, repository) => {
+    const record = await repository.get(recordId);
+    if (!record) return null;
+    const parsed = wr20CharacterSchema.safeParse(record.data);
+    if (!parsed.success || parsed.data.shadow.kind !== 'linked') return null;
+    return 'This character has a linked Shadow sheet. Deleting it will leave that Shadow pointing at a missing psyche character.';
+  },
   CharacterEditor: Wr20Editor,
   sections: wr20Sections,
   sectionGroups: wr20SectionGroups,
@@ -104,6 +114,16 @@ export const wr20ShadowDefinition: GameSystemDefinition<Wr20Shadow> = {
     name: s.name ? `${s.name} (Copy)` : 'Untitled Shadow (Copy)',
     psycheCharacterId: null,
   }),
+  getDeleteWarning: async (recordId, repository) => {
+    const referencing = await new Wr20ShadowLinkService(repository).references(
+      recordId,
+    );
+    if (referencing.length === 0) return null;
+    const names = referencing
+      .map((r) => r.name || 'Untitled Wraith')
+      .join(', ');
+    return `This Shadow is linked from: ${names}. Deleting it will leave that link pointing at a missing Shadow.`;
+  },
   CharacterEditor: Wr20ShadowEditor,
   sections: shadowSections,
   sectionGroups: shadowGroups,
