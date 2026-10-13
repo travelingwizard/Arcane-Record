@@ -7,7 +7,8 @@ import { EXALTED1E_SCHEMA_VERSION } from '../../src/games/exalted1e/definitions'
  * rendered-browser evidence of the guided-creation wizard (including its
  * noble-raksha-only "Second Caste" <select>), the inline Fair Folk
  * Graces card, `FairFolkGracesPanel` (Bedlam, and the Graces/Glamour
- * Sorcery/Adjurations/Behemoths reference catalogs), the Charms catalog,
+ * Sorcery/Adjurations/Behemoths/Wyld Artifacts reference catalogs), the
+ * Charms catalog,
  * and IndexedDB persistence -- all exercised in an actual browser
  * engine, which is the dimension no jsdom-based integration test can
  * provide. See `tests/e2e/exalted1e-lunar.spec.ts` for the full
@@ -147,6 +148,9 @@ test('builds, saves, and persists a real Fair Folk sheet through guided creation
   ).toBeVisible();
   await expect(
     page.getByRole('heading', { name: 'Behemoths reference' }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: 'Wyld Artifacts reference' }),
   ).toBeVisible();
 
   // Core traits: the same shared Attribute/Ability dot-rating controls

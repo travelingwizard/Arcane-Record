@@ -1,0 +1,54 @@
+[
+  {
+    "id": "wyld-artifacts-overview",
+    "name": "Wyld Artifacts (overview)",
+    "artifactLevel": null,
+    "summary": "Traditional-style artifacts -- swords, enchanted masks, and similar treasures -- that the Ring forges from raksha Graces and the substance of the Wyld; they rarely display the full predictability of Creation-forged artifacts, and only a few of them double as Ring-shaping weapons.",
+    "mechanics": "A raksha receives a +2 Rate, +1 Accuracy, and +1 Defense bonus to the qualities of a Ring-shaping weapon that she personally crafted or reshaped, on top of its base qualities. Wyld artifacts more generally include things like artifact swords and enchanted masks forged from Ring Graces and the substance of the Wyld; because the Ring's urge to shape is more generic than the Cup's, Staff's, or Sword's, only a few Wyld artifacts function as Ring-shaping weapons themselves. Those that do are usually built on the same principles as the Resonant Chorus Bow, the Hundred Color Shaping Lens, and the Artifact Waypoint (see below for named examples of each).",
+    "compatibility": "Any raksha with Ring Grace and Artifact Background dots to spend; the self-crafting bonus applies only to weapons the raksha personally crafted or reshaped.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 207,
+      "pdfPage": 208
+    }
+  },
+  {
+    "id": "resonant-chorus-bow",
+    "name": "Resonant Chorus Bow",
+    "artifactLevel": "1",
+    "summary": "A gossamer-inlaid variant of the curdling dream bow, chiming and thrumming with the deep power and order bound inside it.",
+    "mechanics": "Requires Artifact Background 1. In Ring-shaping combat, a Resonant Chorus Bow has Accuracy +2, Damage 15, Rate 2, unlimited Maximum Perception, a range of 6 waypoints, and a commitment cost of 3 motes.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a one-dot Wyld artifact.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 207,
+      "pdfPage": 208
+    }
+  },
+  {
+    "id": "hundred-color-shaping-lens",
+    "name": "Hundred Color Shaping Lens",
+    "artifactLevel": "2",
+    "summary": "A writhing microcosm of an artifact, its ornate inlay made from a hundred woven strands of dream struggling eternally to dominate the pattern.",
+    "mechanics": "Requires Artifact Background 2. In Ring-shaping combat, a Hundred Color Shaping Lens has Accuracy +2, Damage +3, Rate 2, unlimited Maximum Perception, a range of 10 waypoints, and a commitment cost of 6 motes.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a two-dot Wyld artifact.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 207,
+      "pdfPage": 208
+    }
+  },
+  {
+    "id": "artifact-waypoint",
+    "name": "Artifact Waypoint",
+    "artifactLevel": "3+",
+    "summary": "An enchanted waypoint or collection of waypoints that forms a mobile Ring-shaping weapon, functioning like an airship-scale artillery platform that floats through the Wyld at a fixed distance from the waypoints it passes.",
+    "mechanics": "Requires Artifact Background 3 or higher. An artifact waypoint floats through the Wyld at a fixed distance of one journey \"away,\" \"above,\" or \"below\" the waypoints it passes through; the attuned raksha steers it at his normal movement rate. Used in Ring-shaping combat, it has qualities similar to a normal artifact ranged or thrown weapon of equal level, and a commitment cost of 3 motes per level. An artifact waypoint structure contains up to its Artifact level in individual waypoints, and attempts to damage the waypoints themselves through shaping are made at +3 difficulty.",
+    "compatibility": "Any raksha with Artifact Background dots to spend on a level-three-or-higher Wyld artifact.",
+    "citation": {
+      "bookId": "exalted-the-fair-folk",
+      "printedPage": 208,
+      "pdfPage": 209
+    }
+  }
+]

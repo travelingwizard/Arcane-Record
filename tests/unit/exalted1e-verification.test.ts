@@ -93,23 +93,26 @@ describe('exalted1e verification gate', () => {
       // Charms + 86 Sorcery spells + 10 Astrology/Colleges
       // procedural-rules rows; Lunar: 412 of 412; Alchemical: 214 of 214
       // -- 6 Backgrounds + 71 Merits/Flaws + 96 Charms + 38 Weaving
-      // Protocols + 3 Alchemy Formulae; Fair Folk: 318 of 318 -- 13
+      // Protocols + 3 Alchemy Formulae; Fair Folk: 322 of 322 -- 13
       // Backgrounds + 75 Merits/Flaws + 201 Charms + 6 Graces + 5 Bedlam
       // rows + 7 Glamour Sorcery rows + 7 Adjurations rows + 4 Behemoths
-      // rows -- see `SplatCatalogEvidence.promotableEntries`), so
-      // `catalogDimensionPasses` now returns true for all five. Fair
-      // Folk's own remaining named system, Wyld Artifacts (3 fixed,
-      // concrete-statted items -- Resonant Chorus Bow/Hundred Color
-      // Shaping Lens/Artifact Waypoint -- unlike Glamour Sorcery's/
-      // Adjurations'/Behemoths' own point-buy "build a custom X" tiers),
-      // is deliberately excluded from `promotableEntries` by design
-      // (Phase 1u), matching the existing Solar/Dragon-Blooded precedent
-      // of representing named Artifacts as free-text `possessions`
-      // entries rather than a strict `definitionId` catalog -- so Fair
-      // Folk's catalog dimension is not merely temporarily complete, it
-      // is intentionally as complete as it is ever meant to get. Every
-      // family's catalog dimension is now fully satisfied, matching
-      // Phase 6's own all-five-together `certifiedAt` rule above.
+      // rows + 4 Wyld Artifacts rows -- see
+      // `SplatCatalogEvidence.promotableEntries`), so
+      // `catalogDimensionPasses` now returns true for all five. A
+      // post-certification addition reversed Phase 1u's prior decision to
+      // exclude Wyld Artifacts (3 fixed, concrete-statted named items --
+      // Resonant Chorus Bow/Hundred Color Shaping Lens/Artifact Waypoint
+      // -- unlike Glamour Sorcery's/Adjurations'/Behemoths' own point-buy
+      // "build a custom X" tiers): their stats belong to Fair Folk's own
+      // Ring-shaping-combat subsystem, which this app does not model, and
+      // the shared, cross-family `exaltedWeaponCatalog` has no
+      // per-family restriction mechanism, so they are now promoted as a
+      // sixth reference-only `fair-folk-wyld-artifacts.json` catalog file
+      // instead, mirroring Glamour Sorcery/Adjurations/Behemoths; a
+      // raksha's own Wyld Artifacts are still recorded as free-text
+      // `possessions` entries. Every family's catalog dimension remains
+      // fully satisfied, matching Phase 6's own all-five-together
+      // `certifiedAt` rule above.
       expect(record.catalog.promotedEntries).toBe(
         family === 'abyssal'
           ? 505
@@ -119,7 +122,7 @@ describe('exalted1e verification gate', () => {
               ? 412
               : family === 'alchemical'
                 ? 214
-                : 318,
+                : 322,
       );
       {
         // Cross-check against the audit script's own live computation
@@ -178,9 +181,13 @@ describe('exalted1e verification gate', () => {
         // promoted the same reference-only way), bringing the narrow
         // audit total to 230 of 318 promotable (`promotableEntries`
         // corrected a third time, 317 -> 318, once Behemoths' own
-        // framework row was actually promoted); the catalog dimension
-        // stays far from closed on the remaining non-Charm system,
-        // Wyld Artifacts.
+        // framework row was actually promoted); a post-certification
+        // addition then added a new `fair-folk-wyld-artifacts.json`
+        // catalog file (4 rows: the overview framework row plus the
+        // three named items), bringing the narrow audit total to 234 of
+        // 322 promotable (`promotableEntries` corrected a fourth time,
+        // 318 -> 322, reversing Phase 1u's prior decision to exclude
+        // Wyld Artifacts) and closing the catalog dimension completely.
         expect(record.catalog.checksum).toBe(
           auditFamily(family).catalogChecksum,
         );
@@ -299,10 +306,10 @@ describe('exalted1e verification gate', () => {
     expect(isFamilyAvailable('alchemical')).toBe(true);
   });
 
-  it('reflects Fair Folk Phase 1a/1b/1c/1d/1e/1f/1g/1h/1i/1j/1k/1l/1m/1n/1o/1p/1q/1r/1s/1t catalog promotion with the family now certified', () => {
+  it('reflects Fair Folk Phase 1a/1b/1c/1d/1e/1f/1g/1h/1i/1j/1k/1l/1m/1n/1o/1p/1q/1r/1s/1t plus its post-certification Wyld Artifacts addition, with the family now certified', () => {
     const record = certificationRecords['fair-folk'];
     expect(record.catalog.totalInventoryRows).toBeGreaterThan(0);
-    // 318 = Phase 1a's 88 (13 Backgrounds (fairFolkBackgrounds) + 75 shared
+    // 322 = Phase 1a's 88 (13 Backgrounds (fairFolkBackgrounds) + 75 shared
     // Merits/Flaws catalog entries now carrying 'fair-folk' in appliesTo --
     // 73 inventoried pg-merit-*/pg-flaw-* rows resolving one-for-one,
     // except the two dual merit/flaw split pairs -- mutation-merit/
@@ -374,21 +381,32 @@ describe('exalted1e verification gate', () => {
     // Behemoths are structurally the same point-buy system too, just
     // bound to monsters instead of spells or oaths; the unique,
     // story-specific `ishiika` row stays unpromoted, its `gm-only`
-    // disposition correctly excluded). This is still short
-    // of the 318 `promotableEntries` estimate (corrected three times
-    // now: a bottom-up recount in Phase 1n, 279 -> 313, once real
-    // promotion exceeded the old Phase 1a-era preliminary estimate;
-    // again in Phase 1s, 313 -> 317, once promoting Glamour Sorcery's
-    // and Adjurations' own framework/overview rows -- `glamour-sorcery-
-    // overview`/`glamour-sorcery-countermagic` in Phase 1r and
-    // `oaths-mechanic`/`adjurations-overview` in Phase 1s -- revealed
-    // the Phase 1n recount had only counted each system's selectable
-    // tier rows, not their own framework rows, unlike Graces/Bedlam's
-    // own `-overview` rows, which the Phase 1n recount did fold into
-    // their 6/5 totals; and again in this phase, 317 -> 318, once
-    // promoting Behemoths' own `behemoths-overview` framework row for
-    // the same reason; flagged as approximate pending this family's own
-    // remaining Wyld Artifacts catalog phase). Phase 1b's three new
+    // disposition correctly excluded) plus a post-certification addition's
+    // 4 more reference-only rows in a brand-new
+    // fair-folk-wyld-artifacts.json (the overview framework row plus the
+    // three named items -- Resonant Chorus Bow/Hundred Color Shaping
+    // Lens/Artifact Waypoint -- promoted the same reference-text-only
+    // way, reversing Phase 1u's prior decision to exclude them: unlike
+    // Glamour Sorcery/Adjurations/Behemoths they are fixed,
+    // concrete-statted items rather than a point-buy tier system, but
+    // their Ring-shaping-combat stats have no home in this app's shared,
+    // cross-family weapon catalog, so they are shown as cited text
+    // instead). `promotableEntries` reached 322 after four corrections:
+    // a bottom-up recount in Phase 1n, 279 -> 313, once real promotion
+    // exceeded the old Phase 1a-era preliminary estimate; again in Phase
+    // 1s, 313 -> 317, once promoting Glamour Sorcery's and Adjurations'
+    // own framework/overview rows -- `glamour-sorcery-overview`/
+    // `glamour-sorcery-countermagic` in Phase 1r and `oaths-mechanic`/
+    // `adjurations-overview` in Phase 1s -- revealed the Phase 1n recount
+    // had only counted each system's selectable tier rows, not their own
+    // framework rows, unlike Graces/Bedlam's own `-overview` rows, which
+    // the Phase 1n recount did fold into their 6/5 totals; again in
+    // Phase 1t, 317 -> 318, once promoting Behemoths' own
+    // `behemoths-overview` framework row for the same reason; and a
+    // fourth time, 318 -> 322, once the post-certification addition
+    // promoted Wyld Artifacts after all, closing the catalog dimension
+    // completely with no remaining non-Charm system left unpromoted.
+    // Phase 1b's three new
     // `fair-folk-`-prefixed catalog files were the first ones this
     // audit script's glob picked up, so the catalog checksum is no longer
     // empty -- exactly matching Alchemical's own Phase 1a -> 1b transition
@@ -400,8 +418,10 @@ describe('exalted1e verification gate', () => {
     // 1r changed it again by adding the fourth `fair-folk-`-prefixed file,
     // `fair-folk-glamour-sorcery.json`; Phase 1s changed it again by
     // adding the fifth, `fair-folk-adjurations.json`; Phase 1t changed it
-    // again by adding the sixth, `fair-folk-behemoths.json`.
-    expect(record.catalog.promotedEntries).toBe(318);
+    // again by adding the sixth, `fair-folk-behemoths.json`; the
+    // post-certification Wyld Artifacts addition changed it a final time
+    // by adding the seventh, `fair-folk-wyld-artifacts.json`.
+    expect(record.catalog.promotedEntries).toBe(322);
     expect(record.catalog.checksum.length).toBeGreaterThan(0);
     expect(isFamilyAvailable('fair-folk')).toBe(true);
   });
@@ -552,8 +572,8 @@ describe('exalted1e verification gate', () => {
     // Fair Folk was the fifth and final of the five planned families to
     // earn real browser-test evidence (Phase 6's own per-family
     // incremental pass, `tests/e2e/exalted1e-fair-folk.spec.ts`); its
-    // catalog dimension closed out in Phase 1u (318/318, no Wyld
-    // Artifacts gap left to fill), and rulesTests/creatorTests/
+    // catalog dimension first closed out in Phase 1u (318/318, deliberately
+    // excluding Wyld Artifacts), and rulesTests/creatorTests/
     // migrationTests all pass after Phase 2a (editor UI branch), Phase
     // 2b (flat-cost XP rules, no Favored/Unfavored split needed per the
     // source's own Experience table), and Phase 2c (guided-creation-panel
@@ -561,10 +581,15 @@ describe('exalted1e verification gate', () => {
     // Second-Caste rule). With Fair Folk's own evidence complete, every
     // one of the five planned families had passed every testable
     // dimension, and Phase 6's single final commit set `certifiedAt` on
-    // all five records simultaneously.
+    // all five records simultaneously. A post-certification addition
+    // later reversed Phase 1u's Wyld Artifacts exclusion, promoting all
+    // 4 of its rows as a sixth reference-only catalog file and growing
+    // `promotedEntries`/`promotableEntries` from 318 to 322 -- a pure
+    // catalog-dimension addition that left every other dimension, and
+    // `certifiedAt` itself, unchanged.
     const record = certificationRecords['fair-folk'];
-    expect(record.catalog.promotedEntries).toBe(318);
-    expect(record.catalog.promotableEntries).toBe(318);
+    expect(record.catalog.promotedEntries).toBe(322);
+    expect(record.catalog.promotableEntries).toBe(322);
     expect(record.catalog.unresolvedEntries).toBe(0);
     expect(record.rulesTests).toBe('pass');
     expect(record.creatorTests).toBe('pass');

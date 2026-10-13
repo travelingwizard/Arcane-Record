@@ -280,7 +280,7 @@ describe('auditFamily against the real repository (current state)', () => {
   });
 
   it('reports Fair Folk as pending-certification with its real inventory rows and zero audit errors', () => {
-    // 230 = the 201 real, page-cited, visually-reviewed Charms promoted in
+    // 234 = the 201 real, page-cited, visually-reviewed Charms promoted in
     // `fair-folk-charms.json` (19 Grace-Forging/Assumption from Phase 1b,
     // 25 Glamour/Grace-Forging/Mutation Charms from Phase 1c, 7
     // Dodge/Resistance Charms from Phase 1d, 19 Cup Combat Charms from
@@ -334,14 +334,21 @@ describe('auditFamily against the real repository (current state)', () => {
     // reference-only way, since Behemoths are structurally the same
     // point-buy system too, just bound to monsters instead of spells or
     // oaths; the unique, story-specific `ishiika` row stays unpromoted,
-    // its `gm-only` disposition correctly excluded), as counted
+    // its `gm-only` disposition correctly excluded), and the 4 Wyld
+    // Artifacts rows in a post-certification addition's
+    // `fair-folk-wyld-artifacts.json` (the overview framework row plus
+    // the three named items -- Resonant Chorus Bow/Hundred Color Shaping
+    // Lens/Artifact Waypoint -- promoted the same reference-only way,
+    // reversing Phase 1u's prior decision to exclude them once this
+    // app's `exaltedWeaponCatalog` was found to have no per-family
+    // restriction mechanism suitable for raksha-only items), as counted
     // directly from `src/games/exalted1e/reference/fair-folk-*.json` by
     // this audit script. The stale `./reference/ocr-drafts/fair-folk-charms.json`
     // draft (a raw OCR extraction with several garbled ids that don't
     // match this family's real inventory) remains outside this glob and
     // unwired, exactly matching Alchemical's own identical precedent
     // above. This differs from `certification/fair-folk.json`'s own
-    // `catalog.promotedEntries` (318), which also includes Phase 1a's 88
+    // `catalog.promotedEntries` (322), which also includes Phase 1a's 88
     // Backgrounds/Merits-Flaws rows, none of which live in a
     // `fair-folk-`-prefixed catalog file (Backgrounds live in
     // `definitions.ts`; Merits/Flaws are a subset of the shared
@@ -352,7 +359,7 @@ describe('auditFamily against the real repository (current state)', () => {
     expect(report.status).toBe('pending-certification');
     expect(report.issues).toEqual([]);
     expect(report.inventoryRows).toBeGreaterThan(0);
-    expect(report.promotedEntries).toBe(230);
+    expect(report.promotedEntries).toBe(234);
     expect(report.catalogChecksum).toHaveLength(8);
     expect(report.catalogChecksum).toMatch(/^[0-9a-f]{8}$/);
   });

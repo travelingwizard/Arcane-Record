@@ -12,6 +12,7 @@ import bedlamData from './reference/fair-folk-bedlam.json';
 import glamourSorceryData from './reference/fair-folk-glamour-sorcery.json';
 import adjurationsData from './reference/fair-folk-adjurations.json';
 import behemothsData from './reference/fair-folk-behemoths.json';
+import wyldArtifactsData from './reference/fair-folk-wyld-artifacts.json';
 
 type FairFolkFamilyState = Extract<
   Exalted1eCharacter['familyState'],
@@ -73,11 +74,22 @@ interface BehemothEntry {
   citation: { bookId: string; printedPage: number; pdfPage: number };
 }
 
+interface WyldArtifactEntry {
+  id: string;
+  name: string;
+  artifactLevel: string | null;
+  summary: string;
+  mechanics: string;
+  compatibility: string;
+  citation: { bookId: string; printedPage: number; pdfPage: number };
+}
+
 const graceEntries = gracesData as GraceEntry[];
 const bedlamEntries = bedlamData as BedlamEntry[];
 const glamourSorceryEntries = glamourSorceryData as GlamourSorceryEntry[];
 const adjurationEntries = adjurationsData as AdjurationEntry[];
 const behemothEntries = behemothsData as BehemothEntry[];
+const wyldArtifactEntries = wyldArtifactsData as WyldArtifactEntry[];
 
 interface Props {
   state: FairFolkFamilyState;
@@ -92,15 +104,17 @@ interface Props {
  * `./reference/fair-folk-graces.json`), a browsable reference for Glamour
  * Sorcery (Phase 1r, see `./reference/fair-folk-glamour-sorcery.json`), a
  * browsable reference for Adjurations/Oaths (Phase 1s, see
- * `./reference/fair-folk-adjurations.json`), and (Phase 1t) a browsable
- * reference for Behemoths (see `./reference/fair-folk-behemoths.json`).
+ * `./reference/fair-folk-adjurations.json`), a browsable reference for
+ * Behemoths (Phase 1t, see `./reference/fair-folk-behemoths.json`), and
+ * (a post-certification addition) a browsable reference for the three
+ * named Wyld Artifacts (see `./reference/fair-folk-wyld-artifacts.json`).
  * Matches `LunarShapechangingPanel`'s own split: the Grace dots themselves
  * stay in `ExaltedFamilyStatePanel`'s existing inline `DotRating` grid,
  * while this panel owns the Bedlam Virtue declaration
  * (`familyState.bedlamVirtueId`) plus browsable reference text for
- * Graces, Curses, Glamour Sorcery, Adjurations, and Behemoths. This app
- * has no dice-rolling engine anywhere, so Bedlam's own per-Virtue
- * channel-spending count is not tracked numerically here (see
+ * Graces, Curses, Glamour Sorcery, Adjurations, Behemoths, and Wyld
+ * Artifacts. This app has no dice-rolling engine anywhere, so Bedlam's own
+ * per-Virtue channel-spending count is not tracked numerically here (see
  * `bedlamVirtueId`'s own doc comment in `schema.ts`) -- only the
  * resulting Curse state a player declares by hand. Glamour Sorcery,
  * Adjurations, and Behemoths are all reference-only for the same
@@ -112,7 +126,21 @@ interface Props {
  * Background entry to a chosen tier and its spent mutation points) before
  * any of them could become a real selection UI, matching the project's
  * "keep deferred features visibly labeled as previews or placeholders"
- * rule.
+ * rule. Wyld Artifacts are reference-only for a related but distinct
+ * reason: the three named items (Resonant Chorus Bow, Hundred Color
+ * Shaping Lens, Artifact Waypoint) are fixed, concrete-statted items, not
+ * a point-buy tier system -- but their stats (unlimited Maximum
+ * Perception, waypoint-measured range, a self-crafting bonus) belong to
+ * Fair Folk's own Ring-shaping-combat subsystem, which this app does not
+ * model anywhere (the shared `exaltedWeaponCatalog`/`EquipmentSection`
+ * only resolves ordinary Speed/Accuracy/Damage/Defense/Rate combat, and
+ * is not restricted to any one family). Rather than misrepresent these as
+ * generic equippable weapons available to every Exalt type, or invent a
+ * new family-restriction mechanism, they are shown here as cited text
+ * only; a raksha's possession of one is still recorded as a free-text
+ * `possessions` entry, matching the existing Solar/Dragon-Blooded named-
+ * Artifact precedent for one-off magical items outside the stock weapon/
+ * armor catalog.
  */
 export function FairFolkGracesPanel({ state, buildMode, onChange }: Props) {
   const activeCurse = state.bedlamVirtueId
@@ -373,6 +401,51 @@ export function FairFolkGracesPanel({ state, buildMode, onChange }: Props) {
           ))}
         {behemothEntries
           .filter((entry) => entry.behemothTier !== null)
+          .map((entry) => (
+            <details className="exalted-compact-record" key={entry.id}>
+              <summary>
+                <strong>{entry.name}</strong>{' '}
+                <SheetBadge tone="neutral">
+                  Artifact {entry.artifactLevel ?? 'N/A'}
+                </SheetBadge>
+              </summary>
+              <div className="exalted-record-fields">
+                <p>{entry.summary}</p>
+                <p className="section-note">{entry.mechanics}</p>
+                <p className="section-note">
+                  Compatibility: {entry.compatibility}
+                </p>
+              </div>
+            </details>
+          ))}
+      </SheetCard>
+
+      <SheetCard density="compact">
+        <h3>Wyld Artifacts reference</h3>
+        <SheetNotice>
+          Reference text only -- these three named items are fixed,
+          concrete-statted artifacts (not a point-buy system like Glamour
+          Sorcery, Adjurations, or Behemoths), but their stats belong to Fair
+          Folk&rsquo;s own Ring-shaping-combat subsystem, which Arcane Record
+          does not model. Record a raksha&rsquo;s own Wyld Artifacts as
+          free-text Possessions entries, matching the existing Solar/
+          Dragon-Blooded named-Artifact precedent.
+        </SheetNotice>
+        {wyldArtifactEntries
+          .filter((entry) => entry.artifactLevel === null)
+          .map((entry) => (
+            <details className="exalted-compact-record" key={entry.id}>
+              <summary>
+                <strong>{entry.name}</strong>
+              </summary>
+              <div className="exalted-record-fields">
+                <p>{entry.summary}</p>
+                <p className="section-note">{entry.mechanics}</p>
+              </div>
+            </details>
+          ))}
+        {wyldArtifactEntries
+          .filter((entry) => entry.artifactLevel !== null)
           .map((entry) => (
             <details className="exalted-compact-record" key={entry.id}>
               <summary>

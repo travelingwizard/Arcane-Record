@@ -126,4 +126,19 @@ describe('FairFolkGracesPanel (Phase 1b)', () => {
     expect(screen.getAllByText('Artifact 3').length).toBeGreaterThan(0);
     expect(screen.getByText('Artifact 4-5')).toBeInTheDocument();
   });
+
+  it('renders the Wyld Artifacts reference section with all three named items', () => {
+    render(<Harness initialCharacter={baseCharacter()} />);
+    expect(screen.getByText('Wyld Artifacts reference')).toBeInTheDocument();
+    expect(screen.getByText('Resonant Chorus Bow')).toBeInTheDocument();
+    expect(screen.getByText('Hundred Color Shaping Lens')).toBeInTheDocument();
+    expect(screen.getByText('Artifact Waypoint')).toBeInTheDocument();
+    // "Artifact 1"/"Artifact 2" also appear on the Glamour Sorcery/
+    // Adjurations reference cards' own Circle/Oath-tier badges, so these
+    // scope to at least one match rather than assuming uniqueness,
+    // matching those sections' own "Artifact 3" assertion above.
+    expect(screen.getAllByText('Artifact 1').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('Artifact 2').length).toBeGreaterThan(0);
+    expect(screen.getByText('Artifact 3+')).toBeInTheDocument();
+  });
 });
