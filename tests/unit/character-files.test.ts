@@ -4,6 +4,7 @@ import {
   prepareImportedCharacter,
   serializeCharacter,
   prepareImportedRecord,
+  MAX_IMPORT_FILE_SIZE_BYTES,
 } from '../../src/features/import-export/character-files';
 import { createBlankExaltedCharacter } from '../../src/games/exalted1e/create-character';
 import { EXALTED1E_SCHEMA_VERSION } from '../../src/games/exalted1e/definitions';
@@ -252,6 +253,68 @@ describe('character files', () => {
     expect(() =>
       prepareImportedCharacter('not: [valid', 'broken.yaml'),
     ).toThrow();
+  });
+
+  it('rejects a file larger than the import size cap without parsing it', () => {
+    const oversized = `{"padding":"${'a'.repeat(MAX_IMPORT_FILE_SIZE_BYTES + 1)}"}`;
+    expect(() => prepareImportedCharacter(oversized, 'huge.json')).toThrow(
+      /too large to import/i,
+    );
+    expect(() =>
+      prepareImportedRecord(oversized, 'huge.json', gameSystemRegistry),
+    ).toThrow(/too large to import/i);
+  });
+
+  it('still imports a file right at the size cap', () => {
+    const character = createBlankMageCharacter();
+    character.identity.name = 'Right At The Edge';
+    const serialized = serializeCharacter(character, 'json');
+    expect(new TextEncoder().encode(serialized).length).toBeLessThan(
+      MAX_IMPORT_FILE_SIZE_BYTES,
+    );
+    expect(() =>
+      prepareImportedCharacter(serialized, 'edge.json'),
+    ).not.toThrow();
+  });
+
+  it('rejects YAML using custom/extended tags instead of silently producing an unexpected shape', () => {
+    const customTagYaml = [
+      'format: arcane-record-character',
+      'formatVersion: 1',
+      'systemId: mage20',
+      'systemVersion: 13',
+      "id: '11111111-1111-4111-8111-111111111111'",
+      'name: Tagged',
+      "createdAt: '2026-07-01T12:00:00.000Z'",
+      "updatedAt: '2026-07-01T12:00:00.000Z'",
+      'character: !!set',
+      '  a: null',
+      '  b: null',
+    ].join('\n');
+
+    expect(() =>
+      prepareImportedCharacter(customTagYaml, 'tagged.yaml'),
+    ).toThrow();
+    expect(() =>
+      prepareImportedRecord(customTagYaml, 'tagged.yaml', gameSystemRegistry),
+    ).toThrow();
+  });
+
+  it('allows a duplicate YAML mapping key to override rather than throwing (json: true)', () => {
+    const character = createBlankMageCharacter();
+    character.identity.name = 'Original Name';
+    const serialized = serializeCharacter(character, 'yaml');
+    // Inject a harmless duplicate of the envelope's own top-level `name:`
+    // key. Without `json: true`, js-yaml throws a YAMLException on any
+    // duplicate mapping key, even an identical one.
+    const withDuplicateKey = serialized.replace(
+      /^name: .*$/m,
+      (match) => `${match}\n${match}`,
+    );
+    expect(withDuplicateKey).not.toBe(serialized);
+    expect(() =>
+      prepareImportedCharacter(withDuplicateKey, 'duplicate.yaml'),
+    ).not.toThrow();
   });
 
   it('exports the shared envelope and rejects unidentified files', () => {

@@ -1,4 +1,4 @@
-import { dump, load } from 'js-yaml';
+import { dump, load, JSON_SCHEMA } from 'js-yaml';
 import { z } from 'zod';
 import type { GameSystemRegistry } from '../../games/game-system-registry';
 import {
@@ -115,8 +115,38 @@ export function createCharacterFileName(
   return `${baseName}.${extension}`;
 }
 
+/**
+ * Conservative upper bound on an imported character file. Real Arcane
+ * Record character exports are small (well under 1 MB even for a
+ * heavily-built character); this exists purely to reject the degenerate
+ * case of a user selecting an enormous or unrelated file, before it gets
+ * fully parsed and validated.
+ */
+export const MAX_IMPORT_FILE_SIZE_BYTES = 5 * 1024 * 1024;
+
+function assertImportSizeWithinLimit(contents: string): void {
+  const byteLength = new TextEncoder().encode(contents).length;
+  if (byteLength > MAX_IMPORT_FILE_SIZE_BYTES) {
+    const maxMb = MAX_IMPORT_FILE_SIZE_BYTES / (1024 * 1024);
+    throw new Error(
+      `This file is too large to import (over ${maxMb} MB). Arcane Record character files are expected to stay well under that size.`,
+    );
+  }
+}
+
 function parseContents(contents: string, fileName: string): unknown {
-  return /\.ya?ml$/i.test(fileName) ? load(contents) : JSON.parse(contents);
+  assertImportSizeWithinLimit(contents);
+  if (/\.ya?ml$/i.test(fileName)) {
+    // `JSON_SCHEMA` restricts parsing to JSON-compatible YAML types only
+    // (objects, arrays, strings, numbers, booleans, null) -- custom or
+    // extended tags (`!!set`, `!!omap`, `!!binary`, `!!js/*`, and similar)
+    // throw a clear `YAMLException` instead of silently producing an
+    // unexpected object shape. `json: true` additionally matches
+    // `JSON.parse`'s own behavior for duplicate mapping keys (last one
+    // wins) instead of throwing on them.
+    return load(contents, { schema: JSON_SCHEMA, json: true });
+  }
+  return JSON.parse(contents);
 }
 
 function isPositiveLegacyMageFile(
@@ -164,6 +194,22 @@ export function prepareImportedRecord(
           envelope.data.moduleRef.sheetTemplateVersion,
         );
         resolved.characterSchema.parse(envelope.data.character);
+      } else if (
+        !envelope.data.character ||
+        typeof envelope.data.character !== 'object' ||
+        Array.isArray(envelope.data.character)
+      ) {
+        // The referenced module isn't installed, so its real character
+        // schema can't validate `character` here -- but the envelope
+        // schema's own `character: z.unknown()` would otherwise accept
+        // literally any value (a string, a number, null...). Without this
+        // guard, that value would be written straight into
+        // `StoredCharacter.data` and become a recoverable-but-broken
+        // record the moment the module IS later installed. Reject
+        // outright instead of creating it.
+        throw new Error(
+          'This module character file is not well-formed: its character data is not an object.',
+        );
       }
       const localLock = moduleRegistry?.findCompatibleLock(
         envelope.data.moduleRef.moduleId,

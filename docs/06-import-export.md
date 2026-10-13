@@ -32,6 +32,22 @@ The boundary:
 
 `js-yaml` handles YAML serialization and parsing. Successful imports are opened as new records and then follow the same autosave flow as any other character.
 
+Import hardening: a file must be no larger than `MAX_IMPORT_FILE_SIZE_BYTES`
+(5 MB, measured in UTF-8 bytes, not JS string length) or it is rejected before
+any parsing is attempted. YAML is parsed with `{ schema: JSON_SCHEMA, json:
+true }`: `JSON_SCHEMA` restricts parsing to plain JSON-compatible types, so
+custom or extended tags (`!!set`, `!!omap`, `!!binary`, `!!js/*`, and similar)
+throw a clear `YAMLException` instead of silently producing an unexpected
+shape; `json: true` makes a duplicate mapping key overwrite the earlier value
+instead of throwing, matching normal JSON semantics. A module-backed
+(`formatVersion: 2`) character file is validated against its resolved
+`characterSchema` when the referenced module is installed. When the module is
+not installed, the opaque `character` envelope field cannot be schema-checked,
+so it is still rejected outright unless it is a plain, non-array object —
+this keeps an uninstalled-module import either genuinely recoverable-raw or
+rejected, never silently written to IndexedDB as an unusable row. In every
+case, a failed import never replaces the currently open character.
+
 Selected Merits and Flaws export only their selection UUID, definition ID, chosen cost, notes, and addition timestamp. Known definitions must use a legal catalog cost and the correct Merit or Flaw list. Unknown definition IDs are preserved as unresolved references; they remain visible and removable rather than being silently discarded.
 
 Selected Backgrounds export their selection UUID, definition ID, character display name, integer rating, notes, addition timestamp, pooling state, and optional unresolved source name. Known definitions validate minimum and maximum ratings, the extended interface maximum of ten, duplicate rules, and pooling support. Unknown definition IDs remain visible, removable, and repairable. They are not assigned an invented cost multiplier.

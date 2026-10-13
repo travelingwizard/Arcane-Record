@@ -46,6 +46,16 @@ export function Mage20Editor({
         onRecordChanged(stored);
         return storedCharacterToMage(stored);
       },
+      saveIfUnchanged: repository.saveIfUnchanged
+        ? async (character, expectedData) => {
+            const stored = await repository.saveIfUnchanged!(
+              mageToStoredCharacter(character),
+              expectedData,
+            );
+            onRecordChanged(stored);
+            return storedCharacterToMage(stored);
+          }
+        : undefined,
       duplicate: async () => {
         throw new Error('Use the character library to duplicate records.');
       },
@@ -59,14 +69,14 @@ export function Mage20Editor({
     return () => clear();
   }, [clear, load, record]);
 
-  useAutosave(scopedRepository);
+  const { flush } = useAutosave(scopedRepository);
 
   const returnToLibrary = async () => {
-    const active = useEditorStore.getState().character;
-    const status = useEditorStore.getState().saveStatus;
-    if (active && status !== 'saved') {
-      await scopedRepository.save(active);
-    }
+    // Route the final pre-navigation save through the same CAS-protected
+    // queue the debounce itself uses, instead of calling the repository
+    // directly, so it cannot clobber a change made elsewhere since this
+    // editor last saved.
+    await flush();
     await onBack();
   };
 

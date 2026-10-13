@@ -87,6 +87,46 @@ default/universal actions, cross-game theme availability, custom background
 colors, synchronized Mage Sphere settings, immediate root attributes, reload
 restoration, live preview content, and mobile overflow.
 
+## Coverage by game
+
+Every registered game has unit and/or integration coverage for its schema,
+adapter, and editor behavior. Most also have a dedicated Playwright e2e spec
+under `tests/e2e/`; a few share coverage with a cross-game smoke spec instead
+of a dedicated file, noted below.
+
+| Game                   | Dedicated e2e spec                                                                                                                                                                                                           |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mage 20                | `mage20-creation.spec.ts`, `mage20-module.spec.ts`, `mage20-sources.spec.ts`, `mage20-trait-pricing.spec.ts`, plus `magick.spec.ts`, `maneuvers.spec.ts`, `merits-flaws.spec.ts`, `backgrounds.spec.ts`, `equipment.spec.ts` |
+| Exalted First Edition  | `exalted.spec.ts`, `exalted1e-module.spec.ts`, `exalted1e-lunar.spec.ts`, `exalted1e-abyssal.spec.ts`, `exalted1e-sidereal.spec.ts`, `exalted1e-alchemical.spec.ts`, `exalted1e-fair-folk.spec.ts`                           |
+| Burning Wheel          | `burning-wheel.spec.ts`                                                                                                                                                                                                      |
+| Torchbearer 2e         | `torchbearer2e.spec.ts`                                                                                                                                                                                                      |
+| Earthdawn 4e           | `earthdawn4e.spec.ts`                                                                                                                                                                                                        |
+| Shadowrun 1e           | `shadowrun1e.spec.ts`                                                                                                                                                                                                        |
+| City of Mist           | shared `new-game-source-controls.spec.ts` smoke coverage; no dedicated spec yet                                                                                                                                              |
+| Curseborne             | shared `new-game-source-controls.spec.ts` smoke coverage; no dedicated spec yet                                                                                                                                              |
+| Legend in the Mist     | `legend-in-the-mist.spec.ts`                                                                                                                                                                                                 |
+| Changeling 20          | `changeling20.spec.ts`                                                                                                                                                                                                       |
+| Vampire Dark Ages 20   | `vampire-dark-ages20.spec.ts`                                                                                                                                                                                                |
+| Vampire 20             | `vampire20.spec.ts`                                                                                                                                                                                                          |
+| Werewolf 20            | `werewolf20.spec.ts`                                                                                                                                                                                                         |
+| Wraith 20              | `wraith20.spec.ts`                                                                                                                                                                                                           |
+| Mouse Guard 2e         | `mouse-guard2e.spec.ts`                                                                                                                                                                                                      |
+| Band of Blades         | `band-of-blades.spec.ts`                                                                                                                                                                                                     |
+| Blades in the Dark     | `blades-in-the-dark.spec.ts`                                                                                                                                                                                                 |
+| Miseries & Misfortunes | `miseries-and-misfortunes.spec.ts`                                                                                                                                                                                           |
+| Monster of the Week    | `monster-of-the-week.spec.ts`                                                                                                                                                                                                |
+| Call of Cthulhu 2e     | `call-of-cthulhu2e.spec.ts`                                                                                                                                                                                                  |
+| Call of Cthulhu 7e     | `call-of-cthulhu7e.spec.ts`                                                                                                                                                                                                  |
+| Root RPG               | `root-rpg.spec.ts`                                                                                                                                                                                                           |
+| Dragonbane             | `dragonbane.spec.ts`                                                                                                                                                                                                         |
+| Scum and Villainy      | `scum-and-villainy.spec.ts`                                                                                                                                                                                                  |
+| Ars Magica Definitive  | `ars-magica.spec.ts`                                                                                                                                                                                                         |
+| KULT: Divinity Lost    | `kult-divinity-lost.spec.ts`                                                                                                                                                                                                 |
+
+Cross-cutting behavior (library, game-chooser, section navigation, appearance,
+module library/builder/runtime, local persistence, 320px overflow) is covered
+once by shared specs rather than duplicated per game.
+
 ## Manual/browser checks
 
 Inspect the primary editor at approximately 320, 390, 768, 1119, 1120, and

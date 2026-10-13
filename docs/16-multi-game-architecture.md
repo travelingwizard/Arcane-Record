@@ -65,9 +65,18 @@ supported.
 
 - global: neutral shell appearance and motion;
 - default sheet: cross-game theme, overlay, motion, and custom background;
-- character view: optional appearance override keyed by character UUID;
-- character data: Build/Play layout and section expansion/order;
+- character view: optional appearance override keyed by character UUID, and
+  per-character section expansion (`arcane-ledger:section-preferences:<id>`,
+  see [12. Section navigation](12-section-navigation.md));
+- character data: Build/Play layout and the pencil-gated section-group order,
+  since reordering also reorders the sheet and must round-trip through
+  export/import;
 - transient: active navigation and save state.
+
+Section **expansion** (open/collapsed) is a view-only preference keyed by
+character ID; it is never included in character files. Section-group
+**order** is character-owned data and is included in character files so a
+reordered sheet survives export/import. Do not conflate the two.
 
 Only character-owned game data is included in character files. UI preferences
 remain browser-local.
@@ -81,12 +90,65 @@ links, and interchange. Optional `parentSystemId` and `sheetChoiceLabel`
 definition metadata control creation presentation only, not persistence.
 
 - `mage20` — Mage 20 editor;
-- `exalted1e` — Exalted First Edition with `solar` and `dragon-blooded`
-  variants;
+- `exalted1e` — Exalted First Edition with `solar`, `dragon-blooded`, `lunar`,
+  `abyssal`, `sidereal`, `alchemical`, and `fair-folk` variants, all certified
+  per [18. Exalted First Edition — planned splat release model](18-exalted1e-splat-release.md);
 - `burning-wheel` — Burning Wheel Gold + Codex with seven stock choices and a
-  game-owned guided burner, play sheet, legacy adapter, and PDF generator.
-- `torchbearer2e` — Torchbearer Second Edition editable two-page adventurer
-  record with shared navigation, persistence, appearance, and interchange.
+  game-owned guided burner, play sheet, legacy adapter, and PDF generator;
+- `torchbearer2e` — Torchbearer Second Edition guided core character creator
+  plus an editable two-page adventurer record with shared navigation,
+  persistence, appearance, and interchange; see
+  [18. Torchbearer 2e foundation](18-torchbearer-2e-foundation.md);
 - `shadowrun1e` — Shadowrun First Edition priority-build foundation with shared
   navigation, Build/Play modes, source ownership controls, and local
-  interchange.
+  interchange; see [22. Shadowrun 1e foundation](22-shadowrun-1e-foundation.md);
+- `earthdawn4e` — Earthdawn Fourth Edition guided build plus play sheet; see
+  [19. Earthdawn 4e source verification](19-earthdawn4e-source-verification.md);
+- `city-of-mist` / `city-of-mist-crew` — City of Mist Character (Rift or
+  Gatekeeper) and Crew sheets grouped under one game card; see
+  [21. City of Mist implementation](21-city-of-mist-implementation.md);
+- `curseborne` — Curseborne editable sheet preview (guided creation is still
+  in development; clearly labeled as a preview, not a finished record); see
+  [20. Curseborne implementation](20-curseborne-implementation.md);
+- `legend-in-the-mist` / fellowship — Legend in the Mist guided Hero build
+  plus a Fellowship sheet;
+- `changeling20` — Changeling: The Dreaming 20th Anniversary guided build plus
+  sheet; see [23. Changeling 20 module](23-changeling-20-module.md);
+- `vampire-dark-ages20` — Vampire: The Dark Ages 20th Anniversary guided build
+  plus sheet; see [24. Vampire Dark Ages 20 module](24-vampire-dark-ages20-module.md);
+- `vampire20` — Vampire: The Masquerade 20th Anniversary source-cited
+  fledgling creator and maturation workflow, with Vampire, Ghoul, and
+  Revenant sheet choices;
+- `werewolf20` — Werewolf: The Apocalypse 20th Anniversary guided Garou,
+  Changing Breed, Kinfolk, and Wyrm-aligned creation;
+- `wraith20` / `wraith20-shadow` — Wraith: The Oblivion 20th Anniversary
+  guided Wraith/Medium creation, plus a linked Shadow sheet
+  (`parentSystemId`);
+- `mouse-guard2e` / patrol — Mouse Guard Second Edition, recruited or built
+  from a rank template, plus a Patrol record;
+- `band-of-blades` / legion / chosen — Band of Blades guided Legionnaire build
+  plus linked Legion and Chosen records;
+- `blades-in-the-dark` / crew — Blades in the Dark guided Scoundrel build plus
+  a linked Crew record;
+- `miseries-and-misfortunes` / campaign — Miseries & Misfortunes guided
+  Protagonist build plus a linked campaign record;
+- `monster-of-the-week` / keeper — Monster of the Week guided Hunter build
+  plus a Keeper workspace;
+- `call-of-cthulhu2e` / keeper — Call of Cthulhu Second Edition guided
+  Investigator build plus a Keeper workspace;
+- `call-of-cthulhu7e` — Call of Cthulhu Seventh Edition guided Investigator
+  build plus a Keeper workspace; grouped with `call-of-cthulhu2e` under the
+  shared "Call of Cthulhu" family card;
+- `root-rpg` / campaign — Root: The Roleplaying Game guided Vagabond build
+  plus a linked campaign record;
+- `dragonbane` — Dragonbane guided Adventurer build plus sheet;
+- `scum-and-villainy` / ship — Scum and Villainy guided Scoundrel build plus a
+  linked Ship record;
+- `ars-magica-definitive` — Ars Magica Definitive Edition with Magus and
+  Companion build choices;
+- `kult-divinity-lost` — KULT: Divinity Lost editable sheet.
+
+This list is derived from `src/games/registry.ts`; treat that file, not this
+document, as the source of truth if they ever disagree. See the
+[README](../README.md#supported-games) for the equivalent reader-facing
+table.

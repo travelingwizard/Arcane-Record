@@ -12,7 +12,9 @@ responsive vintage-sheet treatment.
   selection, import, open, duplicate, export, and confirmed delete actions.
 - Solar and Dragon-Blooded Exalted First Edition foundations with separate
   creation choices, sheet-specific first-page structures, and shared local
-  persistence.
+  persistence. All seven splats (Solar, Dragon-Blooded, Lunar, Abyssal,
+  Sidereal, Alchemical, and Fair Folk) are now certified and creatable; see
+  [18. Exalted First Edition — planned splat release model](18-exalted1e-splat-release.md).
 - A Burning Wheel Gold + Codex guided burner and play sheet for all seven
   Charred Black stocks, with game-owned enforcement warnings and overrides.
 - A Torchbearer Second Edition editable two-page adventurer record covering
@@ -46,6 +48,14 @@ runtime resources, fake game modules, or empty future-game placeholders. The
 Burning Wheel module is an explicit exception to the original editable-sheet
 rules-engine boundary: it implements the requested character-burning rules
 inside that module without changing Mage or Exalted behavior.
+
+A separately deployed, hosted Module Registry is an explicit exception to the
+no-backend/no-synchronization rule. It is authorized to store authenticated
+publisher identities, namespace grants, immutable validated module packages
+and checksums, review/deprecation state, catalog pointers, and security audit
+events. It must never receive character data, local drafts, preferences, or
+usage events, and the application must remain fully usable offline with
+previously cached modules.
 
 ## Assumptions
 

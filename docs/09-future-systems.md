@@ -1,8 +1,15 @@
 # 09. Game systems
 
-Game modules register through `GameSystemRegistry`. Mage 20 is registered under
-the stable outer ID `mage20`; its definitions remain under
-`src/systems/mage-m20` and its adapter under `src/games/mage20`.
+Game modules register through `GameSystemRegistry`. This page is not an
+exhaustive game list; see
+[16. Multi-game architecture § Registered systems](16-multi-game-architecture.md#registered-systems)
+for every currently registered system, or the
+[README](../README.md#supported-games) for the reader-facing table. It walks
+through a few representative examples before covering the Mage-specific
+sections in detail below.
+
+Mage 20 is registered under the stable outer ID `mage20`; its definitions
+remain under `src/systems/mage-m20` and its adapter under `src/games/mage20`.
 Exalted First Edition is registered as `exalted1e` with seven sheet variants:
 `solar` and `dragon-blooded` (the original foundation), plus `lunar`,
 `abyssal`, `sidereal`, `alchemical`, and `fair-folk`, each with its own

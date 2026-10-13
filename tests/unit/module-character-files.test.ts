@@ -88,4 +88,52 @@ describe('module-backed character files', () => {
     expect(imported.data).toEqual({ preserve: 'exactly' });
     expect(imported.moduleRef).toEqual(record.moduleRef);
   });
+
+  it.each([
+    ['a string', '"just a string"'],
+    ['a number', '42'],
+    ['null', 'null'],
+    ['an array', '["not", "an", "object"]'],
+  ])(
+    'rejects a format-version-2 import whose character data is %s, when its module is not installed',
+    (_label, characterJson) => {
+      const module = new ModuleRegistry()
+        .register(createSyntheticModule())
+        .list()[0]!;
+      const garbage = {
+        format: 'arcane-record-character',
+        formatVersion: 2,
+        systemId: 'arcane-module',
+        systemVersion: 1,
+        id: 'garbage-source',
+        name: 'Garbage Character',
+        createdAt: '2026-08-24T12:00:00.000Z',
+        updatedAt: '2026-08-24T12:00:00.000Z',
+        moduleRef: {
+          moduleId: module.moduleId,
+          moduleVersion: module.moduleVersion,
+          gameNodeId: 'test-variant',
+          sheetTemplateId: 'test-sheet',
+          sheetTemplateVersion: 1,
+          dependencyLockId: '00000000-0000-4000-8000-000000000000',
+          enabledOverlayRefs: [],
+        },
+        character: JSON.parse(characterJson) as unknown,
+      };
+
+      // The module that could validate the real character schema is
+      // deliberately NOT registered in this empty registry -- this is
+      // exactly the "module not installed yet" case the guard protects.
+      expect(() =>
+        prepareImportedRecord(
+          JSON.stringify(garbage),
+          'garbage.json',
+          gameSystemRegistry,
+          new Date('2026-08-25T12:00:00.000Z'),
+          'garbage-import',
+          new ModuleRegistry(),
+        ),
+      ).toThrow(/not well-formed/i);
+    },
+  );
 });
