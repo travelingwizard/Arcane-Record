@@ -8,7 +8,7 @@ import { attributeModifierCosts, attributeStep } from './engine';
 import { earthdawnPathProfiles } from './path-profiles';
 import {
   createActivityEntry,
-  formatWallet,
+  formatWalletAsSilver,
   moneyToCopper,
   walletTotalCopper,
   walletFromCopper,
@@ -689,10 +689,10 @@ export function finalizeEarthdawnCreation(
         ),
         targetName: 'Starting wallet',
         locked: true,
-        before: formatWallet(
+        before: formatWalletAsSilver(
           walletFromCopper(review.quote.startingCopper, character.wealth),
         ),
-        after: formatWallet(wealth),
+        after: formatWalletAsSilver(wealth),
       }),
       ...review.quote.purchases.map((purchase) =>
         createActivityEntry({

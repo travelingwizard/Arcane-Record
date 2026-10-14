@@ -2856,6 +2856,69 @@
   gap: var(--space-3);
 }
 
+.earthdawn-skill-add {
+  width: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.earthdawn-skill-add--selected:disabled {
+  border-color: var(--ink);
+  color: var(--paper);
+  background: var(--ink);
+  opacity: 1;
+}
+
+.earthdawn-dialog-results.earthdawn-skill-results--list {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.earthdawn-skill-list-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px;
+  gap: var(--space-2);
+  align-items: center;
+  min-width: 0;
+  padding: 0.4rem 0.55rem;
+  border: 1px solid var(--rule-light);
+  background: var(--surface-glaze);
+}
+
+.earthdawn-skill-list-row > summary {
+  display: grid;
+  grid-template-columns:
+    minmax(9rem, 1fr) minmax(6rem, 0.55fr) minmax(10rem, 1.5fr)
+    minmax(9rem, 0.8fr);
+  gap: var(--space-2);
+  align-items: center;
+  min-width: 0;
+  min-height: 44px;
+  cursor: pointer;
+  list-style-position: inside;
+}
+
+.earthdawn-skill-list-row > summary > * {
+  min-width: 0;
+}
+
+.earthdawn-skill-list-row__summary,
+.earthdawn-skill-list-row > summary > small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.earthdawn-skill-list-row > p {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: var(--space-2);
+  border-block-start: 1px solid var(--rule-light);
+  white-space: normal;
+}
+
 @media (max-width: 48rem) {
   .earthdawn-creator-progress {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2958,6 +3021,20 @@
   border-block-end: 1px solid var(--rule-light);
 }
 
+.earthdawn-attribute-table--play .earthdawn-attribute-row {
+  grid-template-columns:
+    minmax(7rem, 1.4fr) minmax(3.5rem, 0.55fr) minmax(3rem, 0.5fr)
+    minmax(6rem, 0.9fr) minmax(4.5rem, 0.75fr) minmax(4rem, 0.65fr);
+}
+
+.earthdawn-attribute-cell {
+  min-width: 0;
+}
+
+.earthdawn-attribute-cell::before {
+  display: none;
+}
+
 .earthdawn-attribute-row:last-child {
   border-block-end: 0;
 }
@@ -2978,6 +3055,11 @@
   width: 100%;
   min-width: 0;
   min-height: 44px;
+}
+
+.earthdawn-attribute-cell > input,
+.earthdawn-attribute-cell > button {
+  width: 100%;
 }
 
 .earthdawn-talent-table {
@@ -3108,8 +3190,22 @@
     grid-template-columns: minmax(7rem, 1fr) repeat(3, minmax(4rem, 0.7fr));
   }
 
-  .earthdawn-attribute-row:not(.earthdawn-attribute-head) > :nth-child(n + 6) {
-    text-align: center;
+  .earthdawn-attribute-table--play
+    .earthdawn-attribute-row:not(.earthdawn-attribute-head) {
+    grid-template-columns: repeat(3, minmax(4rem, 1fr));
+  }
+
+  .earthdawn-attribute-row:not(.earthdawn-attribute-head)
+    .earthdawn-attribute-cell::before {
+    content: attr(data-label);
+    display: block;
+    margin-block-end: 0.2rem;
+    color: var(--ink-soft);
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 
   .earthdawn-talent-head {
@@ -3159,6 +3255,21 @@
     grid-column: 1 / -1;
     font-family: var(--font-display);
     font-size: 1.1rem;
+  }
+
+  .earthdawn-attribute-row:not(.earthdawn-attribute-head)
+    > .earthdawn-attribute-cell--name {
+    grid-column: 1 / -1;
+  }
+
+  .earthdawn-skill-list-row > summary {
+    grid-template-columns: minmax(0, 1fr);
+    padding-block: var(--space-1);
+  }
+
+  .earthdawn-skill-list-row > summary > span,
+  .earthdawn-skill-list-row > summary > small {
+    display: none;
   }
 
   .earthdawn-talent-table {

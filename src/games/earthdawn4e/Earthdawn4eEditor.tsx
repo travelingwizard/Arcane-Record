@@ -65,7 +65,7 @@ import {
   createLegendEntry,
   createActivityEntry,
   changeWallet,
-  formatWallet,
+  formatWalletAsSilver,
   moneyToCopper,
   canAssignSpellToMatrix,
   reconcileRace,
@@ -1274,7 +1274,9 @@ export function Earthdawn4eEditor({
       acquisition === 'purchase' &&
       walletTotalCopper(draft.wealth) < purchaseCopper
     ) {
-      setMoneyError(`Insufficient funds to purchase ${d.name}.`);
+      setMoneyError(
+        `Insufficient funds to purchase ${d.name}. Available: ${formatWalletAsSilver(draft.wealth)}.`,
+      );
       return;
     }
     setMoneyError('');
@@ -1463,8 +1465,8 @@ export function Earthdawn4eEditor({
                   targetId: base.id,
                   targetName: d.name,
                   quantityDelta: 1,
-                  before: formatWallet(c.wealth),
-                  after: formatWallet(wealth),
+                  before: formatWalletAsSilver(c.wealth),
+                  after: formatWalletAsSilver(wealth),
                 }),
               ],
             }
@@ -5374,13 +5376,13 @@ export function Earthdawn4eEditor({
                   <div className="earthdawn-wallet" aria-label="Coin wallet">
                     <div className="earthdawn-wallet__balances">
                       <span>
-                        <strong>{Math.trunc(draft.wealth.gold)}</strong> gp
-                      </span>
-                      <span>
                         <strong>{Math.trunc(draft.wealth.silver)}</strong> sp
                       </span>
                       <span>
                         <strong>{Math.trunc(draft.wealth.copper)}</strong> cp
+                      </span>
+                      <span>
+                        <strong>{Math.trunc(draft.wealth.gold)}</strong> gp
                       </span>
                     </div>
                     <SheetToolbar className="earthdawn-compact-toolbar">
@@ -5433,8 +5435,10 @@ export function Earthdawn4eEditor({
                                         type: 'currency',
                                         description: `Added ${moneyAmount} ${moneyDenomination}.`,
                                         copperDelta: delta,
-                                        before: formatWallet(current.wealth),
-                                        after: formatWallet(wealth),
+                                        before: formatWalletAsSilver(
+                                          current.wealth,
+                                        ),
+                                        after: formatWalletAsSilver(wealth),
                                       }),
                                     ],
                                   }
@@ -5455,7 +5459,9 @@ export function Earthdawn4eEditor({
                             moneyDenomination,
                           );
                           if (walletTotalCopper(draft.wealth) < delta) {
-                            setMoneyError('Insufficient funds.');
+                            setMoneyError(
+                              `Insufficient funds. Available: ${formatWalletAsSilver(draft.wealth)}.`,
+                            );
                             return;
                           }
                           update((current) => {
@@ -5475,8 +5481,10 @@ export function Earthdawn4eEditor({
                                         type: 'currency',
                                         description: `Spent ${moneyAmount} ${moneyDenomination}.`,
                                         copperDelta: -delta,
-                                        before: formatWallet(current.wealth),
-                                        after: formatWallet(wealth),
+                                        before: formatWalletAsSilver(
+                                          current.wealth,
+                                        ),
+                                        after: formatWalletAsSilver(wealth),
                                       }),
                                     ],
                                   }
@@ -6235,8 +6243,7 @@ export function Earthdawn4eEditor({
                   })}
                   <p className="earthdawn-wallet-total">
                     Total value:{' '}
-                    <strong>{walletTotalCopper(draft.wealth)} cp</strong> (
-                    {formatWallet(draft.wealth)})
+                    <strong>{formatWalletAsSilver(draft.wealth)}</strong>
                   </p>
                 </>,
               )}
@@ -7303,10 +7310,13 @@ export function Earthdawn4eEditor({
                                                   quantityDelta:
                                                     -activity.quantityDelta,
                                                   reversesId: activity.id,
-                                                  before: formatWallet(
+                                                  before: formatWalletAsSilver(
                                                     current.wealth,
                                                   ),
-                                                  after: formatWallet(wealth),
+                                                  after:
+                                                    formatWalletAsSilver(
+                                                      wealth,
+                                                    ),
                                                 }),
                                               ],
                                             },
@@ -9637,7 +9647,7 @@ function AttributeTable({
 }) {
   return (
     <div
-      className="earthdawn-attribute-table"
+      className={`earthdawn-attribute-table${playMode ? ' earthdawn-attribute-table--play' : ''}`}
       role="table"
       aria-label="Earthdawn Attributes"
     >
@@ -9645,15 +9655,23 @@ function AttributeTable({
         className="earthdawn-attribute-row earthdawn-attribute-head"
         role="row"
       >
-        <span>Attribute</span>
-        <span>Value</span>
-        <span>Step</span>
-        <span>Dice</span>
-        <span>Race</span>
-        <span>Purchased</span>
-        <span>Permanent</span>
-        <span>Temporary</span>
-        <span>Advance</span>
+        <span className="earthdawn-attribute-cell earthdawn-attribute-cell--name">
+          Attribute
+        </span>
+        <span className="earthdawn-attribute-cell">Value</span>
+        <span className="earthdawn-attribute-cell">Step</span>
+        <span className="earthdawn-attribute-cell earthdawn-attribute-cell--dice">
+          Dice
+        </span>
+        {!playMode ? (
+          <>
+            <span className="earthdawn-attribute-cell">Race</span>
+            <span className="earthdawn-attribute-cell">Purchased</span>
+            <span className="earthdawn-attribute-cell">Permanent</span>
+          </>
+        ) : null}
+        <span className="earthdawn-attribute-cell">Temporary</span>
+        <span className="earthdawn-attribute-cell">Advance</span>
       </div>
       {Object.entries(character.attributes).map(([id, attribute]) => {
         const attributeId = id as EarthdawnAttributeId;
@@ -9674,54 +9692,93 @@ function AttributeTable({
           }));
         return (
           <div className="earthdawn-attribute-row" role="row" key={id}>
-            <strong>{labels[attributeId]}</strong>
-            <strong>{values[attributeId]}</strong>
-            <span>{step}</span>
-            <span>{stepDice(step)}</span>
-            <input
-              aria-label={`${labels[attributeId]} racial value`}
-              readOnly={playMode}
-              type="number"
-              value={attribute.racial}
-              onChange={(event) =>
-                change('racial', Math.max(1, integer(event.target.value)))
-              }
-            />
-            <input
-              aria-label={`${labels[attributeId]} purchased modifier`}
-              readOnly={playMode}
-              type="number"
-              value={attribute.purchased}
-              onChange={(event) =>
-                change('purchased', Number(event.target.value))
-              }
-            />
-            <input
-              aria-label={`${labels[attributeId]} permanent increases`}
-              readOnly={playMode}
-              type="number"
-              min="0"
-              value={attribute.increases}
-              onChange={(event) =>
-                change('increases', integer(event.target.value))
-              }
-            />
-            <input
-              aria-label={`${labels[attributeId]} temporary modifier`}
-              type="number"
-              value={attribute.temporaryBonus}
-              onChange={(event) =>
-                change('temporaryBonus', Number(event.target.value))
-              }
-            />
-            <button
-              type="button"
-              className="secondary-button"
-              disabled={attribute.increases >= 3}
-              onClick={() => onAdvance(attributeId)}
+            <strong
+              className="earthdawn-attribute-cell earthdawn-attribute-cell--name"
+              data-label="Attribute"
             >
-              +1
-            </button>
+              {labels[attributeId]}
+            </strong>
+            <strong className="earthdawn-attribute-cell" data-label="Value">
+              {values[attributeId]}
+            </strong>
+            <span className="earthdawn-attribute-cell" data-label="Step">
+              {step}
+            </span>
+            <span
+              className="earthdawn-attribute-cell earthdawn-attribute-cell--dice"
+              data-label="Dice"
+            >
+              {stepDice(step)}
+            </span>
+            {!playMode ? (
+              <>
+                <label className="earthdawn-attribute-cell" data-label="Race">
+                  <span className="sr-only">
+                    {labels[attributeId]} racial value
+                  </span>
+                  <input
+                    type="number"
+                    value={attribute.racial}
+                    onChange={(event) =>
+                      change('racial', Math.max(1, integer(event.target.value)))
+                    }
+                  />
+                </label>
+                <label
+                  className="earthdawn-attribute-cell"
+                  data-label="Purchased"
+                >
+                  <span className="sr-only">
+                    {labels[attributeId]} purchased modifier
+                  </span>
+                  <input
+                    type="number"
+                    value={attribute.purchased}
+                    onChange={(event) =>
+                      change('purchased', Number(event.target.value))
+                    }
+                  />
+                </label>
+                <label
+                  className="earthdawn-attribute-cell"
+                  data-label="Permanent"
+                >
+                  <span className="sr-only">
+                    {labels[attributeId]} permanent increases
+                  </span>
+                  <input
+                    type="number"
+                    min="0"
+                    value={attribute.increases}
+                    onChange={(event) =>
+                      change('increases', integer(event.target.value))
+                    }
+                  />
+                </label>
+              </>
+            ) : null}
+            <label className="earthdawn-attribute-cell" data-label="Temporary">
+              <span className="sr-only">
+                {labels[attributeId]} temporary modifier
+              </span>
+              <input
+                type="number"
+                value={attribute.temporaryBonus}
+                onChange={(event) =>
+                  change('temporaryBonus', Number(event.target.value))
+                }
+              />
+            </label>
+            <span className="earthdawn-attribute-cell" data-label="Advance">
+              <button
+                type="button"
+                className="secondary-button"
+                disabled={attribute.increases >= 3}
+                onClick={() => onAdvance(attributeId)}
+              >
+                +1
+              </button>
+            </span>
           </div>
         );
       })}

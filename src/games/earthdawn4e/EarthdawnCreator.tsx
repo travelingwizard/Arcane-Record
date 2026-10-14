@@ -60,6 +60,8 @@ const tierRanges = [
 
 type SkillCategory = 'general' | 'knowledge' | 'artisan' | 'language';
 type EquipmentCategory = 'equipment' | 'weapon' | 'armor' | 'shield';
+type SkillBrowserView = 'cards' | 'list';
+const skillViewPreferenceKey = 'arcane-record:earthdawn4e:creator:skills:view';
 const skillCategoryLabels: Record<SkillCategory, string> = {
   general: 'General',
   knowledge: 'Knowledge',
@@ -211,6 +213,11 @@ export function EarthdawnCreator({
   const [skillDialogOpen, setSkillDialogOpen] = useState(false);
   const [skillCategory, setSkillCategory] = useState<SkillCategory>('general');
   const [skillSearch, setSkillSearch] = useState('');
+  const [skillView, setSkillView] = useState<SkillBrowserView>(() =>
+    window.localStorage.getItem(skillViewPreferenceKey) === 'list'
+      ? 'list'
+      : 'cards',
+  );
   const [equipmentDialogOpen, setEquipmentDialogOpen] = useState(false);
   const [equipmentFilter, setEquipmentFilter] =
     useState<EquipmentCategory>('equipment');
@@ -287,6 +294,9 @@ export function EarthdawnCreator({
   );
   const overrideActive =
     !character.creation.enforceRules && Boolean(globalOverride?.reason.trim());
+  useEffect(() => {
+    window.localStorage.setItem(skillViewPreferenceKey, skillView);
+  }, [skillView]);
   const skillDefinitions = useMemo(
     () =>
       earthdawnCatalog.filter(
@@ -2062,11 +2072,75 @@ export function EarthdawnCreator({
           >
             Add Custom {skillCategoryLabels[skillCategory]} Skill
           </button>
-          <div className="earthdawn-dialog-results">
+          <SheetToolbar className="earthdawn-catalog-view-toolbar earthdawn-compact-toolbar">
+            <button
+              type="button"
+              className="icon-button earthdawn-catalog-view-button"
+              title="Card view"
+              aria-label="Show skills as cards"
+              aria-pressed={skillView === 'cards'}
+              onClick={() => setSkillView('cards')}
+            >
+              <span aria-hidden="true">▦</span>
+            </button>
+            <button
+              type="button"
+              className="icon-button earthdawn-catalog-view-button"
+              title="List view"
+              aria-label="Show skills as a list"
+              aria-pressed={skillView === 'list'}
+              onClick={() => setSkillView('list')}
+            >
+              <span aria-hidden="true">☷</span>
+            </button>
+          </SheetToolbar>
+          <div
+            className={`earthdawn-dialog-results earthdawn-skill-results--${skillView}`}
+          >
             {skillDefinitions.map((definition) => {
               const chosen = character.skills.some(
                 ({ definitionId }) => definitionId === definition.id,
               );
+              const action = (
+                <button
+                  type="button"
+                  className={`secondary-button compact-button earthdawn-skill-add${chosen ? ' earthdawn-skill-add--selected' : ''}`}
+                  disabled={chosen}
+                  aria-label={
+                    chosen
+                      ? `${definition.name} already added`
+                      : `Add ${definition.name}`
+                  }
+                  onClick={() => addSkill(definition, skillCategory)}
+                >
+                  <span aria-hidden="true">+</span>
+                </button>
+              );
+              if (skillView === 'list')
+                return (
+                  <details
+                    className="earthdawn-skill-list-row"
+                    key={definition.id}
+                  >
+                    <summary>
+                      <strong>{definition.name}</strong>
+                      <span>
+                        {labels[definition.defaultAttribute ?? 'perception']}
+                      </span>
+                      <span
+                        className="earthdawn-skill-list-row__summary"
+                        title={definition.summary}
+                      >
+                        {definition.summary}
+                      </span>
+                      <small>
+                        {definition.source}, p. {definition.page}
+                      </small>
+                    </summary>
+                    {action}
+                    <p>{definition.summary}</p>
+                  </details>
+                );
               return (
                 <SheetCard key={definition.id} density="compact">
                   <div>
@@ -2077,14 +2151,7 @@ export function EarthdawnCreator({
                       {definition.source}, p. {definition.page}
                     </small>
                   </div>
-                  <button
-                    type="button"
-                    className="secondary-button compact-button"
-                    disabled={chosen}
-                    onClick={() => addSkill(definition, skillCategory)}
-                  >
-                    {chosen ? 'Added' : 'Add'}
-                  </button>
+                  {action}
                 </SheetCard>
               );
             })}

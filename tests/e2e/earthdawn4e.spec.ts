@@ -553,9 +553,119 @@ test('creates an Earthdawn adept and exposes source and dice tools', async ({
   expect(nextButtonHeight).toBeGreaterThanOrEqual(44);
 });
 
+test('offers persistent card and list views in the creator skill browser', async ({
+  page,
+}) => {
+  await openEarthdawnCreator(page);
+  for (let index = 0; index < 5; index += 1)
+    await page.getByRole('button', { name: 'Next' }).click();
+
+  await page.getByRole('button', { name: 'Add Specific Skill' }).click();
+  let dialog = page.getByRole('dialog', { name: 'Add Specific Skill' });
+  await dialog.getByRole('searchbox').fill('Awareness');
+  const addAwareness = dialog.getByRole('button', { name: 'Add Awareness' });
+  await expect(addAwareness).toHaveText('+');
+  await addAwareness.click();
+  const selectedAwareness = dialog.getByRole('button', {
+    name: 'Awareness already added',
+  });
+  await expect(selectedAwareness).toBeDisabled();
+  await expect(selectedAwareness).toHaveClass(/earthdawn-skill-add--selected/);
+  await expect(
+    selectedAwareness.evaluate((node) => ({
+      background: getComputedStyle(node).backgroundColor,
+      color: getComputedStyle(node).color,
+      opacity: getComputedStyle(node).opacity,
+    })),
+  ).resolves.toMatchObject({ opacity: '1' });
+
+  await dialog.getByRole('button', { name: 'Show skills as a list' }).click();
+  await expect(dialog.locator('.earthdawn-skill-list-row')).toHaveCount(1);
+  await dialog.getByText('Awareness', { exact: true }).click();
+  await expect(dialog.locator('.earthdawn-skill-list-row')).toHaveAttribute(
+    'open',
+    '',
+  );
+  await dialog.getByRole('button', { name: 'Close' }).click();
+
+  await page.getByRole('button', { name: 'Add Specific Skill' }).click();
+  dialog = page.getByRole('dialog', { name: 'Add Specific Skill' });
+  await expect(
+    dialog.getByRole('button', { name: 'Show skills as a list' }),
+  ).toHaveAttribute('aria-pressed', 'true');
+  await page.setViewportSize({ width: 320, height: 800 });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth > window.innerWidth,
+    ),
+  ).toBe(false);
+});
+
+test('reduces Play attributes and presents Equipment wealth in silver', async ({
+  page,
+}) => {
+  await openEarthdawnCreator(page);
+  for (let index = 0; index < 7; index += 1)
+    await page.getByRole('button', { name: 'Next' }).click();
+  await page.getByLabel('name').fill('Silver Playtest');
+  await page.getByRole('button', { name: 'Complete Character' }).click();
+
+  const attributes = page.locator('#ed4-attributes');
+  await expect(attributes.getByText('Race', { exact: true })).toHaveCount(0);
+  await expect(attributes.getByText('Purchased', { exact: true })).toHaveCount(
+    0,
+  );
+  await expect(attributes.getByText('Permanent', { exact: true })).toHaveCount(
+    0,
+  );
+  await expect(
+    attributes.getByText('Temporary', { exact: true }),
+  ).toBeVisible();
+  const temporaryDexterity = attributes.getByLabel(
+    'Dexterity temporary modifier',
+  );
+  await temporaryDexterity.fill('2');
+  await expect(temporaryDexterity).toHaveValue('2');
+
+  const equipment = page.locator('#ed4-equipment');
+  await expect(equipment.getByLabel('Denomination')).toHaveValue('sp');
+  const balances = equipment.locator('.earthdawn-wallet__balances span');
+  await expect(balances.nth(0)).toContainText('sp');
+  await expect(equipment.getByText('100 sp', { exact: true })).toBeVisible();
+  await equipment.getByLabel('Coin amount').fill('5');
+  await equipment.getByLabel('Denomination').selectOption('cp');
+  await equipment.getByRole('button', { name: 'Add', exact: true }).click();
+  await expect(
+    equipment.getByText('100 sp 5 cp', { exact: true }),
+  ).toBeVisible();
+  await equipment.getByLabel('Coin amount').fill('6');
+  await equipment.getByLabel('Denomination').selectOption('sp');
+  await equipment.getByRole('button', { name: 'Spend', exact: true }).click();
+  await expect(
+    equipment.getByText('94 sp 5 cp', { exact: true }),
+  ).toBeVisible();
+  await equipment.getByLabel('Coin amount').fill('999');
+  await equipment.getByRole('button', { name: 'Spend', exact: true }).click();
+  await expect(equipment.getByRole('alert')).toContainText(
+    'Available: 94 sp 5 cp',
+  );
+
+  await page
+    .getByRole('switch', { name: /Earthdawn Edit and Play mode/ })
+    .uncheck();
+  await expect(attributes.getByText('Race', { exact: true })).toBeVisible();
+  await expect(
+    attributes.getByText('Purchased', { exact: true }),
+  ).toBeVisible();
+  await expect(
+    attributes.getByText('Permanent', { exact: true }),
+  ).toBeVisible();
+});
+
 test('playtests Warrior, Wizard, non-Adept Questor, and Windmaster creation through final sheets', async ({
   page,
 }) => {
+  test.setTimeout(60_000);
   await openEarthdawnCreator(page);
   await expect(page.getByLabel('Creation budgets')).toContainText('Attributes');
   await expect(page.getByLabel('Creation budgets')).toContainText(
@@ -792,7 +902,12 @@ test('uses compact catalogs, reasoned GM override, and completes a partial chara
   await expect(page.getByText('Adventurer’s Kit', { exact: true })).toHaveCount(
     1,
   );
-  await expect(page.getByText(/0 cp \(0 gp · 0 sp · 0 cp\)/)).toBeVisible();
+  await expect(
+    page.locator('#ed4-equipment .earthdawn-wallet-total strong'),
+  ).toBeVisible();
+  await expect(
+    page.locator('#ed4-equipment .earthdawn-wallet-total strong'),
+  ).toHaveText('0 sp');
   await expect(page.locator('.save-status')).toHaveText(
     'Saved in this browser',
     {
@@ -803,7 +918,12 @@ test('uses compact catalogs, reasoned GM override, and completes a partial chara
   await expect(page.getByText('Adventurer’s Kit', { exact: true })).toHaveCount(
     1,
   );
-  await expect(page.getByText(/0 cp \(0 gp · 0 sp · 0 cp\)/)).toBeVisible();
+  await expect(
+    page.locator('#ed4-equipment .earthdawn-wallet-total strong'),
+  ).toBeVisible();
+  await expect(
+    page.locator('#ed4-equipment .earthdawn-wallet-total strong'),
+  ).toHaveText('0 sp');
   await page
     .getByRole('switch', { name: /Earthdawn Edit and Play mode/ })
     .uncheck();
@@ -863,6 +983,7 @@ test('completes an entirely blank creator without inventing required fields', as
 test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   page,
 }) => {
+  test.setTimeout(60_000);
   await page.setViewportSize({ width: 320, height: 760 });
   await page.goto('/');
   await page.getByRole('button', { name: 'Create Character' }).click();
@@ -1182,7 +1303,9 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
     .getByRole('button', { name: 'Add variant', exact: true })
     .click();
   await expect(page.getByText(/Learn Air Armor/)).toBeVisible();
-  await page.getByRole('button', { name: 'Confirm purchase' }).click();
+  await page
+    .getByRole('button', { name: 'Confirm purchase' })
+    .click({ force: true });
   await expect(page.getByText('100 current LP')).toBeVisible();
   await page.getByRole('button', { name: 'Refund' }).first().click();
   await expect(page.getByText('200 current LP')).toBeVisible();

@@ -356,6 +356,13 @@ export function formatWallet(wealth: Earthdawn4eCharacter['wealth']) {
   return `${Math.trunc(wealth.gold)} gp · ${Math.trunc(wealth.silver)} sp · ${Math.trunc(wealth.copper)} cp`;
 }
 
+export function formatWalletAsSilver(wealth: Earthdawn4eCharacter['wealth']) {
+  const totalCopper = walletTotalCopper(wealth);
+  const silver = Math.floor(totalCopper / 10);
+  const copper = totalCopper % 10;
+  return `${silver} sp${copper ? ` ${copper} cp` : ''}`;
+}
+
 export function createActivityEntry(
   values: Partial<ActivityEntry> & Pick<ActivityEntry, 'type' | 'description'>,
 ): ActivityEntry {

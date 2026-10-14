@@ -51,6 +51,7 @@ import {
   createLegendEntry,
   changeWallet,
   formatWallet,
+  formatWalletAsSilver,
   moneyToCopper,
   disciplineCircleTraining,
   equivalentTalentCircle,
@@ -781,6 +782,15 @@ describe('Earthdawn Fourth Edition module', () => {
     const changed = changeWallet(character.wealth, -1)!;
     expect(changed).toMatchObject({ gold: 9, silver: 9, copper: 9 });
     expect(formatWallet(changed)).toBe('9 gp · 9 sp · 9 cp');
+    expect(formatWalletAsSilver(changed)).toBe('99 sp 9 cp');
+    expect(
+      formatWalletAsSilver({
+        ...character.wealth,
+        gold: 1,
+        silver: 2,
+        copper: 5,
+      }),
+    ).toBe('12 sp 5 cp');
     expect(changeWallet({ ...character.wealth, silver: 0 }, -1)).toBeNull();
   });
   it('reconciles Race grants without discarding purchased attributes', () => {
