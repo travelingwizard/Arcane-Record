@@ -2,6 +2,7 @@ import type { EarthdawnSpellReference } from './spell-types';
 import type { EarthdawnKnackVariant } from './knack-types';
 import { earthdawnBasicRules, earthdawnCreationRules } from './basic-rules';
 import type { EarthdawnRuleMetadata } from './rule-types';
+import { earthdawnPathProfiles } from './path-profiles';
 
 export type EarthdawnCatalogKind =
   | 'race'
@@ -567,7 +568,7 @@ const disciplineRows: Array<
     ],
   ],
 ];
-export const earthdawnDisciplines: EarthdawnDiscipline[] = disciplineRows.map(
+const coreDisciplines: EarthdawnDiscipline[] = disciplineRows.map(
   ([name, page, importantAttributes, spellcaster, noviceTalents]) => ({
     ...entry(
       'discipline',
@@ -590,6 +591,56 @@ export const earthdawnDisciplines: EarthdawnDiscipline[] = disciplineRows.map(
     },
   }),
 );
+
+const airSailor = coreDisciplines.find(({ name }) => name === 'Air Sailor')!;
+const boatmanSubstitutions = new Map([
+  ['Air Sailing', 'Pilot Boat or Sailing'],
+  ['Thread Weaving (Air Weaving)', 'Thread Weaving (River Weaving)'],
+  ['Wind Catcher', 'Swimming'],
+  ['Air Dance', 'Disarm'],
+  ['Windborne Speed', 'Riverborne Speed'],
+  ['Distract', 'Unarmed Combat'],
+  ['Navigation', 'Read River'],
+  ['Air Speaking', 'Swift Kick'],
+]);
+const substituteBoatman = (value: string) =>
+  boatmanSubstitutions.get(value) ?? value;
+const boatman: EarthdawnDiscipline = {
+  ...airSailor,
+  id: 'ed4.discipline.boatman',
+  name: 'Boatman',
+  sourceId: 'ed4.mystic-paths',
+  source: 'The Adept’s Journey: Mystic Paths',
+  page: 157,
+  summary:
+    'A river-focused Air Sailor Discipline variant using rivercraft, trade-route, crew, and vessel knowledge.',
+  aliases: ['Air Sailor variant', 'Sailor'],
+  importantAttributes: ['charisma', 'dexterity', 'willpower'],
+  noviceTalents: airSailor.noviceTalents.map(substituteBoatman),
+  circles: airSailor.circles.map((circle) => ({
+    ...circle,
+    requiredTalents: circle.requiredTalents.map(substituteBoatman),
+    ability:
+      circle.circle === 1
+        ? 'Karma once per round on any action while aboard a riverboat.'
+        : circle.circle === 13
+          ? 'Riverborne Speed.'
+          : circle.ability,
+    source: 'The Adept’s Journey: Mystic Paths',
+    page: circle.circle === 13 ? 165 : 157,
+  })),
+  talentOptions: {
+    novice: airSailor.talentOptions.novice.map(substituteBoatman),
+    journeyman: airSailor.talentOptions.journeyman.map(substituteBoatman),
+    warden: [...airSailor.talentOptions.warden],
+    master: [...airSailor.talentOptions.master],
+  },
+};
+
+export const earthdawnDisciplines: EarthdawnDiscipline[] = [
+  ...coreDisciplines,
+  boatman,
+];
 
 export const earthdawnPassions = [
   ['Astendar', 18, false, 'Love, art, beauty, and creative expression.'],
@@ -1729,28 +1780,40 @@ const earthdawnCatalogRows: EarthdawnDefinition[] = [
     273,
   ),
   ...referenced('path', ['Marauder', 'Avowed'], 'ed4.vasgothia', 183),
-  ...referenced(
-    'path',
-    [
-      'Brother of Stone',
-      'Fire Eater',
-      'Horror Stalker',
-      'Journeyman',
-      'Liberator',
-      'Messenger',
-      'Outcast',
-      'Purifier',
-      'Scholar',
-      'Tail Dancer',
-      'Windmaster',
-      'Woodsman',
-      'Boatman',
-      'Gauntlet',
-      'Shaman',
-    ],
-    'ed4.mystic-paths',
-    11,
-  ),
+  ...earthdawnPathProfiles.map((path) => ({
+    id: `ed4.path.${path.id}`,
+    kind: 'path' as const,
+    name: path.name,
+    summary: path.summary,
+    mechanics: [
+      `Initiation: ${path.initiationCost} LP; ${path.bloodMagicDamage} Blood Magic Damage.`,
+      `Minimum Circle ${path.minimumCircle}; maximum Rank ${path.maximumRank}; ${path.talentCostTier} tier.`,
+      path.ordeal,
+      path.rankBonuses
+        .map(({ rank, label }) => `Rank ${rank}: ${label}`)
+        .join('; '),
+      path.halfMagic,
+      path.karmaRitual,
+      path.advancement,
+      ...path.restrictions,
+    ]
+      .filter(Boolean)
+      .join(' '),
+    requirements: path.requirements.map((requirement) =>
+      requirement.kind === 'manual'
+        ? requirement.description
+        : requirement.kind === 'knowledge-skill'
+          ? `Knowledge Skill Rank ${requirement.rank}`
+          : `${requirement.name} Rank ${requirement.rank}`,
+    ),
+    aliases: [],
+    sourceId: path.sourceId,
+    source: path.citation,
+    page: path.page,
+    verification: path.verified
+      ? ('verified' as const)
+      : ('reference-only' as const),
+  })),
 ];
 const mergedCatalog = new Map<string, EarthdawnDefinition>();
 for (const definition of earthdawnCatalogRows) {

@@ -7,6 +7,12 @@ import {
 } from './catalog';
 import type { Earthdawn4eCharacter } from './schema';
 import {
+  earthdawnPathById,
+  type EarthdawnPathProfile,
+  type PathBonusTarget,
+  pathRankModifier,
+} from './path-profiles';
+import {
   matchingSharingRule,
   missingSharingPrerequisites,
   matrixGroupWarnings,
@@ -725,6 +731,10 @@ const talentCosts = {
 
 export type TalentTier = keyof typeof talentCosts;
 
+export function talentTierRankCost(newRank: number, tier: TalentTier) {
+  return talentCosts[tier][Math.min(15, Math.max(1, newRank))]!;
+}
+
 export function tierForCircle(circle: number): TalentTier {
   if (circle <= 4) return 'novice';
   if (circle <= 8) return 'journeyman';
@@ -753,6 +763,12 @@ export function equivalentTalentCircle(
           : 3;
   const shift = versatility ? 1 : Math.max(0, disciplineIndex);
   return [1, 5, 9, 13][Math.min(3, baseTier + shift)]!;
+}
+
+export function equivalentDisciplineNames(name: string) {
+  return name === 'Boatman'
+    ? (['Boatman', 'Air Sailor', 'Sailor'] as const)
+    : ([name] as const);
 }
 
 const noviceSkillCosts = [
@@ -863,6 +879,98 @@ export function questorRankCost(newRank: number) {
   return talentRankCost(newRank, 5);
 }
 
+export function pathRankCost(path: EarthdawnPathProfile, newRank: number) {
+  return talentTierRankCost(newRank, path.talentCostTier);
+}
+
+export function pathEligibility(
+  character: Earthdawn4eCharacter,
+  path: EarthdawnPathProfile,
+  desiredRank = 1,
+) {
+  const blockers: string[] = [];
+  const acknowledgements: string[] = [];
+  const circle = Math.max(
+    0,
+    ...character.disciplines.map(({ circle }) => circle),
+  );
+  if (circle < path.minimumCircle)
+    blockers.push(
+      `Requires an adept Discipline at Circle ${path.minimumCircle}.`,
+    );
+  if (path.race && character.identity.raceName !== path.race)
+    blockers.push(`Requires ${path.race}.`);
+  if (
+    path.questorProhibited &&
+    (character.questorPaths.length > 0 || character.questor.rank > 0)
+  )
+    blockers.push('Questors cannot initiate or advance on this Path.');
+  for (const requirement of path.requirements) {
+    if (requirement.kind === 'manual') {
+      acknowledgements.push(requirement.description);
+      continue;
+    }
+    if (requirement.kind === 'knowledge-skill') {
+      if (
+        !character.skills.some(
+          ({ category, rank }) =>
+            category === 'knowledge' && rank >= requirement.rank,
+        )
+      )
+        blockers.push(
+          `Requires a Knowledge Skill at Rank ${requirement.rank}.`,
+        );
+      continue;
+    }
+    const records =
+      requirement.kind === 'talent' ? character.talents : character.skills;
+    if (
+      !records.some(
+        ({ name, rank }) =>
+          name.localeCompare(requirement.name, undefined, {
+            sensitivity: 'base',
+          }) === 0 && rank >= requirement.rank,
+      )
+    )
+      blockers.push(`Requires ${requirement.name} Rank ${requirement.rank}.`);
+  }
+  if (path.id === 'journeyman') {
+    const versatility =
+      character.talents.find(({ name }) => name === 'Versatility')?.rank ?? 0;
+    if (versatility < desiredRank + 5)
+      blockers.push(
+        `Journeyman Rank ${desiredRank} requires Versatility Rank ${desiredRank + 5}.`,
+      );
+  }
+  for (const existing of character.mysticPaths) {
+    const other = earthdawnPathById.get(existing.definitionId);
+    if (
+      path.incompatiblePathIds.includes(existing.definitionId) ||
+      other?.incompatiblePathIds.includes(path.id)
+    )
+      blockers.push(`${path.name} is incompatible with ${existing.name}.`);
+  }
+  acknowledgements.push(...path.restrictions, path.ordeal);
+  return {
+    blockers: [...new Set(blockers)],
+    acknowledgements: [...new Set(acknowledgements)],
+  };
+}
+
+export function mysticPathModifierValue(
+  character: Earthdawn4eCharacter,
+  target: PathBonusTarget,
+) {
+  return character.mysticPaths
+    .filter(({ active }) => active)
+    .reduce((sum, record) => {
+      const profile = earthdawnPathById.get(record.definitionId);
+      return (
+        sum + (profile ? pathRankModifier(profile, record.rank, target) : 0)
+      );
+    }, 0);
+}
+
 export function grantedDevotionCost(newRank: number, questorRank: number) {
   return talentRankCost(
     newRank,
@@ -936,6 +1044,8 @@ export function advancementTargetExists(
     return character.magic.effects.some(({ id }) => id === entry.targetId);
   if (entry.type === 'discipline' || entry.type === 'circle')
     return character.disciplines.some(({ id }) => id === entry.targetId);
+  if (entry.type === 'path')
+    return character.mysticPaths.some(({ id }) => id === entry.targetId);
   if (entry.type === 'attribute')
     return entry.targetId.startsWith('attribute:');
   if (entry.type === 'questor') return true;

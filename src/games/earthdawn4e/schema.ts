@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { earthdawn4eGroupIds } from './definitions';
 import { earthdawnDefinitionById, earthdawnSources } from './catalog';
+import { earthdawnPathById } from './path-profiles';
 
 const uuid = z.string().uuid();
 const nonnegative = z.number().int().nonnegative();
@@ -200,6 +201,27 @@ export const earthdawn4eCharacterSchema = z.object({
       notes: z.string(),
     }),
   ),
+  mysticPaths: z
+    .array(
+      z.object({
+        id: uuid,
+        definitionId: z.string(),
+        name: z.string(),
+        rank: z.number().int().min(1).max(10),
+        active: z.boolean(),
+        suspendedReason: z.string(),
+        initiationEntryId: uuid.nullable(),
+        bloodMagicDamage: nonnegative,
+        sourceId: z.string().nullable(),
+        source: z.string(),
+        page: z.number().int().positive().nullable(),
+        pageEnd: z.number().int().positive().nullable(),
+        unresolved: z.boolean(),
+        overrideReason: z.string(),
+        optionTalentIds: z.array(uuid),
+      }),
+    )
+    .default([]),
   attributes: z.record(
     attributeId,
     z.object({
@@ -225,6 +247,8 @@ export const earthdawn4eCharacterSchema = z.object({
       originCircle: z.number().int().min(1).max(15).nullable(),
       originDisciplineId: z.string().nullable(),
       creationOwned: z.boolean(),
+      pathOriginId: uuid.optional(),
+      pathCostTier: z.enum(['journeyman', 'warden', 'master']).optional(),
     }),
   ),
   skills: z.array(
@@ -554,6 +578,7 @@ export const earthdawn4eCharacterSchema = z.object({
           'spell',
           'thread',
           'questor',
+          'path',
           'refund',
           'adjustment',
         ]),
@@ -572,7 +597,14 @@ export const earthdawn4eCharacterSchema = z.object({
         variantKey: z.string().nullable().default(null),
         formKey: z.string().nullable().default(null),
         origin: z
-          .enum(['discipline', 'versatility', 'catalog', 'custom', 'override'])
+          .enum([
+            'discipline',
+            'versatility',
+            'path',
+            'catalog',
+            'custom',
+            'override',
+          ])
           .nullable()
           .default(null),
         originDisciplineId: z.string().nullable().default(null),
@@ -650,8 +682,48 @@ const legacyMagicEffectTarget = (value: unknown) => {
 export function migrateEarthdawn4eCharacter(data: unknown) {
   const parsedCurrent = earthdawn4eCharacterSchema.safeParse(data);
   if (parsedCurrent.success) {
+    const migratedPaths = [...parsedCurrent.data.mysticPaths];
+    for (const ability of parsedCurrent.data.abilities) {
+      const pathId = ability.definitionId?.startsWith('creator-path:')
+        ? ability.definitionId.slice('creator-path:'.length)
+        : null;
+      const profile = pathId ? earthdawnPathById.get(pathId) : null;
+      if (
+        !profile ||
+        migratedPaths.some(({ definitionId }) => definitionId === pathId)
+      )
+        continue;
+      const rank = Math.max(
+        1,
+        Math.min(
+          profile.maximumRank,
+          Number(ability.notes.match(/Rank\s+(\d+)/i)?.[1] ?? 1),
+        ),
+      );
+      migratedPaths.push({
+        id: ability.id,
+        definitionId: profile.id,
+        name: profile.name,
+        rank,
+        active: true,
+        suspendedReason: '',
+        initiationEntryId: null,
+        bloodMagicDamage: profile.bloodMagicDamage,
+        sourceId: profile.sourceId,
+        source: profile.citation,
+        page: profile.page,
+        pageEnd: profile.pageEnd,
+        unresolved: !profile.verified,
+        overrideReason: 'Migrated from the guided creator Path record.',
+        optionTalentIds: [],
+      });
+    }
     const normalized = earthdawn4eCharacterSchema.parse({
       ...parsedCurrent.data,
+      mysticPaths: migratedPaths,
+      abilities: parsedCurrent.data.abilities.filter(
+        ({ definitionId }) => !definitionId?.startsWith('creator-path:'),
+      ),
       sources:
         parsedCurrent.data.sources.defaultsVersion < 2
           ? {
@@ -807,6 +879,7 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
         'spell',
         'thread',
         'questor',
+        'path',
         'refund',
         'adjustment',
       ].includes(String(value.type))
@@ -836,6 +909,7 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
       origin: [
         'discipline',
         'versatility',
+        'path',
         'catalog',
         'custom',
         'override',
@@ -1032,6 +1106,7 @@ export function migrateEarthdawn4eCharacter(data: unknown) {
               ]
             : [];
         })(),
+    mysticPaths: [],
     talents: (Array.isArray(data.talents) ? data.talents : []).map((entry) => ({
       ...(isRecord(entry) ? entry : {}),
       originCircle: null,

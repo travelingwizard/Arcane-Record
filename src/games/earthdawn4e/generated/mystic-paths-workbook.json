@@ -1,0 +1,101 @@
+[
+  {
+    "name": "Fire Eater",
+    "identity": "Fire Eater (The Adept's Journey: Mystic Paths, p. 23, 31, 299)",
+    "initiation": "Requirements: Any Discipline Circle 5, ork, must complete a Fire Eater ordeal; Ordeal: Deeply personal ordeal assigned by another Fire Eater forcing the recruit to give into their gahad in spectacular fashion (involves travel to an unfamiliar location, engaging publicly in something deeply meaningful/pleasurable/vulnerable, and giving in to gahad); Initiation Ritual: Modified shpita (slapping) game where peers take care not to trigger the recruit's gahad; LP cost: 200 Legend Points; Blood Magic cost: 2 Blood Magic Damage.",
+    "rank": "Maximum Rank: 5; Path-talent cost tier: Journeyman tier.",
+    "requirements": "Required Race: Ork; Disciplines: Favors direct/action-oriented Disciplines (Cavalrymen, Sky Raiders, Warriors; Elementalists and Troubadours common); Talents/Skills/Affiliations: Must be an ork adept at minimum Circle 5.",
+    "bonuses": "Rank 2: +1 Social Defense; Rank 4: +1 Physical Defense; Half-Magic: Find other Fire Eaters, know Fire Eater history, and make Perception-based Half-Magic tests against an ork's Social Defense to learn about their gahad (3 successes reveal target's gahad). Modifies Karma Ritual to incorporate gahad.",
+    "options": "Rank 1+ (Purchased as Journeyman tier talents): Battle Shout, Emotion Song, Fireblood, Fires of Gahad, First Impression, Heartening Laugh, Impressive Display, Lion Heart; Rank 5+ (Purchased as Warden tier talents): Fire Heal, Resist Taunt.",
+    "advancement": "Advancement requires an ordeal demonstrating appropriate restraint and usage of gahad (increasingly significant by rank). Must present ordeal to three higher-rank Fire Eaters or one Droth'Cha (Rank 5 Fire Eater) for approval, followed by a gathering and the modified shpita ritual. Cannot be a Horror Stalker (extreme focus is incompatible with cultivating gahad).",
+    "sourceIndex": 1
+  },
+  {
+    "name": "Horror Stalker",
+    "identity": "Horror Stalker (The Adept's Journey: Mystic Paths, p. 35, 41, 299)",
+    "initiation": "Requirements: Minimum Circle 5, must have lost someone important to a Horror/been marked by a Horror and killed said Horror, must complete a Horror Stalker ordeal; Ordeal: Directly involves Horrors (facing in combat, discovering pattern items/Names/weaknesses, disrupting plans); Initiation Ritual: Reciting a litany of lost Horror Stalkers/destroyed Horrors within a salt circle, performing skill drills, reciting ordeals, staring deep into the initiator's eyes (adding candidate to Gaze into the Abyss memory); LP cost: 500 Legend Points; Blood Magic cost: 2 Blood Magic Damage.",
+    "rank": "Maximum Rank: 10; Path-talent cost tier: Master tier.",
+    "requirements": "Required Race: Any; Disciplines: Common among Nethermancers, Warriors, Weaponsmiths, Archers, Scouts; Restrictions: Questors are barred (if becoming a questor while initiated, advancement ceases; if questing for Raggok, severed or killed). Incompatible with Fire Eater, Journeyman, Messenger, Tail Dancer, and Woodsman.",
+    "bonuses": "Rank 2: +1 Mystic Defense; Rank 4: +1 Physical Defense; Rank 6: +2 Mystic Defense; Rank 8: +1 Mystic Armor; Rank 9: +2 Physical Defense; Rank 10: +1 Recovery Test; Half-Magic: Find/know history of Horror Stalkers, use Perception-based Half-Magic in place of Horror Lore tests. Karma Ritual incorporates the hunt, lost loved ones, or searching for Horror info.",
+    "options": "Rank 1+ (Purchased as Journeyman tier talents): Astral Sight, Awareness, Bear Mark, Call of Harrow, Danger Sense, Mystic Pursuit, Research, Stealthy Stride, Suppress Curse, Steel Thought; Rank 5+ (Purchased as Warden tier talents): Bane Strike, Gaze into the Abyss, Lion Heart, Purge Karma, Sense Horrorspawn, True Sight; Rank 9+ (Purchased as Master tier talents): Life Check, Netherwalk, Relentless Recovery, Unflinching Fortitude.",
+    "advancement": "Advancement requires ordeals directly involving Horrors, matching member competency. Must be examined for taint before advancing. Requires approval of a higher-rank member (or Rank 5+); at Ranks 5 and 9, requires a tribunal of three qualifying Horror Stalkers who observe the candidate using Gaze into the Abyss, listen to a self-analysis within a salt circle, and break the salt circle together. Cannot teach secrets to outsiders.",
+    "sourceIndex": 1
+  },
+  {
+    "name": "Journeyman",
+    "identity": "Journeyman (The Adept's Journey: Mystic Paths, p. 47, 54, 300)",
+    "initiation": "Requirements: Any Discipline Circle 5, Human, Versatility rank 5, must complete a Journeyman ordeal; Ordeal: Overcoming small challenges using talents learned through Versatility or knowledge of other Disciplines; Initiation Ritual: Varied challenges using Versatility/other Discipline knowledge, followed by taking the blood oath with a Rank 5 Journeyman; LP cost: 500 Legend Points; Blood Magic cost: 2 Blood Magic Damage.",
+    "rank": "Maximum Rank: 5; Path-talent cost tier: Master tier.",
+    "requirements": "Required Race: Human; Disciplines: Any Discipline; Required Talents: Versatility (rank 5+ for initiation; rank must equal desired Journeyman rank + 5 to advance); Restrictions: Hyper-specialization (e.g., using Versatility solely to optimize combat/spellcasting) renders character unsuited; questors rarely advance; incompatible with Horror Stalker.",
+    "bonuses": "Journeymen do not gain any characteristic bonuses. Half-Magic: Versatility-based adaptation and broad knowledge. Karma Ritual incorporates expanding perspective beyond Discipline and adapting to surroundings.",
+    "options": "Rank 1+ (Purchased as Journeyman tier talents): Any Novice talent (up to 5 options); Rank 3+ (Purchased as Warden tier talents): Any Journeyman talent (up to 3 options); Rank 5+ (Purchased as Master tier talents): Any Warden talent, Morphism. (Note: Talents are learned at the tier known by the instructor, like Versatility).",
+    "advancement": "Ordeals require experiencing events that significantly challenge and broaden beliefs/perspective. Requires Versatility rank  $\\ge$  desired Journeyman rank + 5. Judged by a Journeyman of at least the rank sought; rising to Rank 5 requires three Rank 5 Journeymen to agree and pass on Morphism. If declined, candidate must complete another ordeal. Initiation rejection requires waiting a year and a day (deception causes permanent bar).",
+    "sourceIndex": 1
+  },
+  {
+    "name": "Liberator",
+    "identity": "Liberator (The Adept's Journey: Mystic Paths, p. 59, 67, 300)",
+    "initiation": "Requirements: Any Discipline Circle 5, must complete a Liberator ordeal, swear blood peace oath with sponsor; Ordeal: Personalized test forcing the candidate to look beyond typical abilities (e.g., Warrior gathering political info, Elementalist persuading citizens); Ritual: Old ritual involves 3 days isolation/deprivation in a holding cell; new ritual involves two initiates in darkness with iron masks cooperating to escape paired holding cells within 1 day; LP cost: 500 Legend Points; Blood Magic cost: 2 Blood Magic Damage.",
+    "rank": "Maximum Rank: 10; Path-talent cost tier: Master tier.",
+    "requirements": "Required Race: Any; Disciplines: Diverse (Illusionists common; Beastmasters, Nethermancers, Sky Raiders less common); Affiliations: Strongly associated with Lochost/Mynbruje; Restrictions: Partnering knowingly with a slaver/tyrant causes immediate loss of all Liberator abilities until atoned.",
+    "bonuses": "Rank 2: +1 Physical Defense; Rank 4: +1 Social Defense; Rank 6: +2 Physical Defense; Rank 8: +1 Recovery Test; Rank 9: +2 Social Defense; Rank 10: +2 Recovery Tests; Half-Magic: Find/know history of Liberators, Perception-based Half-Magic regarding tyrants, regimes, slavers, tactics, and resistance fighters. Karma Ritual incorporates expressions of freedom.",
+    "options": "Rank 1+ (Purchased as Journeyman tier talents): Air Speaking, Awareness, Disguise Self, Empathic Sense, Heartening Laugh, Lock Picking, Picking Pockets, Sense Captive, Stealthy Stride, Tyranny's Ruin; Rank 5+ (Purchased as Warden tier talents): Conceal Object, Inspire Others, Leadership, Power Mask, Resist Taunt, Shout of Justice; Rank 9+ (Purchased as Master tier talents): Escape Plan, Liberation, Safe Thought, Thought Link.",
+    "advancement": "Ordeals tied to opposing tyranny/slavery, freeing captives, or starting rebellion; higher ranks require leading/engaging independently. Advancement requires approval of three higher-ranking Liberators (or a Hez'grummand for up to Rank 5). Advancement ritual: bound in cloth, recites 3 stories of lost freedom fighters; unbound/lifted up on completion (\"Nothing is lost that is set free\").",
+    "sourceIndex": 1
+  },
+  {
+    "name": "Messenger",
+    "identity": "Messenger (The Adept's Journey: Mystic Paths, p. 73, 81, 300)",
+    "initiation": "Requirements: Any Discipline Circle 5, must renounce prior allegiances/servitude, complete Messenger ordeal, take Messenger's Vow; Ordeal: Three delivery tests (1. track down recipient nearby; 2. deliver message on a grueling, distant journey under time limit; 3. deliver message to a sensitive location/recipient avoiding detection); Initiation Ritual: Handler recites blood oath line-by-line, recruit repeats it; LP cost: 500 Legend Points; Blood Magic cost: 2 Blood Magic Damage.",
+    "rank": "Maximum Rank: 10; Path-talent cost tier: Master tier.",
+    "requirements": "Required Race: Any (except Blood Elves); Disciplines: Illusionists, Scouts, Troubadours, Air Sailors, Thieves most common; Restrictions: Must be neutral and unsworn to any ruler/master; no questors permitted (taking a quest immediately severs connection); incompatible with Horror Stalker, Liberator, Purifier, Windmaster, Woodsman.",
+    "bonuses": "Rank 2: +1 Social Defense; Rank 4: +1 Mystic Defense; Rank 6: +1 Physical Defense; Rank 8: +1 Recovery Test; Rank 9: +2 Social Defense; Rank 10: +1 Initiative Step; Half-Magic: Find/know history of Messengers, Perception-based Half-Magic for trade routes/travel perils, Charisma-based Half-Magic for transportation. Karma Ritual incorporates travel and sensory/self-reliance focus.",
+    "options": "Rank 1+ (Purchased as Journeyman tier talents): Astral Sight, Awareness, Book Memory, Conversation, Danger Sense, Disguise Self, Etiquette, Read and Write Language, Speak Language, Stealthy Stride; Rank 5+ (Purchased as Warden tier talents): Evidence Analysis, Graceful Exit, Orbiting Spy, Power Mask, Safe Path, Spirit Mount; Rank 9+ (Purchased as Master tier talents): Astral Pocket, Netherwalk, Safe Thought, Thought Link.",
+    "advancement": "Advancement requires completing official missions showing flexibility, growth, and perseverance, approved by a panel of 3 Messengers of Rank 5+ (or desired rank, whichever is higher). Advancement ritual: gathering where Messenger recites blood oath stanzas revealing deeper secrets; lower-rank members leave as higher stanzas are reached until new stanza is taught by ritual leader.",
+    "sourceIndex": 1
+  },
+  {
+    "name": "Purifier",
+    "identity": "Purifier (The Adept's Journey: Mystic Paths, p. 97, 104, 300)",
+    "initiation": "Requirements: Any Discipline Circle 5, must complete a Purifier ordeal; Ordeal: Protecting the Earth against danger (healing land, slaying Horrors, stopping despoilers); Initiation Ritual: Advocates speak at a kaliff before 3 Rank 5 Purifiers, followed by a formative meditation at the kaliff envisioning its history and future, concluding with declaring oneself on the Path; LP cost: 200 Legend Points; Blood Magic cost: 2 Blood Magic Damage.",
+    "rank": "Maximum Rank: 5; Path-talent cost tier: Journeyman tier.",
+    "requirements": "Required Race: Any (Blood Elves in service of Blood Wood are strictly barred); Disciplines: Beastmasters, Elementalists, Scouts, Archers, Warriors common; Affiliations: Often honored by/associated with Jaspree.",
+    "bonuses": "Rank 2: +1 Mystic Defense; Rank 4: +2 Mystic Defense; Half-Magic: Find/know history of Purifiers, recognize/know how to restore environmental destruction caused by Horrors/Namegivers. Karma Ritual incorporates themes of healing, purification, or retribution for harm done to the world.",
+    "options": "Rank 1+ (Purchased as Journeyman tier talents): Astral Sight, Awareness, Blood Share, Cold Purify, Earth Bond, Elemental Hold, Elemental Tongues, Wilderness Survival; Rank 5+ (Purchased as Warden tier talents): Lifesight, Purification.",
+    "advancement": "Ordeals require protecting the Earth (performing difficult Purifications, defeating despoilers, slaying Horrors). Advancement approved by 3 Rank 5 Purifiers at a kaliff, followed by a personal meditation on world growth/regeneration at a kaliff where the adept has not previously advanced/initiated. Never become Horror Stalkers.",
+    "sourceIndex": 1
+  },
+  {
+    "name": "Scholar",
+    "identity": "Scholar (The Adept's Journey: Mystic Paths, p. 109, 116, 300)",
+    "initiation": "Requirements: Any Discipline Circle 5, Knowledge skill rank 5, must complete a Scholar ordeal (pass admissions exam); Ordeal: Present work to an admissions board and heavily edit works of two other applicants; Initiation Ritual: Ceremony at a symposium venue where applicant is introduced to an assigned Rank 5 advisor and added to official records; LP cost: 200 Legend Points; Blood Magic cost: 2 Blood Magic Damage.",
+    "rank": "Maximum Rank: 5; Path-talent cost tier: Journeyman tier.",
+    "requirements": "Required Race: Any; Disciplines: Wizards, Elementalists, Nethermancers, Troubadours, Weaponsmiths common; Required Skills: Knowledge skill rank 5+; Affiliations: Commonly honor Mynbruje and Upandal (questors for non-scholarly Passions barred).",
+    "bonuses": "Rank 2: +1 Social Defense; Rank 4: +1 Mystic Defense; Half-Magic: Find/know history of Scholars, Perception-based Half-Magic for academic/library information, Charisma-based Half-Magic for academic bureaucracy. Karma Ritual imparts knowledge or focuses on expertise.",
+    "options": "Rank 1+ (Purchased as Journeyman tier talents): Arcane Mutterings, Expansive Expertise, Book Memory, Conversation, Item History, Read and Write Language, Research, Speak Language; Rank 5+ (Purchased as Warden tier talents): Applied Knowledge, Evidence Analysis.",
+    "advancement": "Ordeals require conducting independent research containing critical/new information, acquiring peer endorsements, and publicly defending the dissertation at an official symposium before a panel of experts. Rank 5 advancement panel selected by Trustees (Rank 5 ruling body). Rejection requires waiting a year and a day to reapply. Plagiarism/fabrication leads to severance.",
+    "sourceIndex": 1
+  },
+  {
+    "name": "Woodsman",
+    "identity": "Woodsman (The Adept's Journey: Mystic Paths, p. 145, 155, 301)",
+    "initiation": "Requirements: Any Discipline Circle 5, Elf, Speak Elf, Read and Write Elf (Sperethiel), Elf Lore 5, must complete a Woodsman ordeal; Ordeal: Protecting elven people/culture, eliminating threats, or recovering lost lore; Initiation Ritual: Nordal gathers in a meaningful grove, applicant recites actions, answers questions from each member, followed by quiet contemplation to feel the forest's life and receiving a nordaltre (scarf); LP cost: 500 Legend Points; Blood Magic cost: 2 Blood Magic Damage.",
+    "rank": "Maximum Rank: 10; Path-talent cost tier: Master tier.",
+    "requirements": "Required Race: Elf; Disciplines: Archers, Elementalists, Scouts, Warriors common; Required Skills/Talents: Speak Elf, Read and Write Elf (Sperethiel), Elf Lore rank 5+; Restrictions: Horror Stalkers barred; Blood Elves in service of Blood Wood cannot join Purifiers.",
+    "bonuses": "Rank 2: +1 Physical Defense; Rank 4: +1 Mystic Defense; Rank 6: +2 Physical Defense; Rank 8: +1 Initiative; Rank 9: +2 Mystic Defense; Rank 10: +1 Recovery Test; Half-Magic: Find/know history of Woodsmen, Perception-based Half-Magic to detect wood elemental spirits within 30 yards. Karma Ritual incorporates forest, protection, or elf culture.",
+    "options": "Rank 1+ (Purchased as Journeyman tier talents): Anticipate Blow, Awareness, Climbing, Danger Sense, Great Leap, Guardian's Service, Stealthy Stride, Tracking, Wilderness Survival, Wood Skin; Rank 5+ (Purchased as Warden tier talents): Mystic Pursuit, Evidence Analysis, Lifesight, Safe Path, Wood Speak, Wood Walk; Rank 9+ (Purchased as Master tier talents): Chameleon, Forest Sense, Plant Talk, Vine Armor.",
+    "advancement": "Ordeals require protecting elven people/culture, finding lost lore/artifacts, or protecting forests. Promoted by a nordal with 3 Rank 5+ members (traditionally during Ketrahim solstice/equinox gatherings). Beyond Rank 5, requires assent of 3 members of desired rank during Ketrahim, followed by a private night journey in the forest to Listen, rejoining the daenordal at dawn.",
+    "sourceIndex": 1
+  },
+  {
+    "name": "Boatman",
+    "identity": "Boatman (The Adept's Journey: Mystic Paths, p. 157, 164-165, 496)",
+    "initiation": "Not explicitly listed as a Mystic Path in the Path Knack section (p. 299-301), but presented as a Discipline variant/face of Air Sailor (p. 165, 496). Joining as an Air Sailor variant requires standard Discipline rules (Circle 1+). Standard Blood Magic for Path initiation does not apply.",
+    "rank": "Functions as a full 15-Circle Discipline (Air Sailor variant). Maximum Circle: 15. Talent cost follows standard Discipline progression rules.",
+    "requirements": "Required Race: Primarily t'skrang (though open as an Air Sailor variant); Discipline: Air Sailor (reflavored as Boatman); Required Attributes: Charisma, Dexterity, Willpower.",
+    "bonuses": "Replaces standard Air Sailor abilities: Half-Magic used for riverboat designs, trade routes, crew complements, maintenance/repair; Free Novice Talent: Pilot Boat or Sailing (replaces Air Sailing); 1st Circle: River Weaving (replaces Air Weaving), Swimming (replaces Wind Catcher); 6th Circle: Disarm (replaces Air Dance); 13th Circle: Riverborne Speed (replaces Windborne Speed). Karma: Spend Karma once per round on any action while on board a riverboat.",
+    "options": "Novice Options: Unarmed Combat (replaces Distract), Read River (replaces Navigation); Journeyman Options: Swift Kick (replaces Air Speaking). Standard Air Sailor talent pools apply for all other circles.",
+    "advancement": "Follows standard Discipline Circle advancement rules. Treated as the same Discipline as Air Sailor and Sailor for meeting requirements.",
+    "sourceIndex": 1
+  }
+]

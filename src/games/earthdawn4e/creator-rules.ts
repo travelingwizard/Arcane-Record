@@ -10,6 +10,7 @@ import {
   createActivityEntry,
   formatWalletAsSilver,
   moneyToCopper,
+  pathEligibility,
   walletTotalCopper,
   walletFromCopper,
 } from './rules';
@@ -408,17 +409,14 @@ export function reviewEarthdawnCreation(character: Earthdawn4eCharacter) {
     ({ id }) => id === character.creation.specializedPathId,
   );
   if (path) {
-    if ((character.disciplines[0]?.circle ?? 0) < path.minimumCircle)
-      blockers.push(`${path.name} requires Circle ${path.minimumCircle}.`);
-    if (path.race && race?.name !== path.race)
-      blockers.push(`${path.name} requires ${path.race}.`);
-    for (const [name, rank] of Object.entries(path.requiredTalentRanks))
-      if (
-        !character.talents.some(
-          (talent) => talent.name === name && talent.rank >= rank,
-        )
-      )
-        blockers.push(`${path.name} requires ${name} Rank ${rank}.`);
+    const eligibility = pathEligibility(
+      character,
+      path,
+      character.creation.specializedPathRank || 1,
+    );
+    blockers.push(
+      ...eligibility.blockers.map((message) => `${path.name}: ${message}`),
+    );
     blockers.push(
       `${path.name} initiation costs and prerequisites require recorded GM approval during creation.`,
     );
@@ -651,31 +649,34 @@ export function finalizeEarthdawnCreation(
   const path = earthdawnPathProfiles.find(
     ({ id }) => id === character.creation.specializedPathId,
   );
-  const abilities =
+  const mysticPaths =
     path &&
-    !character.abilities.some(
-      ({ definitionId }) => definitionId === `creator-path:${path.id}`,
-    )
+    !character.mysticPaths.some(({ definitionId }) => definitionId === path.id)
       ? [
-          ...character.abilities,
+          ...character.mysticPaths,
           {
             id: crypto.randomUUID(),
-            definitionId: `creator-path:${path.id}`,
-            sourceId: 'ed4.mystic-paths',
-            source: path.citation,
-            page: null,
-            unresolved: true,
+            definitionId: path.id,
             name: path.name,
-            kind: 'path' as const,
-            notes: `Rank ${character.creation.specializedPathRank || 1}. ${path.summary} ${path.ordeal}.`,
+            rank: character.creation.specializedPathRank || 1,
+            active: true,
+            suspendedReason: '',
+            initiationEntryId: null,
+            bloodMagicDamage: path.bloodMagicDamage,
+            sourceId: path.sourceId,
+            source: path.citation,
+            page: path.page,
+            pageEnd: path.pageEnd,
+            unresolved: !path.verified,
+            overrideReason:
+              'Initiated during character creation with recorded GM approval.',
+            optionTalentIds: [],
           },
         ]
-      : character.abilities;
+      : character.mysticPaths;
   const pathAbilityId =
-    abilities.find(
-      ({ definitionId }) =>
-        definitionId === (path ? `creator-path:${path.id}` : ''),
-    )?.id ?? null;
+    mysticPaths.find(({ definitionId }) => definitionId === path?.id)?.id ??
+    null;
   const ledger = [...character.activity.ledger];
   if (character.activity.tracking) {
     ledger.push(
@@ -763,7 +764,7 @@ export function finalizeEarthdawnCreation(
         activityEntryIds,
         pathAbilityId:
           pathAbilityId &&
-          !character.abilities.some(({ id }) => id === pathAbilityId)
+          !character.mysticPaths.some(({ id }) => id === pathAbilityId)
             ? pathAbilityId
             : null,
         karmaCurrentBefore: character.health.karmaCurrent,
@@ -776,7 +777,7 @@ export function finalizeEarthdawnCreation(
     equipment: kit.equipment,
     weapons: kit.weapons,
     wealth,
-    abilities,
+    mysticPaths,
     activity: { ...character.activity, ledger },
     health: {
       ...character.health,
@@ -824,9 +825,9 @@ export function reopenEarthdawnCreation(
       ({ id }) => !grantedEquipment.has(id),
     ),
     weapons: character.weapons.filter(({ id }) => !grantedWeapons.has(id)),
-    abilities: snapshot.pathAbilityId
-      ? character.abilities.filter(({ id }) => id !== snapshot.pathAbilityId)
-      : character.abilities,
+    mysticPaths: snapshot.pathAbilityId
+      ? character.mysticPaths.filter(({ id }) => id !== snapshot.pathAbilityId)
+      : character.mysticPaths,
     activity: {
       ...character.activity,
       ledger: character.activity.ledger.filter(

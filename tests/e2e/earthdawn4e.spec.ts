@@ -213,11 +213,14 @@ test('confirms squeezed matrix blood magic and preserves native group warnings',
 test('contains Earthdawn rules UI at desktop, tablet, narrow, and zoom-equivalent widths', async ({
   page,
 }) => {
+  const character = createHighCircleMatrixFixture();
+  character.identity.raceName = 'Troll';
+  character.creation.enforceRules = false;
   await seedEarthdawnCharacter(
     page,
     '99999999-9999-4999-8999-999999999999',
     'Responsive Matrix Adept',
-    createHighCircleMatrixFixture(),
+    character,
   );
 
   for (const viewport of [
@@ -287,6 +290,49 @@ test('contains Earthdawn rules UI at desktop, tablet, narrow, and zoom-equivalen
   expect(rulesBounds.left).toBeGreaterThanOrEqual(0);
   expect(rulesBounds.right).toBeLessThanOrEqual(rulesBounds.viewport);
   await rules.getByRole('button', { name: 'Close rules' }).click();
+});
+
+test('browses every supported Mystic Path without treating Boatman as a Path', async ({
+  page,
+}) => {
+  const pathAdept = createHighCircleMatrixFixture();
+  pathAdept.creation.enforceRules = false;
+  await seedEarthdawnCharacter(
+    page,
+    '91919191-9191-4919-8919-919191919191',
+    'Mystic Path Browser Adept',
+    pathAdept,
+  );
+  await page.getByRole('button', { name: 'Browse Mystic Paths' }).click();
+  const dialog = page.getByRole('dialog', { name: 'Browse Mystic Paths' });
+  await expect(dialog).toBeVisible();
+  for (const name of [
+    'Outcast Path',
+    'Windmaster Path',
+    'Tail Dancer Path',
+    'Fire Eater Path',
+    'Horror Stalker Path',
+    'Journeyman Path',
+    'Liberator Path',
+    'Messenger Path',
+    'Purifier Path',
+    'Scholar Path',
+    'Woodsman Path',
+  ])
+    await expect(dialog.getByRole('heading', { name })).toBeVisible();
+  await expect(dialog.getByRole('heading', { name: 'Boatman' })).toHaveCount(0);
+  const outcast = dialog.locator('.catalog-card').filter({
+    has: page.getByRole('heading', { name: 'Outcast Path', exact: true }),
+  });
+  await outcast.getByRole('button', { name: 'Initiate Path' }).click();
+  await page.getByRole('button', { name: 'Confirm purchase' }).click();
+  await expect(page.getByText('Outcast Path').first()).toBeVisible();
+  await page.setViewportSize({ width: 320, height: 800 });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= window.innerWidth,
+    ),
+  ).toBe(true);
 });
 
 test('opens isolated, ordered Basic Rules and Character Creation references', async ({

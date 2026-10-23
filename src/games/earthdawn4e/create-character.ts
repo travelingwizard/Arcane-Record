@@ -69,6 +69,7 @@ export function createBlankEarthdawn4eCharacter(
       notes: '',
     },
     questorPaths: [],
+    mysticPaths: [],
     attributes: {
       dexterity: attribute(),
       strength: attribute(),

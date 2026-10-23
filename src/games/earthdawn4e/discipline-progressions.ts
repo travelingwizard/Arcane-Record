@@ -1110,3 +1110,18 @@ export const coreTalentOptions: Record<
     ],
   },
 };
+
+coreTalentOptions.Boatman = {
+  novice: coreTalentOptions['Air Sailor']!.novice.map((name) =>
+    name === 'Distract'
+      ? 'Unarmed Combat'
+      : name === 'Navigation'
+        ? 'Read River'
+        : name,
+  ),
+  journeyman: coreTalentOptions['Air Sailor']!.journeyman.map((name) =>
+    name === 'Air Speaking' ? 'Swift Kick' : name,
+  ),
+  warden: [...coreTalentOptions['Air Sailor']!.warden],
+  master: [...coreTalentOptions['Air Sailor']!.master],
+};

@@ -55,6 +55,7 @@ import {
   moneyToCopper,
   disciplineCircleTraining,
   equivalentTalentCircle,
+  equivalentDisciplineNames,
   grantedDevotionCost,
   knackLearningQuote,
   legendTotals,
@@ -66,6 +67,9 @@ import {
   matrixTypeForTalent,
   missingCircleTalentRanks,
   newDisciplineTalentCost,
+  mysticPathModifierValue,
+  pathEligibility,
+  pathRankCost,
   previewDisciplineTalentReconciliation,
   questorRankCost,
   reconcileFreeMatrices,
@@ -86,6 +90,7 @@ import {
   matrixSharingRules,
 } from '../../src/games/earthdawn4e/matrix-sharing';
 import { createHighCircleMatrixFixture } from '../fixtures/earthdawn-high-circle';
+import mysticPathWorkbookRows from '../../src/games/earthdawn4e/generated/mystic-paths-workbook.json';
 import {
   creatorEquipmentAdjustment,
   creatorWeaponSizeCompatibility,
@@ -474,11 +479,31 @@ describe('Earthdawn Fourth Edition module', () => {
       '8 additional ranks across General, Knowledge, Artisan, or Language',
     );
   });
-  it('records the supplied guided Mystic Path profiles without treating military branches as Paths', () => {
+  it('records all Mystic Path profiles and keeps Boatman as a Discipline variant', () => {
+    expect(mysticPathWorkbookRows).toHaveLength(9);
+    expect(mysticPathWorkbookRows.map(({ name }) => name)).toEqual([
+      'Fire Eater',
+      'Horror Stalker',
+      'Journeyman',
+      'Liberator',
+      'Messenger',
+      'Purifier',
+      'Scholar',
+      'Woodsman',
+      'Boatman',
+    ]);
     expect(earthdawnPathProfiles.map(({ id }) => id)).toEqual([
       'outcast',
       'windmaster',
       'tail-dancer',
+      'fire-eater',
+      'horror-stalker',
+      'journeyman',
+      'liberator',
+      'messenger',
+      'purifier',
+      'scholar',
+      'woodsman',
     ]);
     expect(
       earthdawnPathProfiles.find(({ id }) => id === 'outcast'),
@@ -492,17 +517,90 @@ describe('Earthdawn Fourth Edition module', () => {
     ).toMatchObject({
       race: 'Windling',
       bloodMagicDamage: 2,
-      requiredTalentRanks: { 'Melee Weapons': 5 },
+      requirements: expect.arrayContaining([
+        { kind: 'talent', name: 'Melee Weapons', rank: 5 },
+      ]),
     });
     expect(
       earthdawnPathProfiles.find(({ id }) => id === 'tail-dancer'),
     ).toMatchObject({
       race: 'T’skrang',
-      requiredTalentRanks: { Dancing: 5, 'Melee Weapons': 5 },
+      requirements: expect.arrayContaining([
+        { kind: 'talent', name: 'Dancing', rank: 5 },
+        { kind: 'talent', name: 'Melee Weapons', rank: 5 },
+      ]),
     });
     expect(
       earthdawnPathProfiles.some(({ name }) => name.includes('Silver Branch')),
     ).toBe(false);
+    expect(earthdawnPathProfiles.some(({ name }) => name === 'Boatman')).toBe(
+      false,
+    );
+    const boatman = earthdawnDisciplines.find(({ name }) => name === 'Boatman');
+    expect(boatman).toMatchObject({
+      id: 'ed4.discipline.boatman',
+      sourceId: 'ed4.mystic-paths',
+      spellcaster: false,
+    });
+    expect(boatman?.circles[0]?.requiredTalents).toContain(
+      'Thread Weaving (River Weaving)',
+    );
+    expect(boatman?.circles[12]?.ability).toBe('Riverborne Speed.');
+    expect(equivalentDisciplineNames('Boatman')).toEqual([
+      'Boatman',
+      'Air Sailor',
+      'Sailor',
+    ]);
+  });
+  it('checks Path eligibility, tier costs, and replacement-threshold modifiers', () => {
+    const character = createBlankEarthdawn4eCharacter({ status: 'manual' });
+    character.identity.raceName = 'Ork';
+    character.disciplines.push({
+      id: crypto.randomUUID(),
+      definitionId: null,
+      sourceId: null,
+      source: null,
+      page: null,
+      unresolved: false,
+      disciplineId: null,
+      name: 'Warrior',
+      circle: 5,
+      startedAtCircle: 1,
+      questor: false,
+      custom: true,
+    });
+    const fireEater = earthdawnPathProfiles.find(
+      ({ id }) => id === 'fire-eater',
+    )!;
+    expect(pathEligibility(character, fireEater).blockers).toEqual([]);
+    expect(pathRankCost(fireEater, 2)).toBe(300);
+    character.mysticPaths.push({
+      id: crypto.randomUUID(),
+      definitionId: fireEater.id,
+      name: fireEater.name,
+      rank: 4,
+      active: true,
+      suspendedReason: '',
+      initiationEntryId: null,
+      bloodMagicDamage: 2,
+      sourceId: fireEater.sourceId,
+      source: fireEater.citation,
+      page: fireEater.page,
+      pageEnd: fireEater.pageEnd,
+      unresolved: false,
+      overrideReason: '',
+      optionTalentIds: [],
+    });
+    expect(mysticPathModifierValue(character, 'socialDefense')).toBe(1);
+    expect(mysticPathModifierValue(character, 'physicalDefense')).toBe(1);
+    character.mysticPaths[0]!.active = false;
+    expect(mysticPathModifierValue(character, 'physicalDefense')).toBe(0);
+    expect(
+      pathEligibility(
+        character,
+        earthdawnPathProfiles.find(({ id }) => id === 'horror-stalker')!,
+      ).blockers,
+    ).toContain('Horror Stalker Path is incompatible with Fire Eater Path.');
   });
   it('creates a valid local-first character and complete official source list', () => {
     const character = createBlankEarthdawn4eCharacter({
@@ -516,8 +614,8 @@ describe('Earthdawn Fourth Edition module', () => {
     );
     expect(character.sources.defaultsVersion).toBe(2);
     expect(earthdawnRaces).toHaveLength(8);
-    expect(earthdawnDisciplines).toHaveLength(15);
-    expect(Object.keys(coreTalentOptions)).toHaveLength(15);
+    expect(earthdawnDisciplines).toHaveLength(16);
+    expect(Object.keys(coreTalentOptions)).toHaveLength(16);
     for (const discipline of earthdawnDisciplines) {
       expect(coreTalentOptions[discipline.name]?.novice).toHaveLength(10);
       expect(coreTalentOptions[discipline.name]?.journeyman).toHaveLength(10);

@@ -982,13 +982,28 @@ export function EarthdawnCreator({
           </p>
           <div className="sheet-choice-grid earthdawn-choice-grid">
             {earthdawnPathProfiles.map((path) => {
-              const missingTalents = Object.entries(path.requiredTalentRanks)
-                .filter(([name, rank]) =>
-                  character.talents.every(
-                    (talent) => talent.name !== name || talent.rank < rank,
-                  ),
-                )
-                .map(([name, rank]) => `${name} Rank ${rank}`);
+              const missingTalents = path.requirements.flatMap(
+                (requirement) => {
+                  if (requirement.kind === 'manual') return [];
+                  if (requirement.kind === 'knowledge-skill')
+                    return character.skills.some(
+                      ({ category, rank }) =>
+                        category === 'knowledge' && rank >= requirement.rank,
+                    )
+                      ? []
+                      : [`Knowledge Skill Rank ${requirement.rank}`];
+                  const records =
+                    requirement.kind === 'talent'
+                      ? character.talents
+                      : character.skills;
+                  return records.some(
+                    ({ name, rank }) =>
+                      name === requirement.name && rank >= requirement.rank,
+                  )
+                    ? []
+                    : [`${requirement.name} Rank ${requirement.rank}`];
+                },
+              );
               const eligible =
                 (!path.race || race?.name === path.race) &&
                 missingTalents.length === 0;
@@ -1046,10 +1061,8 @@ export function EarthdawnCreator({
               <p>{selectedPath.ordeal}</p>
               <p>
                 Rank bonuses:{' '}
-                {Object.entries(selectedPath.rankBonuses)
-                  .map(
-                    ([rank, bonuses]) => `Rank ${rank}: ${bonuses.join(', ')}`,
-                  )
+                {selectedPath.rankBonuses
+                  .map((bonus) => `Rank ${bonus.rank}: ${bonus.label}`)
                   .join('; ') || 'No Rank 1 bonus'}
               </p>
               <p>{selectedPath.advancement}</p>

@@ -80,9 +80,12 @@ import {
   isMatrixTalent,
   matrixTypeForTalent,
   missingCircleTalentRanks,
+  mysticPathModifierValue,
   newDisciplineTalentCost,
   previewDisciplineTalentReconciliation,
   questorRankCost,
+  pathEligibility,
+  pathRankCost,
   questorTier,
   reconcileFreeMatrices,
   reconcileDisciplineTalents,
@@ -93,8 +96,10 @@ import {
   spellLearningCost,
   threadRankCost,
   talentRankCost,
+  talentTierRankCost,
   walletTotalCopper,
 } from './rules';
+import { earthdawnPathById, earthdawnPathProfiles } from './path-profiles';
 import {
   formsForSpell,
   matchingSharingRule,
@@ -741,6 +746,7 @@ export function Earthdawn4eEditor({
     [legendAmount, setLegendAmount] = useState(0),
     [legendDescription, setLegendDescription] = useState(''),
     [disciplinePickerOpen, setDisciplinePickerOpen] = useState(false),
+    [pathPickerOpen, setPathPickerOpen] = useState(false),
     [disciplineSearch, setDisciplineSearch] = useState(''),
     [stepSearch, setStepSearch] = useState(''),
     [karmaEligibility, setKarmaEligibility] = useState('none'),
@@ -1033,7 +1039,15 @@ export function Earthdawn4eEditor({
       .flatMap((item) => item.modifiers)
       .filter((modifier) => modifier.target === target)
       .reduce((sum, modifier) => sum + modifier.value, 0) +
-    magicEffectModifierValue(draft.magic.effects, target);
+    magicEffectModifierValue(draft.magic.effects, target) +
+    (target === 'physicalDefense' ||
+    target === 'mysticDefense' ||
+    target === 'socialDefense' ||
+    target === 'mysticArmor' ||
+    target === 'initiative'
+      ? mysticPathModifierValue(draft, target)
+      : 0);
+  const pathRecoveryTests = mysticPathModifierValue(draft, 'recovery');
   const legend = legendTotals(draft.advancement.ledger);
   const gmOverride = !draft.creation.enforceRules;
   const racialKarmaModifier =
@@ -2035,6 +2049,288 @@ export function Earthdawn4eEditor({
       questorPaths: [...current.questorPaths, path],
     }));
   };
+  const initiateMysticPath = (pathId: string) => {
+    const path = earthdawnPathById.get(pathId);
+    if (
+      !path ||
+      draft.mysticPaths.some(({ definitionId }) => definitionId === pathId)
+    )
+      return;
+    setPathPickerOpen(false);
+    const eligibility = pathEligibility(draft, path);
+    const blocked = eligibility.blockers.length > 0 && !gmOverride;
+    reviewAdvancement(
+      {
+        title: `Initiate ${path.name}`,
+        cost: gmOverride ? 0 : path.initiationCost,
+        silverCost: 0,
+        training: 'Ordeal and initiation approval; training time unavailable',
+        sourceCitation: path.citation,
+        warning: [
+          ...eligibility.blockers,
+          ...eligibility.acknowledgements,
+          `${path.bloodMagicDamage} Blood Magic Damage`,
+        ].join(' '),
+        blocked,
+      },
+      () =>
+        update((current) => {
+          const currentEligibility = pathEligibility(current, path);
+          const override = !current.creation.enforceRules;
+          const cost = override ? 0 : path.initiationCost;
+          if (
+            (!override && currentEligibility.blockers.length) ||
+            legendTotals(current.advancement.ledger).current < cost
+          )
+            return current;
+          const id = crypto.randomUUID();
+          const entry = createLegendEntry({
+            type: 'path',
+            amount: -cost,
+            targetId: id,
+            definitionId: path.id,
+            origin: override ? 'override' : 'path',
+            costCircle: path.minimumCircle,
+            targetName: path.name,
+            beforeRating: 0,
+            afterRating: 1,
+            silverCost: 0,
+            training: override
+              ? 'GM Override'
+              : 'Ordeal and initiation approval',
+            sourceCitation: path.citation,
+            description: `Initiate ${path.name}`,
+          });
+          return {
+            ...current,
+            mysticPaths: [
+              ...current.mysticPaths,
+              {
+                id,
+                definitionId: path.id,
+                name: path.name,
+                rank: 1,
+                active: true,
+                suspendedReason: '',
+                initiationEntryId: entry.id,
+                bloodMagicDamage: path.bloodMagicDamage,
+                sourceId: path.sourceId,
+                source: path.citation,
+                page: path.page,
+                pageEnd: path.pageEnd,
+                unresolved: !path.verified,
+                overrideReason: override ? 'Recorded GM Override' : '',
+                optionTalentIds: [],
+              },
+            ],
+            health: {
+              ...current.health,
+              bloodMagicDamage:
+                current.health.bloodMagicDamage + path.bloodMagicDamage,
+            },
+            advancement: { ledger: [...current.advancement.ledger, entry] },
+          };
+        }),
+    );
+  };
+  const advanceMysticPath = (recordId: string) => {
+    const record = draft.mysticPaths.find(({ id }) => id === recordId);
+    const path = record ? earthdawnPathById.get(record.definitionId) : null;
+    if (!record || !path || record.rank >= path.maximumRank) return;
+    const nextRank = record.rank + 1;
+    const eligibility = pathEligibility(draft, path, nextRank);
+    const cost = pathRankCost(path, nextRank);
+    reviewAdvancement(
+      {
+        title: `Advance ${path.name} to Rank ${nextRank}`,
+        cost: gmOverride ? 0 : cost,
+        silverCost: 0,
+        training: 'Path ordeal and approval; training time unavailable',
+        sourceCitation: path.citation,
+        warning: [
+          ...eligibility.blockers,
+          ...eligibility.acknowledgements,
+        ].join(' '),
+        blocked: eligibility.blockers.length > 0 && !gmOverride,
+      },
+      () =>
+        update((current) => {
+          const live = current.mysticPaths.find(({ id }) => id === recordId);
+          if (!live || live.rank + 1 !== nextRank) return current;
+          const liveEligibility = pathEligibility(current, path, nextRank);
+          const override = !current.creation.enforceRules;
+          const paid = override ? 0 : cost;
+          if (
+            (!override && liveEligibility.blockers.length) ||
+            legendTotals(current.advancement.ledger).current < paid
+          )
+            return current;
+          const dependencies = current.advancement.ledger
+            .filter(
+              ({ targetId, type, reversesId }) =>
+                targetId === recordId && type === 'path' && !reversesId,
+            )
+            .map(({ id }) => id);
+          return {
+            ...current,
+            mysticPaths: current.mysticPaths.map((item) =>
+              item.id === recordId ? { ...item, rank: nextRank } : item,
+            ),
+            advancement: {
+              ledger: [
+                ...current.advancement.ledger,
+                createLegendEntry({
+                  type: 'path',
+                  amount: -paid,
+                  targetId: recordId,
+                  definitionId: path.id,
+                  origin: override ? 'override' : 'path',
+                  costCircle: nextRank,
+                  targetName: path.name,
+                  beforeRating: live.rank,
+                  afterRating: nextRank,
+                  silverCost: 0,
+                  training: override
+                    ? 'GM Override'
+                    : 'Path ordeal and approval',
+                  sourceCitation: path.citation,
+                  dependsOnEntryIds: dependencies,
+                  description: `Advance ${path.name} to Rank ${nextRank}`,
+                }),
+              ],
+            },
+          };
+        }),
+    );
+  };
+  const addPathTalentOption = (
+    recordId: string,
+    talentName: string,
+    costTier: 'journeyman' | 'warden' | 'master',
+    minimumRank: number,
+    maximumSelections?: number,
+  ) => {
+    const pathRecord = draft.mysticPaths.find(({ id }) => id === recordId);
+    const path = pathRecord
+      ? earthdawnPathById.get(pathRecord.definitionId)
+      : null;
+    if (!pathRecord || !path || talentName.startsWith('Any ')) return;
+    if (
+      maximumSelections != null &&
+      draft.talents.filter(
+        ({ pathOriginId, pathCostTier }) =>
+          pathOriginId === recordId && pathCostTier === costTier,
+      ).length >= maximumSelections
+    )
+      return;
+    const definition = earthdawnCatalog.find(
+      ({ kind, name }) => kind === 'talent' && name === talentName,
+    );
+    if (!definition) return;
+    const cost = talentTierRankCost(1, costTier);
+    reviewAdvancement(
+      {
+        title: `Learn ${talentName} through ${path.name}`,
+        cost: gmOverride ? 0 : cost,
+        silverCost: 0,
+        training: 'Path Talent Option; training details unavailable',
+        sourceCitation: path.citation,
+        warning: path.advancement,
+      },
+      () =>
+        update((current) => {
+          if (
+            current.talents.some(
+              ({ name, pathOriginId }) =>
+                name === talentName && pathOriginId === recordId,
+            ) ||
+            legendTotals(current.advancement.ledger).current <
+              (current.creation.enforceRules ? cost : 0)
+          )
+            return current;
+          const id = crypto.randomUUID();
+          const paid = current.creation.enforceRules ? cost : 0;
+          const pathDependencies = current.advancement.ledger
+            .filter(
+              ({ targetId, type, reversesId, afterRating }) =>
+                targetId === recordId &&
+                type === 'path' &&
+                !reversesId &&
+                (afterRating ?? 0) <= minimumRank,
+            )
+            .map(({ id: entryId }) => entryId);
+          const talent = {
+            id,
+            definitionId: definition.id,
+            sourceId: definition.sourceId,
+            source: definition.source,
+            page: definition.page,
+            unresolved: false,
+            name: definition.name,
+            rank: 1,
+            freeRank: 0,
+            attribute: definition.defaultAttribute ?? ('perception' as const),
+            bonus: 0,
+            notes: `Talent Option from ${path.name}.`,
+            action: definition.talentMetadata?.actionText ?? '',
+            strain: 0,
+            attributeText: definition.talentMetadata?.attributeText ?? '',
+            effectText: displayCatalogText(
+              definition.talentMetadata?.effectText ?? definition.summary,
+            ),
+            descriptionText:
+              definition.talentMetadata?.descriptionText ?? definition.summary,
+            actionText: definition.talentMetadata?.actionText ?? '',
+            strainText: definition.talentMetadata?.strainText ?? '',
+            citationText:
+              definition.talentMetadata?.citationText ?? path.citation,
+            metadataOverrides: [],
+            disciplineSources: [],
+            optional: true,
+            originCircle: null,
+            originDisciplineId: null,
+            creationOwned: false,
+            pathOriginId: recordId,
+            pathCostTier: costTier,
+          };
+          return {
+            ...current,
+            talents: [...current.talents, talent],
+            mysticPaths: current.mysticPaths.map((item) =>
+              item.id === recordId
+                ? { ...item, optionTalentIds: [...item.optionTalentIds, id] }
+                : item,
+            ),
+            advancement: {
+              ledger: [
+                ...current.advancement.ledger,
+                createLegendEntry({
+                  type: 'talent',
+                  amount: -paid,
+                  targetId: id,
+                  definitionId: definition.id,
+                  origin: current.creation.enforceRules ? 'path' : 'override',
+                  originDisciplineId: recordId,
+                  costCircle:
+                    costTier === 'journeyman'
+                      ? 5
+                      : costTier === 'warden'
+                        ? 9
+                        : 13,
+                  dependsOnEntryIds: pathDependencies,
+                  targetName: talentName,
+                  beforeRating: 0,
+                  afterRating: 1,
+                  sourceCitation: path.citation,
+                  training: 'Path Talent Option',
+                  description: `Learn ${talentName} through ${path.name}`,
+                }),
+              ],
+            },
+          };
+        }),
+    );
+  };
   const refundPurchase = (entryId: string) =>
     update((current) => {
       if (!refundableLedgerEntry(current.advancement.ledger, entryId))
@@ -2048,11 +2344,20 @@ export function Earthdawn4eEditor({
       if (entry.type === 'talent')
         next = {
           ...next,
-          talents: next.talents.map((record) =>
-            record.id === entry.targetId
-              ? { ...record, rank: beforeRating }
-              : record,
-          ),
+          talents:
+            beforeRating === 0
+              ? next.talents.filter(({ id }) => id !== entry.targetId)
+              : next.talents.map((record) =>
+                  record.id === entry.targetId
+                    ? { ...record, rank: beforeRating }
+                    : record,
+                ),
+          mysticPaths: next.mysticPaths.map((path) => ({
+            ...path,
+            optionTalentIds: path.optionTalentIds.filter(
+              (id) => id !== entry.targetId,
+            ),
+          })),
           magic: {
             ...next.magic,
             matrices: next.magic.matrices.map((matrix) =>
@@ -2144,6 +2449,34 @@ export function Earthdawn4eEditor({
             }),
           };
         }
+      }
+      if (entry.type === 'path') {
+        const pathRecord = next.mysticPaths.find(
+          ({ id }) => id === entry.targetId,
+        );
+        if (pathRecord && beforeRating === 0)
+          next = {
+            ...next,
+            mysticPaths: next.mysticPaths.filter(
+              ({ id }) => id !== entry.targetId,
+            ),
+            health: {
+              ...next.health,
+              bloodMagicDamage: Math.max(
+                0,
+                next.health.bloodMagicDamage - pathRecord.bloodMagicDamage,
+              ),
+            },
+          };
+        else if (pathRecord)
+          next = {
+            ...next,
+            mysticPaths: next.mysticPaths.map((record) =>
+              record.id === entry.targetId
+                ? { ...record, rank: beforeRating }
+                : record,
+            ),
+          };
       }
       if (entry.type === 'questor' && entry.targetId === 'questor-rank')
         next = {
@@ -3342,6 +3675,136 @@ export function Earthdawn4eEditor({
                         <h3>Discipline &amp; Questor</h3>
                         {disciplineQuestorContent}
                       </div>
+                      <div className="earthdawn-identity-paths">
+                        <h3>Mystic Paths</h3>
+                        <button
+                          type="button"
+                          className="primary-button"
+                          onClick={() => setPathPickerOpen(true)}
+                        >
+                          Browse Mystic Paths
+                        </button>
+                        {draft.mysticPaths.length ? (
+                          <div className="earthdawn-progression-list">
+                            {draft.mysticPaths.map((record) => {
+                              const profile = earthdawnPathById.get(
+                                record.definitionId,
+                              );
+                              return (
+                                <div key={record.id}>
+                                  <strong>{record.name}</strong>
+                                  <span>
+                                    Rank {record.rank}
+                                    {!record.active ? ' · Suspended' : ''}
+                                  </span>
+                                  {profile ? (
+                                    <>
+                                      <small>{profile.citation}</small>
+                                      <details>
+                                        <summary>
+                                          Available Talent Options
+                                        </summary>
+                                        {profile.optionTiers
+                                          .filter(
+                                            ({ minimumRank }) =>
+                                              minimumRank <= record.rank,
+                                          )
+                                          .map((tier) => (
+                                            <div
+                                              key={`${record.id}-${tier.minimumRank}`}
+                                            >
+                                              <small>
+                                                Rank {tier.minimumRank}+ ·{' '}
+                                                {tier.costTier}
+                                              </small>
+                                              <SheetToolbar>
+                                                {tier.talents.map((name) => {
+                                                  const selected =
+                                                    draft.talents.some(
+                                                      (talent) =>
+                                                        talent.name === name &&
+                                                        talent.pathOriginId ===
+                                                          record.id,
+                                                    );
+                                                  return (
+                                                    <button
+                                                      type="button"
+                                                      className="text-button"
+                                                      key={name}
+                                                      disabled={
+                                                        selected ||
+                                                        name.startsWith('Any ')
+                                                      }
+                                                      onClick={() =>
+                                                        addPathTalentOption(
+                                                          record.id,
+                                                          name,
+                                                          tier.costTier,
+                                                          tier.minimumRank,
+                                                          tier.maximumSelections,
+                                                        )
+                                                      }
+                                                    >
+                                                      {selected
+                                                        ? `${name} selected`
+                                                        : name}
+                                                    </button>
+                                                  );
+                                                })}
+                                              </SheetToolbar>
+                                            </div>
+                                          ))}
+                                      </details>
+                                    </>
+                                  ) : null}
+                                  <SheetToolbar>
+                                    <button
+                                      type="button"
+                                      className="text-button"
+                                      disabled={
+                                        !profile ||
+                                        record.rank >= profile.maximumRank
+                                      }
+                                      onClick={() =>
+                                        advanceMysticPath(record.id)
+                                      }
+                                    >
+                                      Advance
+                                    </button>
+                                    <button
+                                      type="button"
+                                      className="text-button"
+                                      onClick={() =>
+                                        update((current) => ({
+                                          ...current,
+                                          mysticPaths: current.mysticPaths.map(
+                                            (item) =>
+                                              item.id === record.id
+                                                ? {
+                                                    ...item,
+                                                    active: !item.active,
+                                                    suspendedReason: item.active
+                                                      ? 'Suspended manually for a campaign condition.'
+                                                      : '',
+                                                  }
+                                                : item,
+                                          ),
+                                        }))
+                                      }
+                                    >
+                                      {record.active
+                                        ? 'Suspend benefits'
+                                        : 'Restore benefits'}
+                                    </button>
+                                  </SheetToolbar>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        ) : (
+                          <small>No Mystic Path initiated.</small>
+                        )}
+                      </div>
                     </SheetCard>
                   </div>
                   <SheetFieldGrid columns={3} className="earthdawn-field-grid">
@@ -3892,15 +4355,19 @@ export function Earthdawn4eEditor({
                       versatility,
                     );
                     const nextRank = talent.rank + 1;
-                    const cost = talentRankCost(nextRank, costCircle);
+                    const cost = talent.pathCostTier
+                      ? talentTierRankCost(nextRank, talent.pathCostTier)
+                      : talentRankCost(nextRank, costCircle);
                     reviewAdvancement(
                       {
                         title: `Advance ${talent.name} to rank ${nextRank}`,
                         cost,
                         silverCost: 0,
-                        training: versatility
-                          ? 'Versatility talent; use the next higher Legend Point tier and verify training requirements.'
-                          : `Talent learned through ${draft.disciplines[disciplineIndex]?.name || 'the recorded Discipline'}.`,
+                        training: talent.pathOriginId
+                          ? 'Path Talent Option; verify the Path advancement requirements.'
+                          : versatility
+                            ? 'Versatility talent; use the next higher Legend Point tier and verify training requirements.'
+                            : `Talent learned through ${draft.disciplines[disciplineIndex]?.name || 'the recorded Discipline'}.`,
                         sourceCitation: `${talent.source ?? 'Earthdawn'}${talent.page ? ` p. ${talent.page}` : ''}`,
                         warning:
                           legend.current < cost
@@ -3943,21 +4410,27 @@ export function Earthdawn4eEditor({
                                   earnedAmount: 0,
                                   targetId: talent.id,
                                   definitionId: talent.definitionId,
-                                  origin: versatility
-                                    ? 'versatility'
-                                    : 'discipline',
+                                  origin: talent.pathOriginId
+                                    ? 'path'
+                                    : versatility
+                                      ? 'versatility'
+                                      : 'discipline',
                                   originDisciplineId:
+                                    talent.pathOriginId ??
                                     draft.disciplines[disciplineIndex]?.id ??
                                     null,
                                   costCircle,
                                   dependsOnEntryIds: current.advancement.ledger
                                     .filter(
                                       ({ type, targetId, reversesId }) =>
-                                        type === 'discipline' &&
-                                        targetId ===
-                                          draft.disciplines[disciplineIndex]
-                                            ?.id &&
-                                        !reversesId,
+                                        !reversesId &&
+                                        (talent.pathOriginId
+                                          ? type === 'path' &&
+                                            targetId === talent.pathOriginId
+                                          : type === 'discipline' &&
+                                            targetId ===
+                                              draft.disciplines[disciplineIndex]
+                                                ?.id),
                                     )
                                     .map(({ id }) => id),
                                   targetName: talent.name,
@@ -6256,7 +6729,8 @@ export function Earthdawn4eEditor({
                     <div className="earthdawn-basic-stat">
                       <span>Recovery</span>
                       <strong>
-                        {draft.health.recoveryUsed} / {derived.recoveryTests}
+                        {draft.health.recoveryUsed} /{' '}
+                        {derived.recoveryTests + pathRecoveryTests}
                       </strong>
                       <small>
                         Step {derived.recoveryStep + modifierValue('recovery')}{' '}
@@ -6268,7 +6742,8 @@ export function Earthdawn4eEditor({
                       <button
                         className="small-button"
                         disabled={
-                          draft.health.recoveryUsed >= derived.recoveryTests ||
+                          draft.health.recoveryUsed >=
+                            derived.recoveryTests + pathRecoveryTests ||
                           (recoveryKarma && draft.health.karmaCurrent < 1)
                         }
                         onClick={() => {
@@ -7785,6 +8260,109 @@ export function Earthdawn4eEditor({
             </div>
           </div>
         ) : null}
+        {pathPickerOpen ? (
+          <div
+            className="catalog-overlay"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Browse Mystic Paths"
+          >
+            <div className="catalog-dialog">
+              <div className="catalog-dialog-header">
+                <div>
+                  <p className="sheet-eyebrow">Earthdawn Mystic Paths</p>
+                  <h2>Browse Mystic Paths</h2>
+                  <p>
+                    Review initiation, progression, restrictions, and Path
+                    Talent Options.
+                  </p>
+                </div>
+                <button
+                  className="secondary-button"
+                  onClick={() => setPathPickerOpen(false)}
+                >
+                  Close
+                </button>
+              </div>
+              <div className="catalog-results">
+                {earthdawnPathProfiles.map((path) => {
+                  const selected = draft.mysticPaths.some(
+                    ({ definitionId }) => definitionId === path.id,
+                  );
+                  const eligibility = pathEligibility(draft, path);
+                  return (
+                    <SheetCard key={path.id} className="catalog-card">
+                      <span className="kind-badge">Mystic Path</span>
+                      <h3>{path.name}</h3>
+                      <p>{path.summary}</p>
+                      <small>
+                        Circle {path.minimumCircle}+ · {path.initiationCost} LP
+                        · {path.bloodMagicDamage} Blood Magic Damage · maximum
+                        Rank {path.maximumRank}
+                      </small>
+                      {eligibility.blockers.length ? (
+                        <p className="field-error">
+                          {eligibility.blockers.join(' ')}
+                        </p>
+                      ) : null}
+                      <details>
+                        <summary>Requirements and ordeal</summary>
+                        <p>{path.ordeal}</p>
+                        <ul>
+                          {path.requirements.map((requirement, index) => (
+                            <li key={`${path.id}-requirement-${index}`}>
+                              {requirement.kind === 'manual'
+                                ? requirement.description
+                                : requirement.kind === 'knowledge-skill'
+                                  ? `Knowledge Skill Rank ${requirement.rank}`
+                                  : `${requirement.name} Rank ${requirement.rank}`}
+                            </li>
+                          ))}
+                        </ul>
+                        {path.restrictions.map((restriction) => (
+                          <p key={restriction}>{restriction}</p>
+                        ))}
+                      </details>
+                      <details>
+                        <summary>Rank bonuses and Talent Options</summary>
+                        <p>
+                          {path.rankBonuses
+                            .map(({ rank, label }) => `Rank ${rank}: ${label}`)
+                            .join('; ') || 'No characteristic bonuses.'}
+                        </p>
+                        {path.optionTiers.map((tier) => (
+                          <p key={`${path.id}-${tier.minimumRank}`}>
+                            <strong>
+                              Rank {tier.minimumRank}+ ({tier.costTier}):
+                            </strong>{' '}
+                            {tier.talents.join(', ')}
+                          </p>
+                        ))}
+                      </details>
+                      <details>
+                        <summary>Half-Magic and advancement</summary>
+                        <p>{path.halfMagic}</p>
+                        <p>{path.karmaRitual}</p>
+                        <p>{path.advancement}</p>
+                      </details>
+                      <cite>{path.citation}</cite>
+                      <button
+                        className="primary-button"
+                        disabled={
+                          selected ||
+                          (eligibility.blockers.length > 0 && !gmOverride)
+                        }
+                        onClick={() => initiateMysticPath(path.id)}
+                      >
+                        {selected ? 'Selected' : 'Initiate Path'}
+                      </button>
+                    </SheetCard>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        ) : null}
         {disciplinePickerOpen ? (
           <div
             className="catalog-overlay"
@@ -8514,8 +9092,12 @@ export function Earthdawn4eEditor({
                                         selectedKnackVariant.key,
                                   ),
                                 )
-                              : !repeatableDefinition(definition) &&
-                                selectedDefinitionIds.has(definition.id);
+                              : definition.kind === 'path'
+                                ? draft.mysticPaths.some(
+                                    ({ name }) => name === definition.name,
+                                  )
+                                : !repeatableDefinition(definition) &&
+                                  selectedDefinitionIds.has(definition.id);
                           const expanded = expandedCatalogRows.has(
                             definition.id,
                           );
@@ -8621,15 +9203,24 @@ export function Earthdawn4eEditor({
                                         (definition.kind === 'knack' &&
                                           !selectedKnackVariant)
                                       }
-                                      onClick={() =>
+                                      onClick={() => {
+                                        if (definition.kind === 'path') {
+                                          const path =
+                                            earthdawnPathProfiles.find(
+                                              ({ name }) =>
+                                                name === definition.name,
+                                            );
+                                          if (path) initiateMysticPath(path.id);
+                                          return;
+                                        }
                                         addCatalog(
                                           definition.id,
                                           false,
                                           undefined,
                                           'gain',
                                           selectedKnackVariant?.key,
-                                        )
-                                      }
+                                        );
+                                      }}
                                     >
                                       {selected
                                         ? 'Selected'
@@ -8996,15 +9587,22 @@ export function Earthdawn4eEditor({
                                         d.sourceId,
                                     ) && !isAddableReferenceSource(d.sourceId))
                               }
-                              onClick={() =>
+                              onClick={() => {
+                                if (d.kind === 'path') {
+                                  const path = earthdawnPathProfiles.find(
+                                    ({ name }) => name === d.name,
+                                  );
+                                  if (path) initiateMysticPath(path.id);
+                                  return;
+                                }
                                 addCatalog(
                                   d.id,
                                   false,
                                   selectedChoice,
                                   'gain',
                                   selectedKnackVariant?.key,
-                                )
-                              }
+                                );
+                              }}
                             >
                               {d.kind === 'spell'
                                 ? choiceSelected
