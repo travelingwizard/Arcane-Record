@@ -633,8 +633,10 @@ export function EarthdawnCreator({
       id: current.disciplines[0]?.id ?? crypto.randomUUID(),
       definitionId: definition.id,
       sourceId: definition.sourceId,
+      sourceIds: definition.sourceIds ?? [definition.sourceId],
       source: definition.source,
       page: definition.page,
+      pageEnd: definition.pageEnd ?? definition.page,
       unresolved: false,
       disciplineId: definition.id,
       name: definition.name,
@@ -869,6 +871,24 @@ export function EarthdawnCreator({
       ) : null}
       {discipline ? (
         <div className="earthdawn-tier-disclosures">
+          {discipline.halfMagic || discipline.karmaRitual ? (
+            <details className="sheet-card sheet-card--compact earthdawn-tier-card">
+              <summary>Half-Magic, Karma Ritual, and restrictions</summary>
+              {discipline.halfMagic ? (
+                <p>
+                  <strong>Half-Magic:</strong> {discipline.halfMagic}
+                </p>
+              ) : null}
+              {discipline.karmaRitual ? (
+                <p>
+                  <strong>Karma Ritual:</strong> {discipline.karmaRitual}
+                </p>
+              ) : null}
+              {(discipline.restrictions ?? []).map((restriction) => (
+                <p key={restriction}>{restriction}</p>
+              ))}
+            </details>
+          ) : null}
           {tierRanges.map(([tier, start, end]) => (
             <details
               className="sheet-card sheet-card--compact earthdawn-tier-card"
@@ -892,8 +912,10 @@ export function EarthdawnCreator({
                           'No new required Talent'}
                       </span>
                       <small>
-                        {entry.ability || 'No separate Circle ability'} · p.{' '}
-                        {entry.page}
+                        {entry.ability || 'No separate Circle ability'} ·{' '}
+                        {entry.page
+                          ? `p. ${entry.page}${entry.pageEnd && entry.pageEnd !== entry.page ? `–${entry.pageEnd}` : ''}`
+                          : 'page unavailable'}
                       </small>
                     </div>
                   ))}
@@ -1314,21 +1336,18 @@ export function EarthdawnCreator({
                                     id: crypto.randomUUID(),
                                     definitionId: definition?.id ?? null,
                                     sourceId:
-                                      minimumCircle <= 8
-                                        ? 'ed4.players-guide'
-                                        : 'ed4.companion',
+                                      definition?.sourceId ??
+                                      discipline.sourceId,
                                     source:
-                                      minimumCircle <= 8
-                                        ? 'Earthdawn Fourth Edition Player’s Guide'
-                                        : 'Earthdawn Fourth Edition Companion',
+                                      definition?.source ?? discipline.source,
                                     page:
-                                      minimumCircle <= 8
-                                        ? discipline.page
-                                        : (discipline.circles.find(
-                                            ({ circle }) =>
-                                              circle === minimumCircle,
-                                          )?.page ?? null),
-                                    unresolved: false,
+                                      definition?.page ??
+                                      discipline.circles.find(
+                                        ({ circle }) =>
+                                          circle === minimumCircle,
+                                      )?.page ??
+                                      discipline.page,
+                                    unresolved: !definition,
                                     name,
                                     rank: 0,
                                     freeRank: 0,

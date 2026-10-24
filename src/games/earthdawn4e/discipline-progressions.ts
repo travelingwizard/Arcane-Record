@@ -4,7 +4,8 @@ export interface DisciplineCircle {
   ability: string;
   bonuses: string[];
   source: string;
-  page: number;
+  page: number | null;
+  pageEnd?: number | null;
 }
 
 const progression = (
@@ -24,6 +25,24 @@ const progression = (
         ? 'Earthdawn Fourth Edition Player’s Guide'
         : 'Earthdawn Fourth Edition Companion',
     page: index < 8 ? playerPage + Math.floor(index / 4) : companionPage,
+  }));
+
+const supplementalProgression = (
+  source: string,
+  page: number | null,
+  pageEnd: number | null,
+  talents: Array<string | string[]>,
+  abilities: Record<number, string> = {},
+  bonuses: Record<number, string[]> = {},
+): DisciplineCircle[] =>
+  talents.map((talent, index) => ({
+    circle: index + 1,
+    requiredTalents: Array.isArray(talent) ? talent : [talent],
+    ability: abilities[index + 1] ?? '',
+    bonuses: bonuses[index + 1] ?? [],
+    source,
+    page,
+    pageEnd,
   }));
 
 export const coreDisciplineProgressions: Record<string, DisciplineCircle[]> = {
@@ -383,6 +402,102 @@ export const coreDisciplineProgressions: Record<string, DisciplineCircle[]> = {
     'Glyph of Reversal',
     'Spliced Weave',
   ]),
+  Gauntlet: supplementalProgression(
+    'Deeper Secrets; The Adept’s Journey: Mystic Paths; Vasgothia',
+    null,
+    null,
+    [
+      [
+        'Avoid Blow',
+        'Body Control',
+        'Thread Weaving (Gauntlet Weaving)',
+        'Unarmed Combat',
+        'Wound Balance',
+      ],
+      'Deliberate Assault',
+      'Steel Thought',
+      'Studied Counter',
+      'Earth Skin',
+      'Temper Flesh',
+      'Crushing Blow',
+      'Focused Strike',
+      'Critical Hit',
+      'Unflinching Fortitude',
+      'Spirit Strike',
+      'Patient Resilience',
+      'Stone Skin',
+      'Vicious Wound',
+      'Shatter Will',
+    ],
+    {
+      3: 'Karma on Recovery tests.',
+      5: 'Elemental Stance; Karma on unarmed Damage tests.',
+      9: 'Pattern Infusion; Karma on active defense tests.',
+      11: 'Karma on one unarmed Attack test per round.',
+      13: 'Pattern Manifestation; Karma Step increases to d8.',
+    },
+    {
+      2: ['+1 Physical Defense'],
+      4: ['+1 Mystic Defense'],
+      6: ['+2 Physical Defense'],
+      7: ['+1 Recovery Test per day'],
+      8: ['+2 Mystic Defense'],
+      10: ['+3 Physical Defense', '+1 Mystic Armor'],
+      11: ['+1 Social Defense'],
+      12: ['+3 Mystic Defense', '+2 Recovery Tests per day'],
+      13: ['+4 Physical Defense', '+1 Base Initiative Step'],
+      14: ['+4 Mystic Defense', '+2 Mystic Armor'],
+      15: ['+2 Social Defense', '+3 Recovery Tests per day'],
+    },
+  ),
+  Shaman: supplementalProgression(
+    'The Adept’s Journey: Mystic Paths',
+    167,
+    178,
+    [
+      [
+        'Awareness',
+        'Patterncraft',
+        'Thread Weaving (Shamanism)',
+        'Spellcasting',
+        'Wilderness Survival',
+      ],
+      'Astral Sight',
+      'Spirit Talk',
+      'Danger Sense',
+      'Summon (Beast Spirits)',
+      'Willforce',
+      'Lifesight',
+      'Lion Heart',
+      'Summoning Circle',
+      'Spirit Covenant',
+      'Lion Spirit',
+      'Concise Casting',
+      'Ancient Bonds',
+      'Soul Aegis',
+      'Spliced Weave',
+    ],
+    {
+      3: 'Karma on tests to summon or interact with a spirit.',
+      5: 'Pack Leadership; Karma for an Increased Effect extra thread on Binding or Spirit spells.',
+      9: 'Spirit Pact; Karma on Recovery tests.',
+      11: 'Karma for an Increased Range extra thread on Pack or Spirit spells.',
+      13: 'Spirit Fuse; Karma Step increases to d8.',
+    },
+    {
+      2: ['+1 Mystic Defense'],
+      4: ['+1 Physical Defense'],
+      6: ['+2 Mystic Defense'],
+      7: ['+1 Initiative Step'],
+      8: ['+3 Mystic Defense'],
+      10: ['+2 Physical Defense', '+1 Mystic Armor'],
+      11: ['+1 Social Defense'],
+      12: ['+4 Mystic Defense', '+2 Initiative Steps'],
+      13: ['+3 Physical Defense', '+1 Recovery Test per day'],
+      14: ['+5 Mystic Defense', '+2 Mystic Armor'],
+      15: ['+2 Social Defense', '+3 Initiative Steps'],
+    },
+  ),
 };
 
 export const coreTalentOptions: Record<
@@ -1109,6 +1224,104 @@ export const coreTalentOptions: Record<
       'Undermine',
     ],
   },
+};
+
+coreTalentOptions.Gauntlet = {
+  novice: [
+    'Awareness',
+    'Battle Shout',
+    'Danger Sense',
+    'Etiquette',
+    'Fireblood',
+    'Item History',
+    'Maneuver',
+    'Mystic Pursuit',
+    'Wilderness Survival',
+    'Wood Skin',
+  ],
+  journeyman: [
+    'Astral Sight',
+    'Cold Purify',
+    'Evidence Analysis',
+    'Fire Heal',
+    'Iron Constitution',
+    'Lion Heart',
+    'Resist Taunt',
+    'Spot Armor Flaw',
+    'Steely Stare',
+    'Waterfall Slam',
+  ],
+  warden: [
+    'Blood Share',
+    'Burning Vigor',
+    'Defensive Posture',
+    'Life Check',
+    'Lion Spirit',
+    'Matrix Sight',
+    'Relentless Recovery',
+    'Resist Pain',
+    'Vine Armor',
+    'Vital Strike',
+  ],
+  master: [
+    'Aura Armor',
+    'Champion Challenge',
+    'Chilling Strike',
+    'Elemental Walk',
+    'Ethereal Weapon',
+    'Second Chance',
+    'Soul Aegis',
+    'Vital Ward',
+  ],
+};
+
+coreTalentOptions.Shaman = {
+  novice: [
+    'Animal Bond',
+    'Animal Training',
+    'Avoid Blow',
+    'Climbing',
+    'Creature Analysis',
+    'Enhance Animal Companion',
+    'Navigation',
+    'Standard Matrix',
+    'Stealthy Stride',
+    'Tracking',
+  ],
+  journeyman: [
+    'Animal Companion Durability',
+    'Animal Talk',
+    'Anticipate Blow',
+    'Borrow Sense',
+    'Call Animal Companion',
+    'Enhanced Matrix',
+    'Safe Path',
+    'Spirit Mount',
+    'Steel Thought',
+    'Tenacious Weave',
+  ],
+  warden: [
+    'Armor Mount',
+    'Armored Matrix',
+    'Banish',
+    'Blood Share',
+    'Bloodhound Form',
+    'Dispel Magic',
+    'Eagle Eye',
+    'Hold Thread',
+    'Orbiting Spy',
+    'Tiger Spring',
+  ],
+  master: [
+    'Animal Leadership',
+    'Chameleon',
+    'Echolocation',
+    'Effect Pattern',
+    'Netherwalk',
+    'Resist Pain',
+    'Shared Matrix',
+    'Unflinching Fortitude',
+  ],
 };
 
 coreTalentOptions.Boatman = {

@@ -173,6 +173,8 @@ export const earthdawn4eCharacterSchema = z.object({
   disciplines: z.array(
     nullableSource.extend({
       id: uuid,
+      sourceIds: z.array(z.string()).optional(),
+      pageEnd: z.number().int().positive().nullable().optional(),
       disciplineId: z.string().nullable(),
       name: z.string(),
       circle: z.number().int().min(1).max(15),

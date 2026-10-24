@@ -635,15 +635,23 @@ export function reconcileDisciplineTalents(
   const additions: Talent[] = needed
     .filter(({ name }) => !existing.has(name))
     .map(({ name, circle: originCircle, source, page }) => {
-      const definitionId = talentId(name);
-      const definition = earthdawnDefinitionById.get(definitionId);
+      const fallbackDefinitionId = talentId(name);
+      const definition = earthdawnTalents.find(
+        (candidate) =>
+          candidate.name.localeCompare(name, undefined, {
+            sensitivity: 'base',
+          }) === 0,
+      );
+      const definitionId = definition?.id ?? fallbackDefinitionId;
       return {
         id: crypto.randomUUID(),
         definitionId,
-        sourceId: originCircle <= 8 ? 'ed4.players-guide' : 'ed4.companion',
-        source,
-        page,
-        unresolved: false,
+        sourceId:
+          definition?.sourceId ??
+          (originCircle <= 8 ? 'ed4.players-guide' : 'ed4.companion'),
+        source: definition?.source ?? source,
+        page: definition?.page ?? page,
+        unresolved: !definition,
         name,
         rank: 0,
         freeRank: 0,

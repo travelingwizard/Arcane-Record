@@ -33,7 +33,9 @@ const catalogRows: EarthdawnInventoryRow[] = earthdawnCatalog.map(
           ? 'reference-only'
           : 'unresolved',
     definitionId: definition.id,
-    note: 'Player-facing catalog definition.',
+    note: definition.page
+      ? 'Player-facing catalog definition.'
+      : 'Player-facing catalog definition; exact page unavailable in the supplied source data.',
   }),
 );
 
@@ -156,11 +158,21 @@ export function auditEarthdawnSourceInventory() {
         definition.knackMetadata!.variants.every(({ sourceId }) =>
           sourceIds.has(sourceId),
         );
-      if (!hasSourceOnlySpellCitation && !hasSourceOnlyKnackCitation)
+      const hasExplicitSourceOnlyCitation =
+        (definition?.sourceIds?.length ?? 0) > 1 &&
+        definition!.sourceIds!.every((sourceId) => sourceIds.has(sourceId));
+      if (
+        !hasSourceOnlySpellCitation &&
+        !hasSourceOnlyKnackCitation &&
+        !hasExplicitSourceOnlyCitation
+      )
         errors.push(`Selectable row lacks citation: ${row.id}`);
     }
   }
   for (const definition of earthdawnCatalog) {
+    for (const sourceId of definition.sourceIds ?? [])
+      if (!sourceIds.has(sourceId))
+        errors.push(`Unknown catalog source: ${definition.id} -> ${sourceId}`);
     if (
       !earthdawnSourceInventory.some(
         (row) => row.definitionId === definition.id,

@@ -7,3 +7,4 @@ docs/references
 scripts/import-earthdawn-spells.py
 scripts/import-earthdawn-spellbook-supplement.py
 src/games/earthdawn4e/spellbook-supplement.ts
+src/games/earthdawn4e/generated/discipline-specifications.json

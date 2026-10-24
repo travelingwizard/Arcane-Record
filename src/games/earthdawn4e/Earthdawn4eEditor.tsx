@@ -1981,8 +1981,10 @@ export function Earthdawn4eEditor({
             id: recordId,
             definitionId: discipline.id,
             sourceId: discipline.sourceId,
+            sourceIds: discipline.sourceIds ?? [discipline.sourceId],
             source: discipline.source,
             page: discipline.page,
+            pageEnd: discipline.pageEnd ?? discipline.page,
             unresolved: false,
             disciplineId: discipline.id,
             name: discipline.name,
@@ -2793,6 +2795,7 @@ export function Earthdawn4eEditor({
       const sourceMatches =
         catalogSource === 'all' ||
         definition.sourceId === catalogSource ||
+        definition.sourceIds?.includes(catalogSource) ||
         definition.talentMetadata?.sourceIds.includes(catalogSource) ||
         definition.spellMetadata?.variants.some(
           ({ sourceId }) => sourceId === catalogSource,
@@ -2902,10 +2905,13 @@ export function Earthdawn4eEditor({
                     draft.sources.enabledSourceIds.includes(sourceId),
                 )
               : draft.sources.enabledSourceIds.includes(definition.sourceId) ||
+                definition.sourceIds?.some((sourceId) =>
+                  draft.sources.enabledSourceIds.includes(sourceId),
+                ) ||
                 isAddableReferenceSource(definition.sourceId));
       const query = catalogSearch.trim().toLocaleLowerCase();
       const searchMatches =
-        `${definition.name} ${definition.aliases.join(' ')} ${definition.summary} ${definition.mechanics} ${definition.source} ${definition.page ?? ''} ${definition.requirements.join(' ')} ${definition.skillCategory ?? ''} ${definition.talentMetadata?.attributeText ?? ''} ${definition.talentMetadata?.actionText ?? ''} ${definition.talentMetadata?.effectText ?? ''} ${definition.talentMetadata?.descriptionText ?? ''} ${definition.talentMetadata?.requirementsText ?? ''} ${definition.threadItemMetadata?.itemType ?? ''} ${definition.threadItemMetadata?.inferredKeyKnowledge ?? ''} ${definition.spellMetadata?.effectText ?? ''} ${definition.spellMetadata?.threadsText ?? ''} ${definition.spellMetadata?.difficultyText ?? ''} ${definition.spellMetadata?.variants.map((variant) => `${variant.discipline} ${variant.circleText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.pageStart ?? ''}`).join(' ') ?? ''} ${definition.knackMetadata?.variants.map((variant) => `${variant.association} ${variant.description} ${variant.mechanicsText} ${variant.actionText} ${variant.strainText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.page ?? ''}`).join(' ') ?? ''}`
+        `${definition.name} ${definition.aliases.join(' ')} ${definition.summary} ${definition.mechanics} ${definition.source} ${(definition.sourceIds ?? []).map((sourceId) => earthdawnSources.find(({ id }) => id === sourceId)?.title ?? sourceId).join(' ')} ${definition.page ?? ''} ${definition.pageEnd ?? ''} ${definition.requirements.join(' ')} ${definition.skillCategory ?? ''} ${definition.talentMetadata?.attributeText ?? ''} ${definition.talentMetadata?.actionText ?? ''} ${definition.talentMetadata?.effectText ?? ''} ${definition.talentMetadata?.descriptionText ?? ''} ${definition.talentMetadata?.requirementsText ?? ''} ${definition.threadItemMetadata?.itemType ?? ''} ${definition.threadItemMetadata?.inferredKeyKnowledge ?? ''} ${definition.spellMetadata?.effectText ?? ''} ${definition.spellMetadata?.threadsText ?? ''} ${definition.spellMetadata?.difficultyText ?? ''} ${definition.spellMetadata?.variants.map((variant) => `${variant.discipline} ${variant.circleText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.pageStart ?? ''}`).join(' ') ?? ''} ${definition.knackMetadata?.variants.map((variant) => `${variant.association} ${variant.description} ${variant.mechanicsText} ${variant.actionText} ${variant.strainText} ${earthdawnSources.find(({ id }) => id === variant.sourceId)?.title ?? variant.sourceId} ${variant.page ?? ''}`).join(' ') ?? ''}`
           .replace(/not in source/gi, '')
           .toLocaleLowerCase()
           .includes(query);
@@ -8401,7 +8407,7 @@ export function Earthdawn4eEditor({
                       const query = disciplineSearch.trim().toLocaleLowerCase();
                       return (
                         !query ||
-                        `${discipline.name} ${discipline.summary} ${discipline.circles.flatMap((circle) => [...circle.requiredTalents, circle.ability, ...circle.bonuses]).join(' ')} ${Object.values(discipline.talentOptions).flat().join(' ')}`
+                        `${discipline.name} ${discipline.summary} ${discipline.mechanics} ${discipline.halfMagic ?? ''} ${discipline.karmaRitual ?? ''} ${(discipline.restrictions ?? []).join(' ')} ${discipline.circles.flatMap((circle) => [...circle.requiredTalents, circle.ability, ...circle.bonuses]).join(' ')} ${Object.values(discipline.talentOptions).flat().join(' ')}`
                           .toLocaleLowerCase()
                           .includes(query)
                       );
@@ -8450,7 +8456,10 @@ export function Earthdawn4eEditor({
                                         </small>
                                       ) : null}
                                       <cite>
-                                        {circle.source}, p. {circle.page}
+                                        {circle.source}
+                                        {circle.page
+                                          ? `, p. ${circle.page}${circle.pageEnd && circle.pageEnd !== circle.page ? `–${circle.pageEnd}` : ''}`
+                                          : ', page unavailable'}
                                       </cite>
                                     </div>
                                   ))}
@@ -8464,6 +8473,28 @@ export function Earthdawn4eEditor({
                               </details>
                             );
                           })}
+                          {discipline.halfMagic || discipline.karmaRitual ? (
+                            <details>
+                              <summary>Half-Magic and Karma Ritual</summary>
+                              {discipline.halfMagic ? (
+                                <p>
+                                  <strong>Half-Magic:</strong>{' '}
+                                  {discipline.halfMagic}
+                                </p>
+                              ) : null}
+                              {discipline.karmaRitual ? (
+                                <p>
+                                  <strong>Karma Ritual:</strong>{' '}
+                                  {discipline.karmaRitual}
+                                </p>
+                              ) : null}
+                              {(discipline.restrictions ?? []).map(
+                                (restriction) => (
+                                  <p key={restriction}>{restriction}</p>
+                                ),
+                              )}
+                            </details>
+                          ) : null}
                           <button
                             className="primary-button"
                             disabled={selected}
@@ -9104,11 +9135,14 @@ export function Earthdawn4eEditor({
                           const addableSourceId =
                             selectedKnackVariant?.sourceId ??
                             definition.sourceId;
+                          const addableSourceIds = selectedKnackVariant
+                            ? [selectedKnackVariant.sourceId]
+                            : (definition.sourceIds ?? [addableSourceId]);
                           const addable =
                             (definition.verification === 'verified' ||
                               isAddableReferenceSource(definition.sourceId)) &&
-                            (draft.sources.enabledSourceIds.includes(
-                              addableSourceId,
+                            (addableSourceIds.some((sourceId) =>
+                              draft.sources.enabledSourceIds.includes(sourceId),
                             ) ||
                               isAddableReferenceSource(definition.sourceId));
                           return (

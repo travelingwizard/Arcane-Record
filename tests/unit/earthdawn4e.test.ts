@@ -91,6 +91,7 @@ import {
 } from '../../src/games/earthdawn4e/matrix-sharing';
 import { createHighCircleMatrixFixture } from '../fixtures/earthdawn-high-circle';
 import mysticPathWorkbookRows from '../../src/games/earthdawn4e/generated/mystic-paths-workbook.json';
+import disciplineWorkbookRows from '../../src/games/earthdawn4e/generated/discipline-specifications.json';
 import {
   creatorEquipmentAdjustment,
   creatorWeaponSizeCompatibility,
@@ -506,6 +507,24 @@ describe('Earthdawn Fourth Edition module', () => {
       'woodsman',
     ]);
     expect(
+      earthdawnCatalog
+        .filter(({ kind }) => kind === 'path')
+        .map(({ name }) => name),
+    ).toEqual(
+      expect.arrayContaining(earthdawnPathProfiles.map(({ name }) => name)),
+    );
+    expect(
+      earthdawnPathProfiles.every(
+        (path) =>
+          path.initiationCost > 0 &&
+          path.maximumRank > 0 &&
+          path.optionTiers.length > 0 &&
+          path.ordeal.length > 0 &&
+          path.advancement.length > 0 &&
+          path.citation.length > 0,
+      ),
+    ).toBe(true);
+    expect(
       earthdawnPathProfiles.find(({ id }) => id === 'outcast'),
     ).toMatchObject({
       initiationCost: 200,
@@ -551,6 +570,76 @@ describe('Earthdawn Fourth Edition module', () => {
       'Air Sailor',
       'Sailor',
     ]);
+  });
+  it('imports complete Gauntlet and Shaman Discipline progressions', () => {
+    expect(disciplineWorkbookRows).toHaveLength(2);
+    expect(disciplineWorkbookRows.map(({ name }) => name)).toEqual([
+      'Gauntlet',
+      'Shaman',
+    ]);
+    expect(
+      disciplineWorkbookRows.every(({ sourceIndexes }) =>
+        sourceIndexes.every((sourceId, index) => sourceId === index + 1),
+      ),
+    ).toBe(true);
+
+    const gauntlet = earthdawnDisciplines.find(
+      ({ id }) => id === 'ed4.discipline.gauntlet',
+    )!;
+    expect(gauntlet).toMatchObject({
+      name: 'Gauntlet',
+      durability: 7,
+      spellcaster: false,
+      importantAttributes: ['perception', 'strength', 'willpower'],
+      page: null,
+    });
+    expect(gauntlet.sourceIds).toEqual([
+      'ed4.deeper-secrets',
+      'ed4.mystic-paths',
+      'ed4.vasgothia',
+    ]);
+    expect(gauntlet.circles).toHaveLength(15);
+    expect(gauntlet.circles[0]?.requiredTalents).toEqual([
+      'Avoid Blow',
+      'Body Control',
+      'Thread Weaving (Gauntlet Weaving)',
+      'Unarmed Combat',
+      'Wound Balance',
+    ]);
+    expect(gauntlet.circles[12]?.ability).toContain('Pattern Manifestation');
+
+    const shaman = earthdawnDisciplines.find(
+      ({ id }) => id === 'ed4.discipline.shaman',
+    )!;
+    expect(shaman).toMatchObject({
+      name: 'Shaman',
+      durability: 3,
+      spellcaster: true,
+      importantAttributes: ['willpower', 'charisma', 'perception'],
+      page: 167,
+      pageEnd: 178,
+    });
+    expect(shaman.sourceIds).toEqual(gauntlet.sourceIds);
+    expect(shaman.circles).toHaveLength(15);
+    expect(shaman.circles[0]?.requiredTalents).toContain(
+      'Thread Weaving (Shamanism)',
+    );
+    expect(shaman.circles[4]?.ability).toContain('Pack Leadership');
+    expect(
+      new Set(
+        earthdawnSpells.flatMap(
+          ({ spellMetadata }) =>
+            spellMetadata?.variants
+              .filter(({ discipline }) => discipline === 'Shaman')
+              .flatMap(({ circleMin, circleMax }) =>
+                Array.from(
+                  { length: circleMax - circleMin + 1 },
+                  (_, index) => circleMin + index,
+                ),
+              ) ?? [],
+        ),
+      ),
+    ).toEqual(new Set(Array.from({ length: 15 }, (_, index) => index + 1)));
   });
   it('checks Path eligibility, tier costs, and replacement-threshold modifiers', () => {
     const character = createBlankEarthdawn4eCharacter({ status: 'manual' });
@@ -614,8 +703,8 @@ describe('Earthdawn Fourth Edition module', () => {
     );
     expect(character.sources.defaultsVersion).toBe(2);
     expect(earthdawnRaces).toHaveLength(8);
-    expect(earthdawnDisciplines).toHaveLength(16);
-    expect(Object.keys(coreTalentOptions)).toHaveLength(16);
+    expect(earthdawnDisciplines).toHaveLength(18);
+    expect(Object.keys(coreTalentOptions)).toHaveLength(18);
     for (const discipline of earthdawnDisciplines) {
       expect(coreTalentOptions[discipline.name]?.novice).toHaveLength(10);
       expect(coreTalentOptions[discipline.name]?.journeyman).toHaveLength(10);
@@ -625,8 +714,8 @@ describe('Earthdawn Fourth Edition module', () => {
     expect(earthdawnSpells).toHaveLength(479);
     expect(earthdawnKnacks).toHaveLength(238);
     expect(earthdawnThreadItems).toHaveLength(142);
-    expect(earthdawnTalents).toHaveLength(450);
-    expect(new Set(earthdawnTalents.map(({ id }) => id)).size).toBe(450);
+    expect(earthdawnTalents).toHaveLength(453);
+    expect(new Set(earthdawnTalents.map(({ id }) => id)).size).toBe(453);
     expect(
       earthdawnTalents.find(({ name }) => name === 'Acrobatic Defense'),
     ).toMatchObject({
@@ -1493,6 +1582,49 @@ describe('Earthdawn Fourth Edition module', () => {
     expect(journeyman.magic.matrices.every(({ rank }) => rank === 5)).toBe(
       true,
     );
+  });
+  it('uses Shaman as a qualifying magician without granting Gauntlet matrices', () => {
+    const shaman = earthdawnDisciplines.find(({ name }) => name === 'Shaman')!;
+    const wizard = earthdawnDisciplines.find(({ name }) => name === 'Wizard')!;
+    const gauntlet = earthdawnDisciplines.find(
+      ({ name }) => name === 'Gauntlet',
+    )!;
+    const disciplineRecord = (discipline: typeof shaman, circle = 1) => ({
+      id: crypto.randomUUID(),
+      disciplineId: discipline.id,
+      name: discipline.name,
+      circle,
+      startedAtCircle: 1,
+      questor: false,
+      custom: false,
+      definitionId: discipline.id,
+      sourceId: discipline.sourceId,
+      sourceIds: discipline.sourceIds,
+      source: discipline.source,
+      page: discipline.page,
+      pageEnd: discipline.pageEnd,
+      unresolved: false,
+    });
+
+    const shamanCharacter = createBlankEarthdawn4eCharacter();
+    shamanCharacter.disciplines.push(disciplineRecord(shaman, 5));
+    let reconciled = reconcileFreeMatrices(shamanCharacter);
+    expect(reconciled.magic.matrices.map(({ type }) => type)).toEqual([
+      'enhanced',
+      'standard',
+    ]);
+    reconciled.disciplines.push(disciplineRecord(wizard, 5));
+    reconciled = reconcileFreeMatrices(reconciled);
+    expect(reconciled.magic.matrices).toHaveLength(2);
+    expect(
+      reconciled.magic.matrices.every(
+        ({ restriction }) => restriction === 'Shaman',
+      ),
+    ).toBe(true);
+
+    const gauntletCharacter = createBlankEarthdawn4eCharacter();
+    gauntletCharacter.disciplines.push(disciplineRecord(gauntlet));
+    expect(reconcileFreeMatrices(gauntletCharacter).magic.matrices).toEqual([]);
   });
   it('adds only required Discipline talents and preserves advanced records when Circle falls', () => {
     const discipline = earthdawnDisciplines.find(

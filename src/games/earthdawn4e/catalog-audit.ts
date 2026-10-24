@@ -1,6 +1,9 @@
 import {
   earthdawnCatalog,
+  earthdawnDisciplines,
   earthdawnSources,
+  earthdawnSpells,
+  earthdawnTalents,
   type EarthdawnDefinition,
 } from './catalog';
 
@@ -43,11 +46,22 @@ export function auditEarthdawnCatalog(
       errors.push(`Empty identity: ${definition.id || definition.name}`);
     if (!sourceIds.has(definition.sourceId))
       errors.push(`Unknown source ${definition.sourceId}: ${definition.id}`);
+    for (const sourceId of definition.sourceIds ?? [])
+      if (!sourceIds.has(sourceId))
+        errors.push(
+          `Unknown supplemental source ${sourceId}: ${definition.id}`,
+        );
     if (
       definition.page != null &&
       (!Number.isInteger(definition.page) || definition.page < 1)
     )
       errors.push(`Malformed page ${definition.page}: ${definition.id}`);
+    if (
+      definition.pageEnd != null &&
+      (!Number.isInteger(definition.pageEnd) ||
+        definition.pageEnd < (definition.page ?? 1))
+    )
+      errors.push(`Malformed page end ${definition.pageEnd}: ${definition.id}`);
     if (definition.requirements.some((value) => !value.trim()))
       errors.push(`Empty requirement: ${definition.id}`);
 
@@ -120,6 +134,55 @@ export function auditEarthdawnCatalog(
         errors.push(`Malformed spell Circle: ${definition.id}`);
     }
   }
+
+  const talentNames = new Set(
+    earthdawnTalents.map(({ name }) => normalize(name)),
+  );
+  for (const discipline of earthdawnDisciplines.filter(({ id }) =>
+    ['ed4.discipline.gauntlet', 'ed4.discipline.shaman'].includes(id),
+  )) {
+    if (
+      discipline.circles.length !== 15 ||
+      discipline.circles.some(({ circle }, index) => circle !== index + 1)
+    )
+      errors.push(`Malformed Discipline progression: ${discipline.id}`);
+    const expectedOptionCounts = {
+      novice: 10,
+      journeyman: 10,
+      warden: 10,
+      master: 8,
+    } as const;
+    for (const [tier, count] of Object.entries(expectedOptionCounts))
+      if (
+        discipline.talentOptions[tier as keyof typeof expectedOptionCounts]
+          .length !== count
+      )
+        errors.push(`Malformed ${tier} options: ${discipline.id}`);
+    const referencedTalents = [
+      ...discipline.circles.flatMap(({ requiredTalents }) => requiredTalents),
+      ...Object.values(discipline.talentOptions).flat(),
+    ];
+    for (const talent of new Set(referencedTalents))
+      if (!talentNames.has(normalize(talent)))
+        errors.push(`Unknown Discipline talent ${talent}: ${discipline.id}`);
+  }
+
+  const shamanSpellCircles = new Set(
+    earthdawnSpells.flatMap(
+      ({ spellMetadata }) =>
+        spellMetadata?.variants
+          .filter(({ discipline }) => discipline === 'Shaman')
+          .flatMap(({ circleMin, circleMax }) =>
+            Array.from(
+              { length: circleMax - circleMin + 1 },
+              (_, index) => circleMin + index,
+            ),
+          ) ?? [],
+    ),
+  );
+  for (let circle = 1; circle <= 15; circle += 1)
+    if (!shamanSpellCircles.has(circle))
+      errors.push(`Missing Shaman spell Circle: ${circle}`);
 
   return { errors, unavailableFields, definitions: catalog.length, variants };
 }

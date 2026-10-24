@@ -321,6 +321,10 @@ test('browses every supported Mystic Path without treating Boatman as a Path', a
   ])
     await expect(dialog.getByRole('heading', { name })).toBeVisible();
   await expect(dialog.getByRole('heading', { name: 'Boatman' })).toHaveCount(0);
+  await expect(dialog.getByRole('heading', { name: 'Gauntlet' })).toHaveCount(
+    0,
+  );
+  await expect(dialog.getByRole('heading', { name: 'Shaman' })).toHaveCount(0);
   const outcast = dialog.locator('.catalog-card').filter({
     has: page.getByRole('heading', { name: 'Outcast Path', exact: true }),
   });
@@ -333,6 +337,48 @@ test('browses every supported Mystic Path without treating Boatman as a Path', a
       () => document.documentElement.scrollWidth <= window.innerWidth,
     ),
   ).toBe(true);
+});
+
+test('offers Gauntlet and Shaman as complete Disciplines', async ({ page }) => {
+  const data = createHighCircleMatrixFixture();
+  data.disciplines = data.disciplines.filter(({ name }) => name !== 'Shaman');
+  await seedEarthdawnCharacter(
+    page,
+    '92929292-9292-4929-8929-929292929292',
+    'Supplemental Discipline Browser',
+    data,
+  );
+  await page.getByRole('button', { name: 'Add Discipline & Questor' }).click();
+  const dialog = page.getByRole('dialog', {
+    name: 'Add Discipline and Questor',
+  });
+  await expect(dialog).toBeVisible();
+  const search = dialog.getByLabel(
+    'Search Disciplines, Questors, talents, and abilities',
+  );
+  await search.fill('Pattern Manifestation');
+  await expect(dialog.getByRole('heading', { name: 'Gauntlet' })).toBeVisible();
+  await dialog.getByText('Novice · Circles 1–4').click();
+  await expect(dialog.getByText('page unavailable').first()).toBeVisible();
+  await search.fill('Pack Leadership');
+  await expect(dialog.getByRole('heading', { name: 'Shaman' })).toBeVisible();
+  await dialog.getByText('Novice · Circles 1–4').click();
+  await expect(dialog.getByText(/p\. 167–178/).first()).toBeVisible();
+  await page.setViewportSize({ width: 320, height: 800 });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= window.innerWidth,
+    ),
+  ).toBe(true);
+  await dialog.getByRole('button', { name: 'Close' }).click();
+
+  await openEarthdawnCreator(page);
+  await page.getByRole('button', { name: 'Next' }).click();
+  await expect(page.getByRole('button', { name: /Gauntlet/ })).toBeVisible();
+  await page.getByRole('button', { name: /Shaman/ }).click();
+  await applyCreatorChange(page, 'Review Discipline change');
+  await expect(page.getByText('Thread Weaving (Shamanism)')).toBeVisible();
+  await expect(page.getByText('Alter Tracks')).toBeVisible();
 });
 
 test('opens isolated, ordered Basic Rules and Character Creation references', async ({
@@ -793,8 +839,9 @@ test('playtests Warrior, Wizard, non-Adept Questor, and Windmaster creation thro
               );
               resolve(
                 Boolean(
-                  record?.data?.abilities?.some(
-                    ({ name }: { name: string }) => name === 'Windmaster Path',
+                  record?.data?.mysticPaths?.some(
+                    ({ definitionId }: { definitionId: string }) =>
+                      definitionId === 'ed4.path.windmaster',
                   ),
                 ),
               );

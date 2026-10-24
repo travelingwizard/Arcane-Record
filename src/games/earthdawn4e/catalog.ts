@@ -35,8 +35,10 @@ export interface EarthdawnDefinition {
   requirements: string[];
   aliases: string[];
   sourceId: string;
+  sourceIds?: string[];
   source: string;
   page: number | null;
+  pageEnd?: number | null;
   verification: 'verified' | 'reference-only' | 'unresolved';
   ruleMetadata?: EarthdawnRuleMetadata;
   costSilver?: number;
@@ -90,6 +92,9 @@ export interface EarthdawnDiscipline extends EarthdawnDefinition {
     'novice' | 'journeyman' | 'warden' | 'master',
     string[]
   >;
+  halfMagic?: string;
+  karmaRitual?: string;
+  restrictions?: string[];
 }
 export type EarthdawnAttributeId =
   | 'dexterity'
@@ -197,8 +202,10 @@ const entry = (
   requirements,
   aliases: [],
   sourceId,
+  sourceIds: [sourceId],
   source: earthdawnSources.find(({ id }) => id === sourceId)!.title,
   page,
+  pageEnd: page,
   verification: 'verified',
 });
 
@@ -352,6 +359,69 @@ export const earthdawnTalents: EarthdawnDefinition[] = [
       };
     }),
 ];
+
+const disciplineTalentVariant = (
+  id: string,
+  name: string,
+  baseName: string,
+  sourceId: string,
+  sourceIds: string[],
+  page: number | null,
+  pageEnd: number | null,
+): EarthdawnDefinition => {
+  const base = earthdawnTalents.find((talent) => talent.name === baseName)!;
+  const source = earthdawnSources.find(({ id }) => id === sourceId)!.title;
+  return {
+    ...base,
+    id,
+    name,
+    aliases: [],
+    sourceId,
+    sourceIds,
+    source,
+    page,
+    pageEnd,
+    verification: 'verified',
+    summary: `${name} is the Discipline-specific form of ${baseName}.`,
+    talentMetadata: base.talentMetadata
+      ? {
+          ...base.talentMetadata,
+          sourceIds,
+          citationText: `${source}${page ? `, p. ${page}${pageEnd && pageEnd !== page ? `–${pageEnd}` : ''}` : ', page unavailable'}`,
+        }
+      : undefined,
+  };
+};
+
+earthdawnTalents.push(
+  disciplineTalentVariant(
+    'ed4.discipline.gauntlet.talent.thread-weaving',
+    'Thread Weaving (Gauntlet Weaving)',
+    'Thread Weaving',
+    'ed4.deeper-secrets',
+    ['ed4.deeper-secrets', 'ed4.mystic-paths', 'ed4.vasgothia'],
+    null,
+    null,
+  ),
+  disciplineTalentVariant(
+    'ed4.discipline.shaman.talent.thread-weaving',
+    'Thread Weaving (Shamanism)',
+    'Thread Weaving',
+    'ed4.mystic-paths',
+    ['ed4.deeper-secrets', 'ed4.mystic-paths', 'ed4.vasgothia'],
+    167,
+    178,
+  ),
+  disciplineTalentVariant(
+    'ed4.discipline.shaman.talent.summon-beast-spirits',
+    'Summon (Beast Spirits)',
+    'Summon',
+    'ed4.mystic-paths',
+    ['ed4.deeper-secrets', 'ed4.mystic-paths', 'ed4.vasgothia'],
+    167,
+    178,
+  ),
+);
 
 const raceData: Array<[string, number[], string, number, string[]]> = [
   ['Dwarf', [9, 10, 12, 11, 11, 10], '10', 4, ['Heat Sight', 'Strong Back']],
@@ -612,6 +682,7 @@ const boatman: EarthdawnDiscipline = {
   sourceId: 'ed4.mystic-paths',
   source: 'The Adept’s Journey: Mystic Paths',
   page: 157,
+  pageEnd: 165,
   summary:
     'A river-focused Air Sailor Discipline variant using rivercraft, trade-route, crew, and vessel knowledge.',
   aliases: ['Air Sailor variant', 'Sailor'],
@@ -637,9 +708,91 @@ const boatman: EarthdawnDiscipline = {
   },
 };
 
+const disciplineSupplementSources = [
+  'ed4.deeper-secrets',
+  'ed4.mystic-paths',
+  'ed4.vasgothia',
+];
+
+const gauntlet: EarthdawnDiscipline = {
+  id: 'ed4.discipline.gauntlet',
+  kind: 'discipline',
+  name: 'Gauntlet',
+  summary:
+    'Magistrates of the natural order and living weapons who turn their bodies into fists of the elements.',
+  mechanics:
+    'Durability 7. Elemental Stance, Pattern Infusion, and Pattern Manifestation support unarmed combat, armor, and elemental attacks. Half-Magic covers elemental lore, unarmed traditions, endurance, and resisting fatigue or distraction.',
+  requirements: [
+    'Body Control requires bare hands free of weapons and shields.',
+    'Terrene sense can become distracting in some environments.',
+  ],
+  aliases: [],
+  sourceId: 'ed4.deeper-secrets',
+  sourceIds: disciplineSupplementSources,
+  source: 'Deeper Secrets; The Adept’s Journey: Mystic Paths; Vasgothia',
+  page: null,
+  pageEnd: null,
+  verification: 'verified',
+  importantAttributes: ['perception', 'strength', 'willpower'],
+  durability: 7,
+  noviceTalents:
+    coreDisciplineProgressions.Gauntlet?.[0]?.requiredTalents ?? [],
+  optionalTalents: coreTalentOptions.Gauntlet?.novice ?? [],
+  spellcaster: false,
+  circles: coreDisciplineProgressions.Gauntlet ?? [],
+  talentOptions: coreTalentOptions.Gauntlet!,
+  halfMagic:
+    'Knowledge of the elements, unarmed fighting techniques, prominent combatants and styles; tests to resist fatigue, distractions, and other endurance or willpower challenges.',
+  karmaRitual:
+    'Maintain contact with earth or stone for thirty minutes, then strike and destroy a leaping shard in one fluid motion.',
+  restrictions: [
+    'Body Control requires both bare hands to remain free.',
+    'Terrene sense can cause distraction.',
+  ],
+};
+
+const shaman: EarthdawnDiscipline = {
+  id: 'ed4.discipline.shaman',
+  kind: 'discipline',
+  name: 'Shaman',
+  summary:
+    'A magician Discipline centered on life, spirits, nature, spiritual guidance, herbalism, healing, and cooperative bonds with beast spirits.',
+  mechanics:
+    'Durability 3. Uses Shaman spells, Patterncraft, Spellcasting, and Thread Weaving (Shamanism). Starts with two free Standard Matrices and upgrades one to an Enhanced Matrix at Fifth Circle. Pack, Spirit, Binding, and Fate rules remain subject to their complete spell and knack text.',
+  requirements: [
+    'Maintain respectful relationships with natural and beast spirits.',
+    'Coercing, abusing, or harming allied spirits can cause a Discipline crisis.',
+    'Invae and other invertebrate spirits are anathema to Shaman practice.',
+  ],
+  aliases: ['Spirit Weaving'],
+  sourceId: 'ed4.mystic-paths',
+  sourceIds: disciplineSupplementSources,
+  source: 'The Adept’s Journey: Mystic Paths',
+  page: 167,
+  pageEnd: 178,
+  verification: 'verified',
+  importantAttributes: ['willpower', 'charisma', 'perception'],
+  durability: 3,
+  noviceTalents: coreDisciplineProgressions.Shaman?.[0]?.requiredTalents ?? [],
+  optionalTalents: coreTalentOptions.Shaman?.novice ?? [],
+  spellcaster: true,
+  circles: coreDisciplineProgressions.Shaman ?? [],
+  talentOptions: coreTalentOptions.Shaman!,
+  halfMagic:
+    'Recognize animals, tracks, abnormal behavior, and beast spirits; practice herbalism, bone-setting, wound care, and treatment of disease.',
+  karmaRitual:
+    'Walk a circle, draw a square within it, sit at the center, summon a beast spirit, and groom or scratch it for thirty minutes.',
+  restrictions: [
+    'Spirit pacts require respect and atonement when broken.',
+    'Named-spirit and Improved Spell rules require their associated knacks.',
+  ],
+};
+
 export const earthdawnDisciplines: EarthdawnDiscipline[] = [
   ...coreDisciplines,
   boatman,
+  gauntlet,
+  shaman,
 ];
 
 export const earthdawnPassions = [
