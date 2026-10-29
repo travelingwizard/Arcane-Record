@@ -99,6 +99,12 @@ import {
   reopenEarthdawnCreation,
   reviewEarthdawnCreation,
 } from '../../src/games/earthdawn4e/creator-rules';
+import {
+  applyRemoval,
+  dependencyWarnings,
+  earthdawnDynamicRecordCapabilities,
+  previewRemoval,
+} from '../../src/games/earthdawn4e/record-lifecycle';
 
 describe('Earthdawn Fourth Edition module', () => {
   it.each([
@@ -1977,5 +1983,132 @@ describe('Earthdawn Fourth Edition module', () => {
         'file',
       ),
     ).rejects.toThrow(/5 MB/);
+  });
+
+  it('declares complete CRUD support for every optional Earthdawn record kind', () => {
+    expect(earthdawnDynamicRecordCapabilities.map(({ kind }) => kind)).toEqual([
+      'race',
+      'portrait',
+      'discipline',
+      'questor',
+      'mystic-path',
+      'talent',
+      'skill',
+      'knack',
+      'spell',
+      'matrix',
+      'ability',
+      'magic-effect',
+      'equipment',
+      'weapon',
+      'modifier',
+      'note',
+    ]);
+    for (const capability of earthdawnDynamicRecordCapabilities)
+      expect(capability).toMatchObject({
+        create: true,
+        read: true,
+        update: true,
+        remove: true,
+      });
+  });
+
+  it('previews and atomically removes a known spell without refunding its LP history', () => {
+    const character = createHighCircleMatrixFixture();
+    const spell = character.magic.spells.find(({ name }) => name === 'Switch')!;
+    character.advancement.ledger.push(
+      createLegendEntry({
+        type: 'spell',
+        amount: -100,
+        description: 'Learned Switch',
+        targetId: spell.id,
+        targetName: spell.name,
+      }),
+    );
+    const ledger = structuredClone(character.advancement.ledger);
+    const plan = previewRemoval(character, { kind: 'spell', id: spell.id });
+    expect(plan.blockers).toEqual([]);
+    expect(plan.impacts).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ kind: 'remove', text: 'Spell: Switch' }),
+        expect.objectContaining({
+          kind: 'warning',
+          text: expect.stringMatching(/does not refund LP/),
+        }),
+      ]),
+    );
+
+    const next = applyRemoval(character, { kind: 'spell', id: spell.id });
+    expect(next.magic.spells.some(({ id }) => id === spell.id)).toBe(false);
+    expect(next.magic.matrices[0]!.spellIds).toEqual([]);
+    expect(next.advancement.ledger).toEqual(ledger);
+    expect(next.activity.ledger.at(-1)?.description).toMatch(/Removed Switch/);
+    expect(earthdawn4eCharacterSchema.parse(next)).toEqual(next);
+  });
+
+  it('removes Race grants while preserving purchased Attribute adjustments', () => {
+    const windling = earthdawnRaces.find(({ name }) => name === 'Windling')!;
+    const character = reconcileRace(
+      createBlankEarthdawn4eCharacter(),
+      windling,
+    );
+    character.attributes.dexterity.purchased = 2;
+    character.health.karmaCurrent = 6;
+    character.health.karmaMaximum = 6;
+
+    const plan = previewRemoval(character, { kind: 'race', id: windling.id });
+    expect(plan.impacts.some(({ text }) => text.includes('Astral Sight'))).toBe(
+      true,
+    );
+    const next = applyRemoval(character, { kind: 'race', id: windling.id });
+    expect(next.identity.raceName).toBe('');
+    expect(next.raceSnapshot).toBeNull();
+    expect(next.attributes.dexterity).toMatchObject({
+      racial: 10,
+      purchased: 2,
+    });
+    expect(next.abilities.some(({ kind }) => kind === 'racial')).toBe(false);
+    expect(next.talents.some(({ name }) => name === 'Astral Sight')).toBe(
+      false,
+    );
+    expect(
+      next.health.modifiers.some(({ name }) => name.startsWith('Racial:')),
+    ).toBe(false);
+  });
+
+  it('blocks direct removal of managed grants and preserves invalid dependents with warnings', () => {
+    const windling = earthdawnRaces.find(({ name }) => name === 'Windling')!;
+    const character = reconcileRace(
+      createBlankEarthdawn4eCharacter(),
+      windling,
+    );
+    const racialTalent = character.talents.find(
+      ({ name }) => name === 'Astral Sight',
+    )!;
+    expect(
+      previewRemoval(character, { kind: 'talent', id: racialTalent.id })
+        .blockers,
+    ).toEqual([expect.stringMatching(/automatic Race or Discipline grant/)]);
+
+    const fixture = createHighCircleMatrixFixture();
+    const patterncraft = fixture.talents.find(
+      ({ name }) => name === 'Patterncraft',
+    )!;
+    const next = applyRemoval(fixture, { kind: 'talent', id: patterncraft.id });
+    expect(next.knacks).toHaveLength(fixture.knacks.length);
+    expect(next.knacks.every(({ talentId }) => talentId === null)).toBe(true);
+    expect(
+      [...dependencyWarnings(next).values()]
+        .flat()
+        .some((warning) => warning.includes('Missing associated Talent')),
+    ).toBe(true);
+  });
+
+  it('does not add removal activity while Tracking is disabled', () => {
+    const character = createHighCircleMatrixFixture();
+    character.activity.tracking = false;
+    const spell = character.magic.spells[0]!;
+    const next = applyRemoval(character, { kind: 'spell', id: spell.id });
+    expect(next.activity.ledger).toEqual([]);
   });
 });

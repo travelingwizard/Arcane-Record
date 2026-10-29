@@ -125,6 +125,12 @@ import {
   downloadEarthdawnPortrait,
   processEarthdawnPortrait,
 } from './portrait';
+import {
+  applyRemoval,
+  dependencyWarnings,
+  previewRemoval,
+  type EarthdawnRecordTarget,
+} from './record-lifecycle';
 
 const labels: Record<EarthdawnAttributeId, string> = {
   dexterity: 'Dexterity',
@@ -824,6 +830,9 @@ export function Earthdawn4eEditor({
     [advancementQuote, setAdvancementQuote] = useState<AdvancementQuote | null>(
       null,
     ),
+    [removalTarget, setRemovalTarget] = useState<EarthdawnRecordTarget | null>(
+      null,
+    ),
     [catalogKind, setCatalogKind] = useState<
       EarthdawnCatalogKind | 'all' | null
     >(null);
@@ -833,6 +842,8 @@ export function Earthdawn4eEditor({
   const catalogReturnFocusRef = useRef<HTMLElement | null>(null);
   const equipDialogRef = useRef<HTMLDivElement>(null);
   const equipReturnFocusRef = useRef<HTMLElement | null>(null);
+  const removalDialogRef = useRef<HTMLDivElement>(null);
+  const removalReturnFocusRef = useRef<HTMLElement | null>(null);
   const advancementActionRef = useRef<(() => void) | null>(null);
   const portraitInputRef = useRef<HTMLInputElement>(null);
   const playMode = draft.sheetLayout.mode === 'play';
@@ -967,6 +978,36 @@ export function Earthdawn4eEditor({
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   }, [pendingEquip]);
+  useEffect(() => {
+    if (!removalTarget) return;
+    const focusable = () => [
+      ...(removalDialogRef.current?.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), [href], [tabindex]:not([tabindex="-1"])',
+      ) ?? []),
+    ];
+    focusable()[0]?.focus();
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setRemovalTarget(null);
+        window.setTimeout(() => removalReturnFocusRef.current?.focus(), 0);
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const items = focusable();
+      if (!items.length) return;
+      const first = items[0]!;
+      const last = items.at(-1)!;
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [removalTarget]);
   const openCatalog = (kind: EarthdawnCatalogKind | 'all') => {
     catalogReturnFocusRef.current =
       document.activeElement instanceof HTMLElement
@@ -1006,6 +1047,18 @@ export function Earthdawn4eEditor({
     },
     [],
   );
+  const requestRemoval = (target: EarthdawnRecordTarget) => {
+    removalReturnFocusRef.current =
+      document.activeElement instanceof HTMLElement
+        ? document.activeElement
+        : null;
+    setRemovalTarget(target);
+  };
+  const closeRemoval = () => {
+    setRemovalTarget(null);
+    window.setTimeout(() => removalReturnFocusRef.current?.focus(), 0);
+  };
+  const recordWarnings = useMemo(() => dependencyWarnings(draft), [draft]);
   const values = earthdawnAttributeValues(
     draft.attributes,
     draft.magic.effects,
@@ -2666,7 +2719,47 @@ export function Earthdawn4eEditor({
             ],
           },
         };
-      if (catalogKind === 'equipment' || catalogKind === 'weapon')
+      if (catalogKind === 'ability')
+        return {
+          ...current,
+          abilities: [
+            ...current.abilities,
+            {
+              ...base,
+              name: 'Custom Ability',
+              kind: 'other' as const,
+            },
+          ],
+        };
+      if (catalogKind === 'weapon')
+        return {
+          ...current,
+          weapons: [
+            ...current.weapons,
+            {
+              ...base,
+              name: 'Custom Weapon',
+              strengthMinimum: 0,
+              damageStep: 0,
+              range: '',
+              quantity: 1,
+              costSilver: 0,
+              price: { amount: 0, denomination: 'sp' as const },
+              weight: 0,
+              inUse: false,
+              weaponType: 'melee' as const,
+              size: 0,
+              shortRange: '',
+              longRange: '',
+              availability: '',
+              attackSourceId: null,
+              attackMode: 'melee' as const,
+              modifiers: [],
+              metadataOverrides: [],
+            },
+          ],
+        };
+      if (catalogKind === 'equipment')
         return {
           ...current,
           equipment: [
@@ -3094,15 +3187,7 @@ export function Earthdawn4eEditor({
           <button
             type="button"
             className="text-button"
-            disabled={playMode}
-            onClick={() =>
-              update((current) => ({
-                ...current,
-                disciplines: current.disciplines.filter(
-                  (item) => item.id !== d.id,
-                ),
-              }))
-            }
+            onClick={() => requestRemoval({ kind: 'discipline', id: d.id })}
           >
             Remove
           </button>
@@ -3210,18 +3295,42 @@ export function Earthdawn4eEditor({
                 }}
               />
             </SheetField>
+            <SheetField label={`${path.patronName} notes`}>
+              <input
+                value={path.notes}
+                onChange={(event) =>
+                  update((current) => ({
+                    ...current,
+                    questorPaths: current.questorPaths.map((item) =>
+                      item.id === path.id
+                        ? { ...item, notes: event.target.value }
+                        : item,
+                    ),
+                  }))
+                }
+              />
+            </SheetField>
+            <label className="sheet-choice-card">
+              <input
+                type="checkbox"
+                checked={path.outOfFavor}
+                onChange={(event) =>
+                  update((current) => ({
+                    ...current,
+                    questorPaths: current.questorPaths.map((item) =>
+                      item.id === path.id
+                        ? { ...item, outOfFavor: event.target.checked }
+                        : item,
+                    ),
+                  }))
+                }
+              />
+              <span>Out of favor</span>
+            </label>
             <button
               type="button"
               className="text-button"
-              disabled={playMode}
-              onClick={() =>
-                update((current) => ({
-                  ...current,
-                  questorPaths: current.questorPaths.filter(
-                    ({ id }) => id !== path.id,
-                  ),
-                }))
-              }
+              onClick={() => requestRemoval({ kind: 'questor', id: path.id })}
             >
               Remove
             </button>
@@ -3260,6 +3369,13 @@ export function Earthdawn4eEditor({
             <span>
               Tier <strong>{draft.questor.tier}</strong>
             </span>
+            <button
+              type="button"
+              className="text-button"
+              onClick={() => requestRemoval({ kind: 'questor', id: null })}
+            >
+              Remove Questor
+            </button>
             {playMode && draft.questor.patronName ? (
               <button
                 type="button"
@@ -3604,10 +3720,7 @@ export function Earthdawn4eEditor({
                             type="button"
                             className="text-button"
                             onClick={() =>
-                              update((current) => ({
-                                ...current,
-                                portrait: null,
-                              }))
+                              requestRemoval({ kind: 'portrait', id: null })
                             }
                           >
                             Remove
@@ -3677,6 +3790,17 @@ export function Earthdawn4eEditor({
                       >
                         {draft.identity.raceId ? 'Change Race' : 'Add Race'}
                       </button>
+                      {draft.identity.raceId ? (
+                        <button
+                          type="button"
+                          className="text-button"
+                          onClick={() =>
+                            requestRemoval({ kind: 'race', id: null })
+                          }
+                        >
+                          Remove Race
+                        </button>
+                      ) : null}
                       <div className="earthdawn-identity-paths">
                         <h3>Discipline &amp; Questor</h3>
                         {disciplineQuestorContent}
@@ -3802,6 +3926,18 @@ export function Earthdawn4eEditor({
                                         ? 'Suspend benefits'
                                         : 'Restore benefits'}
                                     </button>
+                                    <button
+                                      type="button"
+                                      className="text-button"
+                                      onClick={() =>
+                                        requestRemoval({
+                                          kind: 'mystic-path',
+                                          id: record.id,
+                                        })
+                                      }
+                                    >
+                                      Remove
+                                    </button>
                                   </SheetToolbar>
                                 </div>
                               );
@@ -3809,6 +3945,110 @@ export function Earthdawn4eEditor({
                           </div>
                         ) : (
                           <small>No Mystic Path initiated.</small>
+                        )}
+                      </div>
+                      <div className="earthdawn-identity-paths">
+                        <h3>Abilities &amp; Devotions</h3>
+                        <SheetToolbar>
+                          <button
+                            type="button"
+                            className="secondary-button compact-inline-button"
+                            onClick={() => openCatalog('ability')}
+                          >
+                            Browse Abilities
+                          </button>
+                          <button
+                            type="button"
+                            className="secondary-button compact-inline-button"
+                            onClick={() => openCatalog('devotion')}
+                          >
+                            Browse Devotions
+                          </button>
+                        </SheetToolbar>
+                        {draft.abilities.length ? (
+                          <div className="earthdawn-progression-list">
+                            {draft.abilities.map((ability) => {
+                              const managed =
+                                ability.kind === 'racial' ||
+                                ability.kind === 'discipline' ||
+                                ability.definitionId?.startsWith('race-grant:');
+                              return (
+                                <div key={ability.id}>
+                                  {ability.unresolved ? (
+                                    <input
+                                      aria-label="Ability name"
+                                      value={ability.name}
+                                      onChange={(event) =>
+                                        update((current) => ({
+                                          ...current,
+                                          abilities: current.abilities.map(
+                                            (item) =>
+                                              item.id === ability.id
+                                                ? {
+                                                    ...item,
+                                                    name: event.target.value,
+                                                  }
+                                                : item,
+                                          ),
+                                        }))
+                                      }
+                                    />
+                                  ) : (
+                                    <strong>{ability.name}</strong>
+                                  )}
+                                  <small>
+                                    {ability.kind} ·{' '}
+                                    {ability.source || 'Custom'}
+                                    {managed ? ' · Managed grant' : ''}
+                                  </small>
+                                  <textarea
+                                    aria-label={`${ability.name} notes`}
+                                    value={ability.notes}
+                                    onChange={(event) =>
+                                      update((current) => ({
+                                        ...current,
+                                        abilities: current.abilities.map(
+                                          (item) =>
+                                            item.id === ability.id
+                                              ? {
+                                                  ...item,
+                                                  notes: event.target.value,
+                                                }
+                                              : item,
+                                        ),
+                                      }))
+                                    }
+                                  />
+                                  {recordWarnings
+                                    .get(ability.id)
+                                    ?.map((warning) => (
+                                      <p
+                                        className="sheet-warning"
+                                        key={warning}
+                                      >
+                                        {warning}
+                                      </p>
+                                    ))}
+                                  {!managed ? (
+                                    <button
+                                      type="button"
+                                      className="text-button"
+                                      onClick={() =>
+                                        requestRemoval({
+                                          kind: 'ability',
+                                          id: ability.id,
+                                        })
+                                      }
+                                    >
+                                      Remove
+                                    </button>
+                                  ) : null}
+                                </div>
+                              );
+                            })}
+                          </div>
+                        ) : (
+                          <small>No abilities or devotions recorded.</small>
                         )}
                       </div>
                     </SheetCard>
@@ -4195,22 +4435,82 @@ export function Earthdawn4eEditor({
                         .filter(({ name }) => !name.startsWith('Racial:'))
                         .map((modifier) => (
                           <li key={modifier.id}>
-                            <span>
-                              {modifier.name}: {modifier.value >= 0 ? '+' : ''}
-                              {modifier.value} {modifier.target}
-                            </span>
-                            <button
-                              className="text-button"
-                              onClick={() =>
+                            <input
+                              aria-label={`${modifier.name} effect name`}
+                              value={modifier.name}
+                              onChange={(event) =>
                                 update((current) => ({
                                   ...current,
                                   health: {
                                     ...current.health,
-                                    modifiers: current.health.modifiers.filter(
-                                      ({ id }) => id !== modifier.id,
+                                    modifiers: current.health.modifiers.map(
+                                      (item) =>
+                                        item.id === modifier.id
+                                          ? {
+                                              ...item,
+                                              name: event.target.value,
+                                            }
+                                          : item,
                                     ),
                                   },
                                 }))
+                              }
+                            />
+                            <input
+                              aria-label={`${modifier.name} value`}
+                              type="number"
+                              value={modifier.value}
+                              onChange={(event) =>
+                                update((current) => ({
+                                  ...current,
+                                  health: {
+                                    ...current.health,
+                                    modifiers: current.health.modifiers.map(
+                                      (item) =>
+                                        item.id === modifier.id
+                                          ? {
+                                              ...item,
+                                              value:
+                                                Number(event.target.value) || 0,
+                                            }
+                                          : item,
+                                    ),
+                                  },
+                                }))
+                              }
+                            />
+                            <label>
+                              <input
+                                type="checkbox"
+                                checked={modifier.active}
+                                onChange={(event) =>
+                                  update((current) => ({
+                                    ...current,
+                                    health: {
+                                      ...current.health,
+                                      modifiers: current.health.modifiers.map(
+                                        (item) =>
+                                          item.id === modifier.id
+                                            ? {
+                                                ...item,
+                                                active: event.target.checked,
+                                              }
+                                            : item,
+                                      ),
+                                    },
+                                  }))
+                                }
+                              />
+                              Active
+                            </label>
+                            <span>{modifier.target}</span>
+                            <button
+                              className="text-button"
+                              onClick={() =>
+                                requestRemoval({
+                                  kind: 'modifier',
+                                  id: modifier.id,
+                                })
                               }
                             >
                               Remove
@@ -4258,6 +4558,7 @@ export function Earthdawn4eEditor({
                   records={draft.talents}
                   playMode={playMode}
                   gmOverride={!draft.creation.enforceRules}
+                  dependencyWarnings={recordWarnings}
                   onBrowse={() => openCatalog('talent')}
                   onChange={(id, patch) =>
                     update((c) => ({
@@ -4309,26 +4610,7 @@ export function Earthdawn4eEditor({
                     }))
                   }
                   onRemove={(id) => {
-                    const talent = draft.talents.find((item) => item.id === id);
-                    if (!talent) return;
-                    const linked = draft.magic.matrices.find(
-                      (matrix) => matrix.talentId === id,
-                    );
-                    const detail = linked
-                      ? ` Its linked ${linked.name} matrix${linked.spellIds.length ? ' will be removed and its spells will remain Known.' : ' will also be removed.'}`
-                      : '';
-                    if (!window.confirm(`Remove ${talent.name}?${detail}`))
-                      return;
-                    update((c) => ({
-                      ...c,
-                      talents: c.talents.filter((record) => record.id !== id),
-                      magic: {
-                        ...c.magic,
-                        matrices: c.magic.matrices.filter(
-                          (matrix) => matrix.talentId !== id,
-                        ),
-                      },
-                    }));
+                    requestRemoval({ kind: 'talent', id });
                   }}
                   onAdvance={(id) => {
                     const talent = draft.talents.find((item) => item.id === id);
@@ -4471,12 +4753,7 @@ export function Earthdawn4eEditor({
                         ),
                       }))
                     }
-                    onRemove={(id) =>
-                      update((c) => ({
-                        ...c,
-                        skills: c.skills.filter((record) => record.id !== id),
-                      }))
-                    }
+                    onRemove={(id) => requestRemoval({ kind: 'skill', id })}
                     onAdvance={(id) =>
                       update((current) => {
                         const skill = current.skills.find(
@@ -4528,7 +4805,25 @@ export function Earthdawn4eEditor({
                   </SheetToolbar>
                   {draft.knacks.map((knack) => (
                     <SheetCard key={knack.id} density="compact">
-                      <strong>{knack.name}</strong>
+                      {knack.unresolved ? (
+                        <SheetField label="Knack name">
+                          <input
+                            value={knack.name}
+                            onChange={(event) =>
+                              update((current) => ({
+                                ...current,
+                                knacks: current.knacks.map((item) =>
+                                  item.id === knack.id
+                                    ? { ...item, name: event.target.value }
+                                    : item,
+                                ),
+                              }))
+                            }
+                          />
+                        </SheetField>
+                      ) : (
+                        <strong>{knack.name}</strong>
+                      )}
                       <small>
                         {knack.source} {knack.page ? `p. ${knack.page}` : ''}
                       </small>
@@ -4542,6 +4837,55 @@ export function Earthdawn4eEditor({
                           <p>{knack.mechanicsText}</p>
                         </details>
                       ) : null}
+                      {knack.unresolved ? (
+                        <SheetField label="Association or prerequisite">
+                          <input
+                            value={knack.association}
+                            onChange={(event) =>
+                              update((current) => ({
+                                ...current,
+                                knacks: current.knacks.map((item) =>
+                                  item.id === knack.id
+                                    ? {
+                                        ...item,
+                                        association: event.target.value,
+                                      }
+                                    : item,
+                                ),
+                              }))
+                            }
+                          />
+                        </SheetField>
+                      ) : null}
+                      <SheetField label="Notes">
+                        <textarea
+                          value={knack.notes}
+                          onChange={(event) =>
+                            update((current) => ({
+                              ...current,
+                              knacks: current.knacks.map((item) =>
+                                item.id === knack.id
+                                  ? { ...item, notes: event.target.value }
+                                  : item,
+                              ),
+                            }))
+                          }
+                        />
+                      </SheetField>
+                      {recordWarnings.get(knack.id)?.map((warning) => (
+                        <p className="sheet-warning" key={warning}>
+                          {warning}
+                        </p>
+                      ))}
+                      <button
+                        type="button"
+                        className="text-button"
+                        onClick={() =>
+                          requestRemoval({ kind: 'knack', id: knack.id })
+                        }
+                      >
+                        Remove
+                      </button>
                     </SheetCard>
                   ))}
                 </>,
@@ -4684,6 +5028,106 @@ export function Earthdawn4eEditor({
                               </select>
                             </SheetField>
                           ) : null}
+                          {spell.unresolved ? (
+                            <SheetFieldGrid columns={3}>
+                              <SheetField label="Spell name">
+                                <input
+                                  value={spell.name}
+                                  onChange={(event) =>
+                                    update((current) => ({
+                                      ...current,
+                                      magic: {
+                                        ...current.magic,
+                                        spells: current.magic.spells.map(
+                                          (item) =>
+                                            item.id === spell.id
+                                              ? {
+                                                  ...item,
+                                                  name: event.target.value,
+                                                }
+                                              : item,
+                                        ),
+                                      },
+                                    }))
+                                  }
+                                />
+                              </SheetField>
+                              <SheetField label="Discipline">
+                                <input
+                                  value={spell.discipline}
+                                  onChange={(event) =>
+                                    update((current) => ({
+                                      ...current,
+                                      magic: {
+                                        ...current.magic,
+                                        spells: current.magic.spells.map(
+                                          (item) =>
+                                            item.id === spell.id
+                                              ? {
+                                                  ...item,
+                                                  discipline:
+                                                    event.target.value,
+                                                }
+                                              : item,
+                                        ),
+                                      },
+                                    }))
+                                  }
+                                />
+                              </SheetField>
+                              <SheetField label="Circle">
+                                <input
+                                  type="number"
+                                  min="1"
+                                  max="15"
+                                  value={spell.circle}
+                                  onChange={(event) =>
+                                    update((current) => ({
+                                      ...current,
+                                      magic: {
+                                        ...current.magic,
+                                        spells: current.magic.spells.map(
+                                          (item) =>
+                                            item.id === spell.id
+                                              ? {
+                                                  ...item,
+                                                  circle: Math.max(
+                                                    1,
+                                                    Math.min(
+                                                      15,
+                                                      integer(
+                                                        event.target.value,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                }
+                                              : item,
+                                        ),
+                                      },
+                                    }))
+                                  }
+                                />
+                              </SheetField>
+                            </SheetFieldGrid>
+                          ) : null}
+                          <SheetField label="Known spell notes">
+                            <textarea
+                              value={spell.notes}
+                              onChange={(event) =>
+                                update((current) => ({
+                                  ...current,
+                                  magic: {
+                                    ...current.magic,
+                                    spells: current.magic.spells.map((item) =>
+                                      item.id === spell.id
+                                        ? { ...item, notes: event.target.value }
+                                        : item,
+                                    ),
+                                  },
+                                }))
+                              }
+                            />
+                          </SheetField>
                           <dl className="earthdawn-spell-details">
                             <div>
                               <dt>Threads</dt>
@@ -4746,6 +5190,20 @@ export function Earthdawn4eEditor({
                               </dd>
                             </div>
                           </dl>
+                          {recordWarnings.get(spell.id)?.map((warning) => (
+                            <p className="sheet-warning" key={warning}>
+                              {warning}
+                            </p>
+                          ))}
+                          <button
+                            type="button"
+                            className="text-button"
+                            onClick={() =>
+                              requestRemoval({ kind: 'spell', id: spell.id })
+                            }
+                          >
+                            Remove known spell
+                          </button>
                         </details>
                       );
                     })}
@@ -5533,6 +5991,28 @@ export function Earthdawn4eEditor({
                           )}
                           )
                         </button>
+                        <button
+                          type="button"
+                          className="text-button"
+                          disabled={
+                            matrix.originType === 'talent' ||
+                            matrix.originType === 'free-discipline'
+                          }
+                          title={
+                            matrix.originType === 'talent' ||
+                            matrix.originType === 'free-discipline'
+                              ? 'Remove this matrix through its owning Talent or Discipline.'
+                              : 'Remove this matrix'
+                          }
+                          onClick={() =>
+                            requestRemoval({ kind: 'matrix', id: matrix.id })
+                          }
+                        >
+                          {matrix.originType === 'talent' ||
+                          matrix.originType === 'free-discipline'
+                            ? 'Managed'
+                            : 'Remove matrix'}
+                        </button>
                       </SheetToolbar>
                     </SheetCard>
                   ))}
@@ -5815,23 +6295,12 @@ export function Earthdawn4eEditor({
                         <button
                           type="button"
                           className="text-button"
-                          onClick={() => {
-                            if (
-                              !window.confirm(
-                                `Remove ${e.name || 'this magic effect'}?`,
-                              )
-                            )
-                              return;
-                            update((c) => ({
-                              ...c,
-                              magic: {
-                                ...c.magic,
-                                effects: c.magic.effects.filter(
-                                  ({ id }) => id !== e.id,
-                                ),
-                              },
-                            }));
-                          }}
+                          onClick={() =>
+                            requestRemoval({
+                              kind: 'magic-effect',
+                              id: e.id,
+                            })
+                          }
                         >
                           Remove magic effect
                         </button>
@@ -6360,30 +6829,9 @@ export function Earthdawn4eEditor({
                           <button
                             type="button"
                             className="text-button"
-                            onClick={() => {
-                              if (!window.confirm(`Remove ${e.name}?`)) return;
-                              update((current) => ({
-                                ...current,
-                                equipment: current.equipment.filter(
-                                  ({ id }) => id !== e.id,
-                                ),
-                                activity: current.activity.tracking
-                                  ? {
-                                      ...current.activity,
-                                      ledger: [
-                                        ...current.activity.ledger,
-                                        createActivityEntry({
-                                          type: 'equipment',
-                                          description: `Removed ${e.name}.`,
-                                          targetId: e.id,
-                                          targetName: e.name,
-                                          quantityDelta: -e.quantity,
-                                        }),
-                                      ],
-                                    }
-                                  : current.activity,
-                              }));
-                            }}
+                            onClick={() =>
+                              requestRemoval({ kind: 'equipment', id: e.id })
+                            }
                           >
                             Remove
                           </button>
@@ -6688,31 +7136,12 @@ export function Earthdawn4eEditor({
                           <button
                             type="button"
                             className="text-button"
-                            onClick={() => {
-                              if (!window.confirm(`Remove ${weapon.name}?`))
-                                return;
-                              update((current) => ({
-                                ...current,
-                                weapons: current.weapons.filter(
-                                  ({ id }) => id !== weapon.id,
-                                ),
-                                activity: current.activity.tracking
-                                  ? {
-                                      ...current.activity,
-                                      ledger: [
-                                        ...current.activity.ledger,
-                                        createActivityEntry({
-                                          type: 'equipment',
-                                          description: `Removed ${weapon.name}.`,
-                                          targetId: weapon.id,
-                                          targetName: weapon.name,
-                                          quantityDelta: -weapon.quantity,
-                                        }),
-                                      ],
-                                    }
-                                  : current.activity,
-                              }));
-                            }}
+                            onClick={() =>
+                              requestRemoval({
+                                kind: 'weapon',
+                                id: weapon.id,
+                              })
+                            }
                           >
                             Remove
                           </button>
@@ -7954,16 +8383,7 @@ export function Earthdawn4eEditor({
                               className="text-button"
                               aria-label={`Delete ${entry.title}`}
                               onClick={() =>
-                                window.confirm('Delete this note?') &&
-                                update((c) => ({
-                                  ...c,
-                                  notes: {
-                                    ...c.notes,
-                                    entries: c.notes.entries.filter(
-                                      ({ id }) => id !== entry.id,
-                                    ),
-                                  },
-                                }))
+                                requestRemoval({ kind: 'note', id: entry.id })
                               }
                             >
                               ×
@@ -8089,6 +8509,107 @@ export function Earthdawn4eEditor({
             </OrderedSheetSections>
           )}
         </div>
+        {removalTarget
+          ? (() => {
+              const plan = previewRemoval(draft, removalTarget);
+              const grouped = (
+                [
+                  ['remove', 'Records removed'],
+                  ['detach', 'Links and assignments cleared'],
+                  ['add', 'Replacement grants'],
+                  ['update', 'Records updated'],
+                  ['derived', 'Calculated values changed'],
+                  ['warning', 'Preserved records and history'],
+                ] as const
+              ).map(([kind, label]) => ({
+                kind,
+                label,
+                items: plan.impacts.filter((impact) => impact.kind === kind),
+              }));
+              return (
+                <div
+                  className="catalog-overlay"
+                  role="dialog"
+                  aria-modal="true"
+                  aria-label="Review record removal"
+                >
+                  <div
+                    ref={removalDialogRef}
+                    className="catalog-dialog earthdawn-removal-dialog"
+                  >
+                    <div className="catalog-dialog-header">
+                      <div>
+                        <p className="sheet-eyebrow">Review removal</p>
+                        <h2>{plan.title}</h2>
+                        <p>
+                          This changes the character record but does not erase
+                          or refund Legend Points or currency. Advancement and
+                          activity history remain preserved.
+                        </p>
+                      </div>
+                    </div>
+                    {plan.blockers.length ? (
+                      <div className="sheet-notice" role="alert">
+                        <strong>Removal is managed elsewhere</strong>
+                        <ul>
+                          {plan.blockers.map((blocker) => (
+                            <li key={blocker}>{blocker}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : null}
+                    <div className="earthdawn-removal-impact-list">
+                      {grouped
+                        .filter(({ items }) => items.length)
+                        .map(({ kind, label, items }) => (
+                          <section key={kind}>
+                            <h3>{label}</h3>
+                            <ul>
+                              {items.map(({ text }) => (
+                                <li key={text}>{text}</li>
+                              ))}
+                            </ul>
+                          </section>
+                        ))}
+                    </div>
+                    <SheetToolbar>
+                      <button
+                        type="button"
+                        className="primary-button danger-button"
+                        disabled={plan.blockers.length > 0}
+                        onClick={() => {
+                          const target = removalTarget;
+                          update((current) => applyRemoval(current, target));
+                          closeRemoval();
+                        }}
+                      >
+                        Confirm removal
+                      </button>
+                      <button
+                        type="button"
+                        className="secondary-button"
+                        onClick={closeRemoval}
+                      >
+                        Cancel
+                      </button>
+                      {plan.refundableEntryId ? (
+                        <button
+                          type="button"
+                          className="text-button"
+                          onClick={() => {
+                            closeRemoval();
+                            navigateToSection('ed4-advancement');
+                          }}
+                        >
+                          Review eligible refund in Legend ledger
+                        </button>
+                      ) : null}
+                    </SheetToolbar>
+                  </div>
+                </div>
+              );
+            })()
+          : null}
         {pendingFittingPurchase
           ? (() => {
               const definition = earthdawnDefinitionById.get(
@@ -9006,7 +9527,16 @@ export function Earthdawn4eEditor({
                       </select>
                     </SheetField>
                   ) : null}
-                  {catalogKind !== 'all' && catalogKind !== 'race' ? (
+                  {[
+                    'talent',
+                    'skill',
+                    'knack',
+                    'spell',
+                    'thread-item',
+                    'equipment',
+                    'weapon',
+                    'ability',
+                  ].includes(catalogKind) ? (
                     <button
                       type="button"
                       className="secondary-button compact-inline-button"
@@ -9863,6 +10393,7 @@ function TalentTable({
   records,
   playMode,
   gmOverride,
+  dependencyWarnings,
   onBrowse,
   onChange,
   onRemove,
@@ -9871,6 +10402,7 @@ function TalentTable({
   records: Earthdawn4eCharacter['talents'];
   playMode: boolean;
   gmOverride: boolean;
+  dependencyWarnings: Map<string, string[]>;
   onBrowse: () => void;
   onChange: (
     id: string,
@@ -9942,6 +10474,8 @@ function TalentTable({
           const displayedEffect = /not in source/i.test(value.effectText)
             ? value.descriptionText || ''
             : value.effectText;
+          const managedGrant =
+            record.creationOwned && record.disciplineSources.length > 0;
           return (
             <div
               id={`talent-${record.id}`}
@@ -9971,6 +10505,11 @@ function TalentTable({
                 ) : (
                   <small>Custom</small>
                 )}
+                {dependencyWarnings.get(record.id)?.map((warning) => (
+                  <small className="sheet-warning" key={warning}>
+                    {warning}
+                  </small>
+                ))}
               </label>
               <label data-label="Attribute">
                 <span className="sr-only">Linked Attribute</span>
@@ -10077,10 +10616,15 @@ function TalentTable({
                 <button
                   type="button"
                   className="text-button"
-                  disabled={playMode}
+                  disabled={managedGrant}
+                  title={
+                    managedGrant
+                      ? 'This automatic grant is managed by its Race or Discipline.'
+                      : 'Remove this Talent'
+                  }
                   onClick={() => onRemove(record.id)}
                 >
-                  Remove
+                  {managedGrant ? 'Managed' : 'Remove'}
                 </button>
               </div>
             </div>
@@ -10251,7 +10795,6 @@ function RankedList({
               <button
                 type="button"
                 className="text-button"
-                disabled={playMode}
                 onClick={() => onRemove(r.id)}
               >
                 Remove

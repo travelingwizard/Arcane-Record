@@ -2489,6 +2489,35 @@
   width: min(34rem, 100%);
 }
 
+.earthdawn-removal-dialog {
+  width: min(48rem, 100%);
+}
+
+.earthdawn-removal-impact-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: var(--space-3);
+  min-width: 0;
+  margin-block: var(--space-3);
+}
+
+.earthdawn-removal-impact-list section {
+  min-width: 0;
+  padding: var(--space-3);
+  border: 1px solid var(--rule-light);
+  background: var(--surface-raised);
+}
+
+.earthdawn-removal-impact-list :is(h3, ul) {
+  margin-block: 0;
+}
+
+.earthdawn-removal-impact-list ul {
+  margin-block-start: var(--space-2);
+  padding-inline-start: 1.25rem;
+  overflow-wrap: anywhere;
+}
+
 .earthdawn-combat-steps {
   display: flex;
   flex-wrap: wrap;

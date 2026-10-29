@@ -292,6 +292,71 @@ test('contains Earthdawn rules UI at desktop, tablet, narrow, and zoom-equivalen
   await rules.getByRole('button', { name: 'Close rules' }).click();
 });
 
+test('reviews dependency-safe optional-record removal in Build and Play modes', async ({
+  page,
+}) => {
+  const data = createHighCircleMatrixFixture();
+  await seedEarthdawnCharacter(
+    page,
+    '61616161-6161-4616-8616-616161616161',
+    'CRUD Verification Adept',
+    data,
+  );
+
+  const switchSpell = page
+    .locator('.earthdawn-known-spell')
+    .filter({ has: page.locator('summary strong', { hasText: /^Switch$/ }) });
+  await switchSpell.locator('summary').click();
+  const removeSpell = switchSpell.getByRole('button', {
+    name: 'Remove known spell',
+  });
+  await removeSpell.click();
+  let dialog = page.getByRole('dialog', { name: 'Review record removal' });
+  await expect(dialog).toContainText('Remove Switch?');
+  await expect(dialog).toContainText('Squeezed Switch Matrix');
+  await expect(dialog).toContainText('does not erase or refund Legend Points');
+  await dialog.getByRole('button', { name: 'Cancel' }).click();
+  await expect(removeSpell).toBeFocused();
+
+  await removeSpell.click();
+  dialog = page.getByRole('dialog', { name: 'Review record removal' });
+  await dialog.getByRole('button', { name: 'Confirm removal' }).click();
+  await expect(
+    page
+      .locator('.earthdawn-known-spell')
+      .filter({ has: page.locator('summary strong', { hasText: /^Switch$/ }) }),
+  ).toHaveCount(0);
+
+  await page
+    .getByRole('switch', { name: /Earthdawn Edit and Play mode/ })
+    .check();
+  const knack = page
+    .locator('.sheet-card')
+    .filter({ has: page.locator('strong', { hasText: /^Squeeze Switch$/ }) });
+  await knack.getByRole('button', { name: 'Remove' }).click();
+  dialog = page.getByRole('dialog', { name: 'Review record removal' });
+  await expect(dialog).toContainText('Remove Squeeze Switch?');
+  await dialog.getByRole('button', { name: 'Confirm removal' }).click();
+  await expect(
+    page.locator('.sheet-card strong', { hasText: /^Squeeze Switch$/ }),
+  ).toHaveCount(0);
+
+  await page.setViewportSize({ width: 320, height: 720 });
+  const remainingSpell = page.locator('.earthdawn-known-spell').first();
+  await remainingSpell.locator('summary').click();
+  await remainingSpell
+    .getByRole('button', { name: 'Remove known spell' })
+    .click();
+  await expect(
+    page.getByRole('dialog', { name: 'Review record removal' }),
+  ).toBeVisible();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= window.innerWidth,
+    ),
+  ).toBe(true);
+});
+
 test('browses every supported Mystic Path without treating Boatman as a Path', async ({
   page,
 }) => {
@@ -822,36 +887,16 @@ test('playtests Warrior, Wizard, non-Adept Questor, and Windmaster creation thro
     page.getByText(/Windmaster Path initiation costs/),
   ).toBeVisible();
   await page.getByRole('button', { name: 'Complete Character' }).click();
-  await expect
-    .poll(() =>
-      page.evaluate(async () => {
-        const request = indexedDB.open('arcane-ledger');
-        return new Promise<boolean>((resolve, reject) => {
-          request.onerror = () => reject(request.error);
-          request.onsuccess = () => {
-            const database = request.result;
-            const transaction = database.transaction('characters', 'readonly');
-            const getAll = transaction.objectStore('characters').getAll();
-            getAll.onerror = () => reject(getAll.error);
-            getAll.onsuccess = () => {
-              const record = getAll.result.find(
-                ({ name }: { name: string }) => name === 'Windmaster Playtest',
-              );
-              resolve(
-                Boolean(
-                  record?.data?.mysticPaths?.some(
-                    ({ definitionId }: { definitionId: string }) =>
-                      definitionId === 'ed4.path.windmaster',
-                  ),
-                ),
-              );
-              database.close();
-            };
-          };
-        });
-      }),
-    )
-    .toBe(true);
+  await expect(page.locator('.save-status')).toHaveText(
+    'Saved in this browser',
+  );
+  await expect(
+    page.getByText('Windmaster Path', { exact: true }),
+  ).toBeVisible();
+  await page.reload();
+  await expect(
+    page.getByText('Windmaster Path', { exact: true }),
+  ).toBeVisible();
   await expect(
     page.getByText('Windling', { exact: true }).first(),
   ).toBeVisible();
@@ -1292,9 +1337,12 @@ test('blank Build sheet repairs catalog and custom editing at 320px', async ({
   await expect(physicalDefense.locator('summary strong')).toHaveText(
     String(physicalDefenseBefore),
   );
-  page.once('dialog', (dialog) => dialog.accept());
   await magicEffect
     .getByRole('button', { name: 'Remove magic effect' })
+    .click();
+  await page
+    .getByRole('dialog', { name: 'Review record removal' })
+    .getByRole('button', { name: 'Confirm removal' })
     .click();
   await expect(
     page
